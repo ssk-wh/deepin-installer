@@ -203,6 +203,9 @@ void FirstBootSetupWindow::initConnections() {
     connect(confirm_quit_frame_, &ConfirmQuitFrame::quitConfirmed,
             this, &FirstBootSetupWindow::shutdownSystem);
 
+    connect(loading_frame_, &FirstBootLoadingFrame::closeButtionChange, this
+            , &FirstBootSetupWindow::setCloseButtonVisible);
+
     connect(hook_worker_, &FirstBootHookWorker::hookFinished,
             this, &FirstBootSetupWindow::onHookFinished);
 
@@ -634,6 +637,11 @@ void FirstBootSetupWindow::shutdownSystem()
     if (!ShutdownSystemWithMagicKey()) {
         qWarning() << "ShutdownSystemWithMagicKey() failed!";
     }
+}
+
+void FirstBootSetupWindow::setCloseButtonVisible(bool visible)
+{
+    close_button_->setVisible(visible);
 }
 
 void FirstBootSetupWindow::updateFrameLabelState(FrameInterface *frame, FrameLabelState state)

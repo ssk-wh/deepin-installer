@@ -76,6 +76,7 @@ void FirstBootLoadingFrame::hideEvent(QHideEvent* event) {
 
 void FirstBootLoadingFrame::showEvent(QShowEvent* event) {
   spinner_label_->start();
+  Q_EMIT closeButtionChange(false);
   QWidget::showEvent(event);
 }
 

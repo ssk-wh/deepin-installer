@@ -162,6 +162,8 @@ protected:
   void updateFrameLabelPreviousState(bool allow);
 
   void shutdownSystem();
+
+  void setCloseButtonVisible(bool visible);
 };
 
 }  // namespace installer
