@@ -396,7 +396,7 @@ void SystemDateFramePrivate::onNextButtonClicked()
     }
 
     QProcess process;
-//    qDebug() << process.execute("timedatectl", QStringList() << "set-ntp" << "false");
+    qDebug() << process.execute("timedatectl", QStringList() << "set-ntp" << "false");
 
     QString dateTime = QString("%1-%2-%3 %4:%5:%6").arg(m_yearEdit->text(), 4, '0')
             .arg(m_monthEdit->text(), 2, '0').arg(m_dayEdit->text(), 2, '0')
