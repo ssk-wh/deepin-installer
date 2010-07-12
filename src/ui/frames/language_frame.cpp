@@ -67,6 +67,8 @@ public:
     void showOemUserLicense();
     void showUserExperience();
 
+    void setupTs();
+
     void onNextButtonClickHandle() const override {
         FrameInterfacePrivate::onNextButtonClickHandle();
         nextButton->setEnabled(false);
@@ -114,6 +116,8 @@ void LanguageFrame::changeEvent(QEvent *event)
         for (auto it = d->m_trList.begin(); it != d->m_trList.end(); ++it) {
             it->first(qApp->translate("QObject", it->second.toUtf8()));
         }
+
+        d->setupTs();
     }
     else {
         FrameInterface::changeEvent(event);
@@ -133,12 +137,6 @@ void LanguageFramePrivate::initUI() {
     m_frame_layout->addWidget(m_select_language_frame);
     m_frame_layout->addWidget(m_user_experience_frame);
     m_frame_layout->addWidget(m_user_license_frame);
-
-    m_user_experience_frame->setTitle(::QObject::tr("User Experience Program License Agreement"));
-    addTransLate(m_trList, std::bind(&UserAgreementFrame::setTitle, m_user_experience_frame, std::placeholders::_1), QString(::QObject::tr("User Experience Program License Agreement")));
-
-    m_user_license_frame->setTitle(::QObject::tr("%1 Software End User License Agreement").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS")));
-    addTransLate(m_trList, std::bind(&UserAgreementFrame::setTitle, m_user_license_frame, std::placeholders::_1), QString(::QObject::tr("%1 Software End User License Agreement").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS"))));
 
     nextButton->setEnabled(false);
     centerLayout->addLayout(m_frame_layout);
@@ -180,9 +178,6 @@ void LanguageFramePrivate::showUserLicense() {
 }
 
 void LanguageFramePrivate::showLanguage() {
-    LanguageManager::translator(nextButton, &QPushButton::setText, TranslatorType::NextButton);
-    nextButton->show();
-
     m_frame_layout->setCurrentWidget(m_select_language_frame);
 }
 
@@ -205,6 +200,13 @@ void LanguageFramePrivate::showUserExperience()
     m_frame_layout->setCurrentWidget(m_user_experience_frame);
 
     nextButton->hide();
+}
+
+void LanguageFramePrivate::setupTs()
+{
+    nextButton->setText(::QObject::tr("Next"));
+    m_user_experience_frame->setTitle(::QObject::tr("User Experience Program License Agreement"));
+    m_user_license_frame->setTitle(::QObject::tr("%1 Software End User License Agreement").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS")));
 }
 
 }  // namespace installer

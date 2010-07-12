@@ -164,7 +164,7 @@ void FullDiskFrame::initUI() {
   m_encryptCheck->setCheckable(true);
   m_encryptCheck->setChecked(false);
   m_encryptCheck->setFocusPolicy(Qt::NoFocus);
-  addTransLate(m_trList, std::bind(&QCheckBox::setText, m_encryptCheck, std::placeholders::_1), ::QObject::tr("Encrypt this disk"));
+  addTransLate(m_trList, std::bind(&QCheckBox::setText, m_encryptCheck, std::placeholders::_1), ::QObject::tr("Encrypt This Disk"));
 
   m_installNvidiaCheck = new QCheckBox;
   m_installNvidiaCheck->setObjectName("check_box");

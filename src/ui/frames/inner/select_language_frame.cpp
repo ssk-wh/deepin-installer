@@ -299,7 +299,6 @@ void SelectLanguageFramePrivate::initUI() {
     sub_title_label_ = new CommentLabel();
     sub_title_label_->setWordWrap(false);
     sub_title_label_->setAlignment(Qt::AlignHCenter);
-    LanguageManager::translator(sub_title_label_, &CommentLabel::setText, TranslatorType::SelectLanguageSubTitle);
 
     m_languageView = new DListView();
     m_languageView->setEditTriggers(QListView::NoEditTriggers);
@@ -443,6 +442,7 @@ void SelectLanguageFramePrivate::updateTs()
     accept_experience_->setText(::QObject::tr("Agree to the"));
     experience_label_->setText(::QObject::tr("User Experience Program License Agreement"));
     experience_label_->setPalette(palette);
+    sub_title_label_->setText(::QObject::tr("Select Language"));
 }
 
 void SelectLanguageFramePrivate::onLanguageListSelected(const QModelIndex& current)
