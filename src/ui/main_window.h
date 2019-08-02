@@ -18,6 +18,8 @@
 #ifndef INSTALLER_UI_MAIN_WINDOW_H
 #define INSTALLER_UI_MAIN_WINDOW_H
 
+#include "ui/interfaces/frameproxyinterface.h"
+
 #include <QWidget>
 #include <QHash>
 #include <QMap>
@@ -34,7 +36,7 @@ class QStackedLayout;
 class GlobalShortcut;
 
 namespace installer {
-
+class FrameInterface;
 class ConfirmQuitFrame;
 class ControlPanelFrame;
 class DiskSpaceInsufficientFrame;
@@ -60,7 +62,7 @@ class SelectInstallComponentFrame;
 //   * handles keyboard shortcut like Ctrl+P and Ctrl+L;
 //   * handles window navigation (by providing a content area);
 //   * quit / abort installation process.
-class MainWindow : public QWidget {
+class MainWindow : public FrameProxyInterface {
   Q_OBJECT
 
  public:
@@ -78,6 +80,11 @@ class MainWindow : public QWidget {
 
   // Set filepath to which log file will be backup.
   void setLogFile(const QString& log_file);
+
+  void previousFrame() override;
+  void nextFrame() override;
+  void showChildFrame(FrameInterface *frame) override;
+  void exitInstall(bool reboot = false) override;
 
  protected:
   // Move close button to appropriate position when window is resized.
@@ -164,6 +171,8 @@ private:
 
   QString log_file_;
   bool auto_install_;
+
+    QList<FrameInterface*> m_frames;
 
  private slots:
   // Go next page when current page index is changed in ControlPanelFrame.

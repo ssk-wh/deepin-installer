@@ -27,6 +27,7 @@
 #include <QTranslator>
 #include <QList>
 
+#include "ui/interfaces/frameinterface.h"
 #include "base/file_util.h"
 #include "service/power_manager.h"
 #include "service/screen_brightness.h"
@@ -60,7 +61,7 @@
 namespace installer {
 
 MainWindow::MainWindow()
-    : QWidget(),
+    : FrameProxyInterface(),
       pages_(),
       prev_page_(PageId::NullId),
       current_page_(PageId::NullId),
@@ -131,7 +132,54 @@ void MainWindow::setEnableAutoInstall(bool auto_install) {
 }
 
 void MainWindow::setLogFile(const QString& log_file) {
-  log_file_ = log_file;
+    log_file_ = log_file;
+}
+
+void MainWindow::previousFrame()
+{
+    FrameInterface* f = qobject_cast<FrameInterface*>(stacked_layout_->currentWidget());
+    Q_ASSERT(f);
+
+    const int index = m_frames.indexOf(f);
+
+    for (int i = index - 1; i >= 0; --i) {
+        FrameInterface* frame = m_frames[index];
+        if (frame->shouldDisplay()) {
+            stacked_layout_->setCurrentIndex(index);
+            return;
+        }
+    }
+
+    // TODO(justforlxz): if not found;
+}
+
+void MainWindow::nextFrame()
+{
+    FrameInterface* f = qobject_cast<FrameInterface*>(stacked_layout_->currentWidget());
+    Q_ASSERT(f);
+
+    const int index = m_frames.indexOf(f);
+
+    for (int i = index + 1; i <= m_frames.length(); ++i) {
+        FrameInterface* frame = m_frames[index];
+        if (frame->shouldDisplay()) {
+            f->finished();
+            frame->init();
+            stacked_layout_->setCurrentIndex(index);
+            return;
+        }
+    }
+
+    // TODO(justforlxz): if not found;
+}
+
+void MainWindow::showChildFrame(FrameInterface *frame) {
+
+}
+
+void MainWindow::exitInstall(bool reboot)
+{
+    return reboot ? rebootSystem() : shutdownSystem();
 }
 
 void MainWindow::resizeEvent(QResizeEvent* event) {
