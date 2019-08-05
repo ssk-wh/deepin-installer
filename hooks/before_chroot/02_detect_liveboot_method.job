@@ -24,7 +24,13 @@ if grep -q boot=casper /proc/cmdline; then
   DISTRIBUTION=ubuntu
 elif grep -q boot=live /proc/cmdline; then
   BOOT=live
-  CDROM=/lib/live/mount/medium
+
+  if [ -d /lib/live/mount/medium ]; then
+    CDROM=/lib/live/mount/medium
+  else
+    CDROM=/run/live/medium
+  fi
+
   LUPIN_ROOT=/lib/live/mount/findiso
   DISTRIBUTION=debian
 else

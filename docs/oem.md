@@ -2,9 +2,9 @@
 这篇文档记录了安装器重制版支持的自定义功能.
 
 在不修改源码的情况下, 所有的自定义文件, 都应该放在 oem 目录. 分发时， oem 目录应该
-放在ISO的根目录， ISO应该挂载于 /lib/live/mount/medium/ 或者 /cdrom . 测试时,
+放在ISO的根目录， ISO应该挂载于 /lib/live/mount/medium/、/run/live/medium/live/boot 或者 /cdrom . 测试时,
 为了方便, 可以将 oem 目录放在 /tmp 目录里. 它们的优先级从高到低依次是, /tmp/oem,
-/cdrom/oem, /lib/live/mount/medium/oem
+/cdrom/oem, /lib/live/mount/medium/oem, /run/live/medium/oem
 
 # 审核模式
 审核模式会在启用重启后配置阶段进入一次桌面，并在lightdm启动前通过root权限执
