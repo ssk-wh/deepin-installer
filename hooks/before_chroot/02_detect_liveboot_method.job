@@ -25,7 +25,7 @@ if grep -q boot=casper /proc/cmdline; then
 elif grep -q boot=live /proc/cmdline; then
   BOOT=live
 
-  if [ -d /lib/live/mount/medium ]; then
+  if [ -d /lib/live/mount/medium/live ]; then
     CDROM=/lib/live/mount/medium
   else
     CDROM=/run/live/medium
