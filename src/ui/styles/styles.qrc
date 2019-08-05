@@ -35,5 +35,6 @@
         <file>user_agreement_frame.css</file>
         <file>full_encrypt_frame.css</file>
         <file>dynamic_disk_warning_frame.css</file>
+        <file>back_button.css</file>
     </qresource>
 </RCC>

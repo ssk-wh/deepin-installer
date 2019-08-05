@@ -56,7 +56,7 @@ class SystemInfoFrame : public QFrame {
   void updateHeadBar();
 
   QPushButton* keyboard_button_ = nullptr;
-  QHBoxLayout* head_layout_ = nullptr;
+  QHBoxLayout* bottom_layout_ = nullptr;
   QStackedLayout* stacked_layout_ = nullptr;
   SystemInfoAvatarFrame* avatar_frame_ = nullptr;
   SystemInfoFormFrame* form_frame_ = nullptr;

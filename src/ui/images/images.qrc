@@ -82,5 +82,9 @@
         <file>windows.svg</file>
         <file>success.svg</file>
         <file>fail.svg</file>
+        <file>back_normal.svg</file>
+        <file>back_hover.svg</file>
+        <file>back_pressed.svg</file>
+        <file>back_disabled.svg</file>
     </qresource>
 </RCC>

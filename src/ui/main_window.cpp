@@ -208,6 +208,8 @@ void MainWindow::initConnections() {
           IncreaseBrightness);
   connect(brithtness_decrease_shortcut_, &QShortcut::activated,
           DecreaseBrightness);
+
+  connect(back_button_, &PointerButton::clicked, this, &MainWindow::backPage);
 }
 
 void MainWindow::initPages() {
@@ -259,21 +261,37 @@ void MainWindow::initPages() {
 void MainWindow::initUI() {
   background_label_ = new QLabel(this);
 
+  back_button_ = new PointerButton;
+  back_button_->setObjectName("back_button");
+  back_button_->setStyleSheet(ReadFile(":/styles/back_button.css"));
+  back_button_->setFixedSize(48, 38);
+  back_button_->setFlat(true);
+  back_button_->setFocusPolicy(Qt::TabFocus);
+  back_button_->hide();
+
   close_button_ = new PointerButton();
   close_button_->setObjectName("close_button");
   close_button_->setFlat(true);
   close_button_->setFocusPolicy(Qt::TabFocus);
   close_button_->setFixedSize(40, 40);
   close_button_->setStyleSheet(ReadFile(":/styles/close_button.css"));
-  QHBoxLayout* close_layout = new QHBoxLayout();
-  close_layout->setContentsMargins(0, 0, 0, 0);
-  close_layout->setSpacing(0);
-  close_layout->addStretch();
-  close_layout->addWidget(close_button_);
-  QFrame* close_button_wrapper = new QFrame();
-  // Add 4px at top and right margin.
-  close_button_wrapper->setContentsMargins(0, 4, 4, 0);
-  close_button_wrapper->setLayout(close_layout);
+
+  QHBoxLayout* backLayout = new QHBoxLayout;
+  backLayout->setContentsMargins(10, 5, 10, 5);
+  backLayout->setSpacing(0);
+  backLayout->addWidget(back_button_);
+
+  QHBoxLayout* closeLayout = new QHBoxLayout;
+  closeLayout->setMargin(0);
+  closeLayout->setSpacing(0);
+  closeLayout->addWidget(close_button_, 0, Qt::AlignTop | Qt::AlignRight);
+
+  QHBoxLayout* top_layout = new QHBoxLayout();
+  top_layout->setContentsMargins(0, 0, 0, 0);
+  top_layout->setSpacing(0);
+  top_layout->addLayout(backLayout);
+  top_layout->addStretch();
+  top_layout->addLayout(closeLayout);
 
   stacked_layout_ = new QStackedLayout();
 
@@ -289,7 +307,7 @@ void MainWindow::initUI() {
   QVBoxLayout* vbox_layout = new QVBoxLayout();
   vbox_layout->setContentsMargins(0, 0, 0, 0);
   vbox_layout->setSpacing(0);
-  vbox_layout->addWidget(close_button_wrapper);
+  vbox_layout->addLayout(top_layout);
   vbox_layout->addLayout(stacked_layout_);
   vbox_layout->addWidget(page_indicator_wrapper);
   vbox_layout->addSpacing(32);
@@ -373,6 +391,21 @@ void MainWindow::updateBackground() {
       QPixmap(image_path).scaled(size(), Qt::KeepAspectRatioByExpanding);
   background_label_->setPixmap(pixmap);
   background_label_->setFixedSize(size());
+}
+
+void MainWindow::backPage()
+{
+    // 在goNextPage()中已经更新过返回按钮的可见了
+    // 第一页是看不到返回按钮的，这个函数也不会调用。
+    Q_ASSERT(!m_old_frames.isEmpty());
+
+    m_old_frames.takeLast();
+    QWidget* frame = m_old_frames.last();
+    PageId id = pages_.key(stacked_layout_->indexOf(frame));
+    current_page_ = id;
+    setCurrentPage(id);
+
+    back_button_->setVisible(m_old_frames.size() > 1);
 }
 
 void MainWindow::onCurrentPageChanged(int index) {
@@ -504,6 +537,8 @@ void MainWindow::goNextPage() {
         page_indicator_->goNextPage();
         install_progress_frame_->startSlide();
         this->setCurrentPage(PageId::InstallProgressId);
+        // disable back button
+        back_button_->setDisabled(true);
         break;
     }
 
@@ -524,6 +559,9 @@ void MainWindow::goNextPage() {
         break;
     }
     }
+
+    m_old_frames << stacked_layout_->currentWidget();
+    back_button_->setVisible(m_old_frames.size() > 1);
 }
 
 void MainWindow::rebootSystem() {

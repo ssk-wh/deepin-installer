@@ -20,6 +20,8 @@
 
 #include <QWidget>
 #include <QHash>
+#include <QMap>
+
 class QLabel;
 class QPushButton;
 class QResizeEvent;
@@ -106,8 +108,10 @@ private:
   void setCurrentPage(PageId page_id);
 
   void updateBackground();
+  void backPage();
 
   QLabel* background_label_ = nullptr;
+  QPushButton* back_button_ = nullptr;
   QPushButton* close_button_ = nullptr;
   PageIndicator* page_indicator_ = nullptr;
   // All of frame pages are stored in this layout.
@@ -130,6 +134,7 @@ private:
 
   // To store frame pages, page_name => page_id.
   QHash<PageId, int> pages_;
+  QList<QWidget*> m_old_frames;
 
   // Keep previous page id. It is used by ConfirmQuitPage.
   PageId prev_page_;
