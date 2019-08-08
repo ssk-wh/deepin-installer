@@ -44,10 +44,8 @@ FullDiskDelegate::FullDiskDelegate(QObject* parent)
 
 Device::Ptr FullDiskDelegate::fullInstallScheme(Device::Ptr device) const
 {
-    Device::Ptr fake(new Device);
-
-    Partition::Ptr unallocated(new Partition);
-    unallocated->length = device->length;
+    Device::Ptr fake(new Device(*device));
+    fake->partitions.clear();
 
     QString partPolicy;
     QString partLabels;
@@ -79,7 +77,7 @@ Device::Ptr FullDiskDelegate::fullInstallScheme(Device::Ptr device) const
     const QString part_root_range_policy { GetSettingsString(kPartitionFullDiskLargeRootPartRange) };
     const std::pair<QString, QString> root_range {
         part_root_range_policy.split(":").at(0),
-                part_root_range_policy.split(":").at(1)
+        part_root_range_policy.split(":").at(1)
     };
 
     const uint swapSize { getSwapSize() };
