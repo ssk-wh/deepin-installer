@@ -46,6 +46,9 @@ class FullDiskDelegate : public QObject {
   // Get virtual device list.
   const DeviceList& virtual_devices() const { return virtual_devices_; }
 
+  // return fake device
+  Device::Ptr fullInstallScheme(Device::Ptr device) const;
+
   // Get alternative partition type. Used while creating a new partition.
   // |partition| is an unallocated partition.
   bool canAddLogical(const Partition::Ptr partition) const;
@@ -124,7 +127,7 @@ class FullDiskDelegate : public QObject {
 
 private:
   // Get auto swap size
-  uint getSwapSize();
+  uint getSwapSize() const;
 
  private:
   DeviceList real_devices_;
