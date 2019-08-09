@@ -171,14 +171,14 @@ void FullDiskFrame::initUI() {
   scroll_area->setWidgetResizable(true);
   scroll_area->setFixedWidth(kWindowWidth);
 
-  m_disk_partition_colorbar = new FullDiskPartitionColorBar;
+  m_diskPartitionWidget = new FullDiskPartitionWidget;
 
   QVBoxLayout* main_layout = new QVBoxLayout();
   main_layout->setContentsMargins(0, 0, 0, 0);
   main_layout->setSpacing(0);
   main_layout->addWidget(scroll_area, 0, Qt::AlignHCenter);
   main_layout->addStretch();
-  main_layout->addWidget(m_disk_partition_colorbar, 0, Qt::AlignHCenter);
+  main_layout->addWidget(m_diskPartitionWidget, 0, Qt::AlignHCenter);
   main_layout->addWidget(m_encryptCheck, 0, Qt::AlignHCenter);
   main_layout->addSpacing(20);
   main_layout->addWidget(m_errorTip, 0, Qt::AlignHCenter);
@@ -279,7 +279,7 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
 
     emit currentDeviceChanged(part_button->device());
 
-    m_disk_partition_colorbar->setDevice(m_delegate->fullInstallScheme(part_button->device()));
+    m_diskPartitionWidget->setDevice(m_delegate->fullInstallScheme(part_button->device()));
 
     const QString path = part_button->device()->path;
     qDebug() << "selected device path:" << path;

@@ -2,6 +2,8 @@
 
 #include "partman/device.h"
 #include <QWidget>
+#include <QVBoxLayout>
+#include <QMap>
 
 namespace installer {
 class FullDiskPartitionColorBar: public QWidget {
@@ -16,7 +18,21 @@ protected:
     QSize sizeHint() const override;
 
 private:
-    Device::Ptr device;
+    Device::Ptr m_device;
+};
+
+class FullDiskPartitionWidget: public QWidget{
+    Q_OBJECT
+
+public:
+    FullDiskPartitionWidget(QWidget* parent=nullptr);
+    void setDevice(const Device::Ptr device);
+
+private:
+    FullDiskPartitionColorBar *m_fullDiskPartitionColorBar;
+
+    QVBoxLayout *m_mainLayout;
+    QHBoxLayout *m_labelLayout;
+    QMap<QHBoxLayout*, QList<QWidget*>> m_labels;
 };
 }
-
