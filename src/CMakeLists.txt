@@ -377,6 +377,8 @@ set(UI_FILES
     ui/widgets/expanded_nav_button.h
     ui/widgets/flat_button.cpp
     ui/widgets/flat_button.h
+    ui/widgets/full_disk_partition_colorbar.cpp
+    ui/widgets/full_disk_partition_colorbar.h
     ui/widgets/icon_button.cpp
     ui/widgets/icon_button.h
     ui/widgets/line_edit.cpp

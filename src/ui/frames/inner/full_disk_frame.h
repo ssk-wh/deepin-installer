@@ -32,7 +32,7 @@ class QCheckBox;
 namespace installer {
 
 class FullDiskDelegate;
-
+class FullDiskPartitionColorBar;
 class FullDiskFrame : public QFrame {
     Q_OBJECT
 public:
@@ -71,6 +71,8 @@ private:
     QFrame*           m_grid_wrapper = nullptr;
     QCheckBox*        m_encryptCheck = nullptr;
     QLabel*           m_errorTip     = nullptr;
+    FullDiskPartitionColorBar* m_disk_partition_colorbar = nullptr;
+
     std::list<std::pair<std::function<void (QString)>, QString>> m_trList;
 
 public slots:
