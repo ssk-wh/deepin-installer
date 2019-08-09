@@ -86,6 +86,8 @@ void InstallFailedFrame::initConnections() {
           this, &InstallFailedFrame::onControlButtonClicked);
   connect(reboot_button_, &QPushButton::clicked,
           this, &InstallFailedFrame::finished);
+  connect(save_log_button_, &NavButton::clicked,
+          this, &InstallFailedFrame::showSaveLogFrame);
 }
 
 void InstallFailedFrame::initUI() {
@@ -122,6 +124,7 @@ void InstallFailedFrame::initUI() {
   control_button_->move(kContentWindowWidth - kControlButtonSize, 0);
 
   reboot_button_ = new NavButton(tr("Exit installation"));
+  save_log_button_ = new NavButton(tr("Save log"));
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
@@ -133,6 +136,7 @@ void InstallFailedFrame::initUI() {
   layout->addStretch();
   layout->addWidget(content_frame, 0, Qt::AlignCenter);
   layout->addStretch();
+  layout->addWidget(save_log_button_, 0, Qt::AlignCenter);
   layout->addWidget(reboot_button_, 0, Qt::AlignCenter);
 
   this->setLayout(layout);

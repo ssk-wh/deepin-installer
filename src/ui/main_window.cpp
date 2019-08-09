@@ -48,6 +48,7 @@
 #include "ui/frames/system_info_frame.h"
 #include "ui/frames/timezone_frame.h"
 #include "ui/frames/virtual_machine_frame.h"
+#include "ui/frames/saveinstallfailedlogframe.h"
 
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/page_indicator.h"
@@ -157,6 +158,9 @@ void MainWindow::initConnections() {
   connect(install_failed_frame_, &InstallFailedFrame::finished,
           this, &MainWindow::shutdownSystem);
 
+  connect(install_failed_frame_, &InstallFailedFrame::showSaveLogFrame,
+          this, &MainWindow::showSaveLogFrame);
+
   connect(install_progress_frame_, &InstallProgressFrame::finished,
           this, &MainWindow::goNextPage);
 
@@ -256,6 +260,9 @@ void MainWindow::initPages() {
   virtual_machine_frame_ = new VirtualMachineFrame(this);
   pages_.insert(PageId::VirtualMachineId,
                 stacked_layout_->addWidget(virtual_machine_frame_));
+
+  save_failedLog_frame_ = new SaveInstallFailedLogFrame;
+  stacked_layout_->addWidget(save_failedLog_frame_);
 }
 
 void MainWindow::initUI() {
@@ -584,6 +591,11 @@ void MainWindow::shutdownSystem() {
       qWarning() << "ShutdownSystemWithMagicKey() failed!";
     }
   }
+}
+
+void MainWindow::showSaveLogFrame()
+{
+    stacked_layout_->setCurrentWidget(save_failedLog_frame_);
 }
 
 }  // namespace installer

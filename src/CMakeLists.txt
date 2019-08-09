@@ -96,12 +96,14 @@ pkg_search_module(X11 REQUIRED x11)
 pkg_search_module(X11EXT REQUIRED xext)
 pkg_search_module(X11TST REQUIRED xtst)
 pkg_search_module(X11RandR REQUIRED xrandr)
+pkg_search_module(UDisk2 REQUIRED udisks2-qt5)
 
 include_directories(AFTER ${Parted_INCLUDE_DIRS})
 include_directories(AFTER ${X11_INCLUDE_DIRS})
 include_directories(AFTER ${X11EXT_INCLUDE_DIRS})
 include_directories(AFTER ${X11TST_INCLUDE_DIRS})
 include_directories(AFTER ${X11RandR_INCLUDE_DIRS})
+include_directories(AFTER ${UDisk2_INCLUDE_DIRS})
 
 add_subdirectory(third_party/global_shortcut)
 add_subdirectory(third_party/googletest)
@@ -331,6 +333,8 @@ set(UI_FILES
     ui/frames/control_platform_frame.cpp
     ui/frames/dynamic_disk_warning_frame.h
     ui/frames/dynamic_disk_warning_frame.cpp
+    ui/frames/saveinstallfailedlogframe.h
+    ui/frames/saveinstallfailedlogframe.cpp
 
     ui/models/bootloader_list_model.cpp
     ui/models/bootloader_list_model.h
@@ -483,6 +487,7 @@ set(LINK_LIBS
     ${X11EXT_LIBRARIES}
     ${X11TST_LIBRARIES}
     ${X11RandR_LIBRARIES}
+    ${UDisk2_LIBRARIES}
 
     global_shortcut
     qrencode

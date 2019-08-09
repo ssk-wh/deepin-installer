@@ -21,6 +21,11 @@
 
 namespace installer {
 
+CommentLabel::CommentLabel(QWidget *parent)
+    : CommentLabel(QString(), parent)
+{
+}
+
 CommentLabel::CommentLabel(const QString& text, QWidget* parent)
   : QLabel(text, parent) {
   this->setObjectName("comment_label");

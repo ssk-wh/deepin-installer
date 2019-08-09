@@ -40,6 +40,8 @@ class InstallFailedFrame : public QFrame {
   // Emitted when reboot button is clocked.
   void finished();
 
+  void showSaveLogFrame() const;
+
  public slots:
   // Reload error message.
   void updateMessage();
@@ -54,6 +56,7 @@ class InstallFailedFrame : public QFrame {
   TitleLabel* title_label_ = nullptr;
   CommentLabel* comment_label_ = nullptr;
   NavButton* reboot_button_ = nullptr;
+  NavButton* save_log_button_ = nullptr;
   QRWidget* qr_widget_ = nullptr;
   QLabel* content_label_ = nullptr;
   QPushButton* control_button_ = nullptr;
