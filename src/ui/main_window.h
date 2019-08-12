@@ -48,6 +48,7 @@ class SystemInfoFrame;
 class TimezoneFrame;
 class VirtualMachineFrame;
 class SaveInstallFailedLogFrame;
+class SelectInstallComponentFrame;
 
 // MainWindow is a fullscreen window of deepin-installer.
 // All of ui frames are placed in MainWindow.
@@ -95,6 +96,7 @@ private:
       TimezoneId,
       VirtualMachineId,
       UserAgreementId,
+      SelectComponentId
   };
 
   void initConnections();
@@ -133,6 +135,7 @@ private:
   VirtualMachineFrame* virtual_machine_frame_ = nullptr;
   MultiHeadManager* multi_head_manager_ = nullptr;
   SaveInstallFailedLogFrame* save_failedLog_frame_ = nullptr;
+  SelectInstallComponentFrame* m_selectComponentFrame = nullptr;
 
   // To store frame pages, page_name => page_id.
   QHash<PageId, int> pages_;

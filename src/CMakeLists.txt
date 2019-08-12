@@ -262,6 +262,8 @@ set(UI_FILES
     ui/delegates/timezone_map_util.h
     ui/delegates/componentinstallmanager.h
     ui/delegates/componentinstallmanager.cpp
+    ui/delegates/install_component_delegate.h
+    ui/delegates/install_component_delegate.cpp
 
     ui/frames/consts.h
     ui/frames/inner/advanced_partition_frame.cpp
@@ -337,6 +339,8 @@ set(UI_FILES
     ui/frames/dynamic_disk_warning_frame.cpp
     ui/frames/saveinstallfailedlogframe.h
     ui/frames/saveinstallfailedlogframe.cpp
+    ui/frames/install_component_frame.h
+    ui/frames/install_component_frame.cpp
 
     ui/models/bootloader_list_model.cpp
     ui/models/bootloader_list_model.h
@@ -356,6 +360,8 @@ set(UI_FILES
     ui/models/partition_type_model.h
     ui/models/control_platform_region_model.h
     ui/models/control_platform_region_model.cpp
+    ui/models/install_component_model.h
+    ui/models/install_component_model.cpp
 
     ui/utils/widget_util.cpp
     ui/utils/widget_util.h

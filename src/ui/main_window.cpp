@@ -49,6 +49,7 @@
 #include "ui/frames/timezone_frame.h"
 #include "ui/frames/virtual_machine_frame.h"
 #include "ui/frames/saveinstallfailedlogframe.h"
+#include "ui/frames/install_component_frame.h"
 
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/page_indicator.h"
@@ -214,6 +215,9 @@ void MainWindow::initConnections() {
           DecreaseBrightness);
 
   connect(back_button_, &PointerButton::clicked, this, &MainWindow::backPage);
+
+  connect(m_selectComponentFrame, &SelectInstallComponentFrame::finished,
+          this, &MainWindow::goNextPage);
 }
 
 void MainWindow::initPages() {
@@ -260,6 +264,10 @@ void MainWindow::initPages() {
   virtual_machine_frame_ = new VirtualMachineFrame(this);
   pages_.insert(PageId::VirtualMachineId,
                 stacked_layout_->addWidget(virtual_machine_frame_));
+
+  m_selectComponentFrame = new SelectInstallComponentFrame(this);
+  pages_.insert(PageId::SelectComponentId,
+                stacked_layout_->addWidget(m_selectComponentFrame));
 
   save_failedLog_frame_ = new SaveInstallFailedLogFrame;
   stacked_layout_->addWidget(save_failedLog_frame_);
@@ -531,8 +539,23 @@ void MainWindow::goNextPage() {
                 partition_frame_->autoPart();
             }
             prev_page_ = current_page_;
-            current_page_ = PageId::PartitionId;
+            current_page_ = PageId::SelectComponentId; //PageId::PartitionId;
         } else {
+            page_indicator_->goNextPage();
+            this->setCurrentPage(PageId::SelectComponentId); //(PageId::PartitionId);
+            break;
+        }
+    }
+
+    case PageId::SelectComponentId: {
+        //Check whether to show SelectComponentPage.
+        m_selectComponentFrame->readConf();
+        if(GetSettingsBool(kSkipSelectComponentPage)){
+            m_selectComponentFrame->writeConf();
+            prev_page_ = current_page_;
+            current_page_ = PageId::PartitionId;
+        }
+        else{
             page_indicator_->goNextPage();
             this->setCurrentPage(PageId::PartitionId);
             break;
