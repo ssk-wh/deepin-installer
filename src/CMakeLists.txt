@@ -260,6 +260,8 @@ set(UI_FILES
     ui/delegates/table_combo_box_delegate.h
     ui/delegates/timezone_map_util.cpp
     ui/delegates/timezone_map_util.h
+    ui/delegates/componentinstallmanager.h
+    ui/delegates/componentinstallmanager.cpp
 
     ui/frames/consts.h
     ui/frames/inner/advanced_partition_frame.cpp
