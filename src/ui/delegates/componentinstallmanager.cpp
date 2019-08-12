@@ -29,6 +29,13 @@ ComponentInstallManager *ComponentInstallManager::Instance()
     return &manager;
 }
 
+QSharedPointer<ComponentStruct> ComponentInstallManager::findComponentById(const QString &id)
+{
+    return *std::find_if(m_list.cbegin(), m_list.cend(), [=] (const QSharedPointer<ComponentStruct>& info) {
+        return info->id() == id;
+    });
+}
+
 ComponentInstallManager::ComponentInstallManager(QObject *parent) : QObject(parent)
 {
 }

@@ -74,6 +74,8 @@ class ComponentInstallManager : public QObject
 public:
     static ComponentInstallManager* Instance();
 
+    QSharedPointer<ComponentStruct> findComponentById(const QString& id);
+
 private:
     explicit ComponentInstallManager(QObject *parent = nullptr);
     ComponentInstallManager(const ComponentInstallManager& manager) = delete;
