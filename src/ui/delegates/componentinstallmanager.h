@@ -39,11 +39,15 @@ namespace installer {
     public:
         ComponentStruct(const QString& id, const QJsonObject& obj)
             : m_id(id)
+            , m_default(new ComponentInfo)
+            , m_extra(new ComponentInfo)
         {
-            m_default->Id = obj["default"].toString();
+            for (QJsonValue value : obj["default"].toArray()) {
+                m_default->PackageList << value.toString();
+            }
 
             for (QJsonValue value : obj["extra"].toArray()) {
-                m_default->PackageList << std::move(value.toString());
+                m_extra->PackageList << value.toString();
             }
         }
 
@@ -56,14 +60,14 @@ namespace installer {
         }
 
 
-        inline QList<QSharedPointer<ComponentInfo>> extra() const {
+        inline QSharedPointer<ComponentInfo> extra() const {
             return m_extra;
         }
 
     private:
         QString m_id;
         QSharedPointer<ComponentInfo> m_default;
-        QList<QSharedPointer<ComponentInfo>> m_extra;
+        QSharedPointer<ComponentInfo> m_extra;
     };
 }
 
@@ -75,6 +79,10 @@ public:
     static ComponentInstallManager* Instance();
 
     QSharedPointer<ComponentStruct> findComponentById(const QString& id);
+
+    inline QList<QSharedPointer<ComponentStruct>> list() const {
+        return m_list;
+    }
 
 private:
     explicit ComponentInstallManager(QObject *parent = nullptr);

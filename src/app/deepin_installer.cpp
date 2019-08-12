@@ -21,6 +21,7 @@
 #include <QDebug>
 #include <QIcon>
 
+#include "ui/delegates/componentinstallmanager.h"
 #include "base/consts.h"
 #include "service/log_manager.h"
 #include "service/settings_manager.h"
@@ -81,6 +82,8 @@ int main(int argc, char* argv[]) {
       qCritical() << "Failed to append conf file:" << conf_file;
     }
   }
+
+  installer::ComponentInstallManager::Instance();
 
   installer::MainWindow main_window;
   main_window.setEnableAutoInstall(args_parser.isAutoInstallSet());
