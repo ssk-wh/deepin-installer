@@ -24,7 +24,8 @@ Build-Depends:
     zlib1g-dev,
     libqt5svg5-dev,
     libdtkcore-dev,
-    libdtkcore-bin
+    libdtkcore-bin,
+    libudisks2-qt5-dev
 Standards-Version: 3.9.8
 Homepage: http://www.deepin.org
 
