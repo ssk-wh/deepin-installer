@@ -104,12 +104,12 @@ void PartitionFrame::initConnections() {
   connect(advanced_frame_button_, &QPushButton::toggled,
           this, &PartitionFrame::onAdvancedFrameButtonToggled);
   connect(next_button_, &QPushButton::clicked, this, [=] {
-      if (partition_stacked_layout_->currentWidget() == full_disk_partition_frame_) {
-          showEncryptFrame();
-      }
-      else {
+       if (partition_stacked_layout_->currentWidget() == full_disk_partition_frame_ && full_disk_partition_frame_->isEncrypt()) {
+           showEncryptFrame();
+       }
+       else {
           onNextButtonClicked();
-      }
+       }
   });
 
   // Show main frame when device is refreshed.
@@ -479,6 +479,9 @@ void PartitionFrame::onPrepareInstallFrameFinished() {
     if (this->isSimplePartitionMode()) {
         found_boot = simple_partition_delegate_->setBootFlag();
     }
+    else if (this->isFullDiskPartitionMode() && !full_disk_partition_frame_->isEncrypt()){
+        found_boot = full_disk_delegate_->setBootFlag();
+    }
     else {
         found_boot = advanced_delegate_->setBootFlag();
     }
@@ -493,12 +496,15 @@ void PartitionFrame::onPrepareInstallFrameFinished() {
     if (this->isSimplePartitionMode()) {
         operations = simple_partition_delegate_->operations();
     }
+    else if (this->isFullDiskPartitionMode() && !full_disk_partition_frame_->isEncrypt()) {
+        operations = full_disk_delegate_->operations();
+    }
     else {
         operations = advanced_delegate_->operations();
     }
 
     // full disk encrypt operations is empty.
-    if (isFullDiskPartitionMode()) {
+    if (isFullDiskPartitionMode() && full_disk_partition_frame_->isEncrypt()) {
         emit finished();
     }
     else if (operations.isEmpty()) {
