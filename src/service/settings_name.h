@@ -142,6 +142,9 @@ const char kPartitionFullDiskLargeLegacyLabel[] =
 const char kPartitionFullDiskLargeUEFILabel[] =
     "partition_full_disk_large_uefi_label";
 
+const char kEnableRecoveryPartition[] = "enable_recovery_partition";
+const char kRecoveryDefaultSize[] = "recovery_partition_default_size";
+
 // Install progress page
 const char kInstallProgressPageDisableSlide[] =
     "install_progress_page_disable_slide";

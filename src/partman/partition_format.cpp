@@ -335,7 +335,8 @@ bool Mkfs(const Partition::Ptr partition) {
     case FsType::Ext3: {
       return FormatExt3(partition->path, partition->label);
     }
-    case FsType::Ext4: {
+    case FsType::Ext4:
+    case FsType::Recovery: {
       return FormatExt4(partition->path, partition->label);
     }
     case FsType::F2fs: {

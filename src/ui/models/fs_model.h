@@ -45,6 +45,11 @@ class FsModel : public QAbstractListModel {
   // If |show_unknown| is true, append it to fs list.
   void setShowUnknown(bool show_unknown);
 
+  // If |showRecovery| is true, append it to fs list.
+  void setShowRecovery(bool showRecovery);
+
+  void changeFsList(bool show, FsType fsType);
+
  private:
   FsTypeList fs_list_;
 };

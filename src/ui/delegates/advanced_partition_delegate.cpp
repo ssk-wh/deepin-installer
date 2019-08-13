@@ -553,6 +553,10 @@ AdvancedPartitionDelegate::createLogicalPartition(const Partition::Ptr partition
   }
   new_partition->changeNumber(partition_number);
 
+  if (fs_type == FsType::Recovery) {
+      WriteRecoveryPartitionInfo(partition->path);
+  }
+
   // space is required for the Extended Boot Record.
   // Generally an additional track or MebiByte is required so for
   // our purposes reserve a MebiByte in front of the partition->
@@ -685,6 +689,10 @@ AdvancedPartitionDelegate::createPrimaryPartition(const Partition::Ptr partition
     return false;
   }
   new_partition->changeNumber(partition_number);
+
+  if (fs_type == FsType::Recovery) {
+      WriteRecoveryPartitionInfo(partition->path);
+  }
 
   // Check whether space is required for the Master Boot Record.
   // Generally an additional track or MebiByte is required so for
@@ -863,6 +871,12 @@ void AdvancedPartitionDelegate::formatPartition(const Partition::Ptr partition,
   new_partition->type = partition->type;
   new_partition->mount_point = mount_point;
   new_partition->status = PartitionStatus::Format;
+
+  if (fs_type == FsType::Recovery) {
+      // Hide recovery partition
+      new_partition->flags << PartitionFlag::Hidden;
+      WriteRecoveryPartitionInfo(partition->path);
+  }
 
   Operation operation(OperationType::Format, partition, new_partition);
   operations_.append(operation);

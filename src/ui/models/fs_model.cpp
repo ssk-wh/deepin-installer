@@ -61,37 +61,33 @@ int FsModel::index(FsType fs_type) const {
 }
 
 void FsModel::setShowEFI(bool show_efi) {
-  this->beginResetModel();
-
-  if (show_efi) {
-    if (fs_list_.indexOf(FsType::EFI) == -1) {
-      fs_list_.append(FsType::EFI);
-    }
-  } else {
-    const int index = fs_list_.indexOf(FsType::EFI);
-    if (index != -1) {
-      fs_list_.removeAt(index);
-    }
-  }
-
-  this->endResetModel();
+    changeFsList(show_efi, FsType::EFI);
 }
 
 void FsModel::setShowUnknown(bool show_unknown) {
-  this->beginResetModel();
+    changeFsList(show_unknown, FsType::Unknown);
+}
 
-  if (show_unknown) {
-    if (fs_list_.indexOf(FsType::Unknown) == -1) {
-      fs_list_.append(FsType::Unknown);
-    }
-  } else {
-    const int index = fs_list_.indexOf(FsType::Unknown);
-    if (index != -1) {
-      fs_list_.removeAt(index);
-    }
-  }
+void FsModel::setShowRecovery(bool showRecovery) {
+    changeFsList(showRecovery, FsType::Recovery);
+}
 
-  this->endResetModel();
+void FsModel::changeFsList(bool show, FsType fsType) {
+    this->beginResetModel();
+
+    if (show) {
+        if (fs_list_.indexOf(fsType) == -1) {
+            fs_list_.append(fsType);
+        }
+    }
+    else {
+        const int index = fs_list_.indexOf(fsType);
+        if (index != -1) {
+            fs_list_.removeAt(index);
+        }
+    }
+
+    this->endResetModel();
 }
 
 }  // namespace installer

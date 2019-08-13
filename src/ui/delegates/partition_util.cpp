@@ -210,6 +210,7 @@ QString GetLocalFsTypeName(FsType fs_type) {
     case FsType::Reiserfs: return "reiserfs";
     case FsType::LinuxSwap: return QObject::tr("Swap partition");
     case FsType::Xfs: return "xfs";
+    case FsType::Recovery: return "recovery";
     default: return QObject::tr("Unknown");
   }
 }
@@ -385,7 +386,8 @@ bool IsMountPointSupported(FsType fs_type) {
   return (fs_type != FsType::EFI &&
           fs_type != FsType::LinuxSwap &&
           fs_type != FsType::Empty &&
-          fs_type != FsType::Unknown);
+          fs_type != FsType::Unknown &&
+          fs_type != FsType::Recovery);
 }
 
 bool IsPartitionTableMatch(PartitionTableType type) {

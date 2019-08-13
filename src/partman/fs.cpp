@@ -38,7 +38,8 @@ static const QMap<installer::FsType, QString> FS_TYPE_MAP{
     { installer::FsType::Reiser4, "reiser4" },
     { installer::FsType::Reiserfs, "reiserfs" },
     { installer::FsType::Unknown, "unknown" },
-    { installer::FsType::Xfs, "xfs" }
+    { installer::FsType::Xfs, "xfs" },
+    { installer::FsType::Recovery, "recovery" }
 };
 
 namespace installer {

@@ -430,4 +430,8 @@ void WriteSwapPartitionSize(const uint size) {
     AppendToConfigFile("DI_SWAP_SIZE", size);
 }
 
+void WriteRecoveryPartitionInfo(const QString& path) {
+    AppendToConfigFile("DI_RECOVERY_PATH", path);
+}
+
 }  // namespace installer
