@@ -1,11 +1,56 @@
 /** Used in InstallFailedFrame class **/
 
+QLabel {
+    color: white;
+}
+
 QFrame#content_frame {
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.1);
 }
 
-#content_label {
+QScrollBar:vertical
+{
+    width:8px;
+    background:rgba(0,0,0,0%);
+    margin:0px,0px,0px,0px;
+    padding-top:9px;
+    padding-bottom:9px;
+}
+QScrollBar::handle:vertical
+{
+    width:8px;
+    background:rgba(0,0,0,25%);
+    border-radius:4px;
+    min-height:20;
+}
+QScrollBar::handle:vertical:hover
+{
+    width:8px;
+    background:rgba(0,0,0,50%);
+    border-radius:4px;
+    min-height:20;
+}
+
+QScrollBar::add-line:vertical {
+    border: 0px;
+    width: 0px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical {
+    border: 0px;
+    width: 0px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+
+#scrollarea {
+    background: rgba(255, 255, 255, 25.5);
+}
+
+#contentlabel {
   padding: 10px 14px;
   margin: 0;
   color: rgba(255, 255, 255, 0.5);
@@ -35,3 +80,4 @@ QFrame#content_frame {
 #control_button:pressed {
   background-image: url(:/images/QR_press.svg);
 }
+

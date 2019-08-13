@@ -21,6 +21,7 @@
 #include <QFrame>
 class QLabel;
 class QPushButton;
+class QScrollArea;
 
 namespace installer {
 
@@ -60,6 +61,7 @@ class InstallFailedFrame : public QFrame {
   QRWidget* qr_widget_ = nullptr;
   QLabel* content_label_ = nullptr;
   QPushButton* control_button_ = nullptr;
+  QScrollArea *m_scrollArea = nullptr;
 
  private slots:
   void onControlButtonClicked();
