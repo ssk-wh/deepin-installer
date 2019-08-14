@@ -48,18 +48,41 @@ ComponentInstallManager::ComponentInstallManager(QObject *parent) : QObject(pare
         m_list << component;
     }
 
-    for (auto it = m_list.cbegin(); it != m_list.cend(); ++it) {
-        qDebug() << it->get()->id();
-        QList<QSharedPointer<ComponentInfo>> defaultList = it->get()->defaultValue();
-        for (QSharedPointer<ComponentInfo> info : defaultList) {
-            qDebug() << info->Id << info->PackageList;
+    QJsonDocument packageDoc = QJsonDocument::fromJson("{\"a\":[\"gdb\",\"g++\"],\"b\":[\"test\"],\"c\":[\"t1\"],\"d\":[\"td\"],\"e\":[\"te\"],\"f\":[\"hdasd\",\"12354124\"],\"1\":[\"gdb\"],\"2\":[\"g++\",\"dd\"],\"3\":[\"gcc\",\"clang\"],\"4\":[\"123\",\"5234\",\"1243\",\"qaz\"],\"5\":[\"jhbg\",\"ikjhgf\"],\"6\":[\"45rtfg\",\"89uiytgf\"],\"7\":[\"123\"]}");
+    obj = packageDoc.object();
+
+    for (auto it = obj.begin(); it != obj.end(); ++it) {
+        QSharedPointer<ComponentInfo> info(new ComponentInfo);
+        info->Id = it.key();
+        for (QJsonValue value : it.value().toArray()) {
+            info->PackageList << value.toString();
         }
 
-        QList<QSharedPointer<ComponentInfo>> extraList = it->get()->extra();
-        for (QSharedPointer<ComponentInfo> info : extraList) {
-            qDebug() << info->Id << info->PackageList;
-        }
+        m_packageList << info;
+    }
+
+    for (auto it = m_list.cbegin(); it != m_list.cend(); ++it) {
+        qDebug() << it->get()->id();
+        qDebug() << packageListByComponentStruct(*it);
         qDebug() << ">>>>>>>>>>>>>>>>>>>>>>>>>>";
     }
 #endif
+}
+
+QStringList ComponentInstallManager::packageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const {
+    auto integrateList = [=](QList<QSharedPointer<ComponentInfo>> list) -> QStringList {
+        QStringList packageList;
+        for (QSharedPointer<ComponentInfo> info : list) {
+            for (QSharedPointer<ComponentInfo> i : m_packageList) {
+                if (info->Id == i->Id) {
+                    packageList << i->PackageList;
+                    break;
+                }
+            }
+        }
+        return packageList;
+    };
+
+    return QStringList() << integrateList(componentStruct->defaultValue())
+                         << integrateList(componentStruct->extra());
 }

@@ -43,7 +43,6 @@ namespace installer {
             for (QJsonValue value : obj["default"].toArray()) {
                 m_default << QSharedPointer<ComponentInfo>(new ComponentInfo);
                 m_default.last()->Id = value.toString();
-                // TODO(justforlxz): 找到对应的包，目前缺少包列表结构
             }
 
             for (QJsonValue value : obj["extra"].toArray()) {
@@ -85,6 +84,12 @@ public:
         return m_list;
     }
 
+    inline QList<QSharedPointer<ComponentInfo>> packageList() const {
+        return m_packageList;
+    }
+
+    QStringList packageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const;
+
 private:
     explicit ComponentInstallManager(QObject *parent = nullptr);
     ComponentInstallManager(const ComponentInstallManager& manager) = delete;
@@ -92,6 +97,7 @@ private:
 
 private:
     QList<QSharedPointer<ComponentStruct>> m_list;
+    QList<QSharedPointer<ComponentInfo>> m_packageList;
 };
 }
 
