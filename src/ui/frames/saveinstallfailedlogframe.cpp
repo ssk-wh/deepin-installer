@@ -130,8 +130,9 @@ bool SaveInstallFailedLogFrame::event(QEvent *event)
 
 void SaveInstallFailedLogFrame::updateTs()
 {
-    m_title->setText(tr("Save Log"));
-    m_subTitle->setText(tr("Save to log"));
+    m_title->setText(tr("Save Error Log"));
+    m_subTitle->setText(tr("Save the error log to local or external disk"));
+    m_saveBtn->setText(tr("Save Log"));
 }
 
 void SaveInstallFailedLogFrame::refreshDevices()
@@ -283,4 +284,6 @@ void SaveInstallFailedLogFrame::saveLog()
     CopyLogFile(QString("%1/deepin-installer.%2.log")
                 .arg(m_selectPartition->mount_point)
                 .arg(QDateTime::currentDateTime().toString("yyyy-MM-dd-hh-mm-ss")));
+
+    emit requestBack();
 }

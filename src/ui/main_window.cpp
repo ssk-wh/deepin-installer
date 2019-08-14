@@ -218,6 +218,8 @@ void MainWindow::initConnections() {
 
   connect(m_selectComponentFrame, &SelectInstallComponentFrame::finished,
           this, &MainWindow::goNextPage);
+
+  connect(save_failedLog_frame_, &SaveInstallFailedLogFrame::requestBack, this, &MainWindow::backPage);
 }
 
 void MainWindow::initPages() {

@@ -145,7 +145,7 @@ void InstallFailedFrame::initUI() {
   control_button_->move(kContentWindowWidth - kControlButtonSize, 0);
 
   reboot_button_ = new NavButton(tr("Exit installation"));
-  save_log_button_ = new NavButton(tr("Save log"));
+  save_log_button_ = new NavButton(tr("Save Log"));
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);

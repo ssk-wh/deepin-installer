@@ -43,6 +43,9 @@ class SaveInstallFailedLogFrame : public QWidget
 public:
     explicit SaveInstallFailedLogFrame(QWidget *parent = nullptr);
 
+signals:
+    void requestBack() const;
+
 protected:
     bool event(QEvent* event) override;
 
