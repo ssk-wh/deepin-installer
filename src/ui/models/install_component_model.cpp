@@ -5,6 +5,7 @@ namespace installer {
 InstallComponentListModel::InstallComponentListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
+    this->setObjectName("install_component_model");
     m_dataList << "server1" << "server2" << "server3";
 }
 
@@ -24,6 +25,13 @@ int InstallComponentListModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return m_dataList.length();
+}
+
+void InstallComponentListModel::initData()
+{
+    beginResetModel();
+    m_dataList << "ss1" << "ss2" << "ss3";
+    this->endResetModel();
 }
 
 }

@@ -64,10 +64,11 @@ private:
     // Validate line-edit. If failed, write tooltip to |msg| and returns false.
     bool validateUsername(QString& msg);
     bool validateHostname(QString& msg);
-    bool validatePassword(QString& msg);
-    bool validatePassword2(QString& msg);
+    bool validatePassword(LineEdit* passwordEdit, QString& msg);
+    bool validatePassword2(LineEdit* passwordEdit, LineEdit* passwordCheckEdit, QString& msg);
 
     void updateCapsLockState(bool capslock);
+    void systemInfoFrameFinish();
 
     TitleLabel*   title_label_         = nullptr;
     CommentLabel* comment_label_       = nullptr;
@@ -77,6 +78,9 @@ private:
     LineEdit*     password_edit_       = nullptr;
     LineEdit*     password_check_edit_ = nullptr;
     QCheckBox*    grub_password_check_ = nullptr;
+    QCheckBox*    m_setRootPasswordCheck = nullptr;
+    LineEdit*     m_rootPasswordEdit = nullptr;
+    LineEdit*     m_rootPasswordCheckEdit = nullptr;
 
     // Display tooltip error message.
     SystemInfoTip*         tooltip_     = nullptr;
@@ -91,6 +95,8 @@ private:
     bool is_hostname_edited_manually_;
     bool is_password_edited_;
     bool is_password2_edited_;
+    bool m_isRootPasswordEdited;
+    bool m_isRootPasswordCheckEdited;
 
 private slots:
     // Validate form content.
@@ -108,6 +114,11 @@ private slots:
     void onPasswordEditingFinished();
     void onPassword2Edited();
     void onPassword2EditingFinished();
+    void onRootPasswordEdited();
+    void onRootPasswordEditingFinished();
+    void onRootPasswordCheckEdited();
+    void onRootPasswordCheckEditingFinished();
+    void onSetRootPasswordCheckChanged(bool enable);
 };
 
 }  // namespace installer

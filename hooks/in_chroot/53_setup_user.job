@@ -29,9 +29,10 @@ add_user_to_existed_group() {
 
 # Setup username, password and hostname.
 setup_username_password_hostname() {
-  local DI_HOSTNAME DI_PASSWORD DI_USERNAME REAL_PASSWORD PASSWORD_MIN_LEN
+  local DI_HOSTNAME DI_PASSWORD DI_ROOTPASSWORD DI_USERNAME REAL_PASSWORD REAL_ROOTPASSWORD PASSWORD_MIN_LEN
   DI_HOSTNAME=$(installer_get "DI_HOSTNAME")
   DI_PASSWORD=$(installer_get "DI_PASSWORD")
+  DI_ROOTPASSWORD=$(installer_get "DI_ROOTPASSWORD")
   DI_USERNAME=$(installer_get "DI_USERNAME")
   PASSWORD_MIN_LEN=$(installer_get "system_info_password_min_len")
 
@@ -54,6 +55,12 @@ setup_username_password_hostname() {
   else
     REAL_PASSWORD=$(echo "${DI_PASSWORD}" | base64 -d)
     echo "${DI_USERNAME}:${REAL_PASSWORD}" | chpasswd
+  fi
+
+  # Update root password.
+  if [ -n "${DI_ROOTPASSWORD}" ]; then
+    REAL_ROOTPASSWORD=$(echo "${DI_ROOTPASSWORD}" | base64 -d)
+    echo "root:${REAL_ROOTPASSWORD}" | chpasswd
   fi
 
   # Add user to groups.

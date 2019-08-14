@@ -1,0 +1,35 @@
+/** Used in SystemInfoFormFrame class **/
+
+QCheckBox#RootPasswordCheckBox {
+    color: white;
+    background: transparent;
+}
+
+QCheckBox#RootPasswordCheckBox::indicator {
+    width: 16px;
+    height: 16px;
+}
+
+QCheckBox#RootPasswordCheckBox::indicator:unchecked {
+    image: url(":/images/checkbox_unchecked.svg");
+}
+
+QCheckBox#RootPasswordCheckBox::indicator:unchecked:hover {
+    image: url(":/images/checkbox_unchecked_hover.svg");
+}
+
+QCheckBox#RootPasswordCheckBox::indicator:unchecked:pressed {
+    image: url(":/images/checkbox_unchecked_pressed.svg");
+}
+
+QCheckBox#RootPasswordCheckBox::indicator:checked {
+    image: url(":/images/checkbox_checked.svg");
+}
+
+QCheckBox#RootPasswordCheckBox::indicator:checked:hover {
+    image: url(":/images/checkbox_checked_hover.svg");
+}
+
+QCheckBox#RootPasswordCheckBox::indicator:checked:pressed {
+    image: url(":/images/checkbox_checked_pressed.svg");
+}

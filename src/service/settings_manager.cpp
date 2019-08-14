@@ -339,6 +339,10 @@ void WritePassword(const QString& password) {
   AppendToConfigFile("DI_PASSWORD", encoded_password);
 }
 
+void WriteRootPassword(const QString& password) {
+  AppendToConfigFile("DI_ROOT_PASSWORD", password.toUtf8().toBase64());
+}
+
 void WriteTimezone(const QString& timezone) {
   QSettings settings(kInstallerConfigFile, QSettings::IniFormat);
   settings.setValue("DI_TIMEZONE", timezone);
