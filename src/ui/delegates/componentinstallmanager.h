@@ -39,15 +39,16 @@ namespace installer {
     public:
         ComponentStruct(const QString& id, const QJsonObject& obj)
             : m_id(id)
-            , m_default(new ComponentInfo)
-            , m_extra(new ComponentInfo)
         {
             for (QJsonValue value : obj["default"].toArray()) {
-                m_default->PackageList << value.toString();
+                m_default << QSharedPointer<ComponentInfo>(new ComponentInfo);
+                m_default.last()->Id = value.toString();
+                // TODO(justforlxz): 找到对应的包，目前缺少包列表结构
             }
 
             for (QJsonValue value : obj["extra"].toArray()) {
-                m_extra->PackageList << value.toString();
+                m_extra << QSharedPointer<ComponentInfo>(new ComponentInfo);
+                m_extra.last()->Id = value.toString();
             }
         }
 
@@ -55,19 +56,19 @@ namespace installer {
             return m_id;
         }
 
-        inline QSharedPointer<ComponentInfo> defaultValue() const {
+        inline QList<QSharedPointer<ComponentInfo>> defaultValue() const {
             return m_default;
         }
 
 
-        inline QSharedPointer<ComponentInfo> extra() const {
+        inline QList<QSharedPointer<ComponentInfo>> extra() const {
             return m_extra;
         }
 
     private:
         QString m_id;
-        QSharedPointer<ComponentInfo> m_default;
-        QSharedPointer<ComponentInfo> m_extra;
+        QList<QSharedPointer<ComponentInfo>> m_default;
+        QList<QSharedPointer<ComponentInfo>> m_extra;
     };
 }
 

@@ -41,7 +41,7 @@ QSharedPointer<ComponentStruct> ComponentInstallManager::findComponentById(const
 ComponentInstallManager::ComponentInstallManager(QObject *parent) : QObject(parent)
 {
 #ifdef QT_DEBUG
-    QJsonDocument doc = QJsonDocument::fromJson("{\"最小系统\":{\"default\":[\"ddd\"],\"extra\":[\"123\",\"456\"]},\"计算机节点\":{\"default\":[\"ddd\"],\"extra\":[\"123\",\"456\"]},\"基础设施服务器\":{\"default\":[\"ddd\"],\"extra\":[\"123\",\"456\"]},\"文件及打印服务器\":{\"default\":[\"ddd\"],\"extra\":[\"123\",\"456\"]},\"基本网页服务器\":{\"default\":[\"ddd\"],\"extra\":[\"123\",\"456\"]},\"虚拟化主机\":{\"default\":[\"ddd\"],\"extra\":[\"123\",\"456\"]},\"带GUI的服务器\":{\"default\":[\"ddd\"],\"extra\":[\"123\",\"456\"]},\"DDE桌面\":{\"default\":[\"ddd\"],\"extra\":[\"123\",\"456\"]},\"开发及生成工作站\":{\"default\":[\"ddd\"],\"extra\":[\"123\",\"456\"]}}");
+    QJsonDocument doc = QJsonDocument::fromJson("{\"最小系统\":{\"default\":[\"a\"],\"extra\":[\"1\",\"2\"]},\"计算机节点\":{\"default\":[\"b\"],\"extra\":[\"2\",\"1\"]},\"基础设施服务器\":{\"default\":[\"c\"],\"extra\":[\"1\",\"2\",\"3,\"]},\"文件及打印服务器\":{\"default\":[\"d\"],\"extra\":[\"1\",\"3\"]},\"基本网页服务器\":{\"default\":[\"e\"],\"extra\":[\"4\",\"1\"]},\"虚拟化主机\":{\"default\":[\"f\"],\"extra\":[\"1\",\"2\"]},\"带GUI的服务器\":{\"default\":[\"f\"],\"extra\":[\"3\",\"2\"]},\"DDE桌面\":{\"default\":[\"a\"],\"extra\":[\"4\",\"1\"]},\"开发及生成工作站\":{\"default\":[\"e\"],\"extra\":[\"1\",\"3\"]}}");
     QJsonObject obj = doc.object();
     for (auto it = obj.begin(); it != obj.end(); ++it) {
         QSharedPointer<ComponentStruct> component(new ComponentStruct(it.key(), it.value().toObject()));
@@ -50,8 +50,16 @@ ComponentInstallManager::ComponentInstallManager(QObject *parent) : QObject(pare
 
     for (auto it = m_list.cbegin(); it != m_list.cend(); ++it) {
         qDebug() << it->get()->id();
-        qDebug() << it->get()->defaultValue()->PackageList;
-        qDebug() << it->get()->extra()->PackageList;
+        QList<QSharedPointer<ComponentInfo>> defaultList = it->get()->defaultValue();
+        for (QSharedPointer<ComponentInfo> info : defaultList) {
+            qDebug() << info->Id << info->PackageList;
+        }
+
+        QList<QSharedPointer<ComponentInfo>> extraList = it->get()->extra();
+        for (QSharedPointer<ComponentInfo> info : extraList) {
+            qDebug() << info->Id << info->PackageList;
+        }
+        qDebug() << ">>>>>>>>>>>>>>>>>>>>>>>>>>";
     }
 #endif
 }
