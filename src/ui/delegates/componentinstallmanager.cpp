@@ -86,3 +86,9 @@ QStringList ComponentInstallManager::packageListByComponentStruct(QSharedPointer
     return QStringList() << integrateList(componentStruct->defaultValue())
                          << integrateList(componentStruct->extra());
 }
+
+void ComponentInstallManager::setComponentSelected(QSharedPointer<ComponentInfo> info,
+                                                   bool                          selected)
+{
+    info->IsSelected = selected;
+}

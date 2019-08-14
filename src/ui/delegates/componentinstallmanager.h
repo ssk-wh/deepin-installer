@@ -30,9 +30,18 @@
 #include <QJsonObject>
 
 namespace installer {
-    struct ComponentInfo {
+    class ComponentInfo {
+    friend class ComponentInstallManager;
+    public:
         QString Id;
         QStringList PackageList;
+
+        bool isSelected() const {
+            return IsSelected;
+        }
+
+    private:
+        bool IsSelected = false;
     };
 
     class ComponentStruct {
@@ -89,6 +98,8 @@ public:
     }
 
     QStringList packageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const;
+
+    void setComponentSelected(QSharedPointer<ComponentInfo> info, bool selected);
 
 private:
     explicit ComponentInstallManager(QObject *parent = nullptr);
