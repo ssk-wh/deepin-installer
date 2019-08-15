@@ -46,10 +46,18 @@ if (${INSTALLER_BUILD_ARCH} MATCHES "x86")
             DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources
             RENAME default_settings.ini
             )
+    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/professional_default_full_disk_policy.json
+            DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources
+            RENAME default_full_disk_policy.json
+            )
   else()
     # Install default settings.
     install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/default_settings.ini
             DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources
+            )
+    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/professional_default_full_disk_policy.json
+            DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources
+            RENAME default_full_disk_policy.json
             )
   endif()
 elseif(${INSTALLER_BUILD_ARCH} MATCHES "sw")
@@ -57,15 +65,27 @@ elseif(${INSTALLER_BUILD_ARCH} MATCHES "sw")
           DESTINATION  ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources
           RENAME default_settings.ini
           )
+  install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/professional_default_full_disk_policy.json
+          DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources
+          RENAME default_full_disk_policy.json
+          )
 elseif(${INSTALLER_BUILD_ARCH} MATCHES "mips")
   install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/loongson_default_settings.ini
           DESTINATION  ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources
           RENAME default_settings.ini
           )
+  install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/professional_default_full_disk_policy.json
+          DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources
+          RENAME default_full_disk_policy.json
+          )
 elseif (${INSTALLER_BUILD_ARCH} MATCHES "aarch64")
   install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/arm_default_settings.ini
           DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources
           RENAME default_settings.ini
+          )
+  install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/professional_default_full_disk_policy.json
+          DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources
+          RENAME default_full_disk_policy.json
           )
 else()
   message(FATAL_ERROR "Not supported architecture: ${INSTALLER_BUILD_ARCH}")
