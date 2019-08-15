@@ -5,7 +5,7 @@
                 "mountPoint": "/boot/efi",
                 "label": "EFI",
                 "usage": "300Mib",
-                "align_start": true,
+                "alignStart": true,
                 "device": ""
             },
             {
@@ -13,7 +13,7 @@
                 "mountPoint": "swap",
                 "label": "SWAP",
                 "usage": "swap-size",
-                "align_start": true,
+                "alignStart": true,
                 "device": ""
             },
             {
@@ -29,7 +29,7 @@
                 "mountPoint": "/",
                 "label": "Root",
                 "usage": "100%",
-                "align_start": true,
+                "alignStart": true,
                 "device": ""
             }
         ],
@@ -38,7 +38,7 @@
                 "mountPoint": "/boot/efi",
                 "label": "EFI",
                 "usage": "300Mib",
-                "align_start": true,
+                "alignStart": true,
                 "device": ""
             },
             {
@@ -46,7 +46,7 @@
                 "mountPoint": "swap",
                 "label": "SWAP",
                 "usage": "swap-size",
-                "align_start": true,
+                "alignStart": true,
                 "device": ""
             },
             {
@@ -54,7 +54,7 @@
                 "mountPoint": "/",
                 "label": "Root",
                 "usage": "20%",
-                "align_start": true,
+                "alignStart": true,
                 "device": ""
             },
             {
@@ -70,7 +70,7 @@
                 "mountPoint": "/data",
                 "label": "_dde_data",
                 "usage": "100%",
-                "align_start": true,
+                "alignStart": true,
                 "device": ""
             }
         ]
@@ -81,7 +81,7 @@
                 "mountPoint": "swap",
                 "label": "swap",
                 "usage": "swap-size",
-                "align_start": true,
+                "alignStart": true,
                 "device": ""
             },
             {
@@ -97,7 +97,7 @@
                 "mountPoint": "/",
                 "label": "Root",
                 "usage": "100%",
-                "align_start": true,
+                "alignStart": true,
                 "device": ""
             }
         ],
@@ -106,7 +106,7 @@
                 "mountPoint": "swap",
                 "label": "SWAP",
                 "usage": "swap-size",
-                "align_start": true,
+                "alignStart": true,
                 "device": ""
             },
             {
@@ -114,7 +114,7 @@
                 "mountPoint": "/",
                 "label": "Root",
                 "usage": "20%",
-                "align_start": true,
+                "alignStart": true,
                 "device": ""
             },
             {
@@ -130,7 +130,7 @@
                 "mountPoint": "/data",
                 "label": "_dde_data",
                 "usage": "100%",
-                "align_start": true,
+                "alignStart": true,
                 "device": ""
             }
         ]

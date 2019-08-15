@@ -53,6 +53,7 @@ const char kInstallerConfigFile[] = "/etc/deepin-installer.conf";
 
 // Absolute path to default installer settings
 const char kDefaultSettingsFile[] = RESOURCES_DIR "/default_settings.ini";
+const char kDefaultFullInstallFile[] = RESOURCES_DIR "/default_full_disk_policy.json";
 const char kDefaultWallpaperFile[] = RESOURCES_DIR "/default_wallpaper.jpg";
 // File name of installer wallpaper.
 const char kOemWallpaperFilename[] = "installer-background.jpg";
@@ -252,6 +253,15 @@ QString GetWindowBackground() {
   }
 
   return kDefaultWallpaperFile;
+}
+
+QByteArray GetFullDiskInstallPolicy() {
+    QFile file(kDefaultFullInstallFile);
+    if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
+        return file.readAll();
+    }
+
+    return "";
 }
 
 bool AppendConfigFile(const QString& conf_file) {

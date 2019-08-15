@@ -76,6 +76,9 @@ QString GetVendorLogo();
 // If not found, use the fallback image.
 QString GetWindowBackground();
 
+// Get Full install policy, it is JSON.
+QByteArray GetFullDiskInstallPolicy();
+
 // Append settings in |conf_file| into default conf file.
 bool AppendConfigFile(const QString& conf_file);
 
