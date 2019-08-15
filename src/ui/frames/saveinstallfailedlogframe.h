@@ -32,6 +32,7 @@ class QGridLayout;
 class QButtonGroup;
 class DBlockDevice;
 class DDiskDevice;
+class DDiskManager;
 
 namespace installer {
 class CommentLabel;
@@ -42,6 +43,8 @@ class SaveInstallFailedLogFrame : public QWidget
     Q_OBJECT
 public:
     explicit SaveInstallFailedLogFrame(QWidget *parent = nullptr);
+
+    void startDeviceWatch(bool enable);
 
 signals:
     void requestBack() const;
@@ -65,6 +68,7 @@ private:
     QButtonGroup* m_button_group;
     NavButton* m_saveBtn;
     QSharedPointer<Partition> m_selectPartition;
+    DDiskManager* m_diskManager;
     QMap<QSharedPointer<DDiskDevice>, QList<QSharedPointer<DBlockDevice>>> m_deviceMap;
 };
 }

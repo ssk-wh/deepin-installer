@@ -108,13 +108,16 @@ SaveInstallFailedLogFrame::SaveInstallFailedLogFrame(QWidget *parent) : QWidget(
 
     connect(m_saveBtn, &NavButton::clicked, this, &SaveInstallFailedLogFrame::saveLog);
 
-    DDiskManager* manager = new DDiskManager;
-    manager->setWatchChanges(true);
-    connect(manager, &DDiskManager::blockDeviceAdded, this, &SaveInstallFailedLogFrame::onBlockDeviceAdded);
-    connect(manager, &DDiskManager::blockDeviceRemoved, this, &SaveInstallFailedLogFrame::onBlockDeviceRemoved);
-    connect(manager, &DDiskManager::diskDeviceRemoved, this, &SaveInstallFailedLogFrame::onDeviceRemoved);
+    m_diskManager = new DDiskManager;
+    startDeviceWatch(false);
+    connect(m_diskManager, &DDiskManager::blockDeviceAdded, this, &SaveInstallFailedLogFrame::onBlockDeviceAdded);
+    connect(m_diskManager, &DDiskManager::blockDeviceRemoved, this, &SaveInstallFailedLogFrame::onBlockDeviceRemoved);
+    connect(m_diskManager, &DDiskManager::diskDeviceRemoved, this, &SaveInstallFailedLogFrame::onDeviceRemoved);
+}
 
-    for (const QString& path : manager->blockDevices()) {
+void SaveInstallFailedLogFrame::startDeviceWatch(bool enable) {
+    m_diskManager->setWatchChanges(enable);
+    for (const QString& path : m_diskManager->blockDevices()) {
         onBlockDeviceAdded(path);
     }
 }
