@@ -1,13 +1,16 @@
 #pragma once
 
 #include <QWidget>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QMap>
 
 namespace installer {
 
-class FramelessListView;
-class InstallComponentListModel;
-class InstallComponentDelegate;
 class NavButton;
+class ComponentStruct;
+class ComponentInfo;
+class ComponentWidget;
 
 class SelectInstallComponentFrame : public QWidget
 {
@@ -26,18 +29,19 @@ signals:
 private:
     void initUI();
     void initConnections();
-    void onInstallServerTypeListSelected(const QModelIndex current);
-    void onInstallServerTypeListCurrentChanged(const QModelIndex &current, const QModelIndex &previous);
+    void onServerTypeClicked();
+    void onComponentClicked();
 
 private:
-    FramelessListView *m_installServerTypeListView = nullptr;
-    InstallComponentListModel *m_installServerTypeListModel = nullptr;
-    InstallComponentDelegate *m_installServerTypeListDelegate = nullptr;
+    QMap<ComponentWidget*, QSharedPointer<ComponentStruct>> m_componentStructMap;
+    QMap<ComponentWidget*, QSharedPointer<ComponentInfo>> m_componentInfoMap;
 
-    FramelessListView *m_installComponentListView = nullptr;
-    InstallComponentListModel *m_installComponentListModel = nullptr;
-    InstallComponentDelegate *m_installComponentListDelegate = nullptr;
+    QList<QSharedPointer<ComponentInfo>> m_extraComponent;
 
+    QVBoxLayout* m_compLayout = nullptr;
+    ComponentWidget* m_currentComponentWidget = nullptr;
+
+    NavButton* m_backButton = nullptr;
     NavButton* m_nextButton = nullptr;
 };
 

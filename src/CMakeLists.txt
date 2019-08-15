@@ -262,8 +262,6 @@ set(UI_FILES
     ui/delegates/timezone_map_util.h
     ui/delegates/componentinstallmanager.h
     ui/delegates/componentinstallmanager.cpp
-    ui/delegates/install_component_delegate.h
-    ui/delegates/install_component_delegate.cpp
 
     ui/frames/consts.h
     ui/frames/inner/advanced_partition_frame.cpp
@@ -360,8 +358,6 @@ set(UI_FILES
     ui/models/partition_type_model.h
     ui/models/control_platform_region_model.h
     ui/models/control_platform_region_model.cpp
-    ui/models/install_component_model.h
-    ui/models/install_component_model.cpp
 
     ui/utils/widget_util.cpp
     ui/utils/widget_util.h
@@ -427,6 +423,8 @@ set(UI_FILES
     ui/widgets/tooltip_pin.h
     ui/widgets/wallpaper_item.cpp
     ui/widgets/wallpaper_item.h
+    ui/widgets/component_widget.h
+    ui/widgets/component_widget.cpp
 
     ui/xrandr/multi_head_manager.cpp
     ui/xrandr/multi_head_manager.h
