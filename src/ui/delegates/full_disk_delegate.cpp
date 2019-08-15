@@ -865,7 +865,13 @@ bool FullDiskDelegate::formatWholeDevice(const QString& device_path,
       Operation& last_operation = operations_.last();
       last_operation.applyToVisual(device);
 
-      unallocated = device->partitions.last();
+      // NOTE(justforlxz): 找到中间的空闲分区，因为对齐存在右边
+      for (Partition::Ptr p : device->partitions) {
+          if (p->type == PartitionType::Unallocated) {
+              unallocated = p;
+              break;
+          }
+      }
   }
 
     qDebug() << "operations for full disk mode:" << operations_;
