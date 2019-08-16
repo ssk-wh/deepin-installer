@@ -92,6 +92,7 @@ Device::Ptr FullDiskDelegate::fullInstallScheme(Device::Ptr device) const
     const uint swapSize{ getSwapSize() };
     qint64     lastDeviceLenght{ device->length };
     qint64     usedEndSize{ 0 };
+    qint64     lastDeviceEnd{ device->length };
 
     for (const QJsonValue& jsonValue : policyArray) {
         const QJsonObject& jsonObject  = jsonValue.toObject();
@@ -146,11 +147,23 @@ Device::Ptr FullDiskDelegate::fullInstallScheme(Device::Ptr device) const
         partition->status = PartitionStatus::New;
         partition->changeNumber(fake->partitions.length() + 1);
 
-        // 重置偏移到当前分区结尾处；
-        usedEndSize += partitionSize;
+        // 因为存在右对齐，所以分区的范围需要调整
+        if (!jsonObject["alignStart"].toBool()) {
+            partition->end_sector = lastDeviceEnd;
+            lastDeviceEnd -= sectors;
+            partition->start_sector = lastDeviceEnd;
+        }
+        else {
+            // 重置偏移到当前分区结尾处；
+            usedEndSize += partitionSize;
+        }
 
         fake->partitions.append(partition);
     }
+
+    std::sort(fake->partitions.begin(), fake->partitions.end(), [=] (Partition::Ptr partition1, Partition::Ptr partition2) {
+        return partition1->start_sector < partition2->start_sector;
+    });
 
     return fake;
 }
@@ -766,7 +779,7 @@ bool FullDiskDelegate::formatWholeDevice(const QString& device_path,
   QString tableType{ "gpt" };
   QString diskType{ "large" };
 
-  if (device->table == PartitionTableType::MsDos) {
+  if (type == PartitionTableType::MsDos) {
       tableType = "mbr";
   }
 
