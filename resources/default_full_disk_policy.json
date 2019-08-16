@@ -17,7 +17,7 @@
                 "device": ""
             },
             {
-                "filesystem": "ext4",
+                "filesystem": "recovery",
                 "mountPoint": "",
                 "label": "Backup",
                 "usage": "10Gib",
@@ -58,7 +58,7 @@
                 "device": ""
             },
             {
-                "filesystem": "ext4",
+                "filesystem": "recovery",
                 "mountPoint": "",
                 "label": "Backup",
                 "usage": "10Gib",
@@ -110,7 +110,7 @@
                 "device": ""
             },
             {
-                "filesystem": "ext4",
+                "filesystem": "recovery",
                 "mountPoint": "",
                 "label": "Backup",
                 "usage": "10Gib",
