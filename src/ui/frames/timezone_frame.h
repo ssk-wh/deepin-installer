@@ -22,6 +22,9 @@
 
 #include "sysinfo/timezone.h"
 
+class QCheckBox;
+class QStackedLayout;
+
 namespace installer {
 
 class CommentLabel;
@@ -29,7 +32,7 @@ class NavButton;
 class TimezoneManager;
 class TimezoneMap;
 class TitleLabel;
-
+class SystemDateFrame;
 // Displays a world map to let user select timezone.
 class TimezoneFrame : public QFrame {
   Q_OBJECT
@@ -77,8 +80,13 @@ class TimezoneFrame : public QFrame {
 
   TitleLabel* title_label_ = nullptr;
   CommentLabel* comment_label_ = nullptr;
+  QCheckBox* m_autoSyncTime = nullptr;
   TimezoneMap* timezone_map_ = nullptr;
   NavButton* next_button_ = nullptr;
+  SystemDateFrame* m_systemDateFrame = nullptr;
+
+  QWidget* m_timezonePage = nullptr;
+  QStackedLayout* m_stackedLayout = nullptr;
 
   // Priority of timezone: User > Conf > Scan
   enum class TimezoneSource {
@@ -98,6 +106,8 @@ class TimezoneFrame : public QFrame {
 
   // Update timezone after a new one has been chosen by user.
   void onTimezoneMapUpdated(const QString& timezone);
+
+  void onSetTimeCheckBoxClicked();
 };
 
 }  // namespace installer

@@ -22,6 +22,8 @@
 #include <QHBoxLayout>
 #include <QTimer>
 #include <QVBoxLayout>
+#include <QCheckBox>
+#include <QStackedLayout>
 
 #include "partman/os_prober.h"
 #include "service/settings_manager.h"
@@ -32,6 +34,7 @@
 #include "ui/widgets/nav_button.h"
 #include "ui/widgets/timezone_map.h"
 #include "ui/widgets/title_label.h"
+#include "ui/frames/inner/systemdateframe.h"
 
 namespace installer {
 
@@ -137,6 +140,13 @@ void TimezoneFrame::initConnections() {
   // Remark timezone on map when it is updated.
   connect(this, &TimezoneFrame::timezoneUpdated,
           timezone_map_, &TimezoneMap::setTimezone);
+
+  connect(m_autoSyncTime, &QCheckBox::clicked, this, &TimezoneFrame::onSetTimeCheckBoxClicked);
+  connect(m_systemDateFrame, &SystemDateFrame::finished, this, &TimezoneFrame::finished);
+  connect(m_systemDateFrame, &SystemDateFrame::cancel, this, [=] {
+      m_stackedLayout->setCurrentWidget(m_timezonePage);
+      timezone_map_->showMark();
+  });
 }
 
 void TimezoneFrame::initUI() {
@@ -144,6 +154,10 @@ void TimezoneFrame::initUI() {
   comment_label_ = new CommentLabel(tr("Mark your zone on the map"));
   timezone_map_ = new TimezoneMap(this);
   next_button_ = new NavButton(tr("Next"));
+  m_autoSyncTime = new QCheckBox;
+
+  m_autoSyncTime->setCheckable(false);
+  m_autoSyncTime->setChecked(false);
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
@@ -151,13 +165,22 @@ void TimezoneFrame::initUI() {
   layout->addStretch();
   layout->addWidget(title_label_, 0, Qt::AlignCenter);
   layout->addWidget(comment_label_, 0, Qt::AlignCenter);
+  layout->addWidget(m_autoSyncTime, 0, Qt::AlignCenter);
   layout->addStretch();
   layout->addWidget(timezone_map_, 0, Qt::AlignHCenter);
   layout->addStretch();
   layout->addWidget(next_button_, 0, Qt::AlignCenter);
 
-  this->setLayout(layout);
-  this->setContentsMargins(0, 0, 0, 0);
+    m_timezonePage = new QWidget;
+    m_timezonePage->setLayout(layout);
+
+    m_systemDateFrame = new SystemDateFrame;
+
+    m_stackedLayout = new QStackedLayout;
+    m_stackedLayout->addWidget(m_timezonePage);
+    m_stackedLayout->addWidget(m_systemDateFrame);
+
+    setLayout(m_stackedLayout);
 }
 
 QString TimezoneFrame::parseTimezoneAlias(const QString& timezone) {
@@ -195,6 +218,12 @@ void TimezoneFrame::onTimezoneMapUpdated(const QString& timezone) {
   // No need to convert timezone alias.
   timezone_ = timezone;
   emit this->timezoneUpdated(timezone_);
+}
+
+void TimezoneFrame::onSetTimeCheckBoxClicked()
+{
+    m_stackedLayout->setCurrentWidget(m_systemDateFrame);
+    timezone_map_->hideMark();
 }
 
 }  // namespace installer

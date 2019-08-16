@@ -49,6 +49,9 @@ class TimezoneMap : public QFrame {
   // Remark |timezone| on map.
   void setTimezone(const QString& timezone);
 
+  void hideMark();
+  void showMark();
+
  protected:
   void mousePressEvent(QMouseEvent* event) override;
 

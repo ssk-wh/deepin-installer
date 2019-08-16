@@ -86,6 +86,18 @@ void TimezoneMap::setTimezone(const QString& timezone) {
   }
 }
 
+void TimezoneMap::hideMark()
+{
+    popup_window_->hide();
+    zone_pin_->hide();
+    dot_->hide();
+}
+
+void TimezoneMap::showMark()
+{
+    remark();
+}
+
 void TimezoneMap::mousePressEvent(QMouseEvent* event) {
   if (event->button() == Qt::LeftButton) {
     // Get nearest zones around mouse.
