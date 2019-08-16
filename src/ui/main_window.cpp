@@ -535,14 +535,16 @@ void MainWindow::goNextPage() {
     }
 
     case PageId::TimezoneId: {
-        // Check whether to show PartitionPage.
-        if (GetSettingsBool(kSkipPartitionPage)) {
-            if (GetSettingsBool(kPartitionDoAutoPart)) {
-                partition_frame_->autoPart();
-            }
+      //Check whether to show SelectComponentPage.
+#ifdef QT_DEBUG
+        if (false) {
+#else
+        if(GetSettingsBool(kSkipSelectComponentPage)){
+#endif // QT_DEBUG
             prev_page_ = current_page_;
             current_page_ = PageId::SelectComponentId; //PageId::PartitionId;
         } else {
+            m_selectComponentFrame->readConf();
             page_indicator_->goNextPage();
             this->setCurrentPage(PageId::SelectComponentId); //(PageId::PartitionId);
             break;
@@ -550,10 +552,13 @@ void MainWindow::goNextPage() {
     }
 
     case PageId::SelectComponentId: {
-        //Check whether to show SelectComponentPage.
-        m_selectComponentFrame->readConf();
-        if(GetSettingsBool(kSkipSelectComponentPage)){
-            m_selectComponentFrame->writeConf();
+        m_selectComponentFrame->writeConf();
+
+        // Check whether to show PartitionPage.
+        if (GetSettingsBool(kSkipPartitionPage)) {
+            if (GetSettingsBool(kPartitionDoAutoPart)) {
+                partition_frame_->autoPart();
+            }
             prev_page_ = current_page_;
             current_page_ = PageId::PartitionId;
         }

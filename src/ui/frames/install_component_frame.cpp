@@ -56,8 +56,6 @@ void SelectInstallComponentFrame::initUI()
     mainLayout->addSpacing(20);
     mainLayout->addWidget(m_nextButton, 0, Qt::AlignCenter);
 
-    initConnections();
-
     setLayout(mainLayout);
 }
 
