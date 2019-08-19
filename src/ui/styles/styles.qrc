@@ -39,5 +39,6 @@
         <file>system_info_form_frame.css</file>
         <file>install_component_frame.css</file>
         <file>component_widget.css</file>
+        <file>system_date_frame.css</file>
     </qresource>
 </RCC>

@@ -174,11 +174,16 @@ void TimezoneFrame::initUI() {
     m_timezonePage = new QWidget;
     m_timezonePage->setLayout(layout);
 
-    m_systemDateFrame = new SystemDateFrame;
-
     m_stackedLayout = new QStackedLayout;
     m_stackedLayout->addWidget(m_timezonePage);
-    m_stackedLayout->addWidget(m_systemDateFrame);
+
+    m_autoSyncTime->hide();
+    if (!GetSettingsBool(kSkipAutoSyncTimePage)) {
+        m_autoSyncTime->show();
+
+        m_systemDateFrame = new SystemDateFrame;
+        m_stackedLayout->addWidget(m_systemDateFrame);
+    }
 
     setLayout(m_stackedLayout);
 }

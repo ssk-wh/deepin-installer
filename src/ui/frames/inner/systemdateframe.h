@@ -24,6 +24,7 @@
 
 #include <QWidget>
 #include <QScopedPointer>
+#include <QLineEdit>
 
 namespace installer {
 class SystemDateFramePrivate;
@@ -43,13 +44,12 @@ protected:
 
 public slots:
     void readConf();
-    void writeConf();
+    void writeConf(bool isLocolTime);
 
 private:
     QScopedPointer<SystemDateFramePrivate> d_private;
     Q_DECLARE_PRIVATE_D(d_private, SystemDateFrame)
 };
-
 
 }
 

@@ -465,4 +465,9 @@ void WriteComponentUninstallPackages(const QString& packages)
     AppendToConfigFile("DI_COMPONENT_UNINSTALL", packages);
 }
 
+void WriteIsLocalTime(bool isLocalTime)
+{
+    AppendToConfigFile("DI_IS_LOCAL_TIME", isLocalTime);
+}
+
 }  // namespace installer
