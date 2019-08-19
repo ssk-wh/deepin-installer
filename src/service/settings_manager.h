@@ -116,6 +116,8 @@ void WriteDisplayPort(const QString &display);
 void WriteGrubPassword(const QString &password);
 void WriteRecoveryPartitionInfo(const QString& path);
 
+void WriteComponentPackages(const QString& packages);
+
 // Write disk info.
 //  * |root_disk|, device path to install system into, like /dev/sda;
 //  * |root_partition|, partition path to install system into;

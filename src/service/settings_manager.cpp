@@ -455,4 +455,9 @@ void WriteRecoveryPartitionInfo(const QString& path) {
     AppendToConfigFile("DI_RECOVERY_PATH", path);
 }
 
+void WriteComponentPackages(const QString &packages)
+{
+    AppendToConfigFile("DI_COMPONENT_PACKAGES", packages);
+}
+
 }  // namespace installer

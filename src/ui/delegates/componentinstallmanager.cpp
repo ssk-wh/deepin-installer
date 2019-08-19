@@ -67,6 +67,7 @@ QStringList ComponentInstallManager::packageListByComponentStruct(QSharedPointer
     auto integrateList = [=](QList<QSharedPointer<ComponentInfo>> list) -> QStringList {
         QStringList packageList;
         for (QSharedPointer<ComponentInfo> info : list) {
+            if (!info->Selected) continue;
             for (QSharedPointer<ComponentInfo> i : m_packageList) {
                 if (info->Id == i->Id) {
                     packageList << i->PackageList;

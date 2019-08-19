@@ -4,6 +4,9 @@
 #include "ui/widgets/title_label.h"
 #include "ui/widgets/component_widget.h"
 #include "ui/delegates/componentinstallmanager.h"
+#include "service/settings_manager.h"
+#include "service/settings_name.h"
+
 #include <QLineEdit>
 #include <QScrollArea>
 #include <QScrollBar>
@@ -31,6 +34,12 @@ void SelectInstallComponentFrame::readConf()
 
 void SelectInstallComponentFrame::writeConf()
 {
+    QSharedPointer<ComponentStruct> current =
+        m_componentStructMap[m_currentComponentWidget];
+
+    WriteComponentPackages(QString("\"%1\"").arg(
+        ComponentInstallManager::Instance()->packageListByComponentStruct(current).join(
+            " ")));
 }
 
 void SelectInstallComponentFrame::initUI()
@@ -177,12 +186,28 @@ void SelectInstallComponentFrame::onServerTypeClicked()
 
     if(m_currentComponentWidget){
         m_currentComponentWidget->setSelected(false);
+
+        QList<QSharedPointer<ComponentInfo>> defaultValue = m_componentStructMap[m_currentComponentWidget]->defaultValue();
+        QList<QSharedPointer<ComponentInfo>> extraList = m_componentStructMap[m_currentComponentWidget]->extra();
+
+        for (QSharedPointer<ComponentInfo> info : defaultValue) {
+            info->Selected = false;
+        }
+
+        for (QSharedPointer<ComponentInfo> info : extraList) {
+            info->Selected = false;
+        }
     }
 
     m_currentComponentWidget = componentWidget;
 
     QSharedPointer<ComponentStruct> compStruct = m_componentStructMap[componentWidget];
+    QList<QSharedPointer<ComponentInfo>> defaultValue = compStruct->defaultValue();
     QList<QSharedPointer<ComponentInfo>> extra = compStruct->extra();
+
+    for (QSharedPointer<ComponentInfo> info : defaultValue) {
+        info->Selected = true;
+    }
 
     clearComponentLayout();
     m_componentInfoMap.clear();
@@ -219,8 +244,9 @@ void SelectInstallComponentFrame::onServerTypeClicked()
 
 void SelectInstallComponentFrame::onComponentClicked()
 {
-    QSharedPointer<ComponentInfo> compInfo = m_componentInfoMap[qobject_cast<ComponentWidget*>(sender())];
-    compInfo->Selected = !compInfo->Selected;
+    ComponentWidget* widget = qobject_cast<ComponentWidget*>(sender());
+    QSharedPointer<ComponentInfo> compInfo = m_componentInfoMap[widget];
+    compInfo->Selected = widget->isSelected();
 }
 
 void SelectInstallComponentFrame::clearComponentLayout()
