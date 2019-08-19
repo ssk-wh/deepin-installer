@@ -31,6 +31,7 @@ private:
     void initConnections();
     void onServerTypeClicked();
     void onComponentClicked();
+    void clearComponentLayout();
 
 private:
     QMap<ComponentWidget*, QSharedPointer<ComponentStruct>> m_componentStructMap;
@@ -38,10 +39,9 @@ private:
 
     QList<QSharedPointer<ComponentInfo>> m_extraComponent;
 
-    QVBoxLayout* m_compLayout = nullptr;
+    QVBoxLayout* m_componentLayout = nullptr;
     ComponentWidget* m_currentComponentWidget = nullptr;
 
-    NavButton* m_backButton = nullptr;
     NavButton* m_nextButton = nullptr;
 };
 

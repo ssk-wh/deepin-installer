@@ -10,6 +10,11 @@
 #include <QScroller>
 
 namespace installer {
+
+namespace {
+    const int kScrollAreaWidth = 468;
+}
+
 SelectInstallComponentFrame::SelectInstallComponentFrame(QWidget *parent)
     : QWidget(parent)
     , m_currentComponentWidget(nullptr)
@@ -44,27 +49,35 @@ void SelectInstallComponentFrame::initUI()
     componentLabel->setAlignment(Qt::AlignHCenter);
 
     QVBoxLayout* serverLayout = new QVBoxLayout;
+    serverLayout->setSpacing(1);
+    serverLayout->setMargin(0);
 
     ComponentInstallManager* manager = ComponentInstallManager::Instance();
     QList<QSharedPointer<ComponentStruct>> serverList = manager->list();
+    QList<ComponentWidget*> serverWidgetList;
     for (auto it = serverList.cbegin(); it != serverList.cend(); ++it) {
         QString id = it->get()->id();
         ComponentWidget* compWdg = new ComponentWidget(true);
         compWdg->setTitle(id);
         compWdg->setDesc(id.append("desc"));
 
-        serverLayout->addWidget(compWdg, 0, Qt::AlignCenter);
+        serverLayout->addWidget(compWdg);
 
         connect(compWdg, &ComponentWidget::clicked, this
                 , &SelectInstallComponentFrame::onServerTypeClicked);
 
         m_componentStructMap[compWdg] = *it;
+        serverWidgetList << compWdg;
     }
 
-    serverLayout->addStretch();
+    if (!serverWidgetList.isEmpty()) {
+        serverWidgetList.first()->setIsHead(true);
+        serverWidgetList.last()->setIsTail(true);
+    }
 
     QWidget* serverWdg = new QWidget;
     serverWdg->setLayout(serverLayout);
+    serverWdg->setObjectName("serverWdg");
 
     QScrollArea* serverScrollArea = new QScrollArea;
     serverScrollArea->setWidget(serverWdg);
@@ -74,18 +87,21 @@ void SelectInstallComponentFrame::initUI()
     serverScrollArea->setFrameStyle(QFrame::NoFrame);
     serverScrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     serverScrollArea->setContentsMargins(0, 0, 0, 0);
-    serverScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    serverScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    serverScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    serverScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     serverScrollArea->setContextMenuPolicy(Qt::NoContextMenu);
     serverScrollArea->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     serverScrollArea->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     serverScrollArea->setStyleSheet("background: transparent;");
     QScroller::grabGesture(serverScrollArea, QScroller::TouchGesture);
-    serverScrollArea->setFixedWidth(468);
+    serverScrollArea->setFixedWidth(kScrollAreaWidth);
 
-    m_compLayout = new QVBoxLayout;
+    m_componentLayout = new QVBoxLayout;
+    m_componentLayout->setSpacing(1);
+    m_componentLayout->setMargin(0);
+
     QWidget *compWdg = new QWidget;
-    compWdg->setLayout(m_compLayout);
+    compWdg->setLayout(m_componentLayout);
 
     QScrollArea* compScrollArea = new QScrollArea;
     compScrollArea->setWidget(compWdg);
@@ -102,41 +118,42 @@ void SelectInstallComponentFrame::initUI()
     compScrollArea->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     compScrollArea->setStyleSheet("background: transparent;");
     QScroller::grabGesture(compScrollArea, QScroller::TouchGesture);
-    compScrollArea->setFixedWidth(468);
-
-    m_backButton = new NavButton(tr("Back"));
-    m_backButton->setEnabled(true);
+    compScrollArea->setFixedWidth(kScrollAreaWidth);
 
     m_nextButton = new NavButton(tr("Next"));
-    m_nextButton->setEnabled(true);
+    m_nextButton->setEnabled(false);
 
     QVBoxLayout* serverTypeLayout = new QVBoxLayout;
-    serverTypeLayout->setContentsMargins(0, 0, 0, 0);
+    serverTypeLayout->setMargin(0);
+    serverTypeLayout->setSpacing(0);
     serverTypeLayout->addWidget(serverTypeLabel);
     serverTypeLayout->addSpacing(20);
     serverTypeLayout->addWidget(serverScrollArea);
 
     QVBoxLayout* componentLayout = new QVBoxLayout;
+    componentLayout->setMargin(0);
+    componentLayout->setSpacing(0);
     componentLayout->setContentsMargins(0, 0, 0, 0);
     componentLayout->addWidget(componentLabel);
     componentLayout->addSpacing(20);
     componentLayout->addWidget(compScrollArea);
 
     QHBoxLayout* hLayout = new QHBoxLayout;
-    hLayout->setContentsMargins(0, 0, 0, 0);
+    hLayout->setMargin(0);
+    hLayout->setSpacing(0);
     hLayout->addStretch();
     hLayout->addLayout(serverTypeLayout);
-    hLayout->addSpacing(2);
+    hLayout->addSpacing(1);
     hLayout->addLayout(componentLayout);
     hLayout->addStretch();
 
     QVBoxLayout* mainLayout = new QVBoxLayout;
+    mainLayout->setSpacing(0);
+    mainLayout->setMargin(0);
     mainLayout->addWidget(selectPageLabel, 0, Qt::AlignCenter);
     mainLayout->addSpacing(50);
     mainLayout->addLayout(hLayout);
-    mainLayout->addSpacing(40);
-    mainLayout->addWidget(m_backButton, 0, Qt::AlignCenter);
-    mainLayout->addSpacing(20);
+    mainLayout->addSpacing(60);
     mainLayout->addWidget(m_nextButton, 0, Qt::AlignCenter);
 
     setLayout(mainLayout);
@@ -152,6 +169,7 @@ void SelectInstallComponentFrame::initConnections()
 void SelectInstallComponentFrame::onServerTypeClicked()
 {
     ComponentWidget* componentWidget = qobject_cast<ComponentWidget*>(sender());
+    m_nextButton->setEnabled(componentWidget->isSelected());
 
     if(componentWidget == m_currentComponentWidget){
         return;
@@ -166,27 +184,37 @@ void SelectInstallComponentFrame::onServerTypeClicked()
     QSharedPointer<ComponentStruct> compStruct = m_componentStructMap[componentWidget];
     QList<QSharedPointer<ComponentInfo>> extra = compStruct->extra();
 
-    QLayoutItem *item;
-    while((item = m_compLayout->takeAt(0)) != nullptr){
-        m_compLayout->removeItem(item);
-        item->widget()->deleteLater();
-        delete item;
+    clearComponentLayout();
+    m_componentInfoMap.clear();
+
+    if (extra.isEmpty()) {
+        return;
     }
 
-    m_componentInfoMap.clear();
+    QList<ComponentWidget*> componentWidgetList;
     for (auto it = extra.cbegin(); it != extra.cend(); ++it) {
         QString id = it->get()->Id;
         ComponentWidget* compWdg = new ComponentWidget(false);
         compWdg->setTitle(id);
         compWdg->setDesc(id.append("desc"));
-        m_compLayout->addWidget(compWdg, 0, Qt::AlignCenter);
+
+        m_componentLayout->addWidget(compWdg);
+
         m_componentInfoMap[compWdg] = *it;
 
         connect(compWdg, &ComponentWidget::clicked, this
                 , &SelectInstallComponentFrame::onComponentClicked);
+
+        componentWidgetList << compWdg;
     }
 
-    m_compLayout->addStretch();
+    m_componentLayout->addStretch();
+
+    ComponentWidget* first = componentWidgetList.first();
+    ComponentWidget* last = componentWidgetList.last();
+
+    first->setIsHead(true);
+    last->setIsTail(true);
 }
 
 void SelectInstallComponentFrame::onComponentClicked()
@@ -194,6 +222,16 @@ void SelectInstallComponentFrame::onComponentClicked()
     QSharedPointer<ComponentInfo> compInfo = m_componentInfoMap[qobject_cast<ComponentWidget*>(sender())];
     ComponentInstallManager* manager = ComponentInstallManager::Instance();
     manager->setComponentSelected(compInfo, !compInfo->isSelected());
+}
+
+void SelectInstallComponentFrame::clearComponentLayout()
+{
+    QLayoutItem *item;
+    while((item = m_componentLayout->takeAt(0)) != nullptr){
+        m_componentLayout->removeItem(item);
+        item->widget()->deleteLater();
+        delete item;
+    }
 }
 
 }

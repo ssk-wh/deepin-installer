@@ -1,0 +1,122 @@
+/** Used in SelectLanguageFrame class **/
+
+QLabel#serverTypeLabel,
+QLabel#componentLabel {
+  color: #ffffff;
+  font-size: 14pt;
+}
+
+QLabel#titleLabel {
+  color: #ffffff;
+  font-size: 14px;
+  text-align: center;
+}
+
+QLabel#descLabel {
+  color: #ffffff;
+  font-size: 12px;
+  text-align: center;
+}
+
+QCheckBox {
+  color: white;
+  background: transparent;
+}
+
+QCheckBox::indicator {
+  width: 16px;
+  height: 16px;
+}
+
+QCheckBox::indicator:unchecked {
+  image: url(":/images/checkbox_unchecked.svg");
+}
+
+QCheckBox::indicator:unchecked:hover {
+  image: url(":/images/checkbox_unchecked_hover.svg");
+}
+
+QCheckBox::indicator:unchecked:pressed {
+  image: url(":/images/checkbox_unchecked_pressed.svg");
+}
+
+QCheckBox::indicator:checked {
+  image: url(":/images/checkbox_checked.svg");
+}
+
+QCheckBox::indicator:checked:hover {
+  image: url(":/images/checkbox_checked_hover.svg");
+}
+
+QCheckBox::indicator:checked:pressed {
+  image: url(":/images/checkbox_checked_pressed.svg");
+}
+
+QScrollBar:vertical
+{
+    width:8px;
+    background:rgba(0,0,0,0%);
+    margin:0px,0px,0px,0px;
+    padding-top:9px;
+    padding-bottom:9px;
+}
+QScrollBar::handle:vertical
+{
+    width:8px;
+    background:rgba(0,0,0,25%);
+    border-radius:4px;
+    min-height:20;
+}
+QScrollBar::handle:vertical:hover
+{
+    width:8px;
+    background:rgba(0,0,0,50%);
+    border-radius:4px;
+    min-height:20;
+}
+
+QScrollBar::add-line:vertical {
+    border: 0px;
+    width: 0px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical {
+    border: 0px;
+    width: 0px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+
+#serverScrollArea {
+    background: rgba(255, 255, 255, 25.5);
+}
+
+ComponentWidget {
+  background: rgba(255, 255, 255, 0.16);
+  height: 40px;
+  padding: 0px 15px 0px 27px;
+  margin: 0px;
+  outline: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+  selection-background-color: rgba(255, 255, 255, 0.3);
+}
+
+ComponentWidget::hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+ComponentWidget::focus {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/*QWidget:selected {
+  background: rgba(255, 255, 255, 0.3);
+}*/
+
+QWidget#serverWdg {
+    background: transparent;
+}
+
