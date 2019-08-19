@@ -1,0 +1,164 @@
+{
+  "minimal-install": {
+    "default": [
+      "core"
+    ],
+    "choice": [
+      "debugging-tools"
+    ]
+  },
+  "compute-node": {
+    "default": [
+      "base",
+      "core"
+    ],
+    "choice": [
+      "debugging-tools",
+      "directory-client",
+      "guest-agents",
+      "hardware-monitoring",
+      "infiniband",
+      "network-file-system-client",
+      "performance",
+      "remote-system-management"
+    ]
+  },
+  "infrastructure-server": {
+    "default": [
+      "base",
+      "core"
+    ],
+    "choice": [
+      "backup-server",
+      "debugging-tools",
+      "directory-client",
+      "directory-server",
+      "dns-server",
+      "file-server",
+      "ftp-server",
+      "guest-agents",
+      "ha",
+      "hardware-monitoring",
+      "identity-management-server",
+      "infiniband",
+      "java-platform",
+      "large-systems",
+      "load-balancer",
+      "mail-server",
+      "mariadb",
+      "network-file-system-client",
+      "performance",
+      "postgresql",
+      "print-server",
+      "remote-system-management",
+      "resilient-storage",
+      "virtualization-hypervisor"
+    ]
+  },
+  "file-and-print-server": {
+    "default": [
+      "base",
+      "core",
+      "file-server",
+      "print-server"
+    ],
+    "choice": [
+      "backup-client",
+      "backup-server",
+      "debugging-tools",
+      "directory-client",
+      "guest-agents",
+      "ha",
+      "hardware-monitoring",
+      "java-platform",
+      "large-systems",
+      "network-file-system-client",
+      "performance",
+      "remote-system-management",
+      "resilient-storage"
+    ]
+  },
+  "basic-web-server": {
+    "default": [
+      "base",
+      "core",
+      "web-server"
+    ],
+    "choice": [
+      "backup-client",
+      "debugging-tools",
+      "directory-client",
+      "guest-agents",
+      "hardware-monitoring",
+      "java-platform",
+      "large-systems",
+      "load-balancer",
+      "mariadb-client",
+      "network-file-system-client",
+      "performance",
+      "perl-web",
+      "php",
+      "postgresql-client",
+      "python-web",
+      "remote-system-management",
+      "web-servlet"
+    ]
+  },
+  "virtualization-host": {
+    "default": [
+      "base",
+      "core",
+      "virtualization-hypervisor",
+      "virtualization-tools"
+    ],
+    "choice": [
+      "debugging-tools",
+      "network-file-system-client",
+      "remote-system-management",
+      "virtualization-platform"
+    ]
+  },
+  "server-with-gui": {
+    "default": [
+      "base",
+      "core",
+      "dde"
+    ],
+    "choice": [
+      "deepin"
+    ]
+  },
+  "development-and-creative-workstation": {
+    "default": [
+      "base",
+      "core",
+      "debugging-tools",
+      "desktop-debugging-tools",
+      "dial-up",
+      "directory-client",
+      "fonts",
+      "print-client"
+    ],
+    "choice": [
+      "backup-client",
+      "dns-server",
+      "file-server",
+      "dns-server",
+      "ftp-server",
+      "php",
+      "dde",
+      "perl-web",
+      "mail-server"
+    ]
+  },
+  "dde-desktop": {
+    "default": [
+      "base",
+      "core",
+      "dde"
+    ],
+    "choice": [
+      "deepin"
+    ]
+  }
+}

@@ -58,6 +58,9 @@ const char kDefaultWallpaperFile[] = RESOURCES_DIR "/default_wallpaper.jpg";
 // File name of installer wallpaper.
 const char kOemWallpaperFilename[] = "installer-background.jpg";
 
+const char kComponentDefaultFile[] = RESOURCES_DIR "/packages_default.json";
+const char kComponentExtraFile[] = RESOURCES_DIR "/packages_choice.json";
+
 // File name of auto partition script.
 const char kAutoPartFile[] = "auto_part.sh";
 // File name of architecture specific of auto partition script.
@@ -257,6 +260,24 @@ QString GetWindowBackground() {
 
 QByteArray GetFullDiskInstallPolicy() {
     QFile file(kDefaultFullInstallFile);
+    if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
+        return file.readAll();
+    }
+
+    return "";
+}
+
+QString GetComponentDefault() {
+    QFile file(kComponentDefaultFile);
+    if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
+        return file.readAll();
+    }
+
+    return "";
+}
+
+QString GetComponentExtra() {
+    QFile file(kComponentExtraFile);
     if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
         return file.readAll();
     }

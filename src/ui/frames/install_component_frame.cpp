@@ -220,8 +220,7 @@ void SelectInstallComponentFrame::onServerTypeClicked()
 void SelectInstallComponentFrame::onComponentClicked()
 {
     QSharedPointer<ComponentInfo> compInfo = m_componentInfoMap[qobject_cast<ComponentWidget*>(sender())];
-    ComponentInstallManager* manager = ComponentInstallManager::Instance();
-    manager->setComponentSelected(compInfo, !compInfo->isSelected());
+    compInfo->Selected = !compInfo->Selected;
 }
 
 void SelectInstallComponentFrame::clearComponentLayout()

@@ -20,6 +20,8 @@
  */
 
 #include "componentinstallmanager.h"
+#include "service/settings_manager.h"
+#include "service/settings_name.h"
 
 #include <QDebug>
 
@@ -40,15 +42,14 @@ QSharedPointer<ComponentStruct> ComponentInstallManager::findComponentById(const
 
 ComponentInstallManager::ComponentInstallManager(QObject *parent) : QObject(parent)
 {
-#ifdef QT_DEBUG
-    QJsonDocument doc = QJsonDocument::fromJson("{\"最小系统\":{\"default\":[\"a\"],\"extra\":[\"1\",\"2\"]},\"计算机节点\":{\"default\":[\"b\"],\"extra\":[\"2\",\"1\"]},\"基础设施服务器\":{\"default\":[\"c\"],\"extra\":[\"1\",\"2\",\"3,\"]},\"文件及打印服务器\":{\"default\":[\"d\"],\"extra\":[\"1\",\"3\"]},\"基本网页服务器\":{\"default\":[\"e\"],\"extra\":[\"4\",\"1\"]},\"虚拟化主机\":{\"default\":[\"f\"],\"extra\":[\"1\",\"2\"]},\"带GUI的服务器\":{\"default\":[\"f\"],\"extra\":[\"3\",\"2\"]},\"DDE桌面\":{\"default\":[\"a\"],\"extra\":[\"4\",\"1\"]},\"开发及生成工作站\":{\"default\":[\"e\"],\"extra\":[\"1\",\"3\"]}}");
+    QJsonDocument doc = QJsonDocument::fromJson(GetComponentDefault().toUtf8());
     QJsonObject obj = doc.object();
     for (auto it = obj.begin(); it != obj.end(); ++it) {
         QSharedPointer<ComponentStruct> component(new ComponentStruct(it.key(), it.value().toObject()));
         m_list << component;
     }
 
-    QJsonDocument packageDoc = QJsonDocument::fromJson("{\"a\":[\"gdb\",\"g++\"],\"b\":[\"test\"],\"c\":[\"t1\"],\"d\":[\"td\"],\"e\":[\"te\"],\"f\":[\"hdasd\",\"12354124\"],\"1\":[\"gdb\"],\"2\":[\"g++\",\"dd\"],\"3\":[\"gcc\",\"clang\"],\"4\":[\"123\",\"5234\",\"1243\",\"qaz\"],\"5\":[\"jhbg\",\"ikjhgf\"],\"6\":[\"45rtfg\",\"89uiytgf\"],\"7\":[\"123\"]}");
+    QJsonDocument packageDoc = QJsonDocument::fromJson(GetComponentExtra().toUtf8());
     obj = packageDoc.object();
 
     for (auto it = obj.begin(); it != obj.end(); ++it) {
@@ -60,13 +61,6 @@ ComponentInstallManager::ComponentInstallManager(QObject *parent) : QObject(pare
 
         m_packageList << info;
     }
-
-    for (auto it = m_list.cbegin(); it != m_list.cend(); ++it) {
-        qDebug() << it->get()->id();
-        qDebug() << packageListByComponentStruct(*it);
-        qDebug() << ">>>>>>>>>>>>>>>>>>>>>>>>>>";
-    }
-#endif
 }
 
 QStringList ComponentInstallManager::packageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const {
@@ -85,10 +79,4 @@ QStringList ComponentInstallManager::packageListByComponentStruct(QSharedPointer
 
     return QStringList() << integrateList(componentStruct->defaultValue())
                          << integrateList(componentStruct->extra());
-}
-
-void ComponentInstallManager::setComponentSelected(QSharedPointer<ComponentInfo> info,
-                                                   bool                          selected)
-{
-    info->IsSelected = selected;
 }

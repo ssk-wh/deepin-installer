@@ -30,18 +30,10 @@
 #include <QJsonObject>
 
 namespace installer {
-    class ComponentInfo {
-    friend class ComponentInstallManager;
-    public:
-        QString Id;
+    struct ComponentInfo {
+        bool        Selected = false;
+        QString     Id;
         QStringList PackageList;
-
-        bool isSelected() const {
-            return IsSelected;
-        }
-
-    private:
-        bool IsSelected = false;
     };
 
     class ComponentStruct {
@@ -54,7 +46,7 @@ namespace installer {
                 m_default.last()->Id = value.toString();
             }
 
-            for (QJsonValue value : obj["extra"].toArray()) {
+            for (QJsonValue value : obj["choice"].toArray()) {
                 m_extra << QSharedPointer<ComponentInfo>(new ComponentInfo);
                 m_extra.last()->Id = value.toString();
             }
@@ -98,8 +90,6 @@ public:
     }
 
     QStringList packageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const;
-
-    void setComponentSelected(QSharedPointer<ComponentInfo> info, bool selected);
 
 private:
     explicit ComponentInstallManager(QObject *parent = nullptr);
