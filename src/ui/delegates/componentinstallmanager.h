@@ -41,14 +41,22 @@ namespace installer {
         ComponentStruct(const QString& id, const QJsonObject& obj)
             : m_id(id)
         {
-            for (QJsonValue value : obj["default"].toArray()) {
+            QJsonArray array = obj["default"].toArray();
+            for (QJsonValue value : array) {
                 m_default << QSharedPointer<ComponentInfo>(new ComponentInfo);
                 m_default.last()->Id = value.toString();
             }
 
-            for (QJsonValue value : obj["choice"].toArray()) {
+            array = obj["choice"].toArray();
+            for (QJsonValue value : array) {
                 m_extra << QSharedPointer<ComponentInfo>(new ComponentInfo);
                 m_extra.last()->Id = value.toString();
+            }
+
+            array = obj["uninstall"].toArray();
+            for (QJsonValue value : array) {
+                m_uninstall << QSharedPointer<ComponentInfo>(new ComponentInfo);
+                m_uninstall.last()->Id = value.toString();
             }
         }
 
@@ -65,10 +73,15 @@ namespace installer {
             return m_extra;
         }
 
+        inline QList<QSharedPointer<ComponentInfo>> uninstall() const {
+            return m_uninstall;
+        }
+
     private:
         QString m_id;
         QList<QSharedPointer<ComponentInfo>> m_default;
         QList<QSharedPointer<ComponentInfo>> m_extra;
+        QList<QSharedPointer<ComponentInfo>> m_uninstall;
     };
 }
 
@@ -90,6 +103,7 @@ public:
     }
 
     QStringList packageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const;
+    QStringList uninstallPackageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const;
 
 private:
     explicit ComponentInstallManager(QObject *parent = nullptr);

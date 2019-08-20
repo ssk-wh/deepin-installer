@@ -81,3 +81,19 @@ QStringList ComponentInstallManager::packageListByComponentStruct(QSharedPointer
     return QStringList() << integrateList(componentStruct->defaultValue())
                          << integrateList(componentStruct->extra());
 }
+
+QStringList ComponentInstallManager::uninstallPackageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const {
+    QStringList list;
+    QList<QSharedPointer<ComponentInfo>> uninstallList = componentStruct->uninstall();
+
+    for (QSharedPointer<ComponentInfo> info : uninstallList) {
+        for (QSharedPointer<ComponentInfo> i : m_packageList) {
+            if (info->Id == i->Id) {
+                list << i->PackageList;
+                break;
+            }
+        }
+    }
+
+    return list;
+}

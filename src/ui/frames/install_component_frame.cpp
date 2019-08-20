@@ -40,6 +40,11 @@ void SelectInstallComponentFrame::writeConf()
     WriteComponentPackages(QString("\"%1\"").arg(
         ComponentInstallManager::Instance()->packageListByComponentStruct(current).join(
             " ")));
+
+    WriteComponentUninstallPackages(
+        QString("\"%1\"").arg(ComponentInstallManager::Instance()
+                                  ->uninstallPackageListByComponentStruct(current)
+                                  .join(" ")));
 }
 
 void SelectInstallComponentFrame::initUI()

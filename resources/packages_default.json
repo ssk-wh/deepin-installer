@@ -1,36 +1,39 @@
 {
-  "minimal-install": {
-    "default": [
-      "core"
-    ],
-    "choice": [
-      "debugging-tools"
-    ]
-  },
-  "compute-node": {
-    "default": [
+    "minimal-install": {
+      "default":[
+        "core"
+      ],
+      "uninstall":[
+        "uninstall-lightdm"
+      ],
+      "choice":[
+      "debugging"
+      ]
+    },
+    "compute-node":{
+      "default":[
       "base",
       "core"
     ],
-    "choice": [
-      "debugging-tools",
-      "directory-client",
-      "guest-agents",
-      "hardware-monitoring",
-      "infiniband",
-      "network-file-system-client",
-      "performance",
-      "remote-system-management"
+    "choice":[
+     "debugging",
+     "directory-client",
+     "guest-agents",
+     "hardware-monitoring",
+     "infiniband",
+     "network-file-system-client",
+     "performance",
+     "remote-system-management"
     ]
-  },
-  "infrastructure-server": {
-    "default": [
+    },
+    "infrastructure-server":{
+     "default":[
       "base",
       "core"
     ],
-    "choice": [
+     "choice":[
       "backup-server",
-      "debugging-tools",
+      "debugging",
       "directory-client",
       "directory-server",
       "dns-server",
@@ -54,18 +57,18 @@
       "resilient-storage",
       "virtualization-hypervisor"
     ]
-  },
-  "file-and-print-server": {
-    "default": [
+    },
+    "file-and-print-server":{
+     "default":[
       "base",
       "core",
       "file-server",
       "print-server"
     ],
-    "choice": [
+     "choice":[
       "backup-client",
       "backup-server",
-      "debugging-tools",
+      "debugging",
       "directory-client",
       "guest-agents",
       "ha",
@@ -77,16 +80,16 @@
       "remote-system-management",
       "resilient-storage"
     ]
-  },
-  "basic-web-server": {
-    "default": [
+    },
+    "basic-web-server":{
+      "default":[
       "base",
       "core",
       "web-server"
     ],
-    "choice": [
+    "choice":[
       "backup-client",
-      "debugging-tools",
+      "debugging",
       "directory-client",
       "guest-agents",
       "hardware-monitoring",
@@ -103,43 +106,43 @@
       "remote-system-management",
       "web-servlet"
     ]
-  },
-  "virtualization-host": {
-    "default": [
+    },
+    "virtualization-host":{
+     "default":[
       "base",
       "core",
       "virtualization-hypervisor",
       "virtualization-tools"
     ],
-    "choice": [
-      "debugging-tools",
+     "choice":[
+      "debugging",
       "network-file-system-client",
       "remote-system-management",
       "virtualization-platform"
     ]
-  },
-  "server-with-gui": {
-    "default": [
+    },
+    "server-with-gui":{
+     "default":[
       "base",
       "core",
       "dde"
     ],
-    "choice": [
+     "choice":[
       "deepin"
     ]
-  },
-  "development-and-creative-workstation": {
-    "default": [
+    },
+    "development-and-creative-workstation":{
+     "default":[
       "base",
       "core",
-      "debugging-tools",
-      "desktop-debugging-tools",
+      "debugging",
+      "desktop-debugging",
       "dial-up",
       "directory-client",
       "fonts",
       "print-client"
     ],
-    "choice": [
+     "choice":[
       "backup-client",
       "dns-server",
       "file-server",
@@ -150,15 +153,15 @@
       "perl-web",
       "mail-server"
     ]
-  },
-  "dde-desktop": {
-    "default": [
-      "base",
-      "core",
-      "dde"
-    ],
-    "choice": [
-      "deepin"
-    ]
-  }
+    },
+    "dde-desktop": {
+      "default": [
+        "base",
+        "core",
+        "dde"
+      ],
+      "choice": [
+        "deepin"
+      ]
+    }
 }

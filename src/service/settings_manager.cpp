@@ -460,4 +460,9 @@ void WriteComponentPackages(const QString &packages)
     AppendToConfigFile("DI_COMPONENT_PACKAGES", packages);
 }
 
+void WriteComponentUninstallPackages(const QString& packages)
+{
+    AppendToConfigFile("DI_COMPONENT_UNINSTALL", packages);
+}
+
 }  // namespace installer

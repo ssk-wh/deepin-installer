@@ -492,5 +492,10 @@
       "fcitx-chewing",
       "fcitx-table-cangjie-big",
       "fcitx-ui-classic"
+    ],
+     "uninstall-lightdm":[
+      "lightdm",
+      "lightdm-gtk-greeter",
+      "liblightdm-gobject-1-0"
     ]
 }
