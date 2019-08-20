@@ -110,6 +110,7 @@ def main():
         ("system_info_password_strong_check", "false"),
         ("apt_source_deb", '"deb http://packages.deepin.com/deepin camel main contrib non-free"'),
         ("apt_source_deb_src", '"#deb-src http://packages.deepin.com/deepin camel main contrib non-free"'),
+        ("skip_select_component_page", "false"),
     )
 
     update_settings(arm_file, arm_settings)
