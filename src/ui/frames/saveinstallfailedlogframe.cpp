@@ -109,7 +109,7 @@ SaveInstallFailedLogFrame::SaveInstallFailedLogFrame(QWidget *parent) : QWidget(
     connect(m_saveBtn, &NavButton::clicked, this, &SaveInstallFailedLogFrame::saveLog);
 
     m_diskManager = new DDiskManager;
-    startDeviceWatch(false);
+    m_diskManager->setWatchChanges(false);
     connect(m_diskManager, &DDiskManager::blockDeviceAdded, this, &SaveInstallFailedLogFrame::onBlockDeviceAdded);
     connect(m_diskManager, &DDiskManager::blockDeviceRemoved, this, &SaveInstallFailedLogFrame::onBlockDeviceRemoved);
     connect(m_diskManager, &DDiskManager::diskDeviceRemoved, this, &SaveInstallFailedLogFrame::onDeviceRemoved);

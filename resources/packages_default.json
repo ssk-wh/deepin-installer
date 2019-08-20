@@ -7,7 +7,7 @@
         "uninstall-lightdm"
       ],
       "choice":[
-      "debugging"
+      "debugging-tools"
       ]
     },
     "compute-node":{
@@ -16,7 +16,7 @@
       "core"
     ],
     "choice":[
-     "debugging",
+     "debugging-tools",
      "directory-client",
      "guest-agents",
      "hardware-monitoring",
@@ -33,7 +33,7 @@
     ],
      "choice":[
       "backup-server",
-      "debugging",
+      "debugging-tools",
       "directory-client",
       "directory-server",
       "dns-server",
@@ -68,7 +68,7 @@
      "choice":[
       "backup-client",
       "backup-server",
-      "debugging",
+      "debugging-tools",
       "directory-client",
       "guest-agents",
       "ha",
@@ -89,7 +89,7 @@
     ],
     "choice":[
       "backup-client",
-      "debugging",
+      "debugging-tools",
       "directory-client",
       "guest-agents",
       "hardware-monitoring",
@@ -115,7 +115,7 @@
       "virtualization-tools"
     ],
      "choice":[
-      "debugging",
+      "debugging-tools",
       "network-file-system-client",
       "remote-system-management",
       "virtualization-platform"
@@ -135,8 +135,8 @@
      "default":[
       "base",
       "core",
-      "debugging",
-      "desktop-debugging",
+      "debugging-tools",
+      "desktop-debugging-tools",
       "dial-up",
       "directory-client",
       "fonts",
