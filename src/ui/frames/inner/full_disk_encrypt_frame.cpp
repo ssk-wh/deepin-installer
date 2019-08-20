@@ -11,6 +11,8 @@
 #include "../../widgets/system_info_tip.h"
 #include "ui/delegates/partition_util.h"
 #include "ui/utils/keyboardmonitor.h"
+#include "../../widgets/full_disk_partition_colorbar.h"
+#include "ui/delegates/full_disk_delegate.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -22,7 +24,7 @@ using namespace installer;
 
 const int kProgressBarWidth = 280;
 
-Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(QWidget *parent)
+Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate , QWidget *parent)
     : QWidget(parent)
     , m_device(nullptr)
     , m_layout(new QVBoxLayout(this))
@@ -71,7 +73,8 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(QWidget *parent)
     diskInfoLayout->addWidget(m_deviceModelLbl, 0, Qt::AlignHCenter);
     diskInfoLayout->addSpacing(6);
     diskInfoLayout->addWidget(m_deviceSizeLbl, 0, Qt::AlignHCenter);
-
+    this->m_diskPartitionWidget = new FullDiskPartitionWidget();
+    diskInfoLayout->addWidget(this->m_diskPartitionWidget, 0,Qt::AlignHCenter);
     m_layout->addLayout(diskInfoLayout);
 
     // add round progress bar
@@ -130,6 +133,7 @@ void Full_Disk_Encrypt_frame::setDevice(const Device::Ptr device)
     m_devicePathLbl->setText(device->path);
     m_deviceModelLbl->setText(device->model);
     m_deviceSizeLbl->setText(QString("%1 GB").arg(ToGigByte(device->getByteLength())));
+    this->m_diskPartitionWidget->setDevice( this->m_diskPartitionDelegate->fullInstallScheme( device )  );
 }
 
 void Full_Disk_Encrypt_frame::changeEvent(QEvent *event)

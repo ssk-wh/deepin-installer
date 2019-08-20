@@ -15,11 +15,14 @@ class NavButton;
 class LineEdit;
 class TitleLabel;
 class SystemInfoTip;
+class FullDiskPartitionWidget;
+class FullDiskDelegate;
+
 class Full_Disk_Encrypt_frame : public QWidget
 {
     Q_OBJECT
 public:
-    explicit Full_Disk_Encrypt_frame(QWidget *parent = nullptr);
+    explicit Full_Disk_Encrypt_frame(FullDiskDelegate * delegate , QWidget *parent = nullptr);
 
     void setDevice(const Device::Ptr device);
 
@@ -53,6 +56,9 @@ private:
     NavButton *m_nextBtn;
     SystemInfoTip *m_errTip;
     QList<LineEdit*> m_editList;
+    FullDiskPartitionWidget *m_diskPartitionWidget;
+    FullDiskDelegate        *m_diskPartitionDelegate;
+
 };
 }
 
