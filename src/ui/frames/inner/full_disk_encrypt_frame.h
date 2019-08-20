@@ -22,9 +22,9 @@ class Full_Disk_Encrypt_frame : public QWidget
 {
     Q_OBJECT
 public:
-    explicit Full_Disk_Encrypt_frame(FullDiskDelegate * delegate , QWidget *parent = nullptr);
+    explicit Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QWidget *parent = nullptr);
 
-    void setDevice(const Device::Ptr device);
+    void setDevice(Device::Ptr device);
 
 signals:
     void cancel();
@@ -57,7 +57,7 @@ private:
     SystemInfoTip *m_errTip;
     QList<LineEdit*> m_editList;
     FullDiskPartitionWidget *m_diskPartitionWidget;
-    FullDiskDelegate        *m_diskPartitionDelegate;
+    FullDiskDelegate *m_diskPartitionDelegate;
 
 };
 }

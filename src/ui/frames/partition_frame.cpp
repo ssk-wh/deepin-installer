@@ -230,7 +230,7 @@ void PartitionFrame::initUI() {
   simple_partition_frame_ =
       new SimplePartitionFrame(simple_partition_delegate_, this);
 
-  full_disk_encrypt_frame_ = new Full_Disk_Encrypt_frame(full_disk_delegate_ , this);
+  full_disk_encrypt_frame_ = new Full_Disk_Encrypt_frame(full_disk_delegate_, this);
 
   dynamic_disk_warning_frame_ = new DynamicDiskWarningFrame(this);
 
