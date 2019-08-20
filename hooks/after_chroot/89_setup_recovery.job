@@ -17,10 +17,10 @@
 #
 # set recovery partition
 
-DI_ROOT_PARTITION=$(installer_get "DI_ROOT_PARTITION")
+DI_RECOVERY_PATH=$(installer_get "DI_RECOVERY_PATH")
 
-if [ -z ${DI_ROOT_PARTITION} ];then
+if [ -z ${DI_RECOVERY_PATH} ];then
     return 0
 fi
 
-return deepin-clone ${DI_ROOT_PARTITION} /mnt/backup.dim
+return deepin-clone ${DI_RECOVERY_PATH} /mnt/backup.dim
