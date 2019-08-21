@@ -37,14 +37,19 @@ void SelectInstallComponentFrame::writeConf()
     QSharedPointer<ComponentStruct> current =
         m_componentStructMap[m_currentComponentWidget];
 
-    WriteComponentPackages(QString("\"%1\"").arg(
-        ComponentInstallManager::Instance()->packageListByComponentStruct(current).join(
-            " ")));
+    const QStringList installPackages =
+        ComponentInstallManager::Instance()->packageListByComponentStruct(current);
 
-    WriteComponentUninstallPackages(
-        QString("\"%1\"").arg(ComponentInstallManager::Instance()
-                                  ->uninstallPackageListByComponentStruct(current)
-                                  .join(" ")));
+    if (!installPackages.isEmpty()) {
+        WriteComponentPackages(QString("\"%1\"").arg(installPackages.join(" ")));
+    }
+
+    const QStringList uninstallPackages =
+        ComponentInstallManager::Instance()->uninstallPackageListByComponentStruct(
+            current);
+    if (!uninstallPackages.isEmpty()) {
+        WriteComponentUninstallPackages(QString("'%1'").arg(uninstallPackages.join(" ")));
+    }
 }
 
 void SelectInstallComponentFrame::initUI()
