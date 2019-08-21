@@ -41,14 +41,14 @@ void SelectInstallComponentFrame::writeConf()
         ComponentInstallManager::Instance()->packageListByComponentStruct(current);
 
     if (!installPackages.isEmpty()) {
-        WriteComponentPackages(QString("\"%1\"").arg(installPackages.join(" ")));
+        WriteComponentPackages(installPackages.join(" "));
     }
 
     const QStringList uninstallPackages =
         ComponentInstallManager::Instance()->uninstallPackageListByComponentStruct(
             current);
     if (!uninstallPackages.isEmpty()) {
-        WriteComponentUninstallPackages(QString("'%1'").arg(uninstallPackages.join(" ")));
+        WriteComponentUninstallPackages(uninstallPackages.join(" "));
     }
 }
 
