@@ -22,8 +22,8 @@
       "libtool",
       "make",
       "patch",
-      "pkgconfig",
-      "debuild",
+      "pkgconf",
+      "devscripts",
       "byacc",
       "cscope",
       "diffstat",
@@ -39,7 +39,6 @@
       "systemtap",
       "electric-fence",
       "ant",
-      "babel-1.4.0",
       "bzr",
       "chrpath",
       "cmake",
@@ -68,7 +67,6 @@
     "debugging-tools":[
       "gdb",
       "kexec-tools",
-      "latrace",
       "strace",
       "systemtap-runtime",
       "crash",
@@ -86,7 +84,7 @@
       "iotop",
       "latencytop",
       "pcp",
-      "perf",
+      "performous-tools",
       "procps",
       "fio",
       "hdparm",
@@ -113,11 +111,9 @@
       "snapper",
       "symlinks",
       "tree",
-      "system-storage-manager",
       "xdelta"
     ],
      "hardware-monitoring":[
-      "mcelog",
       "rasdaemon",
       "smartmontools",
       "edac-utils",
@@ -192,7 +188,6 @@
      "pr3287"
     ],
      "infiniband":[
-     "libibcm1",
      "libibverbs1",
      "ibverbs-utils",
      "librdmacm1",
@@ -233,9 +228,6 @@
     ],
      "identity-management-server":[
      "389-ds-base",
-     "freeipa-server",
-     "freeipa-server-dns",
-     "freeipa-server-trust-ad",
      "slapi-nis"
     ],
      "directory-client":[
@@ -359,7 +351,6 @@
      "network-manager-integration-plugins"
     ],
      "deepin":[
-     "deepin-introduction",
      "deepin-appstore",
      "deepin-editor",
      "deepin-shortcut-viewer",
@@ -376,14 +367,13 @@
      "empathy",
      "evolution",
      "evolution-ews",
-     "evolution-mapi",
      "pidgin",
      "pidgin-sipe",
      "thunderbird",
      "xchat"
     ],
      "web-servlet":[
-     "tomacat9",
+     "tomcat9",
      "tomcat9-admin",
      "tomcat9-examples"
     ],
@@ -402,7 +392,7 @@
      "libreoffice-wiki-publisher"
     ],
      "additional-devel":[
-     "pyqtt-dev",
+     "pyqt5-dev",
      "libsdl2-dev",
      "libalsa-ocaml-dev",
      "binutils-dev",
@@ -421,7 +411,7 @@
      "elpa-php-mode"
     ],
      "graphics":[
-     "gmip",
+     "gimp",
      "gimp-data-extras",
      "gimp-help-en",
      "gimp-gutenprint",
@@ -438,7 +428,7 @@
      "libudev-dev",
      "libxrender-dev",
      "libqt5svg5-dev",
-     "x11proto-xext-dcev",
+     "x11proto-xext-dev",
      "libqt5x11extras5-dev",
      "libfreetype6-dev",
      "libglib2.0-dev",
@@ -459,7 +449,7 @@
       "fcitx",
       "fcitx-config-gtk",
       "fcitx-frontend-gtk2",
-      "fcitx-forntend-gtk3",
+      "fcitx-frontend-gtk3",
       "fcitx-frontend-qt4",
       "fcitx-frontend-qt5",
       "fcitx-modules",
