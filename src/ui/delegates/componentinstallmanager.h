@@ -105,6 +105,8 @@ public:
     QStringList packageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const;
     QStringList uninstallPackageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const;
 
+    QSharedPointer<ComponentStruct> loadStructForLanguage(const QString& lang) const;
+
 private:
     explicit ComponentInstallManager(QObject *parent = nullptr);
     ComponentInstallManager(const ComponentInstallManager& manager) = delete;
@@ -113,6 +115,7 @@ private:
 private:
     QList<QSharedPointer<ComponentStruct>> m_list;
     QList<QSharedPointer<ComponentInfo>> m_packageList;
+    mutable QMap<QString, QSharedPointer<ComponentStruct>> m_langStruct;
 };
 }
 

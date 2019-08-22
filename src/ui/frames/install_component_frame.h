@@ -26,6 +26,9 @@ public:
 signals:
     void finished();
 
+protected:
+    bool event(QEvent* event) override;
+
 private:
     void initUI();
     void initConnections();

@@ -11,6 +11,7 @@
 #include <QScrollArea>
 #include <QScrollBar>
 #include <QScroller>
+#include <QEvent>
 
 namespace installer {
 
@@ -50,6 +51,27 @@ void SelectInstallComponentFrame::writeConf()
     if (!uninstallPackages.isEmpty()) {
         WriteComponentUninstallPackages(uninstallPackages.join(" "));
     }
+}
+
+bool SelectInstallComponentFrame::event(QEvent* event) {
+    if (event->type() == QEvent::LanguageChange) {
+        // Write about language
+        QSharedPointer<ComponentStruct> component = ComponentInstallManager::Instance()->loadStructForLanguage("");
+        if (component.isNull()) {
+            return QWidget::event(event);
+        }
+
+        const QStringList packages =
+            ComponentInstallManager::Instance()->packageListByComponentStruct(component);
+
+        if (packages.isEmpty()) {
+            return QWidget::event(event);
+        }
+
+        WriteComponentLanguage(packages.join(" "));
+    }
+
+    return QWidget::event(event);
 }
 
 void SelectInstallComponentFrame::initUI()
