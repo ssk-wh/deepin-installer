@@ -98,18 +98,13 @@ QStringList ComponentInstallManager::uninstallPackageListByComponentStruct(QShar
     return list;
 }
 
-QSharedPointer<ComponentStruct> ComponentInstallManager::loadStructForLanguage(const QString& lang) const {
-    // cache
-    if (m_langStruct.contains(lang)) {
-        return m_langStruct[lang];
-    }
-
-    for (auto it = m_packageList.cbegin(); it != m_packageList.cend(); ++it) {
-        if (it->data()->Id == lang) {
-            m_langStruct[lang] = *it;
-            return *it;;
+QStringList ComponentInstallManager::loadStructForLanguage(const QString &lang) const
+{
+    for (QSharedPointer<ComponentInfo> i : m_packageList) {
+        if (i->Id == lang) {
+            return i->PackageList;
         }
     }
 
-    return nullptr;
+    return QStringList();
 }
