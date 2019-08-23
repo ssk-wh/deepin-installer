@@ -40,6 +40,11 @@ void PageIndicator::goNextPage() {
   this->setCurrentPage(current_page_ + 1);
 }
 
+void PageIndicator::goBackPage()
+{
+    setCurrentPage(current_page_ - 1);
+}
+
 void PageIndicator::setCurrentPage(int page) {
   current_page_ = page;
   this->updateIndicators();

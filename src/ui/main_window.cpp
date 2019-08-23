@@ -423,6 +423,7 @@ void MainWindow::backPage()
     setCurrentPage(id);
 
     back_button_->setVisible(m_old_frames.size() > 1);
+    page_indicator_->goBackPage();
 }
 
 void MainWindow::onCurrentPageChanged(int index) {

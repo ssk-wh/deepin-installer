@@ -34,6 +34,7 @@ class PageIndicator : public QFrame {
 
   // Switch to next page indicator.
   void goNextPage();
+  void goBackPage();
   void setCurrentPage(int page);
   int currentPage() const { return current_page_; };
   void updatePages(int pages);
