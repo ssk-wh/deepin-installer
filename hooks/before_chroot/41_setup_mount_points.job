@@ -40,10 +40,18 @@ mount --bind ${CDROM} /target/media/cdrom || error "Failed to bind ${CDROM}"
 
 mkdir -p ${DI_RECOVERY_PATH} /mnt || error "Faild to mount ${DI_RECOVERY_PATH}"
 
+mkdir -p /target/data/home
+mkdir -p /target/home
+mount --bind /target/home /target/data/home || error "Faild to mount /target/home"
+
+mv /target/var/ /target/data/ || error "Faild to copy /var"
+mkdir /target/var
+mount --bind /target/var /target/data/var || error "Faild to mount /target/var"
+
 if [ x"${DI_UEFI}" = xtrue ]; then
-  mkdir -p /target/boot/efi
-  mount ${DI_BOOTLOADER} /target/boot/efi || \
-    error "Failed to mount bootloader ${DI_BOOTLOADER}"
+    mkdir -p /target/boot/efi
+    mount ${DI_BOOTLOADER} /target/boot/efi || \
+        error "Failed to mount bootloader ${DI_BOOTLOADER}"
 fi
 
 mkdir -p /target/run

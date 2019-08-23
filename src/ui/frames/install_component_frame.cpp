@@ -35,6 +35,10 @@ void SelectInstallComponentFrame::readConf()
 
 void SelectInstallComponentFrame::writeConf()
 {
+    if (!m_currentComponentWidget) {
+        return;
+    }
+
     QSharedPointer<ComponentStruct> current =
         m_componentStructMap[m_currentComponentWidget];
 
