@@ -13,15 +13,10 @@
 
 using namespace installer;
 
-#ifdef PROFESSIONAL
-const QString zh_CN_license{ ":/license/deepin-end-user-license-agreement_zh_CN.txt" };
-const QString en_US_license{ ":/license/deepin-end-user-license-agreement_en_US.txt" };
-#else
-const QString zh_CN_license{ ":/license/deepin-end-user-license-agreement_community_zh_CN.txt" };
-const QString en_US_license{ ":/license/deepin-end-user-license-agreement_community_en_US.txt" };
-#endif  // PROFESSIONAL
-
-UserAgreementFrame::UserAgreementFrame(QWidget *parent) : QFrame(parent), m_language(QLocale::Language::English), m_type(Type::Chinese)
+UserAgreementFrame::UserAgreementFrame(QWidget *parent)
+    : QFrame(parent)
+    , m_language(QLocale::Language::English)
+    , m_nextFileIndex(0)
 {
     initUI();
     initConnect();
@@ -119,32 +114,39 @@ void UserAgreementFrame::initConnect()
 void UserAgreementFrame::updateText()
 {
     m_subTitle->setText(tr("End User License Agreement"));
-
-    const QString &locale{ installer::ReadLocale() };
-
-    if (locale == "zh_CN") {
-        m_toggleLbl->hide();
-        m_sourceLbl->setText(installer::ReadFile(zh_CN_license));
-    }
-    else {
-        m_toggleLbl->show();
-        m_type = Chinese;
-        toggleLicense();
-    }
-
     m_back->setText(tr("Back"));
+    if (m_fileNames.count() > 1 && !m_currentFileName.isEmpty()) {
+        if (m_currentFileName.endsWith("zh_CN.txt")) {
+            m_toggleLbl->setText(QString("<u>%1</u>").arg(tr("View in English")));
+        } else {
+            m_toggleLbl->setText(QString("<u>%1</ u>").arg(tr("View in Chinese")));
+        }
+    }
 }
 
 void UserAgreementFrame::toggleLicense()
 {
-    if (m_type == Chinese) {
-        m_sourceLbl->setText(installer::ReadFile(en_US_license));
-        m_type = English;
-        m_toggleLbl->setText(QString("<u>%1</u>").arg(tr("View in Chinese")));
+    if (m_nextFileIndex < m_fileNames.count() && m_fileNames.count() > 1) {        
+        m_currentFileName = m_fileNames[m_nextFileIndex];
+        updateText();
+        m_sourceLbl->setText(installer::ReadFile(m_currentFileName));
+        m_nextFileIndex = (m_nextFileIndex + 1) % m_fileNames.count();
     }
-    else {
-        m_sourceLbl->setText(installer::ReadFile(zh_CN_license));
-        m_type = Chinese;
-        m_toggleLbl->setText(QString("<u>%1</u>").arg(tr("View in English")));
+}
+
+void UserAgreementFrame::setUserAgreement(const QString &primaryFileName, const QString &secondaryFileName)
+{
+    m_nextFileIndex = 0;
+    m_currentFileName = primaryFileName;
+    m_fileNames.clear();
+    m_fileNames.append(primaryFileName);
+    if (!secondaryFileName.isEmpty()) {
+        m_fileNames.append(secondaryFileName);
+        //switch to primary user agreement,and update the text of m_sourceLbl.
+        toggleLicense();
+        m_toggleLbl->show();
+    } else {
+        m_toggleLbl->hide();
+        m_sourceLbl->setText(installer::ReadFile(primaryFileName));
     }
 }

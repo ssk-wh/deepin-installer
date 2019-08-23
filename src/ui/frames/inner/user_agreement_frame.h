@@ -15,12 +15,8 @@ class UserAgreementFrame : public QFrame
 {
     Q_OBJECT
 public:
-    explicit UserAgreementFrame(QWidget *parent = nullptr);
-
-    enum Type {
-        Chinese,
-        English,
-    };
+    explicit UserAgreementFrame(QWidget *parent = nullptr);  
+    void setUserAgreement(const QString &primaryFileName, const QString &secondaryFileName = QString(""));
 
 signals:
     // Emitted when cancel
@@ -45,7 +41,9 @@ private:
     NavButton *m_back;
     QScrollArea *m_sourceScrollArea;
     QLocale::Language m_language;
-    Type m_type;
+    int m_nextFileIndex;
+    QString m_currentFileName;
+    QStringList m_fileNames;
 };
 }
 #endif // INSTALLER_UI_FRAMES_USER_AGREEMENT_FRAME_H

@@ -22,8 +22,18 @@
 #include "ui/frames/language_frame.h"
 #include "ui/frames/inner/select_language_frame.h"
 #include "ui/frames/inner/user_agreement_frame.h"
+#include "service/settings_manager.h"
 
 namespace installer {
+
+#ifdef PROFESSIONAL
+const QString zh_CN_license { ":/license/deepin-end-user-license-agreement_zh_CN.txt" };
+const QString en_US_license{ ":/license/deepin-end-user-license-agreement_en_US.txt" };
+#else
+const QString zh_CN_license { ":/license/deepin-end-user-license-agreement_community_zh_CN.txt" };
+const QString en_US_license{ ":/license/deepin-end-user-license-agreement_community_en_US.txt" };
+#endif  // PROFESSIONAL
+
 LanguageFrame::LanguageFrame(QWidget *parent)
     : QWidget(parent)
     , m_frame_layout(new QStackedLayout)
@@ -64,7 +74,12 @@ void LanguageFrame::initConnect() {
 }
 
 void LanguageFrame::showUserLicense() {
-    m_frame_layout->setCurrentWidget(m_user_license_frame);
+    if (installer::ReadLocale() == "zh_CN") {
+        m_user_license_frame->setUserAgreement(zh_CN_license, en_US_license);
+    } else {
+        m_user_license_frame->setUserAgreement(en_US_license, zh_CN_license);
+    }    
+    m_frame_layout->setCurrentWidget(m_user_license_frame);    
 }
 
 void LanguageFrame::showLanguage() {
