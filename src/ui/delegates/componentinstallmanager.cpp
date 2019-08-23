@@ -24,6 +24,7 @@
 #include "service/settings_name.h"
 
 #include <QDebug>
+#include <QApt/DebFile>
 
 using namespace installer;
 
@@ -60,6 +61,29 @@ ComponentInstallManager::ComponentInstallManager(QObject *parent) : QObject(pare
         }
 
         m_packageList << info;
+    }
+
+    // 加載所有的deb包
+    QDir dir("/lib/live/mount/medium/pool/main/");
+    if (!dir.exists()) {
+        dir.setPath("/run/live/medium/pool/main/");
+    }
+
+    if (dir.exists()) {
+        const QStringList& list = findAllDeb(dir.path());
+        for (auto it = m_packageList.begin(); it != m_packageList.end();) {
+            const QString& id = it->data()->Id;
+            if (!list.contains(id)) {
+                qWarning() << "Package not exist: " << id;
+                it = m_packageList.erase(it);
+            }
+            else {
+                ++it;
+            }
+        }
+    }
+    else {
+        qDebug() << "/media/cdrom not exist.";
     }
 }
 
@@ -107,4 +131,34 @@ QStringList ComponentInstallManager::loadStructForLanguage(const QString &lang) 
     }
 
     return QStringList();
+}
+
+QStringList ComponentInstallManager::findAllDeb(const QString& path) const {
+    QDir d(path);
+    if (!d.exists()) {
+        return QStringList();
+    }
+
+    d.setFilter(QDir::Dirs | QDir::Files);
+    d.setSorting(QDir::DirsFirst);
+
+    QFileInfoList list = d.entryInfoList();
+    int           i    = 0;
+    QStringList   packageList;
+
+    for (const QFileInfo& fileInfo : list) {
+        if (fileInfo.fileName() == "." | fileInfo.fileName() == "..") {
+            i++;
+            continue;
+        }
+
+        if (fileInfo.isDir()) {
+            packageList << findAllDeb(fileInfo.filePath());
+        }
+        else {
+            packageList << fileInfo.fileName();
+        }
+    }
+
+    return packageList;
 }

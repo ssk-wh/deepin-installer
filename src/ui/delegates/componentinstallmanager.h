@@ -112,6 +112,8 @@ private:
     ComponentInstallManager(const ComponentInstallManager& manager) = delete;
     ~ComponentInstallManager() override = default;
 
+    QStringList findAllDeb(const QString& path) const;
+
 private:
     QList<QSharedPointer<ComponentStruct>> m_list;
     QList<QSharedPointer<ComponentInfo>> m_packageList;
