@@ -120,9 +120,9 @@ void SystemInfoFormFrame::initConnections()
     connect(password_check_edit_, &LineEdit::editingFinished, this,
             &SystemInfoFormFrame::onPassword2EditingFinished);
     connect(m_rootPasswordEdit, &LineEdit::editingFinished, this
-            , &SystemInfoFormFrame::onRootPasswordEdited);
+            , &SystemInfoFormFrame::onRootPasswordEditingFinished);
     connect(m_rootPasswordCheckEdit, &LineEdit::editingFinished, this
-            , &SystemInfoFormFrame::onRootPasswordCheckEdited);
+            , &SystemInfoFormFrame::onRootPasswordCheckEditingFinished);
 
     connect(username_edit_, SIGNAL(returnPressed()), hostname_edit_,
             SLOT(setFocus()));
@@ -134,8 +134,6 @@ void SystemInfoFormFrame::initConnections()
             SIGNAL(clicked()));
     connect(m_setRootPasswordCheck, &QCheckBox::clicked, this
             , &SystemInfoFormFrame::onSetRootPasswordCheckChanged);
-    connect(m_setRootPasswordCheck, SIGNAL(clicked()), m_rootPasswordEdit
-            , SLOT(setFocus()));
     connect(m_rootPasswordEdit, SIGNAL(returnPressed()), m_rootPasswordCheckEdit
             , SLOT(setFocus()));
     connect(m_rootPasswordCheckEdit, SIGNAL(returnPressed()), next_button_
@@ -625,6 +623,7 @@ void SystemInfoFormFrame::onRootPasswordCheckEditingFinished()
 void SystemInfoFormFrame::onSetRootPasswordCheckChanged(bool enable)
 {
     if (enable) {
+        m_rootPasswordEdit->setFocus();
         m_rootPasswordEdit->show();
         m_rootPasswordCheckEdit->show();
     }
