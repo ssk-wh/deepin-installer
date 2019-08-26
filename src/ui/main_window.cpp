@@ -628,6 +628,7 @@ void MainWindow::showSaveLogFrame()
 {
     stacked_layout_->setCurrentWidget(save_failedLog_frame_);
     save_failedLog_frame_->startDeviceWatch(true);
+    m_old_frames << stacked_layout_->currentWidget();
 }
 
 }  // namespace installer
