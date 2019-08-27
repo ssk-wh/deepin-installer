@@ -377,9 +377,9 @@ FullDiskValidateState FullDiskDelegate::validate() const {
 }
 
 void FullDiskDelegate::resetOperations() {
-  operations_.clear();
+    operations_.clear();
 
-  virtual_devices_ = real_devices_;
+    virtual_devices_ = FilterInstallerDevice(real_devices_);
 }
 
 bool FullDiskDelegate::createPartition(const Partition::Ptr partition,
