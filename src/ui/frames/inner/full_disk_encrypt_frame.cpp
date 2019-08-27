@@ -131,6 +131,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QW
 
 void Full_Disk_Encrypt_frame::setDevice(Device::Ptr device)
 {
+    m_device = device;
     m_devicePathLbl->setText(device->path);
     m_deviceModelLbl->setText(device->model);
     m_deviceSizeLbl->setText(QString("%1 GB").arg(ToGigByte(device->getByteLength())));
@@ -168,6 +169,8 @@ void Full_Disk_Encrypt_frame::onNextBtnClicked()
     else {
         WriteFullDiskEncryptPassword("");
     }
+
+    WriteFullDiskDeivce(m_device->path);
 
     emit finished();
 }

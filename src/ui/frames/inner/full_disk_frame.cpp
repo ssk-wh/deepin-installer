@@ -291,10 +291,7 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
     // Reset simple operations.
     m_delegate->resetOperations();
 
-    if (m_encryptCheck->isChecked()) {
-        WriteFullDiskDeivce(path);
-    }
-    else {
+    if (!m_encryptCheck->isChecked()) {
         PartitionTableType table =
                 IsEfiEnabled() ? PartitionTableType::GPT : PartitionTableType::MsDos;
         m_delegate->formatWholeDevice(path, table);

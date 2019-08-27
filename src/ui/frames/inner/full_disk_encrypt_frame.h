@@ -40,7 +40,7 @@ private:
     void updateEditCapsLockState(bool on);
 
 private:
-    Device *m_device;
+    Device::Ptr m_device;
     QVBoxLayout *m_layout;
     TitleLabel *m_frameLbl;
     QLabel *m_frameSubLbl;
