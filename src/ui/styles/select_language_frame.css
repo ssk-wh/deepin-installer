@@ -11,6 +11,10 @@ QLabel#LicenseLabel {
     text-decoration: underline;
 }
 
+QLabel#OemAndLabel {
+    color: #ffffff;
+}
+
 QCheckBox {
   color: white;
   background: transparent;

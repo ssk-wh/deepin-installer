@@ -63,6 +63,14 @@ cleanup_lightdm_deepin_installer() {
   fi
 }
 
+# see after_chroot/88_copy_oem_license.job
+cleanup_oem_license() {
+	local OEM_LICENSE=/oem_license
+	if [ -d "${OEM_LICENSE}" ]; then
+		rm -rf "${OEM_LICENSE}"
+	fi
+}
+
 cleanup_first_boot() {
   local FILE=/etc/deepin-installer-first-boot
   [ -f "${FILE}" ] && rm -f "${FILE}"
@@ -91,6 +99,7 @@ main() {
   customize_user
 
   sync
+  cleanup_oem_license
   cleanup_first_boot
   uninstall_installer
   sync

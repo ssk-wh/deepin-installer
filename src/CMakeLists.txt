@@ -266,6 +266,8 @@ set(UI_FILES
     ui/delegates/timezone_map_util.h
     ui/delegates/componentinstallmanager.h
     ui/delegates/componentinstallmanager.cpp
+    ui/delegates/user_agreement_delegate.h
+    ui/delegates/user_agreement_delegate.cpp
 
     ui/frames/consts.h
     ui/frames/inner/advanced_partition_frame.cpp
