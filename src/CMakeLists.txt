@@ -42,6 +42,7 @@ endif()
 set(INSTALLER_BUILD_ARCH "")
 execute_process(COMMAND uname -m
                 OUTPUT_VARIABLE INSTALLER_BUILD_ARCH)
+string(REGEX REPLACE "\n$" "" INSTALLER_BUILD_ARCH "${INSTALLER_BUILD_ARCH}")
 message("build arch: ${INSTALLER_BUILD_ARCH}")
 
 set(IS_PROFESSIONAL FALSE)
@@ -60,6 +61,8 @@ set(INSTALLER_SHARE_DIR ${CMAKE_INSTALL_PREFIX}/share/deepin-installer)
 if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX /usr)
 endif ()
+
+add_definitions("-DPLATFORM_BUILD_ARCH=\"${INSTALLER_BUILD_ARCH}\"")
 
 # Defines path to resource directories
 if (CMAKE_BUILD_TYPE MATCHES Debug)

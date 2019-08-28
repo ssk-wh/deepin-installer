@@ -116,6 +116,18 @@ QDir GetOemDir() {
   return QDir(g_oem_dir);
 }
 
+OSType GetCurrentType() {
+    QSettings settings("/etc/deepin-version", QSettings::IniFormat);
+    settings.beginGroup("Release");
+    const QString& type = settings.value("Type", "Desktop").toString();
+
+    return QMap<QString, OSType>{
+        { "Desktop", OSType::Community },
+        { "Professional", OSType::Professional },
+        { "Server", OSType::Server },
+    }[type];
+}
+
 bool GetSettingsBool(const QString& key) {
   const QVariant value = GetSettingsValue(key);
   if (value.isValid()) {
@@ -404,25 +416,51 @@ void WriteRequiringSwapFile(bool is_required) {
 }
 
 void AddConfigFile() {
-  QSettings target_settings(kInstallerConfigFile, QSettings::IniFormat);
+    QSettings target_settings(kInstallerConfigFile, QSettings::IniFormat);
 
-  // Read default settings
-  QSettings default_settings(kDefaultSettingsFile, QSettings::IniFormat);
-  for (const QString& key : default_settings.allKeys()) {
-    const QVariant value(default_settings.value(key));
-    // Do not use section groups.
-    target_settings.setValue(key, value);
-  }
+    QStringList settingsList;
 
-  // Read oem settings
-  const QString oem_file = GetOemDir().absoluteFilePath(kOemSettingsFilename);
-  if (QFile::exists(oem_file)) {
-    QSettings oem_settings(oem_file , QSettings::IniFormat);
-    for (const QString& key : oem_settings.allKeys()) {
-      const QVariant value = oem_settings.value(key);
-      target_settings.setValue(key, value);
+    // Read default settings
+    settingsList << kDefaultSettingsFile;
+
+    // Read override settings
+    QString prefix;
+    switch (GetCurrentType()) {
+        case OSType::Community: prefix = "community"; break;
+        case OSType::Professional: prefix = "professional"; break;
+        case OSType::Server: prefix = "server"; break;
     }
-  }
+
+    QMap<QString, QString> BUILD_ARCH_MAP{ { "x86_64",  "x86" },
+                                           { "sw_64",   "sw" },
+                                           { "mpris64", "loongson" },
+                                           { "aarch64", "arm" } };
+
+#ifdef QT_DEBUG
+    const QString& arch = BUILD_ARCH_MAP[PLATFORM_BUILD_ARCH];
+    QString        override_settings(RESOURCES_DIR +
+                              QString("/platform_%1/%2.override").arg(arch).arg(prefix));
+#else
+    QString override_settings(RESOURCES_DIR +
+                              QString("/override/%1.override").arg(prefix));
+#endif  // QT_DEBUG
+
+    if (QFile::exists(override_settings)) {
+        settingsList << override_settings;
+    }
+
+    // Read oem settings
+    const QString oem_file = GetOemDir().absoluteFilePath(kOemSettingsFilename);
+    if (QFile::exists(oem_file)) {
+        settingsList << oem_file;
+    }
+
+    for (const QString& file : settingsList) {
+        QSettings settings(file, QSettings::IniFormat);
+        for (const QString& key : settings.allKeys()) {
+            target_settings.setValue(key, settings.value(key));
+        }
+    }
 }
 
 void WriteFullDiskEncryptPassword(const QString &password)

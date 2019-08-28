@@ -31,7 +31,7 @@ def update_settings(settings_file, settings):
     if not os.path.exists(src_settings):
         print("Failed to find", src_settings)
         sys.exit(1)
-    shutil.copy(src_settings, settings_file)
+    # shutil.copy(src_settings, settings_file)
 
     parser = configparser.RawConfigParser()
     parser.read(settings_file)
@@ -41,10 +41,22 @@ def update_settings(settings_file, settings):
         parser.write(fh)
 
 def main():
-    arm_file = "resources/arm_default_settings.ini"
-    loongson_file = "resources/loongson_default_settings.ini"
-    sw_file = "resources/sw_default_settings.ini"
-    professional_file = "resources/professional_default_settings.ini"
+    arm_community_file = "resources/platform_arm/community.override"
+    arm_professional_file = "resources/platform_arm/professional.override"
+    arm_server_file = "resources/platform_arm/server.override"
+
+    loongson_community_file = "resources/platform_loongson/community.override"
+    loongson_professional_file = "resources/platform_loongson/professional.override"
+    loongson_server_file = "resources/platform_loongson/server.override"
+
+    sw_community_file = "resources/platform_sw/community.override"
+    sw_professional_file = "resources/platform_sw/professional.override"
+    sw_server_file = "resources/platform_sw/server.override"
+
+    x86_community_file = "resources/platform_x86/community.override"
+    x86_professional_file = "resources/platform_x86/professional.override"
+    x86_server_file = "resources/platform_x86/server.override"
+
 
     arm_settings = (
             ("skip_virtual_machine_page", "true"),
@@ -105,7 +117,7 @@ def main():
         ("apt_source_deb_src", '""'),
     )
 
-    professinal_settings = (
+    x86_professinal_settings = (
         ("timezone_use_local_time_regardless", "true"),
         ("system_info_password_strong_check", "false"),
         ("apt_source_deb", '"deb http://packages.deepin.com/deepin camel main contrib non-free"'),
@@ -113,10 +125,19 @@ def main():
         ("skip_select_component_page", "false"),
     )
 
-    update_settings(arm_file, arm_settings)
-    update_settings(loongson_file, loongson_settings)
-    update_settings(sw_file, sw_settings)
-    update_settings(professional_file, professinal_settings)
+    update_settings(arm_community_file, arm_settings)
+    update_settings(arm_professional_file, arm_settings)
+    update_settings(arm_server_file, arm_settings)
+
+    update_settings(loongson_community_file, loongson_settings)
+    update_settings(loongson_professional_file, loongson_settings)
+    update_settings(loongson_server_file, loongson_settings)
+
+    update_settings(sw_community_file, sw_settings)
+    update_settings(sw_professional_file, sw_settings)
+    update_settings(sw_server_file, sw_settings)
+
+    update_settings(x86_professional_file, x86_professinal_settings)
 
 if __name__ == "__main__":
     main()

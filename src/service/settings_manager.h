@@ -25,8 +25,16 @@
 
 namespace installer {
 
+    enum class OSType {
+        Community,
+        Professional,
+        Server
+    };
+
 // Get absolute path to oem/ folder. Note that oem folder may not exist.
 QDir GetOemDir();
+
+OSType GetCurrentType();
 
 // Read settings value from ini file.
 
