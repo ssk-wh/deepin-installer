@@ -156,12 +156,6 @@ void FirstBootSetupWindow::onHookFinished(bool ok) {
   if (!ok) {
     qCritical() << "First boot hook failed!";
   }
-
-  // Reboot system now.
-  // TODO(xushaohua): call systemd-firstboot instead.
-  if (!RebootSystemWithMagicKey()) {
-    RebootSystem();
-  }
 }
 
 void FirstBootSetupWindow::onPrimaryScreenChanged(const QRect& geometry) {
