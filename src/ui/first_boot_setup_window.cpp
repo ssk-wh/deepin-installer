@@ -112,10 +112,10 @@ void FirstBootSetupWindow::initUI() {
   stacked_layout_->setContentsMargins(0, 0, 0, 0);
   stacked_layout_->setSpacing(0);
   stacked_layout_->addWidget(language_frame_);
+  stacked_layout_->addWidget(timezone_frame_);
   stacked_layout_->addWidget(system_info_frame_);
   stacked_layout_->addWidget(network_frame_);
   stacked_layout_->addWidget(control_platform_frame_);
-  stacked_layout_->addWidget(timezone_frame_);
   stacked_layout_->addWidget(loading_frame_);
 
   this->setLayout(stacked_layout_);
@@ -166,7 +166,12 @@ void FirstBootSetupWindow::onPrimaryScreenChanged(const QRect& geometry) {
 
 void FirstBootSetupWindow::onLanguageSelected()
 {
-    stacked_layout_->setCurrentWidget(system_info_frame_);
+    if (GetSettingsBool(kSkipTimezonePage)) {
+        return onTimezoneFinished();
+    }
+    else {
+      stacked_layout_->setCurrentWidget(timezone_frame_);
+    }
 }
 
 void FirstBootSetupWindow::onSystemInfoFinished() {
@@ -189,19 +194,13 @@ void FirstBootSetupWindow::onNetworkFinished()
 
 void FirstBootSetupWindow::onControlPlatformFinished()
 {
-    if (GetSettingsBool(kSkipTimezonePage)) {
-        return onTimezoneFinished();
-    }
-    else {
-      stacked_layout_->setCurrentWidget(timezone_frame_);
-    }
+    // Display loading frame.
+    stacked_layout_->setCurrentWidget(loading_frame_);
+    emit hook_worker_->startHook();
 }
 
 void FirstBootSetupWindow::onTimezoneFinished() {
-  // Display loading frame.
-  stacked_layout_->setCurrentWidget(loading_frame_);
-
-  emit hook_worker_->startHook();
+  stacked_layout_->setCurrentWidget(system_info_frame_);
 }
 
 }  // namespace installer
