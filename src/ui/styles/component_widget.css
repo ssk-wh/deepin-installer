@@ -32,3 +32,21 @@ QFrame#ComponentWidget[isTail=true] {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+
+QRadioButton {
+  color: white;
+  background: transparent;
+}
+
+QRadioButton::indicator {
+  width: 16px;
+  height: 16px;
+}
+
+QRadioButton::indicator:unchecked {
+  image: url(":/images/radio_unchecked.svg");
+}
+
+QRadioButton::indicator:checked {
+  image: url(":/images/radio_checked.svg");
+}

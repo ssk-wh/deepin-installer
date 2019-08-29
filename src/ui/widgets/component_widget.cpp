@@ -7,6 +7,7 @@ namespace installer {
 
 namespace {
     const int kComponentWidgetWidth = 468;
+    const int kComponentWidgetMinHeight = 80;
     const int KQLabelWidth = 400;
 }
 
@@ -53,6 +54,7 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
 
     setLayout(m_hLayout);
     setFixedWidth(kComponentWidgetWidth);
+    setMinimumHeight(kComponentWidgetMinHeight);
     setObjectName("ComponentWidget");
     setLayout(m_hLayout);
     setStyleSheet(ReadFile(":/styles/component_widget.css"));

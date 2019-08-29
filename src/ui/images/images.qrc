@@ -94,5 +94,7 @@
         <file>add-pressed.svg</file>
         <file>minus-pressed.svg</file>
         <file>minus-normal.svg</file>
+        <file>radio_checked.svg</file>
+        <file>radio_unchecked.svg</file>
     </qresource>
 </RCC>
