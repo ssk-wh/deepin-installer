@@ -3,3 +3,5 @@ skip_virtual_machine_page = true
 apt_source_deb = "deb http://packages.deepin.com/deepin camel main contrib non-free"
 apt_source_deb_src = "#deb-src http://packages.deepin.com/deepin camel main contrib non-free"
 partition_skip_partition_crypt_page = true
+partition_skip_simple_partition_page = true
+

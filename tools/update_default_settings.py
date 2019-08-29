@@ -62,7 +62,8 @@ def main():
             ("skip_virtual_machine_page", "true"),
             ("apt_source_deb", '"deb http://packages.deepin.com/deepin camel main contrib non-free"'),
             ("apt_source_deb_src", '"#deb-src http://packages.deepin.com/deepin camel main contrib non-free"'),
-            ("partition_skip_partition_crypt_page", "true")
+            ("partition_skip_partition_crypt_page", "true"),
+            ("partition_skip_simple_partition_page", "true"),
     )
 
     loongson_settings = (
@@ -88,7 +89,9 @@ def main():
             ("partition_full_disk_large_legacy_label", '"Boot;Swap;Root;_dde_data"'),
             ("apt_source_deb", '"deb http://packages.deepin.com/deepin camel main contrib non-free"'),
             ("apt_source_deb_src", '"#deb-src http://packages.deepin.com/deepin camel main contrib non-free"'),
+            ("partition_skip_simple_partition_page", "true"),
     )
+
 
     sw_settings = (
         ("skip_virtual_machine_page", "true"),
@@ -115,6 +118,7 @@ def main():
         ("partition_full_disk_large_legacy_label", '"Boot;Swap;Root;_dde_data"'),
         ("apt_source_deb", '"deb http://packages.deepin.com/deepin camel main contrib non-free"'),
         ("apt_source_deb_src", '""'),
+        ("partition_skip_simple_partition_page", "true"),
     )
 
     x86_professinal_settings = (
@@ -123,6 +127,7 @@ def main():
         ("apt_source_deb", '"deb http://packages.deepin.com/deepin camel main contrib non-free"'),
         ("apt_source_deb_src", '"#deb-src http://packages.deepin.com/deepin camel main contrib non-free"'),
         ("skip_select_component_page", "false"),
+        ("partition_skip_simple_partition_page", "true"),
     )
 
     update_settings(arm_community_file, arm_settings)
