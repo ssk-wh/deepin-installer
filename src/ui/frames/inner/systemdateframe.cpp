@@ -116,7 +116,7 @@ public:
     void onMinusMonthBtn();
     void onMinusDayBtn();
     void onAddDayBtn();
-    void onYearMonthDayChanged(QLineEdit* edit, bool add, std::function<bool (const QString&)> validateFunction);
+    void onYearMonthDayChanged(QLineEdit* edit, bool add);
 
     void onNextButtonClicked();
 };
@@ -191,48 +191,65 @@ void SystemDateFramePrivate::onMinuteEditingFinished()
 
 void SystemDateFramePrivate::onAddYearBtn()
 {
-    onYearMonthDayChanged(m_yearEdit, true
-                          , std::bind(&SystemDateFramePrivate::validateYear, this, std::placeholders::_1));
+    onYearMonthDayChanged(m_yearEdit, true);
 }
 
 void SystemDateFramePrivate::onMinusYearBtn()
 {
-    onYearMonthDayChanged(m_yearEdit, false
-                          , std::bind(&SystemDateFramePrivate::validateYear, this, std::placeholders::_1));
+    onYearMonthDayChanged(m_yearEdit, false);
 }
 
 void SystemDateFramePrivate::onAddMonthBtn()
 {
-    onYearMonthDayChanged(m_monthEdit, true
-                          , std::bind(&SystemDateFramePrivate::validateMonth, this, std::placeholders::_1));
+    onYearMonthDayChanged(m_monthEdit, true);
 }
 
 void SystemDateFramePrivate::onMinusMonthBtn()
 {
-    onYearMonthDayChanged(m_monthEdit, false
-                          , std::bind(&SystemDateFramePrivate::validateMonth, this, std::placeholders::_1));
+    onYearMonthDayChanged(m_monthEdit, false);
 }
 
 void SystemDateFramePrivate::onAddDayBtn()
 {
-    onYearMonthDayChanged(m_dayEdit, true
-                          , std::bind(&SystemDateFramePrivate::validateDay, this, std::placeholders::_1));
+    onYearMonthDayChanged(m_dayEdit, true);
 }
 
 void SystemDateFramePrivate::onMinusDayBtn()
 {
-    onYearMonthDayChanged(m_dayEdit, false
-                          , std::bind(&SystemDateFramePrivate::validateDay, this, std::placeholders::_1));
+    onYearMonthDayChanged(m_dayEdit, false);
 }
 
-void SystemDateFramePrivate::onYearMonthDayChanged(QLineEdit *edit, bool add
-                                                   , std::function<bool (const QString &)> validateFunction)
+void SystemDateFramePrivate::onYearMonthDayChanged(QLineEdit *edit, bool add)
 {
     int delta = add ? 1 : -1;
-    const QString& str = QString::number(edit->text().toInt() + delta);
+    int val = edit->text().toInt() + delta;
+    int first;
+    int count;
 
-    if(validateFunction(str)){
-        edit->setText(str);
+    if(edit == m_yearEdit){
+        first = 1970;
+        count = 9999 - 1970 + 1;
+    }
+    else if (edit == m_monthEdit) {
+        first = 1;
+        count = 12;
+    }
+    else {
+        Q_ASSERT(edit == m_dayEdit);
+        first = 1;
+        count = static_cast<int>(getDaysInMonth(m_yearEdit->text().toUInt(), m_monthEdit->text().toUInt()));
+    }
+
+    val = (val - first + count) % count + first;
+    edit->setText(QString::number(val));
+
+    if((edit == m_yearEdit) || (edit == m_monthEdit)){
+        uint days = getDaysInMonth(m_yearEdit->text().toUInt(), m_monthEdit->text().toUInt());
+        uint day = m_dayEdit->text().toUInt();
+        day = (day > days)? days : day;
+
+        m_dayEdit->setText(QString::number(day));
+        m_dayEdit->setFocus();
     }
 }
 
