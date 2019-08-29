@@ -76,15 +76,15 @@ bool SelectInstallComponentFrame::event(QEvent* event) {
 
 void SelectInstallComponentFrame::initUI()
 {
-    TitleLabel* selectPageLabel = new TitleLabel(tr(""));
+    TitleLabel* selectPageLabel = new TitleLabel(tr("Select component"));
     selectPageLabel->setObjectName("selectPageLabel");
 
-    QLabel* serverTypeLabel = new QLabel(tr(""));
+    QLabel* serverTypeLabel = new QLabel(tr("Server Type"));
     serverTypeLabel->setObjectName("serverTypeLabel");
     serverTypeLabel->setWordWrap(false);
     serverTypeLabel->setAlignment(Qt::AlignHCenter);
 
-    QLabel* componentLabel = new QLabel(tr(""));
+    QLabel* componentLabel = new QLabel(tr("Component list"));
     componentLabel->setObjectName("componentLabel");
     componentLabel->setWordWrap(false);
     componentLabel->setAlignment(Qt::AlignHCenter);
@@ -129,7 +129,7 @@ void SelectInstallComponentFrame::initUI()
     serverScrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     serverScrollArea->setContentsMargins(0, 0, 0, 0);
     serverScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    serverScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    serverScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     serverScrollArea->setContextMenuPolicy(Qt::NoContextMenu);
     serverScrollArea->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     serverScrollArea->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
@@ -152,7 +152,7 @@ void SelectInstallComponentFrame::initUI()
     compScrollArea->setFrameStyle(QFrame::NoFrame);
     compScrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     compScrollArea->setContentsMargins(0, 0, 0, 0);
-    compScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    compScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     compScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     compScrollArea->setContextMenuPolicy(Qt::NoContextMenu);
     compScrollArea->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
