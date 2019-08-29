@@ -124,7 +124,9 @@ void TimezoneFrame::showEvent(QShowEvent* event) {
 
   // NOTE(xushaohua): Add a delay to wait for paint event of timezone map.
   QTimer::singleShot(0, [&]() {
-    timezone_map_->setTimezone(timezone_map_->getTimezone());
+      if(m_stackedLayout->currentWidget() == m_timezonePage){
+          timezone_map_->showMark();
+      }
   });
 }
 
