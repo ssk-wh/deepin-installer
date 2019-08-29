@@ -630,6 +630,10 @@ void SystemInfoFormFrame::onSetRootPasswordCheckChanged(bool enable)
     else {
         m_rootPasswordEdit->hide();
         m_rootPasswordCheckEdit->hide();
+
+        if (tooltip_->isVisible()) {
+            tooltip_->hide();
+        }
     }
 }
 

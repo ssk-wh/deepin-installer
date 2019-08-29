@@ -400,7 +400,7 @@ void WritePassword(const QString& password) {
 }
 
 void WriteRootPassword(const QString& password) {
-  AppendToConfigFile("DI_ROOT_PASSWORD", password.toUtf8().toBase64());
+  AppendToConfigFile("DI_ROOT_PASSWORD", QString(password.toUtf8().toBase64()));
 }
 
 void WriteTimezone(const QString& timezone) {
