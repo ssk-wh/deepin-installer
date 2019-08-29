@@ -14,7 +14,7 @@ static const QMap<QString, QString> PART_NAME_COLOR_NAME_MAP{
     { QString("swap"), QString("#0587F0") },
     { QString("/"), QString("#7F23FF") },
     { QString("/home"), QString("#00A951") },
-    { QString(""), QString("#F69315") },
+    { QString(""), QString("#FB7A1F") },
 };
 
 void FullDiskPartitionColorBar::setDevice(const Device::Ptr device)
@@ -113,7 +113,9 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
         layout->addWidget(partNameLable);
 
         QLabel *partSize = new QLabel();
-        partSize->setText(GetPartitionUsage(partition));
+        QString tmp = GetPartitionUsage(partition);
+        int index = tmp.lastIndexOf('/');
+        partSize->setText(index < 0 ? tmp : tmp.mid(index + 1));
         layout->addWidget(partSize);
 
         QLabel *fileSysType = new QLabel();
