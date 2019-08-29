@@ -109,12 +109,19 @@ void InstallFailedFrame::initUI() {
   content_label_->setWordWrap(true);
   content_label_->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
+  QVBoxLayout* labelLayout = new QVBoxLayout;
+  labelLayout->setMargin(0);
+  labelLayout->addWidget(content_label_);
+
+  QWidget* labelWidget = new QWidget;
+  labelWidget->setLayout(labelLayout);
+
   QFrame* content_frame = new QFrame();
   content_frame->setObjectName("content_frame");
   content_frame->setFixedSize(kContentWindowWidth, kContentWindowHeight);
 
   m_scrollArea = new QScrollArea(content_frame);
-  m_scrollArea->setWidget(content_label_);
+  m_scrollArea->setWidget(labelWidget);
   m_scrollArea->setObjectName("scrollarea");
   m_scrollArea->setWidgetResizable(true);
   m_scrollArea->setFocusPolicy(Qt::NoFocus);
