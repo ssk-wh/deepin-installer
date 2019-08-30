@@ -38,16 +38,20 @@ execute_process(COMMAND uname -m
 message("build arch: ${INSTALLER_BUILD_ARCH}")
 
 if (${INSTALLER_BUILD_ARCH} MATCHES "x86")
-  install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/platform_x86/*
+    file(GLOB OVERRIDE ${CMAKE_CURRENT_SOURCE_DIR}/platform_x86/*)
+  install(FILES ${OVERRIDE}
   DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources/override)
 elseif(${INSTALLER_BUILD_ARCH} MATCHES "sw")
-    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/platform_sw/*
+    file(GLOB OVERRIDE ${CMAKE_CURRENT_SOURCE_DIR}/platform_sw/*)
+    install(FILES ${OVERRIDE}
     DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources/override)
 elseif(${INSTALLER_BUILD_ARCH} MATCHES "mips")
-    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/platform_longxin/*
+    file(GLOB OVERRIDE ${CMAKE_CURRENT_SOURCE_DIR}/platform_loongson/*)
+    install(FILES ${OVERRIDE}
     DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources/override)
 elseif (${INSTALLER_BUILD_ARCH} MATCHES "aarch64")
-    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/platform_arm/*
+    file(GLOB OVERRIDE ${CMAKE_CURRENT_SOURCE_DIR}/platform_arm/*)
+    install(FILES ${OVERRIDE}
     DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources/overrie)
 else()
   message(FATAL_ERROR "Not supported architecture: ${INSTALLER_BUILD_ARCH}")
