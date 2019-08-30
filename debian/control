@@ -62,7 +62,9 @@ Depends:
     xfsprogs [i386 amd64],
     xinit,
     xkb-data,
-    deepin-clone
+    deepin-clone,
+    cryptsetup,
+    lvm2
 Description: Release version of deepin installer
  New version of deepin-installer, rewritten with Qt5.
 
