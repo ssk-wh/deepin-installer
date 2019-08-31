@@ -57,4 +57,7 @@ else()
   message(FATAL_ERROR "Not supported architecture: ${INSTALLER_BUILD_ARCH}")
 endif ()
 
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/default_settings.ini
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources)
+
 add_subdirectory(slide)
