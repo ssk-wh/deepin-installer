@@ -77,6 +77,24 @@
       "memtest86",
       "systemtap-client"
     ],
+     "desktop-debugging":[
+      "crash",
+      "tuna",
+      "pcp-gui",
+      "xrestop"
+    ],
+     "dial-up":[
+      "modemmanager",
+      "network-manager-pptp",
+      "lrzsz",
+      "ppp",
+      "usb-modeswitch-data",
+      "wvdial",
+      "efax",
+      "minicom",
+      "pptp-linux",
+      "pppoe"
+    ],
     "performance-tools":[
       "blktrace",
       "sysstat",
@@ -120,9 +138,31 @@
       "intel-cmt-cat",
       "lm-sensors"
     ],
+     "guest-agents":[
+      "hyperv-daemons",
+      "open-vm-tools",
+      "qemu-guest-agent"
+    ],
+     "network-file-system-client":[
+      "autofs",
+      "cifs-utils",
+      "fcoe-utils",
+      "glusterfs-client",
+      "gssproxy",
+      "open-iscsi",
+      "lldpad",
+      "nfs-kernel-server",
+      "nfs4-acl-tools",
+      "samba"
+    ],
      "virtualization-hypervisor":[
       "libvirt0",
       "qemu-kvm"
+    ],
+     "virtualization-tools":[
+      "libguestfs0",
+      "libguestfs-tools",
+      "libguestfs-java"
     ],
      "virtualization-platform":[
       "libvirt0",
@@ -181,6 +221,18 @@
      "hpijs-ppds",
       "paps",
       "printer-driver-hpijs"
+    ],
+     "print-client":[
+      "cups",
+      "cups-pk-helper",
+      "enscript",
+      "ghostscript-x",
+      "colord",
+      "hpijs-ppds",
+      "paps",
+      "python-smbc",
+      "system-config-printer",
+      "system-config-printer-udev"
     ],
      "mainframe-access":[
      "c3270",
@@ -247,6 +299,13 @@
      "sssd-kcm",
      "sssd-tools",
      "sssd-proxy"
+    ],
+     "directory-server":[
+      "krb5-admin-server",
+      "krb5-kdc-ldap",
+      "migrationtools",
+      "python-pyasn1-modules",
+      "samba"
     ],
      "large-systems":[
      "numactl",
@@ -366,7 +425,6 @@
      "internet-applications":[
      "empathy",
      "evolution",
-     "evolution-ews",
      "pidgin",
      "pidgin-sipe",
      "thunderbird",
@@ -376,6 +434,17 @@
      "tomcat9",
      "tomcat9-admin",
      "tomcat9-examples"
+    ],
+     "web-server":[
+     "mini-httpd-run",
+     "certmonger",
+     "libmemcached11",
+     "memcached",
+     "libapache2-mod-auth-kerb",
+     "libapache2-mod-auth-mellon",
+     "libapache2-mod-auth-openidc",
+     "python-memcache",
+     "squid"
     ],
      "legacy-x":[
      "libxmu6",
