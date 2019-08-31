@@ -106,6 +106,9 @@ public:
     QStringList uninstallPackageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const;
 
     QStringList loadStructForLanguage(const QString& lang) const;
+    QPair<QString, QString> updateTs(const QString& id) const;
+    QPair<QString, QString> updateTs(QSharedPointer<ComponentStruct> componentStruct) const;
+    QPair<QString, QString> updateTs(QSharedPointer<ComponentInfo> info) const;
 
 private:
     explicit ComponentInstallManager(QObject *parent = nullptr);

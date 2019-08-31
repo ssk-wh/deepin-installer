@@ -12,6 +12,7 @@
 #include <QScrollBar>
 #include <QScroller>
 #include <QEvent>
+#include <QDebug>
 
 namespace installer {
 
@@ -59,6 +60,20 @@ void SelectInstallComponentFrame::writeConf()
 
 bool SelectInstallComponentFrame::event(QEvent* event) {
     if (event->type() == QEvent::LanguageChange) {
+        // update all widget ts
+
+        for (auto it = m_componentStructMap.cbegin(); it != m_componentStructMap.cend(); ++it) {
+            QPair<QString, QString> ts = ComponentInstallManager::Instance()->updateTs(it.value());
+            it.key()->setTitle(ts.first);
+            it.key()->setDesc(ts.second);
+        }
+
+        for (auto it = m_componentInfoMap.cbegin(); it != m_componentInfoMap.cend(); ++it) {
+            QPair<QString, QString> ts = ComponentInstallManager::Instance()->updateTs(it.value());
+            it.key()->setTitle(ts.first);
+            it.key()->setDesc(ts.second);
+        }
+
         // Write about language
         const QStringList packages =
             ComponentInstallManager::Instance()->loadStructForLanguage(
@@ -103,6 +118,10 @@ void SelectInstallComponentFrame::initUI()
         compWdg->setDesc(id.append("desc"));
 
         serverLayout->addWidget(compWdg);
+
+        QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(*it);
+        compWdg->setTitle(tsPair.first);
+        compWdg->setDesc(tsPair.second);
 
         connect(compWdg, &ComponentWidget::clicked, this
                 , &SelectInstallComponentFrame::onServerTypeClicked);
@@ -237,6 +256,8 @@ void SelectInstallComponentFrame::onServerTypeClicked()
     QList<QSharedPointer<ComponentInfo>> defaultValue = compStruct->defaultValue();
     QList<QSharedPointer<ComponentInfo>> extra = compStruct->extra();
 
+    qDebug() << compStruct->id();
+
     for (QSharedPointer<ComponentInfo> info : defaultValue) {
         info->Selected = true;
     }
@@ -256,6 +277,10 @@ void SelectInstallComponentFrame::onServerTypeClicked()
         compWdg->setDesc(id.append("desc"));
 
         m_componentLayout->addWidget(compWdg);
+
+        QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(*it);
+        compWdg->setTitle(tsPair.first);
+        compWdg->setDesc(tsPair.second);
 
         m_componentInfoMap[compWdg] = *it;
 
@@ -279,6 +304,8 @@ void SelectInstallComponentFrame::onComponentClicked()
     ComponentWidget* widget = qobject_cast<ComponentWidget*>(sender());
     QSharedPointer<ComponentInfo> compInfo = m_componentInfoMap[widget];
     compInfo->Selected = widget->isSelected();
+
+    qDebug() << compInfo->Id;
 }
 
 void SelectInstallComponentFrame::clearComponentLayout()

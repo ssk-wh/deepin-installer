@@ -162,3 +162,68 @@ QStringList ComponentInstallManager::findAllDeb(const QString& path) const {
 
     return packageList;
 }
+
+QPair<QString, QString> ComponentInstallManager::updateTs(const QString& id) const {
+    return QMap<QString, QPair<QString, QString>> {
+        {"minimal-install", {tr("Minimal Install"), tr("Basic functionality.")}},
+        {"compute-node", {tr("Compute Node"), tr("Installation for performing computation and processing.")}},
+        {"infrastructure-server", {tr("Infrastructure Server"), tr("Server for operating network infrastructure services.")}},
+        {"file-and-print-server", {tr("File and Print Server"), tr("File, print, and storage server for enterprises.")}},
+        {"basic-web-server", {tr("Basic Web Server"), tr("Server for serving static and dynamic internet content.")}},
+        {"virtualization-host", {tr("Virtualization Host"), tr("Minimal virtualization host.")}},
+        {"server-with-gui", {tr("Server with GUI"), tr("Server for operating network infrastructure services, with a GUI.")}},
+        {"dde-desktop", {tr("DDE Desktop"), tr("DDE is a highly intuitive and user friendly desktop environment.")}},
+        {"development-and-creative-workstation", {tr("Development and Creative Workstation"), tr("Workstation for software, hardware, graphics, or content development.")}},
+        {"debugging-tools", {tr("Debugging Tools"), tr("Tools for debugging misbehaving applications and diagnosing performance problems.")}},
+        {"directory-client", {tr("Directory Client"), tr("Clients for integration into a network managed by a directory service.")}},
+        {"security-tools", {tr("Security Tools"), tr("Security tools for integrity and trust verification.")}},
+        {"development-tools", {tr("Development Tools"), tr("A basic development environment.")}},
+        {"performance-tools", {tr("Performance Tools"), tr("Tools for diagnosing system and application-level performance problems.")}},
+        {"system-admin-tools", {tr(""), tr("")}},
+        {"hardware-monitoring", {tr("Hardware Monitoring Utilities"), tr("A set of tools to monitor server hardware.")}},
+        {"virtualization-hypervisor", {tr("Virtualization Hypervisor"), tr("Smallest possible virtualization host installation.")}},
+        {"virtualization-platform", {tr("Virtualization Platform"), tr("Provide an interface for accessing and controlling virtualized guests and containers.")}},
+        {"virtualization-client", {tr("Virtualization Client"), tr("Clients for installing and managing virtualization instances.")}},
+        {"backup-client", {tr("Backup Client"), tr("Client tools for connecting to a backup server and doing backups.")}},
+        {"backup-server", {tr("Backup Server"), tr("Software to centralize your infrastructure's backups.")}},
+        {"file-server", {tr("File and Storage Server"), tr("CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.")}},
+        {"dns-server", {tr("DNS Name Server"), tr("This package group allows you to run a DNS name server (BIND) on the system.")}},
+        {"mail-server", {tr("E-mail Server"), tr("Allows the system to act as a SMTP and/or IMAP e-mail server.")}},
+        {"frp-server", {tr("FTP Server"), tr("Allows the system to act as an FTP server.")}},
+        {"print-server", {tr("Print Server"), tr("Allows the system to act as a print server.")}},
+        {"mainframe-access", {tr("Mainframe Access"), tr("Tools for accessing mainframe computing resources.")}},
+        {"infiniband", {tr("Infiniband Support"), tr("Software designed for supporting dlustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.")}},
+        {"remote-system-management", {tr(""), tr("")}},
+        {"ha", {tr("High Availability"), tr("Infrastructure for highly available services and/or shared storage.")}},
+        {"resilient-storage", {tr("Resilient Storage"), tr("Clustered storage, induding the GFS2 file system.")}},
+        {"identity-management-server", {tr("ldentity Management Server"), tr("Centralized management of users, servers and authentication policies.")}},
+        {"large-systems", {tr("Large Systems Performance"), tr("Performance support tools for large systems.")}},
+        {"load-balancer", {tr("Load Balancer"), tr("Load balancing support for network traffic.")}},
+        {"mariadb-client", {tr(""), tr("")}},
+        {"mariadb-server", {tr("MariaDB Database Server"), tr("The MariaDB SQL database server, and associated packages.")}},
+        {"postgresql-client", {tr(""), tr("")}},
+        {"postgresql-server", {tr("PostgreSQL Database Server"), tr("The PostgreSQL SQL database server, and associated packages.")}},
+        {"java-platform", {tr("Java Platform"), tr("Java support for deepin.")}},
+        {"php", {tr("PHP Support"), tr("PHP web application framework.")}},
+        {"python-web", {tr("Python"), tr("Basic Python web application support.")}},
+        {"perl-web", {tr("Perl for Web"), tr("Basic Perl web application support.")}},
+        {"dde", {tr("DDE Applications"), tr("A set of commonly used DDE Applications.")}},
+        {"internet-applications", {tr("Internet Applications"), tr("Email, chat, and video conferencing software.")}},
+        {"web-servlet", {tr("Web Servlet Engine"), tr("Allows the system to host Java servlets.")}},
+        {"legacy-x", {tr("Legacy x Window System Compatibility"), tr("Compatibility programs for migration from or working with legacy X Window System environments.")}},
+        {"office-suite", {tr("Office Suite and Productivity"), tr("A full-purpose office suite, and other productivity tools.")}},
+        {"additional-devel", {tr("Additional Development"), tr("Additional development headers and libraries for building open-source applications.")}},
+        {"emacs", {tr("Emacs"), tr("The GNU Emacs extensible, customizable text editor.")}},
+        {"graphics", {tr("Graphics Creation Tools"), tr("Software for creation and manipulation of still images.")}},
+        {"platform-devel", {tr("Platform Development"), tr("Recommended development headers and libraries for developing applications to run on deepin.")}},
+        {"technical-writing", {tr("Technical Writing"), tr("Tools for writing technical documentation.")}},
+    }[id];
+}
+
+QPair<QString, QString> ComponentInstallManager::updateTs(QSharedPointer<ComponentStruct> componentStruct) const {
+    return updateTs(componentStruct->id());
+}
+
+QPair<QString, QString> ComponentInstallManager::updateTs(QSharedPointer<ComponentInfo> info) const {
+    return updateTs(info->Id);
+}
