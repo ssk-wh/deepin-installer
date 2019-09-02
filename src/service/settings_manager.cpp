@@ -277,6 +277,7 @@ QByteArray GetFullDiskInstallPolicy() {
         case OSType::Server: prefix = "server"; break;
     }
 
+#ifdef QT_DEBUG
     QMap<QString, QString> BUILD_ARCH_MAP{ { "x86_64",  "x86" },
                                            { "sw_64",   "sw" },
                                            { "mpris64", "loongson" },
@@ -287,6 +288,11 @@ QByteArray GetFullDiskInstallPolicy() {
     const QString& policy =
         RESOURCES_DIR +
         QString("/platform_%1/%2.full_disk_policy.json").arg(arch).arg(prefix);
+#else
+    const QString& policy =
+        RESOURCES_DIR +
+        QString("/override/%2.full_disk_policy.json").arg(arch).arg(prefix);
+#endif
 
     QFile file(policy);
     if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
