@@ -20,6 +20,7 @@
 
 #include <QFrame>
 class QLineEdit;
+class QLabel;
 
 namespace installer {
 
@@ -58,6 +59,7 @@ class SystemInfoKeyboardFrame : public QFrame {
   void initUI();
 
   TitleLabel* title_label_ = nullptr;
+  QLabel* guide_label_ = nullptr;
   FramelessListView* layout_view_ = nullptr;
   KeyboardLayoutModel* layout_model_ = nullptr;
   FramelessListView* variant_view_ = nullptr;
