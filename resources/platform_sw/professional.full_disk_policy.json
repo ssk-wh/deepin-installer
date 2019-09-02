@@ -76,7 +76,16 @@
         ]
     },
     "mbr": {
-        "small": [ {
+        "small": [
+            {
+                "filesystem": "ext4",
+                "mountPoint": "/boot",
+                "label": "Boot",
+                "usage": "3072Mib",
+                "alignStart": true,
+                "device": ""
+            },
+            {
                 "filesystem": "linux-swap",
                 "mountPoint": "swap",
                 "label": "swap",
@@ -101,7 +110,16 @@
                 "device": ""
             }
         ],
-        "large": [ {
+        "large": [
+            {
+                "filesystem": "ext4",
+                "mountPoint": "/boot",
+                "label": "Boot",
+                "usage": "3072Mib",
+                "alignStart": true,
+                "device": ""
+            },
+            {
                 "filesystem": "linux-swap",
                 "mountPoint": "swap",
                 "label": "SWAP",
