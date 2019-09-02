@@ -291,7 +291,7 @@ QByteArray GetFullDiskInstallPolicy() {
 #else
     const QString& policy =
         RESOURCES_DIR +
-        QString("/override/%2.full_disk_policy.json").arg(arch).arg(prefix);
+        QString("/override/%1.full_disk_policy.json").arg(prefix);
 #endif
 
     QFile file(policy);
