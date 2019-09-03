@@ -40,5 +40,7 @@
         <file>install_component_frame.css</file>
         <file>component_widget.css</file>
         <file>system_date_frame.css</file>
+        <file>disk_installation_view.css</file>
+        <file>disk_installation_detail_view.css</file>
     </qresource>
 </RCC>

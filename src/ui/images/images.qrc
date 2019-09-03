@@ -96,5 +96,6 @@
         <file>minus-normal.svg</file>
         <file>radio_checked.svg</file>
         <file>radio_unchecked.svg</file>
+	<file>disk_installation_select.svg</file>
     </qresource>
 </RCC>

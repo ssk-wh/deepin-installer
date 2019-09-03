@@ -268,6 +268,10 @@ set(UI_FILES
     ui/delegates/componentinstallmanager.cpp
     ui/delegates/user_agreement_delegate.h
     ui/delegates/user_agreement_delegate.cpp
+    ui/delegates/disk_installation_delegate.h
+    ui/delegates/disk_installation_delegate.cpp
+    ui/delegates/disk_installation_detail_delegate.h
+    ui/delegates/disk_installation_detail_delegate.cpp
 
     ui/frames/consts.h
     ui/frames/inner/advanced_partition_frame.cpp
@@ -366,6 +370,10 @@ set(UI_FILES
     ui/models/partition_type_model.h
     ui/models/control_platform_region_model.h
     ui/models/control_platform_region_model.cpp
+    ui/models/disk_installation_model.h
+    ui/models/disk_installation_model.cpp
+    ui/models/disk_installation_detail_model.h
+    ui/models/disk_installation_detail_model.cpp
 
     ui/utils/widget_util.cpp
     ui/utils/widget_util.h
@@ -378,6 +386,10 @@ set(UI_FILES
     ui/views/frameless_list_view.h
     ui/views/pointer_list_view.cpp
     ui/views/pointer_list_view.h
+    ui/views/disk_installation_view.h
+    ui/views/disk_installation_view.cpp
+    ui/views/disk_installation_detail_view.h
+    ui/views/disk_installation_detail_view.cpp
 
     ui/widgets/advanced_partition_button.cpp
     ui/widgets/advanced_partition_button.h
@@ -433,6 +445,8 @@ set(UI_FILES
     ui/widgets/wallpaper_item.h
     ui/widgets/component_widget.h
     ui/widgets/component_widget.cpp
+    ui/widgets/multiple_disk_installation_widget.h
+    ui/widgets/multiple_disk_installation_widget.cpp
 
     ui/xrandr/multi_head_manager.cpp
     ui/xrandr/multi_head_manager.h
