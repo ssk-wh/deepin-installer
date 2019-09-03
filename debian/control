@@ -24,7 +24,7 @@ Build-Depends:
     zlib1g-dev,
     libqt5svg5-dev,
     libdtkcore-dev,
-    libdtkcore5-bin,
+    libdtkcore5-bin | libdtkcore-bin,
     libudisks2-qt5-dev,
     libqapt-dev
 Standards-Version: 3.9.8
