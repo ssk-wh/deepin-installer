@@ -17,7 +17,6 @@
 
 #include "ui/views/disk_installation_view.h"
 #include "base/file_util.h"
-#include "ui/delegates/disk_installation_delegate.h"
 
 namespace installer {
 
@@ -26,8 +25,6 @@ const int kDiskInstallationTypeWidth = 200;
 DiskInstallationView::DiskInstallationView(QWidget* parent)
  :QListView(parent)
 {
-    DiskInstallationItemDelegate* delegate = new DiskInstallationItemDelegate(this);
-    setItemDelegate(delegate);
     setObjectName("disk_installation_view");
     setStyleSheet(ReadFile(":/styles/disk_installation_view.css"));
     QSizePolicy list_policy(QSizePolicy::Fixed, QSizePolicy::Expanding);

@@ -23,6 +23,8 @@
 #include "ui/models/disk_installation_model.h"
 #include "ui/views/disk_installation_detail_view.h"
 #include "ui/models/disk_installation_detail_model.h"
+#include "ui/delegates/disk_installation_delegate.h"
+#include "ui/delegates/disk_installation_detail_delegate.h"
 
 namespace installer {
 
@@ -56,11 +58,15 @@ void MultipleDiskInstallationWidget::initUI()
 
     m_left_model = new DiskInstallationModel();
     m_left_view = new DiskInstallationView();
+    DiskInstallationItemDelegate* delegate = new DiskInstallationItemDelegate(m_left_view);
+    m_left_view->setItemDelegate(delegate);
     m_left_view->setModel(m_left_model);
     m_right_layout = new QStackedLayout();
     for (int i=0;i<kDiskModelMaxCount;i++) {
         m_right_model[i] = new DiskInstallationDetailModel();
         m_right_view[i] = new DiskInstallationDetailView();
+        DiskInstallationDetailDelegate* delegate = new DiskInstallationDetailDelegate(m_right_view[i]);
+        m_right_view[i]->setItemDelegate(delegate);
         m_right_view[i]->setModel(m_right_model[i]);
         m_right_layout->addWidget(m_right_view[i]);
     }
