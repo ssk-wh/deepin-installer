@@ -378,8 +378,10 @@ void MainWindow::setCurrentPage(PageId page_id) {
       page_id == PageId::InstallFailedId) {
     // Hide close button in ConfirmQuit page and InstallProgress page
     close_button_->hide();
+    back_button_->hide();
   } else {
     close_button_->show();
+    back_button_->setVisible(m_old_frames.size() > 0);
   }
 
   if (page_id == PageId::InstallFailedId ||
@@ -483,7 +485,6 @@ void MainWindow::goNextPage() {
     }
 
     case PageId::SelectLanguageId: {
-        back_button_->setVisible(m_old_frames.size() > 1);
         // Check whether to show DiskSpaceInsufficientPage.
         if (!GetSettingsBool(kSkipDiskSpaceInsufficientPage) &&
                 IsDiskSpaceInsufficient()) {
@@ -575,8 +576,6 @@ void MainWindow::goNextPage() {
         page_indicator_->goNextPage();
         install_progress_frame_->startSlide();
         this->setCurrentPage(PageId::InstallProgressId);
-        // hide back button
-        back_button_->hide();
         break;
     }
 
@@ -599,10 +598,6 @@ void MainWindow::goNextPage() {
     }
 
     m_old_frames << stacked_layout_->currentWidget();
-
-    if (back_button_->isVisible()) {
-        back_button_->setVisible(m_old_frames.size() > 1);
-    }
 }
 
 void MainWindow::rebootSystem() {
