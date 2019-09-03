@@ -60,4 +60,7 @@ endif ()
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/default_settings.ini
     DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources)
 
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/full_disk_policy.json
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources)
+
 add_subdirectory(slide)

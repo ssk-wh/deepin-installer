@@ -127,6 +127,15 @@ OSType GetCurrentType() {
     }[type];
 }
 
+QString GetCurrentPlatform() {
+    QMap<QString, QString> BUILD_ARCH_MAP{ { "x86_64",  "x86" },
+                                           { "sw_64",   "sw" },
+                                           { "mpris64", "loongson" },
+                                           { "aarch64", "arm" } };
+
+    return BUILD_ARCH_MAP[PLATFORM_BUILD_ARCH];
+}
+
 bool GetSettingsBool(const QString& key) {
   const QVariant value = GetSettingsValue(key);
   if (value.isValid()) {
@@ -270,31 +279,7 @@ QString GetWindowBackground() {
 }
 
 QByteArray GetFullDiskInstallPolicy() {
-    QString prefix;
-    switch (GetCurrentType()) {
-        case OSType::Community: prefix = "community"; break;
-        case OSType::Professional: prefix = "professional"; break;
-        case OSType::Server: prefix = "server"; break;
-    }
-
-#ifdef QT_DEBUG
-    QMap<QString, QString> BUILD_ARCH_MAP{ { "x86_64",  "x86" },
-                                           { "sw_64",   "sw" },
-                                           { "mpris64", "loongson" },
-                                           { "aarch64", "arm" } };
-
-    const QString& arch = BUILD_ARCH_MAP[PLATFORM_BUILD_ARCH];
-
-    const QString& policy =
-        RESOURCES_DIR +
-        QString("/platform_%1/%2.full_disk_policy.json").arg(arch).arg(prefix);
-#else
-    const QString& policy =
-        RESOURCES_DIR +
-        QString("/override/%1.full_disk_policy.json").arg(prefix);
-#endif
-
-    QFile file(policy);
+    QFile file(RESOURCES_DIR "/full_disk_policy.json");
     if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
         return file.readAll();
     }

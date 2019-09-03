@@ -36,6 +36,8 @@ QDir GetOemDir();
 
 OSType GetCurrentType();
 
+QString GetCurrentPlatform();
+
 // Read settings value from ini file.
 
 // Get boolean option value from settings file.

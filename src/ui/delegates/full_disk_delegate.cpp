@@ -53,71 +53,61 @@ Device::Ptr FullDiskDelegate::fullInstallScheme(Device::Ptr device) const
     QString partPolicy;
     QString partLabels;
 
-    const qint64 large_disk_threshold =
-            GetSettingsInt(kPartitionFullDiskLargeDiskThreshold) * kGibiByte;
-
     const QByteArray& policyStr { GetFullDiskInstallPolicy() };
     if (policyStr.isEmpty()) {
         qWarning() << "Full Disk Install policy is empty!";
         return fake;
     }
 
-    QString tableType { "gpt" };
-    QString diskType { "large" };
-
-    if (device->table == PartitionTableType::MsDos) {
-        tableType = "mbr";
-    }
-
-    if (device->length * device->sector_size < large_disk_threshold) {
-        diskType = "small";
-    }
-
-    const QJsonArray& policyArray = QJsonDocument::fromJson(policyStr)
-                                .object()[tableType]
-                                .toObject()[diskType].toArray();
+    const QJsonArray& policyArray = QJsonDocument::fromJson(policyStr).array();
 
     if (policyArray.isEmpty()) {
         qWarning() << "Full Disk Install policy is empty!";
         return fake;
     }
 
-    const QString part_root_range_policy{ GetSettingsString(
-        kPartitionFullDiskLargeRootPartRange) };
-
-    const std::pair<QString, QString> root_range{
-        part_root_range_policy.split(":").at(0), part_root_range_policy.split(":").at(1)
-    };
-
     const uint swapSize{ getSwapSize() };
     qint64     lastDeviceLenght{ device->length };
     qint64     usedEndSize{ 0 };
     qint64     lastDeviceEnd{ device->length };
 
+    if (device->table == PartitionTableType::GPT) {
+        // 首先创建EFI分区
+        const qint64 uefiSize = ParsePartitionSize("300mib", lastDeviceLenght * device->sector_size);
+
+        const qint64 sectors = uefiSize / device->sector_size;
+
+        Partition::Ptr partition(new Partition);
+        partition->fs = FsType::Ext4;
+        partition->mount_point = "/boot/efi";
+        partition->length = sectors;
+        partition->start_sector = 0;
+        partition->end_sector = sectors;
+        partition->device_path = fake->path;
+        partition->sector_size = fake->sector_size;
+        partition->type = PartitionType::Unallocated;
+        partition->status = PartitionStatus::New;
+        partition->changeNumber(fake->partitions.length() + 1);
+
+        usedEndSize += uefiSize;
+        lastDeviceLenght -= sectors;
+
+        fake->partitions.append(partition);
+    }
+
     for (const QJsonValue& jsonValue : policyArray) {
         const QJsonObject& jsonObject  = jsonValue.toObject();
         QString            mount_point = jsonObject["mountPoint"].toString();
+        const QJsonArray&  platform = jsonObject["platform"].toArray();
+
+        if (!platform.contains(GetCurrentPlatform())) {
+            continue;
+        }
 
         const FsType fs_type{ GetFsTypeByName(jsonObject["filesystem"].toString()) };
         qint64       partitionSize{ 0 };
 
         const QString& use_range{ jsonObject["usage"].toString().toLower() };
-
-        if (mount_point == "/") {
-            const qint64 endSize =
-                ParsePartitionSize(use_range, lastDeviceLenght * device->sector_size);
-            const uint end_size_use{ static_cast<uint>(
-                (endSize / kKibiByte / kKibiByte / kKibiByte)) };
-
-            if (end_size_use < root_range.first.toUInt()) {
-                partitionSize = ParsePartitionSize(QString("%1gib").arg(root_range.first),
-                                              lastDeviceLenght * device->sector_size);
-            }
-            else if (end_size_use > root_range.second.toUInt()) {
-                partitionSize = ParsePartitionSize(QString("%1gib").arg(root_range.second),
-                                              lastDeviceLenght * device->sector_size);
-            }
-        }
 
         if (use_range == "swap-size") {
             partitionSize = ParsePartitionSize(QString("%1gib").arg(swapSize),
@@ -785,65 +775,56 @@ bool FullDiskDelegate::formatWholeDevice(const QString& device_path,
       return false;
   }
 
-  const qint64 large_disk_threshold =
-      GetSettingsInt(kPartitionFullDiskLargeDiskThreshold) * kGibiByte;
-
-  QString tableType{ "gpt" };
-  QString diskType{ "large" };
-
-  if (type == PartitionTableType::MsDos) {
-      tableType = "mbr";
-  }
-
-  if (device->length * device->sector_size < large_disk_threshold) {
-      diskType = "small";
-  }
-
-  const QJsonArray& policyArray = QJsonDocument::fromJson(policyStr)
-                                      .object()[tableType]
-                                      .toObject()[diskType]
-                                      .toArray();
+  const QJsonArray& policyArray = QJsonDocument::fromJson(policyStr).array();
 
   if (policyArray.isEmpty()) {
       qWarning() << "Full Disk Install policy is empty!";
       return false;
   }
 
-  const QString part_root_range_policy{ GetSettingsString(
-      kPartitionFullDiskLargeRootPartRange) };
-
-  const std::pair<QString, QString> root_range{ part_root_range_policy.split(":").at(0),
-                                                part_root_range_policy.split(":").at(1) };
-
   const uint     swapSize{ getSwapSize() };
   qint64         lastDeviceLenght{ device->length };
   Partition::Ptr unallocated = device->partitions.last();
   int            partitionNumIndex{ 0 };
 
+  if (device->table == PartitionTableType::GPT) {
+      // 首先创建EFI分区
+      const qint64 uefiSize =
+          ParsePartitionSize("300Mib", lastDeviceLenght * device->sector_size);
+
+      bool ok;
+      ok = createPrimaryPartition(unallocated, PartitionType::Normal, true, FsType::Ext4,
+                                  "/boot/efi", uefiSize / device->sector_size);
+
+      if (!ok) {
+          qCritical() << "Failed to create partition on " << unallocated;
+          return false;
+      }
+
+      const qint64 sectors = uefiSize / device->sector_size;
+      lastDeviceLenght -= sectors;
+
+      partitionNumIndex++;
+
+      Operation& last_operation = operations_.last();
+      last_operation.applyToVisual(device);
+
+      unallocated = device->partitions.last();
+  }
+
   for (const QJsonValue& jsonValue : policyArray) {
       const QJsonObject& jsonObject  = jsonValue.toObject();
       QString            mount_point = jsonObject["mountPoint"].toString();
+      const QJsonArray&  platform = jsonObject["platform"].toArray();
+
+      if (!platform.contains(GetCurrentPlatform())) {
+          continue;
+      }
 
       const FsType fs_type{ GetFsTypeByName(jsonObject["filesystem"].toString()) };
       qint64       partitionSize{ 0 };
 
       const QString& use_range{ jsonObject["usage"].toString().toLower() };
-
-      if (mount_point == "/") {
-          const qint64 endSize =
-              ParsePartitionSize(use_range, lastDeviceLenght * device->sector_size);
-          const uint end_size_use{ static_cast<uint>(
-              (endSize / kKibiByte / kKibiByte / kKibiByte)) };
-
-          if (end_size_use < root_range.first.toUInt()) {
-              partitionSize = ParsePartitionSize(QString("%1gib").arg(root_range.first),
-                                                 lastDeviceLenght * device->sector_size);
-          }
-          else if (end_size_use > root_range.second.toUInt()) {
-              partitionSize = ParsePartitionSize(QString("%1gib").arg(root_range.second),
-                                                 lastDeviceLenght * device->sector_size);
-          }
-      }
 
       if (use_range == "swap-size") {
           partitionSize = ParsePartitionSize(QString("%1gib").arg(swapSize),
