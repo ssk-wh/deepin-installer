@@ -15,6 +15,9 @@
       "base",
       "core"
     ],
+      "uninstall":[
+        "uninstall-lightdm"
+      ],
     "choice":[
      "debugging-tools",
      "directory-client",
@@ -31,6 +34,9 @@
       "base",
       "core"
     ],
+      "uninstall":[
+        "uninstall-lightdm"
+      ],
      "choice":[
       "backup-server",
       "debugging-tools",
@@ -65,6 +71,9 @@
       "file-server",
       "print-server"
     ],
+      "uninstall":[
+        "uninstall-lightdm"
+      ],
      "choice":[
       "backup-client",
       "backup-server",
@@ -87,6 +96,9 @@
       "core",
       "web-server"
     ],
+      "uninstall":[
+        "uninstall-lightdm"
+      ],
     "choice":[
       "backup-client",
       "debugging-tools",
@@ -114,6 +126,9 @@
       "virtualization-hypervisor",
       "virtualization-tools"
     ],
+      "uninstall":[
+        "uninstall-lightdm"
+      ],
      "choice":[
       "debugging-tools",
       "network-file-system-client",
