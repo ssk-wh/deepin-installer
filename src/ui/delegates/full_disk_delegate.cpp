@@ -41,7 +41,8 @@ FullDiskDelegate::FullDiskDelegate(QObject* parent)
       virtual_devices_(),
       bootloader_path_(),
       operations_(),
-      selected_partition_() {
+      selected_partition_(),
+      primaryPartitionLength(0) {
     this->setObjectName("full_disk_delegate");
 }
 
@@ -370,6 +371,8 @@ void FullDiskDelegate::resetOperations() {
     operations_.clear();
 
     virtual_devices_ = FilterInstallerDevice(real_devices_);
+
+    primaryPartitionLength = 0;
 }
 
 bool FullDiskDelegate::createPartition(const Partition::Ptr partition,
@@ -456,6 +459,7 @@ bool FullDiskDelegate::createLogicalPartition(const Partition::Ptr partition,
       return false;
     }
 
+    operations_.last().applyToVisual(device);
     ext_partition = operations_.last().new_partition;
   } else {
     // No need to add extended partition or enlarge it.
@@ -692,6 +696,8 @@ bool FullDiskDelegate::createPrimaryPartition(const Partition::Ptr partition,
   Operation operation(OperationType::Create, partition, new_partition);
   operations_.append(operation);
 
+  primaryPartitionLength++;
+
   return true;
 }
 
@@ -785,7 +791,6 @@ bool FullDiskDelegate::formatWholeDevice(const QString& device_path,
   const uint     swapSize{ getSwapSize() };
   qint64         lastDeviceLenght{ device->length };
   Partition::Ptr unallocated = device->partitions.last();
-  int            partitionNumIndex{ 0 };
 
   if (device->table == PartitionTableType::GPT) {
       // 首先创建EFI分区
@@ -804,7 +809,7 @@ bool FullDiskDelegate::formatWholeDevice(const QString& device_path,
       const qint64 sectors = uefiSize / device->sector_size;
       lastDeviceLenght -= sectors;
 
-      partitionNumIndex++;
+      primaryPartitionLength++;
 
       Operation& last_operation = operations_.last();
       last_operation.applyToVisual(device);
@@ -845,7 +850,7 @@ bool FullDiskDelegate::formatWholeDevice(const QString& device_path,
 
       bool ok = false;
 
-      if (partitionNumIndex < device->max_prims || device->table == PartitionTableType::GPT) {
+      if (device->table == PartitionTableType::GPT || primaryPartitionLength < (device->max_prims - 1)) {
           ok = createPrimaryPartition(unallocated,
                                       PartitionType::Normal,
                                       jsonObject["alignStart"].toBool(),
@@ -865,8 +870,6 @@ bool FullDiskDelegate::formatWholeDevice(const QString& device_path,
           qCritical() << "Failed to create partition on " << unallocated;
           return false;
       }
-
-      partitionNumIndex++;
 
       Operation& last_operation = operations_.last();
       last_operation.applyToVisual(device);

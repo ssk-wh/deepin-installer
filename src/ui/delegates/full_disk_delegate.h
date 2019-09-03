@@ -135,6 +135,7 @@ private:
   QString bootloader_path_;
   OperationList operations_;
   Partition::Ptr selected_partition_;
+  int primaryPartitionLength;
 };
 
 }  // namespace installer
