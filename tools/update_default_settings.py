@@ -64,11 +64,11 @@ def main():
             ("apt_source_deb_src", '"#deb-src http://packages.deepin.com/deepin camel main contrib non-free"'),
             ("partition_skip_partition_crypt_page", "true"),
             ("partition_skip_simple_partition_page", "true"),
+            ("skip_select_component_page", "false"),
     )
 
     loongson_settings = (
             ("skip_virtual_machine_page", "true"),
-            ("skip_timezone_page", "true"),
             ("select_language_default_locale", "zh_CN"),
             ("system_info_disable_keyboard_page", "true"),
             ("system_info_default_keyboard_layout", '"us"'),
@@ -90,12 +90,11 @@ def main():
             ("apt_source_deb", '"deb http://packages.deepin.com/deepin camel main contrib non-free"'),
             ("apt_source_deb_src", '"#deb-src http://packages.deepin.com/deepin camel main contrib non-free"'),
             ("partition_skip_simple_partition_page", "true"),
+            ("skip_select_component_page", "false"),
     )
-
 
     sw_settings = (
         ("skip_virtual_machine_page", "true"),
-        ("skip_timezone_page", "true"),
         ("select_language_default_locale", "zh_CN"),
         ("system_info_disable_keyboard_page", "true"),
         ("system_info_default_keyboard_layout", '"us"'),
@@ -119,6 +118,7 @@ def main():
         ("apt_source_deb", '"deb http://packages.deepin.com/deepin camel main contrib non-free"'),
         ("apt_source_deb_src", '""'),
         ("partition_skip_simple_partition_page", "true"),
+        ("skip_select_component_page", "false"),
     )
 
     x86_professinal_settings = (

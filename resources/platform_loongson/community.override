@@ -21,4 +21,5 @@ partition_full_disk_small_legacy_label = "Boot;Swap;Root"
 partition_full_disk_large_legacy_label = "Boot;Swap;Root;_dde_data"
 apt_source_deb = "deb http://packages.deepin.com/deepin camel main contrib non-free"
 apt_source_deb_src = "#deb-src http://packages.deepin.com/deepin camel main contrib non-free"
+skip_select_component_page = false
 
