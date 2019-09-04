@@ -5,7 +5,7 @@
         "usage": "1536Mib",
         "alignStart": true,
         "device": "",
-        "platform": [ "loogson" ]
+        "platform": [ "loogson" , "x86", "arm"]
     },
     {
         "filesystem": "ext4",
