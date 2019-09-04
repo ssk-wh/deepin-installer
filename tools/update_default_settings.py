@@ -31,7 +31,7 @@ def update_settings(settings_file, settings):
     if not os.path.exists(src_settings):
         print("Failed to find", src_settings)
         sys.exit(1)
-    # shutil.copy(src_settings, settings_file)
+    shutil.copy(src_settings, settings_file)
 
     parser = configparser.RawConfigParser()
     parser.read(settings_file)
