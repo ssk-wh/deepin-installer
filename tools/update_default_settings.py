@@ -70,7 +70,7 @@ def main():
     loongson_settings = (
             ("skip_virtual_machine_page", "true"),
             ("select_language_default_locale", "zh_CN"),
-            ("system_info_disable_keyboard_page", "true"),
+            ("system_info_disable_keyboard_page", "false"),
             ("system_info_default_keyboard_layout", '"us"'),
             ("timezone_default", '"Asia/Shanghai"'),
             ("timezone_use_regdomain", "false"),
@@ -96,7 +96,7 @@ def main():
     sw_settings = (
         ("skip_virtual_machine_page", "true"),
         ("select_language_default_locale", "zh_CN"),
-        ("system_info_disable_keyboard_page", "true"),
+        ("system_info_disable_keyboard_page", "false"),
         ("system_info_default_keyboard_layout", '"us"'),
         ("timezone_default", '"Asia/Shanghai"'),
         ("timezone_use_regdomain", "false"),
