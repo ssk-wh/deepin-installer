@@ -67,6 +67,7 @@ private:
     QGridLayout* m_partitionGridLayout;
     QButtonGroup* m_button_group;
     NavButton* m_saveBtn;
+    NavButton* m_backBtn;
     QSharedPointer<Partition> m_selectPartition;
     DDiskManager* m_diskManager;
     QMap<QSharedPointer<DDiskDevice>, QList<QSharedPointer<DBlockDevice>>> m_deviceMap;

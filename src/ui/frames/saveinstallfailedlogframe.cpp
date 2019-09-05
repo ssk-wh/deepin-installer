@@ -78,6 +78,7 @@ SaveInstallFailedLogFrame::SaveInstallFailedLogFrame(QWidget *parent) : QWidget(
     area->setFixedWidth(kWindowWidth);
 
     m_saveBtn = new NavButton;
+    m_backBtn = new NavButton;
 
     QVBoxLayout* mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
@@ -90,6 +91,8 @@ SaveInstallFailedLogFrame::SaveInstallFailedLogFrame(QWidget *parent) : QWidget(
     mainLayout->addWidget(area, 0, Qt::AlignHCenter);
     mainLayout->addStretch();
     mainLayout->addWidget(m_saveBtn, 0, Qt::AlignHCenter);
+    mainLayout->addSpacing(10);
+    mainLayout->addWidget(m_backBtn, 0, Qt::AlignHCenter);
 
     m_saveBtn->setDisabled(true);
 
@@ -107,6 +110,7 @@ SaveInstallFailedLogFrame::SaveInstallFailedLogFrame(QWidget *parent) : QWidget(
     updateTs();
 
     connect(m_saveBtn, &NavButton::clicked, this, &SaveInstallFailedLogFrame::saveLog);
+    connect(m_backBtn, &NavButton::clicked, this, &SaveInstallFailedLogFrame::requestBack);
 
     m_diskManager = new DDiskManager;
     m_diskManager->setWatchChanges(false);
@@ -137,6 +141,7 @@ void SaveInstallFailedLogFrame::updateTs()
     m_title->setText(tr("Save Error Log"));
     m_subTitle->setText(tr("Save the error log to local or external disk"));
     m_saveBtn->setText(tr("Save Log"));
+    m_backBtn->setText(tr("Back"));
 }
 
 void SaveInstallFailedLogFrame::refreshDevices()
