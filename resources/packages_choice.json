@@ -112,25 +112,6 @@
       "sdparm",
       "tuned-utils"
     ],
-     "system-admin-tools":[
-      "lsscsi",
-      "conman",
-      "dump",
-      "expect",
-      "hardlink",
-      "mc",
-      "mgetty",
-      "pexec",
-      "rdist",
-      "rear",
-      "rrdtool",
-      "screen",
-      "scrub",
-      "snapper",
-      "symlinks",
-      "tree",
-      "xdelta"
-    ],
      "hardware-monitoring":[
       "rasdaemon",
       "smartmontools",
@@ -258,11 +239,6 @@
      "qperf",
      "rdma-core",
      "opensm"
-    ],
-     "remote-system-management":[
-     "cockpit",
-     "snmp",
-     "udisks2-lvm2"
     ],
      "ha":[
      "pacemaker",

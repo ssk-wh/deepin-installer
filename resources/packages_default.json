@@ -25,8 +25,7 @@
      "hardware-monitoring",
      "infiniband",
      "network-file-system-client",
-     "performance-tools",
-     "remote-system-management"
+     "performance-tools"
     ]
     },
     "infrastructure-server":{
@@ -59,7 +58,6 @@
       "performance-tools",
       "postgresql-server",
       "print-server",
-      "remote-system-management",
       "resilient-storage",
       "virtualization-hypervisor"
     ]
@@ -86,7 +84,6 @@
       "large-systems",
       "network-file-system-client",
       "performance-tools",
-      "remote-system-management",
       "resilient-storage"
     ]
     },
@@ -115,7 +112,6 @@
       "php",
       "postgresql-client",
       "python-web",
-      "remote-system-management",
       "web-servlet"
     ]
     },
@@ -132,7 +128,6 @@
      "choice":[
       "debugging-tools",
       "network-file-system-client",
-      "remote-system-management",
       "virtualization-platform"
     ]
     },
