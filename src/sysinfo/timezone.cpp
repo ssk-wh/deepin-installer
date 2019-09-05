@@ -210,4 +210,33 @@ TimezoneOffset GetTimezoneOffset(const QString& timezone) {
   return offset;
 }
 
+ContinentZoneInfoMap GetContinentZoneInfo()
+{
+    ContinentZoneInfoMap infoMap;
+    const QString& content(ReadFile(kZoneTabFile));
+
+    QStringList strList = content.split('\n');
+    for (const QString& line : strList) {
+        if (!line.startsWith('#')) {
+            const QStringList parts(line.split('\t'));
+            if(parts.length() < 3){
+                continue;
+            }
+            // Parse Continent/timeZone.
+            const QString& continentTimeZone = parts.at(2);
+            int index = continentTimeZone.indexOf('/');
+            if(index < 0){
+                qWarning() << "invalid Continent/timeZone: " << continentTimeZone;
+                continue;
+            }
+
+            const QString& continent = continentTimeZone.left(index);
+            const QString& timeZone = continentTimeZone.mid(index + 1);
+            infoMap[continent] << timeZone;
+        }
+    }
+
+    return infoMap;
+}
+
 }  // namespace installer

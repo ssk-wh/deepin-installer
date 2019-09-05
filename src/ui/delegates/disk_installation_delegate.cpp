@@ -53,7 +53,7 @@ void DiskInstallationItemDelegate::paint(QPainter* painter,
                               rect.height() - kBorderBottom);
   if (option.state & QStyle::State_Selected) {
     // Draw background image of selected item.
-    const QPixmap pixmap = installer::renderPixmap(":/images/disk_installation_select.svg");
+    const QPixmap pixmap = installer::renderPixmap(":/images/continent_arrow.svg");
     const qreal ratio = qApp->devicePixelRatio();
     const int x = rect.x() + rect.width() - static_cast<int>(pixmap.width() / ratio) -
         kSelectedRightMargin;

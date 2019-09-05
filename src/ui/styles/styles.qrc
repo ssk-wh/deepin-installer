@@ -42,5 +42,7 @@
         <file>system_date_frame.css</file>
         <file>disk_installation_view.css</file>
         <file>disk_installation_detail_view.css</file>
+        <file>select_time_zone_frame.css</file>
+        <file>timezone_frame.css</file>
     </qresource>
 </RCC>

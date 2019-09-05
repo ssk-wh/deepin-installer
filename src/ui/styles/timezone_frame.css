@@ -1,0 +1,106 @@
+/* Remove borders */
+QPushButton[flat="true"] {
+  border: none;
+  outline: none;
+  color: #eaeaea;
+}
+
+#setTimePushButton {
+  border: none;
+  padding: 0 0 0 30px;
+  font-size: 14px;
+  /* NOTE: Do not optimize css properties */
+  background-clip: border;
+  background-origin: padding;
+  background-repeat: no-repeat;
+  background-position: center left;
+}
+
+#setTimePushButton {
+  background-image: url(:/images/manual_normal.svg);
+}
+#setTimePushButton:hover {
+  background-image: url(:/images/manual_hover.svg);
+}
+#setTimePushButton:pressed {
+  background-image: url(:/images/manual_press.svg);
+}
+
+QCheckBox#listSelectedCheckBox {
+    color: white;
+    background: transparent;
+}
+
+QCheckBox#listSelectedCheckBox::indicator {
+    width: 16px;
+    height: 16px;
+}
+
+QCheckBox#listSelectedCheckBox::indicator:unchecked {
+    image: url(":/images/checkbox_unchecked.svg");
+}
+
+QCheckBox#listSelectedCheckBox::indicator:unchecked:hover {
+    image: url(":/images/checkbox_unchecked_hover.svg");
+}
+
+QCheckBox#listSelectedCheckBox::indicator:unchecked:pressed {
+    image: url(":/images/checkbox_unchecked_pressed.svg");
+}
+
+QCheckBox#listSelectedCheckBox::indicator:checked {
+    image: url(":/images/checkbox_checked.svg");
+}
+
+QCheckBox#listSelectedCheckBox::indicator:checked:hover {
+    image: url(":/images/checkbox_checked_hover.svg");
+}
+
+QCheckBox#listSelectedCheckBox::indicator:checked:pressed {
+    image: url(":/images/checkbox_checked_pressed.svg");
+}
+
+QHeaderView,
+QHeaderView::section,
+QListCornerButton::section {
+  background-color: transparent;
+}
+
+QListView {
+  font-size: 12pt;
+  color: #ffffff;
+  border: none;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+
+  /* make the selection span the entire width of the view */
+  show-decoration-selected: 0;
+}
+
+QListView::item {
+  background: transparent;
+  height: 40px;
+  padding: 0px 15px 0px 27px;
+  margin: 0px;
+  outline: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+  selection-background-color: rgba(255, 255, 255, 0.3);
+}
+
+QListView::item:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+QListView::item:focus {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+QListView::item:selected {
+  outline: none;
+  border: none;
+  background: rgba(255, 255, 255, 0.3) url(":/images/disk_installation_select.svg")
+              no-repeat right center;
+}

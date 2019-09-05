@@ -314,6 +314,8 @@ set(UI_FILES
     ui/frames/inner/user_agreement_frame.cpp
     ui/frames/inner/systemdateframe.h
     ui/frames/inner/systemdateframe.cpp
+    ui/frames/inner/select_time_zone_frame.h
+    ui/frames/inner/select_time_zone_frame.cpp
     ui/frames/timezone_frame.cpp
     ui/frames/timezone_frame.h
 
@@ -847,6 +849,18 @@ add_executable(timezone-frame-test
                ui/frames/timezone_frame.h
                ui/frames/inner/systemdateframe.h
                ui/frames/inner/systemdateframe.cpp
+               ui/frames/inner/select_time_zone_frame.h
+               ui/frames/inner/select_time_zone_frame.cpp
+               ui/views/disk_installation_view.h
+               ui/views/disk_installation_view.cpp
+               ui/models/disk_installation_model.h
+               ui/models/disk_installation_model.cpp
+               ui/views/frameless_list_view.h
+               ui/views/frameless_list_view.cpp
+               ui/delegates/frameless_list_delegate.cpp
+               ui/delegates/frameless_list_delegate.h
+               ui/delegates/disk_installation_delegate.h
+               ui/delegates/disk_installation_delegate.cpp
                ui/widgets/comment_label.cpp
                ui/widgets/comment_label.h
                ui/widgets/flat_button.cpp

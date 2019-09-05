@@ -20,6 +20,8 @@
 
 #include <QList>
 #include <QHash>
+#include <QMap>
+#include <QStringList>
 
 namespace installer {
 
@@ -41,6 +43,10 @@ typedef QList<ZoneInfo> ZoneInfoList;
 
 // Read available timezone info in zone.tab file.
 ZoneInfoList GetZoneInfoList();
+
+// Read available Continent vs timeZone info in zone.tab file.
+typedef QMap<QString, QStringList> ContinentZoneInfoMap;
+ContinentZoneInfoMap GetContinentZoneInfo();
 
 // Find ZoneInfo based on |country| or |timezone|.
 // Returns -1 if not found.

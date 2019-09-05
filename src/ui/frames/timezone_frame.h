@@ -24,6 +24,9 @@
 
 class QCheckBox;
 class QStackedLayout;
+class QHBoxLayout;
+class QPushButton;
+class QVBoxLayout;
 
 namespace installer {
 
@@ -33,6 +36,7 @@ class TimezoneManager;
 class TimezoneMap;
 class TitleLabel;
 class SystemDateFrame;
+class SelectTimeZoneFrame;
 // Displays a world map to let user select timezone.
 class TimezoneFrame : public QFrame {
   Q_OBJECT
@@ -80,10 +84,15 @@ class TimezoneFrame : public QFrame {
 
   TitleLabel* title_label_ = nullptr;
   CommentLabel* comment_label_ = nullptr;
-  QCheckBox* m_autoSyncTime = nullptr;
+  QCheckBox* m_listSelectedCheckBox = nullptr;
   TimezoneMap* timezone_map_ = nullptr;
   NavButton* next_button_ = nullptr;
   SystemDateFrame* m_systemDateFrame = nullptr;
+  SelectTimeZoneFrame* m_selectTimeZoneFrame = nullptr;
+  QStackedLayout* m_mapOrListStackedLayout = nullptr;
+  QVBoxLayout* m_upLayout = nullptr;
+  QHBoxLayout* m_bottomLayout = nullptr;
+  QPushButton* m_setTimePushButton = nullptr;
 
   QWidget* m_timezonePage = nullptr;
   QStackedLayout* m_stackedLayout = nullptr;
@@ -107,7 +116,11 @@ class TimezoneFrame : public QFrame {
   // Update timezone after a new one has been chosen by user.
   void onTimezoneMapUpdated(const QString& timezone);
 
-  void onSetTimeCheckBoxClicked();
+  void onListSelectedCheckBoxClicked(bool checked);
+
+  void onSelectTimezoneUpdated(const QString& timezone);
+
+  void onSetTimePushButtonClicked();
 };
 
 }  // namespace installer
