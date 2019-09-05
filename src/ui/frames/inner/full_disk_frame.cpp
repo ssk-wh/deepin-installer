@@ -321,8 +321,8 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
     // Show install-tip at bottom of current checked button.
     this->showInstallTip(part_button);
 
-     m_delegate->addSystemDisk(part_button->device()->path);
-     m_delegate->formatWholeDeviceMultipleDisk();
+    m_delegate->addSystemDisk(part_button->device()->path);
+    m_delegate->formatWholeDeviceMultipleDisk();
   }
 }
 

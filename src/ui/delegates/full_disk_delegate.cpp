@@ -548,7 +548,9 @@ bool FullDiskDelegate::createLogicalPartition(const Partition::Ptr partition,
     return false;
   }
 
-  const Operation operation(OperationType::Create, partition, new_partition);
+  Operation operation(OperationType::Create, partition, new_partition);
+  //###multidisk
+  operation.device = device;
   operations_.append(operation);
 
   return true;
@@ -640,13 +642,15 @@ bool FullDiskDelegate::createPrimaryPartition(const Partition::Ptr partition,
   // In simple mode, operations has never been applied to partition list.
   // So do it temporarily.
   for (const Operation& operation : operations_) {
-    // ###multidisk###: Not the same disk?
-    if (operation.device != device) {
+      //###multidisk:maybe NOT the same disk?
+      if (operation.type == OperationType::Create &&
+          operation.device->path != device->path) {
           continue;
-    }
+      }
     if ((operation.type == OperationType::NewPartTable &&
          operation.device->path == device->path) ||
-        (operation.orig_partition->device_path == device->path)) {
+        (operation.orig_partition != nullptr &&
+         operation.orig_partition->device_path == device->path)) {
       operation.applyToVisual(device);
     }
   }
@@ -704,6 +708,8 @@ bool FullDiskDelegate::createPrimaryPartition(const Partition::Ptr partition,
   }
 
   Operation operation(OperationType::Create, partition, new_partition);
+  //###multidisk
+  operation.device = device;
   operations_.append(operation);
 
   primaryPartitionLength++;
@@ -1136,7 +1142,7 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
 
         bool is_primary = (device->table == PartitionTableType::GPT
                            || primary_count < (device->max_prims - 1));
-        PartitionType type = is_primary ? PartitionType::Normal : PartitionType::Logical;
+        PartitionType type = is_primary ? PartitionType::Normal : PartitionType::Logical;        
         if (!createPartition(unallocated, type, policy.alignStart, policy.filesystem,
                     policy.mountPoint, sectors,policy.label)) {
             return false;
