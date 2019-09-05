@@ -32,6 +32,22 @@ enum class FullDiskValidateState {
   RootTooSmall,
 };
 
+struct FullDiskPolicy {
+        FsType        filesystem;
+        QString       mountPoint;
+        QString       label;
+        QString       usage;
+        QString       device;
+        bool          alignStart;
+};
+
+typedef QList<FullDiskPolicy>  FullDiskPolicyList;
+
+struct FullDiskOption {
+    FullDiskPolicyList  policy_list;
+    bool                is_system_disk;
+};
+
 // Partition delegate used in FullDiskFrame.
 class FullDiskDelegate : public QObject {
   Q_OBJECT
@@ -79,7 +95,24 @@ class FullDiskDelegate : public QObject {
   bool setBootFlag();
 
   // Validate whether selected partition is appropriate.
-  FullDiskValidateState validate() const;
+  FullDiskValidateState validate() const;  
+
+  // add System disk
+  void addSystemDisk(const QString & device_path);
+
+  // add Data disk
+  void addDataDisk(const QString & device_path);
+
+  const QStringList & selectedDisks();
+
+  void removeAllSelectedDisks();
+
+  // format all disks
+  bool formatWholeDeviceMultipleDisk();
+
+private:
+  // New version of formatWholeDevice with the support of multiple disks.
+  bool formatWholeDeviceV2(const Device::Ptr& device, FullDiskOption& option);
 
  signals:
   void deviceRefreshed(const DeviceList& devices);
@@ -107,7 +140,7 @@ class FullDiskDelegate : public QObject {
                        FsType fs_type,
                        const QString& mount_point);
 
-  // Create and append operations to whole device at |device_path|:
+  // Create and append operations to whole device at |devices_path|:
   bool formatWholeDevice(const QString& device_path, PartitionTableType type);
 
   // Save real device list when it is refreshed.
@@ -136,6 +169,9 @@ private:
   OperationList operations_;
   Partition::Ptr selected_partition_;
   int primaryPartitionLength;
+
+  // device_path_list[0]:SystemDisk, [1]:DataDisk.
+  QStringList  selected_disks;
 };
 
 }  // namespace installer

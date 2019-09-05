@@ -284,12 +284,13 @@ void FullDiskFrame::showInstallTip(QAbstractButton* button) {
 
 void FullDiskFrame::onDeviceRefreshed() {
   this->repaintDevices();
-    if (m_delegate->virtual_devices().size() > 1) {
-        m_disk_layout->setCurrentWidget(m_diskInstallationWidget);
-    }
-    else {
-        m_disk_layout->setCurrentWidget(m_grid_wrapper);
-    }
+  m_delegate->removeAllSelectedDisks();
+  if (m_delegate->virtual_devices().size() > 1) {
+      m_disk_layout->setCurrentWidget(m_diskInstallationWidget);
+  }
+  else {
+      m_disk_layout->setCurrentWidget(m_grid_wrapper);
+  }
 }
 
 void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
@@ -337,15 +338,12 @@ void FullDiskFrame::onCurrentDeviceChanged(int type, const Device::Ptr device)
         m_errorTip->hide();
         emit currentDeviceChanged(device);
         m_diskPartitionWidget->setDevice(m_delegate->fullInstallScheme(device));
-        QString path = device->path;
-        qDebug() << "selected device path:" << path;
-        m_delegate->resetOperations();
-        if (!m_encryptCheck->isChecked()) {
-            PartitionTableType table =
-                    IsEfiEnabled() ? PartitionTableType::GPT : PartitionTableType::MsDos;
-            m_delegate->formatWholeDevice(path, table);
-        }
+        m_delegate->addSystemDisk(device->path);
     }
+    else {
+        m_delegate->addDataDisk(device->path);
+    }
+    m_delegate->formatWholeDeviceMultipleDisk();
 }
 
 }  // namespace installer

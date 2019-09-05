@@ -634,6 +634,10 @@ bool FullDiskDelegate::createPrimaryPartition(const Partition::Ptr partition,
   // In simple mode, operations has never been applied to partition list.
   // So do it temporarily.
   for (const Operation& operation : operations_) {
+    // ###multidisk###: Not the same disk?
+    if (operation.device != device) {
+          continue;
+    }
     if ((operation.type == OperationType::NewPartTable &&
          operation.device->path == device->path) ||
         (operation.orig_partition->device_path == device->path)) {
@@ -997,6 +1001,179 @@ uint FullDiskDelegate::getSwapSize() const
     // Limit swap to 16G
     // see: https://tower.im/teams/9487/todos/232339/
     return std::min(static_cast<uint>(16), size);
+}
+
+bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
+{
+    resetOperations();
+
+    const QStringList& device_path_list = selected_disks;
+    for (QString device_path : device_path_list) {
+        int device_index = DeviceIndex(virtual_devices_, device_path);
+        if (device_index == -1) {
+            return false;
+        }
+    }
+
+    PartitionTableType table;
+    table = IsEfiEnabled() ? PartitionTableType::GPT : PartitionTableType::MsDos;
+
+    FullDiskOption   disk_option;
+    FullDiskPolicyList & policy_list = disk_option.policy_list;
+
+    // Get All policies from json file.
+    {
+        const QByteArray& policyStr{ GetFullDiskInstallPolicy() };
+        if (policyStr.isEmpty()) {
+            return false;
+        }
+
+        const QJsonArray policyArray = QJsonDocument::fromJson(policyStr).array();
+        if (policyArray.isEmpty()) {
+            return false;
+        }
+
+        for (const QJsonValue& jsonValue : policyArray) {
+            const QJsonObject& jsonObject  = jsonValue.toObject();
+            const QJsonArray&  platform = jsonObject["platform"].toArray();
+            if (!platform.contains(GetCurrentPlatform())) {
+                continue;
+            }
+
+            FullDiskPolicy  policy;
+            policy.filesystem = GetFsTypeByName(jsonObject["filesystem"].toString());
+            policy.mountPoint = jsonObject["mountPoint"].toString();
+            policy.label      = jsonObject["label"].toString().toLower();
+            policy.usage      = jsonObject["usage"].toString();
+            policy.alignStart = jsonObject["alignStart"].toBool();
+            policy.device     = jsonObject["device"].toString();
+            if (policy.mountPoint == kLinuxSwapMountPoint) {
+                policy.mountPoint = "";
+            }
+            policy_list.push_back(policy);
+        }
+   }
+
+    // Change data disk configuration.
+    for (int i=0; i < policy_list.length(); i++) {
+        FullDiskPolicy & policy = policy_list[i];
+        if (device_path_list.length() > 1
+            && policy.mountPoint == QString("/data")) {
+            policy.device = device_path_list.at(1);
+        }
+        else {
+            policy.device = device_path_list.at(0);
+        }        
+    }
+
+    // Format every disks one by one.
+    for (const QString& device_path : device_path_list) {
+        int device_index = DeviceIndex(virtual_devices_, device_path);
+
+        Device::Ptr device = virtual_devices_[device_index];
+        Device::Ptr new_device(new Device(*device));
+        new_device->partitions.clear();
+        new_device->table = table;
+
+        disk_option.is_system_disk = new_device->path == device_path_list.at(0);
+        if (!formatWholeDeviceV2(new_device, disk_option)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOption& option)
+{
+    Operation operation(device);
+    operations_.append(operation);
+    operation.applyToVisual(device);
+
+    int            primary_count { 0 };
+    const uint     swapSize{ getSwapSize() };
+    qint64         lastDeviceLenght{ device->length };
+    Partition::Ptr unallocated = device->partitions.last();
+
+    if (device->table == PartitionTableType::GPT && option.is_system_disk) {
+        const qint64 uefiSize =
+            ParsePartitionSize("300Mib", lastDeviceLenght * device->sector_size);
+        if (!createPrimaryPartition(unallocated, PartitionType::Normal, true, FsType::Ext4,
+                                    "/boot/efi", uefiSize / device->sector_size) ) {
+            return false;
+        }
+
+        const qint64 sectors = uefiSize / device->sector_size;
+        lastDeviceLenght -= sectors;
+        primary_count++;
+        Operation& last_operation = operations_.last();
+        last_operation.applyToVisual(device);
+        unallocated = device->partitions.last();
+    }
+
+    const FullDiskPolicyList& policy_list = option.policy_list;
+    for (const FullDiskPolicy& policy : policy_list) {
+        if (policy.device != device->path) {
+            continue;
+        }
+
+        qint64       partitionSize{ 0 };
+        const QString      swap_size_str = QString("%1gib").arg(swapSize);
+        qint64  length = lastDeviceLenght * device->sector_size;
+        if (policy.usage == "swap-size") {
+            partitionSize = ParsePartitionSize(swap_size_str,length);
+        }
+        if (partitionSize < 1) {
+            partitionSize = ParsePartitionSize(policy.usage, length);
+        }
+        const qint64 sectors = partitionSize / device->sector_size;
+        lastDeviceLenght -= sectors;
+
+        bool is_primary = (device->table == PartitionTableType::GPT
+                           || primary_count < (device->max_prims - 1));
+        PartitionType type = is_primary ? PartitionType::Normal : PartitionType::Logical;
+        if (!createPartition(unallocated, type, policy.alignStart, policy.filesystem,
+                    policy.mountPoint, sectors)) {
+            return false;
+        }
+        if (is_primary) {
+            primary_count++;
+        }
+
+        Operation& last_operation = operations_.last();
+        last_operation.applyToVisual(device);
+
+        for (Partition::Ptr p : device->partitions) {
+            if (p->type == PartitionType::Unallocated) {
+                unallocated = p;
+                break;
+            }
+        }
+    }
+    if (option.is_system_disk) {
+        setBootloaderPath(device->path);
+    }
+    return true;
+}
+
+void FullDiskDelegate::removeAllSelectedDisks()
+{
+    selected_disks.clear();
+}
+
+void FullDiskDelegate::addSystemDisk(const QString & device_path)
+{
+    selected_disks.clear();
+    selected_disks.append(device_path);
+}
+
+void FullDiskDelegate::addDataDisk(const QString & device_path)
+{
+    selected_disks.append(device_path);
+}
+
+const QStringList & FullDiskDelegate::selectedDisks()
+{
+    return selected_disks;
 }
 
 }  // namespace installer
