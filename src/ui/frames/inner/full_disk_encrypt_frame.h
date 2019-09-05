@@ -18,6 +18,16 @@ class SystemInfoTip;
 class FullDiskPartitionWidget;
 class FullDiskDelegate;
 
+#define  FULL_DISK_DISK_MAX_COUNT (2)
+
+struct FullDiskDiskInfo {
+    Device::Ptr m_device;
+    QLabel* m_diskLbl;
+    QLabel* m_devicePathLbl;
+    QLabel* m_deviceModelLbl;
+    QLabel* m_deviceSizeLbl;
+};
+
 class Full_Disk_Encrypt_frame : public QWidget
 {
     Q_OBJECT
@@ -38,15 +48,14 @@ private:
     void onEncryptUpdated(bool checked);
     void updateText();
     void updateEditCapsLockState(bool on);
+    void updateDiskInfo(int index);
+    void updateDiskInfo();
 
-private:
-    Device::Ptr m_device;
+private:    
     QVBoxLayout *m_layout;
     TitleLabel *m_frameLbl;
     QLabel *m_frameSubLbl;
-    QLabel *m_devicePathLbl;
-    QLabel *m_deviceModelLbl;
-    QLabel *m_deviceSizeLbl;
+    FullDiskDiskInfo  m_diskinfo[FULL_DISK_DISK_MAX_COUNT];
     QCheckBox *m_encryptCheck;
     QLabel *m_encryptLbl;
     QLabel *m_encryptCheckLbl;

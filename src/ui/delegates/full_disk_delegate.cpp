@@ -1180,6 +1180,10 @@ void FullDiskDelegate::addSystemDisk(const QString & device_path)
 
 void FullDiskDelegate::addDataDisk(const QString & device_path)
 {
+    for(int i=selected_disks.length()-1; i>0; i--) {
+        selected_disks.removeAt(i);
+    }
+    selected_disks.removeAll(device_path);
     selected_disks.append(device_path);
 }
 
