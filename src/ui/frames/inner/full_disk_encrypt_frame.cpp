@@ -172,6 +172,10 @@ void Full_Disk_Encrypt_frame::onNextBtnClicked()
 
     WriteFullDiskDeivce(m_device->path);
 
+    FinalFullDiskResolution resolution;
+    m_diskPartitionDelegate->getFinalDiskResolution(resolution);
+    WriteFullDiskResolution(resolution);
+
     emit finished();
 }
 

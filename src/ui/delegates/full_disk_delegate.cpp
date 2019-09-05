@@ -380,7 +380,8 @@ bool FullDiskDelegate::createPartition(const Partition::Ptr partition,
                                        bool align_start,
                                        FsType fs_type,
                                        const QString& mount_point,
-                                       qint64 total_sectors) {
+                                       qint64 total_sectors,
+                                       const QString& label) {
   // Policy:
   // * If partition table is empty, create a new one.
   const int device_index = DeviceIndex(virtual_devices_, partition->device_path);
@@ -410,13 +411,15 @@ bool FullDiskDelegate::createPartition(const Partition::Ptr partition,
                                   align_start,
                                   fs_type,
                                   mount_point,
-                                  total_sectors);
+                                  total_sectors,
+                                  label);
   } else if (partition_type == PartitionType::Logical) {
     return createLogicalPartition(partition,
                                   align_start,
                                   fs_type,
                                   mount_point,
-                                  total_sectors);
+                                  total_sectors,
+                                  label);
   } else {
     qCritical() << "not supported partition type:" << partition_type;
     return false;
@@ -427,7 +430,8 @@ bool FullDiskDelegate::createLogicalPartition(const Partition::Ptr partition,
                                               bool align_start,
                                               FsType fs_type,
                                               const QString& mount_point,
-                                              qint64 total_sectors) {
+                                              qint64 total_sectors,
+                                              const QString& label) {
   // Policy:
   // * Create extended partition if not found;
   // * If new logical partition is not contained in or is intersected with
@@ -493,6 +497,7 @@ bool FullDiskDelegate::createLogicalPartition(const Partition::Ptr partition,
   new_partition->type = PartitionType::Logical;
   new_partition->fs = fs_type;
   new_partition->mount_point = mount_point;
+  new_partition->label = label;
   const int partition_number = AllocLogicalPartitionNumber(device);
   if (partition_number < 0) {
     qCritical() << "Failed to allocate logical part number!";
@@ -554,7 +559,8 @@ bool FullDiskDelegate::createPrimaryPartition(const Partition::Ptr partition,
                                               bool align_start,
                                               FsType fs_type,
                                               const QString& mount_point,
-                                              qint64 total_sectors) {
+                                              qint64 total_sectors,
+                                              const QString& label) {
   // Policy:
   // * If new primary partition is contained in or intersected with
   //   extended partition, shrink extended partition or delete it if no other
@@ -628,7 +634,7 @@ bool FullDiskDelegate::createPrimaryPartition(const Partition::Ptr partition,
   new_partition->type = partition_type;
   new_partition->fs = fs_type;
   new_partition->mount_point = mount_point;
-  new_partition->label = partition->label;
+  new_partition->label = label;
 
   int partition_number;
   // In simple mode, operations has never been applied to partition list.
@@ -1132,7 +1138,7 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
                            || primary_count < (device->max_prims - 1));
         PartitionType type = is_primary ? PartitionType::Normal : PartitionType::Logical;
         if (!createPartition(unallocated, type, policy.alignStart, policy.filesystem,
-                    policy.mountPoint, sectors)) {
+                    policy.mountPoint, sectors,policy.label)) {
             return false;
         }
         if (is_primary) {
@@ -1174,6 +1180,40 @@ void FullDiskDelegate::addDataDisk(const QString & device_path)
 const QStringList & FullDiskDelegate::selectedDisks()
 {
     return selected_disks;
+}
+
+void FullDiskDelegate::getFinalDiskResolution(FinalFullDiskResolution& resolution)
+{
+    resolution.option_list.clear();
+    FinalFullDiskOption option;
+    for (Operation op : operations()) {
+        if (OperationType::Create != op.type) {
+            continue;
+        }
+
+        FinalFullDiskPolicy policy;
+        policy.filesystem = GetFsTypeName(op.new_partition->fs);
+        policy.mountPoint = op.new_partition->mount_point;
+        policy.label = op.new_partition->label;
+        policy.offset = op.new_partition->start_sector * op.new_partition->sector_size;
+        policy.size = (op.new_partition->end_sector - op.new_partition->start_sector) *
+                op.new_partition->sector_size;
+        policy.device = op.new_partition->device_path;
+
+        if (option.policy_list.length() > 0
+            && option.policy_list.last().device != policy.device) {
+            resolution.option_list.append(option);
+            option.policy_list.clear();
+        }
+        if (option.policy_list.length() == 0) {
+            option.device = policy.device;
+            option.password = "";
+        }
+        option.policy_list.append(policy);
+    }
+    if (option.policy_list.length() > 0) {
+        resolution.option_list.append(option);
+    }
 }
 
 }  // namespace installer

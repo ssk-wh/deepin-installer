@@ -530,18 +530,18 @@ void WriteFullDiskResolution(const FinalFullDiskResolution& resolution)
         }
         value += resolution.option_list.at(i).device;
     }
-    AppendToConfigFile("DI_FULLDISK_MULTIDISK", value);
+    AppendToConfigFile("DI_FULLDISK_MULTIDISK_DEVICE", value);
 
     QString labelKey { "" };
     QString labelValue { "" };
     for (int i=0; i<resolution.option_list.length(); i++) {
-        const FinalFullDiskOption & op = resolution.option_list[i];
-        key = QString("DI_FULLDISK_MULTIDISK_POLICY_{%1}").arg(i);
+        const FinalFullDiskOption& op = resolution.option_list[i];
+        key = QString("DI_FULLDISK_MULTIDISK_POLICY_%1").arg(i);
         value = "";
-        labelKey = QString("DI_FULLDISK_MULTIDISK_LABEL_{%1}").arg(i);
+        labelKey = QString("DI_FULLDISK_MULTIDISK_LABEL_%1").arg(i);
         labelValue = "";
         for (int j=0; j<op.policy_list.length(); j++) {
-            const FinalFullDiskPolicy & policy = op.policy_list[j];
+            const FinalFullDiskPolicy& policy = op.policy_list[j];
             if (j>0) {
                 value += ";";
                 labelValue += ";";

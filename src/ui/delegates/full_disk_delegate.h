@@ -111,6 +111,8 @@ class FullDiskDelegate : public QObject {
   // format all disks
   bool formatWholeDeviceMultipleDisk();
 
+  void getFinalDiskResolution(FinalFullDiskResolution& resolution);
+
 private:
   // New version of formatWholeDevice with the support of multiple disks.
   bool formatWholeDeviceV2(const Device::Ptr& device, FullDiskOption& option);
@@ -124,18 +126,21 @@ private:
                        bool align_start,
                        FsType fs_type,
                        const QString& mount_point,
-                       qint64 total_sectors);
+                       qint64 total_sectors,
+                       const QString& label=QString(""));
   bool createLogicalPartition(const Partition::Ptr partition,
                               bool align_start,
                               FsType fs_type,
                               const QString& mount_point,
-                              qint64 total_sectors);
+                              qint64 total_sectors,
+                              const QString& label = QString(""));
   bool createPrimaryPartition(const Partition::Ptr partition,
                               PartitionType partition_type,
                               bool align_start,
                               FsType fs_type,
                               const QString& mount_point,
-                              qint64 total_sectors);
+                              qint64 total_sectors,
+                              const QString& label = QString(""));
   Partition::Ptr deletePartition(const Partition::Ptr partition);
   void formatPartition(const Partition::Ptr partition,
                        FsType fs_type,

@@ -321,14 +321,8 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
     // Show install-tip at bottom of current checked button.
     this->showInstallTip(part_button);
 
-    // Reset simple operations.
-    m_delegate->resetOperations();
-
-    if (!m_encryptCheck->isChecked()) {
-        PartitionTableType table =
-                IsEfiEnabled() ? PartitionTableType::GPT : PartitionTableType::MsDos;
-        m_delegate->formatWholeDevice(path, table);
-    }
+     m_delegate->addSystemDisk(part_button->device()->path);
+     m_delegate->formatWholeDeviceMultipleDisk();
   }
 }
 
