@@ -31,7 +31,14 @@ def update_settings(settings_file, settings):
     if not os.path.exists(src_settings):
         print("Failed to find", src_settings)
         sys.exit(1)
-    shutil.copy(src_settings, settings_file)
+
+    if os.path.exists(settings_file):
+        os.remove(settings_file)
+
+    config = configparser.ConfigParser()
+    config.read(settings_file, encoding="utf-8")
+    config.add_section(SEC_NAME)
+    config.write(open(settings_file, "w"))
 
     parser = configparser.RawConfigParser()
     parser.read(settings_file)
@@ -57,71 +64,94 @@ def main():
     x86_professional_file = "resources/platform_x86/professional.override"
     x86_server_file = "resources/platform_x86/server.override"
 
-
-    arm_settings = (
-            ("skip_virtual_machine_page", "true"),
-            ("apt_source_deb", '"deb http://packages.deepin.com/deepin camel main contrib non-free"'),
-            ("apt_source_deb_src", '"#deb-src http://packages.deepin.com/deepin camel main contrib non-free"'),
-            ("partition_skip_partition_crypt_page", "true"),
-            ("partition_skip_simple_partition_page", "true"),
-            ("skip_select_component_page", "false"),
-    )
-
-    loongson_settings = (
-            ("skip_virtual_machine_page", "true"),
-            ("select_language_default_locale", "zh_CN"),
-            ("system_info_disable_keyboard_page", "false"),
-            ("system_info_default_keyboard_layout", '"us"'),
-            ("timezone_default", '"Asia/Shanghai"'),
-            ("timezone_use_regdomain", "false"),
-            ("partition_skip_simple_partition_page", "true"),
-            ("partition_skip_partition_crypt_page", "true"),
-            ("partition_enable_simple_disk_page", "true"),
-            ("partition_enable_swap_file", "false"),
-            ("partition_formatted_mount_points", '"/;/tmp;/var"'),
-            ("partition_enable_os_prober", "false"),
-            ("partition_boot_on_first_partition", "true"),
-            ("partition_supported_fs", '"ext4;ext3;ext2;efi;linux-swap"'),
-            ("partition_prefer_logical_partition", "false"),
-            ("partition_full_disk_small_legacy_policy", '"/boot:ext4:1:1536;swap:linux-swap:1537:swap-size;/:ext4::100%"'),
-            ("partition_full_disk_large_legacy_policy", '"/boot:ext4:1:1536;swap:linux-swap:1537:swap-size;/:ext4::75%;:ext4::100%"'),
-            ("partition_full_disk_small_legacy_label", '"Boot;Swap;Root"'),
-            ("partition_full_disk_large_legacy_label", '"Boot;Swap;Root;_dde_data"'),
-            ("apt_source_deb", '"deb http://packages.deepin.com/deepin camel main contrib non-free"'),
-            ("apt_source_deb_src", '"#deb-src http://packages.deepin.com/deepin camel main contrib non-free"'),
-            ("partition_skip_simple_partition_page", "true"),
-            ("skip_select_component_page", "false"),
-    )
-
-    sw_settings = (
-        ("skip_virtual_machine_page", "true"),
+    arm_community_settings = (
         ("select_language_default_locale", "zh_CN"),
-        ("system_info_disable_keyboard_page", "false"),
-        ("system_info_default_keyboard_layout", '"us"'),
-        ("timezone_default", '"Asia/Shanghai"'),
-        ("timezone_use_regdomain", "false"),
+        ("timezone_default", "Asia/Shanghai"),
+        ("partition_skip_simple_partition_page", "true"),
+        ("partition_skip_partition_crypt_page", "true"),
+    )
+
+    arm_server_settings = (
+        ("skip_select_component_page", "false"),
+        ("select_language_default_locale", "zh_CN"),
+        ("timezone_default", "Asia/Shanghai"),
+        ("partition_skip_simple_partition_page", "true"),
+        ("partition_skip_partition_crypt_page", "true"),
+    )
+
+    loongson_community_settings = (
+        ("select_language_default_locale", "zh_CN"),
+        ("timezone_default", "Asia/Shanghai"),
         ("partition_skip_simple_partition_page", "true"),
         ("partition_skip_partition_crypt_page", "true"),
         ("partition_enable_swap_file", "false"),
-        ("partition_swap_partition_size", "8192"),
-        ("partition_enable_simple_disk_page", "true"),
-        ("partition_enable_swap_file", "false"),
-        ("partition_formatted_mount_points", '"/;/tmp;/var"'),
+        ("partition_force_swap_file_in_simple_page", "false"),
+        ("partition_supported_fs", '"ext4;ext3;ext2;efi;linux-swap"'),
         ("partition_enable_os_prober", "false"),
         ("partition_boot_on_first_partition", "true"),
-        ("partition_supported_fs", '"ext4;ext3;ext2;efi;linux-swap"'),
         ("partition_prefer_logical_partition", "false"),
-        ("partition_full_disk_small_legacy_policy", '"/boot:ext4:1:3072;swap:linux-swap:3073:swap-size;/:ext4::100%"'),
-        ("partition_full_disk_large_legacy_policy", '"/boot:ext4:1:3072;swap:linux-swap:3073:swap-size;/:ext4::75%;:ext4::100%"'),
+        ("partition_full_disk_small_legacy_policy", '"/boot:ext4:1:1536;swap:linux-swap:1537:swap-size;/:ext4::100%"'),
+        ("partition_full_disk_large_legacy_policy", '"/boot:ext4:1:1536;swap:linux-swap:1537:swap-size;/:ext4::75%;:ext4::100%"'),
         ("partition_full_disk_small_legacy_label", '"Boot;Swap;Root"'),
         ("partition_full_disk_large_legacy_label", '"Boot;Swap;Root;_dde_data"'),
-        ("apt_source_deb", '"deb http://packages.deepin.com/deepin camel main contrib non-free"'),
-        ("apt_source_deb_src", '""'),
+    )
+
+    loongson_server_settings = (
+        ("select_language_default_locale", "zh_CN"),
+        ("timezone_default", "Asia/Shanghai"),
         ("partition_skip_simple_partition_page", "true"),
+        ("partition_skip_partition_crypt_page", "true"),
+        ("partition_enable_swap_file", "false"),
+        ("partition_force_swap_file_in_simple_page", "false"),
+        ("partition_supported_fs", '"ext4;ext3;ext2;efi;linux-swap"'),
+        ("partition_enable_os_prober", "false"),
+        ("partition_boot_on_first_partition", "true"),
+        ("partition_prefer_logical_partition", "false"),
+        ("partition_full_disk_small_legacy_policy", '"/boot:ext4:1:1536;swap:linux-swap:1537:swap-size;/:ext4::100%"'),
+        ("partition_full_disk_large_legacy_policy", '"/boot:ext4:1:1536;swap:linux-swap:1537:swap-size;/:ext4::75%;:ext4::100%"'),
+        ("partition_full_disk_small_legacy_label", '"Boot;Swap;Root"'),
+        ("partition_full_disk_large_legacy_label", '"Boot;Swap;Root;_dde_data"'),
+        ("skip_select_component_page", "false"),
+    )
+
+    sw_community_settings = (
+        ("select_language_default_locale", "zh_CN"),
+        ("timezone_default", "Asia/Shanghai"),
+        ("partition_skip_simple_partition_page", "true"),
+        ("partition_skip_partition_crypt_page", "true"),
+        ("partition_enable_swap_file", "false"),
+        ("partition_force_swap_file_in_simple_page", "false"),
+        ("partition_supported_fs", '"ext4;ext3;ext2;efi;linux-swap"'),
+        ("partition_enable_os_prober", "false"),
+        ("partition_boot_on_first_partition", "true"),
+        ("partition_prefer_logical_partition", "false"),
+        ("partition_full_disk_small_legacy_policy", '"/boot:ext4:1:1536;swap:linux-swap:1537:swap-size;/:ext4::100%"'),
+        ("partition_full_disk_large_legacy_policy", '"/boot:ext4:1:1536;swap:linux-swap:1537:swap-size;/:ext4::75%;:ext4::100%"'),
+        ("partition_full_disk_small_legacy_label", '"Boot;Swap;Root"'),
+        ("partition_full_disk_large_legacy_label", '"Boot;Swap;Root;_dde_data"'),
+    )
+
+    sw_server_settings = (
+        ("select_language_default_locale", "zh_CN"),
+        ("timezone_default", "Asia/Shanghai"),
+        ("partition_skip_simple_partition_page", "true"),
+        ("partition_skip_partition_crypt_page", "true"),
+        ("partition_enable_swap_file", "false"),
+        ("partition_force_swap_file_in_simple_page", "false"),
+        ("partition_supported_fs", '"ext4;ext3;ext2;efi;linux-swap"'),
+        ("partition_enable_os_prober", "false"),
+        ("partition_boot_on_first_partition", "true"),
+        ("partition_prefer_logical_partition", "false"),
+        ("partition_full_disk_small_legacy_policy", '"/boot:ext4:1:1536;swap:linux-swap:1537:swap-size;/:ext4::100%"'),
+        ("partition_full_disk_large_legacy_policy", '"/boot:ext4:1:1536;swap:linux-swap:1537:swap-size;/:ext4::75%;:ext4::100%"'),
+        ("partition_full_disk_small_legacy_label", '"Boot;Swap;Root"'),
+        ("partition_full_disk_large_legacy_label", '"Boot;Swap;Root;_dde_data"'),
         ("skip_select_component_page", "false"),
     )
 
     x86_professinal_settings = (
+        ("select_language_default_locale", "zh_CN"),
+        ("timezone_default", "Asia/Shanghai"),
         ("timezone_use_local_time_regardless", "true"),
         ("system_info_password_strong_check", "false"),
         ("apt_source_deb", '"deb http://packages.deepin.com/deepin camel main contrib non-free"'),
@@ -130,19 +160,27 @@ def main():
         ("partition_skip_simple_partition_page", "true"),
     )
 
-    update_settings(arm_community_file, arm_settings)
-    update_settings(arm_professional_file, arm_settings)
-    update_settings(arm_server_file, arm_settings)
+    x86_server_settings = (
+        ("skip_select_component_page", "false"),
+        ("select_language_default_locale", "zh_CN"),
+        ("timezone_default", "Asia/Shanghai"),
+        ("partition_skip_simple_partition", "true")
+    )
 
-    update_settings(loongson_community_file, loongson_settings)
-    update_settings(loongson_professional_file, loongson_settings)
-    update_settings(loongson_server_file, loongson_settings)
+    update_settings(arm_community_file, arm_community_settings)
+    update_settings(arm_professional_file, arm_community_settings)
+    update_settings(arm_server_file, arm_server_settings)
 
-    update_settings(sw_community_file, sw_settings)
-    update_settings(sw_professional_file, sw_settings)
-    update_settings(sw_server_file, sw_settings)
+    update_settings(loongson_community_file, loongson_community_settings)
+    update_settings(loongson_professional_file, loongson_community_settings)
+    update_settings(loongson_server_file, loongson_server_settings)
+
+    update_settings(sw_community_file, sw_community_settings)
+    update_settings(sw_professional_file, sw_community_settings)
+    update_settings(sw_server_file, sw_server_settings)
 
     update_settings(x86_professional_file, x86_professinal_settings)
+    update_settings(x86_server_file, x86_server_settings)
 
 if __name__ == "__main__":
     main()
