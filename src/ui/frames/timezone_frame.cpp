@@ -122,10 +122,15 @@ void TimezoneFrame::changeEvent(QEvent* event) {
 void TimezoneFrame::showEvent(QShowEvent* event) {
   QFrame::showEvent(event);
 
+  next_button_->setFocus();
+
   // NOTE(xushaohua): Add a delay to wait for paint event of timezone map.
   QTimer::singleShot(0, [&]() {
       if(m_stackedLayout->currentWidget() == m_timezonePage){
           timezone_map_->showMark();
+      }
+      else {
+          timezone_map_->hideMark();
       }
   });
 }

@@ -26,12 +26,12 @@
 #include "ui/widgets/pointer_button.h"
 #include "ui/widgets/line_edit.h"
 #include "ui/widgets/title_label.h"
+#include "ui/widgets/time_date_line_edit.h"
 #include "service/settings_manager.h"
 
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QCheckBox>
-#include <QLineEdit>
 #include <QEvent>
 #include <QChar>
 #include <QProcess>
@@ -50,7 +50,7 @@ namespace {
     int kYearMonthDayQWidgetWidth = 340;
 }
 
-class SystemDateFramePrivate : public QObject{
+class SystemDateFramePrivate : public QWidget{
     Q_OBJECT
 public:
     SystemDateFramePrivate(SystemDateFrame* qq) : m_ptr(qq) {}
@@ -59,17 +59,17 @@ public:
     QLabel* m_subTitle = new QLabel();
     QCheckBox* m_autoSyncTimeCheckBox = new QCheckBox;
 
-    QLineEdit* m_hourEdit = new QLineEdit;
-    QLineEdit* m_minuteEdit = new QLineEdit;
+    TimeDateLineEdit* m_hourEdit = new TimeDateLineEdit(this);
+    TimeDateLineEdit* m_minuteEdit = new TimeDateLineEdit(this);
     PointerButton* m_addYearBtn   = new PointerButton;
     PointerButton* m_minusYearBtn = new PointerButton;
-    QLineEdit* m_yearEdit = new QLineEdit;
+    TimeDateLineEdit* m_yearEdit = new TimeDateLineEdit(this);
     PointerButton* m_addMonthBtn = new PointerButton;
     PointerButton* m_minusMonthBtn = new PointerButton;
-    QLineEdit* m_monthEdit = new QLineEdit;
+    TimeDateLineEdit* m_monthEdit = new TimeDateLineEdit(this);
     PointerButton* m_minusDayBtn = new PointerButton;
     PointerButton* m_addDayBtn = new PointerButton;
-    QLineEdit* m_dayEdit = new QLineEdit;
+    TimeDateLineEdit* m_dayEdit = new TimeDateLineEdit(this);
 
     QLabel* m_hourLabel = new QLabel;
     QLabel* m_minuteLabel = new QLabel;
@@ -116,7 +116,8 @@ public:
     void onMinusMonthBtn();
     void onMinusDayBtn();
     void onAddDayBtn();
-    void onYearMonthDayChanged(QLineEdit* edit, bool add);
+    void onYearMonthDayChanged(TimeDateLineEdit* edit, bool add);
+    void autoAdjustDay();
 
     void onNextButtonClicked();
 };
@@ -141,6 +142,9 @@ bool SystemDateFrame::event(QEvent *event)
     if (event->type() == QEvent::LanguageChange) {
         d->updateTs();
     }
+    if (event->type() == QEvent::Show){
+        d->m_acceptBtn->setFocus();
+    }
 
     return QWidget::event(event);
 }
@@ -159,6 +163,8 @@ void SystemDateFramePrivate::onYearEditingFinished()
     if(!validateYear(m_yearEdit->text())){
         m_yearEdit->setText("1970");
     }
+
+    autoAdjustDay();
 }
 
 void SystemDateFramePrivate::onMonthEditingFinished()
@@ -166,6 +172,8 @@ void SystemDateFramePrivate::onMonthEditingFinished()
     if(!validateMonth(m_monthEdit->text())){
         m_monthEdit->setText("1");
     }
+
+    autoAdjustDay();
 }
 
 void SystemDateFramePrivate::onDayEditingFinished()
@@ -219,7 +227,7 @@ void SystemDateFramePrivate::onMinusDayBtn()
     onYearMonthDayChanged(m_dayEdit, false);
 }
 
-void SystemDateFramePrivate::onYearMonthDayChanged(QLineEdit *edit, bool add)
+void SystemDateFramePrivate::onYearMonthDayChanged(TimeDateLineEdit *edit, bool add)
 {
     int delta = add ? 1 : -1;
     int val = edit->text().toInt() + delta;
@@ -244,12 +252,16 @@ void SystemDateFramePrivate::onYearMonthDayChanged(QLineEdit *edit, bool add)
     edit->setText(QString::number(val));
 
     if((edit == m_yearEdit) || (edit == m_monthEdit)){
-        uint days = getDaysInMonth(m_yearEdit->text().toUInt(), m_monthEdit->text().toUInt());
-        uint day = m_dayEdit->text().toUInt();
-        day = (day > days)? days : day;
+        autoAdjustDay();
+    }
+}
 
-        m_dayEdit->setText(QString::number(day));
-        m_dayEdit->setFocus();
+void SystemDateFramePrivate::autoAdjustDay()
+{
+    uint days = getDaysInMonth(m_yearEdit->text().toUInt(), m_monthEdit->text().toUInt());
+    uint day = m_dayEdit->text().toUInt();
+    if(day > days){
+        m_dayEdit->setText(QString::number(days));
     }
 }
 
@@ -284,6 +296,10 @@ uint SystemDateFramePrivate::getDaysInMonth(uint year, uint month)
 
 bool SystemDateFramePrivate::validateHour(const QString &str)
 {
+    if(str.isEmpty()){
+        return false;
+    }
+
     if(str.toUInt() > 23){
         return false;
     }
@@ -293,6 +309,10 @@ bool SystemDateFramePrivate::validateHour(const QString &str)
 
 bool SystemDateFramePrivate::validateMinute(const QString &str)
 {
+    if(str.isEmpty()){
+        return false;
+    }
+
     if (str.toUInt() > 59){
         return false;
     }
@@ -302,6 +322,10 @@ bool SystemDateFramePrivate::validateMinute(const QString &str)
 
 bool SystemDateFramePrivate::validateYear(const QString& str)
 {
+    if(str.isEmpty()){
+        return false;
+    }
+
     if(str.toUInt() < 1970){
         return false;
     }
@@ -311,6 +335,10 @@ bool SystemDateFramePrivate::validateYear(const QString& str)
 
 bool SystemDateFramePrivate::validateMonth(const QString& str)
 {
+    if(str.isEmpty()){
+        return false;
+    }
+
     uint month = str.toUInt();
     if((month < 1) || (month > 12)){
         return false;
@@ -321,6 +349,10 @@ bool SystemDateFramePrivate::validateMonth(const QString& str)
 
 bool SystemDateFramePrivate::validateDay(const QString& str)
 {
+    if(str.isEmpty()){
+        return false;
+    }
+
     uint day = str.toUInt();
     if(day < 1){
         return false;
@@ -376,6 +408,7 @@ void SystemDateFramePrivate::onNextButtonClicked()
 void SystemDateFramePrivate::init()
 {
     m_autoSyncTimeCheckBox->setObjectName("autoSyncTimeCheckBox");
+    m_autoSyncTimeCheckBox->clearFocus();
 
     QVBoxLayout* centerLayout = new QVBoxLayout;
     centerLayout->setMargin(0);
@@ -563,13 +596,27 @@ void SystemDateFramePrivate::initConnection()
 {
     connect(m_yearEdit, &QLineEdit::editingFinished, this,
             &SystemDateFramePrivate::onYearEditingFinished);
+    connect(m_yearEdit, &TimeDateLineEdit::lostFocus, this,
+            &SystemDateFramePrivate::onYearEditingFinished);
+
     connect(m_monthEdit, &QLineEdit::editingFinished, this,
             &SystemDateFramePrivate::onMonthEditingFinished);
+    connect(m_monthEdit, &TimeDateLineEdit::lostFocus, this,
+            &SystemDateFramePrivate::onMonthEditingFinished);
+
     connect(m_dayEdit, &QLineEdit::editingFinished, this,
             &SystemDateFramePrivate::onDayEditingFinished);
+    connect(m_dayEdit, &TimeDateLineEdit::lostFocus, this,
+            &SystemDateFramePrivate::onDayEditingFinished);
+
     connect(m_hourEdit, &QLineEdit::editingFinished, this,
             &SystemDateFramePrivate::onHourEditingFinished);
+    connect(m_hourEdit, &TimeDateLineEdit::lostFocus, this,
+            &SystemDateFramePrivate::onHourEditingFinished);
+
     connect(m_minuteEdit, &QLineEdit::editingFinished, this
+            , &SystemDateFramePrivate::onMinuteEditingFinished);
+    connect(m_minuteEdit, &TimeDateLineEdit::lostFocus, this
             , &SystemDateFramePrivate::onMinuteEditingFinished);
 
     connect(m_addYearBtn, &QPushButton::clicked, this, &SystemDateFramePrivate::onAddYearBtn);

@@ -447,6 +447,8 @@ set(UI_FILES
     ui/widgets/component_widget.cpp
     ui/widgets/multiple_disk_installation_widget.h
     ui/widgets/multiple_disk_installation_widget.cpp
+    ui/widgets/time_date_line_edit.h
+    ui/widgets/time_date_line_edit.cpp
 
     ui/xrandr/multi_head_manager.cpp
     ui/xrandr/multi_head_manager.h
@@ -860,6 +862,8 @@ add_executable(timezone-frame-test
                ui/widgets/title_label.h
                ui/widgets/tooltip_pin.cpp
                ui/widgets/tooltip_pin.h
+               ui/widgets/time_date_line_edit.h
+               ui/widgets/time_date_line_edit.cpp
 
                ui/images/images.qrc
                ui/styles/styles.qrc
