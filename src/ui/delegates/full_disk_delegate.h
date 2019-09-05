@@ -22,6 +22,7 @@
 #include <partman/operation.h>
 
 #include "partman/device.h"
+#include "service/settings_manager.h"
 
 namespace installer {
 

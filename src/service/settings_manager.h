@@ -152,6 +152,32 @@ void AddConfigFile();
 // Save swap size for FullDiskInstall
 void WriteSwapPartitionSize(const uint size);
 
+//Full disk policy settings.
+struct FinalFullDiskPolicy {
+    QString       filesystem;
+    QString       mountPoint;
+    QString       label;
+    QString       device;
+    qint64        offset;
+    qint64        size;
+};
+
+typedef QList<FinalFullDiskPolicy> FinalFullDiskPolicyList;
+
+struct FinalFullDiskOption {
+    QString                  device;
+    QString                  password;
+    FinalFullDiskPolicyList  policy_list;
+};
+
+typedef QList<FinalFullDiskOption> FinalFullDiskOptionList;
+
+struct FinalFullDiskResolution {
+    FinalFullDiskOptionList  option_list;
+};
+
+void WriteFullDiskResolution(const FinalFullDiskResolution& resolution);
+
 }  // namespace installer
 
 #endif  // INSTALLER_SETTINGS_MANAGER_H
