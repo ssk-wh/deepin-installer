@@ -23,8 +23,8 @@ DI_LOOP_ROOT_FILE=$(installer_get "DI_LOOP_ROOT_FILE")
 DI_LOOP_SWAP_FILE=$(installer_get "DI_LOOP_SWAP_FILE")
 
 # 卸载var和home，否则会出现在fstab中
-umount /target/var
-umount /target/home
+umount /target/data/var
+umount /target/data/home
 
 #fstab for lupin
 if [ x${DI_LUPIN} = xtrue ]; then
