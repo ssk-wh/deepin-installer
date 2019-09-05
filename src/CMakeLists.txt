@@ -553,7 +553,7 @@ add_executable(deepin-installer
                third_party/qtermwidget/lib/kb-layouts/kb-layouts.qrc
                )
 
-target_link_libraries(deepin-installer ${LINK_LIBS})
+target_link_libraries(deepin-installer ${LINK_LIBS} pthread)
 add_dependencies(deepin-installer installer-qm-update)
 
 
@@ -586,6 +586,7 @@ add_executable(deepin-installer-first-boot
 target_link_libraries(deepin-installer-first-boot
                       ${LINK_LIBS}
                       global_shortcut
+                      pthread
                       )
 
 add_executable(deepin-installer-user-form

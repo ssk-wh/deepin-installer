@@ -25,6 +25,7 @@
 
 #include <QDebug>
 #include <QApt/DebFile>
+#include <thread>
 
 using namespace installer;
 
@@ -63,28 +64,56 @@ ComponentInstallManager::ComponentInstallManager(QObject *parent) : QObject(pare
         m_packageList << info;
     }
 
-    // 加載所有的deb包
-    QDir dir("/lib/live/mount/medium/pool/main/");
-    if (!dir.exists()) {
-        dir.setPath("/run/live/medium/pool/main/");
-    }
+    std::thread thread([&] {
+        // 加載所有的deb包
+        QDir dir("/lib/live/mount/medium/pool/main/");
+        if (!dir.exists()) {
+            dir.setPath("/run/live/medium/pool/main/");
+        }
 
-    if (dir.exists()) {
+        if (!dir.exists()) {
+            qDebug() << "/media/cdrom not exist.";
+            return;
+        }
+
         const QStringList& list = findAllDeb(dir.path());
+        QList<QApt::DebFile> files;
+        QStringList packagesList;
+
+        for (const QString& l : list) {
+            QApt::DebFile file(l);
+            packagesList << file.packageName();
+        }
+
+        QStringList notExistList;
         for (auto it = m_packageList.begin(); it != m_packageList.end();) {
             const QString& id = it->data()->Id;
-            if (!list.contains(id)) {
-                qWarning() << "Package not exist: " << id;
+            QStringList& list = it->data()->PackageList;
+            for (auto plist = list.begin(); plist != list.end();) {
+                if (!packagesList.contains(*plist)) {
+                    notExistList << id;
+                    plist = list.erase(plist);
+                }
+                else {
+                    ++plist;
+                }
+            }
+
+            if (list.isEmpty()) {
                 it = m_packageList.erase(it);
             }
             else {
                 ++it;
             }
         }
-    }
-    else {
-        qDebug() << "/media/cdrom not exist.";
-    }
+
+        notExistList.removeDuplicates();
+        for (const QString& l : notExistList) {
+            qWarning() << "Package not exist: " << l;
+        }
+    });
+
+    thread.detach();
 }
 
 QStringList ComponentInstallManager::packageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const {
@@ -156,7 +185,7 @@ QStringList ComponentInstallManager::findAllDeb(const QString& path) const {
             packageList << findAllDeb(fileInfo.filePath());
         }
         else {
-            packageList << fileInfo.fileName();
+            packageList << fileInfo.filePath();
         }
     }
 
