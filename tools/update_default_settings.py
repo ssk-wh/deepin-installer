@@ -156,7 +156,7 @@ def main():
         ("system_info_password_strong_check", "false"),
         ("apt_source_deb", '"deb http://packages.deepin.com/deepin camel main contrib non-free"'),
         ("apt_source_deb_src", '"#deb-src http://packages.deepin.com/deepin camel main contrib non-free"'),
-        ("skip_select_component_page", "false"),
+        ("skip_select_component_page", "true"),
         ("partition_skip_simple_partition_page", "true"),
     )
 
@@ -164,7 +164,7 @@ def main():
         ("skip_select_component_page", "false"),
         ("select_language_default_locale", "zh_CN"),
         ("timezone_default", "Asia/Shanghai"),
-        ("partition_skip_simple_partition", "true")
+        ("partition_skip_simple_partition_page", "true")
     )
 
     update_settings(arm_community_file, arm_community_settings)
