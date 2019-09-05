@@ -87,11 +87,10 @@ ComponentInstallManager::ComponentInstallManager(QObject *parent) : QObject(pare
 
         QStringList notExistList;
         for (auto it = m_packageList.begin(); it != m_packageList.end();) {
-            const QString& id = it->data()->Id;
             QStringList& list = it->data()->PackageList;
             for (auto plist = list.begin(); plist != list.end();) {
                 if (!packagesList.contains(*plist)) {
-                    notExistList << id;
+                    notExistList << *plist;
                     plist = list.erase(plist);
                 }
                 else {
