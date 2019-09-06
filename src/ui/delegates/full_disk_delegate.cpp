@@ -1082,7 +1082,7 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
    }
 
     // Change data disk configuration.
-    for (int i=0; i < policy_list.length(); i++) {
+    for (int i = 0; i < policy_list.length(); i++) {
         FullDiskPolicy & policy = policy_list[i];
         if (device_path_list.length() > 1
             && policy.mountPoint == QString("/data")) {
@@ -1195,7 +1195,7 @@ void FullDiskDelegate::addSystemDisk(const QString & device_path)
 
 void FullDiskDelegate::addDataDisk(const QString & device_path)
 {
-    for(int i=selected_disks.length()-1; i>0; i--) {
+    for(int i = selected_disks.length() - 1; i > 0; i--) {
         selected_disks.removeAt(i);
     }
     selected_disks.removeAll(device_path);

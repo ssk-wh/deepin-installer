@@ -327,7 +327,7 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
 }
 
 void FullDiskFrame::onCurrentDeviceChanged(int type, const Device::Ptr device)
-{    
+{
     if (static_cast<int>(DiskModelType::SystemDisk) == type) {
         m_errorTip->hide();
         m_diskPartitionWidget->setDevice(m_delegate->fullInstallScheme(device));

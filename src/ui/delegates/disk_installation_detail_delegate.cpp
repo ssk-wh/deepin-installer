@@ -127,6 +127,9 @@ void DiskInstallationDetailDelegate::paint(QPainter* painter,
     painter->fillPath(full_path,full_color);
 
     qreal disk_percent = static_cast<qreal>(device_size.freespace)/static_cast<qreal>(device_size.length);
+    if (disk_percent < 0) {
+        disk_percent = 0.0;
+    }
     const QColor percent_color(44, 167, 248, 196);
     const QRect percent_rect(rect.x() + kDiskPercentLeftMarin,
           static_cast<int>(rect.y()+(rect.height() - kDiskPercentHeight)/2),

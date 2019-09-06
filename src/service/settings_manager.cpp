@@ -522,39 +522,34 @@ void WriteIsLocalTime(bool isLocalTime)
 
 void WriteFullDiskResolution(const FinalFullDiskResolution& resolution)
 {
-    QString key { "" };
-    QString value { "" };
-    for (int i=0; i<resolution.option_list.length(); i++) {
-        if (i>0) {
-            value += ";";
-        }
-        value += resolution.option_list.at(i).device;
+    const char kFullDiskResolutionDeviceSeparator[] = ";";
+    QString key { "" };    
+    QStringList valueList;
+    for (int i = 0; i < resolution.option_list.length(); i++) {
+        valueList << resolution.option_list.at(i).device;
     }
-    AppendToConfigFile("DI_FULLDISK_MULTIDISK_DEVICE", value);
+    AppendToConfigFile("DI_FULLDISK_MULTIDISK_DEVICE", valueList.join(kFullDiskResolutionDeviceSeparator));
 
     QString labelKey { "" };
     QString labelValue { "" };
+    QStringList labelValueList;
     for (int i=0; i<resolution.option_list.length(); i++) {
         const FinalFullDiskOption& op = resolution.option_list[i];
         key = QString("DI_FULLDISK_MULTIDISK_POLICY_%1").arg(i);
-        value = "";
         labelKey = QString("DI_FULLDISK_MULTIDISK_LABEL_%1").arg(i);
-        labelValue = "";
-        for (int j=0; j<op.policy_list.length(); j++) {
+        valueList.clear();
+        labelValueList.clear();
+        for (int j = 0; j < op.policy_list.length(); j++) {
             const FinalFullDiskPolicy& policy = op.policy_list[j];
-            if (j>0) {
-                value += ";";
-                labelValue += ";";
-            }
-            value += QString("%1:%2:%3:%4")
+            valueList << QString("%1:%2:%3:%4")
                     .arg(policy.mountPoint)
                     .arg(policy.filesystem)
                     .arg(policy.offset)
                     .arg(policy.size);
-            labelValue += policy.label;
+            labelValueList << policy.label;
         }
-        AppendToConfigFile(key, value);
-        AppendToConfigFile(labelKey, labelValue);
+        AppendToConfigFile(key, valueList.join(kFullDiskResolutionDeviceSeparator));
+        AppendToConfigFile(labelKey, labelValueList.join(kFullDiskResolutionDeviceSeparator));
     }
 }
 
