@@ -80,7 +80,8 @@ QListView {
 }
 
 QListView::item {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.3) url(":/images/continent_arrow.svg")
+            no-repeat right center;
   height: 40px;
   padding: 0px 15px 0px 27px;
   margin: 0px;
@@ -88,6 +89,11 @@ QListView::item {
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 
   selection-background-color: rgba(255, 255, 255, 0.3);
+}
+
+QListView::item:normal {
+  background: rgba(255, 255, 255, 0.3) url(":/images/continent_arrow.svg")
+            no-repeat right center;
 }
 
 QListView::item:hover {
@@ -101,6 +107,6 @@ QListView::item:focus {
 QListView::item:selected {
   outline: none;
   border: none;
-  background: rgba(255, 255, 255, 0.3) url(":/images/disk_installation_select.svg")
+  background: rgba(255, 255, 255, 0.3) url(":/images/continent_arrow.svg")
               no-repeat right center;
 }

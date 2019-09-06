@@ -12,6 +12,7 @@ class ContinentModel;
 class TimeZoneModel;
 class FramelessListView;
 class DiskInstallationView;
+class ContinentModel;
 
 class SelectTimeZoneFrame : public QFrame
 {
@@ -34,7 +35,7 @@ private:
     QString m_currentTimezone;
 
     DiskInstallationView* m_continentListView = nullptr;
-    QStringListModel* m_continentModel = nullptr;
+    ContinentModel* m_continentModel = nullptr;
 
     FramelessListView* m_timeZoneListView = nullptr;
     QStringListModel* m_timeZoneModel = nullptr;

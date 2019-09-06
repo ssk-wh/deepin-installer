@@ -376,6 +376,8 @@ set(UI_FILES
     ui/models/disk_installation_model.cpp
     ui/models/disk_installation_detail_model.h
     ui/models/disk_installation_detail_model.cpp
+    ui/models/continent_model.h
+    ui/models/continent_model.cpp
 
     ui/utils/widget_util.cpp
     ui/utils/widget_util.h
@@ -855,6 +857,8 @@ add_executable(timezone-frame-test
                ui/views/disk_installation_view.cpp
                ui/models/disk_installation_model.h
                ui/models/disk_installation_model.cpp
+               ui/models/continent_model.h
+               ui/models/continent_model.cpp
                ui/views/frameless_list_view.h
                ui/views/frameless_list_view.cpp
                ui/delegates/frameless_list_delegate.cpp

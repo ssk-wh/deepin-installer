@@ -22,7 +22,6 @@
 class QPainter;
 
 namespace installer {
-
 // ItemDelegate for FramelessListView.
 // This class overrides default styles in QStyledItemDelegate.
 // And stylesheets defined in :/styles/frameless_list_view.css are useless

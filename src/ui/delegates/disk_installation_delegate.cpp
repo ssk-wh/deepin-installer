@@ -17,6 +17,7 @@
 
 #include "disk_installation_delegate.h"
 #include "ui/utils/widget_util.h"
+#include "ui/models/continent_model.h"
 
 #include <QDebug>
 #include <QPainter>
@@ -39,7 +40,8 @@ const int kBorderBottom = 1;
 }  // namespace
 
 DiskInstallationItemDelegate::DiskInstallationItemDelegate(QObject* parent)
-    : QStyledItemDelegate(parent) {
+    : QStyledItemDelegate(parent)
+{
   this->setObjectName("disk_installataion_item_delegate");
 }
 
@@ -51,21 +53,28 @@ void DiskInstallationItemDelegate::paint(QPainter* painter,
   const QRect& rect(option.rect);
   const QRect background_rect(rect.x(), rect.y(), rect.width(),
                               rect.height() - kBorderBottom);
-  if (option.state & QStyle::State_Selected) {
+
+  bool iconControl = index.data(ContinentModel::IconDisplayControl::Display).toBool();
+
+  if ((option.state & QStyle::State_Selected) || iconControl) {
     // Draw background image of selected item.
     const QPixmap pixmap = installer::renderPixmap(":/images/continent_arrow.svg");
     const qreal ratio = qApp->devicePixelRatio();
     const int x = rect.x() + rect.width() - static_cast<int>(pixmap.width() / ratio) -
-        kSelectedRightMargin;
+            kSelectedRightMargin;
     const int y = rect.y() + static_cast<int>((rect.height() - pixmap.height() / ratio) / 2);
     const QRect pixmap_rect(x, y, static_cast<int>(pixmap.width() / ratio), static_cast<int>(pixmap.height() / ratio));
     painter->drawPixmap(pixmap_rect, pixmap);
+  }
 
+  if(option.state & QStyle::State_Selected){
     // Draw background color of selected item, no matter it is active or not.
     const QColor selected_color(255, 255, 255, 51);
     const QBrush background_brush(selected_color);
     painter->fillRect(background_rect, background_brush);
-  }  else if (option.state & QStyle::State_MouseOver) {
+  }
+
+  if (option.state & QStyle::State_MouseOver) {
     // Draw background color when mouse is hover
     const QColor selected_color(255, 255, 255, 25);
     const QBrush background_brush(selected_color);
