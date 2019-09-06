@@ -51,7 +51,7 @@ private:
     void updateDiskInfo(int index);
     void updateDiskInfo();
 
-private:    
+private:
     QVBoxLayout *m_layout;
     TitleLabel *m_frameLbl;
     QLabel *m_frameSubLbl;

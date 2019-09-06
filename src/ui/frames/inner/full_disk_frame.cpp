@@ -312,8 +312,6 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
 
     emit currentDeviceChanged(part_button->device());
 
-    m_diskPartitionWidget->setDevice(m_delegate->fullInstallScheme(part_button->device()));
-
     const QString path = part_button->device()->path;
     qDebug() << "selected device path:" << path;
     part_button->setSelected(true);
@@ -323,6 +321,7 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
 
     m_delegate->addSystemDisk(part_button->device()->path);
     m_delegate->formatWholeDeviceMultipleDisk();
+    m_diskPartitionWidget->setDevice(m_delegate->fullInstallScheme(part_button->device()));
   }
 }
 
@@ -330,7 +329,6 @@ void FullDiskFrame::onCurrentDeviceChanged(int type, const Device::Ptr device)
 {
     if (static_cast<int>(DiskModelType::SystemDisk) == type) {
         m_errorTip->hide();
-        m_diskPartitionWidget->setDevice(m_delegate->fullInstallScheme(device));
         m_delegate->addSystemDisk(device->path);
     }
     else {
@@ -338,6 +336,13 @@ void FullDiskFrame::onCurrentDeviceChanged(int type, const Device::Ptr device)
     }
     emit currentDeviceChanged(device);
     m_delegate->formatWholeDeviceMultipleDisk();
+
+    int index = DeviceIndex(m_delegate->virtual_devices(), m_delegate->selectedDisks()[0]);
+    if ( -1 == index) {
+        return;
+    }
+    Device::Ptr tmpdevice = m_delegate->virtual_devices()[index];
+    m_diskPartitionWidget->setDevice(m_delegate->fullInstallScheme(tmpdevice));
 }
 
 }  // namespace installer

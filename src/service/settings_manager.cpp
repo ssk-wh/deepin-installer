@@ -523,14 +523,14 @@ void WriteIsLocalTime(bool isLocalTime)
 void WriteFullDiskResolution(const FinalFullDiskResolution& resolution)
 {
     const char kFullDiskResolutionDeviceSeparator[] = ";";
-    QString key { "" };    
+    QString key { "" };
     QStringList valueList;
     for (int i = 0; i < resolution.option_list.length(); i++) {
         valueList << resolution.option_list.at(i).device;
     }
     AppendToConfigFile("DI_FULLDISK_MULTIDISK_DEVICE", valueList.join(kFullDiskResolutionDeviceSeparator));
 
-    QString labelKey { "" };    
+    QString labelKey { "" };
     QStringList labelValueList;
     for (int i=0; i<resolution.option_list.length(); i++) {
         const FinalFullDiskOption& op = resolution.option_list[i];

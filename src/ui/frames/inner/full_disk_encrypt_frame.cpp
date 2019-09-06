@@ -25,7 +25,7 @@ using namespace installer;
 const int kProgressBarWidth = 280;
 
 Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QWidget *parent)
-    : QWidget(parent)    
+    : QWidget(parent)
     , m_layout(new QVBoxLayout(this))
     , m_frameLbl(new TitleLabel(""))
     , m_frameSubLbl(new QLabel)
@@ -62,7 +62,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QW
     hboxlayout->addStretch();
     for(int i=0; i<FULL_DISK_DISK_MAX_COUNT; i++) {
         QLabel *diskLbl = new QLabel;
-        diskLbl->setPixmap(installer::renderPixmap(":/images/driver_128.svg"));        
+        diskLbl->setPixmap(installer::renderPixmap(":/images/driver_128.svg"));
         m_diskinfo[i].m_diskLbl = diskLbl;
         m_diskinfo[i].m_devicePathLbl = new QLabel();
         m_diskinfo[i].m_deviceSizeLbl = new QLabel();

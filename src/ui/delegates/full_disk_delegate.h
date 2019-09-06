@@ -96,7 +96,7 @@ class FullDiskDelegate : public QObject {
   bool setBootFlag();
 
   // Validate whether selected partition is appropriate.
-  FullDiskValidateState validate() const;  
+  FullDiskValidateState validate() const;
 
   // add System disk
   void addSystemDisk(const QString & device_path);

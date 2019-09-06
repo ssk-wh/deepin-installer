@@ -484,7 +484,7 @@ bool FullDiskDelegate::createLogicalPartition(const Partition::Ptr partition,
                                            ext_partition,
                                            new_ext_partition);
       resize_ext_operation.device = device;
-      operations_.append(resize_ext_operation);     
+      operations_.append(resize_ext_operation);
       ext_partition = new_ext_partition;
     }
   }
@@ -1090,7 +1090,7 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
         }
         else {
             policy.device = device_path_list.at(0);
-        }        
+        }
     }
 
     // Format every disks one by one.
@@ -1157,7 +1157,7 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
 
         bool is_primary = (device->table == PartitionTableType::GPT
                            || primary_count < (device->max_prims - 1));
-        PartitionType type = is_primary ? PartitionType::Normal : PartitionType::Logical;        
+        PartitionType type = is_primary ? PartitionType::Normal : PartitionType::Logical;
         if (!createPartition(unallocated, type, policy.alignStart, policy.filesystem,
                     policy.mountPoint, sectors,policy.label)) {
             return false;
