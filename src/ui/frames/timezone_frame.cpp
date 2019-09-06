@@ -172,6 +172,7 @@ void TimezoneFrame::initUI() {
   timezone_map_ = new TimezoneMap(this);
   next_button_ = new NavButton(tr("Next"));
   m_listSelectedCheckBox = new QCheckBox;
+  m_listSelectedCheckBox->setText(tr("Set your date and time manually"));
   m_listSelectedCheckBox->setObjectName("listSelectedCheckBox");
 
   m_listSelectedCheckBox->setChecked(false);

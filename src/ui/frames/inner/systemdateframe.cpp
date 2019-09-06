@@ -55,8 +55,7 @@ class SystemDateFramePrivate : public QWidget{
 public:
     SystemDateFramePrivate(SystemDateFrame* qq) : m_ptr(qq) {}
 
-    QLabel* m_title = new TitleLabel(tr(""));
-    QLabel* m_subTitle = new QLabel();
+    QLabel* m_title = new TitleLabel(tr("Select Timezone"));
     QCheckBox* m_autoSyncTimeCheckBox = new QCheckBox;
 
     TimeDateLineEdit* m_hourEdit = new TimeDateLineEdit(this);
@@ -86,14 +85,15 @@ public:
     void initConnection();
 
     void updateTs() {
-        m_title->setText(tr("title"));
-        m_subTitle->setText(tr("subTitle"));
-        m_autoSyncTimeCheckBox->setText(tr("autoSyncTimeCheckBox"));
+        m_title->setText(tr("Select Timezone"));
+        m_autoSyncTimeCheckBox->setText(tr("Set your date and time manually"));
         m_hourLabel->setText(tr("Hour"));
         m_minuteLabel->setText(tr("Minute"));
         m_yearLabel->setText(tr("Year"));
         m_monthLabel->setText(tr("Month"));
         m_dayLabel->setText(tr("Day"));
+        m_acceptBtn->setText(tr("Accept"));
+        m_cancelBtn->setText(tr("Cancel"));
     }
 
     bool isLeapYear(uint year);
@@ -415,9 +415,7 @@ void SystemDateFramePrivate::init()
     centerLayout->setSpacing(15);
     centerLayout->addSpacing(50);
     centerLayout->addWidget(m_title, 0, Qt::AlignHCenter);
-    m_subTitle->setObjectName("subTitleLabel");
-    centerLayout->addWidget(m_subTitle, 0, Qt::AlignHCenter);
-    centerLayout->addSpacing(40);
+    centerLayout->addSpacing(60);
     centerLayout->addWidget(m_autoSyncTimeCheckBox, 0, Qt::AlignHCenter);
     centerLayout->addStretch();
 
