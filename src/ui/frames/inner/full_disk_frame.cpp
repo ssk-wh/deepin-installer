@@ -42,7 +42,7 @@ namespace installer {
 namespace {
 
 // 4 partitions are displays at each row.
-const int kDiskColumns = 4;
+const int kDiskColumns = 1;
 
 const int kWindowWidth = 960;
 
@@ -309,9 +309,6 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
   } else {
     // Hide tooltip.
     m_install_tip->hide();
-
-    emit currentDeviceChanged(part_button->device());
-
     const QString path = part_button->device()->path;
     qDebug() << "selected device path:" << path;
     part_button->setSelected(true);
@@ -322,6 +319,7 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
     m_delegate->addSystemDisk(part_button->device()->path);
     m_delegate->formatWholeDeviceMultipleDisk();
     m_diskPartitionWidget->setDevice(m_delegate->fullInstallScheme(part_button->device()));
+    emit currentDeviceChanged(part_button->device());
   }
 }
 
@@ -334,7 +332,6 @@ void FullDiskFrame::onCurrentDeviceChanged(int type, const Device::Ptr device)
     else {
         m_delegate->addDataDisk(device->path);
     }
-    emit currentDeviceChanged(device);
     m_delegate->formatWholeDeviceMultipleDisk();
 
     int index = DeviceIndex(m_delegate->virtual_devices(), m_delegate->selectedDisks()[0]);
@@ -343,6 +340,7 @@ void FullDiskFrame::onCurrentDeviceChanged(int type, const Device::Ptr device)
     }
     Device::Ptr tmpdevice = m_delegate->virtual_devices()[index];
     m_diskPartitionWidget->setDevice(m_delegate->fullInstallScheme(tmpdevice));
+    emit currentDeviceChanged(tmpdevice);
 }
 
 }  // namespace installer

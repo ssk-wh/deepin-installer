@@ -242,4 +242,3 @@ void Full_Disk_Encrypt_frame::updateDiskInfo()
         i++;
     }
 }
-
