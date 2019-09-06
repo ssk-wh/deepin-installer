@@ -338,7 +338,7 @@ void FullDiskFrame::onCurrentDeviceChanged(int type, const Device::Ptr device)
     m_delegate->formatWholeDeviceMultipleDisk();
 
     int index = DeviceIndex(m_delegate->virtual_devices(), m_delegate->selectedDisks()[0]);
-    if ( -1 == index) {
+    if (-1 == index) {
         return;
     }
     Device::Ptr tmpdevice = m_delegate->virtual_devices()[index];

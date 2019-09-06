@@ -532,7 +532,7 @@ void WriteFullDiskResolution(const FinalFullDiskResolution& resolution)
 
     QString labelKey { "" };
     QStringList labelValueList;
-    for (int i=0; i<resolution.option_list.length(); i++) {
+    for (int i = 0; i < resolution.option_list.length(); i++) {
         const FinalFullDiskOption& op = resolution.option_list[i];
         key = QString("DI_FULLDISK_MULTIDISK_POLICY_%1").arg(i);
         labelKey = QString("DI_FULLDISK_MULTIDISK_LABEL_%1").arg(i);

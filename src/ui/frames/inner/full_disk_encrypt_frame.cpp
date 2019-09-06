@@ -60,7 +60,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QW
 
     QHBoxLayout * hboxlayout = new QHBoxLayout();
     hboxlayout->addStretch();
-    for(int i=0; i<FULL_DISK_DISK_MAX_COUNT; i++) {
+    for(int i = 0; i < FULL_DISK_DISK_MAX_COUNT; i++) {
         QLabel *diskLbl = new QLabel;
         diskLbl->setPixmap(installer::renderPixmap(":/images/driver_128.svg"));
         m_diskinfo[i].m_diskLbl = diskLbl;
