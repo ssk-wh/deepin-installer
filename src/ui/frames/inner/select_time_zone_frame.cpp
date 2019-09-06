@@ -87,8 +87,8 @@ void SelectTimeZoneFrame::onContinentViewSelectedChanged(QModelIndex curIndex, Q
         return;
     }
 
-    m_currentTimezone = m_continentModel->stringList().at(curIndex.row());
-    m_timeZoneModel->setStringList(m_allTimeZone[m_currentTimezone]);
+    m_currentContinent = m_continentModel->stringList().at(curIndex.row());
+    m_timeZoneModel->setStringList(m_allTimeZone[m_currentContinent]);
 
     m_timeZoneListView->scrollToTop();
 }
@@ -104,7 +104,9 @@ void SelectTimeZoneFrame::onTimeZoneViewSelectedChanged(QModelIndex curIndex, QM
         return;
     }
 
-    emit timezoneUpdated(m_timeZoneModel->stringList().at(curIndex.row()));
+    QString timezone = m_currentContinent.append("/")
+            .append(m_timeZoneModel->stringList().at(curIndex.row()));
+    emit timezoneUpdated(timezone);
 }
 
 }
