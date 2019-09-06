@@ -480,11 +480,11 @@ bool FullDiskDelegate::createLogicalPartition(const Partition::Ptr partition,
 
       AlignPartition(new_ext_partition);
 
-      const Operation resize_ext_operation(OperationType::Resize,
+      Operation resize_ext_operation(OperationType::Resize,
                                            ext_partition,
                                            new_ext_partition);
-      operations_.append(resize_ext_operation);
-
+      resize_ext_operation.device = device;
+      operations_.append(resize_ext_operation);     
       ext_partition = new_ext_partition;
     }
   }
@@ -498,6 +498,21 @@ bool FullDiskDelegate::createLogicalPartition(const Partition::Ptr partition,
   new_partition->fs = fs_type;
   new_partition->mount_point = mount_point;
   new_partition->label = label;
+
+  for (const Operation& operation : operations_) {
+      //###multidisk:maybe NOT the same disk?
+      if (operation.type == OperationType::Create &&
+          operation.device->path != device->path) {
+          continue;
+      }
+    if ((operation.type == OperationType::NewPartTable &&
+         operation.device->path == device->path) ||
+        (operation.orig_partition != nullptr &&
+         operation.orig_partition->device_path == device->path)) {
+      operation.applyToVisual(device);
+    }
+  }
+
   const int partition_number = AllocLogicalPartitionNumber(device);
   if (partition_number < 0) {
     qCritical() << "Failed to allocate logical part number!";
