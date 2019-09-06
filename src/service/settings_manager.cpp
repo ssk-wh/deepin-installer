@@ -530,8 +530,7 @@ void WriteFullDiskResolution(const FinalFullDiskResolution& resolution)
     }
     AppendToConfigFile("DI_FULLDISK_MULTIDISK_DEVICE", valueList.join(kFullDiskResolutionDeviceSeparator));
 
-    QString labelKey { "" };
-    QString labelValue { "" };
+    QString labelKey { "" };    
     QStringList labelValueList;
     for (int i=0; i<resolution.option_list.length(); i++) {
         const FinalFullDiskOption& op = resolution.option_list[i];
