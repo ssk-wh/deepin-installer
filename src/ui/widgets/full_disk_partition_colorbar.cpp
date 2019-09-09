@@ -1,5 +1,5 @@
 #include "full_disk_partition_colorbar.h"
-
+#include "base/file_util.h"
 #include "ui/delegates/partition_util.h"
 
 #include <QPainter>
@@ -77,6 +77,7 @@ FullDiskPartitionWidget::FullDiskPartitionWidget(QWidget* parent)
     m_mainLayout->addLayout(bottomLayout);
 
     setLayout(m_mainLayout);
+    setStyleSheet(ReadFile(":/styles/full_disk_partition_colorbar.css"));
 }
 
 void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
