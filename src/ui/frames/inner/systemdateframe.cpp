@@ -425,6 +425,7 @@ void SystemDateFramePrivate::init()
     m_hourEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_hourEdit->setFixedSize(kHourMinuteQLineEditWidth, 36);
     m_hourEdit->setAlignment(Qt::AlignRight);
+    m_hourEdit->setContextMenuPolicy(Qt::NoContextMenu);
     QWidget* hourWidget = createWidgetWithBg(m_hourEdit);
 
     m_minuteEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{1,2}")));
@@ -432,6 +433,7 @@ void SystemDateFramePrivate::init()
     m_minuteEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_minuteEdit->setFixedSize(kHourMinuteQLineEditWidth, 36);
     m_minuteEdit->setAlignment(Qt::AlignRight);
+    m_minuteEdit->setContextMenuPolicy(Qt::NoContextMenu);
     QWidget* minuteWidget = createWidgetWithBg(m_minuteEdit);
 
     m_hourLabel->setObjectName("hourLabel");
@@ -468,6 +470,7 @@ void SystemDateFramePrivate::init()
     m_yearEdit->setFixedSize(kYearMonthDayQLineEditWidth, 36);
     m_yearEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_yearEdit->setAlignment(Qt::AlignRight);
+    m_yearEdit->setContextMenuPolicy(Qt::NoContextMenu);
     m_yearLabel->setObjectName("yearLabel");
     m_yearLabel->setFixedSize(kYearMonthDayQLabelWidth, 36);
     m_yearLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
@@ -499,6 +502,7 @@ void SystemDateFramePrivate::init()
     m_monthEdit->setAlignment(Qt::AlignRight);
     m_monthEdit->setFixedSize(kYearMonthDayQLineEditWidth, 36);
     m_monthEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    m_monthEdit->setContextMenuPolicy(Qt::NoContextMenu);
     m_monthLabel->setObjectName("monthLabel");
     m_monthLabel->setFixedSize(kYearMonthDayQLabelWidth, 36);
     m_monthLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
@@ -528,6 +532,7 @@ void SystemDateFramePrivate::init()
     m_dayEdit->setAlignment(Qt::AlignRight);
     m_dayEdit->setFixedSize(kYearMonthDayQLineEditWidth, 36);
     m_dayEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    m_dayEdit->setContextMenuPolicy(Qt::NoContextMenu);
     m_dayLabel->setObjectName("dayLabel");
     m_dayLabel->setFixedSize(kYearMonthDayQLabelWidth, 36);
     m_dayLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
