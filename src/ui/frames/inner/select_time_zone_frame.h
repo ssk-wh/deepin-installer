@@ -32,7 +32,8 @@ private:
     void initConnections();
 
     ContinentZoneInfoMap m_allTimeZone;
-    QString m_currentContinent;
+    QStringList m_continentList;
+    QModelIndex m_currentContinentIndex;
 
     DiskInstallationView* m_continentListView = nullptr;
     ContinentModel* m_continentModel = nullptr;

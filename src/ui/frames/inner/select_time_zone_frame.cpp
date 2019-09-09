@@ -7,6 +7,8 @@
 #include "ui/models/disk_installation_model.h"
 #include "ui/delegates/disk_installation_delegate.h"
 #include "ui/models/continent_model.h"
+#include "sysinfo/timezone.h"
+#include "service/settings_manager.h"
 
 #include <QCheckBox>
 #include <QListView>
@@ -39,8 +41,10 @@ void SelectTimeZoneFrame::initUI()
 
     m_continentModel = new ContinentModel;
     QStringList strList;
+    const QString& locale = ReadLocale();
     for (auto it = m_allTimeZone.begin(); it != m_allTimeZone.end(); ++it) {
-        strList << it.key();
+        m_continentList << it.key();
+        strList << GetLocalContinentName(it.key(), locale);
     }
     m_continentModel->setStringList(strList);
     m_continentListView->setModel(m_continentModel);
@@ -87,8 +91,13 @@ void SelectTimeZoneFrame::onContinentViewSelectedChanged(QModelIndex curIndex, Q
         return;
     }
 
-    m_currentContinent = m_continentModel->stringList().at(curIndex.row());
-    m_timeZoneModel->setStringList(m_allTimeZone[m_currentContinent]);
+    m_currentContinentIndex = curIndex;
+    const QString& locale = ReadLocale();
+    QStringList timezoneList;
+    for (const QString& timezone : m_allTimeZone[m_continentList.at(m_currentContinentIndex.row())]) {
+        timezoneList << GetLocalTimezoneName(timezone, locale);
+    }
+    m_timeZoneModel->setStringList(timezoneList);
 
     m_timeZoneListView->scrollToTop();
 }
@@ -104,7 +113,8 @@ void SelectTimeZoneFrame::onTimeZoneViewSelectedChanged(QModelIndex curIndex, QM
         return;
     }
 
-    QString timezone = m_currentContinent + "/" + m_timeZoneModel->stringList().at(curIndex.row());
+    QString timezone = m_continentList.at(m_currentContinentIndex.row()) + "/"
+            + m_timeZoneModel->stringList().at(curIndex.row());
     emit timezoneUpdated(timezone);
 }
 

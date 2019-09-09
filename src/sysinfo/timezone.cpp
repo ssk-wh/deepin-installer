@@ -239,4 +239,22 @@ ContinentZoneInfoMap GetContinentZoneInfo()
     return infoMap;
 }
 
+QString GetLocalContinentName(const QString &timezone, const QString &locale)
+{
+    // Set locale first.
+    (void) setlocale(LC_ALL, (locale + ".UTF-8").toLocal8Bit().constData());
+    const QString local_name =
+        dgettext(kTimezoneDomain, timezone.toLocal8Bit().constData());
+    int index = local_name.lastIndexOf('/');
+    if (index == -1) {
+      // Some translations of locale name contains non-standard char.
+      index = local_name.lastIndexOf("∕");
+    }
+
+    // Reset locale.
+    (void) setlocale(LC_ALL, kDefaultLang);
+
+    return (index > -1) ? local_name.left(index) : local_name;
+}
+
 }  // namespace installer

@@ -63,6 +63,10 @@ QString GetTimezoneName(const QString& timezone);
 // |locale| is desired locale name.
 QString GetLocalTimezoneName(const QString& timezone, const QString& locale);
 
+// Returns local name of continent
+// |locale| is desired locale name.
+QString GetLocalContinentName(const QString& timezone, const QString& locale);
+
 // A map between old name of timezone and current name.
 // e.g. Asia/Chongqing -> Asia/Shanghai
 typedef QHash<QString, QString> TimezoneAliasMap;
