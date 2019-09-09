@@ -33,6 +33,7 @@ signals:
 
 protected:
     void mousePressEvent(QMouseEvent* event) override;
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     QRadioButton* m_radioBotton;
