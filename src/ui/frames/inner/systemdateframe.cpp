@@ -56,7 +56,6 @@ public:
     SystemDateFramePrivate(SystemDateFrame* qq) : m_ptr(qq) {}
 
     QLabel* m_title = new TitleLabel(tr("Select Timezone"));
-    QCheckBox* m_autoSyncTimeCheckBox = new QCheckBox;
 
     TimeDateLineEdit* m_hourEdit = new TimeDateLineEdit(this);
     TimeDateLineEdit* m_minuteEdit = new TimeDateLineEdit(this);
@@ -86,7 +85,6 @@ public:
 
     void updateTs() {
         m_title->setText(tr("Select Timezone"));
-        m_autoSyncTimeCheckBox->setText(tr("Set your date and time manually"));
         m_hourLabel->setText(tr("Hour"));
         m_minuteLabel->setText(tr("Minute"));
         m_yearLabel->setText(tr("Year"));
@@ -384,44 +382,34 @@ void SystemDateFramePrivate::onNextButtonClicked()
         return;
     }
 
-    if (m_autoSyncTimeCheckBox->isChecked()) {
-        QProcess process;
-        process.setProgram("timedatectl set-ntp false");
-        process.start();
-        process.waitForFinished();
+    QProcess process;
+    process.setProgram("timedatectl set-ntp false");
+    process.start();
+    process.waitForFinished();
 
-        QString dateTime = QString("'%1-%2-%3 %4:%5:%6'").arg(m_yearEdit->text(), 4, '0')
-                .arg(m_monthEdit->text(), 2, '0').arg(m_dayEdit->text(), 2, '0')
-                .arg(m_hourEdit->text(), 2, '0').arg(m_minuteEdit->text(), 2, '0').arg("0", 2, '0');
-        QString cmd = "timedatectl set-time ";
-        cmd.append(dateTime);
+    QString dateTime = QString("'%1-%2-%3 %4:%5:%6'").arg(m_yearEdit->text(), 4, '0')
+            .arg(m_monthEdit->text(), 2, '0').arg(m_dayEdit->text(), 2, '0')
+            .arg(m_hourEdit->text(), 2, '0').arg(m_minuteEdit->text(), 2, '0').arg("0", 2, '0');
+    QString cmd = "timedatectl set-time ";
+    cmd.append(dateTime);
 
-        process.setProgram(cmd);
-        process.start();
-        process.waitForFinished();
-    }
-    m_ptr->writeConf(m_autoSyncTimeCheckBox->isChecked());
+    process.setProgram(cmd);
+    process.start();
+    process.waitForFinished();
+    m_ptr->writeConf(true);
 
     emit m_ptr->finished();
 }
 
 void SystemDateFramePrivate::init()
 {
-    m_autoSyncTimeCheckBox->setObjectName("autoSyncTimeCheckBox");
-    m_autoSyncTimeCheckBox->clearFocus();
-
     QVBoxLayout* centerLayout = new QVBoxLayout;
     centerLayout->setMargin(0);
     centerLayout->setSpacing(15);
     centerLayout->addSpacing(50);
     centerLayout->addWidget(m_title, 0, Qt::AlignHCenter);
-    centerLayout->addSpacing(60);
-    centerLayout->addWidget(m_autoSyncTimeCheckBox, 0, Qt::AlignHCenter);
+    centerLayout->addSpacing(80);
     centerLayout->addStretch();
-
-    m_autoSyncTimeCheckBox->setCheckState(Qt::Checked);
-    m_autoSyncTimeCheckBox->setCheckable(true);
-    m_autoSyncTimeCheckBox->setChecked(true);
 
     m_ptr->setLayout(centerLayout);
 
@@ -576,15 +564,6 @@ void SystemDateFramePrivate::init()
     centerLayout->addWidget(m_acceptBtn, 0, Qt::AlignHCenter);
     centerLayout->addSpacing(30);
     centerLayout->addWidget(m_cancelBtn, 0, Qt::AlignHCenter);
-
-    connect(m_autoSyncTimeCheckBox, &QCheckBox::clicked, this, [=] {
-        m_autoSyncTimeCheckBox->blockSignals(true);
-        m_autoSyncTimeCheckBox->setCheckState(Qt::Checked);
-        m_autoSyncTimeCheckBox->setChecked(true);
-        m_autoSyncTimeCheckBox->blockSignals(false);
-
-        emit m_ptr->cancel();
-    });
 
     setObjectName("systemDateFramePrivate");
     m_ptr->setStyleSheet(ReadFile(":/styles/system_date_frame.css"));

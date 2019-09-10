@@ -131,9 +131,11 @@ void TimezoneFrame::showEvent(QShowEvent* event) {
   QTimer::singleShot(0, [&]() {
       if(m_stackedLayout->currentWidget() == m_timezonePage){
           timezone_map_->showMark();
+          m_setTimePushButton->show();
       }
       else {
           timezone_map_->hideMark();
+          m_setTimePushButton->hide();
       }
   });
 }
@@ -157,6 +159,7 @@ void TimezoneFrame::initConnections() {
   connect(m_systemDateFrame, &SystemDateFrame::cancel, this, [=] {
       m_stackedLayout->setCurrentWidget(m_timezonePage);
       timezone_map_->showMark();
+      m_setTimePushButton->show();
   });
 
   connect(m_selectTimeZoneFrame, &SelectTimeZoneFrame::timezoneUpdated
@@ -299,6 +302,7 @@ void TimezoneFrame::onSetTimePushButtonClicked()
 {
     m_stackedLayout->setCurrentWidget(m_systemDateFrame);
     timezone_map_->hideMark();
+    m_setTimePushButton->hide();
 }
 
 }  // namespace installer
