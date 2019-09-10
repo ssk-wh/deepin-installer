@@ -130,7 +130,12 @@ void TimezoneFrame::showEvent(QShowEvent* event) {
   // NOTE(xushaohua): Add a delay to wait for paint event of timezone map.
   QTimer::singleShot(0, [&]() {
       if(m_stackedLayout->currentWidget() == m_timezonePage){
-          timezone_map_->showMark();
+          if(m_mapOrListStackedLayout->currentWidget() == timezone_map_){
+              timezone_map_->showMark();
+          }
+          else {
+              timezone_map_->hideMark();
+          }
           m_setTimePushButton->show();
       }
       else {
@@ -158,7 +163,12 @@ void TimezoneFrame::initConnections() {
   connect(m_systemDateFrame, &SystemDateFrame::finished, this, &TimezoneFrame::finished);
   connect(m_systemDateFrame, &SystemDateFrame::cancel, this, [=] {
       m_stackedLayout->setCurrentWidget(m_timezonePage);
-      timezone_map_->showMark();
+      if(m_mapOrListStackedLayout->currentWidget() == timezone_map_){
+          timezone_map_->showMark();
+      }
+      else {
+          timezone_map_->hideMark();
+      }
       m_setTimePushButton->show();
   });
 
