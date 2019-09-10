@@ -104,8 +104,7 @@ void SelectTimeZoneFrame::onTimeZoneViewSelectedChanged(QModelIndex curIndex, QM
         return;
     }
 
-    QString timezone = m_currentContinent.append("/")
-            .append(m_timeZoneModel->stringList().at(curIndex.row()));
+    QString timezone = m_currentContinent + "/" + m_timeZoneModel->stringList().at(curIndex.row());
     emit timezoneUpdated(timezone);
 }
 
