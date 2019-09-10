@@ -38,6 +38,7 @@
 #include <QRegExpValidator>
 #include <QDebug>
 #include <functional>
+#include <QDateTime>
 
 namespace installer {
 
@@ -94,6 +95,7 @@ public:
         m_cancelBtn->setText(tr("Cancel"));
     }
 
+    void initDateTime();
     bool isLeapYear(uint year);
     uint getDaysInMonth(uint year, uint month);
     bool validateHour(const QString& str);
@@ -125,6 +127,7 @@ SystemDateFrame::SystemDateFrame(QWidget *parent)
     , d_private(new SystemDateFramePrivate(this))
 {
     d_private->init();
+    d_private->initDateTime();
     d_private->initConnection();
     d_private->updateTs();
 }
@@ -150,7 +153,7 @@ bool SystemDateFrame::event(QEvent *event)
 void SystemDateFramePrivate::onYearEditingFinished()
 {
     if(!validateYear(m_yearEdit->text())){
-        m_yearEdit->setText("1970");
+        m_yearEdit->setText(QString::number(QDate::currentDate().year()));
     }
 
     autoAdjustDay();
@@ -159,7 +162,7 @@ void SystemDateFramePrivate::onYearEditingFinished()
 void SystemDateFramePrivate::onMonthEditingFinished()
 {
     if(!validateMonth(m_monthEdit->text())){
-        m_monthEdit->setText("1");
+        m_monthEdit->setText(QString::number(QDate::currentDate().month()));
     }
 
     autoAdjustDay();
@@ -168,21 +171,21 @@ void SystemDateFramePrivate::onMonthEditingFinished()
 void SystemDateFramePrivate::onDayEditingFinished()
 {
     if(!validateDay(m_dayEdit->text())){
-        m_dayEdit->setText("1");
+        m_dayEdit->setText(QString::number(QDate::currentDate().day()));
     }
 }
 
 void SystemDateFramePrivate::onHourEditingFinished()
 {
     if(!validateHour(m_hourEdit->text())){
-        m_hourEdit->setText("0");
+        m_hourEdit->setText(QString::number(QTime::currentTime().hour()));
     }
 }
 
 void SystemDateFramePrivate::onMinuteEditingFinished()
 {
     if(!validateMinute(m_minuteEdit->text())){
-        m_minuteEdit->setText("0");
+        m_minuteEdit->setText(QString::number(QTime::currentTime().minute()));
     }
 }
 
@@ -373,6 +376,14 @@ void SystemDateFramePrivate::onNextButtonClicked()
         return;
     }
 
+    if(m_hourEdit->text().toInt() == 0
+            && m_minuteEdit->text().toInt() == 0
+            && m_yearEdit->text().toInt() == 1970
+            && m_monthEdit->text().toInt() == 1
+            && m_dayEdit->text().toInt() == 1){
+        return;
+    }
+
     QProcess process;
     qDebug() << process.execute("timedatectl", QStringList() << "set-ntp" << "false");
 
@@ -410,7 +421,6 @@ void SystemDateFramePrivate::init()
     };
 
     m_hourEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{1,2}")));
-    m_hourEdit->setText("0");
     m_hourEdit->setObjectName("hourEdit");
     m_hourEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_hourEdit->setFixedSize(kHourMinuteQLineEditWidth, 36);
@@ -418,7 +428,6 @@ void SystemDateFramePrivate::init()
     QWidget* hourWidget = createWidgetWithBg(m_hourEdit);
 
     m_minuteEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{1,2}")));
-    m_minuteEdit->setText("0");
     m_minuteEdit->setObjectName("minuteEdit");
     m_minuteEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_minuteEdit->setFixedSize(kHourMinuteQLineEditWidth, 36);
@@ -456,7 +465,6 @@ void SystemDateFramePrivate::init()
     m_addYearBtn->setFixedSize(kYearMonthDayQPushButtonWidth, 36);
 
     m_yearEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{1,4}")));
-    m_yearEdit->setText("1970");
     m_yearEdit->setFixedSize(kYearMonthDayQLineEditWidth, 36);
     m_yearEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_yearEdit->setAlignment(Qt::AlignRight);
@@ -488,7 +496,6 @@ void SystemDateFramePrivate::init()
     m_addMonthBtn->setFixedSize(kYearMonthDayQPushButtonWidth, 36);
 
     m_monthEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{1,2}")));
-    m_monthEdit->setText("1");
     m_monthEdit->setAlignment(Qt::AlignRight);
     m_monthEdit->setFixedSize(kYearMonthDayQLineEditWidth, 36);
     m_monthEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
@@ -518,7 +525,6 @@ void SystemDateFramePrivate::init()
     m_addDayBtn->setFixedSize(kYearMonthDayQPushButtonWidth, 36);
 
     m_dayEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{1,2}")));
-    m_dayEdit->setText("1");
     m_dayEdit->setAlignment(Qt::AlignRight);
     m_dayEdit->setFixedSize(kYearMonthDayQLineEditWidth, 36);
     m_dayEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
@@ -591,6 +597,19 @@ void SystemDateFramePrivate::initConnection()
 
     connect(m_acceptBtn, &NavButton::clicked, this, &SystemDateFramePrivate::onNextButtonClicked);
     connect(m_cancelBtn, &NavButton::clicked, m_ptr, &SystemDateFrame::cancel);
+}
+
+void SystemDateFramePrivate::initDateTime()
+{
+    const QDateTime& currentDateTime = QDateTime::currentDateTime();
+    const QDate& date = currentDateTime.date();
+    const QTime& time = currentDateTime.time();
+
+    m_yearEdit->setText(QString::number(date.year()));
+    m_monthEdit->setText(QString::number(date.month()));
+    m_dayEdit->setText(QString::number(date.day()));
+    m_hourEdit->setText(QString::number(time.hour()));
+    m_minuteEdit->setText(QString::number(time.minute()));
 }
 
 }
