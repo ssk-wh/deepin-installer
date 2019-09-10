@@ -116,10 +116,13 @@ private:
     ~ComponentInstallManager() override = default;
 
     QStringList findAllDeb(const QString& path) const;
+    void readStandartSortFile();
+    QStringList getComponentSortList(QSharedPointer<ComponentStruct> componentStruct);
 
 private:
     QList<QSharedPointer<ComponentStruct>> m_list;
     QList<QSharedPointer<ComponentInfo>> m_packageList;
+    QList<QPair<QString, QStringList>> m_standartSort;
 };
 }
 

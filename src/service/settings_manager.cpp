@@ -60,6 +60,7 @@ const char kOemWallpaperFilename[] = "installer-background.jpg";
 
 const char kComponentDefaultFile[] = RESOURCES_DIR "/packages_default.json";
 const char kComponentExtraFile[] = RESOURCES_DIR "/packages_choice.json";
+const char kComponentSortFile[] = RESOURCES_DIR "/packages_sort.json";
 
 // File name of auto partition script.
 const char kAutoPartFile[] = "auto_part.sh";
@@ -299,6 +300,16 @@ QString GetComponentDefault() {
 
 QString GetComponentExtra() {
     QFile file(kComponentExtraFile);
+    if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
+        return file.readAll();
+    }
+
+    return "";
+}
+
+QString GetComponentSort()
+{
+    QFile file(kComponentSortFile);
     if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
         return file.readAll();
     }

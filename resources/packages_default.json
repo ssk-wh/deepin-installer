@@ -40,7 +40,6 @@
       "backup-server",
       "debugging-tools",
       "directory-client",
-      "directory-server",
       "dns-server",
       "file-server",
       "ftp-server",
@@ -149,7 +148,8 @@
       "desktop-debugging",
       "dial-up",
       "directory-client",
-      "print-client"
+      "print-client",
+      "dde"
     ],
      "choice":[
       "backup-client",
@@ -158,7 +158,7 @@
       "dns-server",
       "ftp-server",
       "php",
-      "dde",
+      "deepin",
       "perl-web",
       "mail-server"
     ]

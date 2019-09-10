@@ -22,10 +22,12 @@
 #include "componentinstallmanager.h"
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
+#include "base/file_util.h"
 
 #include <QDebug>
 #include <QApt/DebFile>
 #include <thread>
+#include <QPair>
 
 using namespace installer;
 
@@ -33,6 +35,45 @@ ComponentInstallManager *ComponentInstallManager::Instance()
 {
     static ComponentInstallManager manager;
     return &manager;
+}
+
+void ComponentInstallManager::readStandartSortFile()
+{
+    QJsonParseError error;
+    QJsonDocument doc = QJsonDocument::fromJson(GetComponentSort().toUtf8(), &error);
+
+    if (error.error == QJsonParseError::NoError){
+        if(doc.isArray()){
+            QJsonArray array = doc.array();
+            for (auto it = array.begin(); it != array.end(); ++it) {
+                QPair<QString, QStringList> pair;
+                const QJsonObject obj = it->toObject();
+                for (auto objIt = obj.begin(); objIt != obj.end(); ++objIt) {
+                    pair.first = objIt.key();
+                    if(objIt.value().isArray()){
+                        QJsonArray valueArray = objIt.value().toArray();
+                        for (auto valIt = valueArray.begin(); valIt != valueArray.end()
+                             ; ++valIt) {
+                            pair.second << valIt->toString();
+                        }
+                    }
+
+                    m_standartSort << pair;
+                }
+            }
+        }
+    }
+}
+
+QStringList ComponentInstallManager::getComponentSortList(QSharedPointer<ComponentStruct> componentStruct)
+{
+    for (auto it : m_standartSort) {
+        if(it.first == componentStruct->id()){
+            return it.second;
+        }
+    }
+
+    return QStringList();
 }
 
 QSharedPointer<ComponentStruct> ComponentInstallManager::findComponentById(const QString &id)
@@ -44,11 +85,53 @@ QSharedPointer<ComponentStruct> ComponentInstallManager::findComponentById(const
 
 ComponentInstallManager::ComponentInstallManager(QObject *parent) : QObject(parent)
 {
+    readStandartSortFile();
+
     QJsonDocument doc = QJsonDocument::fromJson(GetComponentDefault().toUtf8());
     QJsonObject obj = doc.object();
     for (auto it = obj.begin(); it != obj.end(); ++it) {
         QSharedPointer<ComponentStruct> component(new ComponentStruct(it.key(), it.value().toObject()));
         m_list << component;
+    }
+
+    std::sort(m_list.begin(), m_list.end(), [=] (QSharedPointer<ComponentStruct> left
+              , QSharedPointer<ComponentStruct> right) {
+        int leftIndex = 0;
+        int rightIndex = 0;
+
+        for (QPair<QString, QStringList> pair : m_standartSort) {
+            if (pair.first == left->id()) {
+                leftIndex = m_standartSort.indexOf(pair);
+            }
+
+            if (pair.first == right->id()) {
+                rightIndex = m_standartSort.indexOf(pair);
+            }
+        }
+
+        return leftIndex < rightIndex;
+    });
+
+    for (QSharedPointer<ComponentStruct> componentStruct : m_list) {
+        QList<QSharedPointer<ComponentInfo>> extra = componentStruct->extra();
+        std::sort(extra.begin(), extra.end(), [=] (QSharedPointer<ComponentInfo> left
+                  , QSharedPointer<ComponentInfo> right) {
+            int leftIndex = 0;
+            int rightIndex = 0;
+
+            QStringList componentList = getComponentSortList(componentStruct);
+            for(QString str : componentList){
+                if(left->Id == str){
+                    leftIndex = componentList.indexOf(str);
+                }
+
+                if(right->Id == str){
+                    rightIndex = componentList.indexOf(str);
+                }
+            }
+
+            return leftIndex < rightIndex;
+        });
     }
 
     QJsonDocument packageDoc = QJsonDocument::fromJson(GetComponentExtra().toUtf8());
@@ -233,7 +316,6 @@ QPair<QString, QString> ComponentInstallManager::updateTs(const QString& id) con
         {"php", {tr("PHP Support"), tr("PHP web application framework.")}},
         {"python-web", {tr("Python"), tr("Basic Python web application support.")}},
         {"perl-web", {tr("Perl for Web"), tr("Basic Perl web application support.")}},
-        {"dde", {tr("DDE Applications"), tr("A set of commonly used DDE Applications.")}},
         {"internet-applications", {tr("Internet Applications"), tr("Email, chat, and video conferencing software.")}},
         {"web-servlet", {tr("Web Servlet Engine"), tr("Allows the system to host Java servlets.")}},
         {"legacy-x", {tr("Legacy x Window System Compatibility"), tr("Compatibility programs for migration from or working with legacy X Window System environments.")}},

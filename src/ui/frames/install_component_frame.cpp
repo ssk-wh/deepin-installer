@@ -256,8 +256,6 @@ void SelectInstallComponentFrame::onServerTypeClicked()
     QList<QSharedPointer<ComponentInfo>> defaultValue = compStruct->defaultValue();
     QList<QSharedPointer<ComponentInfo>> extra = compStruct->extra();
 
-    qDebug() << compStruct->id();
-
     for (QSharedPointer<ComponentInfo> info : defaultValue) {
         info->Selected = true;
     }

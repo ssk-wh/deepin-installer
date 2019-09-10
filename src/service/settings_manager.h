@@ -92,6 +92,7 @@ QByteArray GetFullDiskInstallPolicy();
 // Get Component Files
 QString GetComponentDefault();
 QString GetComponentExtra();
+QString GetComponentSort();
 
 // Append settings in |conf_file| into default conf file.
 bool AppendConfigFile(const QString& conf_file);

@@ -276,13 +276,6 @@
      "sssd-tools",
      "sssd-proxy"
     ],
-     "directory-server":[
-      "krb5-admin-server",
-      "krb5-kdc-ldap",
-      "migrationtools",
-      "python-pyasn1-modules",
-      "samba"
-    ],
      "large-systems":[
      "numactl",
      "numad",
