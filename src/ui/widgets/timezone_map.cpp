@@ -75,12 +75,16 @@ const QString TimezoneMap::getTimezone() const {
 }
 
 void TimezoneMap::setTimezone(const QString& timezone) {
-  nearest_zones_.clear();
+  setTimezoneData(timezone);
+  remark();
+}
+
+void TimezoneMap::setTimezoneData(const QString& timezone) {
   const int index = GetZoneInfoByZone(total_zones_, timezone);
   if (index > -1) {
     current_zone_ = total_zones_.at(index);
+    nearest_zones_.clear();
     nearest_zones_.append(current_zone_);
-    this->remark();
   } else {
     qWarning() << "Timezone not found:" << timezone;
   }

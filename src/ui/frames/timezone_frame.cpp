@@ -149,7 +149,7 @@ void TimezoneFrame::initConnections() {
 
   // Remark timezone on map when it is updated.
   connect(this, &TimezoneFrame::timezoneUpdated,
-          timezone_map_, &TimezoneMap::setTimezone);
+          timezone_map_, &TimezoneMap::setTimezoneData);
 
   connect(m_listSelectedCheckBox, &QCheckBox::clicked, this
           , &TimezoneFrame::onListSelectedCheckBoxClicked);
