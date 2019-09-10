@@ -374,29 +374,17 @@ void SystemDateFramePrivate::onNextButtonClicked()
     }
 
     QProcess process;
-    process.execute("timedatectl", QStringList() << "set-ntp" << "false");
+    qDebug() << process.execute("timedatectl", QStringList() << "set-ntp" << "false");
 
     QString dateTime = QString("%1-%2-%3 %4:%5:%6").arg(m_yearEdit->text(), 4, '0')
             .arg(m_monthEdit->text(), 2, '0').arg(m_dayEdit->text(), 2, '0')
             .arg(m_hourEdit->text(), 2, '0').arg(m_minuteEdit->text(), 2, '0').arg("0", 2, '0');
 
-    process.execute("timedatectl", QStringList() << "set-time" << dateTime);
+    qDebug() << process.execute("timedatectl", QStringList() << "set-time" << dateTime);
     WriteIsLocalTime(true);
 
     emit m_ptr->finished();
 }
-
-//void fun()
-//{
-//    QProcess process;
-//    qDebug() << process.execute("timedatectl", QStringList() << "set-ntp" << "false");
-
-//    QString dateTime = QString("%1-%2-%3 %4:%5:%6").arg(m_yearEdit->text(), 4, '0')
-//            .arg(m_monthEdit->text(), 2, '0').arg(m_dayEdit->text(), 2, '0')
-//            .arg(m_hourEdit->text(), 2, '0').arg(m_minuteEdit->text(), 2, '0').arg("0", 2, '0');
-
-//    qDebug() << process.execute("timedatectl", QStringList() << "set-time" << dateTime);
-//}
 
 void SystemDateFramePrivate::init()
 {
