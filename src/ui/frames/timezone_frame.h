@@ -54,6 +54,9 @@ class TimezoneFrame : public QFrame {
   // Emitted when a new timezone is chosen.
   void timezoneUpdated(const QString& timezone);
 
+  // Emitted when select timezone in list.
+  void timezoneSet(const QString& timezone);
+
  public slots:
   // Read default timezone and emit timezoneUpdated() signal.
   void readConf();

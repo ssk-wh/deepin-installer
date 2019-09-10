@@ -44,7 +44,8 @@ void SelectTimeZoneFrame::initUI()
     const QString& locale = ReadLocale();
     for (auto it = m_allTimeZone.begin(); it != m_allTimeZone.end(); ++it) {
         m_continentList << it.key();
-        strList << GetLocalContinentName(it.key(), locale);
+        Q_ASSERT(it.value().count() > 0);
+        strList << GetLocalTimezoneName(it.key() + "/" + it.value().at(0), locale).first;
     }
     m_continentModel->setStringList(strList);
     m_continentListView->setModel(m_continentModel);
@@ -94,8 +95,10 @@ void SelectTimeZoneFrame::onContinentViewSelectedChanged(QModelIndex curIndex, Q
     m_currentContinentIndex = curIndex;
     const QString& locale = ReadLocale();
     QStringList timezoneList;
-    for (const QString& timezone : m_allTimeZone[m_continentList.at(m_currentContinentIndex.row())]) {
-        timezoneList << GetLocalTimezoneName(timezone, locale);
+    m_currentTimeZone = m_allTimeZone[m_continentList.at(m_currentContinentIndex.row())];
+    for (const QString& timezone : m_currentTimeZone) {
+        timezoneList << GetLocalTimezoneName(m_continentList
+            .at(m_currentContinentIndex.row()) + "/" + timezone, locale).second;
     }
     m_timeZoneModel->setStringList(timezoneList);
 
@@ -114,7 +117,7 @@ void SelectTimeZoneFrame::onTimeZoneViewSelectedChanged(QModelIndex curIndex, QM
     }
 
     QString timezone = m_continentList.at(m_currentContinentIndex.row()) + "/"
-            + m_timeZoneModel->stringList().at(curIndex.row());
+            + m_currentTimeZone.at(curIndex.row());
     emit timezoneUpdated(timezone);
 }
 

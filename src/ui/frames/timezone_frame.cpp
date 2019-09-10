@@ -156,6 +156,9 @@ void TimezoneFrame::initConnections() {
 
   // Remark timezone on map when it is updated.
   connect(this, &TimezoneFrame::timezoneUpdated,
+          timezone_map_, &TimezoneMap::setTimezone);
+
+  connect(this, &TimezoneFrame::timezoneSet,
           timezone_map_, &TimezoneMap::setTimezoneData);
 
   connect(m_listSelectedCheckBox, &QCheckBox::clicked, this
@@ -305,7 +308,7 @@ void TimezoneFrame::onSelectTimezoneUpdated(const QString &timezone)
 {
     timezone_source_ = TimezoneSource::User;
     timezone_ = this->parseTimezoneAlias(timezone);
-    emit this->timezoneUpdated(timezone_);
+    emit timezoneSet(timezone_);
 }
 
 void TimezoneFrame::onSetTimePushButtonClicked()

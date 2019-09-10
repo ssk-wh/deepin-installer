@@ -180,7 +180,7 @@ void TimezoneMap::popupZoneWindow(const QPoint& pos) {
   QStringList zone_names;
   const QString locale = ReadLocale();
   for (const ZoneInfo& zone : nearest_zones_) {
-    zone_names.append(GetLocalTimezoneName(zone.timezone, locale));
+    zone_names.append(GetLocalTimezoneName(zone.timezone, locale).second);
   }
 
   // Show popup window above dot
@@ -213,8 +213,7 @@ void TimezoneMap::remark() {
   Q_ASSERT(!nearest_zones_.isEmpty());
   if (!nearest_zones_.isEmpty()) {
     const QString locale = ReadLocale();
-    zone_pin_->setText(GetLocalTimezoneName(current_zone_.timezone, locale));
-
+    zone_pin_->setText(GetLocalTimezoneName(current_zone_.timezone, locale).second);
     // Adjust size of pin to fit its content.
     zone_pin_->adjustSize();
 

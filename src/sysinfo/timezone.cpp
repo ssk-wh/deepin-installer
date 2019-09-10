@@ -137,21 +137,23 @@ QString GetTimezoneName(const QString& timezone) {
   return (index > -1) ? timezone.mid(index + 1) : timezone;
 }
 
-QString GetLocalTimezoneName(const QString& timezone, const QString& locale) {
+QPair<QString, QString> GetLocalTimezoneName(const QString& timezone, const QString& locale) {
   // Set locale first.
   (void) setlocale(LC_ALL, (locale + ".UTF-8").toLocal8Bit().constData());
   const QString local_name =
       dgettext(kTimezoneDomain, timezone.toLocal8Bit().constData());
-  int index = local_name.lastIndexOf('/');
-  if (index == -1) {
-    // Some translations of locale name contains non-standard char.
-    index = local_name.lastIndexOf("∕");
-  }
 
   // Reset locale.
   (void) setlocale(LC_ALL, kDefaultLang);
 
-  return (index > -1) ? local_name.mid(index + 1) : local_name;
+  const QStringList list = local_name.split("/");
+
+  if(list.size() > 1){
+      return QPair<QString, QString>(list.first(), list.last());
+  }
+  else {
+      return QPair<QString, QString>("", local_name);
+  }
 }
 
 TimezoneAliasMap GetTimezoneAliasMap() {
@@ -237,24 +239,6 @@ ContinentZoneInfoMap GetContinentZoneInfo()
     }
 
     return infoMap;
-}
-
-QString GetLocalContinentName(const QString &timezone, const QString &locale)
-{
-    // Set locale first.
-    (void) setlocale(LC_ALL, (locale + ".UTF-8").toLocal8Bit().constData());
-    const QString local_name =
-        dgettext(kTimezoneDomain, timezone.toLocal8Bit().constData());
-    int index = local_name.lastIndexOf('/');
-    if (index == -1) {
-      // Some translations of locale name contains non-standard char.
-      index = local_name.lastIndexOf("∕");
-    }
-
-    // Reset locale.
-    (void) setlocale(LC_ALL, kDefaultLang);
-
-    return (index > -1) ? local_name.left(index) : local_name;
 }
 
 }  // namespace installer

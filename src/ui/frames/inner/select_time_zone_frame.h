@@ -33,6 +33,7 @@ private:
 
     ContinentZoneInfoMap m_allTimeZone;
     QStringList m_continentList;
+    QStringList m_currentTimeZone;
     QModelIndex m_currentContinentIndex;
 
     DiskInstallationView* m_continentListView = nullptr;

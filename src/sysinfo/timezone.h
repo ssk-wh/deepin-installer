@@ -21,6 +21,7 @@
 #include <QList>
 #include <QHash>
 #include <QMap>
+#include <QPair>
 #include <QStringList>
 
 namespace installer {
@@ -59,13 +60,9 @@ QString GetCurrentTimezone();
 // Returns name of timezone, excluding continent name.
 QString GetTimezoneName(const QString& timezone);
 
-// Returns local name of timezone, excluding continent name.
+// Returns local name of <continent, timezone>, excluding continent name.
 // |locale| is desired locale name.
-QString GetLocalTimezoneName(const QString& timezone, const QString& locale);
-
-// Returns local name of continent
-// |locale| is desired locale name.
-QString GetLocalContinentName(const QString& timezone, const QString& locale);
+QPair<QString, QString> GetLocalTimezoneName(const QString& timezone, const QString& locale);
 
 // A map between old name of timezone and current name.
 // e.g. Asia/Chongqing -> Asia/Shanghai
