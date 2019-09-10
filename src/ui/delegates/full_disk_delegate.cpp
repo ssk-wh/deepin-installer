@@ -528,7 +528,7 @@ bool FullDiskDelegate::createLogicalPartition(const Partition::Ptr partition,
   if (fs_type == FsType::Recovery) {
       // Hide recovery partition
       new_partition->flags << PartitionFlag::Hidden;
-      WriteRecoveryPartitionInfo(partition->path);
+      WriteRecoveryPartitionInfo(new_partition->path);
   }
 
   // space is required for the Extended Boot Record.
@@ -685,7 +685,7 @@ bool FullDiskDelegate::createPrimaryPartition(const Partition::Ptr partition,
   if (fs_type == FsType::Recovery) {
       // Hide recovery partition
       new_partition->flags << PartitionFlag::Hidden;
-      WriteRecoveryPartitionInfo(partition->path);
+      WriteRecoveryPartitionInfo(new_partition->path);
   }
 
   // Check whether space is required for the Master Boot Record.
