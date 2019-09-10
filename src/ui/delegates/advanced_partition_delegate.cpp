@@ -758,6 +758,8 @@ void AdvancedPartitionDelegate::deletePartition(const Partition::Ptr partition) 
   new_partition->fs           = FsType::Empty;
   new_partition->status       = PartitionStatus::Delete;
 
+//TODO: Fix this bug using a pretty method!
+#ifdef QT_DEBUG
   if (partition->status == PartitionStatus::New) {
     // If status of old partition is New, there shall be a CreateOperation
     // which generates that partition-> Merge that CreateOperation
@@ -791,10 +793,13 @@ void AdvancedPartitionDelegate::deletePartition(const Partition::Ptr partition) 
         }
     }
   } else {
+#endif
       Operation operation(OperationType::Delete, partition, new_partition);
       operations_.append(operation);
       qDebug() << "add delete operation" << *new_partition.data();
+#ifdef QT_DEBUG
   }
+#endif
 
   if (partition->type == PartitionType::Logical) {
     // Delete extended partition if needed.
