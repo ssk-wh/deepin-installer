@@ -42,10 +42,6 @@ signals:
 protected:
     bool event(QEvent* event) override;
 
-public slots:
-    void readConf();
-    void writeConf(bool isLocolTime);
-
 private:
     QScopedPointer<SystemDateFramePrivate> d_private;
     Q_DECLARE_PRIVATE_D(d_private, SystemDateFrame)

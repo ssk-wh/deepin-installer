@@ -147,15 +147,6 @@ bool SystemDateFrame::event(QEvent *event)
     return QWidget::event(event);
 }
 
-void SystemDateFrame::readConf()
-{
-}
-
-void SystemDateFrame::writeConf(bool isLocolTime)
-{
-    WriteIsLocalTime(isLocolTime);
-}
-
 void SystemDateFramePrivate::onYearEditingFinished()
 {
     if(!validateYear(m_yearEdit->text())){
@@ -383,23 +374,29 @@ void SystemDateFramePrivate::onNextButtonClicked()
     }
 
     QProcess process;
-    process.setProgram("timedatectl set-ntp false");
-    process.start();
-    process.waitForFinished();
+    process.execute("timedatectl", QStringList() << "set-ntp" << "false");
 
-    QString dateTime = QString("'%1-%2-%3 %4:%5:%6'").arg(m_yearEdit->text(), 4, '0')
+    QString dateTime = QString("%1-%2-%3 %4:%5:%6").arg(m_yearEdit->text(), 4, '0')
             .arg(m_monthEdit->text(), 2, '0').arg(m_dayEdit->text(), 2, '0')
             .arg(m_hourEdit->text(), 2, '0').arg(m_minuteEdit->text(), 2, '0').arg("0", 2, '0');
-    QString cmd = "timedatectl set-time ";
-    cmd.append(dateTime);
 
-    process.setProgram(cmd);
-    process.start();
-    process.waitForFinished();
-    m_ptr->writeConf(true);
+    process.execute("timedatectl", QStringList() << "set-time" << dateTime);
+    WriteIsLocalTime(true);
 
     emit m_ptr->finished();
 }
+
+//void fun()
+//{
+//    QProcess process;
+//    qDebug() << process.execute("timedatectl", QStringList() << "set-ntp" << "false");
+
+//    QString dateTime = QString("%1-%2-%3 %4:%5:%6").arg(m_yearEdit->text(), 4, '0')
+//            .arg(m_monthEdit->text(), 2, '0').arg(m_dayEdit->text(), 2, '0')
+//            .arg(m_hourEdit->text(), 2, '0').arg(m_minuteEdit->text(), 2, '0').arg("0", 2, '0');
+
+//    qDebug() << process.execute("timedatectl", QStringList() << "set-time" << dateTime);
+//}
 
 void SystemDateFramePrivate::init()
 {
