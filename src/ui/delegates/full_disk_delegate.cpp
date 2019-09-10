@@ -390,6 +390,7 @@ bool FullDiskDelegate::createPartition(const Partition::Ptr partition,
                 << partition->device_path;
     return false;
   }
+
   Device::Ptr device = virtual_devices_[device_index];
 
   if (device->table == PartitionTableType::Empty) {
@@ -403,6 +404,10 @@ bool FullDiskDelegate::createPartition(const Partition::Ptr partition,
     operations_.append(operation);
     // Update virtual device property at the same time.
     operation.applyToVisual(device);
+  }
+
+  if (fs_type == FsType::Recovery) {
+      WriteRecoveryPartitionInfo(partition->path);
   }
 
   if (partition_type == PartitionType::Normal) {
@@ -1256,7 +1261,13 @@ void FullDiskDelegate::getFinalDiskResolution(FinalFullDiskResolution& resolutio
         }
 
         FinalFullDiskPolicy policy;
-        policy.filesystem = GetFsTypeName(op.new_partition->fs);
+        FsType type = op.new_partition->fs;
+
+        if (type == FsType::Recovery) {
+            type = FsType::Ext4;
+        }
+
+        policy.filesystem = GetFsTypeName(type);
         policy.mountPoint = op.new_partition->mount_point;
         policy.label = op.new_partition->label;
         policy.offset = op.new_partition->start_sector * op.new_partition->sector_size;

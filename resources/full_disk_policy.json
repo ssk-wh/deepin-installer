@@ -44,7 +44,7 @@
         "platform": [ "x86", "sw", "loogson", "arm" ]
     },
     {
-        "filesystem": "ext4",
+        "filesystem": "recovery",
         "mountPoint": "",
         "label": "Backup",
         "usage": "10Gib",
