@@ -34,6 +34,7 @@
 
 #include "base/consts.h"
 #include "service/settings_name.h"
+#include "partman/structs.h"
 
 namespace installer {
 
@@ -538,14 +539,23 @@ void WriteFullDiskResolution(const FinalFullDiskResolution& resolution)
         labelKey = QString("DI_FULLDISK_MULTIDISK_LABEL_%1").arg(i);
         valueList.clear();
         labelValueList.clear();
+
+        if (i > 0) {
+            valueList << QString("luks_crypt%1:crypto_luks::100%").arg(i);
+            labelValueList << QString("luks_crypt%1").arg(i);
+        }
         for (int j = 0; j < op.policy_list.length(); j++) {
             const FinalFullDiskPolicy& policy = op.policy_list[j];
             valueList << QString("%1:%2:%3:%4")
                     .arg(policy.mountPoint)
                     .arg(policy.filesystem)
-                    .arg(policy.offset)
-                    .arg(policy.size);
+                    .arg(policy.offset/kMebiByte)
+                    .arg(policy.size/kMebiByte);
             labelValueList << policy.label;
+            if (0 == i && policy.mountPoint == "/boot") {
+                valueList << QString("luks_crypt%1:crypto_luks::100%").arg(i);
+                labelValueList << QString("luks_crypt%1").arg(i);
+            }
         }
         AppendToConfigFile(key, valueList.join(kFullDiskResolutionDeviceSeparator));
         AppendToConfigFile(labelKey, labelValueList.join(kFullDiskResolutionDeviceSeparator));

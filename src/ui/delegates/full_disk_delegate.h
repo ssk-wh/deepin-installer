@@ -40,6 +40,10 @@ struct FullDiskPolicy {
         QString       usage;
         QString       device;
         bool          alignStart;
+        qint64        startSector;
+        qint64        endSector;
+        qint64        sectors;
+        PartitionType partitionType;
 };
 
 typedef QList<FullDiskPolicy>  FullDiskPolicyList;

@@ -1110,6 +1110,13 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
     return true;
 }
 
+struct  FullDiskPolicyComparator {
+    bool operator()(const FullDiskPolicy& a, const FullDiskPolicy& b)
+    {
+            return a.startSector < b.startSector;
+    }
+};
+
 bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOption& option)
 {
     Operation operation(device);
@@ -1118,6 +1125,8 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
 
     int            primary_count { 0 };
     const uint     swapSize{ getSwapSize() };
+    qint64         startSector{ 0 };
+    qint64         endSector { device->length };
     qint64         lastDeviceLenght{ device->length };
     Partition::Ptr unallocated = device->partitions.last();
 
@@ -1137,10 +1146,22 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
         unallocated = device->partitions.last();
     }
 
-    const FullDiskPolicyList& policy_list = option.policy_list;
-    for (const FullDiskPolicy& policy : policy_list) {
+    FullDiskPolicyList& policy_list = option.policy_list;
+    FullDiskPolicyList::iterator begin = policy_list.end();
+    FullDiskPolicyList::iterator end   = policy_list.end();
+
+    FullDiskPolicyList::iterator it;
+    for (it = policy_list.begin(); it != policy_list.end(); it++) {
+        FullDiskPolicy& policy = *it;
         if (policy.device != device->path) {
+            if (begin != policy_list.end()) {
+                end = it;
+            }
             continue;
+        }
+
+        if (policy_list.end() == begin) {
+            begin = it;
         }
 
         qint64       partitionSize{ 0 };
@@ -1152,23 +1173,40 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
         if (partitionSize < 1) {
             partitionSize = ParsePartitionSize(policy.usage, length);
         }
-        const qint64 sectors = partitionSize / device->sector_size;
-        lastDeviceLenght -= sectors;
 
+        policy.sectors = partitionSize / device->sector_size;
+        if (policy.alignStart) {
+            policy.startSector = startSector;
+            policy.endSector = policy.startSector + policy.sectors;
+            startSector += policy.sectors;
+        }
+        else {
+            policy.endSector = endSector;
+            policy.startSector = policy.endSector - policy.sectors;
+            endSector -= policy.sectors;
+        }
+        lastDeviceLenght -= policy.sectors;
         bool is_primary = (device->table == PartitionTableType::GPT
                            || primary_count < (device->max_prims - 1));
-        PartitionType type = is_primary ? PartitionType::Normal : PartitionType::Logical;
-        if (!createPartition(unallocated, type, policy.alignStart, policy.filesystem,
-                    policy.mountPoint, sectors,policy.label)) {
-            return false;
-        }
+        policy.partitionType = is_primary ? PartitionType::Normal : PartitionType::Logical;
         if (is_primary) {
             primary_count++;
         }
+    }
 
+    qSort(begin, end, FullDiskPolicyComparator());
+
+    const FullDiskPolicyList& const_policy_list = option.policy_list;
+    for (const FullDiskPolicy& policy : const_policy_list) {
+        if (policy.device != device->path) {
+            continue;
+        }
+        if (!createPartition(unallocated, policy.partitionType, policy.alignStart, policy.filesystem,
+                    policy.mountPoint, policy.sectors,policy.label)) {
+            return false;
+        }
         Operation& last_operation = operations_.last();
         last_operation.applyToVisual(device);
-
         for (Partition::Ptr p : device->partitions) {
             if (p->type == PartitionType::Unallocated) {
                 unallocated = p;
@@ -1176,6 +1214,7 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
             }
         }
     }
+
     if (option.is_system_disk) {
         setBootloaderPath(device->path);
     }
@@ -1212,7 +1251,7 @@ void FullDiskDelegate::getFinalDiskResolution(FinalFullDiskResolution& resolutio
     resolution.option_list.clear();
     FinalFullDiskOption option;
     for (Operation op : operations()) {
-        if (OperationType::Create != op.type) {
+        if (OperationType::Create != op.type || FsType::Empty == op.new_partition->fs) {
             continue;
         }
 

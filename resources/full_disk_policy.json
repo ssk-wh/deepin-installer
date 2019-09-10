@@ -28,7 +28,7 @@
     {
         "filesystem": "ext4",
         "mountPoint": "/",
-        "label": "Root",
+        "label": "Roota",
         "usage": "15Gib",
         "alignStart": true,
         "device": "",
@@ -37,14 +37,14 @@
     {
         "filesystem": "ext4",
         "mountPoint": "",
-        "label": "Root",
+        "label": "Rootb",
         "usage": "15Gib",
         "alignStart": true,
         "device": "",
         "platform": [ "x86", "sw", "loogson", "arm" ]
     },
     {
-        "filesystem": "recovery",
+        "filesystem": "ext4",
         "mountPoint": "",
         "label": "Backup",
         "usage": "10Gib",

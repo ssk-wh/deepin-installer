@@ -20,10 +20,8 @@
 
 DI_CRYPT_ROOT=$(installer_get "DI_CRYPT_ROOT")
 if [ x${DI_CRYPT_ROOT} = xtrue ]; then
-  _CRYPT_PARTITION=$(installer_get "DI_CRYPT_PARTITION")
   _CRYPT_KEY=$(installer_get "DI_CRYPT_KEY")
   _CRYPT_SCRIPT=$(installer_get "DI_CRYPT_SCRIPT")
-  _CRYPT_TARGET=$(installer_get "DI_CRYPT_TARGET")
 
   _CRYPT_OPTIONS="luks"
   if [ ! -z "${_CRYPT_SCRIPT}" ]; then
@@ -35,8 +33,15 @@ EOF
   chmod +x ${_CRYPT_SCRIPT}
   fi
 
-  _UUID=$(blkid -o value -s UUID "${_CRYPT_PARTITION}")
-  cat >> /etc/crypttab << EOF
+  _CRYPT_INFO=$(installer_get "DI_CRYPT_INFO")
+  crypt_info_array=(${_CRYPT_INFO//;/ })
+  for ci in "${crypt_info_array[@]}" ; do
+    crypt_item_array=(${ci//:/ })
+    _CRYPT_PARTITION=${crypt_item_array[0]}
+    _CRYPT_TARGET=${crypt_item_array[1]}
+    _UUID=$(blkid -o value -s UUID "${_CRYPT_PARTITION}")
+    cat >> /etc/crypttab << EOF
 ${_CRYPT_TARGET} UUID=${_UUID} none ${_CRYPT_OPTIONS}
 EOF
+done
 fi
