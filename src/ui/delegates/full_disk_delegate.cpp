@@ -1133,7 +1133,7 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
     if (device->table == PartitionTableType::GPT && option.is_system_disk) {
         const qint64 uefiSize =
             ParsePartitionSize("300Mib", lastDeviceLenght * device->sector_size);
-        if (!createPrimaryPartition(unallocated, PartitionType::Normal, true, FsType::Ext4,
+        if (!createPrimaryPartition(unallocated, PartitionType::Normal, true, FsType::EFI,
                                     "/boot/efi", uefiSize / device->sector_size) ) {
             return false;
         }
