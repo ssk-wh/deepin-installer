@@ -417,6 +417,8 @@ void PartitionFrame::onAdvancedFrameButtonToggled() {
 }
 
 void PartitionFrame::onNextButtonClicked() {
+  WriteFullDiskMode(this->isFullDiskPartitionMode());
+
   if (this->isSimplePartitionMode()) {
     // Validate simple partition frame.
     if (!simple_partition_frame_->validate()) {

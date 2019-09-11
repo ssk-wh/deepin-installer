@@ -179,6 +179,8 @@ struct FinalFullDiskResolution {
 
 void WriteFullDiskResolution(const FinalFullDiskResolution& resolution);
 
+void WriteFullDiskMode(bool value);
+
 }  // namespace installer
 
 #endif  // INSTALLER_SETTINGS_MANAGER_H

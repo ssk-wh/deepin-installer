@@ -571,6 +571,12 @@ void WriteFullDiskResolution(const FinalFullDiskResolution& resolution)
         AppendToConfigFile(key, valueList.join(kFullDiskResolutionDeviceSeparator));
         AppendToConfigFile(labelKey, labelValueList.join(kFullDiskResolutionDeviceSeparator));
     }
+    WriteFullDiskMode(true);
+}
+
+void WriteFullDiskMode(bool value)
+{
+    AppendToConfigFile("DI_FULLDISK_MODE", value ? "true" : "false");
 }
 
 }  // namespace installer
