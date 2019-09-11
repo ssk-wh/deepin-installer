@@ -34,6 +34,16 @@ CONF_FILE=/etc/deepin-installer.conf
 . ./in_chroot/53_setup_user.job
 . ./in_chroot/55_customize_user.job
 
+# Remove component packages
+remove_component_packages() {
+  local DI_COMPONENT_UNINSTALL=$(installer_get "DI_COMPONENT_UNINSTALL")
+  if [ ! -z "${DI_COMPONENT_UNINSTALL}" ];then
+  # uninstall
+  apt-get purge -y ${DI_COMPONENT_UNINSTALL} || \
+    warn_exit "Failed to uninstall packages: " ${DI_COMPONENT_UNINSTALL}
+  fi
+}
+
 # Check whether btrfs filesystem is used in machine.
 detect_btrfs() {
   for i in $(lsblk -o FSTYPE | sed '/^$/d' | uniq); do
@@ -102,6 +112,7 @@ main() {
   cleanup_oem_license
   cleanup_first_boot
   uninstall_installer
+  remove_component_packages
   sync
 }
 
