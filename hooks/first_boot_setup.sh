@@ -56,11 +56,17 @@ detect_btrfs() {
 uninstall_installer() {
   # NOTE(xushaohua): Remove dependencies of installer by hand.
   # Until state of packages are correctly marked in ISO.
+  local DI_RECOVERY_PATH=$(installer_get "DI_RECOVERY_PATH")
+  if [ ! -z ${DI_RECOVERY_PATH} ];then
+    apt-get -y purge deepin-clone
+  fi
+
   if detect_btrfs; then
     apt-get -y purge deepin-installer tshark wireshark-common
   else
     apt-get -y purge deepin-installer btrfs-tools tshark wireshark-common
   fi
+
   apt-get -y autoremove --purge
 }
 
