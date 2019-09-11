@@ -23,7 +23,7 @@
 # 4.将两个uuid写入ab_recovery.json文件中。
 
 declare ab_condition="false"
-declare ab_recovery_file="/etc/deepin/ab-recovery.json"
+declare ab_recovery_file="/target/etc/deepin/ab-recovery.json"
 declare current_label="", backup_label=""
 
 check_install_mode()

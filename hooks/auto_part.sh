@@ -380,6 +380,7 @@ main(){
   echo "CRYPT_INFO:{${CRYPT_INFO}}"
   installer_set DI_CRYPT_INFO "${CRYPT_INFO}"
   installer_set DI_ROOT_DISK "${part_device_array[0]}"
+  installer_set DI_FULLDISK_MODE "true"
 }
 
 . ./basic_utils.sh

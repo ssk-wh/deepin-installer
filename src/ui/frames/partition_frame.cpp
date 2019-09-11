@@ -75,6 +75,7 @@ PartitionFrame::PartitionFrame(QWidget* parent)
 }
 
 void PartitionFrame::autoPart() {
+  WriteFullDiskMode(true);
   partition_model_->autoPart();
 }
 
