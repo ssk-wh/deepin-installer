@@ -38,7 +38,9 @@ mount -vt sysfs sysfs /target/sys || error "Failed to bind sysfs"
 mkdir -p /target/media/cdrom
 mount --bind ${CDROM} /target/media/cdrom || error "Failed to bind ${CDROM}"
 
-mount ${DI_RECOVERY_PATH} /mnt || error "Faild to mount ${DI_RECOVERY_PATH}"
+if [ -z ${DI_RECOVERY_PATH} ];then
+    mount ${DI_RECOVERY_PATH} /mnt || error "Faild to mount ${DI_RECOVERY_PATH}"
+fi
 
 mkdir -p /target/data/home
 mkdir -p /target/home
