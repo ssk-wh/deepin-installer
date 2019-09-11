@@ -172,9 +172,14 @@ QStringList ComponentInstallManager::packageListByComponentStruct(QSharedPointer
         QStringList packageList;
         for (QSharedPointer<ComponentInfo> info : list) {
             if (!info->Selected) continue;
-            for (const QString& package : info->PackageList) {
-                if (packagesList.contains(package)) {
-                    packageList << package;
+            for (QSharedPointer<ComponentInfo> l : m_packageList) {
+                if (l->Id == info->Id) {
+                    for (const QString& package : l->PackageList) {
+                        if (packagesList.contains(package)) {
+                            packageList << package;
+                        }
+                    }
+                    break;
                 }
             }
         }

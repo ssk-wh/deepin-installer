@@ -40,6 +40,9 @@ void SelectInstallComponentFrame::writeConf()
         return;
     }
 
+    WriteComponentPackages("");
+    WriteComponentUninstallPackages("");
+
     QSharedPointer<ComponentStruct> current =
         m_componentStructMap[m_currentComponentWidget];
 
