@@ -23,4 +23,5 @@ if [ -z ${DI_RECOVERY_PATH} ];then
     return 0
 fi
 
-return deepin-clone ${DI_RECOVERY_PATH} /mnt/backup.dim
+deepin-clone ${DI_RECOVERY_PATH} /mnt/backup.dim
+return $?
