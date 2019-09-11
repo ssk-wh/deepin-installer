@@ -64,7 +64,8 @@ Depends:
     xkb-data,
     deepin-clone,
     cryptsetup,
-    lvm2
+    lvm2,
+    dde-account-faces
 Description: Release version of deepin installer
  New version of deepin-installer, rewritten with Qt5.
 
