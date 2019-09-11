@@ -120,6 +120,10 @@ SaveInstallFailedLogFrame::SaveInstallFailedLogFrame(QWidget *parent) : QWidget(
 }
 
 void SaveInstallFailedLogFrame::startDeviceWatch(bool enable) {
+    if (m_diskManager->watchChanges() == enable) {
+        return;
+    }
+
     m_diskManager->setWatchChanges(enable);
     m_deviceMap.clear();
     for (const QString& path : m_diskManager->blockDevices()) {
@@ -241,13 +245,14 @@ void SaveInstallFailedLogFrame::onBlockDeviceAdded(const QString &path)
     }
 
     for (auto it = m_deviceMap.begin(); it != m_deviceMap.end(); ++it) {
-        if (it->first()->path() == disk->path()) {
-            for (QSharedPointer<DBlockDevice> block : it.value()) {
+        if (it.key()->path() == disk->path()) {
+            QList<QSharedPointer<DBlockDevice>> &list = it.value();
+            for (QSharedPointer<DBlockDevice> block : list) {
                 if (block->path() == device->path()) {
                     return;
                 }
             }
-            it.value() << device;
+            list << device;
             return refreshDevices();
         }
     }
