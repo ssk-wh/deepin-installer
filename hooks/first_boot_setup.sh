@@ -117,8 +117,8 @@ main() {
   sync
   cleanup_oem_license
   cleanup_first_boot
-  uninstall_installer
   remove_component_packages
+  uninstall_installer # 这必须是最后一步！
   sync
 }
 
