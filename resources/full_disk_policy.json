@@ -5,7 +5,7 @@
         "usage": "1536Mib",
         "alignStart": true,
         "device": "",
-        "platform": [ "loogson" , "x86", "arm"]
+        "platform": [ "loongson" , "x86", "arm"]
     },
     {
         "filesystem": "ext4",
@@ -23,7 +23,7 @@
         "usage": "swap-size",
         "alignStart": true,
         "device": "",
-        "platform": [ "x86", "sw", "loogson", "arm" ]
+        "platform": [ "x86", "sw", "loongson", "arm" ]
     },
     {
         "filesystem": "ext4",
@@ -32,7 +32,7 @@
         "usage": "15Gib",
         "alignStart": true,
         "device": "",
-        "platform": [ "x86", "sw", "loogson", "arm" ]
+        "platform": [ "x86", "sw", "loongson", "arm" ]
     },
     {
         "filesystem": "ext4",
@@ -41,7 +41,7 @@
         "usage": "15Gib",
         "alignStart": true,
         "device": "",
-        "platform": [ "x86", "sw", "loogson", "arm" ]
+        "platform": [ "x86", "sw", "loongson", "arm" ]
     },
     {
         "filesystem": "recovery",
@@ -50,7 +50,7 @@
         "usage": "10Gib",
         "align_start": false,
         "device": "",
-        "platform": [ "x86", "sw", "loogson", "arm" ]
+        "platform": [ "x86", "sw", "loongson", "arm" ]
     },
     {
         "filesystem": "ext4",
@@ -59,6 +59,6 @@
         "usage": "100%",
         "alignStart": true,
         "device": "",
-        "platform": [ "x86", "sw", "loogson", "arm" ]
+        "platform": [ "x86", "sw", "loongson", "arm" ]
     }
 ]

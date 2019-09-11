@@ -453,7 +453,7 @@ void AddConfigFile() {
 
     QMap<QString, QString> BUILD_ARCH_MAP{ { "x86_64",  "x86" },
                                            { "sw_64",   "sw" },
-                                           { "mpris64", "loongson" },
+                                           { "mips64", "loongson" },
                                            { "aarch64", "arm" } };
 
 #ifdef QT_DEBUG
