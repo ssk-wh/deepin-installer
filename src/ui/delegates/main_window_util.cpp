@@ -64,11 +64,13 @@ int GetVisiblePages() {
   if (!GetSettingsBool(kSkipSelectLanguagePage)) {
     pages += 1;
   }
-
-  if (!GetSettingsBool(kSystemInfoSetupAfterReboot) || !GetSettingsBool(kSkipSystemInfoPage)) {
+  if (!GetSettingsBool(kSkipSelectComponentPage)) {
+      pages += 1;
+  }
+  if (!GetSettingsBool(kSystemInfoSetupAfterReboot) && !GetSettingsBool(kSkipSystemInfoPage)) {
     pages += 1;
   }
-  if (!GetSettingsBool(kSystemInfoSetupAfterReboot) || !GetSettingsBool(kSkipTimezonePage)) {
+  if (!GetSettingsBool(kSystemInfoSetupAfterReboot) && !GetSettingsBool(kSkipTimezonePage)) {
     pages += 1;
   }
   if (!GetSettingsBool(kSkipPartitionPage)) {
