@@ -23,10 +23,10 @@
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
 #include "base/file_util.h"
+#include "base/command.h"
 
 #include <QDebug>
 #include <QApt/DebFile>
-#include <thread>
 #include <QPair>
 
 using namespace installer;
@@ -146,67 +146,35 @@ ComponentInstallManager::ComponentInstallManager(QObject *parent) : QObject(pare
 
         m_packageList << info;
     }
-
-    std::thread thread([&] {
-        // 加載所有的deb包
-        QDir dir("/lib/live/mount/medium/pool/main/");
-        if (!dir.exists()) {
-            dir.setPath("/run/live/medium/pool/main/");
-        }
-
-        if (!dir.exists()) {
-            qDebug() << "/media/cdrom not exist.";
-            return;
-        }
-
-        const QStringList& list = findAllDeb(dir.path());
-        QList<QApt::DebFile> files;
-        QStringList packagesList;
-
-        for (const QString& l : list) {
-            QApt::DebFile file(l);
-            packagesList << file.packageName();
-        }
-
-        QStringList notExistList;
-        for (auto it = m_packageList.begin(); it != m_packageList.end();) {
-            QStringList& list = it->data()->PackageList;
-            for (auto plist = list.begin(); plist != list.end();) {
-                if (!packagesList.contains(*plist)) {
-                    notExistList << *plist;
-                    plist = list.erase(plist);
-                }
-                else {
-                    ++plist;
-                }
-            }
-
-            if (list.isEmpty()) {
-                it = m_packageList.erase(it);
-            }
-            else {
-                ++it;
-            }
-        }
-
-        notExistList.removeDuplicates();
-        for (const QString& l : notExistList) {
-            qWarning() << "Package not exist: " << l;
-        }
-    });
-
-    thread.detach();
 }
 
 QStringList ComponentInstallManager::packageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const {
+    // 加載所有的deb包
+    QDir dir("/lib/live/mount/medium/pool/main/");
+    if (!dir.exists()) {
+        dir.setPath("/run/live/medium/pool/main/");
+    }
+
+    if (!dir.exists()) {
+        qDebug() << "/media/cdrom not exist.";
+    }
+
+    const QStringList& list = findAllDeb(dir.path());
+    QList<QApt::DebFile> files;
+    QStringList packagesList;
+
+    for (const QString& l : list) {
+        QApt::DebFile file(l);
+        packagesList << file.packageName();
+    }
+
     auto integrateList = [=](QList<QSharedPointer<ComponentInfo>> list) -> QStringList {
         QStringList packageList;
         for (QSharedPointer<ComponentInfo> info : list) {
             if (!info->Selected) continue;
-            for (QSharedPointer<ComponentInfo> i : m_packageList) {
-                if (info->Id == i->Id) {
-                    packageList << i->PackageList;
-                    break;
+            for (const QString& package : info->PackageList) {
+                if (packagesList.contains(package)) {
+                    packageList << package;
                 }
             }
         }
@@ -218,13 +186,33 @@ QStringList ComponentInstallManager::packageListByComponentStruct(QSharedPointer
 }
 
 QStringList ComponentInstallManager::uninstallPackageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const {
-    QStringList list;
-    QList<QSharedPointer<ComponentInfo>> uninstallList = componentStruct->uninstall();
+    QString dpkgResult;
+    qDebug() << SpawnCmd("dpkg", { "-l" }, dpkgResult);
 
+    QTextStream stream(&dpkgResult);
+    QString line;
+    QStringList installedList;
+    while (stream.readLineInto(&line)) {
+        const QStringList list {
+            line.simplified().split(" ")
+        };
+
+        if (list.startsWith("ii")) {
+            installedList << QString(list.at(1)).split(":").first();
+        }
+    }
+
+    QList<QSharedPointer<ComponentInfo>> uninstallList = componentStruct->uninstall();
+    QStringList list;
     for (QSharedPointer<ComponentInfo> info : uninstallList) {
         for (QSharedPointer<ComponentInfo> i : m_packageList) {
             if (info->Id == i->Id) {
-                list << i->PackageList;
+                const QStringList uninstall = i->PackageList;
+                for (const QString& un : uninstall) {
+                    if (installedList.contains(un)) {
+                        list << un;
+                    }
+                }
                 break;
             }
         }
