@@ -8,6 +8,7 @@ install(
     ${CMAKE_CURRENT_SOURCE_DIR}/timezone_alias
     ${CMAKE_CURRENT_SOURCE_DIR}/packages_default.json
     ${CMAKE_CURRENT_SOURCE_DIR}/packages_choice.json
+    ${CMAKE_CURRENT_SOURCE_DIR}/packages_sort.json
     DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources
 )
 
