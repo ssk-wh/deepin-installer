@@ -72,7 +72,7 @@ Device::Ptr FullDiskDelegate::fullInstallScheme(Device::Ptr device) const
     qint64     usedEndSize{ 0 };
     qint64     lastDeviceEnd{ device->length };
 
-    if (device->table == PartitionTableType::GPT) {
+    if (IsEfiEnabled()) {
         // 首先创建EFI分区
         const qint64 uefiSize = ParsePartitionSize("300mib", lastDeviceLenght * device->sector_size);
 
