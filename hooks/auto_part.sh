@@ -60,9 +60,13 @@ flush_message(){
 # Format partition at $1 with filesystem $2.
 format_part(){
   local part_path="$1" part_fs="$2" part_label="$3"
+  local part_fs_="$part_fs"
+  if [ "$part_fs_" = "recovery" ]; then
+     part_fs_=ext4
+  fi
 
   yes |\
-  case "$part_fs" in
+  case "$part_fs_" in
     fat32)
       mkfs.vfat -F32 -n "$part_label" "$part_path";;
     efi)
@@ -215,6 +219,8 @@ create_part(){
         _part_fs=fat32;;
       crypto_luks)
         _part_fs='';;
+      recovery)
+        _part_fs=ext4;;
       *)
         printf -v _part_fs '%q' "$part_fs";;
     esac
@@ -298,6 +304,10 @@ create_part(){
       ;;
   esac || error "Failed to set boot flag on $part_path!"
 
+  if [ "${part_fs}" = "recovery" ]; then
+     installer_set DI_RECOVERY_PATH ${part_path}
+  fi
+
   flush_message
 }
 
@@ -359,6 +369,8 @@ main(){
 
     local part_policy_array=(${PART_POLICY//;/ })
     local part_label_array=(${PART_LABEL//;/ })
+    echo "policy#:${#part_policy_array[@]} label:${#part_label_array[@]}"
+
     for i in "${!part_policy_array[@]}"; do
         create_part ${part_policy_array[$i]} ${part_label_array[$i]}
     done

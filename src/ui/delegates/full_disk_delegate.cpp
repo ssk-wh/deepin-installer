@@ -32,6 +32,7 @@ namespace installer {
 namespace {
 
 const char kLinuxSwapMountPoint[] = "linux-swap";
+const char kUEFIPartitionLabel[] = "efi";
 
 }  // namespace
 
@@ -1135,13 +1136,17 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
     qint64         lastDeviceLenght{ device->length };
     Partition::Ptr unallocated = device->partitions.last();
 
-    if (device->table == PartitionTableType::GPT && option.is_system_disk) {
+    if (IsEfiEnabled() && option.is_system_disk) {
         const qint64 uefiSize =
             ParsePartitionSize("300Mib", lastDeviceLenght * device->sector_size);
         if (!createPrimaryPartition(unallocated, PartitionType::Normal, true, FsType::EFI,
-                                    "/boot/efi", uefiSize / device->sector_size) ) {
+                                    "/boot/efi", uefiSize / device->sector_size, kUEFIPartitionLabel) ) {
+            qCritical() << QString("Failed to create EFI partition with label:{%1}!")
+                           .arg(kUEFIPartitionLabel);
             return false;
         }
+        qInfo() << QString("UEFI partition with label:{%1} created successfully!")
+                       .arg(kUEFIPartitionLabel);
 
         const qint64 sectors = uefiSize / device->sector_size;
         lastDeviceLenght -= sectors;
@@ -1261,13 +1266,7 @@ void FullDiskDelegate::getFinalDiskResolution(FinalFullDiskResolution& resolutio
         }
 
         FinalFullDiskPolicy policy;
-        FsType type = op.new_partition->fs;
-
-        if (type == FsType::Recovery) {
-            type = FsType::Ext4;
-        }
-
-        policy.filesystem = GetFsTypeName(type);
+        policy.filesystem = GetFsTypeName(op.new_partition->fs);
         policy.mountPoint = op.new_partition->mount_point;
         policy.label = op.new_partition->label;
         policy.offset = op.new_partition->start_sector * op.new_partition->sector_size;
