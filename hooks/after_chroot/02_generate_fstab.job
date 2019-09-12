@@ -43,8 +43,8 @@ umount -v /target/media/cdrom
 "${GENFSTAB}" -p -U /target > /target/etc/fstab
 
 if [ x"$(installer_get DI_FULLDISK_MODE)" == xtrue ];then
-  echo "/home /data/home none defaults,bind 0 0" >> /target/etc/fstab
-  echo "/opt /data/opt none defaults,bind 0 0" >> /target/etc/fstab
+  echo "/data/home /home none defaults,bind 0 0" >> /target/etc/fstab
+  echo "/data/opt /opt none defaults,bind 0 0" >> /target/etc/fstab
 fi
 
 msg "Content of /etc/fstab"
@@ -52,8 +52,8 @@ cat /target/etc/fstab
 
 if [ x"$(installer_get DI_FULLDISK_MODE)" == xtrue ];then
 # 重新挂载var和home
-  mount --bind /target/home /target/data/home || error "Faild to mount /target/home"
-  mount --bind /target/opt /target/data/opt || error "Faild to mount /target/opt"
+  mount --bind /target/data/home /target/home || error "Faild to mount /target/home"
+  mount --bind /target/data/opt /target/opt || error "Faild to mount /target/opt"
 fi
 
 # Add swap file option if it is set.

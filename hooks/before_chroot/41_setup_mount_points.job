@@ -45,10 +45,10 @@ fi
 if [ x"$(installer_get DI_FULLDISK_MODE)" == xtrue ];then
     mkdir -p /target/data/home
     mkdir -p /target/home
-    mount --bind /target/home /target/data/home || error "Faild to mount /target/home"
+    mount --bind /target/data/home /target/home || error "Faild to mount /target/home"
 
     cp -a /target/opt /target/data/ || error "Faild to copy /opt"
-    mount --bind /target/opt /target/data/opt || error "Faild to mount /target/opt"
+    mount --bind /target/data/opt /target/opt || error "Faild to mount /target/opt"
 fi
 
 if [ x"${DI_UEFI}" = xtrue ]; then
