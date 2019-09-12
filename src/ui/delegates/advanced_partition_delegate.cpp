@@ -757,6 +757,7 @@ void AdvancedPartitionDelegate::deletePartition(const Partition::Ptr partition) 
   new_partition->type         = PartitionType::Unallocated;
   new_partition->fs           = FsType::Empty;
   new_partition->status       = PartitionStatus::Delete;
+  new_partition->mount_point  = "";
 
 //TODO: Fix this bug using a pretty method!
 #ifdef QT_DEBUG
@@ -773,6 +774,7 @@ void AdvancedPartitionDelegate::deletePartition(const Partition::Ptr partition) 
             partition->type   = PartitionType::Unallocated;
             partition->fs     = FsType::Empty;
             partition->status = PartitionStatus::Delete;
+            partition->mount_point = "";
 
             qDebug() << "delete partition info: " << *partition.data();
 
