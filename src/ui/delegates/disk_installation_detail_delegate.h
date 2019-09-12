@@ -33,7 +33,7 @@ public:
 
     struct DeviceSize {
         qint64 length;
-        qint64 freespace;
+        qint64 used;
     };
 
     explicit DiskInstallationDetailDelegate(QObject* parent = nullptr);
@@ -45,6 +45,7 @@ public:
     static const QString    humanReadableDeviceName(const Device::Ptr & device);
     static const DeviceSize humanReadableDeviceSize(const Device::Ptr & device);
     static const QString    humanReadableDeviceSizeString(const DeviceSize & size);
+    static       qreal      humanReadableDeviceSizePercent(const DeviceSize& size);
 };
 
 }

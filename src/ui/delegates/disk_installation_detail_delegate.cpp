@@ -126,7 +126,7 @@ void DiskInstallationDetailDelegate::paint(QPainter* painter,
     full_path.addRoundedRect(full_rect, full_rect.height()/2, full_rect.height()/2);
     painter->fillPath(full_path,full_color);
 
-    qreal disk_percent = static_cast<qreal>(device_size.freespace)/static_cast<qreal>(device_size.length);
+    qreal disk_percent = humanReadableDeviceSizePercent(device_size);
     if (disk_percent < 0) {
         disk_percent = 0.0;
     }
@@ -158,29 +158,44 @@ const QString DiskInstallationDetailDelegate::humanReadableDeviceName(const Devi
 
 const DiskInstallationDetailDelegate::DeviceSize DiskInstallationDetailDelegate::humanReadableDeviceSize(const Device::Ptr & device)
 {
-    qint64 length = device->getByteLength();
-    qint64 free_length = 0;
+    DeviceSize size { 0, 0 };
+    size.length = device->getByteLength();
+    if (size.length < 0) {
+        size.length = 0;
+    }
     for ( Partition::Ptr partition : device->partitions ) {
+        if (partition->type == PartitionType::Extended
+                || partition->type == PartitionType::Unallocated) {
+            continue;
+        }
         if (partition->length > 0 && partition->freespace > 0
                 && (partition->freespace < partition->length)) {
-            free_length += length;
+            size.used += partition->length - partition->freespace;
         }
     }
-    return DeviceSize { length, free_length};
+    return size;
 }
 
 const QString DiskInstallationDetailDelegate::humanReadableDeviceSizeString(const DiskInstallationDetailDelegate::DeviceSize  & size)
 {
     if (size.length < kGibiByte) {
         return QString("%1/%2M")
-              .arg(ToMebiByte(size.freespace))
+              .arg(ToMebiByte(size.used))
               .arg(ToMebiByte(size.length));
     }
     else {
         return QString("%1/%2G")
-              .arg(ToGigByte(size.freespace))
+              .arg(ToGigByte(size.used))
               .arg(ToGigByte(size.length));
     }
+}
+
+qreal DiskInstallationDetailDelegate::humanReadableDeviceSizePercent(const DiskInstallationDetailDelegate::DeviceSize& size)
+{
+    if (size.length == 0) {
+        return 0.0;
+    }
+    return static_cast<qreal>(size.used)/static_cast<qreal>(size.length);
 }
 
 }
