@@ -24,6 +24,7 @@
 #include <QVBoxLayout>
 #include <QCheckBox>
 #include <QStackedLayout>
+#include <QApplication>
 
 #include "partman/os_prober.h"
 #include "service/settings_manager.h"
@@ -125,7 +126,7 @@ void TimezoneFrame::changeEvent(QEvent* event) {
 void TimezoneFrame::showEvent(QShowEvent* event) {
   QFrame::showEvent(event);
 
-  next_button_->setFocus();
+  qApp->installEventFilter(this);
 
   // NOTE(xushaohua): Add a delay to wait for paint event of timezone map.
   QTimer::singleShot(0, [&]() {
@@ -143,6 +144,25 @@ void TimezoneFrame::showEvent(QShowEvent* event) {
           m_setTimePushButton->hide();
       }
   });
+}
+
+void TimezoneFrame::hideEvent(QHideEvent *event)
+{
+    qApp->removeEventFilter(this);
+
+    QWidget::hideEvent(event);
+}
+
+bool TimezoneFrame::eventFilter(QObject *watched, QEvent *event)
+{
+    if((event->type() == QEvent::KeyPress)){
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+        if (keyEvent->key() == Qt::Key_Space){
+            return true;
+        }
+    }
+
+    return QWidget::eventFilter(watched, event);
 }
 
 void TimezoneFrame::initConnections() {
