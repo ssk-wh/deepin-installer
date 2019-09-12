@@ -38,6 +38,7 @@ void SelectTimeZoneFrame::initUI()
     m_continentListView = new DiskInstallationView;
     m_continentListView->setFixedSize(QSize(kContinentListViewWidth, kListViewHeight));
     m_continentListView->setStyleSheet(ReadFile(":/styles/timezone_frame.css"));
+    m_continentListView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
     m_continentModel = new ContinentModel;
     QStringList strList;
@@ -54,6 +55,7 @@ void SelectTimeZoneFrame::initUI()
 
     m_timeZoneListView = new FramelessListView;
     m_timeZoneListView->setFixedSize(QSize(kTimeZoneListViewWidth, kListViewHeight));
+    m_timeZoneListView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
     m_timeZoneModel = new QStringListModel;
     m_timeZoneListView->setModel(m_timeZoneModel);
