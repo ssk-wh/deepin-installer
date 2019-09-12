@@ -53,7 +53,7 @@ elseif(${INSTALLER_BUILD_ARCH} MATCHES "mips")
 elseif (${INSTALLER_BUILD_ARCH} MATCHES "aarch64")
     file(GLOB OVERRIDE ${CMAKE_CURRENT_SOURCE_DIR}/platform_arm/*)
     install(FILES ${OVERRIDE}
-    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources/overrie)
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources/override)
 else()
   message(FATAL_ERROR "Not supported architecture: ${INSTALLER_BUILD_ARCH}")
 endif ()
