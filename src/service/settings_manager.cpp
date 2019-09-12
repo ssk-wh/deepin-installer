@@ -565,6 +565,11 @@ void WriteIsLocalTime(bool isLocalTime)
     AppendToConfigFile("DI_IS_LOCAL_TIME", isLocalTime);
 }
 
+void WriteIsLocalTimeForce(bool isLocalTimeForce)
+{
+    AppendToConfigFile("DI_FORCE_LOCAL_TIME", isLocalTimeForce);
+}
+
 void WriteFullDiskResolution(const FinalFullDiskResolution& resolution)
 {
     const char kFullDiskResolutionDeviceSeparator[] = ";";

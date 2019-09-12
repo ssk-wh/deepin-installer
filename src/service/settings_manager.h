@@ -121,6 +121,7 @@ void WritePassword(const QString& password);
 void WriteRootPassword(const QString& password);
 void WriteTimezone(const QString& timezone);
 void WriteIsLocalTime(bool isLocalTime);
+void WriteIsLocalTimeForce(bool isLocalTimeForce);
 void WriteUsername(const QString& username);
 void WriteFullDiskDeivce(const QString &deviceName);
 void WriteFullDiskEncryptPassword(const QString &password);

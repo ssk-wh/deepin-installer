@@ -404,6 +404,7 @@ void SystemDateFramePrivate::onNextButtonClicked()
 
     qDebug() << process.execute("timedatectl", QStringList() << "set-time" << dateTime);
     WriteIsLocalTime(true);
+    WriteIsLocalTimeForce(true);
 
     emit m_ptr->finished();
 }
