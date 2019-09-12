@@ -376,7 +376,8 @@
      "deepin-screensaver",
      "dde",
      "dde-calendar",
-     "network-manager-integration-plugins"
+     "network-manager-integration-plugins",
+     "deepin-terminal"
     ],
      "deepin":[
      "deepin-appstore",
