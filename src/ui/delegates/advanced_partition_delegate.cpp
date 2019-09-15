@@ -554,7 +554,7 @@ AdvancedPartitionDelegate::createLogicalPartition(const Partition::Ptr partition
   new_partition->changeNumber(partition_number);
 
   if (fs_type == FsType::Recovery) {
-      WriteRecoveryPartitionInfo(partition->path);
+      settings_.recovery_path = partition->path;
   }
 
   // space is required for the Extended Boot Record.
@@ -691,7 +691,7 @@ AdvancedPartitionDelegate::createPrimaryPartition(const Partition::Ptr partition
   new_partition->changeNumber(partition_number);
 
   if (fs_type == FsType::Recovery) {
-      WriteRecoveryPartitionInfo(partition->path);
+      settings_.recovery_path = partition->path;
   }
 
   // Check whether space is required for the Master Boot Record.
@@ -882,7 +882,7 @@ void AdvancedPartitionDelegate::formatPartition(const Partition::Ptr partition,
   if (fs_type == FsType::Recovery) {
       // Hide recovery partition
       new_partition->flags << PartitionFlag::Hidden;
-      WriteRecoveryPartitionInfo(partition->path);
+      settings_.recovery_path = partition->path;
   }
 
   Operation operation(OperationType::Format, partition, new_partition);
@@ -950,18 +950,23 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
   if (!IsMBRPreferred(real_devices_)) {
     // Enable EFI mode. First check newly created EFI partition-> If not found,
     // check existing EFI partition->
-    WriteUEFI(true);
+    settings_.uefi_required = true;
 
     if (esp_path.isEmpty()) {
       // We shall never reach here.
       qCritical() << "esp path is empty!";
     }
-    WritePartitionInfo(root_disk, root_path, esp_path, mount_points.join(';'));
+    settings_.root_disk = root_disk;
+    settings_.root_partition = root_path;
+    settings_.boot_partition = esp_path;
+    settings_.mount_points = mount_points.join(';');
   } else {
-    WriteUEFI(false);
+    settings_.uefi_required = false;
     // In legacy mode.
-    WritePartitionInfo(root_disk, root_path, bootloader_path_,
-                       mount_points.join(';'));
+    settings_.root_disk = root_disk;
+    settings_.root_partition = root_path;
+    settings_.boot_partition = bootloader_path_;
+    settings_.mount_points = mount_points.join(';');
   }
 
   // Create swap file if physical memory is less than 4Gib and
@@ -976,7 +981,8 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
   } else {
     use_swap_file = IsSwapAreaNeeded();
   }
-  WriteRequiringSwapFile(use_swap_file);
+  settings_.swap_file_required = use_swap_file;
+  WriteDiskPartitionSetting(settings_);
 }
 
 void AdvancedPartitionDelegate::refreshVisual() {
@@ -1074,6 +1080,11 @@ void AdvancedPartitionDelegate::updateMountPoint(const Partition::Ptr partition,
     Operation operation(OperationType::MountPoint, partition, new_partition);
     operations_.append(operation);
   }
+}
+
+const DiskPartitionSetting& AdvancedPartitionDelegate::settings() const
+{
+    return settings_;
 }
 
 }  // namespace installer

@@ -181,6 +181,19 @@ void WriteFullDiskResolution(const FinalFullDiskResolution& resolution);
 
 void WriteFullDiskMode(bool value);
 
+struct DiskPartitionSetting {
+    DiskPartitionSetting();
+    QString  recovery_path;
+    QString  root_disk;
+    QString  root_partition;
+    QString  boot_partition;
+    QString  mount_points;
+    bool     swap_file_required;
+    bool     uefi_required;
+};
+
+void WriteDiskPartitionSetting(const DiskPartitionSetting& setting);
+
 }  // namespace installer
 
 #endif  // INSTALLER_SETTINGS_MANAGER_H

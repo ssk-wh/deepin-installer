@@ -579,4 +579,21 @@ void WriteFullDiskMode(bool value)
     AppendToConfigFile("DI_FULLDISK_MODE", value ? "true" : "false");
 }
 
+DiskPartitionSetting::DiskPartitionSetting()
+    :  swap_file_required(false)
+     , uefi_required(false)
+{
+}
+
+void WriteDiskPartitionSetting(const DiskPartitionSetting& setting)
+{
+    WritePartitionInfo(setting.root_disk,
+                       setting.root_partition,
+                       setting.boot_partition,
+                       setting.mount_points);
+    WriteRecoveryPartitionInfo(setting.recovery_path);
+    WriteRequiringSwapFile(setting.swap_file_required);
+    WriteUEFI(setting.uefi_required);
+}
+
 }  // namespace installer

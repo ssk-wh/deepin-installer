@@ -23,6 +23,7 @@
 
 #include "partman/device.h"
 #include "ui/delegates/advanced_validate_state.h"
+#include "service/settings_manager.h"
 
 namespace installer {
 
@@ -75,6 +76,8 @@ class AdvancedPartitionDelegate : public QObject {
   //  * / partition is set and large enough;
   //  * An EFI partition exists if EFI mode is on;
   AdvancedValidateStates validate() const;
+
+  const DiskPartitionSetting& settings() const;
 
  signals:
   // Emitted when virtual device list is updated.
@@ -130,6 +133,8 @@ class AdvancedPartitionDelegate : public QObject {
 
   // Currently defined operations.
   OperationList operations_;
+
+  DiskPartitionSetting settings_;
 };
 
 }  // namespace installer

@@ -117,6 +117,8 @@ class FullDiskDelegate : public QObject {
 
   void getFinalDiskResolution(FinalFullDiskResolution& resolution);
 
+  const DiskPartitionSetting& settings() const;
+
 private:
   // New version of formatWholeDevice with the support of multiple disks.
   bool formatWholeDeviceV2(const Device::Ptr& device, FullDiskOption& option);
@@ -183,6 +185,7 @@ private:
   // device_path_list[0]:SystemDisk, [1]:DataDisk.
   QStringList  selected_disks;
   DeviceList   selected_devices;
+  DiskPartitionSetting settings_;
 };
 
 }  // namespace installer
