@@ -200,6 +200,9 @@ void TimezoneFrame::initConnections() {
 
   connect(m_setTimePushButton, &QPushButton::clicked, this
           , &TimezoneFrame::onSetTimePushButtonClicked);
+
+  connect(timezone_map_, &TimezoneMap::updateTimezoneList
+          , m_selectTimeZoneFrame, &SelectTimeZoneFrame::onUpdateTimezoneList);
 }
 
 void TimezoneFrame::initUI() {

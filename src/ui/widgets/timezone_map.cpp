@@ -233,6 +233,8 @@ void TimezoneMap::remark() {
                          parent_pos.y() - half_height);
     dot_->move(dot_pos);
     dot_->show();
+
+    emit updateTimezoneList(current_zone_.timezone);
   }
 }
 

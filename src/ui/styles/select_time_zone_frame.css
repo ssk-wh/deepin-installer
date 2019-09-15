@@ -28,19 +28,8 @@ QListView::item {
   selection-background-color: rgba(255, 255, 255, 0.3);
 }
 
-QListView::item:hover {
-  background: rgba(255, 255, 255, 0.16);
-}
-
 QListView::item:focus {
   background: rgba(255, 255, 255, 0.3);
-}
-
-QListView::item:selected {
-  outline: none;
-  border: none;
-  background: rgba(255, 255, 255, 0.3) url(":/images/select.svg")
-              no-repeat right center;
 }
 
 QScrollBar:vertical

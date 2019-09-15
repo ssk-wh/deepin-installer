@@ -8,9 +8,7 @@
 
 namespace installer {
 
-class ContinentModel;
 class TimeZoneModel;
-class FramelessListView;
 class DiskInstallationView;
 class ContinentModel;
 
@@ -23,6 +21,7 @@ public:
 
     void onContinentViewSelectedChanged(QModelIndex preIndex, QModelIndex curIndex);
     void onTimeZoneViewSelectedChanged(QModelIndex preIndex, QModelIndex curIndex);
+    void onUpdateTimezoneList(const QString& timezone);
 
 signals:
     void timezoneUpdated(const QString& timezone);
@@ -39,7 +38,7 @@ private:
     DiskInstallationView* m_continentListView = nullptr;
     ContinentModel* m_continentModel = nullptr;
 
-    FramelessListView* m_timeZoneListView = nullptr;
+    DiskInstallationView* m_timeZoneListView = nullptr;
     QStringListModel* m_timeZoneModel = nullptr;
 };
 
