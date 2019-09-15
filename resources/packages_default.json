@@ -155,7 +155,6 @@
       "backup-client",
       "dns-server",
       "file-server",
-      "dns-server",
       "ftp-server",
       "php",
       "deepin",
