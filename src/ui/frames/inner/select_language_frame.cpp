@@ -107,6 +107,13 @@ bool SelectLanguageFrame::eventFilter(QObject* obj, QEvent* event) {
     return QObject::eventFilter(obj, event);
 }
 
+void SelectLanguageFrame::showEvent(QShowEvent *event)
+{
+    language_view_->setFocus();
+
+    QFrame::showEvent(event);
+}
+
 void SelectLanguageFrame::initConnections() {
   connect(language_view_, &QListView::clicked, this,
           &SelectLanguageFrame::onLanguageListSelected);
