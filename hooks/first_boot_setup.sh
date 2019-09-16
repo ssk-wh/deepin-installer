@@ -98,12 +98,14 @@ cleanup_first_boot() {
     # See in_chroot/generate_reboot_setup_file.job for more info.
     cleanup_lightdm_deepin_installer
   fi
+}
 
-  if [[ "${DI_COMPONENT_UNINSTALL}" == *"lightdm"* ]]; then
-    systemctl set-default -f multi-user.target
-  else
-    systemctl set-default -f graphical.target
-  fi
+setup_default_target() {
+    if [ -f /usr/sbin/lightdm ]; then
+        systemctl set-default -f graphical.target
+    else
+        systemctl set-default -f multi-user.target
+    fi
 }
 
 main() {
@@ -124,6 +126,7 @@ main() {
   cleanup_oem_license
   cleanup_first_boot
   remove_component_packages
+  setup_default_target
   uninstall_installer # 这必须是最后一步！
   sync
 }
