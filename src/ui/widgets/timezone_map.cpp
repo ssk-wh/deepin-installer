@@ -140,7 +140,11 @@ void TimezoneMap::initConnections() {
 }
 
 void TimezoneMap::initUI() {
-  QLabel* background_label = new QLabel(this);
+  QHBoxLayout *layout = new QHBoxLayout;
+  layout->setMargin(0);
+  layout->setSpacing(0);
+
+  QLabel* background_label = new QLabel;
   background_label->setObjectName("background_label");
   QPixmap timezone_pixmap = std::move(installer::renderPixmap(kTimezoneMapFile));
   Q_ASSERT(!timezone_pixmap.isNull());
@@ -166,8 +170,8 @@ void TimezoneMap::initUI() {
   popup_window_ = new PopupMenu(this->parentWidget());
   popup_window_->hide();
 
-  this->setContentsMargins(0, 0, 0, 0);
-  this->setFixedSize(timezone_pixmap.size() / devicePixelRatioF());
+  layout->addWidget(background_label);
+  setLayout(layout);
 }
 
 void TimezoneMap::popupZoneWindow(const QPoint& pos) {
