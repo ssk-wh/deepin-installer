@@ -7,18 +7,18 @@
 #include <QLabel>
 
 namespace installer {
-
 static const QMap<QString, QString> PART_NAME_COLOR_NAME_MAP{
     { QString("/boot"), QString("#C100AB") },
     { QString("/boot/efi"), QString("#F6C000") },
-    { QString("swap"), QString("#0587F0") },
-    { QString("/"), QString("#7F23FF") },
+    { QString("/"), QString("#FB7A1F") },
+    { QString(":rootb"), QString("#0587F0") },
+    { QString("/data"), QString("#7F23FF") },
+    { QString("swap"), QString("#2330C1") },
+    { QString(":backup"), QString("#00A951") },
+
     { QString("/home"), QString("#00A951") },
-    { QString(""), QString("#FB7A1F") },
-    { QString("/data"), QString("#D04B0B") },
-    { QString(":rootb"), QString("#2230C1") },
-    { QString(":backup"), QString("#FB7A1F") },
-    { QString(":"), QString("#00A951") },
+    { QString(""), QString("#00FF00") },
+    { QString(":"), QString("#00FF00") },
 };
 
 void FullDiskPartitionColorBar::setDevice(const Device::Ptr device)
