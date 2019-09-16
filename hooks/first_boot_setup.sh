@@ -93,14 +93,16 @@ cleanup_first_boot() {
 
   if [ -f /lib/systemd/system/deepin-installer.target ]; then
     # Restore default target of systemd
-    if [ -x /usr/sbin/lightdm ]; then
-        systemctl set-default -f graphical.target
-    else
-        systemctl set-default -f multi-user.target
-    fi
+    systemctl set-default -f graphical.target
   else
     # See in_chroot/generate_reboot_setup_file.job for more info.
     cleanup_lightdm_deepin_installer
+  fi
+
+  if [[ "${DI_COMPONENT_UNINSTALL}" == *"lightdm"* ]]; then
+    systemctl set-default -f multi-user.target
+  else
+    systemctl set-default -f graphical.target
   fi
 }
 

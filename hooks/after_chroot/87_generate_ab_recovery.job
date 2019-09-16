@@ -64,6 +64,7 @@ do_generate()
     return
   fi
 
+  mkdir -p $(dirname ${ab_recovery_file})
   cat > ${ab_recovery_file} <<EOF
 {
        "Current": "${current_uuid}",
