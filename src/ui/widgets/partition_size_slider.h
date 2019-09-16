@@ -19,7 +19,6 @@
 #define INSTALLER_UI_PARTITION_SIZE_SLIDER_H
 
 #include <QFrame>
-class QIntValidator;
 class QLineEdit;
 class QSlider;
 
@@ -64,7 +63,6 @@ class PartitionSizeSlider : public QFrame {
 
   QSlider* slider_ = nullptr;
   QLineEdit* editor_ = nullptr;
-  QIntValidator* int_validator_ = nullptr;
 
   qint64 maximum_size_;
   qint64 minimum_size_;
