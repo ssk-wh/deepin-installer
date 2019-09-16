@@ -35,6 +35,7 @@
 #include "ui/frames/timezone_frame.h"
 #include "ui/utils/widget_util.h"
 #include "ui/xrandr/multi_head_manager.h"
+#include "base/command.h"
 
 #include "ui/frames/language_frame.h"
 #include "ui/frames/networkframe.h"
@@ -157,11 +158,7 @@ void FirstBootSetupWindow::onHookFinished(bool ok) {
     qCritical() << "First boot hook failed!";
   }
 
-  // Reboot system now.
-  // TODO(xushaohua): call systemd-firstboot instead.
-  if (!RebootSystemWithMagicKey()) {
-    RebootSystem();
-  }
+  qDebug() << SpawnCmd("systemctl", QStringList() << "restart" << "lightdm");
 }
 
 void FirstBootSetupWindow::onPrimaryScreenChanged(const QRect& geometry) {
