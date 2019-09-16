@@ -182,6 +182,7 @@ private:
 
   // device_path_list[0]:SystemDisk, [1]:DataDisk.
   QStringList  selected_disks;
+  DeviceList   selected_devices;
 };
 
 }  // namespace installer

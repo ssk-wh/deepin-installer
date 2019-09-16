@@ -15,12 +15,34 @@ static const QMap<QString, QString> PART_NAME_COLOR_NAME_MAP{
     { QString("/"), QString("#7F23FF") },
     { QString("/home"), QString("#00A951") },
     { QString(""), QString("#FB7A1F") },
+    { QString("/data"), QString("#D04B0B") },
+    { QString(":rootb"), QString("#2230C1") },
+    { QString(":backup"), QString("#FB7A1F") },
+    { QString(":"), QString("#00A951") },
 };
 
 void FullDiskPartitionColorBar::setDevice(const Device::Ptr device)
 {
     m_device = device;
     update();
+}
+
+static const QString GetPartitionDisplayText(const Partition::Ptr& partition) {
+    return partition->mount_point.length() > 0
+              ? partition->mount_point
+              : partition->label.toLower();
+}
+
+static QColor GetPartitionColor(const Partition::Ptr& partition) {
+    QColor color;
+    if (partition->mount_point.length() > 0 &&
+        PART_NAME_COLOR_NAME_MAP.find(partition->mount_point) != PART_NAME_COLOR_NAME_MAP.end()) {
+        color = PART_NAME_COLOR_NAME_MAP[partition->mount_point];
+    }
+    else {
+        color = PART_NAME_COLOR_NAME_MAP[QString(":%1").arg(partition->label.toLower())];
+    }
+    return color;
 }
 
 void FullDiskPartitionColorBar::paintEvent(QPaintEvent *)
@@ -44,8 +66,7 @@ void FullDiskPartitionColorBar::paintEvent(QPaintEvent *)
     for (Partition::Ptr partition : partitions) {
         const float ratio = static_cast<float>(partition->length) / static_cast<float>(m_device->length);
         const int w = qRound(ratio * width());
-        painter.fillRect(QRect(shift, 0, w, this->height())
-            , QColor(PART_NAME_COLOR_NAME_MAP[partition->mount_point]));
+        painter.fillRect(QRect(shift, 0, w, this->height()), GetPartitionColor(partition));
         shift += w;
     }
 }
@@ -104,13 +125,13 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
         QLabel *colorLable = new QLabel;
         colorLable->setFixedSize(QSize(10, 10));
         QPalette palette = colorLable->palette();
-        palette.setColor(QPalette::Background, QColor(PART_NAME_COLOR_NAME_MAP[partition->mount_point]));
+        palette.setColor(QPalette::Background, GetPartitionColor(partition));
         colorLable->setAutoFillBackground(true);
         colorLable->setPalette(palette);
         layout->addWidget(colorLable);
 
         QLabel *partNameLable = new QLabel();
-        partNameLable->setText(partition->mount_point);
+        partNameLable->setText(GetPartitionDisplayText(partition));
         layout->addWidget(partNameLable);
 
         QLabel *partSize = new QLabel();
