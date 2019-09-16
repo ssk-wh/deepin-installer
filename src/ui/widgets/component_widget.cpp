@@ -25,6 +25,7 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
     m_descLabel = new QLabel;
     m_descLabel->setObjectName("descLabel");
     m_descLabel->setFixedWidth(KQLabelWidth);
+    m_descLabel->setWordWrap(true);
     m_hLayout = new QHBoxLayout;
     m_vLayout = new QVBoxLayout;
     m_vLayout->addWidget(m_titleLabel, 0, Qt::AlignLeft);
