@@ -122,6 +122,9 @@ void MultipleDiskInstallationWidget::onDeviceListChanged(const DeviceList& devic
       }
       m_right_model[static_cast<int>(DiskModelType::DataDisk)]->disableIndex(DiskInstallationTypes::ItemIndexs{-1});
     }
+    else {
+      m_left_view->setCurrentIndex(m_left_model->index(0, 0));
+    }
 }
 
 void MultipleDiskInstallationWidget::onInstallationSelectedChanged(int index)
