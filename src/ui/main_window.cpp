@@ -140,7 +140,9 @@ void MainWindow::resizeEvent(QResizeEvent* event) {
 
 void MainWindow::initConnections() {
   connect(confirm_quit_frame_, &ConfirmQuitFrame::quitCancelled,
-          this, &MainWindow::goNextPage);
+          this, [=](){
+             setCurrentPage(prev_page_);
+          });
   connect(confirm_quit_frame_, &ConfirmQuitFrame::quitConfirmed,
           this, &MainWindow::shutdownSystem);
 
