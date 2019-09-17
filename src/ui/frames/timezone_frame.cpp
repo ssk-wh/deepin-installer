@@ -200,9 +200,6 @@ void TimezoneFrame::initConnections() {
 
   connect(m_setTimePushButton, &QPushButton::clicked, this
           , &TimezoneFrame::onSetTimePushButtonClicked);
-
-  connect(timezone_map_, &TimezoneMap::updateTimezoneList
-          , m_selectTimeZoneFrame, &SelectTimeZoneFrame::onUpdateTimezoneList);
 }
 
 void TimezoneFrame::initUI() {
@@ -313,6 +310,7 @@ void TimezoneFrame::onTimezoneMapUpdated(const QString& timezone) {
   // No need to convert timezone alias.
   timezone_ = timezone;
   emit this->timezoneUpdated(timezone_);
+  m_selectTimeZoneFrame->onUpdateTimezoneList(timezone);
 }
 
 void TimezoneFrame::onListSelectedCheckBoxClicked(bool checked)

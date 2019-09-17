@@ -44,7 +44,6 @@ class TimezoneMap : public QFrame {
 
  signals:
   void timezoneUpdated(const QString& timezone);
-  void updateTimezoneList(const QString& timezone);
 
  public slots:
   // Remark |timezone| on map.

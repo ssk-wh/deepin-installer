@@ -198,6 +198,8 @@ void TimezoneMap::popupZoneWindow(const QPoint& pos) {
   // Add 8px margin.
   const QPoint popup_pos(parent_pos.x(), parent_pos.y() - half_height - 8);
   popup_window_->popup(popup_pos);
+  popup_window_->raise();
+  popup_window_->show();
 
   const QPoint dot_pos(parent_pos.x() - half_width,
                        parent_pos.y() - half_height);
@@ -237,8 +239,6 @@ void TimezoneMap::remark() {
                          parent_pos.y() - half_height);
     dot_->move(dot_pos);
     dot_->show();
-
-    emit updateTimezoneList(current_zone_.timezone);
   }
 }
 

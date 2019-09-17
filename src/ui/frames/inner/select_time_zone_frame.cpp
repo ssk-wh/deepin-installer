@@ -129,7 +129,9 @@ void SelectTimeZoneFrame::onTimeZoneViewSelectedChanged(QModelIndex curIndex, QM
 
 void SelectTimeZoneFrame::onUpdateTimezoneList(const QString &timezone)
 {
-    m_timeZoneListView->setMouseTracking(true);
+    if (isVisible()) {
+        m_timeZoneListView->setMouseTracking(true);
+    }
 
     const QStringList list = timezone.split("/");
 
