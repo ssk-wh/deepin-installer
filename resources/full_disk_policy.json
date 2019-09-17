@@ -48,7 +48,7 @@
         "mountPoint": "",
         "label": "Backup",
         "usage": "10Gib",
-        "align_start": false,
+        "alignStart": false,
         "device": "",
         "platform": [ "x86", "sw", "loongson", "arm" ]
     },

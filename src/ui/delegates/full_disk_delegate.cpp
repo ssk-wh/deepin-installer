@@ -319,6 +319,13 @@ bool FullDiskDelegate::createPartition(const Partition::Ptr partition,
     new_device->table = IsEfiEnabled() ?
                        PartitionTableType::GPT :
                        PartitionTableType::MsDos;
+
+    //NOTE: GPT table need 33 sectors in the end.
+    if (new_device->table == PartitionTableType::GPT) {
+        partition->length -= 33;
+        partition->end_sector -= 33;
+    }
+
     const Operation operation(new_device);
     operations_.append(operation);
     // Update virtual device property at the same time.
@@ -459,7 +466,7 @@ bool FullDiskDelegate::createLogicalPartition(const Partition::Ptr partition,
     // Add space for Extended Boot Record.
     const qint64 start_sector = qMax(partition->start_sector,
                                      ext_partition->start_sector);
-    new_partition->start_sector = start_sector + oneMebiByteSector;
+    new_partition->start_sector = start_sector + oneMebiByteSector + 1;
 
     const qint64 end_sector = qMin(partition->end_sector,
                                    ext_partition->end_sector);
@@ -467,15 +474,15 @@ bool FullDiskDelegate::createLogicalPartition(const Partition::Ptr partition,
                                     total_sectors + new_partition->start_sector - 1);
   } else {
     new_partition->end_sector = qMin(partition->end_sector,
-                                    ext_partition->end_sector);
+                                    ext_partition->end_sector) - oneMebiByteSector;
     const qint64 start_sector = qMax(partition->start_sector,
                                      ext_partition->start_sector);
-    new_partition->start_sector = qMax(start_sector + oneMebiByteSector,
+    new_partition->start_sector = qMax(start_sector + oneMebiByteSector - 1,
                                       partition->end_sector - total_sectors + 1);
   }
 
   // Align to nearest MebiBytes.
-  AlignPartition(new_partition);
+  //AlignPartition(new_partition);
 
   // Check partition sector range.
   // Also check whether partition size is less than 1MiB or not.
