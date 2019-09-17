@@ -28,6 +28,7 @@
 #include "service/settings_name.h"
 #include "sysinfo/proc_meminfo.h"
 #include "sysinfo/proc_mounts.h"
+#include "base/command.h"
 
 namespace installer {
 
@@ -94,13 +95,46 @@ int AllocPrimaryPartitionNumber(const Device::Ptr device) {
   return -1;
 }
 
+const QStringList GetCDROMDeviceList()
+{
+  QStringList  list;
+  const QString cmd("cat /proc/sys/dev/cdrom/info 2>/dev/null |grep \"drive name\" |xargs|tr \" \" \"\n\" |grep -v -E \"(drive)|(name)\"|xargs");
+  QString output;
+  if (SpawnCmd(cmd, {}, output)) {
+    list = output.split(" ");
+  }
+  for (int i = 0; i < list.length(); i++) {
+      list[i] = QString("/dev/{%1}").arg(list[i]);
+  }
+  qDebug() << QString("GetCDROMDeviceList:detected:{%1}").arg(list.join(","));
+
+  QString name;
+  for (int i = 0; i < 2; i++) {
+      name = QString ("/dev/sr{%1}").arg(i);
+      if (!list.contains(name)){
+          list.append(name);
+      }
+      name = QString ("/dev/cdrom{%1}").arg(i);
+      if (!list.contains(name)){
+          list.append(name);
+      }
+  }
+  qDebug() << QString("GetCDROMDeviceList:{%1}").arg(list.join(","));
+  return list;
+}
+
 // Filter installation device from device list.
 DeviceList FilterInstallerDevice(const DeviceList& devices)
 {
     DeviceList deviceList;
-
+    QStringList cdrom_list = GetCDROMDeviceList();
     if (!GetSettingsBool(kPartitionHideInstallationDevice)) {
         for (auto device : devices) {
+            if (cdrom_list.contains(device->path)) {
+                qDebug() << QString("Device:{%1} is a CDROM!").arg(device->path);
+                continue;
+            }
+
             Device::Ptr   ptr(new Device(*device));
             PartitionList list;
             for (auto partition : device->partitions) {
@@ -115,6 +149,10 @@ DeviceList FilterInstallerDevice(const DeviceList& devices)
 
     const QString installer_device_path(GetInstallerDevicePath());
     for (const Device::Ptr device : devices) {
+        if (cdrom_list.contains(device->path)) {
+            qDebug() << QString("Device:{%1} is a CDROM!").arg(device->path);
+            continue;
+        }
         if (!installer_device_path.startsWith(device->path)) {
             Device::Ptr   ptr(new Device(*device));
             PartitionList list;
