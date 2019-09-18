@@ -51,9 +51,6 @@ class PopupMenu : public QFrame {
   void setStringList(const QStringList& strings);
 
  protected:
-  // Filters global mouse press event.
-  bool eventFilter(QObject* obj, QEvent* event) override;
-
   // Release keyboard focus when window is hidden.
   void hideEvent(QHideEvent* event) override;
 

@@ -93,18 +93,6 @@ void PopupMenu::setStringList(const QStringList& strings) {
   update();
 }
 
-bool PopupMenu::eventFilter(QObject* obj, QEvent* event) {
-  if (event->type() == QEvent::MouseButtonPress) {
-    QMouseEvent* mouse_event = static_cast<QMouseEvent*>(event);
-    // If mouse press event is not happened within menu area, hide menu.
-    if (!this->geometry().contains(mapToGlobal(mouse_event->pos()))) {
-        hide();
-        return true;
-    }
-  }
-  return QObject::eventFilter(obj, event);
-}
-
 void PopupMenu::hideEvent(QHideEvent* event) {
   // No need to monitor global mouse event when menu is hidden.
   qApp->removeEventFilter(this);
