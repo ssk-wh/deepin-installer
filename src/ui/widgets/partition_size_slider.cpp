@@ -74,6 +74,7 @@ void PartitionSizeSlider::setValue(qint64 size) {
   // Convert to mebibytes.
   const int mebi_size = static_cast<int>(real_size / kMebiByte);
   slider_->setValue(mebi_size);
+  editor_->setText(QString("%1").arg(mebi_size));
 }
 
 void PartitionSizeSlider::initConnection() {
