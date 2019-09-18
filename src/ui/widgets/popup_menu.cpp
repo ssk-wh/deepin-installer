@@ -97,8 +97,9 @@ bool PopupMenu::eventFilter(QObject* obj, QEvent* event) {
   if (event->type() == QEvent::MouseButtonPress) {
     QMouseEvent* mouse_event = static_cast<QMouseEvent*>(event);
     // If mouse press event is not happened within menu area, hide menu.
-    if (!this->geometry().contains(mouse_event->pos())) {
-      this->hide();
+    if (!this->geometry().contains(mapToGlobal(mouse_event->pos()))) {
+        hide();
+        return true;
     }
   }
   return QObject::eventFilter(obj, event);
