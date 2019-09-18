@@ -28,6 +28,7 @@
 #include "ui/widgets/nav_button.h"
 #include "ui/delegates/main_window_util.h"
 #include "base/file_util.h"
+#include "service/log_manager.h"
 
 #include <QEvent>
 #include <QLabel>
@@ -296,9 +297,30 @@ void SaveInstallFailedLogFrame::onPartitionButtonClicked()
 
 void SaveInstallFailedLogFrame::saveLog()
 {
-    CopyLogFile(QString("%1/deepin-installer.%2.log")
+    const QString& logPath {
+        QString("%1/deepin-installer.%2.log")
                 .arg(m_selectPartition->mount_point)
-                .arg(QDateTime::currentDateTime().toString("yyyy-MM-dd-hh-mm-ss")));
+                .arg(QDateTime::currentDateTime().toString("yyyy-MM-dd-hh-mm-ss"))
+    };
+
+    CopyLogFile(logPath);
+
+    // NOTE(justforlxz): 可能保存失败，尝试使用直接写入
+    if (!QFile::exists(logPath)) {
+        QFile file(GetLogFilepath());
+        if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            QFile logFile(logPath);
+            if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+                file.write(file.readAll());
+            }
+            else {
+                qWarning() << "save log failed!";
+            }
+        }
+        else {
+            qWarning() << "open log file failed! " << GetLogFilepath();
+        }
+    }
 
     emit requestBack();
 }
