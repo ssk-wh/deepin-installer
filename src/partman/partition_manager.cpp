@@ -273,6 +273,16 @@ DeviceList ScanDevices(bool enable_os_prober) {
       lp_device != nullptr;
       lp_device = ped_device_get_next(lp_device)) {
     PedDiskType* disk_type = ped_disk_probe(lp_device);
+
+    qDebug() << QString("DEVICE#:path:{%1} model:{%2} type:{%3}:{%4} sec:{%5}:{%6} len:{%7}")
+                .arg(lp_device->path)
+                .arg(lp_device->model)
+                .arg(lp_device->type)
+                .arg(disk_type != nullptr ? disk_type->name : "nullptr")
+                .arg(lp_device->sector_size)
+                .arg(lp_device->phys_sector_size)
+                .arg(lp_device->length);
+
     Device::Ptr device(new Device);
     if (disk_type == nullptr) {
       // Current device has no partition table.

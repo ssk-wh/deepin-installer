@@ -28,6 +28,7 @@
 #include "service/settings_name.h"
 #include "sysinfo/proc_meminfo.h"
 #include "sysinfo/proc_mounts.h"
+#include "base/command.h"
 
 namespace installer {
 
@@ -94,11 +95,57 @@ int AllocPrimaryPartitionNumber(const Device::Ptr device) {
   return -1;
 }
 
+const QStringList GetIgnoredDeviceList()
+{
+  QStringList  list;
+
+  const QString cmd { "/bin/bash" };
+  const QString arg { "cat /proc/sys/dev/cdrom/info 2>/dev/null |grep \"drive name\" |xargs|tr \" \" \"\n\" |grep -v -E \"(drive)|(name)\"|xargs" };
+  QString output;
+  if (SpawnCmd(cmd, { "-c", arg }, output)) {
+    list = output.trimmed().split(" ");
+  }
+  for (int i = 0; i < list.length(); i++) {
+      list[i] = QString("/dev/{%1}").arg(list[i]);
+  }
+  qDebug() << QString("GetIgnoredDeviceList:detected:{%1}").arg(list.join(","));
+
+  QString name;
+  for (int i = 0; i < 2; i++) {
+      name = QString ("/dev/sr{%1}").arg(i);
+      if (!list.contains(name)){
+          list.append(name);
+      }
+      name = QString ("/dev/cdrom{%1}").arg(i);
+      if (!list.contains(name)){
+          list.append(name);
+      }
+  }
+  qDebug() << QString("GetIgnoredDeviceList:{%1}").arg(list.join(","));
+  return list;
+}
+
+void IgnoreDevices(DeviceList& devices)
+{
+    DeviceList deviceList;
+    const QStringList ignored_list = GetIgnoredDeviceList();
+    for (auto device : devices) {
+       if (ignored_list.contains(device->path)) {
+           qDebug() << QString("IgnoreDevices::Device:{%1} is ignored!").arg(device->path);
+           continue;
+       }
+       else {
+            deviceList << Device::Ptr(new Device(*device));
+       }
+    }
+    devices = deviceList;
+}
+
 // Filter installation device from device list.
 DeviceList FilterInstallerDevice(const DeviceList& devices)
 {
     DeviceList deviceList;
-
+    IgnoreDevices(deviceList);
     if (!GetSettingsBool(kPartitionHideInstallationDevice)) {
         for (auto device : devices) {
             Device::Ptr   ptr(new Device(*device));
