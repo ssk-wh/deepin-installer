@@ -24,8 +24,8 @@ DI_LOOP_SWAP_FILE=$(installer_get "DI_LOOP_SWAP_FILE")
 
 if [ x"$(installer_get DI_FULLDISK_MODE)" == xtrue ];then
 # 卸载opt和home，否则会出现在fstab中
-  umount /target/data/opt
-  umount /target/data/home
+  umount /target/opt
+  umount /target/home
 fi
 
 #fstab for lupin
