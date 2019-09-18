@@ -383,7 +383,7 @@ void MainWindow::setCurrentPage(PageId page_id) {
     back_button_->hide();
   } else {
     close_button_->show();
-    back_button_->setVisible(m_old_frames.size() > 0);
+    back_button_->setVisible(m_old_frames.size() > 1);
   }
 
   if (page_id == PageId::InstallFailedId ||
