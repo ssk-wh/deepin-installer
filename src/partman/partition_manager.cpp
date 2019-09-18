@@ -284,10 +284,13 @@ DeviceList ScanDevices(bool enable_os_prober) {
       } else if (disk_type_name == kPartitionTableMsDos) {
         device->table = PartitionTableType::MsDos;
       }
+#ifdef QT_DEBUG
       else if (disk_type_name == kPartitionLoop) {
         device->table = PartitionTableType::Others;
         qDebug() << "add device: " << disk_type_name << lp_device->path;
-      } else {
+      }
+#endif
+      else {
         // Ignores other type of device->
         qWarning() << "Ignores other type of device:" << lp_device->path
                    << disk_type->name;
