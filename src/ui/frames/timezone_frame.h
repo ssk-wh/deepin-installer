@@ -22,7 +22,6 @@
 
 #include "sysinfo/timezone.h"
 
-class QCheckBox;
 class QStackedLayout;
 class QHBoxLayout;
 class QPushButton;
@@ -37,6 +36,8 @@ class TimezoneMap;
 class TitleLabel;
 class SystemDateFrame;
 class SelectTimeZoneFrame;
+class PointerButton;
+
 // Displays a world map to let user select timezone.
 class TimezoneFrame : public QFrame {
   Q_OBJECT
@@ -91,7 +92,8 @@ class TimezoneFrame : public QFrame {
 
   TitleLabel* title_label_ = nullptr;
   CommentLabel* comment_label_ = nullptr;
-  QCheckBox* m_listSelectedCheckBox = nullptr;
+  PointerButton* m_timezoneMapButton = nullptr;
+  PointerButton* m_timezoneListButton = nullptr;
   TimezoneMap* timezone_map_ = nullptr;
   NavButton* next_button_ = nullptr;
   SystemDateFrame* m_systemDateFrame = nullptr;
@@ -123,7 +125,8 @@ class TimezoneFrame : public QFrame {
   // Update timezone after a new one has been chosen by user.
   void onTimezoneMapUpdated(const QString& timezone);
 
-  void onListSelectedCheckBoxClicked(bool checked);
+  void onTimezoneMapButtonClicked();
+  void onTimezoneListButtonClicked();
 
   void onSelectTimezoneUpdated(const QString& timezone);
 

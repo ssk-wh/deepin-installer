@@ -22,9 +22,9 @@
 #include <QHBoxLayout>
 #include <QTimer>
 #include <QVBoxLayout>
-#include <QCheckBox>
 #include <QStackedLayout>
 #include <QApplication>
+#include <QButtonGroup>
 
 #include "partman/os_prober.h"
 #include "service/settings_manager.h"
@@ -181,8 +181,11 @@ void TimezoneFrame::initConnections() {
   connect(this, &TimezoneFrame::timezoneSet,
           timezone_map_, &TimezoneMap::setTimezoneData);
 
-  connect(m_listSelectedCheckBox, &QCheckBox::clicked, this
-          , &TimezoneFrame::onListSelectedCheckBoxClicked);
+  connect(m_timezoneMapButton, &QPushButton::toggled,
+          this, &TimezoneFrame::onTimezoneMapButtonClicked);
+  connect(m_timezoneListButton, &QPushButton::toggled,
+          this, &TimezoneFrame::onTimezoneListButtonClicked);
+
   connect(m_systemDateFrame, &SystemDateFrame::finished, this, &TimezoneFrame::finished);
   connect(m_systemDateFrame, &SystemDateFrame::cancel, this, [=] {
       m_stackedLayout->setCurrentWidget(m_timezonePage);
@@ -207,11 +210,32 @@ void TimezoneFrame::initUI() {
   comment_label_ = new CommentLabel(tr("Mark your zone on the map"));
   timezone_map_ = new TimezoneMap(this);
   next_button_ = new NavButton(tr("Next"));
-  m_listSelectedCheckBox = new QCheckBox;
-  m_listSelectedCheckBox->setText(tr("Set your date and time manually"));
-  m_listSelectedCheckBox->setObjectName("listSelectedCheckBox");
 
-  m_listSelectedCheckBox->setChecked(false);
+  QButtonGroup* button_group = new QButtonGroup;
+  m_timezoneMapButton = new PointerButton(tr("Map"));
+  m_timezoneMapButton->setObjectName("timezoneMapButton");
+  m_timezoneMapButton->setCheckable(true);
+  m_timezoneMapButton->setFlat(true);
+  m_timezoneMapButton->setMinimumWidth(60);
+  m_timezoneMapButton->setMaximumHeight(36);
+  m_timezoneListButton = new PointerButton(tr("List"));
+  m_timezoneListButton->setObjectName("timezoneListButton");
+  m_timezoneListButton->setCheckable(true);
+  m_timezoneListButton->setFlat(true);
+  m_timezoneListButton->setMinimumWidth(60);
+  m_timezoneListButton->setMaximumHeight(36);
+
+  button_group->addButton(m_timezoneMapButton);
+  button_group->addButton(m_timezoneListButton);
+  m_timezoneMapButton->setChecked(true);
+
+  QHBoxLayout* buttonLayout = new QHBoxLayout();
+  buttonLayout->setContentsMargins(0, 0, 0, 0);
+  buttonLayout->setSpacing(0);
+  buttonLayout->addStretch();
+  buttonLayout->addWidget(m_timezoneMapButton, 0, Qt::AlignCenter);
+  buttonLayout->addWidget(m_timezoneListButton, 0, Qt::AlignCenter);
+  buttonLayout->addStretch();
 
   m_upLayout = new QVBoxLayout();
   m_upLayout->setContentsMargins(0, 0, 0, 0);
@@ -219,7 +243,7 @@ void TimezoneFrame::initUI() {
   m_upLayout->addStretch();
   m_upLayout->addWidget(title_label_, 0, Qt::AlignCenter);
   m_upLayout->addWidget(comment_label_, 0, Qt::AlignCenter);
-  m_upLayout->addWidget(m_listSelectedCheckBox, 0, Qt::AlignCenter);
+  m_upLayout->addLayout(buttonLayout);
   m_upLayout->addStretch();
 
   m_mapOrListStackedLayout = new QStackedLayout;
@@ -244,14 +268,6 @@ void TimezoneFrame::initUI() {
   m_stackedLayout = new QStackedLayout;
   m_stackedLayout->addWidget(m_timezonePage);
 
-  m_listSelectedCheckBox->hide();
-  if (!GetSettingsBool(kSkipAutoSyncTimePage)) {
-    m_listSelectedCheckBox->show();
-
-    m_systemDateFrame = new SystemDateFrame;
-    m_stackedLayout->addWidget(m_systemDateFrame);
-  }
-
   m_setTimePushButton = new PointerButton();
   m_setTimePushButton->setObjectName("setTimePushButton");
   m_setTimePushButton->setFlat(true);
@@ -263,6 +279,14 @@ void TimezoneFrame::initUI() {
   m_bottomLayout->setSpacing(30);
   m_bottomLayout->addWidget(m_setTimePushButton);
   m_bottomLayout->addStretch();
+
+  m_setTimePushButton->hide();
+  if (!GetSettingsBool(kSkipAutoSyncTimePage)) {
+    m_setTimePushButton->show();
+
+    m_systemDateFrame = new SystemDateFrame;
+    m_stackedLayout->addWidget(m_systemDateFrame);
+  }
 
   QVBoxLayout* mainLayout = new QVBoxLayout();
   mainLayout->setContentsMargins(0, 0, 0, 0);
@@ -313,16 +337,16 @@ void TimezoneFrame::onTimezoneMapUpdated(const QString& timezone) {
   m_selectTimeZoneFrame->onUpdateTimezoneList(timezone);
 }
 
-void TimezoneFrame::onListSelectedCheckBoxClicked(bool checked)
+void TimezoneFrame::onTimezoneMapButtonClicked()
 {
-    if(checked){
-        m_mapOrListStackedLayout->setCurrentWidget(m_selectTimeZoneFrame);
-        timezone_map_->hideMark();
-    }
-    else {
-        m_mapOrListStackedLayout->setCurrentWidget(timezone_map_);
-        timezone_map_->showMark();
-    }
+    m_mapOrListStackedLayout->setCurrentWidget(timezone_map_);
+    timezone_map_->showMark();
+}
+
+void TimezoneFrame::onTimezoneListButtonClicked()
+{
+    m_mapOrListStackedLayout->setCurrentWidget(m_selectTimeZoneFrame);
+    timezone_map_->hideMark();
 }
 
 void TimezoneFrame::onSelectTimezoneUpdated(const QString &timezone)

@@ -1,5 +1,4 @@
-/* Remove borders */
-QPushButton[flat="true"] {
+QPushButton#setTimePushButton[flat="true"] {
   border: none;
   outline: none;
   color: #eaeaea;
@@ -26,38 +25,48 @@ QPushButton[flat="true"] {
   background-image: url(:/images/manual_press.svg);
 }
 
-QCheckBox#listSelectedCheckBox {
-    color: white;
-    background: transparent;
+#timezoneMapButton, #timezoneListButton {
+  font-size: 12px;
+  color: #ffffff;
+  text-align: center;
+  background: transparent;
+  outline: none;
+  margin: 0px;
+  padding: 10px;
 }
 
-QCheckBox#listSelectedCheckBox::indicator {
-    width: 16px;
-    height: 16px;
+#timezoneMapButton {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-right-style: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-QCheckBox#listSelectedCheckBox::indicator:unchecked {
-    image: url(":/images/checkbox_unchecked.svg");
+#timezoneListButton {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-left-style: none;
 }
 
-QCheckBox#listSelectedCheckBox::indicator:unchecked:hover {
-    image: url(":/images/checkbox_unchecked_hover.svg");
+#timezoneMapButton::checked {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-right-style: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
 }
 
-QCheckBox#listSelectedCheckBox::indicator:unchecked:pressed {
-    image: url(":/images/checkbox_unchecked_pressed.svg");
-}
-
-QCheckBox#listSelectedCheckBox::indicator:checked {
-    image: url(":/images/checkbox_checked.svg");
-}
-
-QCheckBox#listSelectedCheckBox::indicator:checked:hover {
-    image: url(":/images/checkbox_checked_hover.svg");
-}
-
-QCheckBox#listSelectedCheckBox::indicator:checked:pressed {
-    image: url(":/images/checkbox_checked_pressed.svg");
+#timezoneListButton::checked {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-left-style: none;
 }
 
 QScrollBar:vertical
