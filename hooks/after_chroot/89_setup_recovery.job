@@ -23,5 +23,8 @@ if [ -z ${DI_RECOVERY_PATH} ];then
     return 0
 fi
 
+mount ${DI_RECOVERY_PATH} /mnt || error "Faild to mount ${DI_RECOVERY_PATH}"
+
 deepin-clone --tui ${DI_RECOVERY_PATH} /mnt/backup.dim
+
 return $?
