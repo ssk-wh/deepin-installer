@@ -98,30 +98,34 @@ int AllocPrimaryPartitionNumber(const Device::Ptr device) {
 const QStringList GetIgnoredDeviceList()
 {
   QStringList  list;
-
   const QString cmd { "/bin/bash" };
   const QString arg { "cat /proc/sys/dev/cdrom/info 2>/dev/null |grep \"drive name\" |xargs|tr \" \" \"\n\" |grep -v -E \"(drive)|(name)\"|xargs" };
   QString output;
-  if (SpawnCmd(cmd, { "-c", arg }, output)) {
-    list = output.trimmed().split(" ");
+  QString error;
+  if (SpawnCmd(cmd, { "-c", arg }, output, error)) {
+      list = output.replace("\n","").split(" ", QString::SkipEmptyParts);
   }
+  else {
+      qWarning() << QString("GetIgnoredDeviceList:Failed:{%1}").arg(error);
+  }
+
   for (int i = 0; i < list.length(); i++) {
-      list[i] = QString("/dev/{%1}").arg(list[i]);
+      list[i] = QString("/dev/%1").arg(list[i]);
   }
-  qDebug() << QString("GetIgnoredDeviceList:detected:{%1}").arg(list.join(","));
+  qInfo() << QString("GetIgnoredDeviceList:detected:{%1}").arg(list.join(","));
 
   QString name;
   for (int i = 0; i < 2; i++) {
-      name = QString ("/dev/sr{%1}").arg(i);
+      name = QString ("/dev/sr%1").arg(i);
       if (!list.contains(name)){
           list.append(name);
       }
-      name = QString ("/dev/cdrom{%1}").arg(i);
+      name = QString ("/dev/cdrom%1").arg(i);
       if (!list.contains(name)){
           list.append(name);
       }
   }
-  qDebug() << QString("GetIgnoredDeviceList:{%1}").arg(list.join(","));
+  qInfo() << QString("GetIgnoredDeviceList:{%1}").arg(list.join(","));
   return list;
 }
 
