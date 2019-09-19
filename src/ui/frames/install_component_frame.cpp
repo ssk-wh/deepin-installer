@@ -3,22 +3,16 @@
 #include "ui/widgets/nav_button.h"
 #include "ui/widgets/title_label.h"
 #include "ui/widgets/component_widget.h"
+#include "ui/widgets/di_scrollarea.h"
 #include "ui/delegates/componentinstallmanager.h"
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
 
 #include <QLineEdit>
-#include <QScrollArea>
-#include <QScrollBar>
-#include <QScroller>
 #include <QEvent>
 #include <QDebug>
 
 namespace installer {
-
-namespace {
-    const int kScrollAreaWidth = 468;
-}
 
 SelectInstallComponentFrame::SelectInstallComponentFrame(QWidget *parent)
     : QWidget(parent)
@@ -142,22 +136,8 @@ void SelectInstallComponentFrame::initUI()
     serverWdg->setLayout(serverLayout);
     serverWdg->setObjectName("serverWdg");
 
-    QScrollArea* serverScrollArea = new QScrollArea;
-    serverScrollArea->setWidget(serverWdg);
-    serverScrollArea->setObjectName("serverScrollArea");
-    serverScrollArea->setWidgetResizable(true);
-    serverScrollArea->setFocusPolicy(Qt::NoFocus);
-    serverScrollArea->setFrameStyle(QFrame::NoFrame);
-    serverScrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-    serverScrollArea->setContentsMargins(0, 0, 0, 0);
-    serverScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    serverScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    serverScrollArea->setContextMenuPolicy(Qt::NoContextMenu);
-    serverScrollArea->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-    serverScrollArea->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-    serverScrollArea->setStyleSheet("background: transparent;");
-    QScroller::grabGesture(serverScrollArea, QScroller::TouchGesture);
-    serverScrollArea->setFixedWidth(kScrollAreaWidth);
+    m_serverScrollArea = new DIScrollArea;
+    m_serverScrollArea->setWidget(serverWdg);
 
     m_componentLayout = new QVBoxLayout;
     m_componentLayout->setSpacing(1);
@@ -165,23 +145,10 @@ void SelectInstallComponentFrame::initUI()
 
     QWidget *compWdg = new QWidget;
     compWdg->setLayout(m_componentLayout);
+    compWdg->setObjectName("compWdg");
 
-    QScrollArea* compScrollArea = new QScrollArea;
-    compScrollArea->setWidget(compWdg);
-    compScrollArea->setObjectName("serverScrollArea");
-    compScrollArea->setWidgetResizable(true);
-    compScrollArea->setFocusPolicy(Qt::NoFocus);
-    compScrollArea->setFrameStyle(QFrame::NoFrame);
-    compScrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-    compScrollArea->setContentsMargins(0, 0, 0, 0);
-    compScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    compScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    compScrollArea->setContextMenuPolicy(Qt::NoContextMenu);
-    compScrollArea->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-    compScrollArea->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-    compScrollArea->setStyleSheet("background: transparent;");
-    QScroller::grabGesture(compScrollArea, QScroller::TouchGesture);
-    compScrollArea->setFixedWidth(kScrollAreaWidth);
+    m_compScrollArea = new DIScrollArea;
+    m_compScrollArea->setWidget(compWdg);
 
     m_nextButton = new NavButton(tr("Next"));
     m_nextButton->setEnabled(false);
@@ -191,7 +158,7 @@ void SelectInstallComponentFrame::initUI()
     serverTypeLayout->setSpacing(0);
     serverTypeLayout->addWidget(serverTypeLabel);
     serverTypeLayout->addSpacing(20);
-    serverTypeLayout->addWidget(serverScrollArea);
+    serverTypeLayout->addWidget(m_serverScrollArea);
 
     QVBoxLayout* componentLayout = new QVBoxLayout;
     componentLayout->setMargin(0);
@@ -199,7 +166,7 @@ void SelectInstallComponentFrame::initUI()
     componentLayout->setContentsMargins(0, 0, 0, 0);
     componentLayout->addWidget(componentLabel);
     componentLayout->addSpacing(20);
-    componentLayout->addWidget(compScrollArea);
+    componentLayout->addWidget(m_compScrollArea);
 
     QHBoxLayout* hLayout = new QHBoxLayout;
     hLayout->setMargin(0);

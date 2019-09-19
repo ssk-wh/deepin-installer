@@ -215,6 +215,7 @@ void SelectLanguageFrame::updateTranslator(const QString& locale) {
     qApp->removeTranslator(current_translator_);
   }
   const QString locale_file(GetLocalePath(locale));
+//  qDebug() << current_translator_->
   if (current_translator_->load(locale_file)) {
     if (!qApp->installTranslator(current_translator_)) {
       qWarning() << "Failed to update ui language at:" << locale_file;

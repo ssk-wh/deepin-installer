@@ -50,19 +50,7 @@ QCheckBox::indicator:checked:pressed {
   image: url(":/images/checkbox_checked_pressed.svg");
 }
 
-QScrollBar:vertical
-{
-    width:0px;
-    background:rgba(0,0,0,0%);
-    margin:0px,0px,0px,0px;
-}
-
-QFrame#ComponentWidget[isHead=true] {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-
-QFrame#ComponentWidget[isTail=true] {
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+#serverWdg, #compWdg {
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 25);
 }

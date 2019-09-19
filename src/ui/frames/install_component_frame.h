@@ -11,6 +11,7 @@ class NavButton;
 class ComponentStruct;
 class ComponentInfo;
 class ComponentWidget;
+class DIScrollArea;
 
 class SelectInstallComponentFrame : public QWidget
 {
@@ -44,6 +45,9 @@ private:
 
     QVBoxLayout* m_componentLayout = nullptr;
     ComponentWidget* m_currentComponentWidget = nullptr;
+
+    DIScrollArea* m_serverScrollArea = nullptr;
+    DIScrollArea* m_compScrollArea = nullptr;
 
     NavButton* m_nextButton = nullptr;
 };
