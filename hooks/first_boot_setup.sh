@@ -33,14 +33,25 @@ CONF_FILE=/etc/deepin-installer.conf
 . ./in_chroot/52_setup_locale_timezone.job
 . ./in_chroot/53_setup_user.job
 . ./in_chroot/55_customize_user.job
+. ./in_chroot/91_remove_unused_packages.job
+
+add_uninstall_package() {
+    local package=${1}
+    local result=$(dpkg -l | grep "\\s${package}" | awk '{print $2}' | awk -F: '{print $1}' | grep "^${package}$" | wc -l)
+    if [ ${result} == "1" ];then
+      local list=$(installer_get "DI_UNINSTALL_PACKAGES")
+      list="${list} $package"
+      installer_set "DI_UNINSTALL_PACKAGES" "${list}"
+    fi
+}
 
 # Remove component packages
 remove_component_packages() {
   local DI_COMPONENT_UNINSTALL=$(installer_get "DI_COMPONENT_UNINSTALL")
   if [ ! -z "${DI_COMPONENT_UNINSTALL}" ];then
-  # uninstall
-  apt-get purge -y ${DI_COMPONENT_UNINSTALL} || \
-    warn_exit "Failed to uninstall packages: " ${DI_COMPONENT_UNINSTALL}
+    local list=$(installer_get "DI_UNINSTALL_PACKAGES")
+    list="${list} ${DI_COMPONENT_UNINSTALL}"
+    installer_set "DI_UNINSTALL_PACKAGES" "${list}"
   fi
 }
 
@@ -52,22 +63,25 @@ detect_btrfs() {
   return 1
 }
 
-# Purge installer package
-uninstall_installer() {
-  # NOTE(xushaohua): Remove dependencies of installer by hand.
-  # Until state of packages are correctly marked in ISO.
+# Purge packages
+uninstall_packages() {
   local DI_RECOVERY_PATH=$(installer_get "DI_RECOVERY_PATH")
   if [ ! -z ${DI_RECOVERY_PATH} ];then
-    apt-get -y purge deepin-clone
+    add_uninstall_package "deepin-clone"
   fi
 
   if detect_btrfs; then
-    apt-get -y purge deepin-installer tshark wireshark-common
+   add_uninstall_package "deepin-installer"
+   add_uninstall_package "tshark wireshark-common"
   else
-    apt-get -y purge deepin-installer btrfs-tools tshark wireshark-common
+    add_uninstall_package "deepin-installer"
+    add_uninstall_package "btrfs-tools"
+    add_uninstall_package "tshark"
+    add_uninstall_package "wireshark-common"
   fi
 
-  apt-get -y autoremove --purge
+  local list=$(installer_get "DI_UNINSTALL_PACKAGES")
+  apt-get -y purge ${list} --autoremove
 }
 
 # Replace lightdm.conf with lightdm.conf.real.
@@ -127,7 +141,7 @@ main() {
   cleanup_first_boot
   remove_component_packages
   setup_default_target
-  uninstall_installer # 这必须是最后一步！
+  uninstall_packages # 这必须是最后一步！
   sync
 }
 
