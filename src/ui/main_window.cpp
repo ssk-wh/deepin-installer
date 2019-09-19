@@ -600,6 +600,7 @@ void MainWindow::goNextPage() {
     }
 
     m_old_frames << stacked_layout_->currentWidget();
+    setCurrentPage(current_page_);
 }
 
 void MainWindow::rebootSystem() {
