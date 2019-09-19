@@ -119,6 +119,8 @@ class FullDiskDelegate : public QObject {
 
   const DiskPartitionSetting& settings() const;
 
+  const DeviceList& selectedDevices();
+
 private:
   // New version of formatWholeDevice with the support of multiple disks.
   bool formatWholeDeviceV2(const Device::Ptr& device, FullDiskOption& option);

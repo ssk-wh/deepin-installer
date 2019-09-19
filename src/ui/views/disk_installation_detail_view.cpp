@@ -20,7 +20,7 @@
 
 namespace installer {
 
-static const int kDiskInstallationDetailWidth = 750;
+static const int kDiskInstallationDetailWidth = 758;
 
 DiskInstallationDetailView::DiskInstallationDetailView(QWidget* parent)
  :  QListView(parent)

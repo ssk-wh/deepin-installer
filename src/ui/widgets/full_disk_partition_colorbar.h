@@ -27,6 +27,7 @@ class FullDiskPartitionWidget: public QWidget{
 public:
     FullDiskPartitionWidget(QWidget* parent=nullptr);
     void setDevice(const Device::Ptr device);
+    void setDevices(const DeviceList& devices);
 
 private:
     FullDiskPartitionColorBar *m_fullDiskPartitionColorBar;

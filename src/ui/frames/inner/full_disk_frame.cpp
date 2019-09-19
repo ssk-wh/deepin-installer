@@ -222,6 +222,8 @@ void FullDiskFrame::initUI() {
   for (auto it = m_trList.begin(); it != m_trList.end(); ++it) {
       it->first(qApp->translate("installer::FullDiskFrame", it->second.toUtf8()));
   }
+
+  m_diskPartitionWidget->setFixedWidth(kWindowWidth);
 }
 
 void FullDiskFrame::repaintDevices() {
@@ -318,7 +320,7 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
 
     m_delegate->addSystemDisk(part_button->device()->path);
     m_delegate->formatWholeDeviceMultipleDisk();
-    m_diskPartitionWidget->setDevice(m_delegate->fullInstallScheme(part_button->device()));
+    m_diskPartitionWidget->setDevices(m_delegate->selectedDevices());
     emit currentDeviceChanged(part_button->device());
   }
 }
@@ -333,13 +335,13 @@ void FullDiskFrame::onCurrentDeviceChanged(int type, const Device::Ptr device)
         m_delegate->addDataDisk(device->path);
     }
     m_delegate->formatWholeDeviceMultipleDisk();
+    m_diskPartitionWidget->setDevices(m_delegate->selectedDevices());
 
     int index = DeviceIndex(m_delegate->virtual_devices(), m_delegate->selectedDisks()[0]);
     if (-1 == index) {
         return;
     }
     Device::Ptr tmpdevice = m_delegate->virtual_devices()[index];
-    m_diskPartitionWidget->setDevice(m_delegate->fullInstallScheme(tmpdevice));
     emit currentDeviceChanged(tmpdevice);
 }
 

@@ -7,6 +7,9 @@
 #include <QLabel>
 
 namespace installer {
+
+const int kWindowWidth = 960;
+
 static const QMap<QString, QString> PART_NAME_COLOR_NAME_MAP{
     { QString("/boot"), QString("#C100AB") },
     { QString("/boot/efi"), QString("#F6C000") },
@@ -63,17 +66,23 @@ void FullDiskPartitionColorBar::paintEvent(QPaintEvent *)
 
     painter.fillRect(rect(), Qt::white);
 
+    int i = 0;
+    int full_width = rect().width();
     for (Partition::Ptr partition : partitions) {
         const float ratio = static_cast<float>(partition->length) / static_cast<float>(m_device->length);
-        const int w = qRound(ratio * width());
+        int w = qRound(ratio * width());
+        if (i == partitions.length() - 1 && shift + w < full_width) {
+            w = full_width - shift;
+        }
         painter.fillRect(QRect(shift, 0, w, this->height()), GetPartitionColor(partition));
         shift += w;
+        i++;
     }
 }
 
 QSize FullDiskPartitionColorBar::sizeHint() const
 {
-    return QSize(800, 20);
+    return QSize(kWindowWidth, 20);
 }
 
 FullDiskPartitionWidget::FullDiskPartitionWidget(QWidget* parent)
@@ -85,7 +94,10 @@ FullDiskPartitionWidget::FullDiskPartitionWidget(QWidget* parent)
     m_labelLayout->setSpacing(50);
 
     m_mainLayout = new QVBoxLayout;
-    m_mainLayout->addWidget(m_fullDiskPartitionColorBar);
+    m_mainLayout->addWidget(m_fullDiskPartitionColorBar, 0, Qt::AlignHCenter);
+    m_mainLayout->setMargin(0);
+    m_mainLayout->setSpacing(0);
+    m_mainLayout->setContentsMargins(0, 0, 0, 0);
 
     QHBoxLayout* bottomLayout = new QHBoxLayout;
     bottomLayout->setMargin(0);
@@ -99,6 +111,34 @@ FullDiskPartitionWidget::FullDiskPartitionWidget(QWidget* parent)
 
     setLayout(m_mainLayout);
     setStyleSheet(ReadFile(":/styles/full_disk_partition_colorbar.css"));
+}
+
+void FullDiskPartitionWidget::setDevices(const DeviceList& devices)
+{
+    const qint64 kFakeSectorSize = 512;
+    Device::Ptr new_device(new Device());
+    new_device->partitions.clear();
+
+    for (const Device::Ptr& device : devices) {
+        for (const Partition::Ptr& partition : device->partitions) {
+                if (partition->end_sector < 0
+                 || partition->start_sector < 0
+                 || partition->type == PartitionType::Extended) {
+                    continue;
+                }
+
+                partition->type = PartitionType::Unallocated;
+                partition->start_sector *= partition->sector_size / kFakeSectorSize;
+                partition->end_sector *= partition->sector_size / kFakeSectorSize;
+                partition->sector_size = kFakeSectorSize;
+                partition->length = (partition->end_sector - partition->start_sector + 1) * partition->sector_size;
+                new_device->partitions << Partition::Ptr(new Partition(*partition));
+                new_device->length += partition->length;
+        }
+    }
+    new_device->sector_size = kFakeSectorSize;
+    new_device->sectors = new_device->getByteLength() / kFakeSectorSize;
+    setDevice(new_device);
 }
 
 void FullDiskPartitionWidget::setDevice(const Device::Ptr device)

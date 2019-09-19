@@ -138,6 +138,7 @@ void Full_Disk_Encrypt_frame::setDevice(Device::Ptr device)
 {
     Q_UNUSED(device);
     updateDiskInfo();
+    m_diskPartitionWidget->setDevices(m_diskPartitionDelegate->selectedDevices());
 }
 
 void Full_Disk_Encrypt_frame::changeEvent(QEvent *event)
@@ -211,9 +212,6 @@ void Full_Disk_Encrypt_frame::updateDiskInfo(int index)
     m_diskinfo[index].m_devicePathLbl->setText(device->path);
     m_diskinfo[index].m_deviceModelLbl->setText(device->model);
     m_diskinfo[index].m_deviceSizeLbl->setText(QString("%1 GB").arg(ToGigByte(device->getByteLength())));
-    if (0 == index) {
-        m_diskPartitionWidget->setDevice(m_diskPartitionDelegate->fullInstallScheme(device));
-    }
     m_diskinfo[index].m_diskLbl->show();
     m_diskinfo[index].m_devicePathLbl->show();
     m_diskinfo[index].m_deviceModelLbl->show();
