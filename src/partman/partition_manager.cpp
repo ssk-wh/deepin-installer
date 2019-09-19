@@ -35,6 +35,8 @@ namespace {
 // Absolute path to hook_manager.sh
 const char kHookManagerFile[] = BUILTIN_HOOKS_DIR "/hook_manager.sh";
 
+#define DEVICE_IS_READ_ONLY  (1)
+
 // Get flags of |lp_partition|.
 PartitionFlags GetPartitionFlags(PedPartition* lp_partition) {
   Q_ASSERT(lp_partition);
@@ -303,13 +305,21 @@ DeviceList ScanDevices(bool enable_os_prober) {
                 .arg(lp_device->length)
                 .arg(lp_device->read_only);
 
-    if (PED_DEVICE_LOOP == lp_device->type || 1 == lp_device->read_only) {
-        qInfo() << QString("IGNORED:by type:{%1}, by ro{%2} path:{%3}")
-                   .arg(lp_device->type)
+    if (DEVICE_IS_READ_ONLY == lp_device->read_only) {
+        qInfo() << QString("IGNORED:by readonly:{%1}, path:{%2}")
                    .arg(lp_device->read_only)
                    .arg(lp_device->path);
         continue;
     }
+
+#ifndef QT_DEBUG
+    if (PED_DEVICE_LOOP == lp_device->type) {
+        qInfo() << QString("IGNORED:by type:{%1} path:{%2}")
+                   .arg(lp_device->type)
+                   .arg(lp_device->path);
+        continue;
+    }
+#endif
 
     Device::Ptr device(new Device);
     if (disk_type == nullptr) {
