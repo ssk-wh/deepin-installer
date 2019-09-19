@@ -54,7 +54,7 @@ TEST(TimezoneTest, GetTimezoneOffset) {
   EXPECT_EQ(shanghai.seconds, 28800);
 
   const TimezoneOffset lima = GetTimezoneOffset("America/Lima");
-  EXPECT_TRUE(lima.name == "PET");
+  EXPECT_TRUE(lima.name == "-05");
   EXPECT_EQ(lima.seconds, -18000);
 }
 

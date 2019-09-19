@@ -47,9 +47,12 @@ namespace {
 //}
 
 TEST(LibPartedUtil, CreatePartitionTable) {
-  const QString device_path("/dev/sdb");
-  PartitionTableType table = PartitionTableType::GPT;
-  EXPECT_TRUE(CreatePartitionTable(device_path, table));
+    QFile file("/dev/sdb");
+    if (file.open(QIODevice::ReadWrite)) {
+        const QString device_path("/dev/sdb");
+        PartitionTableType table = PartitionTableType::GPT;
+        EXPECT_TRUE(CreatePartitionTable(device_path, table));
+    }
 }
 
 }  // namespace
