@@ -457,12 +457,10 @@ void MainWindow::goNextPage() {
     //   * install success page or install failed page;
     // And confirm-quit-page can be triggered at any moment except in
     // install progress page.
-
-    PageId currentSelectPage;
     switch (current_page_) {
     case PageId::ConfirmQuitId: {
         // Go previous page.
-        currentSelectPage = prev_page_;
+        this->setCurrentPage(prev_page_);
         break;
     }
 
@@ -470,7 +468,7 @@ void MainWindow::goNextPage() {
         if (HasRootPrivilege()) {
             current_page_ = PageId::PrivilegeErrorId;
         } else {
-            currentSelectPage = PageId::PrivilegeErrorId;
+            this->setCurrentPage(PageId::PrivilegeErrorId);
             break;
         }
     }
@@ -483,7 +481,7 @@ void MainWindow::goNextPage() {
             current_page_ = PageId::SelectLanguageId;
         } else {
             page_indicator_->goNextPage();
-            currentSelectPage = PageId::SelectLanguageId;
+            this->setCurrentPage(PageId::SelectLanguageId);
             break;
         }
     }
@@ -493,7 +491,7 @@ void MainWindow::goNextPage() {
         if (!GetSettingsBool(kSkipDiskSpaceInsufficientPage) &&
                 IsDiskSpaceInsufficient()) {
             page_indicator_->goNextPage();
-            currentSelectPage = PageId::DiskSpaceInsufficientId;
+            this->setCurrentPage(PageId::DiskSpaceInsufficientId);
             break;
         }
         else {
@@ -506,7 +504,7 @@ void MainWindow::goNextPage() {
         // Check whether to show VirtualMachinePage.
         if (!GetSettingsBool(kSkipVirtualMachinePage) &&
                 IsVirtualMachine()) {
-            currentSelectPage = PageId::VirtualMachineId;
+            this->setCurrentPage(PageId::VirtualMachineId);
             break;
         } else {
             prev_page_ = current_page_;
@@ -523,7 +521,7 @@ void MainWindow::goNextPage() {
             current_page_ = PageId::SystemInfoId;
         } else {
             page_indicator_->goNextPage();
-            currentSelectPage = PageId::SystemInfoId;
+            this->setCurrentPage(PageId::SystemInfoId);
             break;
         }
     }
@@ -535,7 +533,7 @@ void MainWindow::goNextPage() {
             current_page_ = PageId::TimezoneId;
         } else {
             page_indicator_->goNextPage();
-            currentSelectPage = PageId::TimezoneId;
+            this->setCurrentPage(PageId::TimezoneId);
             break;
         }
     }
@@ -552,7 +550,7 @@ void MainWindow::goNextPage() {
         } else {
             m_selectComponentFrame->readConf();
             page_indicator_->goNextPage();
-            currentSelectPage = PageId::SelectComponentId; //(PageId::PartitionId);
+            this->setCurrentPage(PageId::SelectComponentId); //(PageId::PartitionId);
             break;
         }
     }
@@ -570,7 +568,7 @@ void MainWindow::goNextPage() {
         }
         else{
             page_indicator_->goNextPage();
-            currentSelectPage = PageId::PartitionId;
+            this->setCurrentPage(PageId::PartitionId);
             break;
         }
     }
@@ -579,17 +577,17 @@ void MainWindow::goNextPage() {
         // Show InstallProgressFrame.
         page_indicator_->goNextPage();
         install_progress_frame_->startSlide();
-        currentSelectPage = PageId::InstallProgressId;
+        this->setCurrentPage(PageId::InstallProgressId);
         break;
     }
 
     case PageId::InstallProgressId: {
         if (install_progress_frame_->failed()) {
             install_failed_frame_->updateMessage();
-            currentSelectPage = PageId::InstallFailedId;
+            this->setCurrentPage(PageId::InstallFailedId);
         } else {
             install_success_frame_->setEjectLabelVisible(!auto_install_);
-            currentSelectPage = PageId::InstallSuccessId;
+            this->setCurrentPage(PageId::InstallSuccessId);
         }
         break;
     }
@@ -602,7 +600,6 @@ void MainWindow::goNextPage() {
     }
 
     m_old_frames << stacked_layout_->currentWidget();
-    setCurrentPage(currentSelectPage);
 }
 
 void MainWindow::rebootSystem() {
