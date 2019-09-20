@@ -32,13 +32,14 @@ namespace installer {
 class FramelessListView;
 class LanguageListModel;
 class NavButton;
+class UserAgreementDelegate;
 
 // Select system language and update ui language on-the-fly.
 class SelectLanguageFrame : public QFrame {
   Q_OBJECT
 
  public:
-  explicit SelectLanguageFrame(QWidget* parent = nullptr);
+  explicit SelectLanguageFrame(UserAgreementDelegate * delegate, QWidget* parent = nullptr);
 
   // Read default locale.
   void readConf();
@@ -55,12 +56,17 @@ class SelectLanguageFrame : public QFrame {
   // show UserLicense
   void requestShowUserLicense() const;
 
+  // show oem UserLicense
+  void requestShowOemUserLicense() const;
+
  protected:
   // Update text of next_button_
   void changeEvent(QEvent* event) override;
 
   // Handles key press event of language_view_.
   bool eventFilter(QObject* obj, QEvent* event) Q_DECL_OVERRIDE;
+
+  void showEvent(QShowEvent* event) override;
 
 private:
     void initConnections();
@@ -76,8 +82,11 @@ private:
     LanguageListModel* language_model_     = nullptr;
     QCheckBox*         accept_license_     = nullptr;
     QLabel*            license_label_      = nullptr;
+    QLabel*            oem_and_label_      = nullptr;
+    QLabel*            oem_license_label_  = nullptr;
     NavButton*         next_button_        = nullptr;
     LanguageItem       lang_;  // Current selected language.
+    UserAgreementDelegate* user_license_delegate_ = nullptr;
   };
 
 }  // namespace installer

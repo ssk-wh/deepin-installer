@@ -33,6 +33,8 @@ const char kSkipTimezonePage[] = "skip_timezone_page";
 const char kSkipNetworkPage[] = "skip_network_page";
 const char kSkipPartitionPage[] = "skip_partition_page";
 const char kSkipControlPlatformPage[] = "skip_control_platform_page";
+const char kSkipSelectComponentPage[] = "skip_select_component_page";
+const char kSkipAutoSyncTimePage[] = "skip_auto_sync_time_page";
 
 // System Language List
 const char kSelectLanguageDefaultLocale[] = "select_language_default_locale";
@@ -140,6 +142,9 @@ const char kPartitionFullDiskLargeLegacyLabel[] =
     "partition_full_disk_large_legacy_label";
 const char kPartitionFullDiskLargeUEFILabel[] =
     "partition_full_disk_large_uefi_label";
+
+const char kEnableRecoveryPartition[] = "enable_recovery_partition";
+const char kRecoveryDefaultSize[] = "recovery_partition_default_size";
 
 // Install progress page
 const char kInstallProgressPageDisableSlide[] =

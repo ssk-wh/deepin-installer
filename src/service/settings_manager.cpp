@@ -34,6 +34,7 @@
 
 #include "base/consts.h"
 #include "service/settings_name.h"
+#include "partman/structs.h"
 
 namespace installer {
 
@@ -56,6 +57,10 @@ const char kDefaultSettingsFile[] = RESOURCES_DIR "/default_settings.ini";
 const char kDefaultWallpaperFile[] = RESOURCES_DIR "/default_wallpaper.jpg";
 // File name of installer wallpaper.
 const char kOemWallpaperFilename[] = "installer-background.jpg";
+
+const char kComponentDefaultFile[] = RESOURCES_DIR "/packages_default.json";
+const char kComponentExtraFile[] = RESOURCES_DIR "/packages_choice.json";
+const char kComponentSortFile[] = RESOURCES_DIR "/packages_sort.json";
 
 // File name of auto partition script.
 const char kAutoPartFile[] = "auto_part.sh";
@@ -110,6 +115,27 @@ QDir GetOemDir() {
     }
   }
   return QDir(g_oem_dir);
+}
+
+OSType GetCurrentType() {
+    QSettings settings("/etc/deepin-version", QSettings::IniFormat);
+    settings.beginGroup("Release");
+    const QString& type = settings.value("Type", "Desktop").toString();
+
+    return QMap<QString, OSType>{
+        { "Desktop", OSType::Community },
+        { "Professional", OSType::Professional },
+        { "Server", OSType::Server },
+    }[type];
+}
+
+QString GetCurrentPlatform() {
+    QMap<QString, QString> BUILD_ARCH_MAP{ { "x86_64",  "x86" },
+                                           { "sw_64",   "sw" },
+                                           { "mips64", "loongson" },
+                                           { "aarch64", "arm" } };
+
+    return BUILD_ARCH_MAP[PLATFORM_BUILD_ARCH];
 }
 
 bool GetSettingsBool(const QString& key) {
@@ -254,6 +280,43 @@ QString GetWindowBackground() {
   return kDefaultWallpaperFile;
 }
 
+QByteArray GetFullDiskInstallPolicy() {
+    QFile file(RESOURCES_DIR "/full_disk_policy.json");
+    if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
+        return file.readAll();
+    }
+
+    return "";
+}
+
+QString GetComponentDefault() {
+    QFile file(kComponentDefaultFile);
+    if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
+        return file.readAll();
+    }
+
+    return "";
+}
+
+QString GetComponentExtra() {
+    QFile file(kComponentExtraFile);
+    if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
+        return file.readAll();
+    }
+
+    return "";
+}
+
+QString GetComponentSort()
+{
+    QFile file(kComponentSortFile);
+    if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
+        return file.readAll();
+    }
+
+    return "";
+}
+
 bool AppendConfigFile(const QString& conf_file) {
   if (!QFile::exists(conf_file)) {
     qCritical() << "conf_file not found:" << conf_file;
@@ -339,6 +402,10 @@ void WritePassword(const QString& password) {
   AppendToConfigFile("DI_PASSWORD", encoded_password);
 }
 
+void WriteRootPassword(const QString& password) {
+  AppendToConfigFile("DI_ROOTPASSWORD", QString(password.toUtf8().toBase64()));
+}
+
 void WriteTimezone(const QString& timezone) {
   QSettings settings(kInstallerConfigFile, QSettings::IniFormat);
   settings.setValue("DI_TIMEZONE", timezone);
@@ -369,25 +436,51 @@ void WriteRequiringSwapFile(bool is_required) {
 }
 
 void AddConfigFile() {
-  QSettings target_settings(kInstallerConfigFile, QSettings::IniFormat);
+    QSettings target_settings(kInstallerConfigFile, QSettings::IniFormat);
 
-  // Read default settings
-  QSettings default_settings(kDefaultSettingsFile, QSettings::IniFormat);
-  for (const QString& key : default_settings.allKeys()) {
-    const QVariant value(default_settings.value(key));
-    // Do not use section groups.
-    target_settings.setValue(key, value);
-  }
+    QStringList settingsList;
 
-  // Read oem settings
-  const QString oem_file = GetOemDir().absoluteFilePath(kOemSettingsFilename);
-  if (QFile::exists(oem_file)) {
-    QSettings oem_settings(oem_file , QSettings::IniFormat);
-    for (const QString& key : oem_settings.allKeys()) {
-      const QVariant value = oem_settings.value(key);
-      target_settings.setValue(key, value);
+    // Read default settings
+    settingsList << kDefaultSettingsFile;
+
+    // Read override settings
+    QString prefix;
+    switch (GetCurrentType()) {
+        case OSType::Community: prefix = "community"; break;
+        case OSType::Professional: prefix = "professional"; break;
+        case OSType::Server: prefix = "server"; break;
     }
-  }
+
+    QMap<QString, QString> BUILD_ARCH_MAP{ { "x86_64",  "x86" },
+                                           { "sw_64",   "sw" },
+                                           { "mips64", "loongson" },
+                                           { "aarch64", "arm" } };
+
+#ifdef QT_DEBUG
+    const QString& arch = BUILD_ARCH_MAP[PLATFORM_BUILD_ARCH];
+    QString        override_settings(RESOURCES_DIR +
+                              QString("/platform_%1/%2.override").arg(arch).arg(prefix));
+#else
+    QString override_settings(RESOURCES_DIR +
+                              QString("/override/%1.override").arg(prefix));
+#endif  // QT_DEBUG
+
+    if (QFile::exists(override_settings)) {
+        settingsList << override_settings;
+    }
+
+    // Read oem settings
+    const QString oem_file = GetOemDir().absoluteFilePath(kOemSettingsFilename);
+    if (QFile::exists(oem_file)) {
+        settingsList << oem_file;
+    }
+
+    for (const QString& file : settingsList) {
+        QSettings settings(file, QSettings::IniFormat);
+        for (const QString& key : settings.allKeys()) {
+            target_settings.setValue(key, settings.value(key));
+        }
+    }
 }
 
 void WriteFullDiskEncryptPassword(const QString &password)
@@ -414,6 +507,93 @@ void WriteFullDiskDeivce(const QString &deviceName)
 
 void WriteSwapPartitionSize(const uint size) {
     AppendToConfigFile("DI_SWAP_SIZE", size);
+}
+
+void WriteRecoveryPartitionInfo(const QString& path) {
+    AppendToConfigFile("DI_RECOVERY_PATH", path);
+}
+
+void WriteComponentPackages(const QString &packages)
+{
+    AppendToConfigFile("DI_COMPONENT_PACKAGES", packages);
+}
+
+void WriteComponentUninstallPackages(const QString& packages)
+{
+    AppendToConfigFile("DI_COMPONENT_UNINSTALL", packages);
+}
+
+void WriteComponentLanguage(const QString& packages) {
+    AppendToConfigFile("DI_COMPONENT_LANGUAGE", packages);
+}
+
+void WriteIsLocalTime(bool isLocalTime)
+{
+    AppendToConfigFile("DI_IS_LOCAL_TIME", isLocalTime);
+}
+
+void WriteFullDiskResolution(const FinalFullDiskResolution& resolution)
+{
+    const char kFullDiskResolutionDeviceSeparator[] = ";";
+    QString key { "" };
+    QStringList valueList;
+    for (int i = 0; i < resolution.option_list.length(); i++) {
+        valueList << resolution.option_list.at(i).device;
+    }
+    AppendToConfigFile("DI_FULLDISK_MULTIDISK_DEVICE", valueList.join(kFullDiskResolutionDeviceSeparator));
+
+    QString labelKey { "" };
+    QStringList labelValueList;
+    for (int i = 0; i < resolution.option_list.length(); i++) {
+        const FinalFullDiskOption& op = resolution.option_list[i];
+        key = QString("DI_FULLDISK_MULTIDISK_POLICY_%1").arg(i);
+        labelKey = QString("DI_FULLDISK_MULTIDISK_LABEL_%1").arg(i);
+        valueList.clear();
+        labelValueList.clear();
+
+        if (i > 0) {
+            valueList << QString("luks_crypt%1:crypto_luks::100%").arg(i);
+            labelValueList << QString("luks_crypt%1").arg(i);
+        }
+        for (int j = 0; j < op.policy_list.length(); j++) {
+            const FinalFullDiskPolicy& policy = op.policy_list[j];
+            valueList << QString("%1:%2:%3:%4")
+                    .arg(policy.mountPoint)
+                    .arg(policy.filesystem)
+                    .arg(policy.offset/kMebiByte)
+                    .arg(policy.size/kMebiByte);
+            labelValueList << policy.label;
+            if (0 == i && policy.mountPoint == "/boot") {
+                valueList << QString("luks_crypt%1:crypto_luks::100%").arg(i);
+                labelValueList << QString("luks_crypt%1").arg(i);
+            }
+        }
+        AppendToConfigFile(key, valueList.join(kFullDiskResolutionDeviceSeparator));
+        AppendToConfigFile(labelKey, labelValueList.join(kFullDiskResolutionDeviceSeparator));
+    }
+    WriteFullDiskMode(true);
+}
+
+void WriteFullDiskMode(bool value)
+{
+    AppendToConfigFile("DI_FULLDISK_MODE", value ? "true" : "false");
+}
+
+DiskPartitionSetting::DiskPartitionSetting()
+    :  swap_file_required(false)
+     , uefi_required(false)
+{
+}
+
+void WriteDiskPartitionSetting(const DiskPartitionSetting& setting)
+{
+    WritePartitionInfo(setting.root_disk,
+                       setting.root_partition,
+                       setting.boot_partition,
+                       setting.mount_points);
+    WriteRecoveryPartitionInfo(setting.recovery_path);
+    WriteRequiringSwapFile(setting.swap_file_required);
+    WriteUEFI(setting.uefi_required);
 }
 
 }  // namespace installer

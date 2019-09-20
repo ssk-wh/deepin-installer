@@ -28,6 +28,8 @@
 namespace installer {
 class SelectLanguageFrame;
 class UserAgreementFrame;
+class UserAgreementDelegate;
+
 class LanguageFrame : public QWidget {
     Q_OBJECT
 public:
@@ -51,9 +53,11 @@ private:
     void initConnect();
     void showUserLicense();
     void showLanguage();
+    void showOemUserLicense();
 
 private:
     QStackedLayout*      m_frame_layout          = nullptr;
+    UserAgreementDelegate * m_user_license_delegate = nullptr;
     SelectLanguageFrame* m_select_language_frame = nullptr;
     UserAgreementFrame*  m_user_license_frame    = nullptr;
 };

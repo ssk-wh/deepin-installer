@@ -18,6 +18,7 @@ resources/default_settings.ini 文件里面有定义, 并且在 docs/oem.md 里�
 * DI_KEYBOARD_MODEL, 设置键盘 model, 可以为空.
 * DI_KEYBOARD_OPTIONS, 设置键盘xkboption, 可以为空.
 * DI_CUR_RESOLUTION, 当前系统的分辨率.
+* DI_IS_LOCAL_TIME, 是否使用本地时间，如果为false，则使用UTC+时区偏移
 
 ## 分区信息
 * DI_BOOTLOADER, 引导器位置, 可以为空. 如果为空, 就不会安装grub. 如果是 EFI 引导模式,

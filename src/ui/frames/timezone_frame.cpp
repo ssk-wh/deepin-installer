@@ -22,6 +22,9 @@
 #include <QHBoxLayout>
 #include <QTimer>
 #include <QVBoxLayout>
+#include <QStackedLayout>
+#include <QApplication>
+#include <QButtonGroup>
 
 #include "partman/os_prober.h"
 #include "service/settings_manager.h"
@@ -32,6 +35,10 @@
 #include "ui/widgets/nav_button.h"
 #include "ui/widgets/timezone_map.h"
 #include "ui/widgets/title_label.h"
+#include "ui/frames/inner/systemdateframe.h"
+#include "ui/frames/inner/select_time_zone_frame.h"
+#include "ui/widgets/pointer_button.h"
+#include "base/file_util.h"
 
 namespace installer {
 
@@ -119,10 +126,43 @@ void TimezoneFrame::changeEvent(QEvent* event) {
 void TimezoneFrame::showEvent(QShowEvent* event) {
   QFrame::showEvent(event);
 
+  qApp->installEventFilter(this);
+
   // NOTE(xushaohua): Add a delay to wait for paint event of timezone map.
   QTimer::singleShot(0, [&]() {
-    timezone_map_->setTimezone(timezone_map_->getTimezone());
+      if(m_stackedLayout->currentWidget() == m_timezonePage){
+          if(m_mapOrListStackedLayout->currentWidget() == timezone_map_){
+              timezone_map_->showMark();
+          }
+          else {
+              timezone_map_->hideMark();
+          }
+          m_setTimePushButton->show();
+      }
+      else {
+          timezone_map_->hideMark();
+          m_setTimePushButton->hide();
+      }
   });
+}
+
+void TimezoneFrame::hideEvent(QHideEvent *event)
+{
+    qApp->removeEventFilter(this);
+
+    QWidget::hideEvent(event);
+}
+
+bool TimezoneFrame::eventFilter(QObject *watched, QEvent *event)
+{
+    if((event->type() == QEvent::KeyPress)){
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+        if (keyEvent->key() == Qt::Key_Space){
+            return true;
+        }
+    }
+
+    return QWidget::eventFilter(watched, event);
 }
 
 void TimezoneFrame::initConnections() {
@@ -137,6 +177,34 @@ void TimezoneFrame::initConnections() {
   // Remark timezone on map when it is updated.
   connect(this, &TimezoneFrame::timezoneUpdated,
           timezone_map_, &TimezoneMap::setTimezone);
+  connect(this, &TimezoneFrame::timezoneUpdated,
+          m_selectTimeZoneFrame, &SelectTimeZoneFrame::onUpdateTimezoneList);
+
+  connect(this, &TimezoneFrame::timezoneSet,
+          timezone_map_, &TimezoneMap::setTimezoneData);
+
+  connect(m_timezoneMapButton, &QPushButton::toggled,
+          this, &TimezoneFrame::onTimezoneMapButtonClicked);
+  connect(m_timezoneListButton, &QPushButton::toggled,
+          this, &TimezoneFrame::onTimezoneListButtonClicked);
+
+  connect(m_systemDateFrame, &SystemDateFrame::finished, this, &TimezoneFrame::finished);
+  connect(m_systemDateFrame, &SystemDateFrame::cancel, this, [=] {
+      m_stackedLayout->setCurrentWidget(m_timezonePage);
+      if(m_mapOrListStackedLayout->currentWidget() == timezone_map_){
+          timezone_map_->showMark();
+      }
+      else {
+          timezone_map_->hideMark();
+      }
+      m_setTimePushButton->show();
+  });
+
+  connect(m_selectTimeZoneFrame, &SelectTimeZoneFrame::timezoneUpdated
+          , this, &TimezoneFrame::onSelectTimezoneUpdated);
+
+  connect(m_setTimePushButton, &QPushButton::clicked, this
+          , &TimezoneFrame::onSetTimePushButtonClicked);
 }
 
 void TimezoneFrame::initUI() {
@@ -145,19 +213,92 @@ void TimezoneFrame::initUI() {
   timezone_map_ = new TimezoneMap(this);
   next_button_ = new NavButton(tr("Next"));
 
-  QVBoxLayout* layout = new QVBoxLayout();
-  layout->setContentsMargins(0, 0, 0, 0);
-  layout->setSpacing(kMainLayoutSpacing);
-  layout->addStretch();
-  layout->addWidget(title_label_, 0, Qt::AlignCenter);
-  layout->addWidget(comment_label_, 0, Qt::AlignCenter);
-  layout->addStretch();
-  layout->addWidget(timezone_map_, 0, Qt::AlignHCenter);
-  layout->addStretch();
-  layout->addWidget(next_button_, 0, Qt::AlignCenter);
+  QButtonGroup* button_group = new QButtonGroup;
+  m_timezoneMapButton = new PointerButton(tr("Map"));
+  m_timezoneMapButton->setObjectName("timezoneMapButton");
+  m_timezoneMapButton->setCheckable(true);
+  m_timezoneMapButton->setFlat(true);
+  m_timezoneMapButton->setMinimumWidth(60);
+  m_timezoneMapButton->setMaximumHeight(36);
+  m_timezoneListButton = new PointerButton(tr("List"));
+  m_timezoneListButton->setObjectName("timezoneListButton");
+  m_timezoneListButton->setCheckable(true);
+  m_timezoneListButton->setFlat(true);
+  m_timezoneListButton->setMinimumWidth(60);
+  m_timezoneListButton->setMaximumHeight(36);
 
-  this->setLayout(layout);
-  this->setContentsMargins(0, 0, 0, 0);
+  button_group->addButton(m_timezoneMapButton);
+  button_group->addButton(m_timezoneListButton);
+  m_timezoneMapButton->setChecked(true);
+
+  QHBoxLayout* buttonLayout = new QHBoxLayout();
+  buttonLayout->setContentsMargins(0, 0, 0, 0);
+  buttonLayout->setSpacing(0);
+  buttonLayout->addStretch();
+  buttonLayout->addWidget(m_timezoneMapButton, 0, Qt::AlignCenter);
+  buttonLayout->addWidget(m_timezoneListButton, 0, Qt::AlignCenter);
+  buttonLayout->addStretch();
+
+  m_upLayout = new QVBoxLayout();
+  m_upLayout->setContentsMargins(0, 0, 0, 0);
+  m_upLayout->setSpacing(kMainLayoutSpacing);
+  m_upLayout->addStretch();
+  m_upLayout->addWidget(title_label_, 0, Qt::AlignCenter);
+  m_upLayout->addWidget(comment_label_, 0, Qt::AlignCenter);
+  m_upLayout->addLayout(buttonLayout);
+  m_upLayout->addStretch();
+
+  m_mapOrListStackedLayout = new QStackedLayout;
+  m_selectTimeZoneFrame = new SelectTimeZoneFrame;
+  m_mapOrListStackedLayout->addWidget(timezone_map_);
+  m_mapOrListStackedLayout->addWidget(m_selectTimeZoneFrame);
+
+  QHBoxLayout* hLayout = new QHBoxLayout;
+  hLayout->setMargin(0);
+  hLayout->setSpacing(0);
+  hLayout->addStretch();
+  hLayout->addLayout(m_mapOrListStackedLayout);
+  hLayout->addStretch();
+  m_upLayout->addLayout(hLayout);
+
+  m_upLayout->addStretch();
+  m_upLayout->addWidget(next_button_, 0, Qt::AlignCenter);
+
+  m_timezonePage = new QWidget;
+  m_timezonePage->setLayout(m_upLayout);
+
+  m_stackedLayout = new QStackedLayout;
+  m_stackedLayout->addWidget(m_timezonePage);
+
+  m_setTimePushButton = new PointerButton();
+  m_setTimePushButton->setObjectName("setTimePushButton");
+  m_setTimePushButton->setFlat(true);
+  m_setTimePushButton->setFixedHeight(23);
+  m_setTimePushButton->setText(tr("Time setting"));
+
+  m_bottomLayout = new QHBoxLayout();
+  m_bottomLayout->setContentsMargins(30, 0, 0, 0);
+  m_bottomLayout->setSpacing(30);
+  m_bottomLayout->addWidget(m_setTimePushButton);
+  m_bottomLayout->addStretch();
+
+  m_setTimePushButton->hide();
+  if (!GetSettingsBool(kSkipAutoSyncTimePage)) {
+    m_setTimePushButton->show();
+
+    m_systemDateFrame = new SystemDateFrame;
+    m_stackedLayout->addWidget(m_systemDateFrame);
+  }
+
+  QVBoxLayout* mainLayout = new QVBoxLayout();
+  mainLayout->setContentsMargins(0, 0, 0, 0);
+  mainLayout->setSpacing(0);
+  mainLayout->addLayout(m_stackedLayout);
+  mainLayout->addLayout(m_bottomLayout);
+
+  setLayout(mainLayout);
+  setContentsMargins(0, 0, 0, 0);
+  setStyleSheet(ReadFile(":/styles/timezone_frame.css"));
 }
 
 QString TimezoneFrame::parseTimezoneAlias(const QString& timezone) {
@@ -194,7 +335,32 @@ void TimezoneFrame::onTimezoneMapUpdated(const QString& timezone) {
   timezone_source_ = TimezoneSource::User;
   // No need to convert timezone alias.
   timezone_ = timezone;
-  emit this->timezoneUpdated(timezone_);
+  m_selectTimeZoneFrame->onUpdateTimezoneList(timezone);
+}
+
+void TimezoneFrame::onTimezoneMapButtonClicked()
+{
+    m_mapOrListStackedLayout->setCurrentWidget(timezone_map_);
+    timezone_map_->showMark();
+}
+
+void TimezoneFrame::onTimezoneListButtonClicked()
+{
+    m_mapOrListStackedLayout->setCurrentWidget(m_selectTimeZoneFrame);
+    timezone_map_->hideMark();
+}
+
+void TimezoneFrame::onSelectTimezoneUpdated(const QString &timezone)
+{
+    timezone_source_ = TimezoneSource::User;
+    emit timezoneSet(timezone);
+}
+
+void TimezoneFrame::onSetTimePushButtonClicked()
+{
+    m_stackedLayout->setCurrentWidget(m_systemDateFrame);
+    timezone_map_->hideMark();
+    m_setTimePushButton->hide();
 }
 
 }  // namespace installer

@@ -45,6 +45,7 @@ enum class FsType {
   Reiser4,
   Reiserfs,
   Xfs,
+  Recovery,
   Unknown,
 };
 QDebug& operator<<(QDebug& debug, const FsType& fs_type);

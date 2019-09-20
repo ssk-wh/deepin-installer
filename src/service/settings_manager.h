@@ -25,8 +25,18 @@
 
 namespace installer {
 
+    enum class OSType {
+        Community,
+        Professional,
+        Server
+    };
+
 // Get absolute path to oem/ folder. Note that oem folder may not exist.
 QDir GetOemDir();
+
+OSType GetCurrentType();
+
+QString GetCurrentPlatform();
 
 // Read settings value from ini file.
 
@@ -76,6 +86,14 @@ QString GetVendorLogo();
 // If not found, use the fallback image.
 QString GetWindowBackground();
 
+// Get Full install policy, it is JSON.
+QByteArray GetFullDiskInstallPolicy();
+
+// Get Component Files
+QString GetComponentDefault();
+QString GetComponentExtra();
+QString GetComponentSort();
+
 // Append settings in |conf_file| into default conf file.
 bool AppendConfigFile(const QString& conf_file);
 
@@ -99,13 +117,20 @@ void WriteKeyboard(const QString& model,
                    const QString& variant);
 void WriteLocale(const QString& locale);
 void WritePassword(const QString& password);
+void WriteRootPassword(const QString& password);
 void WriteTimezone(const QString& timezone);
+void WriteIsLocalTime(bool isLocalTime);
 void WriteUsername(const QString& username);
 void WriteFullDiskDeivce(const QString &deviceName);
 void WriteFullDiskEncryptPassword(const QString &password);
 void WritePasswordStrong(bool storePassword);
 void WriteDisplayPort(const QString &display);
 void WriteGrubPassword(const QString &password);
+void WriteRecoveryPartitionInfo(const QString& path);
+
+void WriteComponentPackages(const QString& packages);
+void WriteComponentUninstallPackages(const QString& packages);
+void WriteComponentLanguage(const QString& packages);
 
 // Write disk info.
 //  * |root_disk|, device path to install system into, like /dev/sda;
@@ -127,6 +152,47 @@ void AddConfigFile();
 
 // Save swap size for FullDiskInstall
 void WriteSwapPartitionSize(const uint size);
+
+//Full disk policy settings.
+struct FinalFullDiskPolicy {
+    QString       filesystem;
+    QString       mountPoint;
+    QString       label;
+    QString       device;
+    qint64        offset;
+    qint64        size;
+};
+
+typedef QList<FinalFullDiskPolicy> FinalFullDiskPolicyList;
+
+struct FinalFullDiskOption {
+    QString                  device;
+    QString                  password;
+    FinalFullDiskPolicyList  policy_list;
+};
+
+typedef QList<FinalFullDiskOption> FinalFullDiskOptionList;
+
+struct FinalFullDiskResolution {
+    FinalFullDiskOptionList  option_list;
+};
+
+void WriteFullDiskResolution(const FinalFullDiskResolution& resolution);
+
+void WriteFullDiskMode(bool value);
+
+struct DiskPartitionSetting {
+    DiskPartitionSetting();
+    QString  recovery_path;
+    QString  root_disk;
+    QString  root_partition;
+    QString  boot_partition;
+    QString  mount_points;
+    bool     swap_file_required;
+    bool     uefi_required;
+};
+
+void WriteDiskPartitionSetting(const DiskPartitionSetting& setting);
 
 }  // namespace installer
 

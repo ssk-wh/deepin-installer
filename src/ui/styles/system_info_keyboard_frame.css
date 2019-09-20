@@ -30,3 +30,7 @@ QLineEdit#test_edit {
 QLineEdit#test_edit:focus {
   border-color: #2ca7f8;
 }
+
+QLabel#guide_label {
+    color: white;
+}

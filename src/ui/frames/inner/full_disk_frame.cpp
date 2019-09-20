@@ -24,6 +24,7 @@
 #include <QScrollArea>
 #include <QCheckBox>
 #include <QApplication>
+#include <QStackedLayout>
 
 #include "base/file_util.h"
 #include "partman/device.h"
@@ -33,15 +34,23 @@
 #include "ui/delegates/partition_util.h"
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/simple_disk_button.h"
+#include "ui/widgets/full_disk_partition_colorbar.h"
+#include "ui/widgets/multiple_disk_installation_widget.h"
 
 namespace installer {
 
 namespace {
 
 // 4 partitions are displays at each row.
-const int kDiskColumns = 4;
+const int kDiskColumns = 1;
 
 const int kWindowWidth = 960;
+
+enum class DiskCountType : int
+{
+      SingleDisk = 0
+    , MultipleDisk
+};
 
 }  // namespace
 
@@ -68,6 +77,14 @@ FullDiskFrame::~FullDiskFrame() {
 }
 
 bool FullDiskFrame::validate() const {
+    if (static_cast<int>(DiskCountType::MultipleDisk) == m_disk_layout->currentIndex()) {
+        if (!m_diskInstallationWidget->validate() ) {
+            m_errorTip->show();
+            return false;
+        }
+        return true;
+    }
+
     bool isSelect = false;
     for (QAbstractButton* button : m_button_group->buttons()) {
         if (button->isChecked()) {
@@ -109,6 +126,10 @@ void FullDiskFrame::initConnections() {
           (&QButtonGroup::buttonToggled),
           this, &FullDiskFrame::onPartitionButtonToggled);
   connect(m_encryptCheck, &QCheckBox::clicked, this, &FullDiskFrame::cryptoStateChanged);
+  connect(m_delegate, &FullDiskDelegate::deviceRefreshed,
+          m_diskInstallationWidget, &MultipleDiskInstallationWidget::onDeviceListChanged);
+  connect(m_diskInstallationWidget, &MultipleDiskInstallationWidget::currentDeviceChanged,
+          this, &FullDiskFrame::onCurrentDeviceChanged);
 }
 
 void FullDiskFrame::initUI() {
@@ -162,19 +183,28 @@ void FullDiskFrame::initUI() {
   m_grid_wrapper->setLayout(m_grid_layout);
   m_install_tip->setParent(m_grid_wrapper);
 
+  m_diskInstallationWidget = new MultipleDiskInstallationWidget();
+  m_disk_layout = new QStackedLayout();
+  m_disk_layout->setSpacing(0);
+  m_disk_layout->setContentsMargins(0,0,0,0);
+  m_disk_layout->addWidget(m_grid_wrapper);
+  m_disk_layout->addWidget(m_diskInstallationWidget);
+
   QScrollArea* scroll_area = new QScrollArea();
   scroll_area->setObjectName("scroll_area");
-  scroll_area->setWidget(m_grid_wrapper);
+  scroll_area->setLayout(m_disk_layout);
   scroll_area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   scroll_area->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   scroll_area->setWidgetResizable(true);
   scroll_area->setFixedWidth(kWindowWidth);
 
+  m_diskPartitionWidget = new FullDiskPartitionWidget;
+
   QVBoxLayout* main_layout = new QVBoxLayout();
   main_layout->setContentsMargins(0, 0, 0, 0);
   main_layout->setSpacing(0);
-  main_layout->addWidget(scroll_area, 0, Qt::AlignHCenter);
-  main_layout->addStretch();
+  main_layout->addWidget(scroll_area, 1, Qt::AlignHCenter);
+  main_layout->addWidget(m_diskPartitionWidget, 0, Qt::AlignHCenter);
   main_layout->addWidget(m_encryptCheck, 0, Qt::AlignHCenter);
   main_layout->addSpacing(20);
   main_layout->addWidget(m_errorTip, 0, Qt::AlignHCenter);
@@ -192,6 +222,8 @@ void FullDiskFrame::initUI() {
   for (auto it = m_trList.begin(); it != m_trList.end(); ++it) {
       it->first(qApp->translate("installer::FullDiskFrame", it->second.toUtf8()));
   }
+
+  m_diskPartitionWidget->setFixedWidth(kWindowWidth);
 }
 
 void FullDiskFrame::repaintDevices() {
@@ -254,6 +286,13 @@ void FullDiskFrame::showInstallTip(QAbstractButton* button) {
 
 void FullDiskFrame::onDeviceRefreshed() {
   this->repaintDevices();
+  m_delegate->removeAllSelectedDisks();
+  if (m_delegate->virtual_devices().size() > 1) {
+      m_disk_layout->setCurrentWidget(m_diskInstallationWidget);
+  }
+  else {
+      m_disk_layout->setCurrentWidget(m_grid_wrapper);
+  }
 }
 
 void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
@@ -272,9 +311,6 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
   } else {
     // Hide tooltip.
     m_install_tip->hide();
-
-    emit currentDeviceChanged(part_button->device());
-
     const QString path = part_button->device()->path;
     qDebug() << "selected device path:" << path;
     part_button->setSelected(true);
@@ -282,17 +318,31 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
     // Show install-tip at bottom of current checked button.
     this->showInstallTip(part_button);
 
-    // Reset simple operations.
-    m_delegate->resetOperations();
-
-    WriteFullDiskDeivce(path);
-
-
-//    PartitionTableType table = IsEfiEnabled() ?
-//                               PartitionTableType::GPT :
-//                               PartitionTableType::MsDos;
-//    m_delegate->formatWholeDevice(path, table);
+    m_delegate->addSystemDisk(part_button->device()->path);
+    m_delegate->formatWholeDeviceMultipleDisk();
+    m_diskPartitionWidget->setDevices(m_delegate->selectedDevices());
+    emit currentDeviceChanged(part_button->device());
   }
+}
+
+void FullDiskFrame::onCurrentDeviceChanged(int type, const Device::Ptr device)
+{
+    if (static_cast<int>(DiskModelType::SystemDisk) == type) {
+        m_errorTip->hide();
+        m_delegate->addSystemDisk(device->path);
+    }
+    else {
+        m_delegate->addDataDisk(device->path);
+    }
+    m_delegate->formatWholeDeviceMultipleDisk();
+    m_diskPartitionWidget->setDevices(m_delegate->selectedDevices());
+
+    int index = DeviceIndex(m_delegate->virtual_devices(), m_delegate->selectedDisks()[0]);
+    if (-1 == index) {
+        return;
+    }
+    Device::Ptr tmpdevice = m_delegate->virtual_devices()[index];
+    emit currentDeviceChanged(tmpdevice);
 }
 
 }  // namespace installer

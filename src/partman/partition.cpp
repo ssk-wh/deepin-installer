@@ -17,6 +17,8 @@
 
 #include "partman/partition.h"
 
+#include <QRegularExpression>
+
 namespace installer {
 
 QDebug& operator<<(QDebug& debug, const PartitionType& partition_type) {
@@ -131,8 +133,14 @@ bool Partition::operator==(const Partition &other) const {
 }
 
 void Partition::changeNumber(int partition_number) {
-  this->partition_number = partition_number;
-  this->path = QString("%1%2").arg(this->device_path).arg(partition_number);
+    this->partition_number = partition_number;
+    QRegularExpression reg("^[0-9]*$");
+    if (reg.match(device_path.at(device_path.length() - 1)).hasMatch()) {
+        path = QString("%1p%2").arg(device_path).arg(partition_number);
+        return;
+    }
+
+    this->path = QString("%1%2").arg(this->device_path).arg(partition_number);
 }
 
 qint64 Partition::getByteLength() const {

@@ -64,11 +64,13 @@ int GetVisiblePages() {
   if (!GetSettingsBool(kSkipSelectLanguagePage)) {
     pages += 1;
   }
-
-  if (!GetSettingsBool(kSystemInfoSetupAfterReboot) || !GetSettingsBool(kSkipSystemInfoPage)) {
+  if (!GetSettingsBool(kSkipSelectComponentPage)) {
+      pages += 1;
+  }
+  if (!GetSettingsBool(kSystemInfoSetupAfterReboot) && !GetSettingsBool(kSkipSystemInfoPage)) {
     pages += 1;
   }
-  if (!GetSettingsBool(kSystemInfoSetupAfterReboot) || !GetSettingsBool(kSkipTimezonePage)) {
+  if (!GetSettingsBool(kSystemInfoSetupAfterReboot) && !GetSettingsBool(kSkipTimezonePage)) {
     pages += 1;
   }
   if (!GetSettingsBool(kSkipPartitionPage)) {
@@ -92,11 +94,9 @@ bool ReadErrorMsg(QString& msg, QString& encoded_msg) {
     return false;
   }
 
-  const QString stripped_msg =
-      raw_msg.right(GetSettingsInt(kInstallFailedErrMsgLen));
   const ReleaseVersion version = GetReleaseVersioin();
   msg = QString("%1\n%2, %3, %4")
-      .arg(stripped_msg)
+      .arg(raw_msg)
       .arg(kAppVersion)
       .arg(version.version)
       .arg(version.type);

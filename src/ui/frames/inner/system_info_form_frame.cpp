@@ -41,6 +41,12 @@
 #include "ui/widgets/title_label.h"
 
 namespace installer {
+
+namespace {
+    const int kSetRootPasswordCheckBoxWidth = 310;
+    const int kSetRootPasswordCheckBoxHeight = 36;
+}
+
 SystemInfoFormFrame::SystemInfoFormFrame(QWidget* parent)
     : QFrame(parent)
     , is_username_edited_(false)
@@ -48,6 +54,8 @@ SystemInfoFormFrame::SystemInfoFormFrame(QWidget* parent)
     , is_hostname_edited_manually_(false)
     , is_password_edited_(false)
     , is_password2_edited_(false)
+    , m_isRootPasswordEdited(false)
+    , m_isRootPasswordCheckEdited(false)
 {
     this->setObjectName("system_info_form_frame");
 
@@ -67,6 +75,7 @@ void SystemInfoFormFrame::writeConf()
     WriteUsername(username_edit_->text());
     WriteHostname(hostname_edit_->text());
     WritePassword(password_edit_->text());
+    WriteRootPassword(m_rootPasswordEdit->text());
 }
 
 void SystemInfoFormFrame::changeEvent(QEvent* event)
@@ -78,6 +87,9 @@ void SystemInfoFormFrame::changeEvent(QEvent* event)
         hostname_edit_->setPlaceholderText(tr("Computer name"));
         password_edit_->setPlaceholderText(tr("Password"));
         password_check_edit_->setPlaceholderText(tr("Confirm password"));
+        m_setRootPasswordCheck->setText(tr("Set root password"));
+        m_rootPasswordEdit->setPlaceholderText(tr("Password"));
+        m_rootPasswordCheckEdit->setPlaceholderText(tr("Confirm password"));
         next_button_->setText(tr("Next"));
         grub_password_check_->setText(tr("Use that password to edit boot menu"));
     }
@@ -107,6 +119,10 @@ void SystemInfoFormFrame::initConnections()
             &SystemInfoFormFrame::onPasswordEditingFinished);
     connect(password_check_edit_, &LineEdit::editingFinished, this,
             &SystemInfoFormFrame::onPassword2EditingFinished);
+    connect(m_rootPasswordEdit, &LineEdit::editingFinished, this
+            , &SystemInfoFormFrame::onRootPasswordEditingFinished);
+    connect(m_rootPasswordCheckEdit, &LineEdit::editingFinished, this
+            , &SystemInfoFormFrame::onRootPasswordCheckEditingFinished);
 
     connect(username_edit_, SIGNAL(returnPressed()), hostname_edit_,
             SLOT(setFocus()));
@@ -114,8 +130,14 @@ void SystemInfoFormFrame::initConnections()
             SLOT(setFocus()));
     connect(password_edit_, SIGNAL(returnPressed()), password_check_edit_,
             SLOT(setFocus()));
-    connect(password_check_edit_, &LineEdit::returnPressed, next_button_,
-            &QPushButton::click);
+    connect(password_check_edit_, SIGNAL(returnPressed()), next_button_,
+            SIGNAL(clicked()));
+    connect(m_setRootPasswordCheck, &QCheckBox::clicked, this
+            , &SystemInfoFormFrame::onSetRootPasswordCheckChanged);
+    connect(m_rootPasswordEdit, SIGNAL(returnPressed()), m_rootPasswordCheckEdit
+            , SLOT(setFocus()));
+    connect(m_rootPasswordCheckEdit, SIGNAL(returnPressed()), next_button_
+            , SIGNAL(clicked()));
 
     connect(username_edit_, &LineEdit::textEdited, this,
             &SystemInfoFormFrame::onEditingLineEdit);
@@ -133,6 +155,14 @@ void SystemInfoFormFrame::initConnections()
             &SystemInfoFormFrame::onEditingLineEdit);
     connect(password_check_edit_, &LineEdit::textEdited, this,
             &SystemInfoFormFrame::onPassword2Edited);
+    connect(m_rootPasswordEdit, &LineEdit::textEdited, this
+            , &SystemInfoFormFrame::onEditingLineEdit);
+    connect(m_rootPasswordEdit, &LineEdit::textEdited, this
+            , &SystemInfoFormFrame::onRootPasswordEdited);
+    connect(m_rootPasswordCheckEdit, &LineEdit::textEdited, this
+            , &SystemInfoFormFrame::onEditingLineEdit);
+    connect(m_rootPasswordCheckEdit, &LineEdit::textEdited, this
+            , &SystemInfoFormFrame::onRootPasswordCheckEdited);
 
     connect(KeyboardMonitor::instance(),
             &KeyboardMonitor::capslockStatusChanged, this,
@@ -172,10 +202,37 @@ void SystemInfoFormFrame::initUI()
     password_check_edit_->setText(password_edit_->text());
     password_check_edit_->setReadOnly(password_edit_->isReadOnly());
 
+    m_setRootPasswordCheck = new QCheckBox(tr("Set root password"), this);
+    m_setRootPasswordCheck->setCheckable(true);
+    m_setRootPasswordCheck->setChecked(false);
+    m_setRootPasswordCheck->setObjectName("RootPasswordCheckBox");
+
+    m_rootPasswordEdit = new LineEdit(":/images/password_12.svg");
+    m_rootPasswordEdit->setPlaceholderText(tr("Password"));
+    m_rootPasswordEdit->setEchoMode(QLineEdit::Password);
+    m_rootPasswordEdit->setText(GetSettingsString(kSystemInfoDefaultPassword));
+    m_rootPasswordEdit->setReadOnly(GetSettingsBool(kSystemInfoLockPassword));
+    QSizePolicy sp_retain = m_rootPasswordEdit->sizePolicy();
+    sp_retain.setRetainSizeWhenHidden(true);
+    m_rootPasswordEdit->setSizePolicy(sp_retain);
+    m_rootPasswordEdit->hide();
+
+    m_rootPasswordCheckEdit = new LineEdit(":/images/password_12.svg");
+    m_rootPasswordCheckEdit->setPlaceholderText(tr("Confirm password"));
+    m_rootPasswordCheckEdit->setEchoMode(QLineEdit::Password);
+    m_rootPasswordCheckEdit->setText(m_rootPasswordEdit->text());
+    m_rootPasswordCheckEdit->setReadOnly(m_rootPasswordEdit->isReadOnly());
+    sp_retain = m_rootPasswordCheckEdit->sizePolicy();
+    sp_retain.setRetainSizeWhenHidden(true);
+    m_rootPasswordCheckEdit->setSizePolicy(sp_retain);
+    m_rootPasswordCheckEdit->hide();
+
     m_editList.push_back(username_edit_);
     m_editList.push_back(hostname_edit_);
     m_editList.push_back(password_edit_);
     m_editList.push_back(password_check_edit_);
+    m_editList.push_back(m_rootPasswordEdit);
+    m_editList.push_back(m_rootPasswordCheckEdit);
 
     tooltip_ = new SystemInfoTip(this);
     tooltip_->hide();
@@ -201,6 +258,10 @@ void SystemInfoFormFrame::initUI()
     layout->addWidget(hostname_edit_, 0, Qt::AlignCenter);
     layout->addWidget(password_edit_, 0, Qt::AlignCenter);
     layout->addWidget(password_check_edit_, 0, Qt::AlignCenter);
+    m_setRootPasswordCheck->setFixedSize(kSetRootPasswordCheckBoxWidth, kSetRootPasswordCheckBoxHeight);
+    layout->addWidget(m_setRootPasswordCheck, 0, Qt::AlignCenter);
+    layout->addWidget(m_rootPasswordEdit, 0, Qt::AlignCenter);
+    layout->addWidget(m_rootPasswordCheckEdit, 0, Qt::AlignCenter);
     layout->addStretch();
     layout->addWidget(grub_password_check_, 0, Qt::AlignCenter);
     layout->addSpacing(10);
@@ -211,6 +272,7 @@ void SystemInfoFormFrame::initUI()
 
     this->setLayout(layout);
     this->setContentsMargins(0, 0, 0, 0);
+    this->setStyleSheet(ReadFile(":/styles/system_info_form_frame.css"));
 }
 
 bool SystemInfoFormFrame::validateUsername(QString& msg)
@@ -287,7 +349,7 @@ bool SystemInfoFormFrame::validateHostname(QString& msg)
     return true;
 }
 
-bool SystemInfoFormFrame::validatePassword(QString& msg)
+bool SystemInfoFormFrame::validatePassword(LineEdit* passwordEdit, QString& msg)
 {
 #ifndef QT_DEBUG
     const bool strong_pwd_check = GetSettingsBool(kSystemInfoPasswordStrongCheck);
@@ -298,7 +360,7 @@ bool SystemInfoFormFrame::validatePassword(QString& msg)
     int min_len = 1;
     int max_len = 16;
     if (strong_pwd_check) {
-        if (password_edit_->text().toLower() == username_edit_->text().toLower()) {
+        if (passwordEdit->text().toLower() == username_edit_->text().toLower()) {
             msg = tr("The password should be different from the username");
             return false;
         }
@@ -307,7 +369,7 @@ bool SystemInfoFormFrame::validatePassword(QString& msg)
     }
 
     const ValidatePasswordState state = ValidatePassword(
-        password_edit_->text(), min_len, max_len, strong_pwd_check);
+        passwordEdit->text(), min_len, max_len, strong_pwd_check);
 
     switch (state) {
         case ValidatePasswordState::EmptyError: {
@@ -345,15 +407,47 @@ void SystemInfoFormFrame::updateCapsLockState(bool capsLock)
     }
 }
 
-bool SystemInfoFormFrame::validatePassword2(QString& msg)
+bool SystemInfoFormFrame::validatePassword2(LineEdit* passwordEdit, LineEdit* passwordCheckEdit, QString& msg)
 {
-    if (password_edit_->text() != password_check_edit_->text()) {
+    if (passwordEdit->text() != passwordCheckEdit->text()) {
         msg = tr("Passwords do not match");
         return false;
     }
     else {
         return true;
     }
+}
+
+void SystemInfoFormFrame::systemInfoFrameFinish()
+{
+    tooltip_->hide();
+
+    // save config
+    WritePasswordStrong(GetSettingsBool(kSystemInfoPasswordStrongCheck));
+
+    if (grub_password_check_->isChecked()) {
+        QProcess process;
+        process.setProgram("grub-mkpasswd-pbkdf2");
+        process.start();
+        const QString password{ password_edit_->text() };
+        process.write(QString("%1\n%1\n").arg(password).toLatin1());
+        process.closeWriteChannel();
+        process.waitForFinished();
+
+        const QString& result = process.readAllStandardOutput();
+
+        QRegularExpression re("(?<=password is).*");
+        auto               match = re.match(result);
+
+        if (!match.isValid()) {
+            qWarning() << "not match grub password !!!!!!";
+        }
+
+        WriteGrubPassword(match.captured(0).replace(" ", ""));
+    }
+
+    // Emit finished signal when all form inputs are ok.
+    emit this->finished();
 }
 
 void SystemInfoFormFrame::onNextButtonClicked()
@@ -367,43 +461,29 @@ void SystemInfoFormFrame::onNextButtonClicked()
         tooltip_->setText(msg);
         tooltip_->showBottom(hostname_edit_);
     }
-    else if (!validatePassword(msg)) {
+    else if (!validatePassword(password_edit_, msg)) {
         tooltip_->setText(msg);
         tooltip_->showBottom(password_edit_);
     }
-    else if (!validatePassword2(msg)) {
+    else if (!validatePassword2(password_edit_, password_check_edit_, msg)) {
         tooltip_->setText(msg);
         tooltip_->showBottom(password_check_edit_);
     }
-    else {
-        tooltip_->hide();
-
-        // save config
-        WritePasswordStrong(GetSettingsBool(kSystemInfoPasswordStrongCheck));
-
-        if (grub_password_check_->isChecked()) {
-            QProcess process;
-            process.setProgram("grub-mkpasswd-pbkdf2");
-            process.start();
-            const QString password{ password_edit_->text() };
-            process.write(QString("%1\n%1\n").arg(password).toLatin1());
-            process.closeWriteChannel();
-            process.waitForFinished();
-
-            const QString& result = process.readAllStandardOutput();
-
-            QRegularExpression re("(?<=password is).*");
-            auto               match = re.match(result);
-
-            if (!match.isValid()) {
-                qWarning() << "not match grub password !!!!!!";
-            }
-
-            WriteGrubPassword(match.captured(0).replace(" ", ""));
+    else if (m_setRootPasswordCheck->isChecked()) {
+        if (!validatePassword(m_rootPasswordEdit, msg)) {
+            tooltip_->setText(msg);
+            tooltip_->showBottom(m_rootPasswordEdit);
         }
-
-        // Emit finished signal when all form inputs are ok.
-        emit this->finished();
+        else if (!validatePassword2(m_rootPasswordEdit, m_rootPasswordCheckEdit, msg)) {
+            tooltip_->setText(msg);
+            tooltip_->showBottom(m_rootPasswordCheckEdit);
+        }
+        else{
+            systemInfoFrameFinish();
+        }
+    }
+    else {
+        systemInfoFrameFinish();
     }
 }
 
@@ -474,7 +554,7 @@ void SystemInfoFormFrame::onPasswordEditingFinished()
     if (is_password_edited_) {
         is_password_edited_ = false;
         QString msg;
-        if (!validatePassword(msg)) {
+        if (!validatePassword(password_edit_, msg)) {
             tooltip_->setText(msg);
             tooltip_->showBottom(password_edit_);
         }
@@ -491,13 +571,68 @@ void SystemInfoFormFrame::onPassword2EditingFinished()
     if (is_password2_edited_) {
         is_password2_edited_ = false;
         QString msg;
-        if (!validatePassword(msg)) {
+        if (!validatePassword(password_edit_, msg)) {
             tooltip_->setText(msg);
             tooltip_->showBottom(password_edit_);
         }
-        else if (!validatePassword2(msg)) {
+        else if (!validatePassword2(password_edit_, password_check_edit_, msg)) {
             tooltip_->setText(msg);
             tooltip_->showBottom(password_check_edit_);
+        }
+    }
+}
+
+void SystemInfoFormFrame::onRootPasswordEdited()
+{
+    m_isRootPasswordEdited = true;
+}
+
+void SystemInfoFormFrame::onRootPasswordEditingFinished()
+{
+    if (m_isRootPasswordEdited) {
+        m_isRootPasswordEdited = false;
+        QString msg;
+        if (!validatePassword(m_rootPasswordEdit, msg)) {
+            tooltip_->setText(msg);
+            tooltip_->showBottom(m_rootPasswordEdit);
+        }
+    }
+}
+
+void SystemInfoFormFrame::onRootPasswordCheckEdited()
+{
+    m_isRootPasswordCheckEdited = true;
+}
+
+void SystemInfoFormFrame::onRootPasswordCheckEditingFinished()
+{
+    if (m_isRootPasswordCheckEdited) {
+        m_isRootPasswordCheckEdited = false;
+        QString msg;
+        if (!validatePassword(m_rootPasswordEdit, msg)) {
+            tooltip_->setText(msg);
+            tooltip_->showBottom(m_rootPasswordEdit);
+        }
+        else if (!validatePassword2(m_rootPasswordEdit, m_rootPasswordCheckEdit, msg)) {
+            tooltip_->setText(msg);
+            tooltip_->showBottom(m_rootPasswordCheckEdit);
+        }
+    }
+}
+
+void SystemInfoFormFrame::onSetRootPasswordCheckChanged(bool enable)
+{
+    if (enable) {
+        m_rootPasswordEdit->setFocus();
+        m_rootPasswordEdit->show();
+        m_rootPasswordCheckEdit->show();
+    }
+    else {
+        m_rootPasswordEdit->hide();
+        m_rootPasswordCheckEdit->hide();
+
+        if (tooltip_->isVisible()) {
+            tooltip_->hide();
         }
     }
 }

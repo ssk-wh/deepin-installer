@@ -553,6 +553,10 @@ AdvancedPartitionDelegate::createLogicalPartition(const Partition::Ptr partition
   }
   new_partition->changeNumber(partition_number);
 
+  if (fs_type == FsType::Recovery) {
+      settings_.recovery_path = partition->path;
+  }
+
   // space is required for the Extended Boot Record.
   // Generally an additional track or MebiByte is required so for
   // our purposes reserve a MebiByte in front of the partition->
@@ -686,6 +690,10 @@ AdvancedPartitionDelegate::createPrimaryPartition(const Partition::Ptr partition
   }
   new_partition->changeNumber(partition_number);
 
+  if (fs_type == FsType::Recovery) {
+      settings_.recovery_path = partition->path;
+  }
+
   // Check whether space is required for the Master Boot Record.
   // Generally an additional track or MebiByte is required so for
   // our purposes reserve a MebiByte in front of the partition->
@@ -749,7 +757,10 @@ void AdvancedPartitionDelegate::deletePartition(const Partition::Ptr partition) 
   new_partition->type         = PartitionType::Unallocated;
   new_partition->fs           = FsType::Empty;
   new_partition->status       = PartitionStatus::Delete;
+  new_partition->mount_point  = "";
 
+//TODO: Fix this bug using a pretty method!
+#ifdef QT_DEBUG
   if (partition->status == PartitionStatus::New) {
     // If status of old partition is New, there shall be a CreateOperation
     // which generates that partition-> Merge that CreateOperation
@@ -763,6 +774,7 @@ void AdvancedPartitionDelegate::deletePartition(const Partition::Ptr partition) 
             partition->type   = PartitionType::Unallocated;
             partition->fs     = FsType::Empty;
             partition->status = PartitionStatus::Delete;
+            partition->mount_point = "";
 
             qDebug() << "delete partition info: " << *partition.data();
 
@@ -783,10 +795,13 @@ void AdvancedPartitionDelegate::deletePartition(const Partition::Ptr partition) 
         }
     }
   } else {
+#endif
       Operation operation(OperationType::Delete, partition, new_partition);
       operations_.append(operation);
       qDebug() << "add delete operation" << *new_partition.data();
+#ifdef QT_DEBUG
   }
+#endif
 
   if (partition->type == PartitionType::Logical) {
     // Delete extended partition if needed.
@@ -864,6 +879,12 @@ void AdvancedPartitionDelegate::formatPartition(const Partition::Ptr partition,
   new_partition->mount_point = mount_point;
   new_partition->status = PartitionStatus::Format;
 
+  if (fs_type == FsType::Recovery) {
+      // Hide recovery partition
+      new_partition->flags << PartitionFlag::Hidden;
+      settings_.recovery_path = partition->path;
+  }
+
   Operation operation(OperationType::Format, partition, new_partition);
   operations_.append(operation);
 }
@@ -929,18 +950,23 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
   if (!IsMBRPreferred(real_devices_)) {
     // Enable EFI mode. First check newly created EFI partition-> If not found,
     // check existing EFI partition->
-    WriteUEFI(true);
+    settings_.uefi_required = true;
 
     if (esp_path.isEmpty()) {
       // We shall never reach here.
       qCritical() << "esp path is empty!";
     }
-    WritePartitionInfo(root_disk, root_path, esp_path, mount_points.join(';'));
+    settings_.root_disk = root_disk;
+    settings_.root_partition = root_path;
+    settings_.boot_partition = esp_path;
+    settings_.mount_points = mount_points.join(';');
   } else {
-    WriteUEFI(false);
+    settings_.uefi_required = false;
     // In legacy mode.
-    WritePartitionInfo(root_disk, root_path, bootloader_path_,
-                       mount_points.join(';'));
+    settings_.root_disk = root_disk;
+    settings_.root_partition = root_path;
+    settings_.boot_partition = bootloader_path_;
+    settings_.mount_points = mount_points.join(';');
   }
 
   // Create swap file if physical memory is less than 4Gib and
@@ -955,7 +981,8 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
   } else {
     use_swap_file = IsSwapAreaNeeded();
   }
-  WriteRequiringSwapFile(use_swap_file);
+  settings_.swap_file_required = use_swap_file;
+  WriteDiskPartitionSetting(settings_);
 }
 
 void AdvancedPartitionDelegate::refreshVisual() {
@@ -1053,6 +1080,11 @@ void AdvancedPartitionDelegate::updateMountPoint(const Partition::Ptr partition,
     Operation operation(OperationType::MountPoint, partition, new_partition);
     operations_.append(operation);
   }
+}
+
+const DiskPartitionSetting& AdvancedPartitionDelegate::settings() const
+{
+    return settings_;
 }
 
 }  // namespace installer

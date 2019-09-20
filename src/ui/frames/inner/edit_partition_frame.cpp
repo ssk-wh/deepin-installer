@@ -77,6 +77,7 @@ void EditPartitionFrame::setPartition(const Partition::Ptr partition) {
   // Update fs list.
   fs_model_->setShowEFI(!delegate_->isMBRPreferred());
   fs_model_->setShowUnknown(partition->fs == FsType::Unknown);
+  fs_model_->setShowRecovery(GetSettingsBool(kEnableRecoveryPartition));
 
   // Reset fs index.
   int fs_index = fs_model_->index(partition->fs);

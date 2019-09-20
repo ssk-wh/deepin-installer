@@ -88,6 +88,7 @@ void SystemInfoKeyboardFrame::writeConf() {
 void SystemInfoKeyboardFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     title_label_->setText(tr("Select keyboard layout"));
+    guide_label_->setText(tr("Please select a suitable keyboard layout"));
     test_edit_->setPlaceholderText(tr("Test area"));
     back_button_->setText(tr("Back"));
   } else {
@@ -107,6 +108,8 @@ void SystemInfoKeyboardFrame::initConnections() {
 
 void SystemInfoKeyboardFrame::initUI() {
   title_label_ = new TitleLabel(tr("Select keyboard layout"));
+  guide_label_ = new QLabel(tr("Please select a suitable keyboard layout"));
+  guide_label_->setObjectName("guide_label");
 
   layout_view_ = new FramelessListView();
   layout_view_->setObjectName("layout_view");
@@ -153,6 +156,8 @@ void SystemInfoKeyboardFrame::initUI() {
   layout->setSpacing(0);
   layout->addSpacing(kMainLayoutSpacing + 40);
   layout->addWidget(title_label_, 0, Qt::AlignCenter);
+  layout->addSpacing(kMainLayoutSpacing + 30);
+  layout->addWidget(guide_label_, 0, Qt::AlignCenter);
   layout->addSpacing(kMainLayoutSpacing + 30);
   layout->addWidget(keyboard_wrapper, 0, Qt::AlignHCenter);
   layout->addSpacing(10);

@@ -22,6 +22,11 @@
 
 #include "sysinfo/timezone.h"
 
+class QStackedLayout;
+class QHBoxLayout;
+class QPushButton;
+class QVBoxLayout;
+
 namespace installer {
 
 class CommentLabel;
@@ -29,6 +34,9 @@ class NavButton;
 class TimezoneManager;
 class TimezoneMap;
 class TitleLabel;
+class SystemDateFrame;
+class SelectTimeZoneFrame;
+class PointerButton;
 
 // Displays a world map to let user select timezone.
 class TimezoneFrame : public QFrame {
@@ -47,6 +55,9 @@ class TimezoneFrame : public QFrame {
   // Emitted when a new timezone is chosen.
   void timezoneUpdated(const QString& timezone);
 
+  // Emitted when select timezone in list.
+  void timezoneSet(const QString& timezone);
+
  public slots:
   // Read default timezone and emit timezoneUpdated() signal.
   void readConf();
@@ -63,6 +74,10 @@ class TimezoneFrame : public QFrame {
   // Remark current timezone when current frame is raised.
   void showEvent(QShowEvent* event) override;
 
+  void hideEvent(QHideEvent* event) override;
+
+  bool eventFilter(QObject *watched, QEvent *event) override;
+
  private:
   void initConnections();
   void initUI();
@@ -77,8 +92,19 @@ class TimezoneFrame : public QFrame {
 
   TitleLabel* title_label_ = nullptr;
   CommentLabel* comment_label_ = nullptr;
+  PointerButton* m_timezoneMapButton = nullptr;
+  PointerButton* m_timezoneListButton = nullptr;
   TimezoneMap* timezone_map_ = nullptr;
   NavButton* next_button_ = nullptr;
+  SystemDateFrame* m_systemDateFrame = nullptr;
+  SelectTimeZoneFrame* m_selectTimeZoneFrame = nullptr;
+  QStackedLayout* m_mapOrListStackedLayout = nullptr;
+  QVBoxLayout* m_upLayout = nullptr;
+  QHBoxLayout* m_bottomLayout = nullptr;
+  QPushButton* m_setTimePushButton = nullptr;
+
+  QWidget* m_timezonePage = nullptr;
+  QStackedLayout* m_stackedLayout = nullptr;
 
   // Priority of timezone: User > Conf > Scan
   enum class TimezoneSource {
@@ -98,6 +124,13 @@ class TimezoneFrame : public QFrame {
 
   // Update timezone after a new one has been chosen by user.
   void onTimezoneMapUpdated(const QString& timezone);
+
+  void onTimezoneMapButtonClicked();
+  void onTimezoneListButtonClicked();
+
+  void onSelectTimezoneUpdated(const QString& timezone);
+
+  void onSetTimePushButtonClicked();
 };
 
 }  // namespace installer

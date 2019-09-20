@@ -28,10 +28,13 @@ class QGridLayout;
 class QLabel;
 class QShowEvent;
 class QCheckBox;
+class QStackedLayout;
 
 namespace installer {
 
 class FullDiskDelegate;
+class FullDiskPartitionWidget;
+class MultipleDiskInstallationWidget;
 
 class FullDiskFrame : public QFrame {
     Q_OBJECT
@@ -71,11 +74,15 @@ private:
     QFrame*           m_grid_wrapper = nullptr;
     QCheckBox*        m_encryptCheck = nullptr;
     QLabel*           m_errorTip     = nullptr;
+    FullDiskPartitionWidget* m_diskPartitionWidget = nullptr;
+    MultipleDiskInstallationWidget* m_diskInstallationWidget = nullptr;
+    QStackedLayout*      m_disk_layout  = nullptr;
     std::list<std::pair<std::function<void (QString)>, QString>> m_trList;
 
 public slots:
     void onDeviceRefreshed();
     void onPartitionButtonToggled(QAbstractButton* button, bool checked);
+    void onCurrentDeviceChanged(int type, const Device::Ptr device);
 };
 
 }  // namespace installer

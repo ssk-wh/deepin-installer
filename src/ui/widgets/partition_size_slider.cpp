@@ -18,7 +18,7 @@
 #include "ui/widgets/partition_size_slider.h"
 
 #include <QHBoxLayout>
-#include <QIntValidator>
+#include <QRegExpValidator>
 #include <QLabel>
 #include <QLineEdit>
 #include <QSlider>
@@ -54,7 +54,6 @@ void PartitionSizeSlider::setMaximum(qint64 maximum_size) {
   const int mebi_size = static_cast<int>(maximum_size / kMebiByte);
   slider_->setMaximum(mebi_size);
   slider_->setValue(mebi_size);
-  int_validator_->setRange(slider_->minimum(), mebi_size);
 }
 
 void PartitionSizeSlider::setMinimum(qint64 minimum_size) {
@@ -65,7 +64,6 @@ void PartitionSizeSlider::setMinimum(qint64 minimum_size) {
   // Convert bytes to mebibytes.
   const int mebi_size = static_cast<int>(min_size / kMebiByte);
   slider_->setMinimum(mebi_size);
-  int_validator_->setRange(mebi_size, slider_->maximum());
 }
 
 void PartitionSizeSlider::setValue(qint64 size) {
@@ -76,6 +74,7 @@ void PartitionSizeSlider::setValue(qint64 size) {
   // Convert to mebibytes.
   const int mebi_size = static_cast<int>(real_size / kMebiByte);
   slider_->setValue(mebi_size);
+  editor_->setText(QString("%1").arg(mebi_size));
 }
 
 void PartitionSizeSlider::initConnection() {
@@ -92,9 +91,7 @@ void PartitionSizeSlider::initUI() {
 
   editor_ = new QLineEdit();
   editor_->setObjectName("editor");
-  int_validator_ = new QIntValidator(editor_);
-  int_validator_->setRange(0, 1);
-  editor_->setValidator(int_validator_);
+  editor_->setValidator(new QRegExpValidator(QRegExp("[0-9]*")));
   editor_->setFixedWidth(68);
   // Disable context menu.
   editor_->setContextMenuPolicy(Qt::NoContextMenu);
@@ -118,8 +115,14 @@ void PartitionSizeSlider::initUI() {
 
 void PartitionSizeSlider::onEditorTextChanged(const QString& text) {
   bool ok;
-  const int value = text.toInt(&ok);
+  int value = text.toInt(&ok);
   if (ok) {
+    const int tmp = static_cast<int>(maximum_size_ / kMebiByte);
+    if(value > tmp){
+      value = tmp;
+      editor_->setText(QString::number(value));
+    }
+
     // Block value-changed signal of slider to hold cursor position in editor.
     slider_->blockSignals(true);
     slider_->setValue(value);

@@ -141,3 +141,13 @@ slide 目录的结果应该与 resources/slide 目录相同.
 ## 服务器版自动激活
 可以把生成的 license.key 放到 oem/ 目录里, 在安装时就会使用这个 key 文件激活
 服务器版的系统.
+
+## 自定义用户授权协议文件
+* 将自定义用户授权协议文件放到 oem/license目录中
+* 在安装时会使用这里的用户授权协议文件
+* 文件名格式为XXXXXXX_YYYYY.txt
+* 例子：OEM-End-User-License_en_US.txt
+* XXXXXXX：显示在语言选择界面中，此例为OEM-End-User-License
+* YYYYY格式类似于zh_CN和en_US等，此例为en_US
+* 必须至少提供一个en_US语言的自定义用户授权协议文件
+* 文件名格式不符合要求的暂不支持。字母区分大小写。

@@ -95,11 +95,11 @@ void SystemInfoFrame::initUI() {
   keyboard_button_->setFlat(true);
   keyboard_button_->setFixedHeight(23);
 
-  head_layout_ = new QHBoxLayout();
-  head_layout_->setContentsMargins(30, 0, 0, 0);
-  head_layout_->setSpacing(30);
-  head_layout_->addWidget(keyboard_button_);
-  head_layout_->addStretch();
+  bottom_layout_ = new QHBoxLayout();
+  bottom_layout_->setContentsMargins(30, 0, 0, 0);
+  bottom_layout_->setSpacing(30);
+  bottom_layout_->addWidget(keyboard_button_);
+  bottom_layout_->addStretch();
 
   avatar_frame_ = new SystemInfoAvatarFrame();
   form_frame_ = new SystemInfoFormFrame();
@@ -115,8 +115,8 @@ void SystemInfoFrame::initUI() {
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
   layout->setSpacing(0);
-  layout->addLayout(head_layout_);
   layout->addLayout(stacked_layout_);
+  layout->addLayout(bottom_layout_);
 
   this->setLayout(layout);
   this->setContentsMargins(0, 0, 0, 0);

@@ -24,7 +24,9 @@ Build-Depends:
     zlib1g-dev,
     libqt5svg5-dev,
     libdtkcore-dev,
-    libdtkcore-bin
+    libdtkcore5-bin | libdtkcore-bin,
+    libudisks2-qt5-dev,
+    libqapt-dev
 Standards-Version: 3.9.8
 Homepage: http://www.deepin.org
 
@@ -59,7 +61,11 @@ Depends:
     x11-xserver-utils,
     xfsprogs [i386 amd64],
     xinit,
-    xkb-data
+    xkb-data,
+    deepin-clone,
+    cryptsetup,
+    lvm2,
+    dde-account-faces
 Description: Release version of deepin installer
  New version of deepin-installer, rewritten with Qt5.
 

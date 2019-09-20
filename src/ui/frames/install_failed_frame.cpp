@@ -20,6 +20,9 @@
 #include <QEvent>
 #include <QLabel>
 #include <QVBoxLayout>
+#include <QScrollArea>
+#include <QScrollBar>
+#include <QScroller>
 
 #include "base/file_util.h"
 #include "ui/delegates/main_window_util.h"
@@ -51,7 +54,7 @@ InstallFailedFrame::InstallFailedFrame(QWidget* parent) : QFrame(parent) {
   this->initConnections();
 
   // Show QR widget by default.
-  content_label_->hide();
+  m_scrollArea->hide();
 }
 
 void InstallFailedFrame::updateMessage() {
@@ -86,6 +89,8 @@ void InstallFailedFrame::initConnections() {
           this, &InstallFailedFrame::onControlButtonClicked);
   connect(reboot_button_, &QPushButton::clicked,
           this, &InstallFailedFrame::finished);
+  connect(save_log_button_, &NavButton::clicked,
+          this, &InstallFailedFrame::showSaveLogFrame);
 }
 
 void InstallFailedFrame::initUI() {
@@ -99,14 +104,39 @@ void InstallFailedFrame::initUI() {
   comment_layout->setSpacing(0);
   comment_layout->addWidget(comment_label_);
 
+  content_label_ = new QLabel();
+  content_label_->setObjectName("content_label");
+  content_label_->setWordWrap(true);
+  content_label_->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+
+  QVBoxLayout* labelLayout = new QVBoxLayout;
+  labelLayout->setMargin(0);
+  labelLayout->addWidget(content_label_);
+
+  QWidget* labelWidget = new QWidget;
+  labelWidget->setLayout(labelLayout);
+
   QFrame* content_frame = new QFrame();
   content_frame->setObjectName("content_frame");
   content_frame->setFixedSize(kContentWindowWidth, kContentWindowHeight);
-  content_label_ = new QLabel(content_frame);
-  content_label_->setObjectName("content_label");
-  content_label_->setFixedSize(kContentWindowWidth, kContentWindowHeight);
-  content_label_->setWordWrap(true);
-  content_label_->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+
+  m_scrollArea = new QScrollArea(content_frame);
+  m_scrollArea->setWidget(labelWidget);
+  m_scrollArea->setObjectName("scrollarea");
+  m_scrollArea->setWidgetResizable(true);
+  m_scrollArea->setFocusPolicy(Qt::NoFocus);
+  m_scrollArea->setFrameStyle(QFrame::NoFrame);
+  m_scrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+  m_scrollArea->setContentsMargins(0, 0, 0, 0);
+  m_scrollArea->setFixedWidth(kContentWindowWidth - kControlButtonSize - 2);
+  m_scrollArea->setFixedHeight(kContentWindowHeight);
+  m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+  m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+  m_scrollArea->setContextMenuPolicy(Qt::NoContextMenu);
+  m_scrollArea->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+  m_scrollArea->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+  m_scrollArea->setStyleSheet("background: transparent;");
+  QScroller::grabGesture(m_scrollArea, QScroller::TouchGesture);
 
   qr_widget_ = new QRWidget(content_frame);
   qr_widget_->setMargin(kQrMargin);
@@ -122,6 +152,7 @@ void InstallFailedFrame::initUI() {
   control_button_->move(kContentWindowWidth - kControlButtonSize, 0);
 
   reboot_button_ = new NavButton(tr("Exit installation"));
+  save_log_button_ = new NavButton(tr("Save Log"));
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
@@ -133,6 +164,7 @@ void InstallFailedFrame::initUI() {
   layout->addStretch();
   layout->addWidget(content_frame, 0, Qt::AlignCenter);
   layout->addStretch();
+  layout->addWidget(save_log_button_, 0, Qt::AlignCenter);
   layout->addWidget(reboot_button_, 0, Qt::AlignCenter);
 
   this->setLayout(layout);
@@ -141,14 +173,14 @@ void InstallFailedFrame::initUI() {
 }
 
 void InstallFailedFrame::onControlButtonClicked() {
-  // Toggle visibility of content_label and qr_widget_.
-  if (content_label_->isVisible()) {
-    content_label_->setVisible(false);
-    qr_widget_->setVisible(true);
-  } else {
-    content_label_->setVisible(true);
-    qr_widget_->setVisible(false);
-  }
+    // Toggle visibility of m_scrollArea and qr_widget_.
+    if (m_scrollArea->isVisible()) {
+        m_scrollArea->setVisible(false);
+        qr_widget_->setVisible(true);
+    } else {
+        m_scrollArea->setVisible(true);
+        qr_widget_->setVisible(false);
+    }
 }
 
 }  // namespace installer

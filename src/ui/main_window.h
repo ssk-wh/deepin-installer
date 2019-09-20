@@ -20,6 +20,8 @@
 
 #include <QWidget>
 #include <QHash>
+#include <QMap>
+
 class QLabel;
 class QPushButton;
 class QResizeEvent;
@@ -45,6 +47,8 @@ class LanguageFrame;
 class SystemInfoFrame;
 class TimezoneFrame;
 class VirtualMachineFrame;
+class SaveInstallFailedLogFrame;
+class SelectInstallComponentFrame;
 
 // MainWindow is a fullscreen window of deepin-installer.
 // All of ui frames are placed in MainWindow.
@@ -92,6 +96,7 @@ private:
       TimezoneId,
       VirtualMachineId,
       UserAgreementId,
+      SelectComponentId
   };
 
   void initConnections();
@@ -106,8 +111,10 @@ private:
   void setCurrentPage(PageId page_id);
 
   void updateBackground();
+  void backPage();
 
   QLabel* background_label_ = nullptr;
+  QPushButton* back_button_ = nullptr;
   QPushButton* close_button_ = nullptr;
   PageIndicator* page_indicator_ = nullptr;
   // All of frame pages are stored in this layout.
@@ -127,9 +134,12 @@ private:
   TimezoneFrame* timezone_frame_ = nullptr;
   VirtualMachineFrame* virtual_machine_frame_ = nullptr;
   MultiHeadManager* multi_head_manager_ = nullptr;
+  SaveInstallFailedLogFrame* save_failedLog_frame_ = nullptr;
+  SelectInstallComponentFrame* m_selectComponentFrame = nullptr;
 
   // To store frame pages, page_name => page_id.
   QHash<PageId, int> pages_;
+  QList<QWidget*> m_old_frames;
 
   // Keep previous page id. It is used by ConfirmQuitPage.
   PageId prev_page_;
@@ -161,6 +171,7 @@ private:
   void goNextPage();
   void rebootSystem();
   void shutdownSystem();
+  void showSaveLogFrame();
 };
 
 }  // namespace installer

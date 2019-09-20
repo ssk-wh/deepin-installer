@@ -75,15 +75,31 @@ const QString TimezoneMap::getTimezone() const {
 }
 
 void TimezoneMap::setTimezone(const QString& timezone) {
-  nearest_zones_.clear();
+  setTimezoneData(timezone);
+  remark();
+}
+
+void TimezoneMap::setTimezoneData(const QString& timezone) {
   const int index = GetZoneInfoByZone(total_zones_, timezone);
   if (index > -1) {
     current_zone_ = total_zones_.at(index);
+    nearest_zones_.clear();
     nearest_zones_.append(current_zone_);
-    this->remark();
   } else {
     qWarning() << "Timezone not found:" << timezone;
   }
+}
+
+void TimezoneMap::hideMark()
+{
+    popup_window_->hide();
+    zone_pin_->hide();
+    dot_->hide();
+}
+
+void TimezoneMap::showMark()
+{
+    remark();
 }
 
 void TimezoneMap::mousePressEvent(QMouseEvent* event) {
@@ -124,7 +140,11 @@ void TimezoneMap::initConnections() {
 }
 
 void TimezoneMap::initUI() {
-  QLabel* background_label = new QLabel(this);
+  QHBoxLayout *layout = new QHBoxLayout;
+  layout->setMargin(0);
+  layout->setSpacing(0);
+
+  QLabel* background_label = new QLabel;
   background_label->setObjectName("background_label");
   QPixmap timezone_pixmap = std::move(installer::renderPixmap(kTimezoneMapFile));
   Q_ASSERT(!timezone_pixmap.isNull());
@@ -150,8 +170,8 @@ void TimezoneMap::initUI() {
   popup_window_ = new PopupMenu(this->parentWidget());
   popup_window_->hide();
 
-  this->setContentsMargins(0, 0, 0, 0);
-  this->setFixedSize(timezone_pixmap.size() / devicePixelRatioF());
+  layout->addWidget(background_label);
+  setLayout(layout);
 }
 
 void TimezoneMap::popupZoneWindow(const QPoint& pos) {
@@ -164,7 +184,7 @@ void TimezoneMap::popupZoneWindow(const QPoint& pos) {
   QStringList zone_names;
   const QString locale = ReadLocale();
   for (const ZoneInfo& zone : nearest_zones_) {
-    zone_names.append(GetLocalTimezoneName(zone.timezone, locale));
+    zone_names.append(GetLocalTimezoneName(zone.timezone, locale).second);
   }
 
   // Show popup window above dot
@@ -178,6 +198,8 @@ void TimezoneMap::popupZoneWindow(const QPoint& pos) {
   // Add 8px margin.
   const QPoint popup_pos(parent_pos.x(), parent_pos.y() - half_height - 8);
   popup_window_->popup(popup_pos);
+  popup_window_->raise();
+  popup_window_->show();
 
   const QPoint dot_pos(parent_pos.x() - half_width,
                        parent_pos.y() - half_height);
@@ -197,8 +219,7 @@ void TimezoneMap::remark() {
   Q_ASSERT(!nearest_zones_.isEmpty());
   if (!nearest_zones_.isEmpty()) {
     const QString locale = ReadLocale();
-    zone_pin_->setText(GetLocalTimezoneName(current_zone_.timezone, locale));
-
+    zone_pin_->setText(GetLocalTimezoneName(current_zone_.timezone, locale).second);
     // Adjust size of pin to fit its content.
     zone_pin_->adjustSize();
 

@@ -82,9 +82,16 @@ declare -a EXISTING_UNUSED_PKGS
 for pkg in ${UNUSED_PKGS[@]}; do
   dpkg -l | grep -q $pkg && EXISTING_UNUSED_PKGS+=($pkg)
 done
-msg "Remove packages: ${EXISTING_UNUSED_PKGS[@]}"
-apt-get -y purge ${EXISTING_UNUSED_PKGS[@]}
-apt-get -y autoremove --purge
+
+append_package_to_uninstall() {
+    local list=$(installer_get "DI_UNINSTALL_PACKAGES")
+    list="${list} ${EXISTING_UNUSED_PKGS[@]}"
+    installer_set "DI_UNINSTALL_PACKAGES" "${list}"
+}
+
+if [ x$(installer_get "system_info_setup_after_reboot") == "xtrue" ]; then
+    append_package_to_uninstall
+fi
 
 # Returns 0 explicitly, because apt-get --purge might returns error if package
 # dependency does not fit.

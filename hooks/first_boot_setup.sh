@@ -33,6 +33,27 @@ CONF_FILE=/etc/deepin-installer.conf
 . ./in_chroot/52_setup_locale_timezone.job
 . ./in_chroot/53_setup_user.job
 . ./in_chroot/55_customize_user.job
+. ./in_chroot/91_remove_unused_packages.job
+
+add_uninstall_package() {
+    local package=${1}
+    local result=$(dpkg -l | grep "\\s${package}" | awk '{print $2}' | awk -F: '{print $1}' | grep "^${package}$" | wc -l)
+    if [ ${result} == "1" ];then
+      local list=$(installer_get "DI_UNINSTALL_PACKAGES")
+      list="${list} $package"
+      installer_set "DI_UNINSTALL_PACKAGES" "${list}"
+    fi
+}
+
+# Remove component packages
+remove_component_packages() {
+  local DI_COMPONENT_UNINSTALL=$(installer_get "DI_COMPONENT_UNINSTALL")
+  if [ ! -z "${DI_COMPONENT_UNINSTALL}" ];then
+    local list=$(installer_get "DI_UNINSTALL_PACKAGES")
+    list="${list} ${DI_COMPONENT_UNINSTALL}"
+    installer_set "DI_UNINSTALL_PACKAGES" "${list}"
+  fi
+}
 
 # Check whether btrfs filesystem is used in machine.
 detect_btrfs() {
@@ -42,16 +63,25 @@ detect_btrfs() {
   return 1
 }
 
-# Purge installer package
-uninstall_installer() {
-  # NOTE(xushaohua): Remove dependencies of installer by hand.
-  # Until state of packages are correctly marked in ISO.
-  if detect_btrfs; then
-    apt-get -y purge deepin-installer tshark wireshark-common
-  else
-    apt-get -y purge deepin-installer btrfs-tools tshark wireshark-common
+# Purge packages
+uninstall_packages() {
+  local DI_RECOVERY_PATH=$(installer_get "DI_RECOVERY_PATH")
+  if [ ! -z ${DI_RECOVERY_PATH} ];then
+    add_uninstall_package "deepin-clone"
   fi
-  apt-get -y autoremove --purge
+
+  if detect_btrfs; then
+   add_uninstall_package "deepin-installer"
+   add_uninstall_package "tshark wireshark-common"
+  else
+    add_uninstall_package "deepin-installer"
+    add_uninstall_package "btrfs-tools"
+    add_uninstall_package "tshark"
+    add_uninstall_package "wireshark-common"
+  fi
+
+  local list=$(installer_get "DI_UNINSTALL_PACKAGES")
+  apt-get -y purge ${list} --autoremove
 }
 
 # Replace lightdm.conf with lightdm.conf.real.
@@ -61,6 +91,14 @@ cleanup_lightdm_deepin_installer() {
   if [ -f "${TEMP_CONF_FILE}" ]; then
     mv -f "${TEMP_CONF_FILE}" "${CONF_FILE}"
   fi
+}
+
+# see after_chroot/88_copy_oem_license.job
+cleanup_oem_license() {
+	local OEM_LICENSE=/oem_license
+	if [ -d "${OEM_LICENSE}" ]; then
+		rm -rf "${OEM_LICENSE}"
+	fi
 }
 
 cleanup_first_boot() {
@@ -74,6 +112,14 @@ cleanup_first_boot() {
     # See in_chroot/generate_reboot_setup_file.job for more info.
     cleanup_lightdm_deepin_installer
   fi
+}
+
+setup_default_target() {
+    if [ -f /usr/sbin/lightdm ]; then
+        systemctl set-default -f graphical.target
+    else
+        systemctl set-default -f multi-user.target
+    fi
 }
 
 main() {
@@ -91,8 +137,11 @@ main() {
   customize_user
 
   sync
+  cleanup_oem_license
   cleanup_first_boot
-  uninstall_installer
+  remove_component_packages
+  setup_default_target
+  uninstall_packages # 这必须是最后一步！
   sync
 }
 

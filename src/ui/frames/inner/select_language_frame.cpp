@@ -34,14 +34,16 @@
 #include "ui/models/language_list_model.h"
 #include "ui/views/frameless_list_view.h"
 #include "ui/widgets/nav_button.h"
+#include "ui/delegates/user_agreement_delegate.h"
 #include "ui/utils/widget_util.h"
 
 namespace installer {
 
-SelectLanguageFrame::SelectLanguageFrame(QWidget* parent)
+SelectLanguageFrame::SelectLanguageFrame(UserAgreementDelegate * delegate, QWidget* parent)
     : QFrame(parent),
       lang_(),
-      current_translator_(new QTranslator(this)) {
+      current_translator_(new QTranslator(this)),
+      user_license_delegate_(delegate) {
   this->setObjectName("select_language_frame");
 
   this->initUI();
@@ -93,7 +95,23 @@ bool SelectLanguageFrame::eventFilter(QObject* obj, QEvent* event) {
         }
     }
 
+    if ( oem_license_label_ != nullptr && obj == oem_license_label_) {
+        switch (event->type()) {
+            case QEvent::MouseButtonRelease: emit requestShowOemUserLicense(); break;
+            case QEvent::Enter: setCursor(QCursor(Qt::PointingHandCursor)); break;
+            case QEvent::Leave: setCursor(QCursor(Qt::ArrowCursor)); break;
+            default: break;
+        }
+    }
+
     return QObject::eventFilter(obj, event);
+}
+
+void SelectLanguageFrame::showEvent(QShowEvent *event)
+{
+    language_view_->setFocus();
+
+    QFrame::showEvent(event);
 }
 
 void SelectLanguageFrame::initConnections() {
@@ -145,14 +163,27 @@ void SelectLanguageFrame::initUI() {
   license_label_->setObjectName("LicenseLabel");
   license_label_->installEventFilter(this);
 
+  if (user_license_delegate_->isLicenseDirExists()) {
+      oem_and_label_ = new QLabel;
+      oem_and_label_->setObjectName("OemAndLabel");
+      oem_license_label_ = new QLabel;
+      oem_license_label_->setObjectName("LicenseLabel");
+      oem_license_label_->installEventFilter(this);
+  }
+
   QHBoxLayout *license_layout = new QHBoxLayout;
   license_layout->setMargin(0);
   license_layout->setSpacing(5);
   license_layout->addStretch();
   license_layout->addWidget(accept_license_);
   license_layout->addWidget(license_label_);
-  license_layout->addStretch();
 
+  if (nullptr != oem_license_label_) {
+    license_layout->addWidget(oem_and_label_);
+    license_layout->addWidget(oem_license_label_);
+  }
+
+  license_layout->addStretch();
   next_button_ = new NavButton(tr("Next"));
   next_button_->setEnabled(false);
 
@@ -167,6 +198,7 @@ void SelectLanguageFrame::initUI() {
   layout->addWidget(language_view_, 0, Qt::AlignHCenter);
   layout->addSpacing(20);
   layout->addLayout(license_layout);
+
   layout->addSpacing(20);
   layout->addWidget(next_button_, 0, Qt::AlignCenter);
 
@@ -183,6 +215,7 @@ void SelectLanguageFrame::updateTranslator(const QString& locale) {
     qApp->removeTranslator(current_translator_);
   }
   const QString locale_file(GetLocalePath(locale));
+//  qDebug() << current_translator_->
   if (current_translator_->load(locale_file)) {
     if (!qApp->installTranslator(current_translator_)) {
       qWarning() << "Failed to update ui language at:" << locale_file;
@@ -196,6 +229,15 @@ void SelectLanguageFrame::updateTs() {
   next_button_->setText(tr("Next"));
   accept_license_->setText(tr("I have read and agree to"));
   license_label_->setText(tr("Deepin Software End User License Agreement"));
+
+  if( oem_license_label_ != nullptr) {
+    oem_and_label_->setText(tr("and"));
+    QString localeName { installer::ReadLocale() };
+    LicenseItem license_item = user_license_delegate_->getPrimaryAdaptiveLicense(localeName);
+    if(license_item.isValid()) {
+        oem_license_label_->setText(license_item.basicName());
+    }
+  }
 }
 
 void SelectLanguageFrame::onLanguageListSelected(const QModelIndex& current)

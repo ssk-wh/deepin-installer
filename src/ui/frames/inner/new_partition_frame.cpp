@@ -173,6 +173,8 @@ void NewPartitionFrame::initUI() {
   fs_model_ = new FsModel(delegate_->getFsTypeList(), fs_box_);
   fs_box_->setModel(fs_model_);
 
+  fs_model_->setShowRecovery(GetSettingsBool(kEnableRecoveryPartition));
+
   mount_point_label_ = new QLabel(tr("Mount point"));
   mount_point_label_->setObjectName("mount_point_label");
   mount_point_box_ = new TableComboBox();
@@ -267,7 +269,18 @@ void NewPartitionFrame::updateSlideSize() {
     size_slider_->blockSignals(true);
     size_slider_->setValue(real_size);
     size_slider_->blockSignals(false);
-  } else {
+  }
+  else if (fs_type == FsType::Recovery) {
+      const qint64 default_size = GetSettingsInt(kRecoveryDefaultSize) * kGibiByte;
+      const qint64 real_size    = qMin(default_size, partition_->getByteLength());
+      size_slider_->setMinimum(real_size);
+
+      // Block size_slider_ from emitting signals.
+      size_slider_->blockSignals(true);
+      size_slider_->setValue(real_size);
+      size_slider_->blockSignals(false);
+  }
+  else {
     // Reset minimum value of size_slider_.
     size_slider_->setMinimum(kMinimumPartitionSize);
 

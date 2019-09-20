@@ -35,6 +35,8 @@ namespace {
 // Absolute path to hook_manager.sh
 const char kHookManagerFile[] = BUILTIN_HOOKS_DIR "/hook_manager.sh";
 
+#define DEVICE_IS_READ_ONLY  (1)
+
 // Get flags of |lp_partition|.
 PartitionFlags GetPartitionFlags(PedPartition* lp_partition) {
   Q_ASSERT(lp_partition);
@@ -236,11 +238,30 @@ void PartitionManager::doManualPart(const OperationList& operations) {
   emit this->manualPartDone(ok, devices);
 }
 
+void EnableVG(bool enable) {
+   const QString cmd { "vgchange" };
+   const QStringList args { "-a", enable ? "y" : "n" };
+   QString output { "" };
+   QString error  { "" };
+   if (!SpawnCmd(cmd, args, output, error)) {
+       qWarning() << QString("EnableVG:Failed to enable vg(%1)").arg(enable);
+       if (!error.isEmpty()) {
+            qWarning() << QString("EnableVG:{%1}").arg(error);
+       }
+   }
+   if (!output.isEmpty()) {
+       qInfo() << QString("EnableVG:{%1}").arg(output);
+   }
+}
+
 DeviceList ScanDevices(bool enable_os_prober) {
+  // 0. Disable VG device
   // 1. List Devices
   // 1.1. Retrieve metadata of each device->
   // 2. List partitions of each device->
   // 3. Retrieve partition metadata.
+
+   EnableVG(false);
 
   // Let libparted detect all devices and construct device list.
   ped_device_probe_all();
@@ -273,6 +294,33 @@ DeviceList ScanDevices(bool enable_os_prober) {
       lp_device != nullptr;
       lp_device = ped_device_get_next(lp_device)) {
     PedDiskType* disk_type = ped_disk_probe(lp_device);
+
+    qInfo() << QString("DEVICE#:path:{%1} model:{%2} type:{%3}:{%4} sec:{%5}:{%6} len:{%7}: ro:{%8}")
+                .arg(lp_device->path)
+                .arg(lp_device->model)
+                .arg(lp_device->type)
+                .arg(disk_type != nullptr ? disk_type->name : "nullptr")
+                .arg(lp_device->sector_size)
+                .arg(lp_device->phys_sector_size)
+                .arg(lp_device->length)
+                .arg(lp_device->read_only);
+
+    if (DEVICE_IS_READ_ONLY == lp_device->read_only) {
+        qInfo() << QString("IGNORED:by readonly:{%1}, path:{%2}")
+                   .arg(lp_device->read_only)
+                   .arg(lp_device->path);
+        continue;
+    }
+
+#ifndef QT_DEBUG
+    if (PED_DEVICE_LOOP == lp_device->type) {
+        qInfo() << QString("IGNORED:by type:{%1} path:{%2}")
+                   .arg(lp_device->type)
+                   .arg(lp_device->path);
+        continue;
+    }
+#endif
+
     Device::Ptr device(new Device);
     if (disk_type == nullptr) {
       // Current device has no partition table.
@@ -284,10 +332,13 @@ DeviceList ScanDevices(bool enable_os_prober) {
       } else if (disk_type_name == kPartitionTableMsDos) {
         device->table = PartitionTableType::MsDos;
       }
+#ifdef QT_DEBUG
       else if (disk_type_name == kPartitionLoop) {
         device->table = PartitionTableType::Others;
         qDebug() << "add device: " << disk_type_name << lp_device->path;
-      } else {
+      }
+#endif
+      else {
         // Ignores other type of device->
         qWarning() << "Ignores other type of device:" << lp_device->path
                    << disk_type->name;

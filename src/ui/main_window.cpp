@@ -48,6 +48,8 @@
 #include "ui/frames/system_info_frame.h"
 #include "ui/frames/timezone_frame.h"
 #include "ui/frames/virtual_machine_frame.h"
+#include "ui/frames/saveinstallfailedlogframe.h"
+#include "ui/frames/install_component_frame.h"
 
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/page_indicator.h"
@@ -138,7 +140,9 @@ void MainWindow::resizeEvent(QResizeEvent* event) {
 
 void MainWindow::initConnections() {
   connect(confirm_quit_frame_, &ConfirmQuitFrame::quitCancelled,
-          this, &MainWindow::goNextPage);
+          this, [=](){
+             setCurrentPage(prev_page_);
+          });
   connect(confirm_quit_frame_, &ConfirmQuitFrame::quitConfirmed,
           this, &MainWindow::shutdownSystem);
 
@@ -157,6 +161,9 @@ void MainWindow::initConnections() {
   connect(install_failed_frame_, &InstallFailedFrame::finished,
           this, &MainWindow::shutdownSystem);
 
+  connect(install_failed_frame_, &InstallFailedFrame::showSaveLogFrame,
+          this, &MainWindow::showSaveLogFrame);
+
   connect(install_progress_frame_, &InstallProgressFrame::finished,
           this, &MainWindow::goNextPage);
 
@@ -167,7 +174,6 @@ void MainWindow::initConnections() {
       connect(install_success_frame_, &InstallSuccessFrame::finished,
               this, &MainWindow::rebootSystem);
   }
-
   connect(partition_frame_, &PartitionFrame::reboot,
           this, &MainWindow::rebootSystem);
   connect(partition_frame_, &PartitionFrame::finished,
@@ -208,6 +214,13 @@ void MainWindow::initConnections() {
           IncreaseBrightness);
   connect(brithtness_decrease_shortcut_, &QShortcut::activated,
           DecreaseBrightness);
+
+  connect(back_button_, &PointerButton::clicked, this, &MainWindow::backPage);
+
+  connect(m_selectComponentFrame, &SelectInstallComponentFrame::finished,
+          this, &MainWindow::goNextPage);
+
+  connect(save_failedLog_frame_, &SaveInstallFailedLogFrame::requestBack, this, &MainWindow::backPage);
 }
 
 void MainWindow::initPages() {
@@ -254,10 +267,25 @@ void MainWindow::initPages() {
   virtual_machine_frame_ = new VirtualMachineFrame(this);
   pages_.insert(PageId::VirtualMachineId,
                 stacked_layout_->addWidget(virtual_machine_frame_));
+
+  m_selectComponentFrame = new SelectInstallComponentFrame(this);
+  pages_.insert(PageId::SelectComponentId,
+                stacked_layout_->addWidget(m_selectComponentFrame));
+
+  save_failedLog_frame_ = new SaveInstallFailedLogFrame;
+  stacked_layout_->addWidget(save_failedLog_frame_);
 }
 
 void MainWindow::initUI() {
   background_label_ = new QLabel(this);
+
+  back_button_ = new PointerButton;
+  back_button_->setObjectName("back_button");
+  back_button_->setStyleSheet(ReadFile(":/styles/back_button.css"));
+  back_button_->setFixedSize(48, 38);
+  back_button_->setFlat(true);
+  back_button_->setFocusPolicy(Qt::TabFocus);
+  back_button_->hide();
 
   close_button_ = new PointerButton();
   close_button_->setObjectName("close_button");
@@ -265,15 +293,23 @@ void MainWindow::initUI() {
   close_button_->setFocusPolicy(Qt::TabFocus);
   close_button_->setFixedSize(40, 40);
   close_button_->setStyleSheet(ReadFile(":/styles/close_button.css"));
-  QHBoxLayout* close_layout = new QHBoxLayout();
-  close_layout->setContentsMargins(0, 0, 0, 0);
-  close_layout->setSpacing(0);
-  close_layout->addStretch();
-  close_layout->addWidget(close_button_);
-  QFrame* close_button_wrapper = new QFrame();
-  // Add 4px at top and right margin.
-  close_button_wrapper->setContentsMargins(0, 4, 4, 0);
-  close_button_wrapper->setLayout(close_layout);
+
+  QHBoxLayout* backLayout = new QHBoxLayout;
+  backLayout->setContentsMargins(10, 5, 10, 5);
+  backLayout->setSpacing(0);
+  backLayout->addWidget(back_button_);
+
+  QHBoxLayout* closeLayout = new QHBoxLayout;
+  closeLayout->setMargin(0);
+  closeLayout->setSpacing(0);
+  closeLayout->addWidget(close_button_, 0, Qt::AlignTop | Qt::AlignRight);
+
+  QHBoxLayout* top_layout = new QHBoxLayout();
+  top_layout->setContentsMargins(0, 0, 0, 0);
+  top_layout->setSpacing(0);
+  top_layout->addLayout(backLayout);
+  top_layout->addStretch();
+  top_layout->addLayout(closeLayout);
 
   stacked_layout_ = new QStackedLayout();
 
@@ -289,7 +325,7 @@ void MainWindow::initUI() {
   QVBoxLayout* vbox_layout = new QVBoxLayout();
   vbox_layout->setContentsMargins(0, 0, 0, 0);
   vbox_layout->setSpacing(0);
-  vbox_layout->addWidget(close_button_wrapper);
+  vbox_layout->addLayout(top_layout);
   vbox_layout->addLayout(stacked_layout_);
   vbox_layout->addWidget(page_indicator_wrapper);
   vbox_layout->addSpacing(32);
@@ -344,8 +380,10 @@ void MainWindow::setCurrentPage(PageId page_id) {
       page_id == PageId::InstallFailedId) {
     // Hide close button in ConfirmQuit page and InstallProgress page
     close_button_->hide();
+    back_button_->hide();
   } else {
     close_button_->show();
+    back_button_->setVisible(m_old_frames.size() > 1);
   }
 
   if (page_id == PageId::InstallFailedId ||
@@ -373,6 +411,22 @@ void MainWindow::updateBackground() {
       QPixmap(image_path).scaled(size(), Qt::KeepAspectRatioByExpanding);
   background_label_->setPixmap(pixmap);
   background_label_->setFixedSize(size());
+}
+
+void MainWindow::backPage()
+{
+    // 在goNextPage()中已经更新过返回按钮的可见了
+    // 第一页是看不到返回按钮的，这个函数也不会调用。
+    Q_ASSERT(!m_old_frames.isEmpty());
+
+    m_old_frames.takeLast();
+    QWidget* frame = m_old_frames.last();
+    PageId id = pages_.key(stacked_layout_->indexOf(frame));
+    current_page_ = id;
+    setCurrentPage(id);
+
+    back_button_->setVisible(m_old_frames.size() > 1);
+    page_indicator_->goBackPage();
 }
 
 void MainWindow::onCurrentPageChanged(int index) {
@@ -485,6 +539,25 @@ void MainWindow::goNextPage() {
     }
 
     case PageId::TimezoneId: {
+      //Check whether to show SelectComponentPage.
+#ifdef QT_DEBUG
+        if (false) {
+#else
+        if(GetSettingsBool(kSkipSelectComponentPage)){
+#endif // QT_DEBUG
+            prev_page_ = current_page_;
+            current_page_ = PageId::SelectComponentId; //PageId::PartitionId;
+        } else {
+            m_selectComponentFrame->readConf();
+            page_indicator_->goNextPage();
+            this->setCurrentPage(PageId::SelectComponentId); //(PageId::PartitionId);
+            break;
+        }
+    }
+
+    case PageId::SelectComponentId: {
+        m_selectComponentFrame->writeConf();
+
         // Check whether to show PartitionPage.
         if (GetSettingsBool(kSkipPartitionPage)) {
             if (GetSettingsBool(kPartitionDoAutoPart)) {
@@ -492,7 +565,8 @@ void MainWindow::goNextPage() {
             }
             prev_page_ = current_page_;
             current_page_ = PageId::PartitionId;
-        } else {
+        }
+        else{
             page_indicator_->goNextPage();
             this->setCurrentPage(PageId::PartitionId);
             break;
@@ -524,6 +598,9 @@ void MainWindow::goNextPage() {
         break;
     }
     }
+
+    m_old_frames << stacked_layout_->currentWidget();
+    setCurrentPage(current_page_);
 }
 
 void MainWindow::rebootSystem() {
@@ -546,6 +623,13 @@ void MainWindow::shutdownSystem() {
       qWarning() << "ShutdownSystemWithMagicKey() failed!";
     }
   }
+}
+
+void MainWindow::showSaveLogFrame()
+{
+    stacked_layout_->setCurrentWidget(save_failedLog_frame_);
+    save_failedLog_frame_->startDeviceWatch(true);
+    m_old_frames << stacked_layout_->currentWidget();
 }
 
 }  // namespace installer

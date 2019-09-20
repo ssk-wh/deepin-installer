@@ -22,6 +22,7 @@
 #include <partman/operation.h>
 
 #include "partman/device.h"
+#include "service/settings_manager.h"
 
 namespace installer {
 
@@ -30,6 +31,26 @@ enum class FullDiskValidateState {
   MaxPrimPartErr,  // All primary partition numbers are used.
   RootMissing,
   RootTooSmall,
+};
+
+struct FullDiskPolicy {
+        FsType        filesystem;
+        QString       mountPoint;
+        QString       label;
+        QString       usage;
+        QString       device;
+        bool          alignStart;
+        qint64        startSector;
+        qint64        endSector;
+        qint64        sectors;
+        PartitionType partitionType;
+};
+
+typedef QList<FullDiskPolicy>  FullDiskPolicyList;
+
+struct FullDiskOption {
+    FullDiskPolicyList  policy_list;
+    bool                is_system_disk;
 };
 
 // Partition delegate used in FullDiskFrame.
@@ -45,6 +66,9 @@ class FullDiskDelegate : public QObject {
 
   // Get virtual device list.
   const DeviceList& virtual_devices() const { return virtual_devices_; }
+
+  // return fake device
+  Device::Ptr fullInstallScheme(Device::Ptr device) const;
 
   // Get alternative partition type. Used while creating a new partition.
   // |partition| is an unallocated partition.
@@ -78,6 +102,29 @@ class FullDiskDelegate : public QObject {
   // Validate whether selected partition is appropriate.
   FullDiskValidateState validate() const;
 
+  // add System disk
+  void addSystemDisk(const QString & device_path);
+
+  // add Data disk
+  void addDataDisk(const QString & device_path);
+
+  const QStringList & selectedDisks();
+
+  void removeAllSelectedDisks();
+
+  // format all disks
+  bool formatWholeDeviceMultipleDisk();
+
+  void getFinalDiskResolution(FinalFullDiskResolution& resolution);
+
+  const DiskPartitionSetting& settings() const;
+
+  const DeviceList& selectedDevices();
+
+private:
+  // New version of formatWholeDevice with the support of multiple disks.
+  bool formatWholeDeviceV2(const Device::Ptr& device, FullDiskOption& option);
+
  signals:
   void deviceRefreshed(const DeviceList& devices);
 
@@ -87,24 +134,27 @@ class FullDiskDelegate : public QObject {
                        bool align_start,
                        FsType fs_type,
                        const QString& mount_point,
-                       qint64 total_sectors);
+                       qint64 total_sectors,
+                       const QString& label=QString(""));
   bool createLogicalPartition(const Partition::Ptr partition,
                               bool align_start,
                               FsType fs_type,
                               const QString& mount_point,
-                              qint64 total_sectors);
+                              qint64 total_sectors,
+                              const QString& label = QString(""));
   bool createPrimaryPartition(const Partition::Ptr partition,
                               PartitionType partition_type,
                               bool align_start,
                               FsType fs_type,
                               const QString& mount_point,
-                              qint64 total_sectors);
+                              qint64 total_sectors,
+                              const QString& label = QString(""));
   Partition::Ptr deletePartition(const Partition::Ptr partition);
   void formatPartition(const Partition::Ptr partition,
                        FsType fs_type,
                        const QString& mount_point);
 
-  // Create and append operations to whole device at |device_path|:
+  // Create and append operations to whole device at |devices_path|:
   bool formatWholeDevice(const QString& device_path, PartitionTableType type);
 
   // Save real device list when it is refreshed.
@@ -124,7 +174,7 @@ class FullDiskDelegate : public QObject {
 
 private:
   // Get auto swap size
-  uint getSwapSize();
+  uint getSwapSize() const;
 
  private:
   DeviceList real_devices_;
@@ -132,6 +182,12 @@ private:
   QString bootloader_path_;
   OperationList operations_;
   Partition::Ptr selected_partition_;
+  int primaryPartitionLength;
+
+  // device_path_list[0]:SystemDisk, [1]:DataDisk.
+  QStringList  selected_disks;
+  DeviceList   selected_devices;
+  DiskPartitionSetting settings_;
 };
 
 }  // namespace installer

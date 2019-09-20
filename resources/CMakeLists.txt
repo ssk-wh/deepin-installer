@@ -6,6 +6,9 @@ install(
     ${CMAKE_CURRENT_SOURCE_DIR}/oem_settings.json
     ${CMAKE_CURRENT_SOURCE_DIR}/reserved_usernames
     ${CMAKE_CURRENT_SOURCE_DIR}/timezone_alias
+    ${CMAKE_CURRENT_SOURCE_DIR}/packages_default.json
+    ${CMAKE_CURRENT_SOURCE_DIR}/packages_choice.json
+    ${CMAKE_CURRENT_SOURCE_DIR}/packages_sort.json
     DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources
 )
 
@@ -36,39 +39,29 @@ execute_process(COMMAND uname -m
 message("build arch: ${INSTALLER_BUILD_ARCH}")
 
 if (${INSTALLER_BUILD_ARCH} MATCHES "x86")
-  set(IS_PROFESSIONAL FALSE)
-  if (EXISTS "/etc/deepin-version")
-    file(STRINGS "/etc/deepin-version" IS_PROFESSIONAL REGEX "Type *= *Professional")
-  endif()
-  if (IS_PROFESSIONAL)
-    # Install professional settings.
-    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/professional_default_settings.ini
-            DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources
-            RENAME default_settings.ini
-            )
-  else()
-    # Install default settings.
-    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/default_settings.ini
-            DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources
-            )
-  endif()
+    file(GLOB OVERRIDE ${CMAKE_CURRENT_SOURCE_DIR}/platform_x86/*)
+  install(FILES ${OVERRIDE}
+  DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources/override)
 elseif(${INSTALLER_BUILD_ARCH} MATCHES "sw")
-  install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/sw_default_settings.ini
-          DESTINATION  ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources
-          RENAME default_settings.ini
-          )
+    file(GLOB OVERRIDE ${CMAKE_CURRENT_SOURCE_DIR}/platform_sw/*)
+    install(FILES ${OVERRIDE}
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources/override)
 elseif(${INSTALLER_BUILD_ARCH} MATCHES "mips")
-  install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/loongson_default_settings.ini
-          DESTINATION  ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources
-          RENAME default_settings.ini
-          )
+    file(GLOB OVERRIDE ${CMAKE_CURRENT_SOURCE_DIR}/platform_loongson/*)
+    install(FILES ${OVERRIDE}
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources/override)
 elseif (${INSTALLER_BUILD_ARCH} MATCHES "aarch64")
-  install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/arm_default_settings.ini
-          DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources
-          RENAME default_settings.ini
-          )
+    file(GLOB OVERRIDE ${CMAKE_CURRENT_SOURCE_DIR}/platform_arm/*)
+    install(FILES ${OVERRIDE}
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources/override)
 else()
   message(FATAL_ERROR "Not supported architecture: ${INSTALLER_BUILD_ARCH}")
 endif ()
+
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/default_settings.ini
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources)
+
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/full_disk_policy.json
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources)
 
 add_subdirectory(slide)

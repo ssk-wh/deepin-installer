@@ -23,36 +23,11 @@ LIVE=$(installer_get "LIVE")
 
 L=${DI_LOCALE%.*}
 
-# Extract all overlay modules.
-extract_overlay_filesystem() {
-  case ${L} in
-    zh_CN)
-      MODULE="${CDROM}/overlay/filesystem.zh-hans.module"
-      ;;
-    zh_*)
-      MODULE="${CDROM}/overlay/filesystem.zh-hant.module"
-      ;;
-    *)
-      MODULE="${CDROM}/overlay/filesystem.en-us.module"
-      ;;
-  esac
-
-  if [ -f ${MODULE} ]; then
-    for file in $(cat ${MODULE}); do
-      deepin-installer-unsquashfs --dest /target ${CDROM}/overlay/${file} \
-        1>/dev/null || error "unsquashfs failed: ${CDROM}/overlay/${file}"
-    done
-  fi
-}
-
 # First, extract base filesystem
 readonly PROGRESS_FILE="/dev/shm/unsquashfs_progress"
 readonly BASE_MODULE="${LIVE_FILESYSTEM}/filesystem.squashfs"
 deepin-installer-unsquashfs --dest /target --progress "${PROGRESS_FILE}" \
   "${BASE_MODULE}" 1>/dev/null || \
   error "installer-unsquashfs failed, ${BASE_MODULE}"
-
-# Then extract overlay_filesystem
-extract_overlay_filesystem
 
 return 0

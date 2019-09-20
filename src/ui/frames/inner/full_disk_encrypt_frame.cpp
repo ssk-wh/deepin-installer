@@ -11,6 +11,8 @@
 #include "../../widgets/system_info_tip.h"
 #include "ui/delegates/partition_util.h"
 #include "ui/utils/keyboardmonitor.h"
+#include "../../widgets/full_disk_partition_colorbar.h"
+#include "ui/delegates/full_disk_delegate.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -22,15 +24,11 @@ using namespace installer;
 
 const int kProgressBarWidth = 280;
 
-Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(QWidget *parent)
+Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QWidget *parent)
     : QWidget(parent)
-    , m_device(nullptr)
     , m_layout(new QVBoxLayout(this))
     , m_frameLbl(new TitleLabel(""))
     , m_frameSubLbl(new QLabel)
-    , m_devicePathLbl(new QLabel)
-    , m_deviceModelLbl(new QLabel)
-    , m_deviceSizeLbl(new QLabel)
     , m_encryptCheck(new QCheckBox)
     , m_encryptLbl(new QLabel)
     , m_encryptCheckLbl(new QLabel)
@@ -39,6 +37,8 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(QWidget *parent)
     , m_cancelBtn(new NavButton)
     , m_nextBtn(new NavButton)
     , m_errTip(new SystemInfoTip(this))
+    , m_diskPartitionWidget(new FullDiskPartitionWidget)
+    , m_diskPartitionDelegate(delegate)
 {
     m_layout->setMargin(0);
     m_layout->setSpacing(10);
@@ -58,21 +58,30 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(QWidget *parent)
     m_layout->addWidget(m_frameLbl, 0, Qt::AlignHCenter);
     m_layout->addWidget(m_frameSubLbl, 0, Qt::AlignHCenter);
 
-    // add disk label
-    QLabel *diskLbl = new QLabel;
-    diskLbl->setPixmap(installer::renderPixmap(":/images/driver_128.svg"));
-    m_layout->addWidget(diskLbl, 0, Qt::AlignHCenter);
-
-    QVBoxLayout *diskInfoLayout = new QVBoxLayout;
-    diskInfoLayout->setMargin(0);
-    diskInfoLayout->setSpacing(0);
-    diskInfoLayout->addWidget(m_devicePathLbl, 0, Qt::AlignHCenter);
-    diskInfoLayout->addSpacing(6);
-    diskInfoLayout->addWidget(m_deviceModelLbl, 0, Qt::AlignHCenter);
-    diskInfoLayout->addSpacing(6);
-    diskInfoLayout->addWidget(m_deviceSizeLbl, 0, Qt::AlignHCenter);
-
-    m_layout->addLayout(diskInfoLayout);
+    QHBoxLayout * hboxlayout = new QHBoxLayout();
+    hboxlayout->addStretch();
+    for(int i = 0; i < FULL_DISK_DISK_MAX_COUNT; i++) {
+        QLabel *diskLbl = new QLabel;
+        diskLbl->setPixmap(installer::renderPixmap(":/images/driver_128.svg"));
+        m_diskinfo[i].m_diskLbl = diskLbl;
+        m_diskinfo[i].m_devicePathLbl = new QLabel();
+        m_diskinfo[i].m_deviceSizeLbl = new QLabel();
+        m_diskinfo[i].m_deviceModelLbl = new QLabel();
+        QVBoxLayout *diskInfoLayout = new QVBoxLayout;
+        diskInfoLayout->setMargin(0);
+        diskInfoLayout->setSpacing(0);
+        diskInfoLayout->addWidget(m_diskinfo[i].m_diskLbl, 0, Qt::AlignHCenter);
+        diskInfoLayout->addSpacing(6);
+        diskInfoLayout->addWidget(m_diskinfo[i].m_devicePathLbl, 0, Qt::AlignHCenter);
+        diskInfoLayout->addSpacing(6);
+        diskInfoLayout->addWidget(m_diskinfo[i].m_deviceModelLbl, 0, Qt::AlignHCenter);
+        diskInfoLayout->addSpacing(6);
+        diskInfoLayout->addWidget(m_diskinfo[i].m_deviceSizeLbl, 0, Qt::AlignHCenter);
+        hboxlayout->addLayout(diskInfoLayout);
+    }
+    hboxlayout->addStretch();
+    m_layout->addLayout(hboxlayout);
+    m_layout->addWidget(m_diskPartitionWidget, 0, Qt::AlignHCenter);
 
     // add round progress bar
     RoundedProgressBar* spacingBar = new RoundedProgressBar;
@@ -125,11 +134,11 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(QWidget *parent)
     updateText();
 }
 
-void Full_Disk_Encrypt_frame::setDevice(const Device::Ptr device)
+void Full_Disk_Encrypt_frame::setDevice(Device::Ptr device)
 {
-    m_devicePathLbl->setText(device->path);
-    m_deviceModelLbl->setText(device->model);
-    m_deviceSizeLbl->setText(QString("%1 GB").arg(ToGigByte(device->getByteLength())));
+    Q_UNUSED(device);
+    updateDiskInfo();
+    m_diskPartitionWidget->setDevices(m_diskPartitionDelegate->selectedDevices());
 }
 
 void Full_Disk_Encrypt_frame::changeEvent(QEvent *event)
@@ -164,6 +173,10 @@ void Full_Disk_Encrypt_frame::onNextBtnClicked()
         WriteFullDiskEncryptPassword("");
     }
 
+    FinalFullDiskResolution resolution;
+    m_diskPartitionDelegate->getFinalDiskResolution(resolution);
+    WriteFullDiskResolution(resolution);
+
     emit finished();
 }
 
@@ -173,7 +186,6 @@ void Full_Disk_Encrypt_frame::onEncryptUpdated(bool checked)
     m_encryptEdit->setEnabled(checked);
     m_encryptLbl->setEnabled(checked);
     m_encryptRepeatEdit->setEnabled(checked);
-
     m_cancelBtn->setVisible(checked);
 }
 
@@ -191,5 +203,40 @@ void Full_Disk_Encrypt_frame::updateText()
 void Full_Disk_Encrypt_frame::updateEditCapsLockState(bool on) {
     for (LineEdit *edit : m_editList) {
         edit->setCapsLockVisible(on && edit->hasFocus());
+    }
+}
+
+void Full_Disk_Encrypt_frame::updateDiskInfo(int index)
+{
+    Device::Ptr device(m_diskinfo[index].m_device);
+    m_diskinfo[index].m_devicePathLbl->setText(device->path);
+    m_diskinfo[index].m_deviceModelLbl->setText(device->model);
+    m_diskinfo[index].m_deviceSizeLbl->setText(QString("%1 GB").arg(ToGigByte(device->getByteLength())));
+    m_diskinfo[index].m_diskLbl->show();
+    m_diskinfo[index].m_devicePathLbl->show();
+    m_diskinfo[index].m_deviceModelLbl->show();
+    m_diskinfo[index].m_deviceSizeLbl->show();
+}
+
+void Full_Disk_Encrypt_frame::updateDiskInfo()
+{
+    int i = 0;
+    const QStringList& disks = m_diskPartitionDelegate->selectedDisks();
+    for (const QString& disk: disks) {
+          int index = DeviceIndex(m_diskPartitionDelegate->virtual_devices(), disk);
+          if (index < 0) {
+              continue;
+          }
+          const Device::Ptr device = m_diskPartitionDelegate->virtual_devices().at(index);
+          m_diskinfo[i].m_device = device;
+          updateDiskInfo(i);
+          i++;
+    }
+    while (i < FULL_DISK_DISK_MAX_COUNT) {
+        m_diskinfo[i].m_diskLbl->hide();
+        m_diskinfo[i].m_devicePathLbl->hide();
+        m_diskinfo[i].m_deviceModelLbl->hide();
+        m_diskinfo[i].m_deviceSizeLbl->hide();
+        i++;
     }
 }

@@ -82,5 +82,24 @@
         <file>windows.svg</file>
         <file>success.svg</file>
         <file>fail.svg</file>
+        <file>back_normal.svg</file>
+        <file>back_hover.svg</file>
+        <file>back_pressed.svg</file>
+        <file>back_disabled.svg</file>
+        <file>add-normal.svg</file>
+        <file>minus-hover.svg</file>
+        <file>add-hover.svg</file>
+        <file>minus-disabled.svg</file>
+        <file>add-disabled.svg</file>
+        <file>add-pressed.svg</file>
+        <file>minus-pressed.svg</file>
+        <file>minus-normal.svg</file>
+        <file>radio_checked.svg</file>
+        <file>radio_unchecked.svg</file>
+        <file>disk_installation_select.svg</file>
+        <file>manual_normal.svg</file>
+        <file>manual_hover.svg</file>
+        <file>manual_press.svg</file>
+        <file>continent_arrow.svg</file>
     </qresource>
 </RCC>

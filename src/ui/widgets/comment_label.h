@@ -27,7 +27,8 @@ class CommentLabel : public QLabel {
   Q_OBJECT
 
  public:
-  CommentLabel(const QString& text, QWidget* parent = nullptr);
+    CommentLabel(QWidget* parent = nullptr);
+    CommentLabel(const QString& text, QWidget* parent = nullptr);
 };
 
 }  // namespace installer

@@ -42,6 +42,7 @@ endif()
 set(INSTALLER_BUILD_ARCH "")
 execute_process(COMMAND uname -m
                 OUTPUT_VARIABLE INSTALLER_BUILD_ARCH)
+string(REGEX REPLACE "\n$" "" INSTALLER_BUILD_ARCH "${INSTALLER_BUILD_ARCH}")
 message("build arch: ${INSTALLER_BUILD_ARCH}")
 
 set(IS_PROFESSIONAL FALSE)
@@ -60,6 +61,8 @@ set(INSTALLER_SHARE_DIR ${CMAKE_INSTALL_PREFIX}/share/deepin-installer)
 if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX /usr)
 endif ()
+
+add_definitions("-DPLATFORM_BUILD_ARCH=\"${INSTALLER_BUILD_ARCH}\"")
 
 # Defines path to resource directories
 if (CMAKE_BUILD_TYPE MATCHES Debug)
@@ -87,6 +90,7 @@ find_package(Qt5Xml REQUIRED)
 find_package(Qt5LinguistTools)
 find_package(Qt5Svg REQUIRED)
 find_package(Qt5DBus REQUIRED)
+find_package(QApt REQUIRED)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
@@ -96,12 +100,14 @@ pkg_search_module(X11 REQUIRED x11)
 pkg_search_module(X11EXT REQUIRED xext)
 pkg_search_module(X11TST REQUIRED xtst)
 pkg_search_module(X11RandR REQUIRED xrandr)
+pkg_search_module(UDisk2 REQUIRED udisks2-qt5)
 
 include_directories(AFTER ${Parted_INCLUDE_DIRS})
 include_directories(AFTER ${X11_INCLUDE_DIRS})
 include_directories(AFTER ${X11EXT_INCLUDE_DIRS})
 include_directories(AFTER ${X11TST_INCLUDE_DIRS})
 include_directories(AFTER ${X11RandR_INCLUDE_DIRS})
+include_directories(AFTER ${UDisk2_INCLUDE_DIRS})
 
 add_subdirectory(third_party/global_shortcut)
 add_subdirectory(third_party/googletest)
@@ -258,6 +264,14 @@ set(UI_FILES
     ui/delegates/table_combo_box_delegate.h
     ui/delegates/timezone_map_util.cpp
     ui/delegates/timezone_map_util.h
+    ui/delegates/componentinstallmanager.h
+    ui/delegates/componentinstallmanager.cpp
+    ui/delegates/user_agreement_delegate.h
+    ui/delegates/user_agreement_delegate.cpp
+    ui/delegates/disk_installation_delegate.h
+    ui/delegates/disk_installation_delegate.cpp
+    ui/delegates/disk_installation_detail_delegate.h
+    ui/delegates/disk_installation_detail_delegate.cpp
 
     ui/frames/consts.h
     ui/frames/inner/advanced_partition_frame.cpp
@@ -298,6 +312,10 @@ set(UI_FILES
     ui/frames/inner/system_info_keyboard_frame.h
     ui/frames/inner/user_agreement_frame.h
     ui/frames/inner/user_agreement_frame.cpp
+    ui/frames/inner/systemdateframe.h
+    ui/frames/inner/systemdateframe.cpp
+    ui/frames/inner/select_time_zone_frame.h
+    ui/frames/inner/select_time_zone_frame.cpp
     ui/frames/timezone_frame.cpp
     ui/frames/timezone_frame.h
 
@@ -331,6 +349,10 @@ set(UI_FILES
     ui/frames/control_platform_frame.cpp
     ui/frames/dynamic_disk_warning_frame.h
     ui/frames/dynamic_disk_warning_frame.cpp
+    ui/frames/saveinstallfailedlogframe.h
+    ui/frames/saveinstallfailedlogframe.cpp
+    ui/frames/install_component_frame.h
+    ui/frames/install_component_frame.cpp
 
     ui/models/bootloader_list_model.cpp
     ui/models/bootloader_list_model.h
@@ -350,6 +372,12 @@ set(UI_FILES
     ui/models/partition_type_model.h
     ui/models/control_platform_region_model.h
     ui/models/control_platform_region_model.cpp
+    ui/models/disk_installation_model.h
+    ui/models/disk_installation_model.cpp
+    ui/models/disk_installation_detail_model.h
+    ui/models/disk_installation_detail_model.cpp
+    ui/models/continent_model.h
+    ui/models/continent_model.cpp
 
     ui/utils/widget_util.cpp
     ui/utils/widget_util.h
@@ -362,6 +390,10 @@ set(UI_FILES
     ui/views/frameless_list_view.h
     ui/views/pointer_list_view.cpp
     ui/views/pointer_list_view.h
+    ui/views/disk_installation_view.h
+    ui/views/disk_installation_view.cpp
+    ui/views/disk_installation_detail_view.h
+    ui/views/disk_installation_detail_view.cpp
 
     ui/widgets/advanced_partition_button.cpp
     ui/widgets/advanced_partition_button.h
@@ -377,6 +409,8 @@ set(UI_FILES
     ui/widgets/expanded_nav_button.h
     ui/widgets/flat_button.cpp
     ui/widgets/flat_button.h
+    ui/widgets/full_disk_partition_colorbar.cpp
+    ui/widgets/full_disk_partition_colorbar.h
     ui/widgets/icon_button.cpp
     ui/widgets/icon_button.h
     ui/widgets/line_edit.cpp
@@ -413,6 +447,14 @@ set(UI_FILES
     ui/widgets/tooltip_pin.h
     ui/widgets/wallpaper_item.cpp
     ui/widgets/wallpaper_item.h
+    ui/widgets/component_widget.h
+    ui/widgets/component_widget.cpp
+    ui/widgets/di_scrollarea.h
+    ui/widgets/di_scrollarea.cpp
+    ui/widgets/multiple_disk_installation_widget.h
+    ui/widgets/multiple_disk_installation_widget.cpp
+    ui/widgets/time_date_line_edit.h
+    ui/widgets/time_date_line_edit.cpp
 
     ui/xrandr/multi_head_manager.cpp
     ui/xrandr/multi_head_manager.h
@@ -481,7 +523,9 @@ set(LINK_LIBS
     ${X11EXT_LIBRARIES}
     ${X11TST_LIBRARIES}
     ${X11RandR_LIBRARIES}
+    ${UDisk2_LIBRARIES}
 
+    QApt
     global_shortcut
     qrencode
     qtermwidget5
@@ -806,6 +850,22 @@ add_executable(timezone-frame-test
                ui/frames/consts.h
                ui/frames/timezone_frame.cpp
                ui/frames/timezone_frame.h
+               ui/frames/inner/systemdateframe.h
+               ui/frames/inner/systemdateframe.cpp
+               ui/frames/inner/select_time_zone_frame.h
+               ui/frames/inner/select_time_zone_frame.cpp
+               ui/views/disk_installation_view.h
+               ui/views/disk_installation_view.cpp
+               ui/models/disk_installation_model.h
+               ui/models/disk_installation_model.cpp
+               ui/models/continent_model.h
+               ui/models/continent_model.cpp
+               ui/views/frameless_list_view.h
+               ui/views/frameless_list_view.cpp
+               ui/delegates/frameless_list_delegate.cpp
+               ui/delegates/frameless_list_delegate.h
+               ui/delegates/disk_installation_delegate.h
+               ui/delegates/disk_installation_delegate.cpp
                ui/widgets/comment_label.cpp
                ui/widgets/comment_label.h
                ui/widgets/flat_button.cpp
@@ -822,6 +882,8 @@ add_executable(timezone-frame-test
                ui/widgets/title_label.h
                ui/widgets/tooltip_pin.cpp
                ui/widgets/tooltip_pin.h
+               ui/widgets/time_date_line_edit.h
+               ui/widgets/time_date_line_edit.cpp
 
                ui/images/images.qrc
                ui/styles/styles.qrc

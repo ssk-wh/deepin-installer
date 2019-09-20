@@ -23,6 +23,7 @@
 #include <QListView>
 #include <QPainter>
 #include <QStringListModel>
+#include <QHBoxLayout>
 
 #include "base/file_util.h"
 #include "ui/delegates/popup_menu_delegate.h"
@@ -86,19 +87,10 @@ void PopupMenu::setStringList(const QStringList& strings) {
                      kMenuViewVerticalMargin * 2 + kMenuViewBottomPadding;
 
   this->resize(width, height + kTriangleHeight);
+  menu_view_->setFixedSize(width, height);
   menu_view_->adjustSize();
-  menu_view_->resize(width, height);
-}
-
-bool PopupMenu::eventFilter(QObject* obj, QEvent* event) {
-  if (event->type() == QEvent::MouseButtonPress) {
-    QMouseEvent* mouse_event = static_cast<QMouseEvent*>(event);
-    // If mouse press event is not happened within menu area, hide menu.
-    if (!this->geometry().contains(mouse_event->pos())) {
-      this->hide();
-    }
-  }
-  return QObject::eventFilter(obj, event);
+  adjustSize();
+  update();
 }
 
 void PopupMenu::hideEvent(QHideEvent* event) {
@@ -183,6 +175,13 @@ void PopupMenu::initUI() {
   menu_view_->setStyleSheet(ReadFile(":/styles/popup_menu.css"));
 
   this->setContentsMargins(0, 0, 0, 0);
+
+  QHBoxLayout* mainLayout = new QHBoxLayout;
+  mainLayout->setMargin(0);
+  mainLayout->setSpacing(0);
+  mainLayout->addWidget(menu_view_);
+
+  setLayout(mainLayout);
 }
 
 void PopupMenu::onMenuViewActivated(const QModelIndex& index) {

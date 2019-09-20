@@ -22,12 +22,24 @@
 #include "ui/frames/language_frame.h"
 #include "ui/frames/inner/select_language_frame.h"
 #include "ui/frames/inner/user_agreement_frame.h"
+#include "service/settings_manager.h"
+#include "ui/delegates/user_agreement_delegate.h"
 
 namespace installer {
+
+#ifdef PROFESSIONAL
+const QString zh_CN_license { ":/license/deepin-end-user-license-agreement_zh_CN.txt" };
+const QString en_US_license{ ":/license/deepin-end-user-license-agreement_en_US.txt" };
+#else
+const QString zh_CN_license { ":/license/deepin-end-user-license-agreement_community_zh_CN.txt" };
+const QString en_US_license{ ":/license/deepin-end-user-license-agreement_community_en_US.txt" };
+#endif  // PROFESSIONAL
+
 LanguageFrame::LanguageFrame(QWidget *parent)
     : QWidget(parent)
     , m_frame_layout(new QStackedLayout)
-    , m_select_language_frame(new SelectLanguageFrame)
+    , m_user_license_delegate(new UserAgreementDelegate())
+    , m_select_language_frame(new SelectLanguageFrame(m_user_license_delegate))
     , m_user_license_frame(new UserAgreementFrame)
 {
     initUI();
@@ -61,14 +73,30 @@ void LanguageFrame::initConnect() {
             &LanguageFrame::showUserLicense);
     connect(m_user_license_frame, &UserAgreementFrame::back, this,
             &LanguageFrame::showLanguage);
+    if (m_user_license_delegate->licenseCount() > 0) {
+        connect(m_select_language_frame, &SelectLanguageFrame::requestShowOemUserLicense, this,
+            &LanguageFrame::showOemUserLicense);
+    }
 }
 
 void LanguageFrame::showUserLicense() {
+    if (installer::ReadLocale() == "zh_CN") {
+        m_user_license_frame->setUserAgreement(zh_CN_license, en_US_license);
+    } else {
+        m_user_license_frame->setUserAgreement(en_US_license, zh_CN_license);
+    }    
     m_frame_layout->setCurrentWidget(m_user_license_frame);
 }
 
 void LanguageFrame::showLanguage() {
     m_frame_layout->setCurrentWidget(m_select_language_frame);
+}
+
+void LanguageFrame::showOemUserLicense() {
+    LicenseItem primaryLicense;
+    primaryLicense = m_user_license_delegate->getPrimaryAdaptiveLicense(installer::ReadLocale());
+    m_user_license_frame->setUserAgreement(primaryLicense.fileName());
+    m_frame_layout->setCurrentWidget(m_user_license_frame);
 }
 
 }  // namespace installer

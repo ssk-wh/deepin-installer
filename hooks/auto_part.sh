@@ -18,35 +18,36 @@
 
 # Automatically create disk partitions.
 # Partition policy is defined in settings.ini.
-
-declare -i DEVICE_SIZE AVL_SIZE PART_NUM=0 LVM_NUM=0 LAST_END=1
-declare DEVICE PART_POLICY PART_LABEL MP_LIST VG_NAME="vg0" PART_TYPE="primary" \
+declare -i  DEVICE_SIZE AVL_SIZE PART_NUM=0 LVM_NUM=0 LAST_END=1
+declare CRYPT_INFO DEVICE PART_POLICY PART_LABEL MP_LIST VG_NAME="vg0" PART_TYPE="primary" \
         LARGE="false" EFI="false" CRYPT="false" LVM="false"
 
 # Check device capacity of $DEVICE.
 check_device_size(){
+  local index=$1
+  echo "index={${index}}"
   local minimum_disk_size=$(installer_get partition_minimum_disk_space_required)
   local large_disk_threshold=$(installer_get partition_full_disk_large_disk_threshold)
   DEVICE_SIZE=$(($(blockdev --getsize64 "$DEVICE") / 1024**2))
 
-  if ((DEVICE_SIZE < minimum_disk_size * 1024)); then
+  if ((DEVICE_SIZE < minimum_disk_size * 1024 && index == 0)); then
     error "At least ${minimum_disk_size}Gib is required to install system!"
   elif ((DEVICE_SIZE > large_disk_threshold * 1024)); then
-    declare -gr LARGE=true
+    declare -g LARGE=true
   fi
 }
 
 # Check boot mode is UEFI or not.
 check_efi_mode(){
   if [ -d "/sys/firmware/efi" ]; then
-    declare -gr EFI=true
+    declare -g EFI=true
   fi
 }
 
 chech_use_crypt(){
   DI_CRYPT_PASSWD=$(installer_get DI_CRYPT_PASSWD)
   if [ -n "$DI_CRYPT_PASSWD" ]; then
-    declare -gr CRYPT=true
+    declare -g CRYPT=true
     installer_set DI_CRYPT_PASSWD "NULL"
   fi
 }
@@ -59,9 +60,13 @@ flush_message(){
 # Format partition at $1 with filesystem $2.
 format_part(){
   local part_path="$1" part_fs="$2" part_label="$3"
+  local part_fs_="$part_fs"
+  if [ "$part_fs_" = "recovery" ]; then
+     part_fs_=ext4
+  fi
 
   yes |\
-  case "$part_fs" in
+  case "$part_fs_" in
     fat32)
       mkfs.vfat -F32 -n "$part_label" "$part_path";;
     efi)
@@ -82,31 +87,6 @@ format_part(){
     *)
       mkfs -t "$part_fs" -L "$part_label" "$part_path";;
   esac || error "Failed to create $part_fs filesystem on $part_path!"
-}
-
-# Read partition policy from settings.
-get_part_policy(){
-  local policy_name="partition_full_disk"
-
-  {
-    $LARGE && policy_name+="_large"
-  } || policy_name+="_small"
-
-  {
-    $EFI && policy_name+="_uefi"
-  } || policy_name+="_legacy"
-
-  $CRYPT && policy_name+="_crypt"
-
-# get partition label
-  local policy_name_label=${policy_name}
-
-# get partition policy
-  policy_name+="_policy"
-  declare -gr PART_POLICY=$(installer_get $policy_name)
-
-  policy_name_label+="_label"
-  declare -gr PART_LABEL=$(installer_get $policy_name_label)
 }
 
 get_max_capacity_device(){
@@ -168,6 +148,8 @@ create_part(){
   let PART_NUM++
   echo "============PART_NUM: $PART_NUM============"
 
+  echo "PART:{${part}},label:{${label}}}"
+
   # Create extended partition.
   if ((PART_NUM == 4)) && ! ($EFI || $LVM); then
     echo "Create extended partition..."
@@ -212,6 +194,10 @@ create_part(){
   fi
 
   echo "Calculated partition size: $part_size"
+  if [ ${part_size} -gt ${AVL_SIZE} ] && [ ${AVL_SIZE} -gt 0 ]; then
+      echo "adjuest part_size:${part_size}=>${AVL_SIZE}"
+      part_size=${AVL_SIZE}
+  fi
 
   # Check root partition size.
   if $LARGE && [ "$part_mp" = '/' ] &&\
@@ -233,6 +219,8 @@ create_part(){
         _part_fs=fat32;;
       crypto_luks)
         _part_fs='';;
+      recovery)
+        _part_fs=ext4;;
       *)
         printf -v _part_fs '%q' "$part_fs";;
     esac
@@ -249,6 +237,7 @@ create_part(){
     fi
   else
     let LVM_NUM++
+    echo "{LVM_NUM:{${LVM_NUM},label:{${label:-LVM_NUM}} vg_name:{${VG_NAME}}"
     lvcreate -n"${label:-LVM_NUM}" -L"$part_size" "$VG_NAME" ||\
     error "Failed to create logical volume ${label:-LVM_NUM} on $VG_NAME!"
     part_path="/dev/$VG_NAME/${label:-LVM_NUM}"
@@ -273,22 +262,22 @@ create_part(){
       mapper_name="$part_mp"
       part_mp="/dev/mapper/$mapper_name"
 
+
       installer_set DI_CRYPT_ROOT "true"
-      installer_set DI_CRYPT_PARTITION "$part_path"
-      installer_set DI_CRYPT_TARGET "$mapper_name"
+
+      [[ -n ${CRYPT_INFO} ]] && CRYPT_INFO+=";"
+      CRYPT_INFO+="$part_path:$mapper_name"
 
       {
         echo -n "$DI_CRYPT_PASSWD" | cryptsetup -v luksFormat "$part_path" &&\
         echo -n "$DI_CRYPT_PASSWD" | cryptsetup open "$part_path" "$mapper_name"
       } || error "Failed to create luks partition($part_path)!"
 
-      unset DI_CRYPT_PASSWD
-
       {
         pvcreate "$part_mp" -ffy &&\
         vgcreate "$VG_NAME" "$part_mp"
       } || error "Failed to create volume group: $VG_NAME!"
-      declare -gr LVM="true"
+      declare -g LVM="true"
       ;;
     *)
       format_part "$part_path" "$part_fs" "$label" ||\
@@ -315,6 +304,10 @@ create_part(){
       ;;
   esac || error "Failed to set boot flag on $part_path!"
 
+  if [ "${part_fs}" = "recovery" ]; then
+     installer_set DI_RECOVERY_PATH ${part_path}
+  fi
+
   flush_message
 }
 
@@ -327,46 +320,79 @@ main(){
   #  * Create partitions.
   #  * Notify kernel.
 
+  installer_set DI_UEFI "false"
   umount_devices
 
-  DEVICE=$(installer_get DI_FULLDISK_DEVICE)
-  if [ "$DEVICE" = auto_max ]; then
-    get_max_capacity_device
-  fi
-  [ -b "$DEVICE" ] || error "Device not found!"
+  local policy_device="DI_FULLDISK_MULTIDISK_DEVICE"
+  local policy_name="DI_FULLDISK_MULTIDISK_POLICY_"
+  local policy_name_label="DI_FULLDISK_MULTIDISK_LABEL_"
 
-  echo "Target device: $DEVICE"
+  local PART_DEVICE=$(installer_get $policy_device)
+  local part_device_array=(${PART_DEVICE//;/ })
+  declare -i index=0
 
-  check_device_size
   chech_use_crypt
-  check_efi_mode
 
-  echo "Device size: $DEVICE_SIZE"
+  for j in "${part_device_array[@]}"; do
+     DEVICE="${j}"
+     VG_NAME="vg${index}"
+     echo "Target device: {$DEVICE} VG_NAME:{${VG_NAME}}"
 
-  # Partitioning policy.
-  get_part_policy
-  echo "Partitioning policy: $PART_POLICY"
-  [ -n "$PART_POLICY" ] || error "Partitioning policy is empty!"
+     DEVICE_SIZE=0
+     AVL_SIZE=0
+     PART_NUM=0
+     LVM_NUM=0
+     LAST_END=1
 
-  new_part_table "$DEVICE"
+     LVM="false"
+     PART_TYPE="primary"
+     LARGE="false"
+     EFI="false"
+     CRYPT="false"
+     LVM="false"
 
-  local part_policy_array=(${PART_POLICY//;/ })
-  local part_label_array=(${PART_LABEL//;/ })
+     if [ "$DEVICE" = auto_max ]; then
+        get_max_capacity_device
+     fi
+     [ -b "$DEVICE" ] || error "Device not found!"
 
-  for i in "${!part_policy_array[@]}"; do
-    create_part ${part_policy_array[$i]} ${part_label_array[$i]}
+    check_device_size ${index}
+    check_efi_mode
+    echo "Device size: $DEVICE_SIZE"
+
+    PART_POLICY=$(installer_get ${policy_name}${index})
+    PART_LABEL=$(installer_get ${policy_name_label}${index})
+    echo "POLICY:{${PART_POLICY}}"
+    echo "LABEL:{${PART_LABEL}}"
+
+    new_part_table "$DEVICE"
+
+    local part_policy_array=(${PART_POLICY//;/ })
+    local part_label_array=(${PART_LABEL//;/ })
+    echo "policy#:${#part_policy_array[@]} label:${#part_label_array[@]}"
+
+    for i in "${!part_policy_array[@]}"; do
+        create_part ${part_policy_array[$i]} ${part_label_array[$i]}
+    done
+    index=index+1
   done
 
-  installer_set DI_MOUNTPOINTS "$MP_LIST"
-  installer_set DI_ROOT_DISK "$DEVICE"
+  echo "MOUNTPOINTS:{${MP_LIST}}"
+  echo "ROOT_DISK:{${part_device_array[0]}}"
 
-  # Write boot method.
+  installer_set DI_MOUNTPOINTS "$MP_LIST"
+
+#  # Write boot method.
   if $EFI; then
     installer_set DI_UEFI "true"
   else
-    installer_set DI_BOOTLOADER "$DEVICE"
-    installer_set DI_UEFI "false"
+    installer_set DI_BOOTLOADER "${part_device_array[0]}"
   fi
+
+  echo "CRYPT_INFO:{${CRYPT_INFO}}"
+  installer_set DI_CRYPT_INFO "${CRYPT_INFO}"
+  installer_set DI_ROOT_DISK "${part_device_array[0]}"
+  installer_set DI_FULLDISK_MODE "true"
 }
 
 . ./basic_utils.sh

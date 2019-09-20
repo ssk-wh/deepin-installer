@@ -204,18 +204,18 @@
 <context>
     <name>installer::FullDiskFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="49"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="119"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="50"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="120"/>
         <source>Install here</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="50"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="51"/>
         <source>Encrypt Full Disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="51"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="52"/>
         <source>Please select a disk to start installation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -223,21 +223,26 @@
 <context>
     <name>installer::InstallFailedFrame</name>
     <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="75"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="94"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="78"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="99"/>
         <source>Installation Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="96"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="80"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="101"/>
         <source>Sorry for the inconvenience, please photo or scan the QR code to send error log, so that the issue can be better solved.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="78"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="81"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="147"/>
         <source>Exit installation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="148"/>
+        <source>Save Log</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -875,24 +880,24 @@
 <context>
     <name>installer::ControlPlatformFrame</name>
     <message>
-        <location filename="../src/ui/frames/control_platform_frame.cpp" line="23"/>
-        <location filename="../src/ui/frames/control_platform_frame.cpp" line="83"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="28"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="118"/>
         <source>Set Control Region</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/control_platform_frame.cpp" line="24"/>
-        <location filename="../src/ui/frames/control_platform_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="29"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="119"/>
         <source>Set the region for Deepin EndPoint Management Platform</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/control_platform_frame.cpp" line="81"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="116"/>
         <source>Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/control_platform_frame.cpp" line="82"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="117"/>
         <source>Server Address</source>
         <translation type="unfinished"></translation>
     </message>
@@ -974,52 +979,52 @@
 <context>
     <name>installer::NetworkFrame</name>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="69"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="71"/>
         <source>Skip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="70"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="72"/>
         <source>Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="95"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="97"/>
         <source>Configure Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="128"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="130"/>
         <source>IP Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="129"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="131"/>
         <source>Netmask</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="130"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="132"/>
         <source>Gateway</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="131"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="133"/>
         <source>Primary DNS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="132"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="134"/>
         <source>Secondary DNS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="214"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="225"/>
         <source>IP address error: illegal IP address, please have a check.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="225"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="236"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1116,6 +1121,32 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="63"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="122"/>
         <source>Format the disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>installer::SaveInstallFailedLogFrame</name>
+    <message>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="133"/>
+        <source>Save Error Log</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="134"/>
+        <source>Save the error log to local or external disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="135"/>
+        <source>Save Log</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>installer::SelectInstallComponentFrame</name>
+    <message>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="21"/>
+        <source>Next</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

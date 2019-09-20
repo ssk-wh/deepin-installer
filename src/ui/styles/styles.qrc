@@ -35,5 +35,16 @@
         <file>user_agreement_frame.css</file>
         <file>full_encrypt_frame.css</file>
         <file>dynamic_disk_warning_frame.css</file>
+        <file>back_button.css</file>
+        <file>system_info_form_frame.css</file>
+        <file>install_component_frame.css</file>
+        <file>component_widget.css</file>
+        <file>system_date_frame.css</file>
+        <file>disk_installation_view.css</file>
+        <file>disk_installation_detail_view.css</file>
+        <file>select_time_zone_frame.css</file>
+        <file>timezone_frame.css</file>
+        <file>full_disk_partition_colorbar.css</file>
+        <file>di_scrollarea.css</file>
     </qresource>
 </RCC>
