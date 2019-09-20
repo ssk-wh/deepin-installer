@@ -88,6 +88,7 @@ void SystemInfoKeyboardFrame::writeConf() {
 void SystemInfoKeyboardFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     title_label_->setText(tr("Select keyboard layout"));
+    guide_label_->setText(tr("Please select a suitable keyboard layout"));
     test_edit_->setPlaceholderText(tr("Test area"));
     back_button_->setText(tr("Back"));
   } else {
