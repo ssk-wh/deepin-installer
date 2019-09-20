@@ -129,29 +129,19 @@ const QStringList GetIgnoredDeviceList()
   return list;
 }
 
-void IgnoreDevices(DeviceList& devices)
-{
-    DeviceList deviceList;
-    const QStringList ignored_list = GetIgnoredDeviceList();
-    for (auto device : devices) {
-       if (ignored_list.contains(device->path)) {
-           qDebug() << QString("IgnoreDevices::Device:{%1} is ignored!").arg(device->path);
-           continue;
-       }
-       else {
-            deviceList << Device::Ptr(new Device(*device));
-       }
-    }
-    devices = deviceList;
-}
-
 // Filter installation device from device list.
 DeviceList FilterInstallerDevice(const DeviceList& devices)
 {
     DeviceList deviceList;
-    IgnoreDevices(deviceList);
+    const QStringList ignored_list = GetIgnoredDeviceList();
+
     if (!GetSettingsBool(kPartitionHideInstallationDevice)) {
         for (auto device : devices) {
+            if (ignored_list.contains(device->path)) {
+                qInfo() << QString("IgnoreDevices::Device:{%1} is ignored!").arg(device->path);
+                continue;
+            }
+
             Device::Ptr   ptr(new Device(*device));
             PartitionList list;
             for (auto partition : device->partitions) {
@@ -166,6 +156,11 @@ DeviceList FilterInstallerDevice(const DeviceList& devices)
 
     const QString installer_device_path(GetInstallerDevicePath());
     for (const Device::Ptr device : devices) {
+        if (ignored_list.contains(device->path)) {
+            qInfo() << QString("IgnoreDevices::Device:{%1} is ignored!").arg(device->path);
+            continue;
+        }
+
         if (!installer_device_path.startsWith(device->path)) {
             Device::Ptr   ptr(new Device(*device));
             PartitionList list;

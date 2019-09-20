@@ -337,6 +337,12 @@ DeviceList ScanDevices(bool enable_os_prober) {
         device->table = PartitionTableType::Others;
         qDebug() << "add device: " << disk_type_name << lp_device->path;
       }
+      //The following if statement is just for debug only on my X86_X64 PC.
+      //There is an unknown reason why type name is "mac" on my X86_X64 PC.
+      else if (disk_type_name == kPartitionCDRomDebug) {
+          device->table = PartitionTableType::Others;
+          qDebug() << "add device: " << disk_type_name << lp_device->path;
+      }
 #endif
       else {
         // Ignores other type of device->
