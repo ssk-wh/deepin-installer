@@ -7,7 +7,9 @@
         "uninstall-lightdm"
       ],
       "choice":[
-      "debugging-tools"
+      "debugging-tools",
+      "development-tools",
+      "security-tools"
       ]
     },
     "compute-node":{
@@ -25,7 +27,9 @@
      "hardware-monitoring",
      "infiniband",
      "network-file-system-client",
-     "performance-tools"
+     "performance-tools",
+     "development-tools",
+     "security-tools"
     ]
     },
     "infrastructure-server":{
@@ -51,14 +55,15 @@
       "java-platform",
       "large-systems",
       "load-balancer",
-      "mail-server",
       "mariadb-server",
       "network-file-system-client",
       "performance-tools",
       "postgresql-server",
       "print-server",
       "resilient-storage",
-      "virtualization-hypervisor"
+      "virtualization-hypervisor",
+      "development-tools",
+      "security-tools"
     ]
     },
     "file-and-print-server":{
@@ -83,7 +88,9 @@
       "large-systems",
       "network-file-system-client",
       "performance-tools",
-      "resilient-storage"
+      "resilient-storage",
+      "development-tools",
+      "security-tools"
     ]
     },
     "basic-web-server":{
@@ -111,7 +118,9 @@
       "php",
       "postgresql-client",
       "python-web",
-      "web-servlet"
+      "web-servlet",
+      "development-tools",
+      "security-tools"
     ]
     },
     "virtualization-host":{
@@ -127,7 +136,11 @@
      "choice":[
       "debugging-tools",
       "network-file-system-client",
-      "virtualization-platform"
+      "virtualization-platform",
+      "php",
+      "virtualization-platform",
+      "development-tools",
+      "security-tools"
     ]
     },
     "server-with-gui":{
@@ -137,7 +150,31 @@
       "dde"
     ],
      "choice":[
-      "deepin"
+      "deepin",
+      "backup-server",
+      "dns-server",
+      "mail-server",
+      "ftp-server",
+      "file-server",
+      "hardware-monitoring",
+      "ha",
+      "identity-management-server",
+      "infiniband",
+      "java-platform",
+      "large-systems",
+      "load-balancer",
+      "mainframe-access",
+      "mariadb-server",
+      "network-file-system-client",
+      "postgresql-server",
+      "print-server",
+      "resilient-storage",
+      "virtualization-client",
+      "virtualization-hypervisor",
+      "virtualization-tools",
+      "development-tools",
+      "security-tools"
+
     ]
     },
     "development-and-creative-workstation":{
@@ -152,14 +189,34 @@
       "dde"
     ],
      "choice":[
-      "backup-client",
-      "dns-server",
-      "file-server",
-      "ftp-server",
-      "php",
-      "deepin",
-      "perl-web",
-      "mail-server"
+       "additional-devel",
+       "backup-client",
+       "dns-server",
+       "development-tools",
+       "mail-server",
+       "emacs",
+       "ftp-server",
+       "file-server",
+       "graphics",
+       "hardware-monitoring",
+       "identity-management-server",
+       "infiniband",
+       "large-systems",
+       "legacy-x",
+       "load-balancer",
+       "mainframe-access",
+       "mariadb-server",
+       "network-file-system-client",
+       "office-suite",
+       "php",
+       "perl-web",
+       "platform-devel",
+       "postgresql-server",
+       "python-web",
+       "technical-writing",
+       "virtualization-hypervisor",
+       "web-servlet",
+       "security-tools"
     ]
     },
     "dde-desktop": {
@@ -169,7 +226,13 @@
         "dde"
       ],
       "choice": [
-        "deepin"
+       "backup-client",
+       "deepin",
+       "internet-applications",
+       "legacy-x",
+       "office-suite",
+       "development-tools",
+       "security-tools"
       ]
     }
 }

@@ -100,7 +100,7 @@
     {
         "server-with-gui": [
             "backup-server",
-            "dde",
+            "deepin",
             "dns-server",
             "mail-server",
             "ftp-server",
@@ -128,7 +128,7 @@
     {
         "dde-desktop": [
             "backup-client",
-            "dde",
+            "deepin",
             "internet-applications",
             "legacy-x",
             "office-suite",
