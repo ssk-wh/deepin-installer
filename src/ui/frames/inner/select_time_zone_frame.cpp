@@ -22,7 +22,6 @@ namespace installer {
 namespace {
     int kContinentListViewWidth = 240;
     int kTimeZoneListViewWidth = 450;
-    int kListViewHeight = 540;
 }
 
 SelectTimeZoneFrame::SelectTimeZoneFrame(QWidget *parent)
@@ -67,7 +66,7 @@ void SelectTimeZoneFrame::updateTimezoneModelData()
 void SelectTimeZoneFrame::initUI()
 {
     m_continentListView = new DiskInstallationView;
-    m_continentListView->setFixedSize(QSize(kContinentListViewWidth, kListViewHeight));
+    m_continentListView->setFixedWidth(kContinentListViewWidth);
     m_continentListView->setStyleSheet(ReadFile(":/styles/select_time_zone_frame.css"));
     m_continentListView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
@@ -77,7 +76,7 @@ void SelectTimeZoneFrame::initUI()
     m_continentListView->setItemDelegate(continentDelegate);
 
     m_timeZoneListView = new DiskInstallationView;
-    m_timeZoneListView->setFixedSize(QSize(kTimeZoneListViewWidth, kListViewHeight));
+    m_timeZoneListView->setFixedWidth(kTimeZoneListViewWidth);
     m_timeZoneListView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_timeZoneListView->setStyleSheet(ReadFile(":/styles/select_time_zone_frame.css"));
 
