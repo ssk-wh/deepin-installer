@@ -364,4 +364,5 @@ void TimezoneFrame::onSetTimePushButtonClicked()
     m_setTimePushButton->hide();
 }
 
+
 }  // namespace installer
