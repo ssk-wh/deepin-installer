@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" sourcelanguage="en_US" version="2.1">
 <context>
     <name>installer::AdvancedPartitionButton</name>
     <message>
@@ -125,6 +125,19 @@
     </message>
 </context>
 <context>
+    <name>installer::DiskInstallationModel</name>
+    <message>
+        <location filename="../src/ui/models/disk_installation_model.cpp" line="25"/>
+        <source>SystemDisk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/models/disk_installation_model.cpp" line="26"/>
+        <source>DataDisk</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
@@ -142,44 +155,44 @@
 <context>
     <name>installer::EditPartitionFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="99"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="168"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="100"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="169"/>
         <source>Edit Disk</source>
         <translation>磁盘编辑</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="101"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="170"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="102"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="171"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>请确定您已备份好重要数据，然后选择要安装的磁盘</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="102"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="202"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="203"/>
         <source>Filesystem</source>
         <translation>文件系统</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="204"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="104"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="205"/>
         <source>Mount point</source>
         <translation>挂载点</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="104"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="206"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="105"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="207"/>
         <source>Format the partition</source>
         <translation>格式化该分区</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="105"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="249"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="106"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="250"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="106"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="250"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="107"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="251"/>
         <source>OK</source>
         <translation>确定</translation>
     </message>
@@ -202,18 +215,18 @@
 <context>
     <name>installer::FullDiskFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="49"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="119"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="58"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="140"/>
         <source>Install here</source>
         <translation>安装到此</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="50"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="59"/>
         <source>Encrypt Full Disk</source>
         <translation>全盘加密</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="51"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="60"/>
         <source>Please select a disk to start installation</source>
         <translation>请选择一个磁盘进行安装</translation>
     </message>
@@ -221,22 +234,27 @@
 <context>
     <name>installer::InstallFailedFrame</name>
     <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="75"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="94"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="78"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="99"/>
         <source>Installation Failed</source>
         <translation>安装失败</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="96"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="80"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="101"/>
         <source>Sorry for the inconvenience, please photo or scan the QR code to send error log, so that the issue can be better solved.</source>
         <translation>给您带来的不便表示歉意，您可以通过拍照或者扫描二维码的方式将下面错误日志反馈经给我们，以便我们能更好的解决您的问题。</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="78"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="81"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="154"/>
         <source>Exit installation</source>
         <translation>退出安装</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="155"/>
+        <source>Save Log</source>
+        <translation>保存日志</translation>
     </message>
 </context>
 <context>
@@ -315,13 +333,13 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="122"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="176"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="178"/>
         <source>Mount point</source>
         <translation>挂载点</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="123"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="183"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="185"/>
         <source>Size</source>
         <translation>大小</translation>
     </message>
@@ -339,13 +357,13 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="126"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="213"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="215"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="127"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="214"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="216"/>
         <source>OK</source>
         <translation>新建</translation>
     </message>
@@ -389,54 +407,54 @@
 <context>
     <name>installer::PartitionFrame</name>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="87"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="237"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="88"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="238"/>
         <source>Select Installation Location</source>
         <translation>选择安装位置</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="89"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="239"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="90"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="240"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>请确定您已备份好重要数据，然后选择要安装的磁盘</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="90"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="246"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="247"/>
         <source>Simple</source>
         <translation>简单</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="250"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="92"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="251"/>
         <source>Advanced</source>
         <translation>高级</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="92"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="254"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="93"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="255"/>
         <source>Full Disk</source>
         <translation>全盘安装</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="317"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="458"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="94"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="318"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="461"/>
         <source>Start installation</source>
         <translation>开始安装</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="440"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="443"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
         <translation>目标磁盘为动态磁盘，继续安装将会导致您的数据丢失，请备份您的数据。</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="444"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="447"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
         <translation>目标磁盘为动态磁盘，进一步操作将格式化该磁盘，请备份您的数据。</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="458"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="461"/>
         <source>Next</source>
         <translation>下一步</translation>
     </message>
@@ -585,23 +603,23 @@
         <translation>调整分区%1的大小</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="198"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="249"/>
         <source>Do not use this partition</source>
         <translation>不使用此分区</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="211"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="262"/>
         <source>Swap partition</source>
         <translation>交换分区</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="213"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="265"/>
         <source>Unknown</source>
         <translation>未知</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="254"/>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="285"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="306"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="337"/>
         <source>Freespace</source>
         <translation>可用空间</translation>
     </message>
@@ -635,20 +653,25 @@
 <context>
     <name>installer::SelectLanguageFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="156"/>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="196"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="187"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="229"/>
         <source>Next</source>
         <translation>下一步</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="197"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="230"/>
         <source>I have read and agree to</source>
-        <translation>我已阅读并同意</translation>
+        <translation>我已仔细阅读并同意</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="198"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="231"/>
         <source>Deepin Software End User License Agreement</source>
         <translation>《深度操作系统最终用户许可协议》</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="234"/>
+        <source>and</source>
+        <translation>和</translation>
     </message>
 </context>
 <context>
@@ -698,111 +721,121 @@
 <context>
     <name>installer::SystemInfoFormFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="75"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="144"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="174"/>
         <source>Create User Account</source>
         <translation>创建用户</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="76"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="145"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="175"/>
         <source>Fill in the username, computer name and your password</source>
         <translation>请输入用户名，计算机名并设置密码</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="154"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="184"/>
         <source>Username</source>
         <translation>用户名</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="78"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="159"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="87"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="189"/>
         <source>Computer name</source>
         <translation>计算机名</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="79"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="164"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="88"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="194"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="211"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="80"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="170"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="89"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="92"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="200"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="221"/>
         <source>Confirm password</source>
         <translation>重复密码</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="81"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="189"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="90"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="205"/>
+        <source>Set root password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="93"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="246"/>
         <source>Next</source>
         <translation>下一步</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="82"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="183"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="94"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="240"/>
         <source>Use that password to edit boot menu</source>
         <translation>同时设置为修改启动菜单的密码</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="225"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="287"/>
         <source>This username already exists</source>
         <translation>这个用户名已存在</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="229"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="291"/>
         <source>The first letter must be in lowercase</source>
         <translation>首字母必须为小写</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="235"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="297"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
         <translation>用户名必须包含英文（小写）、数字或特殊符号（_-）</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="241"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="303"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
         <translation>请输入长度大于%1，小于%2位用户名</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="263"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="325"/>
         <source>Please input computer name</source>
         <translation>请输入计算机名</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="267"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="329"/>
         <source>Computer name is invalid</source>
         <translation>计算机名无效</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="271"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="333"/>
         <source>Computer name already exists, please input another one</source>
         <translation>计算机名被占用，请重新输入</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="276"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="338"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
         <translation>请输入长度大于%1，小于%2位计算机名</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="302"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="364"/>
         <source>The password should be different from the username</source>
         <translation>用户密码不能与用户名相同</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="314"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="327"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="376"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="389"/>
         <source>Please input password longer than %1 characters and shorter than %2 characters</source>
         <translation>请输入长度大于%1，小于%2位密码</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="321"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="383"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>密码必须包含英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="351"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="413"/>
         <source>Passwords do not match</source>
         <translation>两次输入的密码不一致</translation>
     </message>
@@ -811,19 +844,25 @@
     <name>installer::SystemInfoKeyboardFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="90"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="109"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="110"/>
         <source>Select keyboard layout</source>
         <translation>选择键盘布局</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="144"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="111"/>
+        <source>Please select a suitable keyboard layout</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="92"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="147"/>
         <source>Test area</source>
         <translation>测试区域</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="92"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="149"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="93"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="152"/>
         <source>Back</source>
         <translation>返回</translation>
     </message>
@@ -831,22 +870,37 @@
 <context>
     <name>installer::TimezoneFrame</name>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="105"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="143"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="211"/>
         <source>Select Time Zone</source>
         <translation>选择时区</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="106"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="144"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="113"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="212"/>
         <source>Mark your zone on the map</source>
         <translation>请在地图上标注您所在的区域</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="107"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="146"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="114"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="214"/>
         <source>Next</source>
         <translation>下一步</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="217"/>
+        <source>Map</source>
+        <translation>地图</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="223"/>
+        <source>List</source>
+        <translation>列表</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="277"/>
+        <source>Time setting</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -871,26 +925,559 @@
     </message>
 </context>
 <context>
+    <name>installer::ComponentInstallManager</name>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="272"/>
+        <source>Minimal Install</source>
+        <translation>最小安装</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="272"/>
+        <source>Basic functionality.</source>
+        <translation>基本功能。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="273"/>
+        <source>Compute Node</source>
+        <translation>计算节点</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="273"/>
+        <source>Installation for performing computation and processing.</source>
+        <translation>执行计算及处理的安装。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="274"/>
+        <source>Infrastructure Server</source>
+        <translation>基础设施服务器</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="274"/>
+        <source>Server for operating network infrastructure services.</source>
+        <translation>用于操作网络基础设施的服务器。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="275"/>
+        <source>File and Print Server</source>
+        <translation>文件及打印服务器</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="275"/>
+        <source>File, print, and storage server for enterprises.</source>
+        <translation>用于企业的文件、打印及存储服务器。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="276"/>
+        <source>Basic Web Server</source>
+        <translation>基本网页服务器</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="276"/>
+        <source>Server for serving static and dynamic internet content.</source>
+        <translation>提供静态及动态互联网内容的服务器。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="277"/>
+        <source>Virtualization Host</source>
+        <translation>虚拟化主机</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="277"/>
+        <source>Minimal virtualization host.</source>
+        <translation>最小虚拟化主机。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="278"/>
+        <source>Server with GUI</source>
+        <translation>带GUI的服务器</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="278"/>
+        <source>Server for operating network infrastructure services, with a GUI.</source>
+        <translation>带有用于操作网络基础设施服务GUI的服务器。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="279"/>
+        <source>DDE Desktop</source>
+        <translation>深度桌面</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="279"/>
+        <source>DDE is a highly intuitive and user friendly desktop environment.</source>
+        <translation>深度桌面是一个非常直观且用户友好的桌面环境。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="280"/>
+        <source>Development and Creative Workstation</source>
+        <translation>开发及生成工作站</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="280"/>
+        <source>Workstation for software, hardware, graphics, or content development.</source>
+        <translation>用于软件、硬件、图形或者内容开发的工作站。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="281"/>
+        <source>Debugging Tools</source>
+        <translation>调试工具</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="281"/>
+        <source>Tools for debugging misbehaving applications and diagnosing performance problems.</source>
+        <translation>调试行为异常程序以及诊断性能问题的工具。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="282"/>
+        <source>Directory Client</source>
+        <translation>目录客户端</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="282"/>
+        <source>Clients for integration into a network managed by a directory service.</source>
+        <translation>用于整合到使用目录服务管理的网络的客户端。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="283"/>
+        <source>Security Tools</source>
+        <translation>安全性工具</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="283"/>
+        <source>Security tools for integrity and trust verification.</source>
+        <translation>用于完整性和可信验证的安全性工具。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="284"/>
+        <source>Development Tools</source>
+        <translation>开发工具</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="284"/>
+        <source>A basic development environment.</source>
+        <translation>基本开发环境。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
+        <source>Performance Tools</source>
+        <translation>性能工具</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
+        <source>Tools for diagnosing system and application-level performance problems.</source>
+        <translation>诊断系统和程序级别性能问题的工具。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
+        <source>Hardware Monitoring Utilities</source>
+        <translation>硬件监控工具</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
+        <source>A set of tools to monitor server hardware.</source>
+        <translation>一组用来监控服务器硬件的工具。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
+        <source>Virtualization Hypervisor</source>
+        <translation>虚拟化Hypervisor</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
+        <source>Smallest possible virtualization host installation.</source>
+        <translation>最小的虚拟化主机安装。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+        <source>Virtualization Platform</source>
+        <translation>虚拟化平台</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+        <source>Provide an interface for accessing and controlling virtualized guests and containers.</source>
+        <translation>提供用来访问和控制虚拟访问和容器的接口。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+        <source>Virtualization Client</source>
+        <translation>虚拟化客户端</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+        <source>Clients for installing and managing virtualization instances.</source>
+        <translation>用于安装和管理虚拟化事件的客户端。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+        <source>Backup Client</source>
+        <translation>备份客户端</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+        <source>Client tools for connecting to a backup server and doing backups.</source>
+        <translation>用来连接到备份服务器并进行备份的客户端工具。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+        <source>Backup Server</source>
+        <translation>备份服务器</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+        <source>Software to centralize your infrastructure&apos;s backups.</source>
+        <translation>集中管理基础设施备份的软件。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
+        <source>File and Storage Server</source>
+        <translation>文件及存储服务器</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
+        <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
+        <translation>CIFS、SMB、NFS、iSCSI、iSER及iSNS网络存储服务器。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+        <source>DNS Name Server</source>
+        <translation>DNS名称服务器</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+        <source>This package group allows you to run a DNS name server (BIND) on the system.</source>
+        <translation>该软件包组允许您在系统上运行DNS名称服务器（BIND）。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+        <source>E-mail Server</source>
+        <translation>电子邮件服务器</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+        <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
+        <translation>允许将系统作为SMTP和（或者）IMAP电子邮件服务器使用。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+        <source>FTP Server</source>
+        <translation>FTP服务器</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+        <source>Allows the system to act as an FTP server.</source>
+        <translation>允许将系统作为FTP服务器使用。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+        <source>Print Server</source>
+        <translation>打印服务器</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+        <source>Allows the system to act as a print server.</source>
+        <translation>允许将系统作为打印服务器使用。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+        <source>Mainframe Access</source>
+        <translation>主框架访问</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+        <source>Tools for accessing mainframe computing resources.</source>
+        <translation>访问主框架计算源的工具。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+        <source>Infiniband Support</source>
+        <translation>Infiniband支持</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+        <source>Software designed for supporting dlustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
+        <translation>用来支持集群和使用RDMA InfiniBand和iWARP光纤的网络连接性的软件。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+        <source>High Availability</source>
+        <translation>高可用性</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+        <source>Infrastructure for highly available services and/or shared storage.</source>
+        <translation>用于高度可用服务和（或者）共享存储的基础设施。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+        <source>Resilient Storage</source>
+        <translation>弹性存储</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+        <source>Clustered storage, induding the GFS2 file system.</source>
+        <translation>集群存储，其中包括GFS2文件系统。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+        <source>ldentity Management Server</source>
+        <translation>身份管理服务器</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+        <source>Centralized management of users, servers and authentication policies.</source>
+        <translation>用户、服务器和认证策略的集中管理。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+        <source>Large Systems Performance</source>
+        <translation>大系统性能</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+        <source>Performance support tools for large systems.</source>
+        <translation>用于大型系统的性能支持工具。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+        <source>Load Balancer</source>
+        <translation>负载平衡器</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+        <source>Load balancing support for network traffic.</source>
+        <translation>网络流量的负载平衡支持。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+        <source>MariaDB Database Client</source>
+        <translation>MariaDB数据库客户端</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+        <source>The MariaDB SQL database client, and associated packages.</source>
+        <translation>MariaDB SQL数据库客户端以及相关软件包。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+        <source>MariaDB Database Server</source>
+        <translation>MariaDB数据库服务器</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+        <source>The MariaDB SQL database server, and associated packages.</source>
+        <translation>MariaDB SQL数据库服务器及关联的软件包。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+        <source>PostgreSQL Database Client</source>
+        <translation>PostgreSQL数据库客户端</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+        <source>The PostgreSQL SQL database cient, and associated packages.</source>
+        <translation>PostgreSQL SQL数据库客户端以及相关软件包。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+        <source>PostgreSQL Database Server</source>
+        <translation>PostgreSQL数据库服务器</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+        <source>The PostgreSQL SQL database server, and associated packages.</source>
+        <translation>PostgreSQL SQL数据库服务器以及相关软件包。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+        <source>Java Platform</source>
+        <translation>Java平台</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+        <source>Java support for deepin.</source>
+        <translation>deepin的Java支持。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+        <source>PHP Support</source>
+        <translation>PHP支持</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+        <source>PHP web application framework.</source>
+        <translation>PHP Web应用程序框架。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+        <source>Python</source>
+        <translation>Python</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+        <source>Basic Python web application support.</source>
+        <translation>基本Python网页应用程序支持。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+        <source>Perl for Web</source>
+        <translation>网页用Perl</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+        <source>Basic Perl web application support.</source>
+        <translation>基本Perl网页应用程序支持。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+        <source>Internet Applications</source>
+        <translation>互联网应用程序</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+        <source>Email, chat, and video conferencing software.</source>
+        <translation>电子邮件、聊天和视频会议软件。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+        <source>Web Servlet Engine</source>
+        <translation>Web服务器程序引擎</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+        <source>Allows the system to host Java servlets.</source>
+        <translation>允许将系统作为主机Java服务器程序使用。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <source>Legacy x Window System Compatibility</source>
+        <translation>传统X Windows系统的兼容性</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <source>Compatibility programs for migration from or working with legacy X Window System environments.</source>
+        <translation>用于从继承X Windows环境中迁移或者可用于该环境的兼容程序。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+        <source>Office Suite and Productivity</source>
+        <translation>办公套件和生产率</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+        <source>A full-purpose office suite, and other productivity tools.</source>
+        <translation>全套办公软件以及其他产品工具。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+        <source>Additional Development</source>
+        <translation>附加开发</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+        <source>Additional development headers and libraries for building open-source applications.</source>
+        <translation>用于构建开源应用程序的附加开发标头及程序。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+        <source>Emacs</source>
+        <translation>Emacs</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+        <source>The GNU Emacs extensible, customizable text editor.</source>
+        <translation>GNU Emacs可扩展、可自定义的文本编辑器。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+        <source>Graphics Creation Tools</source>
+        <translation>图形生成工具</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+        <source>Software for creation and manipulation of still images.</source>
+        <translation>生成和操作静止图像的软件。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+        <source>Platform Development</source>
+        <translation>平台开发</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+        <source>Recommended development headers and libraries for developing applications to run on deepin.</source>
+        <translation>推荐在用于开发在deepin中所运行应用程序的标头及程序库。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+        <source>Technical Writing</source>
+        <translation>科技写作</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+        <source>Tools for writing technical documentation.</source>
+        <translation>编写科技文档的工具。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
+        <source>Virtualization Tools</source>
+        <translation>虚拟化工具</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
+        <source>Tools for offline virtual image management.</source>
+        <translation>用于离线虚拟机映像管理的工具。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
+        <source>Network File System Client</source>
+        <translation>网络文件系统客户端</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
+        <source>Enables the system to attach to network storage.</source>
+        <translation>启用该系统附加到网络存储。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
+        <source>Guest Agents</source>
+        <translation>虚拟机代理</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
+        <source>Agents used when running under a hypervisor.</source>
+        <translation>在hypervisor中运行时使用的代理。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
+        <source>DDE Applications</source>
+        <translation>深度应用程序</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
+        <source>A set of commonly used DDE Applications.</source>
+        <translation>一组经常使用的深度应用程序。</translation>
+    </message>
+</context>
+<context>
     <name>installer::ControlPlatformFrame</name>
     <message>
-        <location filename="../src/ui/frames/control_platform_frame.cpp" line="23"/>
-        <location filename="../src/ui/frames/control_platform_frame.cpp" line="83"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="28"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="118"/>
         <source>Set Control Region</source>
         <translation>设置管控区域</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/control_platform_frame.cpp" line="24"/>
-        <location filename="../src/ui/frames/control_platform_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="29"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="119"/>
         <source>Set the region for Deepin EndPoint Management Platform</source>
         <translation>设置深度终端集中管控平台的管控区域</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/control_platform_frame.cpp" line="81"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="116"/>
         <source>Next</source>
         <translation>下一步</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/control_platform_frame.cpp" line="82"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="117"/>
         <source>Server Address</source>
         <translation>服务器地址</translation>
     </message>
@@ -916,47 +1503,47 @@
 <context>
     <name>installer::Full_Disk_Encrypt_frame</name>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="150"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="159"/>
         <source>Please input password</source>
         <translation>请输入密码</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="156"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="165"/>
         <source>Passwords do not match</source>
         <translation>两次输入的密码不一致</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="182"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="194"/>
         <source>Full Disk Encryption</source>
         <translation>全盘加密</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="183"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="195"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>请确定您已备份好重要数据，然后选择要安装的磁盘</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="184"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="196"/>
         <source>Encrypt This Disk</source>
         <translation>加密该磁盘</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="185"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="197"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="186"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="198"/>
         <source>Repeat Password</source>
         <translation>重复密码</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="187"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="199"/>
         <source>Previous</source>
         <translation>上一步</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="188"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="200"/>
         <source>Start Installation</source>
         <translation>开始安装</translation>
     </message>
@@ -972,52 +1559,52 @@
 <context>
     <name>installer::NetworkFrame</name>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="69"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="71"/>
         <source>Skip</source>
         <translation>跳过</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="70"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="72"/>
         <source>Next</source>
         <translation>下一步</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="95"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="97"/>
         <source>Configure Network</source>
         <translation>配置网络</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="128"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="130"/>
         <source>IP Address</source>
         <translation>IP 地址</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="129"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="131"/>
         <source>Netmask</source>
         <translation>子网掩码</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="130"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="132"/>
         <source>Gateway</source>
         <translation>网关</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="131"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="133"/>
         <source>Primary DNS</source>
         <translation>首选DNS</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="132"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="134"/>
         <source>Secondary DNS</source>
         <translation>备用DNS</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="214"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="201"/>
         <source>IP address error: illegal IP address, please have a check.</source>
         <translation>IP地址错误：IP地址非法，请检查您的输入。</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="225"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="212"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
         <translation>子网掩码错误：子网掩码非法，请检查您的输入。</translation>
     </message>
@@ -1118,24 +1705,114 @@
     </message>
 </context>
 <context>
+    <name>installer::SaveInstallFailedLogFrame</name>
+    <message>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="146"/>
+        <source>Save Error Log</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="147"/>
+        <source>Save the error log to local or external disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="148"/>
+        <source>Save Log</source>
+        <translation>保存日志</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="149"/>
+        <source>Back</source>
+        <translation>返回</translation>
+    </message>
+</context>
+<context>
+    <name>installer::SelectInstallComponentFrame</name>
+    <message>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="91"/>
+        <source>Select component</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="94"/>
+        <source>Server Type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="99"/>
+        <source>Component list</source>
+        <translation>组件列表</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="153"/>
+        <source>Next</source>
+        <translation>下一步</translation>
+    </message>
+</context>
+<context>
+    <name>installer::SystemDateFramePrivate</name>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="59"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="88"/>
+        <source>Select Timezone</source>
+        <translation>选择时区</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="89"/>
+        <source>Hour</source>
+        <translation>时</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="90"/>
+        <source>Minute</source>
+        <translation>分</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="91"/>
+        <source>Year</source>
+        <translation>年</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="92"/>
+        <source>Month</source>
+        <translation>月</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="93"/>
+        <source>Day</source>
+        <translation>天</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
+        <source>Accept</source>
+        <translation>同意</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+</context>
+<context>
     <name>installer::UserAgreementFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="121"/>
+        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="116"/>
         <source>End User License Agreement</source>
         <translation>最终用户许可协议</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="135"/>
+        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="117"/>
         <source>Back</source>
         <translation>返回</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="143"/>
+        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="122"/>
         <source>View in Chinese</source>
         <translation>显示中文</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="148"/>
+        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="120"/>
         <source>View in English</source>
         <translation>显示英文</translation>
     </message>
