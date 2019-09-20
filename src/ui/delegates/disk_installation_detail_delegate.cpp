@@ -58,6 +58,7 @@ void DiskInstallationDetailDelegate::paint(QPainter* painter,
                                   const QStyleOptionViewItem& option,
                                   const QModelIndex& index) const {
     painter->save();
+    painter->setRenderHint(QPainter::SmoothPixmapTransform);
 
     const QRect& rect(option.rect);
     const QRect background_rect(rect.x(), rect.y(), rect.width(),
