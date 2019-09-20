@@ -1228,7 +1228,7 @@ const DiskPartitionSetting& FullDiskDelegate::settings() const
     return settings_;
 }
 
-const DeviceList& FullDiskDelegate::selectedDevices()
+const DeviceList FullDiskDelegate::selectedDevices()
 {
     return selected_devices;
 }

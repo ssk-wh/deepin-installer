@@ -127,13 +127,14 @@ void FullDiskPartitionWidget::setDevices(const DeviceList& devices)
                     continue;
                 }
 
-                partition->type = PartitionType::Unallocated;
-                partition->start_sector *= partition->sector_size / kFakeSectorSize;
-                partition->end_sector *= partition->sector_size / kFakeSectorSize;
-                partition->sector_size = kFakeSectorSize;
-                partition->length = (partition->end_sector - partition->start_sector + 1) * partition->sector_size;
-                new_device->partitions << Partition::Ptr(new Partition(*partition));
-                new_device->length += partition->length;
+                Partition::Ptr new_partition(new Partition(*partition));
+                new_partition->type = PartitionType::Unallocated;
+                new_partition->start_sector *= partition->sector_size / kFakeSectorSize;
+                new_partition->end_sector *= partition->sector_size / kFakeSectorSize;
+                new_partition->sector_size = kFakeSectorSize;
+                new_partition->length = (new_partition->end_sector - new_partition->start_sector + 1) * new_partition->sector_size;
+                new_device->partitions << new_partition;
+                new_device->length += new_partition->length;
         }
     }
     new_device->sector_size = kFakeSectorSize;
