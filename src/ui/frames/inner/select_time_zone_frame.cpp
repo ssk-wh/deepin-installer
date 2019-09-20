@@ -28,9 +28,40 @@ namespace {
 SelectTimeZoneFrame::SelectTimeZoneFrame(QWidget *parent)
     : QFrame (parent)
     , m_allTimeZone(GetContinentZoneInfo())
+    , m_currentContinentIndex(QModelIndex())
+    , m_currentTimezoneIndex(QModelIndex())
 {
     initUI();
     initConnections();
+}
+
+void SelectTimeZoneFrame::updateContinentModelData()
+{
+    QStringList strList;
+    const QString& locale = ReadLocale();
+    for (auto it = m_allTimeZone.begin(); it != m_allTimeZone.end(); ++it) {
+        m_continentList << it.key();
+        Q_ASSERT(it.value().count() > 0);
+        strList << GetLocalTimezoneName(it.key() + "/" + it.value().at(0), locale).first;
+    }
+    m_continentModel->setStringList(strList);
+}
+
+void SelectTimeZoneFrame::updateTimezoneModelData()
+{
+    if (m_currentContinentIndex == QModelIndex()){
+        return;
+    }
+
+    const QString& locale = ReadLocale();
+    QStringList timezoneList;
+    QString continent = m_continentList.at(m_currentContinentIndex.row());
+
+    m_currentTimeZone = m_allTimeZone[continent];
+    for (const QString& timezone : m_currentTimeZone) {
+        timezoneList << GetLocalTimezoneName(continent + "/" + timezone, locale).second;
+    }
+    m_timeZoneModel->setStringList(timezoneList);
 }
 
 void SelectTimeZoneFrame::initUI()
@@ -41,14 +72,6 @@ void SelectTimeZoneFrame::initUI()
     m_continentListView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
     m_continentModel = new ContinentModel;
-    QStringList strList;
-    const QString& locale = ReadLocale();
-    for (auto it = m_allTimeZone.begin(); it != m_allTimeZone.end(); ++it) {
-        m_continentList << it.key();
-        Q_ASSERT(it.value().count() > 0);
-        strList << GetLocalTimezoneName(it.key() + "/" + it.value().at(0), locale).first;
-    }
-    m_continentModel->setStringList(strList);
     m_continentListView->setModel(m_continentModel);
     DiskInstallationItemDelegate* continentDelegate = new DiskInstallationItemDelegate;
     m_continentListView->setItemDelegate(continentDelegate);
@@ -75,8 +98,9 @@ void SelectTimeZoneFrame::initUI()
     listViewLayout->addStretch();
 
     setLayout(listViewLayout);
-
     this->setStyleSheet(ReadFile(":/styles/select_time_zone_frame.css"));
+
+    updateContinentModelData();
 }
 
 void SelectTimeZoneFrame::initConnections()
@@ -99,14 +123,7 @@ void SelectTimeZoneFrame::onContinentViewSelectedChanged(QModelIndex curIndex, Q
     }
 
     m_currentContinentIndex = curIndex;
-    const QString& locale = ReadLocale();
-    QStringList timezoneList;
-    m_currentTimeZone = m_allTimeZone[m_continentList.at(m_currentContinentIndex.row())];
-    for (const QString& timezone : m_currentTimeZone) {
-        timezoneList << GetLocalTimezoneName(m_continentList
-            .at(m_currentContinentIndex.row()) + "/" + timezone, locale).second;
-    }
-    m_timeZoneModel->setStringList(timezoneList);
+    updateTimezoneModelData();
 
     m_timeZoneListView->scrollToTop();
 }
@@ -122,6 +139,7 @@ void SelectTimeZoneFrame::onTimeZoneViewSelectedChanged(QModelIndex curIndex, QM
         return;
     }
 
+    m_currentTimezoneIndex = curIndex;
     QString timezone = m_continentList.at(m_currentContinentIndex.row()) + "/"
             + m_currentTimeZone.at(curIndex.row());
     emit timezoneUpdated(timezone);
@@ -142,11 +160,28 @@ void SelectTimeZoneFrame::onUpdateTimezoneList(const QString &timezone)
     m_continentListView->blockSignals(false);
 
     m_currentTimeZone = m_allTimeZone[list.first()];
-    const QModelIndex& timezoneIndex = m_timeZoneModel->index(m_currentTimeZone.indexOf(list.last()));
+    m_currentTimezoneIndex = m_timeZoneModel->index(m_currentTimeZone.indexOf(list.last()));
     m_timeZoneListView->blockSignals(true);
-    m_timeZoneListView->scrollTo(timezoneIndex, QAbstractItemView::PositionAtTop);
-    m_timeZoneListView->setCurrentIndex(timezoneIndex);
+    m_timeZoneListView->scrollTo(m_currentTimezoneIndex, QAbstractItemView::PositionAtTop);
+    m_timeZoneListView->setCurrentIndex(m_currentTimezoneIndex);
     m_timeZoneListView->blockSignals(false);
+}
+
+void SelectTimeZoneFrame::changeEvent(QEvent *event)
+{
+    if(event->type() == QEvent::LanguageChange){
+        updateContinentModelData();
+        if(m_currentContinentIndex != QModelIndex()){
+            m_continentListView->setCurrentIndex(m_currentContinentIndex);
+        }
+        updateTimezoneModelData();
+        if(m_currentTimezoneIndex != QModelIndex()){
+            m_timeZoneListView->setCurrentIndex(m_currentTimezoneIndex);
+        }
+    }
+    else {
+        QFrame::changeEvent(event);
+    }
 }
 
 }

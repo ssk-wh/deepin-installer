@@ -353,6 +353,7 @@ void TimezoneFrame::onTimezoneListButtonClicked()
 void TimezoneFrame::onSelectTimezoneUpdated(const QString &timezone)
 {
     timezone_source_ = TimezoneSource::User;
+    timezone_ = timezone;
     emit timezoneSet(timezone);
 }
 

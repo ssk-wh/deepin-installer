@@ -140,8 +140,11 @@ QString GetTimezoneName(const QString& timezone) {
 QPair<QString, QString> GetLocalTimezoneName(const QString& timezone, const QString& locale) {
   // Set locale first.
   (void) setlocale(LC_ALL, (locale + ".UTF-8").toLocal8Bit().constData());
-  const QString local_name =
+  QString local_name =
       dgettext(kTimezoneDomain, timezone.toLocal8Bit().constData());
+  if(locale == "en_US"){
+      local_name = timezone;
+  }
 
   // Reset locale.
   (void) setlocale(LC_ALL, kDefaultLang);
