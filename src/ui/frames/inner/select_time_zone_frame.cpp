@@ -49,7 +49,7 @@ void SelectTimeZoneFrame::updateContinentModelData()
 
 void SelectTimeZoneFrame::updateTimezoneModelData()
 {
-    if (m_currentContinentIndex == QModelIndex()){
+    if (!m_currentContinentIndex.isValid()){
         return;
     }
 
@@ -171,11 +171,11 @@ void SelectTimeZoneFrame::changeEvent(QEvent *event)
 {
     if(event->type() == QEvent::LanguageChange){
         updateContinentModelData();
-        if(m_currentContinentIndex != QModelIndex()){
+        if(m_currentContinentIndex.isValid()){
             m_continentListView->setCurrentIndex(m_currentContinentIndex);
         }
         updateTimezoneModelData();
-        if(m_currentTimezoneIndex != QModelIndex()){
+        if(m_currentTimezoneIndex.isValid()){
             m_timeZoneListView->setCurrentIndex(m_currentTimezoneIndex);
         }
     }

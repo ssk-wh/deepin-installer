@@ -138,25 +138,29 @@ QString GetTimezoneName(const QString& timezone) {
 }
 
 QPair<QString, QString> GetLocalTimezoneName(const QString& timezone, const QString& locale) {
-  // Set locale first.
-  (void) setlocale(LC_ALL, (locale + ".UTF-8").toLocal8Bit().constData());
-  QString local_name =
-      dgettext(kTimezoneDomain, timezone.toLocal8Bit().constData());
-  if(locale == "en_US"){
-      local_name = timezone;
-  }
+    QString local_name;
 
-  // Reset locale.
-  (void) setlocale(LC_ALL, kDefaultLang);
+    if(locale == "en_US"){
+        local_name = timezone;
+    }
+    else {
+        // Set locale first.
+        (void) setlocale(LC_ALL, (locale + ".UTF-8").toLocal8Bit().constData());
+        local_name =
+            dgettext(kTimezoneDomain, timezone.toLocal8Bit().constData());
 
-  const QStringList list = local_name.split("/");
+        // Reset locale.
+        (void) setlocale(LC_ALL, kDefaultLang);
+    }
 
-  if(list.size() > 1){
-      return QPair<QString, QString>(list.first(), list.last());
-  }
-  else {
-      return QPair<QString, QString>("", local_name);
-  }
+    const QStringList list = local_name.split("/");
+
+    if(list.size() > 1){
+        return QPair<QString, QString>(list.first(), list.last());
+    }
+    else {
+        return QPair<QString, QString>("", local_name);
+    }
 }
 
 TimezoneAliasMap GetTimezoneAliasMap() {
