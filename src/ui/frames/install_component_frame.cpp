@@ -207,17 +207,6 @@ void SelectInstallComponentFrame::onServerTypeClicked()
 
     if(m_currentComponentWidget){
         m_currentComponentWidget->setSelected(false);
-
-        QList<QSharedPointer<ComponentInfo>> defaultValue = m_componentStructMap[m_currentComponentWidget]->defaultValue();
-        QList<QSharedPointer<ComponentInfo>> extraList = m_componentStructMap[m_currentComponentWidget]->extra();
-
-        for (QSharedPointer<ComponentInfo> info : defaultValue) {
-            info->Selected = false;
-        }
-
-        for (QSharedPointer<ComponentInfo> info : extraList) {
-            info->Selected = false;
-        }
     }
 
     m_currentComponentWidget = componentWidget;
@@ -241,8 +230,7 @@ void SelectInstallComponentFrame::onServerTypeClicked()
     for (auto it = extra.cbegin(); it != extra.cend(); ++it) {
         QString id = it->get()->Id;
         ComponentWidget* compWdg = new ComponentWidget(false);
-        compWdg->setTitle(id);
-        compWdg->setDesc(id.append("desc"));
+        compWdg->setSelected(it->get()->Selected);
 
         m_componentLayout->addWidget(compWdg);
 
