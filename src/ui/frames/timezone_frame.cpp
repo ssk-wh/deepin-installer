@@ -177,6 +177,8 @@ void TimezoneFrame::initConnections() {
   // Remark timezone on map when it is updated.
   connect(this, &TimezoneFrame::timezoneUpdated,
           timezone_map_, &TimezoneMap::setTimezone);
+  connect(this, &TimezoneFrame::timezoneUpdated,
+          m_selectTimeZoneFrame, &SelectTimeZoneFrame::onUpdateTimezoneList);
 
   connect(this, &TimezoneFrame::timezoneSet,
           timezone_map_, &TimezoneMap::setTimezoneData);
@@ -333,7 +335,6 @@ void TimezoneFrame::onTimezoneMapUpdated(const QString& timezone) {
   timezone_source_ = TimezoneSource::User;
   // No need to convert timezone alias.
   timezone_ = timezone;
-  emit this->timezoneUpdated(timezone_);
   m_selectTimeZoneFrame->onUpdateTimezoneList(timezone);
 }
 
