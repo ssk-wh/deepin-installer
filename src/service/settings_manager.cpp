@@ -551,7 +551,7 @@ void WriteFullDiskResolution(const FinalFullDiskResolution& resolution)
         valueList.clear();
         labelValueList.clear();
 
-        if (i > 0) {
+        if (i > 0 && op.encrypt) {
             valueList << QString("luks_crypt%1:crypto_luks::100%").arg(i);
             labelValueList << QString("luks_crypt%1").arg(i);
         }
@@ -563,7 +563,7 @@ void WriteFullDiskResolution(const FinalFullDiskResolution& resolution)
                     .arg(policy.offset/kMebiByte)
                     .arg(policy.size/kMebiByte);
             labelValueList << policy.label;
-            if (0 == i && policy.mountPoint == "/boot") {
+            if (op.encrypt && 0 == i && policy.mountPoint == "/boot") {
                 valueList << QString("luks_crypt%1:crypto_luks::100%").arg(i);
                 labelValueList << QString("luks_crypt%1").arg(i);
             }

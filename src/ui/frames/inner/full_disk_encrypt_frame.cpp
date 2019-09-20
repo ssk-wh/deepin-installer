@@ -173,8 +173,13 @@ void Full_Disk_Encrypt_frame::onNextBtnClicked()
         WriteFullDiskEncryptPassword("");
     }
 
+    bool encrypt = m_encryptCheck->isChecked();
     FinalFullDiskResolution resolution;
     m_diskPartitionDelegate->getFinalDiskResolution(resolution);
+    FinalFullDiskOptionList& option_list = resolution.option_list;
+    for (FinalFullDiskOption& option : option_list) {
+        option.encrypt = encrypt;
+    }
     WriteFullDiskResolution(resolution);
 
     emit finished();

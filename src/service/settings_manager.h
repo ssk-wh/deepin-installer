@@ -169,6 +169,7 @@ struct FinalFullDiskOption {
     QString                  device;
     QString                  password;
     FinalFullDiskPolicyList  policy_list;
+    bool                     encrypt;
 };
 
 typedef QList<FinalFullDiskOption> FinalFullDiskOptionList;
