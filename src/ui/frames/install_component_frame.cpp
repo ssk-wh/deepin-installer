@@ -11,6 +11,7 @@
 #include <QLineEdit>
 #include <QEvent>
 #include <QDebug>
+#include <QtConcurrent/QtConcurrent>
 
 namespace installer {
 
@@ -37,22 +38,24 @@ void SelectInstallComponentFrame::writeConf()
     WriteComponentPackages("");
     WriteComponentUninstallPackages("");
 
-    QSharedPointer<ComponentStruct> current =
-        m_componentStructMap[m_currentComponentWidget];
+    QtConcurrent::run([=] {
+        QSharedPointer<ComponentStruct> current =
+                m_componentStructMap[m_currentComponentWidget];
 
-    const QStringList installPackages =
-        ComponentInstallManager::Instance()->packageListByComponentStruct(current);
+        const QStringList installPackages =
+                ComponentInstallManager::Instance()->packageListByComponentStruct(current);
 
-    if (!installPackages.isEmpty()) {
-        WriteComponentPackages(installPackages.join(" "));
-    }
+        if (!installPackages.isEmpty()) {
+            WriteComponentPackages(installPackages.join(" "));
+        }
 
-    const QStringList uninstallPackages =
-        ComponentInstallManager::Instance()->uninstallPackageListByComponentStruct(
-            current);
-    if (!uninstallPackages.isEmpty()) {
-        WriteComponentUninstallPackages(uninstallPackages.join(" "));
-    }
+        const QStringList uninstallPackages =
+                ComponentInstallManager::Instance()->uninstallPackageListByComponentStruct(
+                    current);
+        if (!uninstallPackages.isEmpty()) {
+            WriteComponentUninstallPackages(uninstallPackages.join(" "));
+        }
+    });
 }
 
 bool SelectInstallComponentFrame::event(QEvent* event) {
