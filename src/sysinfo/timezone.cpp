@@ -219,9 +219,9 @@ TimezoneOffset GetTimezoneOffset(const QString& timezone) {
   return offset;
 }
 
-ContinentZoneInfoMap GetContinentZoneInfo()
+ContinentZoneInfoList GetContinentZoneInfo()
 {
-    ContinentZoneInfoMap infoMap;
+    QMap<QString, QStringList> infoMap;
     const QString& content(ReadFile(kZoneTabFile));
 
     QStringList strList = content.split('\n');
@@ -245,7 +245,11 @@ ContinentZoneInfoMap GetContinentZoneInfo()
         }
     }
 
-    return infoMap;
+    ContinentZoneInfoList infoList;
+    for (auto it = infoMap.begin(); it != infoMap.end(); ++it) {
+        infoList << QPair<QString, QStringList>(it.key(), it.value());
+    }
+    return infoList;
 }
 
 }  // namespace installer

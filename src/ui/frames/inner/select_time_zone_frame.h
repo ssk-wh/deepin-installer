@@ -35,8 +35,9 @@ private:
     void initUI();
     void initConnections();
 
-    ContinentZoneInfoMap m_allTimeZone;
-    QStringList m_continentList;
+    ContinentZoneInfoList m_allTimeZone;
+    QMap<QString, QString> m_mapEnglishToInternation;
+    QStringList m_currentContinentList;
     QStringList m_currentTimeZone;
     QModelIndex m_currentContinentIndex;
     QModelIndex m_currentTimezoneIndex;

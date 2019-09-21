@@ -15,6 +15,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QScrollBar>
+#include <QCollator>
 #include <QDebug>
 
 namespace installer {
@@ -36,14 +37,80 @@ SelectTimeZoneFrame::SelectTimeZoneFrame(QWidget *parent)
 
 void SelectTimeZoneFrame::updateContinentModelData()
 {
-    QStringList strList;
     const QString& locale = ReadLocale();
-    for (auto it = m_allTimeZone.begin(); it != m_allTimeZone.end(); ++it) {
-        m_continentList << it.key();
-        Q_ASSERT(it.value().count() > 0);
-        strList << GetLocalTimezoneName(it.key() + "/" + it.value().at(0), locale).first;
+    QCollator collator(locale);
+    QString left;
+    QString right;
+    QString continent;
+    QMap<QString, QString>::const_iterator internationIt;
+
+    collator.setCaseSensitivity(Qt::CaseInsensitive);
+    std::sort(m_allTimeZone.begin(), m_allTimeZone.end()
+        , [&](const QPair<QString, QStringList>& a, const QPair<QString, QStringList>& b) -> bool {
+            if((internationIt = m_mapEnglishToInternation.find(a.first)) == m_mapEnglishToInternation.end()){
+                Q_ASSERT(a.second.count() > 0);
+                left = GetLocalTimezoneName(a.first + "/" + a.second.first(), locale).first;
+                m_mapEnglishToInternation[a.first] = left;
+            }
+            else {
+                left = internationIt.value();
+            }
+
+            if((internationIt = m_mapEnglishToInternation.find(b.first)) == m_mapEnglishToInternation.end()){
+                Q_ASSERT(b.second.count() > 0);
+                right = GetLocalTimezoneName(b.first + "/" + b.second.first(), locale).first;
+                m_mapEnglishToInternation[b.first] = right;
+            }
+            else {
+                right = internationIt.value();
+            }
+
+            return collator.compare(left, right) < 0;
+        }
+    );
+
+    for (auto& it : m_allTimeZone) {
+        std::sort(it.second.begin(), it.second.end()
+            , [&](const QString& a, const QString& b) -> bool {
+            if((internationIt = m_mapEnglishToInternation.find(a)) == m_mapEnglishToInternation.end()){
+                left = GetLocalTimezoneName(it.first + "/" + a, locale).second;
+                m_mapEnglishToInternation[a] = left;
+            }
+            else {
+                left = internationIt.value();
+            }
+
+            if((internationIt = m_mapEnglishToInternation.find(b)) == m_mapEnglishToInternation.end()){
+                right = GetLocalTimezoneName(it.first + "/" + b, locale).second;
+                m_mapEnglishToInternation[b] = right;
+            }
+            else {
+                right = internationIt.value();
+            }
+
+            return collator.compare(left, right) < 0;
+            }
+        );
+    }
+
+    // backup current continent name
+    if(m_currentContinentIndex.isValid()){
+        Q_ASSERT(m_currentContinentList.count() > 0);
+        continent = m_currentContinentList.at(m_currentContinentIndex.row());
+    }
+
+    QStringList strList;
+    for (auto it : m_allTimeZone) {
+        m_currentContinentList << it.first;
+        Q_ASSERT(it.second.count() > 0);
+        strList << m_mapEnglishToInternation[it.first];
     }
     m_continentModel->setStringList(strList);
+
+    // after continent list sort, update current continent index in list
+    if(m_currentContinentIndex.isValid()){
+        m_currentContinentIndex = m_continentModel->index(m_currentContinentList.indexOf(continent));
+    }
 }
 
 void SelectTimeZoneFrame::updateTimezoneModelData()
@@ -54,13 +121,29 @@ void SelectTimeZoneFrame::updateTimezoneModelData()
 
     const QString& locale = ReadLocale();
     QStringList timezoneList;
-    QString continent = m_continentList.at(m_currentContinentIndex.row());
+    QString continent = m_currentContinentList.at(m_currentContinentIndex.row());
+    QString timezone;
 
-    m_currentTimeZone = m_allTimeZone[continent];
+    // backup current timezone name
+    if(m_currentTimezoneIndex.isValid()){
+        timezone = m_currentTimeZone.at(m_currentTimezoneIndex.row());
+    }
+
+    for (auto it : m_allTimeZone) {
+        if(it.first == continent){
+            m_currentTimeZone = it.second;
+            break;
+        }
+    }
     for (const QString& timezone : m_currentTimeZone) {
-        timezoneList << GetLocalTimezoneName(continent + "/" + timezone, locale).second;
+        timezoneList << m_mapEnglishToInternation[timezone];
     }
     m_timeZoneModel->setStringList(timezoneList);
+
+    // after timezone list sort, update current continent index in list
+    if(m_currentTimezoneIndex.isValid()){
+        m_currentTimezoneIndex = m_timeZoneModel->index(m_currentTimeZone.indexOf(timezone));
+    }
 }
 
 void SelectTimeZoneFrame::initUI()
@@ -139,7 +222,7 @@ void SelectTimeZoneFrame::onTimeZoneViewSelectedChanged(QModelIndex curIndex, QM
     }
 
     m_currentTimezoneIndex = curIndex;
-    QString timezone = m_continentList.at(m_currentContinentIndex.row()) + "/"
+    QString timezone = m_currentContinentList.at(m_currentContinentIndex.row()) + "/"
             + m_currentTimeZone.at(curIndex.row());
     emit timezoneUpdated(timezone);
 }
@@ -153,12 +236,17 @@ void SelectTimeZoneFrame::onUpdateTimezoneList(const QString &timezone)
     const QStringList list = timezone.split("/");
 
     Q_ASSERT(list.count() > 1);
-    m_currentContinentIndex = m_continentModel->index(m_continentList.indexOf(list.first()));
+    m_currentContinentIndex = m_continentModel->index(m_currentContinentList.indexOf(list.first()));
     m_continentListView->blockSignals(true);
     m_continentListView->setCurrentIndex(m_currentContinentIndex);
     m_continentListView->blockSignals(false);
 
-    m_currentTimeZone = m_allTimeZone[list.first()];
+    for (auto it : m_allTimeZone) {
+        if(it.first == list.first()){
+            m_currentTimeZone = it.second;
+            break;
+        }
+    }
     m_currentTimezoneIndex = m_timeZoneModel->index(m_currentTimeZone.indexOf(list.last()));
     m_timeZoneListView->blockSignals(true);
     m_timeZoneListView->scrollTo(m_currentTimezoneIndex, QAbstractItemView::PositionAtTop);
@@ -169,6 +257,9 @@ void SelectTimeZoneFrame::onUpdateTimezoneList(const QString &timezone)
 void SelectTimeZoneFrame::changeEvent(QEvent *event)
 {
     if(event->type() == QEvent::LanguageChange){
+        // clear EnglishToInternation translate map first
+        m_mapEnglishToInternation.clear();
+
         updateContinentModelData();
         if(m_currentContinentIndex.isValid()){
             m_continentListView->setCurrentIndex(m_currentContinentIndex);

@@ -46,8 +46,8 @@ typedef QList<ZoneInfo> ZoneInfoList;
 ZoneInfoList GetZoneInfoList();
 
 // Read available Continent vs timeZone info in zone.tab file.
-typedef QMap<QString, QStringList> ContinentZoneInfoMap;
-ContinentZoneInfoMap GetContinentZoneInfo();
+typedef QList<QPair<QString, QStringList>> ContinentZoneInfoList;
+ContinentZoneInfoList GetContinentZoneInfo();
 
 // Find ZoneInfo based on |country| or |timezone|.
 // Returns -1 if not found.
