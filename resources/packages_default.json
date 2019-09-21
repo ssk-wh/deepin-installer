@@ -42,6 +42,7 @@
       ],
      "choice":[
       "backup-server",
+      "mail-server"
       "debugging-tools",
       "directory-client",
       "dns-server",
@@ -138,7 +139,6 @@
       "network-file-system-client",
       "virtualization-platform",
       "php",
-      "virtualization-platform",
       "development-tools",
       "security-tools"
     ]
