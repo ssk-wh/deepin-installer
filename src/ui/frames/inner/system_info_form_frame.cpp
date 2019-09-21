@@ -102,6 +102,7 @@ void SystemInfoFormFrame::showEvent(QShowEvent* event)
 {
     QFrame::showEvent(event);
     username_edit_->setFocus();
+    tooltip_->hide();
 }
 
 void SystemInfoFormFrame::initConnections()
