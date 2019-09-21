@@ -20,7 +20,7 @@
         "filesystem": "ext4",
         "mountPoint": "/",
         "label": "Roota",
-        "usage": "15Gib",
+        "usage": "20Gib",
         "alignStart": true,
         "device": "",
         "platform": [ "x86", "sw", "loongson", "arm" ]
@@ -29,7 +29,7 @@
         "filesystem": "ext4",
         "mountPoint": "",
         "label": "Rootb",
-        "usage": "15Gib",
+        "usage": "20Gib",
         "alignStart": true,
         "device": "",
         "platform": [ "x86", "sw", "loongson", "arm" ]
