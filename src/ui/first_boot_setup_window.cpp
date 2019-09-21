@@ -24,6 +24,7 @@
 #include <QStackedLayout>
 #include <QThread>
 
+#include "widgets/pointer_button.h"
 #include "base/thread_util.h"
 #include "service/first_boot_hook_worker.h"
 #include "service/power_manager.h"
@@ -36,6 +37,7 @@
 #include "ui/utils/widget_util.h"
 #include "ui/xrandr/multi_head_manager.h"
 #include "base/command.h"
+#include "base/file_util.h"
 
 #include "ui/frames/language_frame.h"
 #include "ui/frames/networkframe.h"
@@ -98,29 +100,58 @@ void FirstBootSetupWindow::initConnections() {
             multi_head_manager_, &MultiHeadManager::switchXRandRMode);
     connect(multi_head_manager_, &MultiHeadManager::primaryScreenChanged,
             this, &FirstBootSetupWindow::onPrimaryScreenChanged);
+    connect(back_button_, &PointerButton::clicked, this, &FirstBootSetupWindow::backPage);
 }
 
 void FirstBootSetupWindow::initUI() {
-  background_label_ = new QLabel(this);
-  language_frame_ = new LanguageFrame(this);
-  system_info_frame_ = new SystemInfoFrame(this);
-  network_frame_ = new NetworkFrame(this);
-  timezone_frame_ = new TimezoneFrame(this);
-  loading_frame_ = new FirstBootLoadingFrame(this);
-  control_platform_frame_ = new ControlPlatformFrame(this);
+    back_button_ = new PointerButton;
+    back_button_->setObjectName("back_button");
+    back_button_->setFixedSize(48, 38);
+    back_button_->setFlat(true);
+    back_button_->setFocusPolicy(Qt::TabFocus);
+    back_button_->setStyleSheet(ReadFile(":/styles/back_button.css"));
+    back_button_->hide();
 
-  stacked_layout_ = new QStackedLayout(this);
+    QHBoxLayout* topLayout = new QHBoxLayout;
+    topLayout->setMargin(10);
+    topLayout->setSpacing(0);
+    topLayout->addWidget(back_button_, 0, Qt::AlignLeft);
+    topLayout->addStretch();
+
+  background_label_ = new QLabel(this);
+  language_frame_ = new LanguageFrame;
+  system_info_frame_ = new SystemInfoFrame;
+  network_frame_ = new NetworkFrame;
+  timezone_frame_ = new TimezoneFrame;
+  loading_frame_ = new FirstBootLoadingFrame;
+  control_platform_frame_ = new ControlPlatformFrame;
+
+  m_frames = {
+      language_frame_,
+      timezone_frame_,
+      system_info_frame_,
+      network_frame_,
+      control_platform_frame_,
+      loading_frame_,
+  };
+
+  stacked_layout_ = new QStackedLayout;
   stacked_layout_->setContentsMargins(0, 0, 0, 0);
   stacked_layout_->setSpacing(0);
-  stacked_layout_->addWidget(language_frame_);
-  stacked_layout_->addWidget(timezone_frame_);
-  stacked_layout_->addWidget(system_info_frame_);
-  stacked_layout_->addWidget(network_frame_);
-  stacked_layout_->addWidget(control_platform_frame_);
-  stacked_layout_->addWidget(loading_frame_);
 
-  this->setLayout(stacked_layout_);
-  this->setContentsMargins(0, 36, 0, 36);
+  for (QWidget* widget : m_frames) {
+      stacked_layout_->addWidget(widget);
+  }
+
+  QVBoxLayout* mainLayout = new QVBoxLayout;
+  mainLayout->setSpacing(0);
+  mainLayout->setMargin(0);
+  mainLayout->addLayout(topLayout);
+  mainLayout->addSpacing(36);
+  mainLayout->addLayout(stacked_layout_);
+  mainLayout->addSpacing(36);
+
+  setLayout(mainLayout);
 }
 
 void FirstBootSetupWindow::registerShortcut() {
@@ -174,6 +205,7 @@ void FirstBootSetupWindow::onLanguageSelected()
     }
     else {
       stacked_layout_->setCurrentWidget(timezone_frame_);
+      updateBackButtonVisible(stacked_layout_->currentWidget());
     }
 }
 
@@ -182,6 +214,7 @@ void FirstBootSetupWindow::onSystemInfoFinished() {
     this->onNetworkFinished();
   } else {
     stacked_layout_->setCurrentWidget(network_frame_);
+    updateBackButtonVisible(stacked_layout_->currentWidget());
   }
 }
 
@@ -192,6 +225,7 @@ void FirstBootSetupWindow::onNetworkFinished()
     }
     else {
         stacked_layout_->setCurrentWidget(control_platform_frame_);
+        updateBackButtonVisible(stacked_layout_->currentWidget());
     }
 }
 
@@ -199,11 +233,23 @@ void FirstBootSetupWindow::onControlPlatformFinished()
 {
     // Display loading frame.
     stacked_layout_->setCurrentWidget(loading_frame_);
+    back_button_->hide();
     emit hook_worker_->startHook();
 }
 
 void FirstBootSetupWindow::onTimezoneFinished() {
-  stacked_layout_->setCurrentWidget(system_info_frame_);
+    stacked_layout_->setCurrentWidget(system_info_frame_);
+}
+
+void FirstBootSetupWindow::backPage()
+{
+    stacked_layout_->setCurrentWidget(m_frames.at(m_frames.indexOf(stacked_layout_->currentWidget()) - 1));
+    updateBackButtonVisible(stacked_layout_->currentWidget());
+}
+
+void FirstBootSetupWindow::updateBackButtonVisible(QWidget* page)
+{
+    back_button_->setVisible(static_cast<bool>(m_frames.indexOf(page)));
 }
 
 }  // namespace installer

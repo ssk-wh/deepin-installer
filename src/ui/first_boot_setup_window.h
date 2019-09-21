@@ -27,7 +27,7 @@ class QThread;
 class GlobalShortcut;
 
 namespace installer {
-
+class PointerButton;
 class FirstBootLoadingFrame;
 class FirstBootHookWorker;
 class MultiHeadManager;
@@ -58,6 +58,7 @@ class FirstBootSetupWindow : public QFrame {
   void registerShortcut();
   void updateBackground();
 
+  PointerButton*         back_button_         = nullptr;
   QLabel*                background_label_    = nullptr;
   SystemInfoFrame*       system_info_frame_   = nullptr;
   TimezoneFrame*         timezone_frame_      = nullptr;
@@ -74,6 +75,8 @@ class FirstBootSetupWindow : public QFrame {
   GlobalShortcut*   monitor_mode_shortcut_ = nullptr;
   MultiHeadManager* multi_head_manager_    = nullptr;
 
+  QList<QWidget*> m_frames;
+
   private slots:
   // Handles result of hook worker.
   void onHookFinished(bool ok);
@@ -89,6 +92,9 @@ class FirstBootSetupWindow : public QFrame {
 
   // Run "first_boot_setup.sh" after system_info_frame_ is finished.
   void onTimezoneFinished();
+
+  void backPage();
+  void updateBackButtonVisible(QWidget* page);
 };
 
 }  // namespace installer

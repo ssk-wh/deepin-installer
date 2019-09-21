@@ -281,10 +281,10 @@ void MainWindow::initUI() {
 
   back_button_ = new PointerButton;
   back_button_->setObjectName("back_button");
-  back_button_->setStyleSheet(ReadFile(":/styles/back_button.css"));
   back_button_->setFixedSize(48, 38);
   back_button_->setFlat(true);
   back_button_->setFocusPolicy(Qt::TabFocus);
+  back_button_->setStyleSheet(ReadFile(":/styles/back_button.css"));
   back_button_->hide();
 
   close_button_ = new PointerButton();
