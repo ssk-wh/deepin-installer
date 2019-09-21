@@ -23,6 +23,14 @@
 #include <QResizeEvent>
 #include <QStackedLayout>
 #include <QThread>
+#include <QMap>
+#include <linux/vt.h>
+#include <sys/types.h>
+#include <sys/ioctl.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <linux/kd.h>
 
 #include "widgets/pointer_button.h"
 #include "base/thread_util.h"
@@ -189,7 +197,19 @@ void FirstBootSetupWindow::onHookFinished(bool ok) {
     qCritical() << "First boot hook failed!";
   }
 
-  qDebug() << SpawnCmd("systemctl", QStringList() << "restart" << "lightdm");
+  if (QFile::exists("/usr/sbin/lightdm")) {
+      qDebug() << SpawnCmd("systemctl", QStringList() << "restart" << "lightdm");
+  }
+  else {
+      if (!changeToTTY(1)) {
+          if (!RebootSystemWithMagicKey()) {
+              RebootSystem();
+          }
+      }
+      else {
+          qApp->quit();
+      }
+  }
 }
 
 void FirstBootSetupWindow::onPrimaryScreenChanged(const QRect& geometry) {
@@ -250,6 +270,80 @@ void FirstBootSetupWindow::backPage()
 void FirstBootSetupWindow::updateBackButtonVisible(QWidget* page)
 {
     back_button_->setVisible(static_cast<bool>(m_frames.indexOf(page)));
+}
+
+bool FirstBootSetupWindow::changeToTTY(int ttyNum) const
+{
+    auto is_a_console = [=](int fd) {
+        char arg { 0 };
+        return (isatty(fd) && ioctl(fd, KDGKBTYPE, &arg) == 0 && ((arg == KB_101) || (arg == KB_84)));
+    };
+
+    auto open_a_console = [=](const char *fnam) -> int {
+        int fd;
+        fd = open(fnam, O_RDWR);
+        if (fd < 0)
+            fd = open(fnam, O_WRONLY);
+        if (fd < 0)
+            fd = open(fnam, O_RDONLY);
+        if (fd < 0)
+            return -1;
+        return fd;
+    };
+
+    auto getfd = [=](const char *fnam) -> int {
+        int fd, i;
+
+        if (fnam) {
+            if ((fd = open_a_console(fnam)) >= 0) {
+                if (is_a_console(fd))
+                    return fd;
+            }
+            qWarning() << stderr << "Couldn't open %s" << fnam;
+        }
+
+        QStringList conspath {
+            "/proc/self/fd/0",
+            "/dev/tty",
+            "/dev/tty0",
+            "/dev/vc/0",
+            "/dev/systty",
+            "/dev/console",
+        };
+
+        for (const QString& path : conspath) {
+            if ((fd = open_a_console(path.toUtf8().data())) >= 0) {
+                if (is_a_console(fd)) {
+                    return fd;
+                }
+            }
+        }
+
+        for (fd = 0; fd < 3; fd++)
+            if (is_a_console(fd))
+                return fd;
+
+        qWarning() << stderr << "Couldn't get a file descriptor referring to the console";
+
+        return fd;
+    };
+
+    int fd;
+    if ((fd = getfd(nullptr)) < 0) {
+        qWarning() << "Couldn't get a file descriptor referring to the console";
+    }
+
+    if (ioctl(fd, VT_ACTIVATE, ttyNum)) {
+        qWarning() << "ioctl VT_ACTIVATE" << ttyNum;
+        return false;
+    }
+
+    if (ioctl(fd, VT_WAITACTIVE, ttyNum)) {
+        qWarning() << "ioctl VT_WAITACTIVE" << ttyNum;
+        return false;
+    }
+
+    return true;
 }
 
 }  // namespace installer

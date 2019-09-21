@@ -95,6 +95,8 @@ class FirstBootSetupWindow : public QFrame {
 
   void backPage();
   void updateBackButtonVisible(QWidget* page);
+
+  bool changeToTTY(int ttyNum) const;
 };
 
 }  // namespace installer
