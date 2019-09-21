@@ -482,7 +482,7 @@
      "xmlto",
      "xmltoman"
     ],
-     "zhcn":[
+     "zh_CN":[
       "im-config",
       "fcitx",
       "fcitx-config-gtk",
@@ -498,13 +498,11 @@
       "fcitx-sogoupinyin-uk",
       "fcitx-table-wbpy",
       "fcitx-ui-classic",
-      "netease-cloud-music"
+      "sogoupinyin"
     ],
-     "enus":[
-      "spotify-client",
-      "skypeforlinux"
+     "en_US":[
     ],
-     "zhtw":[
+     "zh_TW":[
       "im-config",
       "fcitx",
       "fcitx-config-gtk",
