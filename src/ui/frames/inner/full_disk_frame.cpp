@@ -58,8 +58,7 @@ enum class DiskCountType : int
 QT_TRANSLATE_NOOP("FullDiskFrame", "Install here")
 QT_TRANSLATE_NOOP("FullDiskFrame", "Encrypt Full Disk")
 QT_TRANSLATE_NOOP("FullDiskFrame", "Please select a disk to start installation")
-QT_TRANSLATE_NOOP("FullDiskFrame", "It needs more than %1GB disk space to install deepin, "
-                  "for better performance, %2GB and more space is recommended")
+QT_TRANSLATE_NOOP("FullDiskFrame", "It needs more than %1GB disk space to install deepin, for better performance, %2GB and more space is recommended")
 #endif
 
 FullDiskFrame::FullDiskFrame(FullDiskDelegate* delegate, QWidget* parent)
@@ -79,32 +78,33 @@ FullDiskFrame::~FullDiskFrame() {
 }
 
 bool FullDiskFrame::validate() const {
-    if (static_cast<int>(DiskCountType::MultipleDisk) == m_disk_layout->currentIndex()) {
-        if (!m_diskInstallationWidget->validate() ) {
-            m_errorTip->show();
-            return false;
-        }
+    m_errorTip->hide();
+    m_diskTooSmallTip->hide();
+
+    if (m_delegate->selectedDisks().isEmpty()) {
+        m_errorTip->show();
+        return false;
     }
-    else {
-        bool isSelect = false;
-        for (QAbstractButton* button : m_button_group->buttons()) {
-            if (button->isChecked()) {
-                isSelect = true;
-                break;
-            }
-        }
-
-        if (!isSelect) {
-            m_errorTip->show();
-            return false;
-        }
-
-        if (m_button_group->checkedButton() == nullptr) {
-            return false;
-        }
+    int index = DeviceIndex(m_delegate->virtual_devices(), m_delegate->selectedDisks()[0]);
+    if (index < 0) {
+        qWarning() << QString("MULTIDISK:DeviceIndex failed:{%1}").arg(m_delegate->selectedDisks()[0]);
+        return false;
+    }
+    Device::Ptr device(new Device(*m_delegate->virtual_devices()[index]));
+    const int root_required = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
+    if (installer::ToGigByte(device->getByteLength()) < root_required) {
+        m_diskTooSmallTip->show();
+        qWarning() << QString("MULTIDISK: disk too small:size:{%1}.").arg(device->getByteLength());
+        return false;
     }
 
-    return ! m_delegate->selectedDevices().isEmpty();
+    if (!m_delegate->formatWholeDeviceMultipleDisk()) {
+        m_diskTooSmallTip->show();
+        qWarning() << "MULTIDISK: Failed to formatWholeDeviceMultipleDisk.";
+        return false;
+    }
+
+    return true;
 }
 
 bool FullDiskFrame::isEncrypt() const
@@ -167,8 +167,7 @@ void FullDiskFrame::initUI() {
       int min_size = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
       int recommend_size = GetSettingsInt(kPartitionRecommendedDiskSpace);
       m_diskTooSmallTip->setText(msg.arg(min_size).arg(recommend_size));
- }, QString("It needs more than %1GB disk space to install deepin, "
-            "for better performance, %2GB and more space is recommended"));
+  }, QString("It needs more than %1GB disk space to install deepin, for better performance, %2GB and more space is recommended"));
 
   QHBoxLayout* tip_layout = new QHBoxLayout();
   tip_layout->setContentsMargins(0, 0, 0, 0);
@@ -322,9 +321,6 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
     return;
   }
 
-  m_errorTip->hide();
-  m_diskTooSmallTip->hide();
-
   if (!checked) {
     // Deselect previous button.
     part_button->setSelected(false);
@@ -332,24 +328,15 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
     // Hide tooltip.
     m_install_tip->hide();
 
-    m_delegate->removeAllSelectedDisks();
-    const Device::Ptr device = part_button->device();
-    const int root_required = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
-    if (installer::ToGigByte(device->getByteLength()) < root_required) {
-        m_diskTooSmallTip->show();
-    }
-    else {
-        m_delegate->addSystemDisk(part_button->device()->path);
-    }
-
+    m_delegate->addSystemDisk(part_button->device()->path);
     const QString path = part_button->device()->path;
     qDebug() << "selected device path:" << path;
     part_button->setSelected(true);
     // Show install-tip at bottom of current checked button.
     this->showInstallTip(part_button);
 
-    if (!m_delegate->formatWholeDeviceMultipleDisk()) {
-        qWarning() << "MULTIDISK: Failed to formatWholeDeviceMultipleDisk.";
+    if(!validate()) {
+       qWarning() << QString("MULTIDISK:validate FAILED:{%1}").arg(m_delegate->selectedDisks().join(","));
     }
 
     m_diskPartitionWidget->setDevices(m_delegate->selectedDevices());
@@ -359,30 +346,18 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
 
 void FullDiskFrame::onCurrentDeviceChanged(int type, const Device::Ptr device)
 {
-    m_errorTip->hide();
-    m_diskTooSmallTip->hide();
     if (static_cast<int>(DiskModelType::SystemDisk) == type) {
-        m_delegate->removeAllSelectedDisks();
-        const int root_required = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
-        if (installer::ToGigByte(device->getByteLength()) < root_required) {
-            m_diskTooSmallTip->show();
-        }
-        else {
-            m_delegate->addSystemDisk(device->path);
-        }
+        m_delegate->addSystemDisk(device->path);
+    }
+    else if(static_cast<int>(DiskModelType::DataDisk) == type){
+        m_delegate->addDataDisk(device->path);
     }
     else {
-        if (m_delegate->selectedDisks().isEmpty()) {
-            m_errorTip->show();
-        }
-        else {
-            m_delegate->addDataDisk(device->path);
-        }
+        qWarning() << QString("MULTIDISK:invalid type:{%1}").arg(type);
     }
-    if (!m_delegate->formatWholeDeviceMultipleDisk()) {
-        qWarning() << "MULTIDISK: Failed to formatWholeDeviceMultipleDisk.";
+    if(!validate()) {
+       qWarning() << QString("MULTIDISK:validate FAILED:{%1}").arg(m_delegate->selectedDisks().join(","));
     }
-
     m_diskPartitionWidget->setDevices(m_delegate->selectedDevices());
     emit showDeviceInfomation();
 }

@@ -1045,6 +1045,7 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
 
         disk_option.is_system_disk = new_device->path == device_path_list.at(0);
         if (!formatWholeDeviceV2(new_device, disk_option)) {
+            selected_devices.clear();
             return false;
         }
         selected_devices.append(new_device);
