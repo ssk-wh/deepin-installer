@@ -208,8 +208,8 @@ void PartitionFrame::initConnections() {
   connect(dynamic_disk_warning_frame_, &DynamicDiskWarningFrame::requestNext, this,
           &PartitionFrame::showPrepareInstallFrame);
 
-  connect(full_disk_partition_frame_, &FullDiskFrame::currentDeviceChanged,
-          full_disk_encrypt_frame_, &Full_Disk_Encrypt_frame::setDevice);
+  connect(full_disk_partition_frame_, &FullDiskFrame::showDeviceInfomation,
+          full_disk_encrypt_frame_, &Full_Disk_Encrypt_frame::onShowDeviceInfomation);
 
   connect(full_disk_partition_frame_, &FullDiskFrame::cryptoStateChanged,
           this, &PartitionFrame::onFullDiskCryptoButtonClicked);

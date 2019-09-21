@@ -134,9 +134,8 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QW
     updateText();
 }
 
-void Full_Disk_Encrypt_frame::setDevice(Device::Ptr device)
+void Full_Disk_Encrypt_frame::onShowDeviceInfomation()
 {
-    Q_UNUSED(device);
     updateDiskInfo();
     m_diskPartitionWidget->setDevices(m_diskPartitionDelegate->selectedDevices());
 }

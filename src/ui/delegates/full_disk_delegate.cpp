@@ -971,6 +971,9 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
 {
     resetOperations();
     selected_devices.clear();
+    if (selectedDisks().isEmpty()) {
+        return false;
+    }
 
     const QStringList& device_path_list = selected_disks;
     for (QString device_path : device_path_list) {
@@ -1166,17 +1169,22 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
 
 void FullDiskDelegate::removeAllSelectedDisks()
 {
+    selected_devices.clear();
     selected_disks.clear();
 }
 
 void FullDiskDelegate::addSystemDisk(const QString & device_path)
 {
+    selected_devices.clear();
     selected_disks.clear();
     selected_disks.append(device_path);
 }
 
 void FullDiskDelegate::addDataDisk(const QString & device_path)
 {
+    if (selected_disks.isEmpty()) {
+        return;
+    }
     for(signed int i = selected_disks.length() - 1; i > 0; i--) {
         selected_disks.removeAt(i);
     }

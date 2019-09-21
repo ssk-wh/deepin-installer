@@ -49,6 +49,7 @@ public:
 signals:
     void currentDeviceChanged(const Device::Ptr device) const;
     void cryptoStateChanged(bool crypto) const;
+    void showDeviceInfomation();
 
 protected:
     void changeEvent(QEvent* event) override;
@@ -74,6 +75,7 @@ private:
     QFrame*           m_grid_wrapper = nullptr;
     QCheckBox*        m_encryptCheck = nullptr;
     QLabel*           m_errorTip     = nullptr;
+    QLabel*           m_diskTooSmallTip     = nullptr;
     FullDiskPartitionWidget* m_diskPartitionWidget = nullptr;
     MultipleDiskInstallationWidget* m_diskInstallationWidget = nullptr;
     QStackedLayout*      m_disk_layout  = nullptr;

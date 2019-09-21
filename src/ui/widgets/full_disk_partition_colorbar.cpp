@@ -189,6 +189,8 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
 
         m_labelLayout->addLayout(layout);
     }
+
+    setVisible(!device->partitions.isEmpty());
 }
 
 }

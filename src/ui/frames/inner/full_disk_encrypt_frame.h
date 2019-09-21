@@ -34,7 +34,7 @@ class Full_Disk_Encrypt_frame : public QWidget
 public:
     explicit Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QWidget *parent = nullptr);
 
-    void setDevice(Device::Ptr device);
+    void onShowDeviceInfomation();
 
 signals:
     void cancel();

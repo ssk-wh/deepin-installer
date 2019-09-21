@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2018 Deepin Technology Co., Ltd.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -58,6 +58,8 @@ enum class DiskCountType : int
 QT_TRANSLATE_NOOP("FullDiskFrame", "Install here")
 QT_TRANSLATE_NOOP("FullDiskFrame", "Encrypt Full Disk")
 QT_TRANSLATE_NOOP("FullDiskFrame", "Please select a disk to start installation")
+QT_TRANSLATE_NOOP("FullDiskFrame", "It needs more than %1GB disk space to install deepin, "
+                  "for better performance, %2GB and more space is recommended")
 #endif
 
 FullDiskFrame::FullDiskFrame(FullDiskDelegate* delegate, QWidget* parent)
@@ -82,23 +84,27 @@ bool FullDiskFrame::validate() const {
             m_errorTip->show();
             return false;
         }
-        return true;
     }
+    else {
+        bool isSelect = false;
+        for (QAbstractButton* button : m_button_group->buttons()) {
+            if (button->isChecked()) {
+                isSelect = true;
+                break;
+            }
+        }
 
-    bool isSelect = false;
-    for (QAbstractButton* button : m_button_group->buttons()) {
-        if (button->isChecked()) {
-            isSelect = true;
-            break;
+        if (!isSelect) {
+            m_errorTip->show();
+            return false;
+        }
+
+        if (m_button_group->checkedButton() == nullptr) {
+            return false;
         }
     }
 
-    if (!isSelect) {
-        m_errorTip->show();
-        return false;
-    }
-
-    return (m_button_group->checkedButton() != nullptr);
+    return ! m_delegate->selectedDevices().isEmpty();
 }
 
 bool FullDiskFrame::isEncrypt() const
@@ -154,6 +160,16 @@ void FullDiskFrame::initUI() {
   m_errorTip->hide();
   addTransLate(m_trList, std::bind(&QLabel::setText, m_errorTip, std::placeholders::_1), QString("Please select a disk to start installation"));
 
+  m_diskTooSmallTip = new QLabel;
+  m_diskTooSmallTip->setObjectName("msg_label");
+  m_diskTooSmallTip->hide();
+  addTransLate(m_trList, [ = ] (const QString& msg) {
+      int min_size = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
+      int recommend_size = GetSettingsInt(kPartitionRecommendedDiskSpace);
+      m_diskTooSmallTip->setText(msg.arg(min_size).arg(recommend_size));
+ }, QString("It needs more than %1GB disk space to install deepin, "
+            "for better performance, %2GB and more space is recommended"));
+
   QHBoxLayout* tip_layout = new QHBoxLayout();
   tip_layout->setContentsMargins(0, 0, 0, 0);
   tip_layout->setSpacing(0);
@@ -206,8 +222,10 @@ void FullDiskFrame::initUI() {
   main_layout->addWidget(scroll_area, 1, Qt::AlignHCenter);
   main_layout->addWidget(m_diskPartitionWidget, 0, Qt::AlignHCenter);
   main_layout->addWidget(m_encryptCheck, 0, Qt::AlignHCenter);
-  main_layout->addSpacing(20);
+  main_layout->addSpacing(10);
   main_layout->addWidget(m_errorTip, 0, Qt::AlignHCenter);
+  main_layout->addWidget(m_diskTooSmallTip, 0, Qt::AlignHCenter);
+  main_layout->addSpacing(10);
 
   m_encryptCheck->setVisible(!GetSettingsBool(KPartitionSkipFullCryptPage));
 
@@ -293,6 +311,7 @@ void FullDiskFrame::onDeviceRefreshed() {
   else {
       m_disk_layout->setCurrentWidget(m_grid_wrapper);
   }
+  m_diskTooSmallTip->hide();
 }
 
 void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
@@ -304,6 +323,7 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
   }
 
   m_errorTip->hide();
+  m_diskTooSmallTip->hide();
 
   if (!checked) {
     // Deselect previous button.
@@ -311,38 +331,60 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
   } else {
     // Hide tooltip.
     m_install_tip->hide();
+
+    m_delegate->removeAllSelectedDisks();
+    const Device::Ptr device = part_button->device();
+    const int root_required = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
+    if (installer::ToGigByte(device->getByteLength()) < root_required) {
+        m_diskTooSmallTip->show();
+    }
+    else {
+        m_delegate->addSystemDisk(part_button->device()->path);
+    }
+
     const QString path = part_button->device()->path;
     qDebug() << "selected device path:" << path;
     part_button->setSelected(true);
-
     // Show install-tip at bottom of current checked button.
     this->showInstallTip(part_button);
 
-    m_delegate->addSystemDisk(part_button->device()->path);
-    m_delegate->formatWholeDeviceMultipleDisk();
+    if (!m_delegate->formatWholeDeviceMultipleDisk()) {
+        qWarning() << "MULTIDISK: Failed to formatWholeDeviceMultipleDisk.";
+    }
+
     m_diskPartitionWidget->setDevices(m_delegate->selectedDevices());
-    emit currentDeviceChanged(part_button->device());
+    emit showDeviceInfomation();
   }
 }
 
 void FullDiskFrame::onCurrentDeviceChanged(int type, const Device::Ptr device)
 {
+    m_errorTip->hide();
+    m_diskTooSmallTip->hide();
     if (static_cast<int>(DiskModelType::SystemDisk) == type) {
-        m_errorTip->hide();
-        m_delegate->addSystemDisk(device->path);
+        m_delegate->removeAllSelectedDisks();
+        const int root_required = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
+        if (installer::ToGigByte(device->getByteLength()) < root_required) {
+            m_diskTooSmallTip->show();
+        }
+        else {
+            m_delegate->addSystemDisk(device->path);
+        }
     }
     else {
-        m_delegate->addDataDisk(device->path);
+        if (m_delegate->selectedDisks().isEmpty()) {
+            m_errorTip->show();
+        }
+        else {
+            m_delegate->addDataDisk(device->path);
+        }
     }
-    m_delegate->formatWholeDeviceMultipleDisk();
-    m_diskPartitionWidget->setDevices(m_delegate->selectedDevices());
+    if (!m_delegate->formatWholeDeviceMultipleDisk()) {
+        qWarning() << "MULTIDISK: Failed to formatWholeDeviceMultipleDisk.";
+    }
 
-    int index = DeviceIndex(m_delegate->virtual_devices(), m_delegate->selectedDisks()[0]);
-    if (-1 == index) {
-        return;
-    }
-    Device::Ptr tmpdevice = m_delegate->virtual_devices()[index];
-    emit currentDeviceChanged(tmpdevice);
+    m_diskPartitionWidget->setDevices(m_delegate->selectedDevices());
+    emit showDeviceInfomation();
 }
 
 }  // namespace installer
