@@ -357,7 +357,7 @@
      "perl"
     ],
      "dde":[
-     "deepin-desktop-base",
+     "deepin-desktop-server",
      "dde-desktop",
      "dde-dock",
      "dde-launcher",
