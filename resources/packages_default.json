@@ -42,7 +42,7 @@
       ],
      "choice":[
       "backup-server",
-      "mail-server"
+      "mail-server",
       "debugging-tools",
       "directory-client",
       "dns-server",
