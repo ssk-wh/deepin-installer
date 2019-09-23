@@ -114,7 +114,7 @@ void TimezoneFrame::changeEvent(QEvent* event) {
     next_button_->setText(tr("Next"));
     m_timezoneMapButton->setText(tr("Map"));
     m_timezoneListButton->setText(tr("List"));
-    m_setTimePushButton->setText(tr("Time setting"));
+    m_setTimePushButton->setText(tr("Time settings"));
 
     // Also update timezone.
     if (!timezone_.isEmpty()) {
@@ -277,7 +277,7 @@ void TimezoneFrame::initUI() {
   m_setTimePushButton->setObjectName("setTimePushButton");
   m_setTimePushButton->setFlat(true);
   m_setTimePushButton->setFixedHeight(23);
-  m_setTimePushButton->setText(tr("Time setting"));
+  m_setTimePushButton->setText(tr("Time settings"));
 
   m_bottomLayout = new QHBoxLayout();
   m_bottomLayout->setContentsMargins(30, 0, 0, 0);

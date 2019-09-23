@@ -143,8 +143,8 @@ bool SaveInstallFailedLogFrame::event(QEvent *event)
 
 void SaveInstallFailedLogFrame::updateTs()
 {
-    m_title->setText(tr("Save Error Log"));
-    m_subTitle->setText(tr("Save the error log to local or external disk"));
+    m_title->setText(tr("Save Log"));
+    m_subTitle->setText(tr("Save the error log to a removable device"));
     m_saveBtn->setText(tr("Save Log"));
     m_backBtn->setText(tr("Back"));
 }

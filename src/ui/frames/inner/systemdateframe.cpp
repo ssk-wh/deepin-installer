@@ -58,7 +58,7 @@ class SystemDateFramePrivate : public QWidget{
 public:
     SystemDateFramePrivate(SystemDateFrame* qq) : m_ptr(qq) {}
 
-    QLabel* m_title = new TitleLabel(tr("Time setting"));
+    QLabel* m_title = new TitleLabel(tr("Time settings"));
     CommentLabel* m_commentLabel = new CommentLabel(tr("Change date and time as you want"));
 
     TimeDateLineEdit* m_hourEdit = new TimeDateLineEdit(this);
@@ -88,7 +88,7 @@ public:
     void initConnection();
 
     void updateTs() {
-        m_title->setText(tr("Time setting"));
+        m_title->setText(tr("Time settings"));
         m_commentLabel->setText(tr("Change date and time as you want"));
         m_hourLabel->setText(tr("Hour"));
         m_minuteLabel->setText(tr("Minute"));

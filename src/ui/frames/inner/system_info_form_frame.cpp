@@ -87,7 +87,7 @@ void SystemInfoFormFrame::changeEvent(QEvent* event)
         hostname_edit_->setPlaceholderText(tr("Computer name"));
         password_edit_->setPlaceholderText(tr("Password"));
         password_check_edit_->setPlaceholderText(tr("Confirm password"));
-        m_setRootPasswordCheck->setText(tr("Set root password"));
+        m_setRootPasswordCheck->setText(tr("Set as root password"));
         m_rootPasswordEdit->setPlaceholderText(tr("Password"));
         m_rootPasswordCheckEdit->setPlaceholderText(tr("Confirm password"));
         next_button_->setText(tr("Next"));
@@ -203,7 +203,7 @@ void SystemInfoFormFrame::initUI()
     password_check_edit_->setText(password_edit_->text());
     password_check_edit_->setReadOnly(password_edit_->isReadOnly());
 
-    m_setRootPasswordCheck = new QCheckBox(tr("Set root password"), this);
+    m_setRootPasswordCheck = new QCheckBox(tr("Set as root password"), this);
     m_setRootPasswordCheck->setCheckable(true);
     m_setRootPasswordCheck->setChecked(false);
     m_setRootPasswordCheck->setObjectName("RootPasswordCheckBox");

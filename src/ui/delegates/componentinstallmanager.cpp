@@ -303,7 +303,7 @@ QPair<QString, QString> ComponentInstallManager::updateTs(const QString& id) con
         {"load-balancer", {tr("Load Balancer"), tr("Load balancing support for network traffic.")}},
         {"mariadb-client", {tr("MariaDB Database Client"), tr("The MariaDB SQL database client, and associated packages.")}},
         {"mariadb-server", {tr("MariaDB Database Server"), tr("The MariaDB SQL database server, and associated packages.")}},
-        {"postgresql-client", {tr("PostgreSQL Database Client"), tr("The PostgreSQL SQL database cient, and associated packages.")}},
+        {"postgresql-client", {tr("PostgreSQL Database Client"), tr("The PostgreSQL SQL database client, and associated packages.")}},
         {"postgresql-server", {tr("PostgreSQL Database Server"), tr("The PostgreSQL SQL database server, and associated packages.")}},
         {"java-platform", {tr("Java Platform"), tr("Java support for deepin.")}},
         {"php", {tr("PHP Support"), tr("PHP web application framework.")}},
