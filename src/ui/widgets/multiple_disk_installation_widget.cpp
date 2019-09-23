@@ -17,10 +17,10 @@
 
 #include <QStackedLayout>
 #include <QSizePolicy>
+#include <QStringListModel>
 
 #include "ui/widgets/multiple_disk_installation_widget.h"
 #include "ui/views/disk_installation_view.h"
-#include "ui/models/disk_installation_model.h"
 #include "ui/views/disk_installation_detail_view.h"
 #include "ui/models/disk_installation_detail_model.h"
 #include "ui/delegates/disk_installation_delegate.h"
@@ -56,7 +56,7 @@ void MultipleDiskInstallationWidget::initUI()
     QVBoxLayout * leftlayout = new QVBoxLayout();
     QVBoxLayout * rightlayout = new QVBoxLayout();
 
-    m_left_model = new DiskInstallationModel();
+    m_left_model = new QStringListModel(getDiskTypes());
     m_left_view = new DiskInstallationView();
     DiskInstallationItemDelegate* delegate = new DiskInstallationItemDelegate(m_left_view);
     m_left_view->setItemDelegate(delegate);
@@ -174,6 +174,21 @@ void MultipleDiskInstallationWidget::onInstallationDetailSelectedChanged(int ind
 bool MultipleDiskInstallationWidget::validate() const
 {
     return m_right_model[static_cast<int>(DiskModelType::SystemDisk)]->selectedIndex() != -1;
+}
+
+void MultipleDiskInstallationWidget::changeEvent(QEvent* event)
+{
+    if (event->type() == QEvent::LanguageChange) {
+        m_left_model->setStringList(getDiskTypes());
+    }
+    else {
+        QWidget::changeEvent(event);
+    }
+}
+
+const QStringList MultipleDiskInstallationWidget::getDiskTypes()
+{
+    return  QStringList { tr("System Disk"), tr("Data Disk") };
 }
 
 }

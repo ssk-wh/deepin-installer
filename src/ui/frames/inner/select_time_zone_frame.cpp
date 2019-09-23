@@ -3,7 +3,6 @@
 #include "ui/widgets/nav_button.h"
 #include "base/file_util.h"
 #include "ui/views/disk_installation_view.h"
-#include "ui/models/disk_installation_model.h"
 #include "ui/delegates/disk_installation_delegate.h"
 #include "ui/delegates/frameless_list_delegate.h"
 #include "ui/models/continent_model.h"

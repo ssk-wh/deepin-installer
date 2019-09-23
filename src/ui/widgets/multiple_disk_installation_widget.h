@@ -22,11 +22,11 @@
 #include <QWidget>
 
 class QStackedLayout;
+class QStringListModel;
 
 namespace installer {
 
 class DiskInstallationView;
-class DiskInstallationModel;
 class DiskInstallationDetailView;
 class DiskInstallationDetailModel;
 
@@ -58,10 +58,12 @@ private slots:
 private:
     void initConnections();
     void initUI();
+    void changeEvent(QEvent* event) override;
+    const QStringList getDiskTypes();
 
 private:
     DiskInstallationView* m_left_view     = nullptr;
-    DiskInstallationModel* m_left_model   = nullptr;
+    QStringListModel* m_left_model   = nullptr;
     DiskInstallationDetailView* m_right_view[kDiskModelMaxCount]    = {nullptr, nullptr};
     DiskInstallationDetailModel* m_right_model[kDiskModelMaxCount] = {nullptr, nullptr};
     QStackedLayout* m_right_layout = nullptr;

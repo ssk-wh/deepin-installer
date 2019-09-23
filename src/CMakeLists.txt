@@ -372,8 +372,6 @@ set(UI_FILES
     ui/models/partition_type_model.h
     ui/models/control_platform_region_model.h
     ui/models/control_platform_region_model.cpp
-    ui/models/disk_installation_model.h
-    ui/models/disk_installation_model.cpp
     ui/models/disk_installation_detail_model.h
     ui/models/disk_installation_detail_model.cpp
     ui/models/continent_model.h
@@ -856,8 +854,6 @@ add_executable(timezone-frame-test
                ui/frames/inner/select_time_zone_frame.cpp
                ui/views/disk_installation_view.h
                ui/views/disk_installation_view.cpp
-               ui/models/disk_installation_model.h
-               ui/models/disk_installation_model.cpp
                ui/models/continent_model.h
                ui/models/continent_model.cpp
                ui/views/frameless_list_view.h
