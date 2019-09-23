@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US" sourcelanguage="en_US">
+<TS version="2.1" language="en_US" sourcelanguage="en">
 <context>
     <name>installer::AdvancedPartitionButton</name>
     <message>
@@ -605,23 +605,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="249"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="244"/>
         <source>Do not use this partition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="262"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="257"/>
         <source>Swap partition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="265"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="260"/>
         <source>Unknown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="306"/>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="337"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="301"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="332"/>
         <source>Freespace</source>
         <translation type="unfinished"></translation>
     </message>
@@ -724,120 +724,120 @@
     <name>installer::SystemInfoFormFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="84"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="174"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="175"/>
         <source>Create User Account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="85"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="175"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="176"/>
         <source>Fill in the username, computer name and your password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="86"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="184"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="185"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="87"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="189"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="190"/>
         <source>Computer name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="88"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="194"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="211"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="195"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="212"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="89"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="92"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="200"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="221"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="201"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="222"/>
         <source>Confirm password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="90"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="205"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="206"/>
         <source>Set root password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="246"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="247"/>
         <source>Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="94"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="240"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="241"/>
         <source>Use that password to edit boot menu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="287"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="288"/>
         <source>This username already exists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="291"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="292"/>
         <source>The first letter must be in lowercase</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="297"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="298"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="303"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="304"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="325"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="326"/>
         <source>Please input computer name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="329"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="330"/>
         <source>Computer name is invalid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="333"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="334"/>
         <source>Computer name already exists, please input another one</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="338"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="339"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="364"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="365"/>
         <source>The password should be different from the username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="376"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="389"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="377"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="390"/>
         <source>Please input password longer than %1 characters and shorter than %2 characters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="383"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="384"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="413"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="414"/>
         <source>Passwords do not match</source>
         <translation type="unfinished"></translation>
     </message>
@@ -858,13 +858,13 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="92"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="147"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="149"/>
         <source>Test area</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="152"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="154"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
@@ -873,34 +873,37 @@
     <name>installer::TimezoneFrame</name>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="211"/>
-        <source>Select Time Zone</source>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="214"/>
+        <source>Select Timezone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="113"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="212"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="215"/>
         <source>Mark your zone on the map</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="114"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="214"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="217"/>
         <source>Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="217"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
         <source>Map</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="223"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="116"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="226"/>
         <source>List</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="277"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="117"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="280"/>
         <source>Time setting</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1515,37 +1518,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="194"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="199"/>
         <source>Full Disk Encryption</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="195"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="200"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="196"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="201"/>
         <source>Encrypt This Disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="197"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="202"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="198"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
         <source>Repeat Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="199"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="204"/>
         <source>Previous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="200"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
         <source>Start Installation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1732,22 +1735,22 @@
 <context>
     <name>installer::SelectInstallComponentFrame</name>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="94"/>
         <source>Select component</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="94"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="97"/>
         <source>Server Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="102"/>
         <source>Component list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="153"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="156"/>
         <source>Next</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1755,43 +1758,49 @@
 <context>
     <name>installer::SystemDateFramePrivate</name>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="88"/>
-        <source>Select Timezone</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="89"/>
-        <source>Hour</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="90"/>
-        <source>Minute</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="91"/>
-        <source>Year</source>
+        <source>Time setting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="92"/>
-        <source>Month</source>
+        <source>Change date and time as you want</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="93"/>
-        <source>Day</source>
+        <source>Hour</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
-        <source>Accept</source>
+        <source>Minute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
+        <source>Year</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="96"/>
+        <source>Month</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="97"/>
+        <source>Day</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="98"/>
+        <source>Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="99"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
