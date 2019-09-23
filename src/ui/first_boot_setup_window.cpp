@@ -201,15 +201,13 @@ void FirstBootSetupWindow::onHookFinished(bool ok) {
       qDebug() << SpawnCmd("systemctl", QStringList() << "restart" << "lightdm");
   }
   else {
-      if (!changeToTTY(1)) {
-          if (!RebootSystemWithMagicKey()) {
-              RebootSystem();
-          }
-      }
-      else {
-          qApp->quit();
+      if (!changeToTTY(1) || !RebootSystemWithMagicKey()) {
+          RebootSystem();
       }
   }
+
+  // NOTE(justforlxz): However, quit this program.
+  qApp->quit();
 }
 
 void FirstBootSetupWindow::onPrimaryScreenChanged(const QRect& geometry) {
