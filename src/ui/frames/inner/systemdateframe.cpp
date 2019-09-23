@@ -429,7 +429,7 @@ void SystemDateFramePrivate::init()
     m_hourEdit->setObjectName("hourEdit");
     m_hourEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_hourEdit->setFixedSize(kHourMinuteQLineEditWidth, 36);
-    m_hourEdit->setAlignment(Qt::AlignRight);
+    m_hourEdit->setAlignment(Qt::AlignCenter);
     m_hourEdit->setContextMenuPolicy(Qt::NoContextMenu);
     QWidget* hourWidget = createWidgetWithBg(m_hourEdit);
 
@@ -437,7 +437,7 @@ void SystemDateFramePrivate::init()
     m_minuteEdit->setObjectName("minuteEdit");
     m_minuteEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_minuteEdit->setFixedSize(kHourMinuteQLineEditWidth, 36);
-    m_minuteEdit->setAlignment(Qt::AlignRight);
+    m_minuteEdit->setAlignment(Qt::AlignCenter);
     m_minuteEdit->setContextMenuPolicy(Qt::NoContextMenu);
     QWidget* minuteWidget = createWidgetWithBg(m_minuteEdit);
 
