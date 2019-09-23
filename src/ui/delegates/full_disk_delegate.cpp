@@ -482,7 +482,7 @@ bool FullDiskDelegate::createLogicalPartition(const Partition::Ptr partition,
   }
 
   // Align to nearest MebiBytes.
-  //AlignPartition(new_partition);
+  AlignPartition(new_partition);
 
   // Check partition sector range.
   // Also check whether partition size is less than 1MiB or not.
