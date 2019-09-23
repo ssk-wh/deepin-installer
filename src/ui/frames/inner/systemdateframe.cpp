@@ -27,7 +27,9 @@
 #include "ui/widgets/line_edit.h"
 #include "ui/widgets/title_label.h"
 #include "ui/widgets/time_date_line_edit.h"
+#include "ui/widgets/comment_label.h"
 #include "service/settings_manager.h"
+#include "ui/frames/consts.h"
 
 #include <QVBoxLayout>
 #include <QLabel>
@@ -56,7 +58,8 @@ class SystemDateFramePrivate : public QWidget{
 public:
     SystemDateFramePrivate(SystemDateFrame* qq) : m_ptr(qq) {}
 
-    QLabel* m_title = new TitleLabel(tr("Select Timezone"));
+    QLabel* m_title = new TitleLabel(tr("Time setting"));
+    CommentLabel* m_commentLabel = new CommentLabel(tr("Change date and time as you want"));
 
     TimeDateLineEdit* m_hourEdit = new TimeDateLineEdit(this);
     TimeDateLineEdit* m_minuteEdit = new TimeDateLineEdit(this);
@@ -85,7 +88,8 @@ public:
     void initConnection();
 
     void updateTs() {
-        m_title->setText(tr("Select Timezone"));
+        m_title->setText(tr("Time setting"));
+        m_commentLabel->setText(tr("Change date and time as you want"));
         m_hourLabel->setText(tr("Hour"));
         m_minuteLabel->setText(tr("Minute"));
         m_yearLabel->setText(tr("Year"));
@@ -401,10 +405,11 @@ void SystemDateFramePrivate::init()
 {
     QVBoxLayout* centerLayout = new QVBoxLayout;
     centerLayout->setMargin(0);
-    centerLayout->setSpacing(15);
+    centerLayout->setSpacing(kMainLayoutSpacing);
     centerLayout->addSpacing(50);
     centerLayout->addWidget(m_title, 0, Qt::AlignHCenter);
-    centerLayout->addSpacing(80);
+    centerLayout->addWidget(m_commentLabel, 0, Qt::AlignHCenter);
+    centerLayout->addSpacing(50);
     centerLayout->addStretch();
 
     m_ptr->setLayout(centerLayout);
