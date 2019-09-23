@@ -109,9 +109,12 @@ void TimezoneFrame::writeConf() {
 
 void TimezoneFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    title_label_->setText(tr("Select Time Zone"));
+    title_label_->setText(tr("Select Timezone"));
     comment_label_->setText(tr("Mark your zone on the map"));
     next_button_->setText(tr("Next"));
+    m_timezoneMapButton->setText(tr("Map"));
+    m_timezoneListButton->setText(tr("List"));
+    m_setTimePushButton->setText(tr("Time setting"));
 
     // Also update timezone.
     if (!timezone_.isEmpty()) {
@@ -208,7 +211,7 @@ void TimezoneFrame::initConnections() {
 }
 
 void TimezoneFrame::initUI() {
-  title_label_ = new TitleLabel(tr("Select Time Zone"));
+  title_label_ = new TitleLabel(tr("Select Timezone"));
   comment_label_ = new CommentLabel(tr("Mark your zone on the map"));
   timezone_map_ = new TimezoneMap(this);
   next_button_ = new NavButton(tr("Next"));
