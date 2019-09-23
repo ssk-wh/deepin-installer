@@ -115,11 +115,19 @@ cleanup_first_boot() {
 }
 
 setup_default_target() {
-    if [ -f /usr/sbin/lightdm ]; then
+    msg "TARGET:before={$(systemctl get-default)}"
+    local DI_COMPONENT_UNINSTALL=$(installer_get "DI_COMPONENT_UNINSTALL")
+    if [[ "${DI_COMPONENT_UNINSTALL}" =~ ^(.* )?lightdm( .*)?$ ]]; then
+         msg "TARGET:lightdm will be removed:{${DI_COMPONENT_UNINSTALL}}"
+         systemctl set-default -f multi-user.target
+    elif [ -f /usr/sbin/lightdm ]; then
+         msg "TARGET:lightdm program found."
         systemctl set-default -f graphical.target
     else
+        msg "TARGET:lightdm program NOT found."
         systemctl set-default -f multi-user.target
     fi
+    msg "TARGET:after={$(systemctl get-default)}"
 }
 
 main() {
