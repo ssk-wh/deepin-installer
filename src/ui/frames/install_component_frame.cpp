@@ -27,6 +27,17 @@ SelectInstallComponentFrame::SelectInstallComponentFrame(QWidget *parent)
 
 void SelectInstallComponentFrame::readConf()
 {
+    const QString& defaultInstallType = GetSettingsString(kSelectComponentDefaultInstallType);
+
+    if(!defaultInstallType.isEmpty()){
+        for (auto it = m_componentStructMap.cbegin(); it != m_componentStructMap.cend(); ++it) {
+            if(it.value()->id() == defaultInstallType){
+                it.key()->setSelected(true);
+                emit it.key()->clicked();
+                break;
+            }
+        }
+    }
 }
 
 void SelectInstallComponentFrame::writeConf()
@@ -112,10 +123,7 @@ void SelectInstallComponentFrame::initUI()
     QList<QSharedPointer<ComponentStruct>> serverList = manager->list();
     QList<ComponentWidget*> serverWidgetList;
     for (auto it = serverList.cbegin(); it != serverList.cend(); ++it) {
-        QString id = it->get()->id();
         ComponentWidget* compWdg = new ComponentWidget(true);
-        compWdg->setTitle(id);
-        compWdg->setDesc(id.append("desc"));
 
         serverLayout->addWidget(compWdg);
 

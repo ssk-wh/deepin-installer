@@ -169,6 +169,9 @@ const char kEnableAnalysisScriptTime[] = "enable_analysis_script_time";
 const char kEndPointControlServerUrl[] = "end_point_control_server_url";
 const char kEndPointControlLockServer[] = "end_point_control_lock_server";
 
+// System Install Component List
+const char kSelectComponentDefaultInstallType[] = "select_component_default_install_type";
+
 }  // namespace installer
 
 #endif  // INSTALLER_SERVICE_SETTINGS_NAME_H
