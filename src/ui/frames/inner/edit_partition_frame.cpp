@@ -102,7 +102,7 @@ void EditPartitionFrame::changeEvent(QEvent* event) {
         tr("Make sure you have backed up important data, then select the disk to install"));
     fs_label_->setText(tr("Filesystem"));
     mount_point_label_->setText(tr("Mount point"));
-    format_label_->setText(tr("Format the partition"));
+    format_check_box_->setText(tr("Format the partition"));
     cancel_button_->setText(tr("Cancel"));
     ok_button_->setText(tr("OK"));
   } else {
@@ -146,7 +146,6 @@ void EditPartitionFrame::updateFormatBoxState() {
   bool invisible = (fs_type == FsType::LinuxSwap ||
       fs_type == FsType::Empty ||
       fs_type == FsType::Unknown);
-  format_label_->setVisible(!invisible);
   format_check_box_->setVisible(!invisible);
 }
 
@@ -204,8 +203,6 @@ void EditPartitionFrame::initUI() {
   fs_label_->setObjectName("fs_label");
   mount_point_label_ = new QLabel(tr("Mount point"));
   mount_point_label_->setObjectName("mount_point_label");
-  format_label_ = new QLabel(tr("Format the partition"));
-  format_label_->setObjectName("format_label");
 
   fs_box_ = new TableComboBox();
   fs_box_->setObjectName("fs_box");
@@ -219,14 +216,12 @@ void EditPartitionFrame::initUI() {
 
   format_check_box_ = new QCheckBox();
   format_check_box_->setObjectName("format_check_box");
-  format_check_box_->setFixedWidth(20);
+  format_check_box_->setText(tr("Format the partition"));
 
   QHBoxLayout* format_layout =new QHBoxLayout();
   format_layout->setContentsMargins(0, 0, 0, 0);
   format_layout->setSpacing(0);
   format_layout->addWidget(format_check_box_);
-  format_layout->addSpacing(10);
-  format_layout->addWidget(format_label_);
   format_layout->addStretch();
 
   QVBoxLayout* content_layout = new QVBoxLayout();

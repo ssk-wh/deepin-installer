@@ -72,7 +72,6 @@ class EditPartitionFrame : public QFrame {
   TableComboBox* mount_point_box_ = nullptr;
   QLabel* mount_point_label_ = nullptr;
   QCheckBox* format_check_box_ = nullptr;
-  QLabel* format_label_ = nullptr;
   NavButton* cancel_button_ = nullptr;
   NavButton* ok_button_ = nullptr;
 

@@ -4,7 +4,7 @@
   background: transparent;
 }
 
-#name_label, #usage_label, #fs_label, #mount_point_label, #format_label {
+#name_label, #usage_label, #fs_label, #mount_point_label {
   color: #ffffff;
   font-size: 14px;
 }
@@ -15,6 +15,11 @@
 
 #fs_label, #mount_point_label {
   text-align: right;
+}
+
+#format_check_box {
+  color: white;
+  background: transparent;
 }
 
 #format_check_box::indicator {
