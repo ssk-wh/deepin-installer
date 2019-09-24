@@ -84,6 +84,7 @@ private:
     QLabel*            license_label_      = nullptr;
     QLabel*            oem_and_label_      = nullptr;
     QLabel*            oem_license_label_  = nullptr;
+    QLabel*            sub_title_label_    = nullptr;
     NavButton*         next_button_        = nullptr;
     LanguageItem       lang_;  // Current selected language.
     UserAgreementDelegate* user_license_delegate_ = nullptr;

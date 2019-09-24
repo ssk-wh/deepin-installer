@@ -137,14 +137,15 @@ void SelectLanguageFrame::initUI() {
   QLabel* logo_label = new QLabel();
   logo_label->setPixmap(installer::renderPixmap(GetVendorLogo()));
 
-  QLabel* subtitle_label = new QLabel("Select system language");
-  subtitle_label->setObjectName("subtitle_label");
-  subtitle_label->setWordWrap(false);
-  subtitle_label->setAlignment(Qt::AlignHCenter);
-  QLabel* subtitle2_label = new QLabel("请选择您的语言");
-  subtitle2_label->setObjectName("subtitle2_label");
-  subtitle2_label->setWordWrap(false);
-  subtitle2_label->setAlignment(Qt::AlignHCenter);
+  QLabel* title_label = new QLabel("Select system language");
+  title_label->setObjectName("title_label");
+  title_label->setWordWrap(false);
+  title_label->setAlignment(Qt::AlignHCenter);
+
+  sub_title_label_ = new QLabel;
+  sub_title_label_->setObjectName("sub_title_label");
+  sub_title_label_->setWordWrap(false);
+  sub_title_label_->setAlignment(Qt::AlignHCenter);
 
   language_view_ = new FramelessListView();
   language_view_->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
@@ -192,8 +193,8 @@ void SelectLanguageFrame::initUI() {
   layout->setSpacing(kMainLayoutSpacing);
   layout->addSpacing(30);
   layout->addWidget(logo_label, 0, Qt::AlignCenter);
-  layout->addWidget(subtitle_label, 0, Qt::AlignCenter);
-  layout->addWidget(subtitle2_label, 0, Qt::AlignCenter);
+  layout->addWidget(title_label, 0, Qt::AlignCenter);
+  layout->addWidget(sub_title_label_, 0, Qt::AlignCenter);
   layout->addSpacing(20);
   layout->addWidget(language_view_, 0, Qt::AlignHCenter);
   layout->addSpacing(20);
@@ -229,6 +230,7 @@ void SelectLanguageFrame::updateTs() {
   next_button_->setText(tr("Next"));
   accept_license_->setText(tr("I have read and agree to"));
   license_label_->setText(tr("Deepin Software End User License Agreement"));
+  sub_title_label_->setText(tr("Select system language"));
 
   if( oem_license_label_ != nullptr) {
     oem_and_label_->setText(tr("and"));
