@@ -84,7 +84,7 @@ def main():
         print("Run script in parent folder of `i18n`")
         sys.exit(1)
 
-    default_installer_ts = "i18n/installer-en.ts"
+    default_installer_ts = "i18n/installer.ts"
     generate_ts(default_installer_ts, True)
 
     # Then, generate ts files for oem project.
