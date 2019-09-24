@@ -110,6 +110,8 @@ private:
   // Switch frame page based on name.
   void setCurrentPage(PageId page_id);
 
+  void updateWidgetVisible();
+
   void updateBackground();
   void backPage();
 

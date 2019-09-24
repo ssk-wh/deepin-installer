@@ -142,6 +142,7 @@ void MainWindow::initConnections() {
   connect(confirm_quit_frame_, &ConfirmQuitFrame::quitCancelled,
           this, [=](){
              setCurrentPage(prev_page_);
+             prev_page_ = PageId::NullId;
           });
   connect(confirm_quit_frame_, &ConfirmQuitFrame::quitConfirmed,
           this, &MainWindow::shutdownSystem);
@@ -367,6 +368,34 @@ void MainWindow::saveLogFile() {
   }
 }
 
+void MainWindow::updateWidgetVisible()
+{
+    if (current_page_ == PageId::ConfirmQuitId ||
+            current_page_ == PageId::InstallProgressId ||
+            current_page_ == PageId::InstallSuccessId ||
+            current_page_ == PageId::InstallFailedId) {
+        // Hide close button in ConfirmQuit page and InstallProgress page
+        close_button_->hide();
+        back_button_->hide();
+    } else {
+        close_button_->show();
+        back_button_->setVisible(m_old_frames.size() > 1);
+    }
+
+    if (current_page_ == PageId::InstallFailedId ||
+            current_page_ == PageId::InstallSuccessId) {
+        // Hide page indicator in these pages.
+        page_indicator_->hide();
+    } else {
+        page_indicator_->show();
+    }
+
+    // Raise control_panel_frame explicitly.
+    if (control_panel_frame_->isVisible()) {
+        control_panel_frame_->raise();
+    }
+}
+
 void MainWindow::setCurrentPage(PageId page_id) {
   Q_ASSERT(pages_.contains(page_id));
   Q_ASSERT(page_id != PageId::NullId);
@@ -374,30 +403,8 @@ void MainWindow::setCurrentPage(PageId page_id) {
   prev_page_ = current_page_;
   current_page_ = page_id;
   stacked_layout_->setCurrentIndex(pages_.value(page_id));
-  if (page_id == PageId::ConfirmQuitId ||
-      page_id == PageId::InstallProgressId ||
-      page_id == PageId::InstallSuccessId ||
-      page_id == PageId::InstallFailedId) {
-    // Hide close button in ConfirmQuit page and InstallProgress page
-    close_button_->hide();
-    back_button_->hide();
-  } else {
-    close_button_->show();
-    back_button_->setVisible(m_old_frames.size() > 1);
-  }
 
-  if (page_id == PageId::InstallFailedId ||
-      page_id == PageId::InstallSuccessId) {
-    // Hide page indicator in these pages.
-    page_indicator_->hide();
-  } else {
-    page_indicator_->show();
-  }
-
-  // Raise control_panel_frame explicitly.
-  if (control_panel_frame_->isVisible()) {
-    control_panel_frame_->raise();
-  }
+  updateWidgetVisible();
 }
 
 void MainWindow::updateBackground() {
@@ -422,7 +429,6 @@ void MainWindow::backPage()
     m_old_frames.takeLast();
     QWidget* frame = m_old_frames.last();
     PageId id = pages_.key(stacked_layout_->indexOf(frame));
-    current_page_ = id;
     setCurrentPage(id);
 
     back_button_->setVisible(m_old_frames.size() > 1);
@@ -457,15 +463,13 @@ void MainWindow::goNextPage() {
     //   * install success page or install failed page;
     // And confirm-quit-page can be triggered at any moment except in
     // install progress page.
-    switch (current_page_) {
-    case PageId::ConfirmQuitId: {
-        // Go previous page.
-        this->setCurrentPage(prev_page_);
-        break;
-    }
 
+    bool isMainPage = false;
+
+    switch (current_page_) {
     case PageId::NullId: {
         if (HasRootPrivilege()) {
+            prev_page_ = current_page_;
             current_page_ = PageId::PrivilegeErrorId;
         } else {
             this->setCurrentPage(PageId::PrivilegeErrorId);
@@ -481,6 +485,7 @@ void MainWindow::goNextPage() {
             current_page_ = PageId::SelectLanguageId;
         } else {
             page_indicator_->goNextPage();
+            isMainPage = true;
             this->setCurrentPage(PageId::SelectLanguageId);
             break;
         }
@@ -491,6 +496,7 @@ void MainWindow::goNextPage() {
         if (!GetSettingsBool(kSkipDiskSpaceInsufficientPage) &&
                 IsDiskSpaceInsufficient()) {
             page_indicator_->goNextPage();
+            isMainPage = true;
             this->setCurrentPage(PageId::DiskSpaceInsufficientId);
             break;
         }
@@ -521,6 +527,7 @@ void MainWindow::goNextPage() {
             current_page_ = PageId::SystemInfoId;
         } else {
             page_indicator_->goNextPage();
+            isMainPage = true;
             this->setCurrentPage(PageId::SystemInfoId);
             break;
         }
@@ -533,6 +540,7 @@ void MainWindow::goNextPage() {
             current_page_ = PageId::TimezoneId;
         } else {
             page_indicator_->goNextPage();
+            isMainPage = true;
             this->setCurrentPage(PageId::TimezoneId);
             break;
         }
@@ -550,6 +558,7 @@ void MainWindow::goNextPage() {
         } else {
             m_selectComponentFrame->readConf();
             page_indicator_->goNextPage();
+            isMainPage = true;
             this->setCurrentPage(PageId::SelectComponentId); //(PageId::PartitionId);
             break;
         }
@@ -568,6 +577,7 @@ void MainWindow::goNextPage() {
         }
         else{
             page_indicator_->goNextPage();
+            isMainPage = true;
             this->setCurrentPage(PageId::PartitionId);
             break;
         }
@@ -576,6 +586,7 @@ void MainWindow::goNextPage() {
     case PageId::PartitionId: {
         // Show InstallProgressFrame.
         page_indicator_->goNextPage();
+        isMainPage = true;
         install_progress_frame_->startSlide();
         this->setCurrentPage(PageId::InstallProgressId);
         break;
@@ -599,8 +610,11 @@ void MainWindow::goNextPage() {
     }
     }
 
-    m_old_frames << stacked_layout_->currentWidget();
-    setCurrentPage(current_page_);
+    if(isMainPage){
+        m_old_frames << stacked_layout_->currentWidget();
+    }
+
+    updateWidgetVisible();
 }
 
 void MainWindow::rebootSystem() {
