@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="hr" sourcelanguage="en_US" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="hr" version="2.1">
 <context>
     <name>installer::AdvancedPartitionButton</name>
     <message>
@@ -122,19 +122,6 @@
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="68"/>
         <source>Abort</source>
         <translation>Prekini</translation>
-    </message>
-</context>
-<context>
-    <name>installer::DiskInstallationModel</name>
-    <message>
-        <location filename="../src/ui/models/disk_installation_model.cpp" line="25"/>
-        <source>SystemDisk</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/ui/models/disk_installation_model.cpp" line="26"/>
-        <source>DataDisk</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -297,6 +284,19 @@
         <location filename="../src/ui/frames/install_success_frame.cpp" line="71"/>
         <source>Experience now</source>
         <translation>Isprobaj sada</translation>
+    </message>
+</context>
+<context>
+    <name>installer::MultipleDiskInstallationWidget</name>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="191"/>
+        <source>System Disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="191"/>
+        <source>Data Disk</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -563,11 +563,6 @@
         <translation>Napravi proširenu particiju %1</translation>
     </message>
     <message>
-        <location filename="../src/partman/operation.cpp" line="271"/>
-        <source>Delete %1 partition</source>
-        <translation>Izbriši %1 particiju</translation>
-    </message>
-    <message>
         <location filename="../src/partman/operation.cpp" line="258"/>
         <source>Create new partition %1, type: %2</source>
         <translation type="unfinished"/>
@@ -576,6 +571,11 @@
         <location filename="../src/partman/operation.cpp" line="262"/>
         <source>Create new partition %1 as %2 (mountpoint), type: %3</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/partman/operation.cpp" line="271"/>
+        <source>Delete %1 partition</source>
+        <translation>Izbriši %1 particiju</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="276"/>
@@ -603,23 +603,23 @@
         <translation>Prilagodi veličinu %1 particije</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="249"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="244"/>
         <source>Do not use this partition</source>
         <translation>Ne koristi ovu particiju</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="262"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="257"/>
         <source>Swap partition</source>
         <translation>Swap particija</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="265"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="260"/>
         <source>Unknown</source>
         <translation>Nepoznato</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="306"/>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="337"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="301"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="332"/>
         <source>Freespace</source>
         <translation>Slobodni prostor</translation>
     </message>
@@ -722,120 +722,120 @@
     <name>installer::SystemInfoFormFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="84"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="174"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="175"/>
         <source>Create User Account</source>
         <translation>Napravite korisnički račun</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="85"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="175"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="176"/>
         <source>Fill in the username, computer name and your password</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="86"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="184"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="185"/>
         <source>Username</source>
         <translation>Korisničko ime</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="87"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="189"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="190"/>
         <source>Computer name</source>
         <translation>Ime računala</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="88"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="194"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="211"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="195"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="212"/>
         <source>Password</source>
         <translation>Lozinka</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="89"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="92"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="200"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="221"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="201"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="222"/>
         <source>Confirm password</source>
         <translation>Potvrdi lozinku</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="90"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="205"/>
-        <source>Set root password</source>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="206"/>
+        <source>Set as root password</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="246"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="247"/>
         <source>Next</source>
         <translation>Slijedeće</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="94"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="240"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="241"/>
         <source>Use that password to edit boot menu</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="287"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="288"/>
         <source>This username already exists</source>
         <translation>Korisničko ime već postoji</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="291"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="292"/>
         <source>The first letter must be in lowercase</source>
         <translation>Prvo slovo mora biti malo slovo</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="297"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="298"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
         <translation>Korisničko ime mora sadržavati engleska slova (mala slova), brojeve ili posebne simbole (_-)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="303"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="304"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
         <translation>Molim unesite korisničko ime duže od %1 znakova i kraće od %2 znakova</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="325"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="326"/>
         <source>Please input computer name</source>
         <translation>Molim unesite ime računala</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="329"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="330"/>
         <source>Computer name is invalid</source>
         <translation>Ime računala je neispravno</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="333"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="334"/>
         <source>Computer name already exists, please input another one</source>
         <translation>Ime računala već postoji, molim unesite drugo</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="338"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="339"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
         <translation>Molim unesite ime računala duže od %1 znakova i kraće od %2 znakova</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="364"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="365"/>
         <source>The password should be different from the username</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="376"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="389"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="377"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="390"/>
         <source>Please input password longer than %1 characters and shorter than %2 characters</source>
         <translation>Molim unesite lozinku dužu od %1 znakova i kraću od %2 znakova</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="383"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="384"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>Korisničko ime mora sadržavati engleska slova (osjetljiva na malo i veliko slovo), brojeve ili posebne simbole (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="413"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="414"/>
         <source>Passwords do not match</source>
         <translation type="unfinished"/>
     </message>
@@ -851,18 +851,18 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="91"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="111"/>
-        <source>Please select a suitable keyboard layout</source>
+        <source>Select a proper keyboard layout</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="92"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="147"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="149"/>
         <source>Test area</source>
         <translation>Područje testiranja</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="152"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="154"/>
         <source>Back</source>
         <translation>Natrag</translation>
     </message>
@@ -871,35 +871,38 @@
     <name>installer::TimezoneFrame</name>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="211"/>
-        <source>Select Time Zone</source>
-        <translation>Odaberite vremensku zonu</translation>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="214"/>
+        <source>Select Timezone</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="113"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="212"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="215"/>
         <source>Mark your zone on the map</source>
         <translation>Označite svoju zonu na karti</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="114"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="214"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="217"/>
         <source>Next</source>
         <translation>Slijedeće</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="217"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
         <source>Map</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="223"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="116"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="226"/>
         <source>List</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="277"/>
-        <source>Time setting</source>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="117"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="280"/>
+        <source>Time settings</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1193,7 +1196,7 @@
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
-        <source>Software designed for supporting dlustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
+        <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1213,7 +1216,7 @@
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
-        <source>Clustered storage, induding the GFS2 file system.</source>
+        <source>Clustered storage, including the GFS2 file system.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1273,7 +1276,7 @@
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
-        <source>The PostgreSQL SQL database cient, and associated packages.</source>
+        <source>The PostgreSQL SQL database client, and associated packages.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1513,37 +1516,37 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="194"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="199"/>
         <source>Full Disk Encryption</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="195"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="200"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="196"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="201"/>
         <source>Encrypt This Disk</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="197"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="202"/>
         <source>Password</source>
         <translation>Lozinka</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="198"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
         <source>Repeat Password</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="199"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="204"/>
         <source>Previous</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="200"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
         <source>Start Installation</source>
         <translation type="unfinished"/>
     </message>
@@ -1624,6 +1627,12 @@
         <translation>Nismo u mogućnosti postaviti sustav jer je otkriven EFI boot loader na matičnoj ploči i MBR disk. Molimo Vas odaberite jedno od ponuđenih rješenja za nastavak postavljanja.</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="58"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="113"/>
+        <source>Disable UEFI</source>
+        <translation>Onemogući UEFI</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="117"/>
         <source>Reboot, enter BIOS, and disable UEFI</source>
@@ -1636,6 +1645,12 @@
         <translation>Izađi iz BIOS-a i uđi u deepin za instalaciju</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="63"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="122"/>
+        <source>Format the disk</source>
+        <translation>Formatiraj disk</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="66"/>
         <source>Make a backup of all your data to avoid data loss</source>
         <translation type="unfinished"/>
@@ -1644,6 +1659,14 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="67"/>
         <source>Please double check if you have backed up all data, then reboot to enter this interface</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="69"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="75"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="147"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="169"/>
+        <source>Continue</source>
+        <translation>Nastavi</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="72"/>
@@ -1655,29 +1678,6 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="153"/>
         <source>Continuing installation will format your disk</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="126"/>
-        <source>Please make a backup of all your data to avoid data loss</source>
-        <translation>Molim napravite sigurnosnu kopiju svih podataka da biste izbjegli gubitak podataka</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="127"/>
-        <source>Please double check if all the data were made a backup, and reboot to enter this interface</source>
-        <translation>Molimo Vas da dva puta provjerite jesu li svi podaci osigurani pričuvnom kopijom. Nakon toga ponovo pokrenite kako biste pokrenuli ovo sučelje.</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="69"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="75"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="147"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="169"/>
-        <source>Continue</source>
-        <translation>Nastavi</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="151"/>
-        <source>Please make sure all data were made a backup, then continue</source>
-        <translation>Molimo vas da se uvjerite da postoji sigurnosna kopija svih podataka, zatim nastavite </translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
@@ -1692,33 +1692,32 @@
         <translation>Natrag</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="113"/>
-        <source>Disable UEFI</source>
-        <translation>Onemogući UEFI</translation>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="126"/>
+        <source>Please make a backup of all your data to avoid data loss</source>
+        <translation>Molim napravite sigurnosnu kopiju svih podataka da biste izbjegli gubitak podataka</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="63"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="122"/>
-        <source>Format the disk</source>
-        <translation>Formatiraj disk</translation>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="127"/>
+        <source>Please double check if all the data were made a backup, and reboot to enter this interface</source>
+        <translation>Molimo Vas da dva puta provjerite jesu li svi podaci osigurani pričuvnom kopijom. Nakon toga ponovo pokrenite kako biste pokrenuli ovo sučelje.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="151"/>
+        <source>Please make sure all data were made a backup, then continue</source>
+        <translation>Molimo vas da se uvjerite da postoji sigurnosna kopija svih podataka, zatim nastavite </translation>
     </message>
 </context>
 <context>
     <name>installer::SaveInstallFailedLogFrame</name>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="146"/>
-        <source>Save Error Log</source>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="148"/>
+        <source>Save Log</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="147"/>
-        <source>Save the error log to local or external disk</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="148"/>
-        <source>Save Log</source>
+        <source>Save the error log to a removable device</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1730,22 +1729,22 @@
 <context>
     <name>installer::SelectInstallComponentFrame</name>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="94"/>
         <source>Select component</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="94"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="97"/>
         <source>Server Type</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="102"/>
         <source>Component list</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="153"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="156"/>
         <source>Next</source>
         <translation>Slijedeće</translation>
     </message>
@@ -1753,43 +1752,49 @@
 <context>
     <name>installer::SystemDateFramePrivate</name>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="88"/>
-        <source>Select Timezone</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="89"/>
-        <source>Hour</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="90"/>
-        <source>Minute</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="91"/>
-        <source>Year</source>
+        <source>Time settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="92"/>
-        <source>Month</source>
+        <source>Change date and time as you want</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="93"/>
-        <source>Day</source>
+        <source>Hour</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
+        <source>Minute</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
+        <source>Year</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="96"/>
+        <source>Month</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="97"/>
+        <source>Day</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="98"/>
         <source>Accept</source>
         <translation>Prihvati</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="99"/>
         <source>Cancel</source>
         <translation>Otkaži</translation>
     </message>
@@ -1807,13 +1812,13 @@
         <translation>Natrag</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="122"/>
-        <source>View in Chinese</source>
+        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="120"/>
+        <source>View in English</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="120"/>
-        <source>View in English</source>
+        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="122"/>
+        <source>View in Chinese</source>
         <translation type="unfinished"/>
     </message>
 </context>

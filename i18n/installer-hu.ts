@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" sourcelanguage="en_US" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" version="2.1">
 <context>
     <name>installer::AdvancedPartitionButton</name>
     <message>
@@ -125,19 +125,6 @@
     </message>
 </context>
 <context>
-    <name>installer::DiskInstallationModel</name>
-    <message>
-        <location filename="../src/ui/models/disk_installation_model.cpp" line="25"/>
-        <source>SystemDisk</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/ui/models/disk_installation_model.cpp" line="26"/>
-        <source>DataDisk</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
@@ -254,7 +241,7 @@
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="155"/>
         <source>Save Log</source>
-        <translation type="unfinished"/>
+        <translation>Bejegyzés mentése</translation>
     </message>
 </context>
 <context>
@@ -297,6 +284,19 @@
         <location filename="../src/ui/frames/install_success_frame.cpp" line="71"/>
         <source>Experience now</source>
         <translation>Próbáld ki most</translation>
+    </message>
+</context>
+<context>
+    <name>installer::MultipleDiskInstallationWidget</name>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="191"/>
+        <source>System Disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="191"/>
+        <source>Data Disk</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -563,11 +563,6 @@
         <translation>Kibővített partíció létrehozás %1</translation>
     </message>
     <message>
-        <location filename="../src/partman/operation.cpp" line="271"/>
-        <source>Delete %1 partition</source>
-        <translation>%1 partíció törlése</translation>
-    </message>
-    <message>
         <location filename="../src/partman/operation.cpp" line="258"/>
         <source>Create new partition %1, type: %2</source>
         <translation>Új partíció létrehozása %1, típus: %2</translation>
@@ -575,7 +570,12 @@
     <message>
         <location filename="../src/partman/operation.cpp" line="262"/>
         <source>Create new partition %1 as %2 (mountpoint), type: %3</source>
-        <translation type="unfinished"/>
+        <translation>Új partíció %1 létrehozása %2 (csatolási pont), típus: %3</translation>
+    </message>
+    <message>
+        <location filename="../src/partman/operation.cpp" line="271"/>
+        <source>Delete %1 partition</source>
+        <translation>%1 partíció törlése</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="276"/>
@@ -585,7 +585,7 @@
     <message>
         <location filename="../src/partman/operation.cpp" line="280"/>
         <source>Format %1 partition as %2 (mountpoint), type: %3</source>
-        <translation type="unfinished"/>
+        <translation>%1 partíció formázása %2 (csatolási pont), típus: %3</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="288"/>
@@ -603,23 +603,23 @@
         <translation>%1 partíció méretének beállítása</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="249"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="244"/>
         <source>Do not use this partition</source>
         <translation>Nem használjuk ezt a partíciót</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="262"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="257"/>
         <source>Swap partition</source>
         <translation>Cserehely partíció</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="265"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="260"/>
         <source>Unknown</source>
         <translation>Ismeretlen</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="306"/>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="337"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="301"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="332"/>
         <source>Freespace</source>
         <translation>Üres hely</translation>
     </message>
@@ -671,7 +671,7 @@
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="234"/>
         <source>and</source>
-        <translation type="unfinished"/>
+        <translation>és</translation>
     </message>
 </context>
 <context>
@@ -722,120 +722,120 @@
     <name>installer::SystemInfoFormFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="84"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="174"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="175"/>
         <source>Create User Account</source>
         <translation>Felhasználói fiók létrehozása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="85"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="175"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="176"/>
         <source>Fill in the username, computer name and your password</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="86"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="184"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="185"/>
         <source>Username</source>
         <translation>Felhasználónév</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="87"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="189"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="190"/>
         <source>Computer name</source>
         <translation>Számítógépnév</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="88"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="194"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="211"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="195"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="212"/>
         <source>Password</source>
         <translation>Jelszó</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="89"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="92"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="200"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="221"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="201"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="222"/>
         <source>Confirm password</source>
         <translation>Jelszó megerősítése</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="90"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="205"/>
-        <source>Set root password</source>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="206"/>
+        <source>Set as root password</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="246"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="247"/>
         <source>Next</source>
         <translation>Következő</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="94"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="240"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="241"/>
         <source>Use that password to edit boot menu</source>
         <translation>Jelszó használata a boot menü szerkesztéséhez</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="287"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="288"/>
         <source>This username already exists</source>
         <translation>A felhasználónév már létezik</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="291"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="292"/>
         <source>The first letter must be in lowercase</source>
         <translation>Az első betűnek kis betűnek kell lennie</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="297"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="298"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
         <translation>A felhasználónév csak angol kisbetűket (tehát nem ékezetes betűket), számokat vagy különleges szimbólumokat  ( aláhúzás vagy kötőjel ) tartalmazhat.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="303"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="304"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
         <translation>Adj meg egy felhasználónevet ami hosszabb mint %1 karakter és rövidebb mint %2 karakter</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="325"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="326"/>
         <source>Please input computer name</source>
         <translation>Add meg a számítógép nevét</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="329"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="330"/>
         <source>Computer name is invalid</source>
         <translation>Érvénytelen számítógépnév</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="333"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="334"/>
         <source>Computer name already exists, please input another one</source>
         <translation>Ez a számítógép név már létezik. Adj meg egy másik nevet</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="338"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="339"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
         <translation>Adj meg egy számítógép nevet ami hosszabb mint %1 karakter és rövidebb mint %2 karakter</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="364"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="365"/>
         <source>The password should be different from the username</source>
         <translation>A felhasználónévnek és jelszónak különböznie kell egymástól</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="376"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="389"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="377"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="390"/>
         <source>Please input password longer than %1 characters and shorter than %2 characters</source>
         <translation>Adj meg egy jelszót ami hosszabb mint %1 karakter és rövidebb mint %2 karakter</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="383"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="384"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>A jelszónak tartalmaznia kell az angol ábécé betűit (kis-nagy betű érzékeny), arab számokat vagy speciális szimbólumokat (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="413"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="414"/>
         <source>Passwords do not match</source>
         <translation>Jelszavak nem egyeznek</translation>
     </message>
@@ -851,18 +851,18 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="91"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="111"/>
-        <source>Please select a suitable keyboard layout</source>
+        <source>Select a proper keyboard layout</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="92"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="147"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="149"/>
         <source>Test area</source>
         <translation>Teszt terület</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="152"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="154"/>
         <source>Back</source>
         <translation>Vissza</translation>
     </message>
@@ -871,35 +871,38 @@
     <name>installer::TimezoneFrame</name>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="211"/>
-        <source>Select Time Zone</source>
-        <translation>Időzóna kiválasztás</translation>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="214"/>
+        <source>Select Timezone</source>
+        <translation>Időzóna kiválasztása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="113"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="212"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="215"/>
         <source>Mark your zone on the map</source>
         <translation>Jelöld ki az időzónádat a térképen</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="114"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="214"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="217"/>
         <source>Next</source>
         <translation>Következő</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="217"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
         <source>Map</source>
-        <translation type="unfinished"/>
+        <translation>Térkép</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="223"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="116"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="226"/>
         <source>List</source>
-        <translation type="unfinished"/>
+        <translation>Lista</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="277"/>
-        <source>Time setting</source>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="117"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="280"/>
+        <source>Time settings</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -929,17 +932,17 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="272"/>
         <source>Minimal Install</source>
-        <translation type="unfinished"/>
+        <translation>Minimális telepítés</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="272"/>
         <source>Basic functionality.</source>
-        <translation type="unfinished"/>
+        <translation>Alapfunkció</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="273"/>
         <source>Compute Node</source>
-        <translation type="unfinished"/>
+        <translation>Számítási csomópont</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="273"/>
@@ -949,7 +952,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="274"/>
         <source>Infrastructure Server</source>
-        <translation type="unfinished"/>
+        <translation>Infrastruktúra szerver</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="274"/>
@@ -959,7 +962,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="275"/>
         <source>File and Print Server</source>
-        <translation type="unfinished"/>
+        <translation>Fájl- és nyomtatószerver</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="275"/>
@@ -969,27 +972,27 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="276"/>
         <source>Basic Web Server</source>
-        <translation type="unfinished"/>
+        <translation>Alapszintű webkiszolgáló</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="276"/>
         <source>Server for serving static and dynamic internet content.</source>
-        <translation type="unfinished"/>
+        <translation>Szerver statikus és dinamikus webtartalom szolgáltatására.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="277"/>
         <source>Virtualization Host</source>
-        <translation type="unfinished"/>
+        <translation>Virtualizációs gazdagép</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="277"/>
         <source>Minimal virtualization host.</source>
-        <translation type="unfinished"/>
+        <translation>Minimális virtualizációs gazdagép</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="278"/>
         <source>Server with GUI</source>
-        <translation type="unfinished"/>
+        <translation>Szerver grafikus felülettel</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="278"/>
@@ -999,32 +1002,32 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="279"/>
         <source>DDE Desktop</source>
-        <translation type="unfinished"/>
+        <translation>DDE Asztal</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="279"/>
         <source>DDE is a highly intuitive and user friendly desktop environment.</source>
-        <translation type="unfinished"/>
+        <translation>A DDE egy intuitív és felhasználóbarát asztali környezet.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="280"/>
         <source>Development and Creative Workstation</source>
-        <translation type="unfinished"/>
+        <translation>Fejlesztői és kreatív munkaállomás</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="280"/>
         <source>Workstation for software, hardware, graphics, or content development.</source>
-        <translation type="unfinished"/>
+        <translation>Munkaállomás szoftver- és hardverfejlesztéshez, valamint grafikai feladatokhoz és tartalomkészítéshez.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="281"/>
         <source>Debugging Tools</source>
-        <translation type="unfinished"/>
+        <translation>Hibakereső eszközök</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="281"/>
         <source>Tools for debugging misbehaving applications and diagnosing performance problems.</source>
-        <translation type="unfinished"/>
+        <translation>Eszközök rosszul működő alkalmazások hibakereséséhez és teljesítményproblémák javításához.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="282"/>
@@ -1039,7 +1042,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="283"/>
         <source>Security Tools</source>
-        <translation type="unfinished"/>
+        <translation>Biztonsági eszközök</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="283"/>
@@ -1049,17 +1052,17 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="284"/>
         <source>Development Tools</source>
-        <translation type="unfinished"/>
+        <translation>Fejlesztői eszközök</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="284"/>
         <source>A basic development environment.</source>
-        <translation type="unfinished"/>
+        <translation>Alapfunkciós fejlesztőkörnyezet.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
         <source>Performance Tools</source>
-        <translation type="unfinished"/>
+        <translation>Teljesítményeszközök</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
@@ -1069,7 +1072,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
         <source>Hardware Monitoring Utilities</source>
-        <translation type="unfinished"/>
+        <translation>Hardverfelügyeleti eszközök</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
@@ -1079,7 +1082,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
         <source>Virtualization Hypervisor</source>
-        <translation type="unfinished"/>
+        <translation>Virtualizációs felügyelő</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
@@ -1089,7 +1092,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
         <source>Virtualization Platform</source>
-        <translation type="unfinished"/>
+        <translation>Virtualizációs platform</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
@@ -1099,7 +1102,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
         <source>Virtualization Client</source>
-        <translation type="unfinished"/>
+        <translation>Virtualizációs kliens</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
@@ -1139,7 +1142,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>DNS Name Server</source>
-        <translation type="unfinished"/>
+        <translation>DNS névkiszolgáló</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
@@ -1149,7 +1152,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>E-mail Server</source>
-        <translation type="unfinished"/>
+        <translation>E-mail szerver</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
@@ -1159,7 +1162,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>FTP Server</source>
-        <translation type="unfinished"/>
+        <translation>FTP szerver</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
@@ -1169,7 +1172,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Print Server</source>
-        <translation type="unfinished"/>
+        <translation>Nyomtatószerver</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
@@ -1189,17 +1192,17 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Infiniband Support</source>
-        <translation type="unfinished"/>
+        <translation>Infiniband támogatás</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
-        <source>Software designed for supporting dlustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
+        <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>High Availability</source>
-        <translation type="unfinished"/>
+        <translation>Magas rendelkezésreállás</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
@@ -1213,7 +1216,7 @@
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
-        <source>Clustered storage, induding the GFS2 file system.</source>
+        <source>Clustered storage, including the GFS2 file system.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1239,7 +1242,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>Load Balancer</source>
-        <translation type="unfinished"/>
+        <translation>Terheléselosztás</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
@@ -1259,7 +1262,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>MariaDB Database Server</source>
-        <translation type="unfinished"/>
+        <translation>MariaDB adatbázis kiszolgáló</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
@@ -1273,13 +1276,13 @@
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
-        <source>The PostgreSQL SQL database cient, and associated packages.</source>
+        <source>The PostgreSQL SQL database client, and associated packages.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>PostgreSQL Database Server</source>
-        <translation type="unfinished"/>
+        <translation>PostgreSQL adatbázis kiszolgáló</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
@@ -1289,17 +1292,17 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>Java Platform</source>
-        <translation type="unfinished"/>
+        <translation>Java Platform</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>Java support for deepin.</source>
-        <translation type="unfinished"/>
+        <translation>Java támogatás deepin-hez</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>PHP Support</source>
-        <translation type="unfinished"/>
+        <translation>PHP támogatás</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
@@ -1309,7 +1312,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Python</source>
-        <translation type="unfinished"/>
+        <translation>Python</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
@@ -1329,12 +1332,12 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Internet Applications</source>
-        <translation type="unfinished"/>
+        <translation>Internetes alkalmazások</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Email, chat, and video conferencing software.</source>
-        <translation type="unfinished"/>
+        <translation>Email, csevegő és videókonferencia-alkalmazások</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
@@ -1359,7 +1362,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Office Suite and Productivity</source>
-        <translation type="unfinished"/>
+        <translation>Irodai szoftvercsomag</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
@@ -1379,7 +1382,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Emacs</source>
-        <translation type="unfinished"/>
+        <translation>Emacs</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
@@ -1399,7 +1402,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Platform Development</source>
-        <translation type="unfinished"/>
+        <translation>Platform fejlesztőeszközök</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
@@ -1419,7 +1422,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Virtualization Tools</source>
-        <translation type="unfinished"/>
+        <translation>Virtualizációs eszközök</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
@@ -1449,7 +1452,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>DDE Applications</source>
-        <translation type="unfinished"/>
+        <translation>DDE alkalmazások</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
@@ -1513,37 +1516,37 @@
         <translation>Jelszavak nem egyeznek</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="194"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="199"/>
         <source>Full Disk Encryption</source>
         <translation>Teljes lemez titkosítása</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="195"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="200"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Győződjön meg róla, hogy minden adatáról készített biztonsági mentést, majd válassza ki a lemezt a telepítéshez</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="196"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="201"/>
         <source>Encrypt This Disk</source>
         <translation>A lemez titkosítása</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="197"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="202"/>
         <source>Password</source>
         <translation>Jelszó</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="198"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
         <source>Repeat Password</source>
         <translation>Jelszó ismétlése</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="199"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="204"/>
         <source>Previous</source>
         <translation>Előző</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="200"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
         <source>Start Installation</source>
         <translation>Telepítés megkezdése</translation>
     </message>
@@ -1581,7 +1584,7 @@
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="131"/>
         <source>Netmask</source>
-        <translation type="unfinished"/>
+        <translation>Alhálózati maszk</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="132"/>
@@ -1601,12 +1604,12 @@
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="201"/>
         <source>IP address error: illegal IP address, please have a check.</source>
-        <translation type="unfinished"/>
+        <translation>IP címhiba: nem megengedett IP cím! Kérem, ellenőrizze!</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="212"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
-        <translation type="unfinished"/>
+        <translation>Alhálózati maszk hiba: nem megengedett maszk, kérem ellenőrizze.</translation>
     </message>
 </context>
 <context>
@@ -1624,6 +1627,12 @@
         <translation>Nem lehet közvetlenül telepíteni az EFI rendszerbetöltőt a MBR miatt. Válassz egy opciót az alábbi megoldások közül a folytatáshoz.</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="58"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="113"/>
+        <source>Disable UEFI</source>
+        <translation>UEFI letiltása</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="117"/>
         <source>Reboot, enter BIOS, and disable UEFI</source>
@@ -1636,6 +1645,12 @@
         <translation>Lépj ki a BIOS rendszerből és indítsd el a Deepin telepítőt</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="63"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="122"/>
+        <source>Format the disk</source>
+        <translation>A lemez formázása</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="66"/>
         <source>Make a backup of all your data to avoid data loss</source>
         <translation>Az adatvesztés megelőzése érdekében minden adatáról készítsen biztonsági mentést</translation>
@@ -1643,7 +1658,15 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="67"/>
         <source>Please double check if you have backed up all data, then reboot to enter this interface</source>
-        <translation type="unfinished"/>
+        <translation>Győződjön meg róla, hogy minden adatáról készített biztonsági mentést, majd indítsa újra a számítógépet a folytatáshoz</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="69"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="75"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="147"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="169"/>
+        <source>Continue</source>
+        <translation>Folytatás</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="72"/>
@@ -1655,29 +1678,6 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="153"/>
         <source>Continuing installation will format your disk</source>
         <translation>A telepítés folytatása formázni fogja a lemezt</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="126"/>
-        <source>Please make a backup of all your data to avoid data loss</source>
-        <translation>Készíts biztonsági mentést minden adatodról az adatvesztés elkerüléséhez</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="127"/>
-        <source>Please double check if all the data were made a backup, and reboot to enter this interface</source>
-        <translation>Bizonyosodj meg róla, hogy minden adatról készítettél biztonsági mentést, majd indítsd újra a számítógépet a telepítés folytatásához</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="69"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="75"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="147"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="169"/>
-        <source>Continue</source>
-        <translation>Folytatás</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="151"/>
-        <source>Please make sure all data were made a backup, then continue</source>
-        <translation>Bizonyosodj meg róla, hogy minden adatról készítettél biztonsági mentést, majd folytasd a telepítést</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
@@ -1692,33 +1692,32 @@
         <translation>Vissza</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="113"/>
-        <source>Disable UEFI</source>
-        <translation>UEFI letiltása</translation>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="126"/>
+        <source>Please make a backup of all your data to avoid data loss</source>
+        <translation>Készíts biztonsági mentést minden adatodról az adatvesztés elkerüléséhez</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="63"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="122"/>
-        <source>Format the disk</source>
-        <translation>A lemez formázása</translation>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="127"/>
+        <source>Please double check if all the data were made a backup, and reboot to enter this interface</source>
+        <translation>Bizonyosodj meg róla, hogy minden adatról készítettél biztonsági mentést, majd indítsd újra a számítógépet a telepítés folytatásához</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="151"/>
+        <source>Please make sure all data were made a backup, then continue</source>
+        <translation>Bizonyosodj meg róla, hogy minden adatról készítettél biztonsági mentést, majd folytasd a telepítést</translation>
     </message>
 </context>
 <context>
     <name>installer::SaveInstallFailedLogFrame</name>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="146"/>
-        <source>Save Error Log</source>
-        <translation type="unfinished"/>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="148"/>
+        <source>Save Log</source>
+        <translation>Log mentése</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="147"/>
-        <source>Save the error log to local or external disk</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="148"/>
-        <source>Save Log</source>
+        <source>Save the error log to a removable device</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1730,22 +1729,22 @@
 <context>
     <name>installer::SelectInstallComponentFrame</name>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="91"/>
-        <source>Select component</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="94"/>
+        <source>Select component</source>
+        <translation>Összetevők kiválasztása</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="97"/>
         <source>Server Type</source>
-        <translation type="unfinished"/>
+        <translation>Szerver típus</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="102"/>
         <source>Component list</source>
-        <translation type="unfinished"/>
+        <translation>Komponenslista</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="153"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="156"/>
         <source>Next</source>
         <translation>Következő</translation>
     </message>
@@ -1753,43 +1752,49 @@
 <context>
     <name>installer::SystemDateFramePrivate</name>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="88"/>
-        <source>Select Timezone</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="89"/>
-        <source>Hour</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="90"/>
-        <source>Minute</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="91"/>
-        <source>Year</source>
+        <source>Time settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="92"/>
-        <source>Month</source>
+        <source>Change date and time as you want</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="93"/>
-        <source>Day</source>
-        <translation type="unfinished"/>
+        <source>Hour</source>
+        <translation>Óra</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
+        <source>Minute</source>
+        <translation>Perc</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
+        <source>Year</source>
+        <translation>Év</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="96"/>
+        <source>Month</source>
+        <translation>Hónap</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="97"/>
+        <source>Day</source>
+        <translation>Nap</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="98"/>
         <source>Accept</source>
         <translation>Elfogad</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="99"/>
         <source>Cancel</source>
         <translation>Kilépés</translation>
     </message>
@@ -1807,14 +1812,14 @@
         <translation>Vissza</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="122"/>
-        <source>View in Chinese</source>
-        <translation>Megjelenítés kínaiul</translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="120"/>
         <source>View in English</source>
         <translation>Megjelenítés angolul</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="122"/>
+        <source>View in Chinese</source>
+        <translation>Megjelenítés kínaiul</translation>
     </message>
 </context>
 </TS>

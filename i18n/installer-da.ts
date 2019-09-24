@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="da" sourcelanguage="en_US" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="da" version="2.1">
 <context>
     <name>installer::AdvancedPartitionButton</name>
     <message>
@@ -125,19 +125,6 @@
     </message>
 </context>
 <context>
-    <name>installer::DiskInstallationModel</name>
-    <message>
-        <location filename="../src/ui/models/disk_installation_model.cpp" line="25"/>
-        <source>SystemDisk</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/ui/models/disk_installation_model.cpp" line="26"/>
-        <source>DataDisk</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
@@ -254,7 +241,7 @@
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="155"/>
         <source>Save Log</source>
-        <translation type="unfinished"/>
+        <translation>Gem log</translation>
     </message>
 </context>
 <context>
@@ -297,6 +284,19 @@
         <location filename="../src/ui/frames/install_success_frame.cpp" line="71"/>
         <source>Experience now</source>
         <translation>Oplev nu</translation>
+    </message>
+</context>
+<context>
+    <name>installer::MultipleDiskInstallationWidget</name>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="191"/>
+        <source>System Disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="191"/>
+        <source>Data Disk</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -563,11 +563,6 @@
         <translation>Opret udvidet partition %1</translation>
     </message>
     <message>
-        <location filename="../src/partman/operation.cpp" line="271"/>
-        <source>Delete %1 partition</source>
-        <translation>Slet %1 partition</translation>
-    </message>
-    <message>
         <location filename="../src/partman/operation.cpp" line="258"/>
         <source>Create new partition %1, type: %2</source>
         <translation>Opret udvidet partition %1, typen: %2</translation>
@@ -576,6 +571,11 @@
         <location filename="../src/partman/operation.cpp" line="262"/>
         <source>Create new partition %1 as %2 (mountpoint), type: %3</source>
         <translation>Opret udvidet partition %1 som %2 (monteringspunkt), typen: %3</translation>
+    </message>
+    <message>
+        <location filename="../src/partman/operation.cpp" line="271"/>
+        <source>Delete %1 partition</source>
+        <translation>Slet %1 partition</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="276"/>
@@ -603,23 +603,23 @@
         <translation>Juster størrelsen af %1-partition</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="249"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="244"/>
         <source>Do not use this partition</source>
         <translation>Brug ikke partitionen</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="262"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="257"/>
         <source>Swap partition</source>
         <translation>Swap-partition</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="265"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="260"/>
         <source>Unknown</source>
         <translation>Ukendt</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="306"/>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="337"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="301"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="332"/>
         <source>Freespace</source>
         <translation>Ledig plads</translation>
     </message>
@@ -671,7 +671,7 @@
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="234"/>
         <source>and</source>
-        <translation type="unfinished"/>
+        <translation>og</translation>
     </message>
 </context>
 <context>
@@ -722,120 +722,120 @@
     <name>installer::SystemInfoFormFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="84"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="174"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="175"/>
         <source>Create User Account</source>
         <translation>Opret brugerkonto</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="85"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="175"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="176"/>
         <source>Fill in the username, computer name and your password</source>
         <translation>Udfyld brugernavnet, computernavnet og din adgangskode</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="86"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="184"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="185"/>
         <source>Username</source>
         <translation>Brugernavn</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="87"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="189"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="190"/>
         <source>Computer name</source>
         <translation>Computernavn</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="88"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="194"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="211"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="195"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="212"/>
         <source>Password</source>
         <translation>Adgangskode</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="89"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="92"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="200"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="221"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="201"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="222"/>
         <source>Confirm password</source>
         <translation>Bekræft adgangskode</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="90"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="205"/>
-        <source>Set root password</source>
-        <translation type="unfinished"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="206"/>
+        <source>Set as root password</source>
+        <translation>Indstil en root-adgangskode</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="246"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="247"/>
         <source>Next</source>
         <translation>Næste</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="94"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="240"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="241"/>
         <source>Use that password to edit boot menu</source>
         <translation>Brug adgangskoden til at redigere bootmenuen</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="287"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="288"/>
         <source>This username already exists</source>
         <translation>Brugernavnet findes allerede</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="291"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="292"/>
         <source>The first letter must be in lowercase</source>
         <translation>Det første bogstav skal være med småt</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="297"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="298"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
         <translation>Brugernavn skal indeholde danske bogstaver (små bogstaver), tal eller specielle symboler (_-)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="303"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="304"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
         <translation>Indtast venligst brugernavn på over %1 tegn og under %2 tegn</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="325"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="326"/>
         <source>Please input computer name</source>
         <translation>Indtast venligst computernavn</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="329"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="330"/>
         <source>Computer name is invalid</source>
         <translation>Computernavn er ugyldigt</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="333"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="334"/>
         <source>Computer name already exists, please input another one</source>
         <translation>Computernavn findes allerede, indtast venligst et andet</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="338"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="339"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
         <translation>Indtast venligst computernavn på over %1 tegn og under %2 tegn</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="364"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="365"/>
         <source>The password should be different from the username</source>
         <translation>Adgangskoden skal ikke være det samme som brugernavnet</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="376"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="389"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="377"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="390"/>
         <source>Please input password longer than %1 characters and shorter than %2 characters</source>
         <translation>Indtast venligst adgangskode på over %1 tegn og under %2 tegn</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="383"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="384"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>Adgangskoden skal indeholde engelske bogstaver (forskel på store og små bogstaver), tal og specialtegn (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="413"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="414"/>
         <source>Passwords do not match</source>
         <translation>De to adgangskoder er ikke ens</translation>
     </message>
@@ -851,18 +851,18 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="91"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="111"/>
-        <source>Please select a suitable keyboard layout</source>
-        <translation type="unfinished"/>
+        <source>Select a proper keyboard layout</source>
+        <translation>Vælg det rette tastaturlayout</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="92"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="147"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="149"/>
         <source>Test area</source>
         <translation>Testområde</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="152"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="154"/>
         <source>Back</source>
         <translation>Tilbage</translation>
     </message>
@@ -871,36 +871,39 @@
     <name>installer::TimezoneFrame</name>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="211"/>
-        <source>Select Time Zone</source>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="214"/>
+        <source>Select Timezone</source>
         <translation>Vælg tidszone</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="113"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="212"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="215"/>
         <source>Mark your zone on the map</source>
         <translation>Vælg din zone på kortet</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="114"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="214"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="217"/>
         <source>Next</source>
         <translation>Næste</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="217"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
         <source>Map</source>
-        <translation type="unfinished"/>
+        <translation>Kort</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="223"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="116"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="226"/>
         <source>List</source>
-        <translation type="unfinished"/>
+        <translation>Liste</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="277"/>
-        <source>Time setting</source>
-        <translation type="unfinished"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="117"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="280"/>
+        <source>Time settings</source>
+        <translation>Tidsindstillinger</translation>
     </message>
 </context>
 <context>
@@ -929,17 +932,17 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="272"/>
         <source>Minimal Install</source>
-        <translation type="unfinished"/>
+        <translation>Minimal installation</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="272"/>
         <source>Basic functionality.</source>
-        <translation type="unfinished"/>
+        <translation>Grundlæggende funktionalitet.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="273"/>
         <source>Compute Node</source>
-        <translation type="unfinished"/>
+        <translation>Computerknudepunkt</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="273"/>
@@ -949,7 +952,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="274"/>
         <source>Infrastructure Server</source>
-        <translation type="unfinished"/>
+        <translation>Infrastrukturserver</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="274"/>
@@ -959,17 +962,17 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="275"/>
         <source>File and Print Server</source>
-        <translation type="unfinished"/>
+        <translation>Fil- og udskrivningsserver</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="275"/>
         <source>File, print, and storage server for enterprises.</source>
-        <translation type="unfinished"/>
+        <translation>Fil-, udskrivnings- og lagerserver til virksomheder.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="276"/>
         <source>Basic Web Server</source>
-        <translation type="unfinished"/>
+        <translation>Grundlæggende webserver</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="276"/>
@@ -979,17 +982,17 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="277"/>
         <source>Virtualization Host</source>
-        <translation type="unfinished"/>
+        <translation>Virtualiseringsvært</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="277"/>
         <source>Minimal virtualization host.</source>
-        <translation type="unfinished"/>
+        <translation>Minimal virtualiseringsvært.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="278"/>
         <source>Server with GUI</source>
-        <translation type="unfinished"/>
+        <translation>Server med grafisk brugerflade</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="278"/>
@@ -999,7 +1002,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="279"/>
         <source>DDE Desktop</source>
-        <translation type="unfinished"/>
+        <translation>DDE-skrivebord</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="279"/>
@@ -1019,7 +1022,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="281"/>
         <source>Debugging Tools</source>
-        <translation type="unfinished"/>
+        <translation>Fejlretningsværktøjer</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="281"/>
@@ -1039,7 +1042,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="283"/>
         <source>Security Tools</source>
-        <translation type="unfinished"/>
+        <translation>Sikkerhedsværktøjer</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="283"/>
@@ -1049,17 +1052,17 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="284"/>
         <source>Development Tools</source>
-        <translation type="unfinished"/>
+        <translation>Udviklingsværktøjer</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="284"/>
         <source>A basic development environment.</source>
-        <translation type="unfinished"/>
+        <translation>Et grundlæggende udviklingsmiljø.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
         <source>Performance Tools</source>
-        <translation type="unfinished"/>
+        <translation>Ydelsesværktøjer</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
@@ -1069,7 +1072,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
         <source>Hardware Monitoring Utilities</source>
-        <translation type="unfinished"/>
+        <translation>Hardwareovervågningsredskaber</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
@@ -1109,7 +1112,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
         <source>Backup Client</source>
-        <translation type="unfinished"/>
+        <translation>Sikkerhedskopieringsklient</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
@@ -1119,7 +1122,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
         <source>Backup Server</source>
-        <translation type="unfinished"/>
+        <translation>Sikkerhedskopieringsserver</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
@@ -1129,7 +1132,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
         <source>File and Storage Server</source>
-        <translation type="unfinished"/>
+        <translation>Fil- og lagerserver</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
@@ -1139,7 +1142,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>DNS Name Server</source>
-        <translation type="unfinished"/>
+        <translation>DNS-navneserver</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
@@ -1149,7 +1152,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>E-mail Server</source>
-        <translation type="unfinished"/>
+        <translation>E-mailserver</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
@@ -1159,7 +1162,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>FTP Server</source>
-        <translation type="unfinished"/>
+        <translation>FTP-server</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
@@ -1169,7 +1172,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Print Server</source>
-        <translation type="unfinished"/>
+        <translation>Udskrivningsserver</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
@@ -1179,7 +1182,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>Mainframe Access</source>
-        <translation type="unfinished"/>
+        <translation>Mainframe adgang</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
@@ -1189,17 +1192,17 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Infiniband Support</source>
-        <translation type="unfinished"/>
+        <translation>Infiniband-understøttelse</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
-        <source>Software designed for supporting dlustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
+        <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>High Availability</source>
-        <translation type="unfinished"/>
+        <translation>Høj tilgængelighed</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
@@ -1213,7 +1216,7 @@
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
-        <source>Clustered storage, induding the GFS2 file system.</source>
+        <source>Clustered storage, including the GFS2 file system.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1273,7 +1276,7 @@
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
-        <source>The PostgreSQL SQL database cient, and associated packages.</source>
+        <source>The PostgreSQL SQL database client, and associated packages.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1289,7 +1292,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>Java Platform</source>
-        <translation type="unfinished"/>
+        <translation>Java-platform</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
@@ -1299,7 +1302,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>PHP Support</source>
-        <translation type="unfinished"/>
+        <translation>PHP-undersøttelse</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
@@ -1309,7 +1312,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Python</source>
-        <translation type="unfinished"/>
+        <translation>Python</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
@@ -1319,7 +1322,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Perl for Web</source>
-        <translation type="unfinished"/>
+        <translation>Perl til web</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
@@ -1329,7 +1332,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Internet Applications</source>
-        <translation type="unfinished"/>
+        <translation>Internetprogrammer</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
@@ -1359,7 +1362,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Office Suite and Productivity</source>
-        <translation type="unfinished"/>
+        <translation>Kontorpakke og -produktivitet</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
@@ -1369,7 +1372,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Additional Development</source>
-        <translation type="unfinished"/>
+        <translation>Yderligere udvikling</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
@@ -1379,7 +1382,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Emacs</source>
-        <translation type="unfinished"/>
+        <translation>Emacs</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
@@ -1389,7 +1392,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Graphics Creation Tools</source>
-        <translation type="unfinished"/>
+        <translation>Grafik skabende værktøjer</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
@@ -1399,7 +1402,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Platform Development</source>
-        <translation type="unfinished"/>
+        <translation>Platformsudvikling</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
@@ -1409,7 +1412,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>Technical Writing</source>
-        <translation type="unfinished"/>
+        <translation>Teknisk skrivning</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
@@ -1419,7 +1422,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Virtualization Tools</source>
-        <translation type="unfinished"/>
+        <translation>Virtualiseringsværktøjer</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
@@ -1439,7 +1442,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Guest Agents</source>
-        <translation type="unfinished"/>
+        <translation>Gæsteagenter</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
@@ -1449,12 +1452,12 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>DDE Applications</source>
-        <translation type="unfinished"/>
+        <translation>DDE-programmer</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>A set of commonly used DDE Applications.</source>
-        <translation type="unfinished"/>
+        <translation>Et sæt DDE-programmer som oftest bruges.</translation>
     </message>
 </context>
 <context>
@@ -1513,37 +1516,37 @@
         <translation>De to adgangskoder er ikke ens</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="194"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="199"/>
         <source>Full Disk Encryption</source>
         <translation>Kryptering af hele disken</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="195"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="200"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Sørg venligst for at oprette en sikkerhedskopi af vigtige data, og vælg herefter disken der skal installeres på</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="196"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="201"/>
         <source>Encrypt This Disk</source>
         <translation>Kryptér disken</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="197"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="202"/>
         <source>Password</source>
         <translation>Adgangskode</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="198"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
         <source>Repeat Password</source>
         <translation>Gentag adgangskode</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="199"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="204"/>
         <source>Previous</source>
         <translation>Forrige</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="200"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
         <source>Start Installation</source>
         <translation>Start installation</translation>
     </message>
@@ -1624,6 +1627,12 @@
         <translation>Kan ikke installere direkte på grund af at EFI-bundkort-bootloader og MBR-disk er blevet registreret. Vælg venligt en af løsningerne nedenfor for at fortsætte.</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="58"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="113"/>
+        <source>Disable UEFI</source>
+        <translation>Deaktivér UEFI</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="117"/>
         <source>Reboot, enter BIOS, and disable UEFI</source>
@@ -1636,6 +1645,12 @@
         <translation>Forlad BIOS og gå ind i deepin for at installere</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="63"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="122"/>
+        <source>Format the disk</source>
+        <translation>Formatér disken</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="66"/>
         <source>Make a backup of all your data to avoid data loss</source>
         <translation>Opret venligst en sikkerhedskopi af alle dine data, for at undgå tab af data</translation>
@@ -1643,27 +1658,6 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="67"/>
         <source>Please double check if you have backed up all data, then reboot to enter this interface</source>
-        <translation>Dobbelttjek venligst at der blev oprettet en sikkerhedskopi af alle dataene, og genstart for at komme ind i brugerfladen</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="72"/>
-        <source>Make sure you have backed up all data before proceeding</source>
-        <translation>Sørg venligst for at oprette en sikkerhedskopi af vigtige data, og vælg herefter disken der skal installeres på</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="73"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="153"/>
-        <source>Continuing installation will format your disk</source>
-        <translation>Hvis installationen fortsættes vil din disk blive formateret</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="126"/>
-        <source>Please make a backup of all your data to avoid data loss</source>
-        <translation>Opret venligst en sikkerhedskopi af alle dine data, for at undgå tab af data</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="127"/>
-        <source>Please double check if all the data were made a backup, and reboot to enter this interface</source>
         <translation>Dobbelttjek venligst at der blev oprettet en sikkerhedskopi af alle dataene, og genstart for at komme ind i brugerfladen</translation>
     </message>
     <message>
@@ -1675,9 +1669,15 @@
         <translation>Fortsæt</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="151"/>
-        <source>Please make sure all data were made a backup, then continue</source>
-        <translation>Opret venligst en sikkerhedskopi af alle data, og fortsæt herefter</translation>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="72"/>
+        <source>Make sure you have backed up all data before proceeding</source>
+        <translation>Sørg venligst for at oprette en sikkerhedskopi af vigtige data, og vælg herefter disken der skal installeres på</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="73"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="153"/>
+        <source>Continuing installation will format your disk</source>
+        <translation>Hvis installationen fortsættes vil din disk blive formateret</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
@@ -1692,34 +1692,33 @@
         <translation>Tilbage</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="113"/>
-        <source>Disable UEFI</source>
-        <translation>Deaktivér UEFI</translation>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="126"/>
+        <source>Please make a backup of all your data to avoid data loss</source>
+        <translation>Opret venligst en sikkerhedskopi af alle dine data, for at undgå tab af data</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="63"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="122"/>
-        <source>Format the disk</source>
-        <translation>Formatér disken</translation>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="127"/>
+        <source>Please double check if all the data were made a backup, and reboot to enter this interface</source>
+        <translation>Dobbelttjek venligst at der blev oprettet en sikkerhedskopi af alle dataene, og genstart for at komme ind i brugerfladen</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="151"/>
+        <source>Please make sure all data were made a backup, then continue</source>
+        <translation>Opret venligst en sikkerhedskopi af alle data, og fortsæt herefter</translation>
     </message>
 </context>
 <context>
     <name>installer::SaveInstallFailedLogFrame</name>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="146"/>
-        <source>Save Error Log</source>
-        <translation type="unfinished"/>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="148"/>
+        <source>Save Log</source>
+        <translation>Gem log</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="147"/>
-        <source>Save the error log to local or external disk</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="148"/>
-        <source>Save Log</source>
-        <translation type="unfinished"/>
+        <source>Save the error log to a removable device</source>
+        <translation>Gem fejlloggen på en flytbar enhed</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="149"/>
@@ -1730,22 +1729,22 @@
 <context>
     <name>installer::SelectInstallComponentFrame</name>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="91"/>
-        <source>Select component</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="94"/>
+        <source>Select component</source>
+        <translation>Vælg komponent</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="97"/>
         <source>Server Type</source>
-        <translation type="unfinished"/>
+        <translation>Servertype</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="102"/>
         <source>Component list</source>
-        <translation type="unfinished"/>
+        <translation>Komponentliste</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="153"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="156"/>
         <source>Next</source>
         <translation>Næste</translation>
     </message>
@@ -1753,43 +1752,49 @@
 <context>
     <name>installer::SystemDateFramePrivate</name>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="88"/>
-        <source>Select Timezone</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="89"/>
-        <source>Hour</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="90"/>
-        <source>Minute</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="91"/>
-        <source>Year</source>
-        <translation type="unfinished"/>
+        <source>Time settings</source>
+        <translation>Tidsindstillinger</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="92"/>
-        <source>Month</source>
-        <translation type="unfinished"/>
+        <source>Change date and time as you want</source>
+        <translation>Skift dato og klokkeslæt til det du ønsker</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="93"/>
-        <source>Day</source>
-        <translation type="unfinished"/>
+        <source>Hour</source>
+        <translation>Time</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
+        <source>Minute</source>
+        <translation>Minut</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
+        <source>Year</source>
+        <translation>År</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="96"/>
+        <source>Month</source>
+        <translation>Måned</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="97"/>
+        <source>Day</source>
+        <translation>Dag</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="98"/>
         <source>Accept</source>
         <translation>Accepter</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="99"/>
         <source>Cancel</source>
         <translation>Annuller</translation>
     </message>
@@ -1807,14 +1812,14 @@
         <translation>Tilbage</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="122"/>
-        <source>View in Chinese</source>
-        <translation>Vis på kinesisk</translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="120"/>
         <source>View in English</source>
         <translation>Vis på engelsk</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="122"/>
+        <source>View in Chinese</source>
+        <translation>Vis på kinesisk</translation>
     </message>
 </context>
 </TS>

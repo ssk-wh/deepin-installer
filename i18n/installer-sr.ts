@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr" sourcelanguage="en_US" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr" version="2.1">
 <context>
     <name>installer::AdvancedPartitionButton</name>
     <message>
@@ -125,19 +125,6 @@
     </message>
 </context>
 <context>
-    <name>installer::DiskInstallationModel</name>
-    <message>
-        <location filename="../src/ui/models/disk_installation_model.cpp" line="25"/>
-        <source>SystemDisk</source>
-        <translation>Системски диск</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/models/disk_installation_model.cpp" line="26"/>
-        <source>DataDisk</source>
-        <translation>Диск података</translation>
-    </message>
-</context>
-<context>
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
@@ -243,7 +230,7 @@
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="80"/>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="101"/>
         <source>Sorry for the inconvenience, please photo or scan the QR code to send error log, so that the issue can be better solved.</source>
-        <translation>Жао нам је због непријатности. Молимо сликајте или скенирајте QR код да пошаљете записник грешака, како бисмо ефикасније решили проблем.</translation>
+        <translation>Жао нам је због непријатности. Усликајте или скенирајте QR код да пошаљете записник грешака, како бисмо ефикасније решили проблем.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="81"/>
@@ -297,6 +284,19 @@
         <location filename="../src/ui/frames/install_success_frame.cpp" line="71"/>
         <source>Experience now</source>
         <translation>Искуси сад</translation>
+    </message>
+</context>
+<context>
+    <name>installer::MultipleDiskInstallationWidget</name>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="191"/>
+        <source>System Disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="191"/>
+        <source>Data Disk</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -563,11 +563,6 @@
         <translation>Направи проширену партицију %1</translation>
     </message>
     <message>
-        <location filename="../src/partman/operation.cpp" line="271"/>
-        <source>Delete %1 partition</source>
-        <translation>Уклони %1 партицију</translation>
-    </message>
-    <message>
         <location filename="../src/partman/operation.cpp" line="258"/>
         <source>Create new partition %1, type: %2</source>
         <translation>Направи нову партицију %1, тип: %2</translation>
@@ -576,6 +571,11 @@
         <location filename="../src/partman/operation.cpp" line="262"/>
         <source>Create new partition %1 as %2 (mountpoint), type: %3</source>
         <translation>Направи нову партицију %1 као %2 (тачка монтирања), тип: %3</translation>
+    </message>
+    <message>
+        <location filename="../src/partman/operation.cpp" line="271"/>
+        <source>Delete %1 partition</source>
+        <translation>Уклони %1 партицију</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="276"/>
@@ -603,23 +603,23 @@
         <translation>Подеси величину %1 партиције</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="249"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="244"/>
         <source>Do not use this partition</source>
         <translation>Не користи ову партицију</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="262"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="257"/>
         <source>Swap partition</source>
         <translation>Партиција секундарне меморије</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="265"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="260"/>
         <source>Unknown</source>
         <translation>Непознато</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="306"/>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="337"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="301"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="332"/>
         <source>Freespace</source>
         <translation>Слободан простор</translation>
     </message>
@@ -722,120 +722,120 @@
     <name>installer::SystemInfoFormFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="84"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="174"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="175"/>
         <source>Create User Account</source>
         <translation>Направи кориснички налог</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="85"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="175"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="176"/>
         <source>Fill in the username, computer name and your password</source>
-        <translation>Попуните корисничко име, име рачунара и лозинку</translation>
+        <translation>Попуни корисничко име, име рачунара и лозинку</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="86"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="184"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="185"/>
         <source>Username</source>
         <translation>Корисничко име</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="87"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="189"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="190"/>
         <source>Computer name</source>
         <translation>Име рачунара</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="88"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="194"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="211"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="195"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="212"/>
         <source>Password</source>
         <translation>Лозинка</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="89"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="92"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="200"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="221"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="201"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="222"/>
         <source>Confirm password</source>
         <translation>Потвриди лозинку</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="90"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="205"/>
-        <source>Set root password</source>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="206"/>
+        <source>Set as root password</source>
         <translation>Постави root лозинку</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="246"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="247"/>
         <source>Next</source>
         <translation>Следеће</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="94"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="240"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="241"/>
         <source>Use that password to edit boot menu</source>
         <translation>Користите ову лозинку за уређивање покретача</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="287"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="288"/>
         <source>This username already exists</source>
         <translation>Ово корисничко име већ постоји</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="291"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="292"/>
         <source>The first letter must be in lowercase</source>
         <translation>Прво слово мора бити мало</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="297"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="298"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
         <translation>Корисничко име мора садржати енглеска слова (мала), бројеве или специјалне симболе (_-)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="303"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="304"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
         <translation>Молимо унесите корисничко име дуже од %1 карактера и краће од %2 карактера</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="325"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="326"/>
         <source>Please input computer name</source>
         <translation>Унеси име рачунара</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="329"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="330"/>
         <source>Computer name is invalid</source>
         <translation>Неважеће име рачунара</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="333"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="334"/>
         <source>Computer name already exists, please input another one</source>
         <translation>Име рачунара већ постоји, молимо унесите друго</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="338"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="339"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
         <translation>Молимо унесите име рачунара дуже од %1 карактера и краће од %2 карактера</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="364"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="365"/>
         <source>The password should be different from the username</source>
         <translation>Лозинка треба да се разликује од корисничког имена</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="376"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="389"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="377"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="390"/>
         <source>Please input password longer than %1 characters and shorter than %2 characters</source>
         <translation>Молимо унесите лозинку дужу од %1 карактера и краћу од %2 карактера</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="383"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="384"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>Лозинка може садржати само слова енглеског алфабета (осетљива на величину слова), бројеве или специјалне симболе (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="413"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="414"/>
         <source>Passwords do not match</source>
         <translation>Лозинке се не подударају</translation>
     </message>
@@ -851,18 +851,18 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="91"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="111"/>
-        <source>Please select a suitable keyboard layout</source>
-        <translation>Изаберите одговарајући распоред тастатуре</translation>
+        <source>Select a proper keyboard layout</source>
+        <translation>Изабери одговарајући распоред тастатуре</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="92"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="147"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="149"/>
         <source>Test area</source>
         <translation>Поље за тест</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="152"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="154"/>
         <source>Back</source>
         <translation>Назад</translation>
     </message>
@@ -871,36 +871,39 @@
     <name>installer::TimezoneFrame</name>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="211"/>
-        <source>Select Time Zone</source>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="214"/>
+        <source>Select Timezone</source>
         <translation>Изабери временску зону</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="113"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="212"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="215"/>
         <source>Mark your zone on the map</source>
         <translation>Означи своју зону на мапи</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="114"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="214"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="217"/>
         <source>Next</source>
         <translation>Следеће</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="217"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
         <source>Map</source>
         <translation>Мапа</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="223"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="116"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="226"/>
         <source>List</source>
         <translation>Листа</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="277"/>
-        <source>Time setting</source>
-        <translation type="unfinished"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="117"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="280"/>
+        <source>Time settings</source>
+        <translation>Подешавање времена</translation>
     </message>
 </context>
 <context>
@@ -934,17 +937,17 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="272"/>
         <source>Basic functionality.</source>
-        <translation type="unfinished"/>
+        <translation>Основна функционалност.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="273"/>
         <source>Compute Node</source>
-        <translation type="unfinished"/>
+        <translation> Рачунско чвориште</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="273"/>
         <source>Installation for performing computation and processing.</source>
-        <translation type="unfinished"/>
+        <translation>Инсталација за обављање рачунања и обраде.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="274"/>
@@ -964,87 +967,87 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="275"/>
         <source>File, print, and storage server for enterprises.</source>
-        <translation type="unfinished"/>
+        <translation>Сервер датотека, штампања и складиштења за предузећа.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="276"/>
         <source>Basic Web Server</source>
-        <translation type="unfinished"/>
+        <translation>Основни мрежни сервер</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="276"/>
         <source>Server for serving static and dynamic internet content.</source>
-        <translation type="unfinished"/>
+        <translation>Сервер за послужење статичког и динамичког мрежног садржаја.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="277"/>
         <source>Virtualization Host</source>
-        <translation type="unfinished"/>
+        <translation>Домаћин виртуелизације</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="277"/>
         <source>Minimal virtualization host.</source>
-        <translation type="unfinished"/>
+        <translation>Минимални домаћин виртуелизације.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="278"/>
         <source>Server with GUI</source>
-        <translation type="unfinished"/>
+        <translation>Сервер са графичким сучељем</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="278"/>
         <source>Server for operating network infrastructure services, with a GUI.</source>
-        <translation type="unfinished"/>
+        <translation>Срвер за управљање услугама мрежне инфраструктуре са графичким сучељем.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="279"/>
         <source>DDE Desktop</source>
-        <translation type="unfinished"/>
+        <translation>ДДЕ радно окружење</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="279"/>
         <source>DDE is a highly intuitive and user friendly desktop environment.</source>
-        <translation type="unfinished"/>
+        <translation>ДДЕ је интуитивно и лако за коришћење радно окружење.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="280"/>
         <source>Development and Creative Workstation</source>
-        <translation type="unfinished"/>
+        <translation>Развојна и креативна радна станица</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="280"/>
         <source>Workstation for software, hardware, graphics, or content development.</source>
-        <translation type="unfinished"/>
+        <translation>Радна станица за развој софтвера, рад са графиком или прављење садржаја.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="281"/>
         <source>Debugging Tools</source>
-        <translation type="unfinished"/>
+        <translation>Алати за уклањање грешака</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="281"/>
         <source>Tools for debugging misbehaving applications and diagnosing performance problems.</source>
-        <translation type="unfinished"/>
+        <translation>Алати за уклањање грешака апликација које се лоше понашају и дијагностику слабог учинка.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="282"/>
         <source>Directory Client</source>
-        <translation type="unfinished"/>
+        <translation>Клијент именика</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="282"/>
         <source>Clients for integration into a network managed by a directory service.</source>
-        <translation type="unfinished"/>
+        <translation>Клијенти за интеграцију у мрежу управљану услугама именика.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="283"/>
         <source>Security Tools</source>
-        <translation type="unfinished"/>
+        <translation>Безбедносни алати</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="283"/>
         <source>Security tools for integrity and trust verification.</source>
-        <translation type="unfinished"/>
+        <translation>Безбедносни алати за проверу интегритета и верификацију.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="284"/>
@@ -1059,402 +1062,402 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
         <source>Performance Tools</source>
-        <translation type="unfinished"/>
+        <translation>Алати учинка</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
         <source>Tools for diagnosing system and application-level performance problems.</source>
-        <translation type="unfinished"/>
+        <translation>Алати за дијагностику лошег учинка на нивоу система и апликација.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
         <source>Hardware Monitoring Utilities</source>
-        <translation type="unfinished"/>
+        <translation>Алати за праћење хардвера</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
         <source>A set of tools to monitor server hardware.</source>
-        <translation type="unfinished"/>
+        <translation>Скуп алата за надгледање серверског хардвера.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
         <source>Virtualization Hypervisor</source>
-        <translation type="unfinished"/>
+        <translation>Хипервизор виртуелизације</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
         <source>Smallest possible virtualization host installation.</source>
-        <translation type="unfinished"/>
+        <translation>Најмања могућа инсталација домаћина виртуелизације.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
         <source>Virtualization Platform</source>
-        <translation type="unfinished"/>
+        <translation>Платформа виртуелизације</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
         <source>Provide an interface for accessing and controlling virtualized guests and containers.</source>
-        <translation type="unfinished"/>
+        <translation>Пружа сучеље за приступ и управљање са вуртуелизованим гостима и контејнерима.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
         <source>Virtualization Client</source>
-        <translation type="unfinished"/>
+        <translation>Клијент виртуелизације</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
         <source>Clients for installing and managing virtualization instances.</source>
-        <translation type="unfinished"/>
+        <translation>Клијенти за инсталирање и управљање инстанцама виртуализације.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
         <source>Backup Client</source>
-        <translation type="unfinished"/>
+        <translation>Клијент резерви</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
         <source>Client tools for connecting to a backup server and doing backups.</source>
-        <translation type="unfinished"/>
+        <translation>Алати клијента за повезивање са сервером резерви и прављење резерви.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
         <source>Backup Server</source>
-        <translation type="unfinished"/>
+        <translation>Сервер резерви</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
         <source>Software to centralize your infrastructure&apos;s backups.</source>
-        <translation type="unfinished"/>
+        <translation>Софтвер за централизовање резерви ваше инфраструктуре.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
         <source>File and Storage Server</source>
-        <translation type="unfinished"/>
+        <translation>Сервер датотека и складишта</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
         <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
-        <translation type="unfinished"/>
+        <translation>CIFS, SMB, NFS, iSCSI, iSER, iSNS мрежни сервер складишта.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>DNS Name Server</source>
-        <translation type="unfinished"/>
+        <translation>ДНС сервер имена</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>This package group allows you to run a DNS name server (BIND) on the system.</source>
-        <translation type="unfinished"/>
+        <translation>Ова група пакета вам омогућава да покренете ДНС сервер имена (BIND) на систему.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>E-mail Server</source>
-        <translation type="unfinished"/>
+        <translation>Сервер е-поште</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
-        <translation type="unfinished"/>
+        <translation>Омогућава систему да ради као SMTP и/или IMAP сервер е-поште.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>FTP Server</source>
-        <translation type="unfinished"/>
+        <translation>ФТП сервер</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>Allows the system to act as an FTP server.</source>
-        <translation type="unfinished"/>
+        <translation>Омогућава систему да ради као ФТП сервер.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Print Server</source>
-        <translation type="unfinished"/>
+        <translation>Сервер за штампање</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Allows the system to act as a print server.</source>
-        <translation type="unfinished"/>
+        <translation>Омогућава систему да ради као сервер за штампање.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>Mainframe Access</source>
-        <translation type="unfinished"/>
+        <translation>Приступ мејнфрејму</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>Tools for accessing mainframe computing resources.</source>
-        <translation type="unfinished"/>
+        <translation>Алати за приступ ресурсима мејнфрејма.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Infiniband Support</source>
-        <translation type="unfinished"/>
+        <translation>InfiniBand подршка</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
-        <source>Software designed for supporting dlustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
+        <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>High Availability</source>
-        <translation type="unfinished"/>
+        <translation>Висока доступност</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>Infrastructure for highly available services and/or shared storage.</source>
-        <translation type="unfinished"/>
+        <translation>Инфраструктура за високодоступне услуге или/и дељена складишта.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>Resilient Storage</source>
-        <translation type="unfinished"/>
+        <translation>Отпорно складиште</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
-        <source>Clustered storage, induding the GFS2 file system.</source>
+        <source>Clustered storage, including the GFS2 file system.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>ldentity Management Server</source>
-        <translation type="unfinished"/>
+        <translation>Сервер за управљање индентитетима</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>Centralized management of users, servers and authentication policies.</source>
-        <translation type="unfinished"/>
+        <translation>Централизовано управљање корисницима, серверима и политиком аутентификације.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>Large Systems Performance</source>
-        <translation type="unfinished"/>
+        <translation>Учинковитост великих система</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>Performance support tools for large systems.</source>
-        <translation type="unfinished"/>
+        <translation>Алати за подршку учинковитости великих система.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>Load Balancer</source>
-        <translation type="unfinished"/>
+        <translation>Распоређивач оптерећења</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>Load balancing support for network traffic.</source>
-        <translation type="unfinished"/>
+        <translation>Подршка за распоређивање оптерећења мрежног саобраћаја.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>MariaDB Database Client</source>
-        <translation type="unfinished"/>
+        <translation>MariaDB клијент базе података</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>The MariaDB SQL database client, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>MariaDB SQL клијент базе података и припадајући пакети.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>MariaDB Database Server</source>
-        <translation type="unfinished"/>
+        <translation>MariaDB сервер базе података</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>The MariaDB SQL database server, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>MariaDB SQL сервер базе података и припадајући пакети.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>PostgreSQL Database Client</source>
-        <translation type="unfinished"/>
+        <translation>PostgreSQL клијент базе података</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
-        <source>The PostgreSQL SQL database cient, and associated packages.</source>
-        <translation type="unfinished"/>
+        <source>The PostgreSQL SQL database client, and associated packages.</source>
+        <translation>PostgreSQL SQL клијент базе података и припадајући пакети.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>PostgreSQL Database Server</source>
-        <translation type="unfinished"/>
+        <translation>PostgreSQL сервер базе података</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>The PostgreSQL SQL database server, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>PostgreSQL SQL сервер базе података и припадајући пакети.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>Java Platform</source>
-        <translation type="unfinished"/>
+        <translation>Java платформа</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>Java support for deepin.</source>
-        <translation type="unfinished"/>
+        <translation>Java подршка за Дипин.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>PHP Support</source>
-        <translation type="unfinished"/>
+        <translation>PHP подршка</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>PHP web application framework.</source>
-        <translation type="unfinished"/>
+        <translation>PHP оквир за веб апликације.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Python</source>
-        <translation type="unfinished"/>
+        <translation>Python</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Basic Python web application support.</source>
-        <translation type="unfinished"/>
+        <translation>Основна подршка за Python веб апликације.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Perl for Web</source>
-        <translation type="unfinished"/>
+        <translation>Perl за веб</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Basic Perl web application support.</source>
-        <translation type="unfinished"/>
+        <translation>Основна подршка за Perl веб апликације.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Internet Applications</source>
-        <translation type="unfinished"/>
+        <translation>Интернет апликације</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Email, chat, and video conferencing software.</source>
-        <translation type="unfinished"/>
+        <translation>Софтвер за е-пошту, ћаскање и видео конференције.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Web Servlet Engine</source>
-        <translation type="unfinished"/>
+        <translation>Веб сервлет погон</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Allows the system to host Java servlets.</source>
-        <translation type="unfinished"/>
+        <translation>Омогућава систему да угости Java севрлете.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>Legacy x Window System Compatibility</source>
-        <translation type="unfinished"/>
+        <translation>Компатибилност са старим Икс Системом Прозора</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>Compatibility programs for migration from or working with legacy X Window System environments.</source>
-        <translation type="unfinished"/>
+        <translation>Програми компатибилности за миграцију или за рад са радним окружењем старог Икс Система Прозора.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Office Suite and Productivity</source>
-        <translation type="unfinished"/>
+        <translation>Канцеларијски пакет и продуктивност</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>A full-purpose office suite, and other productivity tools.</source>
-        <translation type="unfinished"/>
+        <translation>Свенаменски канцеларијски пакет и остали алати за продуктивност.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Additional Development</source>
-        <translation type="unfinished"/>
+        <translation>Додатни развој</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Additional development headers and libraries for building open-source applications.</source>
-        <translation type="unfinished"/>
+        <translation>Додатна развојна заглавља и библиотеке за изградњу апликација отвореног кода.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Emacs</source>
-        <translation type="unfinished"/>
+        <translation>Имакс</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>The GNU Emacs extensible, customizable text editor.</source>
-        <translation type="unfinished"/>
+        <translation>ГНУ Имакс је проширив и прилагодљив уређивач текста.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Graphics Creation Tools</source>
-        <translation type="unfinished"/>
+        <translation>Алати за израду графике</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Software for creation and manipulation of still images.</source>
-        <translation type="unfinished"/>
+        <translation>Софтвер за израду и обраду статичних слика.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Platform Development</source>
-        <translation type="unfinished"/>
+        <translation>Развојна платформа</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Recommended development headers and libraries for developing applications to run on deepin.</source>
-        <translation type="unfinished"/>
+        <translation>Препоручена развојна заглавља и библиотеке за развој апликација које раде у Дипину.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>Technical Writing</source>
-        <translation type="unfinished"/>
+        <translation>Техничко писање</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>Tools for writing technical documentation.</source>
-        <translation type="unfinished"/>
+        <translation>Алати за писње техничке документације.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Virtualization Tools</source>
-        <translation type="unfinished"/>
+        <translation>Алати за виртуелизацију</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Tools for offline virtual image management.</source>
-        <translation type="unfinished"/>
+        <translation>Алати за ванмрежно управљање виртуелним одразима.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>Network File System Client</source>
-        <translation type="unfinished"/>
+        <translation>Мрежни клијент система датотека</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>Enables the system to attach to network storage.</source>
-        <translation type="unfinished"/>
+        <translation>Омогућава систему да се прикључи мрежном складишту.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Guest Agents</source>
-        <translation type="unfinished"/>
+        <translation>Агенти за госте</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Agents used when running under a hypervisor.</source>
-        <translation type="unfinished"/>
+        <translation>Агенти који се користе при раду под хипервизором.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>DDE Applications</source>
-        <translation type="unfinished"/>
+        <translation>ДДЕ програми</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>A set of commonly used DDE Applications.</source>
-        <translation type="unfinished"/>
+        <translation>Скуп најчешће коришћених ДДЕ програма.</translation>
     </message>
 </context>
 <context>
@@ -1513,37 +1516,37 @@
         <translation>Лозинке се не подударају</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="194"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="199"/>
         <source>Full Disk Encryption</source>
         <translation>Шифровање целог диска</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="195"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="200"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Уверите се да је направљена резерва важних података, затим изаберите диск за инсталацију</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="196"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="201"/>
         <source>Encrypt This Disk</source>
         <translation>Шифруј овај диск</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="197"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="202"/>
         <source>Password</source>
         <translation>Лозинка</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="198"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
         <source>Repeat Password</source>
         <translation>Поновите лозинку</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="199"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="204"/>
         <source>Previous</source>
         <translation>Претходно</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="200"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
         <source>Start Installation</source>
         <translation>Започни инсталацију</translation>
     </message>
@@ -1624,6 +1627,12 @@
         <translation>Немогуће инсталирати директно због EFI покретача система и пронађеног MBR диска, изаберите једно од понуђених решења испод за наставак.</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="58"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="113"/>
+        <source>Disable UEFI</source>
+        <translation>Онемогући UEFI</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="117"/>
         <source>Reboot, enter BIOS, and disable UEFI</source>
@@ -1636,6 +1645,12 @@
         <translation>Напусти BIOS и уђи у Дипин за инсталацију</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="63"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="122"/>
+        <source>Format the disk</source>
+        <translation>Форматирај диск</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="66"/>
         <source>Make a backup of all your data to avoid data loss</source>
         <translation>Направите резерву свих ваших података како бисте избегли губитак истих</translation>
@@ -1643,27 +1658,6 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="67"/>
         <source>Please double check if you have backed up all data, then reboot to enter this interface</source>
-        <translation>Молимо добро проверите да ли је направљена резерва свих података и поново покрените да приступите овом сучељу</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="72"/>
-        <source>Make sure you have backed up all data before proceeding</source>
-        <translation>Уверите се да сте направили резерву свих података пре него што наставите</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="73"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="153"/>
-        <source>Continuing installation will format your disk</source>
-        <translation>Наставак инсталације ће форматирати ваш диск</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="126"/>
-        <source>Please make a backup of all your data to avoid data loss</source>
-        <translation>Молимо направите резерву свих ваших података како бисте избегли губитак истих</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="127"/>
-        <source>Please double check if all the data were made a backup, and reboot to enter this interface</source>
         <translation>Молимо добро проверите да ли је направљена резерва свих података и поново покрените да приступите овом сучељу</translation>
     </message>
     <message>
@@ -1675,9 +1669,15 @@
         <translation>Настави</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="151"/>
-        <source>Please make sure all data were made a backup, then continue</source>
-        <translation>Молимо уверите се да је направљена резерва свих података, затим наставите</translation>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="72"/>
+        <source>Make sure you have backed up all data before proceeding</source>
+        <translation>Уверите се да сте направили резерву свих података пре него што наставите</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="73"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="153"/>
+        <source>Continuing installation will format your disk</source>
+        <translation>Наставак инсталације ће форматирати ваш диск</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
@@ -1692,34 +1692,33 @@
         <translation>Назад</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="113"/>
-        <source>Disable UEFI</source>
-        <translation>Онемогући UEFI</translation>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="126"/>
+        <source>Please make a backup of all your data to avoid data loss</source>
+        <translation>Молимо направите резерву свих ваших података како бисте избегли губитак истих</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="63"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="122"/>
-        <source>Format the disk</source>
-        <translation>Форматирај диск</translation>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="127"/>
+        <source>Please double check if all the data were made a backup, and reboot to enter this interface</source>
+        <translation>Молимо добро проверите да ли је направљена резерва свих података и поново покрените да приступите овом сучељу</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="151"/>
+        <source>Please make sure all data were made a backup, then continue</source>
+        <translation>Молимо уверите се да је направљена резерва свих података, затим наставите</translation>
     </message>
 </context>
 <context>
     <name>installer::SaveInstallFailedLogFrame</name>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="146"/>
-        <source>Save Error Log</source>
-        <translation>Сачувај записник грешака</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="147"/>
-        <source>Save the error log to local or external disk</source>
-        <translation>Сачувај записник грешака на локални или спољни диск</translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="148"/>
         <source>Save Log</source>
         <translation>Сачувај записник</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="147"/>
+        <source>Save the error log to a removable device</source>
+        <translation>Сачувај записник грешака на уклоњиви уређај</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="149"/>
@@ -1730,22 +1729,22 @@
 <context>
     <name>installer::SelectInstallComponentFrame</name>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="91"/>
-        <source>Select component</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="94"/>
+        <source>Select component</source>
+        <translation>Изабери компоненту</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="97"/>
         <source>Server Type</source>
-        <translation type="unfinished"/>
+        <translation>Врста сервера</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="102"/>
         <source>Component list</source>
-        <translation type="unfinished"/>
+        <translation>Списак компонената</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="153"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="156"/>
         <source>Next</source>
         <translation>Следеће</translation>
     </message>
@@ -1753,43 +1752,49 @@
 <context>
     <name>installer::SystemDateFramePrivate</name>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="88"/>
-        <source>Select Timezone</source>
-        <translation>Изабери временску зону</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="89"/>
-        <source>Hour</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="90"/>
-        <source>Minute</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="91"/>
-        <source>Year</source>
-        <translation type="unfinished"/>
+        <source>Time settings</source>
+        <translation>Подешавање времена</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="92"/>
-        <source>Month</source>
-        <translation type="unfinished"/>
+        <source>Change date and time as you want</source>
+        <translation>Мењајте датум и време по нахођењу</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="93"/>
-        <source>Day</source>
-        <translation type="unfinished"/>
+        <source>Hour</source>
+        <translation>Сат</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
+        <source>Minute</source>
+        <translation>Минут</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
+        <source>Year</source>
+        <translation>Година</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="96"/>
+        <source>Month</source>
+        <translation>Месец</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="97"/>
+        <source>Day</source>
+        <translation>Дан</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="98"/>
         <source>Accept</source>
         <translation>Прихвати</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="99"/>
         <source>Cancel</source>
         <translation>Откажи</translation>
     </message>
@@ -1807,14 +1812,14 @@
         <translation>Назад</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="122"/>
-        <source>View in Chinese</source>
-        <translation>Прикажи на кинеском</translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="120"/>
         <source>View in English</source>
         <translation>Прикажи на енглеском</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="122"/>
+        <source>View in Chinese</source>
+        <translation>Прикажи на кинеском</translation>
     </message>
 </context>
 </TS>

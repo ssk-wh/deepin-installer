@@ -1384,7 +1384,7 @@ msgstr "Europa/Ljubljana"
 
 #: system-config-date-timezones.h:341
 msgid "Europe/London"
-msgstr "Europe/London"
+msgstr "Europa/Londres"
 
 #: system-config-date-timezones.h:342
 msgid "Europe/Luxembourg"
