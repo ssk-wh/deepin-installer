@@ -127,19 +127,6 @@
     </message>
 </context>
 <context>
-    <name>installer::DiskInstallationModel</name>
-    <message>
-        <location filename="../src/ui/models/disk_installation_model.cpp" line="25"/>
-        <source>SystemDisk</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/models/disk_installation_model.cpp" line="26"/>
-        <source>DataDisk</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
@@ -298,6 +285,19 @@
         <location filename="../src/ui/frames/install_success_frame.cpp" line="47"/>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="71"/>
         <source>Experience now</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>installer::MultipleDiskInstallationWidget</name>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="191"/>
+        <source>System Disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="191"/>
+        <source>Data Disk</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1198,7 +1198,12 @@
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
-        <source>Software designed for supporting dlustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
+        <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+        <source>Clustered storage, including the GFS2 file system.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1214,11 +1219,6 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>Resilient Storage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
-        <source>Clustered storage, induding the GFS2 file system.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
