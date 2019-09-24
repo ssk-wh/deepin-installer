@@ -5,7 +5,7 @@ mode = developer
 
 [deepin-installer-reborn.deepin-installer-reborn]
 file_filter = i18n/installer-<lang>.ts
-source_file = i18n/installer.ts
+source_file = i18n/installer-en.ts
 source_lang = en
 type = QT
 
