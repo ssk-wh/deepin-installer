@@ -38,56 +38,31 @@ void SelectTimeZoneFrame::updateContinentModelData()
 {
     const QString& locale = ReadLocale();
     QCollator collator(locale);
-    QString left;
-    QString right;
     QString continent;
-    QMap<QString, QString>::const_iterator internationIt;
+
+    for (const QPair<QString, QStringList>& continentTimezonePair : m_allTimeZone) {
+        Q_ASSERT(continentTimezonePair.second.count() > 0);
+        m_mapEnglishToInternation[continentTimezonePair.first] = GetLocalTimezoneName(continentTimezonePair.first
+            + "/" + continentTimezonePair.second.first(), locale).first;
+
+        const QStringList& timezoneList = continentTimezonePair.second;
+        for (const QString& timezoneIt : timezoneList) {
+            m_mapEnglishToInternation[timezoneIt] = GetLocalTimezoneName(continentTimezonePair.first + "/"
+                + timezoneIt, locale).second;
+        }
+    }
 
     collator.setCaseSensitivity(Qt::CaseInsensitive);
     std::sort(m_allTimeZone.begin(), m_allTimeZone.end()
         , [&](const QPair<QString, QStringList>& a, const QPair<QString, QStringList>& b) -> bool {
-            if((internationIt = m_mapEnglishToInternation.find(a.first)) == m_mapEnglishToInternation.end()){
-                Q_ASSERT(a.second.count() > 0);
-                left = GetLocalTimezoneName(a.first + "/" + a.second.first(), locale).first;
-                m_mapEnglishToInternation[a.first] = left;
-            }
-            else {
-                left = internationIt.value();
-            }
-
-            if((internationIt = m_mapEnglishToInternation.find(b.first)) == m_mapEnglishToInternation.end()){
-                Q_ASSERT(b.second.count() > 0);
-                right = GetLocalTimezoneName(b.first + "/" + b.second.first(), locale).first;
-                m_mapEnglishToInternation[b.first] = right;
-            }
-            else {
-                right = internationIt.value();
-            }
-
-            return collator.compare(left, right) < 0;
+            return collator.compare(m_mapEnglishToInternation[a.first], m_mapEnglishToInternation[b.first]) < 0;
         }
     );
 
     for (auto& it : m_allTimeZone) {
         std::sort(it.second.begin(), it.second.end()
             , [&](const QString& a, const QString& b) -> bool {
-            if((internationIt = m_mapEnglishToInternation.find(a)) == m_mapEnglishToInternation.end()){
-                left = GetLocalTimezoneName(it.first + "/" + a, locale).second;
-                m_mapEnglishToInternation[a] = left;
-            }
-            else {
-                left = internationIt.value();
-            }
-
-            if((internationIt = m_mapEnglishToInternation.find(b)) == m_mapEnglishToInternation.end()){
-                right = GetLocalTimezoneName(it.first + "/" + b, locale).second;
-                m_mapEnglishToInternation[b] = right;
-            }
-            else {
-                right = internationIt.value();
-            }
-
-            return collator.compare(left, right) < 0;
+                return collator.compare(m_mapEnglishToInternation[a], m_mapEnglishToInternation[b]) < 0;
             }
         );
     }
@@ -118,7 +93,6 @@ void SelectTimeZoneFrame::updateTimezoneModelData()
         return;
     }
 
-    const QString& locale = ReadLocale();
     QStringList timezoneList;
     QString continent = m_currentContinentList.at(m_currentContinentIndex.row());
     QString timezone;
