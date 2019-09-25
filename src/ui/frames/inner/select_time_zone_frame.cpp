@@ -42,26 +42,27 @@ void SelectTimeZoneFrame::updateContinentModelData()
 
     for (const QPair<QString, QStringList>& continentTimezonePair : m_allTimeZone) {
         Q_ASSERT(continentTimezonePair.second.count() > 0);
-        m_mapEnglishToInternation[continentTimezonePair.first] = GetLocalTimezoneName(continentTimezonePair.first
-            + "/" + continentTimezonePair.second.first(), locale).first;
+        m_mapEnglishToInternation[continentTimezonePair.first] = GetLocalTimezoneName(
+            QString("%1/%2").arg(continentTimezonePair.first)
+            .arg(continentTimezonePair.second.first()), locale).first;
 
         const QStringList& timezoneList = continentTimezonePair.second;
-        for (const QString& timezoneIt : timezoneList) {
-            m_mapEnglishToInternation[timezoneIt] = GetLocalTimezoneName(continentTimezonePair.first + "/"
-                + timezoneIt, locale).second;
+        for (const QString& timezone : timezoneList) {
+            m_mapEnglishToInternation[timezone] = GetLocalTimezoneName(
+                QString("%1/%2").arg(continentTimezonePair.first)
+                .arg(timezone), locale).second;
         }
     }
 
     collator.setCaseSensitivity(Qt::CaseInsensitive);
     std::sort(m_allTimeZone.begin(), m_allTimeZone.end()
-        , [&](const QPair<QString, QStringList>& a, const QPair<QString, QStringList>& b) -> bool {
+        , [&](const QPair<QString, QStringList>& a, const QPair<QString, QStringList>& b) {
             return collator.compare(m_mapEnglishToInternation[a.first], m_mapEnglishToInternation[b.first]) < 0;
         }
     );
 
     for (auto& it : m_allTimeZone) {
-        std::sort(it.second.begin(), it.second.end()
-            , [&](const QString& a, const QString& b) -> bool {
+        std::sort(it.second.begin(), it.second.end(), [&](const QString& a, const QString& b) {
                 return collator.compare(m_mapEnglishToInternation[a], m_mapEnglishToInternation[b]) < 0;
             }
         );
@@ -74,6 +75,8 @@ void SelectTimeZoneFrame::updateContinentModelData()
     }
 
     QStringList strList;
+    m_currentContinentList.clear();
+
     for (auto it : m_allTimeZone) {
         m_currentContinentList << it.first;
         Q_ASSERT(it.second.count() > 0);
@@ -195,8 +198,8 @@ void SelectTimeZoneFrame::onTimeZoneViewSelectedChanged(QModelIndex curIndex, QM
     }
 
     m_currentTimezoneIndex = curIndex;
-    QString timezone = m_currentContinentList.at(m_currentContinentIndex.row()) + "/"
-            + m_currentTimeZone.at(curIndex.row());
+    QString timezone = QString("%1/%2").arg(m_currentContinentList.at(m_currentContinentIndex.row()))
+        .arg(m_currentTimeZone.at(curIndex.row()));
     emit timezoneUpdated(timezone);
 }
 
