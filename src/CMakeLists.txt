@@ -2,7 +2,7 @@
 #set(CMAKE_C_COMPILER  /usr/bin/clang)
 #set(CMAKE_CXX_COMPILER  /usr/bin/clang++)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED 17)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
@@ -129,6 +129,7 @@ set(BASE_FILES
     base/string_util.h
     base/thread_util.cpp
     base/thread_util.h
+    base/translator.h
     )
 
 set(OEM_FILES
@@ -199,6 +200,8 @@ set(SERVICE_FILES
     service/settings_name.h
     service/timezone_manager.cpp
     service/timezone_manager.h
+    service/language_manager.h
+    service/language_manager.cpp
     )
 
 set(SYSINFO_FILES

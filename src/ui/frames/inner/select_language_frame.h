@@ -22,6 +22,7 @@
 
 #include <QFrame>
 #include <QModelIndex>
+#include <QScopedPointer>
 
 class QTranslator;
 class QCheckBox;
@@ -33,13 +34,14 @@ class FramelessListView;
 class LanguageListModel;
 class NavButton;
 class UserAgreementDelegate;
-
+class SelectLanguageFramePrivate;
 // Select system language and update ui language on-the-fly.
 class SelectLanguageFrame : public QFrame {
   Q_OBJECT
 
  public:
   explicit SelectLanguageFrame(UserAgreementDelegate * delegate, QWidget* parent = nullptr);
+  ~SelectLanguageFrame();
 
   // Read default locale.
   void readConf();
@@ -69,26 +71,9 @@ class SelectLanguageFrame : public QFrame {
   void showEvent(QShowEvent* event) override;
 
 private:
-    void initConnections();
-    void initUI();
-    void updateTranslator(const QString& locale);
-    void updateTs();
-    void onLanguageListSelected(const QModelIndex& current);
-    void onAccpetLicenseChanged(bool enable);
-
-private:
-    QTranslator*       current_translator_ = nullptr;
-    FramelessListView* language_view_      = nullptr;
-    LanguageListModel* language_model_     = nullptr;
-    QCheckBox*         accept_license_     = nullptr;
-    QLabel*            license_label_      = nullptr;
-    QLabel*            oem_and_label_      = nullptr;
-    QLabel*            oem_license_label_  = nullptr;
-    QLabel*            sub_title_label_    = nullptr;
-    NavButton*         next_button_        = nullptr;
-    LanguageItem       lang_;  // Current selected language.
-    UserAgreementDelegate* user_license_delegate_ = nullptr;
-  };
+    QScopedPointer<SelectLanguageFramePrivate> d_private;
+    Q_DECLARE_PRIVATE_D(d_private.get(), SelectLanguageFrame);
+};
 
 }  // namespace installer
 
