@@ -172,6 +172,9 @@ const char kEndPointControlLockServer[] = "end_point_control_lock_server";
 // System Install Component List
 const char kSelectComponentDefaultInstallType[] = "select_component_default_install_type";
 
+// Minimum size of Other partitions
+const char kPartitionOthersMinimumSize[] = "partition_others_minimum_size";
+
 }  // namespace installer
 
 #endif  // INSTALLER_SERVICE_SETTINGS_NAME_H

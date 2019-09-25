@@ -343,6 +343,8 @@ AdvancedValidateStates AdvancedPartitionDelegate::validate() const {
   const int boot_recommended = GetSettingsInt(kPartitionDefaultBootSpace);
   const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace);
   const int efi_minimum = GetSettingsInt(kPartitionEFIMinimumSpace);
+  const int partition_min_size_by_gb = GetSettingsInt(kPartitionOthersMinimumSize);
+  const qint64 partition_min_size_bytes = partition_min_size_by_gb * kGibiByte;
 
   for (const Device::Ptr device : virtual_devices_) {
     for (const Partition::Ptr partition : device->partitions) {
@@ -425,6 +427,24 @@ AdvancedValidateStates AdvancedPartitionDelegate::validate() const {
     // If /boot or / is set, validate its partition number.
     if ((boot_root_part_num != -1) && (boot_root_part_num != 1)) {
       states.append(AdvancedValidateState::BootPartNumberInvalid);
+    }
+  }
+
+  const QStringList known_mounts { kMountPointRoot, kMountPointBoot };
+  for (const Device::Ptr& device : virtual_devices_) {
+    for (const Partition::Ptr& partition : device->partitions) {
+      if (partition->fs == FsType::EFI) {
+            continue;
+      }
+      if (partition->mount_point.isEmpty()) {
+          continue;
+      }
+      if (known_mounts.contains(partition->mount_point)) {
+          continue;
+      }
+      if (partition->getByteLength() < partition_min_size_bytes) {
+           states.append(AdvancedValidateState(AdvancedValidateState::PartitionTooSmall, partition));
+      }
     }
   }
 
