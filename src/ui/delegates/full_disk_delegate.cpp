@@ -867,6 +867,7 @@ void FullDiskDelegate::onManualPartDone(const DeviceList& devices) {
   QStringList mount_points;
   bool found_swap = false;
   QString esp_path;
+  Device::Ptr root_device;
 
   // Check use-specified partitions with mount point.
   for (const Device::Ptr device : devices) {
@@ -879,22 +880,32 @@ void FullDiskDelegate::onManualPartDone(const DeviceList& devices) {
         if (partition->mount_point == kMountPointRoot) {
           root_disk = partition->device_path;
           root_path = partition->path;
+          root_device = device;
         }
       }
 
-      // Check linux-swap.
-      if (partition->fs == FsType::LinuxSwap) {
-        found_swap = true;
-
-        // Add swap area to mount_point list.
-        // NOTE(xushaohua): Multiple swap partitions may be set.
-        const QString record(QString("%1=swap").arg(partition->path));
-        mount_points.append(record);
-      } else if (partition->fs == FsType::EFI && esp_path.isEmpty()) {
+      if (partition->fs == FsType::EFI && esp_path.isEmpty()) {
         // Only use the first EFI partition->
         esp_path = partition->path;
       }
     }
+  }
+
+  // Find esp partition on this device
+  for (Partition::Ptr partition : root_device->partitions) {
+     if (partition->fs == FsType::EFI && esp_path != partition->path) {
+          esp_path = partition->path;
+          break;
+      }
+  }
+
+  // Check linux-swap.
+  for (Partition::Ptr partition : root_device->partitions) {
+      if (partition->fs == FsType::LinuxSwap) {
+          found_swap = true;
+          const QString record(QString("%1=swap").arg(partition->path));
+          mount_points.append(record);
+      }
   }
 
   if (!IsMBRPreferred(real_devices_)) {
