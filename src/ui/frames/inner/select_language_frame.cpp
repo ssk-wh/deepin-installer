@@ -54,7 +54,9 @@ SelectLanguageFrame::SelectLanguageFrame(UserAgreementDelegate * delegate, QWidg
 
 void SelectLanguageFrame::readConf() {
 // Select default locale
-  const QString locale = GetSettingsString(kSelectLanguageDefaultLocale);
+  const QString di_locale = GetSettingsString("DI_LOCALE");
+  const QString default_locale = GetSettingsString(kSelectLanguageDefaultLocale);
+  const QString locale = di_locale.isEmpty() ? default_locale : di_locale;
   const QModelIndex index = language_model_->localeIndex(locale);
   if (index.isValid()) {
     lang_ = language_model_->languageItemAt(index);
