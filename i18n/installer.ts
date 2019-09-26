@@ -24,14 +24,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="95"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="554"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="563"/>
         <source>Done</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="97"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="182"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="556"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="565"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
@@ -90,6 +90,16 @@
         <source>At least %1 GB is required for Root partition</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="526"/>
+        <source>At least %1 GB is required for partition %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="528"/>
+        <source> : %1 at %2</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>installer::BootloaderListModel</name>
@@ -145,43 +155,43 @@
     <name>installer::EditPartitionFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="100"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="169"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="168"/>
         <source>Edit Disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="102"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="171"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="170"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="203"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="202"/>
         <source>Filesystem</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="104"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="205"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="204"/>
         <source>Mount point</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="105"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="207"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="219"/>
         <source>Format the partition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="106"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="250"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="245"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="107"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="251"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="246"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
@@ -205,7 +215,7 @@
     <name>installer::FullDiskFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="140"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="146"/>
         <source>Install here</source>
         <translation type="unfinished"></translation>
     </message>
@@ -217,6 +227,11 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="60"/>
         <source>Please select a disk to start installation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="61"/>
+        <source>It needs more than %1GB disk space to install deepin, for better performance, %2GB and more space is recommended</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1513,47 +1528,47 @@
 <context>
     <name>installer::Full_Disk_Encrypt_frame</name>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="159"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="158"/>
         <source>Please input password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="165"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="164"/>
         <source>Passwords do not match</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="199"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="198"/>
         <source>Full Disk Encryption</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="200"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="199"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="201"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="200"/>
         <source>Encrypt This Disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="202"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="201"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="202"/>
         <source>Repeat Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="204"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
         <source>Previous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="204"/>
         <source>Start Installation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1736,22 +1751,22 @@
 <context>
     <name>installer::SelectInstallComponentFrame</name>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="94"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="105"/>
         <source>Select component</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="97"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="108"/>
         <source>Server Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="102"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="113"/>
         <source>Component list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="156"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="164"/>
         <source>Next</source>
         <translation type="unfinished"></translation>
     </message>
