@@ -110,7 +110,14 @@ void TimezoneFrame::writeConf() {
 void TimezoneFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     title_label_->setText(tr("Select Timezone"));
-    comment_label_->setText(tr("Mark your zone on the map"));
+
+    if(m_mapOrListStackedLayout->currentWidget() == timezone_map_){
+        comment_label_->setText(tr("Click your zone on the map"));
+    }
+    else {
+        comment_label_->setText(tr("Select your timezone from the list"));
+    }
+
     next_button_->setText(tr("Next"));
     m_timezoneMapButton->setText(tr("Map"));
     m_timezoneListButton->setText(tr("List"));
@@ -212,7 +219,7 @@ void TimezoneFrame::initConnections() {
 
 void TimezoneFrame::initUI() {
   title_label_ = new TitleLabel(tr("Select Timezone"));
-  comment_label_ = new CommentLabel(tr("Mark your zone on the map"));
+  comment_label_ = new CommentLabel(tr("Click your zone on the map"));
   timezone_map_ = new TimezoneMap(this);
   next_button_ = new NavButton(tr("Next"));
 
@@ -343,12 +350,14 @@ void TimezoneFrame::onTimezoneMapUpdated(const QString& timezone) {
 
 void TimezoneFrame::onTimezoneMapButtonClicked()
 {
+    comment_label_->setText(tr("Click your zone on the map"));
     m_mapOrListStackedLayout->setCurrentWidget(timezone_map_);
     timezone_map_->showMark();
 }
 
 void TimezoneFrame::onTimezoneListButtonClicked()
 {
+    comment_label_->setText(tr("Select your timezone from the list"));
     m_mapOrListStackedLayout->setCurrentWidget(m_selectTimeZoneFrame);
     timezone_map_->hideMark();
 }

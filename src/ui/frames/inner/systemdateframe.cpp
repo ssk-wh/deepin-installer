@@ -95,7 +95,7 @@ public:
         m_yearLabel->setText(tr("Year"));
         m_monthLabel->setText(tr("Month"));
         m_dayLabel->setText(tr("Day"));
-        m_acceptBtn->setText(tr("Accept"));
+        m_acceptBtn->setText(tr("Confirm"));
         m_cancelBtn->setText(tr("Cancel"));
     }
 
