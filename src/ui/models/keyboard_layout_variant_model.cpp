@@ -93,4 +93,14 @@ QString KeyboardLayoutVariantModel::getVariantName(
   }
 }
 
+const QModelIndex KeyboardLayoutVariantModel::getVariantIndexByName(const QString& name) const
+{
+    for (int row = 0; row < variant_list_.length(); row++) {
+        if (variant_list_.at(row).name == name) {
+            return index(row);
+        }
+    }
+    return QModelIndex();
+}
+
 }  // namespace installer

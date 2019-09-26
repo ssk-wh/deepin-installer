@@ -55,7 +55,13 @@ void SystemInfoKeyboardFrame::readConf() {
   current_locale_ = ReadLocale();
   layout_model_->initLayout(current_locale_);
 
-  const QString layout = GetSettingsString(kSystemInfoDefaultKeyboardLayout);
+  const QString kb_layout = GetSettingsString("DI_LAYOUT");
+  const QString kb_variant = GetSettingsString("DI_LAYOUT_VARIANT");
+  const QString kb_default_layout = GetSettingsString(kSystemInfoDefaultKeyboardLayout);
+  const QString kb_default_variant = GetSettingsString(kSystemInfoDefaultKeyboardLayoutVariant);
+  const QString layout = kb_layout.isEmpty() ? kb_default_layout : kb_layout;
+  const QString variant = kb_layout.isEmpty() ? kb_default_variant : kb_variant;
+
   if (layout.isEmpty()) {
     qWarning() << "Default keyboard layout is empty!";
     return;
@@ -65,6 +71,13 @@ void SystemInfoKeyboardFrame::readConf() {
   if (index.isValid()) {
     // Select default layout.
     layout_view_->setCurrentIndex(index);
+    const QModelIndex variant_index = variant_model_->getVariantIndexByName(variant);
+    if (variant_index.isValid()) {
+        variant_view_->setCurrentIndex(variant_index);
+    }
+    else {
+        qWarning() << "Invalid default keyboard variant:" << variant;
+    }
   } else {
     qWarning() << "Invalid default keyboard layout:" << layout;
   }
