@@ -267,6 +267,7 @@ N_("Asia/Phnom_Penh");
 N_("Asia/Pontianak");
 N_("Asia/Pyongyang");
 N_("Asia/Qatar");
+N_("Asia/Qostanay");
 N_("Asia/Qyzylorda");
 N_("Asia/Riyadh");
 N_("Asia/Sakhalin");
