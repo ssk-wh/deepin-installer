@@ -87,9 +87,9 @@ void SystemInfoFormFrame::changeEvent(QEvent* event)
         hostname_edit_->setPlaceholderText(tr("Computer name"));
         password_edit_->setPlaceholderText(tr("Password"));
         password_check_edit_->setPlaceholderText(tr("Confirm password"));
-        m_setRootPasswordCheck->setText(tr("Set as root password"));
-        m_rootPasswordEdit->setPlaceholderText(tr("Password"));
-        m_rootPasswordCheckEdit->setPlaceholderText(tr("Confirm password"));
+        m_setRootPasswordCheck->setText(tr("Set root password"));
+        m_rootPasswordEdit->setPlaceholderText(tr("Root password"));
+        m_rootPasswordCheckEdit->setPlaceholderText(tr("Repeat root password"));
         next_button_->setText(tr("Next"));
         grub_password_check_->setText(tr("Use that password to edit boot menu"));
     }
@@ -203,13 +203,13 @@ void SystemInfoFormFrame::initUI()
     password_check_edit_->setText(password_edit_->text());
     password_check_edit_->setReadOnly(password_edit_->isReadOnly());
 
-    m_setRootPasswordCheck = new QCheckBox(tr("Set as root password"), this);
+    m_setRootPasswordCheck = new QCheckBox(tr("Set root password"), this);
     m_setRootPasswordCheck->setCheckable(true);
     m_setRootPasswordCheck->setChecked(false);
     m_setRootPasswordCheck->setObjectName("RootPasswordCheckBox");
 
     m_rootPasswordEdit = new LineEdit(":/images/password_12.svg");
-    m_rootPasswordEdit->setPlaceholderText(tr("Password"));
+    m_rootPasswordEdit->setPlaceholderText(tr("Root password"));
     m_rootPasswordEdit->setEchoMode(QLineEdit::Password);
     m_rootPasswordEdit->setText(GetSettingsString(kSystemInfoDefaultPassword));
     m_rootPasswordEdit->setReadOnly(GetSettingsBool(kSystemInfoLockPassword));
@@ -219,7 +219,7 @@ void SystemInfoFormFrame::initUI()
     m_rootPasswordEdit->hide();
 
     m_rootPasswordCheckEdit = new LineEdit(":/images/password_12.svg");
-    m_rootPasswordCheckEdit->setPlaceholderText(tr("Confirm password"));
+    m_rootPasswordCheckEdit->setPlaceholderText(tr("Repeat root password"));
     m_rootPasswordCheckEdit->setEchoMode(QLineEdit::Password);
     m_rootPasswordCheckEdit->setText(m_rootPasswordEdit->text());
     m_rootPasswordCheckEdit->setReadOnly(m_rootPasswordEdit->isReadOnly());
