@@ -86,7 +86,7 @@ void SystemInfoFormFrame::changeEvent(QEvent* event)
         username_edit_->setPlaceholderText(tr("Username"));
         hostname_edit_->setPlaceholderText(tr("Computer name"));
         password_edit_->setPlaceholderText(tr("Password"));
-        password_check_edit_->setPlaceholderText(tr("Confirm password"));
+        password_check_edit_->setPlaceholderText(tr("Repeat password"));
         m_setRootPasswordCheck->setText(tr("Set root password"));
         m_rootPasswordEdit->setPlaceholderText(tr("Root password"));
         m_rootPasswordCheckEdit->setPlaceholderText(tr("Repeat root password"));
@@ -198,7 +198,7 @@ void SystemInfoFormFrame::initUI()
     password_edit_->setReadOnly(GetSettingsBool(kSystemInfoLockPassword));
 
     password_check_edit_ = new LineEdit(":/images/password_12.svg");
-    password_check_edit_->setPlaceholderText(tr("Confirm password"));
+    password_check_edit_->setPlaceholderText(tr("Repeat password"));
     password_check_edit_->setEchoMode(QLineEdit::Password);
     password_check_edit_->setText(password_edit_->text());
     password_check_edit_->setReadOnly(password_edit_->isReadOnly());
