@@ -4,6 +4,7 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QMap>
+#include <QLabel>
 
 namespace installer {
 
@@ -12,6 +13,7 @@ class ComponentStruct;
 class ComponentInfo;
 class ComponentWidget;
 class DIScrollArea;
+class TitleLabel;
 
 class SelectInstallComponentFrame : public QWidget
 {
@@ -38,6 +40,10 @@ private:
     void clearComponentLayout();
 
 private:
+    TitleLabel* m_selectPageLabel = nullptr;
+    QLabel* m_serverTypeLabel = nullptr;
+    QLabel* m_componentLabel = nullptr;
+
     QMap<ComponentWidget*, QSharedPointer<ComponentStruct>> m_componentStructMap;
     QMap<ComponentWidget*, QSharedPointer<ComponentInfo>> m_componentInfoMap;
 

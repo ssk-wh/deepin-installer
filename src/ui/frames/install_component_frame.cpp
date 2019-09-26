@@ -72,6 +72,10 @@ void SelectInstallComponentFrame::writeConf()
 bool SelectInstallComponentFrame::event(QEvent* event) {
     if (event->type() == QEvent::LanguageChange) {
         // update all widget ts
+        m_selectPageLabel->setText(tr("Select Software"));
+        m_serverTypeLabel->setText(tr("Basic Environment"));
+        m_componentLabel->setText(tr("Add-Ons for Selected Environment"));
+        m_nextButton->setText(tr("Next"));
 
         for (auto it = m_componentStructMap.cbegin(); it != m_componentStructMap.cend(); ++it) {
             QPair<QString, QString> ts = ComponentInstallManager::Instance()->updateTs(it.value());
@@ -102,18 +106,18 @@ bool SelectInstallComponentFrame::event(QEvent* event) {
 
 void SelectInstallComponentFrame::initUI()
 {
-    TitleLabel* selectPageLabel = new TitleLabel(tr("Select component"));
-    selectPageLabel->setObjectName("selectPageLabel");
+    m_selectPageLabel = new TitleLabel(tr("Select Software"));
+    m_selectPageLabel->setObjectName("selectPageLabel");
 
-    QLabel* serverTypeLabel = new QLabel(tr("Server Type"));
-    serverTypeLabel->setObjectName("serverTypeLabel");
-    serverTypeLabel->setWordWrap(false);
-    serverTypeLabel->setAlignment(Qt::AlignHCenter);
+    m_serverTypeLabel = new QLabel(tr("Basic Environment"));
+    m_serverTypeLabel->setObjectName("serverTypeLabel");
+    m_serverTypeLabel->setWordWrap(false);
+    m_serverTypeLabel->setAlignment(Qt::AlignHCenter);
 
-    QLabel* componentLabel = new QLabel(tr("Component list"));
-    componentLabel->setObjectName("componentLabel");
-    componentLabel->setWordWrap(false);
-    componentLabel->setAlignment(Qt::AlignHCenter);
+    m_componentLabel = new QLabel(tr("Add-Ons for Selected Environment"));
+    m_componentLabel->setObjectName("componentLabel");
+    m_componentLabel->setWordWrap(false);
+    m_componentLabel->setAlignment(Qt::AlignHCenter);
 
     QVBoxLayout* serverLayout = new QVBoxLayout;
     serverLayout->setSpacing(1);
@@ -167,7 +171,7 @@ void SelectInstallComponentFrame::initUI()
     QVBoxLayout* serverTypeLayout = new QVBoxLayout;
     serverTypeLayout->setMargin(0);
     serverTypeLayout->setSpacing(0);
-    serverTypeLayout->addWidget(serverTypeLabel);
+    serverTypeLayout->addWidget(m_serverTypeLabel);
     serverTypeLayout->addSpacing(20);
     serverTypeLayout->addWidget(m_serverScrollArea);
 
@@ -175,7 +179,7 @@ void SelectInstallComponentFrame::initUI()
     componentLayout->setMargin(0);
     componentLayout->setSpacing(0);
     componentLayout->setContentsMargins(0, 0, 0, 0);
-    componentLayout->addWidget(componentLabel);
+    componentLayout->addWidget(m_componentLabel);
     componentLayout->addSpacing(20);
     componentLayout->addWidget(m_compScrollArea);
 
@@ -191,7 +195,7 @@ void SelectInstallComponentFrame::initUI()
     QVBoxLayout* mainLayout = new QVBoxLayout;
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
-    mainLayout->addWidget(selectPageLabel, 0, Qt::AlignCenter);
+    mainLayout->addWidget(m_selectPageLabel, 0, Qt::AlignCenter);
     mainLayout->addSpacing(50);
     mainLayout->addLayout(hLayout);
     mainLayout->addSpacing(60);
