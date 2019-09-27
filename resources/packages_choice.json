@@ -197,10 +197,9 @@
      "print-server":[
      "cups",
      "ghostscript",
-     "foomatic-filters",
      "hpijs-ppds",
-      "paps",
-      "printer-driver-hpijs"
+     "paps",
+     "printer-driver-hpijs"
     ],
      "print-client":[
       "cups",
