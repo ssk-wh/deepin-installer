@@ -670,28 +670,28 @@
 <context>
     <name>installer::SelectLanguageFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="188"/>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="230"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="190"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="232"/>
         <source>Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="231"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="233"/>
         <source>I have read and agree to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="232"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="234"/>
         <source>Deepin Software End User License Agreement</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="233"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="235"/>
         <source>Select system language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="236"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="238"/>
         <source>and</source>
         <translation type="unfinished"></translation>
     </message>
@@ -768,24 +768,32 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="88"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="91"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="195"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="212"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="89"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="92"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="201"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="222"/>
-        <source>Confirm password</source>
+        <source>Repeat password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="90"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="206"/>
-        <source>Set as root password</source>
+        <source>Set root password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="212"/>
+        <source>Root password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="92"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="222"/>
+        <source>Repeat root password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -865,26 +873,26 @@
 <context>
     <name>installer::SystemInfoKeyboardFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="90"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="110"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="103"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="123"/>
         <source>Select keyboard layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="111"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="104"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="124"/>
         <source>Select a proper keyboard layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="92"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="149"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="105"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="162"/>
         <source>Test area</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="154"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="106"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="167"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
@@ -893,37 +901,44 @@
     <name>installer::TimezoneFrame</name>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="214"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="221"/>
         <source>Select Timezone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="113"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="215"/>
-        <source>Mark your zone on the map</source>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="222"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="353"/>
+        <source>Click your zone on the map</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="114"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="217"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="118"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="360"/>
+        <source>Select your timezone from the list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="121"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="224"/>
         <source>Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="227"/>
         <source>Map</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="116"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="226"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="233"/>
         <source>List</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="117"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="280"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="287"/>
         <source>Time settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1751,22 +1766,26 @@
 <context>
     <name>installer::SelectInstallComponentFrame</name>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="105"/>
-        <source>Select component</source>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="75"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="109"/>
+        <source>Select Software</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="108"/>
-        <source>Server Type</source>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="112"/>
+        <source>Basic Environment</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="113"/>
-        <source>Component list</source>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="77"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="117"/>
+        <source>Add-Ons for Selected Environment</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="164"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="78"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="168"/>
         <source>Next</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1812,7 +1831,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="98"/>
-        <source>Accept</source>
+        <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
