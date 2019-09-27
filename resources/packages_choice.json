@@ -187,9 +187,7 @@
      "cyrus-imapd",
      "dovecot-mysql",
      "dovecot-pgsql",
-     "mailman",
-     "sendmail",
-     "sendmail-cf"
+     "mailman"
     ],
      "ftp-server":[
      "vsftpd"
