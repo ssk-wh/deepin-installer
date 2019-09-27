@@ -307,7 +307,7 @@
      "libpgtcl"
     ],
      "postgresql-server":[
-     "postgresql-server",
+     "postgresql-server-dev-all",
      "postgresql-doc",
      "postgresql-contrib",
      "postgresql-plperl-11",
@@ -320,7 +320,7 @@
     ],
      "php":[
      "php",
-     "php-db",
+     "php-db-dataobject",
      "php-pear",
      "php-xml",
      "php-ldap",
