@@ -358,6 +358,7 @@
     ],
      "dde":[
      "deepin-desktop-server",
+     "deepin-default-settings",
      "dde-desktop",
      "dde-dock",
      "dde-launcher",
@@ -385,11 +386,13 @@
      "deepin-image-viewer",
      "deepin-music",
      "deepin-calculator",
-     "deepin-voice-recorder",
+     "deepin-voice-note",
      "deepin-screen-recorder",
      "deepin-graphics-driver-manager",
-     "deepin-font-installer",
-     "deepin-screenshot"
+     "deepin-font-manager",
+     "deepin-compressor",
+     "deepin-album",
+     "deepin-draw"
     ],
      "internet-applications":[
      "empathy",
