@@ -28,7 +28,7 @@ apt-get install --no-install-recommends -y --allow-unauthenticated ${DI_COMPONEN
 fi
 
 if [ ! -z "${DI_COMPONENT_LANGUAGE}" ];then
-apt-get purge -y ${DI_COMPONENT_LANGUAGE} || \
+apt-get install --no-install-recommends -y --allow-unauthenticated ${DI_COMPONENT_LANGUAGE} || \
   warn_exit "Failed to install packages: " ${DI_COMPONENT_LANGUAGE}
 fi
 
