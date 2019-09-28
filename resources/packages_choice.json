@@ -184,7 +184,6 @@
      "mail-server":[
      "postfix",
      "spamassassin",
-     "cyrus-imapd",
      "dovecot-mysql",
      "dovecot-pgsql",
      "mailman"
