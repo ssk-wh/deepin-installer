@@ -62,7 +62,7 @@ void PartitionTableWarningFrame::changeEvent(QEvent* event) {
     list_title2_->setText(QString("B.%1").arg(tr("Format the disk")));
     list_item2_->setText(
         QString("1.%1\n2.%2")
-            .arg(tr("make a backup of all your data to avoid data loss"))
+            .arg(tr("Make a backup of all your data to avoid data loss"))
             .arg(tr("After the backup, reboot and enter this interface again")));
     list_title3_->setText(tr("Continue"));
     list_item3_->setText(
@@ -120,7 +120,7 @@ void PartitionTableWarningFrame::initUI() {
   list_title2_->setObjectName("list_title2");
   list_item2_ = new QLabel(
       QString("1.%1\n2.%2")
-          .arg(tr("make a backup of all your data to avoid data loss"))
+          .arg(tr("Make a backup of all your data to avoid data loss"))
           .arg(tr("After the backup, reboot and enter this interface again")),
           this);
   list_item2_->setObjectName("list_item2");
