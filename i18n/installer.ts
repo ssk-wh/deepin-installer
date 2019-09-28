@@ -24,14 +24,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="95"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="563"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="561"/>
         <source>Done</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="97"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="182"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="565"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="563"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
@@ -93,11 +93,6 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="526"/>
         <source>At least %1 GB is required for partition %2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="528"/>
-        <source> : %1 at %2</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1708,7 +1703,7 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="123"/>
-        <source>make a backup of all your data to avoid data loss</source>
+        <source>Make a backup of all your data to avoid data loss</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
