@@ -22,14 +22,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="95"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="554"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="561"/>
         <source>Done</source>
         <translation>완료</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="97"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="182"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="556"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="563"/>
         <source>Delete</source>
         <translation>삭제</translation>
     </message>
@@ -88,6 +88,11 @@
         <source>At least %1 GB is required for Root partition</source>
         <translation>루트 파티션에 %1GB 이상이 필요합니다</translation>
     </message>
+    <message>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="526"/>
+        <source>At least %1 GB is required for partition %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>installer::BootloaderListModel</name>
@@ -135,53 +140,53 @@
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="79"/>
-        <source>Exit installation</source>
-        <translation>설치 종료</translation>
+        <source>Exit</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::EditPartitionFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="100"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="169"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="168"/>
         <source>Edit Disk</source>
         <translation>디스크 편집</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="102"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="171"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="170"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>중요한 데이터를 백업했는지 확인한 다음 설치할 디스크를 선택하세요</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="203"/>
-        <source>Filesystem</source>
-        <translation>파일시스템</translation>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="202"/>
+        <source>File system</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="104"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="205"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="204"/>
         <source>Mount point</source>
         <translation>마운트 지점</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="105"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="207"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="219"/>
         <source>Format the partition</source>
         <translation>파티션 포맷</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="106"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="250"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="245"/>
         <source>Cancel</source>
         <translation>취소</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="107"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="251"/>
-        <source>OK</source>
-        <translation>확인</translation>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="246"/>
+        <source>Create</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -203,43 +208,54 @@
     <name>installer::FullDiskFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="140"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="147"/>
         <source>Install here</source>
         <translation>여기 설치</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="59"/>
-        <source>Encrypt Full Disk</source>
-        <translation>전체 디스크 암호화</translation>
+        <source>Encrypt this disk</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="60"/>
+        <source>Encrypt This Disk</source>
+        <translation>이 디스크 암호화</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="61"/>
         <source>Please select a disk to start installation</source>
         <translation>설치를 시작할 디스크를 선택하세요</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
+        <source>It needs more than %1GB disk space to install deepin, for better performance, %2GB and more space is recommended</source>
+        <translation>Deepin을 설치하려면 %1GB 이상의 디스크 공간이 필요합니다. 성능을 향상시키려면 %2GB 이상의 공간이 권장됩니다.</translation>
     </message>
 </context>
 <context>
     <name>installer::InstallFailedFrame</name>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="78"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="101"/>
         <source>Installation Failed</source>
         <translation>설치 실패</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="80"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="101"/>
-        <source>Sorry for the inconvenience, please photo or scan the QR code to send error log, so that the issue can be better solved.</source>
-        <translation>불편을 끼쳐 드려 죄송합니다. 사진을 보내거나 QR 코드를 스캔하여 오류 로그를 보내면 문제를 더 잘 해결할 수 있습니다.</translation>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="103"/>
+        <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="81"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="154"/>
-        <source>Exit installation</source>
-        <translation>설치 종료</translation>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="82"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="157"/>
+        <source>Exit</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="155"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="83"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="158"/>
         <source>Save Log</source>
         <translation type="unfinished"/>
     </message>
@@ -248,42 +264,42 @@
     <name>installer::InstallProgressFrame</name>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="127"/>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="152"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="151"/>
         <source>Installing</source>
         <translation>설치 중</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="129"/>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="154"/>
-        <source>You can experience the incredible pleasure of deepin after the time for just a cup of coffee</source>
-        <translation>커피 한잔 마실 정도의 시간이 지나면, Deepin의 놀라운 즐거움을 경험할 수 있습니다.</translation>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="153"/>
+        <source>Here are a few cool things to look out for...</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::InstallSuccessFrame</name>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="41"/>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="60"/>
         <source>Successfully Installed</source>
         <translation>성공적으로 설치됨</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="43"/>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="63"/>
-        <source>Reboot to enjoy the new experience with deepin, hope you like it!</source>
-        <translation>Deepin으로 새로운 경험을 즐기려면 재부팅하세요. 마음에 드셨으면 좋겠네요!</translation>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="62"/>
+        <source>Reboot to complete the installation</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="46"/>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="70"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="45"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="69"/>
         <source>Please remove the installation media before reboot</source>
         <translation>재부팅하기 전에 설치 미디어를 제거해 주세요</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="47"/>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="71"/>
-        <source>Experience now</source>
-        <translation>지금 체험하기</translation>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="46"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="70"/>
+        <source>Reboot Now</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -304,8 +320,8 @@
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="116"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="151"/>
-        <source>New Partition</source>
-        <translation>새 파티션</translation>
+        <source>Create New Partition</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="118"/>
@@ -328,8 +344,8 @@
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="121"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="170"/>
-        <source>Filesystem</source>
-        <translation>파일시스템</translation>
+        <source>File system</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="122"/>
@@ -381,25 +397,25 @@
     <name>installer::NewTableWarningFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="55"/>
-        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="75"/>
-        <source>Full Disk Format Warning</source>
-        <translation>전체 디스크 포맷 경고</translation>
+        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="76"/>
+        <source>Format Warning</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="57"/>
-        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="93"/>
-        <source>Continuing installation will format the whole disk, please make a backup of all your data to avoid data loss</source>
-        <translation>설치를 계속하면 전체 디스크가 포맷됩니다. 데이터 손실을 방지하기 위해 모든 데이터를 백업하세요</translation>
+        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="94"/>
+        <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="59"/>
+        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="101"/>
         <source>Cancel</source>
         <translation>취소</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="100"/>
+        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="60"/>
+        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="102"/>
         <source>Continue</source>
         <translation>계속</translation>
     </message>
@@ -478,15 +494,11 @@
     <name>installer::PartitionNumberLimitationFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="41"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="57"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="75"/>
         <source>You should delete a primary partition before creating a new one</source>
         <translation>새 파티션을 만들기 전에 기본 파티션을 삭제해야 합니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="43"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="77"/>
         <source>New logical partitions can only be created near existing logical partitions</source>
         <translation>새 논리 파티션은 기존 논리 파티션 근처에만 만들 수 있습니다</translation>
     </message>
@@ -497,13 +509,25 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="55"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="73"/>
-        <source>Cannot create new partitions</source>
-        <translation>새 파티션을 만들 수 없음</translation>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="74"/>
+        <source>Failed to Create New Partition</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="57"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="76"/>
+        <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="79"/>
+        <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="62"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="81"/>
         <source>Back</source>
         <translation>뒤로</translation>
     </message>
@@ -527,8 +551,8 @@
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="83"/>
-        <source>Prepare for Installation</source>
-        <translation>설치 준비</translation>
+        <source>Ready to Install</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="64"/>
@@ -625,27 +649,27 @@
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="40"/>
-        <source>It needs more than %1GB disk space to install deepin, for better performance, %2GB and more space is recommended</source>
-        <translation>Deepin을 설치하려면 %1GB 이상의 디스크 공간이 필요합니다. 성능을 향상시키려면 %2GB 이상의 공간이 권장됩니다.</translation>
+        <source>You need at least %1 GB disk space to install deepin. To get better performance, %2 GB or more is recommended</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::SelectBootloaderFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="42"/>
-        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="65"/>
+        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="64"/>
         <source>Select location for boot loader</source>
         <translation>부트 로더 위치 선택</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="44"/>
-        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="67"/>
-        <source>If you do not understand the detailed settings, please select default settings</source>
-        <translation>자세한 설정을 이해하지 못하는 경우 기본 설정을 선택하세요</translation>
+        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="66"/>
+        <source>If you do not understand the settings, please select the recommended one</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="46"/>
-        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="79"/>
+        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="45"/>
+        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="77"/>
         <source>Back</source>
         <translation>뒤로</translation>
     </message>
@@ -653,23 +677,28 @@
 <context>
     <name>installer::SelectLanguageFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="187"/>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="229"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="190"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="232"/>
         <source>Next</source>
         <translation>다음</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="230"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="233"/>
         <source>I have read and agree to</source>
         <translation>나는 읽었고 동의합니다.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="231"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="234"/>
         <source>Deepin Software End User License Agreement</source>
         <translation>Deepin 소프트웨어 최종 사용자 라이센스 계약</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="234"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="235"/>
+        <source>Select system language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="238"/>
         <source>and</source>
         <translation type="unfinished"/>
     </message>
@@ -746,24 +775,32 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="88"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="91"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="195"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="212"/>
         <source>Password</source>
         <translation>비밀번호</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="89"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="92"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="201"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="222"/>
-        <source>Confirm password</source>
-        <translation>비밀번호 확인</translation>
+        <source>Repeat password</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="90"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="206"/>
-        <source>Set as root password</source>
+        <source>Set root password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="212"/>
+        <source>Root password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="92"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="222"/>
+        <source>Repeat root password</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -843,65 +880,72 @@
 <context>
     <name>installer::SystemInfoKeyboardFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="90"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="110"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="103"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="123"/>
         <source>Select keyboard layout</source>
         <translation>키보드 레이아웃 선택</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="111"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="104"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="124"/>
         <source>Select a proper keyboard layout</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="92"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="149"/>
-        <source>Test area</source>
-        <translation>테스트 영역</translation>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="105"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="162"/>
+        <source>Test here</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="154"/>
-        <source>Back</source>
-        <translation>뒤로</translation>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="106"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="167"/>
+        <source>Next</source>
+        <translation>다음</translation>
     </message>
 </context>
 <context>
     <name>installer::TimezoneFrame</name>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="214"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="221"/>
         <source>Select Timezone</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="113"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="215"/>
-        <source>Mark your zone on the map</source>
-        <translation>지도에서 내 영역을 표시</translation>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="222"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="353"/>
+        <source>Click your zone on the map</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="114"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="217"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="118"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="360"/>
+        <source>Select your timezone from the list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="121"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="224"/>
         <source>Next</source>
         <translation>다음</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="227"/>
         <source>Map</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="116"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="226"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="233"/>
         <source>List</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="117"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="280"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="287"/>
         <source>Time settings</source>
         <translation type="unfinished"/>
     </message>
@@ -910,21 +954,25 @@
     <name>installer::VirtualMachineFrame</name>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="40"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="56"/>
         <source>Friendly Reminder</source>
         <translation>친근한 알림</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="42"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="60"/>
-        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install deepin in real-machine environment</source>
-        <translation>시스템에서 시스템 성능 및 작업 환경에 영향을 미치는 가상 시스템을 사용하고 있음을 감지했으므로, 원활한 환경을 위해 실제 시스템 환경에 Deepin을 설치하는 것을 권장합니다</translation>
+        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install deepin in a real environment</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="46"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="69"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="44"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="67"/>
         <source>Continue</source>
         <translation>계속</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
+        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install deepin in real-machine environment</source>
+        <translation>시스템에서 시스템 성능 및 작업 환경에 영향을 미치는 가상 시스템을 사용하고 있음을 감지했으므로, 원활한 환경을 위해 실제 시스템 환경에 Deepin을 설치하는 것을 권장합니다</translation>
     </message>
 </context>
 <context>
@@ -1506,47 +1554,47 @@
 <context>
     <name>installer::Full_Disk_Encrypt_frame</name>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="159"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="158"/>
         <source>Please input password</source>
         <translation>비밀번호를 입력하세요</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="165"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="164"/>
         <source>Passwords do not match</source>
         <translation>비밀번호가 일치하지 않습니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="199"/>
-        <source>Full Disk Encryption</source>
-        <translation>전체 디스크 암호화</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="200"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>중요한 데이터를 백업했는지 확인한 다음 설치할 디스크를 선택하세요</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="201"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="198"/>
         <source>Encrypt This Disk</source>
         <translation>이 디스크 암호화</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="202"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="200"/>
+        <source>Encrypt this disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="201"/>
         <source>Password</source>
         <translation>비밀번호</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="202"/>
         <source>Repeat Password</source>
         <translation>재입력 비밀번호</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="204"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
         <source>Previous</source>
         <translation>이전</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="204"/>
         <source>Start Installation</source>
         <translation>설치 시작</translation>
     </message>
@@ -1616,93 +1664,85 @@
     <name>installer::PartitionTableWarningFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="53"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="94"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="92"/>
         <source>Warning</source>
         <translation>경고</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="55"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="105"/>
-        <source>Unable to install directly due to EFI motherboard boot loader and MBR disk detected, please select one of the solutions below to continue.</source>
-        <translation>EFI 마더보드 부트 로더 및 MBR 디스크가 감지되어 직접 설치할 수 없습니다. 계속하려면 아래 솔루션 중 하나를 선택하세요</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="113"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="57"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="110"/>
         <source>Disable UEFI</source>
         <translation>UEFI 사용중지</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="117"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="60"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="114"/>
         <source>Reboot, enter BIOS, and disable UEFI</source>
         <translation>재부팅, BIOS 입력 및 UEFI 비활성화</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="62"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="118"/>
-        <source>Exit BIOS, and enter deepin to install</source>
-        <translation>BIOS를 종료하고, deepin을 입력하여 설치</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="63"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="122"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="119"/>
         <source>Format the disk</source>
         <translation>디스크 포맷</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="66"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="55"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="103"/>
+        <source>You have an EFI boot loader but an MBR disk, thus you cannot install deepin directly. Please select one of the below solutions and continue.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="115"/>
+        <source>Exit BIOS, and install deepin again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="65"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="123"/>
         <source>Make a backup of all your data to avoid data loss</source>
         <translation>데이터 손실을 방지하기 위해 모든 데이터를 백업합니다</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="67"/>
-        <source>Please double check if you have backed up all data, then reboot to enter this interface</source>
-        <translation>모든 데이터를 백업했는지 다시 확인한 후 재부팅하여 이 인터페이스로 들어갑니다</translation>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="66"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="124"/>
+        <source>After the backup, reboot and enter this interface again</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="69"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="75"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="147"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="169"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="67"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="73"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="143"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="165"/>
         <source>Continue</source>
         <translation>계속</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="72"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="70"/>
         <source>Make sure you have backed up all data before proceeding</source>
         <translation>계속하기 전에 모든 데이터를 백업했는지 확인합니다</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="73"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="153"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="71"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="149"/>
         <source>Continuing installation will format your disk</source>
         <translation>설치를 계속하면 디스크가 포맷됩니다</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="168"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="72"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="164"/>
         <source>Reboot</source>
         <translation>재부팅</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="76"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="170"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="166"/>
         <source>Back</source>
         <translation>뒤로</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="126"/>
-        <source>Please make a backup of all your data to avoid data loss</source>
-        <translation>데이터 손실을 방지하기 위해 모든 데이터를 백업해 주세요</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="127"/>
-        <source>Please double check if all the data were made a backup, and reboot to enter this interface</source>
-        <translation>모든 데이터가 백업되었는지 다시 확인하고 재부팅하여 이 인터페이스로 들어갑니다</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="151"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="147"/>
         <source>Please make sure all data were made a backup, then continue</source>
         <translation>모든 데이터가 백업되었는지 확인한 후 계속 진행합니다</translation>
     </message>
@@ -1711,13 +1751,17 @@
     <name>installer::SaveInstallFailedLogFrame</name>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="146"/>
-        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="148"/>
         <source>Save Log</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="147"/>
         <source>Save the error log to a removable device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="148"/>
+        <source>Save as</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1729,22 +1773,26 @@
 <context>
     <name>installer::SelectInstallComponentFrame</name>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="94"/>
-        <source>Select component</source>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="75"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="109"/>
+        <source>Select Software</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="97"/>
-        <source>Server Type</source>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="112"/>
+        <source>Basic Environment</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="102"/>
-        <source>Component list</source>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="77"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="117"/>
+        <source>Add-Ons for Selected Environment</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="156"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="78"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="168"/>
         <source>Next</source>
         <translation>다음</translation>
     </message>
@@ -1790,7 +1838,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="98"/>
-        <source>Accept</source>
+        <source>Confirm</source>
         <translation type="unfinished"/>
     </message>
     <message>

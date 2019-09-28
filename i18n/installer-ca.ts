@@ -22,14 +22,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="95"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="554"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="561"/>
         <source>Done</source>
         <translation>Fet</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="97"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="182"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="556"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="563"/>
         <source>Delete</source>
         <translation>Esborra</translation>
     </message>
@@ -88,6 +88,11 @@
         <source>At least %1 GB is required for Root partition</source>
         <translation>Com a mínim hi ha d&apos;haver %1 GB per a la partició d&apos;arrel.</translation>
     </message>
+    <message>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="526"/>
+        <source>At least %1 GB is required for partition %2</source>
+        <translation>Com a mínim hi ha d&apos;haver %1 GB per a la partició %2.</translation>
+    </message>
 </context>
 <context>
     <name>installer::BootloaderListModel</name>
@@ -135,53 +140,53 @@
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="79"/>
-        <source>Exit installation</source>
-        <translation>Surt de la instal·lació</translation>
+        <source>Exit</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::EditPartitionFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="100"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="169"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="168"/>
         <source>Edit Disk</source>
         <translation>Edita el disc</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="102"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="171"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="170"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Assegureu-vos que heu fet còpia de seguretat de les dades importants i, a continuació, seleccioneu el disc per a instal·lar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="203"/>
-        <source>Filesystem</source>
-        <translation>Sistema de fitxers</translation>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="202"/>
+        <source>File system</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="104"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="205"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="204"/>
         <source>Mount point</source>
         <translation>Punt de muntatge</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="105"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="207"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="219"/>
         <source>Format the partition</source>
         <translation>Formata la partició</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="106"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="250"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="245"/>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="107"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="251"/>
-        <source>OK</source>
-        <translation>D&apos;acord</translation>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="246"/>
+        <source>Create</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -203,43 +208,54 @@
     <name>installer::FullDiskFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="140"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="147"/>
         <source>Install here</source>
         <translation>Instal·la&apos;l aquí</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="59"/>
-        <source>Encrypt Full Disk</source>
-        <translation>Encripta tot el disc</translation>
+        <source>Encrypt this disk</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="60"/>
+        <source>Encrypt This Disk</source>
+        <translation>Encripta aquest disc</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="61"/>
         <source>Please select a disk to start installation</source>
         <translation>Si us plau, seleccioneu un disc per començar la instal·lació.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
+        <source>It needs more than %1GB disk space to install deepin, for better performance, %2GB and more space is recommended</source>
+        <translation>Calen més de %1 GB d&apos;espai de disc per instal·lar el Deepin. Per a un bon rendiment, és recomanable tenir un mínim de %2 GB.</translation>
     </message>
 </context>
 <context>
     <name>installer::InstallFailedFrame</name>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="78"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="101"/>
         <source>Installation Failed</source>
         <translation>Ha fallat la instal·lació.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="80"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="101"/>
-        <source>Sorry for the inconvenience, please photo or scan the QR code to send error log, so that the issue can be better solved.</source>
-        <translation>Disculpeu les molèsties, feu una foto o escanegeu el codi QR per enviar un registre d&apos;errors, de manera que el problema es pugui resoldre millor.</translation>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="103"/>
+        <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="81"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="154"/>
-        <source>Exit installation</source>
-        <translation>Surt de la instal·lació</translation>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="82"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="157"/>
+        <source>Exit</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="155"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="83"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="158"/>
         <source>Save Log</source>
         <translation>Desa&apos;n el registre</translation>
     </message>
@@ -248,42 +264,42 @@
     <name>installer::InstallProgressFrame</name>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="127"/>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="152"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="151"/>
         <source>Installing</source>
         <translation>Instal·lant</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="129"/>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="154"/>
-        <source>You can experience the incredible pleasure of deepin after the time for just a cup of coffee</source>
-        <translation>Podreu experimentar l&apos;increïble plaer d&apos;usar el Deepin després de l&apos;estona de fer només un cafè.</translation>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="153"/>
+        <source>Here are a few cool things to look out for...</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::InstallSuccessFrame</name>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="41"/>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="60"/>
         <source>Successfully Installed</source>
         <translation>Instal·lació correcta</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="43"/>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="63"/>
-        <source>Reboot to enjoy the new experience with deepin, hope you like it!</source>
-        <translation>Reinicieu per gaudir de la nova experiència amb el Deepin. Esperem que us agradi!</translation>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="62"/>
+        <source>Reboot to complete the installation</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="46"/>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="70"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="45"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="69"/>
         <source>Please remove the installation media before reboot</source>
         <translation>Si us plau, traieu el mitjà d&apos;instal·lació abans de reiniciar.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="47"/>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="71"/>
-        <source>Experience now</source>
-        <translation>Experimenteu-ho ara</translation>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="46"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="70"/>
+        <source>Reboot Now</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -291,12 +307,12 @@
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="191"/>
         <source>System Disk</source>
-        <translation type="unfinished"/>
+        <translation>Disc de sistema</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="191"/>
         <source>Data Disk</source>
-        <translation type="unfinished"/>
+        <translation>Disc de dades</translation>
     </message>
 </context>
 <context>
@@ -304,8 +320,8 @@
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="116"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="151"/>
-        <source>New Partition</source>
-        <translation>Partició nova</translation>
+        <source>Create New Partition</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="118"/>
@@ -328,8 +344,8 @@
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="121"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="170"/>
-        <source>Filesystem</source>
-        <translation>Sistema de fitxers</translation>
+        <source>File system</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="122"/>
@@ -381,25 +397,25 @@
     <name>installer::NewTableWarningFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="55"/>
-        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="75"/>
-        <source>Full Disk Format Warning</source>
-        <translation>Avís de format de tot el disc</translation>
+        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="76"/>
+        <source>Format Warning</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="57"/>
-        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="93"/>
-        <source>Continuing installation will format the whole disk, please make a backup of all your data to avoid data loss</source>
-        <translation>La continuació de la instal·lació formatarà tot el disc, realitzeu una còpia de seguretat de totes les vostres dades per evitar la pèrdua de dades</translation>
+        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="94"/>
+        <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="59"/>
+        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="101"/>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="100"/>
+        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="60"/>
+        <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="102"/>
         <source>Continue</source>
         <translation>Continua</translation>
     </message>
@@ -478,15 +494,11 @@
     <name>installer::PartitionNumberLimitationFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="41"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="57"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="75"/>
         <source>You should delete a primary partition before creating a new one</source>
         <translation>Cal que elimineu una partició primària abans de crear-ne una de nova</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="43"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="77"/>
         <source>New logical partitions can only be created near existing logical partitions</source>
         <translation>Les particions lògiques només es poden crear a prop de particions lògiques existents.</translation>
     </message>
@@ -497,13 +509,25 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="55"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="73"/>
-        <source>Cannot create new partitions</source>
-        <translation>No es poden crear les particions noves.</translation>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="74"/>
+        <source>Failed to Create New Partition</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="57"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="76"/>
+        <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="79"/>
+        <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="62"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="81"/>
         <source>Back</source>
         <translation>Enrere</translation>
     </message>
@@ -527,8 +551,8 @@
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="83"/>
-        <source>Prepare for Installation</source>
-        <translation>Preparació de la instal·lació</translation>
+        <source>Ready to Install</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="64"/>
@@ -625,27 +649,27 @@
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="40"/>
-        <source>It needs more than %1GB disk space to install deepin, for better performance, %2GB and more space is recommended</source>
-        <translation>Calen més de %1 GB d&apos;espai de disc per instal·lar el Deepin. Per a un bon rendiment, és recomanable tenir un mínim de %2 GB.</translation>
+        <source>You need at least %1 GB disk space to install deepin. To get better performance, %2 GB or more is recommended</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::SelectBootloaderFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="42"/>
-        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="65"/>
+        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="64"/>
         <source>Select location for boot loader</source>
         <translation>Seleccioneu la ubicació del carregador d&apos;arrencada.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="44"/>
-        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="67"/>
-        <source>If you do not understand the detailed settings, please select default settings</source>
-        <translation>Si no enteneu els paràmetres detallats, si us plau, seleccioneu els valors per defecte.</translation>
+        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="66"/>
+        <source>If you do not understand the settings, please select the recommended one</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="46"/>
-        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="79"/>
+        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="45"/>
+        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="77"/>
         <source>Back</source>
         <translation>Enrere</translation>
     </message>
@@ -653,23 +677,28 @@
 <context>
     <name>installer::SelectLanguageFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="187"/>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="229"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="190"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="232"/>
         <source>Next</source>
         <translation>Següent</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="230"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="233"/>
         <source>I have read and agree to</source>
         <translation>He llegit i accepto</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="231"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="234"/>
         <source>Deepin Software End User License Agreement</source>
         <translation>Acord de llicència per a l&apos;usuari final del programari del Deepin</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="234"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="235"/>
+        <source>Select system language</source>
+        <translation>Seleccioneu la llengua del sistema</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="238"/>
         <source>and</source>
         <translation>i</translation>
     </message>
@@ -746,25 +775,33 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="88"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="91"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="195"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="212"/>
         <source>Password</source>
         <translation>Contrasenya</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="89"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="92"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="201"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="222"/>
-        <source>Confirm password</source>
-        <translation>Confirmeu la contrasenya</translation>
+        <source>Repeat password</source>
+        <translation>Repetiu la contrasenya.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="90"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="206"/>
-        <source>Set as root password</source>
-        <translation type="unfinished"/>
+        <source>Set root password</source>
+        <translation>Establiu la contrasenya d&apos;arrel</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="212"/>
+        <source>Root password</source>
+        <translation>Contrasenya d&apos;arrel</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="92"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="222"/>
+        <source>Repeat root password</source>
+        <translation>Repetiu la contrasenya d&apos;arrel.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="93"/>
@@ -843,88 +880,99 @@
 <context>
     <name>installer::SystemInfoKeyboardFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="90"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="110"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="103"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="123"/>
         <source>Select keyboard layout</source>
         <translation>Seleccioneu la disposició del teclat.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="111"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="104"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="124"/>
         <source>Select a proper keyboard layout</source>
+        <translation>Seleccioneu una disposició de teclat adequada.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="105"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="162"/>
+        <source>Test here</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="92"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="149"/>
-        <source>Test area</source>
-        <translation>Àrea de proves</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="154"/>
-        <source>Back</source>
-        <translation>Enrere</translation>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="106"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="167"/>
+        <source>Next</source>
+        <translation>Següent</translation>
     </message>
 </context>
 <context>
     <name>installer::TimezoneFrame</name>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="214"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="221"/>
         <source>Select Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Seleccioneu la zona horària.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="113"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="215"/>
-        <source>Mark your zone on the map</source>
-        <translation>Marqueu la zona horària al mapa.</translation>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="222"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="353"/>
+        <source>Click your zone on the map</source>
+        <translation>Cliqueu a la vostra zona del mapa.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="114"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="217"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="118"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="360"/>
+        <source>Select your timezone from the list</source>
+        <translation>Seleccioneu la vostra zona horària a la llista.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="121"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="224"/>
         <source>Next</source>
         <translation>Següent</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="227"/>
         <source>Map</source>
         <translation>Mapa</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="116"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="226"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="233"/>
         <source>List</source>
         <translation>Llista</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="117"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="280"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="287"/>
         <source>Time settings</source>
-        <translation type="unfinished"/>
+        <translation>Paràmetres de l&apos;hora</translation>
     </message>
 </context>
 <context>
     <name>installer::VirtualMachineFrame</name>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="40"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="56"/>
         <source>Friendly Reminder</source>
         <translation>Recordatori amistós</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="42"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="60"/>
-        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install deepin in real-machine environment</source>
-        <translation>El sistema ha detectat que useu una màquina virtual, fet que afectarà el rendiment i l&apos;experiència del sistema a l&apos;hora de fer operacions. Per a una experiència millor, és recomanable instal·lar el Deepin en un entorn de màquina real.</translation>
+        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install deepin in a real environment</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="46"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="69"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="44"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="67"/>
         <source>Continue</source>
         <translation>Continua</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
+        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install deepin in real-machine environment</source>
+        <translation>El sistema ha detectat que useu una màquina virtual, fet que afectarà el rendiment i l&apos;experiència del sistema a l&apos;hora de fer operacions. Per a una experiència millor, és recomanable instal·lar el Deepin en un entorn de màquina real.</translation>
     </message>
 </context>
 <context>
@@ -1087,377 +1135,377 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
         <source>Smallest possible virtualization host installation.</source>
-        <translation type="unfinished"/>
+        <translation>La menor instal·lació possible d’amfitrió de virtualització</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
         <source>Virtualization Platform</source>
-        <translation type="unfinished"/>
+        <translation>Plataforma de virtualització</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
         <source>Provide an interface for accessing and controlling virtualized guests and containers.</source>
-        <translation type="unfinished"/>
+        <translation>Proporciona una interfície per accedir i controlar els convidats i contenidors virtualitzats.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
         <source>Virtualization Client</source>
-        <translation type="unfinished"/>
+        <translation>Client de virtualització</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
         <source>Clients for installing and managing virtualization instances.</source>
-        <translation type="unfinished"/>
+        <translation>Clients per instal·lar i gestionar instàncies de virtualització.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
         <source>Backup Client</source>
-        <translation type="unfinished"/>
+        <translation>Client de còpia de seguretat</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
         <source>Client tools for connecting to a backup server and doing backups.</source>
-        <translation type="unfinished"/>
+        <translation>Eines de client per connectar-se a un servidor de còpia de seguretat i fer còpies de seguretat.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
         <source>Backup Server</source>
-        <translation type="unfinished"/>
+        <translation>Servidor de còpia de seguretat</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
         <source>Software to centralize your infrastructure&apos;s backups.</source>
-        <translation type="unfinished"/>
+        <translation>Programari per centralitzar les còpies de seguretat de la vostra infraestructura.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
         <source>File and Storage Server</source>
-        <translation type="unfinished"/>
+        <translation>Servidor de fitxers i d&apos;emmagatzematge</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
         <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
-        <translation type="unfinished"/>
+        <translation>Servidor d&apos;emmagatzematge de xarxa CIFS, SMB, NFS, iSCSI, iSER i iSNS.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>DNS Name Server</source>
-        <translation type="unfinished"/>
+        <translation>Servidor de noms de DNS</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>This package group allows you to run a DNS name server (BIND) on the system.</source>
-        <translation type="unfinished"/>
+        <translation>Aquest grup de paquets us permet executar un servidor de noms DNS (BIND) al sistema.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>E-mail Server</source>
-        <translation type="unfinished"/>
+        <translation>Servidor de correu</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
-        <translation type="unfinished"/>
+        <translation>Permet que el sistema actuï com a servidor de correu electrònic SMTP i / o IMAP.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>FTP Server</source>
-        <translation type="unfinished"/>
+        <translation>Servidor d&apos;FTP</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>Allows the system to act as an FTP server.</source>
-        <translation type="unfinished"/>
+        <translation>Permet que el sistema actuï com a servidor FTP.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Print Server</source>
-        <translation type="unfinished"/>
+        <translation>Servidor d&apos;impressió</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Allows the system to act as a print server.</source>
-        <translation type="unfinished"/>
+        <translation>Permet que el sistema actuï com a servidor d&apos;impressió.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>Mainframe Access</source>
-        <translation type="unfinished"/>
+        <translation>Accés d&apos;ordinador principal</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>Tools for accessing mainframe computing resources.</source>
-        <translation type="unfinished"/>
+        <translation>Eines per accedir a recursos informàtics d&apos;ordinador principal.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Infiniband Support</source>
-        <translation type="unfinished"/>
+        <translation>Suport d&apos;Infiniband</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
-        <translation type="unfinished"/>
+        <translation>Programari dissenyat per a admetre la connectivitat de clúster i de graella mitjançant teixits d&apos;InfiniBand iWARP basats en RDMA.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>High Availability</source>
-        <translation type="unfinished"/>
+        <translation>Alta disponibilitat</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>Infrastructure for highly available services and/or shared storage.</source>
-        <translation type="unfinished"/>
+        <translation>Infraestructura per a serveis d&apos;alta disponibilitat i / o emmagatzematge compartit.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>Resilient Storage</source>
-        <translation type="unfinished"/>
+        <translation>Emmagatzematge resilient</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>Clustered storage, including the GFS2 file system.</source>
-        <translation type="unfinished"/>
+        <translation>Emmagatzematge de clúster, inclòs el sistema de fitxers GFS2.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>ldentity Management Server</source>
-        <translation type="unfinished"/>
+        <translation>Servidor de gestió d’identitats</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>Centralized management of users, servers and authentication policies.</source>
-        <translation type="unfinished"/>
+        <translation>Gestió centralitzada d’usuaris, servidors i polítiques d’autenticació.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>Large Systems Performance</source>
-        <translation type="unfinished"/>
+        <translation>Rendiment de sistemes grans</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>Performance support tools for large systems.</source>
-        <translation type="unfinished"/>
+        <translation>Eines de suport de  rendiment per a sistemes grans.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>Load Balancer</source>
-        <translation type="unfinished"/>
+        <translation>Equilibrador de càrrega</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>Load balancing support for network traffic.</source>
-        <translation type="unfinished"/>
+        <translation>Suport per equilibrar la càrrega del trànsit de xarxa.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>MariaDB Database Client</source>
-        <translation type="unfinished"/>
+        <translation>Client de bases de dades de MariaDB</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>The MariaDB SQL database client, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>El client de base de dades SQL de MariaDB i paquets associats.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>MariaDB Database Server</source>
-        <translation type="unfinished"/>
+        <translation>Servidor de bases de dades de MariaDB</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>The MariaDB SQL database server, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>El servidor de base de dades SQL de MariaDB i paquets associats.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>PostgreSQL Database Client</source>
-        <translation type="unfinished"/>
+        <translation>Client de base de dades de PostgreSQL</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>The PostgreSQL SQL database client, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>El client de la base de dades SQL de PostgreSQL i paquets associats.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>PostgreSQL Database Server</source>
-        <translation type="unfinished"/>
+        <translation>Servidor de bases de dades de PostgreSQL</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>The PostgreSQL SQL database server, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>El servidor de base de dades SQL de PostgreSQL i paquets associats.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>Java Platform</source>
-        <translation type="unfinished"/>
+        <translation>Plataforma de Java</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>Java support for deepin.</source>
-        <translation type="unfinished"/>
+        <translation>Suport de Java per al Deepin</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>PHP Support</source>
-        <translation type="unfinished"/>
+        <translation>Suport de PHP</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>PHP web application framework.</source>
-        <translation type="unfinished"/>
+        <translation>Marc d&apos;aplicacions web de PHP.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Python</source>
-        <translation type="unfinished"/>
+        <translation>Python</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Basic Python web application support.</source>
-        <translation type="unfinished"/>
+        <translation>Suport bàsic per a aplicacions web de Python.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Perl for Web</source>
-        <translation type="unfinished"/>
+        <translation>Perl per a web</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Basic Perl web application support.</source>
-        <translation type="unfinished"/>
+        <translation>Suport bàsic per a aplicacions web de Perl.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Internet Applications</source>
-        <translation type="unfinished"/>
+        <translation>Aplicacions d&apos;Internet</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Email, chat, and video conferencing software.</source>
-        <translation type="unfinished"/>
+        <translation>Programari de correu electrònic, xat i videoconferència.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Web Servlet Engine</source>
-        <translation type="unfinished"/>
+        <translation>Motor Servlet Web</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Allows the system to host Java servlets.</source>
-        <translation type="unfinished"/>
+        <translation>Permet al sistema allotjar miniaplicacions de servidor de Java.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>Legacy x Window System Compatibility</source>
-        <translation type="unfinished"/>
+        <translation>Llegat per a la compatibilitat del sistema Window</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>Compatibility programs for migration from or working with legacy X Window System environments.</source>
-        <translation type="unfinished"/>
+        <translation>Programes de compatibilitat per a la migració o el treball amb entorns del sistema  Window X de llegat.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Office Suite and Productivity</source>
-        <translation type="unfinished"/>
+        <translation>Paquet d’ofimàtica i productivitat</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>A full-purpose office suite, and other productivity tools.</source>
-        <translation type="unfinished"/>
+        <translation>Un paquet d’ofimàtica de propòsit complet i altres eines de productivitat.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Additional Development</source>
-        <translation type="unfinished"/>
+        <translation>Desenvolupament addicional</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Additional development headers and libraries for building open-source applications.</source>
-        <translation type="unfinished"/>
+        <translation>Capçaleres i biblioteques addicionals de desenvolupament per crear aplicacions de codi obert.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Emacs</source>
-        <translation type="unfinished"/>
+        <translation>Emacs</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>The GNU Emacs extensible, customizable text editor.</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;editor de text extensible i personalitzable d&apos;Emacs GNU.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Graphics Creation Tools</source>
-        <translation type="unfinished"/>
+        <translation>Eines de creació gràfica</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Software for creation and manipulation of still images.</source>
-        <translation type="unfinished"/>
+        <translation>Programari de creació i manipulació d’imatges fixes.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Platform Development</source>
-        <translation type="unfinished"/>
+        <translation>Desenvolupament de plataformes</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Recommended development headers and libraries for developing applications to run on deepin.</source>
-        <translation type="unfinished"/>
+        <translation>Capçaleres i biblioteques de desenvolupament recomanades per desenvolupar aplicacions que s&apos;executin al Deepin.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>Technical Writing</source>
-        <translation type="unfinished"/>
+        <translation>Redacció tècnica</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>Tools for writing technical documentation.</source>
-        <translation type="unfinished"/>
+        <translation>Eines per escriure documentació tècnica.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Virtualization Tools</source>
-        <translation type="unfinished"/>
+        <translation>Eines de virtualització</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Tools for offline virtual image management.</source>
-        <translation type="unfinished"/>
+        <translation>Eines per a la gestió virtual d’imatges fora de línia.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>Network File System Client</source>
-        <translation type="unfinished"/>
+        <translation>Client de sistema de fitxers de xarxa</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>Enables the system to attach to network storage.</source>
-        <translation type="unfinished"/>
+        <translation>Habilita que sistema es connecti a emmagatzematge de xarxa.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Guest Agents</source>
-        <translation type="unfinished"/>
+        <translation>Agents convidats</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Agents used when running under a hypervisor.</source>
-        <translation type="unfinished"/>
+        <translation>Agents usats quan s&apos;executa sota un hipervisor.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>DDE Applications</source>
-        <translation type="unfinished"/>
+        <translation>Aplicacions de DDE</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>A set of commonly used DDE Applications.</source>
-        <translation type="unfinished"/>
+        <translation>Un conjunt d&apos;aplicacions de DDE d&apos;ús comú.</translation>
     </message>
 </context>
 <context>
@@ -1506,47 +1554,47 @@
 <context>
     <name>installer::Full_Disk_Encrypt_frame</name>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="159"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="158"/>
         <source>Please input password</source>
         <translation>Si us plau, introduïu la contrasenya.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="165"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="164"/>
         <source>Passwords do not match</source>
         <translation>Les contrasenyes no coincideixen</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="199"/>
-        <source>Full Disk Encryption</source>
-        <translation>Encriptació de tot el disc</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="200"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Assegureu-vos que heu fet còpia de seguretat de les dades importants i, a continuació, seleccioneu el disc per a instal·lar</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="201"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="198"/>
         <source>Encrypt This Disk</source>
         <translation>Encripta aquest disc</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="202"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="200"/>
+        <source>Encrypt this disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="201"/>
         <source>Password</source>
         <translation>Contrasenya</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="202"/>
         <source>Repeat Password</source>
         <translation>Repetiu la contrasenya.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="204"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
         <source>Previous</source>
         <translation>Anterior</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="204"/>
         <source>Start Installation</source>
         <translation>Inicia la instal·lació</translation>
     </message>
@@ -1616,93 +1664,85 @@
     <name>installer::PartitionTableWarningFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="53"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="94"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="92"/>
         <source>Warning</source>
         <translation>Avís</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="55"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="105"/>
-        <source>Unable to install directly due to EFI motherboard boot loader and MBR disk detected, please select one of the solutions below to continue.</source>
-        <translation>No es pot fer una instal·lació directa perquè s&apos;ha detectat un carregador d&apos;arrencada de la placa base EFI i d&apos;un disc MBR. Si us plau, seleccioneu una de les solucions que hi ha tot seguit per continuar.</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="113"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="57"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="110"/>
         <source>Disable UEFI</source>
         <translation>Inhabilita la UEFI</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="117"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="60"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="114"/>
         <source>Reboot, enter BIOS, and disable UEFI</source>
         <translation>Reinicieu, entreu al BIOS i inhabiliteu la UEFI.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="62"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="118"/>
-        <source>Exit BIOS, and enter deepin to install</source>
-        <translation>Sortiu del BIOS i entreu al Deepin per fer-ne la instal·lació.</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="63"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="122"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="119"/>
         <source>Format the disk</source>
         <translation>Formata el disc</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="66"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="55"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="103"/>
+        <source>You have an EFI boot loader but an MBR disk, thus you cannot install deepin directly. Please select one of the below solutions and continue.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="115"/>
+        <source>Exit BIOS, and install deepin again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="65"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="123"/>
         <source>Make a backup of all your data to avoid data loss</source>
         <translation>Feu una còpia de seguretat de totes les vostres dades per evitar la pèrdua de dades</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="67"/>
-        <source>Please double check if you have backed up all data, then reboot to enter this interface</source>
-        <translation>Comproveu un parell de vegades si heu realitzat una còpia de seguretat de totes les dades i, a continuació, torneu a arrencar per entrar en aquesta interfície</translation>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="66"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="124"/>
+        <source>After the backup, reboot and enter this interface again</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="69"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="75"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="147"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="169"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="67"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="73"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="143"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="165"/>
         <source>Continue</source>
         <translation>Continua</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="72"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="70"/>
         <source>Make sure you have backed up all data before proceeding</source>
         <translation>Assegureu-vos que heu fet còpies de seguretat de totes les dades abans de procedir</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="73"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="153"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="71"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="149"/>
         <source>Continuing installation will format your disk</source>
         <translation>Continuar la instal·lació formatarà el disc</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="168"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="72"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="164"/>
         <source>Reboot</source>
         <translation>Reinicia</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="76"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="170"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="166"/>
         <source>Back</source>
         <translation>Enrere</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="126"/>
-        <source>Please make a backup of all your data to avoid data loss</source>
-        <translation>Si us plau, feu una còpia de seguretat de totes les dades per evitar perdre-les.</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="127"/>
-        <source>Please double check if all the data were made a backup, and reboot to enter this interface</source>
-        <translation>Si us plau, assegureu-vos d&apos;haver fet una còpia de seguretat de les dades importants. Després reinicieu per entrar en aquesta interfície.</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="151"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="147"/>
         <source>Please make sure all data were made a backup, then continue</source>
         <translation>Si us plau, assegureu-vos d&apos;haver fet una còpia de seguretat de les dades importants abans de continuar.</translation>
     </message>
@@ -1711,13 +1751,17 @@
     <name>installer::SaveInstallFailedLogFrame</name>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="146"/>
-        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="148"/>
         <source>Save Log</source>
         <translation>Desa&apos;n el registre</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="147"/>
         <source>Save the error log to a removable device</source>
+        <translation>Deseu el registre d&apos;errors en un dispositiu extraïble.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="148"/>
+        <source>Save as</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1729,22 +1773,26 @@
 <context>
     <name>installer::SelectInstallComponentFrame</name>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="94"/>
-        <source>Select component</source>
-        <translation type="unfinished"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="75"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="109"/>
+        <source>Select Software</source>
+        <translation>Seleccioneu programari</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="97"/>
-        <source>Server Type</source>
-        <translation type="unfinished"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="112"/>
+        <source>Basic Environment</source>
+        <translation>Entorn bàsic</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="102"/>
-        <source>Component list</source>
-        <translation type="unfinished"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="77"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="117"/>
+        <source>Add-Ons for Selected Environment</source>
+        <translation>Complements per a l&apos;entorn seleccionat</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="156"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="78"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="168"/>
         <source>Next</source>
         <translation>Següent</translation>
     </message>
@@ -1755,43 +1803,43 @@
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="91"/>
         <source>Time settings</source>
-        <translation type="unfinished"/>
+        <translation>Paràmetres de l&apos;hora</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="92"/>
         <source>Change date and time as you want</source>
-        <translation type="unfinished"/>
+        <translation>Canvieu la data i l&apos;hora com vulgueu.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="93"/>
         <source>Hour</source>
-        <translation type="unfinished"/>
+        <translation>Hora</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
         <source>Minute</source>
-        <translation type="unfinished"/>
+        <translation>Minut</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>Any</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="96"/>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Mes</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="97"/>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Dia</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="98"/>
-        <source>Accept</source>
-        <translation>Accepta</translation>
+        <source>Confirm</source>
+        <translation>Confirmeu-hp</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="99"/>
