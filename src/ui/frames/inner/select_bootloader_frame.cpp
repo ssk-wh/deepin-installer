@@ -41,8 +41,7 @@ void SelectBootloaderFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     title_label_->setText(tr("Select location for boot loader"));
     comment_label_->setText(
-        tr("If you do not understand the detailed settings, "
-           "please select default settings"));
+        tr("If you do not understand the settings, please select the recommended one"));
     back_button_->setText(tr("Back"));
   } else {
     QFrame::changeEvent(event);
@@ -64,8 +63,7 @@ void SelectBootloaderFrame::initConnections() {
 void SelectBootloaderFrame::initUI() {
   title_label_ = new TitleLabel(tr("Select location for boot loader"));
   comment_label_ = new CommentLabel(
-      tr("If you do not understand the detailed settings, "
-         "please select default settings"));
+      tr("If you do not understand the settings, please select the recommended one"));
   QHBoxLayout* comment_layout = new QHBoxLayout();
   comment_layout->setContentsMargins(0, 0, 0, 0);
   comment_layout->setSpacing(0);

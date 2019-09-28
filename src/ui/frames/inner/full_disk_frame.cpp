@@ -56,7 +56,8 @@ enum class DiskCountType : int
 
 #if 0
 QT_TRANSLATE_NOOP("FullDiskFrame", "Install here")
-QT_TRANSLATE_NOOP("FullDiskFrame", "Encrypt Full Disk")
+QT_TRANSLATE_NOOP("FullDiskFrame", "Encrypt this disk")
+QT_TRANSLATE_NOOP("FullDiskFrame", "Encrypt This Disk")
 QT_TRANSLATE_NOOP("FullDiskFrame", "Please select a disk to start installation")
 QT_TRANSLATE_NOOP("FullDiskFrame", "It needs more than %1GB disk space to install deepin, for better performance, %2GB and more space is recommended")
 #endif
@@ -153,7 +154,7 @@ void FullDiskFrame::initUI() {
   m_encryptCheck->setCheckable(true);
   m_encryptCheck->setChecked(false);
   m_encryptCheck->setFocusPolicy(Qt::NoFocus);
-  addTransLate(m_trList, std::bind(&QCheckBox::setText, m_encryptCheck, std::placeholders::_1), QString("Encrypt Full Disk"));
+  addTransLate(m_trList, std::bind(&QCheckBox::setText, m_encryptCheck, std::placeholders::_1), QString("Encrypt this disk"));
 
   m_errorTip = new QLabel;
   m_errorTip->setObjectName("msg_label");

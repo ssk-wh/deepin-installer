@@ -126,8 +126,7 @@ void InstallProgressFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     title_label_->setText(tr("Installing"));
     comment_label_->setText(
-        tr("You can experience the incredible pleasure of deepin after "
-           "the time for just a cup of coffee"));
+        tr("Here are a few cool things to look out for..."));
   } else {
     QFrame::changeEvent(event);
   }
@@ -151,8 +150,7 @@ void InstallProgressFrame::initConnections() {
 void InstallProgressFrame::initUI() {
   title_label_ = new TitleLabel(tr("Installing"));
   comment_label_ = new CommentLabel(
-      tr("You can experience the incredible pleasure of deepin after "
-         "the time for just a cup of coffee"));
+      tr("Here are a few cool things to look out for..."));
   QHBoxLayout* comment_layout = new QHBoxLayout();
   comment_layout->setContentsMargins(0, 0, 0, 0);
   comment_layout->setSpacing(0);

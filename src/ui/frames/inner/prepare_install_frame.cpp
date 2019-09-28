@@ -59,7 +59,7 @@ void PrepareInstallFrame::updateDescription(const QStringList& descriptions) {
 
 void PrepareInstallFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    title_label_->setText(tr("Prepare for Installation"));
+    title_label_->setText(tr("Ready to Install"));
     comment_label_->setText(
         tr("Make a backup of your important data and then continue"));
     subtitle_label_->setText(
@@ -80,7 +80,7 @@ void PrepareInstallFrame::initConnections() {
 }
 
 void PrepareInstallFrame::initUI() {
-  title_label_ = new TitleLabel(tr("Prepare for Installation"));
+  title_label_ = new TitleLabel(tr("Ready to Install"));
   comment_label_ = new CommentLabel(
       tr("Make a backup of your important data and then continue"));
   QHBoxLayout* comment_layout = new QHBoxLayout();

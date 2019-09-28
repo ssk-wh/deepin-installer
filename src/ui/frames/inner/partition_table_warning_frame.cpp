@@ -52,20 +52,18 @@ void PartitionTableWarningFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     title_label_->setText(tr("Warning"));
     comment_label_->setText(
-        tr("Unable to install directly due to EFI motherboard boot loader "
-           "and MBR disk detected, please select one of the solutions below "
-           "to continue."));
+        tr("You have an EFI boot loader but an MBR disk, thus you cannot install deepin directly. "
+           "Please select one of the below solutions and continue."));
     list_title1_->setText(QString("A.%1").arg(tr("Disable UEFI")));
     list_item1_->setText(
         QString("1.%1\n2.%2")
             .arg(tr("Reboot, enter BIOS, and disable UEFI"))
-            .arg(tr("Exit BIOS, and enter deepin to install")));
+            .arg(tr("Exit BIOS, and install deepin again")));
     list_title2_->setText(QString("B.%1").arg(tr("Format the disk")));
     list_item2_->setText(
         QString("1.%1\n2.%2")
-            .arg(tr("Make a backup of all your data to avoid data loss"))
-            .arg(tr("Please double check if you have backed up all data, "
-                    "then reboot to enter this interface")));
+            .arg(tr("make a backup of all your data to avoid data loss"))
+            .arg(tr("After the backup, reboot and enter this interface again")));
     list_title3_->setText(tr("Continue"));
     list_item3_->setText(
         QString("1.%1\n2.%2")
@@ -102,9 +100,8 @@ void PartitionTableWarningFrame::initUI() {
   title_layout->addStretch();
 
   comment_label_ = new CommentLabel(
-      tr("Unable to install directly due to EFI motherboard boot loader "
-         "and MBR disk detected, please select one of the solutions below "
-         "to continue."));
+      tr("You have an EFI boot loader but an MBR disk, thus you cannot install deepin directly. "
+         "Please select one of the below solutions and continue."));
   QHBoxLayout* comment_layout = new QHBoxLayout();
   comment_layout->setContentsMargins(0, 0, 0, 0);
   comment_layout->setSpacing(0);
@@ -115,7 +112,7 @@ void PartitionTableWarningFrame::initUI() {
   list_item1_ = new QLabel(
       QString("1.%1\n2.%2")
           .arg(tr("Reboot, enter BIOS, and disable UEFI"))
-          .arg(tr("Exit BIOS, and enter deepin to install")),
+          .arg(tr("Exit BIOS, and install deepin again")),
       this);
   list_item1_->setObjectName("list_item1");
   list_item1_->setWordWrap(true);
@@ -123,10 +120,9 @@ void PartitionTableWarningFrame::initUI() {
   list_title2_->setObjectName("list_title2");
   list_item2_ = new QLabel(
       QString("1.%1\n2.%2")
-          .arg(tr("Please make a backup of all your data to avoid data loss"))
-          .arg(tr("Please double check if all the data were made a backup, "
-                  "and reboot to enter this interface")),
-      this);
+          .arg(tr("make a backup of all your data to avoid data loss"))
+          .arg(tr("After the backup, reboot and enter this interface again")),
+          this);
   list_item2_->setObjectName("list_item2");
   list_item2_->setWordWrap(true);
   QVBoxLayout* left_frame_layout = new QVBoxLayout();
@@ -151,7 +147,7 @@ void PartitionTableWarningFrame::initUI() {
           .arg(tr("Please make sure all data were made a backup, "
                   "then continue"))
           .arg(tr("Continuing installation will format your disk")),
-      this);
+          this);
   list_item3_->setObjectName("list_item3");
   list_item3_->setWordWrap(true);
   QVBoxLayout* right_frame_layout = new QVBoxLayout();

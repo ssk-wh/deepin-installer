@@ -37,8 +37,8 @@ namespace {
 QString GetCommentLabel() {
   const int minimum = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
   const int recommended = GetSettingsInt(kPartitionRecommendedDiskSpace);
-  return QObject::tr("It needs more than %1GB disk space to install deepin, "
-      "for better performance, %2GB and more space is recommended")
+  return QObject::tr("You need at least %1 GB disk space to install deepin. "
+                     "To get better performance, %2 GB or more is recommended")
       .arg(minimum)
       .arg(recommended);
 }
@@ -57,7 +57,7 @@ void DiskSpaceInsufficientFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     title_label_->setText(tr("Insufficient Disk Space"));
     comment_label_->setText(GetCommentLabel());
-    abort_button_->setText(tr("Exit installation"));
+    abort_button_->setText(tr("Exit"));
   } else {
     QFrame::changeEvent(event);
   }
@@ -76,7 +76,7 @@ void DiskSpaceInsufficientFrame::initUI() {
   comment_layout->addSpacing(0);
   comment_layout->addWidget(comment_label_);
 
-  abort_button_ = new NavButton(tr("Exit installation"));
+  abort_button_ = new NavButton(tr("Exit"));
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);

@@ -39,10 +39,8 @@ void VirtualMachineFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     title_label_->setText(tr("Friendly Reminder"));
     comment_label_->setText(
-        tr("System has detected that you are using a virtual machine, "
-           "which will affect the system performance and operation experience, "
-           "for a smooth experience, it is recommended to install deepin "
-           "in real-machine environment"));
+        tr("You are using a virtual machine which will affect system performance and user experience. "
+           "To get a smoother experience, please install deepin in a real environment"));
     next_button_->setText(tr("Continue"));
   } else {
     QFrame::changeEvent(event);

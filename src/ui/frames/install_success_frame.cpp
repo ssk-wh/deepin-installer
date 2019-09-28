@@ -40,11 +40,10 @@ void InstallSuccessFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     title_label_->setText(tr("Successfully Installed"));
     comment_label_->setText(
-        tr("Reboot to enjoy the new experience with deepin, "
-           "hope you like it!"));
+        tr("Reboot to complete the installation"));
     eject_label_->setText(
         tr("Please remove the installation media before reboot"));
-    reboot_button_->setText(tr("Experience now"));
+    reboot_button_->setText(tr("Reboot Now"));
   } else {
     QFrame::changeEvent(event);
   }
@@ -60,7 +59,7 @@ void InstallSuccessFrame::initUI() {
   status_label->setPixmap(installer::renderPixmap(":/images/success.svg"));
   title_label_ = new TitleLabel(tr("Successfully Installed"));
   comment_label_ = new CommentLabel(
-      tr("Reboot to enjoy the new experience with deepin, hope you like it!"));
+      tr("Reboot to complete the installation"));
   QHBoxLayout* comment_layout = new QHBoxLayout();
   comment_layout->setContentsMargins(0, 0, 0, 0);
   comment_layout->setSpacing(0);
@@ -68,7 +67,7 @@ void InstallSuccessFrame::initUI() {
 
   eject_label_ = new CommentLabel(
       tr("Please remove the installation media before reboot"));
-  reboot_button_ = new NavButton(tr("Experience now"));
+  reboot_button_ = new NavButton(tr("Reboot Now"));
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);

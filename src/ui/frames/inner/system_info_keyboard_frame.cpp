@@ -102,8 +102,8 @@ void SystemInfoKeyboardFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     title_label_->setText(tr("Select keyboard layout"));
     guide_label_->setText(tr("Select a proper keyboard layout"));
-    test_edit_->setPlaceholderText(tr("Test area"));
-    back_button_->setText(tr("Back"));
+    test_edit_->setPlaceholderText(tr("Test here"));
+    back_button_->setText(tr("Next"));
   } else {
     QFrame::changeEvent(event);
   }
@@ -159,12 +159,12 @@ void SystemInfoKeyboardFrame::initUI() {
 
   test_edit_ = new QLineEdit();
   test_edit_->setObjectName("test_edit");
-  test_edit_->setPlaceholderText(tr("Test area"));
+  test_edit_->setPlaceholderText(tr("Test here"));
   test_edit_->setFixedSize(kLayoutWidth, 36);
   // Disable context menu.
   test_edit_->setContextMenuPolicy(Qt::NoContextMenu);
 
-  back_button_ = new NavButton(tr("Back"));
+  back_button_ = new NavButton(tr("Next"));
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);

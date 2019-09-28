@@ -113,12 +113,12 @@ void NewPartitionFrame::setPartition(const Partition::Ptr partition) {
 
 void NewPartitionFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    title_label_->setText(tr("New Partition"));
+    title_label_->setText(tr("Create New Partition"));
     comment_label_->setText(
         tr("Create a new partition and define the type and size"));
     type_label_->setText(tr("Type"));
     alignment_label_->setText(tr("Location"));
-    fs_label_->setText(tr("Filesystem"));
+    fs_label_->setText(tr("File system"));
     mount_point_label_->setText(tr("Mount point"));
     size_label_->setText(tr("Size"));
     alignment_box_->clear();
@@ -148,7 +148,7 @@ void NewPartitionFrame::initConnections() {
 }
 
 void NewPartitionFrame::initUI() {
-  title_label_ = new TitleLabel(tr("New Partition"));
+  title_label_ = new TitleLabel(tr("Create New Partition"));
   comment_label_ = new CommentLabel(
       tr("Create a new partition and define the type and size"));
   QHBoxLayout* comment_layout = new QHBoxLayout();
@@ -167,7 +167,7 @@ void NewPartitionFrame::initUI() {
   alignment_box_ = new TableComboBox();
   alignment_box_->addItems({tr("Start"), tr("End")});
 
-  fs_label_ = new QLabel(tr("Filesystem"));
+  fs_label_ = new QLabel(tr("File system"));
   fs_label_->setObjectName("fs_label");
   fs_box_ = new TableComboBox();
   fs_model_ = new FsModel(delegate_->getFsTypeList(), fs_box_);

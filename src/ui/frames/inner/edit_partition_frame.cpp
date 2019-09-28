@@ -100,11 +100,11 @@ void EditPartitionFrame::changeEvent(QEvent* event) {
     title_label_->setText(tr("Edit Disk"));
     comment_label_->setText(
         tr("Make sure you have backed up important data, then select the disk to install"));
-    fs_label_->setText(tr("Filesystem"));
+    fs_label_->setText(tr("File system"));
     mount_point_label_->setText(tr("Mount point"));
     format_check_box_->setText(tr("Format the partition"));
     cancel_button_->setText(tr("Cancel"));
-    ok_button_->setText(tr("OK"));
+    ok_button_->setText(tr("Create"));
   } else {
     QFrame::changeEvent(event);
   }
@@ -199,7 +199,7 @@ void EditPartitionFrame::initUI() {
   separator_label->setObjectName("separator_label");
   separator_label->setFixedSize(560, 2);
 
-  fs_label_ = new QLabel(tr("Filesystem"));
+  fs_label_ = new QLabel(tr("File system"));
   fs_label_->setObjectName("fs_label");
   mount_point_label_ = new QLabel(tr("Mount point"));
   mount_point_label_->setObjectName("mount_point_label");
@@ -243,7 +243,7 @@ void EditPartitionFrame::initUI() {
   content_frame->setFixedWidth(mount_point_box_->width());
 
   cancel_button_ = new NavButton(tr("Cancel"));
-  ok_button_ = new NavButton(tr("OK"));
+  ok_button_ = new NavButton(tr("Create"));
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
