@@ -525,9 +525,7 @@ QString AdvancedPartitionFrame::validateStateToText(AdvancedValidateState state)
       const int partition_min_size_by_gb = GetSettingsInt(kPartitionOthersMinimumSize);
       return tr("At least %1 GB is required for partition %2")
           .arg(partition_min_size_by_gb)
-          .arg(state->partition().isNull() ? QString("") : QString(tr(" : %1 at %2"))
-                  .arg(state->partition()->mount_point)
-                  .arg(GetPartitionName(state->partition()->path)));
+          .arg(GetPartitionName(state->partition()->path));
     }
 
     default: {
