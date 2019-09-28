@@ -74,8 +74,18 @@ if [ x${DI_LUPIN} = "xtrue" ]; then
 else
   UNUSED_PKGS+=("lupin-support")
 fi
-detect_vbox || UNUSED_PKGS+=("virtualbox-guest-*")
-detect_vmware || UNUSED_PKGS+=("open-vm-tools*")
+
+if [[ $(installer_get "DI_COMPONENT_PACKAGES") =~ virtualbox-guest-* ]];then
+    msg "Don't uninstall virtualbox-guest"
+else
+    detect_vbox || UNUSED_PKGS+=("virtualbox-guest-*")
+fi
+
+if [[ $(installer_get "DI_COMPONENT_PACKAGES_PACKAGES") =~ open-vm-tools* ]];then
+    msg "Don't uninstall open-vm-tools"
+else
+    detect_vmware || UNUSED_PKGS+=("open-vm-tools*")
+fi
 
 # Check package existence.
 declare -a EXISTING_UNUSED_PKGS
