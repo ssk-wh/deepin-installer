@@ -397,6 +397,8 @@ bool SystemInfoFormFrame::validatePassword(LineEdit* passwordEdit, QString& msg)
             // Pass
             break;
         }
+        default:
+            break;
     }
     return true;
 }

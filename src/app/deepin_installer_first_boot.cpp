@@ -35,6 +35,9 @@
 
 int main(int argc, char *argv[])
 {
+  qputenv("LC_ALL", installer::kDefaultLang);
+  qputenv("LANG", installer::kDefaultLang);
+
   Utils::AutoScreenScale();
   QApplication app(argc, argv);
   app.setAttribute(Qt::AA_UseHighDpiPixmaps);
