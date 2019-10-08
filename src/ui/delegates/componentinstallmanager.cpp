@@ -251,7 +251,7 @@ QStringList ComponentInstallManager::findAllDeb(const QString& path) const {
     QStringList   packageList;
 
     for (const QFileInfo& fileInfo : list) {
-        if (fileInfo.fileName() == "." | fileInfo.fileName() == "..") {
+        if (fileInfo.fileName() == "." || fileInfo.fileName() == "..") {
             i++;
             continue;
         }

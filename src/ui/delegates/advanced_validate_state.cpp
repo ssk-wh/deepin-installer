@@ -86,7 +86,7 @@ bool AdvancedValidateState::eqauls(const AdvancedValidateState& state) const
 
 AdvancedValidateState::operator AdvancedValidateStateId () const
 {
-        return isNull() ? InvalidId : get()->state();
+        return isNull() ? static_cast<AdvancedValidateStateId>(InvalidId) : get()->state();
 }
 
 }
