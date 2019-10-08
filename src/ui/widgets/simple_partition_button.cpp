@@ -50,7 +50,7 @@ SimplePartitionButton::SimplePartitionButton(const Partition::Ptr partition,
 void SimplePartitionButton::setSelected(bool selected) {
   selected_ = selected;
   if (selected) {
-    const QPixmap pixmap = std::move(installer::renderPixmap(":/images/driver_install_128.svg"));
+    const QPixmap pixmap = installer::renderPixmap(":/images/driver_install_128.svg");
     os_label_->setPixmap(pixmap);
   } else {
     QPixmap pixmap(GetOsTypeLargeIcon(partition_->os));

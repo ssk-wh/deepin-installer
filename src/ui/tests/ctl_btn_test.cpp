@@ -23,13 +23,8 @@
 
 namespace {
 
-const char kStyleFile[] = ":/styles/advanced_partition_button.css";
-
 const char kCtlBtnState[] = "ctlState";
-const char kCtlBtnStateDelete[] = "delete";
-const char kCtlBtnStateEdit[] = "edit";
 const char kCtlBtnStateNew[] = "new";
-const char kCtlBtnStateHide[] = "hide";
 
 }  // namespace
 

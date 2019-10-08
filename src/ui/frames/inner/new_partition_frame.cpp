@@ -97,11 +97,11 @@ void NewPartitionFrame::setPartition(const Partition::Ptr partition) {
 
   // Select default fs type.
   const FsType default_fs = GetDefaultFsType();
-  const int default_fs_index = fs_model_->index(default_fs);
+  const int default_fs_index = fs_model_->indexOf(default_fs);
   fs_box_->setCurrentIndex(default_fs_index);
 
   // Select empty mount-point.
-  const int mount_point_index = mount_point_model_->index("");
+  const int mount_point_index = mount_point_model_->indexOf("");
   mount_point_box_->setCurrentIndex(mount_point_index);
 
   // Set value range of size_slider_

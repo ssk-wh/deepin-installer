@@ -37,7 +37,7 @@ class FsModel : public QAbstractListModel {
   FsType getFs(int index) const;
 
   // Index fs type. Returns -1 if not found.
-  int index(FsType fs_type) const;
+  int indexOf(FsType fs_type) const;
 
   // If |show_efi| is false, remove efi from fs list.
   void setShowEFI(bool show_efi);

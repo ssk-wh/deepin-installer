@@ -37,7 +37,7 @@ class MountPointModel : public QAbstractListModel {
   QString getMountPoint(int index) const;
 
   // Get index of |mount_point|, if not found returns -1.
-  int index(const QString& mount_point) const;
+  int indexOf(const QString& mount_point) const;
 
  private:
   const QStringList mount_points_;

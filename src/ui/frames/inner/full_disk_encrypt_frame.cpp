@@ -22,8 +22,6 @@
 
 using namespace installer;
 
-const int kProgressBarWidth = 280;
-
 Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout(this))

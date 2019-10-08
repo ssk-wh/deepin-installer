@@ -102,8 +102,9 @@ void SystemInfoKeyboardFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     title_label_->setText(tr("Select keyboard layout"));
     guide_label_->setText(tr("Select a proper keyboard layout"));
-    test_edit_->setPlaceholderText(tr("Test here"));
-    back_button_->setText(tr("Next"));
+    test_edit_->setPlaceholderText(tr("Test area"));
+    back_button_->setText(tr("Back"));
+    layout_model_->initLayout(ReadLocale());
   } else {
     QFrame::changeEvent(event);
   }

@@ -23,13 +23,6 @@
 
 namespace installer {
 
-namespace {
-
-// Minimum uid used for normal user.
-const int kNormalUserMinUid = 1000;
-
-}  // namespace
-
 QStringList GetSystemUsers() {
   QStringList users;
   struct passwd* pwd;

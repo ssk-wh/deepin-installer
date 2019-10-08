@@ -41,7 +41,6 @@ namespace installer {
 
 namespace {
 
-const int kWindowWidth = 640;
 const int kProgressBarWidth = 280;
 
 const int kContentSpacing = 15;
@@ -80,16 +79,16 @@ void EditPartitionFrame::setPartition(const Partition::Ptr partition) {
   fs_model_->setShowRecovery(GetSettingsBool(kEnableRecoveryPartition));
 
   // Reset fs index.
-  int fs_index = fs_model_->index(partition->fs);
+  int fs_index = fs_model_->indexOf(partition->fs);
   if (fs_index == -1) {
     // Get index of unused filesystem in filesystem list.
-    fs_index = fs_model_->index(FsType::Empty);
+    fs_index = fs_model_->indexOf(FsType::Empty);
   }
   // If partition fs type not in current fs_list, select nothing.
   fs_box_->setCurrentIndex(fs_index);
 
   // Reset mount point box. mount_point might be empty.
-  const int mp_index = mount_point_model_->index(partition->mount_point);
+  const int mp_index = mount_point_model_->indexOf(partition->mount_point);
   mount_point_box_->setCurrentIndex(mp_index);
 
   updateFormatBoxState();
@@ -287,7 +286,7 @@ void EditPartitionFrame::onMountPointChanged(int index) {
   const QString mount_point = mount_point_model_->getMountPoint(index);
   const FsType fs_type = fs_model_->getFs(fs_box_->currentIndex());
   const FsType default_fs = GetDefaultFsType();
-  const int default_fs_index = fs_model_->index(default_fs);
+  const int default_fs_index = fs_model_->indexOf(default_fs);
 
   // If mount point is not empty, partition fs shall be not empty and can not
   // be linux-swap or efi.

@@ -41,8 +41,6 @@ const int kWindowWidth = 960;
 
 // Vertical spacing between error message labels.
 const int kMsgLabelSpacing = 2;
-
-const char kErrMsgLabel[] = "err_msg_label";
 const char kLastErrMsgLabel[] = "last_err_msg_label";
 
 }  // namespace

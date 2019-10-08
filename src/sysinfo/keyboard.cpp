@@ -36,7 +36,6 @@ const char kXkbDomain[] = "xkeyboard-config";
 const char kSetXkbMapCmd[] = "/usr/bin/setxkbmap";
 
 const char kXkbBaseRule[] = "/usr/share/X11/xkb/rules/base.xml";
-const char kXkbExtraRule[] = "/usr/share/X11/xkb/rules/base.extras.xml";
 
 // Get localized |description|.
 QString GetLocalDesc(const QString& description) {

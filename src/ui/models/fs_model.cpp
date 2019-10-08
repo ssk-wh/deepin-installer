@@ -55,7 +55,7 @@ FsType FsModel::getFs(int index) const {
   }
 }
 
-int FsModel::index(FsType fs_type) const {
+int FsModel::indexOf(FsType fs_type) const {
   // Might return -1.
   return fs_list_.indexOf(fs_type);
 }

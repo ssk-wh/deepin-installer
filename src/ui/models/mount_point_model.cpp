@@ -57,7 +57,7 @@ QString MountPointModel::getMountPoint(int index) const {
   }
 }
 
-int MountPointModel::index(const QString& mount_point) const {
+int MountPointModel::indexOf(const QString& mount_point) const {
   return mount_points_.indexOf(mount_point);
 }
 

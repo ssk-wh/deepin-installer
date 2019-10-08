@@ -146,14 +146,14 @@ void TimezoneMap::initUI() {
 
   QLabel* background_label = new QLabel;
   background_label->setObjectName("background_label");
-  QPixmap timezone_pixmap = std::move(installer::renderPixmap(kTimezoneMapFile));
+  QPixmap timezone_pixmap = installer::renderPixmap(kTimezoneMapFile);
   Q_ASSERT(!timezone_pixmap.isNull());
   background_label->setPixmap(timezone_pixmap);
 
   Q_ASSERT(this->parentWidget());
   // Set parent widget of dot_ to TimezoneFrame.
   dot_ = new QLabel(this->parentWidget());
-  const QPixmap dot_pixmap = std::move(installer::renderPixmap(kDotFile));
+  const QPixmap dot_pixmap = installer::renderPixmap(kDotFile);
   Q_ASSERT(!dot_pixmap.isNull());
   dot_->setPixmap(dot_pixmap);
   dot_->setFixedSize(dot_pixmap.size() / devicePixelRatioF());

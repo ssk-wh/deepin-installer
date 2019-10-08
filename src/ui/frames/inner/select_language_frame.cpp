@@ -41,7 +41,6 @@ namespace installer {
 
 SelectLanguageFrame::SelectLanguageFrame(UserAgreementDelegate * delegate, QWidget* parent)
     : QFrame(parent),
-      lang_(),
       current_translator_(new QTranslator(this)),
       user_license_delegate_(delegate) {
   this->setObjectName("select_language_frame");

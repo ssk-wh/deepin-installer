@@ -29,7 +29,7 @@ namespace installer {
 // Expose this value explicitly.
 const int kBeforeChrootStartVal = 5;
 
-class HooksPack;
+struct HooksPack;
 class HookWorker;
 
 // HookManager is used to do:

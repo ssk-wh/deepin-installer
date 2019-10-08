@@ -64,8 +64,6 @@ const char kComponentSortFile[] = RESOURCES_DIR "/packages_sort.json";
 
 // File name of auto partition script.
 const char kAutoPartFile[] = "auto_part.sh";
-// File name of architecture specific of auto partition script.
-const char kAutoPartArchSpecFile[] = "auto_part_%1.sh";
 
 // Absolute path to oem folder.
 const char kDebugOemDir[] = "/tmp/oem";

@@ -291,7 +291,7 @@ bool FirstBootSetupWindow::changeToTTY(int ttyNum) const
     };
 
     auto getfd = [=](const char *fnam) -> int {
-        int fd, i;
+        int fd;
 
         if (fnam) {
             if ((fd = open_a_console(fnam)) >= 0) {

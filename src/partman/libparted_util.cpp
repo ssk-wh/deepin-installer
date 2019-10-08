@@ -148,7 +148,7 @@ bool CreatePartition(const Partition::Ptr partition) {
 
       if (constraint) {
         // TODO(xushaohua): Change constraint.min_size.
-        // PrintPedConstraintInfo(constraint);
+        PrintPedConstraintInfo(constraint);
         ok = bool(ped_disk_add_partition(lp_disk, lp_partition, constraint));
         if (ok) {
           ok = Commit(lp_disk);

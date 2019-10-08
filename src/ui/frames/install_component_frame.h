@@ -10,7 +10,7 @@ namespace installer {
 
 class NavButton;
 class ComponentStruct;
-class ComponentInfo;
+struct ComponentInfo;
 class ComponentWidget;
 class DIScrollArea;
 class TitleLabel;

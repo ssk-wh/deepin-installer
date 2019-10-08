@@ -39,7 +39,6 @@ const int kBorderDiameter = kBorderRadius * 2;
 //  \|/
 const int kTriangleHeight = 6;
 const int kTriangleWidth = 10;
-const int kTriangleHalfWidth = kTriangleWidth / 2;
 const int kTriangleLeftMargin = 36;
 
 // Same width as line edit.
