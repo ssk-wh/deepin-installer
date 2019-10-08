@@ -27,6 +27,11 @@
 
 namespace installer {
 
+enum class PartitionAction {
+    CreateLogicalPartition,
+    RemoveLogicalPartition,
+};
+
 // Partition delegate used in AdvancedPartitionFrame and other sub frame pages.
 class AdvancedPartitionDelegate : public QObject {
   Q_OBJECT
@@ -124,6 +129,12 @@ class AdvancedPartitionDelegate : public QObject {
   bool unFormatPartition(const Partition::Ptr partition);
 
   void updateMountPoint(const Partition::Ptr partition, const QString& mount_point);
+
+  // make sure that extended partition exists here now before call it.
+  // return true: success, start_sector & end_sector is new extended partition boundary.
+  // return false: failed, start_sector & end_sector is unchanged.
+  bool reCalculateExtPartBoundary(PartitionAction action, const Partition::Ptr& current, qint64& start_sector, qint64& end_sector);
+  bool reCalculateExtPartBoundary(const PartitionList& partitions, PartitionAction action, const Partition::Ptr& current, qint64& start_sector, qint64& end_sector);
 
  private:
   DeviceList real_devices_;

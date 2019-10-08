@@ -625,6 +625,14 @@ AdvancedPartitionDelegate::createLogicalPartition(const Partition::Ptr partition
     return false;
   }
 
+  //Modify boundary of extended partition after creating logical partition , since boundary of logical partition is changed again.
+  qint64 start_sector = -1;
+  qint64 end_sector = -1;
+  if (reCalculateExtPartBoundary(PartitionAction::CreateLogicalPartition, new_partition, start_sector, end_sector)) {
+      ext_partition->start_sector = start_sector;
+      ext_partition->end_sector = end_sector;
+  }
+
   // Reset mount-point before append operation to advanced operation list.
   this->resetOperationMountPoint(mount_point);
   const Operation operation(OperationType::Create, partition, new_partition);
@@ -790,6 +798,12 @@ void AdvancedPartitionDelegate::deletePartition(const Partition::Ptr partition) 
   new_partition->status       = PartitionStatus::Delete;
   new_partition->mount_point  = "";
 
+  //1MB space before logical partition must be recycled.
+  if (partition->type == PartitionType::Logical) {
+     const qint64 oneMebiByteSector = 1 * kMebiByte / partition->sector_size;
+     new_partition->start_sector -= oneMebiByteSector;
+  }
+
 //TODO: Fix this bug using a pretty method!
 #ifdef QT_DEBUG
   if (partition->status == PartitionStatus::New) {
@@ -869,6 +883,19 @@ void AdvancedPartitionDelegate::deletePartition(const Partition::Ptr partition) 
                                   ext_partition,
                                   unallocated_partition);
         operations_.append(operation);
+      }
+      else if (partition->type == PartitionType::Logical) {
+         //Modify boundary of extended partition after removing logical partition since it may be the first or the last logical partition
+          qint64 ext_start_sector = -1;
+          qint64 ext_end_sector = -1;
+          if (reCalculateExtPartBoundary(partitions, PartitionAction::RemoveLogicalPartition, partition, ext_start_sector, ext_end_sector)) {
+              const Partition::Ptr ext_partition = partitions.at(ext_index);
+              Partition::Ptr new_ext_partition(new Partition(*ext_partition));
+              new_ext_partition->start_sector = ext_start_sector;
+              new_ext_partition->end_sector = ext_end_sector;
+              const Operation operation(OperationType::Resize, ext_partition, new_ext_partition);
+              operations_.append(operation);
+         }
       }
     }
   }
@@ -1112,6 +1139,53 @@ void AdvancedPartitionDelegate::updateMountPoint(const Partition::Ptr partition,
 const DiskPartitionSetting& AdvancedPartitionDelegate::settings() const
 {
     return settings_;
+}
+
+
+bool AdvancedPartitionDelegate::reCalculateExtPartBoundary(PartitionAction action, const Partition::Ptr& current, qint64& start_sector, qint64& end_sector)
+{
+    const int device_index = DeviceIndex(virtual_devices_, current->device_path);
+    if (device_index == -1) {
+      return false;
+    }
+
+    Device::Ptr device = virtual_devices_[device_index];
+    PartitionList& partitions = device->partitions;
+    return reCalculateExtPartBoundary(partitions, action, current, start_sector, end_sector);
+}
+
+bool AdvancedPartitionDelegate::reCalculateExtPartBoundary(const PartitionList& partitions, PartitionAction action, const Partition::Ptr& current, qint64& start_sector, qint64& end_sector)
+{
+    if (partitions.length() == 0) {
+        return false;
+    }
+
+    bool start_found = false;
+    bool end_found = false;
+    for (const Partition::Ptr& p : partitions) {
+        if (p->type != PartitionType::Logical) {
+            continue;
+        }
+
+        if (p == current) {
+            if (action == PartitionAction::RemoveLogicalPartition) {
+                continue;
+            }
+        }
+
+        if (!start_found || start_sector > p->start_sector) {
+            start_found = true;
+            const qint64 oneMebiByteSector = 1 * kMebiByte / p->sector_size;
+            start_sector = p->start_sector - oneMebiByteSector;
+        }
+
+        if (!end_found || end_sector < p->end_sector) {
+            end_found = true;
+            end_sector = p->end_sector;
+        }
+    }
+
+    return start_found && end_found;
 }
 
 }  // namespace installer

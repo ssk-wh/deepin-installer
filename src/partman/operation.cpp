@@ -335,6 +335,7 @@ void Operation::applyCreateVisual(PartitionList& partitions) const {
     partitions[index] = new_partition;
   }
 
+  const qint64 oneMebiByteSector = 1 * kMebiByte / orig_partition->sector_size;
   const qint64 twoMebiByteSector = 2 * kMebiByte / orig_partition->sector_size;
 
   // Gap between orig_partition.start <-> new_partition.start.
@@ -345,6 +346,12 @@ void Operation::applyCreateVisual(PartitionList& partitions) const {
       unallocated->type         = PartitionType::Unallocated;
       unallocated->start_sector = orig_partition->start_sector + 1;
       unallocated->end_sector   = new_partition->start_sector - 1;
+
+      //1MB space before logical partition can not be allocated by others
+      if (new_partition->type == PartitionType::Logical) {
+         unallocated->end_sector -= oneMebiByteSector;
+      }
+
       partitions.insert(index, unallocated);
       index += 1;
   }
@@ -370,6 +377,16 @@ void Operation::applyCreateVisual(PartitionList& partitions) const {
 
 void Operation::applyDeleteVisual(PartitionList& partitions) const {
   qDebug() << Q_FUNC_INFO << *orig_partition << *new_partition;
+
+  int index = PartitionIndex(partitions, orig_partition);
+  if (index >= 0) {
+      // Extended partition has no real SPACE that need to be recycled.
+      if (partitions[index]->type == PartitionType::Extended) {
+          partitions.removeAt(index);
+         return;
+      }
+  }
+
   this->substitute(partitions);
   MergeUnallocatedPartitions(partitions);
 }
