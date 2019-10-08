@@ -41,6 +41,7 @@ void DIScrollArea::initUI()
 
     m_scrollBar = verticalScrollBar();
     m_scrollBar->setParent(this);
+    m_scrollBar->setContextMenuPolicy(Qt::NoContextMenu);
     m_scrollBar->move(kScrollAreaWidth - 8, 0);
     m_scrollBar->raise();
     m_scrollBar->setStyleSheet(ReadFile(":/styles/di_scrollarea.css"));
