@@ -128,6 +128,9 @@ void SelectTimeZoneFrame::initUI()
     m_continentListView->setFixedWidth(kContinentListViewWidth);
     m_continentListView->setStyleSheet(ReadFile(":/styles/select_time_zone_frame.css"));
     m_continentListView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_continentListView->setContextMenuPolicy(Qt::NoContextMenu);
+    m_continentListView->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    m_continentListView->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
 
     m_continentModel = new ContinentModel;
     m_continentListView->setModel(m_continentModel);
@@ -138,6 +141,9 @@ void SelectTimeZoneFrame::initUI()
     m_timeZoneListView->setFixedWidth(kTimeZoneListViewWidth);
     m_timeZoneListView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_timeZoneListView->setStyleSheet(ReadFile(":/styles/select_time_zone_frame.css"));
+    m_timeZoneListView->setContextMenuPolicy(Qt::NoContextMenu);
+    m_timeZoneListView->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    m_timeZoneListView->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
 
     m_timeZoneModel = new QStringListModel;
     m_timeZoneListView->setModel(m_timeZoneModel);
