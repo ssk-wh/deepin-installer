@@ -883,11 +883,6 @@ void FullDiskDelegate::onManualPartDone(const DeviceList& devices) {
           root_device = device;
         }
       }
-
-      if (partition->fs == FsType::EFI && esp_path.isEmpty()) {
-        // Only use the first EFI partition->
-        esp_path = partition->path;
-      }
     }
   }
 

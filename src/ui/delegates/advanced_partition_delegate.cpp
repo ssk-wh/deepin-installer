@@ -346,10 +346,12 @@ AdvancedValidateStates AdvancedPartitionDelegate::validate() const {
   const int partition_min_size_by_gb = GetSettingsInt(kPartitionOthersMinimumSize);
   const qint64 partition_min_size_bytes = partition_min_size_by_gb * kGibiByte;
 
+  Device::Ptr root_device;
   for (const Device::Ptr device : virtual_devices_) {
     for (const Partition::Ptr partition : device->partitions) {
       if (partition->mount_point == kMountPointRoot) {
         // Check / partition->
+        root_device = device;
         found_root = true;
         root_fs = partition->fs;
         root_part_number = partition->partition_number;
@@ -367,23 +369,29 @@ AdvancedValidateStates AdvancedPartitionDelegate::validate() const {
         const qint64 boot_real_bytes = partition->getByteLength() + kMebiByte;
         boot_large_enough = (boot_real_bytes >= boot_recommend_bytes);
 
-      } else if (partition->fs == FsType::EFI) {
-        // Check EFI partition->
-        found_efi = true;
-
-        if (partition->status == PartitionStatus::Real) {
-          // For existing EFI partition->
-          const qint64 efi_minimum_bytes = efi_minimum * kMebiByte;
-          const qint64 efi_real_bytes = partition->getByteLength() + kMebiByte;
-          efi_large_enough = (efi_real_bytes >= efi_minimum_bytes);
-        } else {
-          // For newly created EFI partition->
-          const qint64 efi_recommended_bytes = efi_recommended * kMebiByte;
-          const qint64 efi_real_bytes = partition->getByteLength() + kMebiByte;
-          efi_large_enough = (efi_real_bytes >= efi_recommended_bytes);
-        }
       }
     }
+  }
+
+  if (!root_device.isNull()) {
+      // Find esp partition on this device
+      for (Partition::Ptr partition : root_device->partitions) {
+         if (partition->fs == FsType::EFI) {
+             found_efi = true;
+             if (partition->status == PartitionStatus::Real) {
+               // For existing EFI partition->
+               const qint64 efi_minimum_bytes = efi_minimum * kMebiByte;
+               const qint64 efi_real_bytes = partition->getByteLength() + kMebiByte;
+               efi_large_enough = (efi_real_bytes >= efi_minimum_bytes);
+             } else {
+               // For newly created EFI partition->
+               const qint64 efi_recommended_bytes = efi_recommended * kMebiByte;
+               const qint64 efi_real_bytes = partition->getByteLength() + kMebiByte;
+               efi_large_enough = (efi_real_bytes >= efi_recommended_bytes);
+             }
+             break;
+          }
+      }
   }
 
   if (found_root) {
@@ -944,11 +952,6 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
                     root_path   = partition->path;
                     root_device = device;
                 }
-            }
-
-            if (partition->fs == FsType::EFI && esp_path.isEmpty()) {
-                // NOTE(xushaohua): There shall be only one EFI partition->
-                esp_path = partition->path;
             }
         }
     }
