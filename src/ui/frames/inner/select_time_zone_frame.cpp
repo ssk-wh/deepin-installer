@@ -82,7 +82,10 @@ void SelectTimeZoneFrame::updateContinentModelData()
         Q_ASSERT(it.second.count() > 0);
         strList << m_mapEnglishToInternation[it.first];
     }
+
+    m_continentListView->selectionModel()->blockSignals(true);
     m_continentModel->setStringList(strList);
+    m_continentListView->selectionModel()->blockSignals(false);
 
     // after continent list sort, update current continent index in list
     if(m_currentContinentIndex.isValid()){
@@ -102,23 +105,27 @@ void SelectTimeZoneFrame::updateTimezoneModelData()
 
     // backup current timezone name
     if(m_currentTimezoneIndex.isValid()){
-        timezone = m_currentTimeZone.at(m_currentTimezoneIndex.row());
+        timezone = m_currentTimeZoneList.at(m_currentTimezoneIndex.row());
     }
 
     for (auto it : m_allTimeZone) {
         if(it.first == continent){
-            m_currentTimeZone = it.second;
+            m_currentTimeZoneList = it.second;
             break;
         }
     }
-    for (const QString& timezone : m_currentTimeZone) {
-        timezoneList << m_mapEnglishToInternation[timezone];
+
+    for (const QString& tz : m_currentTimeZoneList) {
+        timezoneList << m_mapEnglishToInternation[tz];
     }
+
+    m_timeZoneListView->selectionModel()->blockSignals(true);
     m_timeZoneModel->setStringList(timezoneList);
+    m_timeZoneListView->selectionModel()->blockSignals(false);
 
     // after timezone list sort, update current continent index in list
     if(m_currentTimezoneIndex.isValid()){
-        m_currentTimezoneIndex = m_timeZoneModel->index(m_currentTimeZone.indexOf(timezone));
+        m_currentTimezoneIndex = m_timeZoneModel->index(m_currentTimeZoneList.indexOf(timezone));
     }
 }
 
@@ -182,12 +189,33 @@ void SelectTimeZoneFrame::onContinentViewSelectedChanged(QModelIndex curIndex, Q
     if(!curIndex.isValid()){
         return;
     }
+
     if(!(curIndex.row() < m_continentModel->stringList().count())){
         return;
     }
 
-    m_currentContinentIndex = curIndex;
-    updateTimezoneModelData();
+    QStringList timezoneEnglishList;
+    for (auto it : m_allTimeZone) {
+        if(it.first == m_currentContinentList.at(curIndex.row())){
+            timezoneEnglishList = it.second;
+            break;
+        }
+    }
+
+    QStringList timezoneList;
+    for (const QString& timezone : timezoneEnglishList) {
+        timezoneList << m_mapEnglishToInternation[timezone];
+    }
+
+    m_timeZoneListView->selectionModel()->blockSignals(true);
+    m_timeZoneModel->setStringList(timezoneList);
+    m_timeZoneListView->selectionModel()->blockSignals(false);
+
+    if(curIndex == m_currentContinentIndex){
+        m_timeZoneListView->selectionModel()->blockSignals(true);
+        m_timeZoneListView->setCurrentIndex(m_currentTimezoneIndex);
+        m_timeZoneListView->selectionModel()->blockSignals(false);
+    }
 
     m_timeZoneListView->scrollToTop();
 }
@@ -199,13 +227,24 @@ void SelectTimeZoneFrame::onTimeZoneViewSelectedChanged(QModelIndex curIndex, QM
     if(!curIndex.isValid()){
         return;
     }
+
     if(!(curIndex.row() < m_timeZoneModel->stringList().count())){
         return;
     }
 
+    m_currentContinentIndex = m_continentListView->currentIndex();
+
+    for (auto it : m_allTimeZone) {
+        if(it.first == m_currentContinentList.at(m_currentContinentIndex.row())){
+            m_currentTimeZoneList = it.second;
+            break;
+        }
+    }
+
     m_currentTimezoneIndex = curIndex;
+
     QString timezone = QString("%1/%2").arg(m_currentContinentList.at(m_currentContinentIndex.row()))
-        .arg(m_currentTimeZone.at(curIndex.row()));
+        .arg(m_currentTimeZoneList.at(curIndex.row()));
     emit timezoneUpdated(timezone);
 }
 
@@ -219,21 +258,31 @@ void SelectTimeZoneFrame::onUpdateTimezoneList(const QString &timezone)
 
     Q_ASSERT(list.count() > 1);
     m_currentContinentIndex = m_continentModel->index(m_currentContinentList.indexOf(list.first()));
-    m_continentListView->blockSignals(true);
+    m_continentListView->selectionModel()->blockSignals(true);
     m_continentListView->setCurrentIndex(m_currentContinentIndex);
-    m_continentListView->blockSignals(false);
+    m_continentListView->selectionModel()->blockSignals(false);
 
     for (auto it : m_allTimeZone) {
         if(it.first == list.first()){
-            m_currentTimeZone = it.second;
+            m_currentTimeZoneList = it.second;
             break;
         }
     }
-    m_currentTimezoneIndex = m_timeZoneModel->index(m_currentTimeZone.indexOf(list.last()));
-    m_timeZoneListView->blockSignals(true);
+
+    QStringList timezoneList;
+    for (const QString& tz : m_currentTimeZoneList) {
+        timezoneList << m_mapEnglishToInternation[tz];
+    }
+
+    m_timeZoneListView->selectionModel()->blockSignals(true);
+    m_timeZoneModel->setStringList(timezoneList);
+    m_timeZoneListView->selectionModel()->blockSignals(false);
+
+    m_currentTimezoneIndex = m_timeZoneModel->index(m_currentTimeZoneList.indexOf(list.last()));
+    m_timeZoneListView->selectionModel()->blockSignals(true);
     m_timeZoneListView->scrollTo(m_currentTimezoneIndex, QAbstractItemView::PositionAtTop);
     m_timeZoneListView->setCurrentIndex(m_currentTimezoneIndex);
-    m_timeZoneListView->blockSignals(false);
+    m_timeZoneListView->selectionModel()->blockSignals(false);
 }
 
 void SelectTimeZoneFrame::changeEvent(QEvent *event)
@@ -244,11 +293,15 @@ void SelectTimeZoneFrame::changeEvent(QEvent *event)
 
         updateContinentModelData();
         if(m_currentContinentIndex.isValid()){
+            m_continentListView->selectionModel()->blockSignals(true);
             m_continentListView->setCurrentIndex(m_currentContinentIndex);
+            m_continentListView->selectionModel()->blockSignals(false);
         }
         updateTimezoneModelData();
         if(m_currentTimezoneIndex.isValid()){
+            m_timeZoneListView->selectionModel()->blockSignals(true);
             m_timeZoneListView->setCurrentIndex(m_currentTimezoneIndex);
+            m_timeZoneListView->selectionModel()->blockSignals(false);
         }
     }
     else {

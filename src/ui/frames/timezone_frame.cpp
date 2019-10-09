@@ -125,7 +125,6 @@ void TimezoneFrame::changeEvent(QEvent* event) {
 
     // Also update timezone.
     if (!timezone_.isEmpty()) {
-      timezone_map_->setTimezone(timezone_);
       emit this->timezoneUpdated(timezone_);
     }
   } else {
