@@ -94,8 +94,7 @@ case ${BOOT} in
   "uefi")
     # try to get efi architecture
     if [ x$(cat /sys/firmware/efi/fw_platform_size 2>/dev/null) = 'x32' ]; then
-      apt-get install --no-install-recommends -y --allow-unauthenticated \
-        grub-efi-arm
+      install_package grub-efi-arm
       grub-install --target=arm-efi --efi-directory=/boot/efi \
         --bootloader-id="${BOOTLOADER_ID}" --recheck || \
         error "grub-install failed with efi! ${BOOTLOADER_ID}"
@@ -114,10 +113,8 @@ case ${BOOT} in
     else
       # Clover efi loader cannot use grub.efi correctly,
       # so we may patch grub or use grub.efi.signed.
-      #apt-get install --no-install-recommends -y --allow-unauthenticated \
-      #  shim-signed grub-efi-amd64-signed efibootmgr
-      apt-get install --no-install-recommends -y --allow-unauthenticated \
-	 efibootmgr grub-efi-arm64 grub-efi-arm64-bin
+      #install_package shim-signed grub-efi-amd64-signed efibootmgr
+      install_package efibootmgr grub-efi-arm64 grub-efi-arm64-bin
 
       # uefi-secure-boot options is enabled by default
       grub-install --target=arm64-efi --uefi-secure-boot \

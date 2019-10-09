@@ -127,3 +127,7 @@ is_arm64() {
       ;;
   esac
 }
+
+install_package() {
+  env DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends --allow-unauthenticated -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" install $1
+}
