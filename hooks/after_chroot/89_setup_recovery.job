@@ -25,6 +25,6 @@ fi
 
 mount ${DI_RECOVERY_PATH} /mnt || error "Faild to mount ${DI_RECOVERY_PATH}"
 
-deepin-clone --tui ${DI_RECOVERY_PATH} /mnt/backup.dim
+deepin-clone --tui $(installer_get "DI_ROOT_PARTITION") /mnt/backup.dim
 
 return $?
