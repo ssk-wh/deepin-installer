@@ -64,7 +64,7 @@ QStringList GetSlideFiles(const QString& locale) {
 
   // List all png files in slide folder.
   QString filepath;
-  for (const QString& filename : slide_dir.entryList({"*.png"}, QDir::Files)) {
+  for (const QString& filename : slide_dir.entryList(QDir::Files)) {
     filepath = slide_dir.absoluteFilePath(filename);
     if (QFile::exists(filepath)) {
       slide_files.append(filepath);
