@@ -1,17 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="en">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
 <context>
     <name>installer::AdvancedPartitionButton</name>
     <message>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="125"/>
         <source>Install here</source>
-        <translation type="unfinished">Install here</translation>
+        <translation>Install here</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="128"/>
         <source>To be formatted</source>
-        <translation type="unfinished">To be formatted</translation>
+        <translation>To be formatted</translation>
     </message>
 </context>
 <context>
@@ -20,80 +18,80 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="91"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="173"/>
         <source>Change boot loader</source>
-        <translation type="unfinished">Change boot loader</translation>
+        <translation>Change boot loader</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="93"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="559"/>
         <source>Done</source>
-        <translation type="unfinished">Done</translation>
+        <translation>Done</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="95"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="180"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="561"/>
         <source>Delete</source>
-        <translation type="unfinished">Delete</translation>
+        <translation>Delete</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="432"/>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation type="unfinished">%1 error found, fix to continue installation or switch to simple mode</translation>
+        <translation>%1 error found, fix to continue installation or switch to simple mode</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="436"/>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation type="unfinished">%1 errors found, fix to continue installation or switch to simple mode</translation>
+        <translation>%1 errors found, fix to continue installation or switch to simple mode</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="442"/>
         <source>%1 error found, continue to install after fixed</source>
-        <translation type="unfinished">%1 error found, continue to install after fixed</translation>
+        <translation>%1 error found, continue to install after fixed</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="446"/>
         <source>%1 errors found, continue to install after fixed</source>
-        <translation type="unfinished">%1 errors found, continue to install after fixed</translation>
+        <translation>%1 errors found, continue to install after fixed</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="493"/>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation type="unfinished">The partition filesystem type of /boot directory can only be %1 </translation>
+        <translation>The partition filesystem type of /boot directory can only be %1 </translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="497"/>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation type="unfinished">The partition of /boot directory should be the first partition on hard disk</translation>
+        <translation>The partition of /boot directory should be the first partition on hard disk</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="502"/>
         <source>At least %1 MB is required for /boot partition</source>
-        <translation type="unfinished">At least %1 MB is required for /boot partition</translation>
+        <translation>At least %1 MB is required for /boot partition</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="506"/>
         <source>Add an EFI partition to continue</source>
-        <translation type="unfinished">Add an EFI partition to continue</translation>
+        <translation>Add an EFI partition to continue</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="510"/>
         <source>At least %1 MB is required for EFI partition</source>
-        <translation type="unfinished">At least %1 MB is required for EFI partition</translation>
+        <translation>At least %1 MB is required for EFI partition</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="514"/>
         <source>Add a Root partition to continue</source>
-        <translation type="unfinished">Add a Root partition to continue</translation>
+        <translation>Add a Root partition to continue</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="519"/>
         <source>At least %1 GB is required for Root partition</source>
-        <translation type="unfinished">At least %1 GB is required for Root partition</translation>
+        <translation>At least %1 GB is required for Root partition</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="524"/>
         <source>At least %1 GB is required for partition %2</source>
-        <translation type="unfinished">At least %1 GB is required for partition %2</translation>
+        <translation>At least %1 GB is required for partition %2</translation>
     </message>
 </context>
 <context>
@@ -101,7 +99,7 @@
     <message>
         <location filename="../src/ui/models/bootloader_list_model.cpp" line="42"/>
         <source>%1 %2 (recommended)</source>
-        <translation type="unfinished">%1 %2 (recommended)</translation>
+        <translation>%1 %2 (recommended)</translation>
     </message>
 </context>
 <context>
@@ -110,25 +108,25 @@
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="39"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="58"/>
         <source>Abort Installation</source>
-        <translation type="unfinished">Abort Installation</translation>
+        <translation>Abort Installation</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="41"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="60"/>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
-        <translation type="unfinished">Relevant operations you made in the installation process will not take effect, abort or continue installation?</translation>
+        <translation>Relevant operations you made in the installation process will not take effect, abort or continue installation?</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="43"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="67"/>
         <source>Continue</source>
-        <translation type="unfinished">Continue</translation>
+        <translation>Continue</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="44"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="68"/>
         <source>Abort</source>
-        <translation type="unfinished">Abort</translation>
+        <translation>Abort</translation>
     </message>
 </context>
 <context>
@@ -137,13 +135,13 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="72"/>
         <source>Insufficient Disk Space</source>
-        <translation type="unfinished">Insufficient Disk Space</translation>
+        <translation>Insufficient Disk Space</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="79"/>
         <source>Exit</source>
-        <translation type="unfinished">Exit</translation>
+        <translation>Exit</translation>
     </message>
 </context>
 <context>
@@ -152,43 +150,43 @@
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="99"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="167"/>
         <source>Edit Disk</source>
-        <translation type="unfinished">Edit Disk</translation>
+        <translation>Edit Disk</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="101"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="169"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="unfinished">Make sure you have backed up important data, then select the disk to install</translation>
+        <translation>Make sure you have backed up important data, then select the disk to install</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="102"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="201"/>
         <source>File system</source>
-        <translation type="unfinished">File system</translation>
+        <translation>File system</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="203"/>
         <source>Mount point</source>
-        <translation type="unfinished">Mount point</translation>
+        <translation>Mount point</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="104"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="218"/>
         <source>Format the partition</source>
-        <translation type="unfinished">Format the partition</translation>
+        <translation>Format the partition</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="105"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="244"/>
         <source>Cancel</source>
-        <translation type="unfinished">Cancel</translation>
+        <translation>Cancel</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="106"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="245"/>
         <source>Create</source>
-        <translation type="unfinished">Create</translation>
+        <translation>Create</translation>
     </message>
 </context>
 <context>
@@ -197,13 +195,13 @@
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="38"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="61"/>
         <source>Tuning system</source>
-        <translation type="unfinished">Tuning system</translation>
+        <translation>Tuning system</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="40"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="63"/>
         <source>Applying changes to your system, please wait...</source>
-        <translation type="unfinished">Applying changes to your system, please wait...</translation>
+        <translation>Applying changes to your system, please wait...</translation>
     </message>
 </context>
 <context>
@@ -212,27 +210,27 @@
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="147"/>
         <source>Install here</source>
-        <translation type="unfinished">Install here</translation>
+        <translation>Install here</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="59"/>
         <source>Encrypt this disk</source>
-        <translation type="unfinished">Encrypt this disk</translation>
+        <translation>Encrypt this disk</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="60"/>
         <source>Encrypt This Disk</source>
-        <translation type="unfinished">Encrypt This Disk</translation>
+        <translation>Encrypt This Disk</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="61"/>
         <source>Please select a disk to start installation</source>
-        <translation type="unfinished">Please select a disk to start installation</translation>
+        <translation>Please select a disk to start installation</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
         <source>It needs more than %1GB disk space to install deepin, for better performance, %2GB and more space is recommended</source>
-        <translation type="unfinished">It needs more than %1GB disk space to install deepin, for better performance, %2GB and more space is recommended</translation>
+        <translation>It needs more than %1GB disk space to install deepin, for better performance, %2GB and more space is recommended</translation>
     </message>
 </context>
 <context>
@@ -241,25 +239,25 @@
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="78"/>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="101"/>
         <source>Installation Failed</source>
-        <translation type="unfinished">Installation Failed</translation>
+        <translation>Installation Failed</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="80"/>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="103"/>
         <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
-        <translation type="unfinished">Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</translation>
+        <translation>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="82"/>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="157"/>
         <source>Exit</source>
-        <translation type="unfinished">Exit</translation>
+        <translation>Exit</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="83"/>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="158"/>
         <source>Save Log</source>
-        <translation type="unfinished">Save Log</translation>
+        <translation>Save Log</translation>
     </message>
 </context>
 <context>
@@ -268,13 +266,13 @@
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="127"/>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="151"/>
         <source>Installing</source>
-        <translation type="unfinished">Installing</translation>
+        <translation>Installing</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="129"/>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="153"/>
         <source>Here are a few cool things to look out for...</source>
-        <translation type="unfinished">Here are a few cool things to look out for...</translation>
+        <translation>Here are a few cool things to look out for...</translation>
     </message>
 </context>
 <context>
@@ -283,25 +281,25 @@
         <location filename="../src/ui/frames/install_success_frame.cpp" line="41"/>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="60"/>
         <source>Successfully Installed</source>
-        <translation type="unfinished">Successfully Installed</translation>
+        <translation>Successfully Installed</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="43"/>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="62"/>
         <source>Reboot to complete the installation</source>
-        <translation type="unfinished">Reboot to complete the installation</translation>
+        <translation>Reboot to complete the installation</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="45"/>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="69"/>
         <source>Please remove the installation media before reboot</source>
-        <translation type="unfinished">Please remove the installation media before reboot</translation>
+        <translation>Please remove the installation media before reboot</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="46"/>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="70"/>
         <source>Reboot Now</source>
-        <translation type="unfinished">Reboot Now</translation>
+        <translation>Reboot Now</translation>
     </message>
 </context>
 <context>
@@ -309,12 +307,12 @@
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="191"/>
         <source>System Disk</source>
-        <translation type="unfinished">System Disk</translation>
+        <translation>System Disk</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="191"/>
         <source>Data Disk</source>
-        <translation type="unfinished">Data Disk</translation>
+        <translation>Data Disk</translation>
     </message>
 </context>
 <context>
@@ -323,67 +321,67 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="116"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="151"/>
         <source>Create New Partition</source>
-        <translation type="unfinished">Create New Partition</translation>
+        <translation>Create New Partition</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="153"/>
         <source>Create a new partition and define the type and size</source>
-        <translation type="unfinished">Create a new partition and define the type and size</translation>
+        <translation>Create a new partition and define the type and size</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="119"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="159"/>
         <source>Type</source>
-        <translation type="unfinished">Type</translation>
+        <translation>Type</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="165"/>
         <source>Location</source>
-        <translation type="unfinished">Location</translation>
+        <translation>Location</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="121"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="170"/>
         <source>File system</source>
-        <translation type="unfinished">File system</translation>
+        <translation>File system</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="122"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="178"/>
         <source>Mount point</source>
-        <translation type="unfinished">Mount point</translation>
+        <translation>Mount point</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="123"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="185"/>
         <source>Size</source>
-        <translation type="unfinished">Size</translation>
+        <translation>Size</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="125"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="168"/>
         <source>Start</source>
-        <translation type="unfinished">Start</translation>
+        <translation>Start</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="125"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="168"/>
         <source>End</source>
-        <translation type="unfinished">End</translation>
+        <translation>End</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="126"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="215"/>
         <source>Cancel</source>
-        <translation type="unfinished">Cancel</translation>
+        <translation>Cancel</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="127"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="216"/>
         <source>OK</source>
-        <translation type="unfinished">OK</translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -392,7 +390,7 @@
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="37"/>
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="54"/>
         <source>Formatting...</source>
-        <translation type="unfinished">Formatting...</translation>
+        <translation>Formatting...</translation>
     </message>
 </context>
 <context>
@@ -401,25 +399,25 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="76"/>
         <source>Format Warning</source>
-        <translation type="unfinished">Format Warning</translation>
+        <translation>Format Warning</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="57"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="94"/>
         <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation type="unfinished">Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</translation>
+        <translation>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="59"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="101"/>
         <source>Cancel</source>
-        <translation type="unfinished">Cancel</translation>
+        <translation>Cancel</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="102"/>
         <source>Continue</source>
-        <translation type="unfinished">Continue</translation>
+        <translation>Continue</translation>
     </message>
 </context>
 <context>
@@ -428,53 +426,53 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="88"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="238"/>
         <source>Select Installation Location</source>
-        <translation type="unfinished">Select Installation Location</translation>
+        <translation>Select Installation Location</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="90"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="240"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="unfinished">Make sure you have backed up important data, then select the disk to install</translation>
+        <translation>Make sure you have backed up important data, then select the disk to install</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="91"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="247"/>
         <source>Simple</source>
-        <translation type="unfinished">Simple</translation>
+        <translation>Simple</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="92"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="251"/>
         <source>Advanced</source>
-        <translation type="unfinished">Advanced</translation>
+        <translation>Advanced</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="93"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="255"/>
         <source>Full Disk</source>
-        <translation type="unfinished">Full Disk</translation>
+        <translation>Full Disk</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="94"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="318"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="461"/>
         <source>Start installation</source>
-        <translation type="unfinished">Start installation</translation>
+        <translation>Start installation</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="443"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation type="unfinished">The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</translation>
+        <translation>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="447"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation type="unfinished">The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</translation>
+        <translation>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="461"/>
         <source>Next</source>
-        <translation type="unfinished">Next</translation>
+        <translation>Next</translation>
     </message>
 </context>
 <context>
@@ -483,13 +481,13 @@
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="37"/>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="45"/>
         <source>Scan disks</source>
-        <translation type="unfinished">Scan disks</translation>
+        <translation>Scan disks</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="38"/>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="46"/>
         <source>Scanning disks, please wait...</source>
-        <translation type="unfinished">Scanning disks, please wait...</translation>
+        <translation>Scanning disks, please wait...</translation>
     </message>
 </context>
 <context>
@@ -497,41 +495,41 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="41"/>
         <source>You should delete a primary partition before creating a new one</source>
-        <translation type="unfinished">You should delete a primary partition before creating a new one</translation>
+        <translation>You should delete a primary partition before creating a new one</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="43"/>
         <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation type="unfinished">New logical partitions can only be created near existing logical partitions</translation>
+        <translation>New logical partitions can only be created near existing logical partitions</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="48"/>
         <source>You should delete a primary partition before creating a new partition</source>
-        <translation type="unfinished">You should delete a primary partition before creating a new partition</translation>
+        <translation>You should delete a primary partition before creating a new partition</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="74"/>
         <source>Failed to Create New Partition</source>
-        <translation type="unfinished">Failed to Create New Partition</translation>
+        <translation>Failed to Create New Partition</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="57"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="76"/>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
-        <translation type="unfinished">You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</translation>
+        <translation>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="79"/>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
-        <translation type="unfinished">You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</translation>
+        <translation>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="81"/>
         <source>Back</source>
-        <translation type="unfinished">Back</translation>
+        <translation>Back</translation>
     </message>
 </context>
 <context>
@@ -540,12 +538,12 @@
         <location filename="../src/ui/models/partition_type_model.cpp" line="41"/>
         <location filename="../src/ui/models/partition_type_model.cpp" line="47"/>
         <source>Logical Partition</source>
-        <translation type="unfinished">Logical Partition</translation>
+        <translation>Logical Partition</translation>
     </message>
     <message>
         <location filename="../src/ui/models/partition_type_model.cpp" line="45"/>
         <source>Primary Partition</source>
-        <translation type="unfinished">Primary Partition</translation>
+        <translation>Primary Partition</translation>
     </message>
 </context>
 <context>
@@ -554,31 +552,31 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="83"/>
         <source>Ready to Install</source>
-        <translation type="unfinished">Ready to Install</translation>
+        <translation>Ready to Install</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="85"/>
         <source>Make a backup of your important data and then continue</source>
-        <translation type="unfinished">Make a backup of your important data and then continue</translation>
+        <translation>Make a backup of your important data and then continue</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="92"/>
         <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
-        <translation type="unfinished">The following operations will be executed, please confirm and continue to avoid data loss</translation>
+        <translation>The following operations will be executed, please confirm and continue to avoid data loss</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="68"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="105"/>
         <source>Back</source>
-        <translation type="unfinished">Back</translation>
+        <translation>Back</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="69"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="106"/>
         <source>Continue</source>
-        <translation type="unfinished">Continue</translation>
+        <translation>Continue</translation>
     </message>
 </context>
 <context>
@@ -661,19 +659,19 @@
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="42"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="64"/>
         <source>Select location for boot loader</source>
-        <translation type="unfinished">Select location for boot loader</translation>
+        <translation>Select location for boot loader</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="44"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="66"/>
         <source>If you do not understand the settings, please select the recommended one</source>
-        <translation type="unfinished">If you do not understand the settings, please select the recommended one</translation>
+        <translation>If you do not understand the settings, please select the recommended one</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="45"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="77"/>
         <source>Back</source>
-        <translation type="unfinished">Back</translation>
+        <translation>Back</translation>
     </message>
 </context>
 <context>
@@ -682,27 +680,27 @@
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="189"/>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="231"/>
         <source>Next</source>
-        <translation type="unfinished">Next</translation>
+        <translation>Next</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="232"/>
         <source>I have read and agree to</source>
-        <translation type="unfinished">I have read and agree to</translation>
+        <translation>I have read and agree to</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="233"/>
         <source>Deepin Software End User License Agreement</source>
-        <translation type="unfinished">Deepin Software End User License Agreement</translation>
+        <translation>Deepin Software End User License Agreement</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="234"/>
         <source>Select system language</source>
-        <translation type="unfinished">Select system language</translation>
+        <translation>Select system language</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="237"/>
         <source>and</source>
-        <translation type="unfinished">and</translation>
+        <translation>and</translation>
     </message>
 </context>
 <context>
@@ -710,28 +708,28 @@
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="70"/>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation type="unfinished">Unable to create new partition, please select one of the existing partitions!</translation>
+        <translation>Unable to create new partition, please select one of the existing partitions!</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="77"/>
         <source>Please select one of the partitions to install!</source>
-        <translation type="unfinished">Please select one of the partitions to install!</translation>
+        <translation>Please select one of the partitions to install!</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="84"/>
         <source>At least %1 GB is required for root partition</source>
-        <translation type="unfinished">At least %1 GB is required for root partition</translation>
+        <translation>At least %1 GB is required for root partition</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="112"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="231"/>
         <source>Install here</source>
-        <translation type="unfinished">Install here</translation>
+        <translation>Install here</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="408"/>
         <source>Windows will not boot if install deepin on Windows disk, please confirm to continue</source>
-        <translation type="unfinished">Windows will not boot if install deepin on Windows disk, please confirm to continue</translation>
+        <translation>Windows will not boot if install deepin on Windows disk, please confirm to continue</translation>
     </message>
 </context>
 <context>
@@ -740,13 +738,13 @@
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="76"/>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="92"/>
         <source>User Avatar</source>
-        <translation type="unfinished">User Avatar</translation>
+        <translation>User Avatar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="77"/>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="93"/>
         <source>Select an avatar for your account</source>
-        <translation type="unfinished">Select an avatar for your account</translation>
+        <translation>Select an avatar for your account</translation>
     </message>
 </context>
 <context>
@@ -755,128 +753,128 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="84"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="175"/>
         <source>Create User Account</source>
-        <translation type="unfinished">Create User Account</translation>
+        <translation>Create User Account</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="85"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="176"/>
         <source>Fill in the username, computer name and your password</source>
-        <translation type="unfinished">Fill in the username, computer name and your password</translation>
+        <translation>Fill in the username, computer name and your password</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="86"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="185"/>
         <source>Username</source>
-        <translation type="unfinished">Username</translation>
+        <translation>Username</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="87"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="190"/>
         <source>Computer name</source>
-        <translation type="unfinished">Computer name</translation>
+        <translation>Computer name</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="88"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="195"/>
         <source>Password</source>
-        <translation type="unfinished">Password</translation>
+        <translation>Password</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="89"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="201"/>
         <source>Repeat password</source>
-        <translation type="unfinished">Repeat password</translation>
+        <translation>Repeat password</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="90"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="206"/>
         <source>Set root password</source>
-        <translation type="unfinished">Set root password</translation>
+        <translation>Set root password</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="91"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="212"/>
         <source>Root password</source>
-        <translation type="unfinished">Root password</translation>
+        <translation>Root password</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="92"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="222"/>
         <source>Repeat root password</source>
-        <translation type="unfinished">Repeat root password</translation>
+        <translation>Repeat root password</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="93"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="247"/>
         <source>Next</source>
-        <translation type="unfinished">Next</translation>
+        <translation>Next</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="94"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="241"/>
         <source>Use that password to edit boot menu</source>
-        <translation type="unfinished">Use that password to edit boot menu</translation>
+        <translation>Use that password to edit boot menu</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="288"/>
         <source>This username already exists</source>
-        <translation type="unfinished">This username already exists</translation>
+        <translation>This username already exists</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="292"/>
         <source>The first letter must be in lowercase</source>
-        <translation type="unfinished">The first letter must be in lowercase</translation>
+        <translation>The first letter must be in lowercase</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="298"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
-        <translation type="unfinished">Username must contain English letters (lowercase), numbers or special symbols (_-)</translation>
+        <translation>Username must contain English letters (lowercase), numbers or special symbols (_-)</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="304"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
-        <translation type="unfinished">Please input username longer than %1 characters and shorter than %2 characters</translation>
+        <translation>Please input username longer than %1 characters and shorter than %2 characters</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="326"/>
         <source>Please input computer name</source>
-        <translation type="unfinished">Please input computer name</translation>
+        <translation>Please input computer name</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="330"/>
         <source>Computer name is invalid</source>
-        <translation type="unfinished">Computer name is invalid</translation>
+        <translation>Computer name is invalid</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="334"/>
         <source>Computer name already exists, please input another one</source>
-        <translation type="unfinished">Computer name already exists, please input another one</translation>
+        <translation>Computer name already exists, please input another one</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="339"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
-        <translation type="unfinished">Please input computer name longer than %1 characters and shorter than %2 characters</translation>
+        <translation>Please input computer name longer than %1 characters and shorter than %2 characters</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="365"/>
         <source>The password should be different from the username</source>
-        <translation type="unfinished">The password should be different from the username</translation>
+        <translation>The password should be different from the username</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="377"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="390"/>
         <source>Please input password longer than %1 characters and shorter than %2 characters</source>
-        <translation type="unfinished">Please input password longer than %1 characters and shorter than %2 characters</translation>
+        <translation>Please input password longer than %1 characters and shorter than %2 characters</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="384"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished">The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+        <translation>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="416"/>
         <source>Passwords do not match</source>
-        <translation type="unfinished">Passwords do not match</translation>
+        <translation>Passwords do not match</translation>
     </message>
 </context>
 <context>
@@ -885,29 +883,29 @@
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="103"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="124"/>
         <source>Select keyboard layout</source>
-        <translation type="unfinished">Select keyboard layout</translation>
+        <translation>Select keyboard layout</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="104"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="125"/>
         <source>Select a proper keyboard layout</source>
-        <translation type="unfinished">Select a proper keyboard layout</translation>
+        <translation>Select a proper keyboard layout</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="105"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="163"/>
         <source>Test here</source>
-        <translation type="unfinished">Test here</translation>
+        <translation>Test here</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="106"/>
         <source>Back</source>
-        <translation type="unfinished">Back</translation>
+        <translation>Back</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="168"/>
         <source>Next</source>
-        <translation type="unfinished">Next</translation>
+        <translation>Next</translation>
     </message>
 </context>
 <context>
@@ -916,44 +914,44 @@
         <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="221"/>
         <source>Select Timezone</source>
-        <translation type="unfinished">Select Timezone</translation>
+        <translation>Select Timezone</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="222"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="353"/>
         <source>Click your zone on the map</source>
-        <translation type="unfinished">Click your zone on the map</translation>
+        <translation>Click your zone on the map</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="360"/>
         <source>Select your timezone from the list</source>
-        <translation type="unfinished">Select your timezone from the list</translation>
+        <translation>Select your timezone from the list</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="121"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="224"/>
         <source>Next</source>
-        <translation type="unfinished">Next</translation>
+        <translation>Next</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="227"/>
         <source>Map</source>
-        <translation type="unfinished">Map</translation>
+        <translation>Map</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="233"/>
         <source>List</source>
-        <translation type="unfinished">List</translation>
+        <translation>List</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="287"/>
         <source>Time settings</source>
-        <translation type="unfinished">Time settings</translation>
+        <translation>Time settings</translation>
     </message>
 </context>
 <context>
@@ -962,104 +960,104 @@
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="40"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="56"/>
         <source>Friendly Reminder</source>
-        <translation type="unfinished">Friendly Reminder</translation>
+        <translation>Friendly Reminder</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="42"/>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install deepin in a real environment</source>
-        <translation type="unfinished">You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install deepin in a real environment</translation>
+        <translation>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install deepin in a real environment</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="44"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="67"/>
         <source>Continue</source>
-        <translation type="unfinished">Continue</translation>
+        <translation>Continue</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install deepin in real-machine environment</source>
-        <translation type="unfinished">System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install deepin in real-machine environment</translation>
+        <translation>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install deepin in real-machine environment</translation>
     </message>
 </context>
 <context>
     <name>installer::AdvancedPartitionButton</name>
     <message>
         <source>Install here</source>
-        <translation type="obsolete">Install here</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>To be formatted</source>
-        <translation type="obsolete">To be formatted</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::AdvancedPartitionFrame</name>
     <message>
         <source>Change boot loader</source>
-        <translation type="obsolete">Change boot loader</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Done</source>
-        <translation type="obsolete">Done</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="obsolete">Delete</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation type="obsolete">%1 error found, fix to continue installation or switch to simple mode</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation type="obsolete">%1 errors found, fix to continue installation or switch to simple mode</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1 error found, continue to install after fixed</source>
-        <translation type="obsolete">%1 error found, continue to install after fixed</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1 errors found, continue to install after fixed</source>
-        <translation type="obsolete">%1 errors found, continue to install after fixed</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation type="obsolete">The partition filesystem type of /boot directory can only be %1 </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation type="obsolete">The partition of /boot directory should be the first partition on hard disk</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At least %1 MB is required for /boot partition</source>
-        <translation type="obsolete">At least %1 MB is required for /boot partition</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add an EFI partition to continue</source>
-        <translation type="obsolete">Add an EFI partition to continue</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At least %1 MB is required for EFI partition</source>
-        <translation type="obsolete">At least %1 MB is required for EFI partition</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add a Root partition to continue</source>
-        <translation type="obsolete">Add a Root partition to continue</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At least %1 GB is required for Root partition</source>
-        <translation type="obsolete">At least %1 GB is required for Root partition</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At least %1 GB is required for partition %2</source>
-        <translation type="obsolete">At least %1 GB is required for partition %2</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::BootloaderListModel</name>
     <message>
         <source>%1 %2 (recommended)</source>
-        <translation type="obsolete">%1 %2 (recommended)</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1599,19 +1597,19 @@
     <name>installer::ConfirmQuitFrame</name>
     <message>
         <source>Abort Installation</source>
-        <translation type="obsolete">Abort Installation</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
-        <translation type="obsolete">Relevant operations you made in the installation process will not take effect, abort or continue installation?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="obsolete">Continue</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Abort</source>
-        <translation type="obsolete">Abort</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1643,11 +1641,11 @@
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
         <source>Insufficient Disk Space</source>
-        <translation type="obsolete">Insufficient Disk Space</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="obsolete">Exit</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1672,65 +1670,65 @@
     <name>installer::EditPartitionFrame</name>
     <message>
         <source>Edit Disk</source>
-        <translation type="obsolete">Edit Disk</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="obsolete">Make sure you have backed up important data, then select the disk to install</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>File system</source>
-        <translation type="obsolete">File system</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="obsolete">Mount point</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Format the partition</source>
-        <translation type="obsolete">Format the partition</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="obsolete">Cancel</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Create</source>
-        <translation type="obsolete">Create</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::FirstBootLoadingFrame</name>
     <message>
         <source>Tuning system</source>
-        <translation type="obsolete">Tuning system</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Applying changes to your system, please wait...</source>
-        <translation type="obsolete">Applying changes to your system, please wait...</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::FullDiskFrame</name>
     <message>
         <source>Install here</source>
-        <translation type="obsolete">Install here</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Encrypt this disk</source>
-        <translation type="obsolete">Encrypt this disk</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Encrypt This Disk</source>
-        <translation type="obsolete">Encrypt This Disk</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please select a disk to start installation</source>
-        <translation type="obsolete">Please select a disk to start installation</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>It needs more than %1GB disk space to install deepin, for better performance, %2GB and more space is recommended</source>
-        <translation type="obsolete">It needs more than %1GB disk space to install deepin, for better performance, %2GB and more space is recommended</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1785,49 +1783,49 @@
     <name>installer::InstallFailedFrame</name>
     <message>
         <source>Installation Failed</source>
-        <translation type="obsolete">Installation Failed</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
-        <translation type="obsolete">Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="obsolete">Exit</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Save Log</source>
-        <translation type="obsolete">Save Log</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::InstallProgressFrame</name>
     <message>
         <source>Installing</source>
-        <translation type="obsolete">Installing</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Here are a few cool things to look out for...</source>
-        <translation type="obsolete">Here are a few cool things to look out for...</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::InstallSuccessFrame</name>
     <message>
         <source>Successfully Installed</source>
-        <translation type="obsolete">Successfully Installed</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Reboot to complete the installation</source>
-        <translation type="obsolete">Reboot to complete the installation</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please remove the installation media before reboot</source>
-        <translation type="obsolete">Please remove the installation media before reboot</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Reboot Now</source>
-        <translation type="obsolete">Reboot Now</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1842,11 +1840,11 @@
     <name>installer::MultipleDiskInstallationWidget</name>
     <message>
         <source>System Disk</source>
-        <translation type="obsolete">System Disk</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Data Disk</source>
-        <translation type="obsolete">Data Disk</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1906,154 +1904,154 @@
     <name>installer::NewPartitionFrame</name>
     <message>
         <source>Create New Partition</source>
-        <translation type="obsolete">Create New Partition</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Create a new partition and define the type and size</source>
-        <translation type="obsolete">Create a new partition and define the type and size</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Type</source>
-        <translation type="obsolete">Type</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Location</source>
-        <translation type="obsolete">Location</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>File system</source>
-        <translation type="obsolete">File system</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="obsolete">Mount point</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Size</source>
-        <translation type="obsolete">Size</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Start</source>
-        <translation type="obsolete">Start</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>End</source>
-        <translation type="obsolete">End</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="obsolete">Cancel</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>OK</source>
-        <translation type="obsolete">OK</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::NewTableLoadingFrame</name>
     <message>
         <source>Formatting...</source>
-        <translation type="obsolete">Formatting...</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::NewTableWarningFrame</name>
     <message>
         <source>Format Warning</source>
-        <translation type="obsolete">Format Warning</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation type="obsolete">Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="obsolete">Cancel</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="obsolete">Continue</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::PartitionFrame</name>
     <message>
         <source>Select Installation Location</source>
-        <translation type="obsolete">Select Installation Location</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="obsolete">Make sure you have backed up important data, then select the disk to install</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Simple</source>
-        <translation type="obsolete">Simple</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="obsolete">Advanced</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Full Disk</source>
-        <translation type="obsolete">Full Disk</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Start installation</source>
-        <translation type="obsolete">Start installation</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation type="obsolete">The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation type="obsolete">The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Next</source>
-        <translation type="obsolete">Next</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::PartitionLoadingFrame</name>
     <message>
         <source>Scan disks</source>
-        <translation type="obsolete">Scan disks</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scanning disks, please wait...</source>
-        <translation type="obsolete">Scanning disks, please wait...</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::PartitionNumberLimitationFrame</name>
     <message>
         <source>You should delete a primary partition before creating a new one</source>
-        <translation type="obsolete">You should delete a primary partition before creating a new one</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation type="obsolete">New logical partitions can only be created near existing logical partitions</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You should delete a primary partition before creating a new partition</source>
-        <translation type="obsolete">You should delete a primary partition before creating a new partition</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to Create New Partition</source>
-        <translation type="obsolete">Failed to Create New Partition</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
-        <translation type="obsolete">You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
-        <translation type="obsolete">You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Back</source>
-        <translation type="obsolete">Back</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2147,34 +2145,34 @@
     <name>installer::PartitionTypeModel</name>
     <message>
         <source>Logical Partition</source>
-        <translation type="obsolete">Logical Partition</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Primary Partition</source>
-        <translation type="obsolete">Primary Partition</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::PrepareInstallFrame</name>
     <message>
         <source>Ready to Install</source>
-        <translation type="obsolete">Ready to Install</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Make a backup of your important data and then continue</source>
-        <translation type="obsolete">Make a backup of your important data and then continue</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
-        <translation type="obsolete">The following operations will be executed, please confirm and continue to avoid data loss</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Back</source>
-        <translation type="obsolete">Back</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="obsolete">Continue</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2204,15 +2202,15 @@
     <name>installer::SelectBootloaderFrame</name>
     <message>
         <source>Select location for boot loader</source>
-        <translation type="obsolete">Select location for boot loader</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>If you do not understand the settings, please select the recommended one</source>
-        <translation type="obsolete">If you do not understand the settings, please select the recommended one</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Back</source>
-        <translation type="obsolete">Back</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2246,46 +2244,46 @@
     <name>installer::SelectLanguageFrame</name>
     <message>
         <source>Next</source>
-        <translation type="obsolete">Next</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>I have read and agree to</source>
-        <translation type="obsolete">I have read and agree to</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Deepin Software End User License Agreement</source>
-        <translation type="obsolete">Deepin Software End User License Agreement</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select system language</source>
-        <translation type="obsolete">Select system language</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>and</source>
-        <translation type="obsolete">and</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::SimplePartitionFrame</name>
     <message>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation type="obsolete">Unable to create new partition, please select one of the existing partitions!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please select one of the partitions to install!</source>
-        <translation type="obsolete">Please select one of the partitions to install!</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>At least %1 GB is required for root partition</source>
-        <translation type="obsolete">At least %1 GB is required for root partition</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Install here</source>
-        <translation type="obsolete">Install here</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Windows will not boot if install deepin on Windows disk, please confirm to continue</source>
-        <translation type="obsolete">Windows will not boot if install deepin on Windows disk, please confirm to continue</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2342,160 +2340,160 @@
     <name>installer::SystemInfoAvatarFrame</name>
     <message>
         <source>User Avatar</source>
-        <translation type="obsolete">User Avatar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select an avatar for your account</source>
-        <translation type="obsolete">Select an avatar for your account</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::SystemInfoFormFrame</name>
     <message>
         <source>Create User Account</source>
-        <translation type="obsolete">Create User Account</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fill in the username, computer name and your password</source>
-        <translation type="obsolete">Fill in the username, computer name and your password</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
-        <translation type="obsolete">Username</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Computer name</source>
-        <translation type="obsolete">Computer name</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation type="obsolete">Password</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Repeat password</source>
-        <translation type="obsolete">Repeat password</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Set root password</source>
-        <translation type="obsolete">Set root password</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Root password</source>
-        <translation type="obsolete">Root password</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Repeat root password</source>
-        <translation type="obsolete">Repeat root password</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Next</source>
-        <translation type="obsolete">Next</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use that password to edit boot menu</source>
-        <translation type="obsolete">Use that password to edit boot menu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This username already exists</source>
-        <translation type="obsolete">This username already exists</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The first letter must be in lowercase</source>
-        <translation type="obsolete">The first letter must be in lowercase</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
-        <translation type="obsolete">Username must contain English letters (lowercase), numbers or special symbols (_-)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
-        <translation type="obsolete">Please input username longer than %1 characters and shorter than %2 characters</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please input computer name</source>
-        <translation type="obsolete">Please input computer name</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Computer name is invalid</source>
-        <translation type="obsolete">Computer name is invalid</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Computer name already exists, please input another one</source>
-        <translation type="obsolete">Computer name already exists, please input another one</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
-        <translation type="obsolete">Please input computer name longer than %1 characters and shorter than %2 characters</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The password should be different from the username</source>
-        <translation type="obsolete">The password should be different from the username</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please input password longer than %1 characters and shorter than %2 characters</source>
-        <translation type="obsolete">Please input password longer than %1 characters and shorter than %2 characters</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="obsolete">The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="obsolete">Passwords do not match</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::SystemInfoKeyboardFrame</name>
     <message>
         <source>Select keyboard layout</source>
-        <translation type="obsolete">Select keyboard layout</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select a proper keyboard layout</source>
-        <translation type="obsolete">Select a proper keyboard layout</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Back</source>
-        <translation type="obsolete">Back</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Test here</source>
-        <translation type="obsolete">Test here</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Next</source>
-        <translation type="obsolete">Next</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::TimezoneFrame</name>
     <message>
         <source>Select Timezone</source>
-        <translation type="obsolete">Select Timezone</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Click your zone on the map</source>
-        <translation type="obsolete">Click your zone on the map</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select your timezone from the list</source>
-        <translation type="obsolete">Select your timezone from the list</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Next</source>
-        <translation type="obsolete">Next</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Map</source>
-        <translation type="obsolete">Map</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>List</source>
-        <translation type="obsolete">List</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time settings</source>
-        <translation type="obsolete">Time settings</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2525,19 +2523,19 @@
     <name>installer::VirtualMachineFrame</name>
     <message>
         <source>Friendly Reminder</source>
-        <translation type="obsolete">Friendly Reminder</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install deepin in a real environment</source>
-        <translation type="obsolete">You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install deepin in a real environment</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="obsolete">Continue</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install deepin in real-machine environment</source>
-        <translation type="obsolete">System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install deepin in real-machine environment</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Alvaro Samudio <alvarosamudio1@gmail.com>, 2017
+# Alvaro Samudio <alvarosamudio@protonmail.com>, 2017
 # jhalo <jhalo@protonmail.com>, 2017
 # 
 #, fuzzy

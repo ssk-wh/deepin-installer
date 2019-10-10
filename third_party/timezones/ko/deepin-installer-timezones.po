@@ -1099,7 +1099,7 @@ msgstr "아시아/카타르"
 
 #: system-config-date-timezones.h:270
 msgid "Asia/Qostanay"
-msgstr ""
+msgstr "아시아/코스타나이"
 
 #: system-config-date-timezones.h:271
 msgid "Asia/Qyzylorda"
