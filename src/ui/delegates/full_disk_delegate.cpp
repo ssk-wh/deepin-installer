@@ -33,6 +33,9 @@ namespace {
 
 const char kLinuxSwapMountPoint[] = "linux-swap";
 const char kUEFIPartitionLabel[] = "efi";
+const char kFullDiskPolicyRootb[] = "rootb";
+const char kFullDiskPolicyUsageRootSize[] = "root-size";
+const char kPartitionFullDiskRootPartitionUsage[] = "partition_full_disk_root_partition_usage";
 
 }  // namespace
 
@@ -1075,9 +1078,16 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
     int            primary_count { 0 };
     const uint     swapSize{ getSwapSize() };
     qint64         startSector{ 0 };
-    qint64         endSector { device->length };
+    qint64         endSector { device->length - 1 };
     qint64         lastDeviceLenght{ device->length };
     Partition::Ptr unallocated = device->partitions.last();
+
+    const qint64 oneMebiByteSector = 1 * kMebiByte / device->sector_size;
+    startSector = oneMebiByteSector;
+    lastDeviceLenght -= oneMebiByteSector;
+    qint64 adjust_start_offset_sector = startSector;
+    int root_size_count { 0 };
+    int percent100_count { 0 };
 
     if (IsEfiEnabled() && option.is_system_disk) {
         const qint64 uefiSize =
@@ -1097,7 +1107,13 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
         Operation& last_operation = operations_.last();
         last_operation.applyToVisual(device);
         unallocated = device->partitions.last();
+        startSector += sectors;
+        adjust_start_offset_sector += sectors;
     }
+
+    // total bytes used by policy
+    const qint64 policy_total_bytes = lastDeviceLenght * device->sector_size;
+    SizeRange root_range;
 
     FullDiskPolicyList& policy_list = option.policy_list;
     FullDiskPolicyList::iterator begin = policy_list.end();
@@ -1123,6 +1139,23 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
         if (policy.usage == "swap-size") {
             partitionSize = ParsePartitionSize(swap_size_str,length);
         }
+
+        if (policy.usage == "100%") {
+            percent100_count++;
+        }
+
+        if (policy.mountPoint == kMountPointRoot || policy.label == kFullDiskPolicyRootb) {
+            if (policy.usage == kFullDiskPolicyUsageRootSize) {
+                root_size_count++;
+                const QString root_size_str = GetSettingsString(kPartitionFullDiskRootPartitionUsage);
+                partitionSize = ParsePartitionSize(root_size_str, device->getByteLength());
+            }
+
+            root_range = getRootPartitionSizeRange();
+            partitionSize = std::max(partitionSize, root_range.min_size_bytes);
+            partitionSize = std::min(partitionSize, root_range.max_size_bytes);
+        }
+
         if (partitionSize < 1) {
             partitionSize = ParsePartitionSize(policy.usage, length);
         }
@@ -1130,15 +1163,21 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
         policy.sectors = partitionSize / device->sector_size;
         if (policy.alignStart) {
             policy.startSector = startSector;
-            policy.endSector = policy.startSector + policy.sectors;
+            policy.endSector = policy.startSector + policy.sectors - 1;
             startSector += policy.sectors;
         }
         else {
             policy.endSector = endSector;
-            policy.startSector = policy.endSector - policy.sectors;
+            policy.startSector = policy.endSector - policy.sectors + 1;
             endSector -= policy.sectors;
         }
+
         lastDeviceLenght -= policy.sectors;
+        if (lastDeviceLenght < 0) {
+            qDebug() << QString("FULLDISK:size out of range. please check your configuration file");
+            return false;
+        }
+
         bool is_primary = (device->table == PartitionTableType::GPT
                            || primary_count < (device->max_prims - 1));
         policy.partitionType = is_primary ? PartitionType::Normal : PartitionType::Logical;
@@ -1147,6 +1186,17 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
         }
     }
 
+    // Adjust partition size for root partition if it is system disk
+    // and there is free space left
+    PartitionAdjustOption adjust;
+    adjust.free_bytes = lastDeviceLenght * device->sector_size;
+    adjust.root_size_count = root_size_count;
+    adjust.percent100_count = percent100_count;
+    adjust.start_offset_sector = adjust_start_offset_sector;
+    adjust.root_size_range = root_range;
+    adjustFullDiskPolicy(device, option, adjust);
+
+    // sort all policies
     qSort(begin, end, FullDiskPolicyComparator());
 
     const FullDiskPolicyList& const_policy_list = option.policy_list;
@@ -1154,10 +1204,13 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
         if (policy.device != device->path) {
             continue;
         }
-        if (!createPartition(unallocated, policy.partitionType, policy.alignStart, policy.filesystem,
+
+        // alignStart is always true ,since policies are sorted by start_sector
+        if (!createPartition(unallocated, policy.partitionType, true, policy.filesystem,
                     policy.mountPoint, policy.sectors,policy.label)) {
             return false;
         }
+
         Operation& last_operation = operations_.last();
         last_operation.applyToVisual(device);
         for (Partition::Ptr p : device->partitions) {
@@ -1246,6 +1299,77 @@ const DiskPartitionSetting& FullDiskDelegate::settings() const
 const DeviceList FullDiskDelegate::selectedDevices()
 {
     return selected_devices;
+}
+
+const SizeRange FullDiskDelegate::getRootPartitionSizeRange()
+{
+    const QString root_range_str = GetSettingsString(kPartitionFullDiskLargeRootPartRange);
+    const QStringList root_ranges = root_range_str.split(":", QString::SkipEmptyParts);
+
+    int min_root_size_gib { 0 };
+    int max_root_size_gib { 0 };
+
+    if (root_ranges.length() > 0) {
+        min_root_size_gib = root_ranges[0].toInt();
+    }
+
+    if (root_ranges.length() > 1) {
+        max_root_size_gib = root_ranges[1].toInt();
+    }
+
+    if (max_root_size_gib < min_root_size_gib) {
+        max_root_size_gib = min_root_size_gib;
+    }
+
+    SizeRange range;
+    range.min_size_bytes = kGibiByte * std::min(min_root_size_gib, max_root_size_gib);
+    range.max_size_bytes = kGibiByte * std::max(min_root_size_gib, max_root_size_gib);
+    return range;
+}
+
+void FullDiskDelegate::adjustFullDiskPolicy(const Device::Ptr& device, FullDiskOption& option, const PartitionAdjustOption& adjust)
+{
+    // no need to adjust if any policy's usage = 100%
+    // no need to adjust if no policy's usage is root-size
+    if (adjust.percent100_count > 0 || adjust.root_size_count == 0) {
+        return;
+    }
+
+    qint64 start_sectors = adjust.start_offset_sector;
+    qint64 end_sectors = device->length - 1;
+    const qint64 total_free_sectors = adjust.free_bytes / device->sector_size;
+    const qint64 root_free_sectors = total_free_sectors / adjust.root_size_count;
+
+    FullDiskPolicyList& policy_list = option.policy_list;
+    FullDiskPolicyList::iterator it;
+    for (it = policy_list.begin(); it != policy_list.end(); it++) {
+        FullDiskPolicy& policy = *it;
+        if (policy.device != device->path) {
+            continue;
+        }
+
+        if (policy.usage == kFullDiskPolicyUsageRootSize &&
+           (policy.mountPoint == kMountPointRoot || policy.label == kFullDiskPolicyRootb))
+        { // make sure that roota & rootb use all left space
+            policy.sectors += root_free_sectors;
+            qint64 partitionSize = policy.sectors * device->sector_size;
+            partitionSize = std::max(partitionSize, adjust.root_size_range.min_size_bytes);
+            partitionSize = std::min(partitionSize, adjust.root_size_range.max_size_bytes);
+            policy.sectors = partitionSize / device->sector_size;
+        }
+
+        //others boundary maybe need adjust since some root partition's size is changed
+        if (policy.alignStart) {
+            policy.startSector = start_sectors;
+            policy.endSector = policy.startSector + policy.sectors - 1;
+            start_sectors = policy.endSector + 1;
+        }
+        else {
+            policy.endSector = end_sectors;
+            policy.startSector = policy.endSector - policy.sectors + 1;
+            end_sectors = policy.startSector - 1;
+        }
+    }
 }
 
 }  // namespace installer

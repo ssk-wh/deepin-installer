@@ -151,3 +151,17 @@ slide 目录的结果应该与 resources/slide 目录相同.
 * YYYYY格式类似于zh_CN和en_US等，此例为en_US
 * 必须至少提供一个en_US语言的自定义用户授权协议文件
 * 文件名格式不符合要求的暂不支持。字母区分大小写。
+
+## 自定义根分区大小。
+* 根分区大小分配。
+ root-size配置。对根分区的大小配置增加了新的配置方法，只对根分区(roota,rootb)有效。
+ full_disk_policy.json文件中的"usage"字段新增了"root-size"值。
+ 当usage配置为"root-size"时，需要同时配置default_settings.ini文件：
+ 'partition_full_disk_root_partition_usage' 根分区的大小。
+ 例如：partition_full_disk_root_partition_usage = 20%   整个硬盘空间的百分比。
+ 例如：partition_full_disk_root_partition_usage = 20Gib 绝对值。
+ 如果系统盘有剩余空间，而且系统盘没有其它分区使用usage="100%"，则自动将系统盘剩余空间平均分配给根分区。
+
+* 范围限制。根分区的大小受到限制。非绝对严格的限制，存在细微出入。
+ 根分区的最终大小总是受到配置partition_full_disk_large_root_part_range的限制，即使存在自动扩容。
+ partition_full_disk_large_root_part_range = "20:150"  最小值：最大值；单位:Gib。

@@ -53,6 +53,19 @@ struct FullDiskOption {
     bool                is_system_disk;
 };
 
+struct SizeRange {
+   qint64 min_size_bytes;
+   qint64 max_size_bytes;
+};
+
+struct PartitionAdjustOption {
+   int root_size_count; // policy count of usage=root-size
+   int percent100_count; // policy count of usage=100%
+   qint64 start_offset_sector; //start sector of first policy
+   qint64 free_bytes; // free space left (bytes) by policy configuration
+   SizeRange root_size_range; // size range of root policy
+};
+
 // Partition delegate used in FullDiskFrame.
 class FullDiskDelegate : public QObject {
   Q_OBJECT
@@ -122,6 +135,12 @@ class FullDiskDelegate : public QObject {
   const DeviceList selectedDevices();
 
 private:
+  // get root partition size range from settings
+  const SizeRange getRootPartitionSizeRange();
+
+  // build new partition data from sorted full disk policy
+  void adjustFullDiskPolicy(const Device::Ptr& device, FullDiskOption& option, const PartitionAdjustOption& adjust);
+
   // New version of formatWholeDevice with the support of multiple disks.
   bool formatWholeDeviceV2(const Device::Ptr& device, FullDiskOption& option);
 
