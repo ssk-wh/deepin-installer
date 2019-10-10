@@ -154,8 +154,6 @@ def main():
         ("timezone_default", "Asia/Shanghai"),
         ("timezone_use_local_time_regardless", "true"),
         ("system_info_password_strong_check", "false"),
-        ("apt_source_deb", '"deb http://packages.deepin.com/deepin camel main contrib non-free"'),
-        ("apt_source_deb_src", '"#deb-src http://packages.deepin.com/deepin camel main contrib non-free"'),
         ("skip_select_component_page", "true"),
         ("partition_skip_simple_partition_page", "true"),
     )
