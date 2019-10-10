@@ -66,6 +66,15 @@ void SelectInstallComponentFrame::writeConf()
         if (!uninstallPackages.isEmpty()) {
             WriteComponentUninstallPackages(uninstallPackages.join(" "));
         }
+
+        // Write about language
+        const QStringList packages =
+            ComponentInstallManager::Instance()->loadStructForLanguage(
+                installer::ReadLocale());
+
+        if (!packages.isEmpty()) {
+            WriteComponentLanguage(packages.join(" "));
+        }
     });
 }
 
@@ -88,17 +97,6 @@ bool SelectInstallComponentFrame::event(QEvent* event) {
             it.key()->setTitle(ts.first);
             it.key()->setDesc(ts.second);
         }
-
-        // Write about language
-        const QStringList packages =
-            ComponentInstallManager::Instance()->loadStructForLanguage(
-                installer::ReadLocale());
-
-        if (packages.isEmpty()) {
-            return QWidget::event(event);
-        }
-
-        WriteComponentLanguage(packages.join(" "));
     }
 
     return QWidget::event(event);

@@ -29,6 +29,10 @@
 #include <QApt/DebFile>
 #include <QPair>
 
+#ifndef QT_DEBUG
+#include <QtConcurrent/QtConcurrent>
+#endif
+
 using namespace installer;
 
 ComponentInstallManager *ComponentInstallManager::Instance()
@@ -146,6 +150,37 @@ ComponentInstallManager::ComponentInstallManager(QObject *parent) : QObject(pare
 
         m_packageList << info;
     }
+
+#ifndef QT_DEBUG
+    QtConcurrent::run([=] {
+        // 加載所有的deb包
+        QDir dir("/lib/live/mount/medium/pool/main/");
+        if (!dir.exists()) {
+            dir.setPath("/run/live/medium/pool/main/");
+        }
+
+        if (!dir.exists()) {
+            qDebug() << "/media/cdrom not exist.";
+        }
+
+        const QStringList&   list = findAllDeb(dir.path());
+        QList<QApt::DebFile> files;
+        QStringList          packagesList;
+
+        for (const QString& l : list) {
+            QApt::DebFile file(l);
+            packagesList << file.packageName();
+        }
+
+        for (auto it = obj.begin(); it != obj.end(); ++it) {
+            for (QJsonValue value : it.value().toArray()) {
+                if (!packagesList.contains(value.toString())) {
+                    qWarning() << QString("Package %1 not found!").arg(value.toString());
+                }
+            }
+        }
+    });
+#endif
 }
 
 QStringList ComponentInstallManager::packageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const {
