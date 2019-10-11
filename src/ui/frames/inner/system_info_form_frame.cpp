@@ -75,7 +75,9 @@ void SystemInfoFormFrame::writeConf()
     WriteUsername(username_edit_->text());
     WriteHostname(hostname_edit_->text());
     WritePassword(password_edit_->text());
-    WriteRootPassword(m_rootPasswordEdit->text());
+    WriteRootPassword(GetSettingsBool(kSetRootPasswordFromUser)
+                          ? password_edit_->text()
+                          : m_rootPasswordEdit->text());
 }
 
 void SystemInfoFormFrame::changeEvent(QEvent* event)
@@ -207,6 +209,7 @@ void SystemInfoFormFrame::initUI()
     m_setRootPasswordCheck->setCheckable(true);
     m_setRootPasswordCheck->setChecked(false);
     m_setRootPasswordCheck->setObjectName("RootPasswordCheckBox");
+    m_setRootPasswordCheck->setVisible(!GetSettingsBool(kSetRootPasswordFromUser));
 
     m_rootPasswordEdit = new LineEdit(":/images/password_12.svg");
     m_rootPasswordEdit->setPlaceholderText(tr("Root password"));

@@ -69,6 +69,7 @@ def main():
         ("timezone_default", "Asia/Shanghai"),
         ("partition_skip_simple_partition_page", "true"),
         ("partition_skip_partition_crypt_page", "true"),
+        ("set_root_password_from_user", "true"),
     )
 
     arm_server_settings = (
@@ -77,6 +78,7 @@ def main():
         ("timezone_default", "Asia/Shanghai"),
         ("partition_skip_simple_partition_page", "true"),
         ("partition_skip_partition_crypt_page", "true"),
+        ("set_root_password_from_user", "true"),
     )
 
     loongson_community_settings = (
