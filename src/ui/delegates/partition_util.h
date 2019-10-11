@@ -73,10 +73,6 @@ QString GetPartitionUsage(const Partition::Ptr partition);
 // Get partition usage percentage (0-100).
 int GetPartitionUsageValue(const Partition::Ptr partition);
 
-// If target disk has msdos partition table, but system boots up in UEFI mode,
-// ignore this UEFI mode if any systems is found in that disk.
-bool IgnoreUEFI(const DeviceList& devices);
-
 // Check if EFI feature is enabled in this machine.
 bool IsEfiEnabled();
 

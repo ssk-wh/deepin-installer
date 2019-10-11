@@ -397,33 +397,12 @@ int GetPartitionUsageValue(const Partition::Ptr partition) {
   }
 }
 
-bool IgnoreUEFI(const DeviceList& devices) {
-  // Check in UEFI mode or not.
-  if (IsEfiEnabled()) {
-    for (const Device::Ptr device : devices) {
-      // Check partition table type.
-      if (device->table != PartitionTableType::GPT) {
-        for (const Partition::Ptr partition : device->partitions) {
-          if (partition->os != OsType::Empty) {
-            return true;
-          }
-        }
-      }
-    }
-  }
-  return false;
-}
-
 bool IsEfiEnabled() {
   return QDir("/sys/firmware/efi").exists();
 }
 
 bool IsMBRPreferred(const DeviceList& devices) {
-  if (IsEfiEnabled()) {
-    return IgnoreUEFI(devices);
-  } else {
-    return true;
-  }
+  return !IsEfiEnabled();
 }
 
 // Returns true if |fs_type| may be mounted to system with customized
@@ -452,10 +431,6 @@ bool IsPartitionTableMatch(PartitionTableType type) {
 
 bool IsPartitionTableMatch(const DeviceList& devices,
                            const QString& device_path) {
-  if (IgnoreUEFI(devices)) {
-    return true;
-  }
-
   const int device_index = DeviceIndex(devices, device_path);
   if (device_index == -1) {
     qCritical() << "Failed to find device:" << device_path;
