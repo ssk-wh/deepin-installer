@@ -21,6 +21,7 @@
 #include <QEvent>
 #include <QLineEdit>
 #include <QVBoxLayout>
+#include <QScrollBar>
 
 #include "base/file_util.h"
 #include "service/settings_manager.h"
@@ -131,6 +132,9 @@ void SystemInfoKeyboardFrame::initUI() {
   layout_view_->setModel(layout_model_);
   layout_view_->setFixedWidth(340);
   layout_view_->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+  layout_view_->setContextMenuPolicy(Qt::NoContextMenu);
+  layout_view_->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+  layout_view_->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
 
   variant_view_ = new FramelessListView();
   variant_view_->setObjectName("variant_view");
@@ -138,6 +142,9 @@ void SystemInfoKeyboardFrame::initUI() {
   variant_model_ = new KeyboardLayoutVariantModel(this);
   variant_view_->setModel(variant_model_);
   variant_view_->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+  variant_view_->setContextMenuPolicy(Qt::NoContextMenu);
+  variant_view_->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+  variant_view_->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
 
   QHBoxLayout* keyboard_layout = new QHBoxLayout();
   keyboard_layout->setContentsMargins(0, 0, 0, 0);
