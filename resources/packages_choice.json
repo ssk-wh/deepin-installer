@@ -182,7 +182,7 @@
      "unbound"
     ],
      "mail-server":[
-     "postfix",
+     "sendmail",
      "spamassassin",
      "dovecot-mysql",
      "dovecot-pgsql",
@@ -226,7 +226,6 @@
      "infiniband-diags",
      "libibmad5",
      "libibumad3",
-     "libipathverbs1",
      "mstflint",
      "opa-address-resolution",
      "opa-fastfabric",
@@ -379,14 +378,10 @@
      "deepin-editor",
      "deepin-shortcut-viewer",
      "deepin-image-viewer",
-     "deepin-music",
      "deepin-calculator",
-     "deepin-voice-note",
      "deepin-screen-recorder",
-     "deepin-graphics-driver-manager",
      "deepin-font-manager",
      "deepin-compressor",
-     "deepin-album",
      "deepin-draw"
     ],
      "internet-applications":[
