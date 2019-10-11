@@ -105,8 +105,6 @@ void InstallProgressSlideFrame::initUI() {
 
   animation_group_ = new QParallelAnimationGroup(this);
   animation_group_->setLoopCount(-1);
-  // Slide window size shall be the same with slide images
-  this->setFixedSize(1208, 570);
 }
 
 void InstallProgressSlideFrame::updateSlideImage() {
@@ -118,6 +116,7 @@ void InstallProgressSlideFrame::updateSlideImage() {
     qWarning() << "slide file not found:" << filepath;
   }
   container_label_->show();
+  setFixedSize(container_label_->size());
   slide_index_ = (slide_index_ + 1) % slide_files_.length();
 }
 
