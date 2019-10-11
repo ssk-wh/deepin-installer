@@ -69,6 +69,7 @@ const char kSystemInfoDefaultAvator[] = "system_info_default_avatar";
 const char kSystemInfoDdeAvatarDir[] = "system_info_dde_avatar_dir";
 const char kSystemInfoDisableAvatorPage[] = "system_info_disable_avatar_page";
 const char kSystemInfoEnableGrubEditPwd[] = "system_info_enable_grub_pwd";
+const char kRebootWhenInstallFinished[] = "reboot_when_install_finished";
 
 const char kSystemInfoDefaultKeyboardLayout[] =
     "system_info_default_keyboard_layout";
