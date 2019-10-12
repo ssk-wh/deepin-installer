@@ -287,6 +287,16 @@ QByteArray GetFullDiskInstallPolicy() {
     return "";
 }
 
+QString GetSelectedInstallType()
+{
+    QString type = GetSettingsString(kSelectedInstallType);
+    if (!type.isEmpty()){
+        return type;
+    }
+
+    return GetSettingsString(kSelectComponentDefaultInstallType);
+}
+
 QString GetComponentDefault() {
     QFile file(kComponentDefaultFile);
     if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
@@ -509,6 +519,11 @@ void WriteSwapPartitionSize(const uint size) {
 
 void WriteRecoveryPartitionInfo(const QString& path) {
     AppendToConfigFile("DI_RECOVERY_PATH", path);
+}
+
+void WriteSelectedInstallType(const QString &installType)
+{
+    AppendToConfigFile(kSelectedInstallType, installType);
 }
 
 void WriteComponentPackages(const QString &packages)

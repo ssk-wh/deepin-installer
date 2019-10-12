@@ -90,6 +90,7 @@ QString GetWindowBackground();
 QByteArray GetFullDiskInstallPolicy();
 
 // Get Component Files
+QString GetSelectedInstallType();
 QString GetComponentDefault();
 QString GetComponentExtra();
 QString GetComponentSort();
@@ -128,6 +129,7 @@ void WriteDisplayPort(const QString &display);
 void WriteGrubPassword(const QString &password);
 void WriteRecoveryPartitionInfo(const QString& path);
 
+void WriteSelectedInstallType(const QString& installType);
 void WriteComponentPackages(const QString& packages);
 void WriteComponentUninstallPackages(const QString& packages);
 void WriteComponentLanguage(const QString& packages);

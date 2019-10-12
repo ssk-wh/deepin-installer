@@ -27,15 +27,17 @@ SelectInstallComponentFrame::SelectInstallComponentFrame(QWidget *parent)
 
 void SelectInstallComponentFrame::readConf()
 {
-    const QString& defaultInstallType = GetSettingsString(kSelectComponentDefaultInstallType);
+    const QString& defaultInstallType = GetSelectedInstallType();
 
-    if(!defaultInstallType.isEmpty()){
-        for (auto it = m_componentStructMap.cbegin(); it != m_componentStructMap.cend(); ++it) {
-            if(it.value()->id() == defaultInstallType){
-                it.key()->setSelected(true);
-                emit it.key()->clicked();
-                break;
-            }
+    if (defaultInstallType.isEmpty()){
+        return;
+    }
+
+    for (auto it = m_componentStructMap.cbegin(); it != m_componentStructMap.cend(); ++it) {
+        if (it.value()->id() == defaultInstallType){
+            it.key()->setSelected(true);
+            emit it.key()->clicked();
+            break;
         }
     }
 }
@@ -75,6 +77,9 @@ void SelectInstallComponentFrame::writeConf()
         if (!packages.isEmpty()) {
             WriteComponentLanguage(packages.join(" "));
         }
+
+        // Write selected install type
+        WriteSelectedInstallType(m_componentStructMap[m_currentComponentWidget]->id());
     });
 }
 

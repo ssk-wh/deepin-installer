@@ -47,8 +47,6 @@ private:
     QMap<ComponentWidget*, QSharedPointer<ComponentStruct>> m_componentStructMap;
     QMap<ComponentWidget*, QSharedPointer<ComponentInfo>> m_componentInfoMap;
 
-    QList<QSharedPointer<ComponentInfo>> m_extraComponent;
-
     QVBoxLayout* m_componentLayout = nullptr;
     ComponentWidget* m_currentComponentWidget = nullptr;
 
