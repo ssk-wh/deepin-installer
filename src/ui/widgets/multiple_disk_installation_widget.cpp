@@ -18,6 +18,8 @@
 #include <QStackedLayout>
 #include <QSizePolicy>
 #include <QStringListModel>
+#include <vector>
+#include <initializer_list>
 
 #include "ui/widgets/multiple_disk_installation_widget.h"
 #include "ui/views/disk_installation_view.h"
@@ -39,7 +41,7 @@ void MultipleDiskInstallationWidget::initConnections()
 {
     connect(m_left_view, &DiskInstallationView::currentSelectedChange,
             this, &MultipleDiskInstallationWidget::onInstallationSelectedChanged);
-    for (int i=0;i<kDiskModelMaxCount;i++) {
+    for (int i = 0; i < kDiskModelMaxCount; i++) {
       connect(m_right_view[i], &DiskInstallationDetailView::currentSelectedChange,
               this, &MultipleDiskInstallationWidget::onInstallationDetailSelectedChanged);
       connect(m_right_model[i], &DiskInstallationDetailModel::diskListChanged,
@@ -62,7 +64,7 @@ void MultipleDiskInstallationWidget::initUI()
     m_left_view->setItemDelegate(delegate);
     m_left_view->setModel(m_left_model);
     m_right_layout = new QStackedLayout();
-    for (int i=0;i<kDiskModelMaxCount;i++) {
+    for (int i = 0; i < kDiskModelMaxCount; i++) {
         m_right_model[i] = new DiskInstallationDetailModel();
         m_right_view[i] = new DiskInstallationDetailView();
         DiskInstallationDetailDelegate* delegate = new DiskInstallationDetailDelegate(m_right_view[i]);
@@ -75,31 +77,31 @@ void MultipleDiskInstallationWidget::initUI()
 
     leftlayout->setMargin(0);
     leftlayout->setSpacing(0);
-    leftlayout->setContentsMargins(0,0,0,0);
+    leftlayout->setContentsMargins(0, 0, 0, 0);
     leftlayout->addWidget(m_left_view, 0, Qt::AlignLeft);
     leftlayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
 
     rightlayout->setMargin(0);
     rightlayout->setSpacing(0);
-    rightlayout->setContentsMargins(0,0,0,0);
-    rightlayout->addLayout(m_right_layout);    
+    rightlayout->setContentsMargins(0, 0, 0, 0);
+    rightlayout->addLayout(m_right_layout);
     hboxlayout->addLayout(leftlayout);
     hboxlayout->addSpacing(1);
-    hboxlayout->addLayout(rightlayout,1);
+    hboxlayout->addLayout(rightlayout, 1);
     hboxlayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
 
     QVBoxLayout* main_layout = new QVBoxLayout();
     main_layout->setContentsMargins(0, 0, 0, 0);
     main_layout->setSpacing(0);
-    main_layout->addLayout(hboxlayout,1);
+    main_layout->addLayout(hboxlayout, 1);
     setLayout(main_layout);
     main_layout->setSizeConstraint(QLayout::SetMinAndMaxSize);
 }
 
 void MultipleDiskInstallationWidget::onDeviceListChanged(const DeviceList& devices)
 {
-    m_devices.clear();
-    for (const Device::Ptr& device : devices) {
+   m_devices.clear();
+   for (const Device::Ptr& device : devices) {
       bool partition_busy = false;
       for (Partition::Ptr partition : device->partitions) {
         if (partition->busy) {
@@ -108,23 +110,19 @@ void MultipleDiskInstallationWidget::onDeviceListChanged(const DeviceList& devic
         }
       }
       if (partition_busy) {
-        qWarning() << "Partition on device is busy!" << device->path;
         continue;
       }
       m_devices.append(device);
-    }
+   }
 
-    if (m_current_left_index != -1) {
-      for (int i=0;i<kDiskModelMaxCount;i++) {
+   for (int i = 0; i < kDiskModelMaxCount; i++) {
         m_right_model[i]->setDevices(m_devices);
-        m_right_view[i]->setCurrentIndex(m_right_model[i]->index(-1,0));
+        m_right_view[i]->setCurrentIndex(m_right_model[i]->index(-1, 0));
         m_right_model[i]->setSelectedIndex(-1);
-      }
-      m_right_model[static_cast<int>(DiskModelType::DataDisk)]->disableIndex(DiskInstallationTypes::ItemIndexs{-1});
-    }
-    else {
-      m_left_view->setCurrentIndex(m_left_model->index(0, 0));
-    }
+   }
+
+   m_right_model[static_cast<int>(DiskModelType::DataDisk)]->disableIndex(DiskInstallationTypes::ItemIndexs{ -1 });
+   m_left_view->setCurrentIndex(m_left_model->index(0, 0));
 }
 
 void MultipleDiskInstallationWidget::onInstallationSelectedChanged(int index)
@@ -136,23 +134,20 @@ void MultipleDiskInstallationWidget::onInstallationSelectedChanged(int index)
     int current_detail_index;
     m_current_left_index = index;
     current_detail_index = m_right_model[index]->selectedIndex();
-    if (m_right_model[index]->devices() != m_devices) {
-        m_right_model[index]->setDevices(m_devices);
-        if (static_cast<int>(DiskModelType::DataDisk) == m_current_left_index) {
-            DiskInstallationTypes::ItemIndexs indexes;
-            int sys_index = m_right_model[static_cast<int>(DiskModelType::SystemDisk)]->selectedIndex();
-            if (-1 == sys_index) {
-                for (int i=0; i<m_right_model[index]->devices().length(); i++) {
-                    indexes += i;
-                }
-            }
-            else {
-                indexes += sys_index;
-            }
-            m_right_model[index]->disableIndex(indexes);
+
+    // all disks are unavailable for data disk before system disk is selected
+    // you can select any other disk for data disk, except the one which is selected as system disk
+    if (static_cast<int>(DiskModelType::DataDisk) == m_current_left_index) {
+        int sys_index = m_right_model[static_cast<int>(DiskModelType::SystemDisk)]->selectedIndex();
+        if (-1 == sys_index) {
+            m_right_model[index]->disableIndex(DiskInstallationTypes::ItemIndexs(0, m_right_model[index]->devices().length()));
+        }
+        else {
+            m_right_model[index]->disableIndex(DiskInstallationTypes::ItemIndexs { sys_index });
         }
     }
-    m_right_view[index]->setCurrentIndex(m_right_model[index]->index(current_detail_index,0));
+
+    m_right_view[index]->setCurrentIndex(m_right_model[index]->index(current_detail_index, 0));
     m_right_layout->setCurrentIndex(index);
 }
 
@@ -164,7 +159,7 @@ void MultipleDiskInstallationWidget::onInstallationDetailSelectedChanged(int ind
    }
 
    if (static_cast<int>(DiskModelType::SystemDisk) == m_current_left_index) {
-        m_right_model[static_cast<int>(DiskModelType::DataDisk)]->disableIndex(DiskInstallationTypes::ItemIndexs{index});
+        m_right_model[static_cast<int>(DiskModelType::DataDisk)]->disableIndex(DiskInstallationTypes::ItemIndexs{ index });
    }
 
    Device::Ptr device = m_right_model[m_current_left_index]->virtualDevices().at(index);
@@ -179,7 +174,10 @@ bool MultipleDiskInstallationWidget::validate() const
 void MultipleDiskInstallationWidget::changeEvent(QEvent* event)
 {
     if (event->type() == QEvent::LanguageChange) {
+        // just keep left and right selection unchanged
+        int index = m_left_view->currentIndex().row();
         m_left_model->setStringList(getDiskTypes());
+        m_left_view->setCurrentIndex(m_left_model->index(index, 0));
     }
     else {
         QWidget::changeEvent(event);

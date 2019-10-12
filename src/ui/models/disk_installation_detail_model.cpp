@@ -111,12 +111,19 @@ void DiskInstallationDetailModel::doDisableIndex()
 
     m_disks = m_all_disks;
     if (DiskInstallationTypes::DeviceConflictPolicy::Invisible == m_device_conflict_policy) {
-        for (int i=m_disks.length()-1; i>=0; i--) {
+        for (int i = m_disks.length() - 1; i >= 0; i--) {
             if (m_disabled_indexes.contains(i)) {
                 m_disks.removeAt(i);
             }
         }
     }
+}
+
+DiskInstallationTypes::ItemIndexs::ItemIndexs(int start, int end)
+{
+  for (int i = start; i < end; i++) {
+      insert(i);
+  }
 }
 
 }

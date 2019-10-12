@@ -28,7 +28,17 @@ namespace installer {
 class DiskInstallationTypes
 {
 public:
-typedef QSet<int>  ItemIndexs;
+
+    typedef QSet<int> IntegerSet;
+
+    class ItemIndexs : public IntegerSet
+    {
+    public:
+        using IntegerSet::IntegerSet;
+
+        // fill integers: [start, end)
+        ItemIndexs(int start, int end);
+    };
 
 enum DeviceConflictPolicy
 {
