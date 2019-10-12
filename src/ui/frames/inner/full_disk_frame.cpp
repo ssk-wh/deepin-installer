@@ -86,14 +86,17 @@ bool FullDiskFrame::validate() const {
         m_errorTip->show();
         return false;
     }
+
     int index = DeviceIndex(m_delegate->virtual_devices(), m_delegate->selectedDisks()[0]);
     if (index < 0) {
         qWarning() << QString("MULTIDISK:DeviceIndex failed:{%1}").arg(m_delegate->selectedDisks()[0]);
         return false;
     }
+
     Device::Ptr device(new Device(*m_delegate->virtual_devices()[index]));
-    const int root_required = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
-    if (installer::ToGigByte(device->getByteLength()) < root_required) {
+    const qint64 root_required = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
+    const qint64 root_required_bytes = kGibiByte * root_required;
+    if (device->getByteLength() < root_required_bytes) {
         m_diskTooSmallTip->show();
         qWarning() << QString("MULTIDISK: disk too small:size:{%1}.").arg(device->getByteLength());
         return false;
