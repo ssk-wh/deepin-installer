@@ -22,6 +22,7 @@
 class QLabel;
 class QPushButton;
 class QScrollArea;
+class QPlainTextEdit;
 
 namespace installer {
 
@@ -59,7 +60,7 @@ class InstallFailedFrame : public QFrame {
   NavButton* reboot_button_ = nullptr;
   NavButton* save_log_button_ = nullptr;
   QRWidget* qr_widget_ = nullptr;
-  QLabel* content_label_ = nullptr;
+  QPlainTextEdit *m_plainTextEdit = nullptr;
   QPushButton* control_button_ = nullptr;
   QScrollArea *m_scrollArea = nullptr;
 

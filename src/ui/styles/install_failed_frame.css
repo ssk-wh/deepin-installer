@@ -50,12 +50,10 @@ QScrollBar::sub-line:vertical {
     background: rgba(255, 255, 255, 25.5);
 }
 
-#contentlabel {
-  padding: 10px 14px;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.5);
+#plainTextEdit {
   font-size: 14px;
   line-height: 44px;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 #control_button {

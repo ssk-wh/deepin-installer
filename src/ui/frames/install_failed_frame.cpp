@@ -23,6 +23,7 @@
 #include <QScrollArea>
 #include <QScrollBar>
 #include <QScroller>
+#include <QPlainTextEdit>
 
 #include "base/file_util.h"
 #include "ui/delegates/main_window_util.h"
@@ -64,7 +65,8 @@ void InstallFailedFrame::updateMessage() {
     encoded_msg = EncodeErrorMsg(msg);
   }
 
-  content_label_->setText(msg);
+  m_plainTextEdit->setPlainText(msg);
+
   if (encoded_msg.isEmpty()) {
     // If encoded_msg if empty, qr_widget will generate a rectangle filled with
     // red color, which is not what we expect.
@@ -107,14 +109,12 @@ void InstallFailedFrame::initUI() {
   comment_layout->setSpacing(0);
   comment_layout->addWidget(comment_label_);
 
-  content_label_ = new QLabel();
-  content_label_->setObjectName("content_label");
-  content_label_->setWordWrap(true);
-  content_label_->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+  m_plainTextEdit = new QPlainTextEdit;
+  m_plainTextEdit->setObjectName("plainTextEdit");
 
   QVBoxLayout* labelLayout = new QVBoxLayout;
   labelLayout->setMargin(0);
-  labelLayout->addWidget(content_label_);
+  labelLayout->addWidget(m_plainTextEdit);
 
   QWidget* labelWidget = new QWidget;
   labelWidget->setLayout(labelLayout);
