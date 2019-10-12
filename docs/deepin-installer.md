@@ -17,3 +17,9 @@
  /etc/deepin-installer.conf 中已有的选项.
 * --auto-install, 自动安装模式. 这个选项仅用于 lupin 模式. 在这个模式下, 会跳过前面的
  所有页面, 直接转到 InstallProgressFrame, 开始安装.
+
+## 安装流程
+为了避免不同版本的分裂，所有版本均采用iso提供deb包，在安装系统时进行所有组件的安装。社区版会提供一个配置好的系统，deb包只提供语言相关的。
+packages_default.json包含了界面上需要的组件
+packages_choice.json包含了所有组件对应要安装的包
+packages_sort.json包含了组件的排序
