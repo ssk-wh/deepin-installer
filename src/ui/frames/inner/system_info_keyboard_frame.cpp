@@ -33,6 +33,7 @@
 #include "ui/views/frameless_list_view.h"
 #include "ui/widgets/nav_button.h"
 #include "ui/widgets/title_label.h"
+#include "ui/widgets/comment_label.h"
 
 namespace installer {
 
@@ -123,8 +124,7 @@ void SystemInfoKeyboardFrame::initConnections() {
 
 void SystemInfoKeyboardFrame::initUI() {
   title_label_ = new TitleLabel(tr("Select keyboard layout"));
-  guide_label_ = new QLabel(tr("Select a proper keyboard layout"));
-  guide_label_->setObjectName("guide_label");
+  guide_label_ = new CommentLabel(tr("Select a proper keyboard layout"));
 
   layout_view_ = new FramelessListView();
   layout_view_->setObjectName("layout_view");

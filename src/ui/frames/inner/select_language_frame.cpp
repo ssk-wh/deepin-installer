@@ -36,6 +36,7 @@
 #include "ui/widgets/nav_button.h"
 #include "ui/delegates/user_agreement_delegate.h"
 #include "ui/utils/widget_util.h"
+#include "ui/widgets/comment_label.h"
 
 namespace installer {
 
@@ -143,8 +144,7 @@ void SelectLanguageFrame::initUI() {
   title_label->setWordWrap(false);
   title_label->setAlignment(Qt::AlignHCenter);
 
-  sub_title_label_ = new QLabel;
-  sub_title_label_->setObjectName("sub_title_label");
+  sub_title_label_ = new CommentLabel();
   sub_title_label_->setWordWrap(false);
   sub_title_label_->setAlignment(Qt::AlignHCenter);
 

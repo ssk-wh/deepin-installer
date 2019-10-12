@@ -1,7 +1,6 @@
 /** Used in SelectLanguageFrame class **/
 
-QLabel#title_label,
-QLabel#sub_title_label {
+QLabel#title_label {
   color: #ffffff;
   font-size: 14pt;
 }
