@@ -24,12 +24,12 @@ DI_COMPONENT_LANGUAGE=$(installer_get "DI_COMPONENT_LANGUAGE")
 if [ ! -z "${DI_COMPONENT_PACKAGES}" ];then
 # install component
 install_package ${DI_COMPONENT_PACKAGES} || \
-  warn_exit "Failed to install packages: ${DI_COMPONENT_PACKAGES}"
+  warn "Failed to install packages: ${DI_COMPONENT_PACKAGES}"
 fi
 
 if [ ! -z "${DI_COMPONENT_LANGUAGE}" ];then
 install_package ${DI_COMPONENT_LANGUAGE} || \
-  warn_exit "Failed to install packages: " ${DI_COMPONENT_LANGUAGE}
+  warn "Failed to install packages: " ${DI_COMPONENT_LANGUAGE}
 fi
 
 return 0
