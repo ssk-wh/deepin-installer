@@ -44,14 +44,23 @@ void SelectInstallComponentFrame::readConf()
 
 void SelectInstallComponentFrame::writeConf()
 {
-    if (!m_currentComponentWidget) {
-        return;
-    }
-
     WriteComponentPackages("");
     WriteComponentUninstallPackages("");
 
     QtConcurrent::run([=] {
+        // Write about language
+        const QStringList packages =
+            ComponentInstallManager::Instance()->loadStructForLanguage(
+                installer::ReadLocale());
+
+        if (!packages.isEmpty()) {
+            WriteComponentLanguage(packages.join(" "));
+        }
+
+        if (!m_currentComponentWidget) {
+            return;
+        }
+
         QSharedPointer<ComponentStruct> current =
                 m_componentStructMap[m_currentComponentWidget];
 
@@ -67,15 +76,6 @@ void SelectInstallComponentFrame::writeConf()
                     current);
         if (!uninstallPackages.isEmpty()) {
             WriteComponentUninstallPackages(uninstallPackages.join(" "));
-        }
-
-        // Write about language
-        const QStringList packages =
-            ComponentInstallManager::Instance()->loadStructForLanguage(
-                installer::ReadLocale());
-
-        if (!packages.isEmpty()) {
-            WriteComponentLanguage(packages.join(" "));
         }
 
         // Write selected install type
