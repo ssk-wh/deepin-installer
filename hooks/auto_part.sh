@@ -26,7 +26,7 @@ declare CRYPT_INFO DEVICE PART_POLICY PART_LABEL MP_LIST VG_NAME="vg0" PART_TYPE
 check_device_size(){
   local index=$1
   echo "index={${index}}"
-  local minimum_disk_size=$(installer_get partition_minimum_disk_space_required)
+  local minimum_disk_size=$(installer_get disk_minimum_space_required)
   local large_disk_threshold=$(installer_get partition_full_disk_large_disk_threshold)
   DEVICE_SIZE=$(($(blockdev --getsize64 "$DEVICE") / 1024**2))
 

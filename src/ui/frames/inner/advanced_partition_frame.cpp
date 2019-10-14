@@ -224,7 +224,7 @@ AdvancedPartitionButton* AdvancedPartitionFrame::getAppropriateButtonForState(
     AdvancedValidateState state) const {
 
   const int efi_minimum = GetSettingsInt(kPartitionEFIMinimumSpace);
-  const int root_required = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
+  const int root_required = GetSettingsInt(kPartitionRootMiniSpace);
 
   for (QAbstractButton* button : partition_button_group_->buttons()) {
     AdvancedPartitionButton* part_button =
@@ -515,7 +515,7 @@ QString AdvancedPartitionFrame::validateStateToText(AdvancedValidateState state)
     }
     case AdvancedValidateState::RootTooSmall: {
       const int root_required =
-          GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
+          GetSettingsInt(kPartitionRootMiniSpace);
       return tr("At least %1 GB is required for Root partition")
           .arg(root_required);
     }

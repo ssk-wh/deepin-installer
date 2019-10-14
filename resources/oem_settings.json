@@ -7,7 +7,7 @@
   },
   {
     "title": "安装时需要的最小硬盘容量",
-    "name": "partition_minimum_disk_space_required",
+    "name": "disk_minimum_space_required",
     "description": "",
     "type": "Integer",
     "minimum": 10,
@@ -15,7 +15,7 @@
   },
   {
     "title": "安装时推荐的硬盘容量",
-    "name": "partition_recommended_disk_space",
+    "name": "disk_recommended_space",
     "description": "",
     "type": "Integer",
     "minimum": 15,

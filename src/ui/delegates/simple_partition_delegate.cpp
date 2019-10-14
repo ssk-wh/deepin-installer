@@ -240,7 +240,7 @@ SimpleValidateState SimplePartitionDelegate::validate() const {
     return SimpleValidateState::MaxPrimPartErr;
   }
 
-  const int root_required = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
+  const int root_required = GetSettingsInt(kPartitionRootMiniSpace);
   const qint64 root_minimum_bytes = root_required * kGibiByte;
   const qint64 root_real_bytes = root_partition->getByteLength() + kMebiByte;
   if (root_real_bytes < root_minimum_bytes) {

@@ -80,7 +80,7 @@ bool SimplePartitionFrame::validate() {
     case SimpleValidateState::RootTooSmall: {
         qDebug() << "root partition is too small!";
         const int root_required =
-            GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
+            GetSettingsInt(kPartitionRootMiniSpace);
         msg_label_->setText(tr("At least %1 GB is required for root partition")
                                 .arg(root_required));
         break;

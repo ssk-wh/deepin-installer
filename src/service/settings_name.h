@@ -99,9 +99,10 @@ const char kPartitionMemoryThresholdForSwapArea[] =
     "partition_memory_threshold_for_swap_area";
 const char kPartitionSwapPartitionSize[] = "partition_swap_partition_size";
 const char kPartitionMinimumDiskSpaceRequired[] =
-    "partition_minimum_disk_space_required";
+    "disk_minimum_space_required";
 const char kPartitionRecommendedDiskSpace[] =
-    "partition_recommended_disk_space";
+    "disk_recommended_space";
+const char kPartitionRootMiniSpace[] = "partition_root_space_required";
 const char kPartitionDefaultBootSpace[] = "partition_default_boot_space";
 const char kPartitionDefaultEFISpace[] = "partition_default_efi_space";
 const char kPartitionEFIMinimumSpace[] = "partition_efi_minimum_space";

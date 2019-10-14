@@ -168,9 +168,9 @@ FsTypeList AdvancedPartitionDelegate::getFsTypeList() const {
       // check fs can be used
       const QString cmd = FsFormatCmdMap[GetFsTypeByName(fs_name)];
       if (cmd.isEmpty()) continue;
-
+#ifndef QT_DEBUG
       if (!SpawnCmd("which", QStringList() << cmd)) continue;
-
+#endif
       FsType type = GetFsTypeByName(fs_name);
       fs_types.append(type);
     }
@@ -339,7 +339,7 @@ AdvancedValidateStates AdvancedPartitionDelegate::validate() const {
   int boot_part_number = -1;
   int root_part_number = -1;
 
-  const int root_required = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
+  const int root_required = GetSettingsInt(kPartitionRootMiniSpace);
   const int boot_recommended = GetSettingsInt(kPartitionDefaultBootSpace);
   const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace);
   const int efi_minimum = GetSettingsInt(kPartitionEFIMinimumSpace);
