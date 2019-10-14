@@ -77,9 +77,6 @@ void SelectInstallComponentFrame::writeConf()
         if (!uninstallPackages.isEmpty()) {
             WriteComponentUninstallPackages(uninstallPackages.join(" "));
         }
-
-        // Write selected install type
-        WriteSelectedInstallType(m_componentStructMap[m_currentComponentWidget]->id());
     });
 }
 
@@ -271,6 +268,9 @@ void SelectInstallComponentFrame::onServerTypeClicked()
 
     first->setIsHead(true);
     last->setIsTail(true);
+
+    // Write selected install type
+    WriteSelectedInstallType(m_componentStructMap[m_currentComponentWidget]->id());
 }
 
 void SelectInstallComponentFrame::onComponentClicked()
