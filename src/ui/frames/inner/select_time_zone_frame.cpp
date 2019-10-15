@@ -215,9 +215,11 @@ void SelectTimeZoneFrame::onContinentViewSelectedChanged(QModelIndex curIndex, Q
         m_timeZoneListView->selectionModel()->blockSignals(true);
         m_timeZoneListView->setCurrentIndex(m_currentTimezoneIndex);
         m_timeZoneListView->selectionModel()->blockSignals(false);
+        m_timeZoneListView->scrollTo(m_currentTimezoneIndex, QAbstractItemView::PositionAtTop);
     }
-
-    m_timeZoneListView->scrollToTop();
+    else{
+        m_timeZoneListView->scrollToTop();
+    }
 }
 
 void SelectTimeZoneFrame::onTimeZoneViewSelectedChanged(QModelIndex curIndex, QModelIndex preIndex)
@@ -280,9 +282,9 @@ void SelectTimeZoneFrame::onUpdateTimezoneList(const QString &timezone)
 
     m_currentTimezoneIndex = m_timeZoneModel->index(m_currentTimeZoneList.indexOf(list.last()));
     m_timeZoneListView->selectionModel()->blockSignals(true);
-    m_timeZoneListView->scrollTo(m_currentTimezoneIndex, QAbstractItemView::PositionAtTop);
     m_timeZoneListView->setCurrentIndex(m_currentTimezoneIndex);
     m_timeZoneListView->selectionModel()->blockSignals(false);
+    m_timeZoneListView->scrollTo(m_currentTimezoneIndex, QAbstractItemView::PositionAtTop);
 }
 
 void SelectTimeZoneFrame::changeEvent(QEvent *event)
