@@ -27,4 +27,6 @@ else
   msg "policy-rc.d not exists"
 fi
 
+rm -f /target/etc/apt/apt.conf.d/00deepin-installer
+
 return 0

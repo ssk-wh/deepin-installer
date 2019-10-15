@@ -40,4 +40,12 @@ EOF
   chmod a+x "${RC}"
 fi
 
+msg "manage /etc/apt/apt.conf"
+cat > /target/etc/apt/apt.conf.d/00deepin-installer <<EOF
+APT::Install-Recommends "false";
+APT::Get::AllowUnauthenticated "true";
+Acquire::AllowInsecureRepositories "true";
+Acquire::Check-Date "false";
+EOF
+
 return 0
