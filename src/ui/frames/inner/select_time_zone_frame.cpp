@@ -256,16 +256,19 @@ void SelectTimeZoneFrame::onUpdateTimezoneList(const QString &timezone)
         m_timeZoneListView->setMouseTracking(true);
     }
 
-    const QStringList list = timezone.split("/");
+    int index = timezone.indexOf('/');
+    if (index <= 0){
+        qWarning() << "invalid timezone:" << timezone;
+        return;
+    }
 
-    Q_ASSERT(list.count() > 1);
-    m_currentContinentIndex = m_continentModel->index(m_currentContinentList.indexOf(list.first()));
+    m_currentContinentIndex = m_continentModel->index(m_currentContinentList.indexOf(timezone.left(index)));
     m_continentListView->selectionModel()->blockSignals(true);
     m_continentListView->setCurrentIndex(m_currentContinentIndex);
     m_continentListView->selectionModel()->blockSignals(false);
 
     for (auto it : m_allTimeZone) {
-        if(it.first == list.first()){
+        if(it.first == timezone.left(index)){
             m_currentTimeZoneList = it.second;
             break;
         }
@@ -280,7 +283,7 @@ void SelectTimeZoneFrame::onUpdateTimezoneList(const QString &timezone)
     m_timeZoneModel->setStringList(timezoneList);
     m_timeZoneListView->selectionModel()->blockSignals(false);
 
-    m_currentTimezoneIndex = m_timeZoneModel->index(m_currentTimeZoneList.indexOf(list.last()));
+    m_currentTimezoneIndex = m_timeZoneModel->index(m_currentTimeZoneList.indexOf(timezone.mid(index + 1)));
     m_timeZoneListView->selectionModel()->blockSignals(true);
     m_timeZoneListView->setCurrentIndex(m_currentTimezoneIndex);
     m_timeZoneListView->selectionModel()->blockSignals(false);

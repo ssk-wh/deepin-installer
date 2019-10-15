@@ -153,12 +153,17 @@ QPair<QString, QString> GetLocalTimezoneName(const QString& timezone, const QStr
         (void) setlocale(LC_ALL, kDefaultLang);
     }
 
-    const QStringList list = local_name.split("/");
-
-    if(list.size() > 1){
-        return QPair<QString, QString>(list.first(), list.last());
+    int index = local_name.indexOf('/');
+    if (index < 0){
+        // Some translations of locale name contains non-standard char.
+        index = local_name.indexOf(0x2215); // ∕ = 0x2215(unicode)
     }
-    else {
+
+    if (index > 0){
+        return QPair<QString, QString>(local_name.left(index), local_name.mid(index + 1));
+    }
+    else{
+        qWarning() << "invalid local timezone:" << local_name;
         return QPair<QString, QString>("", local_name);
     }
 }
