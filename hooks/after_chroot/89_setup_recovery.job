@@ -18,6 +18,7 @@
 # set recovery partition
 
 DI_RECOVERY_PATH=$(installer_get "DI_RECOVERY_PATH")
+DI_BOOTLOADER=$(installer_get "DI_BOOTLOADER")
 
 if [ -z ${DI_RECOVERY_PATH} ];then
     return 0
@@ -26,6 +27,15 @@ fi
 mount ${DI_RECOVERY_PATH} /mnt || error "Faild to mount ${DI_RECOVERY_PATH}"
 
 mkdir /mnt/backup
-deepin-clone --tui $(installer_get "DI_ROOT_PARTITION") /mnt/backup/backup.dim
+
+# 备份boot分区
+if [ ! -z ${DI_BOOTLOADER} ];then
+    deepin-clone --tui ${DI_BOOTLOADER} /mnt/backup/boot.dim
+    echo $(lsblk -f ${DI_BOOTLOADER} | grep -i /boot | awk '{print $3}') > boot.info
+fi
+
+# 备份系统
+deepin-clone --tui $(installer_get "DI_ROOT_PARTITION") /mnt/backup/system.dim
+echo $(lsblk -f ${DI_ROOT_PARTITION} | grep -i / | awk '{print $3}') > system.info
 
 return $?
