@@ -405,12 +405,17 @@ AdvancedValidateStates AdvancedPartitionDelegate::validate() const {
 
   // Check whether efi filesystem exists.
   if (!this->isMBRPreferred()) {
+    // program looks for root dir, if root dir exists, then it looks for efi dir
+    // so, if found_efi is true, then found_root must be true
     if (found_efi) {
       if (!efi_large_enough) {
         states.append(AdvancedValidateState::EfiTooSmall);
       }
-    } else {
-      states.append(AdvancedValidateState::EfiMissing);
+    }
+    else {
+      if (found_root){
+        states.append(AdvancedValidateState::EfiMissing);
+      }
     }
   }
 
