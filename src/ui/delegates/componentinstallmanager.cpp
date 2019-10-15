@@ -80,6 +80,33 @@ QStringList ComponentInstallManager::getComponentSortList(QSharedPointer<Compone
     return QStringList();
 }
 
+QStringList ComponentInstallManager::GetAvailablePackages() const {
+    QDir dir("/lib/live/mount/medium/pool/main/");
+    if (!dir.exists()) {
+        dir.setPath("/run/live/medium/pool/main/");
+    }
+
+    if (!dir.exists()) {
+        qDebug() << "/media/cdrom not exist.";
+    }
+
+    const QStringList&   list = findAllDeb(dir.path());
+    QList<QApt::DebFile> files;
+    QSet<QString> packagesList;
+
+    for (const QString& l : list) {
+        QApt::DebFile file(l);
+        packagesList << file.packageName();
+    }
+
+    QStringList allPack;
+    for (auto it = m_packageList.cbegin(); it != m_packageList.cend(); ++it) {
+        allPack << it->get()->PackageList;
+    }
+
+    return allPack.toSet().intersect(packagesList).toList();
+}
+
 QSharedPointer<ComponentStruct> ComponentInstallManager::findComponentById(const QString &id)
 {
     return *std::find_if(m_list.cbegin(), m_list.cend(), [=] (const QSharedPointer<ComponentStruct>& info) {
@@ -154,23 +181,7 @@ ComponentInstallManager::ComponentInstallManager(QObject *parent) : QObject(pare
 #ifndef QT_DEBUG
     QtConcurrent::run([=] {
         // 加載所有的deb包
-        QDir dir("/lib/live/mount/medium/pool/main/");
-        if (!dir.exists()) {
-            dir.setPath("/run/live/medium/pool/main/");
-        }
-
-        if (!dir.exists()) {
-            qDebug() << "/media/cdrom not exist.";
-        }
-
-        const QStringList&   list = findAllDeb(dir.path());
-        QList<QApt::DebFile> files;
-        QStringList          packagesList;
-
-        for (const QString& l : list) {
-            QApt::DebFile file(l);
-            packagesList << file.packageName();
-        }
+        const QStringList packagesList { GetAvailablePackages() };
 
         for (auto it = obj.begin(); it != obj.end(); ++it) {
             for (QJsonValue value : it.value().toArray()) {
@@ -184,41 +195,18 @@ ComponentInstallManager::ComponentInstallManager(QObject *parent) : QObject(pare
 }
 
 QStringList ComponentInstallManager::packageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const {
-    // 加載所有的deb包
-    QDir dir("/lib/live/mount/medium/pool/main/");
-    if (!dir.exists()) {
-        dir.setPath("/run/live/medium/pool/main/");
-    }
-
-    if (!dir.exists()) {
-        qDebug() << "/media/cdrom not exist.";
-    }
-
-    const QStringList& list = findAllDeb(dir.path());
-    QList<QApt::DebFile> files;
-    QStringList packagesList;
-
-    for (const QString& l : list) {
-        QApt::DebFile file(l);
-        packagesList << file.packageName();
-    }
+    const QSet<QString> packagesList { GetAvailablePackages().toSet() };
 
     auto integrateList = [=](QList<QSharedPointer<ComponentInfo>> list) -> QStringList {
-        QStringList packageList;
         for (QSharedPointer<ComponentInfo> info : list) {
             if (!info->Selected) continue;
             for (QSharedPointer<ComponentInfo> l : m_packageList) {
                 if (l->Id == info->Id) {
-                    for (const QString& package : l->PackageList) {
-                        if (packagesList.contains(package)) {
-                            packageList << package;
-                        }
-                    }
-                    break;
+                    return l->PackageList.toSet().intersect(packagesList).toList();
                 }
             }
         }
-        return packageList;
+        return {};
     };
 
     return QStringList() << integrateList(componentStruct->defaultValue())
@@ -243,29 +231,26 @@ QStringList ComponentInstallManager::uninstallPackageListByComponentStruct(QShar
     }
 
     QList<QSharedPointer<ComponentInfo>> uninstallList = componentStruct->uninstall();
-    QStringList list;
     for (QSharedPointer<ComponentInfo> info : uninstallList) {
         for (QSharedPointer<ComponentInfo> i : m_packageList) {
             if (info->Id == i->Id) {
-                const QStringList uninstall = i->PackageList;
-                for (const QString& un : uninstall) {
-                    if (installedList.contains(un)) {
-                        list << un;
-                    }
-                }
-                break;
+                QSet<QString> uninstall = i->PackageList.toSet();
+                return uninstall.intersect(installedList.toSet()).toList();
             }
         }
     }
 
-    return list;
+    return {};
 }
 
 QStringList ComponentInstallManager::loadStructForLanguage(const QString &lang) const
 {
     for (QSharedPointer<ComponentInfo> i : m_packageList) {
         if (i->Id == lang) {
-            return i->PackageList;
+            return GetAvailablePackages()
+                .toSet()
+                .intersect(i->PackageList.toSet())
+                .toList();
         }
     }
 

@@ -102,6 +102,7 @@ public:
         return m_packageList;
     }
 
+    QStringList GetAvailablePackages() const;
     QStringList packageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const;
     QStringList uninstallPackageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const;
 
