@@ -590,6 +590,7 @@ void MainWindow::goNextPage() {
     }
 
     case PageId::InstallProgressId: {
+        isMainPage = true;
         if (install_progress_frame_->failed()) {
             install_failed_frame_->updateMessage();
             this->setCurrentPage(PageId::InstallFailedId);
