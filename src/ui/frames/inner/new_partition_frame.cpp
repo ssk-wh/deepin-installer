@@ -213,7 +213,7 @@ void NewPartitionFrame::initUI() {
   content_frame->setFixedWidth(mount_point_box_->width());
 
   cancel_button_ = new NavButton(tr("Cancel"));
-  create_button_ = new NavButton(tr("OK"));
+  create_button_ = new NavButton(tr("Create"));
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
