@@ -88,23 +88,24 @@ QStringList ComponentInstallManager::GetAvailablePackages() const {
 
     if (!dir.exists()) {
         qDebug() << "/media/cdrom not exist.";
+        return {};
     }
 
     const QStringList&   list = findAllDeb(dir.path());
     QList<QApt::DebFile> files;
-    QSet<QString> packagesList;
+    QStringList packagesList;
+    QStringList allPack;
 
     for (const QString& l : list) {
         QApt::DebFile file(l);
         packagesList << file.packageName();
     }
 
-    QStringList allPack;
     for (auto it = m_packageList.cbegin(); it != m_packageList.cend(); ++it) {
         allPack << it->get()->PackageList;
     }
 
-    return allPack.toSet().intersect(packagesList).toList();
+    return QSet<QString>(packagesList.toSet() & allPack.toSet()).toList();
 }
 
 QSharedPointer<ComponentStruct> ComponentInstallManager::findComponentById(const QString &id)
@@ -198,15 +199,18 @@ QStringList ComponentInstallManager::packageListByComponentStruct(QSharedPointer
     const QSet<QString> packagesList { GetAvailablePackages().toSet() };
 
     auto integrateList = [=](QList<QSharedPointer<ComponentInfo>> list) -> QStringList {
+        QSet<QString> result;
         for (QSharedPointer<ComponentInfo> info : list) {
             if (!info->Selected) continue;
             for (QSharedPointer<ComponentInfo> l : m_packageList) {
                 if (l->Id == info->Id) {
-                    return l->PackageList.toSet().intersect(packagesList).toList();
+                    result += QSet<QString>(l->PackageList.toSet() & packagesList);
+                    break;
                 }
             }
         }
-        return {};
+
+        return result.toList();
     };
 
     return QStringList() << integrateList(componentStruct->defaultValue())
@@ -234,8 +238,7 @@ QStringList ComponentInstallManager::uninstallPackageListByComponentStruct(QShar
     for (QSharedPointer<ComponentInfo> info : uninstallList) {
         for (QSharedPointer<ComponentInfo> i : m_packageList) {
             if (info->Id == i->Id) {
-                QSet<QString> uninstall = i->PackageList.toSet();
-                return uninstall.intersect(installedList.toSet()).toList();
+                return QSet<QString>(i->PackageList.toSet() & installedList.toSet()).toList();
             }
         }
     }
