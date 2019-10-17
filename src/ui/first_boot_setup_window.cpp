@@ -214,7 +214,7 @@ void FirstBootSetupWindow::onHookFinished(bool ok) {
 void FirstBootSetupWindow::onPrimaryScreenChanged(const QRect& geometry) {
   qDebug() << "on primary screen changed" << geometry;
   this->move(geometry.topLeft());
-  this->setFixedSize(geometry.size());
+  this->setFixedSize(geometry.size() / devicePixelRatioF());
 }
 
 void FirstBootSetupWindow::onLanguageSelected()
