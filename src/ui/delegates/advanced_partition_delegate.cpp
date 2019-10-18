@@ -958,6 +958,10 @@ void AdvancedPartitionDelegate::onDeviceRefreshed(const DeviceList& devices) {
   operations_.clear();
   virtual_devices_ = FilterInstallerDevice(real_devices_);
 
+  for (Device::Ptr device : virtual_devices_) {
+      device->partitions = FilterFragmentationPartition(device->partitions);
+  }
+
   emit this->deviceRefreshed(virtual_devices_);
 }
 
