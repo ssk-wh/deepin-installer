@@ -20,6 +20,7 @@
 #include <parted/parted.h>
 #include <QDebug>
 #include <QDir>
+#include <QCollator>
 
 #include "base/command.h"
 #include "partman/libparted_util.h"
@@ -415,6 +416,12 @@ DeviceList ScanDevices(bool enable_os_prober) {
 
     devices.append(device);
   }
+
+  QCollator collator;
+  collator.setCaseSensitivity(Qt::CaseInsensitive);
+  std::sort(devices.begin(), devices.end(), [=](Device::Ptr a, Device::Ptr b) {
+    return collator.compare(a->path, b->path) < 0;
+  });
 
   return devices;
 }
