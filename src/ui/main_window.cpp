@@ -25,6 +25,7 @@
 #include <QShortcut>
 #include <QStackedLayout>
 #include <QTranslator>
+#include <QList>
 
 #include "base/file_util.h"
 #include "service/power_manager.h"
@@ -367,17 +368,9 @@ void MainWindow::saveLogFile() {
 
 void MainWindow::updateWidgetVisible()
 {
-    if (current_page_ == PageId::ConfirmQuitId ||
-            current_page_ == PageId::InstallProgressId ||
-            current_page_ == PageId::InstallSuccessId ||
-            current_page_ == PageId::InstallFailedId) {
-        // Hide close button in ConfirmQuit page and InstallProgress page
-        close_button_->hide();
-        back_button_->hide();
-    } else {
-        close_button_->show();
-        back_button_->setVisible(m_old_frames.size() > 1);
-    }
+    const bool checkVisible{ checkBackButtonAvailable(current_page_) };
+    close_button_->setVisible(checkVisible);
+    back_button_->setVisible(m_old_frames.size() > 1 && checkVisible);
 
     if (current_page_ == PageId::InstallFailedId ||
             current_page_ == PageId::InstallSuccessId) {
@@ -428,14 +421,25 @@ void MainWindow::backPage()
     PageId id = pages_.key(stacked_layout_->indexOf(frame));
     setCurrentPage(id);
 
-    back_button_->setVisible(m_old_frames.size() > 1);
+    back_button_->setVisible(m_old_frames.size() > 1 && checkBackButtonAvailable(id));
     page_indicator_->goBackPage();
+}
+
+bool MainWindow::checkBackButtonAvailable(PageId id) {
+    return !QList<PageId>({
+                             PageId::ConfirmQuitId,
+                             PageId::InstallProgressId,
+                             PageId::InstallSuccessId,
+                             PageId::InstallFailedId,
+                         })
+        .contains(id);
 }
 
 void MainWindow::onCurrentPageChanged(int index) {
   // Ignore null id.
   const PageId id = static_cast<PageId>(index + 1);
   this->setCurrentPage(id);
+  goNextPage();
 }
 
 void MainWindow::onCloseButtonClicked() {

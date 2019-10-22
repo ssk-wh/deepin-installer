@@ -115,6 +115,8 @@ private:
   void updateBackground();
   void backPage();
 
+  static bool checkBackButtonAvailable(PageId id);
+
   QLabel* background_label_ = nullptr;
   QPushButton* back_button_ = nullptr;
   QPushButton* close_button_ = nullptr;
