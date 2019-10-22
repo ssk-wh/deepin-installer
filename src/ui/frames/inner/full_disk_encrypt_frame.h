@@ -44,6 +44,7 @@ protected:
     void changeEvent(QEvent *event) Q_DECL_OVERRIDE;
 
 private:
+    void initConnections();
     void onNextBtnClicked();
     void onEncryptUpdated(bool checked);
     void updateText();

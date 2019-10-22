@@ -119,20 +119,14 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QW
 
     m_editList << m_encryptEdit << m_encryptRepeatEdit;
 
-    connect(m_cancelBtn, &NavButton::clicked, this, &Full_Disk_Encrypt_frame::cancel);
-    connect(m_nextBtn, &NavButton::clicked, this, &Full_Disk_Encrypt_frame::onNextBtnClicked);
-    connect(m_encryptCheck, &QCheckBox::clicked, this, &Full_Disk_Encrypt_frame::onEncryptUpdated);
-    connect(m_encryptEdit, &LineEdit::textChanged, m_errTip, &SystemInfoTip::hide);
-    connect(m_encryptRepeatEdit, &LineEdit::textChanged, m_errTip, &SystemInfoTip::hide);
-    connect(KeyboardMonitor::instance(), &KeyboardMonitor::capslockStatusChanged, this, &Full_Disk_Encrypt_frame::updateEditCapsLockState);
-
-    onEncryptUpdated(true);
-
     m_encryptEdit->setEchoMode(QLineEdit::Password);
     m_encryptRepeatEdit->setEchoMode(QLineEdit::Password);
 
     setStyleSheet(ReadFile(":/styles/full_encrypt_frame.css"));
     updateText();
+
+    initConnections();
+    onEncryptUpdated(true);
 }
 
 void Full_Disk_Encrypt_frame::onShowDeviceInfomation()
@@ -148,6 +142,16 @@ void Full_Disk_Encrypt_frame::changeEvent(QEvent *event)
     }
 
     return QWidget::changeEvent(event);
+}
+
+void Full_Disk_Encrypt_frame::initConnections()
+{
+    connect(m_cancelBtn, &NavButton::clicked, this, &Full_Disk_Encrypt_frame::cancel);
+    connect(m_nextBtn, &NavButton::clicked, this, &Full_Disk_Encrypt_frame::onNextBtnClicked);
+    connect(m_encryptCheck, &QCheckBox::clicked, this, &Full_Disk_Encrypt_frame::onEncryptUpdated);
+    connect(m_encryptEdit, &LineEdit::textChanged, m_errTip, &SystemInfoTip::hide);
+    connect(m_encryptRepeatEdit, &LineEdit::textChanged, m_errTip, &SystemInfoTip::hide);
+    connect(KeyboardMonitor::instance(), &KeyboardMonitor::capslockStatusChanged, this, &Full_Disk_Encrypt_frame::updateEditCapsLockState);
 }
 
 void Full_Disk_Encrypt_frame::onNextBtnClicked()
@@ -191,7 +195,10 @@ void Full_Disk_Encrypt_frame::onEncryptUpdated(bool checked)
     m_encryptEdit->setEnabled(checked);
     m_encryptLbl->setEnabled(checked);
     m_encryptRepeatEdit->setEnabled(checked);
-    m_cancelBtn->setVisible(checked);
+
+    if (!checked){
+        m_errTip->hide();
+    }
 }
 
 void Full_Disk_Encrypt_frame::updateText()
