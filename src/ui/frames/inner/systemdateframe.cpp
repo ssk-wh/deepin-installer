@@ -51,6 +51,7 @@ namespace {
     int kYearMonthDayQLineEditWidth = 160;
     int kYearMonthDayQLabelWidth = 110;
     int kYearMonthDayQWidgetWidth = 340;
+    int kMaxIncrementYear = 30;
 }
 
 class SystemDateFramePrivate : public QWidget{
@@ -81,6 +82,8 @@ public:
 
     NavButton* m_acceptBtn = new NavButton;
     NavButton* m_cancelBtn = new NavButton;
+
+    int m_maxYear = 9999;
 
     SystemDateFrame* m_ptr;
 
@@ -232,7 +235,7 @@ void SystemDateFramePrivate::onYearMonthDayChanged(TimeDateLineEdit *edit, bool 
 
     if(edit == m_yearEdit){
         first = 1970;
-        count = 9999 - 1970 + 1;
+        count = m_maxYear - 1970 + 1;
     }
     else if (edit == m_monthEdit) {
         first = 1;
@@ -323,6 +326,10 @@ bool SystemDateFramePrivate::validateYear(const QString& str)
     }
 
     if(str.toUInt() < 1970){
+        return false;
+    }
+
+    if(str.toUInt() > m_maxYear){
         return false;
     }
 
@@ -616,6 +623,7 @@ void SystemDateFramePrivate::initDateTime()
     const QTime& time = currentDateTime.time();
 
     m_yearEdit->setText(QString::number(date.year()));
+    m_maxYear = date.year() + kMaxIncrementYear;
     m_monthEdit->setText(QString::number(date.month()));
     m_dayEdit->setText(QString::number(date.day()));
     m_hourEdit->setText(QString::number(time.hour()));
