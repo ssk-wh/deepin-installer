@@ -7,6 +7,7 @@
 # ddabrahim <ddabrahim@googlemail.com>, 2017
 # Kiss Zoltan <atari@freemail.hu>, 2017
 # Laszlo Espadas, 2017
+# Márton András Hábele, 2019
 # 
 #, fuzzy
 msgid ""
@@ -15,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-26 13:41+0800\n"
 "PO-Revision-Date: 2017-02-06 02:09+0000\n"
-"Last-Translator: Laszlo Espadas, 2017\n"
+"Last-Translator: Márton András Hábele, 2019\n"
 "Language-Team: Hungarian (https://www.transifex.com/linuxdeepin/teams/3976/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1101,7 +1102,7 @@ msgstr "Ázsia/Qatar"
 
 #: system-config-date-timezones.h:270
 msgid "Asia/Qostanay"
-msgstr ""
+msgstr "Asia/Qostanay"
 
 #: system-config-date-timezones.h:271
 msgid "Asia/Qyzylorda"
