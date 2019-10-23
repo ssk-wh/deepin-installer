@@ -9,6 +9,7 @@
 namespace installer {
 
 const int kWindowWidth = 960;
+const int kPartitionLabelSpace = 15;
 
 static const QMap<QString, QString> PART_NAME_COLOR_NAME_MAP{
     { QString("/boot"), QString("#C100AB") },
@@ -91,7 +92,7 @@ FullDiskPartitionWidget::FullDiskPartitionWidget(QWidget* parent)
     m_fullDiskPartitionColorBar = new FullDiskPartitionColorBar;
 
     m_labelLayout = new QHBoxLayout;
-    m_labelLayout->setSpacing(50);
+    m_labelLayout->setSpacing(kPartitionLabelSpace);
 
     m_mainLayout = new QVBoxLayout;
     m_mainLayout->addWidget(m_fullDiskPartitionColorBar, 0, Qt::AlignHCenter);
@@ -109,6 +110,7 @@ FullDiskPartitionWidget::FullDiskPartitionWidget(QWidget* parent)
 
     m_mainLayout->addLayout(bottomLayout);
 
+    setFixedWidth(kWindowWidth);
     setLayout(m_mainLayout);
     setStyleSheet(ReadFile(":/styles/full_disk_partition_colorbar.css"));
 }
@@ -161,7 +163,7 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
     for (Partition::Ptr partition : partitions) {
         QHBoxLayout *layout = new QHBoxLayout;
         layout->setMargin(0);
-        layout->setSpacing(5);
+        layout->setSpacing(3);
 
         QLabel *colorLable = new QLabel;
         colorLable->setFixedSize(QSize(10, 10));

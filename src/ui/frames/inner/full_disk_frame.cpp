@@ -218,7 +218,6 @@ void FullDiskFrame::initUI() {
   scroll_area->setFixedWidth(kWindowWidth);
 
   m_diskPartitionWidget = new FullDiskPartitionWidget;
-  m_diskPartitionWidget->setFixedWidth(kWindowWidth);
 
   QVBoxLayout* main_layout = new QVBoxLayout();
   main_layout->setContentsMargins(0, 0, 0, 0);

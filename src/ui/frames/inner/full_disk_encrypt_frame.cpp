@@ -22,8 +22,6 @@
 
 using namespace installer;
 
-const int kWindowWidth = 960;
-
 Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout(this))
@@ -82,7 +80,6 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QW
     hboxlayout->addStretch();
     m_layout->addLayout(hboxlayout);
     m_layout->addWidget(m_diskPartitionWidget, 0, Qt::AlignHCenter);
-    m_diskPartitionWidget->setFixedWidth(kWindowWidth);
 
     // add round progress bar
     RoundedProgressBar* spacingBar = new RoundedProgressBar;
