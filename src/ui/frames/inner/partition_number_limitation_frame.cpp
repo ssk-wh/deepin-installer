@@ -75,9 +75,11 @@ void PartitionNumberLimitationFrame::initUI() {
   comment1_label_ = new CommentLabel(
       tr("You should delete a primary partition before creating a new one, "
          "as there can only be four primary partitions on an MBR disk"));
+  comment1_label_->setWordWrap(true);
   comment2_label_ = new CommentLabel(
       tr("You should delete a primary partition before creating a logical one, "
          "or move the existing logical partition to the end of the disk"));
+  comment2_label_->setWordWrap(true);
   back_button_ = new NavButton(tr("Back"));
 
   QVBoxLayout* layout = new QVBoxLayout();
