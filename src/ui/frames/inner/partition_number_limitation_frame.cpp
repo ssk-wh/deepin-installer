@@ -26,6 +26,10 @@
 
 namespace installer {
 
+namespace {
+    const int kWindowWidth = 960;
+}
+
 PartitionNumberLimitationFrame::PartitionNumberLimitationFrame(
     QWidget* parent) : QFrame(parent) {
   this->setObjectName("partition_number_limitation_frame");
@@ -72,12 +76,17 @@ void PartitionNumberLimitationFrame::initConnections() {
 
 void PartitionNumberLimitationFrame::initUI() {
   title_label_ = new TitleLabel(tr("Failed to Create New Partition"));
+
   comment1_label_ = new CommentLabel(
       tr("You should delete a primary partition before creating a new one, "
          "as there can only be four primary partitions on an MBR disk"));
+  comment1_label_->setFixedWidth(kWindowWidth);
+
   comment2_label_ = new CommentLabel(
       tr("You should delete a primary partition before creating a logical one, "
          "or move the existing logical partition to the end of the disk"));
+  comment2_label_->setFixedWidth(kWindowWidth);
+
   back_button_ = new NavButton(tr("Back"));
 
   QVBoxLayout* layout = new QVBoxLayout();
