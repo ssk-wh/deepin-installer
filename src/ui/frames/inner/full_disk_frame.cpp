@@ -218,6 +218,7 @@ void FullDiskFrame::initUI() {
   scroll_area->setFixedWidth(kWindowWidth);
 
   m_diskPartitionWidget = new FullDiskPartitionWidget;
+  m_diskPartitionWidget->setFixedWidth(kWindowWidth);
 
   QVBoxLayout* main_layout = new QVBoxLayout();
   main_layout->setContentsMargins(0, 0, 0, 0);
@@ -234,17 +235,11 @@ void FullDiskFrame::initUI() {
 
   this->setLayout(main_layout);
   this->setContentsMargins(0, 0, 0, 0);
-  this->setFixedWidth(kWindowWidth);
-  QSizePolicy policy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-  policy.setVerticalStretch(100);
-  this->setSizePolicy(policy);
   this->setStyleSheet(ReadFile(":/styles/simple_disk_frame.css"));
 
   for (auto it = m_trList.begin(); it != m_trList.end(); ++it) {
       it->first(qApp->translate("installer::FullDiskFrame", it->second.toUtf8()));
   }
-
-  m_diskPartitionWidget->setFixedWidth(kWindowWidth);
 }
 
 void FullDiskFrame::repaintDevices() {
