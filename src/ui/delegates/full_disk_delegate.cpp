@@ -1048,16 +1048,15 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
         int device_index = DeviceIndex(virtual_devices_, device_path);
 
         Device::Ptr device = virtual_devices_[device_index];
-        Device::Ptr new_device(new Device(*device));
-        new_device->partitions.clear();
-        new_device->table = table;
+        device->partitions.clear();
+        device->table = table;
 
-        disk_option.is_system_disk = new_device->path == device_path_list.at(0);
-        if (!formatWholeDeviceV2(new_device, disk_option)) {
+        disk_option.is_system_disk = device->path == device_path_list.at(0);
+        if (!formatWholeDeviceV2(device, disk_option)) {
             selected_devices.clear();
             return false;
         }
-        selected_devices.append(new_device);
+        selected_devices.append(device);
     }
     return true;
 }
