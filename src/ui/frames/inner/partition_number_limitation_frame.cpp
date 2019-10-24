@@ -75,15 +75,13 @@ void PartitionNumberLimitationFrame::initUI() {
   comment1_label_ = new CommentLabel(
       tr("You should delete a primary partition before creating a new one, "
          "as there can only be four primary partitions on an MBR disk"));
-  comment1_label_->setWordWrap(true);
   comment2_label_ = new CommentLabel(
       tr("You should delete a primary partition before creating a logical one, "
          "or move the existing logical partition to the end of the disk"));
-  comment2_label_->setWordWrap(true);
   back_button_ = new NavButton(tr("Back"));
 
   QVBoxLayout* layout = new QVBoxLayout();
-  layout->setContentsMargins(0, 0, 0, 0);
+  layout->setMargin(0);
   layout->setSpacing(0);
   layout->addStretch();
   layout->addWidget(title_label_, 0, Qt::AlignHCenter);
@@ -94,8 +92,13 @@ void PartitionNumberLimitationFrame::initUI() {
   layout->addStretch();
   layout->addWidget(back_button_, 0, Qt::AlignHCenter);
 
-  this->setLayout(layout);
-  this->setContentsMargins(0, 0, 0, 0);
+  QHBoxLayout* mainLayout = new QHBoxLayout;
+  mainLayout->setMargin(0);
+  mainLayout->addStretch();
+  mainLayout->addLayout(layout);
+  mainLayout->addStretch();
+
+  setLayout(mainLayout);
 }
 
 }  // namespace installer
