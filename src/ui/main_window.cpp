@@ -439,7 +439,6 @@ void MainWindow::onCurrentPageChanged(int index) {
   // Ignore null id.
   const PageId id = static_cast<PageId>(index + 1);
   this->setCurrentPage(id);
-  goNextPage();
 }
 
 void MainWindow::onCloseButtonClicked() {
