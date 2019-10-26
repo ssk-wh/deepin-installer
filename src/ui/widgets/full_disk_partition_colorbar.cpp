@@ -110,7 +110,6 @@ FullDiskPartitionWidget::FullDiskPartitionWidget(QWidget* parent)
 
     m_mainLayout->addLayout(bottomLayout);
 
-    setFixedWidth(kWindowWidth);
     setLayout(m_mainLayout);
     setStyleSheet(ReadFile(":/styles/full_disk_partition_colorbar.css"));
 }
