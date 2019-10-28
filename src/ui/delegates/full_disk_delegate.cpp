@@ -32,8 +32,8 @@ namespace installer {
 namespace {
 
 const char kLinuxSwapMountPoint[] = "linux-swap";
-const char kUEFIPartitionLabel[] = "efi";
-const char kFullDiskPolicyRootb[] = "rootb";
+const char kUEFIPartitionLabel[] = "EFI";
+const char kFullDiskPolicyRootb[] = "Rootb";
 const char kFullDiskPolicyUsageRootSize[] = "root-size";
 const char kPartitionFullDiskRootPartitionUsage[] = "partition_full_disk_root_partition_usage";
 
@@ -1020,7 +1020,7 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
             FullDiskPolicy  policy;
             policy.filesystem = GetFsTypeByName(jsonObject["filesystem"].toString());
             policy.mountPoint = jsonObject["mountPoint"].toString();
-            policy.label      = jsonObject["label"].toString().toLower();
+            policy.label      = jsonObject["label"].toString();
             policy.usage      = jsonObject["usage"].toString();
             policy.alignStart = jsonObject["alignStart"].toBool();
             policy.device     = jsonObject["device"].toString();
