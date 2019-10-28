@@ -21,7 +21,6 @@
 #include <QApplication>
 #include <QDebug>
 #include <QIcon>
-#include <QTranslator>
 
 #include "base/consts.h"
 #include "service/log_manager.h"
@@ -61,12 +60,6 @@ int main(int argc, char *argv[])
   }
   // Initialize log service.
   installer::RedirectLog(log_file);
-
-  // Set language.
-  QTranslator translator;
-  const QString locale(installer::ReadLocale());
-  translator.load(installer::GetLocalePath(locale));
-  app.installTranslator(&translator);
 
   QFont font(app.font());
   font.setFamily(installer::GetUIDefaultFont());
