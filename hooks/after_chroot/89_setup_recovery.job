@@ -28,14 +28,16 @@ mount ${DI_RECOVERY_PATH} /mnt || error "Faild to mount ${DI_RECOVERY_PATH}"
 
 mkdir /mnt/backup
 
+echo "UUID=$(lsblk -f ${DI_ROOT_PARTITION} | grep -i / | awk '{print $3}')" > /mnt/etc/deepin/system-recovery.conf
+
 # 备份boot分区
 if [ ! -z ${DI_BOOTLOADER} ];then
     deepin-clone --tui ${DI_BOOTLOADER} /mnt/backup/boot.dim
-    echo $(lsblk -f ${DI_BOOTLOADER} | grep -i /boot | awk '{print $3}') > boot.info
+    echo $(lsblk -f ${DI_BOOTLOADER} | grep -i /boot | awk '{print $3}') > /mnt/backup/boot.info
 fi
 
 # 备份系统
 deepin-clone --tui $(installer_get "DI_ROOT_PARTITION") /mnt/backup/system.dim
-echo $(lsblk -f ${DI_ROOT_PARTITION} | grep -i / | awk '{print $3}') > system.info
+echo $(lsblk -f ${DI_ROOT_PARTITION} | grep -i / | awk '{print $3}') > /mnt/backup/system.info
 
 return $?
