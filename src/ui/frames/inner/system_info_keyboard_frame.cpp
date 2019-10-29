@@ -106,7 +106,20 @@ void SystemInfoKeyboardFrame::changeEvent(QEvent* event) {
     guide_label_->setText(tr("Select a proper keyboard layout"));
     test_edit_->setPlaceholderText(tr("Test here"));
     back_button_->setText(tr("Back"));
-    layout_model_->initLayout(ReadLocale());
+
+    const QString& locale = ReadLocale();
+    layout_model_->initLayout(locale);
+
+    int index = locale.indexOf('_');
+    if (index >= 0){
+        const QModelIndex modelIndex = layout_model_->getLayoutByName(locale.mid(index + 1).toLower());
+        if (modelIndex.isValid()) {
+            layout_view_->setCurrentIndex(modelIndex);
+        }
+    }
+    else{
+        qWarning() << "invalid locale:" << locale;
+    }
   } else {
     QFrame::changeEvent(event);
   }
@@ -240,6 +253,8 @@ void SystemInfoKeyboardFrame::onVariantViewSelected(
     }
   }
   emit this->layoutUpdated(description);
+
+  writeConf();
 }
 
 }  // namespace installer
