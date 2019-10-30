@@ -224,8 +224,10 @@ void SystemInfoKeyboardFrame::onLayoutViewSelectionChanged(
   // Scroll to top of variant view.
   variant_view_->scrollToTop();
 
-  // Select the default layout variant.
-  variant_view_->setCurrentIndex(variant_model_->index(0));
+  if (layout_view_->selectionModel()->selectedIndexes().size() > 0)  {
+    // Select the default layout variant.
+    variant_view_->setCurrentIndex(variant_model_->index(0));
+  }
 }
 
 void SystemInfoKeyboardFrame::onVariantViewSelected(
