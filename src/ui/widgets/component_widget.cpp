@@ -37,6 +37,7 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
         m_radioBotton->setCheckable(true);
         m_radioBotton->setChecked(false);
         m_radioBotton->installEventFilter(this);
+        m_radioBotton->setFocusPolicy(Qt::NoFocus);
         m_hLayout->addWidget(m_radioBotton, 0, Qt::AlignLeft | Qt::AlignVCenter);
 
         connect(m_radioBotton, &QRadioButton::clicked, this
@@ -48,6 +49,7 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
         m_checkBox->setCheckable(true);
         m_checkBox->setChecked(false);
         m_checkBox->installEventFilter(this);
+        m_checkBox->setFocusPolicy(Qt::NoFocus);
         m_hLayout->addWidget(m_checkBox, 0, Qt::AlignLeft | Qt::AlignVCenter);
 
         connect(m_checkBox, &QCheckBox::clicked, this
@@ -112,8 +114,7 @@ bool ComponentWidget::eventFilter(QObject *watched, QEvent *event)
 {
     Q_UNUSED(watched);
 
-    if((event->type() == QEvent::KeyPress)
-            || (event->type() == QEvent::KeyRelease)){
+    if(event->type() == QEvent::KeyPress){
         return true;
     }
 
