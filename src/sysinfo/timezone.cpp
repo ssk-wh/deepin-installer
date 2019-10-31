@@ -42,6 +42,9 @@ const char kTimezoneAliasFile[] = RESOURCES_DIR "/timezone_alias";
 // Domain name for timezones.
 const char kTimezoneDomain[] = "deepin-installer-timezones";
 
+// continent: Antarctica
+const char kAntarctica[] = "Antarctica";
+
 // Parse latitude and longitude of the zone's principal location.
 // See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.
 // |pos| is in ISO 6709 sign-degrees-minutes-seconds format,
@@ -87,6 +90,10 @@ ZoneInfoList GetZoneInfoList() {
       const QStringList parts(line.split('\t'));
       // Parse latitude and longitude.
       if (parts.length() >= 3) {
+        if (parts.at(2).contains(kAntarctica)){
+            continue;
+        }
+
         const QString coordinates = parts.at(1);
         int index = coordinates.indexOf('+', 3);
         if (index == -1) {
@@ -236,8 +243,14 @@ ContinentZoneInfoList GetContinentZoneInfo()
             if(parts.length() < 3){
                 continue;
             }
+
             // Parse Continent/timeZone.
             const QString& continentTimeZone = parts.at(2);
+            // Miller cylindrical map projection does not support Antarctica timezone.
+            if (continentTimeZone.contains(kAntarctica)){
+                continue;
+            }
+
             int index = continentTimeZone.indexOf('/');
             if(index < 0){
                 qWarning() << "invalid Continent/timeZone: " << continentTimeZone;
