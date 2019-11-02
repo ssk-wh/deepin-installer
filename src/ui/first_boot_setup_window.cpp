@@ -257,7 +257,12 @@ void FirstBootSetupWindow::onControlPlatformFinished()
 }
 
 void FirstBootSetupWindow::onTimezoneFinished() {
-    stacked_layout_->setCurrentWidget(system_info_frame_);
+    if (!GetSettingsBool(kSkipSystemInfoPage)) {
+        stacked_layout_->setCurrentWidget(system_info_frame_);
+    }
+    else {
+        onSystemInfoFinished();
+    }
 }
 
 void FirstBootSetupWindow::backPage()
