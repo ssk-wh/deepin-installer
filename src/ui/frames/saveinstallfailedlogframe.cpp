@@ -123,6 +123,8 @@ SaveInstallFailedLogFrame::SaveInstallFailedLogFrame(QWidget *parent) : QWidget(
 }
 
 void SaveInstallFailedLogFrame::startDeviceWatch(bool enable) {
+    m_saveBtn->setEnabled(false);
+
     if (m_diskManager->watchChanges() == enable) {
         return;
     }
@@ -212,6 +214,8 @@ void SaveInstallFailedLogFrame::refreshDevices()
     place_holder_label->setFixedSize(kWindowWidth, 30);
     m_partitionGridLayout->addWidget(place_holder_label, row, 0,
                             1, kDiskColumns, Qt::AlignHCenter);
+
+    m_saveBtn->setEnabled(false);
 }
 
 void SaveInstallFailedLogFrame::onBlockDeviceAdded(const QString &path)
