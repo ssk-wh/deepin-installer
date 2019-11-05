@@ -91,7 +91,7 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="524"/>
         <source>At least %1 GB is required for partition %2</source>
-        <translation type="unfinished"/>
+        <translation>파티션 %2에 최소 %1 GB가 필요합니다.</translation>
     </message>
 </context>
 <context>
@@ -162,7 +162,7 @@
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="102"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="201"/>
         <source>File system</source>
-        <translation type="unfinished"/>
+        <translation>파일 시스템</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
@@ -185,12 +185,12 @@
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="106"/>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation>생성</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="245"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>확인</translation>
     </message>
 </context>
 <context>
@@ -219,7 +219,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="59"/>
         <source>Encrypt this disk</source>
-        <translation type="unfinished"/>
+        <translation>이 디스크 암호화</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="60"/>
@@ -249,7 +249,7 @@
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="82"/>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="105"/>
         <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
-        <translation type="unfinished"/>
+        <translation>문제에 대해 죄송합니다. 사진 또는 우리에게 오류 로그를 보내 QR 코드를 스캔하거나 외부 디스크에 로그를 저장하시기 바랍니다. 우리는 이 문제를 해결하는 데 도움이 될 것입니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="84"/>
@@ -261,7 +261,7 @@
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="85"/>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="158"/>
         <source>Save Log</source>
-        <translation type="unfinished"/>
+        <translation>로그 저장</translation>
     </message>
 </context>
 <context>
@@ -276,7 +276,7 @@
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="129"/>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="153"/>
         <source>Here are a few cool things to look out for...</source>
-        <translation type="unfinished"/>
+        <translation>주의해야 할 몇 가지 멋진 사항은 다음과 같습니다...</translation>
     </message>
 </context>
 <context>
@@ -291,7 +291,7 @@
         <location filename="../src/ui/frames/install_success_frame.cpp" line="43"/>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="62"/>
         <source>Reboot to complete the installation</source>
-        <translation type="unfinished"/>
+        <translation>설치를 완료하려면 재부팅</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="45"/>
@@ -303,7 +303,7 @@
         <location filename="../src/ui/frames/install_success_frame.cpp" line="46"/>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="70"/>
         <source>Reboot Now</source>
-        <translation type="unfinished"/>
+        <translation>지금 재부팅</translation>
     </message>
 </context>
 <context>
@@ -311,12 +311,12 @@
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="189"/>
         <source>System Disk</source>
-        <translation type="unfinished"/>
+        <translation>시스템 디스크</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="189"/>
         <source>Data Disk</source>
-        <translation type="unfinished"/>
+        <translation>데이터 디스크</translation>
     </message>
 </context>
 <context>
@@ -325,7 +325,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="116"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="151"/>
         <source>Create New Partition</source>
-        <translation type="unfinished"/>
+        <translation>새 파티션 만들기</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="118"/>
@@ -349,7 +349,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="121"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="170"/>
         <source>File system</source>
-        <translation type="unfinished"/>
+        <translation>파일 시스템</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="122"/>
@@ -389,7 +389,7 @@
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="216"/>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation>생성</translation>
     </message>
 </context>
 <context>
@@ -407,13 +407,13 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="76"/>
         <source>Format Warning</source>
-        <translation type="unfinished"/>
+        <translation>포맷 경고</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="57"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="94"/>
         <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation type="unfinished"/>
+        <translation>설치를 계속하면 전체 디스크가 포맷됩니다. 모든 데이터를 백업하십시오. 만약 당신이 무엇을 하고 있는지 모른다면, 계속하지 마십시오</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="59"/>
@@ -519,19 +519,19 @@
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="74"/>
         <source>Failed to Create New Partition</source>
-        <translation type="unfinished"/>
+        <translation>새 파티션을 만들지 못했습니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="57"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="76"/>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
-        <translation type="unfinished"/>
+        <translation>MBR 디스크에 4개의 기본 파티션만 있을 수 있으므로, 새 파티션을 만들기 전에 기본 파티션을 삭제해야 합니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="79"/>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
-        <translation type="unfinished"/>
+        <translation>논리 파티션을 만들기 전에 기본 파티션을 삭제하거나 기존 논리 파티션을 디스크 끝으로 이동해야 합니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="62"/>
@@ -560,7 +560,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="83"/>
         <source>Ready to Install</source>
-        <translation type="unfinished"/>
+        <translation>설치 준비 완료</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="64"/>
@@ -658,7 +658,7 @@
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="40"/>
         <source>You need at least %1 GB disk space to install deepin. To get better performance, %2 GB or more is recommended</source>
-        <translation type="unfinished"/>
+        <translation>Deepin을 설치하려면 %1GB 이상의 디스크 공간이 필요합니다. 성능을 향상시키려면 %2GB 이상이 권장됩니다</translation>
     </message>
 </context>
 <context>
@@ -673,7 +673,7 @@
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="44"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="66"/>
         <source>If you do not understand the settings, please select the recommended one</source>
-        <translation type="unfinished"/>
+        <translation>설정을 이해하지 못할 경우, 권장 설정을 선택하십시오</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="45"/>
@@ -703,12 +703,12 @@
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="234"/>
         <source>Select system language</source>
-        <translation type="unfinished"/>
+        <translation>시스템 언어 선택</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="237"/>
         <source>and</source>
-        <translation type="unfinished"/>
+        <translation>및</translation>
     </message>
 </context>
 <context>
@@ -791,25 +791,25 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="91"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="203"/>
         <source>Repeat password</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호 반복</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="92"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="208"/>
         <source>Set root password</source>
-        <translation type="unfinished"/>
+        <translation>루트 비밀번호 설정</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="93"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="215"/>
         <source>Root password</source>
-        <translation type="unfinished"/>
+        <translation>루트 비밀번호</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="94"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="225"/>
         <source>Repeat root password</source>
-        <translation type="unfinished"/>
+        <translation>루트 비밀번호 반복</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="95"/>
@@ -897,13 +897,13 @@
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="106"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="127"/>
         <source>Select a proper keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>적절한 키보드 레이아웃 선택</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="107"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="170"/>
         <source>Test here</source>
-        <translation type="unfinished"/>
+        <translation>여기서 테스트</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="108"/>
@@ -922,20 +922,20 @@
         <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
         <source>Select Timezone</source>
-        <translation type="unfinished"/>
+        <translation>시간대 선택</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="221"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="352"/>
         <source>Click your zone on the map</source>
-        <translation type="unfinished"/>
+        <translation>지도에서 당신의 지역을 클릭합니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="359"/>
         <source>Select your timezone from the list</source>
-        <translation type="unfinished"/>
+        <translation>목록에서 시간대 선택</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="121"/>
@@ -947,19 +947,19 @@
         <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="226"/>
         <source>Map</source>
-        <translation type="unfinished"/>
+        <translation>지도</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="232"/>
         <source>List</source>
-        <translation type="unfinished"/>
+        <translation>목록</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="286"/>
         <source>Time settings</source>
-        <translation type="unfinished"/>
+        <translation>시간 설정</translation>
     </message>
 </context>
 <context>
@@ -973,7 +973,7 @@
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="42"/>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install deepin in a real environment</source>
-        <translation type="unfinished"/>
+        <translation>시스템 성능 및 사용자 환경에 영향을 주는 가상 시스템을 사용하고 있습니다. 보다 원활한 환경을 위해 실제 환경에 Deepin을 설치하십시오</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="44"/>
@@ -997,527 +997,527 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
         <source>Basic functionality.</source>
-        <translation type="unfinished"/>
+        <translation>기본 기능.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>Compute Node</source>
-        <translation type="unfinished"/>
+        <translation>노드 계산</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>Installation for performing computation and processing.</source>
-        <translation type="unfinished"/>
+        <translation>연산 및 처리를 수행하기 위한 설치.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>Infrastructure Server</source>
-        <translation type="unfinished"/>
+        <translation>인프라 서버</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>Server for operating network infrastructure services.</source>
-        <translation type="unfinished"/>
+        <translation>네트워크 인프라 서비스 운영을 위한 서버.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>File and Print Server</source>
-        <translation type="unfinished"/>
+        <translation>파일 및 프린트 서버</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>File, print, and storage server for enterprises.</source>
-        <translation type="unfinished"/>
+        <translation>기업을 위한 파일, 인쇄 및 저장소 서버.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Basic Web Server</source>
-        <translation type="unfinished"/>
+        <translation>기본 웹 서버</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Server for serving static and dynamic internet content.</source>
-        <translation type="unfinished"/>
+        <translation>정적 및 동적 인터넷 컨텐츠 서비스를 위한 서버.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>Virtualization Host</source>
-        <translation type="unfinished"/>
+        <translation>가상화 호스트</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>Minimal virtualization host.</source>
-        <translation type="unfinished"/>
+        <translation>최소 가상화 호스트.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Server with GUI</source>
-        <translation type="unfinished"/>
+        <translation>GUI가 있는 서버</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Server for operating network infrastructure services, with a GUI.</source>
-        <translation type="unfinished"/>
+        <translation>GUI를 사용하여 네트워크 인프라 서비스를 운영하기 위한 서버.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>DDE Desktop</source>
-        <translation type="unfinished"/>
+        <translation>DDE 바탕화면</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>DDE is a highly intuitive and user friendly desktop environment.</source>
-        <translation type="unfinished"/>
+        <translation>DDE는 매우 직관적이고 사용자 친화적인 바탕화면 환경입니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>Development and Creative Workstation</source>
-        <translation type="unfinished"/>
+        <translation>개발 및 창조적인 워크스테이션</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>Workstation for software, hardware, graphics, or content development.</source>
-        <translation type="unfinished"/>
+        <translation>소프트웨어, 하드웨어, 그래픽 또는 콘텐츠 개발을 위한 워크스테이션.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>Debugging Tools</source>
-        <translation type="unfinished"/>
+        <translation>디버깅 도구</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>Tools for debugging misbehaving applications and diagnosing performance problems.</source>
-        <translation type="unfinished"/>
+        <translation>잘못된 응용프로그램을 디버깅하고 성능 문제를 진단하기 위한 도구.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>Directory Client</source>
-        <translation type="unfinished"/>
+        <translation>디렉토리 클라이언트</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>Clients for integration into a network managed by a directory service.</source>
-        <translation type="unfinished"/>
+        <translation>디렉토리 서비스에서 관리하는 네트워크로 통합하기 위한 클라이언트</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>Security Tools</source>
-        <translation type="unfinished"/>
+        <translation>보안 도구</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>Security tools for integrity and trust verification.</source>
-        <translation type="unfinished"/>
+        <translation>무결성 및 신뢰 검증을 위한 보안 도구.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>Development Tools</source>
-        <translation type="unfinished"/>
+        <translation>개발 도구</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>A basic development environment.</source>
-        <translation type="unfinished"/>
+        <translation>기본 개발 환경.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>Performance Tools</source>
-        <translation type="unfinished"/>
+        <translation>성능 도구</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>Tools for diagnosing system and application-level performance problems.</source>
-        <translation type="unfinished"/>
+        <translation>시스템 및 응용 프로그램 수준의 성능 문제를 진단하기 위한 도구.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>Hardware Monitoring Utilities</source>
-        <translation type="unfinished"/>
+        <translation>하드웨어 모니터링 유틸리티</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>A set of tools to monitor server hardware.</source>
-        <translation type="unfinished"/>
+        <translation>서버 하드웨어를 모니터링하기 위한 도구 모음.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>Virtualization Hypervisor</source>
-        <translation type="unfinished"/>
+        <translation>가상화 하이퍼바이저</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>Smallest possible virtualization host installation.</source>
-        <translation type="unfinished"/>
+        <translation>가장 작은 가상화 호스트 설치.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>Virtualization Platform</source>
-        <translation type="unfinished"/>
+        <translation>가상화 플랫폼</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>Provide an interface for accessing and controlling virtualized guests and containers.</source>
-        <translation type="unfinished"/>
+        <translation>가상화된 게스트 및 컨테이너에 접근하고 제어하기 위한 인터페이스 제공.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Virtualization Client</source>
-        <translation type="unfinished"/>
+        <translation>가상화 클라이언트</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Clients for installing and managing virtualization instances.</source>
-        <translation type="unfinished"/>
+        <translation>가상화 인스턴스 설치 및 관리를위한 클라이언트.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Backup Client</source>
-        <translation type="unfinished"/>
+        <translation>백업 클라이언트</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Client tools for connecting to a backup server and doing backups.</source>
-        <translation type="unfinished"/>
+        <translation>백업 서버에 연결하고 백업을 수행하는 클라이언트 도구.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Backup Server</source>
-        <translation type="unfinished"/>
+        <translation>백업 서버</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Software to centralize your infrastructure&apos;s backups.</source>
-        <translation type="unfinished"/>
+        <translation>인프라구조의 백업을 중앙 집중화하는 소프트웨어.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>File and Storage Server</source>
-        <translation type="unfinished"/>
+        <translation>파일 및 저장소 서버</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
-        <translation type="unfinished"/>
+        <translation>CIFS, SMB, NFS, iSCSI, iSER, 및 iSNS 네트워크 저장소 서버.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>DNS Name Server</source>
-        <translation type="unfinished"/>
+        <translation>DNS 네임 서버</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>This package group allows you to run a DNS name server (BIND) on the system.</source>
-        <translation type="unfinished"/>
+        <translation>이 패키지 그룹을 사용하면 시스템에서 DNS 이름 서버(BIND)를 실행할 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>E-mail Server</source>
-        <translation type="unfinished"/>
+        <translation>이메일 서버</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
-        <translation type="unfinished"/>
+        <translation>시스템이 SMTP 및/또는 IMAP 전자 메일 서버 역할을 하도록 허용.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>FTP Server</source>
-        <translation type="unfinished"/>
+        <translation>FTP 서버</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Allows the system to act as an FTP server.</source>
-        <translation type="unfinished"/>
+        <translation>시스템이 FTP 서버 역할을 하도록 허용.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Print Server</source>
-        <translation type="unfinished"/>
+        <translation>프린트 서버</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Allows the system to act as a print server.</source>
-        <translation type="unfinished"/>
+        <translation>시스템이 인쇄 서버 역할을 하도록 허용.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Mainframe Access</source>
-        <translation type="unfinished"/>
+        <translation>메인프레임 액세스</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Tools for accessing mainframe computing resources.</source>
-        <translation type="unfinished"/>
+        <translation>메인프레임 컴퓨팅 리소스에 액세스하기 위한 도구.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Infiniband Support</source>
-        <translation type="unfinished"/>
+        <translation>인피니밴드 지원</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
-        <translation type="unfinished"/>
+        <translation>RDMA 기반 InfiniBand 및 iWARP 패브릭을 사용하여 클러스터링 및 그리드 연결을 지원하도록 설계된 소프트웨어.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>High Availability</source>
-        <translation type="unfinished"/>
+        <translation>고가용성</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Infrastructure for highly available services and/or shared storage.</source>
-        <translation type="unfinished"/>
+        <translation>가용성이 높은 서비스 및/또는 공유 저장소를 위한 인프라구조.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>Resilient Storage</source>
-        <translation type="unfinished"/>
+        <translation>탄력적인 저장소</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>Clustered storage, including the GFS2 file system.</source>
-        <translation type="unfinished"/>
+        <translation>GFS2 파일 시스템을 포함한 클러스터 저장소.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>ldentity Management Server</source>
-        <translation type="unfinished"/>
+        <translation>ID 관리 서버</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Centralized management of users, servers and authentication policies.</source>
-        <translation type="unfinished"/>
+        <translation>사용자, 서버 및 인증 정책의 중앙 집중식 관리</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>Large Systems Performance</source>
-        <translation type="unfinished"/>
+        <translation>대형 시스템 성능</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>Performance support tools for large systems.</source>
-        <translation type="unfinished"/>
+        <translation>대형 시스템에 대한 성능 지원 도구.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Load Balancer</source>
-        <translation type="unfinished"/>
+        <translation>부하 분산장치</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Load balancing support for network traffic.</source>
-        <translation type="unfinished"/>
+        <translation>네트워크 트래픽에 대한 부하 평형화 지원.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>MariaDB Database Client</source>
-        <translation type="unfinished"/>
+        <translation>MariaDB 데이터베이스 클라이언트</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>The MariaDB SQL database client, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>MariaDB SQL 데이터베이스 클라이언트 및 관련 패키지.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>MariaDB Database Server</source>
-        <translation type="unfinished"/>
+        <translation>MariaDB 데이터베이스 서버</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>The MariaDB SQL database server, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>MariaDB SQL 데이터베이스 서버 및 관련 패키지.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>PostgreSQL Database Client</source>
-        <translation type="unfinished"/>
+        <translation>PostgreSQL 데이터베이스 클라이언트</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>The PostgreSQL SQL database client, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>PostgreSQL SQL 데이터베이스 클라이언트 및 관련 패키지.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>PostgreSQL Database Server</source>
-        <translation type="unfinished"/>
+        <translation>PostgreSQL 데이터베이스 서버</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>The PostgreSQL SQL database server, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>PostgreSQL SQL 데이터베이스 서버 및 관련 패키지.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>Java Platform</source>
-        <translation type="unfinished"/>
+        <translation>Java 플랫폼</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>Java support for deepin.</source>
-        <translation type="unfinished"/>
+        <translation>Deepin에 대한 Java 지원.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>PHP Support</source>
-        <translation type="unfinished"/>
+        <translation>PHP 지원</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>PHP web application framework.</source>
-        <translation type="unfinished"/>
+        <translation>PHP 웹 응용프로그램 프레임워크.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>Python</source>
-        <translation type="unfinished"/>
+        <translation>Python</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>Basic Python web application support.</source>
-        <translation type="unfinished"/>
+        <translation>기본 Python 웹 응용프로그램 지원.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>Perl for Web</source>
-        <translation type="unfinished"/>
+        <translation>웹용 Perl</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>Basic Perl web application support.</source>
-        <translation type="unfinished"/>
+        <translation>기본 Perl 웹 응용프로그램 지원.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>Internet Applications</source>
-        <translation type="unfinished"/>
+        <translation>인터넷 응용프로그램</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>Email, chat, and video conferencing software.</source>
-        <translation type="unfinished"/>
+        <translation>이메일, 채팅 및 화상 회의 소프트웨어.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>Web Servlet Engine</source>
-        <translation type="unfinished"/>
+        <translation>웹 서블릿(작은 서버) 엔진</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>Allows the system to host Java servlets.</source>
-        <translation type="unfinished"/>
+        <translation>시스템에서 Java 서블릿을 호스트할 수 있습니다</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
         <source>Legacy x Window System Compatibility</source>
-        <translation type="unfinished"/>
+        <translation>구형 x 윈도우 시스템 호환성</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
         <source>Compatibility programs for migration from or working with legacy X Window System environments.</source>
-        <translation type="unfinished"/>
+        <translation>구형 X 윈도우 시스템 환경에서 마이그레이션하거나 작업하기 위한 호환성 프로그램.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
         <source>Office Suite and Productivity</source>
-        <translation type="unfinished"/>
+        <translation>오피스 제품군 및 생산성</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
         <source>A full-purpose office suite, and other productivity tools.</source>
-        <translation type="unfinished"/>
+        <translation>다목적 오피스 제품군 및 기타 생산성 도구.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>Additional Development</source>
-        <translation type="unfinished"/>
+        <translation>추가 개발</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>Additional development headers and libraries for building open-source applications.</source>
-        <translation type="unfinished"/>
+        <translation>오픈 소스 애플리케이션 구축을 위한 추가 개발 헤더 및 라이브러리.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>Emacs</source>
-        <translation type="unfinished"/>
+        <translation>이맥스</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>The GNU Emacs extensible, customizable text editor.</source>
-        <translation type="unfinished"/>
+        <translation>GNU 이맥스 확장 가능하고 사용자 정의 가능한 텍스트 편집도구.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
         <source>Graphics Creation Tools</source>
-        <translation type="unfinished"/>
+        <translation>그래픽 제작 도구</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
         <source>Software for creation and manipulation of still images.</source>
-        <translation type="unfinished"/>
+        <translation>스틸 이미지 생성 및 조작을 위한 소프트웨어.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
         <source>Platform Development</source>
-        <translation type="unfinished"/>
+        <translation>플랫폼 개발</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
         <source>Recommended development headers and libraries for developing applications to run on deepin.</source>
-        <translation type="unfinished"/>
+        <translation>Deepin에서 실행할 응용프로그램 개발을 위한 권장 개발 헤더 및 라이브러리.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
         <source>Technical Writing</source>
-        <translation type="unfinished"/>
+        <translation>전문적인 글쓰기</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
         <source>Tools for writing technical documentation.</source>
-        <translation type="unfinished"/>
+        <translation>기술 문서 작성을 위한 도구.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="341"/>
         <source>Virtualization Tools</source>
-        <translation type="unfinished"/>
+        <translation>가상화 도구</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="341"/>
         <source>Tools for offline virtual image management.</source>
-        <translation type="unfinished"/>
+        <translation>오프라인 가상 이미지 관리를 위한 도구.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="342"/>
         <source>Network File System Client</source>
-        <translation type="unfinished"/>
+        <translation>네트워크 파일 시스템 클라이언트</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="342"/>
         <source>Enables the system to attach to network storage.</source>
-        <translation type="unfinished"/>
+        <translation>시스템이 네트워크 저장소에 연결할 수 있도록 지원.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="343"/>
         <source>Guest Agents</source>
-        <translation type="unfinished"/>
+        <translation>게스트 에이전트</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="343"/>
         <source>Agents used when running under a hypervisor.</source>
-        <translation type="unfinished"/>
+        <translation>하이퍼바이저에서 실행할 때 사용되는 에이전트.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="344"/>
         <source>DDE Applications</source>
-        <translation type="unfinished"/>
+        <translation>DDE 응용프로그램</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="344"/>
         <source>A set of commonly used DDE Applications.</source>
-        <translation type="unfinished"/>
+        <translation>일반적으로 사용되는 DDE 애플리케이션 세트.</translation>
     </message>
 </context>
 <context>
@@ -1588,7 +1588,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="201"/>
         <source>Encrypt this disk</source>
-        <translation type="unfinished"/>
+        <translation>이 디스크 암호화</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="202"/>
@@ -1684,7 +1684,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="103"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install deepin directly. Please select one of the below solutions and continue.</source>
-        <translation type="unfinished"/>
+        <translation>EFI 시동 로더가 있지만 MBR 디스크가 있으므로, 직접 설치할 수 없습니다. 아래 솔루션 중 하나를 선택하고 계속하십시오.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="57"/>
@@ -1702,7 +1702,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="115"/>
         <source>Exit BIOS, and install deepin again</source>
-        <translation type="unfinished"/>
+        <translation>BIOS를 종료하고, Deepin을 다시 설치합니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="62"/>
@@ -1720,7 +1720,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="124"/>
         <source>After the backup, reboot and enter this interface again</source>
-        <translation type="unfinished"/>
+        <translation>백업 후, 재시동하고 이 인터페이스를 다시 입력하십시오</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="67"/>
@@ -1764,17 +1764,17 @@
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="148"/>
         <source>Save Log</source>
-        <translation type="unfinished"/>
+        <translation>로그 저장</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="149"/>
         <source>Save the error log to a removable device</source>
-        <translation type="unfinished"/>
+        <translation>오류 로그를 이동식 장치에 저장</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="150"/>
         <source>Save as</source>
-        <translation type="unfinished"/>
+        <translation>다른 이름으로 저장</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="151"/>
@@ -1788,19 +1788,19 @@
         <location filename="../src/ui/frames/install_component_frame.cpp" line="86"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="109"/>
         <source>Select Software</source>
-        <translation type="unfinished"/>
+        <translation>소프트웨어 선택</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="87"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="112"/>
         <source>Basic Environment</source>
-        <translation type="unfinished"/>
+        <translation>기본 환경</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="88"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="117"/>
         <source>Add-Ons for Selected Environment</source>
-        <translation type="unfinished"/>
+        <translation>선택한 환경에 대한 추가 기능</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="89"/>
@@ -1815,43 +1815,43 @@
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="91"/>
         <source>Time settings</source>
-        <translation type="unfinished"/>
+        <translation>시간 설정</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="92"/>
         <source>Change date and time as you want</source>
-        <translation type="unfinished"/>
+        <translation>원하는 날짜와 시간 변경</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="93"/>
         <source>Hour</source>
-        <translation type="unfinished"/>
+        <translation>시간</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
         <source>Minute</source>
-        <translation type="unfinished"/>
+        <translation>분</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>연도</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="96"/>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>월</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="97"/>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>일</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="98"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>확인</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="99"/>

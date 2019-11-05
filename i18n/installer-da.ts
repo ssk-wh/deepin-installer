@@ -1007,7 +1007,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>Installation for performing computation and processing.</source>
-        <translation type="unfinished"/>
+        <translation>Installation til udførsel af beregning og behandling.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
@@ -1017,7 +1017,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>Server for operating network infrastructure services.</source>
-        <translation type="unfinished"/>
+        <translation>Server til at styre netværksinfrastrukturtjenester.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
@@ -1037,7 +1037,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Server for serving static and dynamic internet content.</source>
-        <translation type="unfinished"/>
+        <translation>Server til at præsentere statisk og dynamisk internetindhold.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
@@ -1057,7 +1057,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Server for operating network infrastructure services, with a GUI.</source>
-        <translation type="unfinished"/>
+        <translation>Server til at styre netværksinfrastrukturtjenester, med en grafisk brugerflade.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
@@ -1067,7 +1067,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>DDE is a highly intuitive and user friendly desktop environment.</source>
-        <translation type="unfinished"/>
+        <translation>DDE er et meget intuitivt og brugervenligt skrivebordsmiljø.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
@@ -1077,7 +1077,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>Workstation for software, hardware, graphics, or content development.</source>
-        <translation type="unfinished"/>
+        <translation>Arbejdsstation til software, hardware, grafik eller udvikling af indhold.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
@@ -1087,7 +1087,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>Tools for debugging misbehaving applications and diagnosing performance problems.</source>
-        <translation type="unfinished"/>
+        <translation>Værktøjer til at fejlrette programmer som opfører sig dårligt og diagnosticere problemer med ydelsen.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
@@ -1097,7 +1097,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>Clients for integration into a network managed by a directory service.</source>
-        <translation type="unfinished"/>
+        <translation>Klienter til integration i et netværk som håndteres af en directory-tjeneste.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
@@ -1107,7 +1107,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>Security tools for integrity and trust verification.</source>
-        <translation type="unfinished"/>
+        <translation>Sikkerhedsværktøjer til bekræftelse af integritet og betroelse.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
@@ -1127,7 +1127,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>Tools for diagnosing system and application-level performance problems.</source>
-        <translation type="unfinished"/>
+        <translation>Værktøjer til diagnosticering af problemer med ydelsen på system- og programniveau.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
@@ -1137,7 +1137,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>A set of tools to monitor server hardware.</source>
-        <translation type="unfinished"/>
+        <translation>Et sæt værktøjer til at overvåge serverhardware.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
@@ -1147,7 +1147,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>Smallest possible virtualization host installation.</source>
-        <translation type="unfinished"/>
+        <translation>Mindste mulige installation af virtualiseringsvært.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
@@ -1157,7 +1157,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>Provide an interface for accessing and controlling virtualized guests and containers.</source>
-        <translation type="unfinished"/>
+        <translation>Giv en grænseflade for at få adgang til og styre virtualiseringsgæster og -containere.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
@@ -1167,7 +1167,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Clients for installing and managing virtualization instances.</source>
-        <translation type="unfinished"/>
+        <translation>Klienter til installation og håndtering af virtualiseringsinstanser.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
@@ -1177,7 +1177,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Client tools for connecting to a backup server and doing backups.</source>
-        <translation type="unfinished"/>
+        <translation>Klientværktøjer til at oprette forbindelse til en sikkerhedskopieringsserver og til at foretage sikkerhedskopieringer.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
@@ -1187,7 +1187,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Software to centralize your infrastructure&apos;s backups.</source>
-        <translation type="unfinished"/>
+        <translation>Software til at centralisere dine infrastrukturers sikkerhedskopier.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
@@ -1197,7 +1197,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
-        <translation type="unfinished"/>
+        <translation>CIFS-, SMB-, NFS-, iSCSI-, iSER- og iSNS-netværkslagerserver.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
@@ -1207,7 +1207,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>This package group allows you to run a DNS name server (BIND) on the system.</source>
-        <translation type="unfinished"/>
+        <translation>Pakkegruppen giver dig mulighed for at køre en DNS-navneserver (BIND) på systemet.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
@@ -1217,7 +1217,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
-        <translation type="unfinished"/>
+        <translation>Giver systemt mulighed for at fungere som en SMTP- og/eller IMAP-e-mailserver.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
@@ -1227,7 +1227,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Allows the system to act as an FTP server.</source>
-        <translation type="unfinished"/>
+        <translation>Giver systemet mulighed for at fungere som en FTP-server.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
@@ -1237,7 +1237,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Allows the system to act as a print server.</source>
-        <translation type="unfinished"/>
+        <translation>Giver systemet mulighed for at fungere som en udskrivningsserver.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
@@ -1247,7 +1247,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Tools for accessing mainframe computing resources.</source>
-        <translation type="unfinished"/>
+        <translation>Værktøjer til at få adgang til mainframe computerressourcer.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
@@ -1257,7 +1257,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
-        <translation type="unfinished"/>
+        <translation>Software designet til at støtte klynge- og gitterforbindelse med RDMA-baseret InfiniBand- og iWARP-fabrics.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
@@ -1267,7 +1267,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Infrastructure for highly available services and/or shared storage.</source>
-        <translation type="unfinished"/>
+        <translation>Infrastruktur til tjenester med høj tilgængelighed og/eller delt lager.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
@@ -1277,7 +1277,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>Clustered storage, including the GFS2 file system.</source>
-        <translation type="unfinished"/>
+        <translation>Klyngelager, herunder GFS2-filsystemet.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
@@ -1287,7 +1287,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Centralized management of users, servers and authentication policies.</source>
-        <translation type="unfinished"/>
+        <translation>Centraliseret håndtering af brugere, servere og autentifikationsregler.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
@@ -1297,7 +1297,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>Performance support tools for large systems.</source>
-        <translation type="unfinished"/>
+        <translation>Ydelsesstøtteværktøjer til store systemer.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
@@ -1307,7 +1307,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Load balancing support for network traffic.</source>
-        <translation type="unfinished"/>
+        <translation>Understøttelse af belastningsbalancering til netværkstrafik.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
@@ -1317,7 +1317,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>The MariaDB SQL database client, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>MariaDB SQL-databaseklienten og tilknyttede pakker.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
@@ -1327,7 +1327,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>The MariaDB SQL database server, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>MariaDB SQL-databaseserveren og tilknyttede pakker.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
@@ -1337,7 +1337,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>The PostgreSQL SQL database client, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>PostgreSQL SQL-databaseklienten og tilknyttede pakker..</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
@@ -1347,7 +1347,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>The PostgreSQL SQL database server, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>PostgreSQL SQL-databaseserveren og tilknyttede pakker.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
@@ -1357,7 +1357,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>Java support for deepin.</source>
-        <translation type="unfinished"/>
+        <translation>Understøttelse af Java til deepin.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
@@ -1367,7 +1367,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>PHP web application framework.</source>
-        <translation type="unfinished"/>
+        <translation>PHP-webprogram-framework.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
@@ -1377,7 +1377,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>Basic Python web application support.</source>
-        <translation type="unfinished"/>
+        <translation>Grundlæggende understøttelse af Python-webprogram.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
@@ -1387,7 +1387,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>Basic Perl web application support.</source>
-        <translation type="unfinished"/>
+        <translation>Grundlæggende understøttelse af Perl-webprogram.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
@@ -1397,7 +1397,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>Email, chat, and video conferencing software.</source>
-        <translation type="unfinished"/>
+        <translation>E-mail-, chat- og videokonferencesoftware.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
@@ -1407,7 +1407,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>Allows the system to host Java servlets.</source>
-        <translation type="unfinished"/>
+        <translation>Giver systemet mulighed for at beværte Java-servlets.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
@@ -1417,7 +1417,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
         <source>Compatibility programs for migration from or working with legacy X Window System environments.</source>
-        <translation type="unfinished"/>
+        <translation>Kompatibilitetsprogrammer til at flytte fra eller arbejde med udgået X-vinduessystemsmiljøer.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
@@ -1427,7 +1427,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
         <source>A full-purpose office suite, and other productivity tools.</source>
-        <translation type="unfinished"/>
+        <translation>En fuld kontorpakke og andre produktivitetsværktøjer.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
@@ -1437,7 +1437,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>Additional development headers and libraries for building open-source applications.</source>
-        <translation type="unfinished"/>
+        <translation>Yderligere udviklingsheadere og -biblioteker til at bygge open source-programmer.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
@@ -1447,7 +1447,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>The GNU Emacs extensible, customizable text editor.</source>
-        <translation type="unfinished"/>
+        <translation>GNU Emacs-teksteditoren som kan udvides og tilpasses.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
@@ -1457,7 +1457,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
         <source>Software for creation and manipulation of still images.</source>
-        <translation type="unfinished"/>
+        <translation>Software til oprettelse og manipulering af billeder.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
@@ -1467,7 +1467,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
         <source>Recommended development headers and libraries for developing applications to run on deepin.</source>
-        <translation type="unfinished"/>
+        <translation>Anbefalede udviklingsheadere og -biblioteker til at udvikle programmer der skal køre i deepin.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
@@ -1477,7 +1477,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
         <source>Tools for writing technical documentation.</source>
-        <translation type="unfinished"/>
+        <translation>Værktøjer til at skrive teknisk dokumentation.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="341"/>
@@ -1487,7 +1487,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="341"/>
         <source>Tools for offline virtual image management.</source>
-        <translation type="unfinished"/>
+        <translation>Værktøjer til håndtering af offline virtuelt aftryk.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="342"/>
@@ -1497,7 +1497,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="342"/>
         <source>Enables the system to attach to network storage.</source>
-        <translation type="unfinished"/>
+        <translation>Gør det muligt for systemet at koble til netværkslager.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="343"/>
@@ -1507,7 +1507,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="343"/>
         <source>Agents used when running under a hypervisor.</source>
-        <translation type="unfinished"/>
+        <translation>Agenter som bruges ved kørsel under en hypervisor.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="344"/>

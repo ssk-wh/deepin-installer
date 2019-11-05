@@ -190,7 +190,7 @@
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="245"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Patvirtinti</translation>
     </message>
 </context>
 <context>
@@ -311,12 +311,12 @@
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="189"/>
         <source>System Disk</source>
-        <translation type="unfinished"/>
+        <translation>Sistemos diskas</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="189"/>
         <source>Data Disk</source>
-        <translation type="unfinished"/>
+        <translation>Duomenų diskas</translation>
     </message>
 </context>
 <context>
@@ -325,7 +325,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="116"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="151"/>
         <source>Create New Partition</source>
-        <translation type="unfinished"/>
+        <translation>Sukurti naują skaidinį</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="118"/>
@@ -407,13 +407,13 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="76"/>
         <source>Format Warning</source>
-        <translation type="unfinished"/>
+        <translation>Formatavimo įspėjimas</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="57"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="94"/>
         <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation type="unfinished"/>
+        <translation>Tęsiant įdiegimą, visas diskas bus formatuotas. Pasidarykite savo duomenų atsarginę kopiją. Jei nežinote kas vyksta ir ką darote, nebetęskite šio proceso</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="59"/>
@@ -519,7 +519,7 @@
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="74"/>
         <source>Failed to Create New Partition</source>
-        <translation type="unfinished"/>
+        <translation>Nepavyko sukurti naujo skaidinio</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="57"/>
@@ -560,7 +560,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="83"/>
         <source>Ready to Install</source>
-        <translation type="unfinished"/>
+        <translation>Pasiruošę įdiegti</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="64"/>
@@ -703,7 +703,7 @@
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="234"/>
         <source>Select system language</source>
-        <translation type="unfinished"/>
+        <translation>Pasirinkite sistemos kalbą</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="237"/>
@@ -791,7 +791,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="91"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="203"/>
         <source>Repeat password</source>
-        <translation type="unfinished"/>
+        <translation>Pakartokite slaptažodį</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="92"/>
@@ -897,13 +897,13 @@
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="106"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="127"/>
         <source>Select a proper keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Pasirinkite tinkamą klaviatūros išdėstymą</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="107"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="170"/>
         <source>Test here</source>
-        <translation type="unfinished"/>
+        <translation>Išbandykite čia</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="108"/>
@@ -929,13 +929,13 @@
         <location filename="../src/ui/frames/timezone_frame.cpp" line="221"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="352"/>
         <source>Click your zone on the map</source>
-        <translation type="unfinished"/>
+        <translation>Spustelėkite žemėlapyje ant savo laiko juostos</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="359"/>
         <source>Select your timezone from the list</source>
-        <translation type="unfinished"/>
+        <translation>Pasirinkite iš sąrašo savo laiko juostą</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="121"/>
@@ -947,7 +947,7 @@
         <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="226"/>
         <source>Map</source>
-        <translation type="unfinished"/>
+        <translation>Žemėlapis</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
@@ -1067,7 +1067,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>DDE is a highly intuitive and user friendly desktop environment.</source>
-        <translation type="unfinished"/>
+        <translation>DDE yra labai intuityvi ir patogi darbalaukio aplinka.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
@@ -1132,12 +1132,12 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>Hardware Monitoring Utilities</source>
-        <translation type="unfinished"/>
+        <translation>Aparatinės įrangos stebėjimo paslaugų programos</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>A set of tools to monitor server hardware.</source>
-        <translation type="unfinished"/>
+        <translation>Įrankių rinkinys, skirtas stebėti serverio aparatinę įrangą.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
@@ -1282,12 +1282,12 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>ldentity Management Server</source>
-        <translation type="unfinished"/>
+        <translation>Tapatybių tvarkymo serveris</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Centralized management of users, servers and authentication policies.</source>
-        <translation type="unfinished"/>
+        <translation>Centralizuotas naudotojų, serverių ir tapatybės nustatymo politikų tvarkymas.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
@@ -1312,7 +1312,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>MariaDB Database Client</source>
-        <translation type="unfinished"/>
+        <translation>MariaDB duomenų bazės klientas</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
@@ -1332,22 +1332,22 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>PostgreSQL Database Client</source>
-        <translation type="unfinished"/>
+        <translation>PostgreSQL duomenų bazės klientas</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>The PostgreSQL SQL database client, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>PostgreSQL SQL duomenų bazės klientas ir susieti paketai.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>PostgreSQL Database Server</source>
-        <translation type="unfinished"/>
+        <translation>PostgreSQL duomenų bazės serveris</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>The PostgreSQL SQL database server, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>PostgreSQL SQL duomenų bazės serveris ir susieti paketai.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
@@ -1442,12 +1442,12 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>Emacs</source>
-        <translation type="unfinished"/>
+        <translation>Emacs</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>The GNU Emacs extensible, customizable text editor.</source>
-        <translation type="unfinished"/>
+        <translation>GNU Emacs išplėstinis, tinkinamas tekstų redaktorius.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
@@ -1472,12 +1472,12 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
         <source>Technical Writing</source>
-        <translation type="unfinished"/>
+        <translation>Techninis rašymas</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
         <source>Tools for writing technical documentation.</source>
-        <translation type="unfinished"/>
+        <translation>Įrankiai techninės dokumentacijos rašymui.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="341"/>
@@ -1492,7 +1492,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="342"/>
         <source>Network File System Client</source>
-        <translation type="unfinished"/>
+        <translation>Tinklo failų sistemos klientas</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="342"/>
@@ -1774,7 +1774,7 @@
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="150"/>
         <source>Save as</source>
-        <translation type="unfinished"/>
+        <translation>Įrašyti kaip</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="151"/>
@@ -1794,7 +1794,7 @@
         <location filename="../src/ui/frames/install_component_frame.cpp" line="87"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="112"/>
         <source>Basic Environment</source>
-        <translation type="unfinished"/>
+        <translation>Pagrindinė aplinka</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="88"/>
@@ -1851,7 +1851,7 @@
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="98"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Patvirtinti</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="99"/>

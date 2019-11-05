@@ -91,7 +91,7 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="524"/>
         <source>At least %1 GB is required for partition %2</source>
-        <translation type="unfinished"/>
+        <translation>Pro oddíl %2 je požadováno alespoň %1 GB</translation>
     </message>
 </context>
 <context>
@@ -141,7 +141,7 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="79"/>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation>Opustit</translation>
     </message>
 </context>
 <context>
@@ -162,7 +162,7 @@
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="102"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="201"/>
         <source>File system</source>
-        <translation type="unfinished"/>
+        <translation>Souborový systém</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
@@ -185,12 +185,12 @@
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="106"/>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation>Vytvořit</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="245"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Potvrdit</translation>
     </message>
 </context>
 <context>
@@ -219,7 +219,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="59"/>
         <source>Encrypt this disk</source>
-        <translation type="unfinished"/>
+        <translation>Zašifrovat tento disk</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="60"/>
@@ -249,19 +249,19 @@
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="82"/>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="105"/>
         <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
-        <translation type="unfinished"/>
+        <translation>Promiňte potíže. Udělejte, prosím, obrázek nebo sejměte kód QR a pošlete nám hlášení o chybě, nebo je uložte na vnější disk. Pomůžete nám při řešení těchto potíží.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="84"/>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="157"/>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation>Opustit</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="85"/>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="158"/>
         <source>Save Log</source>
-        <translation type="unfinished"/>
+        <translation>Uložit zápis</translation>
     </message>
 </context>
 <context>
@@ -311,12 +311,12 @@
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="189"/>
         <source>System Disk</source>
-        <translation type="unfinished"/>
+        <translation>Systémový disk</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="189"/>
         <source>Data Disk</source>
-        <translation type="unfinished"/>
+        <translation>Datový disk</translation>
     </message>
 </context>
 <context>
@@ -349,7 +349,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="121"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="170"/>
         <source>File system</source>
-        <translation type="unfinished"/>
+        <translation>Souborový systém</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="122"/>
@@ -389,7 +389,7 @@
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="216"/>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation>Vytvořit</translation>
     </message>
 </context>
 <context>
@@ -407,7 +407,7 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="76"/>
         <source>Format Warning</source>
-        <translation type="unfinished"/>
+        <translation>Varování ohledně formátování</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="57"/>
@@ -519,7 +519,7 @@
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="74"/>
         <source>Failed to Create New Partition</source>
-        <translation type="unfinished"/>
+        <translation>Nepodařilo se vytvořit nový diskový oddíl</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="57"/>
@@ -560,7 +560,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="83"/>
         <source>Ready to Install</source>
-        <translation type="unfinished"/>
+        <translation>Připraven pro instalaci</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="64"/>
@@ -1588,7 +1588,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="201"/>
         <source>Encrypt this disk</source>
-        <translation type="unfinished"/>
+        <translation>Zašifrovat tento disk</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="202"/>
@@ -1764,7 +1764,7 @@
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="148"/>
         <source>Save Log</source>
-        <translation type="unfinished"/>
+        <translation>Uložit zápis</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="149"/>
@@ -1851,7 +1851,7 @@
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="98"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Potvrdit</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="99"/>
