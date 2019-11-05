@@ -43,7 +43,9 @@ customize_user() {
 }
 
 if [ x$(installer_get "system_info_setup_after_reboot") != xtrue ]; then
-  customize_user
+  # 延迟10s，因为后端在检测到用户新建后立即检查了/var/lib/AccountsService/deepin/users/的文件
+  # 如果该函数执行，会和后端存在竞争，为了避免写入后被后端再写入，导致失效，延迟执行。
+  sleep 10 && customize_user
 fi
 
 return 0
