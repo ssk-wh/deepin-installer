@@ -298,7 +298,7 @@ QString GetSelectedInstallType()
 }
 
 QString GetComponentDefault() {
-    const QStringList paths{ "/var/run/live/medium/live/", RESOURCES_DIR };
+    const QStringList paths{ "/var/run/live/medium/live/", RESOURCES_DIR, SOURCE_DIR "/resources" };
 
     for (const QString& path : paths) {
         QFile file(path + kComponentDefaultFile);
@@ -314,7 +314,7 @@ QString GetComponentDefault() {
 }
 
 QString GetComponentExtra() {
-    const QStringList paths{ "/var/run/live/medium/live/", RESOURCES_DIR };
+    const QStringList paths{ "/var/run/live/medium/live/", RESOURCES_DIR, SOURCE_DIR "/resources"};
 
     for (const QString& path : paths) {
         QFile file(path + kComponentExtraFile);
@@ -330,7 +330,7 @@ QString GetComponentExtra() {
 }
 
 QString GetComponentSort(){
-    const QStringList paths{ "/var/run/live/medium/live/", RESOURCES_DIR };
+    const QStringList paths{ "/var/run/live/medium/live/", RESOURCES_DIR, SOURCE_DIR "/resources" };
 
     for (const QString& path : paths) {
         QFile file(path + kComponentSortFile);

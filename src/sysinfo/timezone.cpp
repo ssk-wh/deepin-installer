@@ -178,7 +178,7 @@ QPair<QString, QString> GetLocalTimezoneName(const QString& timezone, const QStr
 TimezoneAliasMap GetTimezoneAliasMap() {
   TimezoneAliasMap map;
 
-  const QString content = ReadFile(kTimezoneAliasFile);
+  const QString content = ReadFile(QFile::exists(kTimezoneAliasFile) ? kTimezoneAliasFile : SOURCE_DIR "/resources/timezone_alias");
   for (const QString& line : content.split('\n')) {
     if (!line.isEmpty()) {
       const QStringList parts = line.split(':');

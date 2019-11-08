@@ -1,6 +1,12 @@
 cmake_minimum_required(VERSION 3.1)
 project(deepin-installer C CXX)
 
+## 这两行必须放置在根的CMakeLists文件中，否则ctest无法正确找到文件
+# 启用CTest检查
+include(Dart)
+# 启用CTest
+include(CTest)
+
 # Import folders
 add_subdirectory(data)
 add_subdirectory(docs)

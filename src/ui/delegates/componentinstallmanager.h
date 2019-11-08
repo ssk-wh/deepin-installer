@@ -90,7 +90,7 @@ class ComponentInstallManager : public QObject
 {
     Q_OBJECT
 public:
-    static ComponentInstallManager* Instance();
+    static ComponentInstallManager* Instance(bool showWarning = true);
 
     QSharedPointer<ComponentStruct> findComponentById(const QString& id);
 
@@ -111,8 +111,12 @@ public:
     QPair<QString, QString> updateTs(QSharedPointer<ComponentStruct> componentStruct) const;
     QPair<QString, QString> updateTs(QSharedPointer<ComponentInfo> info) const;
 
+    QStringList integrateList(QList<QSharedPointer<ComponentInfo>> list, const QStringList& packageList) const;
+
+    void togglePackageWarning();
+
 private:
-    explicit ComponentInstallManager(QObject *parent = nullptr);
+    explicit ComponentInstallManager(bool showWarning, QObject *parent = nullptr);
     ComponentInstallManager(const ComponentInstallManager& manager) = delete;
     ~ComponentInstallManager() override = default;
 

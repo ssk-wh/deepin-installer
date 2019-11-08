@@ -63,6 +63,7 @@ if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 endif ()
 
 add_definitions("-DPLATFORM_BUILD_ARCH=\"${INSTALLER_BUILD_ARCH}\"")
+add_definitions("-DSOURCE_DIR=\"${CMAKE_SOURCE_DIR}\"")
 
 # Defines path to resource directories
 if (CMAKE_BUILD_TYPE MATCHES Debug)
@@ -502,6 +503,8 @@ set(UNITTEST_FILES
     ui/delegates/installer_args_parser_test.cpp
     ui/delegates/install_slide_frame_util_test.cpp
     ui/delegates/timezone_map_util_test.cpp
+
+    tests/component_install_test.cpp
     )
 
 set(QtCore_LIBS Qt5::Core)
@@ -924,6 +927,9 @@ add_executable(deepin-installer-tests
                ui/delegates/install_slide_frame_util.h
                ui/delegates/timezone_map_util.cpp
                ui/delegates/timezone_map_util.h
+
+               ui/delegates/componentinstallmanager.h
+               ui/delegates/componentinstallmanager.cpp
                )
 target_link_libraries(deepin-installer-tests
                       ${LINK_LIBS}
@@ -959,6 +965,8 @@ add_executable(unsquashfs_gui
                )
 target_link_libraries(unsquashfs_gui ${Qt_LIBS})
 
+## tests
+add_test(NAME deepin-installler-tests COMMAND $<TARGET_FILE:deepin-installer-tests>)
 
 ## Installation
 install(PROGRAMS

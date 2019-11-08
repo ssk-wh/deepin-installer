@@ -33,7 +33,7 @@ const char kSlideFolder[] = RESOURCES_DIR "/slide";
 }  // namespace
 
 QString GetSlideDir(const QString& locale) {
-  QDir installer_dir(kSlideFolder);
+  QDir installer_dir(QFile::exists(kSlideFolder) ? kSlideFolder : SOURCE_DIR "/resources/slide");
   Q_ASSERT(installer_dir.exists());
   QDir oem_slide_dir(GetOemDir().absoluteFilePath("slide"));
 

@@ -35,9 +35,9 @@
 
 using namespace installer;
 
-ComponentInstallManager *ComponentInstallManager::Instance()
+ComponentInstallManager *ComponentInstallManager::Instance(bool showWarning)
 {
-    static ComponentInstallManager manager;
+    static ComponentInstallManager manager(showWarning);
     return &manager;
 }
 
@@ -115,7 +115,7 @@ QSharedPointer<ComponentStruct> ComponentInstallManager::findComponentById(const
     });
 }
 
-ComponentInstallManager::ComponentInstallManager(QObject *parent) : QObject(parent)
+ComponentInstallManager::ComponentInstallManager(bool showWarning, QObject *parent) : QObject(parent)
 {
     readStandartSortFile();
 
@@ -181,6 +181,10 @@ ComponentInstallManager::ComponentInstallManager(QObject *parent) : QObject(pare
 
 #ifndef QT_DEBUG
     QtConcurrent::run([=] {
+        if (!showWarning) {
+            return;
+        }
+
         // 加載所有的deb包
         const QStringList packagesList { GetAvailablePackages() };
 
@@ -195,26 +199,27 @@ ComponentInstallManager::ComponentInstallManager(QObject *parent) : QObject(pare
 #endif
 }
 
-QStringList ComponentInstallManager::packageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const {
-    const QSet<QString> packagesList { GetAvailablePackages().toSet() };
-
-    auto integrateList = [=](QList<QSharedPointer<ComponentInfo>> list) -> QStringList {
-        QSet<QString> result;
-        for (QSharedPointer<ComponentInfo> info : list) {
-            if (!info->Selected) continue;
-            for (QSharedPointer<ComponentInfo> l : m_packageList) {
-                if (l->Id == info->Id) {
-                    result += QSet<QString>(l->PackageList.toSet() & packagesList);
-                    break;
-                }
+QStringList ComponentInstallManager::integrateList(QList<QSharedPointer<ComponentInfo>> list, const QStringList& packageList) const {
+    const QSet<QString> packagesList{ packageList.toSet() };
+    QSet<QString>       result;
+    for (QSharedPointer<ComponentInfo> info : list) {
+        if (!info->Selected) continue;
+        for (QSharedPointer<ComponentInfo> l : m_packageList) {
+            if (l->Id == info->Id) {
+                result += QSet<QString>(l->PackageList.toSet() & packagesList);
+                break;
             }
         }
+    }
 
-        return result.toList();
-    };
+    return result.toList();
+}
 
-    return QStringList() << integrateList(componentStruct->defaultValue())
-                         << integrateList(componentStruct->extra());
+QStringList ComponentInstallManager::packageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const {
+    return QStringList() << integrateList(componentStruct->defaultValue(),
+                                          GetAvailablePackages())
+                         << integrateList(componentStruct->extra(),
+                                          GetAvailablePackages());
 }
 
 QStringList ComponentInstallManager::uninstallPackageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const {

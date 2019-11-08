@@ -23,7 +23,7 @@ namespace installer {
 namespace {
 
 TEST(ValidateUsernameTest, ValidateUsername) {
-  const QString reserved_username_file = RESOURCES_DIR "/reserved_usernames";
+  const QString reserved_username_file = SOURCE_DIR "/resources/reserved_usernames";
   EXPECT_EQ(ValidateUsername("root", reserved_username_file, 1, 10),
             ValidateUsernameState::ReservedError);
   EXPECT_EQ(ValidateUsername("", reserved_username_file, 1, 10),
