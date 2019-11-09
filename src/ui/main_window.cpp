@@ -170,7 +170,7 @@ void MainWindow::initConnections() {
           this, &MainWindow::goNextPage);
 
   connect(install_success_frame_, &InstallSuccessFrame::finished, this, [=] {
-      return GetSettingsBool(kRebootWhenInstallFinished) ? RebootSystem() : ShutdownSystem();
+      return GetSettingsBool(kRebootWhenInstallFinished) ? rebootSystem() : shutdownSystem();
   });
 
   connect(partition_frame_, &PartitionFrame::reboot,
@@ -622,9 +622,9 @@ void MainWindow::rebootSystem() {
   this->saveLogFile();
 
   if (!RebootSystemWithMagicKey()) {
-    qWarning() << "RebootSystem failed!";
+    qWarning() << "RebootSystemWithMagicKey() failed!";
     if (!RebootSystem()) {
-      qWarning() << "RebootSystemWithMagicKey() failed!";
+      qWarning() << "RebootSystem() failed!";
     }
   }
 }
@@ -633,9 +633,9 @@ void MainWindow::shutdownSystem() {
   this->saveLogFile();
 
   if (!ShutdownSystemWithMagicKey()) {
-    qWarning() << "ShutdownSystem() failed!";
+    qWarning() << "ShutdownSystemWithMagicKey() failed!";
     if (!ShutdownSystem()) {
-      qWarning() << "ShutdownSystemWithMagicKey() failed!";
+      qWarning() << "ShutdownSystem() failed!";
     }
   }
 }
