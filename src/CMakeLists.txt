@@ -101,6 +101,7 @@ pkg_search_module(X11EXT REQUIRED xext)
 pkg_search_module(X11TST REQUIRED xtst)
 pkg_search_module(X11RandR REQUIRED xrandr)
 pkg_search_module(UDisk2 REQUIRED udisks2-qt5)
+pkg_search_module(QTermWidget REQUIRED qtermwidget5)
 
 include_directories(AFTER ${Parted_INCLUDE_DIRS})
 include_directories(AFTER ${X11_INCLUDE_DIRS})
@@ -108,11 +109,11 @@ include_directories(AFTER ${X11EXT_INCLUDE_DIRS})
 include_directories(AFTER ${X11TST_INCLUDE_DIRS})
 include_directories(AFTER ${X11RandR_INCLUDE_DIRS})
 include_directories(AFTER ${UDisk2_INCLUDE_DIRS})
+include_directories(AFTER ${QTermWidget_INCLUDE_DIRS})
 
 add_subdirectory(third_party/global_shortcut)
 add_subdirectory(third_party/googletest)
 add_subdirectory(third_party/qrencode)
-add_subdirectory(third_party/qtermwidget)
 add_subdirectory(third_party/simpleini)
 add_subdirectory(third_party/timezones)
 add_subdirectory(third_party/zlib_wrapper)
@@ -523,11 +524,11 @@ set(LINK_LIBS
     ${X11TST_LIBRARIES}
     ${X11RandR_LIBRARIES}
     ${UDisk2_LIBRARIES}
+    ${QTermWidget_LIBRARIES}
 
     QApt
     global_shortcut
     qrencode
-    qtermwidget5
     zlib_wrapper
     Xi
     )
@@ -552,10 +553,6 @@ add_executable(deepin-installer
                ${SERVICE_FILES}
                ${SYSINFO_FILES}
                ${UI_FILES}
-
-               # Also include color-schems used in qtermwidget.
-               third_party/qtermwidget/lib/color-schemes/color-schemes.qrc
-               third_party/qtermwidget/lib/kb-layouts/kb-layouts.qrc
                )
 
 target_link_libraries(deepin-installer ${LINK_LIBS})

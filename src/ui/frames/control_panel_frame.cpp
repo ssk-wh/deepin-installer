@@ -31,7 +31,7 @@
 #include "service/process_util.h"
 #include "ui/widgets/pointer_button.h"
 #include "ui/widgets/table_combo_box.h"
-#include "third_party/qtermwidget/lib/qtermwidget.h"
+#include "qtermwidget.h"
 
 namespace installer {
 

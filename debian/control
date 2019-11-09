@@ -17,7 +17,6 @@ Build-Depends:
     libxss-dev,
     libxtst-dev,
     pkg-config,
-    qt5-qmake,
     qtbase5-dev,
     qttools5-dev,
     qttools5-dev-tools,
@@ -26,7 +25,8 @@ Build-Depends:
     libdtkcore-dev,
     libdtkcore5-bin | libdtkcore-bin,
     libudisks2-qt5-dev,
-    libqapt-dev
+    libqapt-dev,
+    libqtermwidget5-0-dev
 Standards-Version: 3.9.8
 Homepage: http://www.deepin.org
 
