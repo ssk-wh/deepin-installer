@@ -18,6 +18,7 @@
 # set recovery partition
 
 DI_RECOVERY_PATH=$(installer_get "DI_RECOVERY_PATH")
+DI_UEFI=$(installer_get "DI_UEFI")
 
 if [ -z ${DI_RECOVERY_PATH} ];then
     return 0
