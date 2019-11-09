@@ -16,6 +16,12 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+DI_SKIP_CREATE_USER=$(installer_get "skip_system_info_page")
+
+if [ x${DI_SKIP_CREATE_USER} = "xtrue" ];then
+  return 0
+fi
+
 # Override default settings for user.
 customize_user() {
   local DI_USERNAME USER_CONF
