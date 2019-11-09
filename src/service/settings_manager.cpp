@@ -58,9 +58,9 @@ const char kDefaultWallpaperFile[] = RESOURCES_DIR "/default_wallpaper.jpg";
 // File name of installer wallpaper.
 const char kOemWallpaperFilename[] = "installer-background.jpg";
 
-const char kComponentDefaultFile[] = RESOURCES_DIR "/packages_default.json";
-const char kComponentExtraFile[] = RESOURCES_DIR "/packages_choice.json";
-const char kComponentSortFile[] = RESOURCES_DIR "/packages_sort.json";
+const char kComponentDefaultFile[] = "/packages_default.json";
+const char kComponentExtraFile[] = "/packages_choice.json";
+const char kComponentSortFile[] = "/packages_sort.json";
 
 // File name of auto partition script.
 const char kAutoPartFile[] = "auto_part.sh";
@@ -298,28 +298,48 @@ QString GetSelectedInstallType()
 }
 
 QString GetComponentDefault() {
-    QFile file(kComponentDefaultFile);
-    if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
-        return file.readAll();
+    const QStringList paths{ "/var/run/live/medium/live/", RESOURCES_DIR };
+
+    for (const QString& path : paths) {
+        QFile file(path + kComponentDefaultFile);
+        if (!file.exists()) {
+            continue;
+        }
+        if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
+            return file.readAll();
+        }
     }
 
     return "";
 }
 
 QString GetComponentExtra() {
-    QFile file(kComponentExtraFile);
-    if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
-        return file.readAll();
+    const QStringList paths{ "/var/run/live/medium/live/", RESOURCES_DIR };
+
+    for (const QString& path : paths) {
+        QFile file(path + kComponentExtraFile);
+        if (!file.exists()) {
+            continue;
+        }
+        if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
+            return file.readAll();
+        }
     }
 
     return "";
 }
 
-QString GetComponentSort()
-{
-    QFile file(kComponentSortFile);
-    if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
-        return file.readAll();
+QString GetComponentSort(){
+    const QStringList paths{ "/var/run/live/medium/live/", RESOURCES_DIR };
+
+    for (const QString& path : paths) {
+        QFile file(path + kComponentSortFile);
+        if (!file.exists()) {
+            continue;
+        }
+        if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
+            return file.readAll();
+        }
     }
 
     return "";
