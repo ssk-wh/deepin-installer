@@ -240,6 +240,8 @@ set(UI_FILES
     ui/delegates/advanced_partition_animations.h
     ui/delegates/advanced_partition_delegate.cpp
     ui/delegates/advanced_partition_delegate.h
+    ui/delegates/partition_delegate.h
+    ui/delegates/partition_delegate.cpp
     ui/delegates/advanced_validate_state.h
     ui/delegates/advanced_validate_state.cpp
     ui/delegates/avatar_list_delegate.cpp

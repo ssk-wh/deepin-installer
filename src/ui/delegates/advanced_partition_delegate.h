@@ -19,11 +19,7 @@
 #define INSTALLER_UI_DELEGATES_ADVANCED_PARTITION_DELEGATE_H
 
 #include <QObject>
-#include <partman/operation.h>
-
-#include "partman/device.h"
-#include "ui/delegates/advanced_validate_state.h"
-#include "service/settings_manager.h"
+#include "partition_delegate.h"
 
 namespace installer {
 
@@ -33,18 +29,10 @@ enum class PartitionAction {
 };
 
 // Partition delegate used in AdvancedPartitionFrame and other sub frame pages.
-class AdvancedPartitionDelegate : public QObject {
+class AdvancedPartitionDelegate : public partition::Delegate {
   Q_OBJECT
  public:
   explicit AdvancedPartitionDelegate(QObject* parent = nullptr);
-
-  const DeviceList& real_devices() const { return real_devices_; }
-  const DeviceList& virtual_devices() const { return virtual_devices_; }
-
-  // Get alternative partition type. Used while creating a new partition.
-  // |partition| is an unallocated partition.
-  bool canAddLogical(const Partition::Ptr partition) const;
-  bool canAddPrimary(const Partition::Ptr partition) const;
 
   // Get all supported filesystems.
   FsTypeList getFsTypeList() const;
@@ -55,76 +43,13 @@ class AdvancedPartitionDelegate : public QObject {
   // Get all available mount points, defined in settings file.
   QStringList getMountPoints() const;
 
-  // Get human readable operation descriptions.
-  QStringList getOptDescriptions() const;
-
-  // Get real partition on disk where |virtual_partition| is located.
-  Partition::Ptr getRealPartition(const Partition::Ptr virtual_partition) const;
-
   QList<Device::Ptr> getAllUsedDevice() const;
 
-  // Returns true if current boot mode is mbr or any system is found on disks
-  // with msdos partition table.
-  bool isMBRPreferred() const;
-
-  // Check whether device at |device_path| is appropriate for current system.
-  bool isPartitionTableMatch(const QString& device_path) const;
-
-  const OperationList& operations() const { return operations_; };
-
-  // Set boot flag of root partition. Call this before operations() and after
-  // validate().
-  // Returns false if no appropriate partition can be set as bootable.
-  bool setBootFlag();
-
-  // Check whether partition operations are appropriate.
-  //  * / partition is set and large enough;
-  //  * An EFI partition exists if EFI mode is on;
-  AdvancedValidateStates validate() const;
-
-  const DiskPartitionSetting& settings() const;
-
- signals:
-  // Emitted when virtual device list is updated.
-  void deviceRefreshed(const DeviceList& devices);
-
- public slots:
-  bool createPartition(const Partition::Ptr partition,
-                       PartitionType partition_type,
-                       bool align_start,
-                       FsType fs_type,
-                       const QString& mount_point,
-                       qint64 total_sectors);
-  bool createLogicalPartition(const Partition::Ptr partition,
-                              bool align_start,
-                              FsType fs_type,
-                              const QString& mount_point,
-                              qint64 total_sectors);
-  bool createPrimaryPartition(const Partition::Ptr partition,
-                              PartitionType partition_type,
-                              bool align_start,
-                              FsType fs_type,
-                              const QString& mount_point,
-                              qint64 total_sectors);
-  void deletePartition(const Partition::Ptr partition);
-  void formatPartition(const Partition::Ptr partition,
-                       FsType fs_type,
-                       const QString& mount_point);
-
-  // Save real device list when it is refreshed.
-  void onDeviceRefreshed(const DeviceList& devices);
-
   // Write partitioning settings to file.
-  void onManualPartDone(const DeviceList& devices);
-
-  // Refresh virtual device list based on current operations.
-  void refreshVisual();
+  void onManualPartDone(const DeviceList& devices) override;
 
   // Clear mount point of operation.new_partition with value |mount_point|.
   void resetOperationMountPoint(const QString& mount_point);
-
-  // Set bootloader path to |path|.
-  void setBootloaderPath(const QString& path);
 
   bool unFormatPartition(const Partition::Ptr partition);
 
@@ -135,17 +60,8 @@ class AdvancedPartitionDelegate : public QObject {
   // return false: failed, start_sector & end_sector is unchanged.
   bool reCalculateExtPartBoundary(PartitionAction action, const Partition::Ptr& current, qint64& start_sector, qint64& end_sector);
   bool reCalculateExtPartBoundary(const PartitionList& partitions, PartitionAction action, const Partition::Ptr& current, qint64& start_sector, qint64& end_sector);
-
- private:
-  DeviceList real_devices_;
-  DeviceList virtual_devices_;
-
-  QString bootloader_path_;
-
-  // Currently defined operations.
-  OperationList operations_;
-
-  DiskPartitionSetting settings_;
+  ValidateStates validate() const override;
+  bool isPartitionTableMatch(const QString &device_path) const;
 };
 
 }  // namespace installer

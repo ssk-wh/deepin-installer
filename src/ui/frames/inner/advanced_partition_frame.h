@@ -77,9 +77,9 @@ class AdvancedPartitionFrame : public QFrame {
 
   // Returns a partition button which can be used to fix error |state|.
   AdvancedPartitionButton* getAppropriateButtonForState(
-      AdvancedValidateState state) const;
+      ValidateState state) const;
 
-  void hideErrorMessage(AdvancedValidateState state);
+  void hideErrorMessage(ValidateState state);
   void hideErrorMessages();
 
   void repaintDevices();
@@ -87,7 +87,7 @@ class AdvancedPartitionFrame : public QFrame {
   // Scroll to top of content area.
   void scrollContentToTop();
 
-  void showErrorMessage(AdvancedValidateState state);
+  void showErrorMessage(ValidateState state);
   // Show error message container.
   void showErrorMessages();
 
@@ -98,7 +98,7 @@ class AdvancedPartitionFrame : public QFrame {
   void updateValidateStates();
 
   // Returns error message related to this |state|.
-  QString validateStateToText(AdvancedValidateState state);
+  QString validateStateToText(ValidateState state);
 
   AdvancedPartitionDelegate* delegate_ = nullptr;
 
@@ -113,7 +113,7 @@ class AdvancedPartitionFrame : public QFrame {
   QVBoxLayout* msg_layout_ = nullptr;
   QLabel* msg_head_label_ = nullptr;
 
-  AdvancedValidateStates validate_states_;
+  ValidateStates validate_states_;
 
   AdvancedPartitionButton* hovered_part_button_ = nullptr;
 

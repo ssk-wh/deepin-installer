@@ -542,12 +542,12 @@ void PartitionFrame::showNewTableLoadingFrame() {
 void PartitionFrame::showNewTableWarningFrame(const QString& device_path) {
   DeviceList devices;
   if (this->isSimplePartitionMode()) {
-    devices = simple_partition_delegate_->real_devices();
+    devices = simple_partition_delegate_->realDevices();
   } else if (this->isFullDiskPartitionMode()) {
     qCritical() << "Never show new table warning frame for simple disk frame";
     return;
   } else {
-    devices = advanced_delegate_->real_devices();
+    devices = advanced_delegate_->realDevices();
   }
 
   const int device_index = DeviceIndex(devices, device_path);

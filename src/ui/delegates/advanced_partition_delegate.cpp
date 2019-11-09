@@ -53,109 +53,9 @@ const QMap<FsType, QString> FsFormatCmdMap{
 }  // namespace
 
 AdvancedPartitionDelegate::AdvancedPartitionDelegate(QObject* parent)
-    : QObject(parent),
-      real_devices_(),
-      virtual_devices_(),
-      bootloader_path_(),
-      operations_() {
+    : partition::Delegate(parent)
+    {
   this->setObjectName("advanced_partition_delegate");
-}
-
-bool AdvancedPartitionDelegate::canAddLogical(
-    const Partition::Ptr partition) const {
-  const int index = DeviceIndex(virtual_devices_, partition->device_path);
-  if (index == -1) {
-    qCritical() << "getSupportedPartitionType() no device found at:"
-                << partition->device_path;
-    return false;
-  }
-  const Device::Ptr device = virtual_devices_.at(index);
-
-  // If partition table is empty, always returns false.
-  // Thus, at least one primary partition shall be created.
-  if (device->table == PartitionTableType::Empty) {
-    return false;
-  }
-
-  // Ignores gpt table.
-  if (device->table != PartitionTableType::MsDos) {
-    return false;
-  }
-
-  bool logical_ok = true;
-  const int ext_index = ExtendedPartitionIndex(device->partitions);
-  if (ext_index == -1) {
-    // No extended partition found, so check a new primary partition is
-    // available or not.
-    if (GetPrimaryPartitions(device->partitions).length() >= device->max_prims) {
-      logical_ok = false;
-    }
-  } else {
-    // Check whether there is primary partition between |partition| and
-    // extended partition->
-    const Partition::Ptr ext_partition = device->partitions.at(ext_index);
-    const PartitionList prim_partitions = GetPrimaryPartitions(
-        device->partitions);
-    if (partition->end_sector < ext_partition->start_sector) {
-      for (const Partition::Ptr prim_partition : prim_partitions) {
-        if (prim_partition->end_sector > partition->start_sector &&
-            prim_partition->start_sector < ext_partition->start_sector) {
-          logical_ok = false;
-        }
-      }
-    } else if (partition->start_sector > ext_partition->end_sector) {
-      for (const Partition::Ptr prim_partition : prim_partitions) {
-        if (prim_partition->end_sector < partition->start_sector &&
-            prim_partition->start_sector > ext_partition->end_sector) {
-          logical_ok =false;
-        }
-      }
-    }
-  }
-  return logical_ok;
-}
-
-bool AdvancedPartitionDelegate::canAddPrimary(
-    const Partition::Ptr partition) const {
-  const int index = DeviceIndex(virtual_devices_, partition->device_path);
-  if (index == -1) {
-    qCritical() << "getSupportedPartitionType() no device found at:"
-                << partition->device_path;
-    return false;
-  }
-  const Device::Ptr device = virtual_devices_.at(index);
-
-  // If partition table is empty, always returns true.
-  if (device->table == PartitionTableType::Empty) {
-    return true;
-  }
-
-  const PartitionList prim_partitions = GetPrimaryPartitions(device->partitions);
-  const PartitionList logical_partitions =
-      GetLogicalPartitions(device->partitions);
-
-  // Check primary type
-  bool primary_ok = true;
-  if (prim_partitions.length() >= device->max_prims) {
-    primary_ok = false;
-  } else {
-    // Check whether |partition| is between two logical partitions.
-    bool has_logical_before = false;
-    bool has_logical_after = false;
-    for (const Partition::Ptr logical_partition : logical_partitions) {
-      if (logical_partition->start_sector < partition->start_sector) {
-        has_logical_before = true;
-      }
-      if (logical_partition->end_sector > partition->end_sector) {
-        has_logical_after = true;
-      }
-    }
-    if (has_logical_after && has_logical_before) {
-      primary_ok = false;
-    }
-  }
-
-  return primary_ok;
 }
 
 FsTypeList AdvancedPartitionDelegate::getFsTypeList() const {
@@ -207,45 +107,16 @@ QStringList AdvancedPartitionDelegate::getMountPoints() const {
   return mount_points;
 }
 
-QStringList AdvancedPartitionDelegate::getOptDescriptions() const {
-  QStringList descriptions;
-  for (const Operation& operation : operations_) {
-    descriptions.append(operation.description());
-  }
-
-  return descriptions;
-}
-
-Partition::Ptr AdvancedPartitionDelegate::getRealPartition(
-    const Partition::Ptr virtual_partition) const {
-  const int index = DeviceIndex(real_devices_, virtual_partition->device_path);
-  if (index == -1) {
-    qWarning() << "failed to find device:" << virtual_partition->device_path;
-    return Partition::Ptr();
-  }
-
-  for (const Partition::Ptr partition : real_devices_.at(index)->partitions) {
-    // Ignores extended partition->
-    if (partition->type == PartitionType::Extended) {
-      continue;
-    }
-    if ((partition->start_sector <= virtual_partition->start_sector) &&
-        (partition->end_sector >= virtual_partition->end_sector)) {
-      return partition;
-    }
-  }
-
-  qWarning() << "Failed to find partition at:" << virtual_partition;
-  return Partition::Ptr();
-}
-
 QList<Device::Ptr> AdvancedPartitionDelegate::getAllUsedDevice() const
 {
     QList<Device::Ptr> list;
 
+    auto operations_ { operations() };
+    auto real_devices_ { realDevices() };
+
     for (const Operation& operation : operations_) {
         if (operation.type != OperationType::NewPartTable) {
-            for (const Device::Ptr device : real_devices_) {
+            for (Device::Ptr device : real_devices_) {
                 if (list.contains(device)) {
                     continue;
                 }
@@ -260,70 +131,13 @@ QList<Device::Ptr> AdvancedPartitionDelegate::getAllUsedDevice() const
     return list;
 }
 
-bool AdvancedPartitionDelegate::isMBRPreferred() const {
-  return IsMBRPreferred(real_devices_);
-}
-
 bool AdvancedPartitionDelegate::isPartitionTableMatch(
     const QString& device_path) const {
-  return IsPartitionTableMatch(real_devices_, device_path);
+  return IsPartitionTableMatch(realDevices(), device_path);
 }
 
-bool AdvancedPartitionDelegate::setBootFlag() {
-  bool found_boot = false;
-
-  // First check new EFI partition
-  for (Operation& operation : operations_) {
-      if (operation.type == OperationType::Create || operation.type == OperationType::MountPoint) {
-          if (operation.new_partition->fs == FsType::EFI) {
-              operation.new_partition->flags.append(PartitionFlag::Boot);
-              operation.new_partition->flags.append(PartitionFlag::ESP);
-              found_boot = true;
-          }
-      }
-  }
-
-  // Check existing EFI partition
-  for (const Device::Ptr device : virtual_devices_) {
-    for (const Partition::Ptr partition : device->partitions) {
-      if (partition->fs == FsType::EFI) {
-        return true;
-      }
-    }
-  }
-
-  // Check /boot partition
-  if (!found_boot) {
-      for (Operation& operation : operations_) {
-          if (operation.type == OperationType::Create ||
-              operation.type == OperationType::MountPoint ||
-              operation.type == OperationType::Format) {
-              if (operation.new_partition->mount_point == kMountPointBoot) {
-                  operation.new_partition->flags.append(PartitionFlag::Boot);
-                  found_boot = true;
-              }
-          }
-      }
-  }
-
-  // At last, check / partition
-  if (!found_boot) {
-      for (Operation& operation : operations_) {
-          if (operation.type == OperationType::Create ||
-              operation.type == OperationType::MountPoint ||
-              operation.type == OperationType::Format) {
-              if (operation.new_partition->mount_point == kMountPointRoot) {
-                  operation.new_partition->flags.append(PartitionFlag::Boot);
-                  found_boot = true;
-              }
-          }
-      }
-  }
-  return found_boot;
-}
-
-AdvancedValidateStates AdvancedPartitionDelegate::validate() const {
-  AdvancedValidateStates states;
+ValidateStates AdvancedPartitionDelegate::validate() const {
+  ValidateStates states;
   bool found_efi = false;
   bool efi_large_enough = false;
   bool found_root = false;
@@ -347,7 +161,7 @@ AdvancedValidateStates AdvancedPartitionDelegate::validate() const {
   const qint64 partition_min_size_bytes = partition_min_size_by_gb * kGibiByte;
 
   Device::Ptr root_device;
-  for (const Device::Ptr device : virtual_devices_) {
+  for (const Device::Ptr device : virtualDevices()) {
     for (const Partition::Ptr partition : device->partitions) {
       if (partition->mount_point == kMountPointRoot) {
         // Check / partition->
@@ -397,10 +211,10 @@ AdvancedValidateStates AdvancedPartitionDelegate::validate() const {
   if (found_root) {
     // Check root size only if root is set.
     if (!root_large_enough) {
-      states.append(AdvancedValidateState::RootTooSmall);
+      states.append(ValidateState::RootTooSmall);
     }
   } else {
-    states.append(AdvancedValidateState::RootMissing);
+    states.append(ValidateState::RootMissing);
   }
 
   // Check whether efi filesystem exists.
@@ -409,18 +223,18 @@ AdvancedValidateStates AdvancedPartitionDelegate::validate() const {
     // so, if found_efi is true, then found_root must be true
     if (found_efi) {
       if (!efi_large_enough) {
-        states.append(AdvancedValidateState::EfiTooSmall);
+        states.append(ValidateState::EfiTooSmall);
       }
     }
     else {
       if (found_root){
-        states.append(AdvancedValidateState::EfiMissing);
+        states.append(ValidateState::EfiMissing);
       }
     }
   }
 
   if (found_boot && !boot_large_enough) {
-    states.append(AdvancedValidateState::BootTooSmall);
+    states.append(ValidateState::BootTooSmall);
   }
 
   // Check filesystem type is suitable for /boot folder.
@@ -428,7 +242,7 @@ AdvancedValidateStates AdvancedPartitionDelegate::validate() const {
     const FsType boot_root_fs = found_boot ? boot_fs : root_fs;
     const FsTypeList boot_fs_list = this->getBootFsTypeList();
     if (!boot_fs_list.contains(boot_root_fs)) {
-      states.append(AdvancedValidateState::BootFsInvalid);
+      states.append(ValidateState::BootFsInvalid);
     }
   }
 
@@ -439,12 +253,12 @@ AdvancedValidateStates AdvancedPartitionDelegate::validate() const {
                                    root_part_number;
     // If /boot or / is set, validate its partition number.
     if ((boot_root_part_num != -1) && (boot_root_part_num != 1)) {
-      states.append(AdvancedValidateState::BootPartNumberInvalid);
+      states.append(ValidateState::BootPartNumberInvalid);
     }
   }
 
   const QStringList known_mounts { kMountPointRoot, kMountPointBoot };
-  for (const Device::Ptr& device : virtual_devices_) {
+  for (const Device::Ptr& device : virtualDevices()) {
     for (const Partition::Ptr& partition : device->partitions) {
       if (partition->fs == FsType::EFI) {
             continue;
@@ -456,513 +270,12 @@ AdvancedValidateStates AdvancedPartitionDelegate::validate() const {
           continue;
       }
       if (partition->getByteLength() < partition_min_size_bytes) {
-           states.append(AdvancedValidateState(AdvancedValidateState::PartitionTooSmall, partition));
+           states.append(ValidateState(ValidateState::PartitionTooSmall, partition));
       }
     }
   }
 
   return states;
-}
-
-bool AdvancedPartitionDelegate::createPartition(const Partition::Ptr partition,
-                                                PartitionType partition_type,
-                                                bool align_start,
-                                                FsType fs_type,
-                                                const QString& mount_point,
-                                                qint64 total_sectors) {
-  // Policy:
-  // * If partition table is empty, create a new one.
-  const int device_index = DeviceIndex(virtual_devices_, partition->device_path);
-  if (device_index == -1) {
-    qCritical() << "createPartition() device index out of range:"
-                << partition->device_path;
-    return false;
-  }
-  Device::Ptr device = virtual_devices_[device_index];
-
-  if (device->table == PartitionTableType::Empty) {
-    // Add NewPartTable operation.
-    Device::Ptr new_device(new Device(*device));
-    new_device->table = IsEfiEnabled() ?
-                       PartitionTableType::GPT :
-                       PartitionTableType::MsDos;
-    //NOTE: GPT table need 33 sectors in the end.
-    if (new_device->table == PartitionTableType::GPT) {
-        partition->length -= 33;
-        partition->end_sector -= 33;
-    }
-    const Operation operation(new_device);
-    operations_.append(operation);
-    // Update virtual device property at the same time.
-    operation.applyToVisual(device);
-  }
-
-  if (partition_type == PartitionType::Normal) {
-    return createPrimaryPartition(partition,
-                                  PartitionType::Normal,
-                                  align_start,
-                                  fs_type,
-                                  mount_point,
-                                  total_sectors);
-  } else if (partition_type == PartitionType::Logical) {
-    return createLogicalPartition(partition,
-                                  align_start,
-                                  fs_type,
-                                  mount_point,
-                                  total_sectors);
-  } else {
-    qCritical() << "createPartition() not supported type:" << partition_type;
-    return false;
-  }
-}
-
-bool
-AdvancedPartitionDelegate::createLogicalPartition(const Partition::Ptr partition,
-                                                  bool align_start,
-                                                  FsType fs_type,
-                                                  const QString& mount_point,
-                                                  qint64 total_sectors) {
-// Policy:
-  // * Create extended partition if not found;
-  // * If new logical partition is not contained in or is intersected with
-  //   extended partition, enlarge extended partition->
-
-  const int device_index = DeviceIndex(virtual_devices_, partition->device_path);
-  if (device_index == -1) {
-    qCritical() << "createLogicalPartition() device index out of range:"
-                << partition->device_path;
-    return false;
-  }
-  const Device::Ptr device = virtual_devices_.at(device_index);
-
-  const int ext_index = ExtendedPartitionIndex(device->partitions);
-  Partition::Ptr ext_partition (new Partition);
-  if (ext_index == -1) {
-    // No extended partition found, create one.
-    if (!createPrimaryPartition(partition,
-                                PartitionType::Extended,
-                                align_start,
-                                FsType::Empty,
-                                "",
-                                total_sectors)) {
-      qCritical() << "Failed to create extended partition";
-      return false;
-    }
-
-    ext_partition = operations_.last().new_partition;
-  } else {
-    // No need to add extended partition or enlarge it.
-    ext_partition = device->partitions.at(ext_index);
-
-    // Enlarge extended partition if needed.
-    if (ext_partition->start_sector > partition->start_sector ||
-        ext_partition->end_sector < partition->end_sector) {
-      Partition::Ptr new_ext_partition(new Partition(*ext_partition));
-      new_ext_partition->start_sector = qMin(ext_partition->start_sector,
-                                            partition->start_sector);
-      new_ext_partition->end_sector = qMax(ext_partition->end_sector,
-                                          partition->end_sector);
-
-      AlignPartition(new_ext_partition);
-
-      const Operation resize_ext_operation(OperationType::Resize,
-                                           ext_partition,
-                                           new_ext_partition);
-      operations_.append(resize_ext_operation);
-
-      ext_partition = new_ext_partition;
-    }
-  }
-
-  Partition::Ptr new_partition (new Partition);
-  new_partition->device_path = partition->device_path;
-  new_partition->path = partition->path;
-  new_partition->sector_size = partition->sector_size;
-  new_partition->status = PartitionStatus::New;
-  new_partition->type = PartitionType::Logical;
-  new_partition->fs = fs_type;
-  new_partition->mount_point = mount_point;
-  const int partition_number = AllocLogicalPartitionNumber(device);
-  if (partition_number < 0) {
-    qCritical() << "Failed to allocate logical part number!";
-    return false;
-  }
-  new_partition->changeNumber(partition_number);
-
-  if (fs_type == FsType::Recovery) {
-      settings_.recovery_path = partition->path;
-  }
-
-  // space is required for the Extended Boot Record.
-  // Generally an additional track or MebiByte is required so for
-  // our purposes reserve a MebiByte in front of the partition->
-  const qint64 oneMebiByteSector = 1 * kMebiByte / partition->sector_size;
-  if (align_start) {
-    // Align from start of |partition|.
-    // Add space for Extended Boot Record.
-    const qint64 start_sector = qMax(partition->start_sector,
-                                     ext_partition->start_sector);
-    new_partition->start_sector = start_sector + oneMebiByteSector;
-
-    const qint64 end_sector = qMin(partition->end_sector,
-                                   ext_partition->end_sector);
-    new_partition->end_sector = qMin(end_sector,
-                                    total_sectors + new_partition->start_sector - 1);
-  } else {
-    new_partition->end_sector = qMin(partition->end_sector,
-                                    ext_partition->end_sector);
-    const qint64 start_sector = qMax(partition->start_sector,
-                                     ext_partition->start_sector);
-    new_partition->start_sector = qMax(start_sector + oneMebiByteSector,
-                                      partition->end_sector - total_sectors + 1);
-  }
-
-  // Align to nearest MebiBytes.
-  AlignPartition(new_partition);
-
-  // Check partition sector range.
-  // Also check whether partition size is less than 1MiB or not.
-  if (new_partition->start_sector < partition->start_sector ||
-      new_partition->start_sector >= partition->end_sector ||
-      new_partition->getByteLength() < kMebiByte ||
-      new_partition->end_sector > partition->end_sector) {
-    qCritical() << "Invalid partition sector range";
-    return false;
-  }
-
-  //Modify boundary of extended partition after creating logical partition , since boundary of logical partition is changed again.
-  qint64 start_sector = -1;
-  qint64 end_sector = -1;
-  if (reCalculateExtPartBoundary(PartitionAction::CreateLogicalPartition, new_partition, start_sector, end_sector)) {
-      ext_partition->start_sector = start_sector;
-      ext_partition->end_sector = end_sector;
-  }
-
-  // Reset mount-point before append operation to advanced operation list.
-  this->resetOperationMountPoint(mount_point);
-  const Operation operation(OperationType::Create, partition, new_partition);
-  operations_.append(operation);
-
-  return true;
-}
-
-bool
-AdvancedPartitionDelegate::createPrimaryPartition(const Partition::Ptr partition,
-                                                  PartitionType partition_type,
-                                                  bool align_start,
-                                                  FsType fs_type,
-                                                  const QString& mount_point,
-                                                  qint64 total_sectors) {
-// Policy:
-  // * If new primary partition is contained in or intersected with
-  //   extended partition, shrink extended partition or delete it if no other
-  //   logical partitions.
-
-  if (partition_type != PartitionType::Normal &&
-      partition_type != PartitionType::Extended) {
-    qCritical() << "createPrimaryPartition() invalid part type:"
-                << partition_type;
-    return false;
-  }
-
-  const int device_index = DeviceIndex(virtual_devices_, partition->device_path);
-  if (device_index == -1) {
-    qCritical() << "createPrimaryPartition() device index out of range:"
-                << partition->device_path;
-    return false;
-  }
-  Device::Ptr device = virtual_devices_[device_index];
-
-  const qint64 oneMebiByteSector = 1 * kMebiByte / partition->sector_size;
-
-  // Shrink extended partition if needed.
-  const int ext_index = ExtendedPartitionIndex(device->partitions);
-  if (partition_type == PartitionType::Normal && ext_index > -1) {
-    const Partition::Ptr ext_partition = device->partitions.at(ext_index);
-    const PartitionList logical_parts = GetLogicalPartitions(device->partitions);
-    if (logical_parts.isEmpty()) {
-      // Remove extended partition if no logical partitions.
-      Partition::Ptr unallocated_partition (new Partition);
-      unallocated_partition->device_path = ext_partition->device_path;
-      // Extended partition does not contain any sectors.
-      // This new allocated partition will be merged to other unallocated
-      // partitions.
-      unallocated_partition->start_sector = ext_partition->start_sector;
-      unallocated_partition->end_sector = ext_partition->end_sector;
-      unallocated_partition->sector_size = ext_partition->sector_size;
-      unallocated_partition->type = PartitionType::Unallocated;
-      const Operation operation(OperationType::Delete,
-                                ext_partition,
-                                unallocated_partition);
-      operations_.append(operation);
-
-      // Remove extended partition from partition list explicitly.
-      device->partitions.removeAt(ext_index);
-
-    } else if (IsPartitionsJoint(ext_partition, partition)) {
-      // Shrink extended partition to fit logical partitions.
-      Partition::Ptr new_ext_part(new Partition(*ext_partition));
-      new_ext_part->start_sector = logical_parts.first()->start_sector -
-                                  oneMebiByteSector;
-      new_ext_part->end_sector = logical_parts.last()->end_sector;
-
-      if (IsPartitionsJoint(new_ext_part, partition)) {
-        qCritical() << "Failed to shrink extended partition!";
-        return false;
-      }
-
-      const Operation operation(OperationType::Resize,
-                                ext_partition,
-                                new_ext_part);
-      operations_.append(operation);
-    }
-  }
-
-  Partition::Ptr new_partition (new Partition);
-  new_partition->device_path = partition->device_path;
-  new_partition->path = partition->path;
-  new_partition->sector_size = partition->sector_size;
-  new_partition->status = PartitionStatus::New;
-  new_partition->type = partition_type;
-  new_partition->fs = fs_type;
-  new_partition->mount_point = mount_point;
-
-  const int partition_number = AllocPrimaryPartitionNumber(device);
-  if (partition_number < 0) {
-    qCritical() << "Failed to allocate primary partition number!";
-    return false;
-  }
-  new_partition->changeNumber(partition_number);
-
-  if (fs_type == FsType::Recovery) {
-      settings_.recovery_path = partition->path;
-  }
-
-  // Check whether space is required for the Master Boot Record.
-  // Generally an additional track or MebiByte is required so for
-  // our purposes reserve a MebiByte in front of the partition->
-  const bool need_mbr = (partition->start_sector <= oneMebiByteSector);
-  if (align_start) {
-    // Align from start of |partition|.
-    if (need_mbr) {
-      new_partition->start_sector = oneMebiByteSector;
-    } else {
-      new_partition->start_sector = partition->start_sector;
-    }
-    new_partition->end_sector = qMin(partition->end_sector,
-                                    total_sectors + new_partition->start_sector - 1);
-  } else {
-    new_partition->end_sector = partition->end_sector;
-    if (need_mbr) {
-      new_partition->start_sector = qMax(oneMebiByteSector,
-                                        partition->end_sector - total_sectors + 1);
-    } else {
-      new_partition->start_sector = qMax(partition->start_sector,
-                                        partition->end_sector - total_sectors + 1);
-    }
-  }
-
-  // Align to nearest MebiBytes.
-  AlignPartition(new_partition);
-
-  // Check partition sector range.
-  // Also check whether partition size is less than 1MiB or not.
-  if (new_partition->start_sector < partition->start_sector ||
-      new_partition->start_sector >= partition->end_sector ||
-      new_partition->getByteLength() < kMebiByte ||
-      new_partition->end_sector > partition->end_sector) {
-    qCritical() << "Invalid partition sector range"
-                << ", new_partition:" << new_partition
-                << ", partition:" << partition;
-    return false;
-  }
-
-  // Reset mount-point before appending operation to advanced operation list.
-  this->resetOperationMountPoint(mount_point);
-  Operation operation(OperationType::Create, partition, new_partition);
-  operations_.append(operation);
-
-  return true;
-}
-
-void AdvancedPartitionDelegate::deletePartition(const Partition::Ptr partition) {
-  // Policy:
-  //  * Remove selected partition->
-  //  * Merge unallocated partitions.
-  //  * Remove extended partition if no logical partitions found.
-  //  * Update partition number if needed.
-
-  Partition::Ptr new_partition(new Partition(*partition));
-  new_partition->partition_number = -1;
-  new_partition->device_path  = partition->device_path;
-  new_partition->sector_size  = partition->sector_size;
-  new_partition->start_sector = partition->start_sector;
-  new_partition->end_sector   = partition->end_sector;
-  new_partition->type         = PartitionType::Unallocated;
-  new_partition->fs           = FsType::Empty;
-  new_partition->status       = PartitionStatus::Delete;
-  new_partition->mount_point  = "";
-
-  //1MB space before logical partition must be recycled.
-  if (partition->type == PartitionType::Logical) {
-     const qint64 oneMebiByteSector = 1 * kMebiByte / partition->sector_size;
-     new_partition->start_sector -= oneMebiByteSector;
-  }
-
-//TODO: Fix this bug using a pretty method!
-#ifdef QT_DEBUG
-  if (partition->status == PartitionStatus::New) {
-    // If status of old partition is New, there shall be a CreateOperation
-    // which generates that partition-> Merge that CreateOperation
-    // with DeleteOperation.
-
-    // TODO(xushaohua): Move to operation.h
-    for (int index = operations_.length() - 1; index >= 0; --index) {
-        const Operation& operation = operations_.at(index);
-        if (operation.type == OperationType::Create &&
-            *operation.new_partition.data() == *partition.data()) {
-            partition->type   = PartitionType::Unallocated;
-            partition->fs     = FsType::Empty;
-            partition->status = PartitionStatus::Delete;
-            partition->mount_point = "";
-
-            qDebug() << "delete partition info: " << *partition.data();
-
-            const qint64 start_size = operation.orig_partition->start_sector;
-
-            operations_.removeAt(index);
-
-            // 修改操作，把相邻分区的operation中的orig partition向前补齐
-            const qint64 end_size = partition->end_sector + 1;
-            for (auto it = operations_.begin(); it != operations_.end(); ++it) {
-                if (it->type == OperationType::Create &&
-                    partition->device_path == it->orig_partition->device_path &&
-                    it->orig_partition->start_sector == end_size) {
-                    it->orig_partition->start_sector = start_size;
-                }
-            }
-            break;
-        }
-    }
-  } else {
-#endif
-      Operation operation(OperationType::Delete, partition, new_partition);
-      operations_.append(operation);
-      qDebug() << "add delete operation" << *new_partition.data();
-#ifdef QT_DEBUG
-  }
-#endif
-
-  if (partition->type == PartitionType::Logical) {
-    // Delete extended partition if needed.
-    const int device_index = DeviceIndex(virtual_devices_,
-                                         partition->device_path);
-    if (device_index == -1) {
-      qCritical() << "deletePartition() Failed to get device:"
-                  << partition->device_path;
-      return;
-    }
-
-    Device::Ptr device = virtual_devices_[device_index];
-    PartitionList& partitions = device->partitions;
-
-    const int ext_index = ExtendedPartitionIndex(partitions);
-    if (ext_index > -1) {
-      const PartitionList logical_parts = GetLogicalPartitions(partitions);
-
-      // Only one logical partition, and it has been removed.
-      // Or logical partition list is empty.
-      if ((logical_parts.length() == 1 && logical_parts.at(0) == partition) ||
-          (logical_parts.length() == 0)) {
-        const Partition::Ptr ext_partition = partitions.at(ext_index);
-        Partition::Ptr unallocated_partition (new Partition);
-        unallocated_partition->device_path = ext_partition->device_path;
-        // Extended partition does not contain any sectors.
-        // This new allocated partition will be merged to other unallocated
-        // partitions.
-        unallocated_partition->start_sector = ext_partition->start_sector;
-        unallocated_partition->end_sector = ext_partition->end_sector;
-        unallocated_partition->sector_size = ext_partition->sector_size;
-        unallocated_partition->type = PartitionType::Unallocated;
-        const Operation operation(OperationType::Delete,
-                                  ext_partition,
-                                  unallocated_partition);
-        operations_.append(operation);
-      }
-      else if (partition->type == PartitionType::Logical) {
-         //Modify boundary of extended partition after removing logical partition since it may be the first or the last logical partition
-          qint64 ext_start_sector = -1;
-          qint64 ext_end_sector = -1;
-          if (reCalculateExtPartBoundary(partitions, PartitionAction::RemoveLogicalPartition, partition, ext_start_sector, ext_end_sector)) {
-              const Partition::Ptr ext_partition = partitions.at(ext_index);
-              Partition::Ptr new_ext_partition(new Partition(*ext_partition));
-              new_ext_partition->start_sector = ext_start_sector;
-              new_ext_partition->end_sector = ext_end_sector;
-              const Operation operation(OperationType::Resize, ext_partition, new_ext_partition);
-              operations_.append(operation);
-         }
-      }
-    }
-  }
-
-  // TODO(xushaohua): Update partition number.
-}
-
-void AdvancedPartitionDelegate::formatPartition(const Partition::Ptr partition,
-                                                FsType fs_type,
-                                                const QString& mount_point) {
-  qDebug() << "formatPartition()" << partition << mount_point;
-
-  this->resetOperationMountPoint(mount_point);
-
-  // Update partition of old operation, instead of adding a new one.
-  // TODO(xushaohua): Move to operation.h
-  if (partition->status == PartitionStatus::New ||
-      partition->status == PartitionStatus::Format) {
-    for (int index = operations_.length() - 1; index >= 0; --index) {
-      Operation& operation = operations_[index];
-      if ((operation.new_partition->path == partition->path) &&
-          (operation.type == OperationType::Format ||
-           operation.type == OperationType::Create)) {
-        operation.new_partition->mount_point = mount_point;
-        operation.new_partition->fs = fs_type;
-        return;
-      }
-    }
-  }
-
-  Partition::Ptr new_partition (new Partition);
-  new_partition->sector_size = partition->sector_size;
-  new_partition->start_sector = partition->start_sector;
-  new_partition->end_sector = partition->end_sector;
-  new_partition->path = partition->path;
-  new_partition->device_path = partition->device_path;
-  new_partition->fs = fs_type;
-  new_partition->type = partition->type;
-  new_partition->mount_point = mount_point;
-  new_partition->status = PartitionStatus::Format;
-
-  if (fs_type == FsType::Recovery) {
-      // Hide recovery partition
-      new_partition->flags << PartitionFlag::Hidden;
-      settings_.recovery_path = partition->path;
-  }
-
-  Operation operation(OperationType::Format, partition, new_partition);
-  operations_.append(operation);
-}
-
-void AdvancedPartitionDelegate::onDeviceRefreshed(const DeviceList& devices) {
-  qDebug() << "device refreshed():" << devices;
-  real_devices_ = devices;
-  operations_.clear();
-  virtual_devices_ = FilterInstallerDevice(real_devices_);
-
-  for (Device::Ptr device : virtual_devices_) {
-    device->partitions = FilterFragmentationPartition(device->partitions);
-  }
-
-  emit this->deviceRefreshed(virtual_devices_);
 }
 
 void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
@@ -1010,7 +323,7 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
         }
     }
 
-  if (!IsMBRPreferred(real_devices_)) {
+  if (!IsMBRPreferred(realDevices())) {
     // Enable EFI mode. First check newly created EFI partition-> If not found,
     // check existing EFI partition->
     settings_.uefi_required = true;
@@ -1048,38 +361,6 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
   WriteDiskPartitionSetting(settings_);
 }
 
-void AdvancedPartitionDelegate::refreshVisual() {
-// Filters partition list based on the following policy:
-  // * Remove extended partition if no logical partition exists;
-  // * Merge unallocated partition with next unallocated one;
-  // * Ignore partitions with size less than 100Mib;
-
-  virtual_devices_ = FilterInstallerDevice(real_devices_);
-
-  for (Device::Ptr device : virtual_devices_) {
-      device->partitions = FilterFragmentationPartition(device->partitions);
-  }
-
-  for (Device::Ptr device : virtual_devices_) {
-      // Merge unallocated partitions.
-      MergeUnallocatedPartitions(device->partitions);
-
-      for (Operation& operation : operations_) {
-          if ((operation.type == OperationType::NewPartTable && *operation.device.data() == *device.data()) ||
-              (operation.type != OperationType::NewPartTable && operation.orig_partition->device_path == device->path)) {
-              operation.applyToVisual(device);
-          }
-      }
-
-      // Merge unallocated partitions.
-      MergeUnallocatedPartitions(device->partitions);
-  }
-
-  qDebug() << "devices:" << virtual_devices_;
-  qDebug() << "operations:" << operations_;
-  emit this->deviceRefreshed(virtual_devices_);
-}
-
 void AdvancedPartitionDelegate::resetOperationMountPoint(
     const QString& mount_point) {
   qDebug() << "resetOperationMountPoint:" << mount_point;
@@ -1091,8 +372,7 @@ void AdvancedPartitionDelegate::resetOperationMountPoint(
       if (operation.type == OperationType::MountPoint) {
         // TODO(xushaohua): move to operation.h
         // Remove MountPointOperation with same mount point.
-        operations_.removeAt(index);
-        return;
+        return operations_.removeAt(index);
       } else {
         // Clear mount point of old operation.
         operation.new_partition->mount_point = "";
@@ -1103,13 +383,10 @@ void AdvancedPartitionDelegate::resetOperationMountPoint(
   }
 }
 
-void AdvancedPartitionDelegate::setBootloaderPath(const QString& path) {
-  bootloader_path_ = path;
-}
-
 bool AdvancedPartitionDelegate::unFormatPartition(const Partition::Ptr partition) {
   Q_ASSERT(partition->status == PartitionStatus::Format);
   if (partition->status == PartitionStatus::Format) {
+    OperationList operations_ = operations();
     for (int index = operations_.length() - 1; index >= 0; --index) {
       const Operation& operation = operations_.at(index);
       // Remove the last FormatOperation if its new_partition range is the
@@ -1145,20 +422,14 @@ void AdvancedPartitionDelegate::updateMountPoint(const Partition::Ptr partition,
   }
 }
 
-const DiskPartitionSetting& AdvancedPartitionDelegate::settings() const
-{
-    return settings_;
-}
-
-
 bool AdvancedPartitionDelegate::reCalculateExtPartBoundary(PartitionAction action, const Partition::Ptr& current, qint64& start_sector, qint64& end_sector)
 {
-    const int device_index = DeviceIndex(virtual_devices_, current->device_path);
+    const int device_index = DeviceIndex(virtualDevices(), current->device_path);
     if (device_index == -1) {
       return false;
     }
 
-    Device::Ptr device = virtual_devices_[device_index];
+    Device::Ptr device = virtualDevices()[device_index];
     PartitionList& partitions = device->partitions;
     return reCalculateExtPartBoundary(partitions, action, current, start_sector, end_sector);
 }

@@ -20,7 +20,7 @@
 namespace installer {
 
 AdvancedPartitionErrorLabel::AdvancedPartitionErrorLabel(QWidget* parent)
-    : QLabel(parent), state_(AdvancedValidateState::Ok) {
+    : QLabel(parent), state_(ValidateState::Ok) {
 }
 
 void AdvancedPartitionErrorLabel::enterEvent(QEvent* event) {

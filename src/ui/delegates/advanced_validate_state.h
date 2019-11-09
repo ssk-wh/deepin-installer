@@ -24,34 +24,34 @@
 
 namespace installer {
 
-typedef long AdvancedValidateStateId;
+typedef long ValidateStateId;
 
-class AdvancedValidator {
+class Validator {
 public:
-   typedef QSharedPointer<AdvancedValidator> Ptr;
-    explicit AdvancedValidator(AdvancedValidateStateId state);
-    explicit AdvancedValidator(AdvancedValidateStateId state, const Partition::Ptr& partition);
+   typedef QSharedPointer<Validator> Ptr;
+    explicit Validator(ValidateStateId state);
+    explicit Validator(ValidateStateId state, const Partition::Ptr& partition);
 
-    AdvancedValidateStateId state() const;
+    ValidateStateId state() const;
     const Partition::Ptr partition() const;
-    bool equals(const AdvancedValidator& validator) const;
+    bool equals(const Validator& validator) const;
 
 private:
     Partition::Ptr partition_;
-    AdvancedValidateStateId state_;
+    ValidateStateId state_;
 };
 
 //typedef AdvancedValidator::Ptr AdvancedValidateState;
-class AdvancedValidateState : public AdvancedValidator::Ptr
+class ValidateState : public Validator::Ptr
 {
 public:
-    AdvancedValidateState();
-    AdvancedValidateState(AdvancedValidator * p);
-    AdvancedValidateState(AdvancedValidateStateId state);
-    AdvancedValidateState(AdvancedValidateStateId state, const Partition::Ptr& partition);
+    ValidateState();
+    ValidateState(Validator * p);
+    ValidateState(ValidateStateId state);
+    ValidateState(ValidateStateId state, const Partition::Ptr& partition);
 
-    bool eqauls(const AdvancedValidateState& state) const;
-    operator AdvancedValidateStateId () const;
+    bool eqauls(const ValidateState& state) const;
+    operator ValidateStateId () const;
 
     enum {
      InvalidId = 0x0L,
@@ -63,14 +63,15 @@ public:
      RootMissing,
      RootTooSmall,
      PartitionTooSmall,
+     MaxPrimPartErr,  // All primary partition numbers are used.
      Ok
     };
 };
 
-typedef QList <AdvancedValidateState> AdvancedValidateStates;
+typedef QList <ValidateState> ValidateStates;
 
 }  // namespace installer
 
-bool operator==( const installer::AdvancedValidateState& state1, const installer::AdvancedValidateState& state2);
+bool operator==( const installer::ValidateState& state1, const installer::ValidateState& state2);
 
 #endif  // INSTALLER_UI_DELEGATES_ADVANCED_VALIDATE_STATE_H

@@ -221,7 +221,7 @@ void AdvancedPartitionFrame::initUI() {
 }
 
 AdvancedPartitionButton* AdvancedPartitionFrame::getAppropriateButtonForState(
-    AdvancedValidateState state) const {
+    ValidateState state) const {
 
   const int efi_minimum = GetSettingsInt(kPartitionEFIMinimumSpace);
   const int root_required = GetSettingsInt(kPartitionRootMiniSpace);
@@ -236,15 +236,15 @@ AdvancedPartitionButton* AdvancedPartitionFrame::getAppropriateButtonForState(
     const Partition::Ptr partition(part_button->partition());
 
     switch (state) {
-      case AdvancedValidateState::BootFsInvalid:  // Fall through
-      case AdvancedValidateState::BootPartNumberInvalid:  // Fall through
-      case AdvancedValidateState::BootTooSmall: {
+      case ValidateState::BootFsInvalid:  // Fall through
+      case ValidateState::BootPartNumberInvalid:  // Fall through
+      case ValidateState::BootTooSmall: {
         if (partition->mount_point == kMountPointBoot) {
           return part_button;
         }
         break;
       }
-      case AdvancedValidateState::EfiMissing: {
+      case ValidateState::EfiMissing: {
         if ((partition->fs != FsType::LinuxSwap) &&
             (partition->fs != FsType::EFI) &&
             partition->mount_point.isEmpty() &&
@@ -253,13 +253,13 @@ AdvancedPartitionButton* AdvancedPartitionFrame::getAppropriateButtonForState(
         }
         break;
       }
-      case AdvancedValidateState::EfiTooSmall: {
+      case ValidateState::EfiTooSmall: {
         if (partition->fs == FsType::EFI) {
           return part_button;
         }
         break;
       }
-      case AdvancedValidateState::RootMissing: {
+      case ValidateState::RootMissing: {
         // First check freespace.
         if (partition->type == PartitionType::Unallocated &&
             partition->getByteLength() > root_required) {
@@ -267,7 +267,7 @@ AdvancedPartitionButton* AdvancedPartitionFrame::getAppropriateButtonForState(
         }
         break;
       }
-      case AdvancedValidateState::RootTooSmall: {
+      case ValidateState::RootTooSmall: {
         if (partition->mount_point == kMountPointRoot) {
           return part_button;
         }
@@ -290,14 +290,14 @@ AdvancedPartitionButton* AdvancedPartitionFrame::getAppropriateButtonForState(
     const Partition::Ptr partition(part_button->partition());
 
     switch (state) {
-      case AdvancedValidateState::BootFsInvalid:  // Fall through
-      case AdvancedValidateState::BootPartNumberInvalid: {
+      case ValidateState::BootFsInvalid:  // Fall through
+      case ValidateState::BootPartNumberInvalid: {
         if (partition->mount_point == kMountPointRoot) {
           return part_button;
         }
         break;
       }
-      case AdvancedValidateState::RootMissing: {
+      case ValidateState::RootMissing: {
         // Then check non-empty partitions.
         if ((partition->fs != FsType::LinuxSwap) &&
             (partition->fs != FsType::EFI) &&
@@ -317,7 +317,7 @@ AdvancedPartitionButton* AdvancedPartitionFrame::getAppropriateButtonForState(
   return nullptr;
 }
 
-void AdvancedPartitionFrame::hideErrorMessage(AdvancedValidateState state) {
+void AdvancedPartitionFrame::hideErrorMessage(ValidateState state) {
   for (int i = 0; i < error_labels_.length(); ++i) {
     AdvancedPartitionErrorLabel* label = error_labels_.at(i);
     if (label->state() == state) {
@@ -344,7 +344,7 @@ void AdvancedPartitionFrame::repaintDevices() {
   // Remove all widgets in partition layout.
   ClearLayout(partition_layout_);
 
-  for (const Device::Ptr device : delegate_->virtual_devices()) {
+  for (const Device::Ptr device : delegate_->virtualDevices()) {
     QLabel* model_label = new QLabel();
     model_label->setObjectName("model_label");
     model_label->setText(GetDeviceModelCapAndPath(device));
@@ -385,7 +385,7 @@ void AdvancedPartitionFrame::scrollContentToTop() {
   scroll_area_->verticalScrollBar()->setValue(0);
 }
 
-void AdvancedPartitionFrame::showErrorMessage(AdvancedValidateState state) {
+void AdvancedPartitionFrame::showErrorMessage(ValidateState state) {
   AdvancedPartitionErrorLabel* error_label =
       new AdvancedPartitionErrorLabel();
   error_label->setObjectName(kLastErrMsgLabel);
@@ -406,7 +406,7 @@ void AdvancedPartitionFrame::showErrorMessage(AdvancedValidateState state) {
 }
 
 void AdvancedPartitionFrame::showErrorMessages() {
-  for (AdvancedValidateState state: validate_states_) {
+  for (ValidateState state: validate_states_) {
       this->showErrorMessage(state);
   }
 
@@ -455,18 +455,18 @@ void AdvancedPartitionFrame::updateValidateStates() {
     return;
   }
 
-  const AdvancedValidateStates new_states = delegate_->validate();
+  const ValidateStates new_states = delegate_->validate();
   if (new_states.isEmpty()) {
     this->hideErrorMessages();
   } else {
-    for (AdvancedValidateState state : validate_states_) {
+    for (ValidateState state : validate_states_) {
       if (!new_states.contains(state)) {
         // Hide fixed error label.
         this->hideErrorMessage(state);
       }
     }
 
-    for (AdvancedValidateState state : new_states) {
+    for (ValidateState state : new_states) {
       if (!validate_states_.contains(state)) {
         this->showErrorMessage(state);
       }
@@ -481,9 +481,9 @@ void AdvancedPartitionFrame::updateValidateStates() {
   msg_container_frame_->setMaximumHeight(QWIDGETSIZE_MAX);
 }
 
-QString AdvancedPartitionFrame::validateStateToText(AdvancedValidateState state) {
+QString AdvancedPartitionFrame::validateStateToText(ValidateState state) {
   switch (state) {
-    case AdvancedValidateState::BootFsInvalid: {
+    case ValidateState::BootFsInvalid: {
       const FsTypeList boot_fs_list = delegate_->getBootFsTypeList();
       QStringList fs_name_list;
       for (const FsType& fs_type : boot_fs_list) {
@@ -493,33 +493,33 @@ QString AdvancedPartitionFrame::validateStateToText(AdvancedValidateState state)
       return tr("The partition filesystem type of /boot directory "
                 "can only be %1 ").arg(fs_name);
     }
-    case AdvancedValidateState::BootPartNumberInvalid: {
+    case ValidateState::BootPartNumberInvalid: {
       return tr("The partition of /boot directory should be "
                 "the first partition on hard disk");
     }
-    case AdvancedValidateState::BootTooSmall: {
+    case ValidateState::BootTooSmall: {
       const int boot_recommended = GetSettingsInt(kPartitionDefaultBootSpace);
       return tr("At least %1 MB is required for /boot partition")
           .arg( boot_recommended);
     }
-    case AdvancedValidateState::EfiMissing: {
+    case ValidateState::EfiMissing: {
       return tr("Add an EFI partition to continue");
     }
-    case AdvancedValidateState::EfiTooSmall: {
+    case ValidateState::EfiTooSmall: {
       const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace);
       return tr("At least %1 MB is required for EFI partition")
           .arg(efi_recommended);
     }
-    case AdvancedValidateState::RootMissing: {
+    case ValidateState::RootMissing: {
       return tr("Add a Root partition to continue");
     }
-    case AdvancedValidateState::RootTooSmall: {
+    case ValidateState::RootTooSmall: {
       const int root_required =
           GetSettingsInt(kPartitionRootMiniSpace);
       return tr("At least %1 GB is required for Root partition")
           .arg(root_required);
     }
-    case AdvancedValidateState::PartitionTooSmall: {
+    case ValidateState::PartitionTooSmall: {
       const int partition_min_size_by_gb = GetSettingsInt(kPartitionOthersMinimumSize);
       return tr("At least %1 GB is required for partition %2")
           .arg(partition_min_size_by_gb)

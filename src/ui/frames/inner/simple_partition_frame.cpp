@@ -58,36 +58,39 @@ SimplePartitionFrame::SimplePartitionFrame(SimplePartitionDelegate* delegate,
 }
 
 bool SimplePartitionFrame::validate() {
-  switch (delegate_->validate()) {
-    case SimpleValidateState::Ok: {
-        qDebug() << "all ok!";
-        msg_label_->clear();
-        return true;
-    }
-    case SimpleValidateState::MaxPrimPartErr: {
-        qDebug() << "partition size error!";
-        msg_label_->setText(
-            tr("Unable to create new partition, please "
-               "select one of the existing partitions!"));
-        break;
-    }
-    case SimpleValidateState::RootMissing: {
-        qDebug() << "not have root partition!";
-        msg_label_->setText(
-            tr("Please select one of the partitions to install!"));
-        break;
-    }
-    case SimpleValidateState::RootTooSmall: {
-        qDebug() << "root partition is too small!";
-        const int root_required =
-            GetSettingsInt(kPartitionRootMiniSpace);
-        msg_label_->setText(tr("At least %1 GB is required for root partition")
+    ValidateStates states {delegate_->validate()};
+    for (ValidateState state : states) {
+        switch (state) {
+        case ValidateState::Ok: {
+            qDebug() << "all ok!";
+            msg_label_->clear();
+            return true;
+        }
+        case ValidateState::MaxPrimPartErr: {
+            qDebug() << "partition size error!";
+            msg_label_->setText(
+                        tr("Unable to create new partition, please "
+                           "select one of the existing partitions!"));
+            return false;
+        }
+        case ValidateState::RootMissing: {
+            qDebug() << "not have root partition!";
+            msg_label_->setText(
+                        tr("Please select one of the partitions to install!"));
+            return false;
+        }
+        case ValidateState::RootTooSmall: {
+            qDebug() << "root partition is too small!";
+            const int root_required =
+                    GetSettingsInt(kPartitionRootMiniSpace);
+            msg_label_->setText(tr("At least %1 GB is required for root partition")
                                 .arg(root_required));
-        break;
+            return false;
+        }
+        }
     }
-  }
 
-  return false;
+    return false;
 }
 
 Device::Ptr SimplePartitionFrame::selectedDevice() const
@@ -96,7 +99,7 @@ Device::Ptr SimplePartitionFrame::selectedDevice() const
 
     Q_ASSERT(partition);
 
-    for (Device::Ptr device : delegate_->real_devices()) {
+    for (Device::Ptr device : delegate_->realDevices()) {
         if (device->path == partition->device_path) {
             return device;
         }
@@ -135,8 +138,8 @@ void SimplePartitionFrame::appendOperations() {
   delegate_->resetOperations();
 
   bool found_efi = false;
-  for (const Device::Ptr device : delegate_->virtual_devices()) {
-    for (const Partition::Ptr partition : device->partitions) {
+  for (Device::Ptr device : delegate_->virtualDevices()) {
+    for (Partition::Ptr partition : device->partitions) {
       if (partition->fs == FsType::EFI) {
         found_efi = true;
       }
@@ -302,7 +305,7 @@ void SimplePartitionFrame::repaintDevices() {
 
   // Draw partitions.
   int row = 0, column = 0;
-  for (const Device::Ptr device : delegate_->virtual_devices()) {
+  for (Device::Ptr device : delegate_->virtualDevices()) {
     DeviceModelLabel* device_model_label = new DeviceModelLabel();
     device_model_label->setText(GetDeviceModelCapAndPath(device));
     device_model_label->setFixedSize(kWindowWidth, 20);
@@ -312,7 +315,7 @@ void SimplePartitionFrame::repaintDevices() {
                             1, kDiskColumns, Qt::AlignLeft);
     row += 1;
 
-    for (const Partition::Ptr partition : device->partitions) {
+    for (Partition::Ptr partition : device->partitions) {
       if ((partition->type == PartitionType::Extended) || partition->busy) {
         // Ignores extended partition or currently in-used partitions.
         continue;

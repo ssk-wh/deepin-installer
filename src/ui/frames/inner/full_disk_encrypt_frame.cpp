@@ -232,11 +232,11 @@ void Full_Disk_Encrypt_frame::updateDiskInfo()
     int i = 0;
     const QStringList& disks = m_diskPartitionDelegate->selectedDisks();
     for (const QString& disk: disks) {
-          int index = DeviceIndex(m_diskPartitionDelegate->virtual_devices(), disk);
+          int index = DeviceIndex(m_diskPartitionDelegate->virtualDevices(), disk);
           if (index < 0) {
               continue;
           }
-          const Device::Ptr device = m_diskPartitionDelegate->virtual_devices().at(index);
+          const Device::Ptr device = m_diskPartitionDelegate->virtualDevices().at(index);
           m_diskinfo[i].m_device = device;
           updateDiskInfo(i);
           i++;

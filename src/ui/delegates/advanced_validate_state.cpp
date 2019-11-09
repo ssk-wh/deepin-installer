@@ -19,27 +19,27 @@
 
 namespace installer {
 
-AdvancedValidator::AdvancedValidator(AdvancedValidateStateId state)
+Validator::Validator(ValidateStateId state)
      : state_(state)
 {
 }
 
-AdvancedValidator::AdvancedValidator(AdvancedValidateStateId state, const Partition::Ptr& partition)
+Validator::Validator(ValidateStateId state, const Partition::Ptr& partition)
      : partition_(partition), state_(state)
 {
 }
 
-AdvancedValidateStateId AdvancedValidator::state() const
+ValidateStateId Validator::state() const
 {
     return state_;
 }
 
-const Partition::Ptr AdvancedValidator::partition() const
+const Partition::Ptr Validator::partition() const
 {
     return partition_;
 }
 
-bool AdvancedValidator::equals(const AdvancedValidator& validator) const
+bool Validator::equals(const Validator& validator) const
 {
         if (state() != validator.state()){
             return false;
@@ -56,27 +56,27 @@ bool AdvancedValidator::equals(const AdvancedValidator& validator) const
         }
 }
 
-AdvancedValidateState::AdvancedValidateState()
-     : AdvancedValidator::Ptr(nullptr)
+ValidateState::ValidateState()
+     : Validator::Ptr(nullptr)
 {
 }
 
-AdvancedValidateState::AdvancedValidateState(AdvancedValidator * p)
-     : AdvancedValidator::Ptr(p)
+ValidateState::ValidateState(Validator * p)
+     : Validator::Ptr(p)
 {
 }
 
-AdvancedValidateState::AdvancedValidateState(AdvancedValidateStateId state)
-     : AdvancedValidator::Ptr(new AdvancedValidator(state))
+ValidateState::ValidateState(ValidateStateId state)
+     : Validator::Ptr(new Validator(state))
 {
 }
 
-AdvancedValidateState::AdvancedValidateState(AdvancedValidateStateId state, const Partition::Ptr& partition)
-     : AdvancedValidator::Ptr(new AdvancedValidator(state, partition))
+ValidateState::ValidateState(ValidateStateId state, const Partition::Ptr& partition)
+     : Validator::Ptr(new Validator(state, partition))
 {
 }
 
-bool AdvancedValidateState::eqauls(const AdvancedValidateState& state) const
+bool ValidateState::eqauls(const ValidateState& state) const
 {
         if(isNull() || state.isNull()) {
             return false;
@@ -84,13 +84,13 @@ bool AdvancedValidateState::eqauls(const AdvancedValidateState& state) const
         return state->equals(*get());
 }
 
-AdvancedValidateState::operator AdvancedValidateStateId () const
+ValidateState::operator ValidateStateId () const
 {
-        return isNull() ? static_cast<AdvancedValidateStateId>(InvalidId) : get()->state();
+        return isNull() ? static_cast<ValidateStateId>(InvalidId) : get()->state();
 }
 
 }
 
-bool operator==( const installer::AdvancedValidateState& state1, const installer::AdvancedValidateState& state2) {
+bool operator==( const installer::ValidateState& state1, const installer::ValidateState& state2) {
     return state1.eqauls(state2);
 }

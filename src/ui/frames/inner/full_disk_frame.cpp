@@ -87,13 +87,13 @@ bool FullDiskFrame::validate() const {
         return false;
     }
 
-    int index = DeviceIndex(m_delegate->virtual_devices(), m_delegate->selectedDisks()[0]);
+    int index = DeviceIndex(m_delegate->virtualDevices(), m_delegate->selectedDisks()[0]);
     if (index < 0) {
         qWarning() << QString("MULTIDISK:DeviceIndex failed:{%1}").arg(m_delegate->selectedDisks()[0]);
         return false;
     }
 
-    Device::Ptr device(new Device(*m_delegate->virtual_devices()[index]));
+    Device::Ptr device(new Device(*m_delegate->virtualDevices()[index]));
     const qint64 root_required = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
     const qint64 root_required_bytes = kGibiByte * root_required;
     if (device->getByteLength() < root_required_bytes) {
@@ -255,7 +255,7 @@ void FullDiskFrame::repaintDevices() {
 
   // Draw partitions.
   int row = 0, column = 0;
-  for (const Device::Ptr device : m_delegate->virtual_devices()) {
+  for (const Device::Ptr device : m_delegate->virtualDevices()) {
     bool partition_busy = false;
     for (const Partition::Ptr partition : device->partitions) {
       if (partition->busy) {
@@ -302,7 +302,7 @@ void FullDiskFrame::showInstallTip(QAbstractButton* button) {
 void FullDiskFrame::onDeviceRefreshed() {
   this->repaintDevices();
   m_delegate->removeAllSelectedDisks();
-  if (m_delegate->virtual_devices().size() > 1) {
+  if (m_delegate->virtualDevices().size() > 1) {
       m_disk_layout->setCurrentWidget(m_diskInstallationWidget);
   }
   else {

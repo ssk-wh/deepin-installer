@@ -32,8 +32,8 @@ class AdvancedPartitionErrorLabel : public QLabel {
   explicit AdvancedPartitionErrorLabel(QWidget* parent = nullptr);
 
   // Get or set validate state.
-  void setValidateState(AdvancedValidateState state) { state_ = state; }
-  AdvancedValidateState state() const { return state_; }
+  void setValidateState(ValidateState state) { state_ = state; }
+  ValidateState state() const { return state_; }
 
  signals:
   // Emitted when mouse moved enter widget area.
@@ -47,7 +47,7 @@ class AdvancedPartitionErrorLabel : public QLabel {
   void leaveEvent(QEvent* event) override;
 
  private:
-  AdvancedValidateState state_;
+  ValidateState state_;
 };
 
 }  // namespace installer
