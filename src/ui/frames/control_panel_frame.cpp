@@ -31,7 +31,7 @@
 #include "service/process_util.h"
 #include "ui/widgets/pointer_button.h"
 #include "ui/widgets/table_combo_box.h"
-#include "qtermwidget.h"
+#include "qtermwidget5/qtermwidget.h"
 
 namespace installer {
 
@@ -216,7 +216,7 @@ void ControlPanelFrame::initUI() {
   settings_viewer_->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   settings_viewer_->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-  term_widget_ = new QTermWidget();
+  term_widget_ = new QTermWidget;
   QFont term_font = this->font();
   term_font.setPixelSize(14);
   term_font.setFamily("Monospace");

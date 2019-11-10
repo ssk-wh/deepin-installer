@@ -91,6 +91,7 @@ find_package(Qt5LinguistTools)
 find_package(Qt5Svg REQUIRED)
 find_package(Qt5DBus REQUIRED)
 find_package(QApt REQUIRED)
+find_package(QTermWidget5 REQUIRED)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
@@ -101,7 +102,6 @@ pkg_search_module(X11EXT REQUIRED xext)
 pkg_search_module(X11TST REQUIRED xtst)
 pkg_search_module(X11RandR REQUIRED xrandr)
 pkg_search_module(UDisk2 REQUIRED udisks2-qt5)
-pkg_search_module(QTermWidget REQUIRED qtermwidget5)
 
 include_directories(AFTER ${Parted_INCLUDE_DIRS})
 include_directories(AFTER ${X11_INCLUDE_DIRS})
@@ -109,7 +109,6 @@ include_directories(AFTER ${X11EXT_INCLUDE_DIRS})
 include_directories(AFTER ${X11TST_INCLUDE_DIRS})
 include_directories(AFTER ${X11RandR_INCLUDE_DIRS})
 include_directories(AFTER ${UDisk2_INCLUDE_DIRS})
-include_directories(AFTER ${QTermWidget_INCLUDE_DIRS})
 
 add_subdirectory(third_party/global_shortcut)
 add_subdirectory(third_party/googletest)
@@ -524,7 +523,6 @@ set(LINK_LIBS
     ${X11TST_LIBRARIES}
     ${X11RandR_LIBRARIES}
     ${UDisk2_LIBRARIES}
-    ${QTermWidget_LIBRARIES}
 
     QApt
     global_shortcut
@@ -555,7 +553,11 @@ add_executable(deepin-installer
                ${UI_FILES}
                )
 
-target_link_libraries(deepin-installer ${LINK_LIBS})
+target_include_directories(deepin-installer PUBLIC
+               ${QTERMWIDGET_INCLUDE_DIRS}
+)
+
+target_link_libraries(deepin-installer ${LINK_LIBS} qtermwidget5)
 add_dependencies(deepin-installer installer-qm-update)
 
 
@@ -587,7 +589,7 @@ add_executable(deepin-installer-first-boot
                )
 target_link_libraries(deepin-installer-first-boot
                       ${LINK_LIBS}
-                      global_shortcut
+                      qtermwidget5
                       )
 
 add_executable(deepin-installer-user-form
