@@ -26,7 +26,7 @@ dir=$(ls -l /media/cdrom/dists | awk '/^d/ {print $NF}')
 for name in $dir
 do
     # ident the cdrom first.
-    echo "deb [trusted=yes] file:/media/cdrom ${name} main" > /etc/apt/sources.list
+    echo "deb [trusted=yes] file:/media/cdrom ${name} main" >> /etc/apt/sources.list
 done
 
 apt-get update
