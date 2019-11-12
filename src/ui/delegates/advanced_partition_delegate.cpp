@@ -177,7 +177,7 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
         // Check /boot partition->
         found_boot = true;
         boot_fs = partition->fs;
-        root_part_number = partition->partition_number;
+        boot_part_number = partition->partition_number;
         const qint64 boot_recommend_bytes = boot_recommended * kMebiByte;
         // Add 1Mib to partition size.
         const qint64 boot_real_bytes = partition->getByteLength() + kMebiByte;
