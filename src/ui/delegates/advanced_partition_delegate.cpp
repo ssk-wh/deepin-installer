@@ -177,7 +177,7 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
         // Check /boot partition->
         found_boot = true;
         boot_fs = partition->fs;
-        boot_part_number = partition->partition_number;
+        root_part_number = partition->partition_number;
         const qint64 boot_recommend_bytes = boot_recommended * kMebiByte;
         // Add 1Mib to partition size.
         const qint64 boot_real_bytes = partition->getByteLength() + kMebiByte;
@@ -246,17 +246,15 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
     }
   }
 
-  int boot_root_part_num = found_boot ?
-                           boot_part_number :
-                           root_part_number;
-  // If /boot folder is required to be the first partition, validate its partition number.
+  // If /boot folder is required to be the first partition, validate it.
   if (GetSettingsBool(kPartitionBootOnFirstPartition)) {
-      boot_root_part_num = boot_part_number;
-  }
-
-  // If /boot or / is set, validate its partition number.
-  if (boot_root_part_num != 1) {
+    const int boot_root_part_num = found_boot ?
+                                   boot_part_number :
+                                   root_part_number;
+    // If /boot or / is set, validate its partition number.
+    if ((boot_root_part_num != -1) && (boot_root_part_num != 1)) {
       states.append(ValidateState::BootPartNumberInvalid);
+    }
   }
 
   const QStringList known_mounts { kMountPointRoot, kMountPointBoot };
