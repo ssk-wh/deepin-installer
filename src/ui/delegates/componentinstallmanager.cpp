@@ -96,6 +96,10 @@ QStringList ComponentInstallManager::GetAvailablePackages() const {
     QStringList packagesList;
     QStringList allPack;
 
+    if (list.isEmpty()) {
+        qWarning() << Q_FUNC_INFO << "deb file is empty!";
+    }
+
     for (const QString& l : list) {
         QApt::DebFile file(l);
         packagesList << file.packageName();
@@ -103,6 +107,10 @@ QStringList ComponentInstallManager::GetAvailablePackages() const {
 
     for (auto it = m_packageList.cbegin(); it != m_packageList.cend(); ++it) {
         allPack << it->get()->PackageList;
+    }
+
+    if (allPack.isEmpty()) {
+        qWarning() << Q_FUNC_INFO << "all package is empty!";
     }
 
     return QSet<QString>(packagesList.toSet() & allPack.toSet()).toList();
@@ -210,6 +218,10 @@ QStringList ComponentInstallManager::integrateList(QList<QSharedPointer<Componen
                 break;
             }
         }
+    }
+
+    if (result.isEmpty()) {
+        qWarning() << Q_FUNC_INFO << "package list is empty!";
     }
 
     return result.toList();
