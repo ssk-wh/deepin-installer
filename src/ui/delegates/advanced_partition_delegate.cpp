@@ -256,7 +256,7 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
 
   // If /boot or / is set, validate its partition number.
   if (boot_root_part_num != 1) {
-      states.append(AdvancedValidateState::BootPartNumberInvalid);
+      states.append(ValidateState::BootPartNumberInvalid);
   }
 
   const QStringList known_mounts { kMountPointRoot, kMountPointBoot };
