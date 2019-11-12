@@ -48,12 +48,7 @@ class AdvancedPartitionDelegate : public partition::Delegate {
   // Write partitioning settings to file.
   void onManualPartDone(const DeviceList& devices) override;
 
-  // Clear mount point of operation.new_partition with value |mount_point|.
-  void resetOperationMountPoint(const QString& mount_point);
-
   bool unFormatPartition(const Partition::Ptr partition);
-
-  void updateMountPoint(const Partition::Ptr partition, const QString& mount_point);
 
   // make sure that extended partition exists here now before call it.
   // return true: success, start_sector & end_sector is new extended partition boundary.

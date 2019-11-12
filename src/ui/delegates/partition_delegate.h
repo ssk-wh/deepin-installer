@@ -123,6 +123,11 @@ public:
     // Get real partition on disk where |virtual_partition| is located.
     Partition::Ptr getRealPartition(const Partition::Ptr virtual_partition) const;
 
+    // Clear mount point of operation.new_partition with value |mount_point|.
+    void resetOperationMountPoint(const QString& mount_point);
+
+    void updateMountPoint(const Partition::Ptr partition, const QString& mount_point);
+
 signals:
     void deviceRefreshed(const DeviceList& devices);
 

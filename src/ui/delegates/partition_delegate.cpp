@@ -576,6 +576,7 @@ bool Delegate::createPrimaryPartition(const Partition::Ptr partition,
         return false;
     }
 
+    resetOperationMountPoint(mount_point);
     Operation operation(OperationType::Create, partition, new_partition);
     //###multidisk
     operation.device = device;
@@ -703,4 +704,47 @@ Partition::Ptr Delegate::getRealPartition(const Partition::Ptr virtual_partition
 
     qWarning() << "Failed to find partition at:" << virtual_partition;
     return Partition::Ptr();
+}
+
+void Delegate::resetOperationMountPoint(const QString& mount_point) {
+    qDebug() << Q_FUNC_INFO << mount_point;
+
+    for (auto it = operations_.begin(); it != operations_.end(); ++it) {
+        Operation& operation = *it;
+        if (operation.type == OperationType::NewPartTable)
+            continue;  //skip create new part table
+
+        if (operation.new_partition->mount_point == mount_point) {
+            if (operation.type == OperationType::MountPoint) {
+                // TODO(xushaohua): move to operation.h
+                // Remove MountPointOperation with same mount point.
+                it = operations_.erase(it);
+                return;
+            }
+            else {
+                // Clear mount point of old operation.
+                operation.new_partition->mount_point = "";
+                qDebug() << "Clear mount-point of operation:" << operation;
+                return;
+            }
+        }
+    }
+}
+
+void Delegate::updateMountPoint(const Partition::Ptr partition,
+                                const QString&       mount_point)
+{
+    qDebug() << Q_FUNC_INFO << partition->path << mount_point;
+
+    // Reset mount-point of operation with the same mount-point.
+    resetOperationMountPoint(mount_point);
+
+    if (!mount_point.isEmpty()) {
+        // Append MountPointOperation only if |mount_point| is not empty.
+        Partition::Ptr new_partition(new Partition(*partition));
+        new_partition->mount_point = mount_point;
+        // No need to update partition status.
+        Operation operation(OperationType::MountPoint, partition, new_partition);
+        operations_.append(operation);
+    }
 }

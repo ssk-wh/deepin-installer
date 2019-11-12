@@ -361,28 +361,6 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
   WriteDiskPartitionSetting(settings_);
 }
 
-void AdvancedPartitionDelegate::resetOperationMountPoint(
-    const QString& mount_point) {
-  qDebug() << "resetOperationMountPoint:" << mount_point;
-  for (int index = operations_.length() - 1; index >= 0; --index) {
-    Operation& operation = operations_[index];
-    if (operation.type == OperationType::NewPartTable) continue; //skip create new part table
-
-    if (operation.new_partition->mount_point == mount_point) {
-      if (operation.type == OperationType::MountPoint) {
-        // TODO(xushaohua): move to operation.h
-        // Remove MountPointOperation with same mount point.
-        return operations_.removeAt(index);
-      } else {
-        // Clear mount point of old operation.
-        operation.new_partition->mount_point = "";
-        qDebug() << "Clear mount-point of operation:" << operation;
-        return;
-      }
-    }
-  }
-}
-
 bool AdvancedPartitionDelegate::unFormatPartition(const Partition::Ptr partition) {
   Q_ASSERT(partition->status == PartitionStatus::Format);
   if (partition->status == PartitionStatus::Format) {
@@ -402,24 +380,6 @@ bool AdvancedPartitionDelegate::unFormatPartition(const Partition::Ptr partition
     qCritical() << "Invalid partition status:" << partition;
   }
   return false;
-}
-
-void AdvancedPartitionDelegate::updateMountPoint(const Partition::Ptr partition,
-                                                 const QString& mount_point) {
-  qDebug() << "PartitionDelegate::updateMountPoint()" << partition->path
-           << mount_point;
-
-  // Reset mount-point of operation with the same mount-point.
-  this->resetOperationMountPoint(mount_point);
-
-  if (!mount_point.isEmpty()) {
-    // Append MountPointOperation only if |mount_point| is not empty.
-    Partition::Ptr new_partition(new Partition(*partition));
-    new_partition->mount_point = mount_point;
-    // No need to update partition status.
-    Operation operation(OperationType::MountPoint, partition, new_partition);
-    operations_.append(operation);
-  }
 }
 
 bool AdvancedPartitionDelegate::reCalculateExtPartBoundary(PartitionAction action, const Partition::Ptr& current, qint64& start_sector, qint64& end_sector)
