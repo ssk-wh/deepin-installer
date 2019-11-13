@@ -158,7 +158,7 @@ void SimplePartitionFrame::appendOperations() {
   if (!delegate_->isMBRPreferred() && !found_efi) {
     if (partition->type == PartitionType::Normal) {
       // Delete normal partition first.
-      partition = delegate_->deletePartition(partition);
+      delegate_->deletePartition(partition);
     }
 
     // Create root partition and EFI partition

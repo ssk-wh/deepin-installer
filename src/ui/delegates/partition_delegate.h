@@ -10,6 +10,11 @@
 namespace installer {
 namespace partition {
 
+enum class PartitionAction {
+    CreateLogicalPartition,
+    RemoveLogicalPartition,
+};
+
 class Delegate : public QObject {
     Q_OBJECT
 public:
@@ -100,7 +105,7 @@ public:
                                         qint64               total_sectors,
                                         const QString&       label = QString());
 
-    virtual Partition::Ptr deletePartition(const Partition::Ptr partition);
+    virtual void deletePartition(const Partition::Ptr partition);
 
     virtual void formatPartition(const Partition::Ptr partition,
                                  FsType               fs_type,
@@ -127,6 +132,21 @@ public:
     void resetOperationMountPoint(const QString& mount_point);
 
     void updateMountPoint(const Partition::Ptr partition, const QString& mount_point);
+
+    // make sure that extended partition exists here now before call it.
+    // return true: success, start_sector & end_sector is new extended partition boundary.
+    // return false: failed, start_sector & end_sector is unchanged.
+    bool reCalculateExtPartBoundary(PartitionAction       action,
+                                    const Partition::Ptr& current,
+                                    qint64&               start_sector,
+                                    qint64&               end_sector);
+    bool reCalculateExtPartBoundary(const PartitionList&  partitions,
+                                    PartitionAction       action,
+                                    const Partition::Ptr& current,
+                                    qint64&               start_sector,
+                                    qint64&               end_sector);
+
+    Device::Ptr findDevice(const QString& devicePath);
 
 signals:
     void deviceRefreshed(const DeviceList& devices);

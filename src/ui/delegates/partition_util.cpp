@@ -79,20 +79,19 @@ int AllocLogicalPartitionNumber(const Device::Ptr device) {
 }
 
 int AllocPrimaryPartitionNumber(const Device::Ptr device) {
-  for (int num = 1; num <= device->max_prims; num++) {
-    bool in_use = false;
-    for (const Partition::Ptr partition : device->partitions) {
-      if (num == partition->partition_number) {
-        in_use = true;
-        break;
-      }
+    QList<int> partitionNum;
+    for (Partition::Ptr partition : device->partitions) {
+        partitionNum << partition->partition_number;
     }
 
-    if (!in_use) {
-      return num;
+    for (int num = 1; num <= device->max_prims; num++) {
+        if (partitionNum.contains(num)) {
+            continue;
+        }
+
+        return num;
     }
-  }
-  return -1;
+    return -1;
 }
 
 const QStringList GetIgnoredDeviceList()
