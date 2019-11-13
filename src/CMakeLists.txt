@@ -280,6 +280,7 @@ set(UI_FILES
     ui/delegates/disk_installation_detail_delegate.cpp
 
     ui/frames/consts.h
+    ui/frames/frame_interface.h
     ui/frames/inner/advanced_partition_frame.cpp
     ui/frames/inner/advanced_partition_frame.h
     ui/frames/inner/edit_partition_frame.cpp
