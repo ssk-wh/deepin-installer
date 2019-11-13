@@ -382,7 +382,8 @@
      "deepin-screen-recorder",
      "deepin-font-manager",
      "deepin-compressor",
-     "deepin-draw"
+     "deepin-draw",
+     "uosbrowser-cn-stable"
     ],
      "internet-applications":[
      "empathy",
@@ -488,10 +489,9 @@
       "fcitx-module-lua",
       "fcitx-module-x11",
       "fcitx-module-dbus",
-      "fcitx-sogoupinyin-uk",
       "fcitx-table-wbpy",
       "fcitx-ui-classic",
-      "sogoupinyin"
+      "sogouimebs"
     ],
      "en_US":[
     ],
