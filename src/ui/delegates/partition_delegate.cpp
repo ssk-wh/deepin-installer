@@ -685,6 +685,24 @@ void Delegate::formatPartition(const Partition::Ptr partition,
 {
     qDebug() << "formatSimplePartition()" << partition << fs_type << mount_point;
 
+    resetOperationMountPoint(mount_point);
+
+    // Update partition of old operation, instead of adding a new one.
+    // TODO(xushaohua): Move to operation.h
+    if (partition->status == PartitionStatus::New ||
+        partition->status == PartitionStatus::Format) {
+        for (int index = operations_.length() - 1; index >= 0; --index) {
+            Operation& operation = operations_[index];
+            if ((operation.new_partition->path == partition->path) &&
+                (operation.type == OperationType::Format ||
+                 operation.type == OperationType::Create)) {
+                operation.new_partition->mount_point = mount_point;
+                operation.new_partition->fs          = fs_type;
+                return;
+            }
+        }
+    }
+
     Partition::Ptr new_partition(new Partition);
     new_partition->sector_size  = partition->sector_size;
     new_partition->start_sector = partition->start_sector;
@@ -700,6 +718,12 @@ void Delegate::formatPartition(const Partition::Ptr partition,
     else if (partition->status == PartitionStatus::New ||
              partition->status == PartitionStatus::Format) {
         new_partition->status = partition->status;
+    }
+
+    if (fs_type == FsType::Recovery) {
+        // Hide recovery partition
+        new_partition->flags << PartitionFlag::Hidden;
+        settings_.recovery_path = partition->path;
     }
 
     Device::Ptr device = findDevice(partition->device_path);
