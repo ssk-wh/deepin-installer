@@ -140,18 +140,14 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
   ValidateStates states;
   bool found_efi = false;
   bool efi_large_enough = false;
-  bool found_root = false;
+  Partition::Ptr rootPartition;
   bool root_large_enough = false;
-  bool found_boot = false;
+  Partition::Ptr bootPartition;
   bool boot_large_enough = false;
 
   // Filesystem of /boot and /.
   FsType boot_fs = FsType::Empty;
   FsType root_fs = FsType::Empty;
-
-  // Partition number of /boot and /.
-  int boot_part_number = -1;
-  int root_part_number = -1;
 
   const int root_required = GetSettingsInt(kPartitionRootMiniSpace);
   const int boot_recommended = GetSettingsInt(kPartitionDefaultBootSpace);
@@ -166,18 +162,16 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
       if (partition->mount_point == kMountPointRoot) {
         // Check / partition->
         root_device = device;
-        found_root = true;
+        rootPartition = partition;
         root_fs = partition->fs;
-        root_part_number = partition->partition_number;
         const qint64 root_real_bytes = partition->getByteLength() + kMebiByte;
         const qint64 root_minimum_bytes = root_required * kGibiByte;
         root_large_enough = (root_real_bytes >= root_minimum_bytes);
 
       } else if (partition->mount_point == kMountPointBoot) {
         // Check /boot partition->
-        found_boot = true;
+        bootPartition = partition;
         boot_fs = partition->fs;
-        boot_part_number = partition->partition_number;
         const qint64 boot_recommend_bytes = boot_recommended * kMebiByte;
         // Add 1Mib to partition size.
         const qint64 boot_real_bytes = partition->getByteLength() + kMebiByte;
@@ -208,7 +202,7 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
       }
   }
 
-  if (found_root) {
+  if (!rootPartition.isNull()) {
     // Check root size only if root is set.
     if (!root_large_enough) {
       states.append(ValidateState::RootTooSmall);
@@ -227,34 +221,55 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
       }
     }
     else {
-      if (found_root){
+      if (!rootPartition.isNull()){
         states.append(ValidateState::EfiMissing);
       }
     }
   }
 
-  if (found_boot && !boot_large_enough) {
+  if (!bootPartition.isNull() && !boot_large_enough) {
     states.append(ValidateState::BootTooSmall);
   }
 
   // Check filesystem type is suitable for /boot folder.
-  if (found_boot || found_root) {
-    const FsType boot_root_fs = found_boot ? boot_fs : root_fs;
+  if (!bootPartition.isNull() || !rootPartition.isNull()) {
+    const FsType boot_root_fs = !bootPartition.isNull() ? boot_fs : root_fs;
     const FsTypeList boot_fs_list = this->getBootFsTypeList();
     if (!boot_fs_list.contains(boot_root_fs)) {
       states.append(ValidateState::BootFsInvalid);
     }
   }
 
-  // If /boot folder is required to be the first partition, validate it.
+  // If /boot folder is required to be the first partition,
+  // validate whether /boot or / partition is the first partition.
   if (GetSettingsBool(kPartitionBootOnFirstPartition)) {
-    const int boot_root_part_num = found_boot ?
-                                   boot_part_number :
-                                   root_part_number;
-    // If /boot or / is set, validate its partition number.
-    if ((boot_root_part_num != -1) && (boot_root_part_num != 1)) {
-      states.append(ValidateState::BootPartNumberInvalid);
-    }
+      for (const Device::Ptr device : virtualDevices()) {
+          PartitionList list;
+          for (const Partition::Ptr partition : device->partitions) {
+              if ((partition->type != PartitionType::Unallocated)
+                   && (partition->type != PartitionType::Extended)){
+                  list << partition;
+              }
+          }
+
+          if (list.isEmpty()){
+              continue;
+          }
+
+          int index = list.indexOf(bootPartition);
+          // boot partition exists, but is not the first partition.
+          if (index != -1 && index != 0) {
+              states << ValidateState::BootPartNumberInvalid;
+              break;
+          }
+
+          index = list.indexOf(rootPartition);
+          // boot partition does not exist, root partition exists, but is not the first partition.
+          if (bootPartition.isNull() && index != -1 && index != 0) {
+              states << ValidateState::BootPartNumberInvalid;
+              break;
+          }
+      }
   }
 
   const QStringList known_mounts { kMountPointRoot, kMountPointBoot };
