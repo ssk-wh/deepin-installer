@@ -364,26 +364,40 @@ bool Delegate::createLogicalPartition(const Partition::Ptr partition,
 
     // space is required for the Extended Boot Record.
     // Generally an additional track or MebiByte is required so for
-    // our purposes reserve a MebiByte in front of the partition->
-    const qint64 oneMebiByteSector = 1 * kMebiByte / partition->sector_size;
+    // our purposes reserve a MebiByte in front of the partition
     if (align_start) {
         // Align from start of |partition|.
         // Add space for Extended Boot Record.
         const qint64 start_sector =
             qMax(partition->start_sector, ext_partition->start_sector);
-        new_partition->start_sector = start_sector + oneMebiByteSector + 1;
+        new_partition->start_sector = start_sector;
 
         const qint64 end_sector = qMin(partition->end_sector, ext_partition->end_sector);
         new_partition->end_sector =
-            qMin(end_sector, total_sectors + new_partition->start_sector - 1);
+            qMin(end_sector, total_sectors + new_partition->start_sector);
     }
     else {
         new_partition->end_sector =
-            qMin(partition->end_sector, ext_partition->end_sector) - oneMebiByteSector;
+            qMin(partition->end_sector, ext_partition->end_sector);
         const qint64 start_sector =
             qMax(partition->start_sector, ext_partition->start_sector);
-        new_partition->start_sector = qMax(start_sector + oneMebiByteSector - 1,
-                                           partition->end_sector - total_sectors + 1);
+        new_partition->start_sector = qMax(start_sector,
+                                           partition->end_sector - total_sectors);
+    }
+
+    /*
+        NOTE(justforlxz): 特意说明一下扩展分区的问题
+        这里存在第一个问题，扩展分区需要一点点空间来存内部的分区表
+        所以在这里判断创建第一个扩展分区的第一个分区的时候，平移1M出来
+        后续的分区就不需要平移了，因为后面的空闲都可以正确计算。
+    */
+    if (ext_index == -1) {
+        const qint64 oneMebiByteSector = 1 * kMebiByte / partition->sector_size;
+        new_partition->start_sector += oneMebiByteSector;
+        new_partition->end_sector += oneMebiByteSector;
+    }
+    else {
+        new_partition->start_sector += 1;
     }
 
     // Align to nearest MebiBytes.
@@ -461,9 +475,8 @@ bool Delegate::createPrimaryPartition(const Partition::Ptr partition,
         else if (IsPartitionsJoint(ext_partition, partition)) {
             // Shrink extended partition to fit logical partitions.
             Partition::Ptr new_ext_part(new Partition(*ext_partition));
-            new_ext_part->start_sector =
-                logical_parts.first()->start_sector - oneMebiByteSector;
-            new_ext_part->end_sector = logical_parts.last()->end_sector;
+            new_ext_part->start_sector = logical_parts.first()->start_sector - oneMebiByteSector;
+            new_ext_part->end_sector   = logical_parts.last()->end_sector;
 
             if (IsPartitionsJoint(new_ext_part, partition)) {
                 qCritical() << "Failed to shrink extended partition!";
@@ -512,18 +525,24 @@ bool Delegate::createPrimaryPartition(const Partition::Ptr partition,
             new_partition->start_sector = partition->start_sector;
         }
         new_partition->end_sector =
-            qMin(partition->end_sector, total_sectors + new_partition->start_sector - 1);
+            qMin(partition->end_sector, total_sectors + new_partition->start_sector);
     }
     else {
         new_partition->end_sector = partition->end_sector;
         if (need_mbr) {
             new_partition->start_sector =
-                qMax(oneMebiByteSector, partition->end_sector - total_sectors + 1);
+                qMax(oneMebiByteSector, partition->end_sector - total_sectors);
         }
         else {
             new_partition->start_sector =
-                qMax(partition->start_sector, partition->end_sector - total_sectors + 1);
+                qMax(partition->start_sector, partition->end_sector - total_sectors);
         }
+    }
+
+    // 如果创建的是扩展分区，应该多申请1M，因为要预留出分区表
+    // 创建主分区的时候，会调整扩展分区，由于开头偏移了1M，所以需要在那里减去
+    if (partition_type == PartitionType::Extended && ext_index == -1) {
+        new_partition->end_sector += oneMebiByteSector;
     }
 
     // Align to nearest MebiBytes.
