@@ -413,6 +413,7 @@ bool Delegate::createLogicalPartition(const Partition::Ptr partition,
         return false;
     }
 
+    resetOperationMountPoint(mount_point);
     Operation operation(OperationType::Create, partition, new_partition);
     //###multidisk
     operation.device = device;
