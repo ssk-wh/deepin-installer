@@ -110,22 +110,18 @@ void FirstBootSetupWindow::initConnections() {
     connect(multi_head_manager_, &MultiHeadManager::primaryScreenChanged,
             this, &FirstBootSetupWindow::onPrimaryScreenChanged);
     connect(back_button_, &PointerButton::clicked, this, &FirstBootSetupWindow::backPage);
+    connect(stacked_layout_, &QStackedLayout::currentChanged, back_button_, &PointerButton::raise);
 }
 
 void FirstBootSetupWindow::initUI() {
-    back_button_ = new PointerButton;
+    back_button_ = new PointerButton(this);
     back_button_->setObjectName("back_button");
     back_button_->setFixedSize(48, 38);
+    back_button_->move(20, 20);
     back_button_->setFlat(true);
     back_button_->setFocusPolicy(Qt::TabFocus);
     back_button_->setStyleSheet(ReadFile(":/styles/back_button.css"));
     back_button_->hide();
-
-    QHBoxLayout* topLayout = new QHBoxLayout;
-    topLayout->setMargin(10);
-    topLayout->setSpacing(0);
-    topLayout->addWidget(back_button_, 0, Qt::AlignLeft);
-    topLayout->addStretch();
 
   background_label_ = new QLabel(this);
   language_frame_ = new LanguageFrame;
@@ -155,10 +151,8 @@ void FirstBootSetupWindow::initUI() {
   QVBoxLayout* mainLayout = new QVBoxLayout;
   mainLayout->setSpacing(0);
   mainLayout->setMargin(0);
-  mainLayout->addLayout(topLayout);
-  mainLayout->addSpacing(36);
   mainLayout->addLayout(stacked_layout_);
-  mainLayout->addSpacing(36);
+  mainLayout->addSpacing(32);
 
   setLayout(mainLayout);
 }
@@ -274,6 +268,7 @@ void FirstBootSetupWindow::backPage()
 void FirstBootSetupWindow::updateBackButtonVisible(QWidget* page)
 {
     back_button_->setVisible(static_cast<bool>(m_frames.indexOf(page)));
+    back_button_->raise();
 }
 
 bool FirstBootSetupWindow::changeToTTY(int ttyNum) const

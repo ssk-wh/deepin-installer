@@ -136,6 +136,10 @@ void MainWindow::setLogFile(const QString& log_file) {
 
 void MainWindow::resizeEvent(QResizeEvent* event) {
   this->updateBackground();
+  if (close_button_) {
+    close_button_->move(width() - close_button_->width(), 0);
+    close_button_->raise();
+  }
   QWidget::resizeEvent(event);
 }
 
@@ -278,37 +282,21 @@ void MainWindow::initPages() {
 void MainWindow::initUI() {
   background_label_ = new QLabel(this);
 
-  back_button_ = new PointerButton;
+  back_button_ = new PointerButton(this);
   back_button_->setObjectName("back_button");
   back_button_->setFixedSize(48, 38);
+  back_button_->move(20, 20);
   back_button_->setFlat(true);
   back_button_->setFocusPolicy(Qt::TabFocus);
   back_button_->setStyleSheet(ReadFile(":/styles/back_button.css"));
   back_button_->hide();
 
-  close_button_ = new PointerButton();
+  close_button_ = new PointerButton(this);
   close_button_->setObjectName("close_button");
   close_button_->setFlat(true);
   close_button_->setFocusPolicy(Qt::TabFocus);
   close_button_->setFixedSize(40, 40);
   close_button_->setStyleSheet(ReadFile(":/styles/close_button.css"));
-
-  QHBoxLayout* backLayout = new QHBoxLayout;
-  backLayout->setContentsMargins(10, 5, 10, 5);
-  backLayout->setSpacing(0);
-  backLayout->addWidget(back_button_);
-
-  QHBoxLayout* closeLayout = new QHBoxLayout;
-  closeLayout->setMargin(0);
-  closeLayout->setSpacing(0);
-  closeLayout->addWidget(close_button_, 0, Qt::AlignTop | Qt::AlignRight);
-
-  QHBoxLayout* top_layout = new QHBoxLayout();
-  top_layout->setContentsMargins(0, 0, 0, 0);
-  top_layout->setSpacing(0);
-  top_layout->addLayout(backLayout);
-  top_layout->addStretch();
-  top_layout->addLayout(closeLayout);
 
   stacked_layout_ = new QStackedLayout();
 
@@ -324,7 +312,6 @@ void MainWindow::initUI() {
   QVBoxLayout* vbox_layout = new QVBoxLayout();
   vbox_layout->setContentsMargins(0, 0, 0, 0);
   vbox_layout->setSpacing(0);
-  vbox_layout->addLayout(top_layout);
   vbox_layout->addLayout(stacked_layout_);
   vbox_layout->addWidget(page_indicator_wrapper);
   vbox_layout->addSpacing(32);
@@ -337,6 +324,7 @@ void MainWindow::initUI() {
   control_panel_frame_->hide();
 
   multi_head_manager_ = new MultiHeadManager(this);
+  back_button_->raise();
 }
 
 void MainWindow::registerShortcut() {
@@ -384,6 +372,9 @@ void MainWindow::updateWidgetVisible()
     if (control_panel_frame_->isVisible()) {
         control_panel_frame_->raise();
     }
+
+    close_button_->raise();
+    back_button_->raise();
 }
 
 void MainWindow::setCurrentPage(PageId page_id) {

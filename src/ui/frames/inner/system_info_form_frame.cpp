@@ -176,11 +176,6 @@ void SystemInfoFormFrame::initUI()
 {
     title_label_   = new TitleLabel(tr("Create User Account"));
     comment_label_ = new CommentLabel(tr("Fill in the username, computer name and your password"));
-    QHBoxLayout* comment_layout = new QHBoxLayout();
-    comment_layout->setContentsMargins(0, 0, 0, 0);
-    comment_layout->setSpacing(0);
-    comment_layout->addWidget(comment_label_);
-
     avatar_button_ = new AvatarButton();
 
     username_edit_ = new LineEdit(":/images/username_12.svg");
@@ -252,11 +247,10 @@ void SystemInfoFormFrame::initUI()
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(kMainLayoutSpacing);
-    layout->addSpacing(50);
-    layout->addWidget(title_label_, 0, Qt::AlignCenter);
-    layout->addLayout(comment_layout);
-    layout->addSpacing(40);
-    layout->addWidget(avatar_button_, 0, Qt::AlignCenter);
+    layout->addStretch();
+    layout->addWidget(title_label_, 0, Qt::AlignHCenter);
+    layout->addWidget(comment_label_, 0, Qt::AlignHCenter);
+    layout->addWidget(avatar_button_, 0, Qt::AlignHCenter);
     layout->addStretch();
     layout->addWidget(username_edit_, 0, Qt::AlignCenter);
     layout->addWidget(hostname_edit_, 0, Qt::AlignCenter);
@@ -266,9 +260,8 @@ void SystemInfoFormFrame::initUI()
     layout->addWidget(m_setRootPasswordCheck, 0, Qt::AlignCenter);
     layout->addWidget(m_rootPasswordEdit, 0, Qt::AlignCenter);
     layout->addWidget(m_rootPasswordCheckEdit, 0, Qt::AlignCenter);
-    layout->addStretch();
     layout->addWidget(grub_password_check_, 0, Qt::AlignCenter);
-    layout->addSpacing(10);
+    layout->addStretch();
     layout->addWidget(next_button_, 0, Qt::AlignCenter);
 
     // username_edit_->setRightIcon(CAPS_LOCK_ICON);
