@@ -18,7 +18,7 @@
 # generate a file: ab_recovery.json
 # 步骤：
 # 1.从配置文件取得当前根分区的label。
-# 2.假定备用根分区的label为"rootb"(见full_disk_policy.json)。
+# 2.假定备用根分区的label为"Rootb"(见full_disk_policy.json)。
 # 3.取得两个根分区的uuid。
 # 4.将两个uuid写入ab_recovery.json文件中。
 
@@ -34,7 +34,7 @@ check_install_mode()
   fi
   DI_ROOT_PARTITION=$(installer_get "DI_ROOT_PARTITION")
   current_label=${DI_ROOT_PARTITION}
-  backup_label="/dev/disk/by-label/rootb"
+  backup_label="/dev/disk/by-label/Rootb"
   if [ "x${current_label}" == "x" ]; then
      ab_condition="false"
   fi
