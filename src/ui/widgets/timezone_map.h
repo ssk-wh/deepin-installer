@@ -54,10 +54,10 @@ class TimezoneMap : public QFrame {
   void showMark();
 
  protected:
-  void mousePressEvent(QMouseEvent* event) override;
-
   // Hide tooltips when window is resized.
   void resizeEvent(QResizeEvent* event) override;
+
+  bool eventFilter(QObject* watched, QEvent* event) override;
 
  private:
   void initConnections();
@@ -68,6 +68,8 @@ class TimezoneMap : public QFrame {
 
   // Mark current zone on the map.
   void remark();
+
+  void updateMap();
 
   // Currently selected/marked timezone.
   ZoneInfo current_zone_;
@@ -86,6 +88,8 @@ class TimezoneMap : public QFrame {
 
   // To display a list of zones on map.
   PopupMenu* popup_window_ = nullptr;
+
+  QLabel* map_label_;
 
  private slots:
   void onPopupWindowActivated(int index);

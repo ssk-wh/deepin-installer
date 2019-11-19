@@ -251,27 +251,24 @@ void TimezoneFrame::initUI() {
   m_upLayout = new QVBoxLayout();
   m_upLayout->setContentsMargins(0, 0, 0, 0);
   m_upLayout->setSpacing(kMainLayoutSpacing);
-  m_upLayout->addStretch();
+  m_upLayout->addSpacing(kMainLayoutSpacing);
   m_upLayout->addWidget(title_label_, 0, Qt::AlignCenter);
   m_upLayout->addWidget(comment_label_, 0, Qt::AlignCenter);
   m_upLayout->addLayout(buttonLayout);
-  m_upLayout->addStretch();
 
   m_mapOrListStackedLayout = new QStackedLayout;
   m_selectTimeZoneFrame = new SelectTimeZoneFrame;
   m_mapOrListStackedLayout->addWidget(timezone_map_);
   m_mapOrListStackedLayout->addWidget(m_selectTimeZoneFrame);
+  m_mapOrListStackedLayout->setAlignment(Qt::AlignCenter);
 
   QHBoxLayout* hLayout = new QHBoxLayout;
   hLayout->setMargin(0);
   hLayout->setSpacing(0);
-  hLayout->addStretch();
   hLayout->addLayout(m_mapOrListStackedLayout);
-  hLayout->addStretch();
   m_upLayout->addLayout(hLayout);
 
-  m_upLayout->addStretch();
-  m_upLayout->addWidget(next_button_, 0, Qt::AlignCenter);
+  m_upLayout->addWidget(next_button_, 0, Qt::AlignCenter | Qt::AlignBottom);
 
   m_timezonePage = new QWidget;
   m_timezonePage->setLayout(m_upLayout);
