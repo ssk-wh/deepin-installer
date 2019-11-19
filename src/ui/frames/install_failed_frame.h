@@ -1,3 +1,4 @@
+
 /*
  * Copyright (C) 2017 ~ 2018 Deepin Technology Co., Ltd.
  *
@@ -19,24 +20,17 @@
 #define INSTALLER_UI_FRAMES_INSTALL_FAILED_FRAME_H
 
 #include <QFrame>
-class QLabel;
-class QPushButton;
-class QScrollArea;
-class QPlainTextEdit;
+#include <QScopedPointer>
 
 namespace installer {
-
-class CommentLabel;
-class NavButton;
-class QRWidget;
-class TitleLabel;
-
+class InstallFailedFramePrivate;
 // Displays error message and a QR image
 class InstallFailedFrame : public QFrame {
   Q_OBJECT
 
  public:
   explicit InstallFailedFrame(QWidget* parent = nullptr);
+  ~InstallFailedFrame() override;
 
  signals:
   // Emitted when reboot button is clocked.
@@ -51,21 +45,9 @@ class InstallFailedFrame : public QFrame {
  protected:
   void changeEvent(QEvent* event) override;
 
- private:
-  void initConnections();
-  void initUI();
-
-  TitleLabel* title_label_ = nullptr;
-  CommentLabel* comment_label_ = nullptr;
-  NavButton* reboot_button_ = nullptr;
-  NavButton* save_log_button_ = nullptr;
-  QRWidget* qr_widget_ = nullptr;
-  QPlainTextEdit *m_plainTextEdit = nullptr;
-  QPushButton* control_button_ = nullptr;
-  QScrollArea *m_scrollArea = nullptr;
-
- private slots:
-  void onControlButtonClicked();
+private:
+    QScopedPointer<InstallFailedFramePrivate> d_private;
+    Q_DECLARE_PRIVATE_D(d_private, InstallFailedFrame)
 };
 
 }  // namespace installer
