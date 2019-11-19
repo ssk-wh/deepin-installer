@@ -28,64 +28,98 @@
 #include "ui/utils/widget_util.h"
 
 namespace installer {
+class InstallSuccessFramePrivate
+{
+public:
+    InstallSuccessFramePrivate(InstallSuccessFrame *FF): m_isf(FF) {}
+    InstallSuccessFrame *m_isf;
 
-InstallSuccessFrame::InstallSuccessFrame(QWidget* parent) : QFrame(parent) {
-  this->setObjectName("install_success_frame");
+    TitleLabel *title_label_ = new TitleLabel(nullptr);
+    CommentLabel *eject_label_ = new CommentLabel;
+    CommentLabel *comment_label_ = new CommentLabel;
 
-  this->initUI();
-  this->initConnections();
+    QLabel *status_label = new QLabel;
+
+    NavButton *reboot_button_ = new NavButton;
+
+    void initConnections();
+    void initUI();
+
+    void updateTs(){
+        title_label_->setText(QObject::tr("Successfully Installed"));
+        comment_label_->setText(
+            QObject::tr("Reboot to complete the installation"));
+        eject_label_->setText(
+            QObject::tr("Please remove the installation media before reboot"));
+        reboot_button_->setText(QObject::tr("Reboot Now"));
+        title_label_->setText(QObject::tr("Successfully Installed"));
+        eject_label_->setText(QObject::tr("Please remove the installation media before reboot"));
+        comment_label_->setText(QObject::tr("Reboot to complete the installation"));
+    }
+};
+
+InstallSuccessFrame::InstallSuccessFrame(QWidget *parent)
+    : QFrame(parent)
+    , d_private(new InstallSuccessFramePrivate(this))
+{
+    this->setObjectName("install_success_frame");
+    d_private->initUI();
+    d_private->initConnections();
 }
 
-void InstallSuccessFrame::changeEvent(QEvent* event) {
-  if (event->type() == QEvent::LanguageChange) {
-    title_label_->setText(tr("Successfully Installed"));
-    comment_label_->setText(
-        tr("Reboot to complete the installation"));
-    eject_label_->setText(
-        tr("Please remove the installation media before reboot"));
-    reboot_button_->setText(tr("Reboot Now"));
-  } else {
-    QFrame::changeEvent(event);
-  }
+InstallSuccessFrame::~InstallSuccessFrame()
+{
+
 }
 
-void InstallSuccessFrame::initConnections() {
-  connect(reboot_button_, &QPushButton::clicked,
-          this, &InstallSuccessFrame::finished);
+void InstallSuccessFrame::changeEvent(QEvent *event)
+{
+    Q_D(InstallSuccessFrame);
+
+    if (event->type() == QEvent::LanguageChange) {
+        d->updateTs();
+    } else {
+        QFrame::changeEvent(event);
+    }
 }
 
-void InstallSuccessFrame::initUI() {
-  QLabel* status_label = new QLabel();
-  status_label->setPixmap(installer::renderPixmap(":/images/success.svg"));
-  title_label_ = new TitleLabel(tr("Successfully Installed"));
-  comment_label_ = new CommentLabel(
-      tr("Reboot to complete the installation"));
-  QHBoxLayout* comment_layout = new QHBoxLayout();
-  comment_layout->setContentsMargins(0, 0, 0, 0);
-  comment_layout->setSpacing(0);
-  comment_layout->addWidget(comment_label_);
-
-  eject_label_ = new CommentLabel(
-      tr("Please remove the installation media before reboot"));
-  reboot_button_ = new NavButton(tr("Reboot Now"));
-
-  QVBoxLayout* layout = new QVBoxLayout();
-  layout->setContentsMargins(0, 0, 0, 0);
-  layout->setSpacing(kMainLayoutSpacing);
-  layout->addStretch();
-  layout->addWidget(status_label, 0, Qt::AlignCenter);
-  layout->addWidget(title_label_, 0, Qt::AlignCenter);
-  layout->addLayout(comment_layout);
-  layout->addStretch();
-  layout->addWidget(eject_label_, 0, Qt::AlignCenter);
-  layout->addWidget(reboot_button_, 0, Qt::AlignCenter);
-
-  this->setLayout(layout);
-  this->setContentsMargins(0, 0, 0, 0);
+void InstallSuccessFramePrivate::initConnections()
+{
+    QObject::connect(reboot_button_, &QPushButton::clicked,
+            m_isf, &InstallSuccessFrame::finished);
 }
 
-void InstallSuccessFrame::setEjectLabelVisible(bool visible) {
-  eject_label_->setVisible(visible);
+void InstallSuccessFramePrivate::initUI()
+{
+    status_label->setPixmap(installer::renderPixmap(":/images/success.svg"));
+
+    QHBoxLayout *comment_layout = new QHBoxLayout();
+    comment_layout->setContentsMargins(0, 0, 0, 0);
+    comment_layout->setSpacing(0);
+    comment_layout->addWidget(comment_label_);
+
+    QVBoxLayout *layout = new QVBoxLayout();
+    layout->setContentsMargins(0, 0, 0, 0);
+    layout->setSpacing(kMainLayoutSpacing);
+    layout->addStretch();
+    layout->addWidget(status_label, 0, Qt::AlignCenter);
+    layout->addWidget(title_label_, 0, Qt::AlignCenter);
+    layout->addLayout(comment_layout);
+    layout->addStretch();
+    layout->addWidget(eject_label_, 0, Qt::AlignCenter);
+    layout->addWidget(reboot_button_, 0, Qt::AlignCenter);
+
+    m_isf->setLayout(layout);
+    m_isf->setContentsMargins(0, 0, 0, 0);
+}
+
+void InstallSuccessFrame::setEjectLabelVisible(bool visible)
+{
+    Q_D(InstallSuccessFrame);
+
+    d->eject_label_->setVisible(visible);
 }
 
 }  // namespace installer
+
+#include "install_success_frame.moc"
