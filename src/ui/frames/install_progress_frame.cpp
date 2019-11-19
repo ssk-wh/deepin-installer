@@ -1,3 +1,4 @@
+
 /*
  * Copyright (C) 2017 ~ 2018 Deepin Technology Co., Ltd.
  *
@@ -75,12 +76,10 @@ public:
     void onRetainingTimerTimeout();
     void onSimulationTimerTimeout();
 
-    InstallProgressFrame* m_ptr = nullptr;
+    Q_DECLARE_PUBLIC(InstallProgressFrame)
+    InstallProgressFrame* q_ptr = nullptr;
 
     bool failed_;
-
-    // Progress value.
-    int progress_;
 
     HooksManager* hooks_manager_ = nullptr;
     QThread* hooks_manager_thread_ = nullptr;
@@ -98,6 +97,7 @@ public:
 
 InstallProgressFrame::InstallProgressFrame(QWidget* parent)
     : QFrame(parent)
+      , progress_(0)
       , d_private(new InstallProgressFramePrivate(this))
 {
     this->setObjectName("install_progress_frame");
@@ -105,6 +105,13 @@ InstallProgressFrame::InstallProgressFrame(QWidget* parent)
 
 InstallProgressFrame::~InstallProgressFrame()
 {}
+
+void InstallProgressFrame::setProgress(int progress) {
+    progress_ = progress;
+
+    Q_D(InstallProgressFrame);
+    d->updateProgressBar(progress);
+}
 
 bool InstallProgressFrame::failed() const
 {
@@ -122,6 +129,18 @@ void InstallProgressFrame::startSlide() {
 
     Q_D(InstallProgressFrame);
     d->slide_frame_->startSlide(disable_slide, disable_animation, duration);
+}
+
+void InstallProgressFrame::simulate() {
+    Q_D(InstallProgressFrame);
+
+    if (!d->simulation_timer_->isActive()) {
+        this->startSlide();
+
+        // Reset progress value.
+        d->onProgressUpdate(d->progress_bar_->minimum());
+        d->simulation_timer_->start();
+    }
 }
 
 void InstallProgressFrame::runHooks(bool ok) {
@@ -144,18 +163,6 @@ void InstallProgressFrame::runHooks(bool ok) {
     }
 }
 
-void InstallProgressFrame::simulate() {
-    Q_D(InstallProgressFrame);
-
-    if (!d->simulation_timer_->isActive()) {
-        this->startSlide();
-
-        // Reset progress value.
-        d->onProgressUpdate(d->progress_bar_->minimum());
-        d->simulation_timer_->start();
-    }
-}
-
 void InstallProgressFrame::changeEvent(QEvent* event) {
     Q_D(InstallProgressFrame);
 
@@ -169,9 +176,8 @@ void InstallProgressFrame::changeEvent(QEvent* event) {
 }
 
 InstallProgressFramePrivate::InstallProgressFramePrivate(InstallProgressFrame* ptr)
-    : m_ptr(ptr),
+    : q_ptr(ptr),
       failed_(true),
-      progress_(0),
       hooks_manager_(new HooksManager()),
       hooks_manager_thread_(new QThread(this)),
       simulation_timer_(new QTimer(this))
@@ -255,9 +261,10 @@ void InstallProgressFramePrivate::initUI() {
     layout->addWidget(progress_bar_, 0, Qt::AlignCenter);
     layout->addStretch();
 
-    m_ptr->setLayout(layout);
-    m_ptr->setContentsMargins(0, 0, 0, 0);
-    m_ptr->setStyleSheet(ReadFile(":/styles/install_progress_frame.css"));
+    Q_Q(InstallProgressFrame);
+    q->setLayout(layout);
+    q->setContentsMargins(0, 0, 0, 0);
+    q->setStyleSheet(ReadFile(":/styles/install_progress_frame.css"));
 
     progress_animation_ = new QPropertyAnimation(this, "progress", this);
     progress_animation_->setDuration(kProgressAnimationDuration);
@@ -282,15 +289,19 @@ void InstallProgressFramePrivate::updateProgressBar(int progress) {
     tooltip_label_->move(x, y);
 
     // Force QProgressBar to repaint.
-    m_ptr->style()->unpolish(progress_bar_);
-    m_ptr->style()->polish(progress_bar_);
+
+    Q_Q(InstallProgressFrame);
+    q->style()->unpolish(progress_bar_);
+    q->style()->polish(progress_bar_);
     progress_bar_->repaint();
 }
 
 void InstallProgressFramePrivate::onHooksErrorOccurred() {
     failed_ = true;
     slide_frame_->stopSlide();
-    emit m_ptr->finished();
+
+    Q_Q(InstallProgressFrame);
+    emit q->finished();
 }
 
 void InstallProgressFramePrivate::onHooksFinished() {
@@ -312,7 +323,9 @@ void InstallProgressFramePrivate::onProgressUpdate(int progress) {
 
 void InstallProgressFramePrivate::onRetainingTimerTimeout() {
     slide_frame_->stopSlide();
-    emit m_ptr->finished();
+
+    Q_Q(InstallProgressFrame);
+    emit q->finished();
 }
 
 void InstallProgressFramePrivate::onSimulationTimerTimeout() {

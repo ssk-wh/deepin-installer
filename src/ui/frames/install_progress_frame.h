@@ -29,11 +29,14 @@ class InstallProgressFramePrivate;
 // A progress bar is shown at bottom of page.
 class InstallProgressFrame : public QFrame {
     Q_OBJECT
-//    Q_PROPERTY(int progress READ progress WRITE setProgress);
+    Q_PROPERTY(int progress READ progress WRITE setProgress);
 
 public:
     explicit InstallProgressFrame(QWidget* parent = nullptr);
     ~InstallProgressFrame();
+
+    int progress() const { return progress_; }
+    void setProgress(int progress);
 
     // Returns true is installation process failed.
     bool failed() const;
@@ -57,6 +60,9 @@ protected:
     void changeEvent(QEvent* event) override;
 
 private:
+    // Progress value.
+    int progress_;
+
     QScopedPointer<InstallProgressFramePrivate> d_private;
     Q_DECLARE_PRIVATE_D(d_private, InstallProgressFrame)
 };
