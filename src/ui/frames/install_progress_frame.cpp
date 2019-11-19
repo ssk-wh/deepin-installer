@@ -266,7 +266,7 @@ void InstallProgressFramePrivate::initUI() {
     q->setContentsMargins(0, 0, 0, 0);
     q->setStyleSheet(ReadFile(":/styles/install_progress_frame.css"));
 
-    progress_animation_ = new QPropertyAnimation(this, "progress", this);
+    progress_animation_ = new QPropertyAnimation(q, "progress", this);
     progress_animation_->setDuration(kProgressAnimationDuration);
     progress_animation_->setEasingCurve(QEasingCurve::InOutCubic);
 }
