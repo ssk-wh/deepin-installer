@@ -19,19 +19,19 @@
 #define INSTALLER_UI_FRAMES_INNER_SYSTEM_INFO_AVATAR_FORM_H
 
 #include <QFrame>
+#include <QScopedPointer>
 class QListView;
 
 namespace installer {
 
-class AvatarButton;
-class CommentLabel;
-class TitleLabel;
+class SystemInfoAvatarFramePrivate;
 
 class SystemInfoAvatarFrame : public QFrame {
   Q_OBJECT
 
  public:
   explicit SystemInfoAvatarFrame(QWidget* parent = nullptr);
+  ~SystemInfoAvatarFrame();
 
  signals:
   // Emitted when an avatar is selected.
@@ -50,16 +50,8 @@ class SystemInfoAvatarFrame : public QFrame {
   void changeEvent(QEvent* event) override;
 
  private:
-  void initConnections();
-  void initUI();
-
-  TitleLabel* title_label_ = nullptr;
-  CommentLabel* comment_label_ = nullptr;
-  AvatarButton* current_avatar_button_ = nullptr;
-  QListView* list_view_ = nullptr;
-
- private slots:
-  void onListViewPressed(const QModelIndex &index);
+  QScopedPointer<SystemInfoAvatarFramePrivate> d_private;
+  Q_DECLARE_PRIVATE_D(d_private, SystemInfoAvatarFrame)
 };
 
 }  // namespace installer

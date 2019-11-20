@@ -49,21 +49,48 @@ bool IsValidAvatar(const QString& avatar) {
 
 }  // namespace
 
-SystemInfoAvatarFrame::SystemInfoAvatarFrame(QWidget* parent)
-  : QFrame(parent) {
-  this->setObjectName("system_info_avatar_frame");
+class SystemInfoAvatarFramePrivate : public QObject{
+    Q_OBJECT
 
-  this->initUI();
-  this->initConnections();
+public:
+    SystemInfoAvatarFramePrivate(SystemInfoAvatarFrame* parent);
+    ~SystemInfoAvatarFramePrivate();
+
+private:
+    void initUI();
+    void initConnections();
+
+    void onListViewPressed(const QModelIndex &index);
+
+    Q_DECLARE_PUBLIC(SystemInfoAvatarFrame)
+    SystemInfoAvatarFrame* q_ptr = nullptr;
+
+    TitleLabel* title_label_ = nullptr;
+    CommentLabel* comment_label_ = nullptr;
+    AvatarButton* current_avatar_button_ = nullptr;
+    QListView* list_view_ = nullptr;
+};
+
+SystemInfoAvatarFrame::SystemInfoAvatarFrame(QWidget* parent)
+  : QFrame(parent)
+    , d_private(new SystemInfoAvatarFramePrivate(this))
+{
+    setObjectName("system_info_avatar_frame");
+}
+
+SystemInfoAvatarFrame::~SystemInfoAvatarFrame()
+{
 }
 
 void SystemInfoAvatarFrame::readConf() {
-  const QString avatar = current_avatar_button_->avatar();
+  Q_D(SystemInfoAvatarFrame);
+  const QString avatar = d->current_avatar_button_->avatar();
   emit this->avatarUpdated(avatar);
 }
 
 void SystemInfoAvatarFrame::writeConf() {
-  const QString avatar = current_avatar_button_->avatar();
+  Q_D(SystemInfoAvatarFrame);
+  const QString avatar = d->current_avatar_button_->avatar();
   if (IsValidAvatar(avatar)) {
     WriteAvatar(avatar);
   } else {
@@ -72,23 +99,27 @@ void SystemInfoAvatarFrame::writeConf() {
 }
 
 void SystemInfoAvatarFrame::changeEvent(QEvent* event) {
-  if (event->type() == QEvent::LanguageChange) {
-    title_label_->setText(tr("User Avatar"));
-    comment_label_->setText(tr("Select an avatar for your account"));
-  } else {
-    QFrame::changeEvent(event);
-  }
+    if (event->type() == QEvent::LanguageChange) {
+        Q_D(SystemInfoAvatarFrame);
+        d->title_label_->setText(tr("User Avatar"));
+        d->comment_label_->setText(tr("Select an avatar for your account"));
+    } else {
+        QFrame::changeEvent(event);
+    }
 }
 
-void SystemInfoAvatarFrame::initConnections() {
-  // Return to previous page when chosen_avatar_button is clicked.
-  connect(current_avatar_button_, &QPushButton::clicked,
-          this, &SystemInfoAvatarFrame::finished);
-  connect(list_view_, &QListView::pressed,
-          this, &SystemInfoAvatarFrame::onListViewPressed);
+SystemInfoAvatarFramePrivate::SystemInfoAvatarFramePrivate(SystemInfoAvatarFrame *parent)
+    : q_ptr(parent)
+{
+    initUI();
+    initConnections();
 }
 
-void SystemInfoAvatarFrame::initUI() {
+SystemInfoAvatarFramePrivate::~SystemInfoAvatarFramePrivate()
+{
+}
+
+void SystemInfoAvatarFramePrivate::initUI() {
   title_label_ = new TitleLabel(tr("User Avatar"));
   comment_label_ = new CommentLabel(tr("Select an avatar for your account"));
   QHBoxLayout* comment_layout = new QHBoxLayout();
@@ -138,19 +169,33 @@ void SystemInfoAvatarFrame::initUI() {
   layout->addSpacing(40);
   layout->addLayout(list_layout);
 
-  this->setLayout(layout);
-  this->setContentsMargins(0, 0, 0, 0);
+  Q_Q(SystemInfoAvatarFrame);
+  q->setLayout(layout);
+  q->setContentsMargins(0, 0, 0, 0);
 }
 
-void SystemInfoAvatarFrame::onListViewPressed(const QModelIndex& index) {
+void SystemInfoAvatarFramePrivate::initConnections() {
+  // Return to previous page when chosen_avatar_button is clicked.
+  Q_Q(SystemInfoAvatarFrame);
+  connect(current_avatar_button_, &QPushButton::clicked,
+          q, &SystemInfoAvatarFrame::finished);
+  connect(list_view_, &QListView::pressed,
+          this, &SystemInfoAvatarFramePrivate::onListViewPressed);
+}
+
+void SystemInfoAvatarFramePrivate::onListViewPressed(const QModelIndex& index) {
   const QString avatar = index.model()->data(index).toString();
+  Q_Q(SystemInfoAvatarFrame);
+
   if (IsValidAvatar(avatar)) {
     current_avatar_button_->updateIcon(avatar);
-    emit this->avatarUpdated(avatar);
+    emit q->avatarUpdated(avatar);
   } else {
     qWarning() << "Invalid avatar:" << avatar;
   }
-  emit this->finished();
+  emit q->finished();
 }
 
 }  // namespace installer
+
+#include "system_info_avatar_frame.moc"
