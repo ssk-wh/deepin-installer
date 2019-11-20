@@ -91,6 +91,7 @@ InstallFailedFrame::InstallFailedFrame(QWidget *parent) : QFrame(parent)
     this->setObjectName("install_failed_frame");
 
     d_private->initUI();
+    d_private->updatetx();
     d_private->initConnections();
 
     // Show QR widget by default.
@@ -149,8 +150,6 @@ void InstallFailedFramePrivate::initUI()
     status_label->setPixmap(installer::renderPixmap(":/images/fail.svg"));
     title_label_ = new TitleLabel("");
     comment_label_ = new CommentLabel;
-
-    updatetx();
 
     QHBoxLayout *comment_layout = new QHBoxLayout();
     comment_layout->setContentsMargins(0, 0, 0, 0);
