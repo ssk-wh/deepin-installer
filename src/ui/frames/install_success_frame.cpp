@@ -34,7 +34,7 @@ public:
     InstallSuccessFramePrivate(InstallSuccessFrame *FF): m_isf(FF) {}
     InstallSuccessFrame *m_isf;
 
-    TitleLabel *title_label_ = new TitleLabel(nullptr);
+    TitleLabel *title_label_ = new TitleLabel("");
     CommentLabel *eject_label_ = new CommentLabel;
     CommentLabel *comment_label_ = new CommentLabel;
 
@@ -65,6 +65,7 @@ InstallSuccessFrame::InstallSuccessFrame(QWidget *parent)
     this->setObjectName("install_success_frame");
     d_private->initUI();
     d_private->initConnections();
+    d_private->updateTs();
 }
 
 InstallSuccessFrame::~InstallSuccessFrame()
