@@ -243,9 +243,6 @@ void PartitionManager::doManualPart(const OperationList& operations) {
             if (it != mountList.cend()) {
                 partition->mount_point = (*it)->mount_point;
             }
-            else {
-                qCritical() << "Cannot find partition";
-            }
         }
     }
   }
