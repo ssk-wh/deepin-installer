@@ -122,5 +122,3 @@ void InstallSuccessFrame::setEjectLabelVisible(bool visible)
 }
 
 }  // namespace installer
-
-#include "install_success_frame.moc"
