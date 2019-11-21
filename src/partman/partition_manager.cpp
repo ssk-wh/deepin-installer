@@ -224,24 +224,34 @@ void PartitionManager::doManualPart(const OperationList& operations) {
   if (ok) {
     devices = ScanDevices(false);
     // Update mount point of real partitions.
-    std::vector<Partition::Ptr> mountList;
+    std::map<QString, Partition::Ptr> mountMap;
     for (const Operation& operation : real_operations) {
-        if (operation.type == OperationType::NewPartTable) continue;
         if (operation.new_partition->mount_point.isEmpty()) continue;
-        mountList.push_back(operation.new_partition);
+
+        if ((operation.type == OperationType::Create) ||
+            (operation.type == OperationType::Format) ||
+            (operation.type == OperationType::MountPoint)) {
+            mountMap[operation.new_partition->mount_point] = operation.new_partition;
+        }
+
+        if (operation.type == OperationType::Delete) {
+            mountMap.erase(operation.new_partition->mount_point);
+        }
     }
 
     for (Device::Ptr device : devices) {
         for (Partition::Ptr partition : device->partitions) {
             auto it = std::find_if(
-                mountList.cbegin(), mountList.cend(), [=](const Partition::Ptr p) {
-                    return (p->device_path == partition->device_path) &&
-                           (partition->start_sector == p->start_sector) &&
-                           (partition->end_sector == p->end_sector);
+                mountMap.cbegin(), mountMap.cend(),
+                [=](std::pair<QString, Partition::Ptr> pair) {
+                    return (pair.second->device_path == partition->device_path) &&
+                           (partition->start_sector == pair.second->start_sector) &&
+                           (partition->end_sector == pair.second->end_sector);
                 });
 
-            if (it != mountList.cend()) {
-                partition->mount_point = (*it)->mount_point;
+            if (it != mountMap.cend()) {
+                const auto [mountPoint, p] = *it;
+                partition->mount_point     = p->mount_point;
             }
         }
     }
