@@ -20,7 +20,6 @@
 
 CDROM=$(installer_get "CDROM")
 DI_BOOTLOADER=$(installer_get "DI_BOOTLOADER")
-DI_UEFI=$(installer_get "DI_UEFI")
 
 mkdir -p /target/dev
 mount --bind -v --bind /dev/ /target/dev || error "Failed to bind /dev"
@@ -44,12 +43,6 @@ if [ x"$(installer_get DI_FULLDISK_MODE)" == xtrue ];then
 
     cp -a /target/opt /target/data/ || error "Faild to copy /opt"
     mount --bind /target/data/opt /target/opt || error "Faild to mount /target/opt"
-fi
-
-if [ x"${DI_UEFI}" = xtrue ]; then
-    mkdir -p /target/boot/efi
-    mount ${DI_BOOTLOADER} /target/boot/efi || \
-        error "Failed to mount bootloader ${DI_BOOTLOADER}"
 fi
 
 mkdir -p /target/run

@@ -28,6 +28,7 @@ DI_LUPIN_ROOT=$(installer_get "DI_LUPIN_ROOT")
 DI_ROOT_PARTITION=$(installer_get "DI_ROOT_PARTITION")
 DI_LOOP_ROOT_FILE=$(installer_get "DI_LOOP_ROOT_FILE")
 DI_MOUNTPOINTS=$(installer_get "DI_MOUNTPOINTS")
+DI_UEFI=$(installer_get "DI_UEFI")
 
 [ -n "${DI_ROOT_PARTITION}" ] || error "DI_ROOT_PARTITION is empty!"
 
@@ -112,3 +113,9 @@ for i in $(echo "${mount_points}"); do
     swapon $mountpoint || true
   fi
 done
+
+if [ x"${DI_UEFI}" = xtrue ]; then
+    mkdir -p /target/boot/efi
+    mount ${DI_BOOTLOADER} /target/boot/efi || \
+        error "Failed to mount bootloader ${DI_BOOTLOADER}"
+fi
