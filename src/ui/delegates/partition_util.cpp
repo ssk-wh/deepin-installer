@@ -397,11 +397,15 @@ int GetPartitionUsageValue(const Partition::Ptr partition) {
 }
 
 bool IsEfiEnabled() {
-  return QDir("/sys/firmware/efi").exists();
+    if (GetSettingsBool(kForceLegacyInstallationMode)){
+        return false;
+    }
+
+    return QDir("/sys/firmware/efi").exists();
 }
 
 bool IsMBRPreferred(const DeviceList& devices) {
-  return !IsEfiEnabled();
+    return !IsEfiEnabled();
 }
 
 // Returns true if |fs_type| may be mounted to system with customized

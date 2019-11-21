@@ -180,6 +180,9 @@ const char kSelectedInstallType[] = "selected_component_install_type";
 // Minimum size of Other partitions
 const char kPartitionOthersMinimumSize[] = "partition_others_minimum_size";
 
+// Force the Legacy(MBR) installation mode
+const char kForceLegacyInstallationMode[] = "force_legacy_installation_mode";
+
 }  // namespace installer
 
 #endif  // INSTALLER_SERVICE_SETTINGS_NAME_H
