@@ -18,369 +18,323 @@
 #include "partman/partition_format.h"
 
 #include <QDebug>
+#include <memory>
 
 #include "base/command.h"
 #include "sysinfo/machine.h"
+#include "ui/delegates/partition_util.h"
 
 namespace installer {
-namespace {
+class PartitionFormater {
+public:
+    explicit PartitionFormater(Partition::Ptr partition)
+        : m_partition(partition) {
+        };
 
-bool FormatBtrfs(const QString& path, const QString& label) {
-  QString output;
-  QString err;
-  bool ok;
-  if (label.isEmpty()) {
-    ok = SpawnCmd("mkfs.btrfs", {"-f", path}, output, err);
-  } else {
-    // Truncate label size.
-    const QString real_label = label.left(255);
-    ok = SpawnCmd("mkfs.btrfs", {"-f", "-L", real_label, path},
-                  output, err);
-  }
-  if (!ok) {
-    qCritical() << "FormatBtrfs() error:" << err << output;
-  }
-  return ok;
-}
+    virtual ~PartitionFormater() {};
 
-bool FormatExt2(const QString& path, const QString& label) {
-  QString output;
-  QString err;
-  bool ok;
-  if (label.isEmpty()) {
-    ok = SpawnCmd("mkfs.ext2", {"-F", path}, output, err);
-  } else {
-    const QString real_label = label.left(16);
-    ok = SpawnCmd("mkfs.ext2", {"-F", "-L", real_label, path},
-                  output, err);
-  }
-  if (!ok) {
-    qCritical() << "FormatExt2() err:" << err << output;
-  }
-  return ok;
-}
-
-bool FormatExt3(const QString& path, const QString& label) {
-  QString output;
-  QString err;
-  bool ok;
-  if (label.isEmpty()) {
-    ok = SpawnCmd("mkfs.ext3", {"-F", path}, output, err);
-  } else {
-    const QString real_label = label.left(16);
-    ok = SpawnCmd("mkfs.ext3", {"-F", "-L", real_label, path},
-                  output, err);
-  }
-  if (!ok) {
-    qCritical() << "FormatExt3() err:" << err << output;
-  }
-  return ok;
-}
-
-bool FormatExt4(const QString& path, const QString& label) {
-  QString output;
-  QString err;
-  bool ok;
-  const MachineArch arch = GetMachineArch();
-  if (arch == MachineArch::LOONGSON ||
-      arch == MachineArch::SW) {
-    // Disable 64bit support on loongson and sw platforms.
-    if (label.isEmpty()) {
-      ok = SpawnCmd("mkfs.ext4", {"-O ^64bit", "-F", path}, output, err);
-    } else {
-      const QString real_label = label.left(16);
-      ok = SpawnCmd("mkfs.ext4", {"-O ^64bit", "-F", "-L", real_label, path},
-                    output, err);
+    virtual QString command() {
+        return FsFormatCmdMap[m_partition->fs];
     }
-  } else {
-    if (label.isEmpty()) {
-      ok = SpawnCmd("mkfs.ext4", {"-F", path}, output, err);
-    } else {
-      const QString real_label = label.left(16);
-      ok = SpawnCmd("mkfs.ext4", {"-F", "-L", real_label, path},
-                    output, err);
+
+    virtual QStringList args() {
+      return {};
     }
-  }
 
-  if (!ok) {
-    qCritical() << "FormatExt4() err:" << err << output;
-  }
-  return ok;
-}
+    inline bool exec() {
+        return SpawnCmd(command(), args());
+    };
 
-bool FormatF2fs(const QString& path, const QString& label) {
-  QString output;
-  QString err;
-  bool ok;
-  if (label.isEmpty()) {
-    ok = SpawnCmd("mkfs.f2fs", {path}, output, err);
-  } else {
-    const QString real_label = label.left(19);
-    ok = SpawnCmd("mkfs.f2fs", {"-l", real_label, path},
-                  output, err);
-  }
-  if (!ok) {
-    qCritical() << "FormatF2fs() err:" << err << output;
-  }
-  return ok;
-}
+    inline bool isLabelEmpty() {
+      return label().isEmpty();
+    }
 
-bool FormatFat16(const QString& path, const QString& label) {
-  QString output;
-  QString err;
-  bool ok;
-  if (label.isEmpty()) {
-    ok = SpawnCmd("mkfs.msdos", {"-F16", "-v", "-I", path}, output, err);
-  } else {
-    const QString real_label = label.left(11);
-    ok = SpawnCmd("mkfs.msdos",
-                  {"-F16", "-v", "-I", "-n", real_label, path},
-                  output, err);
-  }
-  if (!ok) {
-    qCritical() << "FormatFat16() err:" << err << output;
-  }
-  return ok;
-}
+    inline QString label() {
+      return m_partition->label;
+    }
 
-bool FormatFat32(const QString& path, const QString& label) {
-  QString output;
-  QString err;
-  bool ok;
-  if (label.isEmpty()) {
-    ok = SpawnCmd("mkfs.msdos", {"-F32", "-v", "-I", path}, output, err);
-  } else {
-    const QString real_label = label.left(11);
-    ok = SpawnCmd("mkfs.msdos",
-                  {"-F32", "-v", "-I", "-n", real_label, path},
-                  output, err);
-  }
-  if (!ok) {
-    qCritical() << "FormatFat32() err:" << err << output;
-  }
-  return ok;
-}
+    inline QString path() {
+      return m_partition->path;
+    }
 
-bool FormatHfs(const QString& path, const QString& label) {
-  QString output;
-  QString err;
-  bool ok;
-  if (label.isEmpty()) {
-    ok = SpawnCmd("hformat", {path}, output, err);
-  } else {
-    const QString real_label = label.left(27);
-    ok = SpawnCmd("hformat", {"-l", real_label, path},
-                  output, err);
-  }
-  if (!ok) {
-    qCritical() << "FormatHfs() err:" << err << output;
-  }
-  return ok;
-}
+private:
+    Partition::Ptr m_partition;
+};
 
-bool FormatHfsPlus(const QString& path, const QString& label) {
-  QString output;
-  QString err;
-  bool ok;
-  if (label.isEmpty()) {
-    ok = SpawnCmd("mkfs.hfsplus", {path}, output, err);
-  } else {
-    const QString real_label = label.left(63);
-    ok = SpawnCmd("mkfs.hfsplus", {"-v", real_label, path},
-                  output, err);
-  }
-  if (!ok) {
-    qCritical() << "FormatHfsPlus() err:" << err << output;
-  }
-  return ok;
-}
+class BtrfsFormater : public PartitionFormater {
+public:
+    using PartitionFormater::PartitionFormater;
 
-bool FormatJfs(const QString& path, const QString& label) {
-  QString output;
-  QString err;
-  bool ok;
-  if (label.isEmpty()) {
-    ok = SpawnCmd("mkfs.jfs", {"-q", path}, output, err);
-  } else {
-    const QString real_label = label.left(11);
-    ok = SpawnCmd("mkfs.jfs", {"-q", "-L", real_label, path},
-                  output, err);
-  }
-  if (!ok) {
-    qCritical() << "FormatJfs() err:" << err << output;
-  }
-  return ok;
-}
+    virtual QStringList args() override
+    {
+        QStringList args{ "-f", path() };
 
-bool FormatLinuxSwap(const QString& path, const QString& label) {
-  QString output;
-  QString err;
-  bool ok;
-  if (label.isEmpty()) {
-    ok = SpawnCmd("mkswap", {path}, output, err);
-  } else {
-    const QString real_label = label.left(15);
-    ok = SpawnCmd("mkswap", {"-L", real_label, path},
-                  output, err);
-  }
-  if (!ok) {
-    qCritical() << "FormatLinuxSwap() err:" << err << output;
-  }
-  return ok;
-}
+        if (!isLabelEmpty()) {
+            const QString real_label = label().left(255);
+            args << QStringList{ "-L", real_label };
+        }
 
-bool FormatNilfs2(const QString& path, const QString& label) {
-  QString output;
-  QString err;
-  bool ok;
-  if (label.isEmpty()) {
-    ok = SpawnCmd("mkfs.nilfs2", {path}, output, err);
-  } else {
-    const QString real_label = label.left(1);
-    ok = SpawnCmd("mkfs.nilfs2", {"-L", real_label, path},
-                  output, err);
-  }
-  if (!ok) {
-    qCritical() << "FormatNilfs2() err:" << err << output;
-  }
-  return ok;
-}
+        return args;
+    }
+};
 
-bool FormatNTFS(const QString& path, const QString& label) {
-  QString output;
-  QString err;
-  bool ok;
-  if (label.isEmpty()) {
-    ok = SpawnCmd("mkntfs", {"-Q", "-v", "-F", path}, output, err);
-  } else {
-    const QString real_label = label.left(128);
-    ok = SpawnCmd("mkntfs",
-                  {"-Q", "-v", "-F", "-L", real_label, path},
-                  output, err);
-  }
-  if (!ok) {
-    qCritical() << "FormatNTFS() err:" << err << output;
-  }
-  return ok;
-}
+class Ext2Formater : public PartitionFormater {
+  public:
+      using PartitionFormater::PartitionFormater;
 
-bool FormatReiser4(const QString& path, const QString& label) {
-  QString output;
-  QString err;
-  bool ok;
-  if (label.isEmpty()) {
-    ok = SpawnCmd("mkfs.reiser4", {"--force", "--yes", path}, output, err);
-  } else {
-    const QString real_label = label.left(16);
-    ok = SpawnCmd("mkfs.reiser4",
-                 {"--force", "--yes",
-                  "--label",
-                  real_label,
-                  path},
-                 output, err);
-  }
-  if (!ok) {
-    qCritical() << "FormatReiser4() err:" << err << output;
-  }
-  return ok;
-}
+      virtual QStringList args() override
+      {
+          QStringList args{ "-F", path() };
 
-bool FormatReiserfs(const QString& path, const QString& label) {
-  QString output;
-  QString err;
-  bool ok;
-  if (label.isEmpty()) {
-    ok = SpawnCmd("mkreiserfs", {"-f", "-f", path}, output, err);
-  } else {
-    const QString real_label = label.left(16);
-    ok = SpawnCmd("mkreiserfs",
-                  {"-f", "-f", "--label", real_label, path},
-                  output, err);
-  }
-  if (!ok) {
-    qCritical() << "FormatReiserfs() err:" << err << output;
-  }
-  return ok;
-}
+          if (!isLabelEmpty()) {
+              const QString real_label = label().left(16);
+              args << QStringList{ "-L", real_label };
+          }
 
-bool FormatXfs(const QString& path, const QString& label) {
-  QString output;
-  QString err;
-  bool ok;
-  if (label.isEmpty()) {
-    ok = SpawnCmd("mkfs.xfs", {"-f", path}, output, err);
-  } else {
-    const QString real_label = label.left(12);
-    ok = SpawnCmd("mkfs.xfs", {"-f", "-L", real_label, path},
-                  output, err);
-  }
-  if (!ok) {
-    qCritical() << "FormatXfs() err:" << err << output;
-  }
-  return ok;
-}
+          return args;
+      }
+};
 
-}  // namespace
+class Ext3Formater : public Ext2Formater {
+  public:
+      using Ext2Formater::Ext2Formater;
+};
+
+class Ext4Formater : public PartitionFormater {
+  public:
+  using PartitionFormater::PartitionFormater;
+  virtual QStringList args() override {
+          QStringList args{ "-F", path() };
+
+          if (!isLabelEmpty()) {
+              args << QStringList{ "-L", label() };
+          }
+
+          const MachineArch arch = GetMachineArch();
+          if (arch == MachineArch::LOONGSON || arch == MachineArch::SW) {
+              args << QStringList{ "-O ^64bit" };
+          }
+
+          return args;
+  }
+};
+class F2FSFormater : public PartitionFormater {
+  public:
+  using PartitionFormater::PartitionFormater;
+  virtual QStringList args() override {
+        QStringList args{ "-f", path() };
+
+        if (!isLabelEmpty()) {
+            const QString real_label = label().left(19);
+            args << QStringList{ "-l", real_label };
+        }
+
+        return args;
+  }
+};
+
+class FAT16Formater : public PartitionFormater {
+  public:
+  using PartitionFormater::PartitionFormater;
+  virtual QStringList args() override {
+        QStringList args{ "-F16", "-v", "-I", path() };
+
+        if (!isLabelEmpty()) {
+            const QString real_label = label().left(11);
+            args << QStringList{ "-n", real_label };
+        }
+
+        return args;
+  }
+};
+
+class FAT32Formater : public PartitionFormater {
+  public:
+  using PartitionFormater::PartitionFormater;
+  virtual QStringList args() override {
+        QStringList args{ "-F32", "-v", "-I", path() };
+
+        if (!isLabelEmpty()) {
+            const QString real_label = label().left(11);
+            args << QStringList{ "-n", real_label };
+        }
+
+        return args;
+  }
+};
+
+class NTFSFormater : public PartitionFormater {
+  public:
+  using PartitionFormater::PartitionFormater;
+  virtual QStringList args() override {
+        QStringList args{ "-Q", "-v", "-F", path() };
+
+        if (!isLabelEmpty()) {
+            const QString real_label = label().left(128);
+            args << QStringList{ "-L", real_label };
+        }
+
+        return args;
+  }
+};
+
+class HFSFormater : public PartitionFormater {
+  public:
+  using PartitionFormater::PartitionFormater;
+  virtual QStringList args() override {
+        QStringList args{ "-f", path() };
+
+        if (!isLabelEmpty()) {
+            const QString real_label = label().left(27);
+            args << QStringList{ "-l", real_label };
+        }
+
+        return args;
+  }
+};
+
+class HFSPLUSFormater : public PartitionFormater {
+  public:
+  using PartitionFormater::PartitionFormater;
+  virtual QStringList args() override {
+        QStringList args{ "-f", path() };
+
+        if (!isLabelEmpty()) {
+            const QString real_label = label().left(63);
+            args << QStringList{ "-v", real_label };
+        }
+
+        return args;
+  }
+};
+
+class JfsFormater : public PartitionFormater {
+  public:
+  using PartitionFormater::PartitionFormater;
+  virtual QStringList args() override {
+        QStringList args{ "-q", path() };
+
+        if (!isLabelEmpty()) {
+            const QString real_label = label().left(11);
+            args << QStringList{ "-L", real_label };
+        }
+
+        return args;
+  }
+};
+
+class LinuxSwapFormater : public PartitionFormater {
+  public:
+  using PartitionFormater::PartitionFormater;
+  virtual QStringList args() override {
+        QStringList args{ "-f", path() };
+
+        if (!isLabelEmpty()) {
+            const QString real_label = label().left(15);
+            args << QStringList{ "-L", real_label };
+        }
+
+        return args;
+  }
+};
+
+class Nilfs2Formater : public PartitionFormater {
+  public:
+  using PartitionFormater::PartitionFormater;
+  virtual QStringList args() override {
+        QStringList args{ "-f", path() };
+
+        if (!isLabelEmpty()) {
+            const QString real_label = label().left(1);
+            args << QStringList{ "-L", real_label };
+        }
+
+        return args;
+  }
+};
+
+class Reiser4Formater : public PartitionFormater {
+public:
+    using PartitionFormater::PartitionFormater;
+    virtual QStringList args() override
+    {
+        QStringList args{ "--force", "--yes", path() };
+
+        if (!isLabelEmpty()) {
+            const QString real_label = label().left(16);
+            args << QStringList{ "--label", real_label };
+        }
+
+        return args;
+    }
+};
+
+class ReiserFsFormater : public PartitionFormater {
+public:
+    using PartitionFormater::PartitionFormater;
+    virtual QStringList args() override
+    {
+        QStringList args{ "-f", path() };
+
+        if (!isLabelEmpty()) {
+            const QString real_label = label().left(16);
+            args << QStringList{ "--label", real_label };
+        }
+
+        return args;
+    }
+};
+
+class XfsFormater : public PartitionFormater {
+public:
+    using PartitionFormater::PartitionFormater;
+    virtual QStringList args() override
+    {
+        QStringList args{ "-f", path() };
+
+        if (!isLabelEmpty()) {
+            const QString real_label = label().left(12);
+            args << QStringList{ "-L", real_label };
+        }
+
+        return args;
+    }
+};
 
 // Make filesystem on |partition| based on its fs type.
-bool Mkfs(const Partition::Ptr partition) {
-  qDebug() << "Mkfs()" << partition;
-  switch (partition->fs) {
-    case FsType::Btrfs: {
-      return FormatBtrfs(partition->path, partition->label);
+bool Mkfs(const Partition::Ptr partition)
+{
+    qDebug() << "Mkfs()" << partition;
+
+    using Formater = std::shared_ptr<PartitionFormater>;
+
+    QMap<FsType, std::shared_ptr<PartitionFormater>> map{
+        { FsType::Btrfs, Formater(new BtrfsFormater(partition)) },
+        { FsType::Ext2, Formater(new Ext2Formater(partition)) },
+        { FsType::Ext3, Formater(new Ext3Formater(partition)) },
+        { FsType::Ext4, Formater(new Ext4Formater(partition)) },
+        { FsType::F2fs, Formater(new F2FSFormater(partition)) },
+        { FsType::Fat16, Formater(new FAT16Formater(partition)) },
+        { FsType::EFI, Formater(new FAT32Formater(partition)) },
+        { FsType::Fat32, Formater(new FAT32Formater(partition)) },
+        { FsType::Hfs, Formater(new HFSFormater(partition)) },
+        { FsType::HfsPlus, Formater(new HFSPLUSFormater(partition)) },
+        { FsType::Jfs, Formater(new JfsFormater(partition)) },
+        { FsType::LinuxSwap, Formater(new LinuxSwapFormater(partition)) },
+        { FsType::Nilfs2, Formater(new Nilfs2Formater(partition)) },
+        { FsType::NTFS, Formater(new NTFSFormater(partition)) },
+        { FsType::Reiser4, Formater(new Reiser4Formater(partition)) },
+        { FsType::Reiserfs, Formater(new ReiserFsFormater(partition)) },
+        { FsType::Xfs, Formater(new XfsFormater(partition)) },
+        { FsType::Recovery, Formater(new Ext4Formater(partition))}
+    };
+
+    if (!map.contains(partition->fs)) {
+        qWarning() << "Unsupported filesystem to format!" << partition->path;
+        return false;
     }
-    case FsType::Ext2: {
-      return FormatExt2(partition->path, partition->label);
-    }
-    case FsType::Ext3: {
-      return FormatExt3(partition->path, partition->label);
-    }
-    case FsType::Ext4:
-    case FsType::Recovery: {
-      return FormatExt4(partition->path, partition->label);
-    }
-    case FsType::F2fs: {
-      return FormatF2fs(partition->path, partition->label);
-    }
-    case FsType::Fat16: {
-      return FormatFat16(partition->path, partition->label);
-    }
-    case FsType::EFI:
-    case FsType::Fat32: {
-      return FormatFat32(partition->path, partition->label);
-    }
-    case FsType::Hfs: {
-      return FormatHfs(partition->path, partition->label);
-    }
-    case FsType::HfsPlus: {
-      return FormatHfsPlus(partition->path, partition->label);
-    }
-    case FsType::Jfs: {
-      return FormatJfs(partition->path, partition->label);
-    }
-    case FsType::LinuxSwap: {
-      return FormatLinuxSwap(partition->path, partition->label);
-    }
-    case FsType::Nilfs2: {
-      return FormatNilfs2(partition->path, partition->label);
-    }
-    case FsType::NTFS: {
-      return FormatNTFS(partition->path, partition->label);
-    }
-    case FsType::Reiser4: {
-      return FormatReiser4(partition->path, partition->label);
-    }
-    case FsType::Reiserfs: {
-      return FormatReiserfs(partition->path, partition->label);
-    }
-    case FsType::Xfs: {
-      return FormatXfs(partition->path, partition->label);
-    }
-    default: {
-      qWarning() << "Unsupported filesystem to format!" << partition->path;
-      return false;
-    }
-  }
+
+    return map[partition->fs]->exec();
 }
 
 }  // namespace installer

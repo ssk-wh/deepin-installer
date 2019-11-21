@@ -29,27 +29,6 @@ namespace {
 // "unused" mount point.
 const char kMountPointUnused[] = "unused";
 
-const QMap<FsType, QString> FsFormatCmdMap{
-    { FsType::Btrfs, QString("mkfs.btrfs") },
-    { FsType::EFI, QString("mkfs.vfat") },
-    { FsType::Ext2, QString("mkfs.ext2") },
-    { FsType::Ext3, QString("mkfs.ext3") },
-    { FsType::Ext4, QString("mkfs.ext4") },
-    { FsType::F2fs, QString("mkfs.f2fs") },
-    { FsType::Fat16, QString("mkfs.fat") },
-    { FsType::Fat32, QString("mkfs.fat") },
-    { FsType::Hfs, QString("/usr/bin/hformat") },
-    { FsType::HfsPlus, QString("/usr/bin/hpfsck") },
-    { FsType::Jfs, QString("mkfs.jfs") },
-    { FsType::LinuxSwap, QString("mkswap") },
-    { FsType::LVM2PV, QString("lvm") },
-    { FsType::Nilfs2, QString("mkfs.nilfs2") },
-    { FsType::NTFS, QString("mkfs.ntfs") },
-    { FsType::Reiser4, QString("mkfs.reiser4") },
-    { FsType::Reiserfs, QString("mkfs.reiserfs") },
-    { FsType::Xfs, QString("mkfs.xfs") }
-};
-
 }  // namespace
 
 AdvancedPartitionDelegate::AdvancedPartitionDelegate(QObject* parent)
