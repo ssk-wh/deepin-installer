@@ -43,7 +43,8 @@ const QMap<FsType, QString> FsFormatCmdMap{
     { FsType::NTFS, QString("mkfs.ntfs") },
     { FsType::Reiser4, QString("mkfs.reiser4") },
     { FsType::Reiserfs, QString("mkfs.reiserfs") },
-    { FsType::Xfs, QString("mkfs.xfs") }
+    { FsType::Xfs, QString("mkfs.xfs") },
+    { FsType::Recovery, QString("mkfs.ext4") }
 };
 }
 
