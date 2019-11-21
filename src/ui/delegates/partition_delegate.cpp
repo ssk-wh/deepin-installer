@@ -4,6 +4,8 @@
 #include "service/settings_name.h"
 #include "ui/delegates/partition_util.h"
 
+#include <QUuid>
+
 using namespace installer;
 using namespace installer::partition;
 
@@ -221,6 +223,19 @@ ValidateStates Delegate::validate() const
     return states;
 }
 
+void Delegate::createDeviceTable(Device::Ptr device) {
+    // Add NewPartTable operation.
+    Device::Ptr new_device(new Device(*device));
+    new_device->partitions.clear();
+    new_device->table =
+        IsEfiEnabled() ? PartitionTableType::GPT : PartitionTableType::MsDos;
+
+    const Operation operation(new_device);
+    operations_.append(operation);
+    // Update virtual device property at the same time.
+    operation.applyToVisual(device);
+}
+
 void Delegate::resetOperations()
 {
     operations_.clear();
@@ -244,22 +259,12 @@ bool Delegate::createPartition(const Partition::Ptr partition,
 
     // * If partition table is empty, create a new one.
     if (device->table == PartitionTableType::Empty) {
-        // Add NewPartTable operation.
-        Device::Ptr new_device(new Device(*device));
-        new_device->partitions.clear();
-        new_device->table =
-            IsEfiEnabled() ? PartitionTableType::GPT : PartitionTableType::MsDos;
-
-        //NOTE: GPT table need 33 sectors in the end.
-        if (new_device->table == PartitionTableType::GPT) {
+        createDeviceTable(device);
+            //NOTE: GPT table need 33 sectors in the end.
+        if (operations_.last().device->table == PartitionTableType::GPT) {
             partition->length -= 33;
             partition->end_sector -= 33;
         }
-
-        const Operation operation(new_device);
-        operations_.append(operation);
-        // Update virtual device property at the same time.
-        operation.applyToVisual(device);
     }
 
     if (fs_type == FsType::Recovery) {
@@ -297,7 +302,7 @@ bool Delegate::createLogicalPartition(const Partition::Ptr partition,
         return false;
     }
 
-    const int         ext_index = ExtendedPartitionIndex(device->partitions);
+    int               ext_index = ExtendedPartitionIndex(device->partitions);
     Partition::Ptr    ext_partition(new Partition);
 
     if (ext_index == -1) {
@@ -385,20 +390,7 @@ bool Delegate::createLogicalPartition(const Partition::Ptr partition,
                                            partition->end_sector - total_sectors);
     }
 
-    /*
-        NOTE(justforlxz): 特意说明一下扩展分区的问题
-        这里存在第一个问题，扩展分区需要一点点空间来存内部的分区表
-        所以在这里判断创建第一个扩展分区的第一个分区的时候，平移1M出来
-        后续的分区就不需要平移了，因为后面的空闲都可以正确计算。
-    */
-    if (ext_index == -1) {
-        const qint64 oneMebiByteSector = 1 * kMebiByte / partition->sector_size;
-        new_partition->start_sector += oneMebiByteSector;
-        new_partition->end_sector += oneMebiByteSector;
-    }
-    else {
         new_partition->start_sector += 1;
-    }
 
     // Align to nearest MebiBytes.
     AlignPartition(new_partition);
@@ -653,41 +645,38 @@ void Delegate::deletePartition(const Partition::Ptr partition)
         // Delete extended partition if needed.
         PartitionList& partitions = device->partitions;
 
-        const int ext_index = ExtendedPartitionIndex(partitions);
-        if (ext_index > -1) {
-            const PartitionList logical_parts = GetLogicalPartitions(partitions);
-
+        Partition::Ptr extPartition = partitions.at(ExtendedPartitionIndex(partitions));
+        const PartitionList logical_parts = GetLogicalPartitions(partitions);
+        if (!extPartition.isNull()) {
             // Only one logical partition, and it has been removed.
             // Or logical partition list is empty.
             if ((logical_parts.length() == 1 && logical_parts.at(0) == partition) ||
                 (logical_parts.length() == 0)) {
-                const Partition::Ptr ext_partition = partitions.at(ext_index);
                 Partition::Ptr       unallocated_partition(new Partition);
-                unallocated_partition->device_path = ext_partition->device_path;
+                unallocated_partition->device_path = extPartition->device_path;
                 // Extended partition does not contain any sectors.
                 // This new allocated partition will be merged to other unallocated
                 // partitions.
-                unallocated_partition->start_sector = ext_partition->start_sector;
-                unallocated_partition->end_sector   = ext_partition->end_sector;
-                unallocated_partition->sector_size  = ext_partition->sector_size;
+                unallocated_partition->start_sector = extPartition->start_sector;
+                unallocated_partition->end_sector   = extPartition->end_sector;
+                unallocated_partition->sector_size  = extPartition->sector_size;
                 unallocated_partition->type         = PartitionType::Unallocated;
-                const Operation operation(OperationType::Delete, ext_partition,
+                const Operation operation(OperationType::Delete, extPartition,
                                           unallocated_partition);
                 operations_.append(operation);
                 operation.applyToVisual(device);
             }
-            else if (partition->type == PartitionType::Logical) {
+            else {
                 //Modify boundary of extended partition after removing logical partition since it may be the first or the last logical partition
                 qint64 ext_start_sector = -1;
                 qint64 ext_end_sector   = -1;
                 if (reCalculateExtPartBoundary(
                         partitions, PartitionAction::RemoveLogicalPartition, partition,
                         ext_start_sector, ext_end_sector)) {
-                    const Partition::Ptr ext_partition = partitions.at(ext_index);
-                    Partition::Ptr       new_ext_partition(new Partition(*ext_partition));
+                    Partition::Ptr       new_ext_partition(new Partition(*extPartition));
                     new_ext_partition->start_sector = ext_start_sector;
                     new_ext_partition->end_sector   = ext_end_sector;
-                    const Operation operation(OperationType::Resize, ext_partition,
+                    Operation operation(OperationType::Resize, extPartition,
                                               new_ext_partition);
                     operations_.append(operation);
                     operation.applyToVisual(device);

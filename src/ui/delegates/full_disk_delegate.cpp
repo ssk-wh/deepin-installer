@@ -139,11 +139,6 @@ bool FullDiskDelegate::formatWholeDevice(const QString& device_path,
       const qint64 sectors = uefiSize / device->sector_size;
       lastDeviceLenght -= sectors;
 
-      primaryPartitionLength++;
-
-      Operation& last_operation = operations_.last();
-      last_operation.applyToVisual(device);
-
       unallocated = device->partitions.last();
   }
 
@@ -200,9 +195,6 @@ bool FullDiskDelegate::formatWholeDevice(const QString& device_path,
           qCritical() << "Failed to create partition on " << unallocated;
           return false;
       }
-
-      Operation& last_operation = operations_.last();
-      last_operation.applyToVisual(device);
 
       // NOTE(justforlxz): 找到中间的空闲分区，因为对齐存在右边
       for (Partition::Ptr p : device->partitions) {
@@ -457,8 +449,7 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
         const qint64 sectors = uefiSize / device->sector_size;
         lastDeviceLenght -= sectors;
         primary_count++;
-        Operation& last_operation = operations_.last();
-        last_operation.applyToVisual(device);
+
         unallocated = device->partitions.last();
         startSector += sectors;
         adjust_start_offset_sector += sectors;
@@ -531,9 +522,11 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
             return false;
         }
 
-        bool is_primary = (device->table == PartitionTableType::GPT
-                           || primary_count < (device->max_prims - 1));
-        policy.partitionType = is_primary ? PartitionType::Normal : PartitionType::Logical;
+        bool is_primary = ((device->table == PartitionTableType::GPT) ||
+                           (primary_count < (device->max_prims - 1)));
+        policy.partitionType =
+            is_primary ? PartitionType::Normal : PartitionType::Logical;
+
         if (is_primary) {
             primary_count++;
         }
@@ -564,8 +557,6 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
             return false;
         }
 
-        Operation& last_operation = operations_.last();
-        last_operation.applyToVisual(device);
         for (Partition::Ptr p : device->partitions) {
             if (p->type == PartitionType::Unallocated) {
                 unallocated = p;

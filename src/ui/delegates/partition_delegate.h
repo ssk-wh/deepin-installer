@@ -111,6 +111,8 @@ public:
                                  FsType               fs_type,
                                  const QString&       mount_point);
 
+    void createDeviceTable(Device::Ptr device);
+
     // Clear operation list.
     virtual void resetOperations();
 
