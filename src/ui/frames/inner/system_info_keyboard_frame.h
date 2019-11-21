@@ -19,40 +19,49 @@
 #define INSTALLER_UI_FRAMES_INNER_SYSTEM_INFO_KEYBOARD_FRAME_H
 
 #include <QFrame>
+#include <QScopedPointer>
+class QLineEdit;
+class QLabel;
 
 namespace installer {
 
-class SystemInfoKeyboardFramePrivate;
+class FramelessListView;
+class KeyboardLayoutModel;
+class KeyboardLayoutVariantModel;
+class NavButton;
+class TitleLabel;
 
+class SystemInfoKeyboardFramePrivate;
 // Keyboard layout setup page.
 class SystemInfoKeyboardFrame : public QFrame {
-  Q_OBJECT
+    Q_OBJECT
 
- public:
+public:
     explicit SystemInfoKeyboardFrame(QWidget* parent = nullptr);
-    ~SystemInfoKeyboardFrame();
+    ~SystemInfoKeyboardFrame() override;
 
-  // Set keyboard layout to default value.
-  void readConf();
+    // Set keyboard layout to default value.
+    void readConf();
 
-  // Save current keyboard layout to settings file.
-  void writeConf();
+signals:
+    // Emitted when back_button_ is clicked.
+    void finished();
 
- signals:
-  // Emitted when back_button_ is clicked.
-  void finished();
+    // Emitted when new keyboard layout is selected.
+    void layoutUpdated(const QString& layout);
 
-  // Emitted when new keyboard layout is selected.
-  void layoutUpdated(const QString& layout);
+public slots:
+    // Save current keyboard layout to settings file.
+    void writeConf();
 
- protected:
-  void changeEvent(QEvent* event) override;
+protected:
+    void changeEvent(QEvent* event) override;
 
- private:
-  Q_DECLARE_PRIVATE(SystemInfoKeyboardFrame)
-  SystemInfoKeyboardFramePrivate* d_ptr;
+private:
+    QScopedPointer<SystemInfoKeyboardFramePrivate> d_private;
+    Q_DECLARE_PRIVATE_D(d_private, SystemInfoKeyboardFrame)
 };
 
-}  // namespace installer
+}
 
 #endif  // INSTALLER_UI_FRAMES_INNER_SYSTEM_INFO_KEYBOARD_FRAME_H
