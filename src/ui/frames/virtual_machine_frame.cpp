@@ -40,7 +40,7 @@ void VirtualMachineFrame::changeEvent(QEvent* event) {
     title_label_->setText(tr("Friendly Reminder"));
     comment_label_->setText(
         tr("You are using a virtual machine which will affect system performance and user experience. "
-           "To get a smoother experience, please install deepin in a real environment"));
+           "To get a smoother experience, please install UOS in a real environment"));
     next_button_->setText(tr("Continue"));
   } else {
     QFrame::changeEvent(event);
