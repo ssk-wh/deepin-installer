@@ -224,15 +224,29 @@ void PartitionManager::doManualPart(const OperationList& operations) {
   if (ok) {
     devices = ScanDevices(false);
     // Update mount point of real partitions.
+    std::vector<Partition::Ptr> mountList;
+    for (const Operation& operation : real_operations) {
+        if (operation.type == OperationType::NewPartTable) continue;
+        if (operation.new_partition->mount_point.isEmpty()) continue;
+        mountList.push_back(operation.new_partition);
+    }
+
     for (Device::Ptr device : devices) {
-      for (Partition::Ptr partition : device->partitions) {
-        for (const Operation& operation : real_operations) {
-          if (operation.type == OperationType::NewPartTable) continue; // skip for create table
-          if (operation.new_partition->path == partition->path) {
-            partition->mount_point = operation.new_partition->mount_point;
-          }
+        for (Partition::Ptr partition : device->partitions) {
+            auto it = std::find_if(
+                mountList.cbegin(), mountList.cend(), [=](const Partition::Ptr p) {
+                    return (p->device_path == partition->device_path) &&
+                           (partition->start_sector == p->start_sector) &&
+                           (partition->end_sector == p->end_sector);
+                });
+
+            if (it != mountList.cend()) {
+                partition->mount_point = (*it)->mount_point;
+            }
+            else {
+                qCritical() << "Cannot find partition";
+            }
         }
-      }
     }
   }
 
