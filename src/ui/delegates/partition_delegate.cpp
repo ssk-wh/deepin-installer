@@ -365,6 +365,7 @@ bool Delegate::createLogicalPartition(const Partition::Ptr partition,
         // Hide recovery partition
         new_partition->flags << PartitionFlag::Hidden;
         settings_.recovery_path = new_partition->path;
+        new_partition->label = "Backup";
     }
 
     // space is required for the Extended Boot Record.
@@ -503,6 +504,7 @@ bool Delegate::createPrimaryPartition(const Partition::Ptr partition,
         // Hide recovery partition
         new_partition->flags << PartitionFlag::Hidden;
         settings_.recovery_path = new_partition->path;
+        new_partition->label = "Backup";
     }
 
     // Check whether space is required for the Master Boot Record.
