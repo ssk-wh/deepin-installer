@@ -391,7 +391,7 @@ bool Delegate::createLogicalPartition(const Partition::Ptr partition,
                                            partition->end_sector - total_sectors);
     }
 
-        new_partition->start_sector += 1;
+    new_partition->start_sector += 1;
 
     // Align to nearest MebiBytes.
     AlignPartition(new_partition);
@@ -532,12 +532,6 @@ bool Delegate::createPrimaryPartition(const Partition::Ptr partition,
             new_partition->start_sector =
                 qMax(partition->start_sector, partition->end_sector - total_sectors);
         }
-    }
-
-    // 如果创建的是扩展分区，应该多申请1M，因为要预留出分区表
-    // 创建主分区的时候，会调整扩展分区，由于开头偏移了1M，所以需要在那里减去
-    if (partition_type == PartitionType::Extended && ext_index == -1) {
-        new_partition->end_sector += oneMebiByteSector;
     }
 
     // Align to nearest MebiBytes.

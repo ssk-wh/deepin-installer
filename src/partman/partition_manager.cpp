@@ -226,8 +226,6 @@ void PartitionManager::doManualPart(const OperationList& operations) {
     // Update mount point of real partitions.
     std::map<QString, Partition::Ptr> mountMap;
     for (const Operation& operation : real_operations) {
-        if (operation.new_partition->mount_point.isEmpty()) continue;
-
         if ((operation.type == OperationType::Create) ||
             (operation.type == OperationType::Format) ||
             (operation.type == OperationType::MountPoint)) {
@@ -235,7 +233,7 @@ void PartitionManager::doManualPart(const OperationList& operations) {
         }
 
         if (operation.type == OperationType::Delete) {
-            mountMap.erase(operation.new_partition->mount_point);
+            mountMap.erase(operation.orig_partition->mount_point);
         }
     }
 
