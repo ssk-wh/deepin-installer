@@ -47,21 +47,17 @@ class SystemInfoKeyboardFramePrivate : public QObject
 {
     Q_OBJECT
 public:
-    SystemInfoKeyboardFramePrivate(SystemInfoKeyboardFrame *KK):m_sff(KK){}
-    SystemInfoKeyboardFrame *m_sff;
+    SystemInfoKeyboardFramePrivate(SystemInfoKeyboardFrame *ptr)
+        : q_ptr(ptr)
+    {}
 
-    TitleLabel* m_titleLabel = new TitleLabel("");
-    QLabel* m_guideLabel = new QLabel;
-    FramelessListView* m_layoutView = new FramelessListView;
-    KeyboardLayoutModel* m_layoutModel = new KeyboardLayoutModel;
-    FramelessListView* m_variantView = new FramelessListView;
-    KeyboardLayoutVariantModel* m_variantModel = new KeyboardLayoutVariantModel;
-    QLineEdit* m_testEdit = new QLineEdit;
-    NavButton* m_backButton = new NavButton;
-    QString m_currentLocale;
+    SystemInfoKeyboardFrame *q_ptr;
+    Q_DECLARE_PUBLIC(SystemInfoKeyboardFrame)
 
+private:
     void initConnections();
     void initUI();
+    void updateTs();
 
     // Update variant list when new keyboard layout is selected.
     // Update system keyboard layout.
@@ -75,7 +71,15 @@ public:
     void onVariantViewSelected(const QModelIndex& current,
                                const QModelIndex& previous);
 
-    void updateTs();
+    TitleLabel* m_titleLabel = new TitleLabel("");
+    QLabel* m_guideLabel = new QLabel;
+    FramelessListView* m_layoutView = new FramelessListView;
+    KeyboardLayoutModel* m_layoutModel = new KeyboardLayoutModel;
+    FramelessListView* m_variantView = new FramelessListView;
+    KeyboardLayoutVariantModel* m_variantModel = new KeyboardLayoutVariantModel;
+    QLineEdit* m_testEdit = new QLineEdit;
+    NavButton* m_backButton = new NavButton;
+    QString m_currentLocale;
 };
 
 SystemInfoKeyboardFrame::SystemInfoKeyboardFrame(QWidget* parent)
@@ -180,16 +184,20 @@ void SystemInfoKeyboardFrame::changeEvent(QEvent* event) {
 }
 
 void SystemInfoKeyboardFramePrivate::initConnections() {
+    Q_Q(SystemInfoKeyboardFrame);
+
     connect(m_layoutView->selectionModel(), &QItemSelectionModel::currentChanged,
             this, &SystemInfoKeyboardFramePrivate::onLayoutViewSelectionChanged);
     connect(m_variantView->selectionModel(), &QItemSelectionModel::currentChanged,
             this, &SystemInfoKeyboardFramePrivate::onVariantViewSelected);
 
     connect(m_backButton, &QPushButton::clicked,
-            m_sff, &SystemInfoKeyboardFrame::finished);
+            q, &SystemInfoKeyboardFrame::finished);
 }
 
 void SystemInfoKeyboardFramePrivate::initUI() {
+    Q_Q(SystemInfoKeyboardFrame);
+
     m_layoutView->setObjectName("layout_view");
     m_layoutView->setModel(m_layoutModel);
     m_layoutView->setFixedWidth(340);
@@ -245,10 +253,10 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     layout->addSpacing(kMainLayoutSpacing + 30);
     layout->addWidget(m_backButton, 0, Qt::AlignHCenter);
 
-    m_sff->setLayout(layout);
-    m_sff->setContentsMargins(0, 0, 0, 0);
+    q->setLayout(layout);
+    q->setContentsMargins(0, 0, 0, 0);
     const QString style = ReadFile(":/styles/system_info_keyboard_frame.css");
-    m_sff->setStyleSheet(style);
+    q->setStyleSheet(style);
 
     // Update style of list views, adding border radius.
     AppendStyleSheet(m_layoutView, style);
@@ -276,6 +284,8 @@ void SystemInfoKeyboardFramePrivate::onLayoutViewSelectionChanged(
 
 void SystemInfoKeyboardFramePrivate::onVariantViewSelected(
         const QModelIndex& current, const QModelIndex& previous) {
+    Q_Q(SystemInfoKeyboardFrame);
+
     Q_UNUSED(previous);
 
     // Clear content of m_testEdit when new layout variant is selected.
@@ -298,9 +308,9 @@ void SystemInfoKeyboardFramePrivate::onVariantViewSelected(
             qWarning() << "SetXkbLayout() failed!" << layout << variant;
         }
     }
-    emit m_sff->layoutUpdated(description);
+    emit q->layoutUpdated(description);
 
-    m_sff->writeConf();
+    q->writeConf();
 }
 
 }  // namespace installer
