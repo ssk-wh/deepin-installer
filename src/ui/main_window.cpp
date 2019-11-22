@@ -613,10 +613,11 @@ void MainWindow::rebootSystem() {
   this->saveLogFile();
 
   if (!RebootSystemWithMagicKey()) {
-    qWarning() << "RebootSystemWithMagicKey() failed!";
-    if (!RebootSystem()) {
+      qWarning() << "RebootSystemWithMagicKey() failed!";
+  }
+
+  if (!RebootSystem()) {
       qWarning() << "RebootSystem() failed!";
-    }
   }
 }
 
@@ -624,10 +625,11 @@ void MainWindow::shutdownSystem() {
   this->saveLogFile();
 
   if (!ShutdownSystemWithMagicKey()) {
-    qWarning() << "ShutdownSystemWithMagicKey() failed!";
-    if (!ShutdownSystem()) {
+      qWarning() << "ShutdownSystemWithMagicKey() failed!";
+  }
+
+  if (!ShutdownSystem()) {
       qWarning() << "ShutdownSystem() failed!";
-    }
   }
 }
 
