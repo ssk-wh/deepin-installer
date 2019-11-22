@@ -53,37 +53,11 @@ class SystemInfoFormFramePrivate : public QObject
 {
     Q_OBJECT
 public:
-    SystemInfoFormFramePrivate(SystemInfoFormFrame *qq) : m_ptr(qq){}
+    SystemInfoFormFramePrivate(SystemInfoFormFrame *qq) : q_ptr(qq){}
+    SystemInfoFormFrame* q_ptr;
+    Q_DECLARE_PUBLIC(SystemInfoFormFrame)
 
-    bool m_isUsernameEdited_ ;
-    bool m_isHostnameEdited_ ;
-    // If hostname is edited by user, do not generate new hostname based on
-    // current username.
-    bool m_isHostnameEditedManually_;
-    bool m_isPasswordEdited_ ;
-    bool m_isPassword2Edited_ ;
-    bool m_isRootPasswordEdited ;
-    bool m_isRootPasswordCheckEdited ;
-
-    TitleLabel*   m_titleLabel_         = nullptr;
-    CommentLabel* m_commentLabel_       = nullptr;
-    AvatarButton* m_avatarButton_       = nullptr;
-    LineEdit*     m_usernameEdit_       = nullptr;
-    LineEdit*     m_hostnameEdit_       = nullptr;
-    LineEdit*     m_passwordEdit_       = nullptr;
-    LineEdit*     m_passwordCheckEdit_ = nullptr;
-    QCheckBox*    m_grubPasswordCheck_ = nullptr;
-    QCheckBox*    m_setRootPasswordCheck = nullptr;
-    LineEdit*     m_rootPasswordEdit = nullptr;
-    LineEdit*     m_rootPasswordCheckEdit = nullptr;
-
-    // Display tooltip error message.
-    SystemInfoTip*         tooltip_     = nullptr;
-    NavButton*             next_button_ = nullptr;
-    std::vector<LineEdit*> m_editList;
-
-    SystemInfoFormFrame* m_ptr;
-
+private:
     void initConnections();
     void initUI();
     void updateTex();
@@ -120,6 +94,36 @@ public:
     void onRootPasswordCheckEdited();
     void onRootPasswordCheckEditingFinished();
     void onSetRootPasswordCheckChanged(bool enable);
+
+private:
+    bool m_isUsernameEdited_ = false;
+    bool m_isHostnameEdited_ = false;
+    // If hostname is edited by user, do not generate new hostname based on
+    // current username.
+    bool m_isHostnameEditedManually_ = false;
+    bool m_isPasswordEdited_ = false;
+    bool m_isPassword2Edited_ = false;
+    bool m_isRootPasswordEdited = false;
+    bool m_isRootPasswordCheckEdited =false;
+
+    TitleLabel*   m_titleLabel_         = nullptr;
+    CommentLabel* m_commentLabel_       = nullptr;
+    AvatarButton* m_avatarButton_       = nullptr;
+    LineEdit*     m_usernameEdit_       = nullptr;
+    LineEdit*     m_hostnameEdit_       = nullptr;
+    LineEdit*     m_passwordEdit_       = nullptr;
+    LineEdit*     m_passwordCheckEdit_ = nullptr;
+    QCheckBox*    m_grubPasswordCheck_ = nullptr;
+    QCheckBox*    m_setRootPasswordCheck = nullptr;
+    LineEdit*     m_rootPasswordEdit = nullptr;
+    LineEdit*     m_rootPasswordCheckEdit = nullptr;
+
+    // Display tooltip error message.
+    SystemInfoTip*         tooltip_     = nullptr;
+    NavButton*             next_button_ = nullptr;
+
+    std::vector<LineEdit*> m_editList;
+
 };
 
 SystemInfoFormFrame::SystemInfoFormFrame(QWidget* parent) : QFrame(parent)
@@ -188,7 +192,9 @@ void SystemInfoFormFrame::showEvent(QShowEvent* event)
 
 void SystemInfoFormFramePrivate::initConnections()
 {
-    connect(m_avatarButton_, &QPushButton::clicked, m_ptr,
+    Q_Q(SystemInfoFormFrame);
+
+    connect(m_avatarButton_, &QPushButton::clicked, q,
             &SystemInfoFormFrame::avatarClicked);
     connect(next_button_, &QPushButton::clicked, this,
             &SystemInfoFormFramePrivate::onNextButtonClicked);
@@ -253,6 +259,8 @@ void SystemInfoFormFramePrivate::initConnections()
 
 void SystemInfoFormFramePrivate::initUI()
 {
+    Q_Q(SystemInfoFormFrame);
+
     m_titleLabel_   = new TitleLabel("");
     m_commentLabel_ = new CommentLabel;
     m_avatarButton_ = new AvatarButton;
@@ -306,7 +314,7 @@ void SystemInfoFormFramePrivate::initUI()
     m_editList.push_back(m_rootPasswordEdit);
     m_editList.push_back(m_rootPasswordCheckEdit);
 
-    tooltip_ = new SystemInfoTip(m_ptr);
+    tooltip_ = new SystemInfoTip(q);
     tooltip_->hide();
 
     m_grubPasswordCheck_ = new QCheckBox;
@@ -340,9 +348,9 @@ void SystemInfoFormFramePrivate::initUI()
     // m_usernameEdit_->setRightIcon(CAPS_LOCK_ICON);
     // m_hostnameEdit_->setRightIcon();
 
-    m_ptr->setLayout(layout);
-    m_ptr->setContentsMargins(0, 0, 0, 0);
-    m_ptr->setStyleSheet(ReadFile(":/styles/system_info_form_frame.css"));
+    q->setLayout(layout);
+    q->setContentsMargins(0, 0, 0, 0);
+    q->setStyleSheet(ReadFile(":/styles/system_info_form_frame.css"));
 }
 
 void SystemInfoFormFramePrivate::updateTex()
@@ -513,6 +521,8 @@ bool SystemInfoFormFramePrivate::validatePassword2(LineEdit* passwordEdit, LineE
 
 void SystemInfoFormFramePrivate::systemInfoFrameFinish()
 {
+    Q_Q(SystemInfoFormFrame);
+
     tooltip_->hide();
 
     // save config
@@ -540,7 +550,7 @@ void SystemInfoFormFramePrivate::systemInfoFrameFinish()
     }
 
     // Emit finished signal when all form inputs are ok.
-    emit m_ptr->finished();
+    emit q->finished();
 }
 
 void SystemInfoFormFramePrivate::onNextButtonClicked()
