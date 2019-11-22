@@ -230,7 +230,7 @@ void SelectLanguageFrame::updateTranslator(const QString& locale) {
 void SelectLanguageFrame::updateTs() {
   next_button_->setText(tr("Next"));
   accept_license_->setText(tr("I have read and agree to"));
-  license_label_->setText(tr("Deepin Software End User License Agreement"));
+  license_label_->setText(tr("UOS Software End User License Agreement"));
   sub_title_label_->setText(tr("Select system language"));
 
   if( oem_license_label_ != nullptr) {

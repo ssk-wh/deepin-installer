@@ -26,7 +26,7 @@ using namespace installer;
 ControlPlatformFrame::ControlPlatformFrame(QWidget* parent)
     : QWidget(parent)
     , m_titleLbl(new TitleLabel(tr("Set Control Region")))
-    , m_subTitleLbl(new CommentLabel(tr("Set the region for Deepin EndPoint Management Platform")))
+    , m_subTitleLbl(new CommentLabel(tr("Set the region for UOS EndPoint Management Platform")))
     , m_serverLineEdit(new LineEdit(QString(":/images/hostname_12.svg")))
     , m_regionBox(new TableComboBox)
     , m_nextButton(new NavButton)
@@ -116,7 +116,7 @@ bool ControlPlatformFrame::event(QEvent* event)
         m_nextButton->setText(tr("Next"));
         m_serverLineEdit->setPlaceholderText(tr("Server Address"));
         m_titleLbl->setText(tr("Set Control Region"));
-        m_subTitleLbl->setText(tr("Set the region for Deepin EndPoint Management Platform"));
+        m_subTitleLbl->setText(tr("Set the region for UOS EndPoint Management Platform"));
     }
 
     return QWidget::event(event);

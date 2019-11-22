@@ -52,13 +52,13 @@ void PartitionTableWarningFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     title_label_->setText(tr("Warning"));
     comment_label_->setText(
-        tr("You have an EFI boot loader but an MBR disk, thus you cannot install deepin directly. "
+        tr("You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. "
            "Please select one of the below solutions and continue."));
     list_title1_->setText(QString("A.%1").arg(tr("Disable UEFI")));
     list_item1_->setText(
         QString("1.%1\n2.%2")
             .arg(tr("Reboot, enter BIOS, and disable UEFI"))
-            .arg(tr("Exit BIOS, and install deepin again")));
+            .arg(tr("Exit BIOS, and install UOS again")));
     list_title2_->setText(QString("B.%1").arg(tr("Format the disk")));
     list_item2_->setText(
         QString("1.%1\n2.%2")
@@ -100,7 +100,7 @@ void PartitionTableWarningFrame::initUI() {
   title_layout->addStretch();
 
   comment_label_ = new CommentLabel(
-      tr("You have an EFI boot loader but an MBR disk, thus you cannot install deepin directly. "
+      tr("You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. "
          "Please select one of the below solutions and continue."));
   QHBoxLayout* comment_layout = new QHBoxLayout();
   comment_layout->setContentsMargins(0, 0, 0, 0);
@@ -112,7 +112,7 @@ void PartitionTableWarningFrame::initUI() {
   list_item1_ = new QLabel(
       QString("1.%1\n2.%2")
           .arg(tr("Reboot, enter BIOS, and disable UEFI"))
-          .arg(tr("Exit BIOS, and install deepin again")),
+          .arg(tr("Exit BIOS, and install UOS again")),
       this);
   list_item1_->setObjectName("list_item1");
   list_item1_->setWordWrap(true);

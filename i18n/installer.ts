@@ -602,9 +602,8 @@
         <translation>Freespace</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="40"/>
         <source>You need at least %1 GB disk space to install deepin. To get better performance, %2 GB or more is recommended</source>
-        <translation>You need at least %1 GB disk space to install deepin. To get better performance, %2 GB or more is recommended</translation>
+        <translation type="vanished">You need at least %1 GB disk space to install deepin. To get better performance, %2 GB or more is recommended</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="49"/>
@@ -628,6 +627,11 @@
         <location filename="../src/ui/frames/install_success_frame.cpp" line="54"/>
         <source>Reboot Now</source>
         <translation type="unfinished">Reboot Now</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="40"/>
+        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -666,8 +670,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="233"/>
-        <source>Deepin Software End User License Agreement</source>
-        <translation type="unfinished">Deepin Software End User License Agreement</translation>
+        <source>UOS Software End User License Agreement</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="234"/>
@@ -705,8 +709,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
-        <source>Windows will not boot if install deepin on Windows disk, please confirm to continue</source>
-        <translation type="unfinished">Windows will not boot if install deepin on Windows disk, please confirm to continue</translation>
+        <source>Windows will not boot if install UOS on Windows disk, please confirm to continue</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -853,81 +857,81 @@
     <name>installer::AdvancedPartitionButton</name>
     <message>
         <source>Install here</source>
-        <translation type="vanished">Install here</translation>
+        <translation type="obsolete">Install here</translation>
     </message>
     <message>
         <source>To be formatted</source>
-        <translation type="vanished">To be formatted</translation>
+        <translation type="obsolete">To be formatted</translation>
     </message>
 </context>
 <context>
     <name>installer::AdvancedPartitionFrame</name>
     <message>
         <source>Change boot loader</source>
-        <translation type="vanished">Change boot loader</translation>
+        <translation type="obsolete">Change boot loader</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Done</translation>
+        <translation type="obsolete">Done</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="vanished">Delete</translation>
+        <translation type="obsolete">Delete</translation>
     </message>
     <message>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation type="vanished">%1 error found, fix to continue installation or switch to simple mode</translation>
+        <translation type="obsolete">%1 error found, fix to continue installation or switch to simple mode</translation>
     </message>
     <message>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation type="vanished">%1 errors found, fix to continue installation or switch to simple mode</translation>
+        <translation type="obsolete">%1 errors found, fix to continue installation or switch to simple mode</translation>
     </message>
     <message>
         <source>%1 error found, continue to install after fixed</source>
-        <translation type="vanished">%1 error found, continue to install after fixed</translation>
+        <translation type="obsolete">%1 error found, continue to install after fixed</translation>
     </message>
     <message>
         <source>%1 errors found, continue to install after fixed</source>
-        <translation type="vanished">%1 errors found, continue to install after fixed</translation>
+        <translation type="obsolete">%1 errors found, continue to install after fixed</translation>
     </message>
     <message>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation type="vanished">The partition filesystem type of /boot directory can only be %1 </translation>
+        <translation type="obsolete">The partition filesystem type of /boot directory can only be %1 </translation>
     </message>
     <message>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation type="vanished">The partition of /boot directory should be the first partition on hard disk</translation>
+        <translation type="obsolete">The partition of /boot directory should be the first partition on hard disk</translation>
     </message>
     <message>
         <source>At least %1 MB is required for /boot partition</source>
-        <translation type="vanished">At least %1 MB is required for /boot partition</translation>
+        <translation type="obsolete">At least %1 MB is required for /boot partition</translation>
     </message>
     <message>
         <source>Add an EFI partition to continue</source>
-        <translation type="vanished">Add an EFI partition to continue</translation>
+        <translation type="obsolete">Add an EFI partition to continue</translation>
     </message>
     <message>
         <source>At least %1 MB is required for EFI partition</source>
-        <translation type="vanished">At least %1 MB is required for EFI partition</translation>
+        <translation type="obsolete">At least %1 MB is required for EFI partition</translation>
     </message>
     <message>
         <source>Add a Root partition to continue</source>
-        <translation type="vanished">Add a Root partition to continue</translation>
+        <translation type="obsolete">Add a Root partition to continue</translation>
     </message>
     <message>
         <source>At least %1 GB is required for Root partition</source>
-        <translation type="vanished">At least %1 GB is required for Root partition</translation>
+        <translation type="obsolete">At least %1 GB is required for Root partition</translation>
     </message>
     <message>
         <source>At least %1 GB is required for partition %2</source>
-        <translation type="vanished">At least %1 GB is required for partition %2</translation>
+        <translation type="obsolete">At least %1 GB is required for partition %2</translation>
     </message>
 </context>
 <context>
     <name>installer::BootloaderListModel</name>
     <message>
         <source>%1 %2 (recommended)</source>
-        <translation type="vanished">%1 %2 (recommended)</translation>
+        <translation type="obsolete">%1 %2 (recommended)</translation>
     </message>
 </context>
 <context>
@@ -1299,8 +1303,17 @@
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="348"/>
+        <source>Java support for UOS.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="359"/>
+        <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Java support for deepin.</source>
-        <translation>Java support for deepin.</translation>
+        <translation type="vanished">Java support for deepin.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="349"/>
@@ -1408,9 +1421,8 @@
         <translation>Platform Development</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="359"/>
         <source>Recommended development headers and libraries for developing applications to run on deepin.</source>
-        <translation>Recommended development headers and libraries for developing applications to run on deepin.</translation>
+        <translation type="vanished">Recommended development headers and libraries for developing applications to run on deepin.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="360"/>
@@ -1467,19 +1479,19 @@
     <name>installer::ConfirmQuitFrame</name>
     <message>
         <source>Abort Installation</source>
-        <translation type="vanished">Abort Installation</translation>
+        <translation type="obsolete">Abort Installation</translation>
     </message>
     <message>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
-        <translation type="vanished">Relevant operations you made in the installation process will not take effect, abort or continue installation?</translation>
+        <translation type="obsolete">Relevant operations you made in the installation process will not take effect, abort or continue installation?</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="vanished">Continue</translation>
+        <translation type="obsolete">Continue</translation>
     </message>
     <message>
         <source>Abort</source>
-        <translation type="vanished">Abort</translation>
+        <translation type="obsolete">Abort</translation>
     </message>
 </context>
 <context>
@@ -1491,10 +1503,14 @@
         <translation>Set Control Region</translation>
     </message>
     <message>
+        <source>Set the region for Deepin EndPoint Management Platform</source>
+        <translation type="vanished">Set the region for Deepin EndPoint Management Platform</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="29"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="119"/>
-        <source>Set the region for Deepin EndPoint Management Platform</source>
-        <translation>Set the region for Deepin EndPoint Management Platform</translation>
+        <source>Set the region for UOS EndPoint Management Platform</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="116"/>
@@ -1511,11 +1527,11 @@
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
         <source>Insufficient Disk Space</source>
-        <translation type="vanished">Insufficient Disk Space</translation>
+        <translation type="obsolete">Insufficient Disk Space</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="vanished">Exit</translation>
+        <translation type="obsolete">Exit</translation>
     </message>
 </context>
 <context>
@@ -1540,69 +1556,69 @@
     <name>installer::EditPartitionFrame</name>
     <message>
         <source>Edit Disk</source>
-        <translation type="vanished">Edit Disk</translation>
+        <translation type="obsolete">Edit Disk</translation>
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="vanished">Make sure you have backed up important data, then select the disk to install</translation>
+        <translation type="obsolete">Make sure you have backed up important data, then select the disk to install</translation>
     </message>
     <message>
         <source>File system</source>
-        <translation type="vanished">File system</translation>
+        <translation type="obsolete">File system</translation>
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="vanished">Mount point</translation>
+        <translation type="obsolete">Mount point</translation>
     </message>
     <message>
         <source>Format the partition</source>
-        <translation type="vanished">Format the partition</translation>
+        <translation type="obsolete">Format the partition</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">Cancel</translation>
+        <translation type="obsolete">Cancel</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation type="vanished">Create</translation>
+        <translation type="obsolete">Create</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="vanished">Confirm</translation>
+        <translation type="obsolete">Confirm</translation>
     </message>
 </context>
 <context>
     <name>installer::FirstBootLoadingFrame</name>
     <message>
         <source>Tuning system</source>
-        <translation type="vanished">Tuning system</translation>
+        <translation type="obsolete">Tuning system</translation>
     </message>
     <message>
         <source>Applying changes to your system, please wait...</source>
-        <translation type="vanished">Applying changes to your system, please wait...</translation>
+        <translation type="obsolete">Applying changes to your system, please wait...</translation>
     </message>
 </context>
 <context>
     <name>installer::FullDiskFrame</name>
     <message>
         <source>Install here</source>
-        <translation type="vanished">Install here</translation>
+        <translation type="obsolete">Install here</translation>
     </message>
     <message>
         <source>Encrypt this disk</source>
-        <translation type="vanished">Encrypt this disk</translation>
+        <translation type="obsolete">Encrypt this disk</translation>
     </message>
     <message>
         <source>Encrypt This Disk</source>
-        <translation type="vanished">Encrypt This Disk</translation>
+        <translation type="obsolete">Encrypt This Disk</translation>
     </message>
     <message>
         <source>Please select a disk to start installation</source>
-        <translation type="vanished">Please select a disk to start installation</translation>
+        <translation type="obsolete">Please select a disk to start installation</translation>
     </message>
     <message>
         <source>It needs more than %1GB disk space to install deepin, for better performance, %2GB and more space is recommended</source>
-        <translation type="vanished">It needs more than %1GB disk space to install deepin, for better performance, %2GB and more space is recommended</translation>
+        <translation type="obsolete">It needs more than %1GB disk space to install deepin, for better performance, %2GB and more space is recommended</translation>
     </message>
 </context>
 <context>
@@ -1699,11 +1715,11 @@
     <name>installer::InstallProgressFrame</name>
     <message>
         <source>Installing</source>
-        <translation type="vanished">Installing</translation>
+        <translation type="obsolete">Installing</translation>
     </message>
     <message>
         <source>Here are a few cool things to look out for...</source>
-        <translation type="vanished">Here are a few cool things to look out for...</translation>
+        <translation type="obsolete">Here are a few cool things to look out for...</translation>
     </message>
 </context>
 <context>
@@ -1750,11 +1766,11 @@
     <name>installer::MultipleDiskInstallationWidget</name>
     <message>
         <source>System Disk</source>
-        <translation type="vanished">System Disk</translation>
+        <translation type="obsolete">System Disk</translation>
     </message>
     <message>
         <source>Data Disk</source>
-        <translation type="vanished">Data Disk</translation>
+        <translation type="obsolete">Data Disk</translation>
     </message>
 </context>
 <context>
@@ -1814,158 +1830,158 @@
     <name>installer::NewPartitionFrame</name>
     <message>
         <source>Create New Partition</source>
-        <translation type="vanished">Create New Partition</translation>
+        <translation type="obsolete">Create New Partition</translation>
     </message>
     <message>
         <source>Create a new partition and define the type and size</source>
-        <translation type="vanished">Create a new partition and define the type and size</translation>
+        <translation type="obsolete">Create a new partition and define the type and size</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="vanished">Type</translation>
+        <translation type="obsolete">Type</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation type="vanished">Location</translation>
+        <translation type="obsolete">Location</translation>
     </message>
     <message>
         <source>File system</source>
-        <translation type="vanished">File system</translation>
+        <translation type="obsolete">File system</translation>
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="vanished">Mount point</translation>
+        <translation type="obsolete">Mount point</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="vanished">Size</translation>
+        <translation type="obsolete">Size</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="vanished">Start</translation>
+        <translation type="obsolete">Start</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="vanished">End</translation>
+        <translation type="obsolete">End</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">Cancel</translation>
+        <translation type="obsolete">Cancel</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="vanished">OK</translation>
+        <translation type="obsolete">OK</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation type="vanished">Create</translation>
+        <translation type="obsolete">Create</translation>
     </message>
 </context>
 <context>
     <name>installer::NewTableLoadingFrame</name>
     <message>
         <source>Formatting...</source>
-        <translation type="vanished">Formatting...</translation>
+        <translation type="obsolete">Formatting...</translation>
     </message>
 </context>
 <context>
     <name>installer::NewTableWarningFrame</name>
     <message>
         <source>Format Warning</source>
-        <translation type="vanished">Format Warning</translation>
+        <translation type="obsolete">Format Warning</translation>
     </message>
     <message>
         <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation type="vanished">Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</translation>
+        <translation type="obsolete">Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">Cancel</translation>
+        <translation type="obsolete">Cancel</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="vanished">Continue</translation>
+        <translation type="obsolete">Continue</translation>
     </message>
 </context>
 <context>
     <name>installer::PartitionFrame</name>
     <message>
         <source>Select Installation Location</source>
-        <translation type="vanished">Select Installation Location</translation>
+        <translation type="obsolete">Select Installation Location</translation>
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="vanished">Make sure you have backed up important data, then select the disk to install</translation>
+        <translation type="obsolete">Make sure you have backed up important data, then select the disk to install</translation>
     </message>
     <message>
         <source>Simple</source>
-        <translation type="vanished">Simple</translation>
+        <translation type="obsolete">Simple</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="vanished">Advanced</translation>
+        <translation type="obsolete">Advanced</translation>
     </message>
     <message>
         <source>Full Disk</source>
-        <translation type="vanished">Full Disk</translation>
+        <translation type="obsolete">Full Disk</translation>
     </message>
     <message>
         <source>Start installation</source>
-        <translation type="vanished">Start installation</translation>
+        <translation type="obsolete">Start installation</translation>
     </message>
     <message>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation type="vanished">The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</translation>
+        <translation type="obsolete">The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</translation>
     </message>
     <message>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation type="vanished">The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</translation>
+        <translation type="obsolete">The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="vanished">Next</translation>
+        <translation type="obsolete">Next</translation>
     </message>
 </context>
 <context>
     <name>installer::PartitionLoadingFrame</name>
     <message>
         <source>Scan disks</source>
-        <translation type="vanished">Scan disks</translation>
+        <translation type="obsolete">Scan disks</translation>
     </message>
     <message>
         <source>Scanning disks, please wait...</source>
-        <translation type="vanished">Scanning disks, please wait...</translation>
+        <translation type="obsolete">Scanning disks, please wait...</translation>
     </message>
 </context>
 <context>
     <name>installer::PartitionNumberLimitationFrame</name>
     <message>
         <source>You should delete a primary partition before creating a new one</source>
-        <translation type="vanished">You should delete a primary partition before creating a new one</translation>
+        <translation type="obsolete">You should delete a primary partition before creating a new one</translation>
     </message>
     <message>
         <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation type="vanished">New logical partitions can only be created near existing logical partitions</translation>
+        <translation type="obsolete">New logical partitions can only be created near existing logical partitions</translation>
     </message>
     <message>
         <source>You should delete a primary partition before creating a new partition</source>
-        <translation type="vanished">You should delete a primary partition before creating a new partition</translation>
+        <translation type="obsolete">You should delete a primary partition before creating a new partition</translation>
     </message>
     <message>
         <source>Failed to Create New Partition</source>
-        <translation type="vanished">Failed to Create New Partition</translation>
+        <translation type="obsolete">Failed to Create New Partition</translation>
     </message>
     <message>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
-        <translation type="vanished">You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</translation>
+        <translation type="obsolete">You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</translation>
     </message>
     <message>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
-        <translation type="vanished">You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</translation>
+        <translation type="obsolete">You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="vanished">Back</translation>
+        <translation type="obsolete">Back</translation>
     </message>
 </context>
 <context>
@@ -1977,10 +1993,8 @@
         <translation>Warning</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="55"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="103"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install deepin directly. Please select one of the below solutions and continue.</source>
-        <translation>You have an EFI boot loader but an MBR disk, thus you cannot install deepin directly. Please select one of the below solutions and continue.</translation>
+        <translation type="vanished">You have an EFI boot loader but an MBR disk, thus you cannot install deepin directly. Please select one of the below solutions and continue.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="57"/>
@@ -1995,10 +2009,20 @@
         <translation>Reboot, enter BIOS, and disable UEFI</translation>
     </message>
     <message>
+        <source>Exit BIOS, and install deepin again</source>
+        <translation type="vanished">Exit BIOS, and install deepin again</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="55"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="103"/>
+        <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="115"/>
-        <source>Exit BIOS, and install deepin again</source>
-        <translation>Exit BIOS, and install deepin again</translation>
+        <source>Exit BIOS, and install UOS again</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="62"/>
@@ -2059,34 +2083,34 @@
     <name>installer::PartitionTypeModel</name>
     <message>
         <source>Logical Partition</source>
-        <translation type="vanished">Logical Partition</translation>
+        <translation type="obsolete">Logical Partition</translation>
     </message>
     <message>
         <source>Primary Partition</source>
-        <translation type="vanished">Primary Partition</translation>
+        <translation type="obsolete">Primary Partition</translation>
     </message>
 </context>
 <context>
     <name>installer::PrepareInstallFrame</name>
     <message>
         <source>Ready to Install</source>
-        <translation type="vanished">Ready to Install</translation>
+        <translation type="obsolete">Ready to Install</translation>
     </message>
     <message>
         <source>Make a backup of your important data and then continue</source>
-        <translation type="vanished">Make a backup of your important data and then continue</translation>
+        <translation type="obsolete">Make a backup of your important data and then continue</translation>
     </message>
     <message>
         <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
-        <translation type="vanished">The following operations will be executed, please confirm and continue to avoid data loss</translation>
+        <translation type="obsolete">The following operations will be executed, please confirm and continue to avoid data loss</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="vanished">Back</translation>
+        <translation type="obsolete">Back</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="vanished">Continue</translation>
+        <translation type="obsolete">Continue</translation>
     </message>
 </context>
 <context>
@@ -2116,15 +2140,15 @@
     <name>installer::SelectBootloaderFrame</name>
     <message>
         <source>Select location for boot loader</source>
-        <translation type="vanished">Select location for boot loader</translation>
+        <translation type="obsolete">Select location for boot loader</translation>
     </message>
     <message>
         <source>If you do not understand the settings, please select the recommended one</source>
-        <translation type="vanished">If you do not understand the settings, please select the recommended one</translation>
+        <translation type="obsolete">If you do not understand the settings, please select the recommended one</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="vanished">Back</translation>
+        <translation type="obsolete">Back</translation>
     </message>
 </context>
 <context>
@@ -2158,46 +2182,46 @@
     <name>installer::SelectLanguageFrame</name>
     <message>
         <source>Next</source>
-        <translation type="vanished">Next</translation>
+        <translation type="obsolete">Next</translation>
     </message>
     <message>
         <source>I have read and agree to</source>
-        <translation type="vanished">I have read and agree to</translation>
-    </message>
-    <message>
-        <source>Deepin Software End User License Agreement</source>
-        <translation type="vanished">Deepin Software End User License Agreement</translation>
+        <translation type="obsolete">I have read and agree to</translation>
     </message>
     <message>
         <source>Select system language</source>
-        <translation type="vanished">Select system language</translation>
+        <translation type="obsolete">Select system language</translation>
     </message>
     <message>
         <source>and</source>
-        <translation type="vanished">and</translation>
+        <translation type="obsolete">and</translation>
+    </message>
+    <message>
+        <source>Deepin Software End User License Agreement</source>
+        <translation type="obsolete">Deepin Software End User License Agreement</translation>
     </message>
 </context>
 <context>
     <name>installer::SimplePartitionFrame</name>
     <message>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation type="vanished">Unable to create new partition, please select one of the existing partitions!</translation>
+        <translation type="obsolete">Unable to create new partition, please select one of the existing partitions!</translation>
     </message>
     <message>
         <source>Please select one of the partitions to install!</source>
-        <translation type="vanished">Please select one of the partitions to install!</translation>
+        <translation type="obsolete">Please select one of the partitions to install!</translation>
     </message>
     <message>
         <source>At least %1 GB is required for root partition</source>
-        <translation type="vanished">At least %1 GB is required for root partition</translation>
+        <translation type="obsolete">At least %1 GB is required for root partition</translation>
     </message>
     <message>
         <source>Install here</source>
-        <translation type="vanished">Install here</translation>
+        <translation type="obsolete">Install here</translation>
     </message>
     <message>
         <source>Windows will not boot if install deepin on Windows disk, please confirm to continue</source>
-        <translation type="vanished">Windows will not boot if install deepin on Windows disk, please confirm to continue</translation>
+        <translation type="obsolete">Windows will not boot if install deepin on Windows disk, please confirm to continue</translation>
     </message>
 </context>
 <context>
@@ -2254,11 +2278,11 @@
     <name>installer::SystemInfoAvatarFrame</name>
     <message>
         <source>User Avatar</source>
-        <translation type="vanished">User Avatar</translation>
+        <translation type="obsolete">User Avatar</translation>
     </message>
     <message>
         <source>Select an avatar for your account</source>
-        <translation type="vanished">Select an avatar for your account</translation>
+        <translation type="obsolete">Select an avatar for your account</translation>
     </message>
 </context>
 <context>
@@ -2277,6 +2301,30 @@
 <context>
     <name>installer::SystemInfoFormFrame</name>
     <message>
+        <source>Username</source>
+        <translation type="obsolete">Username</translation>
+    </message>
+    <message>
+        <source>Computer name</source>
+        <translation type="obsolete">Computer name</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="obsolete">Password</translation>
+    </message>
+    <message>
+        <source>Repeat password</source>
+        <translation type="obsolete">Repeat password</translation>
+    </message>
+    <message>
+        <source>Root password</source>
+        <translation type="obsolete">Root password</translation>
+    </message>
+    <message>
+        <source>Repeat root password</source>
+        <translation type="obsolete">Repeat root password</translation>
+    </message>
+    <message>
         <source>Create User Account</source>
         <translation type="vanished">Create User Account</translation>
     </message>
@@ -2285,32 +2333,8 @@
         <translation type="vanished">Fill in the username, computer name and your password</translation>
     </message>
     <message>
-        <source>Username</source>
-        <translation type="vanished">Username</translation>
-    </message>
-    <message>
-        <source>Computer name</source>
-        <translation type="vanished">Computer name</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">Password</translation>
-    </message>
-    <message>
-        <source>Repeat password</source>
-        <translation type="vanished">Repeat password</translation>
-    </message>
-    <message>
         <source>Set root password</source>
         <translation type="vanished">Set root password</translation>
-    </message>
-    <message>
-        <source>Root password</source>
-        <translation type="vanished">Root password</translation>
-    </message>
-    <message>
-        <source>Repeat root password</source>
-        <translation type="vanished">Repeat root password</translation>
     </message>
     <message>
         <source>Next</source>
@@ -2492,19 +2516,19 @@
     <name>installer::SystemInfoKeyboardFrame</name>
     <message>
         <source>Select keyboard layout</source>
-        <translation type="vanished">Select keyboard layout</translation>
+        <translation type="obsolete">Select keyboard layout</translation>
     </message>
     <message>
         <source>Select a proper keyboard layout</source>
-        <translation type="vanished">Select a proper keyboard layout</translation>
+        <translation type="obsolete">Select a proper keyboard layout</translation>
     </message>
     <message>
         <source>Test here</source>
-        <translation type="vanished">Test here</translation>
+        <translation type="obsolete">Test here</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="vanished">Back</translation>
+        <translation type="obsolete">Back</translation>
     </message>
     <message>
         <source>Next</source>
@@ -2538,31 +2562,31 @@
     <name>installer::TimezoneFrame</name>
     <message>
         <source>Select Timezone</source>
-        <translation type="vanished">Select Timezone</translation>
+        <translation type="obsolete">Select Timezone</translation>
     </message>
     <message>
         <source>Click your zone on the map</source>
-        <translation type="vanished">Click your zone on the map</translation>
+        <translation type="obsolete">Click your zone on the map</translation>
     </message>
     <message>
         <source>Select your timezone from the list</source>
-        <translation type="vanished">Select your timezone from the list</translation>
+        <translation type="obsolete">Select your timezone from the list</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="vanished">Next</translation>
+        <translation type="obsolete">Next</translation>
     </message>
     <message>
         <source>Map</source>
-        <translation type="vanished">Map</translation>
+        <translation type="obsolete">Map</translation>
     </message>
     <message>
         <source>List</source>
-        <translation type="vanished">List</translation>
+        <translation type="obsolete">List</translation>
     </message>
     <message>
         <source>Time settings</source>
-        <translation type="vanished">Time settings</translation>
+        <translation type="obsolete">Time settings</translation>
     </message>
 </context>
 <context>
@@ -2592,15 +2616,15 @@
     <name>installer::VirtualMachineFrame</name>
     <message>
         <source>Friendly Reminder</source>
-        <translation type="vanished">Friendly Reminder</translation>
+        <translation type="obsolete">Friendly Reminder</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="obsolete">Continue</translation>
     </message>
     <message>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install deepin in a real environment</source>
         <translation type="vanished">You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install deepin in a real environment</translation>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation type="vanished">Continue</translation>
     </message>
     <message>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install deepin in real-machine environment</source>

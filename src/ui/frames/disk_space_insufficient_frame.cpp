@@ -37,7 +37,7 @@ namespace {
 QString GetCommentLabel() {
   const int minimum = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
   const int recommended = GetSettingsInt(kPartitionRecommendedDiskSpace);
-  return QObject::tr("You need at least %1 GB disk space to install deepin. "
+  return QObject::tr("You need at least %1 GB disk space to install UOS. "
                      "To get better performance, %2 GB or more is recommended")
       .arg(minimum)
       .arg(recommended);
