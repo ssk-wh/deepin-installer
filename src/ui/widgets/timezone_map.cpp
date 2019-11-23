@@ -253,6 +253,8 @@ void TimezoneMap::updateMap() {
     QPixmap mapPixmap = installer::renderPixmap(kTimezoneMapFile);
     mapPixmap = mapPixmap.scaled(size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     map_label_->setPixmap(mapPixmap);
+
+    remark();
 }
 
 void TimezoneMap::onPopupWindowActivated(int index) {
