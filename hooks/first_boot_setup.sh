@@ -31,8 +31,8 @@ CONF_FILE=/etc/deepin-installer.conf
 . ./in_chroot/34_setup_livefs.job
 . ./in_chroot/51_setup_keyboard.job
 . ./in_chroot/52_setup_locale_timezone.job
+  ./in_chroot/53_setup_user.job
 . ./in_chroot/55_customize_user.job
-. ./in_chroot/53_setup_user.job
 . ./in_chroot/91_remove_unused_packages.job
 
 add_uninstall_package() {
