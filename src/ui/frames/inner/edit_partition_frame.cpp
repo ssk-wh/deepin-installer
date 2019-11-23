@@ -22,6 +22,7 @@
 #include <QGridLayout>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QtConcurrent/QtConcurrent>
 
 #include "base/file_util.h"
 #include "service/settings_manager.h"
@@ -68,10 +69,13 @@ EditPartitionFrame::EditPartitionFrame(AdvancedPartitionDelegate* delegate,
 void EditPartitionFrame::setPartition(const Partition::Ptr partition) {
   // Update partition information.
   partition_ = partition;
-  os_label_->setPixmap(QPixmap(GetOsTypeLargeIcon(partition->os)));
-  name_label_->setText(GetPartitionLabelAndPath(partition));
-  usage_label_->setText(GetPartitionUsage(partition));
-  usage_bar_->setValue(GetPartitionUsageValue(partition));
+
+  QtConcurrent::run([=] {
+      os_label_->setPixmap(QPixmap(GetOsTypeLargeIcon(partition->os)));
+      name_label_->setText(GetPartitionLabelAndPath(partition));
+      usage_label_->setText(GetPartitionUsage(partition));
+      usage_bar_->setValue(GetPartitionUsageValue(partition));
+  });
 
   // Update fs list.
   fs_model_->setShowEFI(!delegate_->isMBRPreferred());
