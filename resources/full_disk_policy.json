@@ -45,7 +45,7 @@
     },
     {
         "filesystem": "recovery",
-        "mountPoint": "",
+        "mountPoint": "/recovery",
         "label": "Backup",
         "usage": "10Gib",
         "alignStart": false,

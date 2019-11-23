@@ -304,10 +304,6 @@ create_part(){
       ;;
   esac || error "Failed to set boot flag on $part_path!"
 
-  if [ "${part_fs}" = "recovery" ]; then
-     installer_set DI_RECOVERY_PATH ${part_path}
-  fi
-
   flush_message
 }
 

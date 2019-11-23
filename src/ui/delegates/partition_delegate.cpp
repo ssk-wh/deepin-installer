@@ -267,10 +267,6 @@ bool Delegate::createPartition(const Partition::Ptr partition,
         }
     }
 
-    if (fs_type == FsType::Recovery) {
-        settings_.recovery_path = partition->path;
-    }
-
     if (partition_type == PartitionType::Normal) {
         return createPrimaryPartition(partition, partition_type, align_start, fs_type,
                                       mount_point, total_sectors, label);
@@ -364,8 +360,8 @@ bool Delegate::createLogicalPartition(const Partition::Ptr partition,
     if (fs_type == FsType::Recovery) {
         // Hide recovery partition
         new_partition->flags << PartitionFlag::Hidden;
-        settings_.recovery_path = new_partition->path;
-        new_partition->label = "Backup";
+        new_partition->label       = "Backup";
+        new_partition->mount_point = "/recovery";
     }
 
     // space is required for the Extended Boot Record.
@@ -503,8 +499,8 @@ bool Delegate::createPrimaryPartition(const Partition::Ptr partition,
     if (fs_type == FsType::Recovery) {
         // Hide recovery partition
         new_partition->flags << PartitionFlag::Hidden;
-        settings_.recovery_path = new_partition->path;
-        new_partition->label = "Backup";
+        new_partition->label       = "Backup";
+        new_partition->mount_point = "/recovery";
     }
 
     // Check whether space is required for the Master Boot Record.
@@ -728,7 +724,8 @@ void Delegate::formatPartition(const Partition::Ptr partition,
     if (fs_type == FsType::Recovery) {
         // Hide recovery partition
         new_partition->flags << PartitionFlag::Hidden;
-        settings_.recovery_path = partition->path;
+        new_partition->label       = "Backup";
+        new_partition->mount_point = "/recovery";
     }
 
     Device::Ptr device = findDevice(partition->device_path);

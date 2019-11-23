@@ -65,8 +65,7 @@ detect_btrfs() {
 
 # Purge packages
 uninstall_packages() {
-  local DI_RECOVERY_PATH=$(installer_get "DI_RECOVERY_PATH")
-  if [ -z "${DI_RECOVERY_PATH}" ];then
+  if [ ! -d "/target/recovery" ];then
     add_uninstall_package "deepin-clone"
   fi
 

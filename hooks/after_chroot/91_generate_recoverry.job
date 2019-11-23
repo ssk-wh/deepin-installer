@@ -1,18 +1,16 @@
-DI_RECOVERY_PATH=$(installer_get "DI_RECOVERY_PATH")
+
 DI_BOOT_PARTITION=$(installer_get "DI_BOOT_PARTITION")
 DI_ROOT_PARTITION=$(installer_get "DI_ROOT_PARTITION")
 
-if [ -z ${DI_RECOVERY_PATH} ];then
+if [ ! -d "/target/recovery" ];then
     return 0
 fi
 
-mount ${DI_RECOVERY_PATH} /mnt || error "Faild to mount ${DI_RECOVERY_PATH}"
-
 # 备份boot分区
 if [ ! -z ${DI_BOOT_PARTITION} ];then
-    deepin-clone --tui ${DI_BOOT_PARTITION} /mnt/backup/boot.dim
+    deepin-clone --tui ${DI_BOOT_PARTITION} /target/recovery/backup/boot.dim
 fi
 
-deepin-clone --tui $(installer_get "DI_ROOT_PARTITION") /mnt/backup/system.dim
+deepin-clone --tui $(installer_get "DI_ROOT_PARTITION") /target/recovery/backup/system.dim
 
 return $?

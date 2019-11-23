@@ -128,7 +128,6 @@ void WriteFullDiskEncryptPassword(const QString &password);
 void WritePasswordStrong(bool storePassword);
 void WriteDisplayPort(const QString &display);
 void WriteGrubPassword(const QString &password);
-void WriteRecoveryPartitionInfo(const QString& path);
 
 void WriteSelectedInstallType(const QString& installType);
 void WriteComponentPackages(const QString& packages);
@@ -187,7 +186,6 @@ void WriteFullDiskMode(bool value);
 
 struct DiskPartitionSetting {
     DiskPartitionSetting();
-    QString  recovery_path;
     QString  root_disk;
     QString  root_partition;
     QString  boot_partition;

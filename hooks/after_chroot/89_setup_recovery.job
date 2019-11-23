@@ -17,33 +17,30 @@
 #
 # set recovery partition
 
-DI_RECOVERY_PATH=$(installer_get "DI_RECOVERY_PATH")
 DI_UEFI=$(installer_get "DI_UEFI")
 
-if [ -z ${DI_RECOVERY_PATH} ];then
+if [ ! -d "/target/recovery" ];then
     return 0
 fi
 
-mount ${DI_RECOVERY_PATH} /mnt || error "Faild to mount ${DI_RECOVERY_PATH}"
+mkdir /target/recovery/backup
 
-mkdir /mnt/backup
-
-echo "UUID=$(lsblk -f | grep -i /mnt$ | awk '{print $4}')" > /target/etc/deepin/system-recovery.conf
+echo "UUID=$(lsblk -f | grep -i /target/recovery$ | awk '{print $4}')" > /target/etc/deepin/system-recovery.conf
 
 installer_set DI_BOOT_PARTITION $(df -h | grep /boot$ | awk '{print $1}')
 
 # 备份boot的UUID
-echo $(lsblk -f | grep -i /boot$ | awk '{print $4}') > /mnt/backup/boot.info
+echo $(lsblk -f | grep -i /boot$ | awk '{print $4}') > /target/recovery/backup/boot.info
 
 # 备份efi的UUID
 if [ x${DI_UEFI} = xtrue ]; then
-    echo $(lsblk -f | grep -i /boot/efi$ | awk '{print $4}') > /mnt/backup/efi.info
+    echo $(lsblk -f | grep -i /boot/efi$ | awk '{print $4}') > /target/recovery/backup/efi.info
 fi
 
 # 备份系统的UUID
-echo $(lsblk -f | grep /target$ | awk '{print $4}') > /mnt/backup/system.info
+echo $(lsblk -f | grep /target$ | awk '{print $4}') > /target/recovery/backup/system.info
 
 # 备份data的UUID
-echo $(lsblk -f | grep /data$ | awk '{print $4}') > /mnt/backup/_dde_data.info
+echo $(lsblk -f | grep /data$ | awk '{print $4}') > /target/recovery/backup/_dde_data.info
 
 return $?

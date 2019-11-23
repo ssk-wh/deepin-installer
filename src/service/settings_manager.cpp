@@ -537,10 +537,6 @@ void WriteSwapPartitionSize(const uint size) {
     AppendToConfigFile("DI_SWAP_SIZE", size);
 }
 
-void WriteRecoveryPartitionInfo(const QString& path) {
-    AppendToConfigFile("DI_RECOVERY_PATH", path);
-}
-
 void WriteSelectedInstallType(const QString &installType)
 {
     AppendToConfigFile(kSelectedInstallType, installType);
@@ -629,7 +625,6 @@ void WriteDiskPartitionSetting(const DiskPartitionSetting& setting)
                        setting.root_partition,
                        setting.boot_partition,
                        setting.mount_points);
-    WriteRecoveryPartitionInfo(setting.recovery_path);
     WriteRequiringSwapFile(setting.swap_file_required);
     WriteUEFI(setting.uefi_required);
 }
