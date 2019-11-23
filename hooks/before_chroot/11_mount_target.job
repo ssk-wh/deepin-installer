@@ -29,6 +29,7 @@ DI_ROOT_PARTITION=$(installer_get "DI_ROOT_PARTITION")
 DI_LOOP_ROOT_FILE=$(installer_get "DI_LOOP_ROOT_FILE")
 DI_MOUNTPOINTS=$(installer_get "DI_MOUNTPOINTS")
 DI_UEFI=$(installer_get "DI_UEFI")
+DI_BOOTLOADER=$(installer_get "DI_BOOTLOADER")
 
 [ -n "${DI_ROOT_PARTITION}" ] || error "DI_ROOT_PARTITION is empty!"
 
