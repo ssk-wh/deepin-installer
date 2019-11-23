@@ -233,77 +233,21 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
-        <source>It needs more than %1GB disk space to install deepin, for better performance, %2GB and more space is recommended</source>
-        <translation>Deepin:in asennukseen tarvitaan enemmän kuin %1 GB levytilaa. Paremman suorituskyvyn vuoksi vähintään %2 GB on suositeltavaa</translation>
-    </message>
-</context>
-<context>
-    <name>installer::InstallFailedFrame</name>
-    <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="80"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="103"/>
-        <source>Installation Failed</source>
-        <translation>Asennus epäonnistui</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="82"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="105"/>
-        <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
-        <translation>Pahoittelemme haittaa, voit lähettää valokuvan tai skannata QR-koodin lähettääkseksi virhelogin. Autamme ratkaisemaan asian.</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="84"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="157"/>
-        <source>Exit</source>
-        <translation>Poistu</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="85"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="158"/>
-        <source>Save Log</source>
-        <translation>Tallenna loki</translation>
+        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::InstallProgressFrame</name>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="127"/>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="151"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="170"/>
         <source>Installing</source>
         <translation>Asennetaan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="129"/>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="153"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="172"/>
         <source>Here are a few cool things to look out for...</source>
         <translation>Tässä on muutamia hienoja asioita, joihin kannattaa kiinnittää huomiota ...</translation>
-    </message>
-</context>
-<context>
-    <name>installer::InstallSuccessFrame</name>
-    <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="41"/>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="60"/>
-        <source>Successfully Installed</source>
-        <translation>Asennettu onnistuneesti</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="43"/>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="62"/>
-        <source>Reboot to complete the installation</source>
-        <translation>Viimeistele asennus käynnistämällä tietokone uudelleen</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="45"/>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="69"/>
-        <source>Please remove the installation media before reboot</source>
-        <translation>Ole hyvä ja poista asennusmedia ennen uudelleenkäynnistystä</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="46"/>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="70"/>
-        <source>Reboot Now</source>
-        <translation>Käynnistä nyt</translation>
     </message>
 </context>
 <context>
@@ -501,41 +445,41 @@
 <context>
     <name>installer::PartitionNumberLimitationFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="41"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="45"/>
         <source>You should delete a primary partition before creating a new one</source>
         <translation>Sinun tulee poistaa ensisijainen osio ennen kuin luot uuden</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="43"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="47"/>
         <source>New logical partitions can only be created near existing logical partitions</source>
         <translation>Uusia loogisia osioita voidaan luoda vain lähelle olemassa olevia loogisia osioita</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="48"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="52"/>
         <source>You should delete a primary partition before creating a new partition</source>
         <translation>Sinun tulee poistaa ensisijainen osio ennen kuin luot uuden osion</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="55"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="59"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="78"/>
         <source>Failed to Create New Partition</source>
         <translation>Uuden osion luominen epäonnistui</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="57"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="81"/>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
         <translation>Ensisijainen osio tulisi poistaa ennen uuden luomista, koska MBR-levyllä voi olla vain neljä ensisijaista osiota</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="60"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="79"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="64"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="86"/>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
         <translation>Sinun tulisi poistaa ensisijainen osio ennen loogisen luomista tai siirtää olemassa oleva looginen osio levyn loppuun</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="62"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="81"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="66"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="90"/>
         <source>Back</source>
         <translation>Takaisin</translation>
     </message>
@@ -635,30 +579,53 @@
         <translation>Säädä osion %1 kokoa</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="244"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="243"/>
         <source>Do not use this partition</source>
         <translation>Älä käytä tätä osiota</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="257"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="256"/>
         <source>Swap partition</source>
         <translation>Swap-osio</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="260"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="259"/>
         <source>Unknown</source>
         <translation>Tuntematon</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="301"/>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="332"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="300"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="331"/>
         <source>Freespace</source>
         <translation>Tallennustilaa</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="40"/>
-        <source>You need at least %1 GB disk space to install deepin. To get better performance, %2 GB or more is recommended</source>
-        <translation>Tarvitset vähintään %1 gt levytilaa Deepin-asennukseen. Paremman suorituskyvyn parantamiseksi suositellaan %2 Giga tavua tai enemmän</translation>
+        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="49"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="55"/>
+        <source>Successfully Installed</source>
+        <translation>Asennettu onnistuneesti</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="51"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="57"/>
+        <source>Reboot to complete the installation</source>
+        <translation>Viimeistele asennus käynnistämällä tietokone uudelleen</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="53"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="56"/>
+        <source>Please remove the installation media before reboot</source>
+        <translation>Ole hyvä ja poista asennusmedia ennen uudelleenkäynnistystä</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="54"/>
+        <source>Reboot Now</source>
+        <translation>Käynnistä nyt</translation>
     </message>
 </context>
 <context>
@@ -714,43 +681,41 @@
 <context>
     <name>installer::SimplePartitionFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="70"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="72"/>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
         <translation>Uutta osiota ei voitu luoda, valitse jokin nykyisistä osioista!</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="77"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="79"/>
         <source>Please select one of the partitions to install!</source>
         <translation>Valitse osio, johon haluat asentaa!</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="86"/>
         <source>At least %1 GB is required for root partition</source>
         <translation>Vähintään %1 GB tilaa tarvitaan juuriosiolle</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="112"/>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="231"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="115"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="234"/>
         <source>Install here</source>
         <translation>Asennetaan tänne</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="408"/>
-        <source>Windows will not boot if install deepin on Windows disk, please confirm to continue</source>
-        <translation>Windows ei tule käynnistymään jos asennat Deepin:in Windows:in sisältävälle levylle, ole hyvä ja vahvista jatkaaksesi</translation>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
+        <source>Windows will not boot if install UOS on Windows disk, please confirm to continue</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::SystemInfoAvatarFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="76"/>
-        <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="92"/>
+        <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="104"/>
         <source>User Avatar</source>
         <translation>Käyttäjätilin avatari</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="93"/>
+        <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="105"/>
         <source>Select an avatar for your account</source>
         <translation>Valitse avatar käyttäjätilillesi</translation>
     </message>
@@ -758,162 +723,42 @@
 <context>
     <name>installer::SystemInfoFormFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="86"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="177"/>
-        <source>Create User Account</source>
-        <translation>Luo käyttäjätili</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="87"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="178"/>
-        <source>Fill in the username, computer name and your password</source>
-        <translation>Syötä käyttäjätunnus, tietokoneen nimi ja salasana</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="88"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="187"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="171"/>
         <source>Username</source>
         <translation>Käyttäjänimi</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="89"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="192"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="172"/>
         <source>Computer name</source>
         <translation>Tietokoneen nimi</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="90"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="197"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="173"/>
         <source>Password</source>
         <translation>Salasana</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="203"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="174"/>
         <source>Repeat password</source>
         <translation>Toista salasana</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="92"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="208"/>
-        <source>Set root password</source>
-        <translation>Aseta root salasana</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="215"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="175"/>
         <source>Root password</source>
         <translation>Root salasana</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="94"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="225"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="176"/>
         <source>Repeat root password</source>
         <translation>Toista root salasana</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="95"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="250"/>
-        <source>Next</source>
-        <translation>Seuraava</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="96"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="244"/>
-        <source>Use that password to edit boot menu</source>
-        <translation>Käytä tätä salasanaa muokatessasi käynnistysvalikkoa</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="291"/>
-        <source>This username already exists</source>
-        <translation>Tämä käyttäjänimi on jo olemassa</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="295"/>
-        <source>The first letter must be in lowercase</source>
-        <translation>Ensimmäisen kirjaimen on oltava pienaakkonen</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="301"/>
-        <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
-        <translation>Käyttäjänimen on sisällettävä englantilaisia pienaakkosia, numeroita tai erikoismerkkejä (_-)</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="307"/>
-        <source>Please input username longer than %1 characters and shorter than %2 characters</source>
-        <translation>Ole hyvä ja syötä käyttäjänimi, joka on pidempi kuin %1 merkkiä ja lyhyempi kuin %2 merkkiä</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="329"/>
-        <source>Please input computer name</source>
-        <translation>Ole hyvä ja kirjoita laitteen nimi</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="333"/>
-        <source>Computer name is invalid</source>
-        <translation>Laitteen nimi ei kelpaa</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="337"/>
-        <source>Computer name already exists, please input another one</source>
-        <translation>Laitteen nimi on jo olemassa, ole hyvä ja syötä toinen</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="342"/>
-        <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
-        <translation>Ole hyvä ja syötä laitteen nimi, joka on pidempi kuin %1 merkkiä ja lyhyempi kuin %2 merkkiä</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="368"/>
-        <source>The password should be different from the username</source>
-        <translation>Salasanan pitäisi olla eri kuin käyttäjänimi</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="380"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="393"/>
-        <source>Please input password longer than %1 characters and shorter than %2 characters</source>
-        <translation>Ole hyvä ja syötä salasana, joka on pidempi kuin %1 merkkiä ja lyhyempi kuin %2 merkkiä</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="387"/>
-        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Salasanan on sisällettävä englantilaisia merkkejä (merkkikokoriippuvainen), numeroita tai erikoismerkkejä (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="419"/>
-        <source>Passwords do not match</source>
-        <translation>Salasanat eivät täsmää</translation>
     </message>
 </context>
 <context>
     <name>installer::SystemInfoKeyboardFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="105"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="126"/>
-        <source>Select keyboard layout</source>
-        <translation>Valitse näppäimistöasettelu</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="106"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="127"/>
-        <source>Select a proper keyboard layout</source>
-        <translation>Valitse oikea näppäimistöasettelu</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="107"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="170"/>
-        <source>Test here</source>
-        <translation>Testaa täällä</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="108"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="162"/>
         <source>Back</source>
         <translation>Takaisin</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="175"/>
-        <source>Next</source>
-        <translation>Seuraava</translation>
     </message>
 </context>
 <context>
@@ -927,13 +772,13 @@
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="221"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="352"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="349"/>
         <source>Click your zone on the map</source>
         <translation>Klikkaa vyöhykettä kartalla</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="118"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="359"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="356"/>
         <source>Select your timezone from the list</source>
         <translation>Valitse aikavyöhyke luettelosta</translation>
     </message>
@@ -957,7 +802,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="286"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="283"/>
         <source>Time settings</source>
         <translation>Aika-asetukset</translation>
     </message>
@@ -972,8 +817,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="42"/>
-        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install deepin in a real environment</source>
-        <translation>Käytät virtuaalikonetta, joka vaikuttaa järjestelmän suorituskykyyn ja käyttökokemukseen. Asenna deepin todelliseen koneympäristöön saadaksesi sujuvamman kokemuksen</translation>
+        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
+        <translation>Käytät virtuaalikonetta, joka rajoittaa järjestelmän suorituskykyä ja käyttökokemusta. Asenna UOS oikeaan tietokoneeseen saadaksesi sujuvamman käyttökokemuksen</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="44"/>
@@ -983,539 +828,539 @@
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
-        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install deepin in real-machine environment</source>
-        <translation>Järjestelmä on havainnut, että käytät virtuaalikonetta, joka vaikuttaa järjestelmän suorituskykyyn ja käyttökokemukseen. Moitteettoman kokemuksen takaamiseksi olisi suositeltavaa asentaa Deepin todelliseen koneympäristöön</translation>
+        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
+        <translation>Järjestelmä on havainnut käyttäväsi virtuaalikonetta, joka rajoittaa järjestelmän suorituskykyä ja käyttökokemusta. Sujuvan kokemuksen saavuttamiseksi on suositeltavaa asentaa UOS oikeaan tietokoneeseen.</translation>
     </message>
 </context>
 <context>
     <name>installer::ComponentInstallManager</name>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Minimal Install</source>
         <translation>Minimiasennus</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Basic functionality.</source>
         <translation>Perustoiminnot.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Compute Node</source>
         <translation>Tietokonepääte</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Installation for performing computation and processing.</source>
         <translation>Asennus laskennan ja käsittelyn suorittamiseen.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>Infrastructure Server</source>
         <translation>Infrastruktuuripalvelin</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>Server for operating network infrastructure services.</source>
         <translation>Palvelin verkkoinfrastruktuuripalvelujen käyttämiseen.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>File and Print Server</source>
         <translation>Tiedosto- ja tulostuspalvelin</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>File, print, and storage server for enterprises.</source>
         <translation>Tiedosto-, tulostus- ja tallennuspalvelin yrityksille.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Basic Web Server</source>
         <translation>Perus Web-palvelin</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Server for serving static and dynamic internet content.</source>
         <translation>Palvelin staattisen ja dynaamisen Internet-sisällön tarjoamiseksi.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Virtualization Host</source>
         <translation>Virtualisoinnin isäntä</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Minimal virtualization host.</source>
         <translation>Minimaalinen virtualisoinnin isäntä</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Server with GUI</source>
         <translation>Palvelin, graafinen</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Server for operating network infrastructure services, with a GUI.</source>
         <translation>Palvelin verkkoinfrastruktuuripalveluiden käyttämiseen, graafisen käyttöliittymän avulla.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>DDE Desktop</source>
         <translation>DDE työpöytä</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>DDE is a highly intuitive and user friendly desktop environment.</source>
         <translation>DDE on erittäin intuitiivinen ja käyttäjäystävällinen työpöytäympäristö.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>Development and Creative Workstation</source>
         <translation>Toiminnan kehittäminen ja luova työasema</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>Workstation for software, hardware, graphics, or content development.</source>
         <translation>Työasema ohjelmisto, laitteisto, grafiikan tai sisällön kehittämiseen.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Debugging Tools</source>
         <translation>Vianmääritystyökalut</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Tools for debugging misbehaving applications and diagnosing performance problems.</source>
         <translation>Työkalut virheellisten sovellusten vianmääritykseen ja suorituskyvyn diagnosointiin.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>Directory Client</source>
         <translation>Hakemistopalvelun asiakas</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>Clients for integration into a network managed by a directory service.</source>
         <translation>Asiakkaat, jotka voidaan integroida hakemistopalvelun hallitseman verkon.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Security Tools</source>
         <translation>Suojausvälineet</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Security tools for integrity and trust verification.</source>
         <translation>Suojausvälineet eheyden ja luottamuksen todentamiseksi.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>Development Tools</source>
         <translation>Kehitystyökalut</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>A basic development environment.</source>
         <translation>Kehityksen perusympäristö.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>Performance Tools</source>
         <translation>Suorituskykytyökalut</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>Tools for diagnosing system and application-level performance problems.</source>
         <translation>Työkalut järjestelmä- ja sovellustason suorituskykyongelmien diagnosointiin.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>Hardware Monitoring Utilities</source>
         <translation>Laitteiston valvonta-apuohjelmat</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>A set of tools to monitor server hardware.</source>
         <translation>Työkalusarja palvelinlaitteiden valvontaan.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>Virtualization Hypervisor</source>
         <translation>Virtualisoinnin valvoja</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>Smallest possible virtualization host installation.</source>
         <translation>Pienin mahdollinen virtualisointipalvelimen asennus.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>Virtualization Platform</source>
         <translation>Virtualisointiympäristö</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>Provide an interface for accessing and controlling virtualized guests and containers.</source>
         <translation>Tarjoa käyttöliittymä virtualisoitujen vieraiden pääsyyn ja säilöjen hallintaan.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>Virtualization Client</source>
         <translation>Virtualisointiasiakas</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>Clients for installing and managing virtualization instances.</source>
         <translation>Asiakkaat virtualisointi-ilmentymien asentamiseen ja hallintaan.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>Backup Client</source>
         <translation>Varmuuskopion asiakas</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>Client tools for connecting to a backup server and doing backups.</source>
         <translation>Asiakastyökalut yhteyden muodostamiseen varmuuskopiopalvelimeen ja varmuuskopioiden tekemiseen.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>Backup Server</source>
         <translation>Varmuuskopiointipalvelin</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>Software to centralize your infrastructure&apos;s backups.</source>
         <translation>Ohjelmisto infrastruktuuri varmuuskopioiden keskittämistä varten.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>File and Storage Server</source>
         <translation>Tiedosto- ja tallennuspalvelin</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
         <translation>CIFS, SMB, NFS, iSCSI, iSER ja iSNS-verkon tallennuspalvelin.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>DNS Name Server</source>
         <translation>DNS-nimipalvelin</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>This package group allows you to run a DNS name server (BIND) on the system.</source>
         <translation>Tämän pakettiryhmän avulla voit ajaa DNS-nimipalvelimen (BIND) järjestelmässä.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
         <source>E-mail Server</source>
         <translation>Sähköpostipalvelin</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
         <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
         <translation>Sallii järjestelmän toimia SMTP- ja/tai IMAP-sähköpostipalvelimena.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
         <source>FTP Server</source>
         <translation>FTP-palvelin</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
         <source>Allows the system to act as an FTP server.</source>
         <translation>Sallii järjestelmän toimia FTP-palvelimena.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>Print Server</source>
         <translation>Tulostuspalvelin</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>Allows the system to act as a print server.</source>
         <translation>Sallii järjestelmän toimia tulostuspalvelimena.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>Mainframe Access</source>
         <translation>Keskustietokoneen käyttö</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>Tools for accessing mainframe computing resources.</source>
         <translation>Työkaluja keskustietokoneen resurssien käyttämiseen.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
         <source>Infiniband Support</source>
         <translation>Infiniband tuki</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
         <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
         <translation>Ohjelmisto, joka on suunniteltu tukemaan klusterointia ja verkkoyhteyksiä käyttämällä RDMA-pohjaisia InfiniBand- ja iWARP-rakenteita.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
         <source>High Availability</source>
         <translation>Korkea saatavuus</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
         <source>Infrastructure for highly available services and/or shared storage.</source>
         <translation>Infrastruktuuri erittäin suuresti tarjolla oleville palveluille tai jaetuille tallennuksille.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
         <source>Resilient Storage</source>
         <translation>Joustava varastointi</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
         <source>Clustered storage, including the GFS2 file system.</source>
         <translation>Klusteroitu tallennustila, mukaan lukien GFS2-tiedostojärjestelmä.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="341"/>
         <source>ldentity Management Server</source>
         <translation>Identiteetin hallintapalvelin</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="341"/>
         <source>Centralized management of users, servers and authentication policies.</source>
         <translation>Keskitetty hallinta käyttäjille, palvelimille ja todennuskäytännöille.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="342"/>
         <source>Large Systems Performance</source>
         <translation>Suurten järjestelmien suorituskyky</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="342"/>
         <source>Performance support tools for large systems.</source>
         <translation>Suorituskyvyn tukityökalut suurille järjestelmille.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="343"/>
         <source>Load Balancer</source>
         <translation>Kuormituksen tasapainottaja</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="343"/>
         <source>Load balancing support for network traffic.</source>
         <translation>Verkkoliikenteen tuki kuormituksen tasapainottajalle.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="344"/>
         <source>MariaDB Database Client</source>
         <translation>MariaDB -tietokannan asiakas</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="344"/>
         <source>The MariaDB SQL database client, and associated packages.</source>
         <translation>MariaDB SQL-tietokanta-asiakas ja siihen liittyvät paketit.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="345"/>
         <source>MariaDB Database Server</source>
         <translation>MariaDB -tietokantapalvelin</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="345"/>
         <source>The MariaDB SQL database server, and associated packages.</source>
         <translation>MariaDB SQL-tietokantapalvelin ja siihen liittyvät paketit.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="346"/>
         <source>PostgreSQL Database Client</source>
         <translation>PostgreSQL -tietokanta-asiakas</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="346"/>
         <source>The PostgreSQL SQL database client, and associated packages.</source>
         <translation>PostgreSQL SQL-tietokantaohjelma ja siihen liittyvät paketit.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="347"/>
         <source>PostgreSQL Database Server</source>
         <translation>PostgreSQL -tietokantapalvelin</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="347"/>
         <source>The PostgreSQL SQL database server, and associated packages.</source>
         <translation>PostgreSQL SQL-tietokantapalvelin ja siihen liittyvät paketit.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="348"/>
         <source>Java Platform</source>
         <translation>Java-alusta</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
-        <source>Java support for deepin.</source>
-        <translation>Deepin Java-tuki.</translation>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="348"/>
+        <source>Java support for UOS.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="349"/>
         <source>PHP Support</source>
         <translation>PHP-tuki</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="349"/>
         <source>PHP web application framework.</source>
         <translation>PHP sovellusalusta.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="350"/>
         <source>Python</source>
         <translation>Python</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="350"/>
         <source>Basic Python web application support.</source>
         <translation>Python -sovellusten perustuki.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="351"/>
         <source>Perl for Web</source>
         <translation>Perl verkkoon</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="351"/>
         <source>Basic Perl web application support.</source>
         <translation>Perl perussovellustuki.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="352"/>
         <source>Internet Applications</source>
         <translation>Internet-sovellukset</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="352"/>
         <source>Email, chat, and video conferencing software.</source>
         <translation>Sähköposti-, chat- ja videoneuvotteluohjelmistot.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="353"/>
         <source>Web Servlet Engine</source>
         <translation>Verkkopalvelinmoottori</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="353"/>
         <source>Allows the system to host Java servlets.</source>
         <translation>Sallii järjestelmän isännöidä Java-palveluja.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="354"/>
         <source>Legacy x Window System Compatibility</source>
         <translation>Perinteisen X ikkunajärjestelmän yhteensopivuus</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="354"/>
         <source>Compatibility programs for migration from or working with legacy X Window System environments.</source>
         <translation>Yhteensopivuusohjelmat siirtymiseen vanhoista X Window -järjestelmäympäristöistä tai niiden kanssa työskentelemistä.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="355"/>
         <source>Office Suite and Productivity</source>
         <translation>Office Suite ja tuottavuus</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="355"/>
         <source>A full-purpose office suite, and other productivity tools.</source>
         <translation>Täysi toimistopaketti ja muut tuottavuuden työkalut.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="356"/>
         <source>Additional Development</source>
         <translation>Ylimääräinen kehityspaketti</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="356"/>
         <source>Additional development headers and libraries for building open-source applications.</source>
         <translation>Muita kehityskirjastoja avoimen lähdekoodin sovellusten rakentamiseen.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="357"/>
         <source>Emacs</source>
         <translation>Emacs</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="357"/>
         <source>The GNU Emacs extensible, customizable text editor.</source>
         <translation>GNU Emacs laajennettava, muokattava tekstieditori.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="358"/>
         <source>Graphics Creation Tools</source>
         <translation>Grafiikan luontityökalut</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="358"/>
         <source>Software for creation and manipulation of still images.</source>
         <translation>Ohjelmisto kuvien luomiseen ja käsittelemiseen.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="359"/>
         <source>Platform Development</source>
         <translation>Alustan kehittäminen</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
-        <source>Recommended development headers and libraries for developing applications to run on deepin.</source>
-        <translation>Suositellut kirjastot deepin-sovellusten kehittämiseen.</translation>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="359"/>
+        <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="360"/>
         <source>Technical Writing</source>
         <translation>Tekninen kirjoittaminen</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="360"/>
         <source>Tools for writing technical documentation.</source>
         <translation>Työkalut teknisen dokumentoinnin kirjoittamiseen.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="341"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="361"/>
         <source>Virtualization Tools</source>
         <translation>Virtualisointityökalut</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="341"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="361"/>
         <source>Tools for offline virtual image management.</source>
         <translation>Työkalut virtuaalisen näköistiedoston hallintaan.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="342"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="362"/>
         <source>Network File System Client</source>
         <translation>Verkkotiedostojärjestelmän asiakas</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="342"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="362"/>
         <source>Enables the system to attach to network storage.</source>
         <translation>Mahdollistaa järjestelmän liittämisen verkkolevylle.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="343"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="363"/>
         <source>Guest Agents</source>
         <translation>Vieras agentti</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="343"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="363"/>
         <source>Agents used when running under a hypervisor.</source>
         <translation>Agentit, joita käytetään suoritettaessa hypervisoria.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="344"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="364"/>
         <source>DDE Applications</source>
         <translation>DDE-sovellukset</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="344"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="364"/>
         <source>A set of commonly used DDE Applications.</source>
         <translation>Joukko yleisesti käytettyjä DDE-sovelluksia.</translation>
     </message>
@@ -1531,8 +1376,8 @@
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="29"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="119"/>
-        <source>Set the region for Deepin EndPoint Management Platform</source>
-        <translation>Aseta alue Deepin EndPoint -hallintaympäristölle</translation>
+        <source>Set the region for UOS EndPoint Management Platform</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="116"/>
@@ -1566,49 +1411,85 @@
 <context>
     <name>installer::Full_Disk_Encrypt_frame</name>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="159"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="160"/>
         <source>Please input password</source>
         <translation>Anna salasana</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="165"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="166"/>
         <source>Passwords do not match</source>
         <translation>Salasanat eivät täsmää</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="199"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
         <source>Encrypt This Disk</source>
         <translation>Salaa tämä levy</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="200"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="204"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Varmista, että olet varmuuskopioinut tärkeät tiedot, ja valitse sitten levy jolle haluat asentaa</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="201"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
         <source>Encrypt this disk</source>
         <translation>Salaa tämä levy</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="202"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="206"/>
         <source>Password</source>
         <translation>Salasana</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="207"/>
         <source>Repeat Password</source>
         <translation>Toista salasana</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="204"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="208"/>
         <source>Previous</source>
         <translation>Edellinen</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="209"/>
         <source>Start Installation</source>
         <translation>Aloita asennus</translation>
+    </message>
+</context>
+<context>
+    <name>installer::InstallFailedFramePrivate</name>
+    <message>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="74"/>
+        <source>Installation Failed</source>
+        <translation>Asennus epäonnistui</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="76"/>
+        <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
+        <translation>Pahoittelemme haittaa, voit lähettää valokuvan tai skannata QR-koodin lähettääkseksi virhelogin. Autamme ratkaisemaan asian.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="78"/>
+        <source>Exit</source>
+        <translation>Poistu</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="79"/>
+        <source>Save Log</source>
+        <translation>Tallenna loki</translation>
+    </message>
+</context>
+<context>
+    <name>installer::InstallProgressFramePrivate</name>
+    <message>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="215"/>
+        <source>Installing</source>
+        <translation>Asennetaan</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="217"/>
+        <source>Here are a few cool things to look out for...</source>
+        <translation>Tässä on muutamia hienoja asioita, joihin kannattaa kiinnittää huomiota ...</translation>
     </message>
 </context>
 <context>
@@ -1683,8 +1564,8 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="103"/>
-        <source>You have an EFI boot loader but an MBR disk, thus you cannot install deepin directly. Please select one of the below solutions and continue.</source>
-        <translation>Sinulla on EFI-käynnistys, mutta MBR-levy joten et voi asentaa deepin-ohjelmaa suoraan. Valitse yksi alla olevista ratkaisuista ja jatka.</translation>
+        <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="57"/>
@@ -1701,8 +1582,8 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="115"/>
-        <source>Exit BIOS, and install deepin again</source>
-        <translation>Sulje BIOS ja asenna deepin uudelleen</translation>
+        <source>Exit BIOS, and install UOS again</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="62"/>
@@ -1762,22 +1643,22 @@
 <context>
     <name>installer::SaveInstallFailedLogFrame</name>
     <message>
-        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="148"/>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="150"/>
         <source>Save Log</source>
         <translation>Tallenna loki</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="149"/>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="151"/>
         <source>Save the error log to a removable device</source>
         <translation>Tallenna virheloki siirrettävään laitteeseen</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="150"/>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="152"/>
         <source>Save as</source>
         <translation>Tallenna nimellä</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="151"/>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="153"/>
         <source>Back</source>
         <translation>Takaisin</translation>
     </message>
@@ -1812,51 +1693,206 @@
 <context>
     <name>installer::SystemDateFramePrivate</name>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="61"/>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="91"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
         <source>Time settings</source>
         <translation>Aika-asetukset</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="92"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="63"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
         <source>Change date and time as you want</source>
         <translation>Vaihda päivämäärä ja aika haluamallasi tavalla</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="93"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="96"/>
         <source>Hour</source>
         <translation>Tunti</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="97"/>
         <source>Minute</source>
         <translation>Minuutti</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="98"/>
         <source>Year</source>
         <translation>Vuosi</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="96"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="99"/>
         <source>Month</source>
         <translation>Kuukausi</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="97"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="100"/>
         <source>Day</source>
         <translation>Päivä</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="98"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="101"/>
         <source>Confirm</source>
         <translation>Vahvista</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="99"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="102"/>
         <source>Cancel</source>
         <translation>Peruuta</translation>
+    </message>
+</context>
+<context>
+    <name>installer::SystemInfoAvatarFramePrivate</name>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="123"/>
+        <source>User Avatar</source>
+        <translation>Käyttäjätilin avatari</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="124"/>
+        <source>Select an avatar for your account</source>
+        <translation>Valitse avatar käyttäjätilillesi</translation>
+    </message>
+</context>
+<context>
+    <name>installer::SystemInfoFormFramePrivate</name>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="269"/>
+        <source>Username</source>
+        <translation>Käyttäjänimi</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="273"/>
+        <source>Computer name</source>
+        <translation>Tietokoneen nimi</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="277"/>
+        <source>Password</source>
+        <translation>Salasana</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="282"/>
+        <source>Repeat password</source>
+        <translation>Toista salasana</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="293"/>
+        <source>Root password</source>
+        <translation>Root salasana</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="302"/>
+        <source>Repeat root password</source>
+        <translation>Toista root salasana</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="358"/>
+        <source>Create User Account</source>
+        <translation>Luo käyttäjätili</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="359"/>
+        <source>Fill in the username, computer name and your password</source>
+        <translation>Syötä käyttäjätunnus, tietokoneen nimi ja salasana</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="360"/>
+        <source>Use that password to edit boot menu</source>
+        <translation>Käytä tätä salasanaa muokatessasi käynnistysvalikkoa</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="361"/>
+        <source>Set root password</source>
+        <translation>Aseta root salasana</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="362"/>
+        <source>Next</source>
+        <translation>Seuraava</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="386"/>
+        <source>This username already exists</source>
+        <translation>Tämä käyttäjänimi on jo olemassa</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="390"/>
+        <source>The first letter must be in lowercase</source>
+        <translation>Ensimmäisen kirjaimen on oltava pienaakkonen</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="396"/>
+        <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
+        <translation>Käyttäjänimen on sisällettävä englantilaisia pienaakkosia, numeroita tai erikoismerkkejä (_-)</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="402"/>
+        <source>Please input username longer than %1 characters and shorter than %2 characters</source>
+        <translation>Ole hyvä ja syötä käyttäjänimi, joka on pidempi kuin %1 merkkiä ja lyhyempi kuin %2 merkkiä</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="424"/>
+        <source>Please input computer name</source>
+        <translation>Ole hyvä ja kirjoita laitteen nimi</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="428"/>
+        <source>Computer name is invalid</source>
+        <translation>Laitteen nimi ei kelpaa</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="432"/>
+        <source>Computer name already exists, please input another one</source>
+        <translation>Laitteen nimi on jo olemassa, ole hyvä ja syötä toinen</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="437"/>
+        <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
+        <translation>Ole hyvä ja syötä laitteen nimi, joka on pidempi kuin %1 merkkiä ja lyhyempi kuin %2 merkkiä</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="463"/>
+        <source>The password should be different from the username</source>
+        <translation>Salasanan pitäisi olla eri kuin käyttäjänimi</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="475"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="488"/>
+        <source>Please input password longer than %1 characters and shorter than %2 characters</source>
+        <translation>Ole hyvä ja syötä salasana, joka on pidempi kuin %1 merkkiä ja lyhyempi kuin %2 merkkiä</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="482"/>
+        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation>Salasanan on sisällettävä englantilaisia merkkejä (merkkikokoriippuvainen), numeroita tai erikoismerkkejä (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="514"/>
+        <source>Passwords do not match</source>
+        <translation>Salasanat eivät täsmää</translation>
+    </message>
+</context>
+<context>
+    <name>installer::SystemInfoKeyboardFramePrivate</name>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="99"/>
+        <source>Select keyboard layout</source>
+        <translation>Valitse näppäimistöasettelu</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="100"/>
+        <source>Select a proper keyboard layout</source>
+        <translation>Valitse oikea näppäimistöasettelu</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="101"/>
+        <source>Test here</source>
+        <translation>Testaa täällä</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="102"/>
+        <source>Next</source>
+        <translation>Seuraava</translation>
     </message>
 </context>
 <context>

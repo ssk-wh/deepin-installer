@@ -233,77 +233,21 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
-        <source>It needs more than %1GB disk space to install deepin, for better performance, %2GB and more space is recommended</source>
-        <translation>Deepin을 설치하려면 %1GB 이상의 디스크 공간이 필요합니다. 성능을 향상시키려면 %2GB 이상의 공간이 권장됩니다.</translation>
-    </message>
-</context>
-<context>
-    <name>installer::InstallFailedFrame</name>
-    <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="80"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="103"/>
-        <source>Installation Failed</source>
-        <translation>설치 실패</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="82"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="105"/>
-        <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
-        <translation>문제에 대해 죄송합니다. 사진 또는 우리에게 오류 로그를 보내 QR 코드를 스캔하거나 외부 디스크에 로그를 저장하시기 바랍니다. 우리는 이 문제를 해결하는 데 도움이 될 것입니다.</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="84"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="157"/>
-        <source>Exit</source>
-        <translation>종료</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="85"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="158"/>
-        <source>Save Log</source>
-        <translation>로그 저장</translation>
+        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::InstallProgressFrame</name>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="127"/>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="151"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="170"/>
         <source>Installing</source>
         <translation>설치 중</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="129"/>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="153"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="172"/>
         <source>Here are a few cool things to look out for...</source>
         <translation>주의해야 할 몇 가지 멋진 사항은 다음과 같습니다...</translation>
-    </message>
-</context>
-<context>
-    <name>installer::InstallSuccessFrame</name>
-    <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="41"/>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="60"/>
-        <source>Successfully Installed</source>
-        <translation>성공적으로 설치됨</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="43"/>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="62"/>
-        <source>Reboot to complete the installation</source>
-        <translation>설치를 완료하려면 재부팅</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="45"/>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="69"/>
-        <source>Please remove the installation media before reboot</source>
-        <translation>재부팅하기 전에 설치 미디어를 제거해 주세요</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="46"/>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="70"/>
-        <source>Reboot Now</source>
-        <translation>지금 재부팅</translation>
     </message>
 </context>
 <context>
@@ -501,41 +445,41 @@
 <context>
     <name>installer::PartitionNumberLimitationFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="41"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="45"/>
         <source>You should delete a primary partition before creating a new one</source>
         <translation>새 파티션을 만들기 전에 기본 파티션을 삭제해야 합니다</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="43"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="47"/>
         <source>New logical partitions can only be created near existing logical partitions</source>
         <translation>새 논리 파티션은 기존 논리 파티션 근처에만 만들 수 있습니다</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="48"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="52"/>
         <source>You should delete a primary partition before creating a new partition</source>
         <translation>새 파티션을 만들기 전에 기본 파티션을 삭제해야 합니다</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="55"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="59"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="78"/>
         <source>Failed to Create New Partition</source>
         <translation>새 파티션을 만들지 못했습니다</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="57"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="81"/>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
         <translation>MBR 디스크에 4개의 기본 파티션만 있을 수 있으므로, 새 파티션을 만들기 전에 기본 파티션을 삭제해야 합니다</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="60"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="79"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="64"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="86"/>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
         <translation>논리 파티션을 만들기 전에 기본 파티션을 삭제하거나 기존 논리 파티션을 디스크 끝으로 이동해야 합니다</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="62"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="81"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="66"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="90"/>
         <source>Back</source>
         <translation>뒤로</translation>
     </message>
@@ -635,30 +579,53 @@
         <translation>%1 파티션 크기 조정</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="244"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="243"/>
         <source>Do not use this partition</source>
         <translation>이 파티션 사용안함</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="257"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="256"/>
         <source>Swap partition</source>
         <translation>스왑 파티션</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="260"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="259"/>
         <source>Unknown</source>
         <translation>알 수 없음</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="301"/>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="332"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="300"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="331"/>
         <source>Freespace</source>
         <translation>빈 공간</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="40"/>
-        <source>You need at least %1 GB disk space to install deepin. To get better performance, %2 GB or more is recommended</source>
-        <translation>Deepin을 설치하려면 %1GB 이상의 디스크 공간이 필요합니다. 성능을 향상시키려면 %2GB 이상이 권장됩니다</translation>
+        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="49"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="55"/>
+        <source>Successfully Installed</source>
+        <translation>성공적으로 설치됨</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="51"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="57"/>
+        <source>Reboot to complete the installation</source>
+        <translation>설치를 완료하려면 재부팅</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="53"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="56"/>
+        <source>Please remove the installation media before reboot</source>
+        <translation>재부팅하기 전에 설치 미디어를 제거해 주세요</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="54"/>
+        <source>Reboot Now</source>
+        <translation>지금 재부팅</translation>
     </message>
 </context>
 <context>
@@ -714,43 +681,41 @@
 <context>
     <name>installer::SimplePartitionFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="70"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="72"/>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
         <translation>새 파티션을 만들 수 없습니다. 기존 파티션 중 하나를 선택하세요!</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="77"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="79"/>
         <source>Please select one of the partitions to install!</source>
         <translation>설치할 파티션 중 하나를 선택하세요!</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="86"/>
         <source>At least %1 GB is required for root partition</source>
         <translation>루트 파티션에 최소한 %1GB 이상이 필요합니다</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="112"/>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="231"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="115"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="234"/>
         <source>Install here</source>
         <translation>여기 설치</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="408"/>
-        <source>Windows will not boot if install deepin on Windows disk, please confirm to continue</source>
-        <translation>Windows 디스크에 deepin을 설치하면 Windows가 부팅되지 않습니다. 계속 진행하려면 확인하세요</translation>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
+        <source>Windows will not boot if install UOS on Windows disk, please confirm to continue</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::SystemInfoAvatarFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="76"/>
-        <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="92"/>
+        <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="104"/>
         <source>User Avatar</source>
         <translation>사용자 아바타</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="93"/>
+        <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="105"/>
         <source>Select an avatar for your account</source>
         <translation>계정에 사용할 아바타를 선택합니다</translation>
     </message>
@@ -758,162 +723,42 @@
 <context>
     <name>installer::SystemInfoFormFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="86"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="177"/>
-        <source>Create User Account</source>
-        <translation>사용자 계정 만들기</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="87"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="178"/>
-        <source>Fill in the username, computer name and your password</source>
-        <translation>사용자 이름, 컴퓨터 이름 및 비밀번호 입력</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="88"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="187"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="171"/>
         <source>Username</source>
         <translation>사용자 이름</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="89"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="192"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="172"/>
         <source>Computer name</source>
         <translation>컴퓨터 이름</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="90"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="197"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="173"/>
         <source>Password</source>
         <translation>비밀번호</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="203"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="174"/>
         <source>Repeat password</source>
         <translation>비밀번호 반복</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="92"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="208"/>
-        <source>Set root password</source>
-        <translation>루트 비밀번호 설정</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="215"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="175"/>
         <source>Root password</source>
         <translation>루트 비밀번호</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="94"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="225"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="176"/>
         <source>Repeat root password</source>
         <translation>루트 비밀번호 반복</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="95"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="250"/>
-        <source>Next</source>
-        <translation>다음</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="96"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="244"/>
-        <source>Use that password to edit boot menu</source>
-        <translation>해당 비밀번호를 사용하여 부팅 메뉴 편집</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="291"/>
-        <source>This username already exists</source>
-        <translation>이 사용자 이름은 이미 있습니다</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="295"/>
-        <source>The first letter must be in lowercase</source>
-        <translation>첫 번째 문자는 소문자 여야합니다</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="301"/>
-        <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
-        <translation>사용자 이름은 영문자(낮음), 숫자 또는 특수 기호(_-)를 포함해야 합니다</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="307"/>
-        <source>Please input username longer than %1 characters and shorter than %2 characters</source>
-        <translation>%1자보다 길고 %2자보다 짧은 사용자 이름을 입력하세요</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="329"/>
-        <source>Please input computer name</source>
-        <translation>컴퓨터 이름을 입력하세요</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="333"/>
-        <source>Computer name is invalid</source>
-        <translation>컴퓨터 이름이 잘못되었습니다</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="337"/>
-        <source>Computer name already exists, please input another one</source>
-        <translation>컴퓨터 이름이 이미 있으므로 다른 이름을 입력하세요</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="342"/>
-        <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
-        <translation>%1자보다 길고 %2자보다 짧은 컴퓨터 이름을 입력하세요</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="368"/>
-        <source>The password should be different from the username</source>
-        <translation>비밀번호는 사용자 이름과 달라야 합니다.</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="380"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="393"/>
-        <source>Please input password longer than %1 characters and shorter than %2 characters</source>
-        <translation>%1자보다 길고 %2자보다 짧은 암호를 입력하세요</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="387"/>
-        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>비밀번호에는 영문자(대소문자 구분), 숫자 또는 특수 기호(~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)가 포함되어야 합니다</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="419"/>
-        <source>Passwords do not match</source>
-        <translation>비밀번호가 일치하지 않습니다</translation>
     </message>
 </context>
 <context>
     <name>installer::SystemInfoKeyboardFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="105"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="126"/>
-        <source>Select keyboard layout</source>
-        <translation>키보드 레이아웃 선택</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="106"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="127"/>
-        <source>Select a proper keyboard layout</source>
-        <translation>적절한 키보드 레이아웃 선택</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="107"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="170"/>
-        <source>Test here</source>
-        <translation>여기서 테스트</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="108"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="162"/>
         <source>Back</source>
         <translation>뒤로</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="175"/>
-        <source>Next</source>
-        <translation>다음</translation>
     </message>
 </context>
 <context>
@@ -927,13 +772,13 @@
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="221"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="352"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="349"/>
         <source>Click your zone on the map</source>
         <translation>지도에서 당신의 지역을 클릭합니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="118"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="359"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="356"/>
         <source>Select your timezone from the list</source>
         <translation>목록에서 시간대 선택</translation>
     </message>
@@ -957,7 +802,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="286"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="283"/>
         <source>Time settings</source>
         <translation>시간 설정</translation>
     </message>
@@ -972,8 +817,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="42"/>
-        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install deepin in a real environment</source>
-        <translation>시스템 성능 및 사용자 환경에 영향을 주는 가상 시스템을 사용하고 있습니다. 보다 원활한 환경을 위해 실제 환경에 Deepin을 설치하십시오</translation>
+        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="44"/>
@@ -983,539 +828,539 @@
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
-        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install deepin in real-machine environment</source>
-        <translation>시스템에서 시스템 성능 및 작업 환경에 영향을 미치는 가상 시스템을 사용하고 있음을 감지했으므로, 원활한 환경을 위해 실제 시스템 환경에 Deepin을 설치하는 것을 권장합니다</translation>
+        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::ComponentInstallManager</name>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Minimal Install</source>
         <translation>최소 설치</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Basic functionality.</source>
         <translation>기본 기능.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Compute Node</source>
         <translation>노드 계산</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Installation for performing computation and processing.</source>
         <translation>연산 및 처리를 수행하기 위한 설치.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>Infrastructure Server</source>
         <translation>인프라 서버</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>Server for operating network infrastructure services.</source>
         <translation>네트워크 인프라 서비스 운영을 위한 서버.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>File and Print Server</source>
         <translation>파일 및 프린트 서버</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>File, print, and storage server for enterprises.</source>
         <translation>기업을 위한 파일, 인쇄 및 저장소 서버.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Basic Web Server</source>
         <translation>기본 웹 서버</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Server for serving static and dynamic internet content.</source>
         <translation>정적 및 동적 인터넷 컨텐츠 서비스를 위한 서버.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Virtualization Host</source>
         <translation>가상화 호스트</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Minimal virtualization host.</source>
         <translation>최소 가상화 호스트.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Server with GUI</source>
         <translation>GUI가 있는 서버</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Server for operating network infrastructure services, with a GUI.</source>
         <translation>GUI를 사용하여 네트워크 인프라 서비스를 운영하기 위한 서버.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>DDE Desktop</source>
         <translation>DDE 바탕화면</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>DDE is a highly intuitive and user friendly desktop environment.</source>
         <translation>DDE는 매우 직관적이고 사용자 친화적인 바탕화면 환경입니다.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>Development and Creative Workstation</source>
         <translation>개발 및 창조적인 워크스테이션</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>Workstation for software, hardware, graphics, or content development.</source>
         <translation>소프트웨어, 하드웨어, 그래픽 또는 콘텐츠 개발을 위한 워크스테이션.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Debugging Tools</source>
         <translation>디버깅 도구</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Tools for debugging misbehaving applications and diagnosing performance problems.</source>
         <translation>잘못된 응용프로그램을 디버깅하고 성능 문제를 진단하기 위한 도구.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>Directory Client</source>
         <translation>디렉토리 클라이언트</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>Clients for integration into a network managed by a directory service.</source>
         <translation>디렉토리 서비스에서 관리하는 네트워크로 통합하기 위한 클라이언트</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Security Tools</source>
         <translation>보안 도구</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Security tools for integrity and trust verification.</source>
         <translation>무결성 및 신뢰 검증을 위한 보안 도구.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>Development Tools</source>
         <translation>개발 도구</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>A basic development environment.</source>
         <translation>기본 개발 환경.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>Performance Tools</source>
         <translation>성능 도구</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>Tools for diagnosing system and application-level performance problems.</source>
         <translation>시스템 및 응용 프로그램 수준의 성능 문제를 진단하기 위한 도구.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>Hardware Monitoring Utilities</source>
         <translation>하드웨어 모니터링 유틸리티</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>A set of tools to monitor server hardware.</source>
         <translation>서버 하드웨어를 모니터링하기 위한 도구 모음.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>Virtualization Hypervisor</source>
         <translation>가상화 하이퍼바이저</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>Smallest possible virtualization host installation.</source>
         <translation>가장 작은 가상화 호스트 설치.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>Virtualization Platform</source>
         <translation>가상화 플랫폼</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>Provide an interface for accessing and controlling virtualized guests and containers.</source>
         <translation>가상화된 게스트 및 컨테이너에 접근하고 제어하기 위한 인터페이스 제공.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>Virtualization Client</source>
         <translation>가상화 클라이언트</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>Clients for installing and managing virtualization instances.</source>
         <translation>가상화 인스턴스 설치 및 관리를위한 클라이언트.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>Backup Client</source>
         <translation>백업 클라이언트</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>Client tools for connecting to a backup server and doing backups.</source>
         <translation>백업 서버에 연결하고 백업을 수행하는 클라이언트 도구.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>Backup Server</source>
         <translation>백업 서버</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>Software to centralize your infrastructure&apos;s backups.</source>
         <translation>인프라구조의 백업을 중앙 집중화하는 소프트웨어.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>File and Storage Server</source>
         <translation>파일 및 저장소 서버</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
         <translation>CIFS, SMB, NFS, iSCSI, iSER, 및 iSNS 네트워크 저장소 서버.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>DNS Name Server</source>
         <translation>DNS 네임 서버</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>This package group allows you to run a DNS name server (BIND) on the system.</source>
         <translation>이 패키지 그룹을 사용하면 시스템에서 DNS 이름 서버(BIND)를 실행할 수 있습니다.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
         <source>E-mail Server</source>
         <translation>이메일 서버</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
         <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
         <translation>시스템이 SMTP 및/또는 IMAP 전자 메일 서버 역할을 하도록 허용.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
         <source>FTP Server</source>
         <translation>FTP 서버</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
         <source>Allows the system to act as an FTP server.</source>
         <translation>시스템이 FTP 서버 역할을 하도록 허용.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>Print Server</source>
         <translation>프린트 서버</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>Allows the system to act as a print server.</source>
         <translation>시스템이 인쇄 서버 역할을 하도록 허용.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>Mainframe Access</source>
         <translation>메인프레임 액세스</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>Tools for accessing mainframe computing resources.</source>
         <translation>메인프레임 컴퓨팅 리소스에 액세스하기 위한 도구.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
         <source>Infiniband Support</source>
         <translation>인피니밴드 지원</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
         <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
         <translation>RDMA 기반 InfiniBand 및 iWARP 패브릭을 사용하여 클러스터링 및 그리드 연결을 지원하도록 설계된 소프트웨어.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
         <source>High Availability</source>
         <translation>고가용성</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
         <source>Infrastructure for highly available services and/or shared storage.</source>
         <translation>가용성이 높은 서비스 및/또는 공유 저장소를 위한 인프라구조.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
         <source>Resilient Storage</source>
         <translation>탄력적인 저장소</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
         <source>Clustered storage, including the GFS2 file system.</source>
         <translation>GFS2 파일 시스템을 포함한 클러스터 저장소.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="341"/>
         <source>ldentity Management Server</source>
         <translation>ID 관리 서버</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="341"/>
         <source>Centralized management of users, servers and authentication policies.</source>
         <translation>사용자, 서버 및 인증 정책의 중앙 집중식 관리</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="342"/>
         <source>Large Systems Performance</source>
         <translation>대형 시스템 성능</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="342"/>
         <source>Performance support tools for large systems.</source>
         <translation>대형 시스템에 대한 성능 지원 도구.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="343"/>
         <source>Load Balancer</source>
         <translation>부하 분산장치</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="343"/>
         <source>Load balancing support for network traffic.</source>
         <translation>네트워크 트래픽에 대한 부하 평형화 지원.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="344"/>
         <source>MariaDB Database Client</source>
         <translation>MariaDB 데이터베이스 클라이언트</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="344"/>
         <source>The MariaDB SQL database client, and associated packages.</source>
         <translation>MariaDB SQL 데이터베이스 클라이언트 및 관련 패키지.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="345"/>
         <source>MariaDB Database Server</source>
         <translation>MariaDB 데이터베이스 서버</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="345"/>
         <source>The MariaDB SQL database server, and associated packages.</source>
         <translation>MariaDB SQL 데이터베이스 서버 및 관련 패키지.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="346"/>
         <source>PostgreSQL Database Client</source>
         <translation>PostgreSQL 데이터베이스 클라이언트</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="346"/>
         <source>The PostgreSQL SQL database client, and associated packages.</source>
         <translation>PostgreSQL SQL 데이터베이스 클라이언트 및 관련 패키지.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="347"/>
         <source>PostgreSQL Database Server</source>
         <translation>PostgreSQL 데이터베이스 서버</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="347"/>
         <source>The PostgreSQL SQL database server, and associated packages.</source>
         <translation>PostgreSQL SQL 데이터베이스 서버 및 관련 패키지.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="348"/>
         <source>Java Platform</source>
         <translation>Java 플랫폼</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
-        <source>Java support for deepin.</source>
-        <translation>Deepin에 대한 Java 지원.</translation>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="348"/>
+        <source>Java support for UOS.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="349"/>
         <source>PHP Support</source>
         <translation>PHP 지원</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="349"/>
         <source>PHP web application framework.</source>
         <translation>PHP 웹 응용프로그램 프레임워크.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="350"/>
         <source>Python</source>
         <translation>Python</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="350"/>
         <source>Basic Python web application support.</source>
         <translation>기본 Python 웹 응용프로그램 지원.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="351"/>
         <source>Perl for Web</source>
         <translation>웹용 Perl</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="351"/>
         <source>Basic Perl web application support.</source>
         <translation>기본 Perl 웹 응용프로그램 지원.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="352"/>
         <source>Internet Applications</source>
         <translation>인터넷 응용프로그램</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="352"/>
         <source>Email, chat, and video conferencing software.</source>
         <translation>이메일, 채팅 및 화상 회의 소프트웨어.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="353"/>
         <source>Web Servlet Engine</source>
         <translation>웹 서블릿(작은 서버) 엔진</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="353"/>
         <source>Allows the system to host Java servlets.</source>
         <translation>시스템에서 Java 서블릿을 호스트할 수 있습니다</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="354"/>
         <source>Legacy x Window System Compatibility</source>
         <translation>구형 x 윈도우 시스템 호환성</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="354"/>
         <source>Compatibility programs for migration from or working with legacy X Window System environments.</source>
         <translation>구형 X 윈도우 시스템 환경에서 마이그레이션하거나 작업하기 위한 호환성 프로그램.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="355"/>
         <source>Office Suite and Productivity</source>
         <translation>오피스 제품군 및 생산성</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="355"/>
         <source>A full-purpose office suite, and other productivity tools.</source>
         <translation>다목적 오피스 제품군 및 기타 생산성 도구.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="356"/>
         <source>Additional Development</source>
         <translation>추가 개발</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="356"/>
         <source>Additional development headers and libraries for building open-source applications.</source>
         <translation>오픈 소스 애플리케이션 구축을 위한 추가 개발 헤더 및 라이브러리.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="357"/>
         <source>Emacs</source>
         <translation>이맥스</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="357"/>
         <source>The GNU Emacs extensible, customizable text editor.</source>
         <translation>GNU 이맥스 확장 가능하고 사용자 정의 가능한 텍스트 편집도구.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="358"/>
         <source>Graphics Creation Tools</source>
         <translation>그래픽 제작 도구</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="358"/>
         <source>Software for creation and manipulation of still images.</source>
         <translation>스틸 이미지 생성 및 조작을 위한 소프트웨어.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="359"/>
         <source>Platform Development</source>
         <translation>플랫폼 개발</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
-        <source>Recommended development headers and libraries for developing applications to run on deepin.</source>
-        <translation>Deepin에서 실행할 응용프로그램 개발을 위한 권장 개발 헤더 및 라이브러리.</translation>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="359"/>
+        <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="360"/>
         <source>Technical Writing</source>
         <translation>전문적인 글쓰기</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="360"/>
         <source>Tools for writing technical documentation.</source>
         <translation>기술 문서 작성을 위한 도구.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="341"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="361"/>
         <source>Virtualization Tools</source>
         <translation>가상화 도구</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="341"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="361"/>
         <source>Tools for offline virtual image management.</source>
         <translation>오프라인 가상 이미지 관리를 위한 도구.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="342"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="362"/>
         <source>Network File System Client</source>
         <translation>네트워크 파일 시스템 클라이언트</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="342"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="362"/>
         <source>Enables the system to attach to network storage.</source>
         <translation>시스템이 네트워크 저장소에 연결할 수 있도록 지원.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="343"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="363"/>
         <source>Guest Agents</source>
         <translation>게스트 에이전트</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="343"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="363"/>
         <source>Agents used when running under a hypervisor.</source>
         <translation>하이퍼바이저에서 실행할 때 사용되는 에이전트.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="344"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="364"/>
         <source>DDE Applications</source>
         <translation>DDE 응용프로그램</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="344"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="364"/>
         <source>A set of commonly used DDE Applications.</source>
         <translation>일반적으로 사용되는 DDE 애플리케이션 세트.</translation>
     </message>
@@ -1531,8 +1376,8 @@
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="29"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="119"/>
-        <source>Set the region for Deepin EndPoint Management Platform</source>
-        <translation>Deepin EndPoint 관리 플랫폼의 영역 설정</translation>
+        <source>Set the region for UOS EndPoint Management Platform</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="116"/>
@@ -1566,49 +1411,85 @@
 <context>
     <name>installer::Full_Disk_Encrypt_frame</name>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="159"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="160"/>
         <source>Please input password</source>
         <translation>비밀번호를 입력하세요</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="165"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="166"/>
         <source>Passwords do not match</source>
         <translation>비밀번호가 일치하지 않습니다</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="199"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
         <source>Encrypt This Disk</source>
         <translation>이 디스크 암호화</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="200"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="204"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>중요한 데이터를 백업했는지 확인한 다음 설치할 디스크를 선택하세요</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="201"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
         <source>Encrypt this disk</source>
         <translation>이 디스크 암호화</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="202"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="206"/>
         <source>Password</source>
         <translation>비밀번호</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="207"/>
         <source>Repeat Password</source>
         <translation>재입력 비밀번호</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="204"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="208"/>
         <source>Previous</source>
         <translation>이전</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="209"/>
         <source>Start Installation</source>
         <translation>설치 시작</translation>
+    </message>
+</context>
+<context>
+    <name>installer::InstallFailedFramePrivate</name>
+    <message>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="74"/>
+        <source>Installation Failed</source>
+        <translation>설치 실패</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="76"/>
+        <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
+        <translation>문제에 대해 죄송합니다. 사진 또는 우리에게 오류 로그를 보내 QR 코드를 스캔하거나 외부 디스크에 로그를 저장하시기 바랍니다. 우리는 이 문제를 해결하는 데 도움이 될 것입니다.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="78"/>
+        <source>Exit</source>
+        <translation>종료</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="79"/>
+        <source>Save Log</source>
+        <translation>로그 저장</translation>
+    </message>
+</context>
+<context>
+    <name>installer::InstallProgressFramePrivate</name>
+    <message>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="215"/>
+        <source>Installing</source>
+        <translation>설치 중</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="217"/>
+        <source>Here are a few cool things to look out for...</source>
+        <translation>주의해야 할 몇 가지 멋진 사항은 다음과 같습니다...</translation>
     </message>
 </context>
 <context>
@@ -1683,8 +1564,8 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="103"/>
-        <source>You have an EFI boot loader but an MBR disk, thus you cannot install deepin directly. Please select one of the below solutions and continue.</source>
-        <translation>EFI 시동 로더가 있지만 MBR 디스크가 있으므로, 직접 설치할 수 없습니다. 아래 솔루션 중 하나를 선택하고 계속하십시오.</translation>
+        <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="57"/>
@@ -1701,8 +1582,8 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="115"/>
-        <source>Exit BIOS, and install deepin again</source>
-        <translation>BIOS를 종료하고, Deepin을 다시 설치합니다</translation>
+        <source>Exit BIOS, and install UOS again</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="62"/>
@@ -1762,22 +1643,22 @@
 <context>
     <name>installer::SaveInstallFailedLogFrame</name>
     <message>
-        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="148"/>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="150"/>
         <source>Save Log</source>
         <translation>로그 저장</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="149"/>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="151"/>
         <source>Save the error log to a removable device</source>
         <translation>오류 로그를 이동식 장치에 저장</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="150"/>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="152"/>
         <source>Save as</source>
         <translation>다른 이름으로 저장</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="151"/>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="153"/>
         <source>Back</source>
         <translation>뒤로</translation>
     </message>
@@ -1812,51 +1693,206 @@
 <context>
     <name>installer::SystemDateFramePrivate</name>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="61"/>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="91"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
         <source>Time settings</source>
         <translation>시간 설정</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="92"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="63"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
         <source>Change date and time as you want</source>
         <translation>원하는 날짜와 시간 변경</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="93"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="96"/>
         <source>Hour</source>
         <translation>시간</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="97"/>
         <source>Minute</source>
         <translation>분</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="98"/>
         <source>Year</source>
         <translation>연도</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="96"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="99"/>
         <source>Month</source>
         <translation>월</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="97"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="100"/>
         <source>Day</source>
         <translation>일</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="98"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="101"/>
         <source>Confirm</source>
         <translation>확인</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="99"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="102"/>
         <source>Cancel</source>
         <translation>취소</translation>
+    </message>
+</context>
+<context>
+    <name>installer::SystemInfoAvatarFramePrivate</name>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="123"/>
+        <source>User Avatar</source>
+        <translation>사용자 아바타</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="124"/>
+        <source>Select an avatar for your account</source>
+        <translation>계정에 사용할 아바타를 선택합니다</translation>
+    </message>
+</context>
+<context>
+    <name>installer::SystemInfoFormFramePrivate</name>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="269"/>
+        <source>Username</source>
+        <translation>사용자 이름</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="273"/>
+        <source>Computer name</source>
+        <translation>컴퓨터 이름</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="277"/>
+        <source>Password</source>
+        <translation>비밀번호</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="282"/>
+        <source>Repeat password</source>
+        <translation>비밀번호 반복</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="293"/>
+        <source>Root password</source>
+        <translation>루트 비밀번호</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="302"/>
+        <source>Repeat root password</source>
+        <translation>루트 비밀번호 반복</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="358"/>
+        <source>Create User Account</source>
+        <translation>사용자 계정 만들기</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="359"/>
+        <source>Fill in the username, computer name and your password</source>
+        <translation>사용자 이름, 컴퓨터 이름 및 비밀번호 입력</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="360"/>
+        <source>Use that password to edit boot menu</source>
+        <translation>해당 비밀번호를 사용하여 부팅 메뉴 편집</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="361"/>
+        <source>Set root password</source>
+        <translation>루트 비밀번호 설정</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="362"/>
+        <source>Next</source>
+        <translation>다음</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="386"/>
+        <source>This username already exists</source>
+        <translation>이 사용자 이름은 이미 있습니다</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="390"/>
+        <source>The first letter must be in lowercase</source>
+        <translation>첫 번째 문자는 소문자 여야합니다</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="396"/>
+        <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
+        <translation>사용자 이름은 영문자(낮음), 숫자 또는 특수 기호(_-)를 포함해야 합니다</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="402"/>
+        <source>Please input username longer than %1 characters and shorter than %2 characters</source>
+        <translation>%1자보다 길고 %2자보다 짧은 사용자 이름을 입력하세요</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="424"/>
+        <source>Please input computer name</source>
+        <translation>컴퓨터 이름을 입력하세요</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="428"/>
+        <source>Computer name is invalid</source>
+        <translation>컴퓨터 이름이 잘못되었습니다</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="432"/>
+        <source>Computer name already exists, please input another one</source>
+        <translation>컴퓨터 이름이 이미 있으므로 다른 이름을 입력하세요</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="437"/>
+        <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
+        <translation>%1자보다 길고 %2자보다 짧은 컴퓨터 이름을 입력하세요</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="463"/>
+        <source>The password should be different from the username</source>
+        <translation>비밀번호는 사용자 이름과 달라야 합니다.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="475"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="488"/>
+        <source>Please input password longer than %1 characters and shorter than %2 characters</source>
+        <translation>%1자보다 길고 %2자보다 짧은 암호를 입력하세요</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="482"/>
+        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation>비밀번호에는 영문자(대소문자 구분), 숫자 또는 특수 기호(~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)가 포함되어야 합니다</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="514"/>
+        <source>Passwords do not match</source>
+        <translation>비밀번호가 일치하지 않습니다</translation>
+    </message>
+</context>
+<context>
+    <name>installer::SystemInfoKeyboardFramePrivate</name>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="99"/>
+        <source>Select keyboard layout</source>
+        <translation>키보드 레이아웃 선택</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="100"/>
+        <source>Select a proper keyboard layout</source>
+        <translation>적절한 키보드 레이아웃 선택</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="101"/>
+        <source>Test here</source>
+        <translation>여기서 테스트</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="102"/>
+        <source>Next</source>
+        <translation>다음</translation>
     </message>
 </context>
 <context>
