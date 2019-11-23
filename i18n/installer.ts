@@ -235,7 +235,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
-        <source>It needs more than %1GB disk space to install deepin, for better performance, %2GB and more space is recommended</source>
+        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -758,22 +758,7 @@
 <context>
     <name>installer::SystemInfoKeyboardFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="151"/>
-        <source>Select keyboard layout</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="152"/>
-        <source>Select a proper keyboard layout</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="153"/>
-        <source>Test here</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="154"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="162"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1892,22 +1877,22 @@
 <context>
     <name>installer::SystemInfoKeyboardFramePrivate</name>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="187"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="99"/>
         <source>Select keyboard layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="188"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="100"/>
         <source>Select a proper keyboard layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="231"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="101"/>
         <source>Test here</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="236"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="102"/>
         <source>Next</source>
         <translation type="unfinished"></translation>
     </message>

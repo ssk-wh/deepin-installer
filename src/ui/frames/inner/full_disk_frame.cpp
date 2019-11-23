@@ -59,7 +59,7 @@ QT_TRANSLATE_NOOP("FullDiskFrame", "Install here")
 QT_TRANSLATE_NOOP("FullDiskFrame", "Encrypt this disk")
 QT_TRANSLATE_NOOP("FullDiskFrame", "Encrypt This Disk")
 QT_TRANSLATE_NOOP("FullDiskFrame", "Please select a disk to start installation")
-QT_TRANSLATE_NOOP("FullDiskFrame", "It needs more than %1GB disk space to install deepin, for better performance, %2GB and more space is recommended")
+QT_TRANSLATE_NOOP("FullDiskFrame", "You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended")
 #endif
 
 FullDiskFrame::FullDiskFrame(FullDiskDelegate* delegate, QWidget* parent)
@@ -171,7 +171,7 @@ void FullDiskFrame::initUI() {
       int min_size = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
       int recommend_size = GetSettingsInt(kPartitionRecommendedDiskSpace);
       m_diskTooSmallTip->setText(msg.arg(min_size).arg(recommend_size));
-  }, QString("It needs more than %1GB disk space to install deepin, for better performance, %2GB and more space is recommended"));
+  }, QString("You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended"));
 
   QHBoxLayout* tip_layout = new QHBoxLayout();
   tip_layout->setContentsMargins(0, 0, 0, 0);
