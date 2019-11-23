@@ -144,6 +144,7 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
   bool root_large_enough = false;
   Partition::Ptr bootPartition;
   bool boot_large_enough = false;
+  Partition::Ptr efiPartition;
 
   // Filesystem of /boot and /.
   FsType boot_fs = FsType::Empty;
@@ -178,6 +179,9 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
         boot_large_enough = (boot_real_bytes >= boot_recommend_bytes);
 
       }
+      else if (partition->mount_point == kMountPointEFI) {
+          efiPartition = partition;
+      }
     }
   }
 
@@ -186,6 +190,7 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
       for (Partition::Ptr partition : root_device->partitions) {
          if (partition->fs == FsType::EFI) {
              found_efi = true;
+             efiPartition = partition;
              if (partition->status == PartitionStatus::Real) {
                // For existing EFI partition->
                const qint64 efi_minimum_bytes = efi_minimum * kMebiByte;
@@ -253,6 +258,15 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
           }
 
           if (list.isEmpty()){
+              continue;
+          }
+
+          if (IsEfiEnabled()) {
+              int index = list.indexOf(efiPartition);
+              if (index != -1 && index != 0) {
+                  states << ValidateState::BootPartNumberInvalid;
+                  break;
+              }
               continue;
           }
 
