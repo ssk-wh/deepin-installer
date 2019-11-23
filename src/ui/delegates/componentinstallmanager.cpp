@@ -26,12 +26,7 @@
 #include "base/command.h"
 
 #include <QDebug>
-#include <QApt/DebFile>
 #include <QPair>
-
-#ifndef QT_DEBUG
-#include <QtConcurrent/QtConcurrent>
-#endif
 
 using namespace installer;
 
@@ -81,9 +76,9 @@ QStringList ComponentInstallManager::getComponentSortList(QSharedPointer<Compone
 }
 
 QStringList ComponentInstallManager::GetAvailablePackages() const {
-    QDir dir("/lib/live/mount/medium/pool/main/");
+    QDir dir("/lib/live/mount/medium/dists/");
     if (!dir.exists()) {
-        dir.setPath("/run/live/medium/pool/main/");
+        dir.setPath("/run/live/medium/dists/");
     }
 
     if (!dir.exists()) {
@@ -91,19 +86,31 @@ QStringList ComponentInstallManager::GetAvailablePackages() const {
         return {};
     }
 
-    const QStringList&   list = findAllDeb(dir.path());
-    QList<QApt::DebFile> files;
-    QStringList packagesList;
+    QSet<QString> packagesList;
+
+    QFileInfoList list = dir.entryInfoList();
+    for (const QFileInfo& info : list) {
+        if (info.fileName() == "." || info.fileName() == ".." || !info.isDir()) {
+            continue;
+        }
+
+        QDir          distDir(QString("%1/main/").arg(info.filePath()));
+        QFileInfoList distList = distDir.entryInfoList();
+        for (const QFileInfo& i : distList) {
+            QFile file(QString("%1/Packages").arg(i.filePath()));
+            if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+                QTextStream stream(&file);
+                QString     line;
+                while (stream.readLineInto(&line)) {
+                    if (line.startsWith("Package")) {
+                        packagesList << line.split(":").last().simplified();
+                    }
+                }
+            }
+        }
+    }
+
     QStringList allPack;
-
-    if (list.isEmpty()) {
-        qWarning() << Q_FUNC_INFO << "deb file is empty!";
-    }
-
-    for (const QString& l : list) {
-        QApt::DebFile file(l);
-        packagesList << file.packageName();
-    }
 
     for (auto it = m_packageList.cbegin(); it != m_packageList.cend(); ++it) {
         allPack << it->get()->PackageList;
@@ -113,7 +120,7 @@ QStringList ComponentInstallManager::GetAvailablePackages() const {
         qWarning() << Q_FUNC_INFO << "all package is empty!";
     }
 
-    return QSet<QString>(packagesList.toSet() & allPack.toSet()).toList();
+    return QSet<QString>(packagesList & allPack.toSet()).toList();
 }
 
 QSharedPointer<ComponentStruct> ComponentInstallManager::findComponentById(const QString &id)
@@ -187,24 +194,20 @@ ComponentInstallManager::ComponentInstallManager(bool showWarning, QObject *pare
         m_packageList << info;
     }
 
-#ifndef QT_DEBUG
-    QtConcurrent::run([=] {
-        if (!showWarning) {
-            return;
-        }
+    if (!showWarning) {
+        return;
+    }
 
-        // 加載所有的deb包
-        const QStringList packagesList { GetAvailablePackages() };
+    // 加載所有的deb包
+    const QStringList packagesList{ GetAvailablePackages() };
 
-        for (auto it = obj.begin(); it != obj.end(); ++it) {
-            for (QJsonValue value : it.value().toArray()) {
-                if (!packagesList.contains(value.toString())) {
-                    qWarning() << QString("Package %1 not found!").arg(value.toString());
-                }
+    for (auto it = obj.begin(); it != obj.end(); ++it) {
+        for (QJsonValue value : it.value().toArray()) {
+            if (!packagesList.contains(value.toString())) {
+                qWarning() << QString("Package %1 not found!").arg(value.toString());
             }
         }
-    });
-#endif
+    }
 }
 
 QStringList ComponentInstallManager::integrateList(QList<QSharedPointer<ComponentInfo>> list, const QStringList& packageList) const {
@@ -275,36 +278,6 @@ QStringList ComponentInstallManager::loadStructForLanguage(const QString &lang) 
     }
 
     return QStringList();
-}
-
-QStringList ComponentInstallManager::findAllDeb(const QString& path) const {
-    QDir d(path);
-    if (!d.exists()) {
-        return QStringList();
-    }
-
-    d.setFilter(QDir::Dirs | QDir::Files);
-    d.setSorting(QDir::DirsFirst);
-
-    QFileInfoList list = d.entryInfoList();
-    int           i    = 0;
-    QStringList   packageList;
-
-    for (const QFileInfo& fileInfo : list) {
-        if (fileInfo.fileName() == "." || fileInfo.fileName() == "..") {
-            i++;
-            continue;
-        }
-
-        if (fileInfo.isDir()) {
-            packageList << findAllDeb(fileInfo.filePath());
-        }
-        else {
-            packageList << fileInfo.filePath();
-        }
-    }
-
-    return packageList;
 }
 
 QPair<QString, QString> ComponentInstallManager::updateTs(const QString& id) const {

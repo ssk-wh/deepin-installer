@@ -47,37 +47,35 @@ void SelectInstallComponentFrame::writeConf()
     WriteComponentPackages("");
     WriteComponentUninstallPackages("");
 
-    QtConcurrent::run([=] {
-        // Write about language
-        const QStringList packages =
-            ComponentInstallManager::Instance()->loadStructForLanguage(
-                installer::ReadLocale());
+    // Write about language
+    const QStringList packages =
+        ComponentInstallManager::Instance()->loadStructForLanguage(
+            installer::ReadLocale());
 
-        if (!packages.isEmpty()) {
-            WriteComponentLanguage(packages.join(" "));
-        }
+    if (!packages.isEmpty()) {
+        WriteComponentLanguage(packages.join(" "));
+    }
 
-        if (!m_currentComponentWidget) {
-            return;
-        }
+    if (!m_currentComponentWidget) {
+        return;
+    }
 
-        QSharedPointer<ComponentStruct> current =
-                m_componentStructMap[m_currentComponentWidget];
+    QSharedPointer<ComponentStruct> current =
+        m_componentStructMap[m_currentComponentWidget];
 
-        const QStringList installPackages =
-                ComponentInstallManager::Instance()->packageListByComponentStruct(current);
+    const QStringList installPackages =
+        ComponentInstallManager::Instance()->packageListByComponentStruct(current);
 
-        if (!installPackages.isEmpty()) {
-            WriteComponentPackages(installPackages.join(" "));
-        }
+    if (!installPackages.isEmpty()) {
+        WriteComponentPackages(installPackages.join(" "));
+    }
 
-        const QStringList uninstallPackages =
-                ComponentInstallManager::Instance()->uninstallPackageListByComponentStruct(
-                    current);
-        if (!uninstallPackages.isEmpty()) {
-            WriteComponentUninstallPackages(uninstallPackages.join(" "));
-        }
-    });
+    const QStringList uninstallPackages =
+        ComponentInstallManager::Instance()->uninstallPackageListByComponentStruct(
+            current);
+    if (!uninstallPackages.isEmpty()) {
+        WriteComponentUninstallPackages(uninstallPackages.join(" "));
+    }
 }
 
 bool SelectInstallComponentFrame::event(QEvent* event) {

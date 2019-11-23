@@ -91,7 +91,6 @@ find_package(Qt5Xml REQUIRED)
 find_package(Qt5LinguistTools)
 find_package(Qt5Svg REQUIRED)
 find_package(Qt5DBus REQUIRED)
-find_package(QApt REQUIRED)
 find_package(QTermWidget5 REQUIRED)
 
 set(CMAKE_AUTOMOC ON)
@@ -529,7 +528,6 @@ set(LINK_LIBS
     ${X11RandR_LIBRARIES}
     ${UDisk2_LIBRARIES}
 
-    QApt
     global_shortcut
     qrencode
     zlib_wrapper
