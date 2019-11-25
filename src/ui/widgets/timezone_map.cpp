@@ -79,7 +79,7 @@ const QString TimezoneMap::getTimezone() const {
 
 void TimezoneMap::setTimezone(const QString& timezone) {
   setTimezoneData(timezone);
-  remark();
+  QTimer::singleShot(0, this, &TimezoneMap::updateMap);
 }
 
 void TimezoneMap::setTimezoneData(const QString& timezone) {
@@ -102,7 +102,7 @@ void TimezoneMap::hideMark()
 
 void TimezoneMap::showMark()
 {
-    remark();
+    updateMap();
 }
 
 void TimezoneMap::resizeEvent(QResizeEvent* event) {
@@ -215,6 +215,10 @@ void TimezoneMap::popupZoneWindow(const QPoint& pos) {
 }
 
 void TimezoneMap::remark() {
+    if (!isVisible()) {
+        return;
+    }
+
   // Hide all marks first.
   dot_->hide();
   zone_pin_->hide();
@@ -254,7 +258,7 @@ void TimezoneMap::updateMap() {
     mapPixmap = mapPixmap.scaled(size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     map_label_->setPixmap(mapPixmap);
 
-    remark();
+    QTimer::singleShot(0, this, &TimezoneMap::remark);
 }
 
 void TimezoneMap::onPopupWindowActivated(int index) {
