@@ -676,7 +676,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
-        <source>Windows will not boot if install UOS on Windows disk, please confirm to continue</source>
+        <source>Windows will not boot if you install UOS onWindows disk, please confirm to continue</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

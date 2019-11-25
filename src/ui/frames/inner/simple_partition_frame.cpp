@@ -408,7 +408,7 @@ void SimplePartitionFrame::onPartitionButtonClicked() {
 
     // If selected partitions contains windows system, show another message.
     if (button->partition()->os == OsType::Windows) {
-      msg_label_->setText(tr("Windows will not boot if install UOS on "
+      msg_label_->setText(tr("Windows will not boot if you install UOS on"
                              "Windows disk, please confirm to continue"));
     }
 
