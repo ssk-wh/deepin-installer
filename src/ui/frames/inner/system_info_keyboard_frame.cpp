@@ -72,7 +72,7 @@ private:
                                const QModelIndex& previous);
 
     TitleLabel* m_titleLabel = new TitleLabel("");
-    QLabel* m_guideLabel = new QLabel;
+    QLabel* m_guideLabel = new CommentLabel;
     FramelessListView* m_layoutView = new FramelessListView;
     KeyboardLayoutModel* m_layoutModel = new KeyboardLayoutModel;
     FramelessListView* m_variantView = new FramelessListView;
@@ -101,9 +101,9 @@ SystemInfoKeyboardFrame::~SystemInfoKeyboardFrame()
 
 void SystemInfoKeyboardFramePrivate::updateTs() {
     m_titleLabel->setText(tr("Select keyboard layout"));
-    m_guideLabel->setText(tr("Select a proper keyboard layout"));
     m_testEdit->setPlaceholderText(tr("Test here"));
-    m_backButton = new NavButton(tr("Next"));
+    m_backButton->setText(tr("Back"));
+    m_guideLabel->setText(tr("Select a proper keyboard layout"));
 }
 
 void SystemInfoKeyboardFrame::readConf() {
@@ -163,7 +163,6 @@ void SystemInfoKeyboardFrame::changeEvent(QEvent* event) {
 
     if (event->type() == QEvent::LanguageChange) {
         d->updateTs();
-        d->m_backButton->setText(tr("Back"));
 
         const QString& locale = ReadLocale();
         d->m_layoutModel->initLayout(locale);
