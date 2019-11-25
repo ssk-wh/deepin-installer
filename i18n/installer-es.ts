@@ -234,7 +234,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation type="unfinished"/>
+        <translation>Necesita al menos %1 GB de espacio en disco para instalar UOS. Para obtener un mejor rendimiento, se recomiendan %2 GB o más</translation>
     </message>
 </context>
 <context>
@@ -602,7 +602,7 @@
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="40"/>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation type="unfinished"/>
+        <translation>Necesita al menos %1 GB de espacio en disco para instalar UOS. Para obtener un mejor rendimiento, se recomiendan %2 GB o más</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="49"/>
@@ -704,7 +704,7 @@
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
         <source>Windows will not boot if install UOS on Windows disk, please confirm to continue</source>
-        <translation type="unfinished"/>
+        <translation>Windows no se iniciará si instala UOS en el disco de Windows, por favor, confirme para continuar.</translation>
     </message>
 </context>
 <context>
@@ -818,7 +818,7 @@
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="42"/>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
-        <translation type="unfinished"/>
+        <translation>Está utilizando una máquina virtual que afectará al rendimiento del sistema y a la experiencia del usuario. Para obtener una experiencia más fluida, por favor, instale UOS en un entorno real.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="44"/>
@@ -829,7 +829,7 @@
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
-        <translation type="unfinished"/>
+        <translation>El sistema ha detectado que está utilizando una máquina virtual, lo que afectará el rendimiento del sistema y la experiencia de funcionamiento, para una experiencia sin problemas, se recomienda instalar UOS en un entorno de máquina real</translation>
     </message>
 </context>
 <context>
@@ -1202,7 +1202,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="348"/>
         <source>Java support for UOS.</source>
-        <translation type="unfinished"/>
+        <translation>Soporte Java para UOS.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="349"/>
@@ -1312,7 +1312,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="359"/>
         <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
-        <translation type="unfinished"/>
+        <translation>Se recomiendan cabeceras y librerías de desarrollo para desarrollar aplicaciones que se ejecuten en UOS.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="360"/>
@@ -1377,7 +1377,7 @@
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="29"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="119"/>
         <source>Set the region for UOS EndPoint Management Platform</source>
-        <translation type="unfinished"/>
+        <translation>Establecer la región para la plataforma de gestión UOS EndPoint</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="116"/>
@@ -1565,7 +1565,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="103"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
-        <translation type="unfinished"/>
+        <translation>Tiene un gestor de arranque EFI pero un disco MBR, por lo que no puede instalar UOS directamente. Por favor, seleccione una de las siguientes soluciones y continúe.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="57"/>
@@ -1583,7 +1583,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="115"/>
         <source>Exit BIOS, and install UOS again</source>
-        <translation type="unfinished"/>
+        <translation>Salga de la BIOS e instale UOS de nuevo</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="62"/>
@@ -1745,7 +1745,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="123"/>
         <source>User Avatar</source>
-        <translation>Avatar de usuario</translation>
+        <translation>Avatar de Usuario</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="124"/>
@@ -1758,7 +1758,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="269"/>
         <source>Username</source>
-        <translation>Nombre de usuario</translation>
+        <translation>Nombre de Usuario</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="273"/>
@@ -1788,7 +1788,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="358"/>
         <source>Create User Account</source>
-        <translation>Crear cuenta de usuario</translation>
+        <translation>Crear Cuenta de Usuario</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="359"/>
@@ -1823,7 +1823,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="396"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
-        <translation>El nombre de usuario puede contener letras en inglés (minúsculas), números o símbolos especiales (_-) 132</translation>
+        <translation>El nombre de usuario puede contener letras en inglés (minúsculas), números o símbolos especiales (_-)</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="402"/>

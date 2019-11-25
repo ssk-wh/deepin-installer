@@ -234,7 +234,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation type="unfinished"/>
+        <translation>Tarvitset vähintään %1 Gt levytilaa UOS-asennusta varten. Paremman suorituskyvyn saavuttamiseksi suositellaan %2 Gt tai enemmän</translation>
     </message>
 </context>
 <context>
@@ -602,7 +602,7 @@
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="40"/>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation type="unfinished"/>
+        <translation>Tarvitset vähintään %1 Gt levytilaa UOS-asennusta varten. Paremman suorituskyvyn saavuttamiseksi suositellaan %2 Gt tai enemmän</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="49"/>
@@ -704,7 +704,7 @@
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
         <source>Windows will not boot if install UOS on Windows disk, please confirm to continue</source>
-        <translation type="unfinished"/>
+        <translation>Windows ei käynnisty, jos UOS asennetaan Windows-levylle. Vahvista jatkaaksesi</translation>
     </message>
 </context>
 <context>
@@ -1202,7 +1202,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="348"/>
         <source>Java support for UOS.</source>
-        <translation type="unfinished"/>
+        <translation>UOS Java -tuki.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="349"/>
@@ -1312,7 +1312,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="359"/>
         <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
-        <translation type="unfinished"/>
+        <translation>Suositellut kirjastot UOS -sovellusten kehittämiseen.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="360"/>
@@ -1377,7 +1377,7 @@
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="29"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="119"/>
         <source>Set the region for UOS EndPoint Management Platform</source>
-        <translation type="unfinished"/>
+        <translation>Aseta alue UOS EndPoint -hallintaympäristölle</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="116"/>
@@ -1565,7 +1565,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="103"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
-        <translation type="unfinished"/>
+        <translation>Sinulla on EFI-käynnistäjä, mutta MBR-levy joten et voi asentaa UOS -ohjelmistoa suoraan. Valitse yksi alla olevista ratkaisuista ja jatka.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="57"/>
@@ -1583,7 +1583,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="115"/>
         <source>Exit BIOS, and install UOS again</source>
-        <translation type="unfinished"/>
+        <translation>Sulje BIOS ja asenna UOS uudelleen</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="62"/>

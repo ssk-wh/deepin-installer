@@ -24,7 +24,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="93"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="559"/>
         <source>Done</source>
-        <translation>Bitti</translation>
+        <translation>Tamamlandı</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="95"/>
