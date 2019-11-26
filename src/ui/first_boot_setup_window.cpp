@@ -67,13 +67,13 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
   this->initConnections();
 
   // Read default settings.
-  language_frame_->readConf();
+  language_frame_->init();
   system_info_frame_->readConf();
   timezone_frame_->readConf();
 
   if ( !GetSettingsBool(kSkipSelectLanguagePage) ||
         GetSettingsBool(kSkipSelectLanguagePageOnFirstBoot)) {
-      language_frame_->writeConf();
+      language_frame_->finished();
       onLanguageSelected();
   }
 }
@@ -145,7 +145,7 @@ void FirstBootSetupWindow::initUI() {
     back_button_->hide();
 
   background_label_ = new QLabel(this);
-  language_frame_ = new LanguageFrame;
+  language_frame_ = new LanguageFrame(this);
   system_info_frame_ = new SystemInfoFrame;
   network_frame_ = new NetworkFrame;
   timezone_frame_ = new TimezoneFrame;

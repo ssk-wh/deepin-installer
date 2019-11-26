@@ -22,6 +22,8 @@
 #ifndef LANGUAGEFRAME_H
 #define LANGUAGEFRAME_H
 
+#include "ui/interfaces/frameinterface.h"
+
 #include <QWidget>
 #include <QStackedLayout>
 
@@ -30,21 +32,17 @@ class SelectLanguageFrame;
 class UserAgreementFrame;
 class UserAgreementDelegate;
 
-class LanguageFrame : public QWidget {
+class LanguageFrame : public FrameInterface {
     Q_OBJECT
 public:
-    LanguageFrame(QWidget *parent = nullptr);
-    ~LanguageFrame();
+    LanguageFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
+    ~LanguageFrame() override;
 
-    // Read default locale.
-    void readConf();
-
-    // Write locale to settings file.
-    void writeConf();
+    void init() override;
+    void finished() override;
+    bool shouldDisplay() const override;
 
 signals:
-    void finished();
-
     // Emitted when new language item is selected.
     void timezoneUpdated(const QString& timezone);
 

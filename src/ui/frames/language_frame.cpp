@@ -26,13 +26,14 @@
 #include "ui/frames/inner/user_agreement_frame.h"
 #include "service/settings_manager.h"
 #include "ui/delegates/user_agreement_delegate.h"
+#include "service/settings_name.h"
 
 DCORE_USE_NAMESPACE
 
 namespace installer {
 
-LanguageFrame::LanguageFrame(QWidget *parent)
-    : QWidget(parent)
+LanguageFrame::LanguageFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
+    : FrameInterface(FrameType::Frame, frameProxyInterface, parent)
     , m_frame_layout(new QStackedLayout)
     , m_user_license_delegate(new UserAgreementDelegate())
     , m_select_language_frame(new SelectLanguageFrame(m_user_license_delegate))
@@ -44,11 +45,16 @@ LanguageFrame::LanguageFrame(QWidget *parent)
 
 LanguageFrame::~LanguageFrame() {}
 
-void LanguageFrame::readConf() {
+bool LanguageFrame::shouldDisplay() const
+{
+    return !GetSettingsBool(kSkipSelectLanguagePage);
+}
+
+void LanguageFrame::init() {
     m_select_language_frame->readConf();
 }
 
-void LanguageFrame::writeConf() {
+void LanguageFrame::finished() {
     m_select_language_frame->writeConf();
 }
 
@@ -62,7 +68,9 @@ void LanguageFrame::initUI() {
 
 void LanguageFrame::initConnect() {
     connect(m_select_language_frame, &SelectLanguageFrame::finished, this,
-            &LanguageFrame::finished);
+        [=] {
+        m_proxy->nextFrame();
+    });
     connect(m_select_language_frame, &SelectLanguageFrame::timezoneUpdated, this,
             &LanguageFrame::timezoneUpdated);
     connect(m_select_language_frame, &SelectLanguageFrame::requestShowUserLicense, this,
@@ -93,9 +101,7 @@ void LanguageFrame::showUserLicense() {
         m_user_license_frame->setCheckedButton(kChineseToggleButtonId);
     } else {
         m_user_license_frame->setUserAgreement(en_US_license, zh_CN_license);
-        m_user_license_frame->setCheckedButton(kEnglishToggleButtonId);
     }
-
     m_frame_layout->setCurrentWidget(m_user_license_frame);
 }
 
