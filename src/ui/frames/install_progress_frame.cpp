@@ -18,15 +18,6 @@
 
 #include "ui/frames/install_progress_frame.h"
 
-#include <math.h>
-#include <QDebug>
-#include <QEvent>
-#include <QPropertyAnimation>
-#include <QStyle>
-#include <QThread>
-#include <QTimer>
-#include <QVBoxLayout>
-
 #include "base/file_util.h"
 #include "base/thread_util.h"
 #include "service/hooks_manager.h"
@@ -38,6 +29,15 @@
 #include "ui/widgets/rounded_progress_bar.h"
 #include "ui/widgets/tooltip_pin.h"
 #include "ui/widgets/title_label.h"
+
+#include <math.h>
+#include <QDebug>
+#include <QEvent>
+#include <QPropertyAnimation>
+#include <QStyle>
+#include <QThread>
+#include <QTimer>
+#include <QVBoxLayout>
 
 namespace installer {
 
@@ -95,12 +95,12 @@ public:
     QTimer* simulation_timer_ = nullptr;
 };
 
-InstallProgressFrame::InstallProgressFrame(QWidget* parent)
-    : QFrame(parent)
-      , progress_(0)
-      , d_private(new InstallProgressFramePrivate(this))
+InstallProgressFrame::InstallProgressFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
+    : FrameInterface(FrameType::Frame, frameProxyInterface, parent)
+    , progress_(0)
+    , d_private(new InstallProgressFramePrivate(this))
 {
-    this->setObjectName("install_progress_frame");
+    setObjectName("install_progress_frame");
 }
 
 InstallProgressFrame::~InstallProgressFrame()
@@ -131,11 +131,26 @@ void InstallProgressFrame::startSlide() {
     d->slide_frame_->startSlide(disable_slide, disable_animation, duration);
 }
 
+void InstallProgressFrame::init()
+{
+
+}
+
+void InstallProgressFrame::finished()
+{
+
+}
+
+bool InstallProgressFrame::shouldDisplay() const
+{
+    return true;
+}
+
 void InstallProgressFrame::simulate() {
     Q_D(InstallProgressFrame);
 
     if (!d->simulation_timer_->isActive()) {
-        this->startSlide();
+        startSlide();
 
         // Reset progress value.
         d->onProgressUpdate(d->progress_bar_->minimum());
@@ -171,7 +186,7 @@ void InstallProgressFrame::changeEvent(QEvent* event) {
         d->comment_label_->setText(
                     tr("Here are a few cool things to look out for..."));
     } else {
-        QFrame::changeEvent(event);
+        FrameInterface::changeEvent(event);
     }
 }
 
@@ -184,8 +199,8 @@ InstallProgressFramePrivate::InstallProgressFramePrivate(InstallProgressFrame* p
 {
     hooks_manager_->moveToThread(hooks_manager_thread_);
 
-    this->initUI();
-    this->initConnections();
+    initUI();
+    initConnections();
 
     hooks_manager_thread_->start();
 
@@ -202,7 +217,7 @@ void InstallProgressFramePrivate::initConnections() {
     connect(hooks_manager_, &HooksManager::errorOccurred,
             this, &InstallProgressFramePrivate::onHooksErrorOccurred);
     connect(hooks_manager_, &HooksManager::finished,
-            this, &InstallProgressFramePrivate::onHooksFinished);
+                this, &InstallProgressFramePrivate::onHooksFinished);
     connect(hooks_manager_, &HooksManager::processUpdate,
             this, &InstallProgressFramePrivate::onProgressUpdate);
     connect(hooks_manager_thread_, &QThread::finished,
@@ -301,14 +316,14 @@ void InstallProgressFramePrivate::onHooksErrorOccurred() {
     slide_frame_->stopSlide();
 
     Q_Q(InstallProgressFrame);
-    emit q->finished();
+    q->m_proxy->nextFrame();
 }
 
 void InstallProgressFramePrivate::onHooksFinished() {
     failed_ = false;
 
     // Set progress value to 100 explicitly.
-    this->onProgressUpdate(100);
+    onProgressUpdate(100);
 
     QTimer::singleShot(kRetainingInterval,
                        this, &InstallProgressFramePrivate::onRetainingTimerTimeout);
@@ -325,7 +340,7 @@ void InstallProgressFramePrivate::onRetainingTimerTimeout() {
     slide_frame_->stopSlide();
 
     Q_Q(InstallProgressFrame);
-    emit q->finished();
+    q->m_proxy->nextFrame();
 }
 
 void InstallProgressFramePrivate::onSimulationTimerTimeout() {
@@ -335,7 +350,7 @@ void InstallProgressFramePrivate::onSimulationTimerTimeout() {
     if (progress > progress_bar_->maximum()) {
         simulation_timer_->stop();
     } else {
-        this->onProgressUpdate(progress);
+        onProgressUpdate(progress);
     }
 }
 

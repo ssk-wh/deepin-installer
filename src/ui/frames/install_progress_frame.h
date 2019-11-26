@@ -18,6 +18,8 @@
 #ifndef INSTALLER_UI_FRAMES_INSTALL_PROGRESS_FRAME_H
 #define INSTALLER_UI_FRAMES_INSTALL_PROGRESS_FRAME_H
 
+#include "ui/interfaces/frameinterface.h"
+
 #include <QFrame>
 #include <QScopedPointer>
 
@@ -27,13 +29,13 @@ class InstallProgressFramePrivate;
 
 // Displays when system is being installed to disk.
 // A progress bar is shown at bottom of page.
-class InstallProgressFrame : public QFrame {
+class InstallProgressFrame : public FrameInterface {
     Q_OBJECT
-    Q_PROPERTY(int progress READ progress WRITE setProgress);
+    Q_PROPERTY(int progress READ progress WRITE setProgress)
 
 public:
-    explicit InstallProgressFrame(QWidget* parent = nullptr);
-    ~InstallProgressFrame();
+    explicit InstallProgressFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
+    ~InstallProgressFrame() override;
 
     int progress() const { return progress_; }
     void setProgress(int progress);
@@ -44,17 +46,16 @@ public:
     // Show slide now.
     void startSlide();
 
+    void init() override;
+    void finished() override;
+    bool shouldDisplay() const override;
+
 public slots:
     // Run hooks when partition job is done
     void runHooks(bool ok);
 
     // Update progress value with a QTimer object.
     void simulate();
-
-signals:
-    // Emitted when installation finished or failed.
-    // Call state() to check its status.
-    void finished();
 
 protected:
     void changeEvent(QEvent* event) override;
