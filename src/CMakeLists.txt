@@ -620,6 +620,8 @@ add_executable(deepin-installer-user-form
 
                ui/user_form_window.cpp
                ui/user_form_window.h
+               ui/interfaces/frameproxyinterface.h
+               ui/interfaces/frameinterface.h
                ui/delegates/avatar_list_delegate.cpp
                ui/delegates/avatar_list_delegate.h
                ui/delegates/frameless_list_delegate.cpp

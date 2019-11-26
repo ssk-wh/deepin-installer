@@ -18,6 +18,8 @@
 #ifndef DEEPIN_INSTALLER_USER_FORM_WINDOW_H
 #define DEEPIN_INSTALLER_USER_FORM_WINDOW_H
 
+#include "ui/interfaces/frameproxyinterface.h"
+
 #include <QWidget>
 
 class QLabel;
@@ -28,7 +30,7 @@ namespace installer {
 
 class SystemInfoFrame;
 
-class UserFormWindow : public QWidget {
+class UserFormWindow : public FrameProxyInterface {
   Q_OBJECT
  public:
   explicit UserFormWindow(QWidget* parent = nullptr);
@@ -36,6 +38,18 @@ class UserFormWindow : public QWidget {
 
   // Show fullscreen.
   void fullscreen();
+
+  // Displays the previous Frame
+  void previousFrame() override;
+
+  // Displays the next Frame
+  void nextFrame() override;
+
+  // Displays the  subFrame
+  void showChildFrame(FrameInterface *frame) override;
+
+  // exit install
+  void exitInstall(bool reboot = false) override;
 
  protected:
   // Move close button to appropriate position when window is resized.
@@ -55,9 +69,6 @@ class UserFormWindow : public QWidget {
   QStackedLayout* stacked_layout_ = nullptr;
 
   SystemInfoFrame* system_info_frame_ = nullptr;
-
- private slots:
-  void onUserFormFinished();
 };
 
 }  // namespace installer

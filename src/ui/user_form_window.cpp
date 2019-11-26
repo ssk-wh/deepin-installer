@@ -16,23 +16,22 @@
  */
 
 #include "ui/user_form_window.h"
+#include "service/settings_manager.h"
+#include "ui/frames/system_info_frame.h"
+#include "ui/utils/widget_util.h"
 
 #include <QDebug>
 #include <QLabel>
 #include <QStackedLayout>
 
-#include "service/settings_manager.h"
-#include "ui/frames/system_info_frame.h"
-//#include "ui/frames/timezone_frame.h"
-#include "ui/utils/widget_util.h"
-
 namespace installer {
 
-UserFormWindow::UserFormWindow(QWidget* parent) : QWidget(parent) {
-  this->initUI();
-  this->initPages();
-  this->initConnections();
-  system_info_frame_->readConf();
+UserFormWindow::UserFormWindow(QWidget* parent)
+    : FrameProxyInterface(parent) {
+  initUI();
+  initPages();
+  initConnections();
+  system_info_frame_->init();
 }
 
 UserFormWindow::~UserFormWindow() {
@@ -40,12 +39,27 @@ UserFormWindow::~UserFormWindow() {
 }
 
 void UserFormWindow::fullscreen() {
-  ShowFullscreen(this);
+    ShowFullscreen(this);
+}
+
+void UserFormWindow::previousFrame(){
+
+}
+
+void UserFormWindow::nextFrame(){
+
+}
+
+void UserFormWindow::showChildFrame(FrameInterface *frame){
+
+}
+
+void UserFormWindow::exitInstall(bool reboot){
+
 }
 
 void UserFormWindow::initConnections() {
-  connect(system_info_frame_, &SystemInfoFrame::finished,
-          this, &UserFormWindow::onUserFormFinished);
+
 }
 
 void UserFormWindow::initPages() {
@@ -64,13 +78,13 @@ void UserFormWindow::initUI() {
   vbox_layout->addLayout(stacked_layout_);
   vbox_layout->addSpacing(32);
 
-  this->setLayout(vbox_layout);
-  this->setContentsMargins(0, 0, 0, 0);
-  this->setWindowFlags(Qt::FramelessWindowHint);
+  setLayout(vbox_layout);
+  setContentsMargins(0, 0, 0, 0);
+  setWindowFlags(Qt::FramelessWindowHint);
 }
 
 void UserFormWindow::resizeEvent(QResizeEvent* event) {
-  this->updateBackground();
+  updateBackground();
   QWidget::resizeEvent(event);
 }
 
@@ -85,10 +99,6 @@ void UserFormWindow::updateBackground() {
       QPixmap(image_path).scaled(size(), Qt::KeepAspectRatioByExpanding);
   background_label_->setPixmap(pixmap);
   background_label_->setFixedSize(size());
-}
-
-void UserFormWindow::onUserFormFinished() {
-  this->close();
 }
 
 }  // namespace installer
