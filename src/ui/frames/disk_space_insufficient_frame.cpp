@@ -17,10 +17,6 @@
 
 #include "ui/frames/disk_space_insufficient_frame.h"
 
-#include <QEvent>
-#include <QHBoxLayout>
-#include <DSysInfo>
-
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
 #include "ui/delegates/partition_util.h"
@@ -28,6 +24,10 @@
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/nav_button.h"
 #include "ui/widgets/title_label.h"
+#include "ui/delegates/main_window_util.h"
+
+#include <QEvent>
+#include <QHBoxLayout>
 
 DCORE_USE_NAMESPACE
 
@@ -54,12 +54,28 @@ QString GetCommentLabel() {
 
 }  // namespace
 
-DiskSpaceInsufficientFrame::DiskSpaceInsufficientFrame(QWidget* parent)
-    : QFrame(parent) {
-  this->setObjectName("disk_space_insufficient_frame");
+DiskSpaceInsufficientFrame::DiskSpaceInsufficientFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
+  : FrameInterface(FrameType::ExtFrame, frameProxyInterface, parent) {
+  setObjectName("disk_space_insufficient_frame");
 
-  this->initUI();
-  this->initConnections();
+  initUI();
+  initConnections();
+}
+
+void DiskSpaceInsufficientFrame::init()
+{
+
+}
+
+void DiskSpaceInsufficientFrame::finished()
+{
+
+}
+
+bool DiskSpaceInsufficientFrame::shouldDisplay() const
+{
+    return !GetSettingsBool(kSkipDiskSpaceInsufficientPage) &&
+                IsDiskSpaceInsufficient();
 }
 
 void DiskSpaceInsufficientFrame::changeEvent(QEvent* event) {
@@ -68,13 +84,14 @@ void DiskSpaceInsufficientFrame::changeEvent(QEvent* event) {
     comment_label_->setText(GetCommentLabel());
     abort_button_->setText(tr("Exit"));
   } else {
-    QFrame::changeEvent(event);
+    FrameInterface::changeEvent(event);
   }
 }
 
 void DiskSpaceInsufficientFrame::initConnections() {
-  connect(abort_button_, &QPushButton::clicked,
-          this, &DiskSpaceInsufficientFrame::finished);
+  connect(abort_button_, &QPushButton::clicked, this, [=] {
+          m_proxy->nextFrame();
+  });
 }
 
 void DiskSpaceInsufficientFrame::initUI() {
@@ -95,9 +112,8 @@ void DiskSpaceInsufficientFrame::initUI() {
   layout->addLayout(comment_layout);
   layout->addStretch();
   layout->addWidget(abort_button_, 0, Qt::AlignCenter);
-
-  this->setLayout(layout);
-  this->setContentsMargins(0, 0, 0, 0);
+  setLayout(layout);
+  setContentsMargins(0, 0, 0, 0);
 }
 
 }  // namespace installer

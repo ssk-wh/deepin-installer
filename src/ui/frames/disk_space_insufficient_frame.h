@@ -18,6 +18,8 @@
 #ifndef INSTALLER_UI_FRAMES_DISK_SPACE_INSUFFICIENT_FRAME_H
 #define INSTALLER_UI_FRAMES_DISK_SPACE_INSUFFICIENT_FRAME_H
 
+#include "ui/interfaces/frameinterface.h"
+
 #include <QFrame>
 
 namespace installer {
@@ -27,20 +29,20 @@ class NavButton;
 class TitleLabel;
 
 // This frame is displayed when no enough disk space is detected.
-class DiskSpaceInsufficientFrame : public QFrame {
+class DiskSpaceInsufficientFrame : public FrameInterface {
   Q_OBJECT
 
- public:
-  explicit DiskSpaceInsufficientFrame(QWidget* parent = nullptr);
+public:
+  explicit DiskSpaceInsufficientFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
 
- signals:
-  // Emitted when abort-button is clicked.
-  void finished();
+  void init() override;
+  void finished() override;
+  bool shouldDisplay() const override;
 
- protected:
-  void changeEvent(QEvent* event);
+protected:
+  void changeEvent(QEvent* event) override;
 
- private:
+private:
   void initConnections();
   void initUI();
 
