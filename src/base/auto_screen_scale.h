@@ -1,3 +1,5 @@
+#include "base/utils.h"
+
 #include <X11/Xlib.h>
 #include <X11/extensions/Xrandr.h>
 
@@ -35,20 +37,7 @@ void AutoScreenScale()
                 continue;
             }
 
-            scaleRatio = static_cast<double>(crtInfo->width) / static_cast<double>(outputInfo->mm_width) / (1366.0 / 310.0);
-
-            // When you have multiple screens,
-            // if one of the resolutions is very large,
-            // it will cause the copy mode to display abnormally.
-            if (scaleRatio > 1 + 2.0 / 3.0) {
-                scaleRatioList.push_back(2.0);
-            }
-            else if (scaleRatio > 1 + 1.0 / 3.0) {
-                scaleRatioList.push_back(1.5);
-            }
-            else {
-                scaleRatioList.push_back(1.0);
-            }
+            scaleRatio = scaleFactor(crtInfo->width, crtInfo->height, outputInfo->mm_width, outputInfo->mm_height);
         }
 
         if (!scaleRatioList.empty()) {

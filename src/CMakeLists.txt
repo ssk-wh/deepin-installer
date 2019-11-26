@@ -130,6 +130,8 @@ set(BASE_FILES
     base/thread_util.cpp
     base/thread_util.h
     base/translator.h
+    base/auto_screen_scale.h
+    base/utils.h
     )
 
 set(OEM_FILES
@@ -510,6 +512,7 @@ set(UNITTEST_FILES
     ui/delegates/timezone_map_util_test.cpp
 
     tests/component_install_test.cpp
+    tests/scalefactor_test.cpp
     )
 
 set(QtCore_LIBS Qt5::Core)
