@@ -234,7 +234,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation type="unfinished"/>
+        <translation>Com a mínim hi ha d&apos;haver %1 GB d&apos;espai de disc per instal·lar l&apos;UOS. Per gaudir d&apos;un bon rendiment, és recomanable tenir %2 GB o més.</translation>
     </message>
 </context>
 <context>
@@ -602,7 +602,7 @@
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="40"/>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation type="unfinished"/>
+        <translation>Com a mínim hi ha d&apos;haver %1 GB d&apos;espai de disc per instal·lar l&apos;UOS. Per gaudir d&apos;un bon rendiment, és recomanable tenir %2 GB o més.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="49"/>
@@ -674,8 +674,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
-        <source>Windows will not boot if you install UOS onWindows disk, please confirm to continue</source>
-        <translation type="unfinished"/>
+        <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
+        <translation>El Windows no arrencarà si instal·leu l&apos;UOS al disc de Windows. Si us plau, confirmeu-ho per continuar.</translation>
     </message>
 </context>
 <context>
@@ -789,7 +789,7 @@
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="42"/>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
-        <translation type="unfinished"/>
+        <translation>Feu servir una màquina virtual que afectarà el rendiment del sistema i l&apos;experiència de l&apos;usuari. Per obtenir una experiència millor, instal·leu l&apos;UOS en un entorn real.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="44"/>
@@ -800,7 +800,88 @@
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
-        <translation type="unfinished"/>
+        <translation>El sistema ha detectat que useu una màquina virtual, fet que afectarà el rendiment i l&apos;experiència del sistema a l&apos;hora de fer operacions. Per gaudir d&apos;una experiència més bona, és recomanable instal·lar l&apos;UOS en un entorn de màquina real.</translation>
+    </message>
+</context>
+<context>
+    <name>installer::AdvancedPartitionButton</name>
+    <message>
+        <source>Install here</source>
+        <translation type="vanished">Instal·la&apos;l aquí</translation>
+    </message>
+    <message>
+        <source>To be formatted</source>
+        <translation type="vanished">Per formatar</translation>
+    </message>
+</context>
+<context>
+    <name>installer::AdvancedPartitionFrame</name>
+    <message>
+        <source>Change boot loader</source>
+        <translation type="vanished">Canvia el carregador d&apos;arrencada.</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Fet</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="vanished">Esborra</translation>
+    </message>
+    <message>
+        <source>%1 error found, fix to continue installation or switch to simple mode</source>
+        <translation type="vanished">%1 error trobat, corregiu-ho per continuar la instal·lació o canvieu al mode simple.</translation>
+    </message>
+    <message>
+        <source>%1 errors found, fix to continue installation or switch to simple mode</source>
+        <translation type="vanished">%1 errors trobats, corregiu-ho per continuar la instal·lació o canvieu al mode simple.</translation>
+    </message>
+    <message>
+        <source>%1 error found, continue to install after fixed</source>
+        <translation type="vanished">%1 error trobat, corregiu-ho per continuar la instal·lació.</translation>
+    </message>
+    <message>
+        <source>%1 errors found, continue to install after fixed</source>
+        <translation type="vanished">%1 errors trobats, corregiu-ho per continuar la instal·lació.</translation>
+    </message>
+    <message>
+        <source>The partition filesystem type of /boot directory can only be %1 </source>
+        <translation type="vanished">El tipus de sistema de fitxers de la partició del directori /boot només pot ser %1.</translation>
+    </message>
+    <message>
+        <source>The partition of /boot directory should be the first partition on hard disk</source>
+        <translation type="vanished">La partició del directori /boot hauria de ser la primera del disc.</translation>
+    </message>
+    <message>
+        <source>At least %1 MB is required for /boot partition</source>
+        <translation type="vanished">Com a mínim calen %1 MB per a la partició /boot.</translation>
+    </message>
+    <message>
+        <source>Add an EFI partition to continue</source>
+        <translation type="vanished">Afegiu una partició EFI per continuar.</translation>
+    </message>
+    <message>
+        <source>At least %1 MB is required for EFI partition</source>
+        <translation type="vanished">Com a mínim calen %1 MB per a la partició EFI.</translation>
+    </message>
+    <message>
+        <source>Add a Root partition to continue</source>
+        <translation type="vanished">Afegiu una partició d&apos;arrel per continuar.</translation>
+    </message>
+    <message>
+        <source>At least %1 GB is required for Root partition</source>
+        <translation type="vanished">Com a mínim hi ha d&apos;haver %1 GB per a la partició d&apos;arrel.</translation>
+    </message>
+    <message>
+        <source>At least %1 GB is required for partition %2</source>
+        <translation type="vanished">Com a mínim hi ha d&apos;haver %1 GB per a la partició %2.</translation>
+    </message>
+</context>
+<context>
+    <name>installer::BootloaderListModel</name>
+    <message>
+        <source>%1 %2 (recommended)</source>
+        <translation type="vanished">%1 %2 (recomanat)</translation>
     </message>
 </context>
 <context>
@@ -1173,7 +1254,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Java support for UOS.</source>
-        <translation type="unfinished"/>
+        <translation>Suport de Java per a l&apos;UOS.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
@@ -1283,7 +1364,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
-        <translation type="unfinished"/>
+        <translation>Capçaleres i biblioteques de desenvolupament recomanades per desenvolupar aplicacions que s&apos;executin a l&apos;UOS.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
@@ -1337,6 +1418,25 @@
     </message>
 </context>
 <context>
+    <name>installer::ConfirmQuitFrame</name>
+    <message>
+        <source>Abort Installation</source>
+        <translation type="vanished">Avorta la instal·lació</translation>
+    </message>
+    <message>
+        <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
+        <translation type="vanished">Les operacions rellevants que heu fet durant el procés d&apos;instal·lació no tindran efecte. Voleu avortar o continuar la instal·lació?</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="vanished">Continua</translation>
+    </message>
+    <message>
+        <source>Abort</source>
+        <translation type="vanished">Avorta</translation>
+    </message>
+</context>
+<context>
     <name>installer::ControlPlatformFrame</name>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="28"/>
@@ -1348,7 +1448,7 @@
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="29"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="119"/>
         <source>Set the region for UOS EndPoint Management Platform</source>
-        <translation type="unfinished"/>
+        <translation>Establiu la regió per a la plataforma de gestió EndPoint d&apos;UOS.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="116"/>
@@ -1359,6 +1459,17 @@
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="117"/>
         <source>Server Address</source>
         <translation>Adreça del servidor</translation>
+    </message>
+</context>
+<context>
+    <name>installer::DiskSpaceInsufficientFrame</name>
+    <message>
+        <source>Insufficient Disk Space</source>
+        <translation type="vanished">Espai de disc insuficient</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation type="vanished">Surt</translation>
     </message>
 </context>
 <context>
@@ -1377,6 +1488,75 @@
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="115"/>
         <source>Next</source>
         <translation>Següent</translation>
+    </message>
+</context>
+<context>
+    <name>installer::EditPartitionFrame</name>
+    <message>
+        <source>Edit Disk</source>
+        <translation type="vanished">Edita el disc</translation>
+    </message>
+    <message>
+        <source>Make sure you have backed up important data, then select the disk to install</source>
+        <translation type="vanished">Assegureu-vos que heu fet còpia de seguretat de les dades importants i, a continuació, seleccioneu el disc per a instal·lar</translation>
+    </message>
+    <message>
+        <source>File system</source>
+        <translation type="vanished">Sistema de fitxers</translation>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="vanished">Punt de muntatge</translation>
+    </message>
+    <message>
+        <source>Format the partition</source>
+        <translation type="vanished">Formata la partició</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Cancel·la</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="vanished">Crea</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="vanished">Confirmeu-hp</translation>
+    </message>
+</context>
+<context>
+    <name>installer::FirstBootLoadingFrame</name>
+    <message>
+        <source>Tuning system</source>
+        <translation type="vanished">Personalització del sistema</translation>
+    </message>
+    <message>
+        <source>Applying changes to your system, please wait...</source>
+        <translation type="vanished">Aplicant els canvis al sistema. Espereu, si us plau...</translation>
+    </message>
+</context>
+<context>
+    <name>installer::FullDiskFrame</name>
+    <message>
+        <source>Install here</source>
+        <translation type="vanished">Instal·la&apos;l aquí</translation>
+    </message>
+    <message>
+        <source>Encrypt this disk</source>
+        <translation type="vanished">Encripta aquest disc</translation>
+    </message>
+    <message>
+        <source>Encrypt This Disk</source>
+        <translation type="vanished">Encripta aquest disc</translation>
+    </message>
+    <message>
+        <source>Please select a disk to start installation</source>
+        <translation type="vanished">Si us plau, seleccioneu un disc per començar la instal·lació.</translation>
+    </message>
+    <message>
+        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
+        <translation type="vanished">Com a mínim hi ha d&apos;haver %1 GB d&apos;espai de disc per instal·lar l&apos;UOS. Per gaudir d&apos;un bon rendiment, és recomanable tenir %2 GB o més.</translation>
     </message>
 </context>
 <context>
@@ -1451,6 +1631,17 @@
     </message>
 </context>
 <context>
+    <name>installer::InstallProgressFrame</name>
+    <message>
+        <source>Installing</source>
+        <translation type="vanished">Instal·lant</translation>
+    </message>
+    <message>
+        <source>Here are a few cool things to look out for...</source>
+        <translation type="vanished">Aquí teniu algunes coses interessants per mirar...</translation>
+    </message>
+</context>
+<context>
     <name>installer::InstallProgressFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="215"/>
@@ -1469,6 +1660,17 @@
         <location filename="../src/ui/models/mount_point_model.cpp" line="37"/>
         <source>Do not use</source>
         <translation>No l&apos;usis.</translation>
+    </message>
+</context>
+<context>
+    <name>installer::MultipleDiskInstallationWidget</name>
+    <message>
+        <source>System Disk</source>
+        <translation type="vanished">Disc de sistema</translation>
+    </message>
+    <message>
+        <source>Data Disk</source>
+        <translation type="vanished">Disc de dades</translation>
     </message>
 </context>
 <context>
@@ -1525,6 +1727,164 @@
     </message>
 </context>
 <context>
+    <name>installer::NewPartitionFrame</name>
+    <message>
+        <source>Create New Partition</source>
+        <translation type="vanished">Crea una partició nova</translation>
+    </message>
+    <message>
+        <source>Create a new partition and define the type and size</source>
+        <translation type="vanished">Creeu una partició nova i definiu-ne el tipus i la mida.</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="vanished">Tipus</translation>
+    </message>
+    <message>
+        <source>Location</source>
+        <translation type="vanished">Ubicació</translation>
+    </message>
+    <message>
+        <source>File system</source>
+        <translation type="vanished">Sistema de fitxers</translation>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="vanished">Punt de muntatge</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="vanished">Mida</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="vanished">Inicia</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="vanished">Acaba</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Cancel·la</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="vanished">D&apos;acord</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="vanished">Crea</translation>
+    </message>
+</context>
+<context>
+    <name>installer::NewTableLoadingFrame</name>
+    <message>
+        <source>Formatting...</source>
+        <translation type="vanished">Formatant...</translation>
+    </message>
+</context>
+<context>
+    <name>installer::NewTableWarningFrame</name>
+    <message>
+        <source>Format Warning</source>
+        <translation type="vanished">Avís de formatació</translation>
+    </message>
+    <message>
+        <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
+        <translation type="vanished">Continuar la instal·lació formatarà tot el disc. Si us plau, feu una còpia de seguretat de totes les vostres dades per evitar-ne la pèrdua. Si no sabeu què feu, no continueu.</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Cancel·la</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="vanished">Continua</translation>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionFrame</name>
+    <message>
+        <source>Select Installation Location</source>
+        <translation type="vanished">Seleccioneu una ubicació per a la instal·lació.</translation>
+    </message>
+    <message>
+        <source>Make sure you have backed up important data, then select the disk to install</source>
+        <translation type="vanished">Assegureu-vos que heu fet còpia de seguretat de les dades importants i, a continuació, seleccioneu el disc per a instal·lar</translation>
+    </message>
+    <message>
+        <source>Simple</source>
+        <translation type="vanished">Simple</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="vanished">Advançada</translation>
+    </message>
+    <message>
+        <source>Full Disk</source>
+        <translation type="vanished">Disc ple</translation>
+    </message>
+    <message>
+        <source>Start installation</source>
+        <translation type="vanished">Inicia la instal·lació</translation>
+    </message>
+    <message>
+        <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
+        <translation type="vanished">El disc de destinació és dinàmic i se&apos;n poden perdre les dades si continueu. Si us plau, feu una còpia de seguretat dels fitxers importants qui hi tingueu.</translation>
+    </message>
+    <message>
+        <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
+        <translation type="vanished">El disc de destinació és dinàmic i es formatarà si continueu. Si us plau, feu una còpia de seguretat dels fitxers importants qui hi tingueu.</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="vanished">Següent</translation>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionLoadingFrame</name>
+    <message>
+        <source>Scan disks</source>
+        <translation type="vanished">Explora els discs</translation>
+    </message>
+    <message>
+        <source>Scanning disks, please wait...</source>
+        <translation type="vanished">Explorant els discs. Espereu, si us plau...</translation>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionNumberLimitationFrame</name>
+    <message>
+        <source>You should delete a primary partition before creating a new one</source>
+        <translation type="vanished">Cal que elimineu una partició primària abans de crear-ne una de nova</translation>
+    </message>
+    <message>
+        <source>New logical partitions can only be created near existing logical partitions</source>
+        <translation type="vanished">Les particions lògiques només es poden crear a prop de particions lògiques existents.</translation>
+    </message>
+    <message>
+        <source>You should delete a primary partition before creating a new partition</source>
+        <translation type="vanished">Cal que elimineu una partició primària abans de crear una nova partició</translation>
+    </message>
+    <message>
+        <source>Failed to Create New Partition</source>
+        <translation type="vanished">Ha fallat crear una partició nova.</translation>
+    </message>
+    <message>
+        <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
+        <translation type="vanished">Hauríeu d&apos;eliminar una partició primària abans de crear-ne una de nova, ja que només hi pot haver quatre particions primàries en un disc MBR.</translation>
+    </message>
+    <message>
+        <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
+        <translation type="vanished">Hauríeu d&apos;eliminar una partició primària abans de crear-ne una de lògica, o moure la partició lògica existent al final del disc.</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="vanished">Enrere</translation>
+    </message>
+</context>
+<context>
     <name>installer::PartitionTableWarningFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="53"/>
@@ -1536,7 +1896,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="103"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
-        <translation type="unfinished"/>
+        <translation>Teniu un carregador d’arrencada EFI però un disc MBR. Així no podeu instal·lar directament l&apos;UOS. Si us plau, seleccioneu una de les solucions següents i continueu.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="57"/>
@@ -1554,7 +1914,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="115"/>
         <source>Exit BIOS, and install UOS again</source>
-        <translation type="unfinished"/>
+        <translation>Sortiu del BIOS i torneu a instal·lar l&apos;UOS.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="62"/>
@@ -1612,6 +1972,40 @@
     </message>
 </context>
 <context>
+    <name>installer::PartitionTypeModel</name>
+    <message>
+        <source>Logical Partition</source>
+        <translation type="vanished">Partició lògica</translation>
+    </message>
+    <message>
+        <source>Primary Partition</source>
+        <translation type="vanished">Partició primària</translation>
+    </message>
+</context>
+<context>
+    <name>installer::PrepareInstallFrame</name>
+    <message>
+        <source>Ready to Install</source>
+        <translation type="vanished">Llest per instal·lar</translation>
+    </message>
+    <message>
+        <source>Make a backup of your important data and then continue</source>
+        <translation type="vanished">Feu una còpia de seguretat de les dades importants i continueu</translation>
+    </message>
+    <message>
+        <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
+        <translation type="vanished">Es faran les operacions següents. Si us plau, confirmeu-ho per evitar pèrdua de dades i continueu.</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="vanished">Enrere</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="vanished">Continua</translation>
+    </message>
+</context>
+<context>
     <name>installer::SaveInstallFailedLogFrame</name>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="150"/>
@@ -1632,6 +2026,21 @@
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="153"/>
         <source>Back</source>
         <translation>Enrere</translation>
+    </message>
+</context>
+<context>
+    <name>installer::SelectBootloaderFrame</name>
+    <message>
+        <source>Select location for boot loader</source>
+        <translation type="vanished">Seleccioneu la ubicació del carregador d&apos;arrencada.</translation>
+    </message>
+    <message>
+        <source>If you do not understand the settings, please select the recommended one</source>
+        <translation type="vanished">Si no enteneu els paràmetres, si us plau, seleccioneu els valors recomanats.</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="vanished">Enrere</translation>
     </message>
 </context>
 <context>
@@ -1686,6 +2095,29 @@
     </message>
 </context>
 <context>
+    <name>installer::SimplePartitionFrame</name>
+    <message>
+        <source>Unable to create new partition, please select one of the existing partitions!</source>
+        <translation type="vanished">No es pot crear la partició nova. Si us plau, seleccioneu una de les particions existents!</translation>
+    </message>
+    <message>
+        <source>Please select one of the partitions to install!</source>
+        <translation type="vanished">Si us plau, seleccioneu una de les particions per a la instal·lació!</translation>
+    </message>
+    <message>
+        <source>At least %1 GB is required for root partition</source>
+        <translation type="vanished">Com a mínim hi ha d&apos;haver %1 GB per a la partició d&apos;arrel.</translation>
+    </message>
+    <message>
+        <source>Install here</source>
+        <translation type="vanished">Instal·la&apos;l aquí</translation>
+    </message>
+    <message>
+        <source>Windows will not boot if you install UOS onWindows disk, please confirm to continue</source>
+        <translation type="vanished">El Windows no arrencarà si instal·leu l&apos;UOS al disc de Windows. Si us plau, confirmeu-ho per continuar.</translation>
+    </message>
+</context>
+<context>
     <name>installer::SystemDateFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
@@ -1736,6 +2168,17 @@
     </message>
 </context>
 <context>
+    <name>installer::SystemInfoAvatarFrame</name>
+    <message>
+        <source>User Avatar</source>
+        <translation type="vanished">Avatar de l&apos;usuari</translation>
+    </message>
+    <message>
+        <source>Select an avatar for your account</source>
+        <translation type="vanished">Seleccioneu un avatar per al compte.</translation>
+    </message>
+</context>
+<context>
     <name>installer::SystemInfoAvatarFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="123"/>
@@ -1746,6 +2189,33 @@
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="124"/>
         <source>Select an avatar for your account</source>
         <translation>Seleccioneu un avatar per al compte.</translation>
+    </message>
+</context>
+<context>
+    <name>installer::SystemInfoFormFrame</name>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Nom d&apos;usuari</translation>
+    </message>
+    <message>
+        <source>Computer name</source>
+        <translation type="vanished">Nom de l&apos;ordinador</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Contrasenya</translation>
+    </message>
+    <message>
+        <source>Repeat password</source>
+        <translation type="vanished">Repetiu la contrasenya.</translation>
+    </message>
+    <message>
+        <source>Root password</source>
+        <translation type="vanished">Contrasenya d&apos;arrel</translation>
+    </message>
+    <message>
+        <source>Repeat root password</source>
+        <translation type="vanished">Repetiu la contrasenya d&apos;arrel.</translation>
     </message>
 </context>
 <context>
@@ -1868,6 +2338,13 @@
     </message>
 </context>
 <context>
+    <name>installer::SystemInfoKeyboardFrame</name>
+    <message>
+        <source>Back</source>
+        <translation type="vanished">Enrere</translation>
+    </message>
+</context>
+<context>
     <name>installer::SystemInfoKeyboardFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="103"/>
@@ -1891,6 +2368,37 @@
     </message>
 </context>
 <context>
+    <name>installer::TimezoneFrame</name>
+    <message>
+        <source>Select Timezone</source>
+        <translation type="vanished">Seleccioneu la zona horària.</translation>
+    </message>
+    <message>
+        <source>Click your zone on the map</source>
+        <translation type="vanished">Cliqueu a la vostra zona del mapa.</translation>
+    </message>
+    <message>
+        <source>Select your timezone from the list</source>
+        <translation type="vanished">Seleccioneu la vostra zona horària a la llista.</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="vanished">Següent</translation>
+    </message>
+    <message>
+        <source>Map</source>
+        <translation type="vanished">Mapa</translation>
+    </message>
+    <message>
+        <source>List</source>
+        <translation type="vanished">Llista</translation>
+    </message>
+    <message>
+        <source>Time settings</source>
+        <translation type="vanished">Paràmetres de l&apos;hora</translation>
+    </message>
+</context>
+<context>
     <name>installer::UserAgreementFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="116"/>
@@ -1911,6 +2419,25 @@
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="122"/>
         <source>View in Chinese</source>
         <translation>Mostra-ho en xinès</translation>
+    </message>
+</context>
+<context>
+    <name>installer::VirtualMachineFrame</name>
+    <message>
+        <source>Friendly Reminder</source>
+        <translation type="vanished">Recordatori amistós</translation>
+    </message>
+    <message>
+        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
+        <translation type="vanished">Feu servir una màquina virtual que afectarà el rendiment del sistema i l&apos;experiència de l&apos;usuari. Per obtenir una experiència millor, instal·leu l&apos;UOS en un entorn real.</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="vanished">Continua</translation>
+    </message>
+    <message>
+        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
+        <translation type="vanished">El sistema ha detectat que useu una màquina virtual, fet que afectarà el rendiment i l&apos;experiència del sistema a l&apos;hora de fer operacions. Per gaudir d&apos;una experiència més bona, és recomanable instal·lar l&apos;UOS en un entorn de màquina real.</translation>
     </message>
 </context>
 </TS>

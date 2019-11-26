@@ -674,8 +674,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
-        <source>Windows will not boot if you install UOS onWindows disk, please confirm to continue</source>
-        <translation type="unfinished"/>
+        <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
+        <translation>Windows не загрузится, если вы установите UOS на диск Windows, пожалуйста, подтвердите, чтобы продолжить</translation>
     </message>
 </context>
 <context>
@@ -801,6 +801,87 @@
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
         <translation>Система обнаружила, что вы используете виртуальную машину, которая будет влиять на производительность и работоспособность системы, для наилучшего результата, рекомендуется установить UOS на реально работающий компьютер</translation>
+    </message>
+</context>
+<context>
+    <name>installer::AdvancedPartitionButton</name>
+    <message>
+        <source>Install here</source>
+        <translation type="vanished">Установить сюда</translation>
+    </message>
+    <message>
+        <source>To be formatted</source>
+        <translation type="vanished">Будет отформатирован</translation>
+    </message>
+</context>
+<context>
+    <name>installer::AdvancedPartitionFrame</name>
+    <message>
+        <source>Change boot loader</source>
+        <translation type="vanished">Изменить загрузчик</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Готово</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="vanished">Удалить</translation>
+    </message>
+    <message>
+        <source>%1 error found, fix to continue installation or switch to simple mode</source>
+        <translation type="vanished">%1 найдена ошибка, для продолжения установки исправьте или переключитесь в простой режим</translation>
+    </message>
+    <message>
+        <source>%1 errors found, fix to continue installation or switch to simple mode</source>
+        <translation type="vanished">%1 найдены ошибки, для продолжения установки исправьте или переключитесь в простой режим</translation>
+    </message>
+    <message>
+        <source>%1 error found, continue to install after fixed</source>
+        <translation type="vanished">%1 ошибка найдена, для продолжения установки ошибку необходимо исправить</translation>
+    </message>
+    <message>
+        <source>%1 errors found, continue to install after fixed</source>
+        <translation type="vanished">%1 ошибки найдены, для продолжения установки ошибки необходимо исправить</translation>
+    </message>
+    <message>
+        <source>The partition filesystem type of /boot directory can only be %1 </source>
+        <translation type="vanished">Тип файловой системы раздела /boot может быть только %1</translation>
+    </message>
+    <message>
+        <source>The partition of /boot directory should be the first partition on hard disk</source>
+        <translation type="vanished">Раздел /boot должен быть первым разделом на жестком диске</translation>
+    </message>
+    <message>
+        <source>At least %1 MB is required for /boot partition</source>
+        <translation type="vanished">Для загрузочного раздела /boot требуется по-крайней мере %1 MB</translation>
+    </message>
+    <message>
+        <source>Add an EFI partition to continue</source>
+        <translation type="vanished">Для продолжения добавьте EFI раздел</translation>
+    </message>
+    <message>
+        <source>At least %1 MB is required for EFI partition</source>
+        <translation type="vanished">Для раздела EFI требуется по-крайней мере %1 MB</translation>
+    </message>
+    <message>
+        <source>Add a Root partition to continue</source>
+        <translation type="vanished">Чтобы продолжить добавьте Корневой раздел</translation>
+    </message>
+    <message>
+        <source>At least %1 GB is required for Root partition</source>
+        <translation type="vanished">Для Корневого раздела требуется по-меньшей мере %1 GB</translation>
+    </message>
+    <message>
+        <source>At least %1 GB is required for partition %2</source>
+        <translation type="vanished">Для раздела %2 требуется не менее %1 ГБ.</translation>
+    </message>
+</context>
+<context>
+    <name>installer::BootloaderListModel</name>
+    <message>
+        <source>%1 %2 (recommended)</source>
+        <translation type="vanished">%1 %2 (рекомендуется)</translation>
     </message>
 </context>
 <context>
@@ -1337,6 +1418,25 @@
     </message>
 </context>
 <context>
+    <name>installer::ConfirmQuitFrame</name>
+    <message>
+        <source>Abort Installation</source>
+        <translation type="vanished">Прервать Установку</translation>
+    </message>
+    <message>
+        <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
+        <translation type="vanished">Соответствующие операции, сделанные вами в процессе установки не вступят в силу, вы хотите прервать или продолжить установку?</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="vanished">Продолжить</translation>
+    </message>
+    <message>
+        <source>Abort</source>
+        <translation type="vanished">Прервать</translation>
+    </message>
+</context>
+<context>
     <name>installer::ControlPlatformFrame</name>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="28"/>
@@ -1362,6 +1462,17 @@
     </message>
 </context>
 <context>
+    <name>installer::DiskSpaceInsufficientFrame</name>
+    <message>
+        <source>Insufficient Disk Space</source>
+        <translation type="vanished">Недостаточно Места на Диске</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation type="vanished">Выход</translation>
+    </message>
+</context>
+<context>
     <name>installer::DynamicDiskWarningFrame</name>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="113"/>
@@ -1377,6 +1488,75 @@
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="115"/>
         <source>Next</source>
         <translation>Далее</translation>
+    </message>
+</context>
+<context>
+    <name>installer::EditPartitionFrame</name>
+    <message>
+        <source>Edit Disk</source>
+        <translation type="vanished">Редактировать Диск</translation>
+    </message>
+    <message>
+        <source>Make sure you have backed up important data, then select the disk to install</source>
+        <translation type="vanished">Убедитесь, что вы создали резервную копию важных данных, затем выберите диск для установки</translation>
+    </message>
+    <message>
+        <source>File system</source>
+        <translation type="vanished">Файловая система</translation>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="vanished">Точка монтирования</translation>
+    </message>
+    <message>
+        <source>Format the partition</source>
+        <translation type="vanished">Форматировать раздел</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Отменить</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="vanished">Создать</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="vanished">Подтвердить</translation>
+    </message>
+</context>
+<context>
+    <name>installer::FirstBootLoadingFrame</name>
+    <message>
+        <source>Tuning system</source>
+        <translation type="vanished">Настройка системы</translation>
+    </message>
+    <message>
+        <source>Applying changes to your system, please wait...</source>
+        <translation type="vanished">Применение изменений для вашей системы, пожалуйста, ждите...</translation>
+    </message>
+</context>
+<context>
+    <name>installer::FullDiskFrame</name>
+    <message>
+        <source>Install here</source>
+        <translation type="vanished">Установить сюда</translation>
+    </message>
+    <message>
+        <source>Encrypt this disk</source>
+        <translation type="vanished">Зашифровать этот диск</translation>
+    </message>
+    <message>
+        <source>Encrypt This Disk</source>
+        <translation type="vanished">Зашифровать этот диск</translation>
+    </message>
+    <message>
+        <source>Please select a disk to start installation</source>
+        <translation type="vanished">Пожалуйста, выберите диск, чтобы начать установку</translation>
+    </message>
+    <message>
+        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
+        <translation type="vanished">Вам нужно как минимум %1 ГБ дискового пространства для установки UOS. Для повышения производительности рекомендуется использовать %2 ГБ или более</translation>
     </message>
 </context>
 <context>
@@ -1451,6 +1631,17 @@
     </message>
 </context>
 <context>
+    <name>installer::InstallProgressFrame</name>
+    <message>
+        <source>Installing</source>
+        <translation type="vanished">Установка</translation>
+    </message>
+    <message>
+        <source>Here are a few cool things to look out for...</source>
+        <translation type="vanished">Вот несколько интересных вещей, на которые стоит обратить внимание ...</translation>
+    </message>
+</context>
+<context>
     <name>installer::InstallProgressFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="215"/>
@@ -1469,6 +1660,17 @@
         <location filename="../src/ui/models/mount_point_model.cpp" line="37"/>
         <source>Do not use</source>
         <translation>Не использовать</translation>
+    </message>
+</context>
+<context>
+    <name>installer::MultipleDiskInstallationWidget</name>
+    <message>
+        <source>System Disk</source>
+        <translation type="vanished">Системный Диск</translation>
+    </message>
+    <message>
+        <source>Data Disk</source>
+        <translation type="vanished">Диск с Данными</translation>
     </message>
 </context>
 <context>
@@ -1522,6 +1724,164 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="212"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
         <translation>Ошибка маски сети: недопустимая маска сети, пожалуйста, проверьте.</translation>
+    </message>
+</context>
+<context>
+    <name>installer::NewPartitionFrame</name>
+    <message>
+        <source>Create New Partition</source>
+        <translation type="vanished">Создать Новый Раздел</translation>
+    </message>
+    <message>
+        <source>Create a new partition and define the type and size</source>
+        <translation type="vanished">Создать новый раздел и определить тип и размер</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="vanished">Тип</translation>
+    </message>
+    <message>
+        <source>Location</source>
+        <translation type="vanished">Местоположение</translation>
+    </message>
+    <message>
+        <source>File system</source>
+        <translation type="vanished">Файловая система</translation>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="vanished">Точка монтирования</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="vanished">Размер</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="vanished">Начало</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="vanished">Конец</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Отменить</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="vanished">ОК</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="vanished">Создать</translation>
+    </message>
+</context>
+<context>
+    <name>installer::NewTableLoadingFrame</name>
+    <message>
+        <source>Formatting...</source>
+        <translation type="vanished">Форматирование...</translation>
+    </message>
+</context>
+<context>
+    <name>installer::NewTableWarningFrame</name>
+    <message>
+        <source>Format Warning</source>
+        <translation type="vanished">Предупреждение о Форматировании</translation>
+    </message>
+    <message>
+        <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
+        <translation type="vanished">Продолжение установки отформатирует весь диск, пожалуйста, сделайте резервную копию всех ваших данных. Если вы не знаете, что делаете, пожалуйста, не продолжайте</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Отменить</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="vanished">Продолжить</translation>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionFrame</name>
+    <message>
+        <source>Select Installation Location</source>
+        <translation type="vanished">Выберите местоположение для установки</translation>
+    </message>
+    <message>
+        <source>Make sure you have backed up important data, then select the disk to install</source>
+        <translation type="vanished">Убедитесь, что вы создали резервную копию важных данных, затем выберите диск для установки</translation>
+    </message>
+    <message>
+        <source>Simple</source>
+        <translation type="vanished">Простой</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="vanished">Расширенный</translation>
+    </message>
+    <message>
+        <source>Full Disk</source>
+        <translation type="vanished">Весь Диск</translation>
+    </message>
+    <message>
+        <source>Start installation</source>
+        <translation type="vanished">Начало установки</translation>
+    </message>
+    <message>
+        <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
+        <translation type="vanished">Целевой диск является динамическим, и ваши данные могут быть потеряны при продолжении. Пожалуйста, сначала сделайте резервную копию ваших важных файлов.</translation>
+    </message>
+    <message>
+        <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
+        <translation type="vanished">Целевой диск является динамическим, и будет отформатирован, если продолжить. Пожалуйста, сначала сделайте резервную копию ваших важных файлов.</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="vanished">Далее</translation>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionLoadingFrame</name>
+    <message>
+        <source>Scan disks</source>
+        <translation type="vanished">Сканировать диски</translation>
+    </message>
+    <message>
+        <source>Scanning disks, please wait...</source>
+        <translation type="vanished">Сканирование дисков, пожалуйста ждите...</translation>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionNumberLimitationFrame</name>
+    <message>
+        <source>You should delete a primary partition before creating a new one</source>
+        <translation type="vanished">Вы должны удалить основной раздел перед созданием нового</translation>
+    </message>
+    <message>
+        <source>New logical partitions can only be created near existing logical partitions</source>
+        <translation type="vanished">Новый логический раздел может быть создан на основе уже существующих логических разделов</translation>
+    </message>
+    <message>
+        <source>You should delete a primary partition before creating a new partition</source>
+        <translation type="vanished">Вы должны удалить основной раздел перед созданием нового раздела</translation>
+    </message>
+    <message>
+        <source>Failed to Create New Partition</source>
+        <translation type="vanished">Не удалось Создать Новый Раздел</translation>
+    </message>
+    <message>
+        <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
+        <translation type="vanished">Вы должны удалить основной раздел перед созданием нового, так как на диске MBR может быть только четыре основных раздела.</translation>
+    </message>
+    <message>
+        <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
+        <translation type="vanished">Вы должны удалить основной раздел перед созданием логического или переместить существующий логический раздел в конец диска</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="vanished">Назад</translation>
     </message>
 </context>
 <context>
@@ -1612,6 +1972,40 @@
     </message>
 </context>
 <context>
+    <name>installer::PartitionTypeModel</name>
+    <message>
+        <source>Logical Partition</source>
+        <translation type="vanished">Логический Раздел</translation>
+    </message>
+    <message>
+        <source>Primary Partition</source>
+        <translation type="vanished">Основной Раздел</translation>
+    </message>
+</context>
+<context>
+    <name>installer::PrepareInstallFrame</name>
+    <message>
+        <source>Ready to Install</source>
+        <translation type="vanished">Готов к Установке</translation>
+    </message>
+    <message>
+        <source>Make a backup of your important data and then continue</source>
+        <translation type="vanished">Сделайте резервную копию ваших важных данных и затем продолжайте</translation>
+    </message>
+    <message>
+        <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
+        <translation type="vanished">Следующие операции будут выполнены, пожалуйста, подтвердите действие во избежание потери данных</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="vanished">Назад</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="vanished">Продолжить</translation>
+    </message>
+</context>
+<context>
     <name>installer::SaveInstallFailedLogFrame</name>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="150"/>
@@ -1632,6 +2026,21 @@
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="153"/>
         <source>Back</source>
         <translation>Назад</translation>
+    </message>
+</context>
+<context>
+    <name>installer::SelectBootloaderFrame</name>
+    <message>
+        <source>Select location for boot loader</source>
+        <translation type="vanished">Выберите местонахождение загрузчика</translation>
+    </message>
+    <message>
+        <source>If you do not understand the settings, please select the recommended one</source>
+        <translation type="vanished">Если вы не понимаете эти настройки, выберите один из рекомендуемых</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="vanished">Назад</translation>
     </message>
 </context>
 <context>
@@ -1686,6 +2095,29 @@
     </message>
 </context>
 <context>
+    <name>installer::SimplePartitionFrame</name>
+    <message>
+        <source>Unable to create new partition, please select one of the existing partitions!</source>
+        <translation type="vanished">Невозможно создать новый раздел, пожалуйста, выберите один из существующих разделов!</translation>
+    </message>
+    <message>
+        <source>Please select one of the partitions to install!</source>
+        <translation type="vanished">Пожалуйста, выберите один из разделов для установки!</translation>
+    </message>
+    <message>
+        <source>At least %1 GB is required for root partition</source>
+        <translation type="vanished">Для корневого раздела требуется по-крайней мере %1 GB</translation>
+    </message>
+    <message>
+        <source>Install here</source>
+        <translation type="vanished">Установить сюда</translation>
+    </message>
+    <message>
+        <source>Windows will not boot if you install UOS onWindows disk, please confirm to continue</source>
+        <translation type="vanished">Windows не загрузится, если вы установите UOS на диск Windows, пожалуйста, подтвердите, чтобы продолжить</translation>
+    </message>
+</context>
+<context>
     <name>installer::SystemDateFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
@@ -1736,6 +2168,17 @@
     </message>
 </context>
 <context>
+    <name>installer::SystemInfoAvatarFrame</name>
+    <message>
+        <source>User Avatar</source>
+        <translation type="vanished">Аватар Пользователя</translation>
+    </message>
+    <message>
+        <source>Select an avatar for your account</source>
+        <translation type="vanished">Выберите аватар для вашей учетной записи</translation>
+    </message>
+</context>
+<context>
     <name>installer::SystemInfoAvatarFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="123"/>
@@ -1746,6 +2189,33 @@
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="124"/>
         <source>Select an avatar for your account</source>
         <translation>Выберите аватар для вашей учетной записи</translation>
+    </message>
+</context>
+<context>
+    <name>installer::SystemInfoFormFrame</name>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Имя пользователя</translation>
+    </message>
+    <message>
+        <source>Computer name</source>
+        <translation type="vanished">Имя компьютера</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Пароль</translation>
+    </message>
+    <message>
+        <source>Repeat password</source>
+        <translation type="vanished">Повторите пароль</translation>
+    </message>
+    <message>
+        <source>Root password</source>
+        <translation type="vanished">Пароль root</translation>
+    </message>
+    <message>
+        <source>Repeat root password</source>
+        <translation type="vanished">Повторите пароль root</translation>
     </message>
 </context>
 <context>
@@ -1868,6 +2338,13 @@
     </message>
 </context>
 <context>
+    <name>installer::SystemInfoKeyboardFrame</name>
+    <message>
+        <source>Back</source>
+        <translation type="vanished">Назад</translation>
+    </message>
+</context>
+<context>
     <name>installer::SystemInfoKeyboardFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="103"/>
@@ -1891,6 +2368,37 @@
     </message>
 </context>
 <context>
+    <name>installer::TimezoneFrame</name>
+    <message>
+        <source>Select Timezone</source>
+        <translation type="vanished">Выберите Временную Зону</translation>
+    </message>
+    <message>
+        <source>Click your zone on the map</source>
+        <translation type="vanished">Кликните по вашему месту на карте</translation>
+    </message>
+    <message>
+        <source>Select your timezone from the list</source>
+        <translation type="vanished">Выберите часовой пояс из списка</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="vanished">Далее</translation>
+    </message>
+    <message>
+        <source>Map</source>
+        <translation type="vanished">Карта</translation>
+    </message>
+    <message>
+        <source>List</source>
+        <translation type="vanished">Список</translation>
+    </message>
+    <message>
+        <source>Time settings</source>
+        <translation type="vanished">Настройки времени</translation>
+    </message>
+</context>
+<context>
     <name>installer::UserAgreementFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="116"/>
@@ -1911,6 +2419,25 @@
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="122"/>
         <source>View in Chinese</source>
         <translation>Просмотр на Китайском</translation>
+    </message>
+</context>
+<context>
+    <name>installer::VirtualMachineFrame</name>
+    <message>
+        <source>Friendly Reminder</source>
+        <translation type="vanished">Дружеское Напоминание</translation>
+    </message>
+    <message>
+        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
+        <translation type="vanished">Вы используете виртуальную машину, которая влияет на производительность системы и опыт использования. Для наилучшего результата, пожалуйста, установите UOS в реальной среде</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="vanished">Продолжить</translation>
+    </message>
+    <message>
+        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
+        <translation type="vanished">Система обнаружила, что вы используете виртуальную машину, которая будет влиять на производительность и работоспособность системы, для наилучшего результата, рекомендуется установить UOS на реально работающий компьютер</translation>
     </message>
 </context>
 </TS>

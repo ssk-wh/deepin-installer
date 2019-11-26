@@ -674,7 +674,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
-        <source>Windows will not boot if you install UOS onWindows disk, please confirm to continue</source>
+        <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -801,6 +801,87 @@
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::AdvancedPartitionButton</name>
+    <message>
+        <source>Install here</source>
+        <translation type="vanished">安裝於此</translation>
+    </message>
+    <message>
+        <source>To be formatted</source>
+        <translation type="vanished">格式化</translation>
+    </message>
+</context>
+<context>
+    <name>installer::AdvancedPartitionFrame</name>
+    <message>
+        <source>Change boot loader</source>
+        <translation type="vanished">更改啟動程式位置</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">完成</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="vanished">刪除</translation>
+    </message>
+    <message>
+        <source>%1 error found, fix to continue installation or switch to simple mode</source>
+        <translation type="vanished">發現 %1 個錯誤，修復以繼續安裝或切換為簡易模式</translation>
+    </message>
+    <message>
+        <source>%1 errors found, fix to continue installation or switch to simple mode</source>
+        <translation type="vanished">發現 %1 個錯誤，修復以繼續安裝或切換為簡易模式</translation>
+    </message>
+    <message>
+        <source>%1 error found, continue to install after fixed</source>
+        <translation type="vanished">發現 %1 個錯誤，修復以繼續安裝</translation>
+    </message>
+    <message>
+        <source>%1 errors found, continue to install after fixed</source>
+        <translation type="vanished">發現 %1 個錯誤，修復以繼續安裝</translation>
+    </message>
+    <message>
+        <source>The partition filesystem type of /boot directory can only be %1 </source>
+        <translation type="vanished">/boot 分割區的檔案系統類型只能是 %1</translation>
+    </message>
+    <message>
+        <source>The partition of /boot directory should be the first partition on hard disk</source>
+        <translation type="vanished">/boot 分割區應為硬碟中第一個分割區</translation>
+    </message>
+    <message>
+        <source>At least %1 MB is required for /boot partition</source>
+        <translation type="vanished">/boot 分割區至少要 %1 MB</translation>
+    </message>
+    <message>
+        <source>Add an EFI partition to continue</source>
+        <translation type="vanished">建立 EFI 開機分割區後繼續</translation>
+    </message>
+    <message>
+        <source>At least %1 MB is required for EFI partition</source>
+        <translation type="vanished">EFI 分割區至少要 %1 MB</translation>
+    </message>
+    <message>
+        <source>Add a Root partition to continue</source>
+        <translation type="vanished">需設定 Root 分割區</translation>
+    </message>
+    <message>
+        <source>At least %1 GB is required for Root partition</source>
+        <translation type="vanished">Root 分割區至少要 %1 GB</translation>
+    </message>
+    <message>
+        <source>At least %1 GB is required for partition %2</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::BootloaderListModel</name>
+    <message>
+        <source>%1 %2 (recommended)</source>
+        <translation type="vanished">%1 %2（建議）</translation>
     </message>
 </context>
 <context>
@@ -1337,6 +1418,25 @@
     </message>
 </context>
 <context>
+    <name>installer::ConfirmQuitFrame</name>
+    <message>
+        <source>Abort Installation</source>
+        <translation type="vanished">取消安裝</translation>
+    </message>
+    <message>
+        <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
+        <translation type="vanished">安裝過程中所做的動作均不會套用，取消還是要繼續安裝？</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="vanished">繼續安裝</translation>
+    </message>
+    <message>
+        <source>Abort</source>
+        <translation type="vanished">取消安裝</translation>
+    </message>
+</context>
+<context>
     <name>installer::ControlPlatformFrame</name>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="28"/>
@@ -1362,6 +1462,17 @@
     </message>
 </context>
 <context>
+    <name>installer::DiskSpaceInsufficientFrame</name>
+    <message>
+        <source>Insufficient Disk Space</source>
+        <translation type="vanished">磁碟機空間不足</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>installer::DynamicDiskWarningFrame</name>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="113"/>
@@ -1377,6 +1488,75 @@
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="115"/>
         <source>Next</source>
         <translation>下一步</translation>
+    </message>
+</context>
+<context>
+    <name>installer::EditPartitionFrame</name>
+    <message>
+        <source>Edit Disk</source>
+        <translation type="vanished">編輯磁碟機</translation>
+    </message>
+    <message>
+        <source>Make sure you have backed up important data, then select the disk to install</source>
+        <translation type="vanished">確保您已備份重要資料，之後選擇磁碟安裝</translation>
+    </message>
+    <message>
+        <source>File system</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="vanished">掛載點</translation>
+    </message>
+    <message>
+        <source>Format the partition</source>
+        <translation type="vanished">格式化分割區</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">取消</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::FirstBootLoadingFrame</name>
+    <message>
+        <source>Tuning system</source>
+        <translation type="vanished">正在調整系統</translation>
+    </message>
+    <message>
+        <source>Applying changes to your system, please wait...</source>
+        <translation type="vanished">正在套用變更至你的系統，請稍候…</translation>
+    </message>
+</context>
+<context>
+    <name>installer::FullDiskFrame</name>
+    <message>
+        <source>Install here</source>
+        <translation type="vanished">安裝於此</translation>
+    </message>
+    <message>
+        <source>Encrypt this disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Encrypt This Disk</source>
+        <translation type="vanished">加密此硬碟</translation>
+    </message>
+    <message>
+        <source>Please select a disk to start installation</source>
+        <translation type="vanished">請選擇一塊用於安裝的硬碟來開始安裝程序</translation>
+    </message>
+    <message>
+        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1451,6 +1631,17 @@
     </message>
 </context>
 <context>
+    <name>installer::InstallProgressFrame</name>
+    <message>
+        <source>Installing</source>
+        <translation type="vanished">正在安裝</translation>
+    </message>
+    <message>
+        <source>Here are a few cool things to look out for...</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>installer::InstallProgressFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="215"/>
@@ -1469,6 +1660,17 @@
         <location filename="../src/ui/models/mount_point_model.cpp" line="37"/>
         <source>Do not use</source>
         <translation>不使用分割區</translation>
+    </message>
+</context>
+<context>
+    <name>installer::MultipleDiskInstallationWidget</name>
+    <message>
+        <source>System Disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Data Disk</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1522,6 +1724,164 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="212"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
         <translation>網路遮罩錯誤：網路遮罩無效，請檢查。</translation>
+    </message>
+</context>
+<context>
+    <name>installer::NewPartitionFrame</name>
+    <message>
+        <source>Create New Partition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create a new partition and define the type and size</source>
+        <translation type="vanished">建立新分割區並設定類型與大小</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="vanished">類型</translation>
+    </message>
+    <message>
+        <source>Location</source>
+        <translation type="vanished">位置</translation>
+    </message>
+    <message>
+        <source>File system</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="vanished">掛載點</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="vanished">大小</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="vanished">起始位置</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="vanished">結束位置</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">取消</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="vanished">確定</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::NewTableLoadingFrame</name>
+    <message>
+        <source>Formatting...</source>
+        <translation type="vanished">正在格式化…</translation>
+    </message>
+</context>
+<context>
+    <name>installer::NewTableWarningFrame</name>
+    <message>
+        <source>Format Warning</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">取消</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="vanished">繼續</translation>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionFrame</name>
+    <message>
+        <source>Select Installation Location</source>
+        <translation type="vanished">選擇安裝位置</translation>
+    </message>
+    <message>
+        <source>Make sure you have backed up important data, then select the disk to install</source>
+        <translation type="vanished">確保您已備份重要資料，之後選擇磁碟安裝</translation>
+    </message>
+    <message>
+        <source>Simple</source>
+        <translation type="vanished">簡易</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="vanished">進階</translation>
+    </message>
+    <message>
+        <source>Full Disk</source>
+        <translation type="vanished">全硬碟</translation>
+    </message>
+    <message>
+        <source>Start installation</source>
+        <translation type="vanished">開始安裝</translation>
+    </message>
+    <message>
+        <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
+        <translation type="vanished">目標磁碟為動態磁碟。如果繼續，您的資料可能會遺失。請先備份您的重要資料。</translation>
+    </message>
+    <message>
+        <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
+        <translation type="vanished">目標磁碟為動態磁碟。如果繼續，該磁碟將被格式化。請先備份您的重要資料。</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="vanished">下一步</translation>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionLoadingFrame</name>
+    <message>
+        <source>Scan disks</source>
+        <translation type="vanished">掃描磁碟機</translation>
+    </message>
+    <message>
+        <source>Scanning disks, please wait...</source>
+        <translation type="vanished">正在掃描磁碟機，請稍候…</translation>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionNumberLimitationFrame</name>
+    <message>
+        <source>You should delete a primary partition before creating a new one</source>
+        <translation type="vanished">建立新主要分割區前，您需要刪除一個主要分割區</translation>
+    </message>
+    <message>
+        <source>New logical partitions can only be created near existing logical partitions</source>
+        <translation type="vanished">新的邏輯分割區只能在鄰近現有邏輯分割區的位置建立</translation>
+    </message>
+    <message>
+        <source>You should delete a primary partition before creating a new partition</source>
+        <translation type="vanished">建立新分割區前，您需要刪除一個主要分割區</translation>
+    </message>
+    <message>
+        <source>Failed to Create New Partition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="vanished">返回</translation>
     </message>
 </context>
 <context>
@@ -1612,6 +1972,40 @@
     </message>
 </context>
 <context>
+    <name>installer::PartitionTypeModel</name>
+    <message>
+        <source>Logical Partition</source>
+        <translation type="vanished">邏輯分割區</translation>
+    </message>
+    <message>
+        <source>Primary Partition</source>
+        <translation type="vanished">主要分割區</translation>
+    </message>
+</context>
+<context>
+    <name>installer::PrepareInstallFrame</name>
+    <message>
+        <source>Ready to Install</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Make a backup of your important data and then continue</source>
+        <translation type="vanished">請備份好重要資料後繼續</translation>
+    </message>
+    <message>
+        <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
+        <translation type="vanished">將執行以下動作，請確認後再繼續以避免資料遺失</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="vanished">返回</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="vanished">繼續</translation>
+    </message>
+</context>
+<context>
     <name>installer::SaveInstallFailedLogFrame</name>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="150"/>
@@ -1632,6 +2026,21 @@
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="153"/>
         <source>Back</source>
         <translation>返回</translation>
+    </message>
+</context>
+<context>
+    <name>installer::SelectBootloaderFrame</name>
+    <message>
+        <source>Select location for boot loader</source>
+        <translation type="vanished">選擇啟動程式位置</translation>
+    </message>
+    <message>
+        <source>If you do not understand the settings, please select the recommended one</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="vanished">返回</translation>
     </message>
 </context>
 <context>
@@ -1686,6 +2095,29 @@
     </message>
 </context>
 <context>
+    <name>installer::SimplePartitionFrame</name>
+    <message>
+        <source>Unable to create new partition, please select one of the existing partitions!</source>
+        <translation type="vanished">無法建立新分割區，請選擇一個現有的分割區！</translation>
+    </message>
+    <message>
+        <source>Please select one of the partitions to install!</source>
+        <translation type="vanished">請選擇一個安裝分割區！</translation>
+    </message>
+    <message>
+        <source>At least %1 GB is required for root partition</source>
+        <translation type="vanished">Root 分割區至少要 %1 GB</translation>
+    </message>
+    <message>
+        <source>Install here</source>
+        <translation type="vanished">安裝於此</translation>
+    </message>
+    <message>
+        <source>Windows will not boot if you install UOS onWindows disk, please confirm to continue</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>installer::SystemDateFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
@@ -1736,6 +2168,17 @@
     </message>
 </context>
 <context>
+    <name>installer::SystemInfoAvatarFrame</name>
+    <message>
+        <source>User Avatar</source>
+        <translation type="vanished">使用者頭貼</translation>
+    </message>
+    <message>
+        <source>Select an avatar for your account</source>
+        <translation type="vanished">為帳戶選擇頭貼</translation>
+    </message>
+</context>
+<context>
     <name>installer::SystemInfoAvatarFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="123"/>
@@ -1746,6 +2189,33 @@
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="124"/>
         <source>Select an avatar for your account</source>
         <translation>為帳戶選擇頭貼</translation>
+    </message>
+</context>
+<context>
+    <name>installer::SystemInfoFormFrame</name>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">使用者名稱</translation>
+    </message>
+    <message>
+        <source>Computer name</source>
+        <translation type="vanished">電腦名稱</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">密碼</translation>
+    </message>
+    <message>
+        <source>Repeat password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Root password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Repeat root password</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1868,6 +2338,13 @@
     </message>
 </context>
 <context>
+    <name>installer::SystemInfoKeyboardFrame</name>
+    <message>
+        <source>Back</source>
+        <translation type="vanished">返回</translation>
+    </message>
+</context>
+<context>
     <name>installer::SystemInfoKeyboardFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="103"/>
@@ -1891,6 +2368,37 @@
     </message>
 </context>
 <context>
+    <name>installer::TimezoneFrame</name>
+    <message>
+        <source>Select Timezone</source>
+        <translation type="vanished">選擇時區</translation>
+    </message>
+    <message>
+        <source>Click your zone on the map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select your timezone from the list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="vanished">下一步</translation>
+    </message>
+    <message>
+        <source>Map</source>
+        <translation type="vanished">地圖</translation>
+    </message>
+    <message>
+        <source>List</source>
+        <translation type="vanished">列表</translation>
+    </message>
+    <message>
+        <source>Time settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>installer::UserAgreementFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="116"/>
@@ -1911,6 +2419,25 @@
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="122"/>
         <source>View in Chinese</source>
         <translation>以中文檢視</translation>
+    </message>
+</context>
+<context>
+    <name>installer::VirtualMachineFrame</name>
+    <message>
+        <source>Friendly Reminder</source>
+        <translation type="vanished">友善提醒</translation>
+    </message>
+    <message>
+        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="vanished">繼續安裝</translation>
+    </message>
+    <message>
+        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

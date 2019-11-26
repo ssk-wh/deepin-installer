@@ -674,7 +674,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
-        <source>Windows will not boot if you install UOS onWindows disk, please confirm to continue</source>
+        <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -801,6 +801,87 @@
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::AdvancedPartitionButton</name>
+    <message>
+        <source>Install here</source>
+        <translation type="vanished">여기 설치</translation>
+    </message>
+    <message>
+        <source>To be formatted</source>
+        <translation type="vanished">포맷할 수 있습니다</translation>
+    </message>
+</context>
+<context>
+    <name>installer::AdvancedPartitionFrame</name>
+    <message>
+        <source>Change boot loader</source>
+        <translation type="vanished">부트 로더 변경</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">완료</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="vanished">삭제</translation>
+    </message>
+    <message>
+        <source>%1 error found, fix to continue installation or switch to simple mode</source>
+        <translation type="vanished">%1 오류 발견, 설치를 계속하거나 단순 모드로 전환하도록 수정</translation>
+    </message>
+    <message>
+        <source>%1 errors found, fix to continue installation or switch to simple mode</source>
+        <translation type="vanished">%1 오류 발견, 설치를 계속하거나 단순 모드로 전환하도록 수정</translation>
+    </message>
+    <message>
+        <source>%1 error found, continue to install after fixed</source>
+        <translation type="vanished">%1 오류 발견, 복구한 후에 계속 설치</translation>
+    </message>
+    <message>
+        <source>%1 errors found, continue to install after fixed</source>
+        <translation type="vanished">%1 오류 발견, 복구한 후에 계속 설치</translation>
+    </message>
+    <message>
+        <source>The partition filesystem type of /boot directory can only be %1 </source>
+        <translation type="vanished">/boot 디렉토리의 파티션 파일 시스템 유형은 %1만 가능합니다. </translation>
+    </message>
+    <message>
+        <source>The partition of /boot directory should be the first partition on hard disk</source>
+        <translation type="vanished">/boot 디렉토리의 파티션은 하드 디스크의 첫 번째 파티션이어야 합니다</translation>
+    </message>
+    <message>
+        <source>At least %1 MB is required for /boot partition</source>
+        <translation type="vanished">/boot 파티션에 최소한 %1MB 이상 필요</translation>
+    </message>
+    <message>
+        <source>Add an EFI partition to continue</source>
+        <translation type="vanished">계속하려면 EFI 파티션 추가</translation>
+    </message>
+    <message>
+        <source>At least %1 MB is required for EFI partition</source>
+        <translation type="vanished">EFI 파티션에 최소한 %1MB 이상 필요합니다</translation>
+    </message>
+    <message>
+        <source>Add a Root partition to continue</source>
+        <translation type="vanished">계속하려면 루트 파티션 추가</translation>
+    </message>
+    <message>
+        <source>At least %1 GB is required for Root partition</source>
+        <translation type="vanished">루트 파티션에 %1GB 이상이 필요합니다</translation>
+    </message>
+    <message>
+        <source>At least %1 GB is required for partition %2</source>
+        <translation type="vanished">파티션 %2에 최소 %1 GB가 필요합니다.</translation>
+    </message>
+</context>
+<context>
+    <name>installer::BootloaderListModel</name>
+    <message>
+        <source>%1 %2 (recommended)</source>
+        <translation type="vanished">%1 %2 (추천됨)</translation>
     </message>
 </context>
 <context>
@@ -1337,6 +1418,25 @@
     </message>
 </context>
 <context>
+    <name>installer::ConfirmQuitFrame</name>
+    <message>
+        <source>Abort Installation</source>
+        <translation type="vanished">설치 중단</translation>
+    </message>
+    <message>
+        <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
+        <translation type="vanished">설치 프로세스에서 수행한 관련 작업이 적용되지 않습니다. 설치를 중단하거나 계속하시겠습니까?</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="vanished">계속</translation>
+    </message>
+    <message>
+        <source>Abort</source>
+        <translation type="vanished">중단</translation>
+    </message>
+</context>
+<context>
     <name>installer::ControlPlatformFrame</name>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="28"/>
@@ -1362,6 +1462,17 @@
     </message>
 </context>
 <context>
+    <name>installer::DiskSpaceInsufficientFrame</name>
+    <message>
+        <source>Insufficient Disk Space</source>
+        <translation type="vanished">디스크 공간 부족</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation type="vanished">종료</translation>
+    </message>
+</context>
+<context>
     <name>installer::DynamicDiskWarningFrame</name>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="113"/>
@@ -1377,6 +1488,75 @@
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="115"/>
         <source>Next</source>
         <translation>다음</translation>
+    </message>
+</context>
+<context>
+    <name>installer::EditPartitionFrame</name>
+    <message>
+        <source>Edit Disk</source>
+        <translation type="vanished">디스크 편집</translation>
+    </message>
+    <message>
+        <source>Make sure you have backed up important data, then select the disk to install</source>
+        <translation type="vanished">중요한 데이터를 백업했는지 확인한 다음 설치할 디스크를 선택하세요</translation>
+    </message>
+    <message>
+        <source>File system</source>
+        <translation type="vanished">파일 시스템</translation>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="vanished">마운트 지점</translation>
+    </message>
+    <message>
+        <source>Format the partition</source>
+        <translation type="vanished">파티션 포맷</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">취소</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="vanished">생성</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="vanished">확인</translation>
+    </message>
+</context>
+<context>
+    <name>installer::FirstBootLoadingFrame</name>
+    <message>
+        <source>Tuning system</source>
+        <translation type="vanished">튜닝 시스템</translation>
+    </message>
+    <message>
+        <source>Applying changes to your system, please wait...</source>
+        <translation type="vanished">변경 사항을 시스템에 적용하려면, 잠시 기다려 주세요...</translation>
+    </message>
+</context>
+<context>
+    <name>installer::FullDiskFrame</name>
+    <message>
+        <source>Install here</source>
+        <translation type="vanished">여기 설치</translation>
+    </message>
+    <message>
+        <source>Encrypt this disk</source>
+        <translation type="vanished">이 디스크 암호화</translation>
+    </message>
+    <message>
+        <source>Encrypt This Disk</source>
+        <translation type="vanished">이 디스크 암호화</translation>
+    </message>
+    <message>
+        <source>Please select a disk to start installation</source>
+        <translation type="vanished">설치를 시작할 디스크를 선택하세요</translation>
+    </message>
+    <message>
+        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1451,6 +1631,17 @@
     </message>
 </context>
 <context>
+    <name>installer::InstallProgressFrame</name>
+    <message>
+        <source>Installing</source>
+        <translation type="vanished">설치 중</translation>
+    </message>
+    <message>
+        <source>Here are a few cool things to look out for...</source>
+        <translation type="vanished">주의해야 할 몇 가지 멋진 사항은 다음과 같습니다...</translation>
+    </message>
+</context>
+<context>
     <name>installer::InstallProgressFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="215"/>
@@ -1469,6 +1660,17 @@
         <location filename="../src/ui/models/mount_point_model.cpp" line="37"/>
         <source>Do not use</source>
         <translation>사용하지 마세요</translation>
+    </message>
+</context>
+<context>
+    <name>installer::MultipleDiskInstallationWidget</name>
+    <message>
+        <source>System Disk</source>
+        <translation type="vanished">시스템 디스크</translation>
+    </message>
+    <message>
+        <source>Data Disk</source>
+        <translation type="vanished">데이터 디스크</translation>
     </message>
 </context>
 <context>
@@ -1522,6 +1724,164 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="212"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
         <translation>넷마스크 오류 : 불법적인 넷마스크입니다. 확인하세요.</translation>
+    </message>
+</context>
+<context>
+    <name>installer::NewPartitionFrame</name>
+    <message>
+        <source>Create New Partition</source>
+        <translation type="vanished">새 파티션 만들기</translation>
+    </message>
+    <message>
+        <source>Create a new partition and define the type and size</source>
+        <translation type="vanished">새 파티션 생성 및 유형 및 크기 정의</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="vanished">유형</translation>
+    </message>
+    <message>
+        <source>Location</source>
+        <translation type="vanished">위치</translation>
+    </message>
+    <message>
+        <source>File system</source>
+        <translation type="vanished">파일 시스템</translation>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="vanished">마운트 지점</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="vanished">크기</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="vanished">시작</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="vanished">종료</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">취소</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="vanished">확인</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="vanished">생성</translation>
+    </message>
+</context>
+<context>
+    <name>installer::NewTableLoadingFrame</name>
+    <message>
+        <source>Formatting...</source>
+        <translation type="vanished">포맷중...</translation>
+    </message>
+</context>
+<context>
+    <name>installer::NewTableWarningFrame</name>
+    <message>
+        <source>Format Warning</source>
+        <translation type="vanished">포맷 경고</translation>
+    </message>
+    <message>
+        <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
+        <translation type="vanished">설치를 계속하면 전체 디스크가 포맷됩니다. 모든 데이터를 백업하십시오. 만약 당신이 무엇을 하고 있는지 모른다면, 계속하지 마십시오</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">취소</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="vanished">계속</translation>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionFrame</name>
+    <message>
+        <source>Select Installation Location</source>
+        <translation type="vanished">설치 위치 선택</translation>
+    </message>
+    <message>
+        <source>Make sure you have backed up important data, then select the disk to install</source>
+        <translation type="vanished">중요한 데이터를 백업했는지 확인한 다음 설치할 디스크를 선택하세요</translation>
+    </message>
+    <message>
+        <source>Simple</source>
+        <translation type="vanished">간편하게</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="vanished">상세하게</translation>
+    </message>
+    <message>
+        <source>Full Disk</source>
+        <translation type="vanished">전체 디스크</translation>
+    </message>
+    <message>
+        <source>Start installation</source>
+        <translation type="vanished">설치 시작</translation>
+    </message>
+    <message>
+        <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
+        <translation type="vanished">대상 디스크는 동적이므로 계속하면 데이터가 손실될 수 있습니다. 먼저 중요한 파일을 백업해 주세요.</translation>
+    </message>
+    <message>
+        <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
+        <translation type="vanished">대상 디스크는 동적 디스크이며 계속 진행하면 포맷됩니다. 먼저 중요한 파일을 백업해 주세요.</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="vanished">다음</translation>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionLoadingFrame</name>
+    <message>
+        <source>Scan disks</source>
+        <translation type="vanished">디스크 검사</translation>
+    </message>
+    <message>
+        <source>Scanning disks, please wait...</source>
+        <translation type="vanished">디스크 검사 중입니다. 잠시 기다려주세요...</translation>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionNumberLimitationFrame</name>
+    <message>
+        <source>You should delete a primary partition before creating a new one</source>
+        <translation type="vanished">새 파티션을 만들기 전에 기본 파티션을 삭제해야 합니다</translation>
+    </message>
+    <message>
+        <source>New logical partitions can only be created near existing logical partitions</source>
+        <translation type="vanished">새 논리 파티션은 기존 논리 파티션 근처에만 만들 수 있습니다</translation>
+    </message>
+    <message>
+        <source>You should delete a primary partition before creating a new partition</source>
+        <translation type="vanished">새 파티션을 만들기 전에 기본 파티션을 삭제해야 합니다</translation>
+    </message>
+    <message>
+        <source>Failed to Create New Partition</source>
+        <translation type="vanished">새 파티션을 만들지 못했습니다</translation>
+    </message>
+    <message>
+        <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
+        <translation type="vanished">MBR 디스크에 4개의 기본 파티션만 있을 수 있으므로, 새 파티션을 만들기 전에 기본 파티션을 삭제해야 합니다</translation>
+    </message>
+    <message>
+        <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
+        <translation type="vanished">논리 파티션을 만들기 전에 기본 파티션을 삭제하거나 기존 논리 파티션을 디스크 끝으로 이동해야 합니다</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="vanished">뒤로</translation>
     </message>
 </context>
 <context>
@@ -1612,6 +1972,40 @@
     </message>
 </context>
 <context>
+    <name>installer::PartitionTypeModel</name>
+    <message>
+        <source>Logical Partition</source>
+        <translation type="vanished">논리 파티션</translation>
+    </message>
+    <message>
+        <source>Primary Partition</source>
+        <translation type="vanished">기본 파티션</translation>
+    </message>
+</context>
+<context>
+    <name>installer::PrepareInstallFrame</name>
+    <message>
+        <source>Ready to Install</source>
+        <translation type="vanished">설치 준비 완료</translation>
+    </message>
+    <message>
+        <source>Make a backup of your important data and then continue</source>
+        <translation type="vanished">중요한 데이터를 백업한 후 계속 진행합니다</translation>
+    </message>
+    <message>
+        <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
+        <translation type="vanished">다음 작업이 실행됩니다. 확인 후 데이터 손실을 방지하세요</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="vanished">뒤로</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="vanished">계속</translation>
+    </message>
+</context>
+<context>
     <name>installer::SaveInstallFailedLogFrame</name>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="150"/>
@@ -1632,6 +2026,21 @@
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="153"/>
         <source>Back</source>
         <translation>뒤로</translation>
+    </message>
+</context>
+<context>
+    <name>installer::SelectBootloaderFrame</name>
+    <message>
+        <source>Select location for boot loader</source>
+        <translation type="vanished">부트 로더 위치 선택</translation>
+    </message>
+    <message>
+        <source>If you do not understand the settings, please select the recommended one</source>
+        <translation type="vanished">설정을 이해하지 못할 경우, 권장 설정을 선택하십시오</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="vanished">뒤로</translation>
     </message>
 </context>
 <context>
@@ -1686,6 +2095,29 @@
     </message>
 </context>
 <context>
+    <name>installer::SimplePartitionFrame</name>
+    <message>
+        <source>Unable to create new partition, please select one of the existing partitions!</source>
+        <translation type="vanished">새 파티션을 만들 수 없습니다. 기존 파티션 중 하나를 선택하세요!</translation>
+    </message>
+    <message>
+        <source>Please select one of the partitions to install!</source>
+        <translation type="vanished">설치할 파티션 중 하나를 선택하세요!</translation>
+    </message>
+    <message>
+        <source>At least %1 GB is required for root partition</source>
+        <translation type="vanished">루트 파티션에 최소한 %1GB 이상이 필요합니다</translation>
+    </message>
+    <message>
+        <source>Install here</source>
+        <translation type="vanished">여기 설치</translation>
+    </message>
+    <message>
+        <source>Windows will not boot if you install UOS onWindows disk, please confirm to continue</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>installer::SystemDateFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
@@ -1736,6 +2168,17 @@
     </message>
 </context>
 <context>
+    <name>installer::SystemInfoAvatarFrame</name>
+    <message>
+        <source>User Avatar</source>
+        <translation type="vanished">사용자 아바타</translation>
+    </message>
+    <message>
+        <source>Select an avatar for your account</source>
+        <translation type="vanished">계정에 사용할 아바타를 선택합니다</translation>
+    </message>
+</context>
+<context>
     <name>installer::SystemInfoAvatarFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="123"/>
@@ -1746,6 +2189,33 @@
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="124"/>
         <source>Select an avatar for your account</source>
         <translation>계정에 사용할 아바타를 선택합니다</translation>
+    </message>
+</context>
+<context>
+    <name>installer::SystemInfoFormFrame</name>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">사용자 이름</translation>
+    </message>
+    <message>
+        <source>Computer name</source>
+        <translation type="vanished">컴퓨터 이름</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">비밀번호</translation>
+    </message>
+    <message>
+        <source>Repeat password</source>
+        <translation type="vanished">비밀번호 반복</translation>
+    </message>
+    <message>
+        <source>Root password</source>
+        <translation type="vanished">루트 비밀번호</translation>
+    </message>
+    <message>
+        <source>Repeat root password</source>
+        <translation type="vanished">루트 비밀번호 반복</translation>
     </message>
 </context>
 <context>
@@ -1868,6 +2338,13 @@
     </message>
 </context>
 <context>
+    <name>installer::SystemInfoKeyboardFrame</name>
+    <message>
+        <source>Back</source>
+        <translation type="vanished">뒤로</translation>
+    </message>
+</context>
+<context>
     <name>installer::SystemInfoKeyboardFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="103"/>
@@ -1891,6 +2368,37 @@
     </message>
 </context>
 <context>
+    <name>installer::TimezoneFrame</name>
+    <message>
+        <source>Select Timezone</source>
+        <translation type="vanished">시간대 선택</translation>
+    </message>
+    <message>
+        <source>Click your zone on the map</source>
+        <translation type="vanished">지도에서 당신의 지역을 클릭합니다</translation>
+    </message>
+    <message>
+        <source>Select your timezone from the list</source>
+        <translation type="vanished">목록에서 시간대 선택</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="vanished">다음</translation>
+    </message>
+    <message>
+        <source>Map</source>
+        <translation type="vanished">지도</translation>
+    </message>
+    <message>
+        <source>List</source>
+        <translation type="vanished">목록</translation>
+    </message>
+    <message>
+        <source>Time settings</source>
+        <translation type="vanished">시간 설정</translation>
+    </message>
+</context>
+<context>
     <name>installer::UserAgreementFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="116"/>
@@ -1911,6 +2419,25 @@
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="122"/>
         <source>View in Chinese</source>
         <translation>중국어로 보기</translation>
+    </message>
+</context>
+<context>
+    <name>installer::VirtualMachineFrame</name>
+    <message>
+        <source>Friendly Reminder</source>
+        <translation type="vanished">친근한 알림</translation>
+    </message>
+    <message>
+        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="vanished">계속</translation>
+    </message>
+    <message>
+        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

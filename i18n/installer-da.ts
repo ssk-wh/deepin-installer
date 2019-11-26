@@ -234,7 +234,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation type="unfinished"/>
+        <translation>Du skal bruge mindst %1 GB diskplads for at installere UOS. For at få bedre ydelse anbefales %2 GB eller mere</translation>
     </message>
 </context>
 <context>
@@ -602,7 +602,7 @@
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="40"/>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation type="unfinished"/>
+        <translation>Du skal bruge mindst %1 GB diskplads for at installere UOS. For at få bedre ydelse anbefales %2 GB eller mere</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="49"/>
@@ -674,8 +674,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
-        <source>Windows will not boot if you install UOS onWindows disk, please confirm to continue</source>
-        <translation type="unfinished"/>
+        <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
+        <translation>Windows vil ikke boote hvis du installere UOS på Windows-disk, bekræft venligst for at fortsætte</translation>
     </message>
 </context>
 <context>
@@ -789,7 +789,7 @@
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="42"/>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
-        <translation type="unfinished"/>
+        <translation>Du bruger en virtuel maskine hvilket kan påvirke systemydelsen og brugeroplevelsen. Installer venligst UOS i et ægte miljø for at få en god oplevelse.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="44"/>
@@ -800,7 +800,88 @@
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
-        <translation type="unfinished"/>
+        <translation>Systemet har registreret at du bruger en virtuel maskine, hvilket vil påvirke systemydelsen og brugsoplevelsen. Det anbefales at installere UOS i et ægte maskinmiljø, for at få en god oplevelse</translation>
+    </message>
+</context>
+<context>
+    <name>installer::AdvancedPartitionButton</name>
+    <message>
+        <source>Install here</source>
+        <translation type="vanished">Installer her</translation>
+    </message>
+    <message>
+        <source>To be formatted</source>
+        <translation type="vanished">Skal formateres</translation>
+    </message>
+</context>
+<context>
+    <name>installer::AdvancedPartitionFrame</name>
+    <message>
+        <source>Change boot loader</source>
+        <translation type="vanished">Skift opstartsindlæser</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Færdig</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="vanished">Slet</translation>
+    </message>
+    <message>
+        <source>%1 error found, fix to continue installation or switch to simple mode</source>
+        <translation type="vanished">%1 fejl fundet, ret det for at fortsætte installationen eller skift til simpeltilstand</translation>
+    </message>
+    <message>
+        <source>%1 errors found, fix to continue installation or switch to simple mode</source>
+        <translation type="vanished">%1 fejl fundet, ret det for at fortsætte installationen eller skift til simpeltilstand</translation>
+    </message>
+    <message>
+        <source>%1 error found, continue to install after fixed</source>
+        <translation type="vanished">%1 fejl fundet, fortsæt med at installere efter rettelse</translation>
+    </message>
+    <message>
+        <source>%1 errors found, continue to install after fixed</source>
+        <translation type="vanished">%1 fejl fundet, fortsæt med at installere efter rettelse</translation>
+    </message>
+    <message>
+        <source>The partition filesystem type of /boot directory can only be %1 </source>
+        <translation type="vanished">Partitionsfilsystemstypen af /boot-mappen kan kun være %1 </translation>
+    </message>
+    <message>
+        <source>The partition of /boot directory should be the first partition on hard disk</source>
+        <translation type="vanished">Partitionen af /boot-mappen bør være den første partition på harddisken</translation>
+    </message>
+    <message>
+        <source>At least %1 MB is required for /boot partition</source>
+        <translation type="vanished">Mindst %1 MB er krævet til /boot-partition</translation>
+    </message>
+    <message>
+        <source>Add an EFI partition to continue</source>
+        <translation type="vanished">Tilføj en EFI-partition for at fortsætte</translation>
+    </message>
+    <message>
+        <source>At least %1 MB is required for EFI partition</source>
+        <translation type="vanished">Mindst %1 MB er krævet til EFI-partition</translation>
+    </message>
+    <message>
+        <source>Add a Root partition to continue</source>
+        <translation type="vanished">Tilføj en rodpartition for at fortsætte</translation>
+    </message>
+    <message>
+        <source>At least %1 GB is required for Root partition</source>
+        <translation type="vanished">Der kræves mindst %1 GB til rodpartitionen</translation>
+    </message>
+    <message>
+        <source>At least %1 GB is required for partition %2</source>
+        <translation type="vanished">Der kræves mindst %1 GB til partitionen %2</translation>
+    </message>
+</context>
+<context>
+    <name>installer::BootloaderListModel</name>
+    <message>
+        <source>%1 %2 (recommended)</source>
+        <translation type="vanished">%1 %2 (anbefalet)</translation>
     </message>
 </context>
 <context>
@@ -1173,7 +1254,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Java support for UOS.</source>
-        <translation type="unfinished"/>
+        <translation>Understøttelse af Java til UOS.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
@@ -1283,7 +1364,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
-        <translation type="unfinished"/>
+        <translation>Anbefalede udviklingsheadere og -biblioteker til at udvikle programmer der skal køre i UOS.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
@@ -1337,6 +1418,25 @@
     </message>
 </context>
 <context>
+    <name>installer::ConfirmQuitFrame</name>
+    <message>
+        <source>Abort Installation</source>
+        <translation type="vanished">Afbryd installation</translation>
+    </message>
+    <message>
+        <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
+        <translation type="vanished">Relevante handlinger du har foretaget i installationsprocessen vil ikke træde i kraft, afbryd eller fortsæt installationen?</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="vanished">Fortsæt</translation>
+    </message>
+    <message>
+        <source>Abort</source>
+        <translation type="vanished">Afbryd</translation>
+    </message>
+</context>
+<context>
     <name>installer::ControlPlatformFrame</name>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="28"/>
@@ -1348,7 +1448,7 @@
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="29"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="119"/>
         <source>Set the region for UOS EndPoint Management Platform</source>
-        <translation type="unfinished"/>
+        <translation>Indstil regionen til UOS EndPoint Management Platform</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="116"/>
@@ -1359,6 +1459,17 @@
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="117"/>
         <source>Server Address</source>
         <translation>Serveradresse</translation>
+    </message>
+</context>
+<context>
+    <name>installer::DiskSpaceInsufficientFrame</name>
+    <message>
+        <source>Insufficient Disk Space</source>
+        <translation type="vanished">Utilstrækkelig diskplads</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation type="vanished">Afslut</translation>
     </message>
 </context>
 <context>
@@ -1377,6 +1488,75 @@
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="115"/>
         <source>Next</source>
         <translation>Næste</translation>
+    </message>
+</context>
+<context>
+    <name>installer::EditPartitionFrame</name>
+    <message>
+        <source>Edit Disk</source>
+        <translation type="vanished">Rediger disk</translation>
+    </message>
+    <message>
+        <source>Make sure you have backed up important data, then select the disk to install</source>
+        <translation type="vanished">Sørg venligst for at oprette en sikkerhedskopi af vigtige data, og vælg herefter disken der skal installeres på</translation>
+    </message>
+    <message>
+        <source>File system</source>
+        <translation type="vanished">Filsystem</translation>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="vanished">Monteringspunkt</translation>
+    </message>
+    <message>
+        <source>Format the partition</source>
+        <translation type="vanished">Formatér partitionen</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Annuller</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="vanished">Opret</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="vanished">Bekræft</translation>
+    </message>
+</context>
+<context>
+    <name>installer::FirstBootLoadingFrame</name>
+    <message>
+        <source>Tuning system</source>
+        <translation type="vanished">Finjusterer system</translation>
+    </message>
+    <message>
+        <source>Applying changes to your system, please wait...</source>
+        <translation type="vanished">Anvender ændringer på dit system, vent venligst...</translation>
+    </message>
+</context>
+<context>
+    <name>installer::FullDiskFrame</name>
+    <message>
+        <source>Install here</source>
+        <translation type="vanished">Installer her</translation>
+    </message>
+    <message>
+        <source>Encrypt this disk</source>
+        <translation type="vanished">Kryptér disken</translation>
+    </message>
+    <message>
+        <source>Encrypt This Disk</source>
+        <translation type="vanished">Kryptér disken</translation>
+    </message>
+    <message>
+        <source>Please select a disk to start installation</source>
+        <translation type="vanished">Vælg venligst en disk for at starte installationen</translation>
+    </message>
+    <message>
+        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
+        <translation type="vanished">Du skal bruge mindst %1 GB diskplads for at installere UOS. For at få bedre ydelse anbefales %2 GB eller mere</translation>
     </message>
 </context>
 <context>
@@ -1451,6 +1631,17 @@
     </message>
 </context>
 <context>
+    <name>installer::InstallProgressFrame</name>
+    <message>
+        <source>Installing</source>
+        <translation type="vanished">Installerer</translation>
+    </message>
+    <message>
+        <source>Here are a few cool things to look out for...</source>
+        <translation type="vanished">Her er nogen af de fede ting du kan holde øje med...</translation>
+    </message>
+</context>
+<context>
     <name>installer::InstallProgressFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="215"/>
@@ -1469,6 +1660,17 @@
         <location filename="../src/ui/models/mount_point_model.cpp" line="37"/>
         <source>Do not use</source>
         <translation>Brug ikke</translation>
+    </message>
+</context>
+<context>
+    <name>installer::MultipleDiskInstallationWidget</name>
+    <message>
+        <source>System Disk</source>
+        <translation type="vanished">Systemdisk</translation>
+    </message>
+    <message>
+        <source>Data Disk</source>
+        <translation type="vanished">Datadisk</translation>
     </message>
 </context>
 <context>
@@ -1525,6 +1727,164 @@
     </message>
 </context>
 <context>
+    <name>installer::NewPartitionFrame</name>
+    <message>
+        <source>Create New Partition</source>
+        <translation type="vanished">Opret ny partition</translation>
+    </message>
+    <message>
+        <source>Create a new partition and define the type and size</source>
+        <translation type="vanished">Opret en ny partition og definér typen og størrelsen</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="vanished">Type</translation>
+    </message>
+    <message>
+        <source>Location</source>
+        <translation type="vanished">Placering</translation>
+    </message>
+    <message>
+        <source>File system</source>
+        <translation type="vanished">Filsystem</translation>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="vanished">Monteringspunkt</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="vanished">Størrelse</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="vanished">Begyndelse</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="vanished">Slutning</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Annuller</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="vanished">OK</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="vanished">Opret</translation>
+    </message>
+</context>
+<context>
+    <name>installer::NewTableLoadingFrame</name>
+    <message>
+        <source>Formatting...</source>
+        <translation type="vanished">Formaterer...</translation>
+    </message>
+</context>
+<context>
+    <name>installer::NewTableWarningFrame</name>
+    <message>
+        <source>Format Warning</source>
+        <translation type="vanished">Advarsel om formatering</translation>
+    </message>
+    <message>
+        <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
+        <translation type="vanished">Hvis installationen fortsættes vil hele disken blive formateret. Foretag venligst en sikkerhedskopiering af al din data. Hvis du ikke ved har du foretager dig, så fortsæt venligst ikke</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Annuller</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="vanished">Fortsæt</translation>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionFrame</name>
+    <message>
+        <source>Select Installation Location</source>
+        <translation type="vanished">Vælg installationsplacering</translation>
+    </message>
+    <message>
+        <source>Make sure you have backed up important data, then select the disk to install</source>
+        <translation type="vanished">Sørg venligst for at oprette en sikkerhedskopi af vigtige data, og vælg herefter disken der skal installeres på</translation>
+    </message>
+    <message>
+        <source>Simple</source>
+        <translation type="vanished">Simpel</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="vanished">Avanceret</translation>
+    </message>
+    <message>
+        <source>Full Disk</source>
+        <translation type="vanished">Hele disken</translation>
+    </message>
+    <message>
+        <source>Start installation</source>
+        <translation type="vanished">Start installation</translation>
+    </message>
+    <message>
+        <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
+        <translation type="vanished">Måldisken er dynamisk og din data kan gå tabt, hvis du fortsætter. Sørg venligst for først at oprette en sikkerhedskopi af dine vigtige filer.</translation>
+    </message>
+    <message>
+        <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
+        <translation type="vanished">Måldisken er dynamisk og formateres, hvis du fortsætter. Sørg venligst for først at oprette en sikkerhedskopi af dine vigtige filer.</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="vanished">Næste</translation>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionLoadingFrame</name>
+    <message>
+        <source>Scan disks</source>
+        <translation type="vanished">Skan diske</translation>
+    </message>
+    <message>
+        <source>Scanning disks, please wait...</source>
+        <translation type="vanished">Skanner diske, vent venglist...</translation>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionNumberLimitationFrame</name>
+    <message>
+        <source>You should delete a primary partition before creating a new one</source>
+        <translation type="vanished">Du skal slette en primær partition, før en ny primær partition kan oprettes</translation>
+    </message>
+    <message>
+        <source>New logical partitions can only be created near existing logical partitions</source>
+        <translation type="vanished">Nye logiske partitioner kan kun oprettes når eksisterende logiske partitioner</translation>
+    </message>
+    <message>
+        <source>You should delete a primary partition before creating a new partition</source>
+        <translation type="vanished">Du skal slette en primær partition, før en ny partition kan oprettes</translation>
+    </message>
+    <message>
+        <source>Failed to Create New Partition</source>
+        <translation type="vanished">Kunne ikke oprette ny partition</translation>
+    </message>
+    <message>
+        <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
+        <translation type="vanished">Du skal slette en primær partition, før en ny partition kan oprettes, eftersom der kun kan være fire primære partitioner på en MBR-disk</translation>
+    </message>
+    <message>
+        <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
+        <translation type="vanished">Du skal slette en primær partition, før en ny kan oprettes, eller flytte den eksisterende logiske partition til slutningen af disken</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="vanished">Tilbage</translation>
+    </message>
+</context>
+<context>
     <name>installer::PartitionTableWarningFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="53"/>
@@ -1536,7 +1896,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="103"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
-        <translation type="unfinished"/>
+        <translation>Du har en EFI-opstartsindlæser, men en MBR-disk, og kan derfor ikke installere UOS direkte. Vælg venligst en af løsningerne nedenfor og fortsæt.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="57"/>
@@ -1554,7 +1914,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="115"/>
         <source>Exit BIOS, and install UOS again</source>
-        <translation type="unfinished"/>
+        <translation>Forlad BIOS og installer UOS igen</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="62"/>
@@ -1612,6 +1972,40 @@
     </message>
 </context>
 <context>
+    <name>installer::PartitionTypeModel</name>
+    <message>
+        <source>Logical Partition</source>
+        <translation type="vanished">Logisk partition</translation>
+    </message>
+    <message>
+        <source>Primary Partition</source>
+        <translation type="vanished">Primær partition</translation>
+    </message>
+</context>
+<context>
+    <name>installer::PrepareInstallFrame</name>
+    <message>
+        <source>Ready to Install</source>
+        <translation type="vanished">Klar til at installere</translation>
+    </message>
+    <message>
+        <source>Make a backup of your important data and then continue</source>
+        <translation type="vanished">Opret venligst en sikkerhedskopi af vigtige data og bekræft følgende handlinger</translation>
+    </message>
+    <message>
+        <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
+        <translation type="vanished">Følgende handlinger vil blive udført. Bekræft venligst og fortsæt, for at undgå tab af data</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="vanished">Tilbage</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="vanished">Fortsæt</translation>
+    </message>
+</context>
+<context>
     <name>installer::SaveInstallFailedLogFrame</name>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="150"/>
@@ -1632,6 +2026,21 @@
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="153"/>
         <source>Back</source>
         <translation>Tilbage</translation>
+    </message>
+</context>
+<context>
+    <name>installer::SelectBootloaderFrame</name>
+    <message>
+        <source>Select location for boot loader</source>
+        <translation type="vanished">Vælg placering til opstartsindlæser</translation>
+    </message>
+    <message>
+        <source>If you do not understand the settings, please select the recommended one</source>
+        <translation type="vanished">Hvis du ikke forstår indstillingerne, så vælg venligst de anbefalede</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="vanished">Tilbage</translation>
     </message>
 </context>
 <context>
@@ -1686,6 +2095,29 @@
     </message>
 </context>
 <context>
+    <name>installer::SimplePartitionFrame</name>
+    <message>
+        <source>Unable to create new partition, please select one of the existing partitions!</source>
+        <translation type="vanished">Kunne ikke oprette ny partition. Vælg venligst en af de eksisterende partitioner!</translation>
+    </message>
+    <message>
+        <source>Please select one of the partitions to install!</source>
+        <translation type="vanished">Vælg venligst en af partitionerne for at installere!</translation>
+    </message>
+    <message>
+        <source>At least %1 GB is required for root partition</source>
+        <translation type="vanished">Mindst %1 GB er krævet til rodpartition</translation>
+    </message>
+    <message>
+        <source>Install here</source>
+        <translation type="vanished">Installer her</translation>
+    </message>
+    <message>
+        <source>Windows will not boot if you install UOS onWindows disk, please confirm to continue</source>
+        <translation type="vanished">Windows vil ikke boote hvis du installere UOS på Windows-disk, bekræft venligst for at fortsætte</translation>
+    </message>
+</context>
+<context>
     <name>installer::SystemDateFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
@@ -1736,6 +2168,17 @@
     </message>
 </context>
 <context>
+    <name>installer::SystemInfoAvatarFrame</name>
+    <message>
+        <source>User Avatar</source>
+        <translation type="vanished">Brug avatar</translation>
+    </message>
+    <message>
+        <source>Select an avatar for your account</source>
+        <translation type="vanished">Vælg en avatar til din konto</translation>
+    </message>
+</context>
+<context>
     <name>installer::SystemInfoAvatarFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="123"/>
@@ -1746,6 +2189,33 @@
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="124"/>
         <source>Select an avatar for your account</source>
         <translation>Vælg en avatar til din konto</translation>
+    </message>
+</context>
+<context>
+    <name>installer::SystemInfoFormFrame</name>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Brugernavn</translation>
+    </message>
+    <message>
+        <source>Computer name</source>
+        <translation type="vanished">Computernavn</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Adgangskode</translation>
+    </message>
+    <message>
+        <source>Repeat password</source>
+        <translation type="vanished">Gentag adgangskode</translation>
+    </message>
+    <message>
+        <source>Root password</source>
+        <translation type="vanished">Root-adgangskode</translation>
+    </message>
+    <message>
+        <source>Repeat root password</source>
+        <translation type="vanished">Gentag root-adgangskode</translation>
     </message>
 </context>
 <context>
@@ -1868,6 +2338,13 @@
     </message>
 </context>
 <context>
+    <name>installer::SystemInfoKeyboardFrame</name>
+    <message>
+        <source>Back</source>
+        <translation type="vanished">Tilbage</translation>
+    </message>
+</context>
+<context>
     <name>installer::SystemInfoKeyboardFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="103"/>
@@ -1891,6 +2368,37 @@
     </message>
 </context>
 <context>
+    <name>installer::TimezoneFrame</name>
+    <message>
+        <source>Select Timezone</source>
+        <translation type="vanished">Vælg tidszone</translation>
+    </message>
+    <message>
+        <source>Click your zone on the map</source>
+        <translation type="vanished">Vælg din zone på kortet</translation>
+    </message>
+    <message>
+        <source>Select your timezone from the list</source>
+        <translation type="vanished">Vælg din tidszone fra listen</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="vanished">Næste</translation>
+    </message>
+    <message>
+        <source>Map</source>
+        <translation type="vanished">Kort</translation>
+    </message>
+    <message>
+        <source>List</source>
+        <translation type="vanished">Liste</translation>
+    </message>
+    <message>
+        <source>Time settings</source>
+        <translation type="vanished">Tidsindstillinger</translation>
+    </message>
+</context>
+<context>
     <name>installer::UserAgreementFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="116"/>
@@ -1911,6 +2419,25 @@
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="122"/>
         <source>View in Chinese</source>
         <translation>Vis på kinesisk</translation>
+    </message>
+</context>
+<context>
+    <name>installer::VirtualMachineFrame</name>
+    <message>
+        <source>Friendly Reminder</source>
+        <translation type="vanished">Venlig påmindelse</translation>
+    </message>
+    <message>
+        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
+        <translation type="vanished">Du bruger en virtuel maskine hvilket kan påvirke systemydelsen og brugeroplevelsen. Installer venligst UOS i et ægte miljø for at få en god oplevelse.</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="vanished">Fortsæt</translation>
+    </message>
+    <message>
+        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
+        <translation type="vanished">Systemet har registreret at du bruger en virtuel maskine, hvilket vil påvirke systemydelsen og brugsoplevelsen. Det anbefales at installere UOS i et ægte maskinmiljø, for at få en god oplevelse</translation>
     </message>
 </context>
 </TS>
