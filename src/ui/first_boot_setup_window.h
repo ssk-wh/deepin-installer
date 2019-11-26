@@ -18,6 +18,8 @@
 #ifndef INSTALLER_UI_SETUP_WINDOW_H
 #define INSTALLER_UI_SETUP_WINDOW_H
 
+#include "ui/interfaces/frameproxyinterface.h"
+
 #include <QFrame>
 #include <DImageButton>
 
@@ -41,7 +43,7 @@ class NetworkFrame;
 class ControlPlatformFrame;
 
 // Main window of deepin_installer_first_boot.
-class FirstBootSetupWindow : public QFrame {
+class FirstBootSetupWindow : public FrameProxyInterface {
   Q_OBJECT
 
  public:
@@ -50,6 +52,11 @@ class FirstBootSetupWindow : public QFrame {
 
   // Show fullscreen.
   void fullscreen();
+
+  void previousFrame() override;
+  void nextFrame() override;
+  void showChildFrame(FrameInterface* frame) override;
+  void exitInstall(bool reboot = false) override;
 
  protected:
   void resizeEvent(QResizeEvent* event) override;

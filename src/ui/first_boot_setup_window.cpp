@@ -53,9 +53,10 @@
 namespace installer {
 
 FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
-    : QFrame(parent),
+    : FrameProxyInterface(parent),
       hook_worker_thread_(new QThread(this)),
-      hook_worker_(new FirstBootHookWorker()) {
+      hook_worker_(new FirstBootHookWorker())
+{
   this->setObjectName("first_boot_setup_window");
 
   hook_worker_thread_->start();
@@ -82,12 +83,32 @@ FirstBootSetupWindow::~FirstBootSetupWindow() {
 }
 
 void FirstBootSetupWindow::fullscreen() {
-  ShowFullscreen(this);
+    ShowFullscreen(this);
+}
+
+void FirstBootSetupWindow::previousFrame()
+{
+
+}
+
+void FirstBootSetupWindow::nextFrame()
+{
+
+}
+
+void FirstBootSetupWindow::showChildFrame(FrameInterface *frame)
+{
+
+}
+
+void FirstBootSetupWindow::exitInstall(bool reboot)
+{
+
 }
 
 void FirstBootSetupWindow::resizeEvent(QResizeEvent *event) {
   this->updateBackground();
-  QFrame::resizeEvent(event);
+  QWidget::resizeEvent(event);
 }
 
 void FirstBootSetupWindow::initConnections() {
