@@ -2,12 +2,12 @@
 <context>
     <name>installer::AdvancedPartitionButton</name>
     <message>
-        <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="125"/>
+        <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="132"/>
         <source>Install here</source>
         <translation>Pasang di sini</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="128"/>
+        <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="135"/>
         <source>To be formatted</source>
         <translation>Akan diformat</translation>
     </message>
@@ -147,48 +147,48 @@
 <context>
     <name>installer::EditPartitionFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="171"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="100"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="168"/>
         <source>Edit Disk</source>
         <translation>Sunting Cakera</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="105"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="173"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="102"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="170"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Pastikan anda telah menyandar data penting anda, kemudian pilih cakera yang hendak dipasangkan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="106"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="205"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="202"/>
         <source>File system</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="107"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="207"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="104"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="204"/>
         <source>Mount point</source>
         <translation>Titik lekap</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="108"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="222"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="105"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="219"/>
         <source>Format the partition</source>
         <translation>Format sekatan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="109"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="248"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="106"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="245"/>
         <source>Cancel</source>
         <translation>Batal</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="110"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="107"/>
         <source>Create</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="249"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="246"/>
         <source>Confirm</source>
         <translation type="unfinished"/>
     </message>
@@ -725,14 +725,6 @@
     </message>
 </context>
 <context>
-    <name>installer::SystemInfoKeyboardFrame</name>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="166"/>
-        <source>Back</source>
-        <translation>Undur</translation>
-    </message>
-</context>
-<context>
     <name>installer::TimezoneFrame</name>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
@@ -801,87 +793,6 @@
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
         <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>installer::AdvancedPartitionButton</name>
-    <message>
-        <source>Install here</source>
-        <translation type="vanished">Pasang di sini</translation>
-    </message>
-    <message>
-        <source>To be formatted</source>
-        <translation type="vanished">Akan diformat</translation>
-    </message>
-</context>
-<context>
-    <name>installer::AdvancedPartitionFrame</name>
-    <message>
-        <source>Change boot loader</source>
-        <translation type="vanished">Ubah pemuat but</translation>
-    </message>
-    <message>
-        <source>Done</source>
-        <translation type="vanished">Selesai</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation type="vanished">Padam</translation>
-    </message>
-    <message>
-        <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation type="vanished">%1 ralat ditemui, baiki untuk teruskan pemasangan atau beralih ke mod ringkas</translation>
-    </message>
-    <message>
-        <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation type="vanished">%1 ralat ditemui, baiki untuk teruskan pemasangan atau beralih ke mod ringkas</translation>
-    </message>
-    <message>
-        <source>%1 error found, continue to install after fixed</source>
-        <translation type="vanished">%1 ralat ditemui, teruskan pemasangan selepas dibaiki</translation>
-    </message>
-    <message>
-        <source>%1 errors found, continue to install after fixed</source>
-        <translation type="vanished">%1 ralat ditemui, teruskan pemasangan selepas dibaiki</translation>
-    </message>
-    <message>
-        <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation type="vanished">Jenis sistem fail sekatan bagi direktori /boot hanya boleh jadi %1</translation>
-    </message>
-    <message>
-        <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation type="vanished">Sekatan bagi direktori /boot patut merupakan sekatan pertama pada cakera keras</translation>
-    </message>
-    <message>
-        <source>At least %1 MB is required for /boot partition</source>
-        <translation type="vanished">Sekurang-kurangnya %1 MB diperlukan untuk sekatan /boot</translation>
-    </message>
-    <message>
-        <source>Add an EFI partition to continue</source>
-        <translation type="vanished">Tambah satu sekatan EFI untuk teruskan</translation>
-    </message>
-    <message>
-        <source>At least %1 MB is required for EFI partition</source>
-        <translation type="vanished">Sekurang-kurangnya %1 MB diperlukan untuk sekatan EFI</translation>
-    </message>
-    <message>
-        <source>Add a Root partition to continue</source>
-        <translation type="vanished">Tambah satu sekatan Root untuk teruskan</translation>
-    </message>
-    <message>
-        <source>At least %1 GB is required for Root partition</source>
-        <translation type="vanished">Sekurang-kurangnya %1 GB diperlukan untuk sekatan Root</translation>
-    </message>
-    <message>
-        <source>At least %1 GB is required for partition %2</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>installer::BootloaderListModel</name>
-    <message>
-        <source>%1 %2 (recommended)</source>
-        <translation type="vanished">%1 %2 (disarankan)</translation>
     </message>
 </context>
 <context>
@@ -1418,25 +1329,6 @@
     </message>
 </context>
 <context>
-    <name>installer::ConfirmQuitFrame</name>
-    <message>
-        <source>Abort Installation</source>
-        <translation type="vanished">Henti Paksa Pemasangan</translation>
-    </message>
-    <message>
-        <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
-        <translation type="vanished">Operasi berkaitan yang anda buat dalam proses pemasangan tidak akan berkesan, henti paksa atau teruskan pemasangan?</translation>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation type="vanished">Teruskan</translation>
-    </message>
-    <message>
-        <source>Abort</source>
-        <translation type="vanished">Henti Paksa</translation>
-    </message>
-</context>
-<context>
     <name>installer::ControlPlatformFrame</name>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="28"/>
@@ -1462,17 +1354,6 @@
     </message>
 </context>
 <context>
-    <name>installer::DiskSpaceInsufficientFrame</name>
-    <message>
-        <source>Insufficient Disk Space</source>
-        <translation type="vanished">Ruang Cakera Tidak Mencukupi</translation>
-    </message>
-    <message>
-        <source>Exit</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>installer::DynamicDiskWarningFrame</name>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="113"/>
@@ -1488,75 +1369,6 @@
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="115"/>
         <source>Next</source>
         <translation>Berikutnya</translation>
-    </message>
-</context>
-<context>
-    <name>installer::EditPartitionFrame</name>
-    <message>
-        <source>Edit Disk</source>
-        <translation type="vanished">Sunting Cakera</translation>
-    </message>
-    <message>
-        <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="vanished">Pastikan anda telah menyandar data penting anda, kemudian pilih cakera yang hendak dipasangkan</translation>
-    </message>
-    <message>
-        <source>File system</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Mount point</source>
-        <translation type="vanished">Titik lekap</translation>
-    </message>
-    <message>
-        <source>Format the partition</source>
-        <translation type="vanished">Format sekatan</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Batal</translation>
-    </message>
-    <message>
-        <source>Create</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>installer::FirstBootLoadingFrame</name>
-    <message>
-        <source>Tuning system</source>
-        <translation type="vanished">Penalaan sistem</translation>
-    </message>
-    <message>
-        <source>Applying changes to your system, please wait...</source>
-        <translation type="vanished">Melaksanakan perubahan pada sistem anda, tunggu sebentar...</translation>
-    </message>
-</context>
-<context>
-    <name>installer::FullDiskFrame</name>
-    <message>
-        <source>Install here</source>
-        <translation type="vanished">Pasang di sini</translation>
-    </message>
-    <message>
-        <source>Encrypt this disk</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Encrypt This Disk</source>
-        <translation type="vanished">Sulitkan Cakera Ini</translation>
-    </message>
-    <message>
-        <source>Please select a disk to start installation</source>
-        <translation type="vanished">Sila pilih satu cakera untuk pemasangan</translation>
-    </message>
-    <message>
-        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1631,17 +1443,6 @@
     </message>
 </context>
 <context>
-    <name>installer::InstallProgressFrame</name>
-    <message>
-        <source>Installing</source>
-        <translation type="vanished">Memasang</translation>
-    </message>
-    <message>
-        <source>Here are a few cool things to look out for...</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>installer::InstallProgressFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="215"/>
@@ -1660,17 +1461,6 @@
         <location filename="../src/ui/models/mount_point_model.cpp" line="37"/>
         <source>Do not use</source>
         <translation>Jangan guna</translation>
-    </message>
-</context>
-<context>
-    <name>installer::MultipleDiskInstallationWidget</name>
-    <message>
-        <source>System Disk</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Data Disk</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1724,164 +1514,6 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="212"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
         <translation>Ralat topeng internet: topeng internet tidak sah, sila semak semula.</translation>
-    </message>
-</context>
-<context>
-    <name>installer::NewPartitionFrame</name>
-    <message>
-        <source>Create New Partition</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Create a new partition and define the type and size</source>
-        <translation type="vanished">Cipta satu sekatan baharu dan takrifkan jenis dan saiznya</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation type="vanished">Jenis</translation>
-    </message>
-    <message>
-        <source>Location</source>
-        <translation type="vanished">Lokasi</translation>
-    </message>
-    <message>
-        <source>File system</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Mount point</source>
-        <translation type="vanished">Titik lekap</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="vanished">Saiz</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation type="vanished">Mula</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <translation type="vanished">Tamat</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Batal</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation type="vanished">OK</translation>
-    </message>
-    <message>
-        <source>Create</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>installer::NewTableLoadingFrame</name>
-    <message>
-        <source>Formatting...</source>
-        <translation type="vanished">Memformat...</translation>
-    </message>
-</context>
-<context>
-    <name>installer::NewTableWarningFrame</name>
-    <message>
-        <source>Format Warning</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Batal</translation>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation type="vanished">Teruskan</translation>
-    </message>
-</context>
-<context>
-    <name>installer::PartitionFrame</name>
-    <message>
-        <source>Select Installation Location</source>
-        <translation type="vanished">Pilih Lokasi Pemasangan</translation>
-    </message>
-    <message>
-        <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="vanished">Pastikan anda telah menyandar data penting anda, kemudian pilih cakera yang hendak dipasangkan</translation>
-    </message>
-    <message>
-        <source>Simple</source>
-        <translation type="vanished">Ringkas</translation>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation type="vanished">Lanjutan</translation>
-    </message>
-    <message>
-        <source>Full Disk</source>
-        <translation type="vanished">Cakera Penuh</translation>
-    </message>
-    <message>
-        <source>Start installation</source>
-        <translation type="vanished">Mulakan pemasangan</translation>
-    </message>
-    <message>
-        <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation type="vanished">Berikutnya</translation>
-    </message>
-</context>
-<context>
-    <name>installer::PartitionLoadingFrame</name>
-    <message>
-        <source>Scan disks</source>
-        <translation type="vanished">Imbas cakera</translation>
-    </message>
-    <message>
-        <source>Scanning disks, please wait...</source>
-        <translation type="vanished">Mengimbas cakera, tunggu sebentar...</translation>
-    </message>
-</context>
-<context>
-    <name>installer::PartitionNumberLimitationFrame</name>
-    <message>
-        <source>You should delete a primary partition before creating a new one</source>
-        <translation type="vanished">Anda perlu memdam sekatan utama untuk mencipta sekatan baharu</translation>
-    </message>
-    <message>
-        <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation type="vanished">Sekatan logikal baharu hanya boleh dicipta berhampiran dengan sekatan logikal sedia ada</translation>
-    </message>
-    <message>
-        <source>You should delete a primary partition before creating a new partition</source>
-        <translation type="vanished">Anda perlu memadam sekatan utama untuk mencipta sekatan baharu</translation>
-    </message>
-    <message>
-        <source>Failed to Create New Partition</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Back</source>
-        <translation type="vanished">Undur</translation>
     </message>
 </context>
 <context>
@@ -1972,40 +1604,6 @@
     </message>
 </context>
 <context>
-    <name>installer::PartitionTypeModel</name>
-    <message>
-        <source>Logical Partition</source>
-        <translation type="vanished">Sekatan Logikal</translation>
-    </message>
-    <message>
-        <source>Primary Partition</source>
-        <translation type="vanished">Sekatan Utama</translation>
-    </message>
-</context>
-<context>
-    <name>installer::PrepareInstallFrame</name>
-    <message>
-        <source>Ready to Install</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Make a backup of your important data and then continue</source>
-        <translation type="vanished">Sandar dahulu data penting anda, kemudian teruskan</translation>
-    </message>
-    <message>
-        <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
-        <translation type="vanished">Operasi berikut akan dilakukan, sila sahkan dan teruskan untuk menghindari kehilangan data</translation>
-    </message>
-    <message>
-        <source>Back</source>
-        <translation type="vanished">Undur</translation>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation type="vanished">Teruskan</translation>
-    </message>
-</context>
-<context>
     <name>installer::SaveInstallFailedLogFrame</name>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="150"/>
@@ -2026,21 +1624,6 @@
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="153"/>
         <source>Back</source>
         <translation>Undur</translation>
-    </message>
-</context>
-<context>
-    <name>installer::SelectBootloaderFrame</name>
-    <message>
-        <source>Select location for boot loader</source>
-        <translation type="vanished">Pilih lokasi untuk pemuat but</translation>
-    </message>
-    <message>
-        <source>If you do not understand the settings, please select the recommended one</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Back</source>
-        <translation type="vanished">Undur</translation>
     </message>
 </context>
 <context>
@@ -2095,29 +1678,6 @@
     </message>
 </context>
 <context>
-    <name>installer::SimplePartitionFrame</name>
-    <message>
-        <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation type="vanished">Tidak boleh cipta sekatan baharu, sila pilih salah satu dari sekatan sedia ada!</translation>
-    </message>
-    <message>
-        <source>Please select one of the partitions to install!</source>
-        <translation type="vanished">Sila pilih salah satu sekatan untuk dipasang!</translation>
-    </message>
-    <message>
-        <source>At least %1 GB is required for root partition</source>
-        <translation type="vanished">Sekurang-kurangnya %1 GB diperlukan untuk sekatan root</translation>
-    </message>
-    <message>
-        <source>Install here</source>
-        <translation type="vanished">Pasang di sini</translation>
-    </message>
-    <message>
-        <source>Windows will not boot if you install UOS onWindows disk, please confirm to continue</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>installer::SystemDateFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
@@ -2168,17 +1728,6 @@
     </message>
 </context>
 <context>
-    <name>installer::SystemInfoAvatarFrame</name>
-    <message>
-        <source>User Avatar</source>
-        <translation type="vanished">Avatar Pengguna</translation>
-    </message>
-    <message>
-        <source>Select an avatar for your account</source>
-        <translation type="vanished">Pilih satu avatar untuk akaun anda</translation>
-    </message>
-</context>
-<context>
     <name>installer::SystemInfoAvatarFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="123"/>
@@ -2189,33 +1738,6 @@
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="124"/>
         <source>Select an avatar for your account</source>
         <translation>Pilih satu avatar untuk akaun anda</translation>
-    </message>
-</context>
-<context>
-    <name>installer::SystemInfoFormFrame</name>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">Nama pengguna</translation>
-    </message>
-    <message>
-        <source>Computer name</source>
-        <translation type="vanished">Nama komputer</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">Kata laluan</translation>
-    </message>
-    <message>
-        <source>Repeat password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Root password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Repeat root password</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2338,13 +1860,6 @@
     </message>
 </context>
 <context>
-    <name>installer::SystemInfoKeyboardFrame</name>
-    <message>
-        <source>Back</source>
-        <translation type="vanished">Undur</translation>
-    </message>
-</context>
-<context>
     <name>installer::SystemInfoKeyboardFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="103"/>
@@ -2353,48 +1868,17 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="104"/>
-        <source>Select a proper keyboard layout</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="105"/>
         <source>Test here</source>
         <translation type="unfinished"/>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="105"/>
+        <source>Back</source>
+        <translation>Undur</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="106"/>
-        <source>Next</source>
-        <translation>Berikutnya</translation>
-    </message>
-</context>
-<context>
-    <name>installer::TimezoneFrame</name>
-    <message>
-        <source>Select Timezone</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Click your zone on the map</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select your timezone from the list</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation type="vanished">Berikutnya</translation>
-    </message>
-    <message>
-        <source>Map</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>List</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Time settings</source>
+        <source>Select a proper keyboard layout</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2419,25 +1903,6 @@
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="122"/>
         <source>View in Chinese</source>
         <translation>Papar dalam Bahasa Cina</translation>
-    </message>
-</context>
-<context>
-    <name>installer::VirtualMachineFrame</name>
-    <message>
-        <source>Friendly Reminder</source>
-        <translation type="vanished">Peringatan Mesra</translation>
-    </message>
-    <message>
-        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation type="vanished">Teruskan</translation>
-    </message>
-    <message>
-        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

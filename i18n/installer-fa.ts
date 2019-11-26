@@ -2,12 +2,12 @@
 <context>
     <name>installer::AdvancedPartitionButton</name>
     <message>
-        <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="125"/>
+        <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="132"/>
         <source>Install here</source>
         <translation>اینجا نصب کنید</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="128"/>
+        <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="135"/>
         <source>To be formatted</source>
         <translation>فرمت بندی می شود</translation>
     </message>
@@ -147,48 +147,48 @@
 <context>
     <name>installer::EditPartitionFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="171"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="100"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="168"/>
         <source>Edit Disk</source>
         <translation>ویرایش دیسک</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="105"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="173"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="102"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="170"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>دقت کنید که از داده‌های مهم پشتیبانی گرفته اید، سپس دیسک را انتخاب کنید تا نصب شود</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="106"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="205"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="202"/>
         <source>File system</source>
         <translation>فایل سیستم</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="107"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="207"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="104"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="204"/>
         <source>Mount point</source>
         <translation>نقطه ی نصب</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="108"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="222"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="105"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="219"/>
         <source>Format the partition</source>
         <translation>فرمت پارتیشن</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="109"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="248"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="106"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="245"/>
         <source>Cancel</source>
         <translation>لغو</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="110"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="107"/>
         <source>Create</source>
         <translation>ایجاد</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="249"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="246"/>
         <source>Confirm</source>
         <translation>تائید</translation>
     </message>
@@ -725,14 +725,6 @@
     </message>
 </context>
 <context>
-    <name>installer::SystemInfoKeyboardFrame</name>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="166"/>
-        <source>Back</source>
-        <translation>بازگشت</translation>
-    </message>
-</context>
-<context>
     <name>installer::TimezoneFrame</name>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
@@ -801,87 +793,6 @@
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
         <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>installer::AdvancedPartitionButton</name>
-    <message>
-        <source>Install here</source>
-        <translation type="vanished">اینجا نصب کنید</translation>
-    </message>
-    <message>
-        <source>To be formatted</source>
-        <translation type="vanished">فرمت بندی می شود</translation>
-    </message>
-</context>
-<context>
-    <name>installer::AdvancedPartitionFrame</name>
-    <message>
-        <source>Change boot loader</source>
-        <translation type="vanished">تغییر بوت لودر</translation>
-    </message>
-    <message>
-        <source>Done</source>
-        <translation type="vanished">انجام شد</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation type="vanished">حذف</translation>
-    </message>
-    <message>
-        <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation type="vanished">خطای %1 یافت شد ، برای ادامه نصب خطا را رفع کنید و یا نصب را به حالت ساده تغییر دهید</translation>
-    </message>
-    <message>
-        <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation type="vanished">خطای %1 یافت شد ، برای ادامه نصب خطا را رفع کنید و یا نصب را به حالت ساده تغییر دهید</translation>
-    </message>
-    <message>
-        <source>%1 error found, continue to install after fixed</source>
-        <translation type="vanished">خطای %1 یافت شد ، برای ادامه نصب خطا را رفع کنید</translation>
-    </message>
-    <message>
-        <source>%1 errors found, continue to install after fixed</source>
-        <translation type="vanished">خطای %1 یافت شد ، برای ادامه نصب خطا را رفع کنید</translation>
-    </message>
-    <message>
-        <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation type="vanished">نوع سیستم پارتیشن دایرکتوری boot/  فقط می تواند %1 باشد</translation>
-    </message>
-    <message>
-        <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation type="vanished">پارتیشن دایرکتوری  boot/ ، باید اولین پارتیشن روی هارد دیسک باشد</translation>
-    </message>
-    <message>
-        <source>At least %1 MB is required for /boot partition</source>
-        <translation type="vanished">برای پارتیشن boot/ حداقل %1 مگابایت لازم است</translation>
-    </message>
-    <message>
-        <source>Add an EFI partition to continue</source>
-        <translation type="vanished">برای ادامه یک پارتیشن EFI اضافه کنید</translation>
-    </message>
-    <message>
-        <source>At least %1 MB is required for EFI partition</source>
-        <translation type="vanished">برای پارتیشن  EFI حداقل %1 مگابایت لازم است</translation>
-    </message>
-    <message>
-        <source>Add a Root partition to continue</source>
-        <translation type="vanished">برای ادامه یک پارتیشن Root اضافه کنید</translation>
-    </message>
-    <message>
-        <source>At least %1 GB is required for Root partition</source>
-        <translation type="vanished">برای پارتیشن Root حداقل %1 گیگابایت لازم است</translation>
-    </message>
-    <message>
-        <source>At least %1 GB is required for partition %2</source>
-        <translation type="vanished">برای پارتیشن %2 حداقل%1 گیگابایت لازم است</translation>
-    </message>
-</context>
-<context>
-    <name>installer::BootloaderListModel</name>
-    <message>
-        <source>%1 %2 (recommended)</source>
-        <translation type="vanished">%1 %2 (توصیه می شود)</translation>
     </message>
 </context>
 <context>
@@ -1418,25 +1329,6 @@
     </message>
 </context>
 <context>
-    <name>installer::ConfirmQuitFrame</name>
-    <message>
-        <source>Abort Installation</source>
-        <translation type="vanished">لغو نصب</translation>
-    </message>
-    <message>
-        <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
-        <translation type="vanished">عملیات مربوطه که در فرآیند نصب انجام دادید تاثیری نخواهد داشت ، توقف یا ادامه نصب ؟</translation>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation type="vanished">ادامه</translation>
-    </message>
-    <message>
-        <source>Abort</source>
-        <translation type="vanished">لغو</translation>
-    </message>
-</context>
-<context>
     <name>installer::ControlPlatformFrame</name>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="28"/>
@@ -1462,17 +1354,6 @@
     </message>
 </context>
 <context>
-    <name>installer::DiskSpaceInsufficientFrame</name>
-    <message>
-        <source>Insufficient Disk Space</source>
-        <translation type="vanished">فضای ناکافی دیسک</translation>
-    </message>
-    <message>
-        <source>Exit</source>
-        <translation type="vanished">خروج</translation>
-    </message>
-</context>
-<context>
     <name>installer::DynamicDiskWarningFrame</name>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="113"/>
@@ -1488,75 +1369,6 @@
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="115"/>
         <source>Next</source>
         <translation>بعدی</translation>
-    </message>
-</context>
-<context>
-    <name>installer::EditPartitionFrame</name>
-    <message>
-        <source>Edit Disk</source>
-        <translation type="vanished">ویرایش دیسک</translation>
-    </message>
-    <message>
-        <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="vanished">دقت کنید که از داده‌های مهم پشتیبانی گرفته اید، سپس دیسک را انتخاب کنید تا نصب شود</translation>
-    </message>
-    <message>
-        <source>File system</source>
-        <translation type="vanished">فایل سیستم</translation>
-    </message>
-    <message>
-        <source>Mount point</source>
-        <translation type="vanished">نقطه ی نصب</translation>
-    </message>
-    <message>
-        <source>Format the partition</source>
-        <translation type="vanished">فرمت پارتیشن</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">لغو</translation>
-    </message>
-    <message>
-        <source>Create</source>
-        <translation type="vanished">ایجاد</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="vanished">تائید</translation>
-    </message>
-</context>
-<context>
-    <name>installer::FirstBootLoadingFrame</name>
-    <message>
-        <source>Tuning system</source>
-        <translation type="vanished">تنظیم سیستم</translation>
-    </message>
-    <message>
-        <source>Applying changes to your system, please wait...</source>
-        <translation type="vanished">در حال اعمال تغییرات در سیستم , لطفا ً صبر کنید …</translation>
-    </message>
-</context>
-<context>
-    <name>installer::FullDiskFrame</name>
-    <message>
-        <source>Install here</source>
-        <translation type="vanished">اینجا نصب کنید</translation>
-    </message>
-    <message>
-        <source>Encrypt this disk</source>
-        <translation type="vanished">رمزگذاری این دیسک</translation>
-    </message>
-    <message>
-        <source>Encrypt This Disk</source>
-        <translation type="vanished">رمزگذاری این دیسک</translation>
-    </message>
-    <message>
-        <source>Please select a disk to start installation</source>
-        <translation type="vanished">لطفاً برای شروع نصب یک دیسک انتخاب کنید</translation>
-    </message>
-    <message>
-        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1631,17 +1443,6 @@
     </message>
 </context>
 <context>
-    <name>installer::InstallProgressFrame</name>
-    <message>
-        <source>Installing</source>
-        <translation type="vanished">در حال نصب</translation>
-    </message>
-    <message>
-        <source>Here are a few cool things to look out for...</source>
-        <translation type="vanished">در اینجا چند نکته جالب برای یافتن وجود دارد ...</translation>
-    </message>
-</context>
-<context>
     <name>installer::InstallProgressFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="215"/>
@@ -1660,17 +1461,6 @@
         <location filename="../src/ui/models/mount_point_model.cpp" line="37"/>
         <source>Do not use</source>
         <translation>استفاده نکن</translation>
-    </message>
-</context>
-<context>
-    <name>installer::MultipleDiskInstallationWidget</name>
-    <message>
-        <source>System Disk</source>
-        <translation type="vanished">دیسک سیستم</translation>
-    </message>
-    <message>
-        <source>Data Disk</source>
-        <translation type="vanished">دیسک داده</translation>
     </message>
 </context>
 <context>
@@ -1724,164 +1514,6 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="212"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
         <translation>خطای Netmask: netmask غیرقانونی ، لطفاً بررسی کنید.</translation>
-    </message>
-</context>
-<context>
-    <name>installer::NewPartitionFrame</name>
-    <message>
-        <source>Create New Partition</source>
-        <translation type="vanished">ایجاد پارتیشن جدید</translation>
-    </message>
-    <message>
-        <source>Create a new partition and define the type and size</source>
-        <translation type="vanished">یک پارتیشن جدید ایجاد کنید و نوع و اندازه آن را تعیین کنید</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation type="vanished">نوع</translation>
-    </message>
-    <message>
-        <source>Location</source>
-        <translation type="vanished">مکان</translation>
-    </message>
-    <message>
-        <source>File system</source>
-        <translation type="vanished">فایل سیستم</translation>
-    </message>
-    <message>
-        <source>Mount point</source>
-        <translation type="vanished">نقطه ی نصب</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="vanished">سایز</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation type="vanished">شروع</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <translation type="vanished">پایان</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">لغو</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation type="vanished">باشه</translation>
-    </message>
-    <message>
-        <source>Create</source>
-        <translation type="vanished">ایجاد</translation>
-    </message>
-</context>
-<context>
-    <name>installer::NewTableLoadingFrame</name>
-    <message>
-        <source>Formatting...</source>
-        <translation type="vanished">در حال فرمت...</translation>
-    </message>
-</context>
-<context>
-    <name>installer::NewTableWarningFrame</name>
-    <message>
-        <source>Format Warning</source>
-        <translation type="vanished">اخطار فرمت کردن</translation>
-    </message>
-    <message>
-        <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation type="vanished">ادامه نصب ، کل دیسک را فرمت می کند ، لطفاً از تمام اطلاعات خود نسخه پشتیبان تهیه کنید. اگر نمی دانید چه می کنید ، ادامه ندهید</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">لغو</translation>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation type="vanished">ادامه</translation>
-    </message>
-</context>
-<context>
-    <name>installer::PartitionFrame</name>
-    <message>
-        <source>Select Installation Location</source>
-        <translation type="vanished">محل نصب را انتخاب کنید</translation>
-    </message>
-    <message>
-        <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="vanished">دقت کنید که از داده‌های مهم پشتیبانی گرفته اید، سپس دیسک را انتخاب کنید تا نصب شود</translation>
-    </message>
-    <message>
-        <source>Simple</source>
-        <translation type="vanished">ساده</translation>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation type="vanished">پیشرفته</translation>
-    </message>
-    <message>
-        <source>Full Disk</source>
-        <translation type="vanished">کل دیسک</translation>
-    </message>
-    <message>
-        <source>Start installation</source>
-        <translation type="vanished">شروع نصب</translation>
-    </message>
-    <message>
-        <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation type="vanished">دیسک هدف پویا است و در صورت ادامه ممکن است داده های شما از بین برود. لطفاً ابتدا از فایلهای مهم خود نسخه پشتیبان تهیه کنید.</translation>
-    </message>
-    <message>
-        <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation type="vanished">دیسک هدف پویا است که در صورت ادامه فرمت خواهد شد. لطفاً ابتدا از فایلهای مهم خود نسخه پشتیبان تهیه کنید.</translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation type="vanished">بعدی</translation>
-    </message>
-</context>
-<context>
-    <name>installer::PartitionLoadingFrame</name>
-    <message>
-        <source>Scan disks</source>
-        <translation type="vanished">اسکن دیسک ها</translation>
-    </message>
-    <message>
-        <source>Scanning disks, please wait...</source>
-        <translation type="vanished">در حال اسکن دیسک ها ، لطفا صبر کنید ...</translation>
-    </message>
-</context>
-<context>
-    <name>installer::PartitionNumberLimitationFrame</name>
-    <message>
-        <source>You should delete a primary partition before creating a new one</source>
-        <translation type="vanished">قبل از ایجاد پارتیشن جدید باید یک پارتیشن اصلی را حذف کنید</translation>
-    </message>
-    <message>
-        <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation type="vanished">پارتیشن های منطقی جدید فقط در نزدیکی پارتیشن های منطقی موجود ایجاد می شوند</translation>
-    </message>
-    <message>
-        <source>You should delete a primary partition before creating a new partition</source>
-        <translation type="vanished">قبل از ایجاد پارتیشن جدید باید یک پارتیشن اصلی را حذف کنید</translation>
-    </message>
-    <message>
-        <source>Failed to Create New Partition</source>
-        <translation type="vanished">ایجاد پارتیشن جدید انجام نشد</translation>
-    </message>
-    <message>
-        <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
-        <translation type="vanished">شما باید یک پارتیشن اصلی را قبل از ایجاد یک پارتیشن جدید حذف کنید ، زیرا تنها چهار پارتیشن اصلی در دیسک MBR  می تواند وجود داشته باشد</translation>
-    </message>
-    <message>
-        <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
-        <translation type="vanished">شما باید یک پارتیشن اولیه را قبل از ایجاد یک پارتیشن منطقی حذف کنید ، یا پارتیشن منطقی موجود را به انتهای دیسک منتقل کنید</translation>
-    </message>
-    <message>
-        <source>Back</source>
-        <translation type="vanished">بازگشت</translation>
     </message>
 </context>
 <context>
@@ -1972,40 +1604,6 @@
     </message>
 </context>
 <context>
-    <name>installer::PartitionTypeModel</name>
-    <message>
-        <source>Logical Partition</source>
-        <translation type="vanished">پارتیشن منطقی</translation>
-    </message>
-    <message>
-        <source>Primary Partition</source>
-        <translation type="vanished">پارتیشن اصلی</translation>
-    </message>
-</context>
-<context>
-    <name>installer::PrepareInstallFrame</name>
-    <message>
-        <source>Ready to Install</source>
-        <translation type="vanished">آماده برای نصب</translation>
-    </message>
-    <message>
-        <source>Make a backup of your important data and then continue</source>
-        <translation type="vanished">از داده های مهم خود نسخه پشتیبان تهیه کنید و سپس ادامه دهید</translation>
-    </message>
-    <message>
-        <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
-        <translation type="vanished">عملیات زیر را اجرا خواهد شد، لطفاً تأیید کرده و ادامه دهید تا از دست دادن داده جلوگیری کنید</translation>
-    </message>
-    <message>
-        <source>Back</source>
-        <translation type="vanished">بازگشت</translation>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation type="vanished">ادامه</translation>
-    </message>
-</context>
-<context>
     <name>installer::SaveInstallFailedLogFrame</name>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="150"/>
@@ -2026,21 +1624,6 @@
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="153"/>
         <source>Back</source>
         <translation>بازگشت</translation>
-    </message>
-</context>
-<context>
-    <name>installer::SelectBootloaderFrame</name>
-    <message>
-        <source>Select location for boot loader</source>
-        <translation type="vanished">مکان را برای بوت لودر انتخاب کنید</translation>
-    </message>
-    <message>
-        <source>If you do not understand the settings, please select the recommended one</source>
-        <translation type="vanished">اگر تنظیمات را درک نکردید ، لطفاً مورد توصیه شده را انتخاب کنید</translation>
-    </message>
-    <message>
-        <source>Back</source>
-        <translation type="vanished">بازگشت</translation>
     </message>
 </context>
 <context>
@@ -2095,29 +1678,6 @@
     </message>
 </context>
 <context>
-    <name>installer::SimplePartitionFrame</name>
-    <message>
-        <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation type="vanished">قادر به ساخت پارتیشن جدید نیست ، لطفا یکی از پارتیشن های موجود را انتخاب کنید!</translation>
-    </message>
-    <message>
-        <source>Please select one of the partitions to install!</source>
-        <translation type="vanished">لطفاً یکی از پارتیشن ها را برای نصب انتخاب کنید!</translation>
-    </message>
-    <message>
-        <source>At least %1 GB is required for root partition</source>
-        <translation type="vanished">برای پارتیشن ریشه حداقل %1 گیگابایت لازم است</translation>
-    </message>
-    <message>
-        <source>Install here</source>
-        <translation type="vanished">اینجا نصب کنید</translation>
-    </message>
-    <message>
-        <source>Windows will not boot if you install UOS onWindows disk, please confirm to continue</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>installer::SystemDateFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
@@ -2168,17 +1728,6 @@
     </message>
 </context>
 <context>
-    <name>installer::SystemInfoAvatarFrame</name>
-    <message>
-        <source>User Avatar</source>
-        <translation type="vanished">آواتار کاربر</translation>
-    </message>
-    <message>
-        <source>Select an avatar for your account</source>
-        <translation type="vanished">آواتاری برای حساب کاربری خود انتخاب کنید</translation>
-    </message>
-</context>
-<context>
     <name>installer::SystemInfoAvatarFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="123"/>
@@ -2189,33 +1738,6 @@
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="124"/>
         <source>Select an avatar for your account</source>
         <translation>آواتاری برای حساب کاربری خود انتخاب کنید</translation>
-    </message>
-</context>
-<context>
-    <name>installer::SystemInfoFormFrame</name>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">نام کاربری</translation>
-    </message>
-    <message>
-        <source>Computer name</source>
-        <translation type="vanished">نام کامپیوتر</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">کلمه عبور</translation>
-    </message>
-    <message>
-        <source>Repeat password</source>
-        <translation type="vanished">تکرار کلمه عبور</translation>
-    </message>
-    <message>
-        <source>Root password</source>
-        <translation type="vanished">رمز عبور ریشه</translation>
-    </message>
-    <message>
-        <source>Repeat root password</source>
-        <translation type="vanished">تکرار رمز عبور ریشه</translation>
     </message>
 </context>
 <context>
@@ -2338,13 +1860,6 @@
     </message>
 </context>
 <context>
-    <name>installer::SystemInfoKeyboardFrame</name>
-    <message>
-        <source>Back</source>
-        <translation type="vanished">بازگشت</translation>
-    </message>
-</context>
-<context>
     <name>installer::SystemInfoKeyboardFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="103"/>
@@ -2353,49 +1868,18 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="104"/>
-        <source>Select a proper keyboard layout</source>
-        <translation>انتخاب طرح بندی مناسب صفحه کلید</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="105"/>
         <source>Test here</source>
         <translation>اینجا تست کنید</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="105"/>
+        <source>Back</source>
+        <translation>بازگشت</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="106"/>
-        <source>Next</source>
-        <translation>بعدی</translation>
-    </message>
-</context>
-<context>
-    <name>installer::TimezoneFrame</name>
-    <message>
-        <source>Select Timezone</source>
-        <translation type="vanished">انتخاب منطقه زمانی</translation>
-    </message>
-    <message>
-        <source>Click your zone on the map</source>
-        <translation type="vanished">منطقه خود را روی نقشه کلیک کنید</translation>
-    </message>
-    <message>
-        <source>Select your timezone from the list</source>
-        <translation type="vanished">منطقه زمانی خود را از لیست انتخاب کنید</translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation type="vanished">بعدی</translation>
-    </message>
-    <message>
-        <source>Map</source>
-        <translation type="vanished">نقشه</translation>
-    </message>
-    <message>
-        <source>List</source>
-        <translation type="vanished">لیست</translation>
-    </message>
-    <message>
-        <source>Time settings</source>
-        <translation type="vanished">تنظیمات زمان</translation>
+        <source>Select a proper keyboard layout</source>
+        <translation>انتخاب طرح بندی مناسب صفحه کلید</translation>
     </message>
 </context>
 <context>
@@ -2419,25 +1903,6 @@
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="122"/>
         <source>View in Chinese</source>
         <translation>مشاهده به زبان چینی</translation>
-    </message>
-</context>
-<context>
-    <name>installer::VirtualMachineFrame</name>
-    <message>
-        <source>Friendly Reminder</source>
-        <translation type="vanished">یادآوری دوستانه</translation>
-    </message>
-    <message>
-        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation type="vanished">ادامه</translation>
-    </message>
-    <message>
-        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

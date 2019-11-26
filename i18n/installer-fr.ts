@@ -2,12 +2,12 @@
 <context>
     <name>installer::AdvancedPartitionButton</name>
     <message>
-        <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="125"/>
+        <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="132"/>
         <source>Install here</source>
         <translation>Installer ici</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="128"/>
+        <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="135"/>
         <source>To be formatted</source>
         <translation>Va être formaté</translation>
     </message>
@@ -147,48 +147,48 @@
 <context>
     <name>installer::EditPartitionFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="171"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="100"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="168"/>
         <source>Edit Disk</source>
         <translation>Éditer le disque</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="105"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="173"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="102"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="170"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Assurez-vous d&apos;avoir sauvegardé les données importantes puis sélectionner le disque où installer</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="106"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="205"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="202"/>
         <source>File system</source>
         <translation>Système de fichiers</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="107"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="207"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="104"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="204"/>
         <source>Mount point</source>
         <translation>Point de montage</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="108"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="222"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="105"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="219"/>
         <source>Format the partition</source>
         <translation>Formater la partition</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="109"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="248"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="106"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="245"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="110"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="107"/>
         <source>Create</source>
         <translation>Créer</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="249"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="246"/>
         <source>Confirm</source>
         <translation>Confirmer</translation>
     </message>
@@ -725,14 +725,6 @@
     </message>
 </context>
 <context>
-    <name>installer::SystemInfoKeyboardFrame</name>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="166"/>
-        <source>Back</source>
-        <translation>Précédent</translation>
-    </message>
-</context>
-<context>
     <name>installer::TimezoneFrame</name>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
@@ -801,87 +793,6 @@
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
         <translation>Le système a détecté que vous utilisez une machine virtuelle, ce qui affectera les performances du système et l&apos;expérience de fonctionnement. Pour une expérience fluide, il est recommandé d&apos;installer UOS dans un environnement de machine réelle</translation>
-    </message>
-</context>
-<context>
-    <name>installer::AdvancedPartitionButton</name>
-    <message>
-        <source>Install here</source>
-        <translation type="vanished">Installer ici</translation>
-    </message>
-    <message>
-        <source>To be formatted</source>
-        <translation type="vanished">Va être formaté</translation>
-    </message>
-</context>
-<context>
-    <name>installer::AdvancedPartitionFrame</name>
-    <message>
-        <source>Change boot loader</source>
-        <translation type="vanished">Emplacement du chargeur d’amorçage </translation>
-    </message>
-    <message>
-        <source>Done</source>
-        <translation type="vanished">Terminé</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation type="vanished">Supprimer</translation>
-    </message>
-    <message>
-        <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation type="vanished">%1 erreur trouvée, réparer pour continuer l&apos;installation ou basculer en mode simple</translation>
-    </message>
-    <message>
-        <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation type="vanished">%1 erreurs trouvées, réparer pour continuer l&apos;installation ou basculer en mode simple</translation>
-    </message>
-    <message>
-        <source>%1 error found, continue to install after fixed</source>
-        <translation type="vanished">%1 erreur trouvée, l&apos;installation continuera après le réglage de celle-ci</translation>
-    </message>
-    <message>
-        <source>%1 errors found, continue to install after fixed</source>
-        <translation type="vanished">%1 erreurs trouvées, l&apos;installation continuera après le réglage de celles-ci</translation>
-    </message>
-    <message>
-        <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation type="vanished">Le type système de fichiers du  /boot ne peut être %1</translation>
-    </message>
-    <message>
-        <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation type="vanished">La partition du /boot est idéalement la première sur le disque dur</translation>
-    </message>
-    <message>
-        <source>At least %1 MB is required for /boot partition</source>
-        <translation type="vanished">Au moins %1 MB est requis pour la partition /boot</translation>
-    </message>
-    <message>
-        <source>Add an EFI partition to continue</source>
-        <translation type="vanished">Une partition EFI est requise</translation>
-    </message>
-    <message>
-        <source>At least %1 MB is required for EFI partition</source>
-        <translation type="vanished">Au moins %1 MB est requis pour la partition EFI</translation>
-    </message>
-    <message>
-        <source>Add a Root partition to continue</source>
-        <translation type="vanished">Une partition root est requise</translation>
-    </message>
-    <message>
-        <source>At least %1 GB is required for Root partition</source>
-        <translation type="vanished">Au moins %1 GB est requis pour la partition root</translation>
-    </message>
-    <message>
-        <source>At least %1 GB is required for partition %2</source>
-        <translation type="vanished">Au moins %1 Go est requis pour la partition %2</translation>
-    </message>
-</context>
-<context>
-    <name>installer::BootloaderListModel</name>
-    <message>
-        <source>%1 %2 (recommended)</source>
-        <translation type="vanished">%1 %2 (recommandé)</translation>
     </message>
 </context>
 <context>
@@ -1418,25 +1329,6 @@
     </message>
 </context>
 <context>
-    <name>installer::ConfirmQuitFrame</name>
-    <message>
-        <source>Abort Installation</source>
-        <translation type="vanished">Annuler l&apos;installation</translation>
-    </message>
-    <message>
-        <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
-        <translation type="vanished">Les opérations que vous avez effectuées durant le processus d&apos;installation ne seront pas appliquées, annuler ou continuer l&apos;installation ?</translation>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation type="vanished">Continuer</translation>
-    </message>
-    <message>
-        <source>Abort</source>
-        <translation type="vanished">Annuler</translation>
-    </message>
-</context>
-<context>
     <name>installer::ControlPlatformFrame</name>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="28"/>
@@ -1462,17 +1354,6 @@
     </message>
 </context>
 <context>
-    <name>installer::DiskSpaceInsufficientFrame</name>
-    <message>
-        <source>Insufficient Disk Space</source>
-        <translation type="vanished">Espace disque insuffisant</translation>
-    </message>
-    <message>
-        <source>Exit</source>
-        <translation type="vanished">Quitter</translation>
-    </message>
-</context>
-<context>
     <name>installer::DynamicDiskWarningFrame</name>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="113"/>
@@ -1488,75 +1369,6 @@
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="115"/>
         <source>Next</source>
         <translation>Suivant</translation>
-    </message>
-</context>
-<context>
-    <name>installer::EditPartitionFrame</name>
-    <message>
-        <source>Edit Disk</source>
-        <translation type="vanished">Éditer le disque</translation>
-    </message>
-    <message>
-        <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="vanished">Assurez-vous d&apos;avoir sauvegardé les données importantes puis sélectionner le disque où installer</translation>
-    </message>
-    <message>
-        <source>File system</source>
-        <translation type="vanished">Système de fichiers</translation>
-    </message>
-    <message>
-        <source>Mount point</source>
-        <translation type="vanished">Point de montage</translation>
-    </message>
-    <message>
-        <source>Format the partition</source>
-        <translation type="vanished">Formater la partition</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Annuler</translation>
-    </message>
-    <message>
-        <source>Create</source>
-        <translation type="vanished">Créer</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="vanished">Confirmer</translation>
-    </message>
-</context>
-<context>
-    <name>installer::FirstBootLoadingFrame</name>
-    <message>
-        <source>Tuning system</source>
-        <translation type="vanished">Réglage système</translation>
-    </message>
-    <message>
-        <source>Applying changes to your system, please wait...</source>
-        <translation type="vanished">Application des modifications à votre système, veuillez patienter...</translation>
-    </message>
-</context>
-<context>
-    <name>installer::FullDiskFrame</name>
-    <message>
-        <source>Install here</source>
-        <translation type="vanished">Installer ici</translation>
-    </message>
-    <message>
-        <source>Encrypt this disk</source>
-        <translation type="vanished">Crypter ce disque</translation>
-    </message>
-    <message>
-        <source>Encrypt This Disk</source>
-        <translation type="vanished">Crypter ce disque</translation>
-    </message>
-    <message>
-        <source>Please select a disk to start installation</source>
-        <translation type="vanished">Veuillez sélectionner un disque pour démarrer l’installation</translation>
-    </message>
-    <message>
-        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation type="vanished">Vous devez disposer d’au moins %1 Go d’espace disque pour installer UOS. Pour obtenir de meilleures performances, %2 Go ou plus sont recommandés</translation>
     </message>
 </context>
 <context>
@@ -1631,17 +1443,6 @@
     </message>
 </context>
 <context>
-    <name>installer::InstallProgressFrame</name>
-    <message>
-        <source>Installing</source>
-        <translation type="vanished">Installation en cours</translation>
-    </message>
-    <message>
-        <source>Here are a few cool things to look out for...</source>
-        <translation type="vanished">Voici quelques bonnes choses à surveiller...</translation>
-    </message>
-</context>
-<context>
     <name>installer::InstallProgressFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="215"/>
@@ -1660,17 +1461,6 @@
         <location filename="../src/ui/models/mount_point_model.cpp" line="37"/>
         <source>Do not use</source>
         <translation>Ne pas utiliser</translation>
-    </message>
-</context>
-<context>
-    <name>installer::MultipleDiskInstallationWidget</name>
-    <message>
-        <source>System Disk</source>
-        <translation type="vanished">Disque système</translation>
-    </message>
-    <message>
-        <source>Data Disk</source>
-        <translation type="vanished">Disque de données</translation>
     </message>
 </context>
 <context>
@@ -1724,164 +1514,6 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="212"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
         <translation>Erreur de masque de réseau : masque de réseau illégal, veuillez vérifier.</translation>
-    </message>
-</context>
-<context>
-    <name>installer::NewPartitionFrame</name>
-    <message>
-        <source>Create New Partition</source>
-        <translation type="vanished">Créer une nouvelle partition</translation>
-    </message>
-    <message>
-        <source>Create a new partition and define the type and size</source>
-        <translation type="vanished">Créer une nouvelle partition en définissant le type et la taille</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation type="vanished">Type</translation>
-    </message>
-    <message>
-        <source>Location</source>
-        <translation type="vanished">Emplacement</translation>
-    </message>
-    <message>
-        <source>File system</source>
-        <translation type="vanished">Système de fichiers</translation>
-    </message>
-    <message>
-        <source>Mount point</source>
-        <translation type="vanished">Point de montage</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="vanished">Taille</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation type="vanished">Début</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <translation type="vanished">Fin</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Annuler</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation type="vanished">OK</translation>
-    </message>
-    <message>
-        <source>Create</source>
-        <translation type="vanished">Créer</translation>
-    </message>
-</context>
-<context>
-    <name>installer::NewTableLoadingFrame</name>
-    <message>
-        <source>Formatting...</source>
-        <translation type="vanished">Formatage en cours...</translation>
-    </message>
-</context>
-<context>
-    <name>installer::NewTableWarningFrame</name>
-    <message>
-        <source>Format Warning</source>
-        <translation type="vanished">Avertissement formatage</translation>
-    </message>
-    <message>
-        <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation type="vanished">La poursuite de l’installation formatera l’ensemble du disque. Faites une sauvegarde de toutes vos données. Si vous ne savez pas ce que vous faites, veuillez ne pas continuer</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Annuler</translation>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation type="vanished">Continuer</translation>
-    </message>
-</context>
-<context>
-    <name>installer::PartitionFrame</name>
-    <message>
-        <source>Select Installation Location</source>
-        <translation type="vanished">Sélectionner l&apos;emplacement </translation>
-    </message>
-    <message>
-        <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="vanished">Assurez-vous d&apos;avoir sauvegardé les données importantes puis sélectionner le disque où installer</translation>
-    </message>
-    <message>
-        <source>Simple</source>
-        <translation type="vanished">Simplifié</translation>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation type="vanished">Avancé</translation>
-    </message>
-    <message>
-        <source>Full Disk</source>
-        <translation type="vanished">Disque plein</translation>
-    </message>
-    <message>
-        <source>Start installation</source>
-        <translation type="vanished">Démarrer l&apos;installation</translation>
-    </message>
-    <message>
-        <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation type="vanished">Le disque cible est dynamique et vos données risquent d&apos;être perdues si vous continuez. Faites d&apos;abord une sauvegarde de vos fichiers importants.</translation>
-    </message>
-    <message>
-        <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation type="vanished">Le disque cible est dynamique et sera formaté si vous continuez. Faites d&apos;abord une sauvegarde de vos fichiers importants.</translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation type="vanished">Suivant</translation>
-    </message>
-</context>
-<context>
-    <name>installer::PartitionLoadingFrame</name>
-    <message>
-        <source>Scan disks</source>
-        <translation type="vanished">Analyser les disques</translation>
-    </message>
-    <message>
-        <source>Scanning disks, please wait...</source>
-        <translation type="vanished">Analyse des disques, veuillez patienter...</translation>
-    </message>
-</context>
-<context>
-    <name>installer::PartitionNumberLimitationFrame</name>
-    <message>
-        <source>You should delete a primary partition before creating a new one</source>
-        <translation type="vanished">Vous devez supprimer la partition principale avant d&apos;en créer une nouvelle</translation>
-    </message>
-    <message>
-        <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation type="vanished">Les partitions logiques peuvent uniquement être créées à côté d&apos;autres partitions logiques</translation>
-    </message>
-    <message>
-        <source>You should delete a primary partition before creating a new partition</source>
-        <translation type="vanished">Vous devez supprimer la partition principale avant de créer une nouvelle partition</translation>
-    </message>
-    <message>
-        <source>Failed to Create New Partition</source>
-        <translation type="vanished">Échec de la création d&apos;une nouvelle partition</translation>
-    </message>
-    <message>
-        <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
-        <translation type="vanished">Vous devez supprimer une partition principale avant d&apos;en créer une nouvelle, car il ne peut y avoir que quatre partitions principales sur un disque MBR.</translation>
-    </message>
-    <message>
-        <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
-        <translation type="vanished">Vous devez supprimer une partition principale avant d&apos;en créer une logique ou déplacer la partition logique existante à la fin du disque.</translation>
-    </message>
-    <message>
-        <source>Back</source>
-        <translation type="vanished">Précédent</translation>
     </message>
 </context>
 <context>
@@ -1972,40 +1604,6 @@
     </message>
 </context>
 <context>
-    <name>installer::PartitionTypeModel</name>
-    <message>
-        <source>Logical Partition</source>
-        <translation type="vanished">Partition logique</translation>
-    </message>
-    <message>
-        <source>Primary Partition</source>
-        <translation type="vanished">Partition primaire</translation>
-    </message>
-</context>
-<context>
-    <name>installer::PrepareInstallFrame</name>
-    <message>
-        <source>Ready to Install</source>
-        <translation type="vanished">Prêt à installer</translation>
-    </message>
-    <message>
-        <source>Make a backup of your important data and then continue</source>
-        <translation type="vanished">Sauvegarder vos données importantes avant de poursuivre</translation>
-    </message>
-    <message>
-        <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
-        <translation type="vanished">Les opérations suivantes seront exécutées</translation>
-    </message>
-    <message>
-        <source>Back</source>
-        <translation type="vanished">Précédent</translation>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation type="vanished">Continuer</translation>
-    </message>
-</context>
-<context>
     <name>installer::SaveInstallFailedLogFrame</name>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="150"/>
@@ -2026,21 +1624,6 @@
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="153"/>
         <source>Back</source>
         <translation>Précédent</translation>
-    </message>
-</context>
-<context>
-    <name>installer::SelectBootloaderFrame</name>
-    <message>
-        <source>Select location for boot loader</source>
-        <translation type="vanished">Emplacement du chargeur de démarrage</translation>
-    </message>
-    <message>
-        <source>If you do not understand the settings, please select the recommended one</source>
-        <translation type="vanished">Si vous ne comprenez pas les paramètres, veuillez sélectionner celui recommandé.</translation>
-    </message>
-    <message>
-        <source>Back</source>
-        <translation type="vanished">Précédent</translation>
     </message>
 </context>
 <context>
@@ -2095,29 +1678,6 @@
     </message>
 </context>
 <context>
-    <name>installer::SimplePartitionFrame</name>
-    <message>
-        <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation type="vanished">Impossible de créer de nouvelles partitions, veuillez en choisir une existante</translation>
-    </message>
-    <message>
-        <source>Please select one of the partitions to install!</source>
-        <translation type="vanished">Veuillez sélectionner une des partitions pour l&apos;installation</translation>
-    </message>
-    <message>
-        <source>At least %1 GB is required for root partition</source>
-        <translation type="vanished">Au moins %1 GB est requis pour la partition root</translation>
-    </message>
-    <message>
-        <source>Install here</source>
-        <translation type="vanished">Installer ici</translation>
-    </message>
-    <message>
-        <source>Windows will not boot if you install UOS onWindows disk, please confirm to continue</source>
-        <translation type="vanished">Windows ne démarrera pas si vous installez UOS sur un disque Windows, veuillez confirmer pour continuer</translation>
-    </message>
-</context>
-<context>
     <name>installer::SystemDateFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
@@ -2168,17 +1728,6 @@
     </message>
 </context>
 <context>
-    <name>installer::SystemInfoAvatarFrame</name>
-    <message>
-        <source>User Avatar</source>
-        <translation type="vanished">Utiliser un avatar</translation>
-    </message>
-    <message>
-        <source>Select an avatar for your account</source>
-        <translation type="vanished">Sélectionner un avatar pour votre compte</translation>
-    </message>
-</context>
-<context>
     <name>installer::SystemInfoAvatarFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="123"/>
@@ -2189,33 +1738,6 @@
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="124"/>
         <source>Select an avatar for your account</source>
         <translation>Sélectionner un avatar pour votre compte</translation>
-    </message>
-</context>
-<context>
-    <name>installer::SystemInfoFormFrame</name>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">Nom d&apos;utilisateur</translation>
-    </message>
-    <message>
-        <source>Computer name</source>
-        <translation type="vanished">Nom de l&apos;ordinateur</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">Mot de passe</translation>
-    </message>
-    <message>
-        <source>Repeat password</source>
-        <translation type="vanished">Répéter le mot de passe</translation>
-    </message>
-    <message>
-        <source>Root password</source>
-        <translation type="vanished">Mot de passe root</translation>
-    </message>
-    <message>
-        <source>Repeat root password</source>
-        <translation type="vanished">Répéter le mot de passe root</translation>
     </message>
 </context>
 <context>
@@ -2338,13 +1860,6 @@
     </message>
 </context>
 <context>
-    <name>installer::SystemInfoKeyboardFrame</name>
-    <message>
-        <source>Back</source>
-        <translation type="vanished">Précédent</translation>
-    </message>
-</context>
-<context>
     <name>installer::SystemInfoKeyboardFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="103"/>
@@ -2353,49 +1868,18 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="104"/>
-        <source>Select a proper keyboard layout</source>
-        <translation>Sélectionner une disposition de clavier appropriée</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="105"/>
         <source>Test here</source>
         <translation>Tester ici</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="105"/>
+        <source>Back</source>
+        <translation>Précédent</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="106"/>
-        <source>Next</source>
-        <translation>Suivant</translation>
-    </message>
-</context>
-<context>
-    <name>installer::TimezoneFrame</name>
-    <message>
-        <source>Select Timezone</source>
-        <translation type="vanished">Sélectionner le fuseau horaire</translation>
-    </message>
-    <message>
-        <source>Click your zone on the map</source>
-        <translation type="vanished">Cliquer votre zone sur la carte</translation>
-    </message>
-    <message>
-        <source>Select your timezone from the list</source>
-        <translation type="vanished">Sélectionner votre fuseau horaire dans la liste</translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation type="vanished">Suivant</translation>
-    </message>
-    <message>
-        <source>Map</source>
-        <translation type="vanished">Carte</translation>
-    </message>
-    <message>
-        <source>List</source>
-        <translation type="vanished">Liste</translation>
-    </message>
-    <message>
-        <source>Time settings</source>
-        <translation type="vanished">Paramètres de l&apos;heure</translation>
+        <source>Select a proper keyboard layout</source>
+        <translation>Sélectionner une disposition de clavier appropriée</translation>
     </message>
 </context>
 <context>
@@ -2419,25 +1903,6 @@
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="122"/>
         <source>View in Chinese</source>
         <translation>Version chinoise</translation>
-    </message>
-</context>
-<context>
-    <name>installer::VirtualMachineFrame</name>
-    <message>
-        <source>Friendly Reminder</source>
-        <translation type="vanished">Petit rappel</translation>
-    </message>
-    <message>
-        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
-        <translation type="vanished">Vous utilisez une machine virtuelle, ce qui affectera les performances du système et l&apos;expérience utilisateur. Pour une expérience plus fluide, installer UOS dans un environnement réel</translation>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation type="vanished">Continuer</translation>
-    </message>
-    <message>
-        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
-        <translation type="vanished">Le système a détecté que vous utilisez une machine virtuelle, ce qui affectera les performances du système et l&apos;expérience de fonctionnement. Pour une expérience fluide, il est recommandé d&apos;installer UOS dans un environnement de machine réelle</translation>
     </message>
 </context>
 </TS>

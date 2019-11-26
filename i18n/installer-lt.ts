@@ -2,12 +2,12 @@
 <context>
     <name>installer::AdvancedPartitionButton</name>
     <message>
-        <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="125"/>
+        <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="132"/>
         <source>Install here</source>
         <translation>Įdiegti čia</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="128"/>
+        <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="135"/>
         <source>To be formatted</source>
         <translation>Bus formatuojamas</translation>
     </message>
@@ -147,48 +147,48 @@
 <context>
     <name>installer::EditPartitionFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="171"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="100"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="168"/>
         <source>Edit Disk</source>
         <translation>Tvarkykite diską</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="105"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="173"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="102"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="170"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Įsitikinkite, kad esate padarę visų savo svarbių duomenų atsarginę kopiją, o tuomet pasirinkite diską, kuriame įdiegti</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="106"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="205"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="202"/>
         <source>File system</source>
         <translation>Failų sistema</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="107"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="207"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="104"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="204"/>
         <source>Mount point</source>
         <translation>Prijungimo taškas</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="108"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="222"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="105"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="219"/>
         <source>Format the partition</source>
         <translation>Formatuoti skaidinį</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="109"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="248"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="106"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="245"/>
         <source>Cancel</source>
         <translation>Atsisakyti</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="110"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="107"/>
         <source>Create</source>
         <translation>Sukurti</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="249"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="246"/>
         <source>Confirm</source>
         <translation>Patvirtinti</translation>
     </message>
@@ -725,14 +725,6 @@
     </message>
 </context>
 <context>
-    <name>installer::SystemInfoKeyboardFrame</name>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="166"/>
-        <source>Back</source>
-        <translation>Atgal</translation>
-    </message>
-</context>
-<context>
     <name>installer::TimezoneFrame</name>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
@@ -801,87 +793,6 @@
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
         <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>installer::AdvancedPartitionButton</name>
-    <message>
-        <source>Install here</source>
-        <translation type="vanished">Įdiegti čia</translation>
-    </message>
-    <message>
-        <source>To be formatted</source>
-        <translation type="vanished">Bus formatuojamas</translation>
-    </message>
-</context>
-<context>
-    <name>installer::AdvancedPartitionFrame</name>
-    <message>
-        <source>Change boot loader</source>
-        <translation type="vanished">Keisti paleidyklę</translation>
-    </message>
-    <message>
-        <source>Done</source>
-        <translation type="vanished">Atlikti</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation type="vanished">Ištrinti</translation>
-    </message>
-    <message>
-        <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation type="vanished">Rasta %1 klaida, norėdami tęsti, ištaisykite klaidą arba perjunkite į paprastą veikseną</translation>
-    </message>
-    <message>
-        <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation type="vanished">Rastos %1 klaidos, norėdami tęsti, ištaisykite klaidas arba perjunkite į paprastą veikseną</translation>
-    </message>
-    <message>
-        <source>%1 error found, continue to install after fixed</source>
-        <translation type="vanished">Rasta %1 klaida, tęskite diegimą, kai ištaisysite klaidą</translation>
-    </message>
-    <message>
-        <source>%1 errors found, continue to install after fixed</source>
-        <translation type="vanished">Rastos %1 klaidos, tęskite diegimą, kai ištaisysite klaidas</translation>
-    </message>
-    <message>
-        <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation type="vanished">Katalogo /boot skaidinio failų sistemos tipas gali būti tik %1 </translation>
-    </message>
-    <message>
-        <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation type="vanished">/boot katalogo skaidinys turėtų būti pats pirmas skaidinys standžiajame diske</translation>
-    </message>
-    <message>
-        <source>At least %1 MB is required for /boot partition</source>
-        <translation type="vanished">/boot skaidiniui reikia bent %1 MB</translation>
-    </message>
-    <message>
-        <source>Add an EFI partition to continue</source>
-        <translation type="vanished">Norėdami tęsti, pridėkite EFI skaidinį</translation>
-    </message>
-    <message>
-        <source>At least %1 MB is required for EFI partition</source>
-        <translation type="vanished">EFI skaidiniui reikia bent %1 MB</translation>
-    </message>
-    <message>
-        <source>Add a Root partition to continue</source>
-        <translation type="vanished">Norėdami tęsti, pridėkite šaknies skaidinį</translation>
-    </message>
-    <message>
-        <source>At least %1 GB is required for Root partition</source>
-        <translation type="vanished">Šaknies skaidiniui reikia bent %1 GB</translation>
-    </message>
-    <message>
-        <source>At least %1 GB is required for partition %2</source>
-        <translation type="vanished">%2 skaidiniui reikia bent %1 GB</translation>
-    </message>
-</context>
-<context>
-    <name>installer::BootloaderListModel</name>
-    <message>
-        <source>%1 %2 (recommended)</source>
-        <translation type="vanished">%1 %2 (rekomenduojama)</translation>
     </message>
 </context>
 <context>
@@ -1418,25 +1329,6 @@
     </message>
 </context>
 <context>
-    <name>installer::ConfirmQuitFrame</name>
-    <message>
-        <source>Abort Installation</source>
-        <translation type="vanished">Nutraukti įdiegimą</translation>
-    </message>
-    <message>
-        <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
-        <translation type="vanished">Atitinkamos operacijos, kurias atlikote įdiegimo eigoje, neįsigalios. Nutraukti ar tęsti įdiegimą?</translation>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation type="vanished">Tęsti</translation>
-    </message>
-    <message>
-        <source>Abort</source>
-        <translation type="vanished">Nutraukti</translation>
-    </message>
-</context>
-<context>
     <name>installer::ControlPlatformFrame</name>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="28"/>
@@ -1462,17 +1354,6 @@
     </message>
 </context>
 <context>
-    <name>installer::DiskSpaceInsufficientFrame</name>
-    <message>
-        <source>Insufficient Disk Space</source>
-        <translation type="vanished">Nepakanka vietos diske</translation>
-    </message>
-    <message>
-        <source>Exit</source>
-        <translation type="vanished">Išeiti</translation>
-    </message>
-</context>
-<context>
     <name>installer::DynamicDiskWarningFrame</name>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="113"/>
@@ -1488,75 +1369,6 @@
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="115"/>
         <source>Next</source>
         <translation>Kitas</translation>
-    </message>
-</context>
-<context>
-    <name>installer::EditPartitionFrame</name>
-    <message>
-        <source>Edit Disk</source>
-        <translation type="vanished">Tvarkykite diską</translation>
-    </message>
-    <message>
-        <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="vanished">Įsitikinkite, kad esate padarę visų savo svarbių duomenų atsarginę kopiją, o tuomet pasirinkite diską, kuriame įdiegti</translation>
-    </message>
-    <message>
-        <source>File system</source>
-        <translation type="vanished">Failų sistema</translation>
-    </message>
-    <message>
-        <source>Mount point</source>
-        <translation type="vanished">Prijungimo taškas</translation>
-    </message>
-    <message>
-        <source>Format the partition</source>
-        <translation type="vanished">Formatuoti skaidinį</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Atsisakyti</translation>
-    </message>
-    <message>
-        <source>Create</source>
-        <translation type="vanished">Sukurti</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="vanished">Patvirtinti</translation>
-    </message>
-</context>
-<context>
-    <name>installer::FirstBootLoadingFrame</name>
-    <message>
-        <source>Tuning system</source>
-        <translation type="vanished">Sistemos derinimas</translation>
-    </message>
-    <message>
-        <source>Applying changes to your system, please wait...</source>
-        <translation type="vanished">Taikomi pakeitimai jūsų sistemai, prašome palaukti...</translation>
-    </message>
-</context>
-<context>
-    <name>installer::FullDiskFrame</name>
-    <message>
-        <source>Install here</source>
-        <translation type="vanished">Įdiegti čia</translation>
-    </message>
-    <message>
-        <source>Encrypt this disk</source>
-        <translation type="vanished">Šifruoti šį diską</translation>
-    </message>
-    <message>
-        <source>Encrypt This Disk</source>
-        <translation type="vanished">Šifruoti šį diską</translation>
-    </message>
-    <message>
-        <source>Please select a disk to start installation</source>
-        <translation type="vanished">Norėdami pradėti diegimą, pasirinkite diską</translation>
-    </message>
-    <message>
-        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1631,17 +1443,6 @@
     </message>
 </context>
 <context>
-    <name>installer::InstallProgressFrame</name>
-    <message>
-        <source>Installing</source>
-        <translation type="vanished">Įdiegiama</translation>
-    </message>
-    <message>
-        <source>Here are a few cool things to look out for...</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>installer::InstallProgressFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="215"/>
@@ -1660,17 +1461,6 @@
         <location filename="../src/ui/models/mount_point_model.cpp" line="37"/>
         <source>Do not use</source>
         <translation>Nenaudoti</translation>
-    </message>
-</context>
-<context>
-    <name>installer::MultipleDiskInstallationWidget</name>
-    <message>
-        <source>System Disk</source>
-        <translation type="vanished">Sistemos diskas</translation>
-    </message>
-    <message>
-        <source>Data Disk</source>
-        <translation type="vanished">Duomenų diskas</translation>
     </message>
 </context>
 <context>
@@ -1724,164 +1514,6 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="212"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
         <translation>Tinklo kaukės klaida: neleistina tinklo kaukė, prašome patikrinti.</translation>
-    </message>
-</context>
-<context>
-    <name>installer::NewPartitionFrame</name>
-    <message>
-        <source>Create New Partition</source>
-        <translation type="vanished">Sukurti naują skaidinį</translation>
-    </message>
-    <message>
-        <source>Create a new partition and define the type and size</source>
-        <translation type="vanished">Sukurkite naują skaidinį ir apibrėžkite jo tipą ir dydį</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation type="vanished">Tipas</translation>
-    </message>
-    <message>
-        <source>Location</source>
-        <translation type="vanished">Vieta</translation>
-    </message>
-    <message>
-        <source>File system</source>
-        <translation type="vanished">Failų sistema</translation>
-    </message>
-    <message>
-        <source>Mount point</source>
-        <translation type="vanished">Prijungimo taškas</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="vanished">Dydis</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation type="vanished">Pradžia</translation>
-    </message>
-    <message>
-        <source>End</source>
-        <translation type="vanished">Pabaiga</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Atsisakyti</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation type="vanished">Gerai</translation>
-    </message>
-    <message>
-        <source>Create</source>
-        <translation type="vanished">Sukurti</translation>
-    </message>
-</context>
-<context>
-    <name>installer::NewTableLoadingFrame</name>
-    <message>
-        <source>Formatting...</source>
-        <translation type="vanished">Formatuojama...</translation>
-    </message>
-</context>
-<context>
-    <name>installer::NewTableWarningFrame</name>
-    <message>
-        <source>Format Warning</source>
-        <translation type="vanished">Formatavimo įspėjimas</translation>
-    </message>
-    <message>
-        <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation type="vanished">Tęsiant įdiegimą, visas diskas bus formatuotas. Pasidarykite savo duomenų atsarginę kopiją. Jei nežinote kas vyksta ir ką darote, nebetęskite šio proceso</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Atsisakyti</translation>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation type="vanished">Tęsti</translation>
-    </message>
-</context>
-<context>
-    <name>installer::PartitionFrame</name>
-    <message>
-        <source>Select Installation Location</source>
-        <translation type="vanished">Pasirinkite įdiegimo vietą</translation>
-    </message>
-    <message>
-        <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="vanished">Įsitikinkite, kad esate padarę visų savo svarbių duomenų atsarginę kopiją, o tuomet pasirinkite diską, kuriame įdiegti</translation>
-    </message>
-    <message>
-        <source>Simple</source>
-        <translation type="vanished">Paprasta</translation>
-    </message>
-    <message>
-        <source>Advanced</source>
-        <translation type="vanished">Išplėstinė</translation>
-    </message>
-    <message>
-        <source>Full Disk</source>
-        <translation type="vanished">Viso disko</translation>
-    </message>
-    <message>
-        <source>Start installation</source>
-        <translation type="vanished">Pradėti įdiegimą</translation>
-    </message>
-    <message>
-        <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation type="vanished">Paskirties diskas yra dinaminis, todėl jei tęsite, galite prarasti duomenis. Iš pradžių, pasidarykite visų savo svarbių failų atsarginę kopiją.</translation>
-    </message>
-    <message>
-        <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation type="vanished">Paskirties diskas yra dinaminis, todėl jei tęsite, jis bus formatuotas. Iš pradžių, pasidarykite visų savo svarbių failų atsarginę kopiją.</translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation type="vanished">Kitas</translation>
-    </message>
-</context>
-<context>
-    <name>installer::PartitionLoadingFrame</name>
-    <message>
-        <source>Scan disks</source>
-        <translation type="vanished">Peržiūrėti diskus</translation>
-    </message>
-    <message>
-        <source>Scanning disks, please wait...</source>
-        <translation type="vanished">Peržiūrimi diskai, prašome palaukti...</translation>
-    </message>
-</context>
-<context>
-    <name>installer::PartitionNumberLimitationFrame</name>
-    <message>
-        <source>You should delete a primary partition before creating a new one</source>
-        <translation type="vanished">Prieš sukuriant naują skaidinį, turėtumėte ištrinti pirminį skaidinį</translation>
-    </message>
-    <message>
-        <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation type="vanished">Nauji loginiai skaidiniai gali būti sukurti tik šalia esamų loginių skaidinių</translation>
-    </message>
-    <message>
-        <source>You should delete a primary partition before creating a new partition</source>
-        <translation type="vanished">Prieš sukuriant naują skaidinį, turėtumėte ištrinti pirminį skaidinį</translation>
-    </message>
-    <message>
-        <source>Failed to Create New Partition</source>
-        <translation type="vanished">Nepavyko sukurti naujo skaidinio</translation>
-    </message>
-    <message>
-        <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Back</source>
-        <translation type="vanished">Atgal</translation>
     </message>
 </context>
 <context>
@@ -1972,40 +1604,6 @@
     </message>
 </context>
 <context>
-    <name>installer::PartitionTypeModel</name>
-    <message>
-        <source>Logical Partition</source>
-        <translation type="vanished">Loginis skaidinys</translation>
-    </message>
-    <message>
-        <source>Primary Partition</source>
-        <translation type="vanished">Pirminis skaidinys</translation>
-    </message>
-</context>
-<context>
-    <name>installer::PrepareInstallFrame</name>
-    <message>
-        <source>Ready to Install</source>
-        <translation type="vanished">Pasiruošę įdiegti</translation>
-    </message>
-    <message>
-        <source>Make a backup of your important data and then continue</source>
-        <translation type="vanished">Pasidarykite visų savo svarbių duomenų atsarginę kopiją, o tuomet tęskite</translation>
-    </message>
-    <message>
-        <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
-        <translation type="vanished">Bus įvykdytos šios operacijos. Norint išvengti duomenų praradimo, prašome jas patvirtinti</translation>
-    </message>
-    <message>
-        <source>Back</source>
-        <translation type="vanished">Atgal</translation>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation type="vanished">Tęsti</translation>
-    </message>
-</context>
-<context>
     <name>installer::SaveInstallFailedLogFrame</name>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="150"/>
@@ -2026,21 +1624,6 @@
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="153"/>
         <source>Back</source>
         <translation>Atgal</translation>
-    </message>
-</context>
-<context>
-    <name>installer::SelectBootloaderFrame</name>
-    <message>
-        <source>Select location for boot loader</source>
-        <translation type="vanished">Pasirinkite paleidyklės vietą</translation>
-    </message>
-    <message>
-        <source>If you do not understand the settings, please select the recommended one</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Back</source>
-        <translation type="vanished">Atgal</translation>
     </message>
 </context>
 <context>
@@ -2095,29 +1678,6 @@
     </message>
 </context>
 <context>
-    <name>installer::SimplePartitionFrame</name>
-    <message>
-        <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation type="vanished">Nepavyko sukurti naujo skaidinio, prašome pasirinkti kurį nors iš esamų skaidinių!</translation>
-    </message>
-    <message>
-        <source>Please select one of the partitions to install!</source>
-        <translation type="vanished">Prašome pasirinkti vieną iš skaidinių, į kurį įdiegti!</translation>
-    </message>
-    <message>
-        <source>At least %1 GB is required for root partition</source>
-        <translation type="vanished">Šaknies skaidiniui reikia bent %1 GB</translation>
-    </message>
-    <message>
-        <source>Install here</source>
-        <translation type="vanished">Įdiegti čia</translation>
-    </message>
-    <message>
-        <source>Windows will not boot if you install UOS onWindows disk, please confirm to continue</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>installer::SystemDateFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
@@ -2168,17 +1728,6 @@
     </message>
 </context>
 <context>
-    <name>installer::SystemInfoAvatarFrame</name>
-    <message>
-        <source>User Avatar</source>
-        <translation type="vanished">Naudotojo avataras</translation>
-    </message>
-    <message>
-        <source>Select an avatar for your account</source>
-        <translation type="vanished">Pasirinkti avatarą savo paskyrai</translation>
-    </message>
-</context>
-<context>
     <name>installer::SystemInfoAvatarFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="123"/>
@@ -2189,33 +1738,6 @@
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="124"/>
         <source>Select an avatar for your account</source>
         <translation>Pasirinkti avatarą savo paskyrai</translation>
-    </message>
-</context>
-<context>
-    <name>installer::SystemInfoFormFrame</name>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">Naudotojo vardas</translation>
-    </message>
-    <message>
-        <source>Computer name</source>
-        <translation type="vanished">Kompiuterio vardas</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">Slaptažodis</translation>
-    </message>
-    <message>
-        <source>Repeat password</source>
-        <translation type="vanished">Pakartokite slaptažodį</translation>
-    </message>
-    <message>
-        <source>Root password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Repeat root password</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2338,13 +1860,6 @@
     </message>
 </context>
 <context>
-    <name>installer::SystemInfoKeyboardFrame</name>
-    <message>
-        <source>Back</source>
-        <translation type="vanished">Atgal</translation>
-    </message>
-</context>
-<context>
     <name>installer::SystemInfoKeyboardFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="103"/>
@@ -2353,49 +1868,18 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="104"/>
-        <source>Select a proper keyboard layout</source>
-        <translation>Pasirinkite tinkamą klaviatūros išdėstymą</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="105"/>
         <source>Test here</source>
         <translation>Išbandykite čia</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="105"/>
+        <source>Back</source>
+        <translation>Atgal</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="106"/>
-        <source>Next</source>
-        <translation>Kitas</translation>
-    </message>
-</context>
-<context>
-    <name>installer::TimezoneFrame</name>
-    <message>
-        <source>Select Timezone</source>
-        <translation type="vanished">Pasirinkti laiko juostą</translation>
-    </message>
-    <message>
-        <source>Click your zone on the map</source>
-        <translation type="vanished">Spustelėkite žemėlapyje ant savo laiko juostos</translation>
-    </message>
-    <message>
-        <source>Select your timezone from the list</source>
-        <translation type="vanished">Pasirinkite iš sąrašo savo laiko juostą</translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation type="vanished">Kitas</translation>
-    </message>
-    <message>
-        <source>Map</source>
-        <translation type="vanished">Žemėlapis</translation>
-    </message>
-    <message>
-        <source>List</source>
-        <translation type="vanished">Sąrašas</translation>
-    </message>
-    <message>
-        <source>Time settings</source>
-        <translation type="vanished">Laiko nustatymai</translation>
+        <source>Select a proper keyboard layout</source>
+        <translation>Pasirinkite tinkamą klaviatūros išdėstymą</translation>
     </message>
 </context>
 <context>
@@ -2419,25 +1903,6 @@
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="122"/>
         <source>View in Chinese</source>
         <translation>Rodyti kinų kalba</translation>
-    </message>
-</context>
-<context>
-    <name>installer::VirtualMachineFrame</name>
-    <message>
-        <source>Friendly Reminder</source>
-        <translation type="vanished">Draugiškas priminimas</translation>
-    </message>
-    <message>
-        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation type="vanished">Tęsti</translation>
-    </message>
-    <message>
-        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
