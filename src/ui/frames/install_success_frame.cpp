@@ -58,8 +58,8 @@ public:
     }
 };
 
-InstallSuccessFrame::InstallSuccessFrame(QWidget *parent)
-    : QFrame(parent)
+InstallSuccessFrame::InstallSuccessFrame(FrameProxyInterface* inter, QWidget *parent)
+    :FrameInterface (FrameType::Frame, inter, parent)
     , d_private(new InstallSuccessFramePrivate(this))
 {
     this->setObjectName("install_success_frame");
@@ -73,6 +73,19 @@ InstallSuccessFrame::~InstallSuccessFrame()
 
 }
 
+void InstallSuccessFrame::init()
+{
+
+}
+void InstallSuccessFrame::finished()
+{
+
+}
+
+bool InstallSuccessFrame::shouldDisplay() const
+{
+
+}
 void InstallSuccessFrame::changeEvent(QEvent *event)
 {
     Q_D(InstallSuccessFrame);
@@ -80,14 +93,13 @@ void InstallSuccessFrame::changeEvent(QEvent *event)
     if (event->type() == QEvent::LanguageChange) {
         d->updateTs();
     } else {
-        QFrame::changeEvent(event);
+        FrameInterface::changeEvent(event);
     }
 }
 
 void InstallSuccessFramePrivate::initConnections()
 {
-    QObject::connect(reboot_button_, &QPushButton::clicked,
-            m_isf, &InstallSuccessFrame::finished);
+
 }
 
 void InstallSuccessFramePrivate::initUI()

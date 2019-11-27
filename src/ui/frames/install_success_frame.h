@@ -18,6 +18,8 @@
 #ifndef INSTALLER_UI_FRAMES_INSTALL_SUCCESS_FRAME_H
 #define INSTALLER_UI_FRAMES_INSTALL_SUCCESS_FRAME_H
 
+#include "ui/interfaces/frameinterface.h"
+
 #include <QFrame>
 #include <QScopedPointer>
 
@@ -28,16 +30,21 @@ class NavButton;
 class TitleLabel;
 
 class InstallSuccessFramePrivate;
-class InstallSuccessFrame : public QFrame {
+class InstallSuccessFrame : public FrameInterface {
   Q_OBJECT
 
  public:
-  explicit InstallSuccessFrame(QWidget* parent = nullptr);
+  explicit InstallSuccessFrame(FrameProxyInterface* inter, QWidget* parent = nullptr);
   ~InstallSuccessFrame() override;
 
- signals:
-  // Emitted when reboot button is clicked.
-  void finished();
+    // Read configuration file
+    void init() override;
+
+    // Write to the configuration file
+    void finished() override;
+
+    // Read the configuration file to confirm that the current page is available
+    bool shouldDisplay() const override;
 
  public slots:
   void setEjectLabelVisible(bool visible);
