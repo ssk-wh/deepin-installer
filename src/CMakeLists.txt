@@ -92,6 +92,9 @@ find_package(Qt5LinguistTools)
 find_package(Qt5Svg REQUIRED)
 find_package(Qt5DBus REQUIRED)
 find_package(QTermWidget5 REQUIRED)
+find_package(DtkCMake REQUIRED)
+find_package(DtkWidget REQUIRED)
+find_package(DtkGui REQUIRED)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
@@ -534,13 +537,13 @@ set(LINK_LIBS
     ${X11TST_LIBRARIES}
     ${X11RandR_LIBRARIES}
     ${UDisk2_LIBRARIES}
+    ${DtkWidget_LIBRARIES}
 
     global_shortcut
     qrencode
     zlib_wrapper
     Xi
     )
-
 
 # Main executable
 # Generate .qm files from .ts files.
@@ -895,7 +898,10 @@ add_executable(timezone-frame-test
                ui/styles/styles.qrc
                license/license.qrc
                )
-target_link_libraries(timezone-frame-test ${Qt_LIBS})
+target_link_libraries(timezone-frame-test
+                      ${Qt_LIBS}
+                      ${DtkWidget_LIBRARIES}
+                      )
 
 add_executable(ctl-btn-test
                ui/tests/ctl_btn_test.cpp

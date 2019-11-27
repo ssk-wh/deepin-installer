@@ -31,10 +31,13 @@
 #include <QHash>
 #include <QSettings>
 #include <random>
+#include <DSysInfo>
 
 #include "base/consts.h"
 #include "service/settings_name.h"
 #include "partman/structs.h"
+
+DCORE_USE_NAMESPACE
 
 namespace installer {
 
@@ -260,7 +263,12 @@ QString GetReservedUsernameFile() {
 }
 
 QString GetVendorLogo() {
-  const QString oem_file = GetOemDir().absoluteFilePath("vendor.png");
+  QString oem_file = DSysInfo::deepinDistributorLogo();
+  if (QFile::exists(oem_file)) {
+    return oem_file;
+  }
+
+  oem_file = GetOemDir().absoluteFilePath("vendor.png");
   if (QFile::exists(oem_file)) {
     return oem_file;
   }
