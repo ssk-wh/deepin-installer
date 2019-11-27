@@ -28,6 +28,7 @@ mkdir /target/recovery/backup
 echo "UUID=$(lsblk -f | grep -i /target/recovery$ | awk '{print $4}')" > /target/etc/deepin/system-recovery.conf
 
 installer_set DI_BOOT_PARTITION $(df -h | grep /boot$ | awk '{print $1}')
+installer_set DI_RECOVERY_PATH $(df -h | grep /recovery$ | awk '{print $1}')
 
 # 备份boot的UUID
 echo $(lsblk -f | grep -i /boot$ | awk '{print $4}') > /target/recovery/backup/boot.info
