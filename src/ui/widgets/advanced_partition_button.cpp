@@ -106,7 +106,7 @@ void AdvancedPartitionButton::initUI() {
   path_frame->setObjectName("path_frame");
   path_frame->setContentsMargins(0, 0, 0, 0);
   path_frame->setLayout(path_layout);
-  path_frame->setFixedWidth(kWindowWidth - 455); // 455 is remaining space
+  path_frame->setFixedWidth(kWindowWidth - 555); // 555 is remaining space
 
   // partition space usage
   QLabel* usage_label = new QLabel();
@@ -127,7 +127,7 @@ void AdvancedPartitionButton::initUI() {
   // tip
   QLabel* tip_label = new QLabel();
   tip_label->setObjectName("tip_label");
-  tip_label->setFixedWidth(112);
+  tip_label->setFixedWidth(212);
   if (partition_->mount_point == kMountPointRoot) {
     tip_label->setText(tr("Install here"));
   } else if (partition_->status == PartitionStatus::Format ||
