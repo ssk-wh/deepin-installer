@@ -69,6 +69,7 @@ private:
     NavButton* m_saveBtn;
     NavButton* m_backBtn;
     QSharedPointer<Partition> m_selectPartition;
+    QMap<QSharedPointer<Partition>, QSharedPointer<DBlockDevice>> m_deviceButtonMap;
     DDiskManager* m_diskManager;
     QMap<QSharedPointer<DDiskDevice>, QList<QSharedPointer<DBlockDevice>>> m_deviceMap;
 };

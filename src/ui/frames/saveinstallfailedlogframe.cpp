@@ -162,6 +162,8 @@ void SaveInstallFailedLogFrame::refreshDevices()
         button->deleteLater();
     }
 
+    m_deviceButtonMap.clear();
+
     int row = 0, column = 0;
     for (auto it = m_deviceMap.constBegin(); it != m_deviceMap.constEnd(); ++it) {
         DeviceModelLabel* device_model_label = new DeviceModelLabel();
@@ -181,11 +183,10 @@ void SaveInstallFailedLogFrame::refreshDevices()
         for (auto part = list.constBegin(); part != list.constEnd(); ++part) {
             Partition::Ptr partition(new Partition);
             partition->type = PartitionType::Normal;
-            partition->path = part->get()->path();
+            partition->path = part->get()->device();
             partition->start_sector = 0;
             partition->end_sector = static_cast<qint64>(part->get()->size());
             partition->sector_size = 1;
-            partition->mount_point = part->get()->mountPoints().first();
             partition->fs = GetFsTypeByName(part->get()->idVersion());
             partition->label = part->get()->idLabel();
             SimplePartitionButton* button = new SimplePartitionButton(partition);
@@ -193,6 +194,8 @@ void SaveInstallFailedLogFrame::refreshDevices()
             m_partitionGridLayout->addWidget(button, row, column, Qt::AlignHCenter);
             connect(button, &QPushButton::clicked,
                     this, &SaveInstallFailedLogFrame::onPartitionButtonClicked);
+
+            m_deviceButtonMap[partition] = *part;
 
             column += 1;
             // Add rows.
@@ -232,12 +235,7 @@ void SaveInstallFailedLogFrame::onBlockDeviceAdded(const QString &path)
     };
 
     const QByteArrayList& mountPoints = device->mountPoints();
-    if (mountPoints.isEmpty()) {
-        if (!checkWritable(device->mount(QVariantMap()))) {
-            return;
-        }
-    }
-    else {
+    if (!mountPoints.isEmpty()) {
         for (const QByteArray& array : mountPoints) {
             if (!checkWritable(array)) {
                 return;
@@ -305,7 +303,7 @@ void SaveInstallFailedLogFrame::saveLog()
 {
     const QString& logPath {
         QString("%1/deepin-installer.%2.log")
-                .arg(m_selectPartition->mount_point)
+                .arg(m_deviceButtonMap[m_selectPartition]->mount({}))
                 .arg(QDateTime::currentDateTime().toString("yyyy-MM-dd-hh-mm-ss"))
     };
 
@@ -313,28 +311,7 @@ void SaveInstallFailedLogFrame::saveLog()
 
     CopyLogFile(logPath);
 
-    // NOTE(justforlxz): 可能保存失败，尝试使用直接写入
-    if (!QFile::exists(logPath)) {
-        QFile file(GetLogFilepath());
-        if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            QSaveFile logFile(logPath);
-            if (logFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
-                logFile.write(file.readAll());
-                logFile.commit();
-            }
-            else {
-                qWarning() << "save log failed!";
-            }
-        }
-        else {
-            qWarning() << "open log file failed! " << GetLogFilepath();
-        }
-    }
-
-    // Copy log
-    if (!QFile::exists(logPath)) {
-        qDebug() << "Copy log file: " << SpawnCmd("cp", QStringList() << GetLogFilepath() << logPath);
-    }
+    m_deviceButtonMap[m_selectPartition]->unmount({});
 
     emit requestBack();
 }
