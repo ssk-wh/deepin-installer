@@ -221,6 +221,10 @@ void MainWindow::initConnections() {
   connect(install_progress_frame_, &InstallProgressFrame::finished,
           this, &MainWindow::goNextPage);
 
+  connect(install_success_frame_, &InstallSuccessFrame::finished, this, [=] {
+      return GetSettingsBool(kRebootWhenInstallFinished) ? rebootSystem() : shutdownSystem();
+  });
+
   connect(partition_frame_, &PartitionFrame::reboot,
           this, &MainWindow::rebootSystem);
   connect(partition_frame_, &PartitionFrame::finished,

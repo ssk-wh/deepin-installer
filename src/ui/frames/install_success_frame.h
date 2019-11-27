@@ -31,11 +31,11 @@ class TitleLabel;
 
 class InstallSuccessFramePrivate;
 class InstallSuccessFrame : public FrameInterface {
-  Q_OBJECT
+    Q_OBJECT
 
- public:
-  explicit InstallSuccessFrame(FrameProxyInterface* inter, QWidget* parent = nullptr);
-  ~InstallSuccessFrame() override;
+public:
+    explicit InstallSuccessFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
+    ~InstallSuccessFrame() override;
 
     // Read configuration file
     void init() override;
@@ -46,15 +46,15 @@ class InstallSuccessFrame : public FrameInterface {
     // Read the configuration file to confirm that the current page is available
     bool shouldDisplay() const override;
 
- public slots:
-  void setEjectLabelVisible(bool visible);
+public slots:
+    void setEjectLabelVisible(bool visible);
 
- protected:
-  void changeEvent(QEvent* event) override;
+protected:
+    void changeEvent(QEvent* event) override;
 
- private:
-  QScopedPointer<InstallSuccessFramePrivate> d_private;
-  Q_DECLARE_PRIVATE_D(d_private, InstallSuccessFrame)
+private:
+    QScopedPointer<InstallSuccessFramePrivate> d_private;
+    Q_DECLARE_PRIVATE_D(d_private, InstallSuccessFrame)
 };
 
 }

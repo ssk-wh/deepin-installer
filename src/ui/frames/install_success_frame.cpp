@@ -17,22 +17,24 @@
 
 #include "ui/frames/install_success_frame.h"
 
-#include <QHBoxLayout>
-#include <QLabel>
-#include <QtCore/QEvent>
-
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/nav_button.h"
 #include "ui/widgets/title_label.h"
 #include "ui/frames/consts.h"
 #include "ui/utils/widget_util.h"
 
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QtCore/QEvent>
+
 namespace installer {
 class InstallSuccessFramePrivate
 {
 public:
-    InstallSuccessFramePrivate(InstallSuccessFrame *FF): m_isf(FF) {}
-    InstallSuccessFrame *m_isf;
+    InstallSuccessFramePrivate(InstallSuccessFrame *FF): q_ptr(FF) {}
+
+    Q_DECLARE_PUBLIC(InstallSuccessFrame)
+    InstallSuccessFrame *q_ptr=nullptr;
 
     TitleLabel *title_label_ = new TitleLabel("");
     CommentLabel *eject_label_ = new CommentLabel;
@@ -44,22 +46,11 @@ public:
 
     void initConnections();
     void initUI();
-
-    void updateTs(){
-        title_label_->setText(QObject::tr("Successfully Installed"));
-        comment_label_->setText(
-            QObject::tr("Reboot to complete the installation"));
-        eject_label_->setText(
-            QObject::tr("Click the button below and then remove the installation media immediately"));
-        reboot_button_->setText(QObject::tr("Reboot Now"));
-        title_label_->setText(QObject::tr("Successfully Installed"));
-        eject_label_->setText(QObject::tr("Click the button below and then remove the installation media immediately"));
-        comment_label_->setText(QObject::tr("Reboot to complete the installation"));
-    }
+    void updateTs();
 };
 
-InstallSuccessFrame::InstallSuccessFrame(FrameProxyInterface* inter, QWidget *parent)
-    :FrameInterface (FrameType::Frame, inter, parent)
+InstallSuccessFrame::InstallSuccessFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
+    :FrameInterface(FrameType::Frame, frameProxyInterface, parent)
     , d_private(new InstallSuccessFramePrivate(this))
 {
     this->setObjectName("install_success_frame");
@@ -84,7 +75,7 @@ void InstallSuccessFrame::finished()
 
 bool InstallSuccessFrame::shouldDisplay() const
 {
-
+    return true;
 }
 void InstallSuccessFrame::changeEvent(QEvent *event)
 {
@@ -97,9 +88,20 @@ void InstallSuccessFrame::changeEvent(QEvent *event)
     }
 }
 
+void InstallSuccessFramePrivate::updateTs()
+{
+    reboot_button_->setText(QObject::tr("Reboot Now"));
+    title_label_->setText(QObject::tr("Successfully Installed"));
+    eject_label_->setText(QObject::tr("Please remove the installation media before reboot"));
+    comment_label_->setText(QObject::tr("Reboot to complete the installation"));
+}
+
 void InstallSuccessFramePrivate::initConnections()
 {
-
+    QObject::connect(reboot_button_, &QPushButton::clicked,
+                    q_ptr, [=] {
+        q_ptr->m_proxy->nextFrame();
+    });
 }
 
 void InstallSuccessFramePrivate::initUI()
@@ -122,8 +124,8 @@ void InstallSuccessFramePrivate::initUI()
     layout->addWidget(eject_label_, 0, Qt::AlignCenter);
     layout->addWidget(reboot_button_, 0, Qt::AlignCenter);
 
-    m_isf->setLayout(layout);
-    m_isf->setContentsMargins(0, 0, 0, 0);
+    q_ptr->setLayout(layout);
+    q_ptr->setContentsMargins(0, 0, 0, 0);
 }
 
 void InstallSuccessFrame::setEjectLabelVisible(bool visible)
