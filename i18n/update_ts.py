@@ -53,6 +53,7 @@ def generate_ts(ts_path, is_installer):
             "src/ui/models",
             "src/ui/views",
             "src/ui/widgets",
+            "src/base"
         )
     else:
         # Only include oem folder.
