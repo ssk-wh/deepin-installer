@@ -4,12 +4,12 @@
     <message>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="124"/>
         <source>Install here</source>
-        <translation>Instalar aqui</translation>
+        <translation>Instalar Aqui</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="127"/>
         <source>To be formatted</source>
-        <translation>Será formatada</translation>
+        <translation>Será Formatada</translation>
     </message>
 </context>
 <context>
@@ -18,7 +18,11 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="91"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="177"/>
         <source>Change boot loader</source>
+<<<<<<< HEAD
         <translation>Alterar o carregador de inicialização</translation>
+=======
+        <translation>Alterar o Carregador de Inicialização</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="93"/>
@@ -36,62 +40,106 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="438"/>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
+<<<<<<< HEAD
         <translation>%1 erro encontrado. Resolva para prosseguir com a instalação; ou alterne para o modo simples</translation>
+=======
+        <translation>%1 erro encontrado. Corrija para prosseguir com a Instalação ou alterne para o Modo Simples</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="442"/>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
+<<<<<<< HEAD
         <translation>%1 erros encontrados. Resolva para prosseguir com a instalação; ou alterne para o modo simples</translation>
+=======
+        <translation>%1 erro encontrado. Corrija para prosseguir com a Instalação ou alterne para o Modo Simples</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="448"/>
         <source>%1 error found, continue to install after fixed</source>
+<<<<<<< HEAD
         <translation>%1 erro encontrado. Resolva para prosseguir com a instalação</translation>
+=======
+        <translation>%1 erro encontrado. Prossiga com a instalação após corrigi-lo</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="452"/>
         <source>%1 errors found, continue to install after fixed</source>
+<<<<<<< HEAD
         <translation>%1 erros encontrados. Resolva para prosseguir com a instalação</translation>
+=======
+        <translation>%1 erros encontrados. Prossiga com a instalação após corrigi-los</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="499"/>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
+<<<<<<< HEAD
         <translation>O sistema de arquivos da partição /boot pode ser apenas %1</translation>
+=======
+        <translation>O sistema de arquivos da Partição /boot pode ser apenas %1</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="503"/>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
+<<<<<<< HEAD
         <translation>A partição /boot deve ser a primeira no disco</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="507"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
         <translation>A partição /boot/efi deve ser a primeira no disco</translation>
+=======
+        <translation>A Partição /boot deve ser a primeira no Disco</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="512"/>
         <source>At least %1 MB is required for /boot partition</source>
+<<<<<<< HEAD
         <translation>É necessário pelo menos %1 MB para a partição /boot</translation>
+=======
+        <translation>É necessário pelo menos %1 MB para a Partição /boot</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="516"/>
         <source>Add an EFI partition to continue</source>
+<<<<<<< HEAD
         <translation>Adicione a partição /efi para continuar</translation>
+=======
+        <translation>Adicione a Partição /efi para continuar</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="520"/>
         <source>At least %1 MB is required for EFI partition</source>
+<<<<<<< HEAD
         <translation>É necessário pelo menos %1 MB para a partição /efi</translation>
+=======
+        <translation>É necessário pelo menos %1 MB para a Partição /efi</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="524"/>
         <source>Add a Root partition to continue</source>
+<<<<<<< HEAD
         <translation>Adicione a partição /root para continuar</translation>
+=======
+        <translation>Adicione a Partição /root para continuar</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="529"/>
         <source>At least %1 GB is required for Root partition</source>
+<<<<<<< HEAD
         <translation>É necessário pelo menos %1 GB para a partição /root</translation>
+=======
+        <translation>É necessário pelo menos %1 GB para Partição /root</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="534"/>
@@ -104,7 +152,7 @@
     <message>
         <location filename="../src/ui/models/bootloader_list_model.cpp" line="42"/>
         <source>%1 %2 (recommended)</source>
-        <translation>%1 %2 (recomendado)</translation>
+        <translation>%1 %2 (Recomendado)</translation>
     </message>
 </context>
 <context>
@@ -113,13 +161,21 @@
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="39"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="58"/>
         <source>Abort Installation</source>
+<<<<<<< HEAD
         <translation>Abortar Instalação</translation>
+=======
+        <translation>Interromper Instalação</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="41"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="60"/>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
+<<<<<<< HEAD
         <translation>As operações realizadas no processo de instalação não entrarão em vigor. Abortar ou continuar com a instalação?</translation>
+=======
+        <translation>As operações relevantes que você fez no processo de instalação não terão efeito. Cancelar ou prosseguir com a instalação?</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="43"/>
@@ -131,7 +187,7 @@
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="44"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="68"/>
         <source>Abort</source>
-        <translation>Abortar</translation>
+        <translation>Interromper</translation>
     </message>
 </context>
 <context>
@@ -161,7 +217,11 @@
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="101"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="169"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
+<<<<<<< HEAD
         <translation>Faça backup antes de prosseguir e selecione o disco para instalação</translation>
+=======
+        <translation>Verifique se você fez o backup de dados importantes, e selecione o disco a ser instalado</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="102"/>
@@ -173,13 +233,13 @@
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="203"/>
         <source>Mount point</source>
-        <translation>Ponto de montagem</translation>
+        <translation>Ponto de Montagem</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="104"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="218"/>
         <source>Format the partition</source>
-        <translation>Formatar a partição</translation>
+        <translation>Formatar Partição</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="105"/>
@@ -204,13 +264,21 @@
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="38"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="61"/>
         <source>Tuning system</source>
+<<<<<<< HEAD
         <translation>Configurando o sistema...</translation>
+=======
+        <translation>Ajustando o Sistema</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="40"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="63"/>
         <source>Applying changes to your system, please wait...</source>
+<<<<<<< HEAD
         <translation>Aplicando as alterações ao sistema, aguarde...</translation>
+=======
+        <translation>Aplicando alterações, aguarde...</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -219,7 +287,7 @@
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="153"/>
         <source>Install here</source>
-        <translation>Instalar aqui</translation>
+        <translation>Instalar Aqui</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
@@ -234,7 +302,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="64"/>
         <source>Please select a disk to start installation</source>
-        <translation>Selecione um disco para iniciar a instalação</translation>
+        <translation>Selecione um Disco para Iniciar a Instalação</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="65"/>
@@ -262,7 +330,11 @@
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="172"/>
         <source>Here are a few cool things to look out for...</source>
+<<<<<<< HEAD
         <translation>Veja algumas novidades do sistema...</translation>
+=======
+        <translation>Conheça algumas novidades da nova versão do sistema...</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -290,7 +362,11 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="119"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="154"/>
         <source>Create a new partition and define the type and size</source>
+<<<<<<< HEAD
         <translation>Criar uma nova partição e definir o tipo e tamanho</translation>
+=======
+        <translation>Criar nova Partição e definir Tipo e Tamanho</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="120"/>
@@ -314,7 +390,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="123"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="179"/>
         <source>Mount point</source>
-        <translation>Ponto de montagem</translation>
+        <translation>Ponto de Montagem</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="124"/>
@@ -399,7 +475,11 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="90"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="237"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
+<<<<<<< HEAD
         <translation>Faça backup antes de prosseguir e selecione o disco para instalação</translation>
+=======
+        <translation>Verifique se você fez o backup de dados importantes, e selecione o disco a ser instalado</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="91"/>
@@ -429,7 +509,11 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="464"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
+<<<<<<< HEAD
         <translation>O disco de destino é dinâmico e os dados poderão ser perdidos se prosseguir. Faça backup antes de prosseguir.</translation>
+=======
+        <translation>O disco de destino é dinâmico e seus dados podem ser perdidos se você continuar. Faça um backup dos arquivos importantes primeiro.</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="468"/>
@@ -448,7 +532,7 @@
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="37"/>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="45"/>
         <source>Scan disks</source>
-        <translation>Verificar discos</translation>
+        <translation>Verificar Discos</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="38"/>
@@ -462,17 +546,29 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="45"/>
         <source>You should delete a primary partition before creating a new one</source>
+<<<<<<< HEAD
         <translation>Exclua a partição primária antes de criar uma nova partição</translation>
+=======
+        <translation>Você deve excluir a partição primária antes de criar uma nova</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="47"/>
         <source>New logical partitions can only be created near existing logical partitions</source>
+<<<<<<< HEAD
         <translation>As novas partições lógicas só podem ser criadas próximas das partições lógicas existentes</translation>
+=======
+        <translation>Novas Partições Lógicas só podem ser criadas, próximas de Partições Lógicas existentes</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="52"/>
         <source>You should delete a primary partition before creating a new partition</source>
+<<<<<<< HEAD
         <translation>Exclua a partição primária antes de criar uma nova partição</translation>
+=======
+        <translation>Você deve excluir a partição primária antes de criar uma nova partição</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="59"/>
@@ -525,13 +621,21 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="85"/>
         <source>Make a backup of your important data and then continue</source>
+<<<<<<< HEAD
         <translation>Faça backup antes de prosseguir</translation>
+=======
+        <translation>Faça backup de seus dados e prossiga</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="92"/>
         <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
+<<<<<<< HEAD
         <translation>As seguintes operações serão executadas</translation>
+=======
+        <translation>As seguintes operações serão executadas:</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="68"/>
@@ -551,57 +655,85 @@
     <message>
         <location filename="../src/partman/operation.cpp" line="254"/>
         <source>Create extended partition %1</source>
-        <translation>Criar partição estendida %1</translation>
+        <translation>Criar Partição Estendida %1</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="258"/>
         <source>Create new partition %1, type: %2</source>
-        <translation>Criar uma nova partição %1, tipo: %2</translation>
+        <translation>Criar Nova Partição %1, tipo: %2</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="262"/>
         <source>Create new partition %1 as %2 (mountpoint), type: %3</source>
-        <translation>Criar uma nova partição %1 como %2 (ponto de montagem), tipo: %3</translation>
+        <translation>Criar Nova Partição %1 como %2 (Ponto de Montagem), tipo: %3</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="271"/>
         <source>Delete %1 partition</source>
+<<<<<<< HEAD
         <translation>Excluir a partição %1</translation>
+=======
+        <translation>Excluir Partição %1</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="276"/>
         <source>Format %1 partition, type: %2</source>
+<<<<<<< HEAD
         <translation>Formatar a partição %1, tipo: %2</translation>
+=======
+        <translation>Formatar Partição %1, tipo: %2</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="280"/>
         <source>Format %1 partition as %2 (mountpoint), type: %3</source>
+<<<<<<< HEAD
         <translation>Formatar a partição %1 como %2 (ponto de montagem), tipo: %3</translation>
+=======
+        <translation>Formatar Partição %1 como %2 (Ponto de Montagem), tipo: %3</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="288"/>
         <source>Use %1 partition as %2 (mountpoint)</source>
+<<<<<<< HEAD
         <translation>Usar a partição %1 como %2 (ponto de montagem)</translation>
+=======
+        <translation>Usar Partição %1 como %2 (Ponto de Montagem)</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="294"/>
         <source>Format %1 and create %2 new partition table</source>
-        <translation>Formatar %1 e criar %2 nova tabela de partição</translation>
+        <translation>Formatar %1 e criar %2 nova Tabela de Partição</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="300"/>
         <source>Adjust the size of %1 partition</source>
+<<<<<<< HEAD
         <translation>Ajustar o tamanho da partição %1</translation>
+=======
+        <translation>Ajustar Tamanho da Partição %1</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="262"/>
         <source>Do not use this partition</source>
+<<<<<<< HEAD
         <translation>Não usar esta partição</translation>
+=======
+        <translation>Não usar esta Partição</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="275"/>
         <source>Swap partition</source>
+<<<<<<< HEAD
         <translation>Partição SWAP</translation>
+=======
+        <translation>Partição Swap</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="278"/>
@@ -628,13 +760,13 @@
         <location filename="../src/ui/frames/install_success_frame.cpp" line="51"/>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="57"/>
         <source>Reboot to complete the installation</source>
-        <translation>Reinicie para concluir a instalação</translation>
+        <translation>Reinicie para Concluir a Instalação</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="53"/>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="56"/>
         <source>Please remove the installation media before reboot</source>
-        <translation>Remova a mídia de instalação antes de reiniciar</translation>
+        <translation>Remova a Mídia de Instalação antes de Reiniciar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="54"/>
@@ -644,6 +776,7 @@
     <message>
         <location filename="../src/base/translator.h" line="14"/>
         <source>Select system language</source>
+<<<<<<< HEAD
         <translation>Selecionar Idioma do Sistema</translation>
     </message>
     <message>
@@ -660,6 +793,9 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="51"/>
         <source>UOS</source>
         <translation>UOS</translation>
+=======
+        <translation>Selecione o Idioma do Sistema</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -668,7 +804,11 @@
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="42"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="64"/>
         <source>Select location for boot loader</source>
+<<<<<<< HEAD
         <translation>Selecione o local para o carregador de inicialização</translation>
+=======
+        <translation>Selecionar o Local para o Carregador de Inicialização</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="44"/>
@@ -688,23 +828,35 @@
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="75"/>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
+<<<<<<< HEAD
         <translation>Não é possível criar uma nova partição; selecione uma das partições existentes!</translation>
+=======
+        <translation>Não é possível criar uma nova partição. Selecione uma das partições existentes!</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="82"/>
         <source>Please select one of the partitions to install!</source>
+<<<<<<< HEAD
         <translation>Selecione uma partição para instalar!</translation>
+=======
+        <translation>Selecione uma Partição para Instalar!</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="89"/>
         <source>At least %1 GB is required for root partition</source>
+<<<<<<< HEAD
         <translation>É necessário pelo menos %1 GB para a partição /root</translation>
+=======
+        <translation>É necessário mais %1 GB para a Partição /root</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="237"/>
         <source>Install here</source>
-        <translation>Instalar aqui</translation>
+        <translation>Instalar Aqui</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="414"/>
@@ -732,7 +884,11 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="105"/>
         <source>Select an avatar for your account</source>
+<<<<<<< HEAD
         <translation>Selecione um avatar para a conta</translation>
+=======
+        <translation>Selecione um Avatar para sua Conta</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -745,7 +901,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="183"/>
         <source>Computer name</source>
-        <translation>Nome do computador</translation>
+        <translation>Nome do Computador</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="184"/>
@@ -766,6 +922,17 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="187"/>
         <source>Repeat root password</source>
         <translation>Repita a Senha do Administrador</translation>
+<<<<<<< HEAD
+=======
+    </message>
+</context>
+<context>
+    <name>installer::SystemInfoKeyboardFrame</name>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="166"/>
+        <source>Back</source>
+        <translation>Voltar</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -781,13 +948,21 @@
         <location filename="../src/ui/frames/timezone_frame.cpp" line="224"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="360"/>
         <source>Click your zone on the map</source>
+<<<<<<< HEAD
         <translation>Selecione no mapa o fuso da sua região</translation>
+=======
+        <translation>Selecione no mapa a região do seu Fuso Horário</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="365"/>
         <source>Select your timezone from the list</source>
+<<<<<<< HEAD
         <translation>Selecione na lista o fuso da sua região</translation>
+=======
+        <translation>Selecione na Lista o Fuso Horário</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
@@ -811,7 +986,11 @@
         <location filename="../src/ui/frames/timezone_frame.cpp" line="126"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="286"/>
         <source>Time settings</source>
+<<<<<<< HEAD
         <translation>Configurações de Data e Hora</translation>
+=======
+        <translation>Configurações de Hora</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -902,6 +1081,87 @@
     </message>
     <message>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>At least %1 MB is required for /boot partition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add an EFI partition to continue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>At least %1 MB is required for EFI partition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add a Root partition to continue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>At least %1 GB is required for Root partition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>At least %1 GB is required for partition %2</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::BootloaderListModel</name>
+    <message>
+        <source>%1 %2 (recommended)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::AdvancedPartitionButton</name>
+    <message>
+        <source>Install here</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To be formatted</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::AdvancedPartitionFrame</name>
+    <message>
+        <source>Change boot loader</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 error found, fix to continue installation or switch to simple mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 errors found, fix to continue installation or switch to simple mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 error found, continue to install after fixed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 errors found, continue to install after fixed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The partition filesystem type of /boot directory can only be %1 </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The partition of /boot directory should be the first partition on hard disk</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1644,7 +1904,11 @@
     </message>
     <message>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
+<<<<<<< HEAD
         <translation type="vanished">Você precisa de pelo menos %1 GB de espaço em disco para instalar o UOS. Para obter melhor desempenho, é recomendado %2 GB ou mais</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -1652,7 +1916,11 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="160"/>
         <source>Please input password</source>
+<<<<<<< HEAD
         <translation>Digite a senha</translation>
+=======
+        <translation>Insira a Senha</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="166"/>
@@ -1662,12 +1930,16 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
         <source>Encrypt This Disk</source>
-        <translation>Criptografar Este Disco</translation>
+        <translation>Criptografar Disco</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="204"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
+<<<<<<< HEAD
         <translation>Faça backup antes de prosseguir e selecione o disco para instalação</translation>
+=======
+        <translation>Verifique se você fez o backup de dados importantes, e selecione o disco a ser instalado</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
@@ -1739,7 +2011,11 @@
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="217"/>
         <source>Here are a few cool things to look out for...</source>
+<<<<<<< HEAD
         <translation>Veja algumas novidades do sistema...</translation>
+=======
+        <translation>Conheça algumas novidades da nova versão do sistema...</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -1747,7 +2023,18 @@
     <message>
         <location filename="../src/ui/models/mount_point_model.cpp" line="37"/>
         <source>Do not use</source>
-        <translation>Não usar</translation>
+        <translation>Não Usar</translation>
+    </message>
+</context>
+<context>
+    <name>installer::MultipleDiskInstallationWidget</name>
+    <message>
+        <source>System Disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Data Disk</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1789,7 +2076,11 @@
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="132"/>
         <source>Netmask</source>
+<<<<<<< HEAD
         <translation>Máscara de Sub-rede</translation>
+=======
+        <translation>Máscara de Sub-Rede</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="133"/>
@@ -1809,12 +2100,20 @@
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="205"/>
         <source>IP address error: illegal IP address, please have a check.</source>
+<<<<<<< HEAD
         <translation>Erro de endereço IP: Endereço IP ilegal, verifique.</translation>
+=======
+        <translation>Erro no Endereço IP: Endereço Incorreto, verifique.</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="216"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
+<<<<<<< HEAD
         <translation>Erro na máscara de sub-rede: máscara de rede ilegal, verifique.</translation>
+=======
+        <translation>Erro de Máscara de Rede: Máscara de Rede ilegal, verifique.</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -1822,6 +2121,7 @@
     <message>
         <source>Create New Partition</source>
         <translation type="unfinished"/>
+<<<<<<< HEAD
     </message>
     <message>
         <source>Create a new partition and define the type and size</source>
@@ -2026,13 +2326,227 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="76"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="146"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="168"/>
+=======
+    </message>
+    <message>
+        <source>Create a new partition and define the type and size</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::NewTableLoadingFrame</name>
+    <message>
+        <source>Formatting...</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::NewTableWarningFrame</name>
+    <message>
+        <source>Format Warning</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionFrame</name>
+    <message>
+        <source>Select Installation Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Make sure you have backed up important data, then select the disk to install</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Simple</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Full Disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Start installation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionLoadingFrame</name>
+    <message>
+        <source>Scan disks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Scanning disks, please wait...</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionNumberLimitationFrame</name>
+    <message>
+        <source>You should delete a primary partition before creating a new one</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>New logical partitions can only be created near existing logical partitions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You should delete a primary partition before creating a new partition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to Create New Partition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionTableWarningFrame</name>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="53"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="92"/>
+        <source>Warning</source>
+        <translation>Atenção</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="55"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="103"/>
+        <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
+        <translation>Você tem um carregador de inicialização EFI, mas um disco MBR. Portanto, não é possível instalar o UOS diretamente. Selecione uma das soluções abaixo e continue.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="57"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="110"/>
+        <source>Disable UEFI</source>
+        <translation>Desabilitar UEFI</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="60"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="114"/>
+        <source>Reboot, enter BIOS, and disable UEFI</source>
+        <translation>Reinicie, entre no BIOS e desative o UEFI</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="115"/>
+        <source>Exit BIOS, and install UOS again</source>
+        <translation>Sair da BIOS e instalar o UOS novamente</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="62"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="119"/>
+        <source>Format the disk</source>
+        <translation>Formatar o Disco</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="65"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="123"/>
+        <source>Make a backup of all your data to avoid data loss</source>
+        <translation>Faça um backup de todos os dados para não perdê-los</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="66"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="124"/>
+        <source>After the backup, reboot and enter this interface again</source>
+        <translation>Após o backup, reinicie e entre nessa interface novamente</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="67"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="73"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="143"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="165"/>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
         <source>Continue</source>
         <translation>Continuar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="73"/>
         <source>Make sure you have backed up all data before proceeding</source>
+<<<<<<< HEAD
         <translation>Faça backup antes de prosseguir</translation>
+=======
+        <translation>Verifique se você fez backup de todos os dados antes de prosseguir</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
@@ -2083,7 +2597,11 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="150"/>
         <source>Please make sure all data were made a backup, then continue</source>
+<<<<<<< HEAD
         <translation>Verifique se todos os dados foram salvos e prossiga</translation>
+=======
+        <translation>Verifique se todos os dados foram salvos em backup, e continue</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -2202,6 +2720,7 @@
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="293"/>
         <source>I have read and agree to</source>
+<<<<<<< HEAD
         <translation>Eu li e concordo com o</translation>
     </message>
     <message>
@@ -2213,6 +2732,9 @@
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="294"/>
         <source>Deepin</source>
         <translation>Deepin</translation>
+=======
+        <translation>Eu Li e Concordo com o</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="294"/>
@@ -2249,7 +2771,11 @@
     </message>
     <message>
         <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
+<<<<<<< HEAD
         <translation type="vanished">O Windows não inicializará se o UOS for instalado no disco do Windows. Confirme para continuar</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -2258,13 +2784,21 @@
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
         <source>Time settings</source>
+<<<<<<< HEAD
         <translation>Configurações de Data e Hora</translation>
+=======
+        <translation>Configurações de Hora</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="63"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
         <source>Change date and time as you want</source>
+<<<<<<< HEAD
         <translation>Ajuste conforme a sua localização</translation>
+=======
+        <translation>Ajustar Data e Hora</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="96"/>
@@ -2354,6 +2888,33 @@
     </message>
 </context>
 <context>
+    <name>installer::SystemInfoFormFrame</name>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Computer name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Repeat password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Root password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Repeat root password</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>installer::SystemInfoFormFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="292"/>
@@ -2413,7 +2974,11 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="439"/>
         <source>This username already exists</source>
+<<<<<<< HEAD
         <translation>Este nome de usuário já existe</translation>
+=======
+        <translation>Nome de Usuário já existe</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="443"/>
@@ -2433,17 +2998,25 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="477"/>
         <source>Please input computer name</source>
-        <translation>Insira o nome do computador</translation>
+        <translation>Insira o Nome do Computador</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="481"/>
         <source>Computer name is invalid</source>
+<<<<<<< HEAD
         <translation>O nome do computador é inválido</translation>
+=======
+        <translation>Nome do Computador inválido</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="485"/>
         <source>Computer name already exists, please input another one</source>
+<<<<<<< HEAD
         <translation>O nome do computador já existe; insira outro</translation>
+=======
+        <translation>Nome do Computador já existe. Insira outro</translation>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="490"/>
@@ -2453,7 +3026,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="517"/>
         <source>The password should be different from the username</source>
-        <translation>A senha deve ser diferente do nome de usuário</translation>
+        <translation>A Senha deve ser diferente do Nome de Usuário</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="531"/>
@@ -2477,12 +3050,22 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="103"/>
         <source>Select keyboard layout</source>
-        <translation>Selecionar layout do teclado</translation>
+        <translation>Selecionar Layout do Teclado</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="104"/>
+<<<<<<< HEAD
         <source>Test here</source>
         <translation>Teste aqui</translation>
+=======
+<<<<<<< HEAD
+        <source>Select a proper keyboard layout</source>
+        <translation>Selecione um layout de teclado adequado</translation>
+=======
+        <source>Test here</source>
+        <translation>Teste Aqui</translation>
+>>>>>>> 1a7347df... chore: auto pull translation files from transifex
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="105"/>
@@ -2491,6 +3074,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="106"/>
+<<<<<<< HEAD
         <source>Select a proper keyboard layout</source>
         <translation>Selecione o layout de teclado adequado</translation>
     </message>
@@ -2511,6 +3095,32 @@
     </message>
     <message>
         <source>Next</source>
+=======
+<<<<<<< HEAD
+        <source>Next</source>
+        <translation>Próximo</translation>
+=======
+        <source>Select a proper keyboard layout</source>
+        <translation>Selecione um Layout de Teclado adequado</translation>
+    </message>
+</context>
+<context>
+    <name>installer::TimezoneFrame</name>
+    <message>
+        <source>Select Timezone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Click your zone on the map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select your timezone from the list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Next</source>
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2524,6 +3134,10 @@
     <message>
         <source>Time settings</source>
         <translation type="unfinished"/>
+<<<<<<< HEAD
+=======
+>>>>>>> 1a7347df... chore: auto pull translation files from transifex
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -2531,7 +3145,7 @@
     <message>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="147"/>
         <source>End User License Agreement</source>
-        <translation>Contrato de Licença de Usuário Final</translation>
+        <translation>Contrato de Licença do Usuário Final</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="148"/>
@@ -2556,6 +3170,25 @@
     <message>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
         <translation type="vanished">O sistema detectou que você está usando uma máquina virtual, o que afetará o desempenho do sistema e a experiência de operação. Para uma experiência tranquila, é recomendável instalar o UOS no ambiente da máquina real</translation>
+    </message>
+</context>
+<context>
+    <name>installer::VirtualMachineFrame</name>
+    <message>
+        <source>Friendly Reminder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

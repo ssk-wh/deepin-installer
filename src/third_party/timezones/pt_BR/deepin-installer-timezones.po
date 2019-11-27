@@ -5,9 +5,15 @@
 # 
 # Translators:
 # Matheus Campagnol <mate175@gmail.com>, 2017
+<<<<<<< HEAD
 # Paulo Schopf, 2019
 # Raphael Miquelis <raphaelmiquelis@gmail.com>, 2020
 # Alex Wender, 2020
+=======
+# Raphael Miquelis <raphaelmiquelis@gmail.com>, 2017
+# Paulo Schopf, 2019
+# Alex Wender, 2019
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
 # 
 #, fuzzy
 msgid ""
@@ -16,7 +22,11 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-02 17:33+0800\n"
 "PO-Revision-Date: 2017-02-06 02:09+0000\n"
+<<<<<<< HEAD
 "Last-Translator: Alex Wender, 2020\n"
+=======
+"Last-Translator: Alex Wender, 2019\n"
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/linuxdeepin/teams/3976/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -214,7 +224,11 @@ msgstr "África/Ouagadougou"
 
 #: system-config-date-timezones.h:48
 msgid "Africa/Porto-Novo"
+<<<<<<< HEAD
 msgstr "África/Porto_Novo"
+=======
+msgstr "África/Porto Novo"
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
 
 #: system-config-date-timezones.h:49
 msgid "Africa/Sao_Tome"
@@ -254,7 +268,11 @@ msgstr "América/Araguaína"
 
 #: system-config-date-timezones.h:58
 msgid "America/Argentina/Buenos_Aires"
+<<<<<<< HEAD
 msgstr "América/Argentina/Buenos_Aires"
+=======
+msgstr "América/Argentina/Buenos Aires"
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
 
 #: system-config-date-timezones.h:59
 msgid "America/Argentina/Catamarca"
@@ -650,7 +668,11 @@ msgstr "América/Noronha"
 
 #: system-config-date-timezones.h:157
 msgid "America/North_Dakota/Beulah"
+<<<<<<< HEAD
 msgstr "América/Dakota_do_Norte/Beulah"
+=======
+msgstr "América/Dakota do Norte/Beulah"
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
 
 #: system-config-date-timezones.h:158
 msgid "America/North_Dakota/Center"
@@ -1238,7 +1260,11 @@ msgstr "Atlântico/Canary"
 
 #: system-config-date-timezones.h:304
 msgid "Atlantic/Cape_Verde"
+<<<<<<< HEAD
 msgstr "Atlântico/Cabo_Verde"
+=======
+msgstr "Atlântico/Cabo Verde"
+>>>>>>> 1007a836... chore: auto pull translation files from transifex
 
 #: system-config-date-timezones.h:305
 msgid "Atlantic/Faroe"
