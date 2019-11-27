@@ -306,7 +306,7 @@ void SaveInstallFailedLogFrame::saveLog()
 
     const QString& logPath {
         QString("%1/deepin-installer.%2.log")
-                .arg(device->mount({}))
+                .arg(m_deviceButtonMap[m_selectPartition]->mount({}))
                 .arg(QDateTime::currentDateTime().toString("yyyy-MM-dd-hh-mm-ss"))
     };
 
@@ -314,7 +314,7 @@ void SaveInstallFailedLogFrame::saveLog()
 
     CopyLogFile(logPath);
 
-    device->unmount({});
+    m_deviceButtonMap[m_selectPartition]->unmount({});
 
     emit requestBack();
 }
