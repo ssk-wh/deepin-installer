@@ -14,28 +14,30 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 #include "ui/frames/virtual_machine_frame.h"
-
-#include <QEvent>
-#include <QLabel>
-#include <QVBoxLayout>
-#include <DSysInfo>
 
 #include "ui/frames/consts.h"
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/nav_button.h"
 #include "ui/widgets/title_label.h"
+#include "service/settings_manager.h"
+#include "service/settings_name.h"
+#include "sysinfo/virtual_machine.h"
+
+#include <QEvent>
+#include <QLabel>
+#include <QVBoxLayout>
 
 DCORE_USE_NAMESPACE
 
 namespace installer {
 
-VirtualMachineFrame::VirtualMachineFrame(QWidget* parent) : QFrame(parent) {
-  this->setObjectName("virtual_machine_frame");
+VirtualMachineFrame::VirtualMachineFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
+    : FrameInterface (FrameType::Frame, frameProxyInterface, parent) {
+  setObjectName("virtual_machine_frame");
 
-  this->initUI();
-  this->initConnections();
+  initUI();
+  initConnections();
 }
 
 void VirtualMachineFrame::changeEvent(QEvent* event) {
@@ -46,13 +48,29 @@ void VirtualMachineFrame::changeEvent(QEvent* event) {
            "To get a smoother experience, please install %1 in a real environment").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")));
     next_button_->setText(tr("Continue"));
   } else {
-    QFrame::changeEvent(event);
+    FrameInterface::changeEvent(event);
   }
 }
 
+void VirtualMachineFrame::init()
+{
+
+}
+
+void VirtualMachineFrame::finished()
+{
+
+}
+
+bool VirtualMachineFrame::shouldDisplay() const
+{
+    return !GetSettingsBool(kSkipVirtualMachinePage) && IsVirtualMachine() ;
+}
 void VirtualMachineFrame::initConnections() {
-  connect(next_button_, &QPushButton::clicked,
-          this, &VirtualMachineFrame::finished);
+    connect(next_button_, &QPushButton::clicked,
+            this, [=] {
+        m_proxy->nextFrame();
+    });
 }
 
 void VirtualMachineFrame::initUI() {
@@ -78,8 +96,8 @@ void VirtualMachineFrame::initUI() {
   layout->addStretch();
   layout->addWidget(next_button_, 0, Qt::AlignCenter);
 
-  this->setLayout(layout);
-  this->setContentsMargins(0, 0, 0, 0);
+  setLayout(layout);
+  setContentsMargins(0, 0, 0, 0);
 }
 
 }  // namespace installer

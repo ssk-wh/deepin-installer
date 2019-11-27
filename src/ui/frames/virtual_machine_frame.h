@@ -18,6 +18,8 @@
 #ifndef INSTALLER_UI_FRAMES_VIRTUAL_MACHINE_FRAME_H
 #define INSTALLER_UI_FRAMES_VIRTUAL_MACHINE_FRAME_H
 
+#include "ui/interfaces/frameinterface.h"
+
 #include <QFrame>
 
 namespace installer {
@@ -27,15 +29,20 @@ class NavButton;
 class TitleLabel;
 
 // This page is displayed when system is running in a virtual machine.
-class VirtualMachineFrame : public QFrame {
+class VirtualMachineFrame : public FrameInterface {
   Q_OBJECT
   
  public:
-  explicit VirtualMachineFrame(QWidget* parent = nullptr);
+  explicit VirtualMachineFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
 
- signals:
-  // This signal is emitted when continue-button is clicked.
-  void finished();
+  // Read configuration file
+  void init() override;
+
+  // Write to the configuration file
+  void finished() override;
+
+  // Read the configuration file to confirm that the current page is available
+  bool shouldDisplay() const override;
 
  protected:
   void changeEvent(QEvent* event) override;
