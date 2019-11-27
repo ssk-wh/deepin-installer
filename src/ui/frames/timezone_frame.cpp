@@ -17,6 +17,7 @@
 
 #include "ui/frames/timezone_frame.h"
 
+<<<<<<< HEAD
 #include <QDebug>
 #include <QEvent>
 #include <QKeyEvent>
@@ -30,6 +31,8 @@
 #include <QProcess>
 #include <QScopedPointer>
 
+=======
+>>>>>>> 595ff627... feat: Add interface class for timezone_frame..
 #include "partman/os_prober.h"
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
@@ -44,6 +47,15 @@
 #include "ui/widgets/pointer_button.h"
 #include "base/file_util.h"
 
+#include <QDebug>
+#include <QEvent>
+#include <QHBoxLayout>
+#include <QTimer>
+#include <QVBoxLayout>
+#include <QStackedLayout>
+#include <QApplication>
+#include <QButtonGroup>
+
 namespace installer {
 
 namespace {
@@ -52,19 +64,24 @@ const char kDefaultTimezone[] = "Asia/Shanghai";
 
 }  // namespace
 
-TimezoneFrame::TimezoneFrame(QWidget* parent)
-    : QFrame(parent),
+TimezoneFrame::TimezoneFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
+    : FrameInterface(FrameType::Frame, frameProxyInterface, parent),
       timezone_(),
       alias_map_(GetTimezoneAliasMap()),
       timezone_manager_(new TimezoneManager(this)),
       timezone_source_(TimezoneSource::NotSet) {
-  this->setObjectName("system_info_timezone_frame");
+  setObjectName("system_info_timezone_frame");
 
-  this->initUI();
-  this->initConnections();
+  initUI();
+  initConnections();
 }
 
-void TimezoneFrame::readConf() {
+bool TimezoneFrame::shouldDisplay() const
+{
+  return GetSettingsBool(kSystemInfoSetupAfterReboot) || GetSettingsBool(kSkipTimezonePage);
+}
+
+void TimezoneFrame::init() {
   // Policy:
   //    * Read default timezone from settings.
   //    * Scan wifi spot.
@@ -73,7 +90,7 @@ void TimezoneFrame::readConf() {
 
   // Read timezone from settings.
   timezone_ = GetSettingsString(kTimezoneDefault);
-  timezone_ = this->parseTimezoneAlias(timezone_);
+  timezone_ = parseTimezoneAlias(timezone_);
   if (IsTimezoneInTab(timezone_)) {
     qDebug() << "timezone updated from settings";
     timezone_source_ = TimezoneSource::Conf;
@@ -85,7 +102,7 @@ void TimezoneFrame::readConf() {
     // Use default timezone.
     timezone_ = kDefaultTimezone;
   }
-  emit this->timezoneUpdated(timezone_);
+  emit timezoneUpdated(timezone_);
 }
 
 void TimezoneFrame::updateTimezoneBasedOnLanguage(const QString& timezone) {
@@ -95,14 +112,14 @@ void TimezoneFrame::updateTimezoneBasedOnLanguage(const QString& timezone) {
     if (IsTimezoneInTab(timezone)) {
       timezone_source_ = TimezoneSource::Language;
       timezone_ = timezone;
-      emit this->timezoneUpdated(timezone_);
+      emit timezoneUpdated(timezone_);
     }
   } else {
     qDebug() << "Ignores language default timezone:" << timezone;
   }
 }
 
-void TimezoneFrame::writeConf() {
+void TimezoneFrame::finished() {
   // Validate timezone before writing to settings file.
   if (!IsTimezoneInTab(timezone_)) {
     qWarning() << "Invalid timezone:" << timezone_;
@@ -153,15 +170,15 @@ void TimezoneFrame::changeEvent(QEvent* event) {
 
     // Also update timezone.
     if (!timezone_.isEmpty()) {
-      emit this->timezoneUpdated(timezone_);
+      emit timezoneUpdated(timezone_);
     }
   } else {
-    QFrame::changeEvent(event);
+    FrameInterface::changeEvent(event);
   }
 }
 
 void TimezoneFrame::showEvent(QShowEvent* event) {
-  QFrame::showEvent(event);
+  FrameInterface::showEvent(event);
 
   qApp->installEventFilter(this);
 
@@ -223,10 +240,10 @@ void TimezoneFrame::initConnections() {
   connect(m_mapListButtonGroup, static_cast<void (QButtonGroup::*)(QAbstractButton*)>(&QButtonGroup::buttonClicked)
           , this, &TimezoneFrame::onMapListButtonGroupToggled);
 
-  connect(m_systemDateFrame, &SystemDateFrame::finished, this, [&] {
-      this->writeConf();
-      emit this->finished();
+  connect(m_systemDateFrame, &SystemDateFrame::finished, this, [=] {
+          m_proxy->nextFrame();
   });
+
   connect(m_systemDateFrame, &SystemDateFrame::cancel, this, [=] {
       m_stackedLayout->setCurrentWidget(m_timezonePage);
       if(m_mapOrListStackedLayout->currentWidget() == timezone_map_){
@@ -350,10 +367,9 @@ QString TimezoneFrame::parseTimezoneAlias(const QString& timezone) {
 
 void TimezoneFrame::onNextButtonClicked() {
   if (IsTimezoneInTab(timezone_)) {
-    this->writeConf();
-    emit this->timezoneUpdated(timezone_);
-    // Emit finished() signal only if a valid timezone is specified.
-    emit this->finished();
+    finished();
+    emit timezoneUpdated(timezone_);
+    m_proxy->nextFrame();
   } else {
     qWarning() << "Invalid timezone:" << timezone_;
   }
@@ -366,8 +382,8 @@ void TimezoneFrame::onTimezoneManagerUpdated(const QString& timezone) {
       timezone_source_ == TimezoneSource::Scan) {
     // Update timezone only if it is not set.
     timezone_source_ = TimezoneSource::Scan;
-    timezone_ = this->parseTimezoneAlias(timezone);
-    emit this->timezoneUpdated(timezone_);
+    timezone_ = parseTimezoneAlias(timezone);
+    emit timezoneUpdated(timezone_);
   } else {
     qDebug() << "Ignore timezone value from timezone-manager:" << timezone;
   }

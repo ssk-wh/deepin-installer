@@ -18,9 +18,9 @@
 #ifndef INSTALLER_UI_FRAMES_TIMEZONE_FRAME_H
 #define INSTALLER_UI_FRAMES_TIMEZONE_FRAME_H
 
-#include <QFrame>
-
 #include "sysinfo/timezone.h"
+
+#include "ui/interfaces/frameinterface.h"
 
 class QStackedLayout;
 class QHBoxLayout;
@@ -41,16 +41,13 @@ class SelectTimeZoneFrame;
 class PointerButton;
 
 // Displays a world map to let user select timezone.
-class TimezoneFrame : public QFrame {
+class TimezoneFrame : public FrameInterface {
   Q_OBJECT
 
  public:
-  explicit TimezoneFrame(QWidget* parent = nullptr);
+  explicit TimezoneFrame(FrameProxyInterface* frameProxyInterface,QWidget* parent = nullptr);
 
  signals:
-  // Emitted when back button is clicked.
-  void finished();
-
   // Emit this signal to request to hide timezone page and timezone button.
   void hideTimezone();
 
@@ -60,15 +57,13 @@ class TimezoneFrame : public QFrame {
   // Emitted when select timezone in list.
   void timezoneSet(const QString& timezone);
 
- public slots:
-  // Read default timezone and emit timezoneUpdated() signal.
-  void readConf();
+ public:
+  void init() override;
+  void finished() override;
+  bool shouldDisplay() const override;
 
   // Update timezone when new language is selected.
-  void updateTimezoneBasedOnLanguage(const QString& timezone);
-
-  // Validate timezone and write to conf file.
-  void writeConf();
+  void updateTimezoneBasedOnLanguage(const QString& timezone); 
 
  protected:
   void changeEvent(QEvent* event) override;

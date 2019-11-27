@@ -69,7 +69,7 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
   // Read default settings.
   language_frame_->init();
   system_info_frame_->readConf();
-  timezone_frame_->readConf();
+  timezone_frame_->init();
 
   if ( !GetSettingsBool(kSkipSelectLanguagePage) ||
         GetSettingsBool(kSkipSelectLanguagePageOnFirstBoot)) {
@@ -148,7 +148,7 @@ void FirstBootSetupWindow::initUI() {
   language_frame_ = new LanguageFrame(this);
   system_info_frame_ = new SystemInfoFrame;
   network_frame_ = new NetworkFrame;
-  timezone_frame_ = new TimezoneFrame;
+  timezone_frame_ = new TimezoneFrame(this);
   loading_frame_ = new FirstBootLoadingFrame;
   control_platform_frame_ = new ControlPlatformFrame;
 

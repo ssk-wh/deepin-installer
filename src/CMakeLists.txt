@@ -850,6 +850,9 @@ add_executable(timezone-frame-test
                ui/utils/widget_util.h
                ui/utils/widget_util.cpp
 
+               ui/interfaces/frameinterface.h
+               ui/interfaces/frameproxyinterface.h
+
                ui/delegates/popup_menu_delegate.cpp
                ui/delegates/popup_menu_delegate.h
                ui/delegates/timezone_map_util.cpp

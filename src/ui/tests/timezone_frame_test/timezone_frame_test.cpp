@@ -22,7 +22,7 @@
 int main(int argc, char* argv[]) {
   QApplication app(argc, argv);
 
-  installer::TimezoneFrame frame;
+  installer::TimezoneFrame frame(nullptr);
   frame.setAttribute(Qt::WA_TranslucentBackground, true);
 //  frame.setWindowFlags(Qt::FramelessWindowHint);
   frame.show();
