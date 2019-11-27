@@ -18,13 +18,13 @@
 #ifndef INSTALLER_UI_FRAMES_PARTITION_FRAME_H
 #define INSTALLER_UI_FRAMES_PARTITION_FRAME_H
 
-#include <QFrame>
-class QStackedLayout;
-class QButtonGroup;
-class QAbstractButton;
-
 #include "partman/operation.h"
 #include "partman/partition.h"
+
+#include "ui/interfaces/frameinterface.h"
+
+#include <QFrame>
+class QStackedLayout;
 
 namespace installer {
 
@@ -52,17 +52,20 @@ class DynamicDiskWarningFrame;
 class TitleLabel;
 
 // Handles partition operations.
-class PartitionFrame : public QFrame {
+class PartitionFrame : public FrameInterface {
   Q_OBJECT
 
  public:
-  explicit PartitionFrame(QWidget* parent = nullptr);
+  explicit PartitionFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
+  void init() override;
+  void finished() override;
+  bool shouldDisplay() const override;
 
   void autoPart();
 
  signals:
   // Emitted when partition edition is done.
-  void finished();
+//  void finished();
 
   // Emitted when requesting reboot system.
   void reboot();
