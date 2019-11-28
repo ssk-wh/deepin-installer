@@ -142,5 +142,7 @@ int main(int argc, char* argv[]) {
     }
   }
 
+  settings.sync();
+
   return kExitOk;
 }

@@ -139,9 +139,14 @@ main() {
   setup_locale_timezone
   setup_livefs
 
+  # kill dde-system-daemon 因为它返回的头像是错误的
+  if [ -f "/usr/lib/deepin-daemon/dde-session-daemon" ];then
+    pkill -ef dde-system-daemon
+  fi
+
   # setup_username_password_hostname() will clear value of DI_PASSWORD
-  setup_username_password_hostname
   customize_user
+  setup_username_password_hostname
 
   sync
   cleanup_oem_license
