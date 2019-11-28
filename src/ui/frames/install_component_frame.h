@@ -7,6 +7,8 @@
 #include <QLabel>
 #include <QCheckBox>
 
+#include "ui/interfaces/frameinterface.h"
+
 namespace installer {
 
 class NavButton;
@@ -16,19 +18,21 @@ class ComponentWidget;
 class DIScrollArea;
 class TitleLabel;
 
-class SelectInstallComponentFrame : public QWidget
+class SelectInstallComponentFrame : public FrameInterface
 {
     Q_OBJECT
 
 public:
-    SelectInstallComponentFrame(QWidget *parent = nullptr);
+    SelectInstallComponentFrame(FrameProxyInterface* frameProxyInterface, QWidget *parent = nullptr);
 
     // Read default install components.
-    void readConf();
+    void init() override;
+
     // Write install components to settings file.
-    void writeConf();
-signals:
-    void finished();
+    void finished() override;
+
+    // Read the configuration file to confirm that the current page is available
+    bool shouldDisplay() const override;
 
 protected:
     bool event(QEvent* event) override;

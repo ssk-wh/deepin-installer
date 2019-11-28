@@ -16,17 +16,17 @@
 
 namespace installer {
 
-SelectInstallComponentFrame::SelectInstallComponentFrame(QWidget *parent)
-    : QWidget(parent)
+SelectInstallComponentFrame::SelectInstallComponentFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
+    : FrameInterface(FrameType::Frame, frameProxyInterface, parent)
     , m_currentComponentWidget(nullptr)
 {
-    this->setObjectName("install_component_frame");
+    setObjectName("install_component_frame");
 
     initUI();
     initConnections();
 }
 
-void SelectInstallComponentFrame::readConf()
+void SelectInstallComponentFrame::init()
 {
     const QString& defaultInstallType = GetSelectedInstallType();
 
@@ -43,7 +43,7 @@ void SelectInstallComponentFrame::readConf()
     }
 }
 
-void SelectInstallComponentFrame::writeConf()
+void SelectInstallComponentFrame::finished()
 {
     WriteComponentPackages("");
     WriteComponentUninstallPackages("");
@@ -77,6 +77,14 @@ void SelectInstallComponentFrame::writeConf()
     if (!uninstallPackages.isEmpty()) {
         WriteComponentUninstallPackages(uninstallPackages.join(" "));
     }
+}
+
+bool SelectInstallComponentFrame::shouldDisplay() const
+{
+#ifdef QT_DEBUG
+    return true;
+#endif // QT_DEBUG
+    return !GetSettingsBool(kSkipSelectComponentPage);
 }
 
 bool SelectInstallComponentFrame::event(QEvent* event) {
@@ -251,15 +259,13 @@ void SelectInstallComponentFrame::initUI()
     mainLayout->addWidget(m_nextButton, 0, Qt::AlignCenter);
 
     setLayout(mainLayout);
-    this->setStyleSheet(ReadFile(":/styles/install_component_frame.css"));
+    setStyleSheet(ReadFile(":/styles/install_component_frame.css"));
 }
 
 void SelectInstallComponentFrame::initConnections()
 {
-    connect(m_nextButton, &QPushButton::clicked,
-            this, &SelectInstallComponentFrame::finished);
-    connect(m_selectAllCheckBox, &QCheckBox::clicked, this, [&] {
-        checkAllComponent(m_selectAllCheckBox->isChecked());
+    connect(m_nextButton, &QPushButton::clicked, this, [=] {
+        m_proxy->nextFrame();
     });
 }
 

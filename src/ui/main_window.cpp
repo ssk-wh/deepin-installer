@@ -597,7 +597,7 @@ void MainWindow::goNextPage() {
             prev_page_ = current_page_;
             current_page_ = PageId::SelectComponentId; //PageId::PartitionId;
         } else {
-            m_selectComponentFrame->readConf();
+            m_selectComponentFrame->init();
             page_indicator_->goNextPage();
             isMainPage = true;
             this->setCurrentPage(PageId::SelectComponentId); //(PageId::PartitionId);
@@ -606,7 +606,7 @@ void MainWindow::goNextPage() {
     }
 
     case PageId::SelectComponentId: {
-        m_selectComponentFrame->writeConf();
+        m_selectComponentFrame->finished();
 
         // Check whether to show PartitionPage.
         if (GetSettingsBool(kSkipPartitionPage)) {
