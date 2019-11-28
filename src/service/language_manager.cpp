@@ -44,7 +44,7 @@ bool LanguageManager::eventFilter(QObject* watched, QEvent* event)
 
         for (std::shared_ptr<ObjectMapper> mapper : trList) {
             if (mapper->target->parent()) {
-                mapper->func(qApp->translate("", TS_MAP.at(mapper->type).toUtf8()));
+                mapper->func(qApp->translate("QObject", TS_MAP.at(mapper->type).toUtf8()));
             }
         }
     }
