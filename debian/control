@@ -27,7 +27,9 @@ Build-Depends:
     libudisks2-qt5-dev,
     libqapt-dev,
     libqtermwidget5-0-dev,
-    libutf8proc-dev
+    libutf8proc-dev,
+    libdtkwidget-dev,
+    libdtkgui-dev
 Standards-Version: 3.9.8
 Homepage: http://www.deepin.org
 
