@@ -410,6 +410,10 @@ void TimezoneFramePrivate::initUI() {
   spaceRetain.setRetainSizeWhenHidden(true);
   m_setTimePushButton->setSizePolicy(spaceRetain);
 
+  QSizePolicy spaceRetain = m_setTimePushButton->sizePolicy();
+  spaceRetain.setRetainSizeWhenHidden(true);
+  m_setTimePushButton->setSizePolicy(spaceRetain);
+
   m_bottomLayout = new QHBoxLayout();
   m_bottomLayout->setContentsMargins(30, 0, 0, 0);
   m_bottomLayout->setSpacing(30);
