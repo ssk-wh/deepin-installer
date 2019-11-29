@@ -118,8 +118,6 @@ void FirstBootSetupWindow::initConnections() {
             this, &FirstBootSetupWindow::onSystemInfoFinished);
     connect(network_frame_, &NetworkFrame::requestNext,
             this, &FirstBootSetupWindow::onNetworkFinished);
-    connect(control_platform_frame_, &ControlPlatformFrame::requestFinished, this,
-            &FirstBootSetupWindow::onControlPlatformFinished);
     connect(timezone_frame_, &TimezoneFrame::finished,
             this, &FirstBootSetupWindow::onTimezoneFinished);
     connect(hook_worker_, &FirstBootHookWorker::hookFinished,
@@ -150,7 +148,7 @@ void FirstBootSetupWindow::initUI() {
   network_frame_ = new NetworkFrame;
   timezone_frame_ = new TimezoneFrame(this);
   loading_frame_ = new FirstBootLoadingFrame;
-  control_platform_frame_ = new ControlPlatformFrame;
+  control_platform_frame_ = new ControlPlatformFrame(this);
 
   m_frames = {
       language_frame_,

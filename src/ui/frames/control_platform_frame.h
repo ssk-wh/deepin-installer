@@ -1,10 +1,12 @@
 #ifndef CONTROLPLATFORMFRAME_H
 #define CONTROLPLATFORMFRAME_H
 
+#include "ui/models/control_platform_region_model.h"
+
+#include "ui/interfaces/frameinterface.h"
+
 #include <QUrl>
 #include <QWidget>
-
-#include "ui/models/control_platform_region_model.h"
 
 class QComboBox;
 class QNetworkReply;
@@ -16,13 +18,14 @@ class ControlPlatformRegionModel;
 class TableComboBox;
 class TitleLabel;
 class CommentLabel;
-class ControlPlatformFrame : public QWidget {
+class ControlPlatformFrame : public FrameInterface {
     Q_OBJECT
 public:
-    ControlPlatformFrame(QWidget* parent = nullptr);
+    ControlPlatformFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
 
-signals:
-    void requestFinished();
+    virtual void init() override;
+    virtual void finished() override;
+    virtual bool shouldDisplay() const override;
 
 protected:
     bool event(QEvent* event) override;

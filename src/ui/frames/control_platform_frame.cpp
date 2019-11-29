@@ -1,5 +1,14 @@
 #include "control_platform_frame.h"
 
+#include "ui/widgets/line_edit.h"
+#include "ui/widgets/nav_button.h"
+#include "ui/widgets/table_combo_box.h"
+#include "service/settings_manager.h"
+#include "ui/utils/widget_util.h"
+#include "ui/widgets/title_label.h"
+#include "ui/widgets/comment_label.h"
+#include "service/settings_name.h"
+
 #include <QComboBox>
 #include <QDebug>
 #include <QEvent>
@@ -13,21 +22,10 @@
 #include <QDBusInterface>
 #include <DSysInfo>
 
-#include "ui/widgets/line_edit.h"
-#include "ui/widgets/nav_button.h"
-#include "ui/widgets/table_combo_box.h"
-#include "service/settings_manager.h"
-#include "ui/utils/widget_util.h"
-#include "ui/widgets/title_label.h"
-#include "ui/widgets/comment_label.h"
-#include "service/settings_name.h"
-
-DCORE_USE_NAMESPACE
-
 using namespace installer;
 
-ControlPlatformFrame::ControlPlatformFrame(QWidget* parent)
-    : QWidget(parent)
+ControlPlatformFrame::ControlPlatformFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
+    : FrameInterface(FrameType::Frame, frameProxyInterface, parent)
     , m_titleLbl(new TitleLabel(tr("Set Control Region")))
     , m_subTitleLbl(new CommentLabel(tr("Set the region for %1 EndPoint Management Platform").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS"))))
     , m_serverLineEdit(new LineEdit(QString(":/images/hostname_12.svg")))
@@ -114,6 +112,21 @@ ControlPlatformFrame::ControlPlatformFrame(QWidget* parent)
     onNetworkStateChanged();
 }
 
+void ControlPlatformFrame::init()
+{
+
+}
+
+void ControlPlatformFrame::finished()
+{
+
+}
+
+bool ControlPlatformFrame::shouldDisplay() const
+{
+    return true;
+}
+
 bool ControlPlatformFrame::event(QEvent* event)
 {
     if (event->type() == QEvent::LanguageChange) {
@@ -163,7 +176,7 @@ void ControlPlatformFrame::onNextClicked()
         file.close();
     }
 
-    emit requestFinished();
+    m_proxy->nextFrame();
 }
 
 void ControlPlatformFrame::onRegionSelected()
