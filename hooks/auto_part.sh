@@ -238,7 +238,7 @@ create_part(){
   else
     let LVM_NUM++
     echo "{LVM_NUM:{${LVM_NUM},label:{${label:-LVM_NUM}} vg_name:{${VG_NAME}}"
-    lvcreate -n"${label:-LVM_NUM}" -L"$part_size" "$VG_NAME" ||\
+    lvcreate --wipesignatures y -n"${label:-LVM_NUM}" -L"$part_size" "$VG_NAME" ||\
     error "Failed to create logical volume ${label:-LVM_NUM} on $VG_NAME!"
     part_path="/dev/$VG_NAME/${label:-LVM_NUM}"
   fi
