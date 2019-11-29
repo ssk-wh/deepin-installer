@@ -17,7 +17,6 @@
 
 #include "ui/frames/timezone_frame.h"
 
-<<<<<<< HEAD
 #include <QDebug>
 #include <QEvent>
 #include <QKeyEvent>
@@ -31,8 +30,6 @@
 #include <QProcess>
 #include <QScopedPointer>
 
-=======
->>>>>>> 595ff627... feat: Add interface class for timezone_frame..
 #include "partman/os_prober.h"
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
@@ -45,15 +42,6 @@
 #include "ui/frames/inner/select_time_zone_frame.h"
 #include "ui/widgets/pointer_button.h"
 #include "base/file_util.h"
-
-#include <QDebug>
-#include <QEvent>
-#include <QHBoxLayout>
-#include <QTimer>
-#include <QVBoxLayout>
-#include <QStackedLayout>
-#include <QApplication>
-#include <QButtonGroup>
 
 namespace installer {
 
