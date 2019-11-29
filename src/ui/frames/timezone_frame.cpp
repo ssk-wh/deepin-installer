@@ -19,7 +19,6 @@
 
 #include <QDebug>
 #include <QEvent>
-#include <QKeyEvent>
 #include <QHBoxLayout>
 #include <QTimer>
 #include <QVBoxLayout>
@@ -43,16 +42,6 @@
 #include "ui/widgets/pointer_button.h"
 #include "base/file_util.h"
 #include "ui/interfaces/frameinterfaceprivate.h"
-
-#include <QDebug>
-#include <QEvent>
-#include <QHBoxLayout>
-#include <QTimer>
-#include <QVBoxLayout>
-#include <QStackedLayout>
-#include <QApplication>
-#include <QButtonGroup>
-#include <QAbstractButton>
 
 namespace installer {
 
