@@ -128,12 +128,10 @@ void SystemInfoTip::initUI() {
   label_->setMaximumWidth(kMaximumLabelWidth);
 
   QHBoxLayout* layout = new QHBoxLayout();
-  layout->setContentsMargins(0, 0, 0, 0);
+  layout->setContentsMargins(kWindowMarginLeft, kWindowMarginTop, kWindowMarginRight, kWindowMarginBottom);
   layout->addWidget(label_);
 
   this->setLayout(layout);
-  this->setContentsMargins(kWindowMarginLeft, kWindowMarginTop,
-                           kWindowMarginRight, kWindowMarginBottom);
   this->setMaximumWidth(kMaximumWindowWidth);
   this->setMinimumHeight(kMinimumWindowHeight);
 
