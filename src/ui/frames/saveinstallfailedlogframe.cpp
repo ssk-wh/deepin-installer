@@ -301,9 +301,13 @@ void SaveInstallFailedLogFrame::onPartitionButtonClicked()
 
 void SaveInstallFailedLogFrame::saveLog()
 {
+    QSharedPointer<DBlockDevice> device = m_deviceButtonMap[m_selectPartition];
+
+    device->unmount({});
+
     const QString& logPath {
         QString("%1/deepin-installer.%2.log")
-                .arg(m_deviceButtonMap[m_selectPartition]->mount({}))
+                .arg(device->mount({}))
                 .arg(QDateTime::currentDateTime().toString("yyyy-MM-dd-hh-mm-ss"))
     };
 
@@ -311,7 +315,7 @@ void SaveInstallFailedLogFrame::saveLog()
 
     CopyLogFile(logPath);
 
-    m_deviceButtonMap[m_selectPartition]->unmount({});
+    device->unmount({});
 
     emit requestBack();
 }
