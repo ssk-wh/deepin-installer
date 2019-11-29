@@ -26,6 +26,8 @@ class QStackedLayout;
 class QHBoxLayout;
 class QPushButton;
 class QVBoxLayout;
+class QButtonGroup;
+class QAbstractButton;
 
 namespace installer {
 
@@ -94,6 +96,7 @@ class TimezoneFrame : public QFrame {
   CommentLabel* comment_label_ = nullptr;
   PointerButton* m_timezoneMapButton = nullptr;
   PointerButton* m_timezoneListButton = nullptr;
+  QButtonGroup* m_mapListButtonGroup = nullptr;
   TimezoneMap* timezone_map_ = nullptr;
   NavButton* next_button_ = nullptr;
   SystemDateFrame* m_systemDateFrame = nullptr;
@@ -125,8 +128,7 @@ class TimezoneFrame : public QFrame {
   // Update timezone after a new one has been chosen by user.
   void onTimezoneMapUpdated(const QString& timezone);
 
-  void onTimezoneMapButtonClicked();
-  void onTimezoneListButtonClicked();
+  void onMapListButtonGroupToggled(QAbstractButton* button);
 
   void onSelectTimezoneUpdated(const QString& timezone);
 
