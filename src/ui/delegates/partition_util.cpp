@@ -402,8 +402,8 @@ bool IsEfiEnabled() {
     }
 
     // NOTE(justforlxz): 龙芯有PMON固件的bug，不支持UEFI但是反馈给内核是支持的
-    if (QFile::exists("/proc/boardinfo ")) {
-      QFile file("/proc/boardinfo ");
+    if (QFile::exists("/proc/boardinfo")) {
+      QFile file("/proc/boardinfo");
       if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
           if (file.readAll().simplified().contains("PMON")) {
             return false;
