@@ -13,8 +13,12 @@ mount ${DI_RECOVERY_PATH} /target/recovery || error "Faild to mount recovery"
 # 备份boot分区
 if [ ! -z ${DI_BOOT_PARTITION} ];then
     deepin-clone --tui ${DI_BOOT_PARTITION} /target/recovery/backup/boot.dim
+    cd /target/recovery/backup
+    md5sum boot.dim > boot.md5
 fi
 
 deepin-clone --tui $(installer_get "DI_ROOT_PARTITION") /target/recovery/backup/system.dim
+cd /target/recovery/backup
+md5sum system.dim system.md5
 
 return $?
