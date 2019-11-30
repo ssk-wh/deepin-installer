@@ -17,7 +17,7 @@
 
 #ifndef INSTALLER_UI_FRAMES_SYSTEM_INFO_FRAME_H
 #define INSTALLER_UI_FRAMES_SYSTEM_INFO_FRAME_H
-
+#include "ui/interfaces/frameinterface.h"
 #include <QFrame>
 class QHBoxLayout;
 class QPushButton;
@@ -31,22 +31,18 @@ class SystemInfoKeyboardFrame;
 
 // Provides a form to let use input username, password and hostname,
 // select timezone and avatar.
-class SystemInfoFrame : public QFrame {
+class SystemInfoFrame : public FrameInterface {
   Q_OBJECT
 
  public:
-  explicit SystemInfoFrame(QWidget* parent = nullptr);
+  explicit SystemInfoFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
 
- signals:
-  // Emitted when form is validated.
-  void finished();
-
- public slots:
-  // Read default conf from settings.
-  void readConf();
-
-  // Write conf to file.
-  void writeConf();
+  // read the configuration file
+  void init() override;
+  // writes to the configuration file
+  void finished() override;
+  // read the configuration file to verify that the current page is available
+  bool shouldDisplay() const override;
 
  private:
   void initConnections();

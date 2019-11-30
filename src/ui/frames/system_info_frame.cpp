@@ -39,19 +39,19 @@ const int kFormPageId = 1;
 
 }  // namespace
 
-SystemInfoFrame::SystemInfoFrame(QWidget* parent)
-    : QFrame(parent),
+SystemInfoFrame::SystemInfoFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
+    : FrameInterface (FrameType::Frame, frameProxyInterface, parent),
       last_page_(kInvalidPageId),
       disable_keyboard_(GetSettingsBool(kSystemInfoDisableKeyboardPage)) {
-  this->setObjectName("system_info_frame");
+  setObjectName("system_info_frame");
 
-  this->initUI();
-  this->initConnections();
+  initUI();
+  initConnections();
 
-  this->showFormPage();
+  showFormPage();
 }
 
-void SystemInfoFrame::readConf() {
+void SystemInfoFrame::init() {
   // Read default avatar explicitly.
   avatar_frame_->readConf();
 
@@ -61,11 +61,16 @@ void SystemInfoFrame::readConf() {
   keyboard_frame_->readConf();
 }
 
-void SystemInfoFrame::writeConf() {
+void SystemInfoFrame::finished() {
   // Notify sub-pages to save settings.
   avatar_frame_->writeConf();
   form_frame_->writeConf();
   keyboard_frame_->writeConf();
+}
+
+bool SystemInfoFrame::shouldDisplay() const
+{
+    return !(GetSettingsBool(kSystemInfoSetupAfterReboot) || GetSettingsBool(kSkipSystemInfoPage));
 }
 
 void SystemInfoFrame::initConnections() {
@@ -73,12 +78,14 @@ void SystemInfoFrame::initConnections() {
           this, &SystemInfoFrame::showFormPage);
   connect(avatar_frame_, &SystemInfoAvatarFrame::avatarUpdated,
           form_frame_, &SystemInfoFormFrame::updateAvatar);
+  connect(form_frame_, &SystemInfoFormFrame::finished,
+          this, [=] {
+      m_proxy->nextFrame();
+  });
 
   // Save settings when finished signal is emitted.
   connect(form_frame_, &SystemInfoFormFrame::avatarClicked,
           this, &SystemInfoFrame::showAvatarPage);
-  connect(form_frame_, &SystemInfoFormFrame::finished,
-          this, &SystemInfoFrame::writeConf);
   connect(form_frame_, &SystemInfoFormFrame::finished,
           this, &SystemInfoFrame::finished);
 
@@ -120,9 +127,9 @@ void SystemInfoFrame::initUI() {
   layout->addLayout(stacked_layout_);
   layout->addLayout(bottom_layout_);
 
-  this->setLayout(layout);
-  this->setContentsMargins(0, 0, 0, 0);
-  this->setStyleSheet(ReadFile(":/styles/system_info_frame.css"));
+  setLayout(layout);
+  setContentsMargins(0, 0, 0, 0);
+  setStyleSheet(ReadFile(":/styles/system_info_frame.css"));
 }
 
 void SystemInfoFrame::updateHeadBar() {
@@ -144,26 +151,26 @@ void SystemInfoFrame::restoreLastPage() {
     // Displays default page if last_page_ is not set.
     stacked_layout_->setCurrentWidget(form_frame_);
   }
-  this->updateHeadBar();
+  updateHeadBar();
 }
 
 void SystemInfoFrame::showAvatarPage() {
   if (!GetSettingsBool(kSystemInfoDisableAvatorPage)) {
     stacked_layout_->setCurrentWidget(avatar_frame_);
-    this->updateHeadBar();
+    updateHeadBar();
   }
 }
 
 void SystemInfoFrame::showFormPage() {
   stacked_layout_->setCurrentWidget(form_frame_);
-  this->updateHeadBar();
+  updateHeadBar();
 }
 
 void SystemInfoFrame::showKeyboardPage() {
   if (!disable_keyboard_) {
     last_page_ = stacked_layout_->currentIndex();
     stacked_layout_->setCurrentWidget(keyboard_frame_);
-    this->updateHeadBar();
+    updateHeadBar();
   }
 }
 
