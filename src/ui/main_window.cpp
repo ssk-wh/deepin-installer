@@ -115,7 +115,7 @@ void MainWindow::scanDevicesAndTimezone() {
   // If timezone page is not skipped, scan wireless hot spot and update
   // timezone in background.
   if (!GetSettingsBool(kSkipTimezonePage)) {
-    timezone_frame_->readConf();
+    timezone_frame_->init();
   }
 
   if (!GetSettingsBool(kSkipPartitionPage) &&
@@ -519,9 +519,9 @@ void MainWindow::goNextPage() {
     }
 
     case PageId::PrivilegeErrorId: {
-        select_language_frame_->readConf();
+        select_language_frame_->init();
         if (GetSettingsBool(kSkipSelectLanguagePage)) {
-            select_language_frame_->writeConf();
+            select_language_frame_->finished();
             prev_page_ = current_page_;
             current_page_ = PageId::SelectLanguageId;
         } else {
@@ -561,9 +561,9 @@ void MainWindow::goNextPage() {
 
     case PageId::VirtualMachineId: {
         // Check whether to show SystemInfoPage.
-        system_info_frame_->readConf();
+        system_info_frame_->init();
         if (GetSettingsBool(kSystemInfoSetupAfterReboot) || GetSettingsBool(kSkipSystemInfoPage)) {
-            system_info_frame_->writeConf();
+            system_info_frame_->finished();
             prev_page_ = current_page_;
             current_page_ = PageId::SystemInfoId;
         } else {
@@ -576,7 +576,7 @@ void MainWindow::goNextPage() {
 
     case PageId::SystemInfoId: {
         if (GetSettingsBool(kSystemInfoSetupAfterReboot) || GetSettingsBool(kSkipTimezonePage)) {
-            timezone_frame_->writeConf();
+            timezone_frame_->finished();
             prev_page_ = current_page_;
             current_page_ = PageId::TimezoneId;
         } else {
