@@ -196,7 +196,10 @@ void TimezoneFrame::initConnections() {
   connect(m_mapListButtonGroup, static_cast<void (QButtonGroup::*)(QAbstractButton*)>(&QButtonGroup::buttonClicked)
           , this, &TimezoneFrame::onMapListButtonGroupToggled);
 
-  connect(m_systemDateFrame, &SystemDateFrame::finished, this, &TimezoneFrame::finished);
+  connect(m_systemDateFrame, &SystemDateFrame::finished, this, [&] {
+      this->writeConf();
+      emit this->finished();
+  });
   connect(m_systemDateFrame, &SystemDateFrame::cancel, this, [=] {
       m_stackedLayout->setCurrentWidget(m_timezonePage);
       if(m_mapOrListStackedLayout->currentWidget() == timezone_map_){
