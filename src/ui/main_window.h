@@ -66,7 +66,7 @@ class MainWindow : public FrameProxyInterface {
   Q_OBJECT
 
  public:
-  MainWindow();
+  explicit MainWindow(QWidget* parent = nullptr);
 
   // Show fullscreen.
   void fullscreen();
@@ -122,7 +122,6 @@ private:
 
   void updateWidgetVisible();
 
-  void updateBackground();
   void backPage();
 
   static bool checkBackButtonAvailable(PageId id);

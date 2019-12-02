@@ -17,7 +17,7 @@
 
 // Main program of installer.
 
-#include <QApplication>
+#include <DApplication>
 #include <QDebug>
 #include <QIcon>
 #include <DLog>
@@ -41,7 +41,8 @@ int main(int argc, char* argv[]) {
 
   Utils::AutoScreenScale();
 
-  QApplication app(argc, argv);
+  DApplication::loadDXcbPlugin();
+  DApplication app(argc, argv);
   app.setAttribute(Qt::AA_UseHighDpiPixmaps);
   app.setAttribute(Qt::AA_EnableHighDpiScaling);
   app.setApplicationDisplayName("Deepin Installer Reborn");
@@ -90,13 +91,25 @@ int main(int argc, char* argv[]) {
 
   installer::ComponentInstallManager::Instance();
 
+  DMainWindow w;
+
   installer::MainWindow main_window;
   main_window.setEnableAutoInstall(args_parser.isAutoInstallSet());
   main_window.setLogFile(args_parser.getLogFile());
 
+  DBackgroundGroup* bgGroup = new DBackgroundGroup;
+  QVBoxLayout* layout = new QVBoxLayout;
+  layout->setMargin(0);
+  layout->setSpacing(0);
+  layout->addWidget(&main_window);
+  bgGroup->setLayout(layout);
+  bgGroup->setContentsMargins(10, 10, 10, 10);
+
   // Notify background thread to scan device info.
   main_window.scanDevicesAndTimezone();
-  main_window.fullscreen();
+
+  w.setCentralWidget(bgGroup);
+  w.show();
 
   return app.exec();
 }

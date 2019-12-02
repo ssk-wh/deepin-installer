@@ -60,8 +60,8 @@
 
 namespace installer {
 
-MainWindow::MainWindow()
-    : FrameProxyInterface(),
+MainWindow::MainWindow(QWidget* parent)
+    : FrameProxyInterface(parent),
       pages_(),
       prev_page_(PageId::NullId),
       current_page_(PageId::NullId),
@@ -74,7 +74,9 @@ MainWindow::MainWindow()
   this->registerShortcut();
   this->initConnections();
 
-    page_indicator_->updatePages(GetVisiblePages());
+  stacked_layout_->setCurrentWidget(select_language_frame_);
+
+  page_indicator_->updatePages(GetVisiblePages());
 
   SetBrightness(GetSettingsInt(kScreenDefaultBrightness));
     WriteDisplayPort(getenv("DISPLAY"));
@@ -183,7 +185,6 @@ void MainWindow::exitInstall(bool reboot)
 }
 
 void MainWindow::resizeEvent(QResizeEvent* event) {
-  this->updateBackground();
   if (close_button_) {
     close_button_->move(width() - close_button_->width(), 0);
     close_button_->raise();
@@ -328,9 +329,7 @@ void MainWindow::initPages() {
 }
 
 void MainWindow::initUI() {
-  background_label_ = new QLabel(this);
-
-  back_button_ = new DImageButton(this);
+  back_button_ = new PointerButton(this);
   back_button_->setObjectName("back_button");
   back_button_->setFixedSize(48, 38);
   back_button_->move(20, 20);
@@ -367,8 +366,7 @@ void MainWindow::initUI() {
   vbox_layout->addSpacing(32);
 
   this->setLayout(vbox_layout);
-  this->setContentsMargins(0, 0, 0, 0);
-  this->setWindowFlags(Qt::FramelessWindowHint);
+  // this->setContentsMargins(10, 10, 10, 10);
 
   control_panel_frame_ = new ControlPanelFrame(this);
   control_panel_frame_->hide();
@@ -436,19 +434,6 @@ void MainWindow::setCurrentPage(PageId page_id) {
   stacked_layout_->setCurrentIndex(pages_.value(page_id));
 
   updateWidgetVisible();
-}
-
-void MainWindow::updateBackground() {
-  if (!background_label_) {
-    qWarning() << "background_label is not initialized!";
-    return;
-  }
-  const QString image_path = GetWindowBackground();
-  // Other platforms may have performance issue.
-  const QPixmap pixmap =
-      QPixmap(image_path).scaled(size(), Qt::KeepAspectRatioByExpanding);
-  background_label_->setPixmap(pixmap);
-  background_label_->setFixedSize(size());
 }
 
 void MainWindow::backPage()
