@@ -497,6 +497,10 @@ QString AdvancedPartitionFrame::validateStateToText(ValidateState state) {
       return tr("The partition of /boot directory should be "
                 "the first partition on hard disk");
     }
+    case ValidateState::EfiPartNumberinvalid: {
+      return tr("The partition of /boot/efi directory should be "
+                "the first partition on hard disk");
+    }
     case ValidateState::BootTooSmall: {
       const int boot_recommended = GetSettingsInt(kPartitionDefaultBootSpace);
       return tr("At least %1 MB is required for /boot partition")

@@ -60,6 +60,7 @@ public:
      BootTooSmall,
      EfiMissing,
      EfiTooSmall,
+     EfiPartNumberinvalid,
      RootMissing,
      RootTooSmall,
      PartitionTooSmall,

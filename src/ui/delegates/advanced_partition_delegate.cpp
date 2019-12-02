@@ -243,7 +243,7 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
           if (IsEfiEnabled()) {
               int index = list.indexOf(efiPartition);
               if (index != -1 && index != 0) {
-                  states << ValidateState::BootPartNumberInvalid;
+                  states << ValidateState::EfiPartNumberinvalid;
                   break;
               }
               continue;
