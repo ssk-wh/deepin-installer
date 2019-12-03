@@ -26,9 +26,7 @@
 namespace installer {
 
 class CommentLabel;
-class NavButton;
 class TitleLabel;
-
 class InstallSuccessFramePrivate;
 class InstallSuccessFrame : public FrameInterface {
     Q_OBJECT

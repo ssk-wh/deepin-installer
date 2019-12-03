@@ -18,7 +18,6 @@
 #include "ui/frames/install_success_frame.h"
 
 #include "ui/widgets/comment_label.h"
-#include "ui/widgets/nav_button.h"
 #include "ui/widgets/title_label.h"
 #include "ui/frames/consts.h"
 #include "ui/utils/widget_util.h"
@@ -26,6 +25,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QtCore/QEvent>
+#include <QPushButton>
 
 namespace installer {
 class InstallSuccessFramePrivate
@@ -42,7 +42,7 @@ public:
 
     QLabel *status_label = new QLabel;
 
-    NavButton *reboot_button_ = new NavButton;
+    QPushButton *reboot_button_ = new QPushButton;
 
     void initConnections();
     void initUI();
