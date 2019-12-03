@@ -25,7 +25,7 @@
 #include <QVBoxLayout>
 #include <QCheckBox>
 #include <QScrollBar>
-#include <DSysInfo>
+#include <QPushButton>
 
 #include "base/file_util.h"
 #include "base/translator.h"
@@ -35,7 +35,6 @@
 #include "ui/frames/consts.h"
 #include "ui/models/language_list_model.h"
 #include "ui/views/frameless_list_view.h"
-#include "ui/widgets/nav_button.h"
 #include "ui/delegates/user_agreement_delegate.h"
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/comment_label.h"
@@ -62,7 +61,7 @@ public:
     QLabel*                oem_and_label_      = nullptr;
     QLabel*                oem_license_label_  = nullptr;
     QLabel*                sub_title_label_    = nullptr;
-    NavButton*             next_button_        = nullptr;
+    QPushButton*             next_button_        = nullptr;
     LanguageItem           lang_;  // Current selected language.
     UserAgreementDelegate* user_license_delegate_ = nullptr;
 
@@ -241,13 +240,8 @@ void SelectLanguageFramePrivate::initUI() {
     }
 
     license_layout->addStretch();
-
-    QFrame* licenseWidget = new QFrame;
-    licenseWidget->setLayout(license_layout);
-    licenseWidget->setVisible(!GetSettingsBool(kSystemInfoDisableLicense));
-
-    next_button_ = new NavButton(tr("Next"));
-    next_button_->setEnabled(GetSettingsBool(kSystemInfoDisableLicense));
+    next_button_ = new QPushButton(tr("Next"));
+    next_button_->setEnabled(false);
 
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setContentsMargins(0, 0, 0, 0);

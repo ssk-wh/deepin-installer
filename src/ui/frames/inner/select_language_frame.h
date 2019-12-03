@@ -32,7 +32,6 @@ namespace installer {
 
 class FramelessListView;
 class LanguageListModel;
-class NavButton;
 class UserAgreementDelegate;
 class SelectLanguageFramePrivate;
 // Select system language and update ui language on-the-fly.
