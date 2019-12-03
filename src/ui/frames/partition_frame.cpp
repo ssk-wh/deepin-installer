@@ -41,8 +41,8 @@
 #include "ui/frames/inner/full_disk_encrypt_frame.h"
 #include "ui/models/partition_model.h"
 #include "ui/widgets/comment_label.h"
-#include "ui/widgets/nav_button.h"
 #include "ui/widgets/title_label.h"
+#include "ui/widgets/pointer_button.h"
 
 #include <QButtonGroup>
 #include <QEvent>
@@ -380,7 +380,7 @@ void PartitionFrame::initUI() {
   partition_stacked_wrapper_layout->addLayout(partition_stacked_layout_);
 
   // and advanced partition page.
-  next_button_ = new NavButton(tr("Start installation"));
+  next_button_ = new QPushButton(tr("Start installation"));
   QHBoxLayout* next_layout = new QHBoxLayout();
   next_layout->setContentsMargins(0, 0, 0, 0);
   next_layout->addWidget(next_button_);

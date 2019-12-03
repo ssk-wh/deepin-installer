@@ -18,12 +18,14 @@
 #ifndef INSTALLER_UI_FRAMES_PARTITION_FRAME_H
 #define INSTALLER_UI_FRAMES_PARTITION_FRAME_H
 
+#include "ui/interfaces/frameinterface.h"
+
 #include "partman/operation.h"
 #include "partman/partition.h"
 
-#include "ui/interfaces/frameinterface.h"
-
 #include <QFrame>
+#include <QPushButton>
+
 class QStackedLayout;
 
 namespace installer {
@@ -34,7 +36,6 @@ class CommentLabel;
 class EditPartitionFrame;
 class FullDiskDelegate;
 class FullDiskFrame;
-class NavButton;
 class NewPartitionFrame;
 class NewTableLoadingFrame;
 class NewTableWarningFrame;
@@ -115,8 +116,7 @@ class PartitionFrame : public FrameInterface {
   PointerButton* full_disk_frame_button_ = nullptr;
   PointerButton* simple_frame_button_ = nullptr;
   PointerButton* advanced_frame_button_ = nullptr;
-  QButtonGroup* m_buttonGroup = nullptr;
-  NavButton* next_button_ = nullptr;
+  QPushButton* next_button_ = nullptr;
 
   PartitionModel* partition_model_ = nullptr;
   AdvancedPartitionDelegate* advanced_delegate_ = nullptr;
