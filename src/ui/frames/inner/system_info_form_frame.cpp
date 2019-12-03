@@ -17,19 +17,6 @@
 
 #include "ui/frames/inner/system_info_form_frame.h"
 
-#include <QEvent>
-#include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QRegularExpression>
-#include <QRegularExpressionMatch>
-#include <QProcess>
-#include <vector>
-#include <QCheckBox>
-#include <QDebug>
-#include <QScrollBar>
-#include <QDBusInterface>
-#include <QDBusConnection>
-
 #include "base/file_util.h"
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
@@ -41,10 +28,20 @@
 #include "ui/widgets/avatar_button.h"
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/line_edit.h"
-#include "ui/widgets/nav_button.h"
 #include "ui/widgets/system_info_tip.h"
 #include "ui/widgets/title_label.h"
 #include "ui/widgets/di_scrollarea.h"
+
+#include <QEvent>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
+#include <QProcess>
+#include <vector>
+#include <QCheckBox>
+#include <QDebug>
+#include <QPushButton>
 
 namespace installer {
 
@@ -100,7 +97,7 @@ private:
     void onRootPasswordCheckEditingFinished();
     void onSetRootPasswordCheckChanged(bool enable);
 
-    bool searchDevice();   
+    bool searchDevice();
 private:
     bool m_isUsernameEdited_ = false;
     bool m_isHostnameEdited_ = false;
@@ -126,7 +123,7 @@ private:
 
     // Display tooltip error message.
     SystemInfoTip*         tooltip_     = nullptr;
-    NavButton*             next_button_ = nullptr;
+    QPushButton*           next_button_ = nullptr;
 
     std::vector<LineEdit*> m_editList;
 
@@ -358,7 +355,7 @@ void SystemInfoFormFramePrivate::initUI()
     m_grubPasswordCheck_->setObjectName("GrubPasswordCheckBox");
     m_grubPasswordCheck_->setVisible(GetSettingsBool(kSystemInfoEnableGrubEditPwd));
 
-    next_button_ = new NavButton;
+    next_button_ = new QPushButton;
 
     QVBoxLayout* layout = new QVBoxLayout;
     layout->setContentsMargins(0, 0, 0, 0);
@@ -811,11 +808,11 @@ bool SystemInfoFormFramePrivate::searchDevice() {
     QVariant  defaultDevice(fingerprintInterface.property("DefaultDevice"));
     if (defaultDevice.type() != QVariant::Type::String) return false;
     QString deviceName(defaultDevice.toString());
-    
+
     return !deviceName.isEmpty();
 }
 
-void SystemInfoFormFramePrivate::updateDevice() {    
+void SystemInfoFormFramePrivate::updateDevice() {
     if (searchDevice()) {
        tooltip_->setText(tr("Your PC supports fingerprint identification, so you can add fingerprint password in Control Center > Account, and then use the fingerprint to unlock and authenticate"));
        tooltip_->showBottom(m_passwordEdit_);
