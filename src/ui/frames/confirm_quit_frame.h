@@ -19,11 +19,11 @@
 #define INSTALLER_UI_FRAMES_CONFIRM_QUIT_FRAME_H
 
 #include <QFrame>
+#include <QPushButton>
 
 namespace installer {
 
 class CommentLabel;
-class NavButton;
 class TitleLabel;
 
 // This frame is displayed when close-button is clicked.
@@ -49,8 +49,8 @@ class ConfirmQuitFrame : public QFrame {
 
   TitleLabel* title_label_ = nullptr;
   CommentLabel* comment_label_ = nullptr;
-  NavButton* continue_button_ = nullptr;
-  NavButton* abort_button_ = nullptr;
+  QPushButton* continue_button_ = nullptr;
+  QPushButton* abort_button_ = nullptr;
 };
 
 }  // namespace installer

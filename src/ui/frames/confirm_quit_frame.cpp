@@ -22,7 +22,6 @@
 
 #include "ui/frames/consts.h"
 #include "ui/widgets/comment_label.h"
-#include "ui/widgets/nav_button.h"
 #include "ui/widgets/title_label.h"
 
 namespace installer {
@@ -64,8 +63,8 @@ void ConfirmQuitFrame::initUI() {
   comment_layout->setSpacing(0);
   comment_layout->addWidget(comment_label_);
 
-  continue_button_ = new NavButton(tr("Continue"));
-  abort_button_ = new NavButton(tr("Abort"));
+  continue_button_ = new QPushButton(tr("Continue"));
+  abort_button_ = new QPushButton(tr("Abort"));
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
