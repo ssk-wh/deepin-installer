@@ -60,8 +60,7 @@ SaveInstallFailedLogFrame::SaveInstallFailedLogFrame(QWidget *parent) : QWidget(
     widget->setObjectName("grid_wrapper");
     widget->setLayout(m_partitionGridLayout);
 
-    m_title->setStyleSheet("color: white;"
-                           "font-size: 32px;");
+    m_title->setStyleSheet("font-size: 32px;");
 
     m_partitionGridLayout->setSpacing(0);
     m_partitionGridLayout->setContentsMargins(0, 0, 0, 0);
