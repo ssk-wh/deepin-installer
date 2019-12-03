@@ -32,10 +32,14 @@ installer_set DI_RECOVERY_PATH $(df -h | grep /recovery$ | awk '{print $1}')
 
 # 备份boot的UUID
 echo $(lsblk -f | grep -i /boot$ | awk '{print $4}') > /target/recovery/backup/boot.info
+echo "# hide boot" >> /target/etc/udev/rules.d/80-udisks2.rules
+echo "ENV{ID_FS_UUID}==\"$(cat /target/recovery/backup/boot.info)\", ENV{UDISKS_IGNORE}=\"1\"" >> /target/etc/udev/rules.d/80-udisks2.rules
 
 # 备份efi的UUID
 if [ x${DI_UEFI} = xtrue ]; then
     echo $(lsblk -f | grep -i /boot/efi$ | awk '{print $4}') > /target/recovery/backup/efi.info
+    echo "# hide efi" >> /target/etc/udev/rules.d/80-udisks2.rules
+    echo "ENV{ID_FS_UUID}==\"$(cat /target/recovery/backup/efi.info)\", ENV{UDISKS_IGNORE}=\"1\"" >> /target/etc/udev/rules.d/80-udisks2.rules
 fi
 
 # 备份系统的UUID
@@ -43,5 +47,9 @@ echo $(lsblk -f | grep /target$ | awk '{print $4}') > /target/recovery/backup/sy
 
 # 备份data的UUID
 echo $(lsblk -f | grep /data$ | awk '{print $4}') > /target/recovery/backup/_dde_data.info
+
+# Write udev hideen
+echo "# hide recovery" >> /target/etc/udev/rules.d/80-udisks2.rules
+echo "ENV{ID_FS_UUID}==\"$(lsblk -f | grep -i /target/recovery$ | awk '{print $4}')\", ENV{UDISKS_IGNORE}=\"1\"" >> /target/etc/udev/rules.d/80-udisks2.rules
 
 return $?
