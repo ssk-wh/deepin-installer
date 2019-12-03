@@ -1,17 +1,14 @@
 /** Used in SelectLanguageFrame class **/
 
 QLabel#title_label {
-  color: #ffffff;
   font-size: 14pt;
 }
 
 QLabel#LicenseLabel {
-    color: #ffffff;
     text-decoration: underline;
 }
 
 QLabel#OemAndLabel {
-    color: #ffffff;
 }
 
 QCheckBox {
