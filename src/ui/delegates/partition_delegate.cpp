@@ -744,6 +744,11 @@ void Delegate::onDeviceRefreshed(const DeviceList& devices)
     real_devices_ = devices;
     operations_.clear();
     virtual_devices_ = FilterInstallerDevice(real_devices_);
+
+    for (Device::Ptr device : virtual_devices_) {
+        device->partitions = FilterFragmentationPartition(device->partitions);
+    }
+
     emit deviceRefreshed(virtual_devices_);
 }
 
