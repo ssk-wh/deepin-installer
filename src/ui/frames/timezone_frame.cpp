@@ -39,7 +39,6 @@
 #include "service/timezone_manager.h"
 #include "ui/frames/consts.h"
 #include "ui/widgets/comment_label.h"
-#include "ui/widgets/nav_button.h"
 #include "ui/widgets/timezone_map.h"
 #include "ui/widgets/title_label.h"
 #include "ui/frames/inner/systemdateframe.h"
@@ -266,7 +265,7 @@ void TimezoneFrame::initUI() {
   title_label_ = new TitleLabel(tr("Select Timezone"));
   comment_label_ = new CommentLabel(tr("Click your zone on the map"));
   timezone_map_ = new TimezoneMap(this);
-  next_button_ = new NavButton(tr("Next"));
+  next_button_ = new QPushButton(tr("Next"));
 
   m_mapListButtonGroup = new QButtonGroup;
   m_timezoneMapButton = new PointerButton(tr("Map"));

@@ -32,7 +32,6 @@ class QAbstractButton;
 namespace installer {
 
 class CommentLabel;
-class NavButton;
 class TimezoneManager;
 class TimezoneMap;
 class TitleLabel;
@@ -93,7 +92,7 @@ class TimezoneFrame : public FrameInterface {
   PointerButton* m_timezoneListButton = nullptr;
   QButtonGroup* m_mapListButtonGroup = nullptr;
   TimezoneMap* timezone_map_ = nullptr;
-  NavButton* next_button_ = nullptr;
+  QPushButton* next_button_ = nullptr;
   SystemDateFrame* m_systemDateFrame = nullptr;
   SelectTimeZoneFrame* m_selectTimeZoneFrame = nullptr;
   QStackedLayout* m_mapOrListStackedLayout = nullptr;
