@@ -36,7 +36,6 @@ class DDiskManager;
 
 namespace installer {
 class CommentLabel;
-class NavButton;
 class Partition;
 class SaveInstallFailedLogFrame : public QWidget
 {
@@ -66,8 +65,8 @@ private:
     CommentLabel* m_subTitle;
     QGridLayout* m_partitionGridLayout;
     QButtonGroup* m_button_group;
-    NavButton* m_saveBtn;
-    NavButton* m_backBtn;
+    QPushButton* m_saveBtn;
+    QPushButton* m_backBtn;
     QSharedPointer<Partition> m_selectPartition;
     QMap<QSharedPointer<Partition>, QSharedPointer<DBlockDevice>> m_deviceButtonMap;
     DDiskManager* m_diskManager;

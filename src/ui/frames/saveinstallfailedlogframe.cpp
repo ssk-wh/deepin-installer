@@ -25,7 +25,6 @@
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/device_model_label.h"
 #include "ui/widgets/simple_partition_button.h"
-#include "ui/widgets/nav_button.h"
 #include "ui/delegates/main_window_util.h"
 #include "base/file_util.h"
 #include "service/log_manager.h"
@@ -79,8 +78,8 @@ SaveInstallFailedLogFrame::SaveInstallFailedLogFrame(QWidget *parent) : QWidget(
     widget->setFixedWidth(kWindowWidth);
     area->setFixedWidth(kWindowWidth);
 
-    m_saveBtn = new NavButton;
-    m_backBtn = new NavButton;
+    m_saveBtn = new QPushButton;
+    m_backBtn = new QPushButton;
 
     QVBoxLayout* mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
@@ -111,8 +110,8 @@ SaveInstallFailedLogFrame::SaveInstallFailedLogFrame(QWidget *parent) : QWidget(
 
     updateTs();
 
-    connect(m_saveBtn, &NavButton::clicked, this, &SaveInstallFailedLogFrame::saveLog);
-    connect(m_backBtn, &NavButton::clicked, this, &SaveInstallFailedLogFrame::requestBack);
+    connect(m_saveBtn, &QPushButton::clicked, this, &SaveInstallFailedLogFrame::saveLog);
+    connect(m_backBtn, &QPushButton::clicked, this, &SaveInstallFailedLogFrame::requestBack);
 
     m_diskManager = new DDiskManager;
     m_diskManager->setWatchChanges(false);
