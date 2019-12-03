@@ -74,7 +74,8 @@ SaveInstallFailedLogFrame::SaveInstallFailedLogFrame(QWidget *parent) : QWidget(
     area->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     area->setContentsMargins(0, 0, 0, 0);
     area->setWidget(widget);
-    area->setStyleSheet("background: transparent;");
+    area->setAutoFillBackground(false);
+    area->viewport()->setAutoFillBackground(false);
     widget->setFixedWidth(kWindowWidth);
     area->setFixedWidth(kWindowWidth);
 
