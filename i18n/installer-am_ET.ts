@@ -22,14 +22,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="559"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="563"/>
         <source>Done</source>
         <translation>ጨርሷል</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="95"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="180"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="561"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="565"/>
         <source>Delete</source>
         <translation>ማጥፊያ</translation>
     </message>
@@ -64,32 +64,37 @@
         <translation>ክፍልፋይ ለ /boot ዳይሬክቶሪ  የ መጀመሪያው ክፍልፋይ መሆን አለበት በ ሀርድ ዲስኩ ላይ</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="502"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="501"/>
+        <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="506"/>
         <source>At least %1 MB is required for /boot partition</source>
         <translation>ቢያንስ %1 ሜባ ያስፈልጋል ለ /ማስነሻ ክፍልፋይ</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="506"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="510"/>
         <source>Add an EFI partition to continue</source>
         <translation>የ EFI  ክፍልፋይ መጨመሪያ ለ መቀጠል</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="510"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="514"/>
         <source>At least %1 MB is required for EFI partition</source>
         <translation>ቢያንስ %1 ሜባ ያስፈልጋል ለ EFI ክፍልፋይ</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="514"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="518"/>
         <source>Add a Root partition to continue</source>
         <translation>የ Root ክፍልፋይ መጨመሪያ ለ መቀጠል</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="519"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="523"/>
         <source>At least %1 GB is required for Root partition</source>
         <translation>ቢያንስ %1 ጌባ ያስፈልጋል ለ Root ክፍልፋይ</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="524"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="528"/>
         <source>At least %1 GB is required for partition %2</source>
         <translation type="unfinished"/>
     </message>
@@ -732,45 +737,45 @@
 <context>
     <name>installer::TimezoneFrame</name>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="113"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="219"/>
         <source>Select Timezone</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="221"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="349"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="116"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="353"/>
         <source>Click your zone on the map</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="118"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="356"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="119"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="358"/>
         <source>Select your timezone from the list</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="121"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="223"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="222"/>
         <source>Next</source>
         <translation>ይቀጥሉ</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="226"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="225"/>
         <source>Map</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="232"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="231"/>
         <source>List</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="283"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="125"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="282"/>
         <source>Time settings</source>
         <translation type="unfinished"/>
     </message>
@@ -804,70 +809,70 @@
     <name>installer::AdvancedPartitionButton</name>
     <message>
         <source>Install here</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">እዚህ መግጠሚያ</translation>
     </message>
     <message>
         <source>To be formatted</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ይህ አቀራረብ ይሰናዳል</translation>
     </message>
 </context>
 <context>
     <name>installer::AdvancedPartitionFrame</name>
     <message>
         <source>Change boot loader</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">የ boot መጫኛ መቀየሪያ</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ጨርሷል</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ማጥፊያ</translation>
     </message>
     <message>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 ስህተት ተገኝቷል: ይጠግኑት መግጠሙን ለ መቀጠል ወይንም ወደ ቀላል ዘዴ ይቀይሩ</translation>
     </message>
     <message>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 ስህተት ተገኝቷል: ይጠግኑት መግጠሙን ለ መቀጠል ወይንም ወደ ቀላል ዘዴ ይቀይሩ</translation>
     </message>
     <message>
         <source>%1 error found, continue to install after fixed</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 ስህተት ተገኝቷል: ከ ጠገኑ በኋላ መግጠሙን ይቀጥሉ</translation>
     </message>
     <message>
         <source>%1 errors found, continue to install after fixed</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 ስህተት ተገኝቷል: ከ ጠገኑ በኋላ መግጠሙን ይቀጥሉ</translation>
     </message>
     <message>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation type="unfinished"/>
+        <translation type="vanished">የ ክፍልፋይ ፋይል ስርአት ለ /boot ዳይሬክቶሪ መሆን የሚችለው %1 </translation>
     </message>
     <message>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ክፍልፋይ ለ /boot ዳይሬክቶሪ  የ መጀመሪያው ክፍልፋይ መሆን አለበት በ ሀርድ ዲስኩ ላይ</translation>
     </message>
     <message>
         <source>At least %1 MB is required for /boot partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ቢያንስ %1 ሜባ ያስፈልጋል ለ /ማስነሻ ክፍልፋይ</translation>
     </message>
     <message>
         <source>Add an EFI partition to continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">የ EFI  ክፍልፋይ መጨመሪያ ለ መቀጠል</translation>
     </message>
     <message>
         <source>At least %1 MB is required for EFI partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ቢያንስ %1 ሜባ ያስፈልጋል ለ EFI ክፍልፋይ</translation>
     </message>
     <message>
         <source>Add a Root partition to continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">የ Root ክፍልፋይ መጨመሪያ ለ መቀጠል</translation>
     </message>
     <message>
         <source>At least %1 GB is required for Root partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ቢያንስ %1 ጌባ ያስፈልጋል ለ Root ክፍልፋይ</translation>
     </message>
     <message>
         <source>At least %1 GB is required for partition %2</source>
@@ -878,7 +883,7 @@
     <name>installer::BootloaderListModel</name>
     <message>
         <source>%1 %2 (recommended)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 %2 (እንመክራለን)</translation>
     </message>
 </context>
 <context>
@@ -1418,19 +1423,19 @@
     <name>installer::ConfirmQuitFrame</name>
     <message>
         <source>Abort Installation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">መግጠሚያውን ማቋረጫ</translation>
     </message>
     <message>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">እርስዎ አንዳንድ በ መግጠሚያው ሂደት ላይ የ ፈጸሙት ተፅእኖ አይፈጥርም: ማቋረጫ ወይንም መግጠሙን ልቀጥል?</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ይቀጥሉ</translation>
     </message>
     <message>
         <source>Abort</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ማቋረጫ</translation>
     </message>
 </context>
 <context>
@@ -1462,7 +1467,7 @@
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
         <source>Insufficient Disk Space</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">በቂ የ ዲስክ ቦታ የለም</translation>
     </message>
     <message>
         <source>Exit</source>
@@ -1491,7 +1496,7 @@
     <name>installer::EditPartitionFrame</name>
     <message>
         <source>Edit Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ዲስክ ማረሚያ</translation>
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
@@ -1503,15 +1508,15 @@
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">መጫኛ ነጥብ</translation>
     </message>
     <message>
         <source>Format the partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ክፍልፋይ ማሰናጃ</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">መሰረዣ</translation>
     </message>
     <message>
         <source>Create</source>
@@ -1526,18 +1531,18 @@
     <name>installer::FirstBootLoadingFrame</name>
     <message>
         <source>Tuning system</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ስርአት በማስተካከል ላይ</translation>
     </message>
     <message>
         <source>Applying changes to your system, please wait...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ለውጡን ወደ እርስዎ ስርአት ውስጥ በ መፈጸም ላይ: እባክዎን ይቆዩ...</translation>
     </message>
 </context>
 <context>
     <name>installer::FullDiskFrame</name>
     <message>
         <source>Install here</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">እዚህ መግጠሚያ</translation>
     </message>
     <message>
         <source>Encrypt this disk</source>
@@ -1631,7 +1636,7 @@
     <name>installer::InstallProgressFrame</name>
     <message>
         <source>Installing</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">በ መግጠም ላይ</translation>
     </message>
     <message>
         <source>Here are a few cool things to look out for...</source>
@@ -1731,15 +1736,15 @@
     </message>
     <message>
         <source>Create a new partition and define the type and size</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">አዲስ ክፍልፋይ ይፍጠሩ እና መጠኑን እና አይነቱን ይግለጹ</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">አይነት</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">አካባቢ</translation>
     </message>
     <message>
         <source>File system</source>
@@ -1747,27 +1752,27 @@
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">መጫኛ ነጥብ</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">መጠን</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">መጀመሪያ</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">መጨረሻ</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">መሰረዣ</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">እሺ</translation>
     </message>
     <message>
         <source>Create</source>
@@ -1778,7 +1783,7 @@
     <name>installer::NewTableLoadingFrame</name>
     <message>
         <source>Formatting...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">በ ማሰናዳት ላይ...</translation>
     </message>
 </context>
 <context>
@@ -1793,18 +1798,18 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">መሰረዣ</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ይቀጥሉ</translation>
     </message>
 </context>
 <context>
     <name>installer::PartitionFrame</name>
     <message>
         <source>Select Installation Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">የ መግጠሚያ አካባቢ ይምረጡ</translation>
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
@@ -1812,11 +1817,11 @@
     </message>
     <message>
         <source>Simple</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ቀላል</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">የ ረቀቀ</translation>
     </message>
     <message>
         <source>Full Disk</source>
@@ -1824,7 +1829,7 @@
     </message>
     <message>
         <source>Start installation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">መግጠም ማስጀመሪያ</translation>
     </message>
     <message>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
@@ -1836,18 +1841,18 @@
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ይቀጥሉ</translation>
     </message>
 </context>
 <context>
     <name>installer::PartitionLoadingFrame</name>
     <message>
         <source>Scan disks</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ዲስክ ማሰሻ</translation>
     </message>
     <message>
         <source>Scanning disks, please wait...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ዲስክ በ ማሰስ ላይ: እባክዎን ይቆዩ...</translation>
     </message>
 </context>
 <context>
@@ -1858,7 +1863,7 @@
     </message>
     <message>
         <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">አዲስ ሎጂካል ክፍልፋይ መፍጠር የሚቻለው ከ ነበረው የ ሎጂካል ክፍልፋይ አጠገብ ነው</translation>
     </message>
     <message>
         <source>You should delete a primary partition before creating a new partition</source>
@@ -1878,7 +1883,7 @@
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ወደ ኋላ</translation>
     </message>
 </context>
 <context>
@@ -1972,11 +1977,11 @@
     <name>installer::PartitionTypeModel</name>
     <message>
         <source>Logical Partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ሎጂካል ክፍልፋይ</translation>
     </message>
     <message>
         <source>Primary Partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ቀዳሚ ክፍልፋይ</translation>
     </message>
 </context>
 <context>
@@ -1991,15 +1996,15 @@
     </message>
     <message>
         <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">የሚቀጥለውን ተግባር ይፈጸማል: እባክዎን ያረጋግጡ እና ይቀጥሉ ዳታ እንዳይጠፋብዎት</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ወደ ኋላ</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ይቀጥሉ</translation>
     </message>
 </context>
 <context>
@@ -2029,7 +2034,7 @@
     <name>installer::SelectBootloaderFrame</name>
     <message>
         <source>Select location for boot loader</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ለ ማስነሻ መጫኛ አካባቢ ይምረጡ</translation>
     </message>
     <message>
         <source>If you do not understand the settings, please select the recommended one</source>
@@ -2037,7 +2042,7 @@
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ወደ ኋላ</translation>
     </message>
 </context>
 <context>
@@ -2095,19 +2100,19 @@
     <name>installer::SimplePartitionFrame</name>
     <message>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">አዲስ ክፍልፋይ መፍጠር አልተቻለም: እባክዎን ከ ነበረው ክፍልፋይ ውስጥ አንዱን ይምረጡ</translation>
     </message>
     <message>
         <source>Please select one of the partitions to install!</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">እባክዎን አንድ ክፍልፋይ ይምረጡ ለ መግጠም</translation>
     </message>
     <message>
         <source>At least %1 GB is required for root partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ቢያንስ %1 ጌባ ያስፈልጋል ለ root ክፍልፋይ</translation>
     </message>
     <message>
         <source>Install here</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">እዚህ መግጠሚያ</translation>
     </message>
     <message>
         <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
@@ -2168,11 +2173,11 @@
     <name>installer::SystemInfoAvatarFrame</name>
     <message>
         <source>User Avatar</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">የ ተጠቃሚ አቫታር</translation>
     </message>
     <message>
         <source>Select an avatar for your account</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ለ እርስዎ መግለጫ አቫታር ይምረጡ</translation>
     </message>
 </context>
 <context>
@@ -2192,15 +2197,15 @@
     <name>installer::SystemInfoFormFrame</name>
     <message>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">የ ተጠቃሚ ስም </translation>
     </message>
     <message>
         <source>Computer name</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">የ ኮምፒዩተር ስም</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">የ መግቢያ ቃል</translation>
     </message>
     <message>
         <source>Repeat password</source>
@@ -2373,7 +2378,7 @@
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ይቀጥሉ</translation>
     </message>
     <message>
         <source>Map</source>
@@ -2415,7 +2420,7 @@
     <name>installer::VirtualMachineFrame</name>
     <message>
         <source>Friendly Reminder</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">አስታዋሽ</translation>
     </message>
     <message>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
@@ -2423,7 +2428,7 @@
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">ይቀጥሉ</translation>
     </message>
     <message>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>

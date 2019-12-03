@@ -22,14 +22,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="559"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="563"/>
         <source>Done</source>
         <translation>Hotovo</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="95"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="180"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="561"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="565"/>
         <source>Delete</source>
         <translation>Odstrániť</translation>
     </message>
@@ -64,32 +64,37 @@
         <translation>Oddiel /boot adresára by mal byť prvý oddiel na pevnom disku</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="502"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="501"/>
+        <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="506"/>
         <source>At least %1 MB is required for /boot partition</source>
         <translation>Aspoň %1 MB je vyžadovaných pre /boot oddiel</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="506"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="510"/>
         <source>Add an EFI partition to continue</source>
         <translation>Pridať EFI oddiel a pokračovať</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="510"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="514"/>
         <source>At least %1 MB is required for EFI partition</source>
         <translation>Aspoň %1 MB je vyžadovaných pre EFI oddiel</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="514"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="518"/>
         <source>Add a Root partition to continue</source>
         <translation>Pridať root oddiel a pokračovať</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="519"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="523"/>
         <source>At least %1 GB is required for Root partition</source>
         <translation>Aspoň %1 GB je vyžadovaných pre root oddiel</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="524"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="528"/>
         <source>At least %1 GB is required for partition %2</source>
         <translation type="unfinished"/>
     </message>
@@ -732,45 +737,45 @@
 <context>
     <name>installer::TimezoneFrame</name>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="113"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="219"/>
         <source>Select Timezone</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="221"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="349"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="116"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="353"/>
         <source>Click your zone on the map</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="118"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="356"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="119"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="358"/>
         <source>Select your timezone from the list</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="121"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="223"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="222"/>
         <source>Next</source>
         <translation>Ďalej</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="226"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="225"/>
         <source>Map</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="232"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="231"/>
         <source>List</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="283"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="125"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="282"/>
         <source>Time settings</source>
         <translation type="unfinished"/>
     </message>
@@ -804,70 +809,70 @@
     <name>installer::AdvancedPartitionButton</name>
     <message>
         <source>Install here</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tu inštalovať</translation>
     </message>
     <message>
         <source>To be formatted</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bude formátovaný</translation>
     </message>
 </context>
 <context>
     <name>installer::AdvancedPartitionFrame</name>
     <message>
         <source>Change boot loader</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Zmeniť zavádzač</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Hotovo</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Odstrániť</translation>
     </message>
     <message>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 zistená chyba, opravte ich a pokračujte v inštalácii alebo sa prepnite do jednoduchého režimu</translation>
     </message>
     <message>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 zistených chýb, opravte ich a pokračujte v inštalácii alebo sa prepnite do jednoduchého režimu</translation>
     </message>
     <message>
         <source>%1 error found, continue to install after fixed</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 zistená chyba, pokračujte v inštalácii po oprave</translation>
     </message>
     <message>
         <source>%1 errors found, continue to install after fixed</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 zistených chýb, pokračujte v inštalácii po oprave</translation>
     </message>
     <message>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Typ oddielu súborového systému /boot môže byť len %1</translation>
     </message>
     <message>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Oddiel /boot adresára by mal byť prvý oddiel na pevnom disku</translation>
     </message>
     <message>
         <source>At least %1 MB is required for /boot partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Aspoň %1 MB je vyžadovaných pre /boot oddiel</translation>
     </message>
     <message>
         <source>Add an EFI partition to continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Pridať EFI oddiel a pokračovať</translation>
     </message>
     <message>
         <source>At least %1 MB is required for EFI partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Aspoň %1 MB je vyžadovaných pre EFI oddiel</translation>
     </message>
     <message>
         <source>Add a Root partition to continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Pridať root oddiel a pokračovať</translation>
     </message>
     <message>
         <source>At least %1 GB is required for Root partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Aspoň %1 GB je vyžadovaných pre root oddiel</translation>
     </message>
     <message>
         <source>At least %1 GB is required for partition %2</source>
@@ -878,7 +883,7 @@
     <name>installer::BootloaderListModel</name>
     <message>
         <source>%1 %2 (recommended)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 %2 (odporúčané)</translation>
     </message>
 </context>
 <context>
@@ -1418,19 +1423,19 @@
     <name>installer::ConfirmQuitFrame</name>
     <message>
         <source>Abort Installation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Prerušiť inštaláciu</translation>
     </message>
     <message>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Príslušné vykonané operácie v procese inštalácie sa neprejavia, zrušiť alebo pokračovať v inštalácii?</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Pokračovať</translation>
     </message>
     <message>
         <source>Abort</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Prerušiť</translation>
     </message>
 </context>
 <context>
@@ -1462,7 +1467,7 @@
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
         <source>Insufficient Disk Space</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nedostatok miesta na disku</translation>
     </message>
     <message>
         <source>Exit</source>
@@ -1491,11 +1496,11 @@
     <name>installer::EditPartitionFrame</name>
     <message>
         <source>Edit Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Upraviť disk</translation>
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Prosím uistite sa, že všetky dôležité dáta ste si zazálohovali, potom vyberte disk pre inštaláciu</translation>
     </message>
     <message>
         <source>File system</source>
@@ -1503,15 +1508,15 @@
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Prípojný bod</translation>
     </message>
     <message>
         <source>Format the partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Naformátovať oddiel</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Zrušiť</translation>
     </message>
     <message>
         <source>Create</source>
@@ -1526,18 +1531,18 @@
     <name>installer::FirstBootLoadingFrame</name>
     <message>
         <source>Tuning system</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ladenie systému</translation>
     </message>
     <message>
         <source>Applying changes to your system, please wait...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Aplikujem zmeny vo vašom systéme, čakajte prosím...</translation>
     </message>
 </context>
 <context>
     <name>installer::FullDiskFrame</name>
     <message>
         <source>Install here</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tu nainštalovať</translation>
     </message>
     <message>
         <source>Encrypt this disk</source>
@@ -1545,11 +1550,11 @@
     </message>
     <message>
         <source>Encrypt This Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Šifrovať tento disk</translation>
     </message>
     <message>
         <source>Please select a disk to start installation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Prosím, vyberte disk pre štart inštalácie</translation>
     </message>
     <message>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
@@ -1631,7 +1636,7 @@
     <name>installer::InstallProgressFrame</name>
     <message>
         <source>Installing</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Inštalujem</translation>
     </message>
     <message>
         <source>Here are a few cool things to look out for...</source>
@@ -1731,15 +1736,15 @@
     </message>
     <message>
         <source>Create a new partition and define the type and size</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Vytvoriť nový diskový oddiel a definovať typ a veľkosť</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Typ</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Umiestnenie</translation>
     </message>
     <message>
         <source>File system</source>
@@ -1747,27 +1752,27 @@
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Prípojný bod</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Veľkosť</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Začiatok</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Koniec</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Zrušiť</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">OK</translation>
     </message>
     <message>
         <source>Create</source>
@@ -1778,7 +1783,7 @@
     <name>installer::NewTableLoadingFrame</name>
     <message>
         <source>Formatting...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Formátujem...</translation>
     </message>
 </context>
 <context>
@@ -1793,38 +1798,38 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Zrušiť</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Pokračovať</translation>
     </message>
 </context>
 <context>
     <name>installer::PartitionFrame</name>
     <message>
         <source>Select Installation Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Výber umiestnenia inštalácie</translation>
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Prosím uistite sa, že všetky dôležité dáta ste si zazálohovali, potom vyberte disk pre inštaláciu</translation>
     </message>
     <message>
         <source>Simple</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Jednoduché</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Pokročilé</translation>
     </message>
     <message>
         <source>Full Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Plný disk</translation>
     </message>
     <message>
         <source>Start installation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Začať inštaláciu</translation>
     </message>
     <message>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
@@ -1836,33 +1841,33 @@
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ďalej</translation>
     </message>
 </context>
 <context>
     <name>installer::PartitionLoadingFrame</name>
     <message>
         <source>Scan disks</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Skenovať disk</translation>
     </message>
     <message>
         <source>Scanning disks, please wait...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Skenovanie disku, čakajte prosím...</translation>
     </message>
 </context>
 <context>
     <name>installer::PartitionNumberLimitationFrame</name>
     <message>
         <source>You should delete a primary partition before creating a new one</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Musíte odstrániť primárny oddiel pre vytvorenie nového primárneho oddielu</translation>
     </message>
     <message>
         <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nové logické oddiely môžu byť vytvorené iba v blízkosti existujúcich logických oddielov</translation>
     </message>
     <message>
         <source>You should delete a primary partition before creating a new partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Musíte odstrániť primárny oddiel pre vytvorenie nového oddielu</translation>
     </message>
     <message>
         <source>Failed to Create New Partition</source>
@@ -1878,7 +1883,7 @@
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Späť</translation>
     </message>
 </context>
 <context>
@@ -1972,11 +1977,11 @@
     <name>installer::PartitionTypeModel</name>
     <message>
         <source>Logical Partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Logický oddiel</translation>
     </message>
     <message>
         <source>Primary Partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Primárny oddiel</translation>
     </message>
 </context>
 <context>
@@ -1987,19 +1992,19 @@
     </message>
     <message>
         <source>Make a backup of your important data and then continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Prosím vykonajte zálohu dôležitých dát a potvrďte nasledujúce operácie</translation>
     </message>
     <message>
         <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Budú vykonané nasledujúce operácie, prosím potvrďte ich a pokračujte, aby sa zabránilo strate dát</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Späť</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Pokračovať</translation>
     </message>
 </context>
 <context>
@@ -2029,7 +2034,7 @@
     <name>installer::SelectBootloaderFrame</name>
     <message>
         <source>Select location for boot loader</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Výber umiestnenia pre zavádzač</translation>
     </message>
     <message>
         <source>If you do not understand the settings, please select the recommended one</source>
@@ -2037,7 +2042,7 @@
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Späť</translation>
     </message>
 </context>
 <context>
@@ -2095,19 +2100,19 @@
     <name>installer::SimplePartitionFrame</name>
     <message>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nemôžem vytvoriť nový oddiel, vyberte jeden z existujúcich oddielov!</translation>
     </message>
     <message>
         <source>Please select one of the partitions to install!</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Prosím, vyberte jeden z oddielov pre inštaláciu!</translation>
     </message>
     <message>
         <source>At least %1 GB is required for root partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Aspoň %1 GB je vyžadovaných pre root oddiel</translation>
     </message>
     <message>
         <source>Install here</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tu inštalovať</translation>
     </message>
     <message>
         <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
@@ -2168,11 +2173,11 @@
     <name>installer::SystemInfoAvatarFrame</name>
     <message>
         <source>User Avatar</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Avatar používateľa</translation>
     </message>
     <message>
         <source>Select an avatar for your account</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Výber avatara pre vaše konto</translation>
     </message>
 </context>
 <context>
@@ -2192,15 +2197,15 @@
     <name>installer::SystemInfoFormFrame</name>
     <message>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Meno používateľa</translation>
     </message>
     <message>
         <source>Computer name</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Názov počítača</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Heslo</translation>
     </message>
     <message>
         <source>Repeat password</source>
@@ -2373,7 +2378,7 @@
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ďalej</translation>
     </message>
     <message>
         <source>Map</source>
@@ -2415,7 +2420,7 @@
     <name>installer::VirtualMachineFrame</name>
     <message>
         <source>Friendly Reminder</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Priateľská pripomienka</translation>
     </message>
     <message>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
@@ -2423,7 +2428,7 @@
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Pokračovať</translation>
     </message>
     <message>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>

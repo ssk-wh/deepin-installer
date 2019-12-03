@@ -22,14 +22,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="559"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="563"/>
         <source>Done</source>
         <translation>完成</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="95"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="180"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="561"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="565"/>
         <source>Delete</source>
         <translation>刪除</translation>
     </message>
@@ -64,32 +64,37 @@
         <translation>/boot 分割區應為硬碟中第一個分割區</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="502"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="501"/>
+        <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="506"/>
         <source>At least %1 MB is required for /boot partition</source>
         <translation>/boot 分割區至少要 %1 MB</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="506"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="510"/>
         <source>Add an EFI partition to continue</source>
         <translation>建立 EFI 開機分割區後繼續</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="510"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="514"/>
         <source>At least %1 MB is required for EFI partition</source>
         <translation>EFI 分割區至少要 %1 MB</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="514"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="518"/>
         <source>Add a Root partition to continue</source>
         <translation>需設定 Root 分割區</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="519"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="523"/>
         <source>At least %1 GB is required for Root partition</source>
         <translation>Root 分割區至少要 %1 GB</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="524"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="528"/>
         <source>At least %1 GB is required for partition %2</source>
         <translation type="unfinished"/>
     </message>
@@ -732,45 +737,45 @@
 <context>
     <name>installer::TimezoneFrame</name>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="113"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="219"/>
         <source>Select Timezone</source>
         <translation>選擇時區</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="221"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="349"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="116"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="353"/>
         <source>Click your zone on the map</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="118"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="356"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="119"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="358"/>
         <source>Select your timezone from the list</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="121"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="223"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="222"/>
         <source>Next</source>
         <translation>下一步</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="226"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="225"/>
         <source>Map</source>
         <translation>地圖</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="232"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="231"/>
         <source>List</source>
         <translation>列表</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="283"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="125"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="282"/>
         <source>Time settings</source>
         <translation type="unfinished"/>
     </message>
@@ -804,70 +809,70 @@
     <name>installer::AdvancedPartitionButton</name>
     <message>
         <source>Install here</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">安裝於此</translation>
     </message>
     <message>
         <source>To be formatted</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">格式化</translation>
     </message>
 </context>
 <context>
     <name>installer::AdvancedPartitionFrame</name>
     <message>
         <source>Change boot loader</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">更改啟動程式位置</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">完成</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">刪除</translation>
     </message>
     <message>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">發現 %1 個錯誤，修復以繼續安裝或切換為簡易模式</translation>
     </message>
     <message>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">發現 %1 個錯誤，修復以繼續安裝或切換為簡易模式</translation>
     </message>
     <message>
         <source>%1 error found, continue to install after fixed</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">發現 %1 個錯誤，修復以繼續安裝</translation>
     </message>
     <message>
         <source>%1 errors found, continue to install after fixed</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">發現 %1 個錯誤，修復以繼續安裝</translation>
     </message>
     <message>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation type="unfinished"/>
+        <translation type="vanished">/boot 分割區的檔案系統類型只能是 %1</translation>
     </message>
     <message>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">/boot 分割區應為硬碟中第一個分割區</translation>
     </message>
     <message>
         <source>At least %1 MB is required for /boot partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">/boot 分割區至少要 %1 MB</translation>
     </message>
     <message>
         <source>Add an EFI partition to continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">建立 EFI 開機分割區後繼續</translation>
     </message>
     <message>
         <source>At least %1 MB is required for EFI partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">EFI 分割區至少要 %1 MB</translation>
     </message>
     <message>
         <source>Add a Root partition to continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">需設定 Root 分割區</translation>
     </message>
     <message>
         <source>At least %1 GB is required for Root partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Root 分割區至少要 %1 GB</translation>
     </message>
     <message>
         <source>At least %1 GB is required for partition %2</source>
@@ -878,7 +883,7 @@
     <name>installer::BootloaderListModel</name>
     <message>
         <source>%1 %2 (recommended)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 %2（建議）</translation>
     </message>
 </context>
 <context>
@@ -1418,19 +1423,19 @@
     <name>installer::ConfirmQuitFrame</name>
     <message>
         <source>Abort Installation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">取消安裝</translation>
     </message>
     <message>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">安裝過程中所做的動作均不會套用，取消還是要繼續安裝？</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">繼續安裝</translation>
     </message>
     <message>
         <source>Abort</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">取消安裝</translation>
     </message>
 </context>
 <context>
@@ -1462,7 +1467,7 @@
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
         <source>Insufficient Disk Space</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">磁碟機空間不足</translation>
     </message>
     <message>
         <source>Exit</source>
@@ -1491,11 +1496,11 @@
     <name>installer::EditPartitionFrame</name>
     <message>
         <source>Edit Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">編輯磁碟機</translation>
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">確保您已備份重要資料，之後選擇磁碟安裝</translation>
     </message>
     <message>
         <source>File system</source>
@@ -1503,15 +1508,15 @@
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">掛載點</translation>
     </message>
     <message>
         <source>Format the partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">格式化分割區</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">取消</translation>
     </message>
     <message>
         <source>Create</source>
@@ -1526,18 +1531,18 @@
     <name>installer::FirstBootLoadingFrame</name>
     <message>
         <source>Tuning system</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">正在調整系統</translation>
     </message>
     <message>
         <source>Applying changes to your system, please wait...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">正在套用變更至你的系統，請稍候…</translation>
     </message>
 </context>
 <context>
     <name>installer::FullDiskFrame</name>
     <message>
         <source>Install here</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">安裝於此</translation>
     </message>
     <message>
         <source>Encrypt this disk</source>
@@ -1545,11 +1550,11 @@
     </message>
     <message>
         <source>Encrypt This Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">加密此硬碟</translation>
     </message>
     <message>
         <source>Please select a disk to start installation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">請選擇一塊用於安裝的硬碟來開始安裝程序</translation>
     </message>
     <message>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
@@ -1631,7 +1636,7 @@
     <name>installer::InstallProgressFrame</name>
     <message>
         <source>Installing</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">正在安裝</translation>
     </message>
     <message>
         <source>Here are a few cool things to look out for...</source>
@@ -1731,15 +1736,15 @@
     </message>
     <message>
         <source>Create a new partition and define the type and size</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">建立新分割區並設定類型與大小</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">類型</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">位置</translation>
     </message>
     <message>
         <source>File system</source>
@@ -1747,27 +1752,27 @@
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">掛載點</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">大小</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">起始位置</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">結束位置</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">取消</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">確定</translation>
     </message>
     <message>
         <source>Create</source>
@@ -1778,7 +1783,7 @@
     <name>installer::NewTableLoadingFrame</name>
     <message>
         <source>Formatting...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">正在格式化…</translation>
     </message>
 </context>
 <context>
@@ -1793,76 +1798,76 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">取消</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">繼續</translation>
     </message>
 </context>
 <context>
     <name>installer::PartitionFrame</name>
     <message>
         <source>Select Installation Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">選擇安裝位置</translation>
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">確保您已備份重要資料，之後選擇磁碟安裝</translation>
     </message>
     <message>
         <source>Simple</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">簡易</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">進階</translation>
     </message>
     <message>
         <source>Full Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">全硬碟</translation>
     </message>
     <message>
         <source>Start installation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">開始安裝</translation>
     </message>
     <message>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">目標磁碟為動態磁碟。如果繼續，您的資料可能會遺失。請先備份您的重要資料。</translation>
     </message>
     <message>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">目標磁碟為動態磁碟。如果繼續，該磁碟將被格式化。請先備份您的重要資料。</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">下一步</translation>
     </message>
 </context>
 <context>
     <name>installer::PartitionLoadingFrame</name>
     <message>
         <source>Scan disks</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">掃描磁碟機</translation>
     </message>
     <message>
         <source>Scanning disks, please wait...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">正在掃描磁碟機，請稍候…</translation>
     </message>
 </context>
 <context>
     <name>installer::PartitionNumberLimitationFrame</name>
     <message>
         <source>You should delete a primary partition before creating a new one</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">建立新主要分割區前，您需要刪除一個主要分割區</translation>
     </message>
     <message>
         <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">新的邏輯分割區只能在鄰近現有邏輯分割區的位置建立</translation>
     </message>
     <message>
         <source>You should delete a primary partition before creating a new partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">建立新分割區前，您需要刪除一個主要分割區</translation>
     </message>
     <message>
         <source>Failed to Create New Partition</source>
@@ -1878,7 +1883,7 @@
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">返回</translation>
     </message>
 </context>
 <context>
@@ -1972,11 +1977,11 @@
     <name>installer::PartitionTypeModel</name>
     <message>
         <source>Logical Partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">邏輯分割區</translation>
     </message>
     <message>
         <source>Primary Partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">主要分割區</translation>
     </message>
 </context>
 <context>
@@ -1987,19 +1992,19 @@
     </message>
     <message>
         <source>Make a backup of your important data and then continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">請備份好重要資料後繼續</translation>
     </message>
     <message>
         <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">將執行以下動作，請確認後再繼續以避免資料遺失</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">返回</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">繼續</translation>
     </message>
 </context>
 <context>
@@ -2029,7 +2034,7 @@
     <name>installer::SelectBootloaderFrame</name>
     <message>
         <source>Select location for boot loader</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">選擇啟動程式位置</translation>
     </message>
     <message>
         <source>If you do not understand the settings, please select the recommended one</source>
@@ -2037,7 +2042,7 @@
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">返回</translation>
     </message>
 </context>
 <context>
@@ -2095,19 +2100,19 @@
     <name>installer::SimplePartitionFrame</name>
     <message>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">無法建立新分割區，請選擇一個現有的分割區！</translation>
     </message>
     <message>
         <source>Please select one of the partitions to install!</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">請選擇一個安裝分割區！</translation>
     </message>
     <message>
         <source>At least %1 GB is required for root partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Root 分割區至少要 %1 GB</translation>
     </message>
     <message>
         <source>Install here</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">安裝於此</translation>
     </message>
     <message>
         <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
@@ -2168,11 +2173,11 @@
     <name>installer::SystemInfoAvatarFrame</name>
     <message>
         <source>User Avatar</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">使用者頭貼</translation>
     </message>
     <message>
         <source>Select an avatar for your account</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">為帳戶選擇頭貼</translation>
     </message>
 </context>
 <context>
@@ -2192,15 +2197,15 @@
     <name>installer::SystemInfoFormFrame</name>
     <message>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">使用者名稱</translation>
     </message>
     <message>
         <source>Computer name</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">電腦名稱</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">密碼</translation>
     </message>
     <message>
         <source>Repeat password</source>
@@ -2361,7 +2366,7 @@
     <name>installer::TimezoneFrame</name>
     <message>
         <source>Select Timezone</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">選擇時區</translation>
     </message>
     <message>
         <source>Click your zone on the map</source>
@@ -2373,15 +2378,15 @@
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">下一步</translation>
     </message>
     <message>
         <source>Map</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">地圖</translation>
     </message>
     <message>
         <source>List</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">列表</translation>
     </message>
     <message>
         <source>Time settings</source>
@@ -2415,7 +2420,7 @@
     <name>installer::VirtualMachineFrame</name>
     <message>
         <source>Friendly Reminder</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">友善提醒</translation>
     </message>
     <message>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
@@ -2423,7 +2428,7 @@
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">繼續安裝</translation>
     </message>
     <message>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>

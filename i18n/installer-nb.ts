@@ -22,14 +22,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="559"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="563"/>
         <source>Done</source>
         <translation>Ferdig</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="95"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="180"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="561"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="565"/>
         <source>Delete</source>
         <translation>Slett</translation>
     </message>
@@ -64,32 +64,37 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="502"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="501"/>
+        <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="506"/>
         <source>At least %1 MB is required for /boot partition</source>
         <translation>Minst %1 MB kreves for /boot partisjon</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="506"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="510"/>
         <source>Add an EFI partition to continue</source>
         <translation>Legg til en EFI partisjon for å fortsette</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="510"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="514"/>
         <source>At least %1 MB is required for EFI partition</source>
         <translation>Minst %1 MB kreves for EFI partisjonen</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="514"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="518"/>
         <source>Add a Root partition to continue</source>
         <translation>Legg til en Root partisjon for å fortsette</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="519"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="523"/>
         <source>At least %1 GB is required for Root partition</source>
         <translation>Minst %1 GB kreves for Root partisjon</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="524"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="528"/>
         <source>At least %1 GB is required for partition %2</source>
         <translation type="unfinished"/>
     </message>
@@ -732,45 +737,45 @@
 <context>
     <name>installer::TimezoneFrame</name>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="113"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="219"/>
         <source>Select Timezone</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="221"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="349"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="116"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="353"/>
         <source>Click your zone on the map</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="118"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="356"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="119"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="358"/>
         <source>Select your timezone from the list</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="121"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="223"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="222"/>
         <source>Next</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="226"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="225"/>
         <source>Map</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="232"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="231"/>
         <source>List</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="283"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="125"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="282"/>
         <source>Time settings</source>
         <translation type="unfinished"/>
     </message>
@@ -804,34 +809,34 @@
     <name>installer::AdvancedPartitionButton</name>
     <message>
         <source>Install here</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Installer her</translation>
     </message>
     <message>
         <source>To be formatted</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Til formattering</translation>
     </message>
 </context>
 <context>
     <name>installer::AdvancedPartitionFrame</name>
     <message>
         <source>Change boot loader</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bytt boot loader</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ferdig</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Slett</translation>
     </message>
     <message>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 feil funnet, rett denne/disse for å forsette eller bytt til enkel modus</translation>
     </message>
     <message>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 feil funnet, rett denne/disse for å fortsette installaasjonen eller bytt til enkel modus</translation>
     </message>
     <message>
         <source>%1 error found, continue to install after fixed</source>
@@ -851,23 +856,23 @@
     </message>
     <message>
         <source>At least %1 MB is required for /boot partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Minst %1 MB kreves for /boot partisjon</translation>
     </message>
     <message>
         <source>Add an EFI partition to continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Legg til en EFI partisjon for å fortsette</translation>
     </message>
     <message>
         <source>At least %1 MB is required for EFI partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Minst %1 MB kreves for EFI partisjonen</translation>
     </message>
     <message>
         <source>Add a Root partition to continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Legg til en Root partisjon for å fortsette</translation>
     </message>
     <message>
         <source>At least %1 GB is required for Root partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Minst %1 GB kreves for Root partisjon</translation>
     </message>
     <message>
         <source>At least %1 GB is required for partition %2</source>
@@ -878,7 +883,7 @@
     <name>installer::BootloaderListModel</name>
     <message>
         <source>%1 %2 (recommended)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 %2 (anbefalt)</translation>
     </message>
 </context>
 <context>
@@ -1418,19 +1423,19 @@
     <name>installer::ConfirmQuitFrame</name>
     <message>
         <source>Abort Installation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Avslutt installasjon</translation>
     </message>
     <message>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Relevante operassjoner du gjør i installasjonsprosessen vil ikke ta effekt, avbryt for å fortsette installasjonen?</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Fortsett</translation>
     </message>
     <message>
         <source>Abort</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Avbryt</translation>
     </message>
 </context>
 <context>
@@ -1462,7 +1467,7 @@
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
         <source>Insufficient Disk Space</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Utilstrekkelig hard disk plass</translation>
     </message>
     <message>
         <source>Exit</source>
@@ -1491,7 +1496,7 @@
     <name>installer::EditPartitionFrame</name>
     <message>
         <source>Edit Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Rediger Disk</translation>
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
@@ -1503,15 +1508,15 @@
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Mount punkt</translation>
     </message>
     <message>
         <source>Format the partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Formater partisjonen</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Avbryt</translation>
     </message>
     <message>
         <source>Create</source>
@@ -1526,18 +1531,18 @@
     <name>installer::FirstBootLoadingFrame</name>
     <message>
         <source>Tuning system</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Fintilpass system</translation>
     </message>
     <message>
         <source>Applying changes to your system, please wait...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Påfører endringer til systemet, vennligst vent...</translation>
     </message>
 </context>
 <context>
     <name>installer::FullDiskFrame</name>
     <message>
         <source>Install here</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Installer her</translation>
     </message>
     <message>
         <source>Encrypt this disk</source>
@@ -1631,7 +1636,7 @@
     <name>installer::InstallProgressFrame</name>
     <message>
         <source>Installing</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Installerer</translation>
     </message>
     <message>
         <source>Here are a few cool things to look out for...</source>
@@ -1747,7 +1752,7 @@
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Mount punkt</translation>
     </message>
     <message>
         <source>Size</source>
@@ -1763,11 +1768,11 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Avbryt</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">OK</translation>
     </message>
     <message>
         <source>Create</source>
@@ -1793,11 +1798,11 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Avbryt</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Fortsett</translation>
     </message>
 </context>
 <context>
@@ -1999,7 +2004,7 @@
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Fortsett</translation>
     </message>
 </context>
 <context>
@@ -2107,7 +2112,7 @@
     </message>
     <message>
         <source>Install here</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Installer her</translation>
     </message>
     <message>
         <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
@@ -2423,7 +2428,7 @@
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Fortsett</translation>
     </message>
     <message>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>

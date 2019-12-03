@@ -22,14 +22,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="559"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="563"/>
         <source>Done</source>
         <translation>Klaar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="95"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="180"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="561"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="565"/>
         <source>Delete</source>
         <translation>Verwijderen</translation>
     </message>
@@ -64,32 +64,37 @@
         <translation>De partitie waar /boot wordt vastgelegd moet de eerste partitie op de schijf zijn</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="502"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="501"/>
+        <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="506"/>
         <source>At least %1 MB is required for /boot partition</source>
         <translation>Er is minstens %1 MB vereist voor de /boot-partitie</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="506"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="510"/>
         <source>Add an EFI partition to continue</source>
         <translation>Voeg een EFI-partitie toe om door te gaan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="510"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="514"/>
         <source>At least %1 MB is required for EFI partition</source>
         <translation>Er is minstens %1 MB vereist voor de EFI-partitie</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="514"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="518"/>
         <source>Add a Root partition to continue</source>
         <translation>Voeg een root-partitie toe om door te gaan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="519"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="523"/>
         <source>At least %1 GB is required for Root partition</source>
         <translation>Er is minstens %1 GB nodig voor de root-partitie</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="524"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="528"/>
         <source>At least %1 GB is required for partition %2</source>
         <translation>Er is minstens %1 GB nodig voor de %2-partitie</translation>
     </message>
@@ -732,45 +737,45 @@
 <context>
     <name>installer::TimezoneFrame</name>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="113"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="219"/>
         <source>Select Timezone</source>
         <translation>Kies een tijdzone</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="221"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="349"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="116"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="353"/>
         <source>Click your zone on the map</source>
         <translation>Klik je zone aan op de kaart</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="118"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="356"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="119"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="358"/>
         <source>Select your timezone from the list</source>
         <translation>Selecteer je tijdzone uit de lijst</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="121"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="223"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="222"/>
         <source>Next</source>
         <translation>Volgende</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="226"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="225"/>
         <source>Map</source>
         <translation>Kaart</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="232"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="231"/>
         <source>List</source>
         <translation>Lijst</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="283"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="125"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="282"/>
         <source>Time settings</source>
         <translation>Tijdsinstellingen</translation>
     </message>
@@ -804,81 +809,81 @@
     <name>installer::AdvancedPartitionButton</name>
     <message>
         <source>Install here</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Hier installeren</translation>
     </message>
     <message>
         <source>To be formatted</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Zal geformatteerd worden</translation>
     </message>
 </context>
 <context>
     <name>installer::AdvancedPartitionFrame</name>
     <message>
         <source>Change boot loader</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Opstartlader aanpassen</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Klaar</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Verwijderen</translation>
     </message>
     <message>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 fout gevonden. Herstel deze om door te gaan met installeren, of gebruik de eenvoudige modus.</translation>
     </message>
     <message>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 fouten gevonden. Herstel deze om door te gaan met installeren, of gebruik de eenvoudige modus.</translation>
     </message>
     <message>
         <source>%1 error found, continue to install after fixed</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 fout gevonden. Ga verder met installeren als dit opgelost is.</translation>
     </message>
     <message>
         <source>%1 errors found, continue to install after fixed</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">1% fouten gevonden. Ga verder met installeren als dit opgelost is.</translation>
     </message>
     <message>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Voor /boot is een partitie met het bestandssysteem %1 vereist</translation>
     </message>
     <message>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">De partitie waar /boot wordt vastgelegd moet de eerste partitie op de schijf zijn</translation>
     </message>
     <message>
         <source>At least %1 MB is required for /boot partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Er is minstens %1 MB vereist voor de /boot-partitie</translation>
     </message>
     <message>
         <source>Add an EFI partition to continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Voeg een EFI-partitie toe om door te gaan</translation>
     </message>
     <message>
         <source>At least %1 MB is required for EFI partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Er is minstens %1 MB vereist voor de EFI-partitie</translation>
     </message>
     <message>
         <source>Add a Root partition to continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Voeg een root-partitie toe om door te gaan</translation>
     </message>
     <message>
         <source>At least %1 GB is required for Root partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Er is minstens %1 GB nodig voor de root-partitie</translation>
     </message>
     <message>
         <source>At least %1 GB is required for partition %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Er is minstens %1 GB nodig voor de %2-partitie</translation>
     </message>
 </context>
 <context>
     <name>installer::BootloaderListModel</name>
     <message>
         <source>%1 %2 (recommended)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 %2 (aanbevolen)</translation>
     </message>
 </context>
 <context>
@@ -1418,19 +1423,19 @@
     <name>installer::ConfirmQuitFrame</name>
     <message>
         <source>Abort Installation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Installatie afbreken</translation>
     </message>
     <message>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Aanpassingen die je tijdens het installatieproces hebt gemaakt zullen geen effect hebben. Wil je de installatie afbreken of doorgaan?</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Doorgaan</translation>
     </message>
     <message>
         <source>Abort</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Afbreken</translation>
     </message>
 </context>
 <context>
@@ -1462,11 +1467,11 @@
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
         <source>Insufficient Disk Space</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Onvoldoende schijfruimte</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Afsluiten</translation>
     </message>
 </context>
 <context>
@@ -1491,69 +1496,69 @@
     <name>installer::EditPartitionFrame</name>
     <message>
         <source>Edit Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Schijf aanpassen</translation>
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Zorg ervoor dat je een back-up hebt van belangrijke gegevens en selecteer daarna de installatieschijf</translation>
     </message>
     <message>
         <source>File system</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bestandssysteem</translation>
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Aankoppelpunt</translation>
     </message>
     <message>
         <source>Format the partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Formatteer de partitie</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Annuleren</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Maken</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bevestigen</translation>
     </message>
 </context>
 <context>
     <name>installer::FirstBootLoadingFrame</name>
     <message>
         <source>Tuning system</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bezig met afstellen van systeem</translation>
     </message>
     <message>
         <source>Applying changes to your system, please wait...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bezig met toepassen van aanpassingen; even geduld...</translation>
     </message>
 </context>
 <context>
     <name>installer::FullDiskFrame</name>
     <message>
         <source>Install here</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Hier installeren</translation>
     </message>
     <message>
         <source>Encrypt this disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Deze schijf versleutelen</translation>
     </message>
     <message>
         <source>Encrypt This Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Deze schijf versleutelen</translation>
     </message>
     <message>
         <source>Please select a disk to start installation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Selecteer een schijf om de installatie te starten</translation>
     </message>
     <message>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Je hebt minstens %1GB schijfruimte nodig om UOS te installeren. Voor betere prestaties wordt %2GB of meer aanbevolen.</translation>
     </message>
 </context>
 <context>
@@ -1631,11 +1636,11 @@
     <name>installer::InstallProgressFrame</name>
     <message>
         <source>Installing</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bezig met installeren...</translation>
     </message>
     <message>
         <source>Here are a few cool things to look out for...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Hier heb je een paar leuke dingen om naar uit te kijken...</translation>
     </message>
 </context>
 <context>
@@ -1663,11 +1668,11 @@
     <name>installer::MultipleDiskInstallationWidget</name>
     <message>
         <source>System Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Systeemschijf</translation>
     </message>
     <message>
         <source>Data Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Gegevensschijf</translation>
     </message>
 </context>
 <context>
@@ -1727,158 +1732,158 @@
     <name>installer::NewPartitionFrame</name>
     <message>
         <source>Create New Partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nieuwe partitie maken</translation>
     </message>
     <message>
         <source>Create a new partition and define the type and size</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Maak een nieuwe partitie en geef het type en de grootte op</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Type</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Locatie</translation>
     </message>
     <message>
         <source>File system</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bestandssysteem</translation>
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Aankoppelpunt</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Grootte</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Start</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Einde</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Annuleren</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Oké</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Maken</translation>
     </message>
 </context>
 <context>
     <name>installer::NewTableLoadingFrame</name>
     <message>
         <source>Formatting...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bezig met formatteren...</translation>
     </message>
 </context>
 <context>
     <name>installer::NewTableWarningFrame</name>
     <message>
         <source>Format Warning</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Formatteerwaarschuwing</translation>
     </message>
     <message>
         <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Doorgaan met installeren betekent dat de gehele schijf wordt geformatteerd. Maak een back-up van al je gegevens om gegevensverlies te voorkomen.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Annuleren</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Doorgaan</translation>
     </message>
 </context>
 <context>
     <name>installer::PartitionFrame</name>
     <message>
         <source>Select Installation Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kies de installatielocatie</translation>
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Zorg ervoor dat je een back-up hebt van belangrijke gegevens en selecteer daarna de installatieschijf</translation>
     </message>
     <message>
         <source>Simple</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Eenvoudig</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Gevorderd</translation>
     </message>
     <message>
         <source>Full Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Gehele schijf</translation>
     </message>
     <message>
         <source>Start installation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Installatie starten</translation>
     </message>
     <message>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">De doelschijf is dynamisch; hierdoor kunnen er gegevens verloren gaan. Maak een back-up voordat je doorgaat.</translation>
     </message>
     <message>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">De doelschijf is dynamisch; deze wordt geformatteerd. Maak een back-up voordat je doorgaat.</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Volgende</translation>
     </message>
 </context>
 <context>
     <name>installer::PartitionLoadingFrame</name>
     <message>
         <source>Scan disks</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Schijven scannen</translation>
     </message>
     <message>
         <source>Scanning disks, please wait...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bezig met scannen van schijven; even geduld...</translation>
     </message>
 </context>
 <context>
     <name>installer::PartitionNumberLimitationFrame</name>
     <message>
         <source>You should delete a primary partition before creating a new one</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Verwijder een primaire partitie voordat je een nieuwe maakt</translation>
     </message>
     <message>
         <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Je kunt nieuwe logische partities alleen maken nabij reeds aanwezige logische partities</translation>
     </message>
     <message>
         <source>You should delete a primary partition before creating a new partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Verwijder een primaire partitie voordat je een nieuwe maakt</translation>
     </message>
     <message>
         <source>Failed to Create New Partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kan geen nieuwe partities aanmaken</translation>
     </message>
     <message>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Je moet een primaire partitie verwijderen om de nieuwe partitie te kunnen maken omdat er maar vier primaire mogen zijn op een MBR-schijf.</translation>
     </message>
     <message>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Je moet een primaire partitie verwijderen om de nieuwe partitie te kunnen maken, of verplaats een reeds aanwezige logische partitie naar het einde van de schijf.</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Terug</translation>
     </message>
 </context>
 <context>
@@ -1972,34 +1977,34 @@
     <name>installer::PartitionTypeModel</name>
     <message>
         <source>Logical Partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Logische partitie</translation>
     </message>
     <message>
         <source>Primary Partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Primaire partitie</translation>
     </message>
 </context>
 <context>
     <name>installer::PrepareInstallFrame</name>
     <message>
         <source>Ready to Install</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Klaar voor installatie</translation>
     </message>
     <message>
         <source>Make a backup of your important data and then continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Maak een back-up van belangrijke gegevens en bevestig de volgende handelingen</translation>
     </message>
     <message>
         <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Hier zie je wat er op het punt staat te gebeuren. Bevestig en ga door om gegevensverlies te voorkomen.</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Terug</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Doorgaan</translation>
     </message>
 </context>
 <context>
@@ -2029,15 +2034,15 @@
     <name>installer::SelectBootloaderFrame</name>
     <message>
         <source>Select location for boot loader</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kies de locatie van de opstartlader</translation>
     </message>
     <message>
         <source>If you do not understand the settings, please select the recommended one</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Als je de instellingen niet begrijpt, kies dan voor de aanbevolen instellingen.</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Terug</translation>
     </message>
 </context>
 <context>
@@ -2095,23 +2100,23 @@
     <name>installer::SimplePartitionFrame</name>
     <message>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Het maken van de nieuwe partitie is mislukt. Selecteer één van de bestaande partities!</translation>
     </message>
     <message>
         <source>Please select one of the partitions to install!</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Selecteer één van de partities om te installeren!</translation>
     </message>
     <message>
         <source>At least %1 GB is required for root partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Er is minstens %1 GB vereist voor de root-partitie</translation>
     </message>
     <message>
         <source>Install here</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Hier installeren</translation>
     </message>
     <message>
         <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Als je UOS installeert op de Windows-schijf, dan start Windows niet meer op. Bevestig om door te gaan.</translation>
     </message>
 </context>
 <context>
@@ -2168,11 +2173,11 @@
     <name>installer::SystemInfoAvatarFrame</name>
     <message>
         <source>User Avatar</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Gebruikersafbeelding</translation>
     </message>
     <message>
         <source>Select an avatar for your account</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kies een gebruikersafbeelding voor je account</translation>
     </message>
 </context>
 <context>
@@ -2192,27 +2197,27 @@
     <name>installer::SystemInfoFormFrame</name>
     <message>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Gebruikersnaam</translation>
     </message>
     <message>
         <source>Computer name</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Computernaam</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Wachtwoord</translation>
     </message>
     <message>
         <source>Repeat password</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Wachtwoord herhalen</translation>
     </message>
     <message>
         <source>Root password</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Rootwachtwoord</translation>
     </message>
     <message>
         <source>Repeat root password</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Rootwachtwoord herhalen</translation>
     </message>
 </context>
 <context>
@@ -2361,31 +2366,31 @@
     <name>installer::TimezoneFrame</name>
     <message>
         <source>Select Timezone</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kies een tijdzone</translation>
     </message>
     <message>
         <source>Click your zone on the map</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Klik je zone aan op de kaart</translation>
     </message>
     <message>
         <source>Select your timezone from the list</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Selecteer je tijdzone uit de lijst</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Volgende</translation>
     </message>
     <message>
         <source>Map</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kaart</translation>
     </message>
     <message>
         <source>List</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Lijst</translation>
     </message>
     <message>
         <source>Time settings</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tijdsinstellingen</translation>
     </message>
 </context>
 <context>
@@ -2415,19 +2420,19 @@
     <name>installer::VirtualMachineFrame</name>
     <message>
         <source>Friendly Reminder</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Vriendelijke herinnering</translation>
     </message>
     <message>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Je gebruikt een virtuele machine. Dit is van invloed op de prestaties en je gebruikerservaring. Voor de beste ervaring wordt een computerinstallatie aanbevolen.</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Doorgaan</translation>
     </message>
     <message>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Het systeem heeft vastgesteld dat je een virtuele machine gebruikt. Dit is van invloed op de prestaties en je gebruikerservaring. Voor de beste ervaring wordt een computerinstallatie aanbevolen.</translation>
     </message>
 </context>
 </TS>

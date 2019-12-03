@@ -22,14 +22,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="559"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="563"/>
         <source>Done</source>
         <translation>Tamamlandı</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="95"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="180"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="561"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="565"/>
         <source>Delete</source>
         <translation>Sil</translation>
     </message>
@@ -64,32 +64,37 @@
         <translation>/boot klasörününün bulunduğu bölüm diskteki ilk bölüm olmalıdır</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="502"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="501"/>
+        <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="506"/>
         <source>At least %1 MB is required for /boot partition</source>
         <translation>/boot bölümü için en az %1 MB gerekli</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="506"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="510"/>
         <source>Add an EFI partition to continue</source>
         <translation>Devam etmek için bir EFI bölümü ekleyin</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="510"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="514"/>
         <source>At least %1 MB is required for EFI partition</source>
         <translation>/EFI bölümü için en az %1 MB gerekli</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="514"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="518"/>
         <source>Add a Root partition to continue</source>
         <translation>Devam etmek için bir Kök bölümü ekleyin</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="519"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="523"/>
         <source>At least %1 GB is required for Root partition</source>
         <translation>Kök bölümü için en az %1 MB gerekli</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="524"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="528"/>
         <source>At least %1 GB is required for partition %2</source>
         <translation>%2 bölümü için en az %1 GB gerekiyor</translation>
     </message>
@@ -732,45 +737,45 @@
 <context>
     <name>installer::TimezoneFrame</name>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="113"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="219"/>
         <source>Select Timezone</source>
         <translation>Saat Dilimini Seç</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="221"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="349"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="116"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="353"/>
         <source>Click your zone on the map</source>
         <translation>Haritadaki bölgenizi tıklayın</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="118"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="356"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="119"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="358"/>
         <source>Select your timezone from the list</source>
         <translation>Listeden saat diliminizi seçin</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="121"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="223"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="222"/>
         <source>Next</source>
         <translation>Sonraki</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="226"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="225"/>
         <source>Map</source>
         <translation>Harita</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="232"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="231"/>
         <source>List</source>
         <translation>Liste</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="283"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="125"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="282"/>
         <source>Time settings</source>
         <translation>Zaman ayarları</translation>
     </message>
@@ -804,81 +809,81 @@
     <name>installer::AdvancedPartitionButton</name>
     <message>
         <source>Install here</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Buraya kur</translation>
     </message>
     <message>
         <source>To be formatted</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Biçimlendirilecek</translation>
     </message>
 </context>
 <context>
     <name>installer::AdvancedPartitionFrame</name>
     <message>
         <source>Change boot loader</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Önyükleyiciyi değiştir</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tamamlandı</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Sil</translation>
     </message>
     <message>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 hata bulundu, kuruluma devam etmek için sorunu giderin ya da basit kipe geçin</translation>
     </message>
     <message>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 sorun bulundu. Kuruluma devam etmek için sorunu düzeltin ya da basit kipe geçin</translation>
     </message>
     <message>
         <source>%1 error found, continue to install after fixed</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 sorun bulundu. Kuruluma devam etmek için sorunu düzeltin</translation>
     </message>
     <message>
         <source>%1 errors found, continue to install after fixed</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 sorun bulundu. Kuruluma devam etmek için sorunu düzeltin</translation>
     </message>
     <message>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation type="unfinished"/>
+        <translation type="vanished">/boot klasörününün bulunduğu bölümün dosya sistemi türü yalnız %1 olabilir</translation>
     </message>
     <message>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">/boot klasörününün bulunduğu bölüm diskteki ilk bölüm olmalıdır</translation>
     </message>
     <message>
         <source>At least %1 MB is required for /boot partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">/boot bölümü için en az %1 MB gerekli</translation>
     </message>
     <message>
         <source>Add an EFI partition to continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Devam etmek için bir EFI bölümü ekleyin</translation>
     </message>
     <message>
         <source>At least %1 MB is required for EFI partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">/EFI bölümü için en az %1 MB gerekli</translation>
     </message>
     <message>
         <source>Add a Root partition to continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Devam etmek için bir Kök bölümü ekleyin</translation>
     </message>
     <message>
         <source>At least %1 GB is required for Root partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kök bölümü için en az %1 MB gerekli</translation>
     </message>
     <message>
         <source>At least %1 GB is required for partition %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%2 bölümü için en az %1 GB gerekiyor</translation>
     </message>
 </context>
 <context>
     <name>installer::BootloaderListModel</name>
     <message>
         <source>%1 %2 (recommended)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 %2 (önerilen)</translation>
     </message>
 </context>
 <context>
@@ -1418,19 +1423,19 @@
     <name>installer::ConfirmQuitFrame</name>
     <message>
         <source>Abort Installation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kurulumu İptal Et</translation>
     </message>
     <message>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kurulum sırasında yapacağınız işlemler etkili olmaz. Kurulumu iptal etmek mi sürdürmek mi istersiniz?</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Devam Et</translation>
     </message>
     <message>
         <source>Abort</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">İptal</translation>
     </message>
 </context>
 <context>
@@ -1462,11 +1467,11 @@
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
         <source>Insufficient Disk Space</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Disk Alanı Yetersiz</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Çıkış</translation>
     </message>
 </context>
 <context>
@@ -1491,69 +1496,69 @@
     <name>installer::EditPartitionFrame</name>
     <message>
         <source>Edit Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Diski Düzenle</translation>
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Önemli verileri yedeklediğinizden emin olduktan sonra kurulum yapılacak diski seçin</translation>
     </message>
     <message>
         <source>File system</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Dosya sistemi</translation>
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bağlama noktası</translation>
     </message>
     <message>
         <source>Format the partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bölümü biçimlendir</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">İptal</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Oluştur</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Onayla</translation>
     </message>
 </context>
 <context>
     <name>installer::FirstBootLoadingFrame</name>
     <message>
         <source>Tuning system</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Sistem ayarlanıyor</translation>
     </message>
     <message>
         <source>Applying changes to your system, please wait...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Değişiklikler sisteminize uygulanırken lütfen bekleyin...</translation>
     </message>
 </context>
 <context>
     <name>installer::FullDiskFrame</name>
     <message>
         <source>Install here</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Buraya kur</translation>
     </message>
     <message>
         <source>Encrypt this disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bu diski şifrele</translation>
     </message>
     <message>
         <source>Encrypt This Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bu Diski Şifrele</translation>
     </message>
     <message>
         <source>Please select a disk to start installation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Lütfen kurulum yapılacak bir disk seçin</translation>
     </message>
     <message>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">UOS kurmak için en az %1 GB disk alanına ihtiyacınız var. Daha iyi performans için %2 GB veya daha fazlası önerilir</translation>
     </message>
 </context>
 <context>
@@ -1631,11 +1636,11 @@
     <name>installer::InstallProgressFrame</name>
     <message>
         <source>Installing</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kuruluyor</translation>
     </message>
     <message>
         <source>Here are a few cool things to look out for...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">İşte dikkat etmeniz gereken birkaç güzel şey...</translation>
     </message>
 </context>
 <context>
@@ -1663,11 +1668,11 @@
     <name>installer::MultipleDiskInstallationWidget</name>
     <message>
         <source>System Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Sistem Diski</translation>
     </message>
     <message>
         <source>Data Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Veri Diski</translation>
     </message>
 </context>
 <context>
@@ -1727,158 +1732,158 @@
     <name>installer::NewPartitionFrame</name>
     <message>
         <source>Create New Partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Yeni Bölüm Oluştur</translation>
     </message>
     <message>
         <source>Create a new partition and define the type and size</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Türünü ve boyutunu tanımlayarak yeni bir bölüm oluşturun</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tür</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Konum</translation>
     </message>
     <message>
         <source>File system</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Dosya sistemi</translation>
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bağlama noktası</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Boyut</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Başlangıç</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bitiş</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">İptal</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tamam</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Oluştur</translation>
     </message>
 </context>
 <context>
     <name>installer::NewTableLoadingFrame</name>
     <message>
         <source>Formatting...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Biçimlendiriliyor...</translation>
     </message>
 </context>
 <context>
     <name>installer::NewTableWarningFrame</name>
     <message>
         <source>Format Warning</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Biçimlendirme Uyarısı</translation>
     </message>
     <message>
         <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Devam eden kurulum tüm diski biçimlendirir, lütfen tüm verilerinizi yedekleyin. Ne yaptığınızı bilmiyorsanız, lütfen devam etmeyin</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">İptal</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Devam</translation>
     </message>
 </context>
 <context>
     <name>installer::PartitionFrame</name>
     <message>
         <source>Select Installation Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kurulum Konumunu Seçin</translation>
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Önemli verileri yedeklediğinizden emin olduktan sonra kurulum yapılacak diski seçin</translation>
     </message>
     <message>
         <source>Simple</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Basit</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Gelişmiş</translation>
     </message>
     <message>
         <source>Full Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tüm Disk</translation>
     </message>
     <message>
         <source>Start installation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kurulumu başlat</translation>
     </message>
     <message>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Hedef disk devingen türde olduğundan ilerlerseniz verileriniz kaybolabilir. Lütfen önce önemli dosyalarınızın yedeğini alın.</translation>
     </message>
     <message>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Hedef disk devingen türde olduğundan ilerlerseniz biçimlendirilecek. Lütfen önce önemli dosyalarınızın yedeğini alın.</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Sonraki</translation>
     </message>
 </context>
 <context>
     <name>installer::PartitionLoadingFrame</name>
     <message>
         <source>Scan disks</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Diskleri tara</translation>
     </message>
     <message>
         <source>Scanning disks, please wait...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Diskler taranıyor, lütfen bekleyin...</translation>
     </message>
 </context>
 <context>
     <name>installer::PartitionNumberLimitationFrame</name>
     <message>
         <source>You should delete a primary partition before creating a new one</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Yeni bir birincil bölüm oluşturmak için var olan birincil bölümü silmelisiniz</translation>
     </message>
     <message>
         <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Yeni mantıksal bölümler yalnız var olan mantıksal bölümlerin yanında oluşturulabilir</translation>
     </message>
     <message>
         <source>You should delete a primary partition before creating a new partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Yeni bir bölüm oluşturmak için bir birincil bölümü silmelisiniz</translation>
     </message>
     <message>
         <source>Failed to Create New Partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Yeni Bölüm Oluşturulamadı</translation>
     </message>
     <message>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">MBR diskinde yalnızca dört birincil bölüm olabileceğinden, yeni bir tane oluşturmadan önce bir birincil bölümü silmelisiniz</translation>
     </message>
     <message>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Mantıksal bir tane oluşturmadan önce birincil bölümü silmeniz veya varolan mantıksal bölümü diskin sonuna taşımanız gerekir.</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Geri</translation>
     </message>
 </context>
 <context>
@@ -1972,34 +1977,34 @@
     <name>installer::PartitionTypeModel</name>
     <message>
         <source>Logical Partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Mantksal Bölüm</translation>
     </message>
     <message>
         <source>Primary Partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Birincil Bölüm</translation>
     </message>
 </context>
 <context>
     <name>installer::PrepareInstallFrame</name>
     <message>
         <source>Ready to Install</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kuruluma Hazır</translation>
     </message>
     <message>
         <source>Make a backup of your important data and then continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Önemli verilerin yedeğini aldıktan sonra devam edin</translation>
     </message>
     <message>
         <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Aşağıdaki işlemler gerçekleştirilecek, lütfen veri kaybını önlemek için onaylayın ve devam edin</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Geri</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Devam</translation>
     </message>
 </context>
 <context>
@@ -2029,15 +2034,15 @@
     <name>installer::SelectBootloaderFrame</name>
     <message>
         <source>Select location for boot loader</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ön yükleyicinin konumunu seçin</translation>
     </message>
     <message>
         <source>If you do not understand the settings, please select the recommended one</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ayarları anlamadıysanız, lütfen önerilen olanı seçin</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Geri</translation>
     </message>
 </context>
 <context>
@@ -2095,23 +2100,23 @@
     <name>installer::SimplePartitionFrame</name>
     <message>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Yeni bir bölüm oluşturulamadı. Lütfen var olan bölümlerden birini seçin!</translation>
     </message>
     <message>
         <source>Please select one of the partitions to install!</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Lütfen kurulum yapılacak bir bölüm seçin!</translation>
     </message>
     <message>
         <source>At least %1 GB is required for root partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kök bölümü için en az %1 MB gerekli</translation>
     </message>
     <message>
         <source>Install here</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Buraya kur</translation>
     </message>
     <message>
         <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Windows diskine UOS kurarsanız Windows önyükleme yapamaz, lütfen devam etmek için onaylayın</translation>
     </message>
 </context>
 <context>
@@ -2168,11 +2173,11 @@
     <name>installer::SystemInfoAvatarFrame</name>
     <message>
         <source>User Avatar</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kullanıcı Avatarı</translation>
     </message>
     <message>
         <source>Select an avatar for your account</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Hesabınız için bir avatar seçin</translation>
     </message>
 </context>
 <context>
@@ -2192,27 +2197,27 @@
     <name>installer::SystemInfoFormFrame</name>
     <message>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kullanıcı adı</translation>
     </message>
     <message>
         <source>Computer name</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bilgisayar adı</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Parola</translation>
     </message>
     <message>
         <source>Repeat password</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Parolayı tekrarla</translation>
     </message>
     <message>
         <source>Root password</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kök parolası</translation>
     </message>
     <message>
         <source>Repeat root password</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kök parolasını tekrarla</translation>
     </message>
 </context>
 <context>
@@ -2361,31 +2366,31 @@
     <name>installer::TimezoneFrame</name>
     <message>
         <source>Select Timezone</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Saat Dilimini Seç</translation>
     </message>
     <message>
         <source>Click your zone on the map</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Haritadaki bölgenizi tıklayın</translation>
     </message>
     <message>
         <source>Select your timezone from the list</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Listeden saat diliminizi seçin</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Sonraki</translation>
     </message>
     <message>
         <source>Map</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Harita</translation>
     </message>
     <message>
         <source>List</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Liste</translation>
     </message>
     <message>
         <source>Time settings</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Zaman ayarları</translation>
     </message>
 </context>
 <context>
@@ -2415,19 +2420,19 @@
     <name>installer::VirtualMachineFrame</name>
     <message>
         <source>Friendly Reminder</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Bir Defa Hatırlat</translation>
     </message>
     <message>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Sistem performansını ve kullanıcı deneyimini etkileyecek bir sanal makine kullanıyorsunuz. Daha hızlı bir deneyim için lütfen Deepin&apos;ı gerçek bir sisteme kurun</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Devam</translation>
     </message>
     <message>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Sistem, sorunsuz bir deneyim için sistem performansını ve çalışma deneyimini etkileyecek bir sanal makine kullandığınızı tespit etti ve sorunsuz bir deneyim için Deepin gerçek makine ortamına kurulması önerilir</translation>
     </message>
 </context>
 </TS>

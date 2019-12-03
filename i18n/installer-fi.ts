@@ -22,14 +22,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="559"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="563"/>
         <source>Done</source>
         <translation>Valmis</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="95"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="180"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="561"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="565"/>
         <source>Delete</source>
         <translation>Poista</translation>
     </message>
@@ -64,32 +64,37 @@
         <translation>Levyn ensimmäisen osion pitäisi sisältää /boot-hakemisto</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="502"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="501"/>
+        <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="506"/>
         <source>At least %1 MB is required for /boot partition</source>
         <translation>Vähintään %1 MB tilaa tarvitaan /boot-osiolle</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="506"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="510"/>
         <source>Add an EFI partition to continue</source>
         <translation>Lisää EFI-osio jatkaaksesi</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="510"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="514"/>
         <source>At least %1 MB is required for EFI partition</source>
         <translation>Vähintään %1 MB tilaa tarvitaan EFI-osiolle</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="514"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="518"/>
         <source>Add a Root partition to continue</source>
         <translation>Lisää juuriosio jatkaaksesi</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="519"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="523"/>
         <source>At least %1 GB is required for Root partition</source>
         <translation>Vähintään %1 GB tilaa tarvitaan juuriosiolle</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="524"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="528"/>
         <source>At least %1 GB is required for partition %2</source>
         <translation>Ainakin %1 Gt tarvitaan osiolle %2</translation>
     </message>
@@ -608,7 +613,7 @@
         <location filename="../src/ui/frames/install_success_frame.cpp" line="49"/>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="55"/>
         <source>Successfully Installed</source>
-        <translation>Asennettu onnistuneesti</translation>
+        <translation>Asennus onnistui</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="51"/>
@@ -620,7 +625,7 @@
         <location filename="../src/ui/frames/install_success_frame.cpp" line="53"/>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="56"/>
         <source>Please remove the installation media before reboot</source>
-        <translation>Ole hyvä ja poista asennusmedia ennen uudelleenkäynnistystä</translation>
+        <translation>Poista asennusmedia ennen käynnistystä uudelleen</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="54"/>
@@ -675,7 +680,7 @@
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="115"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="234"/>
         <source>Install here</source>
-        <translation>Asennetaan tänne</translation>
+        <translation>Asenna tänne</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
@@ -732,47 +737,47 @@
 <context>
     <name>installer::TimezoneFrame</name>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="112"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="113"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="219"/>
         <source>Select Timezone</source>
         <translation>Valitse aikavyöhyke</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="115"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="221"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="349"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="116"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="353"/>
         <source>Click your zone on the map</source>
         <translation>Klikkaa vyöhykettä kartalla</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="118"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="356"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="119"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="358"/>
         <source>Select your timezone from the list</source>
         <translation>Valitse aikavyöhyke luettelosta</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="121"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="223"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="222"/>
         <source>Next</source>
         <translation>Seuraava</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="226"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="225"/>
         <source>Map</source>
         <translation>Kartta</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="232"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="231"/>
         <source>List</source>
         <translation>Lista</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="283"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="125"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="282"/>
         <source>Time settings</source>
-        <translation>Aika-asetukset</translation>
+        <translation>Aseta aika</translation>
     </message>
 </context>
 <context>
@@ -804,81 +809,81 @@
     <name>installer::AdvancedPartitionButton</name>
     <message>
         <source>Install here</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Asenna tähän</translation>
     </message>
     <message>
         <source>To be formatted</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tullaan alustamaan</translation>
     </message>
 </context>
 <context>
     <name>installer::AdvancedPartitionFrame</name>
     <message>
         <source>Change boot loader</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Vaihda käynnistyslataimen paikkaa</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Valmis</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Poista</translation>
     </message>
     <message>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 virhe löytyi, korjaa se jatkaaksesi asennusta tai siirry yksinkertaiseen tilaan</translation>
     </message>
     <message>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 virhettä löytyi, korjaa ne jatkaaksesi asennusta tai siirry yksinkertaiseen tilaan</translation>
     </message>
     <message>
         <source>%1 error found, continue to install after fixed</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 virhe löytyi, asennusta jatketaan korjauksen jälkeen</translation>
     </message>
     <message>
         <source>%1 errors found, continue to install after fixed</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 virhettä löytyi, asennusta jatketaan korjausten jälkeen</translation>
     </message>
     <message>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation type="unfinished"/>
+        <translation type="vanished">/boot hakemiston sisältävän levyn osion tiedostojärjestelmän tyyppi voi olla vain %1</translation>
     </message>
     <message>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Levyn ensimmäisen osion pitäisi sisältää /boot-hakemisto</translation>
     </message>
     <message>
         <source>At least %1 MB is required for /boot partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Vähintään %1 MB tilaa tarvitaan /boot-osiolle</translation>
     </message>
     <message>
         <source>Add an EFI partition to continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Lisää EFI-osio jatkaaksesi</translation>
     </message>
     <message>
         <source>At least %1 MB is required for EFI partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Vähintään %1 MB tilaa tarvitaan EFI-osiolle</translation>
     </message>
     <message>
         <source>Add a Root partition to continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Lisää juuriosio jatkaaksesi</translation>
     </message>
     <message>
         <source>At least %1 GB is required for Root partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Vähintään %1 GB tilaa tarvitaan juuriosiolle</translation>
     </message>
     <message>
         <source>At least %1 GB is required for partition %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ainakin %1 Gt tarvitaan osiolle %2</translation>
     </message>
 </context>
 <context>
     <name>installer::BootloaderListModel</name>
     <message>
         <source>%1 %2 (recommended)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">%1 %2 (suositeltu)</translation>
     </message>
 </context>
 <context>
@@ -1291,7 +1296,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>Email, chat, and video conferencing software.</source>
-        <translation>Sähköposti-, chat- ja videoneuvotteluohjelmistot.</translation>
+        <translation>Sähköposti-, chat- ja videoneuvottelu</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
@@ -1418,19 +1423,19 @@
     <name>installer::ConfirmQuitFrame</name>
     <message>
         <source>Abort Installation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Keskeytä asennus</translation>
     </message>
     <message>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Asentamisprosessissa tehdyt toimenpiteet eivät tule voimaan, keskeytetäänkö vai jatketaanko asennusta?</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Jatka</translation>
     </message>
     <message>
         <source>Abort</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Keskeytä</translation>
     </message>
 </context>
 <context>
@@ -1462,11 +1467,11 @@
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
         <source>Insufficient Disk Space</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Riittämätön levytila</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Poistu</translation>
     </message>
 </context>
 <context>
@@ -1491,69 +1496,69 @@
     <name>installer::EditPartitionFrame</name>
     <message>
         <source>Edit Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Muokkaa levyä</translation>
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Varmista, että olet varmuuskopioinut tärkeät tiedot, ja valitse sitten levy jolle haluat asentaa</translation>
     </message>
     <message>
         <source>File system</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tiedostojärjestelmä</translation>
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Liitoskohta</translation>
     </message>
     <message>
         <source>Format the partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Alusta osio</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Peruuta</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Luo</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Vahvista</translation>
     </message>
 </context>
 <context>
     <name>installer::FirstBootLoadingFrame</name>
     <message>
         <source>Tuning system</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Viimeistellään järjestelmää</translation>
     </message>
     <message>
         <source>Applying changes to your system, please wait...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Muutoksia otetaan käyttöön järjestelmässä, odota...</translation>
     </message>
 </context>
 <context>
     <name>installer::FullDiskFrame</name>
     <message>
         <source>Install here</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Asennetaan tänne</translation>
     </message>
     <message>
         <source>Encrypt this disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Salaa tämä levy</translation>
     </message>
     <message>
         <source>Encrypt This Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Salaa tämä levy</translation>
     </message>
     <message>
         <source>Please select a disk to start installation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Valitse levy, johon haluat asentaa asennuksen</translation>
     </message>
     <message>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tarvitset vähintään %1 Gt levytilaa UOS-asennusta varten. Paremman suorituskyvyn saavuttamiseksi suositellaan %2 Gt tai enemmän</translation>
     </message>
 </context>
 <context>
@@ -1631,11 +1636,11 @@
     <name>installer::InstallProgressFrame</name>
     <message>
         <source>Installing</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Asennetaan</translation>
     </message>
     <message>
         <source>Here are a few cool things to look out for...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tässä on muutamia hienoja asioita, joihin kannattaa kiinnittää huomiota ...</translation>
     </message>
 </context>
 <context>
@@ -1663,11 +1668,11 @@
     <name>installer::MultipleDiskInstallationWidget</name>
     <message>
         <source>System Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Järjestelmälevy</translation>
     </message>
     <message>
         <source>Data Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Taltio</translation>
     </message>
 </context>
 <context>
@@ -1727,158 +1732,158 @@
     <name>installer::NewPartitionFrame</name>
     <message>
         <source>Create New Partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Luo uusi osio</translation>
     </message>
     <message>
         <source>Create a new partition and define the type and size</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Luo uusi osio, ja määritä sen tyyppi ja koko</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tyyppi</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Sijainti</translation>
     </message>
     <message>
         <source>File system</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tiedostojärjestelmä</translation>
     </message>
     <message>
         <source>Mount point</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Liitoskohta</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Koko</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Alku</translation>
     </message>
     <message>
         <source>End</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Loppu</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Peruuta</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">OK</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Luo</translation>
     </message>
 </context>
 <context>
     <name>installer::NewTableLoadingFrame</name>
     <message>
         <source>Formatting...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Alustetaan...</translation>
     </message>
 </context>
 <context>
     <name>installer::NewTableWarningFrame</name>
     <message>
         <source>Format Warning</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Alustamisen varoitus</translation>
     </message>
     <message>
         <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Jatkamalla asennusta alustat koko levyn. Onko varmuuskopio kaikista tiedoista? Jos et tiedä mitä teet, älä jatka</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Peruuta</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Jatka</translation>
     </message>
 </context>
 <context>
     <name>installer::PartitionFrame</name>
     <message>
         <source>Select Installation Location</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Valitse asennuspaikka</translation>
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Varmista, että olet varmuuskopioinut tärkeät tiedot, ja valitse sitten levy jolle haluat asentaa</translation>
     </message>
     <message>
         <source>Simple</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Yksinkertainen</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Edistynyt</translation>
     </message>
     <message>
         <source>Full Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Levy täynnä</translation>
     </message>
     <message>
         <source>Start installation</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Aloita asennus</translation>
     </message>
     <message>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kohdelevy on dynaaminen ja tiedot saattavat kadota, jos jatkat. Tee varmuuskopio tärkeistä tiedostoista ensin.</translation>
     </message>
     <message>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kohdelevy on dynaaminen, joka alustetaan, jos jatkat. Tee varmuus kopio tärkeistä tiedostoista ensin.</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Seuraava</translation>
     </message>
 </context>
 <context>
     <name>installer::PartitionLoadingFrame</name>
     <message>
         <source>Scan disks</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Levyjä skannataan</translation>
     </message>
     <message>
         <source>Scanning disks, please wait...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Levyjä skannataan, ole hyvä ja odota...</translation>
     </message>
 </context>
 <context>
     <name>installer::PartitionNumberLimitationFrame</name>
     <message>
         <source>You should delete a primary partition before creating a new one</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Sinun tulee poistaa ensisijainen osio ennen kuin luot uuden</translation>
     </message>
     <message>
         <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Uusia loogisia osioita voidaan luoda vain lähelle olemassa olevia loogisia osioita</translation>
     </message>
     <message>
         <source>You should delete a primary partition before creating a new partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Sinun tulee poistaa ensisijainen osio ennen kuin luot uuden osion</translation>
     </message>
     <message>
         <source>Failed to Create New Partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Uuden osion luominen epäonnistui</translation>
     </message>
     <message>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ensisijainen osio tulisi poistaa ennen uuden luomista, koska MBR-levyllä voi olla vain neljä ensisijaista osiota</translation>
     </message>
     <message>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Sinun tulisi poistaa ensisijainen osio ennen loogisen luomista tai siirtää olemassa oleva looginen osio levyn loppuun</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Takaisin</translation>
     </message>
 </context>
 <context>
@@ -1972,34 +1977,34 @@
     <name>installer::PartitionTypeModel</name>
     <message>
         <source>Logical Partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Looginen osio</translation>
     </message>
     <message>
         <source>Primary Partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ensisijainen osio</translation>
     </message>
 </context>
 <context>
     <name>installer::PrepareInstallFrame</name>
     <message>
         <source>Ready to Install</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Valmis asentamaan</translation>
     </message>
     <message>
         <source>Make a backup of your important data and then continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tee varmuuskopio tärkeistä tiedoista ja jatka sitten</translation>
     </message>
     <message>
         <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Seuraavat toiminnot toteutetaan, ole hyvä ja vahvista välttääksesi tietojen menettämistä</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Takaisin</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Jatka</translation>
     </message>
 </context>
 <context>
@@ -2029,15 +2034,15 @@
     <name>installer::SelectBootloaderFrame</name>
     <message>
         <source>Select location for boot loader</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Valitse käynnistyslataimen sijainti</translation>
     </message>
     <message>
         <source>If you do not understand the settings, please select the recommended one</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Jos et ymmärrä asetuksia, ole hyvä ja valitse oletusasetukset</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Takaisin</translation>
     </message>
 </context>
 <context>
@@ -2095,23 +2100,23 @@
     <name>installer::SimplePartitionFrame</name>
     <message>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Uutta osiota ei voitu luoda, valitse jokin nykyisistä osioista!</translation>
     </message>
     <message>
         <source>Please select one of the partitions to install!</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Valitse osio, johon haluat asentaa!</translation>
     </message>
     <message>
         <source>At least %1 GB is required for root partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Vähintään %1 GB tilaa tarvitaan juuriosiolle</translation>
     </message>
     <message>
         <source>Install here</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Asenna tänne</translation>
     </message>
     <message>
         <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Windows ei käynnisty, jos UOS asennetaan Windows-levylle. Vahvista jatkaaksesi</translation>
     </message>
 </context>
 <context>
@@ -2120,7 +2125,7 @@
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
         <source>Time settings</source>
-        <translation>Aika-asetukset</translation>
+        <translation>Aseta aika</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="63"/>
@@ -2168,11 +2173,11 @@
     <name>installer::SystemInfoAvatarFrame</name>
     <message>
         <source>User Avatar</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Käyttäjätilin avatari</translation>
     </message>
     <message>
         <source>Select an avatar for your account</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Valitse avatar käyttäjätilillesi</translation>
     </message>
 </context>
 <context>
@@ -2192,27 +2197,27 @@
     <name>installer::SystemInfoFormFrame</name>
     <message>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Käyttäjänimi</translation>
     </message>
     <message>
         <source>Computer name</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tietokoneen nimi</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Salasana</translation>
     </message>
     <message>
         <source>Repeat password</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Toista salasana</translation>
     </message>
     <message>
         <source>Root password</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Root salasana</translation>
     </message>
     <message>
         <source>Repeat root password</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Toista root salasana</translation>
     </message>
 </context>
 <context>
@@ -2285,7 +2290,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="396"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
-        <translation>Käyttäjänimen on sisällettävä englantilaisia pienaakkosia, numeroita tai erikoismerkkejä (_-)</translation>
+        <translation>Käyttäjänimen on sisällettävä (pienaakkosia), numeroita tai erikoismerkkejä (_-)</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="402"/>
@@ -2361,31 +2366,31 @@
     <name>installer::TimezoneFrame</name>
     <message>
         <source>Select Timezone</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Valitse aikavyöhyke</translation>
     </message>
     <message>
         <source>Click your zone on the map</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Klikkaa vyöhykettä kartalla</translation>
     </message>
     <message>
         <source>Select your timezone from the list</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Valitse aikavyöhyke luettelosta</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Seuraava</translation>
     </message>
     <message>
         <source>Map</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kartta</translation>
     </message>
     <message>
         <source>List</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Lista</translation>
     </message>
     <message>
         <source>Time settings</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Aseta aika</translation>
     </message>
 </context>
 <context>
@@ -2415,19 +2420,19 @@
     <name>installer::VirtualMachineFrame</name>
     <message>
         <source>Friendly Reminder</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Muistutus</translation>
     </message>
     <message>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Käytät virtuaalikonetta, joka rajoittaa järjestelmän suorituskykyä ja käyttökokemusta. Asenna UOS oikeaan tietokoneeseen saadaksesi sujuvamman käyttökokemuksen</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Jatka</translation>
     </message>
     <message>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Järjestelmä on havainnut käyttäväsi virtuaalikonetta, joka rajoittaa järjestelmän suorituskykyä ja käyttökokemusta. Sujuvan kokemuksen saavuttamiseksi on suositeltavaa asentaa UOS oikeaan tietokoneeseen.</translation>
     </message>
 </context>
 </TS>
