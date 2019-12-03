@@ -16,27 +16,27 @@
  */
 
 #include "install_failed_frame.h"
+
 #include "ui/frames/install_failed_frame.h"
-
-#include <QEvent>
-#include <QLabel>
-#include <QVBoxLayout>
-#include <QScrollBar>
-#include <QPlainTextEdit>
-#include <QLabel>
-#include <QStackedLayout>
-#include <QScrollBar>
-
 #include "base/file_util.h"
 #include "ui/delegates/main_window_util.h"
 #include "ui/frames/consts.h"
 #include "ui/widgets/comment_label.h"
-#include "ui/widgets/nav_button.h"
 #include "ui/widgets/qr_widget.h"
 #include "ui/widgets/title_label.h"
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/title_label.h"
+#include "ui/widgets/pointer_button.h"
 
+#include <QEvent>
+#include <QLabel>
+#include <QVBoxLayout>
+#include <QScrollArea>
+#include <QScrollBar>
+#include <QScroller>
+#include <QPlainTextEdit>
+#include <QLabel>
+#include <QPushButton>
 
 namespace installer {
 
@@ -60,8 +60,8 @@ public:
 
     QLabel *title_label_;
     CommentLabel *comment_label_ ;
-    NavButton *reboot_button_ ;
-    NavButton *save_log_button_;
+    QPushButton *reboot_button_ ;
+    QPushButton *save_log_button_;
     QRWidget *qr_widget_;
     QWidget* qrParentWidget;
     QPlainTextEdit *m_plainTextEdit ;
@@ -140,7 +140,7 @@ void InstallFailedFramePrivate::initConnections()
             this, &InstallFailedFramePrivate::onControlButtonClicked);
     connect(reboot_button_, &QPushButton::clicked,
             m_ptr, &InstallFailedFrame::finished);
-    connect(save_log_button_, &NavButton::clicked,
+    connect(save_log_button_, &QPushButton::clicked,
             m_ptr, &InstallFailedFrame::showSaveLogFrame);
 }
 
@@ -205,8 +205,8 @@ void InstallFailedFramePrivate::initUI()
     control_button_->raise();
     control_button_->show();
 
-    reboot_button_ = new NavButton;
-    save_log_button_ = new NavButton;
+    reboot_button_ = new QPushButton;
+    save_log_button_ = new QPushButton;
 
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setContentsMargins(0, 0, 0, 0);
