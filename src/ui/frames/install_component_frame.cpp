@@ -181,14 +181,18 @@ void SelectInstallComponentFrame::initUI()
     componentLayout->addSpacing(20);
     componentLayout->addWidget(m_compScrollArea);
 
+    QWidget* serverWidget = new QWidget;
+    serverWidget->setLayout(serverTypeLayout);
+
+    QWidget* componentWidget = new QWidget;
+    componentWidget->setLayout(componentLayout);
+
     QHBoxLayout* hLayout = new QHBoxLayout;
     hLayout->setMargin(0);
     hLayout->setSpacing(0);
-    hLayout->addStretch();
-    hLayout->addLayout(serverTypeLayout);
+    hLayout->addWidget(serverWidget, 0, Qt::AlignRight);
     hLayout->addSpacing(1);
-    hLayout->addLayout(componentLayout);
-    hLayout->addStretch();
+    hLayout->addWidget(componentWidget, 0, Qt::AlignLeft);
 
     QVBoxLayout* mainLayout = new QVBoxLayout;
     mainLayout->setSpacing(0);

@@ -21,6 +21,10 @@ DIScrollArea::DIScrollArea(QWidget *parent)
 
 void DIScrollArea::setWidget(QWidget *widget)
 {
+    if (this->widget()) {
+        this->widget()->removeEventFilter(this);
+    }
+
     QScrollArea::setWidget(widget);
     widget->installEventFilter(this);
 }
@@ -30,14 +34,14 @@ void DIScrollArea::initUI()
     setWidgetResizable(true);
     setFocusPolicy(Qt::NoFocus);
     setFrameStyle(QFrame::NoFrame);
-    setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+    setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
     setContentsMargins(0, 0, 0, 0);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setContextMenuPolicy(Qt::NoContextMenu);
     setStyleSheet("background: transparent;");
     QScroller::grabGesture(this, QScroller::TouchGesture);
-    setFixedWidth(kScrollAreaWidth);
+    setMaximumWidth(kScrollAreaWidth);
 
     m_scrollBar = verticalScrollBar();
     m_scrollBar->setParent(this);
@@ -63,6 +67,7 @@ bool DIScrollArea::eventFilter(QObject *watched, QEvent *event)
     if (watched == widget() && event->type() == QEvent::Resize) {
         QTimer::singleShot(0, this, [=] {
             m_scrollBar->setVisible(widget()->height() > height());
+            setFixedWidth(widget()->width());
         });
     }
 

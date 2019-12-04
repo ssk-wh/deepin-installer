@@ -9,7 +9,7 @@ namespace installer {
 namespace {
     const int kComponentWidgetWidth = 468;
     const int kComponentWidgetMinHeight = 80;
-    const int KQLabelWidth = 400;
+    const int KQLabelWidth = 350;
 }
 
 ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
@@ -57,9 +57,10 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
     }
     m_hLayout->addSpacing(5);
     m_hLayout->addLayout(m_vLayout);
+    m_hLayout->addStretch();
 
     setLayout(m_hLayout);
-    setFixedWidth(kComponentWidgetWidth);
+    setMaximumWidth(kComponentWidgetWidth);
     setMinimumHeight(kComponentWidgetMinHeight);
     setObjectName("ComponentWidget");
     setLayout(m_hLayout);
