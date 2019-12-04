@@ -77,7 +77,6 @@ public:
                "or save the log to an external disk. We will help solve the issue."));
         reboot_button_->setText(tr("Exit"));
         save_log_button_->setText(tr("Save Log"));
-        qr_widget_->setText("Error: failed to read log");
     }
 
     void onControlButtonClicked();
@@ -114,13 +113,15 @@ void InstallFailedFrame::updateMessage()
     }
 
     d->m_plainTextEdit->setPlainText(msg);
+    d->m_plainTextEdit->moveCursor(QTextCursor::End);
+    d->m_plainTextEdit->ensureCursorVisible();
 
     if (encoded_msg.isEmpty()) {
         // If encoded_msg if empty, qr_widget will generate a rectangle filled with
         // red color, which is not what we expect.
         encoded_msg = EncodeErrorMsg("Error: failed to read log");
     }
-    d->updatetx();
+    d->qr_widget_->setText(encoded_msg);
 }
 
 void InstallFailedFrame::changeEvent(QEvent *event)
