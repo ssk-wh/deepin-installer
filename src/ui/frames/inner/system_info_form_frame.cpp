@@ -26,6 +26,8 @@
 #include <vector>
 #include <QCheckBox>
 #include <QDebug>
+#include <QScrollArea>
+#include <QScrollBar>
 
 #include "base/file_util.h"
 #include "service/settings_manager.h"
@@ -314,9 +316,6 @@ void SystemInfoFormFramePrivate::initUI()
     m_editList.push_back(m_rootPasswordEdit);
     m_editList.push_back(m_rootPasswordCheckEdit);
 
-    tooltip_ = new SystemInfoTip(q);
-    tooltip_->hide();
-
     m_grubPasswordCheck_ = new QCheckBox;
     m_grubPasswordCheck_->setCheckable(true);
     m_grubPasswordCheck_->setChecked(false);
@@ -328,11 +327,6 @@ void SystemInfoFormFramePrivate::initUI()
     QVBoxLayout* layout = new QVBoxLayout;
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(kMainLayoutSpacing);
-    layout->addStretch();
-    layout->addWidget(m_titleLabel_, 0, Qt::AlignHCenter);
-    layout->addWidget(m_commentLabel_, 0, Qt::AlignHCenter);
-    layout->addWidget(m_avatarButton_, 0, Qt::AlignHCenter);
-    layout->addStretch();
     layout->addWidget(m_usernameEdit_, 0, Qt::AlignCenter);
     layout->addWidget(m_hostnameEdit_, 0, Qt::AlignCenter);
     layout->addWidget(m_passwordEdit_, 0, Qt::AlignCenter);
@@ -342,13 +336,39 @@ void SystemInfoFormFramePrivate::initUI()
     layout->addWidget(m_rootPasswordEdit, 0, Qt::AlignCenter);
     layout->addWidget(m_rootPasswordCheckEdit, 0, Qt::AlignCenter);
     layout->addWidget(m_grubPasswordCheck_, 0, Qt::AlignCenter);
-    layout->addStretch();
-    layout->addWidget(next_button_, 0, Qt::AlignCenter);
 
-    // m_usernameEdit_->setRightIcon(CAPS_LOCK_ICON);
-    // m_hostnameEdit_->setRightIcon();
+    QFrame* content = new QFrame;
+    content->setAutoFillBackground(false);
+    content->setAttribute(Qt::WA_TranslucentBackground);
+    content->setLayout(layout);
 
-    q->setLayout(layout);
+    QScrollArea* area = new QScrollArea(q);
+    area->setWidget(content);
+    area->setAutoFillBackground(false);
+    area->viewport()->setAutoFillBackground(false);
+    area->setWidgetResizable(true);
+    area->setFrameStyle(QScrollArea::NoFrame);
+    area->setFixedWidth(kSetRootPasswordCheckBoxWidth + 20);
+    area->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    area->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+
+    tooltip_ = new SystemInfoTip(content);
+    tooltip_->hide();
+
+    QVBoxLayout* mainLayout = new QVBoxLayout;
+    mainLayout->setMargin(0);
+    mainLayout->setSpacing(kMainLayoutSpacing);
+    mainLayout->addStretch();
+    mainLayout->addWidget(m_titleLabel_, 0, Qt::AlignHCenter);
+    mainLayout->addWidget(m_commentLabel_, 0, Qt::AlignHCenter);
+    mainLayout->addWidget(m_avatarButton_, 0, Qt::AlignHCenter);
+    mainLayout->addStretch();
+    mainLayout->addWidget(area, 0, Qt::AlignCenter);
+    mainLayout->addSpacing(10);
+    mainLayout->addWidget(next_button_, 0, Qt::AlignCenter);
+
+    q->setLayout(mainLayout);
     q->setContentsMargins(0, 0, 0, 0);
     q->setStyleSheet(ReadFile(":/styles/system_info_form_frame.css"));
 }

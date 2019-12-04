@@ -80,9 +80,11 @@ bool SetChildTransparent(QWidget* root, const QString& child_name) {
 void ShowFullscreen(QWidget* widget) {
   // NOTE(xushaohua): If geometry of primary screen changes too fast, this
   // function may return false screen geometry.
-  const QRect rect = qApp->desktop()->screenGeometry();
-  ShowFullscreen(widget, rect);
-  widget->showFullScreen();
+  // const QRect rect = qApp->desktop()->screenGeometry();
+  // ShowFullscreen(widget, rect);
+  // widget->showFullScreen();
+  widget->setFixedSize(800, 600);
+  widget->show();
 }
 
 void ShowFullscreen(QWidget* widget, const QRect& geometry) {
