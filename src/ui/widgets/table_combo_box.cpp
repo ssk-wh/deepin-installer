@@ -31,8 +31,6 @@ TableComboBox::TableComboBox(QWidget* parent) : QComboBox(parent) {
   QAbstractItemDelegate* delegate = new TableComboBoxDelegate(this);
   this->setItemDelegate(delegate);
   this->setStyleSheet(ReadFile(":/styles/table_combo_box.css"));
-
-  SetQComboBoxTransparent(this);
 }
 
 }  // namespace installer
