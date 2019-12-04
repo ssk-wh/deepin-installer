@@ -229,28 +229,33 @@ void SystemInfoFormFramePrivate::initConnections()
     connect(m_rootPasswordCheckEdit, SIGNAL(returnPressed()), next_button_
             , SIGNAL(clicked()));
 
-    connect(m_usernameEdit_, &LineEdit::textEdited, this,
-            &SystemInfoFormFramePrivate::onEditingLineEdit);
+    QList<LineEdit*> list {
+        m_usernameEdit_,
+        m_hostnameEdit_,
+        m_passwordEdit_,
+        m_passwordCheckEdit_,
+        m_rootPasswordEdit,
+        m_rootPasswordCheckEdit
+    };
+
+    for (LineEdit* edit : list) {
+        connect(edit, &LineEdit::textEdited, this,
+                &SystemInfoFormFramePrivate::onEditingLineEdit);
+        connect(edit, &LineEdit::gotFocus, this, [=] {
+            updateCapsLockState(KeyboardMonitor::instance()->isCapslockOn());
+        });
+    }
+
     connect(m_usernameEdit_, &LineEdit::textEdited, this,
             &SystemInfoFormFramePrivate::onUsernameEdited);
     connect(m_hostnameEdit_, &LineEdit::textEdited, this,
-            &SystemInfoFormFramePrivate::onEditingLineEdit);
-    connect(m_hostnameEdit_, &LineEdit::textEdited, this,
             &SystemInfoFormFramePrivate::onHostnameEdited);
-    connect(m_passwordEdit_, &LineEdit::textEdited, this,
-            &SystemInfoFormFramePrivate::onEditingLineEdit);
     connect(m_passwordEdit_, &LineEdit::textEdited, this,
             &SystemInfoFormFramePrivate::onPasswordEdited);
     connect(m_passwordCheckEdit_, &LineEdit::textEdited, this,
-            &SystemInfoFormFramePrivate::onEditingLineEdit);
-    connect(m_passwordCheckEdit_, &LineEdit::textEdited, this,
             &SystemInfoFormFramePrivate::onPassword2Edited);
     connect(m_rootPasswordEdit, &LineEdit::textEdited, this
-            , &SystemInfoFormFramePrivate::onEditingLineEdit);
-    connect(m_rootPasswordEdit, &LineEdit::textEdited, this
             , &SystemInfoFormFramePrivate::onRootPasswordEdited);
-    connect(m_rootPasswordCheckEdit, &LineEdit::textEdited, this
-            , &SystemInfoFormFramePrivate::onEditingLineEdit);
     connect(                                                 m_rootPasswordCheckEdit, &LineEdit::textEdited, this
             , &SystemInfoFormFramePrivate::onRootPasswordCheckEdited);
 
