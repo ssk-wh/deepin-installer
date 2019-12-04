@@ -359,7 +359,7 @@ void SystemInfoFormFramePrivate::initUI()
 
     QVBoxLayout* layout = new QVBoxLayout;
     layout->setContentsMargins(0, 0, 0, 0);
-    layout->setSpacing(25);
+    layout->setSpacing(kMainLayoutSpacing);
     layout->addWidget(m_usernameEdit_, 0, Qt::AlignCenter);
     layout->addWidget(m_hostnameEdit_, 0, Qt::AlignCenter);
     layout->addWidget(m_passwordEdit_, 0, Qt::AlignCenter);
@@ -369,25 +369,22 @@ void SystemInfoFormFramePrivate::initUI()
     layout->addWidget(m_rootPasswordEdit, 0, Qt::AlignCenter);
     layout->addWidget(m_rootPasswordCheckEdit, 0, Qt::AlignCenter);
     layout->addWidget(m_grubPasswordCheck_, 0, Qt::AlignCenter);
-    layout->addStretch();
 
-    QWidget* content = new QWidget;
+    QFrame* content = new QFrame;
+    content->setAutoFillBackground(false);
+    content->setAttribute(Qt::WA_TranslucentBackground);
     content->setLayout(layout);
-    content->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
-    DIScrollArea* area = new DIScrollArea(q);
-    area->setObjectName("scrollArea");
+    QScrollArea* area = new QScrollArea(q);
     area->setWidget(content);
+    area->setAutoFillBackground(false);
+    area->viewport()->setAutoFillBackground(false);
     area->setWidgetResizable(true);
     area->setFrameStyle(QScrollArea::NoFrame);
-    area->setFixedWidth(kSetRootPasswordCheckBoxWidth);
+    area->setFixedWidth(kSetRootPasswordCheckBoxWidth + 20);
     area->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     area->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    area->setContentsMargins(0, 0, 0, 0);
-    area->setStyleSheet("background: transparent;");
-    area->viewport()->setStyleSheet("background: transparent;");
-    area->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
     tooltip_ = new SystemInfoTip(content);
     tooltip_->hide();
@@ -395,14 +392,14 @@ void SystemInfoFormFramePrivate::initUI()
     QVBoxLayout* mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
     mainLayout->setSpacing(kMainLayoutSpacing);
-    mainLayout->addSpacing(kMainLayoutSpacing);
+    mainLayout->addStretch();
     mainLayout->addWidget(m_titleLabel_, 0, Qt::AlignHCenter);
     mainLayout->addWidget(m_commentLabel_, 0, Qt::AlignHCenter);
-    mainLayout->addSpacing(35);
     mainLayout->addWidget(m_avatarButton_, 0, Qt::AlignHCenter);
-    mainLayout->addSpacing(35);
-    mainLayout->addWidget(area, 0, Qt::AlignHCenter);
-    mainLayout->addWidget(next_button_, 0, Qt::AlignHCenter | Qt::AlignBottom);
+    mainLayout->addStretch();
+    mainLayout->addWidget(area, 0, Qt::AlignCenter);
+    mainLayout->addSpacing(10);
+    mainLayout->addWidget(next_button_, 0, Qt::AlignCenter);
 
     q->setLayout(mainLayout);
     q->setContentsMargins(0, 0, 0, 0);
