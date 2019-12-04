@@ -16,63 +16,54 @@
  */
 
 #include "sysinfo/validate_password.h"
+#include "service/settings_manager.h"
+#include "service/settings_name.h"
 
+#include <QSet>
+#include <QStringList>
+#include <QDebug>
 namespace installer {
+ValidatePasswordState ValidatePassword(const QString&     password,
+                                       int                min_len,
+                                       int                max_len,
+                                       bool               strong_pwd_check,
+                                       const QStringList& validatePolicy      = {},
+                                       int                validateRequiredNum = 0)
+{
+    Q_ASSERT(min_len >= 0);
+    Q_ASSERT(max_len > min_len);
 
-namespace {
-
-// Check whether chars in |pattern| exists in |str|.
-bool ContainsChar(const QString& str, const QString& pattern) {
-  for (const QChar& chr : pattern) {
-    if (str.contains(chr)) {
-      return true;
+    if (password.isEmpty() && min_len > 0) {
+        return ValidatePasswordState::EmptyError;
     }
-  }
-  return false;
-}
+    if (password.length() < min_len) {
+        return ValidatePasswordState::TooShortError;
+    }
+    if (password.length() > max_len) {
+        return ValidatePasswordState::TooLongError;
+    }
 
-}  // namespace
+    if (strong_pwd_check) {
+        if (!(password.split("").toSet() - validatePolicy.join("").split("").toSet())
+                 .isEmpty()) {
+            return ValidatePasswordState::StrongError;
+        }
 
-ValidatePasswordState ValidatePassword(const QString& password,
-                                       int min_len,
-                                       int max_len,
-                                       bool strong_pwd_check) {
-  Q_ASSERT(min_len >= 0);
-  Q_ASSERT(max_len > min_len);
+        if (std::count_if(validatePolicy.cbegin(), validatePolicy.cend(),
+                          [=](const QString& policy) {
+                              for (const QChar& c : policy) {
+                                  if (password.contains(c)) {
+                                      return true;
+                                  }
+                              }
 
-  uint success_num = 0;
+                              return false;
+                          }) < validateRequiredNum) {
+            return ValidatePasswordState::StrongError;
+        }
+    }
 
-  if (password.isEmpty() && min_len > 0) {
-    return ValidatePasswordState::EmptyError;
-  }
-  if (password.length() < min_len) {
-    return ValidatePasswordState::TooShortError;
-  }
-  if (password.length() > max_len) {
-    return ValidatePasswordState::TooLongError;
-  }
-
-  if (ContainsChar(password, "1234567890")) {
-    ++success_num;
-  }
-
-  if (ContainsChar(password, "abcdefghijklmnopqrstuvwxyz")) {
-    ++success_num;
-  }
-
-  if (ContainsChar(password, "ABCDEFGHIJKLMNOPQRSTUVWXYZ")) {
-    ++success_num;
-  }
-
-  if (ContainsChar(password, "~!@#$%^&*()[]{}\\|/?,.<>")) {
-    ++success_num;
-  }
-
-  if (strong_pwd_check && success_num < 2) {
-      return ValidatePasswordState::StrongError;
-  }
-
-  return ValidatePasswordState::Ok;
+    return ValidatePasswordState::Ok;
 }
 
 }  // namespace installer

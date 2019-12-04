@@ -19,6 +19,7 @@
 #define INSTALLER_SYSINFO_VALIDATE_PASSWORD_H
 
 #include <QString>
+#include <QStringList>
 
 namespace installer {
 
@@ -41,10 +42,12 @@ enum class ValidatePasswordState {
 //   * require_lower_case: |password| shall contains lower case char;
 //   * require_upper_case: |password| shall contains upper case char;
 //   * require_special_char: |password| shall contains special char;
-ValidatePasswordState ValidatePassword( const QString& password,
-                                        int min_len,
-                                        int max_len,
-                                        bool strong_pwd_check);
+ValidatePasswordState ValidatePassword(const QString&     password,
+                                       int                min_len,
+                                       int                max_len,
+                                       bool               strong_pwd_check,
+                                       const QStringList& validatePolicy,
+                                       int                validateRequiredNum);
 
 }  // namespace installer
 

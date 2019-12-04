@@ -23,23 +23,28 @@ namespace installer {
 namespace {
 
 TEST(ValidatePasswordTest, ValidatePassword) {
-  EXPECT_EQ(ValidatePassword("", 5, 10, false),
-            ValidatePasswordState::EmptyError);
-  EXPECT_EQ(ValidatePassword("ABC", 8, 12, false),
-            ValidatePasswordState::TooShortError);
+    const QStringList policy{ "1234567890", "abcdefghijklmnopqrstuvwxyz",
+                              "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "~!@#$%^&*()[]{}\\|/?,.<>" };
 
-  EXPECT_EQ(ValidatePassword("ABCDE12345", 4, 8, false),
-            ValidatePasswordState::TooLongError);
+    EXPECT_EQ(ValidatePassword("", 5, 10, false, {}, 0),
+              ValidatePasswordState::EmptyError);
+    EXPECT_EQ(ValidatePassword("ABC", 8, 12, false, {}, 0),
+              ValidatePasswordState::TooShortError);
 
-  EXPECT_EQ(ValidatePassword("abced", 4, 12, true),
-            ValidatePasswordState::StrongError);
+    EXPECT_EQ(ValidatePassword("ABCDE12345", 4, 8, false, {}, 0),
+              ValidatePasswordState::TooLongError);
 
-  EXPECT_EQ(ValidatePassword("ABCED", 4, 12, true),
-            ValidatePasswordState::StrongError);
+    EXPECT_EQ(ValidatePassword("abced", 4, 12, true, policy, 2),
+              ValidatePasswordState::StrongError);
 
-  EXPECT_EQ(ValidatePassword("12345", 4, 12, true),
-            ValidatePasswordState::StrongError);
+    EXPECT_EQ(ValidatePassword("ABCED", 4, 12, true, policy, 2),
+              ValidatePasswordState::StrongError);
 
+    EXPECT_EQ(ValidatePassword("12345", 4, 12, true, policy, 2),
+              ValidatePasswordState::StrongError);
+
+    EXPECT_EQ(ValidatePassword("`123Bac", 4, 12, true, policy, 2),
+              ValidatePasswordState::StrongError);
 }
 
 }  // namespace

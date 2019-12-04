@@ -940,6 +940,8 @@ add_executable(deepin-installer-tests
                ui/delegates/install_slide_frame_util.h
                ui/delegates/timezone_map_util.cpp
                ui/delegates/timezone_map_util.h
+               ui/delegates/partition_util.h
+               ui/delegates/partition_util.cpp
 
                ui/delegates/componentinstallmanager.h
                ui/delegates/componentinstallmanager.cpp
@@ -957,6 +959,10 @@ add_executable(deepin-installer-root-tests
                ${PARTMAN_FILES}
                ${SYSINFO_FILES}
                ${ROOT_UNITTEST_FILES}
+               ui/delegates/partition_util.h
+               ui/delegates/partition_util.cpp
+               service/settings_manager.cpp
+               service/settings_manager.h
                )
 target_link_libraries(deepin-installer-root-tests
                       ${LINK_LIBS}

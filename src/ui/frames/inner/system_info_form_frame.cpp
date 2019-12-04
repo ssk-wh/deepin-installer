@@ -483,6 +483,7 @@ bool SystemInfoFormFramePrivate::validatePassword(LineEdit* passwordEdit, QStrin
 
     int min_len = 1;
     int max_len = 16;
+
     if (strong_pwd_check) {
         if (passwordEdit->text().toLower() == m_usernameEdit_->text().toLower()) {
             msg = tr("The password should be different from the username");
@@ -492,8 +493,10 @@ bool SystemInfoFormFramePrivate::validatePassword(LineEdit* passwordEdit, QStrin
         max_len = GetSettingsInt(kSystemInfoPasswordMaxLen);
     }
 
-    const ValidatePasswordState state = ValidatePassword(
-                passwordEdit->text(), min_len, max_len, strong_pwd_check);
+    const QStringList validate = GetSettingsStringList(kSystemInfoPasswordValidate);
+    const int         required_num{ GetSettingsInt(kSystemInfoPasswordValidateRequired) };
+    ValidatePasswordState state = ValidatePassword(
+        passwordEdit->text(), min_len, max_len, strong_pwd_check, validate, required_num);
 
     switch (state) {
     case ValidatePasswordState::EmptyError: {
