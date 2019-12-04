@@ -28,6 +28,7 @@
 #include "partman/partition_usage.h"
 #include "sysinfo/dev_disk.h"
 #include "sysinfo/proc_mounts.h"
+#include "ui/delegates/partition_util.h"
 
 namespace installer {
 
@@ -407,9 +408,8 @@ DeviceList ScanDevices(bool enable_os_prober) {
           partition->sector_size = device->sector_size;
           if (!partition->path.isEmpty() &&
               partition->type != PartitionType::Unallocated) {
-            // Read partition label and os.
+            // Read partition os.
             const QString empty_str;
-            partition->label = label_items.value(partition->path, empty_str);
             for (const OsProberItem& item : os_prober_items) {
               if (item.path == partition->path) {
                 partition->os = item.type;
@@ -425,6 +425,8 @@ DeviceList ScanDevices(bool enable_os_prober) {
               }
             }
           }
+
+          partition->label = label_items.value(partition->path, GetPartitionLabel(partition));
         }
         ped_disk_destroy(lp_disk);
 

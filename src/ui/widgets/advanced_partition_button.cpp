@@ -20,8 +20,6 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QStyle>
-#include <QFutureWatcher>
-#include <QtConcurrent/QtConcurrent>
 
 #include "base/file_util.h"
 #include "ui/delegates/partition_util.h"
@@ -80,12 +78,7 @@ void AdvancedPartitionButton::initUI() {
   // partition label name
   QLabel* name_label = new QLabel();
   name_label->setObjectName("name_label");
-
-  QFutureWatcher<QString>* watcher = new QFutureWatcher<QString>(this);
-  connect(watcher, &QFutureWatcherBase::finished, watcher,
-          [=] { name_label->setText(watcher->result()); });
-
-  watcher->setFuture(QtConcurrent::run([=] { return GetPartitionLabel(partition_); }));
+  name_label->setText(partition_->label);
 
   // partition path
   QLabel* path_label = new QLabel();
