@@ -230,8 +230,7 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
       for (const Device::Ptr device : virtualDevices()) {
           PartitionList list;
           for (const Partition::Ptr partition : device->partitions) {
-              if ((partition->type != PartitionType::Unallocated)
-                   && (partition->type != PartitionType::Extended)){
+              if (partition->type != PartitionType::Unallocated){
                   list << partition;
               }
           }
