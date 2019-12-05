@@ -414,10 +414,9 @@ void SystemDateFramePrivate::init()
     QVBoxLayout* centerLayout = new QVBoxLayout;
     centerLayout->setMargin(0);
     centerLayout->setSpacing(kMainLayoutSpacing);
-    centerLayout->addSpacing(50);
+    centerLayout->addSpacing(15);
     centerLayout->addWidget(m_title, 0, Qt::AlignHCenter);
     centerLayout->addWidget(m_commentLabel, 0, Qt::AlignHCenter);
-    centerLayout->addSpacing(50);
     centerLayout->addStretch();
 
     m_ptr->setLayout(centerLayout);
@@ -469,7 +468,7 @@ void SystemDateFramePrivate::init()
     timeLayout->addWidget(m_minuteLabel);
     timeLayout->addStretch();
 
-    centerLayout->addSpacing(20);
+    centerLayout->addStretch();
     centerLayout->addLayout(timeLayout, 0);
 
     QHBoxLayout* yearLayout = new QHBoxLayout;
@@ -562,6 +561,7 @@ void SystemDateFramePrivate::init()
     dayWidget->setLayout(dayLayout);
     dayWidget->setFixedSize(kYearMonthDayQWidgetWidth, 36);
 
+    centerLayout->addSpacing(15);
     centerLayout->addWidget(yearWidget, 0, Qt::AlignHCenter);
     centerLayout->addSpacing(15);
     centerLayout->addWidget(monthWidget, 0, Qt::AlignHCenter);
@@ -571,7 +571,7 @@ void SystemDateFramePrivate::init()
     centerLayout->addStretch();
 
     centerLayout->addWidget(m_acceptBtn, 0, Qt::AlignHCenter);
-    centerLayout->addSpacing(30);
+    centerLayout->addSpacing(15);
     centerLayout->addWidget(m_cancelBtn, 0, Qt::AlignHCenter);
 
     setObjectName("systemDateFramePrivate");
