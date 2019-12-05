@@ -75,6 +75,11 @@ void AdvancedPartitionButton::initUI() {
   os_label->setObjectName("os_label");
   os_label->setPixmap(installer::renderPixmap(GetOsTypeIcon(partition_->os)));
 
+  // partition label name
+  QLabel* name_label = new QLabel();
+  name_label->setObjectName("name_label");
+  name_label->setText(partition_->label.isEmpty() ? GetPartitionName(partition_->path) : partition_->label);
+
   // partition path
   QLabel* path_label = new QLabel();
   path_label->setObjectName("path_label");
@@ -82,11 +87,6 @@ void AdvancedPartitionButton::initUI() {
     const QString name = GetPartitionName(partition_->path);
     path_label->setText(QString("(%1)").arg(name));
   }
-
-  // partition label name
-  QLabel* name_label = new QLabel();
-  name_label->setObjectName("name_label");
-  name_label->setText(partition_->label.isEmpty() ? path_label->text() : partition_->label);
 
   QHBoxLayout* path_layout = new QHBoxLayout();
   path_layout->setContentsMargins(0, 0, 0, 0);

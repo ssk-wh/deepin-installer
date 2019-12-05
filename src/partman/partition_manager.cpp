@@ -408,8 +408,11 @@ DeviceList ScanDevices(bool enable_os_prober) {
           partition->sector_size = device->sector_size;
           if (!partition->path.isEmpty() &&
               partition->type != PartitionType::Unallocated) {
-            // Read partition os.
-            const QString empty_str;
+            // Read partition label and os.
+            const QString label_str = label_items.value(partition->path, GetPartitionName(partition->path));
+            if (!label_str.isEmpty()) {
+                partition->label = label_str;
+            }
             for (const OsProberItem& item : os_prober_items) {
               if (item.path == partition->path) {
                 partition->os = item.type;
@@ -425,8 +428,6 @@ DeviceList ScanDevices(bool enable_os_prober) {
               }
             }
           }
-
-          partition->label = label_items.value(partition->path, GetPartitionLabel(partition));
         }
         ped_disk_destroy(lp_disk);
 

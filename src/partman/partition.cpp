@@ -94,7 +94,9 @@ Partition::Partition()
       start_sector(-1),
       end_sector(-1),
       mount_point(),
-      flags() {
+      flags()
+{
+    label = QObject::tr("Freespace");
 }
 
 Partition::Partition(const Partition &partition)
