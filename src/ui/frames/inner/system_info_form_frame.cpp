@@ -342,21 +342,21 @@ void SystemInfoFormFramePrivate::initUI()
     layout->addWidget(m_rootPasswordCheckEdit, 0, Qt::AlignCenter);
     layout->addWidget(m_grubPasswordCheck_, 0, Qt::AlignCenter);
 
-    QFrame* content = new QFrame;
-    content->setAutoFillBackground(false);
-    content->setAttribute(Qt::WA_TranslucentBackground);
+    QWidget* content = new QWidget;
     content->setLayout(layout);
 
     QScrollArea* area = new QScrollArea(q);
+    area->setObjectName("scrollArea");
     area->setWidget(content);
-    area->setAutoFillBackground(false);
-    area->viewport()->setAutoFillBackground(false);
     area->setWidgetResizable(true);
     area->setFrameStyle(QScrollArea::NoFrame);
     area->setFixedWidth(kSetRootPasswordCheckBoxWidth + 20);
     area->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     area->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    area->setContentsMargins(0, 0, 0, 0);
+    area->setStyleSheet("background: transparent;");
+    area->viewport()->setStyleSheet("background: transparent;");
 
     tooltip_ = new SystemInfoTip(content);
     tooltip_->hide();
