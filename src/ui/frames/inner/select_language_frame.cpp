@@ -26,6 +26,10 @@
 #include <QCheckBox>
 #include <QScrollBar>
 #include <QPushButton>
+#include <QStandardItemModel>
+
+#include <DListView>
+#include <DStandardItem>
 
 #include "base/file_util.h"
 #include "base/translator.h"
@@ -38,10 +42,10 @@
 #include "ui/delegates/user_agreement_delegate.h"
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/comment_label.h"
-
+#include "service/system_language.h"
 #include "service/language_manager.h"
 
-#include "service/language_manager.h"
+DWIDGET_USE_NAMESPACE
 
 DCORE_USE_NAMESPACE
 
@@ -52,18 +56,20 @@ class SelectLanguageFramePrivate : public QObject {
 public:
     explicit SelectLanguageFramePrivate(SelectLanguageFrame* frame) : q_ptr(frame) {}
 
-    SelectLanguageFrame*   q_ptr                 = nullptr;
+    SelectLanguageFrame*   q_ptr               = nullptr;
     QTranslator*           current_translator_ = nullptr;
-    FramelessListView*     language_view_      = nullptr;
-    LanguageListModel*     language_model_     = nullptr;
     QCheckBox*             accept_license_     = nullptr;
     QLabel*                license_label_      = nullptr;
     QLabel*                oem_and_label_      = nullptr;
     QLabel*                oem_license_label_  = nullptr;
     QLabel*                sub_title_label_    = nullptr;
-    QPushButton*             next_button_        = nullptr;
-    LanguageItem           lang_;  // Current selected language.
+    QPushButton*           next_button_        = nullptr;
+    QStandardItemModel*    m_languageModel     = nullptr;
+    LanguageItem           lang_;  // Current selected language.    
     UserAgreementDelegate* user_license_delegate_ = nullptr;
+    LanguageList           lang_list_;
+    DStandardItem*         m_lastItem          = nullptr;
+    DListView*             m_languageView      = nullptr;
 
     void initConnections();
     void initUI();
@@ -71,6 +77,13 @@ public:
     void updateTs();
     void onLanguageListSelected(const QModelIndex& current);
     void onAccpetLicenseChanged(bool enable);
+    void appendLanguageitem();
+
+    // Get language item at |index|.
+    LanguageItem languageItemAt(const QModelIndex& index);
+
+    // Get index with |locale|.
+    QModelIndex localeIndex(const QString& locale);
 
     Q_DECLARE_PUBLIC(SelectLanguageFrame);
 };
@@ -85,12 +98,25 @@ SelectLanguageFrame::SelectLanguageFrame(UserAgreementDelegate* delegate, QWidge
 
     d_private->initUI();
     d_private->initConnections();
-
-    d_private->language_view_->installEventFilter(this);
+    d_private->appendLanguageitem();
+    d_private->m_languageView->installEventFilter(this);
 }
 
 SelectLanguageFrame::~SelectLanguageFrame() {
 
+}
+
+LanguageItem SelectLanguageFramePrivate::languageItemAt(const QModelIndex& index) {
+    return lang_list_.at(index.row());
+}
+
+QModelIndex SelectLanguageFramePrivate::localeIndex(const QString& locale)  {
+    for (auto it = lang_list_.cbegin(); it != lang_list_.cend(); ++it) {
+        if ((*it).locale == locale) {
+            return m_languageModel->index((it - lang_list_.cbegin()), 0);
+        }
+    }
+    return QModelIndex();
 }
 
 void SelectLanguageFrame::readConf() {
@@ -99,11 +125,11 @@ void SelectLanguageFrame::readConf() {
   const QString di_locale = GetSettingsString("DI_LOCALE");
   const QString default_locale = GetSettingsString(kSelectLanguageDefaultLocale);
   const QString locale = di_locale.isEmpty() ? default_locale : di_locale;
-  const QModelIndex index = d->language_model_->localeIndex(locale);
+  const QModelIndex index = d->localeIndex(locale);
   if (index.isValid()) {
-    d->lang_ = d->language_model_->languageItemAt(index);
-    d->language_view_->setCurrentIndex(index);
-    emit d->language_view_->clicked(index);
+    d->lang_ = d->languageItemAt(index);
+    d->m_languageView->setCurrentIndex(index);
+    emit d->m_languageView->clicked(index);
   }
 }
 
@@ -160,7 +186,7 @@ void SelectLanguageFrame::showEvent(QShowEvent *event)
 {
     Q_D(SelectLanguageFrame);
 
-    d->language_view_->setFocus();
+    d->m_languageView->setFocus();
 
     QFrame::showEvent(event);
 }
@@ -169,21 +195,19 @@ void SelectLanguageFramePrivate::initConnections()
 {
     Q_Q(SelectLanguageFrame);
 
-    connect(language_view_, &QListView::clicked, this,
+    connect(m_languageView, &DListView::clicked, this,
             &SelectLanguageFramePrivate::onLanguageListSelected);
-
-    connect(
-        language_view_->selectionModel(), &QItemSelectionModel::currentChanged, q,
-        [=](const QModelIndex& current, const QModelIndex& previous) {
-            // Skip first signal
-            if (current == language_view_->model()->index(0, 0) && !previous.isValid()) {
-                return;
-            }
-            Q_UNUSED(previous);
-            emit language_view_->clicked(current);
-        });
     connect(next_button_, &QPushButton::clicked, q, &SelectLanguageFrame::finished);
     connect(accept_license_, &QCheckBox::clicked, this, &SelectLanguageFramePrivate::onAccpetLicenseChanged);
+}
+
+void SelectLanguageFramePrivate::appendLanguageitem()
+{
+    lang_list_ = GetLanguageList();   
+    for(auto it = lang_list_.cbegin(); it!=lang_list_.cend(); ++it) {
+        DStandardItem *item = new DStandardItem((*it).local_name);
+        m_languageModel->appendRow(item);
+    }
 }
 
 void SelectLanguageFramePrivate::initUI() {
@@ -202,13 +226,19 @@ void SelectLanguageFramePrivate::initUI() {
     sub_title_label_->setAlignment(Qt::AlignHCenter);
     LanguageManager::translator(sub_title_label_, &CommentLabel::setText, TranslatorType::SelectLanguageSubTitle);
 
-    language_view_ = new FramelessListView();
-    language_view_->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    language_view_->setContextMenuPolicy(Qt::NoContextMenu);
-    language_view_->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-    language_view_->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-    language_model_ = new LanguageListModel(language_view_);
-    language_view_->setModel(language_model_);
+    m_languageView = new DListView();
+    m_languageView->setEditTriggers(QListView::NoEditTriggers);
+    m_languageView->setIconSize(QSize(32, 32));
+    m_languageView->setResizeMode(QListView::Adjust);
+    m_languageView->setMovement(QListView::Static);
+    m_languageView->setSelectionMode(QListView::NoSelection);
+    m_languageView->setFrameShape(QFrame::NoFrame);
+    m_languageView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_languageView->setContextMenuPolicy(Qt::NoContextMenu);
+    m_languageView->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    m_languageView->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    m_languageModel=new QStandardItemModel(m_languageView);
+    m_languageView->setModel(m_languageModel);
 
     accept_license_ = new QCheckBox;
     accept_license_->setCheckable(true);
@@ -251,7 +281,7 @@ void SelectLanguageFramePrivate::initUI() {
     layout->addWidget(title_label, 0, Qt::AlignCenter);
     layout->addWidget(sub_title_label_, 0, Qt::AlignCenter);
     layout->addSpacing(20);
-    layout->addWidget(language_view_, 0, Qt::AlignHCenter);
+    layout->addWidget(m_languageView, 0, Qt::AlignHCenter);
     layout->addSpacing(20);
     layout->addWidget(licenseWidget);
 
@@ -304,7 +334,16 @@ void SelectLanguageFramePrivate::onLanguageListSelected(const QModelIndex& curre
 
     if (current.isValid()) {
         // Update locale on-the-fly.
-        const LanguageItem language_item = language_model_->languageItemAt(current);
+        const LanguageItem language_item = lang_list_.at(current.row());
+        DStandardItem* item = dynamic_cast<DStandardItem* >(m_languageModel->item(current.row()));
+        item->setCheckState(Qt::Checked);
+
+        if (m_lastItem) {
+            m_lastItem->setCheckState(Qt::Unchecked);
+        }
+
+        m_lastItem = item;
+
         this->updateTranslator(language_item.locale);
         lang_ = language_item;
         q->writeConf();
