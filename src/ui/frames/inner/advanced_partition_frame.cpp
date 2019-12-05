@@ -201,7 +201,7 @@ void AdvancedPartitionFrame::initUI() {
   bottom_frame->setObjectName("bottom_frame");
   bottom_frame->setContentsMargins(0, 0, 0, 0);
   bottom_frame->setLayout(bottom_layout);
-  bottom_frame->setMaximumWidth(kWindowWidth);
+  bottom_frame->setFixedWidth(kWindowWidth);
 
   QVBoxLayout* main_layout = new QVBoxLayout();
   main_layout->setContentsMargins(0, 0, 0, 0);
@@ -213,7 +213,7 @@ void AdvancedPartitionFrame::initUI() {
 
   this->setLayout(main_layout);
   this->setContentsMargins(0, 0, 0, 0);
-  this->setMaximumWidth(kWindowWidth);
+  this->setFixedWidth(kWindowWidth);
   QSizePolicy container_policy(QSizePolicy::Fixed, QSizePolicy::Expanding);
   container_policy.setVerticalStretch(100);
   this->setSizePolicy(container_policy);
