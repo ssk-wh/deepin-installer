@@ -16,6 +16,7 @@
  */
 
 #include "ui/frames/install_success_frame.h"
+#include "ui/interfaces/frameinterfaceprivate.h"
 
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/title_label.h"
@@ -28,10 +29,14 @@
 #include <QPushButton>
 
 namespace installer {
-class InstallSuccessFramePrivate
+class InstallSuccessFramePrivate : public FrameInterfacePrivate
 {
+    Q_OBJECT
 public:
-    InstallSuccessFramePrivate(InstallSuccessFrame *FF): q_ptr(FF) {}
+    explicit InstallSuccessFramePrivate(FrameInterface* parent)
+        : FrameInterfacePrivate(parent)
+        , q_ptr(qobject_cast<InstallSuccessFrame* >(parent))
+    {}
 
     Q_DECLARE_PUBLIC(InstallSuccessFrame)
     InstallSuccessFrame *q_ptr=nullptr;
@@ -124,7 +129,6 @@ void InstallSuccessFramePrivate::initUI()
     layout->addWidget(eject_label_, 0, Qt::AlignCenter);
     layout->addWidget(reboot_button_, 0, Qt::AlignCenter);
 
-    q_ptr->setLayout(layout);
     q_ptr->setContentsMargins(0, 0, 0, 0);
 }
 
@@ -136,3 +140,5 @@ void InstallSuccessFrame::setEjectLabelVisible(bool visible)
 }
 
 }  // namespace installer
+
+#include "install_success_frame.moc"

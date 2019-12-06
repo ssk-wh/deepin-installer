@@ -278,6 +278,8 @@ set(UI_FILES
 
     ui/interfaces/frameproxyinterface.h
     ui/interfaces/frameinterface.h
+    ui/interfaces/frameinterfaceprivate.h
+
 
     ui/frames/consts.h
     ui/frames/inner/advanced_partition_frame.cpp
