@@ -52,6 +52,8 @@ setup_username_password_hostname() {
   installer_set "system_info_default_password" ""
   installer_set "DI_PASSWORD" ""
 
+  msg "====== User info ======"
+  msg "create user: ${DI_USERNAME}"
   useradd -U -m --skel /etc/skel --shell /bin/bash ${DI_USERNAME}
 
   # Update password.

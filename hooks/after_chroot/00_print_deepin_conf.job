@@ -15,7 +15,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-
+msg "====== /etc/deepin-installer.conf ======"
 cat /etc/deepin-installer.conf
-
+msg "====== /etc/deepin-version ======"
+cat /target/etc/deepin-version
+msg "====== kernel info ======"
+file /target/boot/vmlinuz*
+msg "====== installed packages list ======"
+chroot /target dpkg -l
 return 0
