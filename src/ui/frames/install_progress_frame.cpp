@@ -17,6 +17,7 @@
  */
 
 #include "ui/frames/install_progress_frame.h"
+#include "ui/interfaces/frameinterfaceprivate.h"
 
 #include "base/file_util.h"
 #include "base/thread_util.h"
@@ -55,11 +56,12 @@ const int kProgressAnimationDuration = 500;
 
 }  // namespace
 
-class InstallProgressFramePrivate : public QObject{
+class InstallProgressFramePrivate : public FrameInterfacePrivate{
     Q_OBJECT
 
 public:
-    InstallProgressFramePrivate(InstallProgressFrame* ptr);
+    explicit InstallProgressFramePrivate(FrameInterface* parent);
+
     ~InstallProgressFramePrivate();
 
     void initConnections();
@@ -190,12 +192,13 @@ void InstallProgressFrame::changeEvent(QEvent* event) {
     }
 }
 
-InstallProgressFramePrivate::InstallProgressFramePrivate(InstallProgressFrame* ptr)
-    : q_ptr(ptr),
-      failed_(true),
-      hooks_manager_(new HooksManager()),
-      hooks_manager_thread_(new QThread(this)),
-      simulation_timer_(new QTimer(this))
+InstallProgressFramePrivate::InstallProgressFramePrivate(FrameInterface* parent)
+    : FrameInterfacePrivate(parent)
+    , q_ptr(qobject_cast<InstallProgressFrame* >(parent))
+    , failed_(true)
+    , hooks_manager_(new HooksManager())
+    , hooks_manager_thread_(new QThread(this))
+    , simulation_timer_(new QTimer(this))
 {
     hooks_manager_->moveToThread(hooks_manager_thread_);
 
