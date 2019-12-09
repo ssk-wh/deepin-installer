@@ -15,15 +15,52 @@
 #include <QTimer>
 
 namespace installer {
+class SelectInstallComponentFramePrivate : public QObject
+{
+    Q_OBJECT
+public:
+    explicit SelectInstallComponentFramePrivate(SelectInstallComponentFrame* ff)
+        : m_currentComponentWidget(nullptr)
+        , q_ptr(ff)
+    {}
+
+    void initUI();
+    void initConnections();
+    void onServerTypeClicked();
+    void onComponentClicked();
+    void clearComponentLayout();
+
+    TitleLabel* m_selectPageLabel = nullptr;
+    QLabel* m_serverTypeLabel = nullptr;
+    QLabel* m_componentLabel = nullptr;
+
+    QMap<ComponentWidget*, QSharedPointer<ComponentStruct>> m_componentStructMap;
+    QMap<ComponentWidget*, QSharedPointer<ComponentInfo>> m_componentInfoMap;
+
+    QVBoxLayout* m_componentLayout = nullptr;
+    ComponentWidget* m_currentComponentWidget = nullptr;
+
+    DIScrollArea* m_serverScrollArea = nullptr;
+    DIScrollArea* m_compScrollArea = nullptr;
+
+    NavButton* m_nextButton = nullptr;
+
+    SelectInstallComponentFrame* q_ptr = nullptr;
+};
 
 SelectInstallComponentFrame::SelectInstallComponentFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
     : FrameInterface(FrameType::Frame, frameProxyInterface, parent)
-    , m_currentComponentWidget(nullptr)
+    , m_private(new SelectInstallComponentFramePrivate(this))
 {
     setObjectName("install_component_frame");
 
-    initUI();
-    initConnections();
+    m_private->initUI();
+    m_private->initConnections();
+}
+
+SelectInstallComponentFrame::~SelectInstallComponentFrame()
+{
+
 }
 
 void SelectInstallComponentFrame::init()
@@ -34,7 +71,7 @@ void SelectInstallComponentFrame::init()
         return;
     }
 
-    for (auto it = m_componentStructMap.cbegin(); it != m_componentStructMap.cend(); ++it) {
+    for (auto it = m_private->m_componentStructMap.cbegin(); it != m_private->m_componentStructMap.cend(); ++it) {
         if (it.value()->id() == defaultInstallType){
             it.key()->setSelected(true);
             emit it.key()->clicked();
@@ -45,6 +82,7 @@ void SelectInstallComponentFrame::init()
 
 void SelectInstallComponentFrame::finished()
 {
+
     WriteComponentPackages("");
     WriteComponentUninstallPackages("");
 
@@ -57,12 +95,12 @@ void SelectInstallComponentFrame::finished()
         WriteComponentLanguage(packages.join(" "));
     }
 
-    if (!m_currentComponentWidget) {
+    if (!m_private->m_currentComponentWidget) {
         return;
     }
 
     QSharedPointer<ComponentStruct> current =
-        m_componentStructMap[m_currentComponentWidget];
+        m_private->m_componentStructMap[m_private->m_currentComponentWidget];
 
     const QStringList installPackages =
         ComponentInstallManager::Instance()->packageListByComponentStruct(current);
@@ -88,21 +126,21 @@ bool SelectInstallComponentFrame::shouldDisplay() const
 }
 
 bool SelectInstallComponentFrame::event(QEvent* event) {
+
     if (event->type() == QEvent::LanguageChange) {
         // update all widget ts
-        m_selectPageLabel->setText(tr("Select Software"));
-        m_serverTypeLabel->setText(tr("Basic Environment"));
-        m_componentLabel->setText(tr("Add-Ons for Selected Environment"));
-        m_nextButton->setText(tr("Next"));
-        m_selectAllCheckBox->setText(tr("Select All"));
+        m_private->m_selectPageLabel->setText(tr("Select Software"));
+        m_private->m_serverTypeLabel->setText(tr("Basic Environment"));
+        m_private->m_componentLabel->setText(tr("Add-Ons for Selected Environment"));
+        m_private->m_nextButton->setText(tr("Next"));
 
-        for (auto it = m_componentStructMap.cbegin(); it != m_componentStructMap.cend(); ++it) {
+        for (auto it = m_private->m_componentStructMap.cbegin(); it != m_private->m_componentStructMap.cend(); ++it) {
             QPair<QString, QString> ts = ComponentInstallManager::Instance()->updateTs(it.value());
             it.key()->setTitle(ts.first);
             it.key()->setDesc(ts.second);
         }
 
-        for (auto it = m_componentInfoMap.cbegin(); it != m_componentInfoMap.cend(); ++it) {
+        for (auto it = m_private->m_componentInfoMap.cbegin(); it != m_private->m_componentInfoMap.cend(); ++it) {
             QPair<QString, QString> ts = ComponentInstallManager::Instance()->updateTs(it.value());
             it.key()->setTitle(ts.first);
             it.key()->setDesc(ts.second);
@@ -112,28 +150,7 @@ bool SelectInstallComponentFrame::event(QEvent* event) {
     return QWidget::event(event);
 }
 
-bool SelectInstallComponentFrame::eventFilter(QObject *watched, QEvent *event)
-{
-    if (watched == m_selectAllFrame) {
-        if (event->type() == QMouseEvent::MouseButtonPress) {
-            m_selectAllCheckBox->setChecked(!m_selectAllCheckBox->isChecked());
-            checkAllComponent(m_selectAllCheckBox->isChecked());
-        }
-    }
-
-    return QWidget::eventFilter(watched, event);
-}
-
-void SelectInstallComponentFrame::resizeEvent(QResizeEvent *event)
-{
-    QTimer::singleShot(0, this, [=] {
-        m_componentLabel->setFixedWidth(m_serverTypeLabel->width());
-    });
-
-    QWidget::resizeEvent(event);
-}
-
-void SelectInstallComponentFrame::initUI()
+void SelectInstallComponentFramePrivate::initUI()
 {
     m_selectPageLabel = new TitleLabel(tr("Select Software"));
     m_selectPageLabel->setObjectName("selectPageLabel");
@@ -165,7 +182,7 @@ void SelectInstallComponentFrame::initUI()
         compWdg->setDesc(tsPair.second);
 
         connect(compWdg, &ComponentWidget::clicked, this
-                , &SelectInstallComponentFrame::onServerTypeClicked);
+                , &SelectInstallComponentFramePrivate::onServerTypeClicked);
 
         m_componentStructMap[compWdg] = *it;
         serverWidgetList << compWdg;
@@ -258,18 +275,19 @@ void SelectInstallComponentFrame::initUI()
     mainLayout->addSpacing(60);
     mainLayout->addWidget(m_nextButton, 0, Qt::AlignCenter);
 
-    setLayout(mainLayout);
-    setStyleSheet(ReadFile(":/styles/install_component_frame.css"));
+    q_ptr->setLayout(mainLayout);
+    q_ptr->setStyleSheet(ReadFile(":/styles/install_component_frame.css"));
 }
 
-void SelectInstallComponentFrame::initConnections()
+void SelectInstallComponentFramePrivate::initConnections()
 {
-    connect(m_nextButton, &QPushButton::clicked, this, [=] {
-        m_proxy->nextFrame();
+    connect(m_nextButton, &QPushButton::clicked,
+            q_ptr, [=] {
+        q_ptr->m_proxy->nextFrame();
     });
 }
 
-void SelectInstallComponentFrame::onServerTypeClicked()
+void SelectInstallComponentFramePrivate::onServerTypeClicked()
 {
     ComponentWidget* componentWidget = qobject_cast<ComponentWidget*>(sender());
     m_nextButton->setEnabled(componentWidget->isSelected());
@@ -315,7 +333,7 @@ void SelectInstallComponentFrame::onServerTypeClicked()
         m_componentInfoMap[compWdg] = *it;
 
         connect(compWdg, &ComponentWidget::clicked, this
-                , &SelectInstallComponentFrame::onComponentClicked);
+                , &SelectInstallComponentFramePrivate::onComponentClicked);
 
         componentWidgetList << compWdg;
     }
@@ -341,7 +359,7 @@ void SelectInstallComponentFrame::onServerTypeClicked()
     WriteSelectedInstallType(m_componentStructMap[m_currentComponentWidget]->id());
 }
 
-void SelectInstallComponentFrame::onComponentClicked()
+void SelectInstallComponentFramePrivate::onComponentClicked()
 {
     ComponentWidget* widget = qobject_cast<ComponentWidget*>(sender());
     QSharedPointer<ComponentInfo> compInfo = m_componentInfoMap[widget];
@@ -352,7 +370,7 @@ void SelectInstallComponentFrame::onComponentClicked()
     qDebug() << compInfo->Id;
 }
 
-void SelectInstallComponentFrame::clearComponentLayout()
+void SelectInstallComponentFramePrivate::clearComponentLayout()
 {
     QLayoutItem *item;
     while((item = m_componentLayout->takeAt(0)) != nullptr){
@@ -362,24 +380,6 @@ void SelectInstallComponentFrame::clearComponentLayout()
     }
 }
 
-void SelectInstallComponentFrame::checkAllComponent(bool checked)
-{
-    for (auto it = m_componentInfoMap.cbegin(); it != m_componentInfoMap.end(); ++it) {
-        it.key()->setSelected(checked);
-        it.value()->Selected = checked;
-    }
-}
+}// namespace installer
 
-void SelectInstallComponentFrame::updateSelectAllCheckBoxState()
-{
-    for (auto it = m_componentInfoMap.cbegin(); it != m_componentInfoMap.end(); ++it) {
-        if (!it.key()->isSelected()) {
-            m_selectAllCheckBox->setChecked(false);
-            return;
-        }
-    }
-
-    m_selectAllCheckBox->setChecked(true);
-}
-
-}
+#include "install_component_frame.moc"
