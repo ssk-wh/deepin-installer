@@ -128,7 +128,8 @@ void AdvancedPartitionFrame::initUI() {
   msg_container_frame_ = new QFrame();
   msg_container_frame_->setObjectName("msg_container_frame");
   msg_container_frame_->setContentsMargins(0, 0, 0, 0);
-  msg_container_frame_->setFixedWidth(kWindowWidth);
+  msg_container_frame_->setMaximumWidth(kWindowWidth);
+  msg_container_frame_->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
   msg_container_frame_->setLayout(msg_container_layout);
 
   partition_button_group_ = new QButtonGroup(this);
@@ -142,13 +143,12 @@ void AdvancedPartitionFrame::initUI() {
   partition_list_frame->setObjectName("partition_list_frame");
   partition_list_frame->setContentsMargins(0, 0, 0, 0);
   partition_list_frame->setLayout(partition_layout_);
-  partition_list_frame->setFixedWidth(kWindowWidth);
+  partition_list_frame->setMaximumWidth(kWindowWidth);
+  partition_list_frame->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
 
   QVBoxLayout* scroll_layout = new QVBoxLayout();
   scroll_layout->setContentsMargins(0, 0, 0, 0);
   scroll_layout->setSpacing(0);
-  scroll_layout->addWidget(msg_container_frame_);
-  scroll_layout->addSpacing(8);
   scroll_layout->addWidget(partition_list_frame);
 
   QFrame* scroll_frame = new QFrame();
@@ -159,16 +159,16 @@ void AdvancedPartitionFrame::initUI() {
   scroll_area_ = new QScrollArea();
   scroll_area_->setObjectName("scroll_area");
   scroll_area_->setContentsMargins(0, 0, 0, 0);
-  QSizePolicy scroll_area_size_policy(QSizePolicy::Fixed,
+  QSizePolicy scroll_area_size_policy(QSizePolicy::MinimumExpanding,
                                       QSizePolicy::MinimumExpanding);
   scroll_area_size_policy.setHorizontalStretch(10);
   scroll_area_size_policy.setVerticalStretch(10);
   scroll_area_->setSizePolicy(scroll_area_size_policy);
   scroll_area_->setWidget(scroll_frame);
   scroll_area_->setWidgetResizable(true);
-  scroll_area_->setFixedWidth(kWindowWidth);
+  scroll_area_->setMaximumWidth(kWindowWidth);
   scroll_area_->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-  scroll_area_->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+  scroll_area_->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
   bootloader_tip_button_ = new PointerButton(tr("Change boot loader"), this);
   bootloader_tip_button_->setObjectName("bootloader_tip_button");
@@ -201,20 +201,27 @@ void AdvancedPartitionFrame::initUI() {
   bottom_frame->setObjectName("bottom_frame");
   bottom_frame->setContentsMargins(0, 0, 0, 0);
   bottom_frame->setLayout(bottom_layout);
-  bottom_frame->setFixedWidth(kWindowWidth);
+  bottom_frame->setMaximumWidth(kWindowWidth);
+  bottom_frame->setFixedHeight(40);
+  bottom_frame->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
 
   QVBoxLayout* main_layout = new QVBoxLayout();
   main_layout->setContentsMargins(0, 0, 0, 0);
   main_layout->setSpacing(0);
-  main_layout->addWidget(scroll_area_, 1, Qt::AlignHCenter);
+  main_layout->addWidget(msg_container_frame_);
+  main_layout->addSpacing(8);
+  QHBoxLayout* upLayout = new QHBoxLayout();
+  upLayout->addWidget(scroll_area_);
+  main_layout->addLayout(upLayout);
   main_layout->addSpacing(2);
-  main_layout->addWidget(bottom_frame, 0, Qt::AlignHCenter);
+  QHBoxLayout* downLayout = new QHBoxLayout();
+  downLayout->addWidget(bottom_frame);
+  main_layout->addLayout(downLayout);
   main_layout->addSpacing(8);
 
   this->setLayout(main_layout);
   this->setContentsMargins(0, 0, 0, 0);
-  this->setFixedWidth(kWindowWidth);
-  QSizePolicy container_policy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+  QSizePolicy container_policy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
   container_policy.setVerticalStretch(100);
   this->setSizePolicy(container_policy);
   this->setStyleSheet(ReadFile(":/styles/advanced_partition_frame.css"));

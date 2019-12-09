@@ -99,7 +99,6 @@ void AdvancedPartitionButton::initUI() {
   path_frame->setObjectName("path_frame");
   path_frame->setContentsMargins(0, 0, 0, 0);
   path_frame->setLayout(path_layout);
-  path_frame->setFixedWidth(kWindowWidth - 555); // 555 is remaining space
 
   // partition space usage
   QLabel* usage_label = new QLabel();
@@ -152,17 +151,14 @@ void AdvancedPartitionButton::initUI() {
   layout->setContentsMargins(0, 0, 0, 0);
   layout->setSpacing(0);
   layout->addSpacing(20);
-  layout->addWidget(path_frame);
+  layout->addWidget(path_frame, 0, Qt::AlignLeft);
   layout->addStretch();
-  layout->addWidget(usage_label);
-  layout->addWidget(usage_bar);
-  layout->addWidget(mount_point_label);
-  layout->addStretch();
-  layout->addWidget(tip_label);
-  layout->addStretch();
-  layout->addWidget(fs_label);
-  layout->addStretch();
-  layout->addWidget(control_button_wrapper);
+  layout->addWidget(usage_label, 0, Qt::AlignRight);
+  layout->addWidget(usage_bar, 0, Qt::AlignRight);
+  layout->addWidget(mount_point_label, 0, Qt::AlignRight);
+  layout->addWidget(tip_label, 0, Qt::AlignRight);
+  layout->addWidget(fs_label, 0, Qt::AlignRight);
+  layout->addWidget(control_button_wrapper, 0, Qt::AlignRight);
   layout->addSpacing(15);
 
   this->setContentsMargins(0, 0, 0, 0);
