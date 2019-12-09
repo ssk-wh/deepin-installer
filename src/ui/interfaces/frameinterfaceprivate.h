@@ -7,6 +7,9 @@
 
 #include "frameinterface.h"
 
+#define NEXTBTN_WIDTH 310
+#define NEXTBTN_HEIGHT 36
+
 namespace installer {
 
 class FrameInterfacePrivate :public QObject
@@ -25,6 +28,7 @@ public:
         QVBoxLayout* mainLayout = new QVBoxLayout;
         mainLayout->addLayout(centerLayout);
 
+        nextButton->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);
         mainLayout->addWidget(nextButton);
 
         frameInterface->setLayout(mainLayout);
