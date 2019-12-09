@@ -33,6 +33,8 @@ enum class FrameType {
 
 class FrameInterface : public QWidget {
     Q_OBJECT
+    friend class FrameInterfacePrivate;
+
 public:
     explicit FrameInterface(FrameType frameType, FrameProxyInterface* inter, QWidget* parent = nullptr)
         : QWidget(parent)
@@ -59,6 +61,11 @@ public:
 
     inline FrameType frameType() {
         return m_frameType;
+    }
+
+private:
+    void nextFrame() {
+        m_proxy->nextFrame();
     }
 
 protected:

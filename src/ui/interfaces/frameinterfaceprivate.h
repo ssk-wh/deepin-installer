@@ -28,6 +28,8 @@ public:
         mainLayout->addWidget(nextButton);
 
         frameInterface->setLayout(mainLayout);
+
+        connect(nextButton, &QPushButton::clicked, parent, &FrameInterface::nextFrame);
     }
 
 protected:
