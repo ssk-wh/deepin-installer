@@ -21,11 +21,10 @@
 #include <QEvent>
 #include <QLabel>
 #include <QVBoxLayout>
-#include <QScrollArea>
 #include <QScrollBar>
-#include <QScroller>
 #include <QPlainTextEdit>
 #include <QLabel>
+#include <QStackedLayout>
 
 #include "base/file_util.h"
 #include "ui/delegates/main_window_util.h"
@@ -63,9 +62,10 @@ public:
     NavButton *reboot_button_ ;
     NavButton *save_log_button_;
     QRWidget *qr_widget_;
+    QWidget* qrParentWidget;
     QPlainTextEdit *m_plainTextEdit ;
     QPushButton *control_button_ ;
-    QScrollArea *m_scrollArea ;
+    QStackedLayout* stacked_layout;
 
     void initConnections();
     void initUI();
@@ -92,9 +92,6 @@ InstallFailedFrame::InstallFailedFrame(QWidget *parent) : QFrame(parent)
     d_private->initUI();
     d_private->updatetx();
     d_private->initConnections();
-
-    // Show QR widget by default.
-    d_private->m_scrollArea->hide();
 }
 
 InstallFailedFrame::~InstallFailedFrame()
@@ -146,7 +143,7 @@ void InstallFailedFramePrivate::initConnections()
 }
 
 void InstallFailedFramePrivate::initUI()
-{    
+{
     QLabel *status_label = new QLabel();
     status_label->setPixmap(installer::renderPixmap(":/images/fail.svg"));
     title_label_ = new TitleLabel("");
@@ -159,41 +156,36 @@ void InstallFailedFramePrivate::initUI()
 
     m_plainTextEdit = new QPlainTextEdit;
     m_plainTextEdit->setObjectName("plainTextEdit");
-
-    QVBoxLayout *labelLayout = new QVBoxLayout;
-    labelLayout->setMargin(0);
-    labelLayout->addWidget(m_plainTextEdit);
-
-    QWidget *labelWidget = new QWidget;
-    labelWidget->setLayout(labelLayout);
+    m_plainTextEdit->setContextMenuPolicy(Qt::NoContextMenu);
+    m_plainTextEdit->setReadOnly(true);
+    m_plainTextEdit->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    m_plainTextEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_plainTextEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     QFrame *content_frame = new QFrame();
     content_frame->setObjectName("content_frame");
     content_frame->setFixedSize(kContentWindowWidth, kContentWindowHeight);
 
-    m_scrollArea = new QScrollArea(content_frame);
-    m_scrollArea->setWidget(labelWidget);
-    m_scrollArea->setObjectName("scrollarea");
-    m_scrollArea->setWidgetResizable(true);
-    m_scrollArea->setFocusPolicy(Qt::NoFocus);
-    m_scrollArea->setFrameStyle(QFrame::NoFrame);
-    m_scrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-    m_scrollArea->setContentsMargins(0, 0, 0, 0);
-    m_scrollArea->setFixedWidth(kContentWindowWidth - kControlButtonSize - 2);
-    m_scrollArea->setFixedHeight(kContentWindowHeight);
-    m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    m_scrollArea->setContextMenuPolicy(Qt::NoContextMenu);
-    m_scrollArea->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-    m_scrollArea->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-    m_scrollArea->setStyleSheet("background: transparent;");
-    QScroller::grabGesture(m_scrollArea, QScroller::TouchGesture);
-
     qr_widget_ = new QRWidget(content_frame);
+    qr_widget_->setStyleSheet("background: transparent");
     qr_widget_->setMargin(kQrMargin);
     qr_widget_->setFixedSize(kQrWindowSize, kQrWindowSize);
-    qr_widget_->move((kContentWindowWidth - kQrWindowSize) / 2,
-                     (kContentWindowHeight - kQrWindowSize) / 2);
+
+    QVBoxLayout* qrLayout = new QVBoxLayout;
+    qrLayout->setMargin(0);
+    qrLayout->setSpacing(0);
+    qrLayout->addWidget(qr_widget_, 0, Qt::AlignCenter);
+
+    qrParentWidget = new QWidget;
+    qrParentWidget->setLayout(qrLayout);
+
+    stacked_layout = new QStackedLayout;
+    stacked_layout->addWidget(qrParentWidget);
+    stacked_layout->addWidget(m_plainTextEdit);
+
+    stacked_layout->setAlignment(qr_widget_, Qt::AlignCenter);
+
+    content_frame->setLayout(stacked_layout);
 
     control_button_ = new PointerButton(content_frame);
     control_button_->setObjectName("control_button");
@@ -201,6 +193,8 @@ void InstallFailedFramePrivate::initUI()
     control_button_->setFixedSize(kControlButtonSize, kControlButtonSize);
     // Move control_button_ to top-right corner of content area.
     control_button_->move(kContentWindowWidth - kControlButtonSize, 0);
+    control_button_->raise();
+    control_button_->show();
 
     reboot_button_ = new NavButton;
     save_log_button_ = new NavButton;
@@ -226,13 +220,14 @@ void InstallFailedFramePrivate::initUI()
 void InstallFailedFramePrivate::onControlButtonClicked()
 {
     // Toggle visibility of m_scrollArea and qr_widget_.
-    if (m_scrollArea->isVisible()) {
-        m_scrollArea->setVisible(false);
-        qr_widget_->setVisible(true);
-    } else {
-        m_scrollArea->setVisible(true);
-        qr_widget_->setVisible(false);
+    if (stacked_layout->currentWidget() == m_plainTextEdit) {
+        stacked_layout->setCurrentWidget(qrParentWidget);
     }
+    else {
+        stacked_layout->setCurrentWidget(m_plainTextEdit);
+    }
+
+    control_button_->raise();
 }
 
 }// namespace installer

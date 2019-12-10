@@ -46,7 +46,7 @@ QScrollBar::sub-line:vertical {
     subcontrol-origin: margin;
 }
 
-#scrollarea {
+#plainTextEdit {
     background: rgba(255, 255, 255, 25.5);
 }
 
@@ -78,4 +78,3 @@ QScrollBar::sub-line:vertical {
 #control_button:pressed {
   background-image: url(:/images/QR_press.svg);
 }
-
