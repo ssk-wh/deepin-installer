@@ -7,6 +7,7 @@
 
 #include <QUrl>
 #include <QWidget>
+#include <QScopedPointer>
 
 class QComboBox;
 class QNetworkReply;
@@ -18,11 +19,13 @@ class ControlPlatformRegionModel;
 class TableComboBox;
 class TitleLabel;
 class CommentLabel;
+class ControlPlatformFramePrivate;
 class ControlPlatformFrame : public FrameInterface {
     Q_OBJECT
+    friend ControlPlatformFramePrivate;
 public:
     ControlPlatformFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
-
+    ~ControlPlatformFrame() override;
     virtual void init() override;
     virtual void finished() override;
     virtual bool shouldDisplay() const override;
@@ -31,24 +34,8 @@ protected:
     bool event(QEvent* event) override;
 
 private:
-    void onNetworkFinished(QNetworkReply* reply);
-    void onNextClicked();
-    void onRegionSelected();
-
-private slots:
-    void onNetworkStateChanged();
-
-private:
-    TitleLabel*                 m_titleLbl;
-    CommentLabel*               m_subTitleLbl;
-    LineEdit*                   m_serverLineEdit;
-    TableComboBox*              m_regionBox;
-    NavButton*                  m_nextButton;
-    ControlPlatformRegionModel* m_regionModel;
-    QUrl                        m_serverUrl;
-    QList<RegionInfo>           m_regionInfo;
-    QVBoxLayout*                m_macInfoLayout;
-    QVBoxLayout*                m_ipInfoLayout;
+    QScopedPointer<ControlPlatformFramePrivate> m_private;
 };
+
 }  // namespace installer
 #endif  // !CONTROLPLATFORMFRAME_H

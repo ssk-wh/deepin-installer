@@ -24,16 +24,46 @@
 
 using namespace installer;
 
-ControlPlatformFrame::ControlPlatformFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
-    : FrameInterface(FrameType::Frame, frameProxyInterface, parent)
-    , m_titleLbl(new TitleLabel(tr("Set Control Region")))
-    , m_subTitleLbl(new CommentLabel(tr("Set the region for %1 EndPoint Management Platform").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS"))))
-    , m_serverLineEdit(new LineEdit(QString(":/images/hostname_12.svg")))
-    , m_regionBox(new TableComboBox)
-    , m_nextButton(new NavButton)
-    , m_regionModel(new ControlPlatformRegionModel(this))
-    , m_macInfoLayout(new QVBoxLayout)
-    , m_ipInfoLayout(new QVBoxLayout)
+namespace installer {
+class ControlPlatformFramePrivate : public QObject
+{
+    Q_OBJECT
+
+public:
+    explicit ControlPlatformFramePrivate(ControlPlatformFrame* ff)
+        : m_titleLbl(new TitleLabel(tr("Set Control Region")))
+        , m_subTitleLbl(new CommentLabel(tr("Set the region for UOS EndPoint Management Platform")))
+        , m_serverLineEdit(new LineEdit(QString(":/images/hostname_12.svg")))
+        , m_regionBox(new TableComboBox)
+        , m_nextButton(new NavButton)
+        , m_regionModel(new ControlPlatformRegionModel(this))
+        , m_macInfoLayout(new QVBoxLayout)
+        , m_ipInfoLayout(new QVBoxLayout)
+        , q_ptr(ff)
+    {}
+
+    TitleLabel*                 m_titleLbl = nullptr;
+    CommentLabel*               m_subTitleLbl = nullptr;
+    LineEdit*                   m_serverLineEdit = nullptr;
+    TableComboBox*              m_regionBox = nullptr;
+    NavButton*                  m_nextButton = nullptr;
+    ControlPlatformRegionModel* m_regionModel = nullptr;
+    QUrl                        m_serverUrl;
+    QList<RegionInfo>           m_regionInfo;
+    QVBoxLayout*                m_macInfoLayout = nullptr;
+    QVBoxLayout*                m_ipInfoLayout = nullptr;
+    QNetworkAccessManager*      networkAccessManager = nullptr;
+    ControlPlatformFrame*       q_ptr = nullptr;
+
+    void initUI();
+    void initConnection();
+    void onNetworkFinished(QNetworkReply* reply);
+    void onNextClicked();
+    void onRegionSelected();
+    void onNetworkStateChanged();
+};
+
+void ControlPlatformFramePrivate::initUI()
 {
     QDBusInterface* iface = new QDBusInterface(
         "org.freedesktop.NetworkManager", "/org/freedesktop/NetworkManager",
@@ -86,12 +116,15 @@ ControlPlatformFrame::ControlPlatformFrame(FrameProxyInterface* frameProxyInterf
 
     m_nextButton->setEnabled(false);
 
-    setLayout(layout);
+    q_ptr->setLayout(layout);
 
-    QNetworkAccessManager* networkAccessManager = new QNetworkAccessManager(this);
+    networkAccessManager = new QNetworkAccessManager(this);
+}
 
+void ControlPlatformFramePrivate::initConnection()
+{
     connect(networkAccessManager, &QNetworkAccessManager::finished, this,
-            &ControlPlatformFrame::onNetworkFinished);
+            &ControlPlatformFramePrivate::onNetworkFinished);
 
     connect(m_serverLineEdit, &LineEdit::editingFinished, this, [=] {
         const QString& value = m_serverLineEdit->text();
@@ -102,14 +135,26 @@ ControlPlatformFrame::ControlPlatformFrame(FrameProxyInterface* frameProxyInterf
     });
 
     connect(m_nextButton, &NavButton::clicked, this,
-            &ControlPlatformFrame::onNextClicked);
+            &ControlPlatformFramePrivate::onNextClicked);
     connect(m_regionBox,
             static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this,
-            &ControlPlatformFrame::onRegionSelected);
+            &ControlPlatformFramePrivate::onRegionSelected);
 
-    setStyleSheet("QLabel{color: white;}");
+}
 
-    onNetworkStateChanged();
+ControlPlatformFrame::ControlPlatformFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
+    : FrameInterface(FrameType::Frame, frameProxyInterface, parent)
+    , m_private(new ControlPlatformFramePrivate(this))
+
+{
+    this->setStyleSheet("QLabel{color: white;}");
+
+    m_private->onNetworkStateChanged();
+}
+
+ControlPlatformFrame::~ControlPlatformFrame()
+{
+
 }
 
 void ControlPlatformFrame::init()
@@ -130,16 +175,16 @@ bool ControlPlatformFrame::shouldDisplay() const
 bool ControlPlatformFrame::event(QEvent* event)
 {
     if (event->type() == QEvent::LanguageChange) {
-        m_nextButton->setText(tr("Next"));
-        m_serverLineEdit->setPlaceholderText(tr("Server Address"));
-        m_titleLbl->setText(tr("Set Control Region"));
-        m_subTitleLbl->setText(tr("Set the region for %1 EndPoint Management Platform").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")));
+        m_private->m_nextButton->setText(tr("Next"));
+        m_private->m_serverLineEdit->setPlaceholderText(tr("Server Address"));
+        m_private->m_titleLbl->setText(tr("Set Control Region"));
+        m_private->m_subTitleLbl->setText(tr("Set the region for UOS EndPoint Management Platform"));
     }
 
     return QWidget::event(event);
 }
 
-void ControlPlatformFrame::onNetworkFinished(QNetworkReply* reply)
+void ControlPlatformFramePrivate::onNetworkFinished(QNetworkReply* reply)
 {
     QTextCodec*   codec = QTextCodec::codecForName("utf8");
     const QString all   = codec->toUnicode(reply->readAll());
@@ -157,7 +202,7 @@ void ControlPlatformFrame::onNetworkFinished(QNetworkReply* reply)
     m_regionModel->setList(list);
 }
 
-void ControlPlatformFrame::onNextClicked()
+void ControlPlatformFramePrivate::onNextClicked()
 {
     // save config
     RegionInfo info = m_regionModel->findInfoByIndex(m_regionBox->currentIndex());
@@ -176,15 +221,15 @@ void ControlPlatformFrame::onNextClicked()
         file.close();
     }
 
-    m_proxy->nextFrame();
+    q_ptr->m_proxy->nextFrame();
 }
 
-void ControlPlatformFrame::onRegionSelected()
+void ControlPlatformFramePrivate::onRegionSelected()
 {
     m_nextButton->setEnabled(true);
 }
 
-void ControlPlatformFrame::onNetworkStateChanged() {
+void ControlPlatformFramePrivate::onNetworkStateChanged() {
     auto deleteAllChild = [=](QLayout* layout) -> void {
         QLayoutItem* child;
         while ((child = layout->takeAt(0)) != 0) {
@@ -218,3 +263,5 @@ void ControlPlatformFrame::onNetworkStateChanged() {
         }
     }
 }
+}// namespace installer
+#include "control_platform_frame.moc"
