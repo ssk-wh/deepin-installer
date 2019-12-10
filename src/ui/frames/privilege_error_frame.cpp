@@ -26,19 +26,42 @@
 
 namespace installer {
 
-PrivilegeErrorFrame::PrivilegeErrorFrame(QWidget* parent) : QFrame(parent) {
-  this->setObjectName("privilege_error_frame");
+class PrivilegeErrorFramePrivate : public QObject
+{
+    Q_OBJECT
 
-  this->initUI();
-  this->initConnection();
+public:
+    PrivilegeErrorFramePrivate(PrivilegeErrorFrame* frame) : q_ptr(frame){}
+
+    PrivilegeErrorFrame* q_ptr = nullptr;
+
+    void initConnection();
+    void initUI();
+
+    NavButton* continue_button_ = nullptr;
+};
+
+PrivilegeErrorFrame::PrivilegeErrorFrame(QWidget* parent)
+    : QFrame(parent)
+    , m_private(new PrivilegeErrorFramePrivate(this))
+{
+  setObjectName("privilege_error_frame");
+
+  m_private->initUI();
+  m_private->initConnection();
 }
 
-void PrivilegeErrorFrame::initConnection() {
+PrivilegeErrorFrame::~PrivilegeErrorFrame()
+{
+
+}
+
+void PrivilegeErrorFramePrivate::initConnection() {
   connect(continue_button_, &QPushButton::clicked,
-          this, &PrivilegeErrorFrame::finished);
+          q_ptr, &PrivilegeErrorFrame::finished);
 }
 
-void PrivilegeErrorFrame::initUI() {
+void PrivilegeErrorFramePrivate::initUI() {
   TitleLabel* title_label = new TitleLabel("Privilege error!");
   CommentLabel* comment_label = new CommentLabel(
       "Please execute with root account");
@@ -54,8 +77,10 @@ void PrivilegeErrorFrame::initUI() {
   layout->addStretch();
   layout->addWidget(continue_button_, 0, Qt::AlignHCenter);
 
-  this->setLayout(layout);
-  this->setContentsMargins(0, 0, 0, 0);
+  q_ptr->setLayout(layout);
+  q_ptr->setContentsMargins(0, 0, 0, 0);
 }
 
 }  // namespace installer
+
+#include "privilege_error_frame.moc"

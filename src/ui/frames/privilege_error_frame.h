@@ -23,6 +23,7 @@
 namespace installer {
 
 class NavButton;
+class PrivilegeErrorFramePrivate;
 
 // Display this page when root privilege is not guaranteed.
 class PrivilegeErrorFrame : public QFrame {
@@ -30,16 +31,14 @@ class PrivilegeErrorFrame : public QFrame {
 
  public:
   explicit PrivilegeErrorFrame(QWidget* parent = nullptr);
+  ~PrivilegeErrorFrame() override;
 
  signals:
   // Emitted when continue_button_ is clicked.
   void finished();
 
- private:
-  void initConnection();
-  void initUI();
-
-  NavButton* continue_button_ = nullptr;
+private:
+    QScopedPointer<PrivilegeErrorFramePrivate> m_private;
 };
 
 }  // namespace installer
