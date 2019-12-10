@@ -25,6 +25,7 @@
 
 #include <QFrame>
 #include <QPushButton>
+#include <QScopedPointer>
 
 class QStackedLayout;
 
@@ -51,13 +52,16 @@ class SimplePartitionFrame;
 class Full_Disk_Encrypt_frame;
 class DynamicDiskWarningFrame;
 class TitleLabel;
+class PartitionFramePrivate;
 
 // Handles partition operations.
 class PartitionFrame : public FrameInterface {
   Q_OBJECT
 
+    friend PartitionFramePrivate;
  public:
   explicit PartitionFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
+  ~PartitionFrame() override;
   void init() override;
   void finished() override;
   bool shouldDisplay() const override;
@@ -83,68 +87,7 @@ class PartitionFrame : public FrameInterface {
  protected:
   void changeEvent(QEvent* event) override;
 
- private:
-  void initConnections();
-  void initUI();
-
-  // Check current partition mode is simple mode or not.
-  bool isSimplePartitionMode();
-  bool isFullDiskPartitionMode();
-
-  bool isRawDevice(const QList<Device::Ptr> list);
-
-  AdvancedPartitionFrame* advanced_partition_frame_ = nullptr;
-  EditPartitionFrame* edit_partition_frame_ = nullptr;
-  FullDiskFrame* full_disk_partition_frame_ = nullptr;
-  NewPartitionFrame* new_partition_frame_ = nullptr;
-  NewTableLoadingFrame* new_table_loading_frame_ = nullptr;
-  NewTableWarningFrame* new_table_warning_frame_ = nullptr;
-  PartitionLoadingFrame* partition_loading_frame_ = nullptr;
-  PartitionNumberLimitationFrame* partition_number_limitation_frame_ = nullptr;
-  PartitionTableWarningFrame* partition_table_warning_frame_ = nullptr;
-  PrepareInstallFrame* prepare_install_frame_ = nullptr;
-  SelectBootloaderFrame* select_bootloader_frame_ = nullptr;
-  SimplePartitionFrame* simple_partition_frame_ = nullptr;
-  Full_Disk_Encrypt_frame* full_disk_encrypt_frame_ = nullptr;
-  DynamicDiskWarningFrame* dynamic_disk_warning_frame_ = nullptr;
-
-  TitleLabel* title_label_ = nullptr;
-  CommentLabel* comment_label_ = nullptr;
-  QFrame* main_frame_ = nullptr;
-  QStackedLayout* partition_stacked_layout_ = nullptr;
-  QStackedLayout* main_layout_ = nullptr;
-  PointerButton* full_disk_frame_button_ = nullptr;
-  PointerButton* simple_frame_button_ = nullptr;
-  PointerButton* advanced_frame_button_ = nullptr;
-  QPushButton* next_button_ = nullptr;
-
-  PartitionModel* partition_model_ = nullptr;
-  AdvancedPartitionDelegate* advanced_delegate_ = nullptr;
-  FullDiskDelegate* full_disk_delegate_ = nullptr;
-  SimplePartitionDelegate* simple_partition_delegate_ = nullptr;
-
- private slots:
-  void onButtonGroupToggled(QAbstractButton* button);
-  void onNextButtonClicked();
-  void onFullDiskCryptoButtonClicked(bool encrypto);
-
-  // Write partitioning settings to conf file and emit manualPartDone() signal.
-  void onManualPartDone(bool ok, const DeviceList& devices);
-
-  // Notify delegate to do manual part.
-  void onPrepareInstallFrameFinished();
-
-  void showEditPartitionFrame(const Partition::Ptr partition);
-  void showMainFrame();
-  void showNewPartitionFrame(const Partition::Ptr partition);
-  void showNewTableLoadingFrame();
-  void showNewTableWarningFrame(const QString& device_path);
-  void showPartitionNumberLimitationFrame();
-  void showPartitionTableWarningFrame(const QString& device_path);
-  void showSelectBootloaderFrame();
-  void showEncryptFrame();
-  void showDynamicDiskFrame();
-  void showPrepareInstallFrame();
+  QScopedPointer<PartitionFramePrivate> m_private;
 };
 
 }  // namespace installer
