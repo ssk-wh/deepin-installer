@@ -95,9 +95,7 @@ Partition::Partition()
       end_sector(-1),
       mount_point(),
       flags()
-{
-    label = QObject::tr("Freespace");
-}
+{}
 
 Partition::Partition(const Partition &partition)
     : device_path(partition.device_path),

@@ -91,6 +91,9 @@ QString GetPartitionLabel(const Partition::Ptr partition);
 QString GetPartitionLabelAndPath(const Partition::Ptr partition);
 QString GetPartitionName(const QString& path);
 
+void RefreshOsProberItems();
+void removeOsProberDataByPath(const QString& path);
+
 // Get human readable partition usage.
 QString GetPartitionUsage(const Partition::Ptr partition);
 

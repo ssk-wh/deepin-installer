@@ -41,21 +41,40 @@ const int kLabelMaxLen = 25;
 const char kCasperMountPoint[] = "/cdrom";
 const char kLiveMountPoint[] = "/lib/live/mount/medium";
 
+static QMap<QString, QString> DEVICE_DESCIRPTIONS;
+
 // Get distribution description at partition |path| if it contains an OS.
 QString GetOsDescription(const QString& path) {
-    if (GetSettingsBool(kPartitionEnableOsProber)) {
-        const OsProberItems items = GetOsProberItems();
-        for (const OsProberItem& item : items) {
-            if (item.path == path) {
-                return item.description;
-            }
-        }
-    }
+  return DEVICE_DESCIRPTIONS[path];
+}
 
-    return QString();
+void DEVICE_DESCRIPTIONS_Clear() {
+  DEVICE_DESCIRPTIONS.clear();
+}
+
+void AppendToDEVICE(const OsProberItem& item) {
+  DEVICE_DESCIRPTIONS[item.path] = item.description;
+}
+
+void RemoveByPath(const QString& path) {
+  DEVICE_DESCIRPTIONS.remove(path);
 }
 
 }  // namespace
+
+void RefreshOsProberItems() {
+  DEVICE_DESCRIPTIONS_Clear();
+
+  const OsProberItems& items = GetOsProberItems();
+
+  for (auto item : items) {
+    AppendToDEVICE(item);
+  }
+}
+
+void removeOsProberDataByPath(const QString& path) {
+  RemoveByPath(path);
+}
 
 void AlignPartition(Partition::Ptr partition)
 {

@@ -78,7 +78,7 @@ void AdvancedPartitionButton::initUI() {
   // partition label name
   QLabel* name_label = new QLabel();
   name_label->setObjectName("name_label");
-  name_label->setText(partition_->label.isEmpty() ? GetPartitionName(partition_->path) : partition_->label);
+  name_label->setText(GetPartitionLabel(partition_));
 
   // partition path
   QLabel* path_label = new QLabel();

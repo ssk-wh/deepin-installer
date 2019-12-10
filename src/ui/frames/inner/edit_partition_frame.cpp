@@ -331,6 +331,8 @@ void EditPartitionFrame::onOkButtonClicked() {
   }
   delegate_->refreshVisual();
 
+  removeOsProberDataByPath(partition_->path);
+
   emit this->finished();
 }
 

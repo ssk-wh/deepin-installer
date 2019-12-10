@@ -550,6 +550,8 @@ void AdvancedPartitionFrame::clearErrorMessages() {
 
 void AdvancedPartitionFrame::onDeletePartitionTriggered(
     const Partition::Ptr partition) {
+  removeOsProberDataByPath(partition->path);
+
   delegate_->deletePartition(partition);
   delegate_->refreshVisual();
 }

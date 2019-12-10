@@ -307,6 +307,7 @@ DeviceList ScanDevices(bool enable_os_prober) {
 
   OsProberItems os_prober_items;
   if (enable_os_prober) {
+    RefreshOsProberItems();
     os_prober_items = GetOsProberItems();
   }
 
@@ -409,7 +410,7 @@ DeviceList ScanDevices(bool enable_os_prober) {
           if (!partition->path.isEmpty() &&
               partition->type != PartitionType::Unallocated) {
             // Read partition label and os.
-            const QString label_str = label_items.value(partition->path, GetPartitionName(partition->path));
+            const QString label_str = label_items.value(partition->path, GetPartitionLabel(partition));
             if (!label_str.isEmpty()) {
                 partition->label = label_str;
             }
