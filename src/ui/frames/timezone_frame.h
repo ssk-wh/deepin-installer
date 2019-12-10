@@ -22,6 +22,8 @@
 
 #include "ui/interfaces/frameinterface.h"
 
+#include <QScopedPointer>
+
 class QStackedLayout;
 class QHBoxLayout;
 class QPushButton;
@@ -38,13 +40,16 @@ class TitleLabel;
 class SystemDateFrame;
 class SelectTimeZoneFrame;
 class PointerButton;
+class TimezoneFramePrivate;
 
 // Displays a world map to let user select timezone.
 class TimezoneFrame : public FrameInterface {
   Q_OBJECT
 
+  friend TimezoneFramePrivate;
  public:
   explicit TimezoneFrame(FrameProxyInterface* frameProxyInterface,QWidget* parent = nullptr);
+  ~TimezoneFrame() override;
 
  signals:
   // Emit this signal to request to hide timezone page and timezone button.
@@ -62,7 +67,7 @@ class TimezoneFrame : public FrameInterface {
   bool shouldDisplay() const override;
 
   // Update timezone when new language is selected.
-  void updateTimezoneBasedOnLanguage(const QString& timezone); 
+  void updateTimezoneBasedOnLanguage(const QString& timezone);
 
  protected:
   void changeEvent(QEvent* event) override;
@@ -74,59 +79,8 @@ class TimezoneFrame : public FrameInterface {
 
   bool eventFilter(QObject *watched, QEvent *event) override;
 
- private:
-  void initConnections();
-  void initUI();
-
-  // Convert timezone alias to its original name.
-  QString parseTimezoneAlias(const QString& timezone);
-
-  QString timezone_;
-  TimezoneAliasMap alias_map_;
-
-  TimezoneManager* timezone_manager_ = nullptr;
-
-  TitleLabel* title_label_ = nullptr;
-  CommentLabel* comment_label_ = nullptr;
-  PointerButton* m_timezoneMapButton = nullptr;
-  PointerButton* m_timezoneListButton = nullptr;
-  QButtonGroup* m_mapListButtonGroup = nullptr;
-  TimezoneMap* timezone_map_ = nullptr;
-  QPushButton* next_button_ = nullptr;
-  SystemDateFrame* m_systemDateFrame = nullptr;
-  SelectTimeZoneFrame* m_selectTimeZoneFrame = nullptr;
-  QStackedLayout* m_mapOrListStackedLayout = nullptr;
-  QVBoxLayout* m_upLayout = nullptr;
-  QHBoxLayout* m_bottomLayout = nullptr;
-  PointerButton* m_setTimePushButton = nullptr;
-
-  QWidget* m_timezonePage = nullptr;
-  QStackedLayout* m_stackedLayout = nullptr;
-
-  // Priority of timezone: User > Conf > Scan
-  enum class TimezoneSource {
-    NotSet,  // Timezone not set.
-    User,  // Timezone is setup by user.
-    Conf,  // Timezone is read from conf file
-    Scan,  // Timezone is updated based on geoip or regdomain
-    Language,  // Timezone is setup based on current selected language.
-  };
-  TimezoneSource timezone_source_;
-
- private slots:
-  void onNextButtonClicked();
-
-  // Update timezone after receiving signals from timezone manager.
-  void onTimezoneManagerUpdated(const QString& timezone);
-
-  // Update timezone after a new one has been chosen by user.
-  void onTimezoneMapUpdated(const QString& timezone);
-
-  void onMapListButtonGroupToggled(QAbstractButton* button);
-
-  void onSelectTimezoneUpdated(const QString& timezone);
-
-  void onSetTimePushButtonClicked();
+private:
+  QScopedPointer<TimezoneFramePrivate> m_private;
 };
 
 }  // namespace installer

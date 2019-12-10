@@ -43,7 +43,26 @@
 #include "ui/widgets/pointer_button.h"
 #include "base/file_util.h"
 
+#include <QDebug>
+#include <QEvent>
+#include <QHBoxLayout>
+#include <QTimer>
+#include <QVBoxLayout>
+#include <QStackedLayout>
+#include <QApplication>
+#include <QButtonGroup>
+#include <QAbstractButton>
+
 namespace installer {
+
+// Priority of timezone: User > Conf > Scan
+enum class TimezoneSource {
+  NotSet,  // Timezone not set.
+  User,  // Timezone is setup by user.
+  Conf,  // Timezone is read from conf file
+  Scan,  // Timezone is updated based on geoip or regdomain
+  Language,  // Timezone is setup based on current selected language.
+};
 
 namespace {
 
@@ -51,16 +70,88 @@ const char kDefaultTimezone[] = "Asia/Shanghai";
 
 }  // namespace
 
+class TimezoneFramePrivate : public QObject
+{
+    Q_OBJECT
+public:
+  TimezoneFramePrivate(TimezoneFrame* frame)
+      : q_ptr(frame)
+      , timezone_()
+      , alias_map_(GetTimezoneAliasMap())
+      , timezone_manager_(new TimezoneManager(this))
+      , timezone_source_(TimezoneSource::NotSet)
+  {}
+
+  TimezoneFrame* q_ptr;
+
+  void initConnections();
+  void initUI();
+
+  // Convert timezone alias to its original name.
+  QString parseTimezoneAlias(const QString& timezone);
+
+  QString timezone_;
+  TimezoneAliasMap alias_map_;
+
+  TimezoneManager* timezone_manager_ = nullptr;
+
+  TitleLabel* title_label_ = nullptr;
+  CommentLabel* comment_label_ = nullptr;
+  PointerButton* m_timezoneMapButton = nullptr;
+  PointerButton* m_timezoneListButton = nullptr;
+  QButtonGroup* m_mapListButtonGroup = nullptr;
+  TimezoneMap* timezone_map_ = nullptr;
+  QPushButton* next_button_ = nullptr;
+  SystemDateFrame* m_systemDateFrame = nullptr;
+  SelectTimeZoneFrame* m_selectTimeZoneFrame = nullptr;
+  QStackedLayout* m_mapOrListStackedLayout = nullptr;
+  QVBoxLayout* m_upLayout = nullptr;
+  QHBoxLayout* m_bottomLayout = nullptr;
+  QPushButton* m_setTimePushButton = nullptr;
+
+  QWidget* m_timezonePage = nullptr;
+  QStackedLayout* m_stackedLayout = nullptr;
+
+  TimezoneSource timezone_source_;
+
+  void onNextButtonClicked();
+
+  // Update timezone after receiving signals from timezone manager.
+  void onTimezoneManagerUpdated(const QString& timezone);
+
+  // Update timezone after a new one has been chosen by user.
+  void onTimezoneMapUpdated(const QString& timezone);
+
+  void onMapListButtonGroupToggled(QAbstractButton* button);
+
+  void onSelectTimezoneUpdated(const QString& timezone);
+
+  void onSetTimePushButtonClicked();
+  void updateTs();
+};
+
+void TimezoneFramePrivate::updateTs()
+{
+    title_label_->setText(tr("Select Timezone"));
+    next_button_->setText(tr("Next"));
+    m_timezoneMapButton->setText(tr("Map"));
+    m_timezoneListButton->setText(tr("List"));
+    m_setTimePushButton->setText(tr("Time settings"));
+}
+
 TimezoneFrame::TimezoneFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
-    : FrameInterface(FrameType::Frame, frameProxyInterface, parent),
-      timezone_(),
-      alias_map_(GetTimezoneAliasMap()),
-      timezone_manager_(new TimezoneManager(this)),
-      timezone_source_(TimezoneSource::NotSet) {
+    : FrameInterface(FrameType::Frame, frameProxyInterface, parent)
+    , m_private(new TimezoneFramePrivate(this))
+{
   setObjectName("system_info_timezone_frame");
 
-  initUI();
-  initConnections();
+  m_private->initUI();
+  m_private->initConnections();
+}
+
+TimezoneFrame::~TimezoneFrame()
+{
+
 }
 
 bool TimezoneFrame::shouldDisplay() const
@@ -76,30 +167,30 @@ void TimezoneFrame::init() {
   //    * Or wait for user to choose timezone on map.
 
   // Read timezone from settings.
-  timezone_ = GetSettingsString(kTimezoneDefault);
-  timezone_ = parseTimezoneAlias(timezone_);
-  if (IsTimezoneInTab(timezone_)) {
+  m_private->timezone_ = GetSettingsString(kTimezoneDefault);
+  m_private->timezone_ = m_private->parseTimezoneAlias(m_private->timezone_);
+  if (IsTimezoneInTab(m_private->timezone_)) {
     qDebug() << "timezone updated from settings";
-    timezone_source_ = TimezoneSource::Conf;
+    m_private->timezone_source_ = TimezoneSource::Conf;
   } else {
     const bool use_geoip = GetSettingsBool(kTimezoneUseGeoIp);
     const bool use_regdomain = GetSettingsBool(kTimezoneUseRegdomain);
-    timezone_manager_->update(use_geoip, use_regdomain);
+    m_private->timezone_manager_->update(use_geoip, use_regdomain);
 
     // Use default timezone.
-    timezone_ = kDefaultTimezone;
+    m_private->timezone_ = kDefaultTimezone;
   }
-  emit timezoneUpdated(timezone_);
+  emit timezoneUpdated(m_private->timezone_);
 }
 
 void TimezoneFrame::updateTimezoneBasedOnLanguage(const QString& timezone) {
   // Check priority.
-  if (timezone_source_ == TimezoneSource::NotSet ||
-      timezone_source_ == TimezoneSource::Language) {
+  if (m_private->timezone_source_ == TimezoneSource::NotSet ||
+      m_private->timezone_source_ == TimezoneSource::Language) {
     if (IsTimezoneInTab(timezone)) {
-      timezone_source_ = TimezoneSource::Language;
-      timezone_ = timezone;
-      emit timezoneUpdated(timezone_);
+      m_private->timezone_source_ = TimezoneSource::Language;
+      m_private->timezone_ = timezone;
+      emit timezoneUpdated(m_private->timezone_);
     }
   } else {
     qDebug() << "Ignores language default timezone:" << timezone;
@@ -108,9 +199,9 @@ void TimezoneFrame::updateTimezoneBasedOnLanguage(const QString& timezone) {
 
 void TimezoneFrame::finished() {
   // Validate timezone before writing to settings file.
-  if (!IsTimezoneInTab(timezone_)) {
-    qWarning() << "Invalid timezone:" << timezone_;
-    timezone_ = kDefaultTimezone;
+  if (!IsTimezoneInTab(m_private->timezone_)) {
+    qWarning() << "Invalid timezone:" << m_private->timezone_;
+    m_private->timezone_ = kDefaultTimezone;
   }
 
   WriteTimezone(timezone_);
@@ -141,23 +232,18 @@ void TimezoneFrame::finished() {
 
 void TimezoneFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    title_label_->setText(tr("Select Timezone"));
+    m_private->updateTs();
 
-    if(m_mapOrListStackedLayout->currentWidget() == timezone_map_){
-        comment_label_->setText(tr("Click your zone on the map"));
+    if(m_private->m_mapOrListStackedLayout->currentWidget() == m_private->timezone_map_){
+        m_private->comment_label_->setText(tr("Click your zone on the map"));
     }
     else {
-        comment_label_->setText(tr("Select your timezone from the list"));
+        m_private->comment_label_->setText(tr("Select your timezone from the list"));
     }
 
-    next_button_->setText(tr("Next"));
-    m_timezoneMapButton->setText(tr("Map"));
-    m_timezoneListButton->setText(tr("List"));
-    m_setTimePushButton->setText(tr("Time settings"));
-
     // Also update timezone.
-    if (!timezone_.isEmpty()) {
-      emit timezoneUpdated(timezone_);
+    if (!m_private->timezone_.isEmpty()) {
+      emit timezoneUpdated(m_private->timezone_);
     }
   } else {
     FrameInterface::changeEvent(event);
@@ -171,18 +257,18 @@ void TimezoneFrame::showEvent(QShowEvent* event) {
 
   // NOTE(xushaohua): Add a delay to wait for paint event of timezone map.
   QTimer::singleShot(0, [&]() {
-      if(m_stackedLayout->currentWidget() == m_timezonePage){
-          if(m_mapOrListStackedLayout->currentWidget() == timezone_map_){
-              timezone_map_->showMark();
+      if(m_private->m_stackedLayout->currentWidget() == m_private->m_timezonePage){
+          if(m_private->m_mapOrListStackedLayout->currentWidget() == m_private->timezone_map_){
+              m_private->timezone_map_->showMark();
           }
           else {
-              timezone_map_->hideMark();
+              m_private->timezone_map_->hideMark();
           }
-          m_setTimePushButton->show();
+          m_private->m_setTimePushButton->show();
       }
       else {
-          timezone_map_->hideMark();
-          m_setTimePushButton->hide();
+          m_private->timezone_map_->hideMark();
+          m_private->m_setTimePushButton->hide();
       }
   });
 }
@@ -206,29 +292,29 @@ bool TimezoneFrame::eventFilter(QObject *watched, QEvent *event)
     return QWidget::eventFilter(watched, event);
 }
 
-void TimezoneFrame::initConnections() {
+void TimezoneFramePrivate::initConnections() {
   connect(next_button_, &QPushButton::clicked,
-          this, &TimezoneFrame::onNextButtonClicked);
+          this, &TimezoneFramePrivate::onNextButtonClicked);
 
   connect(timezone_manager_, &TimezoneManager::timezoneUpdated,
-          this, &TimezoneFrame::onTimezoneManagerUpdated);
+          this, &TimezoneFramePrivate::onTimezoneManagerUpdated);
   connect(timezone_map_, &TimezoneMap::timezoneUpdated,
-          this, &TimezoneFrame::onTimezoneMapUpdated);
+          this, &TimezoneFramePrivate::onTimezoneMapUpdated);
 
   // Remark timezone on map when it is updated.
-  connect(this, &TimezoneFrame::timezoneUpdated,
+  connect(q_ptr, &TimezoneFrame::timezoneUpdated,
           timezone_map_, &TimezoneMap::setTimezone);
-  connect(this, &TimezoneFrame::timezoneUpdated,
+  connect(q_ptr, &TimezoneFrame::timezoneUpdated,
           m_selectTimeZoneFrame, &SelectTimeZoneFrame::onUpdateTimezoneList);
 
-  connect(this, &TimezoneFrame::timezoneSet,
+  connect(q_ptr, &TimezoneFrame::timezoneSet,
           timezone_map_, &TimezoneMap::setTimezoneData);
 
   connect(m_mapListButtonGroup, static_cast<void (QButtonGroup::*)(QAbstractButton*)>(&QButtonGroup::buttonClicked)
-          , this, &TimezoneFrame::onMapListButtonGroupToggled);
+          , this, &TimezoneFramePrivate::onMapListButtonGroupToggled);
 
   connect(m_systemDateFrame, &SystemDateFrame::finished, this, [=] {
-          m_proxy->nextFrame();
+          q_ptr->m_proxy->nextFrame();
   });
 
   connect(m_systemDateFrame, &SystemDateFrame::cancel, this, [=] {
@@ -243,26 +329,26 @@ void TimezoneFrame::initConnections() {
   });
 
   connect(m_selectTimeZoneFrame, &SelectTimeZoneFrame::timezoneUpdated
-          , this, &TimezoneFrame::onSelectTimezoneUpdated);
+          , this, &TimezoneFramePrivate::onSelectTimezoneUpdated);
 
   connect(m_setTimePushButton, &QPushButton::clicked, this
-          , &TimezoneFrame::onSetTimePushButtonClicked);
+          , &TimezoneFramePrivate::onSetTimePushButtonClicked);
 }
 
-void TimezoneFrame::initUI() {
-  title_label_ = new TitleLabel(tr("Select Timezone"));
+void TimezoneFramePrivate::initUI() {
+  title_label_ = new TitleLabel("");
   comment_label_ = new CommentLabel(tr("Click your zone on the map"));
-  timezone_map_ = new TimezoneMap(this);
-  next_button_ = new QPushButton(tr("Next"));
+  timezone_map_ = new TimezoneMap(q_ptr);
+  next_button_ = new QPushButton;
 
   m_mapListButtonGroup = new QButtonGroup;
-  m_timezoneMapButton = new PointerButton(tr("Map"));
+  m_timezoneMapButton = new PointerButton;
   m_timezoneMapButton->setObjectName("timezoneMapButton");
   m_timezoneMapButton->setCheckable(true);
   m_timezoneMapButton->setFlat(true);
   m_timezoneMapButton->setMinimumWidth(60);
   m_timezoneMapButton->setMaximumHeight(36);
-  m_timezoneListButton = new PointerButton(tr("List"));
+  m_timezoneListButton = new PointerButton;
   m_timezoneListButton->setObjectName("timezoneListButton");
   m_timezoneListButton->setCheckable(true);
   m_timezoneListButton->setFlat(true);
@@ -342,27 +428,29 @@ void TimezoneFrame::initUI() {
   mainLayout->addLayout(m_stackedLayout);
   mainLayout->addLayout(m_bottomLayout);
 
-  setLayout(mainLayout);
-  setContentsMargins(0, 0, 0, 0);
-  setStyleSheet(ReadFile(":/styles/timezone_frame.css"));
+  q_ptr->setLayout(mainLayout);
+  q_ptr->setContentsMargins(0, 0, 0, 0);
+  q_ptr->setStyleSheet(ReadFile(":/styles/timezone_frame.css"));
+
+  updateTs();
 }
 
-QString TimezoneFrame::parseTimezoneAlias(const QString& timezone) {
+QString TimezoneFramePrivate::parseTimezoneAlias(const QString& timezone) {
   // If |timezone| not in alias map, returns itself.
   return alias_map_.value(timezone, timezone);
 }
 
-void TimezoneFrame::onNextButtonClicked() {
+void TimezoneFramePrivate::onNextButtonClicked() {
   if (IsTimezoneInTab(timezone_)) {
-    finished();
-    emit timezoneUpdated(timezone_);
-    m_proxy->nextFrame();
+    q_ptr->finished();
+    emit q_ptr->timezoneUpdated(timezone_);
+    q_ptr->m_proxy->nextFrame();
   } else {
     qWarning() << "Invalid timezone:" << timezone_;
   }
 }
 
-void TimezoneFrame::onTimezoneManagerUpdated(const QString& timezone) {
+void TimezoneFramePrivate::onTimezoneManagerUpdated(const QString& timezone) {
   // Check priority.
   if (timezone_source_ == TimezoneSource::NotSet ||
       timezone_source_ == TimezoneSource::Language ||
@@ -370,20 +458,20 @@ void TimezoneFrame::onTimezoneManagerUpdated(const QString& timezone) {
     // Update timezone only if it is not set.
     timezone_source_ = TimezoneSource::Scan;
     timezone_ = parseTimezoneAlias(timezone);
-    emit timezoneUpdated(timezone_);
+    emit q_ptr->timezoneUpdated(timezone_);
   } else {
     qDebug() << "Ignore timezone value from timezone-manager:" << timezone;
   }
 }
 
-void TimezoneFrame::onTimezoneMapUpdated(const QString& timezone) {
+void TimezoneFramePrivate::onTimezoneMapUpdated(const QString& timezone) {
   timezone_source_ = TimezoneSource::User;
   // No need to convert timezone alias.
   timezone_ = timezone;
   m_selectTimeZoneFrame->onUpdateTimezoneList(timezone);
 }
 
-void TimezoneFrame::onMapListButtonGroupToggled(QAbstractButton *button)
+void TimezoneFramePrivate::onMapListButtonGroupToggled(QAbstractButton *button)
 {
     if (button == m_timezoneMapButton){
         comment_label_->setText(tr("Click your zone on the map"));
@@ -397,14 +485,14 @@ void TimezoneFrame::onMapListButtonGroupToggled(QAbstractButton *button)
     }
 }
 
-void TimezoneFrame::onSelectTimezoneUpdated(const QString &timezone)
+void TimezoneFramePrivate::onSelectTimezoneUpdated(const QString &timezone)
 {
     timezone_source_ = TimezoneSource::User;
     timezone_ = timezone;
-    emit timezoneSet(timezone);
+    emit q_ptr->timezoneSet(timezone);
 }
 
-void TimezoneFrame::onSetTimePushButtonClicked()
+void TimezoneFramePrivate::onSetTimePushButtonClicked()
 {
     m_stackedLayout->setCurrentWidget(m_systemDateFrame);
     timezone_map_->hideMark();
@@ -412,3 +500,5 @@ void TimezoneFrame::onSetTimePushButtonClicked()
 }
 
 }  // namespace installer
+
+#include "timezone_frame.moc"
