@@ -17,9 +17,6 @@
 
 #include "ui/frames/system_info_frame.h"
 
-#include <QHBoxLayout>
-#include <QStackedLayout>
-
 #include "base/file_util.h"
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
@@ -28,6 +25,9 @@
 #include "ui/frames/inner/system_info_keyboard_frame.h"
 #include "timezone_frame.h"
 #include "ui/widgets/pointer_button.h"
+
+#include <QHBoxLayout>
+#include <QStackedLayout>
 
 namespace installer {
 
@@ -39,33 +39,79 @@ const int kFormPageId = 1;
 
 }  // namespace
 
+class SystemInfoFramePrivate : public QObject
+{
+    Q_OBJECT
+public:
+    SystemInfoFramePrivate(SystemInfoFrame* frame)
+        : q_ptr(frame)
+        , last_page_(kInvalidPageId)
+        , disable_keyboard_(GetSettingsBool(kSystemInfoDisableKeyboardPage))
+    {}
+    SystemInfoFrame* q_ptr;
+
+    void initConnections();
+    void initUI();
+
+    // Update visibility of buttons in header bar based on current page.
+    void updateHeadBar();
+
+    QPushButton* keyboard_button_ = nullptr;
+    QHBoxLayout* bottom_layout_ = nullptr;
+    QStackedLayout* stacked_layout_ = nullptr;
+    SystemInfoAvatarFrame* avatar_frame_ = nullptr;
+    SystemInfoFormFrame* form_frame_ = nullptr;
+    SystemInfoKeyboardFrame* keyboard_frame_ = nullptr;
+
+    // To mark current page before switching to timezone page.
+    int last_page_;
+
+    // Do not show keyboard frame if this flag is true.
+    bool disable_keyboard_;
+
+    // Restore last page when timezone page is finished.
+    void restoreLastPage();
+
+    void showAvatarPage();
+    void showFormPage();
+    void showKeyboardPage();
+
+    // Update text in keyboard button.
+    void updateLayout(const QString& layout);
+};
+
 SystemInfoFrame::SystemInfoFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
-    : FrameInterface (FrameType::Frame, frameProxyInterface, parent),
-      last_page_(kInvalidPageId),
-      disable_keyboard_(GetSettingsBool(kSystemInfoDisableKeyboardPage)) {
+    : FrameInterface (FrameType::Frame, frameProxyInterface, parent)
+    , m_private(new SystemInfoFramePrivate(this))
+{
   setObjectName("system_info_frame");
 
-  initUI();
-  initConnections();
+  m_private->initUI();
+  m_private->initConnections();
 
-  showFormPage();
+  m_private->showFormPage();
+}
+
+SystemInfoFrame::~SystemInfoFrame()
+{
+
 }
 
 void SystemInfoFrame::init() {
   // Read default avatar explicitly.
-  avatar_frame_->readConf();
+  m_private->avatar_frame_->readConf();
 
   form_frame_->readConf();
 
   // Read default keyboard layout.
-  keyboard_frame_->readConf();
+  m_private->keyboard_frame_->readConf();
 }
 
 void SystemInfoFrame::finished() {
   // Notify sub-pages to save settings.
-  avatar_frame_->writeConf();
-  form_frame_->writeConf();
-  keyboard_frame_->writeConf();
+  m_private->avatar_frame_->writeConf();
+  m_private->form_frame_->writeConf();
+  m_private->keyboard_frame_->writeConf();
 }
 
 bool SystemInfoFrame::shouldDisplay() const
@@ -73,32 +119,32 @@ bool SystemInfoFrame::shouldDisplay() const
     return !(GetSettingsBool(kSystemInfoSetupAfterReboot) || GetSettingsBool(kSkipSystemInfoPage));
 }
 
-void SystemInfoFrame::initConnections() {
+void SystemInfoFramePrivate::initConnections() {
   connect(avatar_frame_, &SystemInfoAvatarFrame::finished,
-          this, &SystemInfoFrame::showFormPage);
+          this, &SystemInfoFramePrivate::showFormPage);
   connect(avatar_frame_, &SystemInfoAvatarFrame::avatarUpdated,
           form_frame_, &SystemInfoFormFrame::updateAvatar);
   connect(form_frame_, &SystemInfoFormFrame::finished,
           this, [=] {
-      m_proxy->nextFrame();
+          q_ptr->m_proxy->nextFrame();
   });
 
   // Save settings when finished signal is emitted.
   connect(form_frame_, &SystemInfoFormFrame::avatarClicked,
-          this, &SystemInfoFrame::showAvatarPage);
+          this, &SystemInfoFramePrivate::showAvatarPage);
   connect(form_frame_, &SystemInfoFormFrame::finished,
-          this, &SystemInfoFrame::finished);
+          q_ptr, &SystemInfoFrame::finished);
 
   connect(keyboard_frame_, &SystemInfoKeyboardFrame::finished,
-          this, &SystemInfoFrame::restoreLastPage);
+          this, &SystemInfoFramePrivate::restoreLastPage);
   connect(keyboard_frame_, &SystemInfoKeyboardFrame::layoutUpdated,
-          this, &SystemInfoFrame::updateLayout);
+          this, &SystemInfoFramePrivate::updateLayout);
 
   connect(keyboard_button_, &QPushButton::clicked,
-          this, &SystemInfoFrame::showKeyboardPage);
+          this, &SystemInfoFramePrivate::showKeyboardPage);
 }
 
-void SystemInfoFrame::initUI() {
+void SystemInfoFramePrivate::initUI() {
   keyboard_button_ = new PointerButton();
   keyboard_button_->setObjectName("keyboard_button");
   keyboard_button_->setFlat(true);
@@ -127,12 +173,12 @@ void SystemInfoFrame::initUI() {
   layout->addLayout(stacked_layout_);
   layout->addLayout(bottom_layout_);
 
-  setLayout(layout);
-  setContentsMargins(0, 0, 0, 0);
-  setStyleSheet(ReadFile(":/styles/system_info_frame.css"));
+  q_ptr->setLayout(layout);
+  q_ptr->setContentsMargins(0, 0, 0, 0);
+  q_ptr->setStyleSheet(ReadFile(":/styles/system_info_frame.css"));
 }
 
-void SystemInfoFrame::updateHeadBar() {
+void SystemInfoFramePrivate::updateHeadBar() {
   const QString name = stacked_layout_->currentWidget()->objectName();
   const int page = stacked_layout_->currentIndex();
 
@@ -144,29 +190,29 @@ void SystemInfoFrame::updateHeadBar() {
   }
 }
 
-void SystemInfoFrame::restoreLastPage() {
+void SystemInfoFramePrivate::restoreLastPage() {
   if (last_page_ != kInvalidPageId) {
     stacked_layout_->setCurrentIndex(last_page_);
   } else {
-    // Displays default page if last_page_ is not set.
+    // Displays default page if last_page_ is Rnot set.
     stacked_layout_->setCurrentWidget(form_frame_);
   }
   updateHeadBar();
 }
 
-void SystemInfoFrame::showAvatarPage() {
+void SystemInfoFramePrivate::showAvatarPage() {
   if (!GetSettingsBool(kSystemInfoDisableAvatorPage)) {
     stacked_layout_->setCurrentWidget(avatar_frame_);
     updateHeadBar();
   }
 }
 
-void SystemInfoFrame::showFormPage() {
+void SystemInfoFramePrivate::showFormPage() {
   stacked_layout_->setCurrentWidget(form_frame_);
   updateHeadBar();
 }
 
-void SystemInfoFrame::showKeyboardPage() {
+void SystemInfoFramePrivate::showKeyboardPage() {
   if (!disable_keyboard_) {
     last_page_ = stacked_layout_->currentIndex();
     stacked_layout_->setCurrentWidget(keyboard_frame_);
@@ -174,8 +220,10 @@ void SystemInfoFrame::showKeyboardPage() {
   }
 }
 
-void SystemInfoFrame::updateLayout(const QString& layout) {
+void SystemInfoFramePrivate::updateLayout(const QString& layout) {
   keyboard_button_->setText(layout);
 }
 
 }  // namespace installer
+
+#include "system_info_frame.moc"

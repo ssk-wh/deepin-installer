@@ -17,8 +17,12 @@
 
 #ifndef INSTALLER_UI_FRAMES_SYSTEM_INFO_FRAME_H
 #define INSTALLER_UI_FRAMES_SYSTEM_INFO_FRAME_H
+
 #include "ui/interfaces/frameinterface.h"
+
 #include <QFrame>
+#include <QScopedPointer>
+
 class QHBoxLayout;
 class QPushButton;
 class QStackedLayout;
@@ -28,14 +32,17 @@ namespace installer {
 class SystemInfoAvatarFrame;
 class SystemInfoFormFrame;
 class SystemInfoKeyboardFrame;
+class SystemInfoFramePrivate;
 
 // Provides a form to let use input username, password and hostname,
 // select timezone and avatar.
 class SystemInfoFrame : public FrameInterface {
   Q_OBJECT
 
+  friend SystemInfoFramePrivate;
  public:
   explicit SystemInfoFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
+  ~SystemInfoFrame() override;
 
   // read the configuration file
   void init() override;
@@ -44,36 +51,8 @@ class SystemInfoFrame : public FrameInterface {
   // read the configuration file to verify that the current page is available
   bool shouldDisplay() const override;
 
- private:
-  void initConnections();
-  void initUI();
-
-  // Update visibility of buttons in header bar based on current page.
-  void updateHeadBar();
-
-  QPushButton* keyboard_button_ = nullptr;
-  QHBoxLayout* bottom_layout_ = nullptr;
-  QStackedLayout* stacked_layout_ = nullptr;
-  SystemInfoAvatarFrame* avatar_frame_ = nullptr;
-  SystemInfoFormFrame* form_frame_ = nullptr;
-  SystemInfoKeyboardFrame* keyboard_frame_ = nullptr;
-
-  // To mark current page before switching to timezone page.
-  int last_page_;
-
-  // Do not show keyboard frame if this flag is true.
-  bool disable_keyboard_;
-
- private slots:
-  // Restore last page when timezone page is finished.
-  void restoreLastPage();
-
-  void showAvatarPage();
-  void showFormPage();
-  void showKeyboardPage();
-
-  // Update text in keyboard button.
-  void updateLayout(const QString& layout);
+private:
+    QScopedPointer<SystemInfoFramePrivate> m_private;
 };
 
 }  // namespace installer
