@@ -67,7 +67,6 @@ public:
     QPlainTextEdit *m_plainTextEdit ;
     QPushButton *control_button_ ;
     QStackedLayout* stacked_layout;
-    QScrollBar* m_scrollBar;
 
     void initConnections();
     void initUI();
@@ -161,19 +160,12 @@ void InstallFailedFramePrivate::initUI()
     m_plainTextEdit->setContextMenuPolicy(Qt::NoContextMenu);
     m_plainTextEdit->setReadOnly(true);
     m_plainTextEdit->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-    m_plainTextEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_plainTextEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_plainTextEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     QFrame *content_frame = new QFrame();
     content_frame->setObjectName("content_frame");
     content_frame->setFixedSize(kContentWindowWidth, kContentWindowHeight);
-
-    m_scrollBar = m_plainTextEdit->verticalScrollBar();
-    m_scrollBar->setParent(content_frame);
-    m_scrollBar->setFixedSize(QSize(8, kContentWindowHeight - 5 - kControlButtonSize));
-    m_scrollBar->setContextMenuPolicy(Qt::NoContextMenu);
-    m_scrollBar->move(kContentWindowWidth - 8 - 3, kControlButtonSize);
-    m_scrollBar->hide();
 
     qr_widget_ = new QRWidget(content_frame);
     qr_widget_->setStyleSheet("background: transparent");
@@ -231,12 +223,9 @@ void InstallFailedFramePrivate::onControlButtonClicked()
     // Toggle visibility of m_scrollArea and qr_widget_.
     if (stacked_layout->currentWidget() == m_plainTextEdit) {
         stacked_layout->setCurrentWidget(qrParentWidget);
-        m_scrollBar->hide();
     }
     else {
         stacked_layout->setCurrentWidget(m_plainTextEdit);
-        m_scrollBar->show();
-        m_scrollBar->raise();
     }
 
     control_button_->raise();
