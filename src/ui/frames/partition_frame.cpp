@@ -310,9 +310,7 @@ void PartitionFrame::initUI() {
   QHBoxLayout* partition_stacked_wrapper_layout = new QHBoxLayout();
   partition_stacked_wrapper_layout->setContentsMargins(0, 0, 0, 0);
   partition_stacked_wrapper_layout->setSpacing(0);
-  partition_stacked_wrapper_layout->addStretch();
   partition_stacked_wrapper_layout->addLayout(partition_stacked_layout_);
-  partition_stacked_wrapper_layout->addStretch();
 
   // and advanced partition page.
   next_button_ = new NavButton(tr("Start installation"));
