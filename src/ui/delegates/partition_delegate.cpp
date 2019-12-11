@@ -705,14 +705,16 @@ void Delegate::formatPartition(const Partition::Ptr partition,
     }
 
     Partition::Ptr new_partition(new Partition);
-    new_partition->sector_size  = partition->sector_size;
-    new_partition->start_sector = partition->start_sector;
-    new_partition->end_sector   = partition->end_sector;
-    new_partition->path         = partition->path;
-    new_partition->device_path  = partition->device_path;
-    new_partition->fs           = fs_type;
-    new_partition->type         = partition->type;
-    new_partition->mount_point  = mount_point;
+    new_partition->sector_size      = partition->sector_size;
+    new_partition->start_sector     = partition->start_sector;
+    new_partition->end_sector       = partition->end_sector;
+    new_partition->path             = partition->path;
+    new_partition->device_path      = partition->device_path;
+    new_partition->partition_number = partition->partition_number;
+    new_partition->fs               = fs_type;
+    new_partition->type             = partition->type;
+    new_partition->mount_point      = mount_point;
+
     if (partition->status == PartitionStatus::Real) {
         new_partition->status = PartitionStatus::Format;
     }
