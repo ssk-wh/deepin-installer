@@ -51,13 +51,6 @@ void MultipleDiskInstallationWidget::initConnections()
 
 void MultipleDiskInstallationWidget::initUI()
 {
-    QSizePolicy size_policy(QSizePolicy::Fixed, QSizePolicy::MinimumExpanding);
-    setSizePolicy(size_policy);
-
-    QHBoxLayout * hboxlayout = new QHBoxLayout();
-    QVBoxLayout * leftlayout = new QVBoxLayout();
-    QVBoxLayout * rightlayout = new QVBoxLayout();
-
     m_left_model = new QStringListModel(getDiskTypes());
     m_left_view = new DiskInstallationView();
     DiskInstallationItemDelegate* delegate = new DiskInstallationItemDelegate(m_left_view);
@@ -73,29 +66,29 @@ void MultipleDiskInstallationWidget::initUI()
         m_right_layout->addWidget(m_right_view[i]);
     }
     m_right_layout->setCurrentIndex(0);
-    m_right_layout->setSizeConstraint(QLayout::SetMinAndMaxSize);
 
+    QHBoxLayout * leftlayout = new QHBoxLayout();
     leftlayout->setMargin(0);
     leftlayout->setSpacing(0);
-    leftlayout->setContentsMargins(0, 0, 0, 0);
-    leftlayout->addWidget(m_left_view, 0, Qt::AlignLeft);
-    leftlayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
+    leftlayout->addWidget(m_left_view);
 
-    rightlayout->setMargin(0);
-    rightlayout->setSpacing(0);
-    rightlayout->setContentsMargins(0, 0, 0, 0);
-    rightlayout->addLayout(m_right_layout);
+    QHBoxLayout* rightLayout = new QHBoxLayout;
+    rightLayout->setMargin(0);
+    rightLayout->setSpacing(0);
+    rightLayout->addLayout(m_right_layout);
+
+    QHBoxLayout * hboxlayout = new QHBoxLayout();
+    hboxlayout->setMargin(0);
+    hboxlayout->setSpacing(0);
     hboxlayout->addLayout(leftlayout);
     hboxlayout->addSpacing(1);
-    hboxlayout->addLayout(rightlayout, 1);
-    hboxlayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
+    hboxlayout->addLayout(rightLayout);
 
     QVBoxLayout* main_layout = new QVBoxLayout();
     main_layout->setContentsMargins(0, 0, 0, 0);
     main_layout->setSpacing(0);
-    main_layout->addLayout(hboxlayout, 1);
+    main_layout->addLayout(hboxlayout);
     setLayout(main_layout);
-    main_layout->setSizeConstraint(QLayout::SetMinAndMaxSize);
 }
 
 void MultipleDiskInstallationWidget::onDeviceListChanged(const DeviceList& devices)

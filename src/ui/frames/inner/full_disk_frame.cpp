@@ -166,6 +166,9 @@ void FullDiskFrame::initUI() {
 
   m_diskTooSmallTip = new QLabel;
   m_diskTooSmallTip->setObjectName("msg_label");
+  m_diskTooSmallTip->setMaximumWidth(kWindowWidth);
+  m_diskTooSmallTip->setFixedHeight(20);
+  m_diskTooSmallTip->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
   m_diskTooSmallTip->hide();
   addTransLate(m_trList, [ = ] (const QString& msg) {
       int min_size = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
@@ -197,7 +200,8 @@ void FullDiskFrame::initUI() {
   m_grid_layout->setColumnStretch(kDiskColumns, 1);
 
   m_grid_wrapper = new QFrame();
-  m_grid_wrapper->setFixedWidth(kWindowWidth);
+  m_grid_wrapper->setMaximumWidth(kWindowWidth);
+  m_grid_wrapper->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Expanding);
   m_grid_wrapper->setObjectName("grid_wrapper");
   m_grid_wrapper->setLayout(m_grid_layout);
   m_install_tip->setParent(m_grid_wrapper);
@@ -209,20 +213,31 @@ void FullDiskFrame::initUI() {
   m_disk_layout->addWidget(m_grid_wrapper);
   m_disk_layout->addWidget(m_diskInstallationWidget);
 
+  QHBoxLayout* hDiskLayout = new QHBoxLayout;
+  hDiskLayout->setMargin(0);
+  hDiskLayout->setSpacing(0);
+  hDiskLayout->addLayout(m_disk_layout);
+
+  QFrame* scroll_frame = new QFrame();
+  scroll_frame->setObjectName("scroll_frame");
+  scroll_frame->setContentsMargins(0, 0, 0, 0);
+  scroll_frame->setLayout(hDiskLayout);
+
   QScrollArea* scroll_area = new QScrollArea();
   scroll_area->setObjectName("scroll_area");
-  scroll_area->setLayout(m_disk_layout);
+  scroll_area->setWidget(scroll_frame);
   scroll_area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-  scroll_area->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+  scroll_area->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
   scroll_area->setWidgetResizable(true);
-  scroll_area->setFixedWidth(kWindowWidth);
+  scroll_area->setFixedWidth(800);
+  scroll_area->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
   m_diskPartitionWidget = new FullDiskPartitionWidget;
 
   QVBoxLayout* main_layout = new QVBoxLayout();
   main_layout->setContentsMargins(0, 0, 0, 0);
   main_layout->setSpacing(0);
-  main_layout->addWidget(scroll_area, 1, Qt::AlignHCenter);
+  main_layout->addWidget(scroll_area, 0, Qt::AlignHCenter);
   main_layout->addWidget(m_diskPartitionWidget, 0, Qt::AlignHCenter);
   main_layout->addWidget(m_encryptCheck, 0, Qt::AlignHCenter);
   main_layout->addSpacing(10);

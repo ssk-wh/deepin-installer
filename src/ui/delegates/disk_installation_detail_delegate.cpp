@@ -31,13 +31,13 @@ namespace installer {
 
 namespace {
 
-const int kOsIconLeftMargin = 25;
+const int kOsIconLeftMargin = 10;
 // Left margin of text content.
-const int kTextLeftMargin = 80;
-const int kDiskSizeLeftMarin = 300;
-const int kDiskPercentLeftMarin = 500;
+const int kTextLeftMargin = 40;
+const int kDiskSizeLeftMarin = 240;
+const int kDiskPercentLeftMarin = 400;
 const int kDiskPercentHeight = 6;
-const int kSelectedLeftMargin = 600;
+const int kSelectedLeftMargin = 580;
 // Right margin of selected item, used to locate background image.
 const int kSelectedRightMargin = 20;
 // Size of bottom border.

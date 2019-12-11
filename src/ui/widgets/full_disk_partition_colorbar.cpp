@@ -8,7 +8,7 @@
 
 namespace installer {
 
-const int kWindowWidth = 960;
+const int kColorBarWidth = 800;
 const int kPartitionLabelSpace = 15;
 
 static const QMap<QString, QString> PART_NAME_COLOR_NAME_MAP{
@@ -83,7 +83,7 @@ void FullDiskPartitionColorBar::paintEvent(QPaintEvent *)
 
 QSize FullDiskPartitionColorBar::sizeHint() const
 {
-    return QSize(kWindowWidth, 20);
+    return QSize(kColorBarWidth, 20);
 }
 
 FullDiskPartitionWidget::FullDiskPartitionWidget(QWidget* parent)
