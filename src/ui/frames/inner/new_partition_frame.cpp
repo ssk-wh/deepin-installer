@@ -21,6 +21,8 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QStandardItemModel>
+#include <QScrollArea>
+#include <QScrollBar>
 
 #include "base/file_util.h"
 #include "service/settings_manager.h"
@@ -212,6 +214,19 @@ void NewPartitionFrame::initUI() {
   // Same width as with table combobox.
   content_frame->setFixedWidth(mount_point_box_->width());
 
+  QScrollArea* area = new QScrollArea;
+  area->setObjectName("scrollArea");
+  area->setWidget(content_frame);
+  area->setWidgetResizable(true);
+  area->setFrameStyle(QScrollArea::NoFrame);
+  area->setFixedWidth(mount_point_box_->width() + 20);
+  area->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+  area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+  area->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+  area->setContentsMargins(0, 0, 0, 0);
+  area->setStyleSheet("background: transparent;");
+  area->viewport()->setStyleSheet("background: transparent;");
+
   cancel_button_ = new NavButton(tr("Cancel"));
   create_button_ = new NavButton(tr("Create"));
 
@@ -223,8 +238,9 @@ void NewPartitionFrame::initUI() {
   layout->addSpacing(kMainLayoutSpacing);
   layout->addLayout(comment_layout);
   layout->addStretch();
-  layout->addWidget(content_frame, 0, Qt::AlignHCenter);
+  layout->addWidget(area, 0, Qt::AlignHCenter);
   layout->addStretch();
+  layout->addSpacing(15);
   layout->addWidget(cancel_button_, 0, Qt::AlignCenter);
   layout->addSpacing(30);
   layout->addWidget(create_button_, 0, Qt::AlignCenter);
