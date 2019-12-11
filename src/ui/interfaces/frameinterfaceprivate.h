@@ -25,6 +25,9 @@ public:
         , frameInterface(parent)
         , nextButton(new QPushButton)
     {
+        centerLayout->setContentsMargins(0, 0, 0, 0);
+        centerLayout->setSpacing(0);
+
         QVBoxLayout* mainLayout = new QVBoxLayout;
         mainLayout->addLayout(centerLayout);
 

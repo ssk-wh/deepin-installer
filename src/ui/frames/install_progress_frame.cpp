@@ -264,24 +264,20 @@ void InstallProgressFramePrivate::initUI() {
     progress_bar_->setOrientation(Qt::Horizontal);
     progress_bar_->setValue(0);
 
-    QVBoxLayout* layout = new QVBoxLayout();
-    layout->setContentsMargins(0, 0, 0, 0);
-    layout->setSpacing(0);
-    layout->addStretch();
-    layout->addWidget(title_label_, 0, Qt::AlignCenter);
-    layout->addSpacing(kMainLayoutSpacing);
-    layout->addLayout(comment_layout);
-    layout->addStretch();
-    layout->addWidget(slide_frame_, 0, Qt::AlignCenter);
-    layout->addStretch();
-    layout->addWidget(tooltip_frame, 0, Qt::AlignHCenter);
-    layout->addSpacing(5);
-    layout->addWidget(progress_bar_, 0, Qt::AlignCenter);
-    layout->addStretch();
+    //add main layout
+    centerLayout->addStretch();
+    centerLayout->addWidget(title_label_, 0, Qt::AlignCenter);
+    centerLayout->addSpacing(kMainLayoutSpacing);
+    centerLayout->addLayout(comment_layout);
+    centerLayout->addStretch();
+    centerLayout->addWidget(slide_frame_, 0, Qt::AlignCenter);
+    centerLayout->addStretch();
+    centerLayout->addWidget(tooltip_frame, 0, Qt::AlignHCenter);
+    centerLayout->addSpacing(5);
+    centerLayout->addWidget(progress_bar_, 0, Qt::AlignCenter);
+    centerLayout->addStretch();
 
     Q_Q(InstallProgressFrame);
-    q->setLayout(layout);
-    q->setContentsMargins(0, 0, 0, 0);
     q->setStyleSheet(ReadFile(":/styles/install_progress_frame.css"));
 
     progress_animation_ = new QPropertyAnimation(q, "progress", this);
