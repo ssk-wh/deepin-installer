@@ -856,6 +856,7 @@ add_executable(timezone-frame-test
 
                ui/interfaces/frameinterface.h
                ui/interfaces/frameproxyinterface.h
+               ui/interfaces/frameinterfaceprivate.h
 
                ui/delegates/popup_menu_delegate.cpp
                ui/delegates/popup_menu_delegate.h

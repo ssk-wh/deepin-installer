@@ -42,6 +42,7 @@
 #include "ui/frames/inner/select_time_zone_frame.h"
 #include "ui/widgets/pointer_button.h"
 #include "base/file_util.h"
+#include "ui/interfaces/frameinterfaceprivate.h"
 
 #include <QDebug>
 #include <QEvent>
@@ -70,12 +71,13 @@ const char kDefaultTimezone[] = "Asia/Shanghai";
 
 }  // namespace
 
-class TimezoneFramePrivate : public QObject
+class TimezoneFramePrivate : public FrameInterfacePrivate
 {
     Q_OBJECT
 public:
-  TimezoneFramePrivate(TimezoneFrame* frame)
-      : q_ptr(frame)
+  explicit TimezoneFramePrivate(FrameInterface* parent)
+      : FrameInterfacePrivate(parent)
+      , q_ptr(qobject_cast<TimezoneFrame* >(parent))
       , timezone_()
       , alias_map_(GetTimezoneAliasMap())
       , timezone_manager_(new TimezoneManager(this))
@@ -422,13 +424,9 @@ void TimezoneFramePrivate::initUI() {
     m_stackedLayout->addWidget(m_systemDateFrame);
   }
 
-  QVBoxLayout* mainLayout = new QVBoxLayout();
-  mainLayout->setContentsMargins(0, 0, 0, 0);
-  mainLayout->setSpacing(0);
-  mainLayout->addLayout(m_stackedLayout);
-  mainLayout->addLayout(m_bottomLayout);
+  centerLayout->addLayout(m_stackedLayout);
+  centerLayout->addLayout(m_bottomLayout);
 
-  q_ptr->setLayout(mainLayout);
   q_ptr->setContentsMargins(0, 0, 0, 0);
   q_ptr->setStyleSheet(ReadFile(":/styles/timezone_frame.css"));
 
