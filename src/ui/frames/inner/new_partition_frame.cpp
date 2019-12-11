@@ -173,7 +173,6 @@ void NewPartitionFrame::initUI() {
   fs_model_ = new FsModel(delegate_->getFsTypeList(), fs_box_);
   fs_box_->setModel(fs_model_);
 
-  fs_model_->setShowEFI(!delegate_->isMBRPreferred());
   fs_model_->setShowRecovery(GetSettingsBool(kEnableRecoveryPartition));
 
   mount_point_label_ = new QLabel(tr("Mount point"));

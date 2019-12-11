@@ -60,10 +60,6 @@ int FsModel::indexOf(FsType fs_type) const {
   return fs_list_.indexOf(fs_type);
 }
 
-void FsModel::setShowEFI(bool show_efi) {
-    changeFsList(show_efi, FsType::EFI);
-}
-
 void FsModel::setShowUnknown(bool show_unknown) {
     changeFsList(show_unknown, FsType::Unknown);
 }
