@@ -23,17 +23,21 @@
 #define LANGUAGEFRAME_H
 
 #include "ui/interfaces/frameinterface.h"
+#include "ui/interfaces/frameinterfaceprivate.h"
 
 #include <QWidget>
 #include <QStackedLayout>
+#include <QScopedPointer>
 
 namespace installer {
 class SelectLanguageFrame;
 class UserAgreementFrame;
 class UserAgreementDelegate;
+class LanguageFramePrivate;
 
 class LanguageFrame : public FrameInterface {
     Q_OBJECT
+    friend LanguageFramePrivate;
 public:
     LanguageFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
     ~LanguageFrame() override;
@@ -47,17 +51,7 @@ signals:
     void timezoneUpdated(const QString& timezone);
 
 private:
-    void initUI();
-    void initConnect();
-    void showUserLicense();
-    void showLanguage();
-    void showOemUserLicense();
-
-private:
-    QStackedLayout*      m_frame_layout          = nullptr;
-    UserAgreementDelegate * m_user_license_delegate = nullptr;
-    SelectLanguageFrame* m_select_language_frame = nullptr;
-    UserAgreementFrame*  m_user_license_frame    = nullptr;
+    QScopedPointer<LanguageFramePrivate> m_private;
 };
 
 }  // namespace installer

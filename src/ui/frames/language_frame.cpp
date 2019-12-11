@@ -32,15 +32,37 @@ DCORE_USE_NAMESPACE
 
 namespace installer {
 
+class LanguageFramePrivate : public QObject
+{
+    Q_OBJECT
+public:
+    explicit LanguageFramePrivate(LanguageFrame* ff)
+        : q_ptr(ff)
+        , m_frame_layout(new QStackedLayout)
+        , m_user_license_delegate(new UserAgreementDelegate())
+        , m_select_language_frame(new SelectLanguageFrame(m_user_license_delegate))
+        , m_user_license_frame(new UserAgreementFrame)
+    {}
+
+    void initUI();
+    void initConnect();
+    void showUserLicense();
+    void showLanguage();
+    void showOemUserLicense();
+
+    LanguageFrame*       q_ptr                   = nullptr;
+    QStackedLayout*      m_frame_layout          = nullptr;
+    UserAgreementDelegate* m_user_license_delegate = nullptr;
+    SelectLanguageFrame* m_select_language_frame = nullptr;
+    UserAgreementFrame*  m_user_license_frame    = nullptr;
+
+};
 LanguageFrame::LanguageFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
     : FrameInterface(FrameType::Frame, frameProxyInterface, parent)
-    , m_frame_layout(new QStackedLayout)
-    , m_user_license_delegate(new UserAgreementDelegate())
-    , m_select_language_frame(new SelectLanguageFrame(m_user_license_delegate))
-    , m_user_license_frame(new UserAgreementFrame)
+    , m_private(new LanguageFramePrivate(this))
 {
-    initUI();
-    initConnect();
+    m_private->initUI();
+    m_private->initConnect();
 }
 
 LanguageFrame::~LanguageFrame() {}
@@ -51,51 +73,40 @@ bool LanguageFrame::shouldDisplay() const
 }
 
 void LanguageFrame::init() {
-    m_select_language_frame->readConf();
+    m_private->m_select_language_frame->readConf();
 }
 
 void LanguageFrame::finished() {
-    m_select_language_frame->writeConf();
+    m_private->m_select_language_frame->writeConf();
 }
 
-void LanguageFrame::initUI() {
+void LanguageFramePrivate::initUI() {
     m_frame_layout->setMargin(0);
     m_frame_layout->addWidget(m_select_language_frame);
     m_frame_layout->addWidget(m_user_license_frame);
 
-    setLayout(m_frame_layout);
+    q_ptr->setLayout(m_frame_layout);
 }
 
-void LanguageFrame::initConnect() {
-    connect(m_select_language_frame, &SelectLanguageFrame::finished, this,
+void LanguageFramePrivate::initConnect() {
+
+    connect(m_select_language_frame, &SelectLanguageFrame::finished, q_ptr,
         [=] {
-        m_proxy->nextFrame();
+        q_ptr->m_proxy->nextFrame();
     });
-    connect(m_select_language_frame, &SelectLanguageFrame::timezoneUpdated, this,
+    connect(m_select_language_frame, &SelectLanguageFrame::timezoneUpdated, q_ptr,
             &LanguageFrame::timezoneUpdated);
     connect(m_select_language_frame, &SelectLanguageFrame::requestShowUserLicense, this,
-            &LanguageFrame::showUserLicense);
+            &LanguageFramePrivate::showUserLicense);
     connect(m_user_license_frame, &UserAgreementFrame::back, this,
-            &LanguageFrame::showLanguage);
+            &LanguageFramePrivate::showLanguage);
     if (m_user_license_delegate->licenseCount() > 0) {
         connect(m_select_language_frame, &SelectLanguageFrame::requestShowOemUserLicense, this,
-            &LanguageFrame::showOemUserLicense);
+            &LanguageFramePrivate::showOemUserLicense);
     }
 }
 
-void LanguageFrame::showUserLicense() {
-    QString zh_CN_license;
-    QString en_US_license;
-
-    if (DSysInfo::deepinType() == DSysInfo::DeepinDesktop) {
-        zh_CN_license = ":/license/deepin-end-user-license-agreement_community_zh_CN.txt";
-        en_US_license = ":/license/deepin-end-user-license-agreement_community_en_US.txt";
-    }
-    else {
-        zh_CN_license = ":/license/deepin-end-user-license-agreement_zh_CN.txt";
-        en_US_license = ":/license/deepin-end-user-license-agreement_en_US.txt";
-    }
-
+void LanguageFramePrivate::showUserLicense() {
     if (installer::ReadLocale() == "zh_CN") {
         m_user_license_frame->setUserAgreement(zh_CN_license, en_US_license);
         m_user_license_frame->setCheckedButton(kChineseToggleButtonId);
@@ -105,11 +116,11 @@ void LanguageFrame::showUserLicense() {
     m_frame_layout->setCurrentWidget(m_user_license_frame);
 }
 
-void LanguageFrame::showLanguage() {
+void LanguageFramePrivate::showLanguage() {
     m_frame_layout->setCurrentWidget(m_select_language_frame);
 }
 
-void LanguageFrame::showOemUserLicense() {
+void LanguageFramePrivate::showOemUserLicense() {
     LicenseItem primaryLicense;
     primaryLicense = m_user_license_delegate->getPrimaryAdaptiveLicense(installer::ReadLocale());
     m_user_license_frame->setUserAgreement(primaryLicense.fileName());
@@ -117,3 +128,5 @@ void LanguageFrame::showOemUserLicense() {
 }
 
 }  // namespace installer
+
+#include "language_frame.moc"
