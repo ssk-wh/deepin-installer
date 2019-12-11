@@ -25,6 +25,7 @@
 #include "ui/frames/inner/system_info_keyboard_frame.h"
 #include "timezone_frame.h"
 #include "ui/widgets/pointer_button.h"
+#include "ui/interfaces/frameinterfaceprivate.h"
 
 #include <QHBoxLayout>
 #include <QStackedLayout>
@@ -39,12 +40,13 @@ const int kFormPageId = 1;
 
 }  // namespace
 
-class SystemInfoFramePrivate : public QObject
+class SystemInfoFramePrivate : public FrameInterfacePrivate
 {
     Q_OBJECT
 public:
-    SystemInfoFramePrivate(SystemInfoFrame* frame)
-        : q_ptr(frame)
+    explicit SystemInfoFramePrivate(FrameInterface* parent)
+        : FrameInterfacePrivate(parent)
+        , q_ptr(qobject_cast<SystemInfoFrame* >(parent))
         , last_page_(kInvalidPageId)
         , disable_keyboard_(GetSettingsBool(kSystemInfoDisableKeyboardPage))
     {}
@@ -167,13 +169,9 @@ void SystemInfoFramePrivate::initUI() {
   stacked_layout_->addWidget(form_frame_);
   stacked_layout_->addWidget(keyboard_frame_);
 
-  QVBoxLayout* layout = new QVBoxLayout();
-  layout->setContentsMargins(0, 0, 0, 0);
-  layout->setSpacing(0);
-  layout->addLayout(stacked_layout_);
-  layout->addLayout(bottom_layout_);
+  centerLayout->addLayout(stacked_layout_);
+  centerLayout->addLayout(bottom_layout_);
 
-  q_ptr->setLayout(layout);
   q_ptr->setContentsMargins(0, 0, 0, 0);
   q_ptr->setStyleSheet(ReadFile(":/styles/system_info_frame.css"));
 }
