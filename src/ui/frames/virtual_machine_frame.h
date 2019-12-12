@@ -21,19 +21,23 @@
 #include "ui/interfaces/frameinterface.h"
 
 #include <QFrame>
+#include <QScopedPointer>
 
 namespace installer {
 
 class CommentLabel;
 class NavButton;
 class TitleLabel;
+class VirtualMachineFramePrivate;
 
 // This page is displayed when system is running in a virtual machine.
 class VirtualMachineFrame : public FrameInterface {
   Q_OBJECT
+  friend VirtualMachineFramePrivate;
   
  public:
   explicit VirtualMachineFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
+  ~VirtualMachineFrame() override;
 
   // Read configuration file
   void init() override;
@@ -48,12 +52,7 @@ class VirtualMachineFrame : public FrameInterface {
   void changeEvent(QEvent* event) override;
 
  private:
-  void initConnections();
-  void initUI();
-
-  TitleLabel* title_label_ = nullptr;
-  CommentLabel* comment_label_ = nullptr;
-  NavButton* next_button_ = nullptr;
+  QScopedPointer<VirtualMachineFramePrivate> m_private;
 };
 
 }  // namespace installer

@@ -31,25 +31,49 @@
 DCORE_USE_NAMESPACE
 
 namespace installer {
+class VirtualMachineFramePrivate : public QObject
+{
+    Q_OBJECT
+public:
+    explicit VirtualMachineFramePrivate(VirtualMachineFrame* ff)
+        : q_ptr(ff)
+    {}
+
+    void initConnections();
+    void initUI();
+
+    VirtualMachineFrame* q_ptr = nullptr;
+
+    TitleLabel* title_label_ = nullptr;
+    CommentLabel* comment_label_ = nullptr;
+    NavButton* next_button_ = nullptr;
+};
 
 VirtualMachineFrame::VirtualMachineFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
-    : FrameInterface (FrameType::Frame, frameProxyInterface, parent) {
+    : FrameInterface (FrameType::Frame, frameProxyInterface, parent)
+    , m_private (new VirtualMachineFramePrivate(this))
+{
   setObjectName("virtual_machine_frame");
 
-  initUI();
-  initConnections();
+  m_private->initUI();
+  m_private->initConnections();
 }
 
 void VirtualMachineFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    title_label_->setText(tr("Friendly Reminder"));
-    comment_label_->setText(
+    m_private->title_label_->setText(tr("Friendly Reminder"));
+    m_private->comment_label_->setText(
         tr("You are using a virtual machine which will affect system performance and user experience. "
            "To get a smoother experience, please install %1 in a real environment").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")));
     next_button_->setText(tr("Continue"));
   } else {
     FrameInterface::changeEvent(event);
   }
+}
+
+VirtualMachineFrame::~VirtualMachineFrame()
+{
+
 }
 
 void VirtualMachineFrame::init()
@@ -66,14 +90,14 @@ bool VirtualMachineFrame::shouldDisplay() const
 {
     return !GetSettingsBool(kSkipVirtualMachinePage) && IsVirtualMachine() ;
 }
-void VirtualMachineFrame::initConnections() {
+void VirtualMachineFramePrivate::initConnections() {
     connect(next_button_, &QPushButton::clicked,
-            this, [=] {
-        m_proxy->nextFrame();
+            q_ptr, [=] {
+        q_ptr->m_proxy->nextFrame();
     });
 }
 
-void VirtualMachineFrame::initUI() {
+void VirtualMachineFramePrivate::initUI() {
   title_label_ = new TitleLabel(tr("Friendly Reminder"));
   comment_label_ = new CommentLabel(
       tr("System has detected that you are using a virtual machine, "
@@ -87,7 +111,7 @@ void VirtualMachineFrame::initUI() {
 
   next_button_ = new NavButton(tr("Continue"));
 
-  QVBoxLayout* layout = new QVBoxLayout(this);
+  QVBoxLayout* layout = new QVBoxLayout(q_ptr);
   layout->setContentsMargins(0, 0, 0, 0);
   layout->setSpacing(kMainLayoutSpacing);
   layout->addStretch();
@@ -96,8 +120,9 @@ void VirtualMachineFrame::initUI() {
   layout->addStretch();
   layout->addWidget(next_button_, 0, Qt::AlignCenter);
 
-  setLayout(layout);
-  setContentsMargins(0, 0, 0, 0);
+  q_ptr->setLayout(layout);
+  q_ptr->setContentsMargins(0, 0, 0, 0);
 }
 
 }  // namespace installer
+#include "virtual_machine_frame.moc"
