@@ -204,7 +204,7 @@ void MainWindow::initConnections() {
   connect(partition_frame_, &PartitionFrame::manualPartDone,
           install_progress_frame_, &InstallProgressFrame::runHooks);
 
-  connect(close_button_, &QPushButton::clicked,
+  connect(close_button_, &DImageButton::clicked,
           this, &MainWindow::onCloseButtonClicked);
   connect(multi_head_manager_, &MultiHeadManager::primaryScreenChanged,
           this, &MainWindow::onPrimaryScreenChanged);
@@ -218,7 +218,7 @@ void MainWindow::initConnections() {
   connect(brithtness_decrease_shortcut_, &QShortcut::activated,
           DecreaseBrightness);
 
-  connect(back_button_, &PointerButton::clicked, this, &MainWindow::backPage);
+  connect(back_button_, &DImageButton::clicked, this, &MainWindow::backPage);
 
   connect(m_selectComponentFrame, &SelectInstallComponentFrame::finished,
           this, &MainWindow::goNextPage);
@@ -282,21 +282,23 @@ void MainWindow::initPages() {
 void MainWindow::initUI() {
   background_label_ = new QLabel(this);
 
-  back_button_ = new PointerButton(this);
+  back_button_ = new DImageButton(this);
   back_button_->setObjectName("back_button");
   back_button_->setFixedSize(48, 38);
   back_button_->move(20, 20);
-  back_button_->setFlat(true);
-  back_button_->setFocusPolicy(Qt::TabFocus);
-  back_button_->setStyleSheet(ReadFile(":/styles/back_button.css"));
   back_button_->hide();
+  back_button_->setNormalPic(":/images/back_normal.svg");
+  back_button_->setHoverPic(":/images/back_hover.svg");
+  back_button_->setPressPic(":/images/back_pressed.svg");
+  back_button_->setDisabledPic(":/images/back_disabled.svg");
 
-  close_button_ = new PointerButton(this);
+  close_button_ = new DImageButton(this);
   close_button_->setObjectName("close_button");
-  close_button_->setFlat(true);
   close_button_->setFocusPolicy(Qt::TabFocus);
   close_button_->setFixedSize(40, 40);
-  close_button_->setStyleSheet(ReadFile(":/styles/close_button.css"));
+  close_button_->setNormalPic(":/images/close_normal.svg");
+  close_button_->setHoverPic(":/images/close_hover.svg");
+  close_button_->setPressPic(":/images/close_press.svg");
 
   stacked_layout_ = new QStackedLayout();
 

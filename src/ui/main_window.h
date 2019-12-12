@@ -21,6 +21,9 @@
 #include <QWidget>
 #include <QHash>
 #include <QMap>
+#include <DImageButton>
+
+DWIDGET_USE_NAMESPACE
 
 class QLabel;
 class QPushButton;
@@ -118,8 +121,8 @@ private:
   static bool checkBackButtonAvailable(PageId id);
 
   QLabel* background_label_ = nullptr;
-  QPushButton* back_button_ = nullptr;
-  QPushButton* close_button_ = nullptr;
+  DImageButton* back_button_ = nullptr;
+  DImageButton* close_button_ = nullptr;
   PageIndicator* page_indicator_ = nullptr;
   // All of frame pages are stored in this layout.
   // And they are referenced by id in |pages_|.
