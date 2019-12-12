@@ -368,7 +368,9 @@ void MainWindow::initPages() {
 }
 
 void MainWindow::initUI() {
-  back_button_ = new PointerButton(this);
+  background_label_ = new QLabel(this);
+
+  back_button_ = new DImageButton(this);
   back_button_->setObjectName("back_button");
   back_button_->setFixedSize(48, 38);
   back_button_->move(20, 20);
