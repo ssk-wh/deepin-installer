@@ -77,6 +77,7 @@ def main():
         ("timezone_default", "Asia/Shanghai"),
         ("partition_skip_simple_partition_page", "true"),
         ("partition_skip_partition_crypt_page", "true"),
+        ("set_root_password_from_user", "true"),
     )
 
     loongson_community_settings = (
@@ -112,6 +113,7 @@ def main():
         ("partition_full_disk_small_legacy_label", '"Boot;Swap;Root"'),
         ("partition_full_disk_large_legacy_label", '"Boot;Swap;Root;_dde_data"'),
         ("skip_select_component_page", "false"),
+        ("set_root_password_from_user", "true"),
     )
 
     sw_community_settings = (
@@ -147,6 +149,7 @@ def main():
         ("partition_full_disk_small_legacy_label", '"Boot;Swap;Root"'),
         ("partition_full_disk_large_legacy_label", '"Boot;Swap;Root;_dde_data"'),
         ("skip_select_component_page", "false"),
+        ("set_root_password_from_user", "true"),
     )
 
     x86_professinal_settings = (
@@ -162,7 +165,8 @@ def main():
         ("skip_select_component_page", "false"),
         ("select_language_default_locale", "zh_CN"),
         ("timezone_default", "Asia/Shanghai"),
-        ("partition_skip_simple_partition_page", "true")
+        ("partition_skip_simple_partition_page", "true"),
+        ("set_root_password_from_user", "true"),
     )
 
     update_settings(arm_community_file, arm_community_settings)

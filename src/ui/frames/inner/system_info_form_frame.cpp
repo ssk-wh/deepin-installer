@@ -294,7 +294,7 @@ void SystemInfoFormFramePrivate::initUI()
     m_setRootPasswordCheck->setCheckable(true);
     m_setRootPasswordCheck->setChecked(false);
     m_setRootPasswordCheck->setObjectName("RootPasswordCheckBox");
-    m_setRootPasswordCheck->setVisible(!GetSettingsBool(kSetRootPasswordFromUser));
+    m_setRootPasswordCheck->setVisible(GetSettingsBool(kSetRootPasswordFromUser));
 
     m_rootPasswordEdit = new LineEdit(":/images/username_12.svg");
     m_rootPasswordEdit->setPlaceholderText(tr("Root password"));
