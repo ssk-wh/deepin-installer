@@ -91,6 +91,9 @@ class TimezoneMap : public QFrame {
 
   QLabel* map_label_;
 
+  QSize m_mapLabelSize;
+  QPoint m_popupPoint;
+
  private slots:
   void onPopupWindowActivated(int index);
 };
