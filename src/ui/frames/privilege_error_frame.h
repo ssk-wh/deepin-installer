@@ -18,6 +18,8 @@
 #ifndef INSTALLER_UI_FRAMES_PRIVILEGE_ERROR_FRAME_H
 #define INSTALLER_UI_FRAMES_PRIVILEGE_ERROR_FRAME_H
 
+#include "ui/interfaces/frameinterface.h"
+
 #include <QFrame>
 
 namespace installer {
@@ -26,16 +28,18 @@ class NavButton;
 class PrivilegeErrorFramePrivate;
 
 // Display this page when root privilege is not guaranteed.
-class PrivilegeErrorFrame : public QFrame {
+class PrivilegeErrorFrame : public FrameInterface {
   Q_OBJECT
 
+  friend PrivilegeErrorFramePrivate;
+
  public:
-  explicit PrivilegeErrorFrame(QWidget* parent = nullptr);
+  explicit PrivilegeErrorFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
   ~PrivilegeErrorFrame() override;
 
- signals:
-  // Emitted when continue_button_ is clicked.
-  void finished();
+  virtual void init() override;
+  virtual void finished() override;
+  virtual bool shouldDisplay() const override;
 
 private:
     QScopedPointer<PrivilegeErrorFramePrivate> m_private;

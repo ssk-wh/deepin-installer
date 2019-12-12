@@ -17,12 +17,12 @@
 
 #include "ui/frames/privilege_error_frame.h"
 
-#include <QVBoxLayout>
-
 #include "ui/frames/consts.h"
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/nav_button.h"
 #include "ui/widgets/title_label.h"
+
+#include <QVBoxLayout>
 
 namespace installer {
 
@@ -41,8 +41,8 @@ public:
     NavButton* continue_button_ = nullptr;
 };
 
-PrivilegeErrorFrame::PrivilegeErrorFrame(QWidget* parent)
-    : QFrame(parent)
+PrivilegeErrorFrame::PrivilegeErrorFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
+    : FrameInterface(FrameType::Frame, frameProxyInterface, parent)
     , m_private(new PrivilegeErrorFramePrivate(this))
 {
   setObjectName("privilege_error_frame");
@@ -56,9 +56,26 @@ PrivilegeErrorFrame::~PrivilegeErrorFrame()
 
 }
 
+void PrivilegeErrorFrame::init()
+{
+
+}
+
+void PrivilegeErrorFrame::finished()
+{
+
+}
+
+bool PrivilegeErrorFrame::shouldDisplay() const
+{
+    return true;
+}
+
 void PrivilegeErrorFramePrivate::initConnection() {
   connect(continue_button_, &QPushButton::clicked,
-          q_ptr, &PrivilegeErrorFrame::finished);
+          q_ptr, [=] {
+          q_ptr->m_proxy->nextFrame();
+  });
 }
 
 void PrivilegeErrorFramePrivate::initUI() {
