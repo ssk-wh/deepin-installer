@@ -1,5 +1,7 @@
 #include "control_platform_frame.h"
 
+#include "ui/interfaces/frameinterfaceprivate.h"
+
 #include "ui/widgets/line_edit.h"
 #include "ui/widgets/nav_button.h"
 #include "ui/widgets/table_combo_box.h"
@@ -25,13 +27,14 @@
 using namespace installer;
 
 namespace installer {
-class ControlPlatformFramePrivate : public QObject
+class ControlPlatformFramePrivate : public FrameInterfacePrivate
 {
     Q_OBJECT
 
 public:
-    explicit ControlPlatformFramePrivate(ControlPlatformFrame* ff)
-        : m_titleLbl(new TitleLabel(tr("Set Control Region")))
+    explicit ControlPlatformFramePrivate(FrameInterface* parent)
+        : FrameInterfacePrivate (parent)
+        , m_titleLbl(new TitleLabel(tr("Set Control Region")))
         , m_subTitleLbl(new CommentLabel(tr("Set the region for UOS EndPoint Management Platform")))
         , m_serverLineEdit(new LineEdit(QString(":/images/hostname_12.svg")))
         , m_regionBox(new TableComboBox)
@@ -39,7 +42,7 @@ public:
         , m_regionModel(new ControlPlatformRegionModel(this))
         , m_macInfoLayout(new QVBoxLayout)
         , m_ipInfoLayout(new QVBoxLayout)
-        , q_ptr(ff)
+        , q_ptr(qobject_cast<ControlPlatformFrame* >(parent))
     {}
 
     TitleLabel*                 m_titleLbl = nullptr;
