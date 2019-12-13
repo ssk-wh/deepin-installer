@@ -1,15 +1,17 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1">
 <context>
     <name>installer::AdvancedPartitionButton</name>
     <message>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="124"/>
         <source>Install here</source>
-        <translation>Install here</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="127"/>
         <source>To be formatted</source>
-        <translation>To be formatted</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -18,22 +20,34 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="101"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="190"/>
         <source>Change boot loader</source>
-        <translation>Change boot loader</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="103"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="595"/>
+=======
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="93"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="568"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Done</source>
-        <translation>Done</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="105"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="197"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="597"/>
+=======
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="95"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="180"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="570"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Delete</source>
-        <translation>Delete</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="107"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="242"/>
         <source>Install NVIDIA closed source driver</source>
@@ -41,68 +55,115 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="462"/>
+=======
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="439"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation>%1 error found, fix to continue installation or switch to simple mode</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="466"/>
+=======
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="443"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation>%1 errors found, fix to continue installation or switch to simple mode</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="472"/>
+=======
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="449"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>%1 error found, continue to install after fixed</source>
-        <translation>%1 error found, continue to install after fixed</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="476"/>
+=======
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="453"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>%1 errors found, continue to install after fixed</source>
-        <translation>%1 errors found, continue to install after fixed</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="523"/>
+=======
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="500"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation>The partition filesystem type of /boot directory can only be %1 </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="527"/>
+=======
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="504"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation>The partition of /boot directory should be the first partition on hard disk</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="531"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
         <translation type="unfinished">The partition of /boot/efi directory should be the first partition on hard disk</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="536"/>
+=======
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="509"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>At least %1 MB is required for /boot partition</source>
-        <translation>At least %1 MB is required for /boot partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="540"/>
+=======
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="513"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Add an EFI partition to continue</source>
-        <translation>Add an EFI partition to continue</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="544"/>
+=======
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="517"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>At least %1 MB is required for EFI partition</source>
-        <translation>At least %1 MB is required for EFI partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="548"/>
+=======
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="521"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Add a Root partition to continue</source>
-        <translation>Add a Root partition to continue</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="553"/>
+=======
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="526"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>At least %1 GB is required for Root partition</source>
-        <translation>At least %1 GB is required for Root partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="558"/>
+=======
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="531"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>At least %1 GB is required for partition %2</source>
-        <translation>At least %1 GB is required for partition %2</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -110,49 +171,59 @@
     <message>
         <location filename="../src/ui/models/bootloader_list_model.cpp" line="42"/>
         <source>%1 %2 (recommended)</source>
-        <translation>%1 %2 (recommended)</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>installer::ConfirmQuitFrame</name>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="39"/>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="58"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="38"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="57"/>
         <source>Abort Installation</source>
-        <translation>Abort Installation</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="41"/>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="60"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="40"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="59"/>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
-        <translation>Relevant operations you made in the installation process will not take effect, abort or continue installation?</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="42"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="66"/>
+        <source>Continue</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="43"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="67"/>
-        <source>Continue</source>
-        <translation>Continue</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="44"/>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="68"/>
         <source>Abort</source>
-        <translation>Abort</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="67"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="81"/>
+=======
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="75"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="90"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Insufficient Disk Space</source>
-        <translation>Insufficient Disk Space</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="69"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="88"/>
+=======
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="77"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="97"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Exit</source>
-        <translation>Exit</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -161,47 +232,47 @@
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="99"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="167"/>
         <source>Edit Disk</source>
-        <translation>Edit Disk</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="101"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="169"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation>Make sure you have backed up important data, then select the disk to install</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="102"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="201"/>
         <source>File system</source>
-        <translation>File system</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="203"/>
         <source>Mount point</source>
-        <translation>Mount point</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="104"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="218"/>
         <source>Format the partition</source>
-        <translation>Format the partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="105"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="244"/>
         <source>Cancel</source>
-        <translation>Cancel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="106"/>
         <source>Create</source>
-        <translation>Create</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="245"/>
         <source>Confirm</source>
-        <translation>Confirm</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -210,13 +281,13 @@
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="38"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="61"/>
         <source>Tuning system</source>
-        <translation>Tuning system</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="40"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="63"/>
         <source>Applying changes to your system, please wait...</source>
-        <translation>Applying changes to your system, please wait...</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -225,22 +296,22 @@
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="162"/>
         <source>Install here</source>
-        <translation>Install here</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
         <source>Encrypt this disk</source>
-        <translation>Encrypt this disk</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="63"/>
         <source>Encrypt This Disk</source>
-        <translation>Encrypt This Disk</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="64"/>
         <source>Please select a disk to start installation</source>
-        <translation>Please select a disk to start installation</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -266,107 +337,177 @@
 =======
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
+<<<<<<< HEAD
         <translation>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</translation>
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
 </context>
 <context>
     <name>installer::InstallProgressFrame</name>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="170"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="187"/>
         <source>Installing</source>
-        <translation>Installing</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="172"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="189"/>
         <source>Here are a few cool things to look out for...</source>
-        <translation>Here are a few cool things to look out for...</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>installer::MultipleDiskInstallationWidget</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="183"/>
+=======
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="182"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>System Disk</source>
-        <translation>System Disk</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="183"/>
+=======
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="182"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Data Disk</source>
-        <translation>Data Disk</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>installer::NewPartitionFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="117"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="152"/>
+=======
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="118"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="153"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Create New Partition</source>
-        <translation>Create New Partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="119"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="154"/>
+=======
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="120"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="155"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Create a new partition and define the type and size</source>
-        <translation>Create a new partition and define the type and size</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="160"/>
+=======
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="121"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="161"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Type</source>
-        <translation>Type</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="121"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="166"/>
+=======
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="122"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="167"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Location</source>
-        <translation>Location</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="122"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="171"/>
+=======
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="123"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="172"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>File system</source>
-        <translation>File system</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="123"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="179"/>
+=======
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="180"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Mount point</source>
-        <translation>Mount point</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="124"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="186"/>
+=======
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="125"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="187"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Size</source>
-        <translation>Size</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="126"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="169"/>
+=======
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="127"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="170"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Start</source>
-        <translation>Start</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="126"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="169"/>
+=======
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="127"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="170"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>End</source>
-        <translation>End</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="127"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="222"/>
-        <source>Cancel</source>
-        <translation>Cancel</translation>
-    </message>
-    <message>
+=======
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="128"/>
-        <source>OK</source>
-        <translation>OK</translation>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="230"/>
+>>>>>>> eae3cb6b... clean all ts file
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="128"/>
+=======
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="129"/>
+>>>>>>> eae3cb6b... clean all ts file
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="223"/>
+=======
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="231"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Create</source>
-        <translation>Create</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -375,7 +516,7 @@
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="37"/>
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="54"/>
         <source>Formatting...</source>
-        <translation>Formatting...</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -384,60 +525,81 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="76"/>
         <source>Format Warning</source>
-        <translation>Format Warning</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="57"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="94"/>
         <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="59"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="101"/>
         <source>Cancel</source>
-        <translation>Cancel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="102"/>
         <source>Continue</source>
-        <translation>Continue</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>installer::PartitionFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/partition_frame.cpp" line="114"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="263"/>
+=======
+        <location filename="../src/ui/frames/partition_frame.cpp" line="186"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Select Installation Location</source>
-        <translation>Select Installation Location</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/partition_frame.cpp" line="116"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="265"/>
+=======
+        <location filename="../src/ui/frames/partition_frame.cpp" line="188"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation>Make sure you have backed up important data, then select the disk to install</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/partition_frame.cpp" line="117"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="272"/>
+=======
+        <location filename="../src/ui/frames/partition_frame.cpp" line="189"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Simple</source>
-        <translation>Simple</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/partition_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="276"/>
+=======
+        <location filename="../src/ui/frames/partition_frame.cpp" line="190"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Advanced</source>
-        <translation>Advanced</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/partition_frame.cpp" line="119"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="280"/>
+=======
+        <location filename="../src/ui/frames/partition_frame.cpp" line="191"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Full Disk</source>
-        <translation>Full Disk</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/partition_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="366"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="510"/>
@@ -458,6 +620,11 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="510"/>
         <source>Next</source>
         <translation>Next</translation>
+=======
+        <location filename="../src/ui/frames/partition_frame.cpp" line="192"/>
+        <source>Start installation</source>
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
 </context>
 <context>
@@ -466,13 +633,13 @@
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="37"/>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="45"/>
         <source>Scan disks</source>
-        <translation>Scan disks</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="38"/>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="46"/>
         <source>Scanning disks, please wait...</source>
-        <translation>Scanning disks, please wait...</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -480,41 +647,41 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="45"/>
         <source>You should delete a primary partition before creating a new one</source>
-        <translation>You should delete a primary partition before creating a new one</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="47"/>
         <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation>New logical partitions can only be created near existing logical partitions</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="52"/>
         <source>You should delete a primary partition before creating a new partition</source>
-        <translation>You should delete a primary partition before creating a new partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="59"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="78"/>
         <source>Failed to Create New Partition</source>
-        <translation>Failed to Create New Partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="81"/>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
-        <translation>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="86"/>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
-        <translation>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="90"/>
         <source>Back</source>
-        <translation>Back</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -523,12 +690,12 @@
         <location filename="../src/ui/models/partition_type_model.cpp" line="41"/>
         <location filename="../src/ui/models/partition_type_model.cpp" line="47"/>
         <source>Logical Partition</source>
-        <translation>Logical Partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/models/partition_type_model.cpp" line="45"/>
         <source>Primary Partition</source>
-        <translation>Primary Partition</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -537,31 +704,31 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="83"/>
         <source>Ready to Install</source>
-        <translation>Ready to Install</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="85"/>
         <source>Make a backup of your important data and then continue</source>
-        <translation>Make a backup of your important data and then continue</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="92"/>
         <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
-        <translation>The following operations will be executed, please confirm and continue to avoid data loss</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="68"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="105"/>
         <source>Back</source>
-        <translation>Back</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="69"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="106"/>
         <source>Continue</source>
-        <translation>Continue</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -569,86 +736,91 @@
     <message>
         <location filename="../src/partman/operation.cpp" line="254"/>
         <source>Create extended partition %1</source>
-        <translation>Create extended partition %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="258"/>
         <source>Create new partition %1, type: %2</source>
-        <translation>Create new partition %1, type: %2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="262"/>
         <source>Create new partition %1 as %2 (mountpoint), type: %3</source>
-        <translation>Create new partition %1 as %2 (mountpoint), type: %3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="271"/>
         <source>Delete %1 partition</source>
-        <translation>Delete %1 partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="276"/>
         <source>Format %1 partition, type: %2</source>
-        <translation>Format %1 partition, type: %2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="280"/>
         <source>Format %1 partition as %2 (mountpoint), type: %3</source>
-        <translation>Format %1 partition as %2 (mountpoint), type: %3</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="288"/>
         <source>Use %1 partition as %2 (mountpoint)</source>
-        <translation>Use %1 partition as %2 (mountpoint)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="294"/>
         <source>Format %1 and create %2 new partition table</source>
-        <translation>Format %1 and create %2 new partition table</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="300"/>
         <source>Adjust the size of %1 partition</source>
-        <translation>Adjust the size of %1 partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="262"/>
         <source>Do not use this partition</source>
-        <translation>Do not use this partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="275"/>
         <source>Swap partition</source>
-        <translation>Swap partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="278"/>
         <source>Unknown</source>
-        <translation>Unknown</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="319"/>
         <location filename="../src/ui/delegates/partition_util.cpp" line="350"/>
         <source>Freespace</source>
-        <translation>Freespace</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
         <translation type="vanished">You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</translation>
+=======
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="41"/>
+        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="49"/>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="55"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="98"/>
+        <source>Reboot Now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="99"/>
         <source>Successfully Installed</source>
-        <translation>Successfully Installed</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="51"/>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="57"/>
-        <source>Reboot to complete the installation</source>
-        <translation>Reboot to complete the installation</translation>
-    </message>
-    <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/install_success_frame.cpp" line="53"/>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="56"/>
         <source>Click the button below and then remove the installation media immediately</source>
@@ -668,11 +840,18 @@
 <<<<<<< HEAD
 =======
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
-    <message>
-        <location filename="../src/base/translator.h" line="14"/>
-        <source>Select system language</source>
-        <translation>Select system language</translation>
+=======
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="100"/>
+        <source>Please remove the installation media before reboot</source>
+        <translation type="unfinished"></translation>
     </message>
+>>>>>>> eae3cb6b... clean all ts file
+    <message>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="101"/>
+        <source>Reboot to complete the installation</source>
+        <translation type="unfinished"></translation>
+    </message>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="48"/>
@@ -692,6 +871,8 @@
 =======
 >>>>>>> 1a7347df... chore: auto pull translation files from transifex
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
+=======
+>>>>>>> eae3cb6b... clean all ts file
 </context>
 <context>
     <name>installer::SelectBootloaderFrame</name>
@@ -699,19 +880,19 @@
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="42"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="64"/>
         <source>Select location for boot loader</source>
-        <translation>Select location for boot loader</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="44"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="66"/>
         <source>If you do not understand the settings, please select the recommended one</source>
-        <translation>If you do not understand the settings, please select the recommended one</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="45"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="77"/>
         <source>Back</source>
-        <translation>Back</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -719,23 +900,23 @@
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="75"/>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation>Unable to create new partition, please select one of the existing partitions!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="82"/>
         <source>Please select one of the partitions to install!</source>
-        <translation>Please select one of the partitions to install!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="89"/>
         <source>At least %1 GB is required for root partition</source>
-        <translation>At least %1 GB is required for root partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="237"/>
         <source>Install here</source>
-        <translation>Install here</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -755,12 +936,14 @@
 =======
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
         <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
-<<<<<<< HEAD
         <translation type="unfinished"></translation>
+<<<<<<< HEAD
 =======
         <translation>Windows will not boot if you install UOS on Windows disk, please confirm to continue</translation>
 >>>>>>> 1a7347df... chore: auto pull translation files from transifex
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
+=======
+>>>>>>> eae3cb6b... clean all ts file
     </message>
 </context>
 <context>
@@ -768,12 +951,12 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="104"/>
         <source>User Avatar</source>
-        <translation>User Avatar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="105"/>
         <source>Select an avatar for your account</source>
-        <translation>Select an avatar for your account</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -781,37 +964,42 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="186"/>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="187"/>
         <source>Computer name</source>
-        <translation>Computer name</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="188"/>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="189"/>
         <source>Repeat password</source>
-        <translation>Repeat password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="190"/>
         <source>Root password</source>
-        <translation>Root password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="191"/>
         <source>Repeat root password</source>
+<<<<<<< HEAD
         <translation>Repeat root password</translation>
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
 </context>
 <context>
     <name>installer::TimezoneFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/timezone_frame.cpp" line="140"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="249"/>
         <source>Select Timezone</source>
@@ -821,10 +1009,14 @@
         <location filename="../src/ui/frames/timezone_frame.cpp" line="143"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="250"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="386"/>
+=======
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="203"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Click your zone on the map</source>
-        <translation>Click your zone on the map</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/timezone_frame.cpp" line="146"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="391"/>
         <source>Select your timezone from the list</source>
@@ -853,17 +1045,27 @@
         <location filename="../src/ui/frames/timezone_frame.cpp" line="312"/>
         <source>Time settings</source>
         <translation>Time settings</translation>
+=======
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="206"/>
+        <source>Select your timezone from the list</source>
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
 </context>
 <context>
     <name>installer::VirtualMachineFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="43"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="59"/>
+=======
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="62"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Friendly Reminder</source>
-        <translation>Friendly Reminder</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="45"/>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install %1 in a real environment</source>
@@ -918,22 +1120,39 @@
 <<<<<<< HEAD
         <translation type="vanished">Install here</translation>
     </message>
-    <message>
-        <source>To be formatted</source>
-        <translation type="vanished">To be formatted</translation>
 =======
-        <translation type="unfinished"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="64"/>
+        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="66"/>
+        <source>Continue</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>installer::ComponentInstallManager</name>
+>>>>>>> eae3cb6b... clean all ts file
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
+        <source>Minimal Install</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+<<<<<<< HEAD
         <source>To be formatted</source>
         <translation type="unfinished"/>
 >>>>>>> 1a7347df... chore: auto pull translation files from transifex
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
+        <source>Basic functionality.</source>
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
-</context>
-<context>
-    <name>installer::AdvancedPartitionFrame</name>
     <message>
+<<<<<<< HEAD
         <source>Change boot loader</source>
 <<<<<<< HEAD
         <translation type="obsolete">Change boot loader</translation>
@@ -1152,301 +1371,361 @@
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>Server for operating network infrastructure services, with a GUI.</source>
         <translation>Server for operating network infrastructure services, with a GUI.</translation>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
+        <source>Compute Node</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
+        <source>Installation for performing computation and processing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
+        <source>Infrastructure Server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
+        <source>Server for operating network infrastructure services.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+        <source>File and Print Server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+        <source>File, print, and storage server for enterprises.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+        <source>Basic Web Server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+        <source>Server for serving static and dynamic internet content.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+        <source>Virtualization Host</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+        <source>Minimal virtualization host.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+        <source>Server with GUI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+        <source>Server for operating network infrastructure services, with a GUI.</source>
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>DDE Desktop</source>
-        <translation>DDE Desktop</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>DDE is a highly intuitive and user friendly desktop environment.</source>
-        <translation>DDE is a highly intuitive and user friendly desktop environment.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Development and Creative Workstation</source>
-        <translation>Development and Creative Workstation</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Workstation for software, hardware, graphics, or content development.</source>
-        <translation>Workstation for software, hardware, graphics, or content development.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>Debugging Tools</source>
-        <translation>Debugging Tools</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>Tools for debugging misbehaving applications and diagnosing performance problems.</source>
-        <translation>Tools for debugging misbehaving applications and diagnosing performance problems.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Directory Client</source>
-        <translation>Directory Client</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Clients for integration into a network managed by a directory service.</source>
-        <translation>Clients for integration into a network managed by a directory service.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>Security Tools</source>
-        <translation>Security Tools</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>Security tools for integrity and trust verification.</source>
-        <translation>Security tools for integrity and trust verification.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>Development Tools</source>
-        <translation>Development Tools</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>A basic development environment.</source>
-        <translation>A basic development environment.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>Performance Tools</source>
-        <translation>Performance Tools</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>Tools for diagnosing system and application-level performance problems.</source>
-        <translation>Tools for diagnosing system and application-level performance problems.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>Hardware Monitoring Utilities</source>
-        <translation>Hardware Monitoring Utilities</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>A set of tools to monitor server hardware.</source>
-        <translation>A set of tools to monitor server hardware.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>Virtualization Hypervisor</source>
-        <translation>Virtualization Hypervisor</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>Smallest possible virtualization host installation.</source>
-        <translation>Smallest possible virtualization host installation.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>Virtualization Platform</source>
-        <translation>Virtualization Platform</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>Provide an interface for accessing and controlling virtualized guests and containers.</source>
-        <translation>Provide an interface for accessing and controlling virtualized guests and containers.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>Virtualization Client</source>
-        <translation>Virtualization Client</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>Clients for installing and managing virtualization instances.</source>
-        <translation>Clients for installing and managing virtualization instances.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>Backup Client</source>
-        <translation>Backup Client</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>Client tools for connecting to a backup server and doing backups.</source>
-        <translation>Client tools for connecting to a backup server and doing backups.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>Backup Server</source>
-        <translation>Backup Server</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>Software to centralize your infrastructure&apos;s backups.</source>
-        <translation>Software to centralize your infrastructure&apos;s backups.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>File and Storage Server</source>
-        <translation>File and Storage Server</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
-        <translation>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>DNS Name Server</source>
-        <translation>DNS Name Server</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>This package group allows you to run a DNS name server (BIND) on the system.</source>
-        <translation>This package group allows you to run a DNS name server (BIND) on the system.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>E-mail Server</source>
-        <translation>E-mail Server</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
-        <translation>Allows the system to act as a SMTP and/or IMAP e-mail server.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>FTP Server</source>
-        <translation>FTP Server</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Allows the system to act as an FTP server.</source>
-        <translation>Allows the system to act as an FTP server.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Print Server</source>
-        <translation>Print Server</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Allows the system to act as a print server.</source>
-        <translation>Allows the system to act as a print server.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Mainframe Access</source>
-        <translation>Mainframe Access</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Tools for accessing mainframe computing resources.</source>
-        <translation>Tools for accessing mainframe computing resources.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>Infiniband Support</source>
-        <translation>Infiniband Support</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
-        <translation>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>High Availability</source>
-        <translation>High Availability</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Infrastructure for highly available services and/or shared storage.</source>
-        <translation>Infrastructure for highly available services and/or shared storage.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Resilient Storage</source>
-        <translation>Resilient Storage</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Clustered storage, including the GFS2 file system.</source>
-        <translation>Clustered storage, including the GFS2 file system.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>ldentity Management Server</source>
-        <translation>ldentity Management Server</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Centralized management of users, servers and authentication policies.</source>
-        <translation>Centralized management of users, servers and authentication policies.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Large Systems Performance</source>
-        <translation>Large Systems Performance</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Performance support tools for large systems.</source>
-        <translation>Performance support tools for large systems.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Load Balancer</source>
-        <translation>Load Balancer</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Load balancing support for network traffic.</source>
-        <translation>Load balancing support for network traffic.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>MariaDB Database Client</source>
-        <translation>MariaDB Database Client</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>The MariaDB SQL database client, and associated packages.</source>
-        <translation>The MariaDB SQL database client, and associated packages.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>MariaDB Database Server</source>
-        <translation>MariaDB Database Server</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>The MariaDB SQL database server, and associated packages.</source>
-        <translation>The MariaDB SQL database server, and associated packages.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>PostgreSQL Database Client</source>
-        <translation>PostgreSQL Database Client</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>The PostgreSQL SQL database client, and associated packages.</source>
-        <translation>The PostgreSQL SQL database client, and associated packages.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>PostgreSQL Database Server</source>
-        <translation>PostgreSQL Database Server</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>The PostgreSQL SQL database server, and associated packages.</source>
-        <translation>The PostgreSQL SQL database server, and associated packages.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>Java Platform</source>
-        <translation>Java Platform</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
@@ -1472,169 +1751,178 @@
     </message>
     <message>
         <source>Java support for UOS.</source>
+<<<<<<< HEAD
         <translation type="vanished">Java support for UOS.</translation>
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>PHP Support</source>
-        <translation>PHP Support</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>PHP web application framework.</source>
-        <translation>PHP web application framework.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>Python</source>
-        <translation>Python</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>Basic Python web application support.</source>
-        <translation>Basic Python web application support.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>Perl for Web</source>
-        <translation>Perl for Web</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>Basic Perl web application support.</source>
-        <translation>Basic Perl web application support.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>Internet Applications</source>
-        <translation>Internet Applications</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>Email, chat, and video conferencing software.</source>
-        <translation>Email, chat, and video conferencing software.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>Web Servlet Engine</source>
-        <translation>Web Servlet Engine</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>Allows the system to host Java servlets.</source>
-        <translation>Allows the system to host Java servlets.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>Legacy x Window System Compatibility</source>
-        <translation>Legacy x Window System Compatibility</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>Compatibility programs for migration from or working with legacy X Window System environments.</source>
-        <translation>Compatibility programs for migration from or working with legacy X Window System environments.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>Office Suite and Productivity</source>
-        <translation>Office Suite and Productivity</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>A full-purpose office suite, and other productivity tools.</source>
-        <translation>A full-purpose office suite, and other productivity tools.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>Additional Development</source>
-        <translation>Additional Development</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>Additional development headers and libraries for building open-source applications.</source>
-        <translation>Additional development headers and libraries for building open-source applications.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>Emacs</source>
-        <translation>Emacs</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>The GNU Emacs extensible, customizable text editor.</source>
-        <translation>The GNU Emacs extensible, customizable text editor.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
         <source>Graphics Creation Tools</source>
-        <translation>Graphics Creation Tools</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
         <source>Software for creation and manipulation of still images.</source>
-        <translation>Software for creation and manipulation of still images.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
         <source>Platform Development</source>
-        <translation>Platform Development</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
+<<<<<<< HEAD
         <translation type="vanished">Recommended development headers and libraries for developing applications to run on UOS.</translation>
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>Technical Writing</source>
-        <translation>Technical Writing</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>Tools for writing technical documentation.</source>
-        <translation>Tools for writing technical documentation.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>Virtualization Tools</source>
-        <translation>Virtualization Tools</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>Tools for offline virtual image management.</source>
-        <translation>Tools for offline virtual image management.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
         <source>Network File System Client</source>
-        <translation>Network File System Client</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
         <source>Enables the system to attach to network storage.</source>
-        <translation>Enables the system to attach to network storage.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
         <source>Guest Agents</source>
-        <translation>Guest Agents</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
         <source>Agents used when running under a hypervisor.</source>
-        <translation>Agents used when running under a hypervisor.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
         <source>DDE Applications</source>
-        <translation>DDE Applications</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
         <source>A set of commonly used DDE Applications.</source>
-        <translation>A set of commonly used DDE Applications.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::ConfirmQuitFrame</name>
     <message>
         <source>Abort Installation</source>
@@ -1666,26 +1954,38 @@
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
         <translation type="unfinished"/>
     </message>
+=======
+    <name>installer::ControlPlatformFrame</name>
+>>>>>>> eae3cb6b... clean all ts file
     <message>
-        <source>Continue</source>
-        <translation type="unfinished"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="176"/>
+        <source>Next</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <source>Abort</source>
         <translation type="unfinished"/>
 >>>>>>> 1a7347df... chore: auto pull translation files from transifex
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
+=======
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="177"/>
+        <source>Server Address</source>
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
-</context>
-<context>
-    <name>installer::ControlPlatformFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="31"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="122"/>
+=======
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="178"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Set Control Region</source>
-        <translation>Set Control Region</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <source>Set the region for UOS EndPoint Management Platform</source>
         <translation type="vanished">Set the region for UOS EndPoint Management Platform</translation>
     </message>
@@ -1732,17 +2032,31 @@
 <<<<<<< HEAD
         <translation type="vanished">Insufficient Disk Space</translation>
     </message>
-    <message>
-        <source>Exit</source>
-        <translation type="vanished">Exit</translation>
 =======
-        <translation type="unfinished"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="179"/>
+        <source>Set the region for UOS EndPoint Management Platform</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>installer::ControlPlatformFramePrivate</name>
+>>>>>>> eae3cb6b... clean all ts file
+    <message>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="33"/>
+        <source>Set Control Region</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <source>Exit</source>
         <translation type="unfinished"/>
 >>>>>>> 1a7347df... chore: auto pull translation files from transifex
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
+=======
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="34"/>
+        <source>Set the region for UOS EndPoint Management Platform</source>
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
 </context>
 <context>
@@ -1750,16 +2064,17 @@
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="113"/>
         <source>Warning</source>
-        <translation>Warning</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="114"/>
         <source>Cancel</source>
-        <translation>Cancel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="115"/>
         <source>Next</source>
+<<<<<<< HEAD
         <translation>Next</translation>
     </message>
 </context>
@@ -1922,6 +2237,9 @@
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
         <translation type="unfinished"/>
 >>>>>>> 1a7347df... chore: auto pull translation files from transifex
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
 </context>
 <context>
@@ -1929,67 +2247,80 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="160"/>
         <source>Please input password</source>
-        <translation>Please input password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="166"/>
         <source>Passwords do not match</source>
-        <translation>Passwords do not match</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
         <source>Encrypt This Disk</source>
-        <translation>Encrypt This Disk</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="204"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation>Make sure you have backed up important data, then select the disk to install</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
         <source>Encrypt this disk</source>
-        <translation>Encrypt this disk</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="206"/>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="207"/>
         <source>Repeat Password</source>
-        <translation>Repeat Password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="208"/>
         <source>Previous</source>
-        <translation>Previous</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="209"/>
         <source>Start Installation</source>
-        <translation>Start Installation</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>installer::InstallFailedFramePrivate</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="76"/>
+=======
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="75"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Installation Failed</source>
-        <translation>Installation Failed</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="78"/>
+=======
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="77"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
-        <translation>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="80"/>
+=======
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="79"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Exit</source>
-        <translation>Exit</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="81"/>
         <source>Save Log</source>
         <translation>Save Log</translation>
@@ -2020,19 +2351,24 @@
         <translation type="unfinished"/>
 >>>>>>> 1a7347df... chore: auto pull translation files from transifex
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
+=======
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="80"/>
+        <source>Save Log</source>
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
 </context>
 <context>
     <name>installer::InstallProgressFramePrivate</name>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="215"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="233"/>
         <source>Installing</source>
-        <translation>Installing</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="217"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="235"/>
         <source>Here are a few cool things to look out for...</source>
-        <translation>Here are a few cool things to look out for...</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2040,6 +2376,7 @@
     <message>
         <location filename="../src/ui/models/mount_point_model.cpp" line="37"/>
         <source>Do not use</source>
+<<<<<<< HEAD
         <translation>Do not use</translation>
     </message>
 </context>
@@ -2068,6 +2405,9 @@
         <translation type="unfinished"/>
 >>>>>>> 1a7347df... chore: auto pull translation files from transifex
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
 </context>
 <context>
@@ -2076,53 +2416,54 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="71"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="136"/>
         <source>Skip</source>
-        <translation>Skip</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="72"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="137"/>
         <source>Next</source>
-        <translation>Next</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="97"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="130"/>
         <source>Configure Network</source>
-        <translation>Configure Network</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="131"/>
         <source>IP Address</source>
-        <translation>IP Address</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="132"/>
         <source>Netmask</source>
-        <translation>Netmask</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="133"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="134"/>
         <source>Primary DNS</source>
-        <translation>Primary DNS</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="135"/>
         <source>Secondary DNS</source>
-        <translation>Secondary DNS</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="205"/>
         <source>IP address error: illegal IP address, please have a check.</source>
-        <translation>IP address error: illegal IP address, please have a check.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="216"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
+<<<<<<< HEAD
         <translation>Netmask error: illegal netmask, please have a check.</translation>
     </message>
 </context>
@@ -2289,12 +2630,17 @@
         <translation type="unfinished"/>
 >>>>>>> 1a7347df... chore: auto pull translation files from transifex
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
 </context>
 <context>
-    <name>installer::PartitionFrame</name>
+    <name>installer::PartitionFramePrivate</name>
     <message>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="344"/>
         <source>Select Installation Location</source>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <translation type="obsolete">Select Installation Location</translation>
 =======
@@ -2338,37 +2684,50 @@
         <translation type="vanished">Next</translation>
 =======
         <translation type="unfinished"/>
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
     <message>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="346"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="353"/>
         <source>Simple</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="357"/>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="361"/>
         <source>Full Disk</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="422"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="565"/>
         <source>Start installation</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="547"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="551"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="565"/>
         <source>Next</source>
+<<<<<<< HEAD
         <translation type="unfinished"/>
 >>>>>>> 1a7347df... chore: auto pull translation files from transifex
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
@@ -2466,6 +2825,9 @@
         <translation type="unfinished"/>
 >>>>>>> 1a7347df... chore: auto pull translation files from transifex
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
 </context>
 <context>
@@ -2474,26 +2836,31 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="56"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="95"/>
         <source>Warning</source>
-        <translation>Warning</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
+<<<<<<< HEAD
         <translation type="vanished">You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</translation>
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="113"/>
         <source>Disable UEFI</source>
-        <translation>Disable UEFI</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="63"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="117"/>
         <source>Reboot, enter BIOS, and disable UEFI</source>
-        <translation>Reboot, enter BIOS, and disable UEFI</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Exit BIOS, and install UOS again</source>
+<<<<<<< HEAD
         <translation type="vanished">Exit BIOS, and install UOS again</translation>
     </message>
     <message>
@@ -2637,50 +3004,97 @@
         <translation type="vanished">Continue</translation>
 =======
         <translation type="unfinished"/>
+=======
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Make a backup of your important data and then continue</source>
-        <translation type="unfinished"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="62"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="119"/>
+        <source>Format the disk</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
-        <translation type="unfinished"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="65"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="123"/>
+        <source>Make a backup of all your data to avoid data loss</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="66"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="124"/>
+        <source>After the backup, reboot and enter this interface again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="67"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="73"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="143"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="165"/>
+        <source>Continue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="70"/>
+        <source>Make sure you have backed up all data before proceeding</source>
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="71"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="149"/>
+        <source>Continuing installation will format your disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="72"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="164"/>
+        <source>Reboot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="166"/>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <source>Continue</source>
         <translation type="unfinished"/>
 >>>>>>> 1a7347df... chore: auto pull translation files from transifex
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
+=======
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="147"/>
+        <source>Please make sure all data were made a backup, then continue</source>
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
 </context>
 <context>
     <name>installer::SaveInstallFailedLogFrame</name>
     <message>
-        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="150"/>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="149"/>
         <source>Save Log</source>
-        <translation>Save Log</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="150"/>
+        <source>Save the error log to a removable device</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="151"/>
-        <source>Save the error log to a removable device</source>
-        <translation>Save the error log to a removable device</translation>
+        <source>Save as</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="152"/>
-        <source>Save as</source>
-        <translation>Save as</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="153"/>
         <source>Back</source>
-        <translation>Back</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::SelectBootloaderFrame</name>
     <message>
         <source>Select location for boot loader</source>
@@ -2703,43 +3117,78 @@
         <translation type="vanished">Back</translation>
 =======
         <translation type="unfinished"/>
+=======
+    <name>installer::SelectInstallComponentFrame</name>
+    <message>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="131"/>
+        <source>Select Software</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If you do not understand the settings, please select the recommended one</source>
-        <translation type="unfinished"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="132"/>
+        <source>Basic Environment</source>
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
     <message>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="133"/>
+        <source>Add-Ons for Selected Environment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+<<<<<<< HEAD
         <source>Back</source>
         <translation type="unfinished"/>
 >>>>>>> 1a7347df... chore: auto pull translation files from transifex
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
+=======
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="134"/>
+        <source>Next</source>
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
 </context>
 <context>
-    <name>installer::SelectInstallComponentFrame</name>
+    <name>installer::SelectInstallComponentFramePrivate</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/install_component_frame.cpp" line="85"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="130"/>
+=======
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="154"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Select Software</source>
-        <translation>Select Software</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/install_component_frame.cpp" line="86"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="133"/>
+=======
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="157"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Basic Environment</source>
-        <translation>Basic Environment</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/install_component_frame.cpp" line="87"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="138"/>
+=======
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="162"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Add-Ons for Selected Environment</source>
-        <translation>Add-Ons for Selected Environment</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/install_component_frame.cpp" line="88"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="189"/>
+=======
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="213"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Next</source>
-        <translation>Next</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="89"/>
@@ -2751,17 +3200,27 @@
 <context>
     <name>installer::SelectLanguageFramePrivate</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="249"/>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="292"/>
+=======
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="271"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="314"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Next</source>
-        <translation>Next</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="293"/>
+=======
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="315"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>I have read and agree to</source>
-        <translation>I have read and agree to</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="294"/>
         <source>%1 Software End User License Agreement</source>
         <translation>%1 Software End User License Agreement</translation>
@@ -2848,6 +3307,16 @@
         <translation type="unfinished"/>
 >>>>>>> 1a7347df... chore: auto pull translation files from transifex
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
+=======
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="316"/>
+        <source>Deepin Software End User License Agreement</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="319"/>
+        <source>and</source>
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
 </context>
 <context>
@@ -2856,47 +3325,48 @@
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
         <source>Time settings</source>
-        <translation>Time settings</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="63"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
         <source>Change date and time as you want</source>
-        <translation>Change date and time as you want</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="96"/>
         <source>Hour</source>
-        <translation>Hour</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="97"/>
         <source>Minute</source>
-        <translation>Minute</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="98"/>
         <source>Year</source>
-        <translation>Year</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="99"/>
         <source>Month</source>
-        <translation>Month</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="100"/>
         <source>Day</source>
-        <translation>Day</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="101"/>
         <source>Confirm</source>
-        <translation>Confirm</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="102"/>
         <source>Cancel</source>
+<<<<<<< HEAD
         <translation>Cancel</translation>
     </message>
 </context>
@@ -2925,6 +3395,9 @@
         <translation type="unfinished"/>
 >>>>>>> 1a7347df... chore: auto pull translation files from transifex
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
 </context>
 <context>
@@ -2932,11 +3405,12 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="123"/>
         <source>User Avatar</source>
-        <translation>User Avatar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="124"/>
         <source>Select an avatar for your account</source>
+<<<<<<< HEAD
         <translation>Select an avatar for your account</translation>
     </message>
 </context>
@@ -2997,122 +3471,215 @@
         <translation type="unfinished"/>
 >>>>>>> 1a7347df... chore: auto pull translation files from transifex
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
 </context>
 <context>
     <name>installer::SystemInfoFormFramePrivate</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="298"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="274"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Username</source>
-        <translation>Username</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="309"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="278"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Computer name</source>
-        <translation>Computer name</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="326"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="282"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="327"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="287"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Repeat password</source>
-        <translation>Repeat password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="337"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="298"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Root password</source>
-        <translation>Root password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="343"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="307"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Repeat root password</source>
-        <translation>Repeat root password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="418"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="381"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Create User Account</source>
-        <translation>Create User Account</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="419"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="382"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Fill in the username, computer name and your password</source>
-        <translation>Fill in the username, computer name and your password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="420"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="383"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Use that password to edit boot menu</source>
-        <translation>Use that password to edit boot menu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="421"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="384"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Set root password</source>
-        <translation>Set root password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="422"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="385"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Next</source>
-        <translation>Next</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="446"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="409"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>This username already exists</source>
-        <translation>This username already exists</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="450"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="413"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>The first letter must be in lowercase</source>
-        <translation>The first letter must be in lowercase</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="456"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="419"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
-        <translation>Username must contain English letters (lowercase), numbers or special symbols (_-)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="462"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="425"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
-        <translation>Please input username longer than %1 characters and shorter than %2 characters</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="484"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="447"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Please input computer name</source>
-        <translation>Please input computer name</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="488"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="451"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Computer name is invalid</source>
-        <translation>Computer name is invalid</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="492"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="455"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Computer name already exists, please input another one</source>
-        <translation>Computer name already exists, please input another one</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="497"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="460"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
-        <translation>Please input computer name longer than %1 characters and shorter than %2 characters</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="524"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="487"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>The password should be different from the username</source>
-        <translation>The password should be different from the username</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="538"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="551"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="501"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="514"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>Please input password longer than %1 characters and shorter than %2 characters</source>
-        <translation>Please input password longer than %1 characters and shorter than %2 characters</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="545"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="508"/>
+>>>>>>> eae3cb6b... clean all ts file
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="577"/>
         <source>Passwords do not match</source>
         <translation>Passwords do not match</translation>
@@ -3120,17 +3687,22 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="821"/>
         <source>Your PC supports fingerprint identification, so you can add fingerprint password in Control Center &gt; Account, and then use the fingerprint to unlock and authenticate</source>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="540"/>
+        <source>Passwords do not match</source>
+>>>>>>> eae3cb6b... clean all ts file
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>installer::SystemInfoKeyboardFramePrivate</name>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="103"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="276"/>
         <source>Select keyboard layout</source>
-        <translation>Select keyboard layout</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="104"/>
         <source>Test here</source>
         <translation>Test here</translation>
@@ -3144,12 +3716,29 @@
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="106"/>
         <source>Select a proper keyboard layout</source>
         <translation>Select a proper keyboard layout</translation>
+=======
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="277"/>
+        <source>Test here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="278"/>
+        <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="279"/>
+        <source>Select a proper keyboard layout</source>
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
 </context>
 <context>
-    <name>installer::TimezoneFrame</name>
+    <name>installer::TimezoneFramePrivate</name>
     <message>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
         <source>Select Timezone</source>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <translation type="obsolete">Select Timezone</translation>
 =======
@@ -3164,34 +3753,61 @@
     <message>
         <source>Select your timezone from the list</source>
         <translation type="obsolete">Select your timezone from the list</translation>
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
     <message>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="125"/>
         <source>Next</source>
+<<<<<<< HEAD
         <translation type="obsolete">Next</translation>
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
     <message>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="126"/>
         <source>Map</source>
+<<<<<<< HEAD
         <translation type="obsolete">Map</translation>
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
     <message>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="127"/>
         <source>List</source>
+<<<<<<< HEAD
         <translation type="obsolete">List</translation>
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
     <message>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="128"/>
         <source>Time settings</source>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <translation type="obsolete">Time settings</translation>
 =======
         <translation type="vanished">Time settings</translation>
 =======
         <translation type="unfinished"/>
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
     <message>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="305"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="438"/>
         <source>Click your zone on the map</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="443"/>
         <source>Select your timezone from the list</source>
+<<<<<<< HEAD
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3211,6 +3827,9 @@
         <translation type="unfinished"/>
 >>>>>>> 1a7347df... chore: auto pull translation files from transifex
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
 </context>
 <context>
@@ -3218,18 +3837,24 @@
     <message>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="147"/>
         <source>End User License Agreement</source>
-        <translation>End User License Agreement</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="148"/>
         <source>Back</source>
+<<<<<<< HEAD
         <translation>Back</translation>
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
 </context>
 <context>
-    <name>installer::VirtualMachineFrame</name>
+    <name>installer::VirtualMachineFramePrivate</name>
     <message>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="99"/>
         <source>Friendly Reminder</source>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <translation type="obsolete">Friendly Reminder</translation>
 =======
@@ -3260,25 +3885,19 @@
     <message>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
         <translation type="vanished">You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</translation>
-    </message>
-    <message>
-        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
-        <translation type="vanished">System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</translation>
 =======
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+>>>>>>> eae3cb6b... clean all ts file
     </message>
     <message>
-        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="101"/>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
-        <translation type="unfinished"/>
->>>>>>> 1a7347df... chore: auto pull translation files from transifex
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="110"/>
+        <source>Continue</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
