@@ -44,7 +44,7 @@ namespace {
 // 4 partitions are displays at each row.
 const int kDiskColumns = 1;
 
-const int kWindowWidth = 960;
+const int kWindowWidth = 800;
 
 enum class DiskCountType : int
 {
