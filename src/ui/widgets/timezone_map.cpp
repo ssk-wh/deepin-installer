@@ -259,7 +259,7 @@ void TimezoneMap::updateMap() {
     mapPixmap = mapPixmap.scaled(size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     map_label_->setPixmap(mapPixmap);
 
-    if (popup_window_->isVisible()){
+    if (nearest_zones_.count() > 1){
         QTimer::singleShot(0, this, [&]{
             dot_->hide();
             popup_window_->hide();
