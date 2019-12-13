@@ -3,13 +3,17 @@
 #include "sysinfo/timezone.h"
 
 #include <QFrame>
-#include <QListView>
 #include <QStringListModel>
+#include <QStandardItemModel>
+
+#include <DListView>
+#include <DStandardItem>
+
+DWIDGET_USE_NAMESPACE
 
 namespace installer {
 
 class TimeZoneModel;
-class DiskInstallationView;
 class ContinentModel;
 
 class SelectTimeZoneFrame : public QFrame
@@ -42,11 +46,13 @@ private:
     QModelIndex m_currentContinentIndex;
     QModelIndex m_currentTimezoneIndex;
 
-    DiskInstallationView* m_continentListView = nullptr;
-    ContinentModel* m_continentModel = nullptr;
+    DListView* m_continentListView = nullptr;
+    QStringListModel* m_continentModel = nullptr;
 
-    DiskInstallationView* m_timeZoneListView = nullptr;
-    QStringListModel* m_timeZoneModel = nullptr;
+    DListView* m_timeZoneListView = nullptr;
+    QStandardItemModel* m_timeZoneModel = nullptr;
+
+    DStandardItem* m_lastItem = nullptr;
 };
 
 }
