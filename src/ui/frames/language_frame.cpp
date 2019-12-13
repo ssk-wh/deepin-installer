@@ -27,17 +27,19 @@
 #include "service/settings_manager.h"
 #include "ui/delegates/user_agreement_delegate.h"
 #include "service/settings_name.h"
+#include "ui/interfaces/frameinterfaceprivate.h"
 
 DCORE_USE_NAMESPACE
 
 namespace installer {
 
-class LanguageFramePrivate : public QObject
+class LanguageFramePrivate : public FrameInterfacePrivate
 {
     Q_OBJECT
 public:
-    explicit LanguageFramePrivate(LanguageFrame* ff)
-        : q_ptr(ff)
+    explicit LanguageFramePrivate(FrameInterface* parent)
+        : FrameInterfacePrivate (parent)
+        , q_ptr(qobject_cast<LanguageFrame* > (parent))
         , m_frame_layout(new QStackedLayout)
         , m_user_license_delegate(new UserAgreementDelegate())
         , m_select_language_frame(new SelectLanguageFrame(m_user_license_delegate))
