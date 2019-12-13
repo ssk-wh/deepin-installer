@@ -148,17 +148,6 @@ void UserAgreementFrame::updateText()
     m_back->setText(tr("Back"));
 }
 
-void UserAgreementFrame::toggleLicense(QAbstractButton* button)
-{
-    if (button == m_currentButton) {
-        return;
-    }
-
-    m_currentButton = button;
-
-    updateLicenseText();
-}
-
 void UserAgreementFrame::updateLicenseText()
 {
     m_sourceLbl->setText(installer::ReadFile(m_fileNames[m_nextFileIndex]));
@@ -176,6 +165,10 @@ void UserAgreementFrame::setUserAgreement(const QString &primaryFileName, const 
 
     if (!secondaryFileName.isEmpty()) {
         m_fileNames.append(secondaryFileName);
+        //switch to primary user agreement,and update the text of m_sourceLbl.
+        toggleLicense();
+    } else {
+        m_sourceLbl->setText(installer::ReadFile(primaryFileName));
     }
 
     updateLicenseText();
@@ -185,4 +178,9 @@ void UserAgreementFrame::setCheckedButton(int buttonId)
 {
     m_buttonGroup->button(buttonId)->setChecked(true);
     m_currentButton = m_buttonGroup->button(buttonId);
+}
+
+void UserAgreementFrame::setCheckedButton(int buttonId)
+{
+    m_buttonGroup->button(buttonId)->setChecked(true);
 }

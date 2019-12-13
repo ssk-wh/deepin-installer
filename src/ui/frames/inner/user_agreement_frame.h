@@ -23,7 +23,7 @@ class UserAgreementFrame : public QFrame
 {
     Q_OBJECT
 public:
-    explicit UserAgreementFrame(QWidget *parent = nullptr);  
+    explicit UserAgreementFrame(QWidget *parent = nullptr);
     void setUserAgreement(const QString &primaryFileName, const QString &secondaryFileName = QString(""));
     void setCheckedButton(int buttonId);
 
@@ -47,7 +47,6 @@ private:
     QLabel *m_subTitle;
     PointerButton* m_chineseButton = nullptr;
     PointerButton* m_englishButton = nullptr;
-    QAbstractButton* m_currentButton = nullptr;
     QButtonGroup* m_buttonGroup = nullptr;
     QLabel *m_sourceLbl;
     NavButton *m_back;
