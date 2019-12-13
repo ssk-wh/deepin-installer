@@ -39,7 +39,7 @@ namespace installer {
 
 namespace {
 
-const int kLayoutWidth = 860;
+const int kLayoutWidth = 800;
 
 }  // namespace
 
@@ -199,14 +199,14 @@ void SystemInfoKeyboardFramePrivate::initUI() {
 
     m_layoutView->setObjectName("layout_view");
     m_layoutView->setModel(m_layoutModel);
-    m_layoutView->setFixedWidth(340);
+    m_layoutView->setFixedWidth(300);
     m_layoutView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_layoutView->setContextMenuPolicy(Qt::NoContextMenu);
     m_layoutView->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     m_layoutView->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
 
     m_variantView->setObjectName("variant_view");
-    m_variantView->setFixedWidth(519);
+    m_variantView->setFixedWidth(499);
     m_variantView->setModel(m_variantModel);
     m_variantView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_variantView->setContextMenuPolicy(Qt::NoContextMenu);
