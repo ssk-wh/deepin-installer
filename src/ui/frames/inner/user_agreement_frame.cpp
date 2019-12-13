@@ -3,6 +3,7 @@
 #include "service/settings_manager.h"
 #include "ui/frames/consts.h"
 #include "ui/widgets/nav_button.h"
+#include "ui/widgets/pointer_button.h"
 
 #include <QEvent>
 #include <QLabel>
@@ -10,6 +11,7 @@
 #include <QScrollArea>
 #include <QScrollBar>
 #include <QScroller>
+#include <QButtonGroup>
 
 using namespace installer;
 
@@ -34,16 +36,6 @@ void UserAgreementFrame::changeEvent(QEvent *event)
     QFrame::changeEvent(event);
 }
 
-bool UserAgreementFrame::eventFilter(QObject *watched, QEvent *event)
-{
-    if (watched == m_toggleLbl) {
-        if (event->type() == QEvent::MouseButtonRelease) {
-            toggleLicense();
-        }
-    }
-    return QFrame::eventFilter(watched, event);
-}
-
 void UserAgreementFrame::initUI()
 {
     m_logoLbl = new QLabel();
@@ -51,6 +43,35 @@ void UserAgreementFrame::initUI()
 
     m_subTitle = new QLabel(this);
     m_subTitle->setObjectName("user_agreement_subtitle");
+
+    m_buttonGroup = new QButtonGroup;
+    m_chineseButton = new PointerButton("中文");
+    m_chineseButton->setObjectName("chineseButton");
+    m_chineseButton->setCheckable(true);
+    m_chineseButton->setFlat(true);
+    m_chineseButton->setMinimumWidth(60);
+    m_chineseButton->setMaximumHeight(38);
+    m_englishButton = new PointerButton("English");
+    m_englishButton->setObjectName("englishButton");
+    m_englishButton->setCheckable(true);
+    m_englishButton->setFlat(true);
+    m_englishButton->setMinimumWidth(60);
+    m_englishButton->setMaximumHeight(38);
+
+    m_buttonGroup->addButton(m_chineseButton, kChineseToggleButtonId);
+    m_buttonGroup->addButton(m_englishButton, kEnglishToggleButtonId);
+
+    QHBoxLayout* buttonLayout = new QHBoxLayout();
+    buttonLayout->setContentsMargins(0, 0, 0, 0);
+    buttonLayout->setSpacing(0);
+    buttonLayout->addStretch();
+    buttonLayout->addWidget(m_chineseButton, 0, Qt::AlignCenter);
+    buttonLayout->addWidget(m_englishButton, 0, Qt::AlignCenter);
+
+    QWidget* buttonGroupWidget = new QWidget;
+    buttonGroupWidget->setFixedWidth(120);
+    buttonGroupWidget->setLayout(buttonLayout);
+
     m_sourceLbl = new QLabel(this);
     m_sourceLbl->setObjectName("user_agreement_sourceLbl");
     m_sourceLbl->setWordWrap(true);
@@ -83,10 +104,20 @@ void UserAgreementFrame::initUI()
 
     m_sourceScrollArea->setFixedWidth(468);
 
-    m_toggleLbl = new QLabel;
-    m_toggleLbl->installEventFilter(this);
-
     m_back = new NavButton(this);
+
+    QHBoxLayout* subTitleWrapLayout = new QHBoxLayout;
+    subTitleWrapLayout->setMargin(0);
+    subTitleWrapLayout->setSpacing(0);
+    subTitleWrapLayout->addSpacerItem(new QSpacerItem(120, 38));
+    subTitleWrapLayout->addStretch();
+    subTitleWrapLayout->addWidget(m_subTitle, 0, Qt::AlignHCenter | Qt::AlignTop);
+    subTitleWrapLayout->addStretch();
+    subTitleWrapLayout->addWidget(buttonGroupWidget, 0, Qt::AlignRight | Qt::AlignBottom);
+
+    QWidget* subTitleWrapWidget = new QWidget;
+    subTitleWrapWidget->setFixedSize(468, 50);
+    subTitleWrapWidget->setLayout(subTitleWrapLayout);
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins(0, 0, 0, 0);
@@ -94,11 +125,8 @@ void UserAgreementFrame::initUI()
 
     mainLayout->addSpacing(30);
     mainLayout->addWidget(m_logoLbl, 0, Qt::AlignHCenter);
-    mainLayout->addWidget(m_subTitle, 0, Qt::AlignHCenter);
-    mainLayout->addSpacing(20);
+    mainLayout->addWidget(subTitleWrapWidget, 0, Qt::AlignHCenter);
     mainLayout->addWidget(m_sourceScrollArea, 0, Qt::AlignHCenter);
-    mainLayout->addSpacing(20);
-    mainLayout->addWidget(m_toggleLbl, 0, Qt::AlignHCenter);
     mainLayout->addSpacing(20);
     mainLayout->addWidget(m_back, 0, Qt::AlignHCenter);
 
@@ -109,19 +137,15 @@ void UserAgreementFrame::initUI()
 void UserAgreementFrame::initConnect()
 {
     connect(m_back, &NavButton::clicked, this, &UserAgreementFrame::back);
+
+    connect(m_buttonGroup, static_cast<void (QButtonGroup::*)(QAbstractButton*)>(&QButtonGroup::buttonClicked)
+            , this, &UserAgreementFrame::toggleLicense);
 }
 
 void UserAgreementFrame::updateText()
 {
     m_subTitle->setText(tr("End User License Agreement"));
     m_back->setText(tr("Back"));
-    if (m_fileNames.count() > 1 && !m_currentFileName.isEmpty()) {
-        if (m_currentFileName.endsWith("zh_CN.txt")) {
-            m_toggleLbl->setText(QString("<u>%1</u>").arg(tr("View in English")));
-        } else {
-            m_toggleLbl->setText(QString("<u>%1</ u>").arg(tr("View in Chinese")));
-        }
-    }
 }
 
 void UserAgreementFrame::toggleLicense()
@@ -144,9 +168,12 @@ void UserAgreementFrame::setUserAgreement(const QString &primaryFileName, const 
         m_fileNames.append(secondaryFileName);
         //switch to primary user agreement,and update the text of m_sourceLbl.
         toggleLicense();
-        m_toggleLbl->show();
     } else {
-        m_toggleLbl->hide();
         m_sourceLbl->setText(installer::ReadFile(primaryFileName));
     }
+}
+
+void UserAgreementFrame::setCheckedButton(int buttonId)
+{
+    m_buttonGroup->button(buttonId)->setChecked(true);
 }

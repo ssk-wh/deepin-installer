@@ -8,15 +8,24 @@
 class QLabel;
 class QPushButton;
 class QScrollArea;
+class QButtonGroup;
+class QAbstractButton;
 
 namespace installer {
+namespace {
+    const int kChineseToggleButtonId = 0;
+    const int kEnglishToggleButtonId = 1;
+}
+
 class NavButton;
+class PointerButton;
 class UserAgreementFrame : public QFrame
 {
     Q_OBJECT
 public:
     explicit UserAgreementFrame(QWidget *parent = nullptr);  
     void setUserAgreement(const QString &primaryFileName, const QString &secondaryFileName = QString(""));
+    void setCheckedButton(int buttonId);
 
 signals:
     // Emitted when cancel
@@ -25,7 +34,6 @@ signals:
 protected:
     // Update text of next_button_
     void changeEvent(QEvent* event) Q_DECL_OVERRIDE;
-    bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     void initUI();
@@ -36,8 +44,10 @@ private:
 private:
     QLabel *m_logoLbl;
     QLabel *m_subTitle;
+    PointerButton* m_chineseButton = nullptr;
+    PointerButton* m_englishButton = nullptr;
+    QButtonGroup* m_buttonGroup = nullptr;
     QLabel *m_sourceLbl;
-    QLabel *m_toggleLbl;
     NavButton *m_back;
     QScrollArea *m_sourceScrollArea;
     QLocale::Language m_language;

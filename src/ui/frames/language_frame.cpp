@@ -82,8 +82,10 @@ void LanguageFrame::initConnect() {
 void LanguageFrame::showUserLicense() {
     if (installer::ReadLocale() == "zh_CN") {
         m_user_license_frame->setUserAgreement(zh_CN_license, en_US_license);
+        m_user_license_frame->setCheckedButton(kChineseToggleButtonId);
     } else {
         m_user_license_frame->setUserAgreement(en_US_license, zh_CN_license);
+        m_user_license_frame->setCheckedButton(kEnglishToggleButtonId);
     }    
     m_frame_layout->setCurrentWidget(m_user_license_frame);
 }
