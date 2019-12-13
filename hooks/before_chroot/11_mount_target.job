@@ -120,3 +120,25 @@ if [ x"${DI_UEFI}" = xtrue ]; then
     mount ${DI_BOOTLOADER} /target/boot/efi || \
         error "Failed to mount bootloader ${DI_BOOTLOADER}"
 fi
+
+if [ x"$(installer_get DI_FULLDISK_MODE)" == xtrue ];then
+    mkdir -p /target/data/home
+    mkdir -p /target/home
+    mount --bind /target/data/home /target/home || error "Faild to mount /target/home"
+
+    mkdir -p /target/data/opt
+    mkdir -p /target/opt
+    mount --bind /target/data/opt /target/opt || error "Faild to mount /target/opt"
+
+    mkdir -p /target/root
+    mkdir -p /target/data/root
+    mount --bind /target/data/root /target/root || error "Faild to mount /target/root"
+
+    mkdir -p /target/var
+    mkdir -p /target/data/var
+    mount --bind /target/data/var /target/var || error "Failed to mount /target/var"
+
+    mkdir -p /target/usr/lib/dpkg-db
+    mkdir -p /target/var/lib
+    ln -sf ../../usr/lib/dpkg-db /target/var/lib/dpkg
+fi

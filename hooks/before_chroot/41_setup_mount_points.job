@@ -36,27 +36,11 @@ mount -vt sysfs sysfs /target/sys || error "Failed to bind sysfs"
 mkdir -p /target/media/cdrom
 mount --bind ${CDROM} /target/media/cdrom || error "Failed to bind ${CDROM}"
 
-if [ x"$(installer_get DI_FULLDISK_MODE)" == xtrue ];then
-    mkdir -p /target/data/home
-    mkdir -p /target/home
-    mount --bind /target/data/home /target/home || error "Faild to mount /target/home"
-
-    cp -a /target/opt /target/data/ || error "Faild to copy /opt"
-    mount --bind /target/data/opt /target/opt || error "Faild to mount /target/opt"
-
-    mkdir -p /target/data/root
-    mount --bind /target/data/root /target/root || error "Faild to mount /target/root"
-
-    mkdir -p /target/data/var
-    mount --bind /target/data/var /target/var || error "Failed to mount /target/var"
-
-    $(cd /target && ln -sf var/lib/dpkg /dpkg-db)
-fi
-
 mkdir -p /target/run
 mount --bind /run /target/run || error "Failed to bind /run"
 
 # Mount /var/run
+mkdir -p /target/var/run
 mount --bind /var/run /target/var/run || error "Failed to bind /var/run"
 
 # Mount /tmp/.X11-unix/

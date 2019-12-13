@@ -58,6 +58,8 @@ if [ x"$(installer_get DI_FULLDISK_MODE)" == xtrue ];then
 # 重新挂载var和home
   mount --bind /target/data/home /target/home || error "Faild to mount /target/home"
   mount --bind /target/data/opt /target/opt || error "Faild to mount /target/opt"
+  mount --bind /target/data/root /target/root || error "Faild to mount /target/root"
+  mount --bind /target/data/var /target/var || error "Failed to mount /target/var"
 fi
 
 # Add swap file option if it is set.
