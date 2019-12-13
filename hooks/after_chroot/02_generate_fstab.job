@@ -26,6 +26,8 @@ if [ x"$(installer_get DI_FULLDISK_MODE)" == xtrue ];then
 # 卸载opt和home，否则会出现在fstab中
   umount /target/opt
   umount /target/home
+  umount /target/root
+  umount /target/var
 fi
 
 #fstab for lupin
@@ -45,6 +47,8 @@ umount -v /target/media/cdrom
 if [ x"$(installer_get DI_FULLDISK_MODE)" == xtrue ];then
   echo "/data/home /home none defaults,bind 0 0" >> /target/etc/fstab
   echo "/data/opt /opt none defaults,bind 0 0" >> /target/etc/fstab
+  echo "/data/root /root none defaults,bind 0 0" >> /target/etc/fstab
+  echo "/data/var /var none defaults,bind 0 0" >> /target/etc/fstab
 fi
 
 msg "Content of /etc/fstab"
