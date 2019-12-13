@@ -8,6 +8,8 @@
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
 
+#include "ui/interfaces/frameinterfaceprivate.h"
+
 #include <QLineEdit>
 #include <QEvent>
 #include <QDebug>
@@ -15,13 +17,14 @@
 #include <QTimer>
 
 namespace installer {
-class SelectInstallComponentFramePrivate : public QObject
+class SelectInstallComponentFramePrivate : public FrameInterfacePrivate
 {
     Q_OBJECT
 public:
-    explicit SelectInstallComponentFramePrivate(SelectInstallComponentFrame* ff)
-        : m_currentComponentWidget(nullptr)
-        , q_ptr(ff)
+    explicit SelectInstallComponentFramePrivate(FrameInterface* parent)
+        : FrameInterfacePrivate (parent)
+        , m_currentComponentWidget(nullptr)
+        , q_ptr(qobject_cast<SelectInstallComponentFrame* >(parent))
     {}
 
     void initUI();
