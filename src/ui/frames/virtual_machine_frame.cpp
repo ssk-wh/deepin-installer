@@ -16,6 +16,8 @@
  */
 #include "ui/frames/virtual_machine_frame.h"
 
+#include "ui/interfaces/frameinterfaceprivate.h"
+
 #include "ui/frames/consts.h"
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/nav_button.h"
@@ -31,12 +33,13 @@
 DCORE_USE_NAMESPACE
 
 namespace installer {
-class VirtualMachineFramePrivate : public QObject
+class VirtualMachineFramePrivate : public FrameInterfacePrivate
 {
     Q_OBJECT
 public:
-    explicit VirtualMachineFramePrivate(VirtualMachineFrame* ff)
-        : q_ptr(ff)
+    explicit VirtualMachineFramePrivate(FrameInterface* parent)
+        : FrameInterfacePrivate (parent)
+        , q_ptr(qobject_cast<VirtualMachineFrame* >(parent))
     {}
 
     void initConnections();
