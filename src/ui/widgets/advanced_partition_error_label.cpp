@@ -21,6 +21,7 @@ namespace installer {
 
 AdvancedPartitionErrorLabel::AdvancedPartitionErrorLabel(QWidget* parent)
     : QLabel(parent), state_(ValidateState::Ok) {
+    setFixedHeight(kErrorLabelMaxHeight);
 }
 
 void AdvancedPartitionErrorLabel::enterEvent(QEvent* event) {

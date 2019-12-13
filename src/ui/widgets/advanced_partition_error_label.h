@@ -23,6 +23,9 @@
 #include "ui/delegates/advanced_validate_state.h"
 
 namespace installer {
+namespace {
+    const int kErrorLabelMaxHeight = 40;
+}
 
 // To display error message in AdvancedPartitionFrame.
 class AdvancedPartitionErrorLabel : public QLabel {
