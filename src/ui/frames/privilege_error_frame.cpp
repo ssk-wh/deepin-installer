@@ -16,6 +16,7 @@
  */
 
 #include "ui/frames/privilege_error_frame.h"
+#include "ui/interfaces/frameinterfaceprivate.h"
 
 #include "ui/frames/consts.h"
 #include "ui/widgets/comment_label.h"
@@ -26,17 +27,20 @@
 
 namespace installer {
 
-class PrivilegeErrorFramePrivate : public QObject
+class PrivilegeErrorFramePrivate : public FrameInterfacePrivate
 {
     Q_OBJECT
 
 public:
-    PrivilegeErrorFramePrivate(PrivilegeErrorFrame* frame) : q_ptr(frame){}
-
-    PrivilegeErrorFrame* q_ptr = nullptr;
+    PrivilegeErrorFramePrivate(FrameInterface* parent)
+        : FrameInterfacePrivate (parent)
+        , q_ptr(qobject_cast<PrivilegeErrorFrame* >(parent))
+    {}
 
     void initConnection();
     void initUI();
+
+    PrivilegeErrorFrame* q_ptr = nullptr;
 
     NavButton* continue_button_ = nullptr;
 };
