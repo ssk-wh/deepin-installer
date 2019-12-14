@@ -130,7 +130,7 @@ void AdvancedPartitionFrame::initUI() {
   msg_container_frame_->setObjectName("msg_container_frame");
   msg_container_frame_->setContentsMargins(0, 0, 0, 0);
   msg_container_frame_->setMaximumWidth(kWindowWidth);
-  msg_container_frame_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Ignored);
+  msg_container_frame_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
   msg_container_frame_->setLayout(msg_container_layout);
 
   partition_button_group_ = new QButtonGroup(this);
