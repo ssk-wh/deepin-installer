@@ -662,6 +662,8 @@ add_executable(deepin-installer-user-form
                ui/widgets/system_info_tip.h
                ui/widgets/title_label.cpp
                ui/widgets/title_label.h
+               ui/widgets/di_scrollarea.h
+               ui/widgets/di_scrollarea.cpp
                ui/utils/widget_util.cpp
                ui/utils/widget_util.h
                ui/utils/xutil.cpp

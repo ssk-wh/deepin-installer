@@ -26,7 +26,6 @@
 #include <vector>
 #include <QCheckBox>
 #include <QDebug>
-#include <QScrollArea>
 #include <QScrollBar>
 
 #include "base/file_util.h"
@@ -43,6 +42,7 @@
 #include "ui/widgets/nav_button.h"
 #include "ui/widgets/system_info_tip.h"
 #include "ui/widgets/title_label.h"
+#include "ui/widgets/di_scrollarea.h"
 
 namespace installer {
 
@@ -256,7 +256,7 @@ void SystemInfoFormFramePrivate::initConnections()
             &SystemInfoFormFramePrivate::onPassword2Edited);
     connect(m_rootPasswordEdit, &LineEdit::textEdited, this
             , &SystemInfoFormFramePrivate::onRootPasswordEdited);
-    connect(                                                 m_rootPasswordCheckEdit, &LineEdit::textEdited, this
+    connect(m_rootPasswordCheckEdit, &LineEdit::textEdited, this
             , &SystemInfoFormFramePrivate::onRootPasswordCheckEdited);
 
     connect(KeyboardMonitor::instance(),
@@ -300,18 +300,12 @@ void SystemInfoFormFramePrivate::initUI()
     m_rootPasswordEdit->setPlaceholderText(tr("Root password"));
     m_rootPasswordEdit->setEchoMode(QLineEdit::Password);
     m_rootPasswordEdit->setReadOnly(GetSettingsBool(kSystemInfoLockPassword));
-    QSizePolicy sp_retain = m_rootPasswordEdit->sizePolicy();
-    sp_retain.setRetainSizeWhenHidden(true);
-    m_rootPasswordEdit->setSizePolicy(sp_retain);
     m_rootPasswordEdit->hide();
 
     m_rootPasswordCheckEdit = new LineEdit(":/images/username_12.svg");
     m_rootPasswordCheckEdit->setPlaceholderText(tr("Repeat root password"));
     m_rootPasswordCheckEdit->setEchoMode(QLineEdit::Password);
     m_rootPasswordCheckEdit->setReadOnly(m_rootPasswordEdit->isReadOnly());
-    sp_retain = m_rootPasswordCheckEdit->sizePolicy();
-    sp_retain.setRetainSizeWhenHidden(true);
-    m_rootPasswordCheckEdit->setSizePolicy(sp_retain);
     m_rootPasswordCheckEdit->hide();
 
     m_editList.push_back(m_usernameEdit_);
@@ -331,7 +325,7 @@ void SystemInfoFormFramePrivate::initUI()
 
     QVBoxLayout* layout = new QVBoxLayout;
     layout->setContentsMargins(0, 0, 0, 0);
-    layout->setSpacing(kMainLayoutSpacing);
+    layout->setSpacing(25);
     layout->addWidget(m_usernameEdit_, 0, Qt::AlignCenter);
     layout->addWidget(m_hostnameEdit_, 0, Qt::AlignCenter);
     layout->addWidget(m_passwordEdit_, 0, Qt::AlignCenter);
@@ -341,11 +335,13 @@ void SystemInfoFormFramePrivate::initUI()
     layout->addWidget(m_rootPasswordEdit, 0, Qt::AlignCenter);
     layout->addWidget(m_rootPasswordCheckEdit, 0, Qt::AlignCenter);
     layout->addWidget(m_grubPasswordCheck_, 0, Qt::AlignCenter);
+    layout->addStretch();
 
     QWidget* content = new QWidget;
     content->setLayout(layout);
+    content->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
-    QScrollArea* area = new QScrollArea(q);
+    DIScrollArea* area = new DIScrollArea(q);
     area->setObjectName("scrollArea");
     area->setWidget(content);
     area->setWidgetResizable(true);
@@ -357,6 +353,7 @@ void SystemInfoFormFramePrivate::initUI()
     area->setContentsMargins(0, 0, 0, 0);
     area->setStyleSheet("background: transparent;");
     area->viewport()->setStyleSheet("background: transparent;");
+    area->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
     tooltip_ = new SystemInfoTip(content);
     tooltip_->hide();
@@ -364,14 +361,14 @@ void SystemInfoFormFramePrivate::initUI()
     QVBoxLayout* mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
     mainLayout->setSpacing(kMainLayoutSpacing);
-    mainLayout->addStretch();
+    mainLayout->addSpacing(kMainLayoutSpacing);
     mainLayout->addWidget(m_titleLabel_, 0, Qt::AlignHCenter);
     mainLayout->addWidget(m_commentLabel_, 0, Qt::AlignHCenter);
+    mainLayout->addSpacing(35);
     mainLayout->addWidget(m_avatarButton_, 0, Qt::AlignHCenter);
-    mainLayout->addStretch();
-    mainLayout->addWidget(area, 0, Qt::AlignCenter);
-    mainLayout->addSpacing(10);
-    mainLayout->addWidget(next_button_, 0, Qt::AlignCenter);
+    mainLayout->addSpacing(35);
+    mainLayout->addWidget(area, 0, Qt::AlignHCenter);
+    mainLayout->addWidget(next_button_, 0, Qt::AlignHCenter | Qt::AlignBottom);
 
     q->setLayout(mainLayout);
     q->setContentsMargins(0, 0, 0, 0);
