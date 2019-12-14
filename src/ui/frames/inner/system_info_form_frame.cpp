@@ -42,6 +42,8 @@
 #include <QCheckBox>
 #include <QDebug>
 #include <QPushButton>
+#include <QScrollArea>
+#include <QScrollBar>
 
 namespace installer {
 

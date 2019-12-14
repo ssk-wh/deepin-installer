@@ -37,6 +37,7 @@
 #include <QPlainTextEdit>
 #include <QLabel>
 #include <QPushButton>
+#include <QStackedLayout>
 
 namespace installer {
 
