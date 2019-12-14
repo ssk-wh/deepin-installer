@@ -87,7 +87,7 @@ void LanguageFramePrivate::initUI() {
     m_frame_layout->addWidget(m_select_language_frame);
     m_frame_layout->addWidget(m_user_license_frame);
 
-    q_ptr->setLayout(m_frame_layout);
+    centerLayout->addLayout(m_frame_layout);
 }
 
 void LanguageFramePrivate::initConnect() {
