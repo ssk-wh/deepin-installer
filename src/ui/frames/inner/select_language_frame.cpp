@@ -152,11 +152,11 @@ void SelectLanguageFrame::changeEvent(QEvent* event) {
 bool SelectLanguageFrame::eventFilter(QObject* obj, QEvent* event) {
     Q_D(SelectLanguageFrame);
 
-    if (event->type() == QEvent::KeyPress && d->next_button_->isEnabled()) {
+    if (event->type() == QEvent::KeyPress && d->accept_license_->isChecked() && !d->lang_.name.isEmpty()) {
         QKeyEvent* key_event = static_cast<QKeyEvent*>(event);
         if (key_event->key() == Qt::Key_Return || key_event->key() == Qt::Key_Enter) {
             // Simulate button click event.
-            d->next_button_->click();
+            emit requestApplyLanguage();
             return true;
         }
     }
@@ -193,11 +193,8 @@ void SelectLanguageFrame::showEvent(QShowEvent *event)
 
 void SelectLanguageFramePrivate::initConnections()
 {
-    Q_Q(SelectLanguageFrame);
-
     connect(m_languageView, &DListView::clicked, this,
             &SelectLanguageFramePrivate::onLanguageListSelected);
-    connect(next_button_, &QPushButton::clicked, q, &SelectLanguageFrame::finished);
     connect(accept_license_, &QCheckBox::clicked, this, &SelectLanguageFramePrivate::onAccpetLicenseChanged);
 }
 
@@ -270,8 +267,6 @@ void SelectLanguageFramePrivate::initUI() {
     }
 
     license_layout->addStretch();
-    next_button_ = new QPushButton(tr("Next"));
-    next_button_->setEnabled(false);
 
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setContentsMargins(0, 0, 0, 0);
@@ -286,7 +281,6 @@ void SelectLanguageFramePrivate::initUI() {
     layout->addWidget(licenseWidget);
 
     layout->addSpacing(20);
-    layout->addWidget(next_button_, 0, Qt::AlignCenter);
 
     q->setLayout(layout);
     q->setContentsMargins(0, 0, 0, 0);
@@ -313,7 +307,6 @@ void SelectLanguageFramePrivate::updateTranslator(const QString& locale) {
 
 void SelectLanguageFramePrivate::updateTs()
 {
-    next_button_->setText(tr("Next"));
     accept_license_->setText(tr("I have read and agree to"));
     license_label_->setText(tr("%1 Software End User License Agreement").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")));
 
@@ -353,7 +346,7 @@ void SelectLanguageFramePrivate::onLanguageListSelected(const QModelIndex& curre
 }
 
 void SelectLanguageFramePrivate::onAccpetLicenseChanged(bool enable) {
-    next_button_->setEnabled(enable && !lang_.name.isEmpty());
+   emit q_ptr->requestNextButtonEnable(enable && !lang_.name.isEmpty());
 }
 
 }  // namespace installer

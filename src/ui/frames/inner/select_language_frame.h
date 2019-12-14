@@ -60,6 +60,10 @@ class SelectLanguageFrame : public QFrame {
   // show oem UserLicense
   void requestShowOemUserLicense() const;
 
+  void requestNextButtonEnable(bool enable);
+
+  void requestApplyLanguage();
+
  protected:
   // Update text of next_button_
   void changeEvent(QEvent* event) override;

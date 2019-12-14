@@ -87,12 +87,14 @@ void LanguageFramePrivate::initUI() {
     m_frame_layout->addWidget(m_select_language_frame);
     m_frame_layout->addWidget(m_user_license_frame);
 
+    nextButton->setEnabled(false);
+    nextButton->setText(tr("Next"));
     centerLayout->addLayout(m_frame_layout);
 }
 
 void LanguageFramePrivate::initConnect() {
 
-    connect(m_select_language_frame, &SelectLanguageFrame::finished, q_ptr,
+    connect(m_select_language_frame, &SelectLanguageFrame::requestApplyLanguage, q_ptr,
         [=] {
         q_ptr->m_proxy->nextFrame();
     });
@@ -106,6 +108,9 @@ void LanguageFramePrivate::initConnect() {
         connect(m_select_language_frame, &SelectLanguageFrame::requestShowOemUserLicense, this,
             &LanguageFramePrivate::showOemUserLicense);
     }
+    connect(nextButton, &QPushButton::click, m_select_language_frame, &SelectLanguageFrame::requestApplyLanguage);
+
+    connect(m_select_language_frame, &SelectLanguageFrame::requestNextButtonEnable, nextButton, &QPushButton::setEnabled);
 }
 
 void LanguageFramePrivate::showUserLicense() {
@@ -116,9 +121,12 @@ void LanguageFramePrivate::showUserLicense() {
         m_user_license_frame->setUserAgreement(en_US_license, zh_CN_license);
     }
     m_frame_layout->setCurrentWidget(m_user_license_frame);
+
+    nextButton->hide();
 }
 
 void LanguageFramePrivate::showLanguage() {
+    nextButton->setText(tr("Next"));
     m_frame_layout->setCurrentWidget(m_select_language_frame);
 }
 
