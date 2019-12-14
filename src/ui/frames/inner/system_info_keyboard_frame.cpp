@@ -168,6 +168,10 @@ void SystemInfoKeyboardFramePrivate::initLayout(const QString& locale) {
   xkb_config_ = GetXkbConfig(locale);
   layout_list_ = xkb_config_.layout_list;
 
+  m_layoutModel->clear();
+  m_lastItem = nullptr;
+  m_lastItemVar = nullptr;
+
   // Append layout to its variant list.
   for (XkbLayout& layout : layout_list_) {
     XkbLayoutVariant variant;
@@ -188,7 +192,7 @@ void SystemInfoKeyboardFramePrivate::initLayout(const QString& locale) {
               return collator.compare(a.description, b.description) < 0;
             });
 
-  for(auto it = layout_list_.cbegin(); it!=layout_list_.cend(); ++it) {
+  for(auto it = layout_list_.cbegin(); it != layout_list_.cend(); ++it) {
       DStandardItem *item = new DStandardItem((*it).description);
       m_layoutModel->appendRow(item);
   }
@@ -456,6 +460,7 @@ void SystemInfoKeyboardFramePrivate::onLayoutViewSelectionChanged(
 
     m_testEdit->clear();
     m_variantModel->clear();
+    m_lastItemVar = nullptr;
 
     DStandardItem* item = dynamic_cast<DStandardItem* >(m_layoutModel->item(current.row()));
     item->setCheckState(Qt::Checked);
