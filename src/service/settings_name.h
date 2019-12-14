@@ -88,6 +88,7 @@ const char kTimezoneUseGeoIp[] = "timezone_use_geoip";
 const char kTimezoneUseRegdomain[] = "timezone_use_regdomain";
 
 // Partition
+const char kPartitionDefaultButton[] = "partition_default_button";
 const char kPartitionSkipFullDiskPartitionPage[] =
     "partition_skip_full_disk_partition_page";
 const char kPartitionSkipSimplePartitionPage[] =

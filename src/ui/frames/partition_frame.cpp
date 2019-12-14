@@ -307,6 +307,31 @@ void PartitionFrame::initUI() {
       partition_stacked_layout_->setCurrentWidget(advanced_partition_frame_);
   }
 
+  // NOTE(justforlxz): 0是简单分区，1是手动分区，2是全盘分区
+  switch (GetSettingsInt(kPartitionDefaultButton)) {
+      case 0:
+          if (GetSettingsBool(kPartitionSkipSimplePartitionPage)) {
+              simple_partition_frame_->show();
+              simple_frame_button_->show();
+          }
+          simple_frame_button_->setChecked(true);
+          partition_stacked_layout_->setCurrentWidget(simple_partition_frame_);
+          break;
+      case 1:
+          advanced_frame_button_->setChecked(true);
+          partition_stacked_layout_->setCurrentWidget(advanced_partition_frame_);
+          break;
+      case 2:
+          if (GetSettingsBool(kPartitionSkipFullDiskPartitionPage)) {
+              full_disk_partition_frame_->show();
+              full_disk_frame_button_->show();
+          }
+          full_disk_frame_button_->setChecked(true);
+          partition_stacked_layout_->setCurrentWidget(full_disk_partition_frame_);
+          break;
+      default: break;
+  }
+
   QHBoxLayout* partition_stacked_wrapper_layout = new QHBoxLayout();
   partition_stacked_wrapper_layout->setContentsMargins(0, 0, 0, 0);
   partition_stacked_wrapper_layout->setSpacing(0);

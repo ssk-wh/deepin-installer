@@ -4,4 +4,5 @@ select_language_default_locale = zh_CN
 timezone_default = Asia/Shanghai
 partition_skip_simple_partition_page = true
 set_root_password_from_user = true
-partition_full_disk_large_root_part_range = "20:150"
+partition_default_button = 1
+
