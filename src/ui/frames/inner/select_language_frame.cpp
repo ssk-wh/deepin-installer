@@ -346,7 +346,7 @@ void SelectLanguageFramePrivate::onLanguageListSelected(const QModelIndex& curre
 }
 
 void SelectLanguageFramePrivate::onAccpetLicenseChanged(bool enable) {
-   emit q_ptr->requestNextButtonEnable(enable && !lang_.name.isEmpty());
+    emit q_ptr->requestNextButtonEnable(enable && !lang_.name.isEmpty());
 }
 
 }  // namespace installer

@@ -32,7 +32,7 @@ public:
         mainLayout->addLayout(centerLayout);
 
         nextButton->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);
-        mainLayout->addWidget(nextButton);
+        mainLayout->addWidget(nextButton, 0, Qt::AlignCenter);
 
         frameInterface->setLayout(mainLayout);
 
