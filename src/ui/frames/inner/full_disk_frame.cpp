@@ -260,7 +260,6 @@ void FullDiskFrame::repaintDevices() {
   // Clear grid layout.
   ClearLayout(m_grid_layout);
 
-
   // Clear button group.
   for (QAbstractButton* button : m_button_group->buttons()) {
     m_button_group->removeButton(button);
