@@ -22,14 +22,6 @@ DI_LUPIN=$(installer_get "DI_LUPIN")
 DI_LOOP_ROOT_FILE=$(installer_get "DI_LOOP_ROOT_FILE")
 DI_LOOP_SWAP_FILE=$(installer_get "DI_LOOP_SWAP_FILE")
 
-if [ x"$(installer_get DI_FULLDISK_MODE)" == xtrue ];then
-# 卸载opt和home，否则会出现在fstab中
-  umount /target/opt
-  umount /target/home
-  umount /target/root
-  umount /target/var
-fi
-
 #fstab for lupin
 if [ x${DI_LUPIN} = xtrue ]; then
   echo "# <file system> <mount point>   <type>  <options>       <dump>  <pass>" > /target/etc/fstab
@@ -45,6 +37,18 @@ umount -v /target/media/cdrom
 "${GENFSTAB}" -p -U /target > /target/etc/fstab
 
 if [ x"$(installer_get DI_FULLDISK_MODE)" == xtrue ];then
+  sed -i '$!N;/\n.*home/!P;D' /target/etc/fstab
+  sed -i '/home/d' /target/etc/fstab
+
+  sed -i '$!N;/\n.*opt/!P;D' /target/etc/fstab
+  sed -i '/opt/d' /target/etc/fstab
+
+  sed -i '$!N;/\n.*root/!P;D' /target/etc/fstab
+  sed -i '/root/d' /target/etc/fstab
+
+  sed -i '$!N;/\n.*var/!P;D' /target/etc/fstab
+  sed -i '/var/d' /target/etc/fstab
+
   echo "/data/home /home none defaults,bind 0 0" >> /target/etc/fstab
   echo "/data/opt /opt none defaults,bind 0 0" >> /target/etc/fstab
   echo "/data/root /root none defaults,bind 0 0" >> /target/etc/fstab
@@ -53,14 +57,6 @@ fi
 
 msg "Content of /etc/fstab"
 cat /target/etc/fstab
-
-if [ x"$(installer_get DI_FULLDISK_MODE)" == xtrue ];then
-# 重新挂载var和home
-  mount --bind /target/data/home /target/home || error "Faild to mount /target/home"
-  mount --bind /target/data/opt /target/opt || error "Faild to mount /target/opt"
-  mount --bind /target/data/root /target/root || error "Faild to mount /target/root"
-  mount --bind /target/data/var /target/var || error "Failed to mount /target/var"
-fi
 
 # Add swap file option if it is set.
 SWAP_FILE_REQUIRED=$(installer_get "DI_SWAP_FILE_REQUIRED")
