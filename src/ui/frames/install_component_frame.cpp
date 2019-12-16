@@ -269,16 +269,14 @@ void SelectInstallComponentFramePrivate::initUI()
     hLayout->addSpacing(1);
     hLayout->addWidget(componentWidget, 0, Qt::AlignLeft);
 
-    QVBoxLayout* mainLayout = new QVBoxLayout;
-    mainLayout->setSpacing(0);
-    mainLayout->setMargin(0);
-    mainLayout->addWidget(m_selectPageLabel, 0, Qt::AlignCenter);
-    mainLayout->addSpacing(50);
-    mainLayout->addLayout(hLayout);
-    mainLayout->addSpacing(60);
-    mainLayout->addWidget(m_nextButton, 0, Qt::AlignCenter);
+    centerLayout->setSpacing(0);
+    centerLayout->setMargin(0);
+    centerLayout->addWidget(m_selectPageLabel, 0, Qt::AlignCenter);
+    centerLayout->addSpacing(50);
+    centerLayout->addLayout(hLayout);
+    centerLayout->addSpacing(60);
+    centerLayout->addWidget(m_nextButton, 0, Qt::AlignCenter);
 
-    q_ptr->setLayout(mainLayout);
     q_ptr->setStyleSheet(ReadFile(":/styles/install_component_frame.css"));
 }
 
