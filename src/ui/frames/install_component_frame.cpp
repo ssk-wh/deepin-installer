@@ -20,6 +20,9 @@ namespace installer {
 class SelectInstallComponentFramePrivate : public FrameInterfacePrivate
 {
     Q_OBJECT
+
+    friend SelectInstallComponentFrame;
+
 public:
     explicit SelectInstallComponentFramePrivate(FrameInterface* parent)
         : FrameInterfacePrivate (parent)
@@ -45,8 +48,6 @@ public:
 
     DIScrollArea* m_serverScrollArea = nullptr;
     DIScrollArea* m_compScrollArea = nullptr;
-
-    NavButton* m_nextButton = nullptr;
 
     SelectInstallComponentFrame* q_ptr = nullptr;
 };
@@ -135,7 +136,7 @@ bool SelectInstallComponentFrame::event(QEvent* event) {
         m_private->m_selectPageLabel->setText(tr("Select Software"));
         m_private->m_serverTypeLabel->setText(tr("Basic Environment"));
         m_private->m_componentLabel->setText(tr("Add-Ons for Selected Environment"));
-        m_private->m_nextButton->setText(tr("Next"));
+        m_private->nextButton->setText(tr("Next"));
 
         for (auto it = m_private->m_componentStructMap.cbegin(); it != m_private->m_componentStructMap.cend(); ++it) {
             QPair<QString, QString> ts = ComponentInstallManager::Instance()->updateTs(it.value());
@@ -214,9 +215,6 @@ void SelectInstallComponentFramePrivate::initUI()
     m_compScrollArea = new DIScrollArea;
     m_compScrollArea->setWidget(compWdg);
 
-    m_nextButton = new NavButton(tr("Next"));
-    m_nextButton->setEnabled(false);
-
     QVBoxLayout* serverTypeLayout = new QVBoxLayout;
     serverTypeLayout->setMargin(0);
     serverTypeLayout->setSpacing(0);
@@ -275,14 +273,13 @@ void SelectInstallComponentFramePrivate::initUI()
     centerLayout->addSpacing(50);
     centerLayout->addLayout(hLayout);
     centerLayout->addSpacing(60);
-    centerLayout->addWidget(m_nextButton, 0, Qt::AlignCenter);
 
     q_ptr->setStyleSheet(ReadFile(":/styles/install_component_frame.css"));
 }
 
 void SelectInstallComponentFramePrivate::initConnections()
 {
-    connect(m_nextButton, &QPushButton::clicked,
+    connect(nextButton, &QPushButton::clicked,
             q_ptr, [=] {
         q_ptr->m_proxy->nextFrame();
     });
@@ -291,7 +288,7 @@ void SelectInstallComponentFramePrivate::initConnections()
 void SelectInstallComponentFramePrivate::onServerTypeClicked()
 {
     ComponentWidget* componentWidget = qobject_cast<ComponentWidget*>(sender());
-    m_nextButton->setEnabled(componentWidget->isSelected());
+    nextButton->setEnabled(componentWidget->isSelected());
 
     if(componentWidget == m_currentComponentWidget){
         return;
