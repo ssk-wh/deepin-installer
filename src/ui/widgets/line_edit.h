@@ -18,34 +18,60 @@
 #ifndef INSTALLER_UI_WIDGETS_LINE_EDIT_H
 #define INSTALLER_UI_WIDGETS_LINE_EDIT_H
 
+#include <DImageButton>
 #include <QLineEdit>
+
+DWIDGET_USE_NAMESPACE
+
 class QFocusEvent;
 class QLabel;
 class QResizeEvent;
+class QValidator;
 
 namespace installer {
 
 // Customized line edit used in form page.
-class LineEdit : public QLineEdit {
+class LineEdit : public QFrame {
     Q_OBJECT
 
 public:
     LineEdit(const QString& icon, QWidget* parent = nullptr);
     void setCapsLockVisible(bool visible);
+    void setEchoMode(QLineEdit::EchoMode mode);
+
+    QString text() const;
+    void setText(const QString &text);
+
+    void setPlaceholderText(const QString &text);
+
+    bool isReadOnly() const;
+    void setReadOnly(bool readOnly);
+
+    void setValidator(const QValidator *validator);
+
+    bool hasFocus() const;
+    void setFocus();
 
 signals:
     void gotFocus();
 
-protected:
-    // Emit gotFocus() signal when line-edit get focus
-    void focusInEvent(QFocusEvent* event) override;
+    void editingFinished();
+    void textEdited(const QString &text);
+    void textChanged(const QString &text);
 
-    // Reset image label position.
-    void resizeEvent(QResizeEvent* event) override;
+protected:
+    bool eventFilter(QObject *watched, QEvent *event) override;
+    void paintEvent(QPaintEvent *) override;
 
 private:
+    void initConnection();
+    void onFocusChanged(QWidget *old, QWidget *now);
+    void resetLineEditMaxWidth(bool visible);
+
     QLabel* image_label_  = nullptr;
-    QLabel* m_right_label = nullptr;
+    QLineEdit* m_lineEdit = nullptr;
+    QLabel* m_caseIndicateLabel = nullptr;
+    DImageButton* m_switchPasswdModeBtn = nullptr;
 };
 
 }  // namespace installer

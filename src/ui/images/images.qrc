@@ -101,5 +101,11 @@
         <file>manual_hover.svg</file>
         <file>manual_press.svg</file>
         <file>continent_arrow.svg</file>
+        <file>password_hide_hover.svg</file>
+        <file>password_hide_normal.svg</file>
+        <file>password_hide_press.svg</file>
+        <file>password_show_hover.svg</file>
+        <file>password_show_normal.svg</file>
+        <file>password_show_press.svg</file>
     </qresource>
 </RCC>
