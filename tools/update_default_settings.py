@@ -79,6 +79,7 @@ def main():
         ("partition_skip_partition_crypt_page", "true"),
         ("set_root_password_from_user", "true"),
         ("partition_default_button", "1"),
+        ("partition_full_disk_large_root_part_range", "\"20:150\""),
     )
 
     loongson_community_settings = (
@@ -116,6 +117,7 @@ def main():
         ("skip_select_component_page", "false"),
         ("set_root_password_from_user", "true"),
         ("partition_default_button", "1"),
+        ("partition_full_disk_large_root_part_range", "\"20:150\""),
     )
 
     sw_community_settings = (
@@ -153,6 +155,7 @@ def main():
         ("skip_select_component_page", "false"),
         ("set_root_password_from_user", "true"),
         ("partition_default_button", "1"),
+        ("partition_full_disk_large_root_part_range", "\"20:150\""),
     )
 
     x86_professinal_settings = (
@@ -171,6 +174,7 @@ def main():
         ("partition_skip_simple_partition_page", "true"),
         ("set_root_password_from_user", "true"),
         ("partition_default_button", "1"),
+        ("partition_full_disk_large_root_part_range", "\"20:150\""),
     )
 
     update_settings(arm_community_file, arm_community_settings)
