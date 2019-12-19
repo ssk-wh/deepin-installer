@@ -329,6 +329,11 @@ void SelectLanguageFramePrivate::onLanguageListSelected(const QModelIndex& curre
         // Update locale on-the-fly.
         const LanguageItem language_item = lang_list_.at(current.row());
         DStandardItem* item = dynamic_cast<DStandardItem* >(m_languageModel->item(current.row()));
+
+        if (item == m_lastItem) {
+            return;
+        }
+
         item->setCheckState(Qt::Checked);
 
         if (m_lastItem) {
