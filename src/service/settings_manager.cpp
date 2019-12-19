@@ -287,9 +287,26 @@ QString GetWindowBackground() {
 }
 
 QByteArray GetFullDiskInstallPolicy() {
-    QFile file(RESOURCES_DIR "/full_disk_policy.json");
-    if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
-        return file.readAll();
+    // NOTE(justforlxz): 先从oem目录查找
+    QSettings settings("/etc/deepin-version", QSettings::IniFormat);
+    settings.beginGroup("Release");
+    const QString& type = settings.value("Type", "Desktop").toString();
+
+
+    const QStringList list {
+        QString("%1/full_disk_policy_%2.json").arg(GetOemDir().path()),
+        QString(RESOURCES_DIR "/override/full_disk_policy_%1.json").arg(type.toLower()),
+        QString(RESOURCES_DIR "/full_disk_policy_%1.json").arg(type.toLower()),
+        QString(RESOURCES_DIR "/full_disk_policy.json")
+    };
+
+    for (const QString& path : list) {
+        if (!QFile::exists(path)) continue;
+
+        QFile file(path);
+        if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
+            return file.readAll();
+        }
     }
 
     return "";

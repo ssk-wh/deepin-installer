@@ -1,0 +1,55 @@
+[ {
+        "filesystem": "ext4",
+        "mountPoint": "/boot",
+        "label": "Boot",
+        "usage": "1536Mib",
+        "alignStart": true,
+        "device": "",
+        "platform": [ "loongson" , "x86", "arm"]
+    },
+    {
+        "filesystem": "ext4",
+        "mountPoint": "/boot",
+        "label": "Boot",
+        "usage": "3072Mib",
+        "alignStart": true,
+        "device": "",
+        "platform": [ "sw" ]
+    },
+    {
+        "filesystem": "ext4",
+        "mountPoint": "/",
+        "label": "Roota",
+        "usage": "root-size",
+        "alignStart": true,
+        "device": "",
+        "platform": [ "x86", "sw", "loongson", "arm" ]
+    },
+    {
+        "filesystem": "linux-swap",
+        "mountPoint": "swap",
+        "label": "SWAP",
+        "usage": "swap-size",
+        "alignStart": false,
+        "device": "",
+        "platform": [ "x86", "sw", "loongson", "arm" ]
+    },
+    {
+        "filesystem": "recovery",
+        "mountPoint": "/recovery",
+        "label": "Backup",
+        "usage": "10Gib",
+        "alignStart": false,
+        "device": "",
+        "platform": [ "x86", "sw", "loongson", "arm" ]
+    },
+    {
+        "filesystem": "ext4",
+        "mountPoint": "/data",
+        "label": "_dde_data",
+        "usage": "100%",
+        "alignStart": true,
+        "device": "",
+        "platform": [ "x86", "sw", "loongson", "arm" ]
+    }
+]
