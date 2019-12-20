@@ -364,6 +364,22 @@ void MainWindow::initPages() {
 
   save_failedLog_frame_ = new SaveInstallFailedLogFrame;
   stacked_layout_->addWidget(save_failedLog_frame_);
+
+  m_originalFrames = {
+      // TODO: move the front new statement over here
+      select_language_frame_,
+      timezone_frame_,
+      m_selectComponentFrame,
+      system_info_frame_,
+      partition_frame_,
+      install_progress_frame_,
+      install_success_frame_
+  };
+
+  for (FrameInterface* frame : m_originalFrames){
+      // TODO: move the front addWidget statement over here
+      m_frames << frame;
+  }
 }
 
 void MainWindow::initUI() {
