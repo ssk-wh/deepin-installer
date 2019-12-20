@@ -195,6 +195,24 @@ void MainWindow::nextFrame()
     // TODO: reboot or shutdown
 }
 
+void MainWindow::onPreviousFrameSelected(FrameInterface* frame)
+{
+    FrameInterface* currentFrame = qobject_cast<FrameInterface*>(stacked_layout_->currentWidget());
+    Q_ASSERT(currentFrame != nullptr);
+
+    if (m_showPastFrame){
+        // TODO: update current frame label state
+    }
+    else {
+        // TODO: update current frame label state
+    }
+
+    // TODO: update the clicked frame label state
+    stacked_layout_->setCurrentWidget(frame);
+
+    m_showPastFrame = true;
+}
+
 void MainWindow::showChildFrame(FrameInterface *frame) {
 
 }

@@ -189,6 +189,9 @@ private:
   void rebootSystem();
   void shutdownSystem();
   void showSaveLogFrame();
+
+  // When user mouse press left page tables.
+  void onPreviousFrameSelected(FrameInterface* frame);
 };
 
 }  // namespace installer
