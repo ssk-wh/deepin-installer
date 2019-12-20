@@ -66,7 +66,9 @@ MainWindow::MainWindow(QWidget* parent)
       prev_page_(PageId::NullId),
       current_page_(PageId::NullId),
       log_file_(),
-      auto_install_(false) {
+      auto_install_(false),
+      m_showPastFrame(false)
+{
   this->setObjectName("main_window");
 
   this->initUI();
@@ -157,22 +159,40 @@ void MainWindow::previousFrame()
 
 void MainWindow::nextFrame()
 {
-    FrameInterface* f = qobject_cast<FrameInterface*>(stacked_layout_->currentWidget());
-    Q_ASSERT(f);
+    FrameInterface* frame = qobject_cast<FrameInterface*>(stacked_layout_->currentWidget());
+    Q_ASSERT(frame != nullptr);
 
-    const int index = m_frames.indexOf(f);
+    frame->finished();
+    // TODO: updateFrameLabelState
 
-    for (int i = index + 1; i <= m_frames.length(); ++i) {
-        FrameInterface* frame = m_frames[index];
-        if (frame->shouldDisplay()) {
-            f->finished();
-            frame->init();
-            stacked_layout_->setCurrentIndex(index);
-            return;
+    if (!m_showPastFrame){
+        m_frames.removeFirst();
+    }
+
+    for (auto it = m_frames.begin(); it != m_frames.end();) {
+        if ((*it)->shouldDisplay()){
+            // If the current display page is the fallback page clicked by the user
+            // , then, the next page is the one that has displayed earlier.
+            // If not, then, the next page is the one that displayed for the first time
+            // , so, must be initial.
+            if (!m_showPastFrame){
+                (*it)->init();
+            }
+
+            // TODO: updateFrameLabelState
+            stacked_layout_->setCurrentWidget(*it);
+            m_showPastFrame = false;
+            break;
+        }
+        else {
+            (*it)->init();
+            (*it)->finished();
+            it = m_frames.erase(it);
+            m_showPastFrame = false;
         }
     }
 
-    // TODO(justforlxz): if not found;
+    // TODO: reboot or shutdown
 }
 
 void MainWindow::showChildFrame(FrameInterface *frame) {

@@ -171,7 +171,9 @@ private:
   QString log_file_;
   bool auto_install_;
 
+    QList<FrameInterface*> m_originalFrames;
     QList<FrameInterface*> m_frames;
+    bool m_showPastFrame = false;
 
  private slots:
   // Go next page when current page index is changed in ControlPanelFrame.
