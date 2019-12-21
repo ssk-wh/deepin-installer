@@ -20,6 +20,8 @@
 
 #include <QFrame>
 class QStackedLayout;
+class QButtonGroup;
+class QAbstractButton;
 
 #include "partman/operation.h"
 #include "partman/partition.h"
@@ -109,6 +111,7 @@ class PartitionFrame : public QFrame {
   PointerButton* full_disk_frame_button_ = nullptr;
   PointerButton* simple_frame_button_ = nullptr;
   PointerButton* advanced_frame_button_ = nullptr;
+  QButtonGroup* m_buttonGroup = nullptr;
   NavButton* next_button_ = nullptr;
 
   PartitionModel* partition_model_ = nullptr;
@@ -117,9 +120,7 @@ class PartitionFrame : public QFrame {
   SimplePartitionDelegate* simple_partition_delegate_ = nullptr;
 
  private slots:
-  void onFullDiskFrameButtonToggled();
-  void onSimpleFrameButtonToggled();
-  void onAdvancedFrameButtonToggled();
+  void onButtonGroupToggled(QAbstractButton* button);
   void onNextButtonClicked();
   void onFullDiskCryptoButtonClicked(bool encrypto);
 

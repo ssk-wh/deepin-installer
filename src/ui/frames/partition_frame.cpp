@@ -98,12 +98,9 @@ void PartitionFrame::changeEvent(QEvent* event) {
 }
 
 void PartitionFrame::initConnections() {
-  connect(full_disk_frame_button_, &QPushButton::toggled,
-          this, &PartitionFrame::onFullDiskFrameButtonToggled);
-  connect(simple_frame_button_, &QPushButton::toggled,
-          this, &PartitionFrame::onSimpleFrameButtonToggled);
-  connect(advanced_frame_button_, &QPushButton::toggled,
-          this, &PartitionFrame::onAdvancedFrameButtonToggled);
+  connect(m_buttonGroup, static_cast<void (QButtonGroup::*)(QAbstractButton*)>(&QButtonGroup::buttonClicked)
+          , this, &PartitionFrame::onButtonGroupToggled);
+
   connect(next_button_, &QPushButton::clicked, this, [=] {
        if (partition_stacked_layout_->currentWidget() == full_disk_partition_frame_ && full_disk_partition_frame_->isEncrypt()) {
            showEncryptFrame();
@@ -243,7 +240,7 @@ void PartitionFrame::initUI() {
   comment_layout->setSpacing(0);
   comment_layout->addWidget(comment_label_);
 
-  QButtonGroup* button_group = new QButtonGroup(this);
+  m_buttonGroup = new QButtonGroup(this);
   simple_frame_button_ = new PointerButton(tr("Simple"));
   simple_frame_button_->setCheckable(true);
   simple_frame_button_->setFlat(true);
@@ -257,9 +254,9 @@ void PartitionFrame::initUI() {
   full_disk_frame_button_->setFlat(true);
   full_disk_frame_button_->setMinimumWidth(86);
 
-  button_group->addButton(simple_frame_button_);
-  button_group->addButton(advanced_frame_button_);
-  button_group->addButton(full_disk_frame_button_);
+  m_buttonGroup->addButton(simple_frame_button_);
+  m_buttonGroup->addButton(advanced_frame_button_);
+  m_buttonGroup->addButton(full_disk_frame_button_);
   QHBoxLayout* button_layout = new QHBoxLayout();
   button_layout->setContentsMargins(0, 0, 0, 0);
   button_layout->setSpacing(0);
@@ -422,22 +419,23 @@ bool PartitionFrame::isRawDevice(const QList<Device::Ptr> list) {
     return false;
 }
 
-void PartitionFrame::onFullDiskFrameButtonToggled() {
-  qDebug() << "on fulldisk button toggled";
-  partition_stacked_layout_->setCurrentWidget(full_disk_partition_frame_);
-}
-
-void PartitionFrame::onSimpleFrameButtonToggled() {
-  qDebug() << "on simple button toggled";
-  partition_stacked_layout_->setCurrentWidget(simple_partition_frame_);
-}
-
-void PartitionFrame::onAdvancedFrameButtonToggled() {
-  qDebug() << "on advanced button toggled";
-  // Refresh device list before showing advanced partition frame.
-  // Because mount-point of partitions might have be updated.
-  advanced_delegate_->refreshVisual();
-  partition_stacked_layout_->setCurrentWidget(advanced_partition_frame_);
+void PartitionFrame::onButtonGroupToggled(QAbstractButton *button)
+{
+    if (button == full_disk_frame_button_){
+        qDebug() << "on fulldisk button toggled";
+        partition_stacked_layout_->setCurrentWidget(full_disk_partition_frame_);
+    }
+    else if (button == simple_frame_button_){
+        qDebug() << "on simple button toggled";
+        partition_stacked_layout_->setCurrentWidget(simple_partition_frame_);
+    }
+    else {
+        qDebug() << "on advanced button toggled";
+        // Refresh device list before showing advanced partition frame.
+        // Because mount-point of partitions might have be updated.
+        advanced_delegate_->refreshVisual();
+        partition_stacked_layout_->setCurrentWidget(advanced_partition_frame_);
+    }
 }
 
 void PartitionFrame::onNextButtonClicked() {
