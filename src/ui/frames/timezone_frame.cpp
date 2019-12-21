@@ -92,7 +92,6 @@ public:
   PointerButton* m_timezoneListButton = nullptr;
   QButtonGroup* m_mapListButtonGroup = nullptr;
   TimezoneMap* timezone_map_ = nullptr;
-  QPushButton* next_button_ = nullptr;
   SystemDateFrame* m_systemDateFrame = nullptr;
   SelectTimeZoneFrame* m_selectTimeZoneFrame = nullptr;
   QStackedLayout* m_mapOrListStackedLayout = nullptr;
@@ -124,7 +123,7 @@ public:
 void TimezoneFramePrivate::updateTs()
 {
     title_label_->setText(tr("Select Timezone"));
-    next_button_->setText(tr("Next"));
+    nextButton->setText(tr("Next"));
     m_timezoneMapButton->setText(tr("Map"));
     m_timezoneListButton->setText(tr("List"));
     m_setTimePushButton->setText(tr("Time settings"));
@@ -284,7 +283,7 @@ bool TimezoneFrame::eventFilter(QObject *watched, QEvent *event)
 }
 
 void TimezoneFramePrivate::initConnections() {
-  connect(next_button_, &QPushButton::clicked,
+  connect(nextButton, &QPushButton::clicked,
           this, &TimezoneFramePrivate::onNextButtonClicked);
 
   connect(timezone_manager_, &TimezoneManager::timezoneUpdated,
@@ -330,7 +329,6 @@ void TimezoneFramePrivate::initUI() {
   title_label_ = new TitleLabel("");
   comment_label_ = new CommentLabel(tr("Click your zone on the map"));
   timezone_map_ = new TimezoneMap(q_ptr);
-  next_button_ = new QPushButton;
 
   m_mapListButtonGroup = new QButtonGroup;
   m_timezoneMapButton = new PointerButton;
@@ -378,7 +376,7 @@ void TimezoneFramePrivate::initUI() {
   hLayout->addLayout(m_mapOrListStackedLayout);
   m_upLayout->addLayout(hLayout);
 
-  m_upLayout->addWidget(next_button_, 0, Qt::AlignCenter | Qt::AlignBottom);
+  m_upLayout->addWidget(nextButton, 0, Qt::AlignCenter | Qt::AlignBottom);
 
   m_timezonePage = new QWidget;
   m_timezonePage->setLayout(m_upLayout);
