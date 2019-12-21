@@ -81,7 +81,6 @@ class MainWindow : public FrameProxyInterface {
   // Set filepath to which log file will be backup.
   void setLogFile(const QString& log_file);
 
-  void previousFrame() override;
   void nextFrame() override;
   void showChildFrame(FrameInterface *frame) override;
   void exitInstall(bool reboot = false) override;

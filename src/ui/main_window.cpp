@@ -101,7 +101,12 @@ void MainWindow::fullscreen() {
 #endif // !QT_DEBUG
 
   ShowFullscreen(this);
-  this->goNextPage();
+
+  Q_ASSERT(m_frames.count() > 0);
+  m_frames.first()->init();
+
+  // TODO: updateFrameLabelState
+  stacked_layout_->setCurrentWidget(m_frames.first());
 
   if (auto_install_) {
     // In auto-install mode, partitioning is done in hook script.
@@ -137,24 +142,6 @@ void MainWindow::setEnableAutoInstall(bool auto_install) {
 
 void MainWindow::setLogFile(const QString& log_file) {
     log_file_ = log_file;
-}
-
-void MainWindow::previousFrame()
-{
-    FrameInterface* f = qobject_cast<FrameInterface*>(stacked_layout_->currentWidget());
-    Q_ASSERT(f);
-
-    const int index = m_frames.indexOf(f);
-
-    for (int i = index - 1; i >= 0; --i) {
-        FrameInterface* frame = m_frames[index];
-        if (frame->shouldDisplay()) {
-            stacked_layout_->setCurrentIndex(index);
-            return;
-        }
-    }
-
-    // TODO(justforlxz): if not found;
 }
 
 void MainWindow::nextFrame()
