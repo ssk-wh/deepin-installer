@@ -67,6 +67,8 @@ class PartitionFramePrivate : public FrameInterfacePrivate
 {
     Q_OBJECT
 
+    friend PartitionFrame;
+
 public:
     explicit PartitionFramePrivate(FrameInterface* parent)
         : FrameInterfacePrivate (parent)
@@ -137,7 +139,6 @@ public:
      PointerButton* full_disk_frame_button_ = nullptr;
      PointerButton* simple_frame_button_ = nullptr;
      PointerButton* advanced_frame_button_ = nullptr;
-     QPushButton* next_button_ = nullptr;
 
      PartitionModel* partition_model_ = nullptr;
      AdvancedPartitionDelegate* advanced_delegate_ = nullptr;
@@ -191,7 +192,7 @@ void PartitionFrame::changeEvent(QEvent* event) {
     m_private->simple_frame_button_->setText(tr("Simple"));
     m_private->advanced_frame_button_->setText(tr("Advanced"));
     m_private->full_disk_frame_button_->setText(tr("Full Disk"));
-    m_private->next_button_->setText(tr("Start installation"));
+    m_private->nextButton->setText(tr("Start installation"));
   } else {
       FrameInterface::changeEvent(event);
   }
@@ -210,7 +211,7 @@ void PartitionFramePrivate::initConnections() {
           this, &PartitionFramePrivate::onSimpleFrameButtonToggled);
   connect(advanced_frame_button_, &QPushButton::toggled,
           this, &PartitionFramePrivate::onAdvancedFrameButtonToggled);
-  connect(next_button_, &QPushButton::clicked, this, [=] {
+  connect(nextButton, &QPushButton::clicked, this, [=] {
        if (partition_stacked_layout_->currentWidget() == full_disk_partition_frame_ && full_disk_partition_frame_->isEncrypt()) {
            showEncryptFrame();
        }
@@ -446,10 +447,10 @@ void PartitionFramePrivate::initUI() {
   partition_stacked_wrapper_layout->addLayout(partition_stacked_layout_);
 
   // and advanced partition page.
-  next_button_ = new QPushButton(tr("Start installation"));
+  nextButton->setText(tr("Start installation"));
   QHBoxLayout* next_layout = new QHBoxLayout();
   next_layout->setContentsMargins(0, 0, 0, 0);
-  next_layout->addWidget(next_button_);
+  next_layout->addWidget(nextButton);
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
@@ -489,7 +490,6 @@ void PartitionFramePrivate::initUI() {
   main_layout_->addWidget(dynamic_disk_warning_frame_);
 
   centerLayout->addLayout(main_layout_);
-  q_ptr->setLayout(centerLayout);
   q_ptr->setContentsMargins(0, 0, 0, 0);
 }
 
@@ -590,7 +590,7 @@ void PartitionFramePrivate::onNextButtonClicked() {
 
 void PartitionFramePrivate::onFullDiskCryptoButtonClicked(bool encrypto)
 {
-    next_button_->setText(encrypto ? tr("Next") : tr("Start installation"));
+    nextButton->setText(encrypto ? tr("Next") : tr("Start installation"));
 }
 
 void PartitionFramePrivate::onManualPartDone(bool ok, const DeviceList& devices) {
