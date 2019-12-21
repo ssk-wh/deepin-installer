@@ -31,6 +31,8 @@ class PrivilegeErrorFramePrivate : public FrameInterfacePrivate
 {
     Q_OBJECT
 
+    friend PrivilegeErrorFrame;
+
 public:
     PrivilegeErrorFramePrivate(FrameInterface* parent)
         : FrameInterfacePrivate (parent)
@@ -41,8 +43,6 @@ public:
     void initUI();
 
     PrivilegeErrorFrame* q_ptr = nullptr;
-
-    NavButton* continue_button_ = nullptr;
 };
 
 PrivilegeErrorFrame::PrivilegeErrorFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
@@ -76,7 +76,7 @@ bool PrivilegeErrorFrame::shouldDisplay() const
 }
 
 void PrivilegeErrorFramePrivate::initConnection() {
-  connect(continue_button_, &QPushButton::clicked,
+  connect(nextButton, &QPushButton::clicked,
           q_ptr, [=] {
           q_ptr->m_proxy->nextFrame();
   });
@@ -87,19 +87,14 @@ void PrivilegeErrorFramePrivate::initUI() {
   CommentLabel* comment_label = new CommentLabel(
       "Please execute with root account");
 
-  continue_button_ = new NavButton("Continue");
+  centerLayout->setContentsMargins(0, 0, 0, 0);
+  centerLayout->setSpacing(kMainLayoutSpacing);
+  centerLayout->addStretch();
+  centerLayout->addWidget(title_label, 0, Qt::AlignHCenter);
+  centerLayout->addWidget(comment_label, 0, Qt::AlignHCenter);
+  centerLayout->addStretch();
 
-  QVBoxLayout* layout = new QVBoxLayout();
-  layout->setContentsMargins(0, 0, 0, 0);
-  layout->setSpacing(kMainLayoutSpacing);
-  layout->addStretch();
-  layout->addWidget(title_label, 0, Qt::AlignHCenter);
-  layout->addWidget(comment_label, 0, Qt::AlignHCenter);
-  layout->addStretch();
-  layout->addWidget(continue_button_, 0, Qt::AlignHCenter);
-
-  q_ptr->setLayout(layout);
-  q_ptr->setContentsMargins(0, 0, 0, 0);
+  centerLayout->setContentsMargins(0, 0, 0, 0);
 }
 
 }  // namespace installer
