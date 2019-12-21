@@ -274,6 +274,9 @@ void SelectTimeZoneFrame::onTimeZoneViewSelectedChanged(QModelIndex curIndex, QM
 
 void SelectTimeZoneFrame::onUpdateTimezoneList(const QString &timezone)
 {
+    m_timeZoneModel->clear();
+    m_lastItem = nullptr;
+
     if (isVisible()) {
         m_timeZoneListView->setMouseTracking(true);
     }
