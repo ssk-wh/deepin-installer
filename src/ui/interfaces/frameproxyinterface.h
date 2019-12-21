@@ -31,9 +31,6 @@ class FrameProxyInterface : public QWidget {
 public:
     explicit FrameProxyInterface(QWidget* parent = nullptr) : QWidget(parent) {}
 
-    // 显示上一个Frame
-    virtual void previousFrame() = 0;
-
     // 显示下一个Frame
     virtual void nextFrame() = 0;
 

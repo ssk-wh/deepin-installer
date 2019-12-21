@@ -86,11 +86,6 @@ void FirstBootSetupWindow::fullscreen() {
     ShowFullscreen(this);
 }
 
-void FirstBootSetupWindow::previousFrame()
-{
-
-}
-
 void FirstBootSetupWindow::nextFrame()
 {
 

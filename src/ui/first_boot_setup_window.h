@@ -53,7 +53,6 @@ class FirstBootSetupWindow : public FrameProxyInterface {
   // Show fullscreen.
   void fullscreen();
 
-  void previousFrame() override;
   void nextFrame() override;
   void showChildFrame(FrameInterface* frame) override;
   void exitInstall(bool reboot = false) override;

@@ -39,9 +39,6 @@ class UserFormWindow : public FrameProxyInterface {
   // Show fullscreen.
   void fullscreen();
 
-  // Displays the previous Frame
-  void previousFrame() override;
-
   // Displays the next Frame
   void nextFrame() override;
 

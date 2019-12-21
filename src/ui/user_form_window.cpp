@@ -42,10 +42,6 @@ void UserFormWindow::fullscreen() {
     ShowFullscreen(this);
 }
 
-void UserFormWindow::previousFrame(){
-
-}
-
 void UserFormWindow::nextFrame(){
 
 }
