@@ -36,6 +36,9 @@ namespace installer {
 class VirtualMachineFramePrivate : public FrameInterfacePrivate
 {
     Q_OBJECT
+
+    friend VirtualMachineFrame;
+
 public:
     explicit VirtualMachineFramePrivate(FrameInterface* parent)
         : FrameInterfacePrivate (parent)
@@ -49,7 +52,6 @@ public:
 
     TitleLabel* title_label_ = nullptr;
     CommentLabel* comment_label_ = nullptr;
-    NavButton* next_button_ = nullptr;
 };
 
 VirtualMachineFrame::VirtualMachineFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
@@ -94,7 +96,7 @@ bool VirtualMachineFrame::shouldDisplay() const
     return !GetSettingsBool(kSkipVirtualMachinePage) && IsVirtualMachine() ;
 }
 void VirtualMachineFramePrivate::initConnections() {
-    connect(next_button_, &QPushButton::clicked,
+    connect(nextButton, &QPushButton::clicked,
             q_ptr, [=] {
         q_ptr->m_proxy->nextFrame();
     });
@@ -112,18 +114,15 @@ void VirtualMachineFramePrivate::initUI() {
   comment_layout->setSpacing(0);
   comment_layout->addWidget(comment_label_);
 
-  next_button_ = new NavButton(tr("Continue"));
+  nextButton->setText(tr("Continue"));
 
-  QVBoxLayout* layout = new QVBoxLayout(q_ptr);
-  layout->setContentsMargins(0, 0, 0, 0);
-  layout->setSpacing(kMainLayoutSpacing);
-  layout->addStretch();
-  layout->addWidget(title_label_, 0, Qt::AlignCenter);
-  layout->addLayout(comment_layout);
-  layout->addStretch();
-  layout->addWidget(next_button_, 0, Qt::AlignCenter);
+  centerLayout->setContentsMargins(0, 0, 0, 0);
+  centerLayout->setSpacing(kMainLayoutSpacing);
+  centerLayout->addStretch();
+  centerLayout->addWidget(title_label_, 0, Qt::AlignCenter);
+  centerLayout->addLayout(comment_layout);
+  centerLayout->addStretch();
 
-  q_ptr->setLayout(layout);
   q_ptr->setContentsMargins(0, 0, 0, 0);
 }
 
