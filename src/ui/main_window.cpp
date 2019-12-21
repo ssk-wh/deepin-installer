@@ -69,19 +69,23 @@ MainWindow::MainWindow(QWidget* parent)
       auto_install_(false),
       m_showPastFrame(false)
 {
-  this->setObjectName("main_window");
+    this->setObjectName("main_window");
 
-  this->initUI();
-  this->initPages();
-  this->registerShortcut();
-  this->initConnections();
+    this->initUI();
+    this->initPages();
+    this->registerShortcut();
+    this->initConnections();
 
-  stacked_layout_->setCurrentWidget(select_language_frame_);
+    page_indicator_->updatePages(GetVisiblePages());
 
-  page_indicator_->updatePages(GetVisiblePages());
-
-  SetBrightness(GetSettingsInt(kScreenDefaultBrightness));
+    SetBrightness(GetSettingsInt(kScreenDefaultBrightness));
     WriteDisplayPort(getenv("DISPLAY"));
+
+    Q_ASSERT(m_frames.count() > 0);
+    m_frames.first()->init();
+
+    // TODO: updateFrameLabelState
+    stacked_layout_->setCurrentWidget(m_frames.first());
 }
 
 void MainWindow::fullscreen() {
@@ -101,12 +105,6 @@ void MainWindow::fullscreen() {
 #endif // !QT_DEBUG
 
   ShowFullscreen(this);
-
-  Q_ASSERT(m_frames.count() > 0);
-  m_frames.first()->init();
-
-  // TODO: updateFrameLabelState
-  stacked_layout_->setCurrentWidget(m_frames.first());
 
   if (auto_install_) {
     // In auto-install mode, partitioning is done in hook script.
