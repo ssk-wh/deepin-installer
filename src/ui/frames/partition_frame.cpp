@@ -50,6 +50,7 @@
 #include <QStackedLayout>
 #include <QProcess>
 #include <QTextStream>
+#include "ui/interfaces/frameinterfaceprivate.h"
 
 namespace installer {
 
@@ -62,13 +63,14 @@ const char kSoloBtn[] = "solo_frame_button";
 
 }  // namespace
 
-class PartitionFramePrivate : public QObject
+class PartitionFramePrivate : public FrameInterfacePrivate
 {
     Q_OBJECT
 
 public:
-    explicit PartitionFramePrivate(PartitionFrame* ff)
-        : q_ptr(ff)
+    explicit PartitionFramePrivate(FrameInterface* parent)
+        : FrameInterfacePrivate (parent)
+        , q_ptr(qobject_cast<PartitionFrame* >(parent))
         ,partition_model_(new PartitionModel(this))
         ,advanced_delegate_(new AdvancedPartitionDelegate(this))
         ,full_disk_delegate_(new FullDiskDelegate(this))
@@ -486,7 +488,8 @@ void PartitionFramePrivate::initUI() {
   main_layout_->addWidget(full_disk_encrypt_frame_);
   main_layout_->addWidget(dynamic_disk_warning_frame_);
 
-  q_ptr->setLayout(main_layout_);
+  centerLayout->addLayout(main_layout_);
+  q_ptr->setLayout(centerLayout);
   q_ptr->setContentsMargins(0, 0, 0, 0);
 }
 
