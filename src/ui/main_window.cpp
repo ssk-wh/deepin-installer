@@ -54,7 +54,6 @@
 #include "ui/frames/install_component_frame.h"
 
 #include "ui/utils/widget_util.h"
-#include "ui/widgets/page_indicator.h"
 #include "ui/widgets/pointer_button.h"
 #include "ui/xrandr/multi_head_manager.h"
 
@@ -75,8 +74,6 @@ MainWindow::MainWindow(QWidget* parent)
     this->initPages();
     this->registerShortcut();
     this->initConnections();
-
-    page_indicator_->updatePages(GetVisiblePages());
 
     SetBrightness(GetSettingsInt(kScreenDefaultBrightness));
     WriteDisplayPort(getenv("DISPLAY"));
@@ -390,20 +387,10 @@ void MainWindow::initUI() {
 
   stacked_layout_ = new QStackedLayout();
 
-  // Use a wrapper to hold its position.
-  QFrame* page_indicator_wrapper = new QFrame();
-  page_indicator_wrapper->setFixedHeight(48);
-  page_indicator_ = new PageIndicator(GetVisiblePages(),
-                                      page_indicator_wrapper);
-  QHBoxLayout* indicator_layout = new QHBoxLayout();
-  indicator_layout->addWidget(page_indicator_);
-  page_indicator_wrapper->setLayout(indicator_layout);
-
   QVBoxLayout* vbox_layout = new QVBoxLayout();
   vbox_layout->setContentsMargins(0, 0, 0, 0);
   vbox_layout->setSpacing(0);
   vbox_layout->addLayout(stacked_layout_);
-  vbox_layout->addWidget(page_indicator_wrapper);
   vbox_layout->addSpacing(32);
 
   this->setLayout(vbox_layout);
@@ -449,14 +436,6 @@ void MainWindow::updateWidgetVisible()
     close_button_->setVisible(checkVisible);
     back_button_->setVisible(m_old_frames.size() > 1 && checkVisible);
 
-    if (current_page_ == PageId::InstallFailedId ||
-            current_page_ == PageId::InstallSuccessId) {
-        // Hide page indicator in these pages.
-        page_indicator_->hide();
-    } else {
-        page_indicator_->show();
-    }
-
     // Raise control_panel_frame explicitly.
     if (control_panel_frame_->isVisible()) {
         control_panel_frame_->raise();
@@ -489,7 +468,6 @@ void MainWindow::backPage()
     setCurrentPage(id);
 
     back_button_->setVisible(m_old_frames.size() > 1 && checkBackButtonAvailable(id));
-    page_indicator_->goBackPage();
 }
 
 bool MainWindow::checkBackButtonAvailable(PageId id) {
@@ -551,7 +529,6 @@ void MainWindow::goNextPage() {
             prev_page_ = current_page_;
             current_page_ = PageId::SelectLanguageId;
         } else {
-            page_indicator_->goNextPage();
             isMainPage = true;
             this->setCurrentPage(PageId::SelectLanguageId);
             break;
@@ -562,7 +539,6 @@ void MainWindow::goNextPage() {
         // Check whether to show DiskSpaceInsufficientPage.
         if (!GetSettingsBool(kSkipDiskSpaceInsufficientPage) &&
                 IsDiskSpaceInsufficient()) {
-            page_indicator_->goNextPage();
             isMainPage = true;
             this->setCurrentPage(PageId::DiskSpaceInsufficientId);
             break;
@@ -593,7 +569,6 @@ void MainWindow::goNextPage() {
             prev_page_ = current_page_;
             current_page_ = PageId::SystemInfoId;
         } else {
-            page_indicator_->goNextPage();
             isMainPage = true;
             this->setCurrentPage(PageId::SystemInfoId);
             break;
@@ -606,7 +581,6 @@ void MainWindow::goNextPage() {
             prev_page_ = current_page_;
             current_page_ = PageId::TimezoneId;
         } else {
-            page_indicator_->goNextPage();
             isMainPage = true;
             this->setCurrentPage(PageId::TimezoneId);
             break;
@@ -624,7 +598,6 @@ void MainWindow::goNextPage() {
             current_page_ = PageId::SelectComponentId; //PageId::PartitionId;
         } else {
             m_selectComponentFrame->init();
-            page_indicator_->goNextPage();
             isMainPage = true;
             this->setCurrentPage(PageId::SelectComponentId); //(PageId::PartitionId);
             break;
@@ -643,7 +616,6 @@ void MainWindow::goNextPage() {
             current_page_ = PageId::PartitionId;
         }
         else{
-            page_indicator_->goNextPage();
             isMainPage = true;
             this->setCurrentPage(PageId::PartitionId);
             break;
@@ -652,7 +624,6 @@ void MainWindow::goNextPage() {
 
     case PageId::PartitionId: {
         // Show InstallProgressFrame.
-        page_indicator_->goNextPage();
         isMainPage = true;
         install_progress_frame_->startSlide();
         this->setCurrentPage(PageId::InstallProgressId);
