@@ -31,6 +31,8 @@ class ControlPlatformFramePrivate : public FrameInterfacePrivate
 {
     Q_OBJECT
 
+    friend ControlPlatformFrame;
+
 public:
     explicit ControlPlatformFramePrivate(FrameInterface* parent)
         : FrameInterfacePrivate (parent)
@@ -38,7 +40,6 @@ public:
         , m_subTitleLbl(new CommentLabel(tr("Set the region for UOS EndPoint Management Platform")))
         , m_serverLineEdit(new LineEdit(QString(":/images/hostname_12.svg")))
         , m_regionBox(new TableComboBox)
-        , m_nextButton(new NavButton)
         , m_regionModel(new ControlPlatformRegionModel(this))
         , m_macInfoLayout(new QVBoxLayout)
         , m_ipInfoLayout(new QVBoxLayout)
@@ -49,7 +50,6 @@ public:
     CommentLabel*               m_subTitleLbl = nullptr;
     LineEdit*                   m_serverLineEdit = nullptr;
     TableComboBox*              m_regionBox = nullptr;
-    NavButton*                  m_nextButton = nullptr;
     ControlPlatformRegionModel* m_regionModel = nullptr;
     QUrl                        m_serverUrl;
     QList<RegionInfo>           m_regionInfo;
@@ -110,14 +110,13 @@ void ControlPlatformFramePrivate::initUI()
     layout->addWidget(m_serverLineEdit, 0, Qt::AlignHCenter);
     layout->addWidget(m_regionBox, 0, Qt::AlignHCenter);
     layout->addStretch();
-    layout->addWidget(m_nextButton, 0, Qt::AlignHCenter);
 
     m_serverLineEdit->setText(GetSettingsString(kEndPointControlServerUrl));
     m_serverLineEdit->setReadOnly(GetSettingsBool(kEndPointControlLockServer));
 
     QTimer::singleShot(0, m_serverLineEdit, &LineEdit::editingFinished);
 
-    m_nextButton->setEnabled(false);
+    nextButton->setEnabled(false);
 
     q_ptr->setLayout(layout);
 
@@ -137,7 +136,7 @@ void ControlPlatformFramePrivate::initConnection()
         networkAccessManager->get(QNetworkRequest(m_serverUrl));
     });
 
-    connect(m_nextButton, &NavButton::clicked, this,
+    connect(nextButton, &NavButton::clicked, this,
             &ControlPlatformFramePrivate::onNextClicked);
     connect(m_regionBox,
             static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this,
@@ -178,7 +177,7 @@ bool ControlPlatformFrame::shouldDisplay() const
 bool ControlPlatformFrame::event(QEvent* event)
 {
     if (event->type() == QEvent::LanguageChange) {
-        m_private->m_nextButton->setText(tr("Next"));
+        m_private->nextButton->setText(tr("Next"));
         m_private->m_serverLineEdit->setPlaceholderText(tr("Server Address"));
         m_private->m_titleLbl->setText(tr("Set Control Region"));
         m_private->m_subTitleLbl->setText(tr("Set the region for UOS EndPoint Management Platform"));
@@ -229,7 +228,7 @@ void ControlPlatformFramePrivate::onNextClicked()
 
 void ControlPlatformFramePrivate::onRegionSelected()
 {
-    m_nextButton->setEnabled(true);
+    nextButton->setEnabled(true);
 }
 
 void ControlPlatformFramePrivate::onNetworkStateChanged() {
