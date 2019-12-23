@@ -59,11 +59,6 @@ namespace installer {
 
 namespace {
 
-const char kLeftBtn[] = "left_frame_button";
-const char kMidBtn[] = "mid_frame_button";
-const char kRightBtn[] = "right_frame_button";
-const char kSoloBtn[] = "solo_frame_button";
-
 }  // namespace
 
 class PartitionFramePrivate : public FrameInterfacePrivate
@@ -218,6 +213,15 @@ void PartitionFramePrivate::initConnections() {
 
   connect(m_buttonGroup, &DButtonBox::buttonClicked, this, &PartitionFramePrivate::onButtonGroupToggled);
 
+  connect(nextButton, &QPushButton::clicked, this, [=] {
+      if (partition_stacked_layout_->currentWidget() == full_disk_partition_frame_ && full_disk_partition_frame_->isEncrypt()) {
+          showEncryptFrame();
+      }
+      else {
+          onNextButtonClicked();
+      }
+  });
+
   // Show main frame when device is refreshed.
   connect(partition_model_, &PartitionModel::deviceRefreshed,
           this, &PartitionFramePrivate::showMainFrame);
@@ -352,17 +356,13 @@ void PartitionFramePrivate::initUI() {
   m_buttonGroup = new DButtonBox(q_ptr);
   simple_frame_button_ = new DButtonBoxButton(tr("Simple"), q_ptr);
   simple_frame_button_->setMinimumWidth(86);
-  simple_frame_button_->setChecked(true);
   advanced_frame_button_ = new DButtonBoxButton(tr("Advanced"), q_ptr);
   advanced_frame_button_->setMinimumWidth(86);
   full_disk_frame_button_ = new DButtonBoxButton(tr("Full Disk"), q_ptr);
   full_disk_frame_button_->setMinimumWidth(86);
 
-  QList<DButtonBoxButton*> buttonList;
-  buttonList << simple_frame_button_
-             << advanced_frame_button_
-             << full_disk_frame_button_;
-  m_buttonGroup->setButtonList(buttonList, true);
+  m_buttonGroup->setButtonList({simple_frame_button_, advanced_frame_button_
+                                , full_disk_frame_button_}, true);
   m_buttonGroup->setVisible(true);
 
   QHBoxLayout* button_layout = new QHBoxLayout();
@@ -380,15 +380,10 @@ void PartitionFramePrivate::initUI() {
   partition_stacked_layout_->addWidget(advanced_partition_frame_);
   partition_stacked_layout_->addWidget(full_disk_partition_frame_);
 
-  simple_frame_button_->setObjectName(kLeftBtn);
-  advanced_frame_button_->setObjectName(kMidBtn);
-  full_disk_frame_button_->setObjectName(kRightBtn);
-
   if (GetSettingsBool(kPartitionSkipSimplePartitionPage)) {
       simple_frame_button_->hide();
       simple_frame_button_->setChecked(false);
       simple_partition_frame_->hide();
-      advanced_frame_button_->setObjectName(kLeftBtn);
       full_disk_frame_button_->setChecked(true);
       partition_stacked_layout_->setCurrentWidget(full_disk_partition_frame_);
   }
@@ -399,13 +394,11 @@ void PartitionFramePrivate::initUI() {
   if (GetSettingsBool(kPartitionSkipFullDiskPartitionPage)) {
       full_disk_frame_button_->hide();
       full_disk_frame_button_->setChecked(false);
-      advanced_frame_button_->setObjectName(kRightBtn);
       full_disk_partition_frame_->hide();
   }
 
   if (GetSettingsBool(kPartitionSkipFullDiskPartitionPage) &&
           GetSettingsBool(kPartitionSkipSimplePartitionPage)) {
-      advanced_frame_button_->setObjectName(kSoloBtn);
       advanced_frame_button_->setChecked(true);
       partition_stacked_layout_->setCurrentWidget(advanced_partition_frame_);
   }
