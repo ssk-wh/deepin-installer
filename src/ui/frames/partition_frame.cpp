@@ -51,8 +51,9 @@
 #include <QStackedLayout>
 #include <QProcess>
 #include <QTextStream>
-#include <QButtonGroup>
-#include <QAbstractButton>
+#include <DButtonBox>
+
+DWIDGET_USE_NAMESPACE
 
 namespace installer {
 
@@ -136,7 +137,7 @@ public:
      QFrame* main_frame_ = nullptr;
      QStackedLayout* partition_stacked_layout_ = nullptr;
      QStackedLayout* main_layout_ = nullptr;
-     QButtonGroup* m_buttonGroup = nullptr;
+     DButtonBox* m_buttonGroup = nullptr;
      PointerButton* full_disk_frame_button_ = nullptr;
      PointerButton* simple_frame_button_ = nullptr;
      PointerButton* advanced_frame_button_ = nullptr;
@@ -215,8 +216,7 @@ void PartitionFramePrivate::initConnections() {
        }
   });
 
-  connect(m_buttonGroup, static_cast<void (QButtonGroup::*)(QAbstractButton*)>(&QButtonGroup::buttonClicked)
-          , this, &PartitionFramePrivate::onButtonGroupToggled);
+  connect(m_buttonGroup, &DButtonBox::buttonClicked, this, &PartitionFramePrivate::onButtonGroupToggled);
 
   // Show main frame when device is refreshed.
   connect(partition_model_, &PartitionModel::deviceRefreshed,
@@ -349,7 +349,7 @@ void PartitionFramePrivate::initUI() {
   comment_layout->setSpacing(0);
   comment_layout->addWidget(comment_label_);
 
-  m_buttonGroup = new QButtonGroup(this);
+  m_buttonGroup = new DButtonBox(q_ptr);
   simple_frame_button_ = new PointerButton(tr("Simple"));
   simple_frame_button_->setCheckable(true);
   simple_frame_button_->setFlat(true);
@@ -363,9 +363,10 @@ void PartitionFramePrivate::initUI() {
   full_disk_frame_button_->setFlat(true);
   full_disk_frame_button_->setMinimumWidth(86);
 
-  m_buttonGroup->addButton(simple_frame_button_);
-  m_buttonGroup->addButton(advanced_frame_button_);
-  m_buttonGroup->addButton(full_disk_frame_button_);
+  QList<DButtonBoxButton*> buttonList;
+  buttonList << qobject_cast<DButtonBoxButton*>(advanced_frame_button_)
+             << qobject_cast<DButtonBoxButton*>(full_disk_frame_button_);
+  m_buttonGroup->setButtonList(buttonList, true);
   QHBoxLayout* button_layout = new QHBoxLayout();
   button_layout->setContentsMargins(0, 0, 0, 0);
   button_layout->setSpacing(0);
