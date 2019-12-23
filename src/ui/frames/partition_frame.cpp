@@ -138,9 +138,9 @@ public:
      QStackedLayout* partition_stacked_layout_ = nullptr;
      QStackedLayout* main_layout_ = nullptr;
      DButtonBox* m_buttonGroup = nullptr;
-     PointerButton* full_disk_frame_button_ = nullptr;
-     PointerButton* simple_frame_button_ = nullptr;
-     PointerButton* advanced_frame_button_ = nullptr;
+     DButtonBoxButton* full_disk_frame_button_ = nullptr;
+     DButtonBoxButton* simple_frame_button_ = nullptr;
+     DButtonBoxButton* advanced_frame_button_ = nullptr;
 
      PartitionModel* partition_model_ = nullptr;
      AdvancedPartitionDelegate* advanced_delegate_ = nullptr;
@@ -350,30 +350,26 @@ void PartitionFramePrivate::initUI() {
   comment_layout->addWidget(comment_label_);
 
   m_buttonGroup = new DButtonBox(q_ptr);
-  simple_frame_button_ = new PointerButton(tr("Simple"));
-  simple_frame_button_->setCheckable(true);
-  simple_frame_button_->setFlat(true);
+  simple_frame_button_ = new DButtonBoxButton(tr("Simple"), q_ptr);
   simple_frame_button_->setMinimumWidth(86);
-  advanced_frame_button_ = new PointerButton(tr("Advanced"));
-  advanced_frame_button_->setCheckable(true);
+  simple_frame_button_->setChecked(true);
+  advanced_frame_button_ = new DButtonBoxButton(tr("Advanced"), q_ptr);
   advanced_frame_button_->setMinimumWidth(86);
-  advanced_frame_button_->setFlat(true);
-  full_disk_frame_button_ = new PointerButton(tr("Full Disk"));
-  full_disk_frame_button_->setCheckable(true);
-  full_disk_frame_button_->setFlat(true);
+  full_disk_frame_button_ = new DButtonBoxButton(tr("Full Disk"), q_ptr);
   full_disk_frame_button_->setMinimumWidth(86);
 
   QList<DButtonBoxButton*> buttonList;
-  buttonList << qobject_cast<DButtonBoxButton*>(advanced_frame_button_)
-             << qobject_cast<DButtonBoxButton*>(full_disk_frame_button_);
+  buttonList << simple_frame_button_
+             << advanced_frame_button_
+             << full_disk_frame_button_;
   m_buttonGroup->setButtonList(buttonList, true);
+  m_buttonGroup->setVisible(true);
+
   QHBoxLayout* button_layout = new QHBoxLayout();
   button_layout->setContentsMargins(0, 0, 0, 0);
   button_layout->setSpacing(0);
   button_layout->addStretch();
-  button_layout->addWidget(simple_frame_button_, 0, Qt::AlignCenter);
-  button_layout->addWidget(advanced_frame_button_, 0, Qt::AlignCenter);
-  button_layout->addWidget(full_disk_frame_button_, 0, Qt::AlignCenter);
+  button_layout->addWidget(m_buttonGroup, 0, Qt::AlignCenter);
   button_layout->addStretch();
 
   partition_stacked_layout_ = new QStackedLayout();
@@ -470,7 +466,6 @@ void PartitionFramePrivate::initUI() {
   main_frame_ = new QFrame();
   main_frame_->setContentsMargins(0, 0, 0, 0);
   main_frame_->setLayout(layout);
-  main_frame_->setStyleSheet(ReadFile(":/styles/partition_main_frame.css"));
 
   main_layout_ = new QStackedLayout();
   main_layout_->setContentsMargins(0, 0, 0, 0);
