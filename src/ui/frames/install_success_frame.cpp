@@ -29,14 +29,11 @@
 #include <QPushButton>
 
 namespace installer {
-class InstallSuccessFramePrivate : public FrameInterfacePrivate
+class InstallSuccessFramePrivate : public QObject
 {
     Q_OBJECT
 public:
-    explicit InstallSuccessFramePrivate(FrameInterface* parent)
-        : FrameInterfacePrivate(parent)
-        , q_ptr(qobject_cast<InstallSuccessFrame* >(parent))
-    {}
+    InstallSuccessFramePrivate(InstallSuccessFrame *FF): q_ptr(FF) {}
 
     Q_DECLARE_PUBLIC(InstallSuccessFrame)
     InstallSuccessFrame *q_ptr=nullptr;
@@ -54,8 +51,8 @@ public:
     void updateTs();
 };
 
-InstallSuccessFrame::InstallSuccessFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
-    :FrameInterface(FrameType::Frame, frameProxyInterface, parent)
+InstallSuccessFrame::InstallSuccessFrame(QWidget *parent)
+    : QFrame(parent)
     , d_private(new InstallSuccessFramePrivate(this))
 {
     this->setObjectName("install_success_frame");
@@ -69,19 +66,6 @@ InstallSuccessFrame::~InstallSuccessFrame()
 
 }
 
-void InstallSuccessFrame::init()
-{
-
-}
-void InstallSuccessFrame::finished()
-{
-
-}
-
-bool InstallSuccessFrame::shouldDisplay() const
-{
-    return true;
-}
 void InstallSuccessFrame::changeEvent(QEvent *event)
 {
     Q_D(InstallSuccessFrame);
@@ -89,7 +73,7 @@ void InstallSuccessFrame::changeEvent(QEvent *event)
     if (event->type() == QEvent::LanguageChange) {
         d->updateTs();
     } else {
-        FrameInterface::changeEvent(event);
+        QFrame::changeEvent(event);
     }
 }
 
@@ -104,9 +88,8 @@ void InstallSuccessFramePrivate::updateTs()
 void InstallSuccessFramePrivate::initConnections()
 {
     QObject::connect(reboot_button_, &QPushButton::clicked,
-                    q_ptr, [=] {
-        q_ptr->m_proxy->nextFrame();
-    });
+            q_ptr, &InstallSuccessFrame::finished);
+
 }
 
 void InstallSuccessFramePrivate::initUI()

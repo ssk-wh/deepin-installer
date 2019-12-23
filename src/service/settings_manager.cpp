@@ -679,4 +679,9 @@ void WriteDiskPartitionSetting(const DiskPartitionSetting& setting)
     WriteUEFI(setting.uefi_required);
 }
 
+void WriteInstallSuccessed(bool successed)
+{
+    AppendToConfigFile("DI_INSTALL_SUCCESSED", successed);
+}
+
 }  // namespace installer

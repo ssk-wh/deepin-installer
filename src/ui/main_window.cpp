@@ -270,6 +270,10 @@ void MainWindow::initConnections() {
       return GetSettingsBool(kRebootWhenInstallFinished) ? rebootSystem() : shutdownSystem();
   });
 
+  connect(install_success_frame_, &InstallSuccessFrame::finished, this, [=] {
+      return GetSettingsBool(kRebootWhenInstallFinished) ? rebootSystem() : shutdownSystem();
+  });
+
   connect(partition_frame_, &PartitionFrame::reboot,
           this, &MainWindow::rebootSystem);
   connect(partition_frame_, &PartitionFrame::finished,
@@ -379,7 +383,6 @@ void MainWindow::initPages() {
       m_selectComponentFrame,
       partition_frame_,
       install_progress_frame_,
-      install_success_frame_
   };
 
   for (FrameInterface* frame : m_originalFrames){

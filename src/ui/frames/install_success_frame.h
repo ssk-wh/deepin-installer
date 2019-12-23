@@ -28,21 +28,16 @@ namespace installer {
 class CommentLabel;
 class TitleLabel;
 class InstallSuccessFramePrivate;
-class InstallSuccessFrame : public FrameInterface {
+class InstallSuccessFrame : public QFrame {
     Q_OBJECT
 
 public:
-    explicit InstallSuccessFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
+    explicit InstallSuccessFrame(QWidget* parent = nullptr);
     ~InstallSuccessFrame() override;
 
-    // Read configuration file
-    void init() override;
-
-    // Write to the configuration file
-    void finished() override;
-
-    // Read the configuration file to confirm that the current page is available
-    bool shouldDisplay() const override;
+signals:
+ // Emitted when reboot button is clicked.
+ void finished();
 
 public slots:
     void setEjectLabelVisible(bool visible);

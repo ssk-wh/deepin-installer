@@ -361,6 +361,8 @@ set(UI_FILES
     ui/frames/saveinstallfailedlogframe.cpp
     ui/frames/install_component_frame.h
     ui/frames/install_component_frame.cpp
+    ui/frames/install_results_frame.h
+    ui/frames/install_results_frame.cpp
 
     ui/models/bootloader_list_model.cpp
     ui/models/bootloader_list_model.h

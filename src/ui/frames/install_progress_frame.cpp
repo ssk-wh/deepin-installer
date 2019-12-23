@@ -313,7 +313,7 @@ void InstallProgressFramePrivate::updateProgressBar(int progress) {
 void InstallProgressFramePrivate::onHooksErrorOccurred() {
     failed_ = true;
     slide_frame_->stopSlide();
-
+    WriteInstallSuccessed(false);
     Q_Q(InstallProgressFrame);
     q->m_proxy->nextFrame();
 }
@@ -323,7 +323,7 @@ void InstallProgressFramePrivate::onHooksFinished() {
 
     // Set progress value to 100 explicitly.
     onProgressUpdate(100);
-
+    WriteInstallSuccessed(true);
     QTimer::singleShot(kRetainingInterval,
                        this, &InstallProgressFramePrivate::onRetainingTimerTimeout);
 }
