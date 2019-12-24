@@ -107,5 +107,7 @@
         <file>password_show_hover.svg</file>
         <file>password_show_normal.svg</file>
         <file>password_show_press.svg</file>
+        <file>NO_inactive.svg</file>
+        <file>done_inactive.svg</file>
     </qresource>
 </RCC>
