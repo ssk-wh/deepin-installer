@@ -39,8 +39,8 @@ signals:
     // Emitted when the avatar button is clicked.
     void avatarClicked();
 
-    // Emitted when form is validated.
-    void finished();
+    // Emitted when nextbutton was clicked
+    void nextFrameClicked();
 
 public slots:
     // Update user avatar image.

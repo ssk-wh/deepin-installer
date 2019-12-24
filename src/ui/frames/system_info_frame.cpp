@@ -122,11 +122,13 @@ bool SystemInfoFrame::shouldDisplay() const
 }
 
 void SystemInfoFramePrivate::initConnections() {
+  connect(nextButton, &QPushButton::click, form_frame_,
+          &SystemInfoFormFrame::nextFrameClicked);
   connect(avatar_frame_, &SystemInfoAvatarFrame::finished,
           this, &SystemInfoFramePrivate::showFormPage);
   connect(avatar_frame_, &SystemInfoAvatarFrame::avatarUpdated,
           form_frame_, &SystemInfoFormFrame::updateAvatar);
-  connect(form_frame_, &SystemInfoFormFrame::finished,
+  connect(form_frame_, &SystemInfoFormFrame::nextFrameClicked,
           this, [=] {
           q_ptr->m_proxy->nextFrame();
   });
@@ -134,9 +136,6 @@ void SystemInfoFramePrivate::initConnections() {
   // Save settings when finished signal is emitted.
   connect(form_frame_, &SystemInfoFormFrame::avatarClicked,
           this, &SystemInfoFramePrivate::showAvatarPage);
-  connect(form_frame_, &SystemInfoFormFrame::finished,
-          q_ptr, &SystemInfoFrame::finished);
-
   connect(keyboard_frame_, &SystemInfoKeyboardFrame::finished,
           this, &SystemInfoFramePrivate::restoreLastPage);
   connect(keyboard_frame_, &SystemInfoKeyboardFrame::layoutUpdated,
@@ -171,6 +170,8 @@ void SystemInfoFramePrivate::initUI() {
 
   centerLayout->addLayout(stacked_layout_);
   centerLayout->addLayout(bottom_layout_);
+
+  nextButton->setText(tr("Next"));
 
   q_ptr->setContentsMargins(0, 0, 0, 0);
   q_ptr->setStyleSheet(ReadFile(":/styles/system_info_frame.css"));

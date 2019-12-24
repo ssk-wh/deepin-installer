@@ -125,7 +125,6 @@ private:
 
     // Display tooltip error message.
     SystemInfoTip*         tooltip_     = nullptr;
-    QPushButton*           next_button_ = nullptr;
 
     std::vector<LineEdit*> m_editList;
 
@@ -212,7 +211,7 @@ void SystemInfoFormFramePrivate::initConnections()
 
     connect(m_avatarButton_, &QPushButton::clicked, q,
             &SystemInfoFormFrame::avatarClicked);
-    connect(next_button_, &QPushButton::clicked, this,
+    connect(q, &SystemInfoFormFrame::nextFrameClicked, this,
             &SystemInfoFormFramePrivate::onNextButtonClicked);
 
     connect(m_usernameEdit_, &LineEdit::editingFinished, this,
@@ -234,14 +233,15 @@ void SystemInfoFormFramePrivate::initConnections()
             SLOT(setFocus()));
     connect(m_passwordEdit_, SIGNAL(returnPressed()), m_passwordCheckEdit_,
             SLOT(setFocus()));
-    connect(m_passwordCheckEdit_, SIGNAL(returnPressed()), next_button_,
-            SIGNAL(clicked()));
+    connect(m_passwordCheckEdit_, &QLineEdit::returnPressed, this,
+            &SystemInfoFormFramePrivate::onNextButtonClicked);
     connect(m_setRootPasswordCheck, &QCheckBox::clicked, this
             , &SystemInfoFormFramePrivate::onSetRootPasswordCheckChanged);
     connect(m_rootPasswordEdit, SIGNAL(returnPressed()), m_rootPasswordCheckEdit
             , SLOT(setFocus()));
-    connect(m_rootPasswordCheckEdit, SIGNAL(returnPressed()), next_button_
-            , SIGNAL(clicked()));
+    connect(m_rootPasswordCheckEdit, &QLineEdit::returnPressed, this,
+            &SystemInfoFormFramePrivate::onNextButtonClicked);
+
 
     QList<LineEdit*> list {
         m_usernameEdit_,
@@ -357,8 +357,6 @@ void SystemInfoFormFramePrivate::initUI()
     m_grubPasswordCheck_->setObjectName("GrubPasswordCheckBox");
     m_grubPasswordCheck_->setVisible(GetSettingsBool(kSystemInfoEnableGrubEditPwd));
 
-    next_button_ = new QPushButton;
-
     QVBoxLayout* layout = new QVBoxLayout;
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(kMainLayoutSpacing);
@@ -401,7 +399,6 @@ void SystemInfoFormFramePrivate::initUI()
     mainLayout->addStretch();
     mainLayout->addWidget(area, 0, Qt::AlignCenter);
     mainLayout->addSpacing(10);
-    mainLayout->addWidget(next_button_, 0, Qt::AlignCenter);
 
     q->setLayout(mainLayout);
     q->setContentsMargins(0, 0, 0, 0);
@@ -415,7 +412,6 @@ void SystemInfoFormFramePrivate::updateTex()
     m_commentLabel_->setText(tr("Fill in the username, computer name and your password"));
     m_grubPasswordCheck_->setText(tr("Use that password to edit boot menu"));
     m_setRootPasswordCheck->setText(tr("Set root password"));
-    next_button_->setText(tr("Next"));
     tooltip_->setText("");
 }
 
@@ -609,7 +605,7 @@ void SystemInfoFormFramePrivate::systemInfoFrameFinish()
     }
 
     // Emit finished signal when all form inputs are ok.
-    emit q->finished();
+    emit q->nextFrameClicked();
 }
 
 void SystemInfoFormFramePrivate::onNextButtonClicked()
