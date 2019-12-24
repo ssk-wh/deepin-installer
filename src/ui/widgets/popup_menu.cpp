@@ -32,7 +32,7 @@ namespace installer {
 
 namespace {
 
-const int kBorderRadius = 5;
+const int kBorderRadius = 8;
 const int kBorderDiameter = kBorderRadius * 2;
 
 // _____
