@@ -106,7 +106,7 @@ EOF
   fi
 
   # Update grub based on current locale
-  update-grub || true
+  update_grub_local
 }
 
 if [ x$(installer_get "system_info_setup_after_reboot") != "xtrue" ]; then

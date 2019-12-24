@@ -65,7 +65,7 @@ if [ -f "${OEM_GRUB_BACKGROUND}" ]; then
 fi
 
 if [ x${GRUB_NEED_UPDATE} = "xtrue" ]; then
-  update-grub
+  update_grub_local
 fi
 
 return 0

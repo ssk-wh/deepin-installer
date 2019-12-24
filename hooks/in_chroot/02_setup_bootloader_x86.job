@@ -251,4 +251,4 @@ export DISPLAY=${DISPLAY_PORT}
 /usr/lib/deepin-daemon/grub2 -prepare-gfxmode-detect
 
 # update grub config
-/usr/sbin/update-grub
+update_grub_local

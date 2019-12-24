@@ -41,4 +41,4 @@ GRUB_GFXMODE=${DI_CUR_RESOLUTION}
 EOF
 
 # update grub config
-/usr/sbin/update-grub
+update_grub_local

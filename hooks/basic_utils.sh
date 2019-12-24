@@ -70,6 +70,14 @@ installer_get() {
   deepin-installer-settings get "${CONF_FILE}" "${key}"
 }
 
+# update grub config by locale
+update_grub_local() {
+  local DI_LOCALE=$(installer_get "DI_LOCALE")
+  DI_LOCALE=${DI_LOCALE:-en_US}
+
+  LANGUAGE=${DI_LOCALE} LANG=${DI_LOCALE}.UTF-8 /usr/sbin/update-grub
+}
+
 # Set value in conf file. Section name is ignored.
 installer_set() {
   local key="$1"

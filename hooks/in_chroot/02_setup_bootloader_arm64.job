@@ -234,4 +234,4 @@ EOF
 #  rm -f $IGNORE_UEFI
 #fi
 
-/usr/sbin/update-grub
+update_grub_local
