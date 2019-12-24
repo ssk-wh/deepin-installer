@@ -11,7 +11,6 @@
 #include <QScrollArea>
 #include <QScrollBar>
 #include <QScroller>
-#include <QButtonGroup>
 
 using namespace installer;
 
@@ -44,33 +43,31 @@ void UserAgreementFrame::initUI()
     m_subTitle = new QLabel(this);
     m_subTitle->setObjectName("user_agreement_subtitle");
 
-    m_buttonGroup = new QButtonGroup;
-    m_chineseButton = new PointerButton("中文");
+    m_buttonBox = new DButtonBox;
+    m_chineseButton = new DButtonBoxButton("中文");
     m_chineseButton->setObjectName("chineseButton");
     m_chineseButton->setCheckable(true);
-    m_chineseButton->setFlat(true);
-    m_chineseButton->setMinimumWidth(60);
-    m_chineseButton->setMaximumHeight(38);
-    m_englishButton = new PointerButton("English");
+    m_chineseButton->setFixedHeight(36);
+    m_englishButton = new DButtonBoxButton("English");
     m_englishButton->setObjectName("englishButton");
     m_englishButton->setCheckable(true);
-    m_englishButton->setFlat(true);
-    m_englishButton->setMinimumWidth(60);
-    m_englishButton->setMaximumHeight(38);
+    m_englishButton->setFixedHeight(36);
 
-    m_buttonGroup->addButton(m_chineseButton, kChineseToggleButtonId);
-    m_buttonGroup->addButton(m_englishButton, kEnglishToggleButtonId);
+    m_btnlist.append(m_chineseButton);
+    m_btnlist.append(m_englishButton);
+
+    m_buttonBox->setButtonList(m_btnlist, true);
+    m_buttonBox->setId(m_chineseButton, 0);
+    m_buttonBox->setId(m_englishButton, 1);
 
     QHBoxLayout* buttonLayout = new QHBoxLayout();
     buttonLayout->setContentsMargins(0, 0, 0, 0);
     buttonLayout->setSpacing(0);
     buttonLayout->addStretch();
-    buttonLayout->addWidget(m_chineseButton, 0, Qt::AlignCenter);
-    buttonLayout->addWidget(m_englishButton, 0, Qt::AlignCenter);
+    buttonLayout->addWidget(m_buttonBox, 0, Qt::AlignHCenter);
 
-    QWidget* buttonGroupWidget = new QWidget;
-    buttonGroupWidget->setFixedWidth(120);
-    buttonGroupWidget->setLayout(buttonLayout);
+    QWidget* buttonBoxWidget = new QWidget;
+    buttonBoxWidget->setLayout(buttonLayout);
 
     m_sourceLbl = new QLabel(this);
     m_sourceLbl->setObjectName("user_agreement_sourceLbl");
@@ -102,32 +99,21 @@ void UserAgreementFrame::initUI()
 
     QScroller::grabGesture(m_sourceScrollArea, QScroller::TouchGesture);
 
-    m_sourceScrollArea->setFixedWidth(468);
+    m_sourceScrollArea->setFixedWidth(480);
 
     m_back = new NavButton(this);
-
-    QHBoxLayout* subTitleWrapLayout = new QHBoxLayout;
-    subTitleWrapLayout->setMargin(0);
-    subTitleWrapLayout->setSpacing(0);
-    subTitleWrapLayout->addSpacerItem(new QSpacerItem(120, 38));
-    subTitleWrapLayout->addStretch();
-    subTitleWrapLayout->addWidget(m_subTitle, 0, Qt::AlignHCenter | Qt::AlignTop);
-    subTitleWrapLayout->addStretch();
-    subTitleWrapLayout->addWidget(buttonGroupWidget, 0, Qt::AlignRight | Qt::AlignBottom);
-
-    QWidget* subTitleWrapWidget = new QWidget;
-    subTitleWrapWidget->setFixedSize(468, 50);
-    subTitleWrapWidget->setLayout(subTitleWrapLayout);
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins(0, 0, 0, 0);
     mainLayout->setSpacing(kMainLayoutSpacing);
 
-    mainLayout->addSpacing(30);
+    mainLayout->addSpacing(16);
     mainLayout->addWidget(m_logoLbl, 0, Qt::AlignHCenter);
-    mainLayout->addWidget(subTitleWrapWidget, 0, Qt::AlignHCenter);
+    mainLayout->addWidget(m_subTitle, 0, Qt::AlignHCenter);
+    mainLayout->addSpacing(10);
+    mainLayout->addWidget(buttonBoxWidget, 0, Qt::AlignHCenter);
     mainLayout->addWidget(m_sourceScrollArea, 0, Qt::AlignHCenter);
-    mainLayout->addSpacing(20);
+    mainLayout->addSpacing(19);
     mainLayout->addWidget(m_back, 0, Qt::AlignHCenter);
 
     setLayout(mainLayout);
@@ -137,9 +123,7 @@ void UserAgreementFrame::initUI()
 void UserAgreementFrame::initConnect()
 {
     connect(m_back, &NavButton::clicked, this, &UserAgreementFrame::back);
-
-    connect(m_buttonGroup, static_cast<void (QButtonGroup::*)(QAbstractButton*)>(&QButtonGroup::buttonClicked)
-            , this, &UserAgreementFrame::toggleLicense);
+    connect(m_buttonBox, &DButtonBox::buttonClicked, this, &UserAgreementFrame::toggleLicense);
 }
 
 void UserAgreementFrame::updateText()
@@ -182,5 +166,5 @@ void UserAgreementFrame::setCheckedButton(int buttonId)
 
 void UserAgreementFrame::setCheckedButton(int buttonId)
 {
-    m_buttonGroup->button(buttonId)->setChecked(true);
+    m_buttonBox->button(buttonId)->setChecked(true);
 }

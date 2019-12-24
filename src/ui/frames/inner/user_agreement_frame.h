@@ -4,11 +4,15 @@
 #include <QFrame>
 #include <QVBoxLayout>
 #include <QLocale>
+#include <QList>
+
+#include <DButtonBox>
+
+DWIDGET_USE_NAMESPACE
 
 class QLabel;
 class QPushButton;
 class QScrollArea;
-class QButtonGroup;
 class QAbstractButton;
 
 namespace installer {
@@ -18,7 +22,6 @@ namespace {
 }
 
 class NavButton;
-class PointerButton;
 class UserAgreementFrame : public QFrame
 {
     Q_OBJECT
@@ -45,15 +48,16 @@ private:
 private:
     QLabel *m_logoLbl;
     QLabel *m_subTitle;
-    PointerButton* m_chineseButton = nullptr;
-    PointerButton* m_englishButton = nullptr;
-    QButtonGroup* m_buttonGroup = nullptr;
+    DButtonBoxButton* m_chineseButton = nullptr;
+    DButtonBoxButton* m_englishButton = nullptr;
+    DButtonBox* m_buttonBox = nullptr;
     QLabel *m_sourceLbl;
     NavButton *m_back;
     QScrollArea *m_sourceScrollArea;
     QLocale::Language m_language;
     int m_nextFileIndex;
     QStringList m_fileNames;
+    QList<DButtonBoxButton *> m_btnlist;
 };
 }
 #endif // INSTALLER_UI_FRAMES_USER_AGREEMENT_FRAME_H
