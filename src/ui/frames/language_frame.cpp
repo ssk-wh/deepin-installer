@@ -124,6 +124,8 @@ void LanguageFramePrivate::showUserLicense() {
 
 void LanguageFramePrivate::showLanguage() {
     nextButton->setText(tr("Next"));
+    nextButton->show();
+
     m_frame_layout->setCurrentWidget(m_select_language_frame);
 }
 
