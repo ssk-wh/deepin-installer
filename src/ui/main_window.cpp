@@ -26,6 +26,8 @@
 #include <QStackedLayout>
 #include <QTranslator>
 #include <QList>
+#include <DStandardItem>
+#include <DBackgroundGroup>
 
 #include "ui/interfaces/frameinterface.h"
 #include "base/file_util.h"
@@ -57,7 +59,17 @@
 #include "ui/widgets/pointer_button.h"
 #include "ui/xrandr/multi_head_manager.h"
 
+Q_DECLARE_METATYPE(installer::FrameInterface*)
+
+DWIDGET_USE_NAMESPACE
+
 namespace installer {
+
+enum class FrameLabelState{
+    Initial,
+    Show,
+    FinishedConfig
+};
 
 MainWindow::MainWindow(QWidget* parent)
     : FrameProxyInterface(parent),
@@ -291,6 +303,12 @@ void MainWindow::initConnections() {
           this, &MainWindow::goNextPage);
 
   connect(save_failedLog_frame_, &SaveInstallFailedLogFrame::requestBack, this, &MainWindow::backPage);
+
+  connect(m_frameLabels, &DListView::clicked, this, [this](const QModelIndex &idx) {
+      FrameInterface* framePointer = idx.data(FramePointerRole).value<FrameInterface*>();
+      Q_ASSERT(framePointer);
+      onPreviousFrameSelected(framePointer);
+  });
 }
 
 void MainWindow::initPages() {
@@ -360,6 +378,41 @@ void MainWindow::initPages() {
       // TODO: move the front addWidget statement over here
       m_frames << frame;
   }
+
+  // TODO: for current test, will be replaced later.
+  m_frameTitles = {
+      "LanguageFrame",
+      "TimezoneFrame",
+      "SelectComponentFrame",
+      "SystemInfoFrame",
+      "PartitionFrame",
+      "InstallProgressFrame",
+      "InstallSuccessFrame"
+  };
+
+  m_frameLabels = new DListView(this);
+  m_frameLabels->setOrientation(QListView::TopToBottom, true);
+  QStandardItemModel* m_modelprofiles = new QStandardItemModel();
+  m_frameLabels->setModel(m_modelprofiles);
+
+  for (int i = 0; i < m_originalFrames.count(); ++i){
+      if (!m_originalFrames[i]->shouldDisplay()){
+          continue;
+      }
+
+      DStandardItem* item = new DStandardItem;
+      item->setIcon(QIcon(installer::renderPixmap(":/images/NO_inactive.svg")));
+      item->setText(m_frameTitles[i]);
+      QVariant framePointer = QVariant::fromValue(m_originalFrames[i]);
+      item->setData(framePointer, FramePointerRole);
+      DViewItemAction* action = new DViewItemAction;
+      action->setIcon(QIcon(installer::renderPixmap(":/images/done_inactive.svg")));
+      item->setActionList(Qt::Edge::RightEdge, {action});
+
+      m_modelprofiles->appendRow(item);
+  }
+
+  m_frameSelectedLayout->addWidget(m_frameLabels);
 }
 
 void MainWindow::initUI() {
@@ -391,8 +444,29 @@ void MainWindow::initUI() {
   vbox_layout->addLayout(stacked_layout_);
   vbox_layout->addSpacing(32);
 
-  this->setLayout(vbox_layout);
-  // this->setContentsMargins(10, 10, 10, 10);
+  m_frameSelectedLayout = new QVBoxLayout;
+
+  QWidget* frameSelectedListWidget = new QWidget;
+  frameSelectedListWidget->setObjectName("frameSelectedListWidget");
+  frameSelectedListWidget->setLayout(m_frameSelectedLayout);
+  frameSelectedListWidget->setFixedWidth(260);
+
+  QHBoxLayout* mainLayout = new QHBoxLayout;
+  mainLayout->setMargin(0);
+  mainLayout->setSpacing(0);
+
+  mainLayout->addWidget(frameSelectedListWidget);
+  mainLayout->addLayout(vbox_layout);
+
+  DBackgroundGroup* bgGroup = new DBackgroundGroup;
+  bgGroup->setContentsMargins(10, 10, 10, 10);
+  bgGroup->setLayout(mainLayout);
+
+  QVBoxLayout* layout = new QVBoxLayout;
+  layout->setMargin(0);
+  layout->setSpacing(0);
+  layout->addWidget(bgGroup);
+  setLayout(layout);
 
   control_panel_frame_ = new ControlPanelFrame(this);
   control_panel_frame_->hide();
@@ -475,7 +549,7 @@ bool MainWindow::checkBackButtonAvailable(PageId id) {
                              PageId::InstallSuccessId,
                              PageId::InstallFailedId,
                          })
-        .contains(id);
+            .contains(id);
 }
 
 void MainWindow::onCurrentPageChanged(int index) {

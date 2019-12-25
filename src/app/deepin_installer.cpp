@@ -97,18 +97,10 @@ int main(int argc, char* argv[]) {
   main_window.setEnableAutoInstall(args_parser.isAutoInstallSet());
   main_window.setLogFile(args_parser.getLogFile());
 
-  DBackgroundGroup* bgGroup = new DBackgroundGroup;
-  QVBoxLayout* layout = new QVBoxLayout;
-  layout->setMargin(0);
-  layout->setSpacing(0);
-  layout->addWidget(&main_window);
-  bgGroup->setLayout(layout);
-  bgGroup->setContentsMargins(10, 10, 10, 10);
-
   // Notify background thread to scan device info.
   main_window.scanDevicesAndTimezone();
 
-  w.setCentralWidget(bgGroup);
+  w.setCentralWidget(&main_window);
   w.show();
 
   return app.exec();

@@ -45,6 +45,5 @@
         <file>timezone_frame.css</file>
         <file>full_disk_partition_colorbar.css</file>
         <file>di_scrollarea.css</file>
-        <file>frameselectedwidget.css</file>
     </qresource>
 </RCC>

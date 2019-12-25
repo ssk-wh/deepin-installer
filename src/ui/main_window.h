@@ -24,6 +24,7 @@
 #include <QHash>
 #include <QMap>
 #include <DImageButton>
+#include <DListView>
 
 DWIDGET_USE_NAMESPACE
 
@@ -32,6 +33,7 @@ class QPushButton;
 class QResizeEvent;
 class QShortcut;
 class QStackedLayout;
+class QVBoxLayout;
 
 class GlobalShortcut;
 
@@ -132,6 +134,7 @@ private:
   // All of frame pages are stored in this layout.
   // And they are referenced by id in |pages_|.
   QStackedLayout* stacked_layout_ = nullptr;
+  QVBoxLayout* m_frameSelectedLayout = nullptr;
 
   ConfirmQuitFrame* confirm_quit_frame_ = nullptr;
   ControlPanelFrame* control_panel_frame_ = nullptr;
@@ -173,6 +176,11 @@ private:
     QList<FrameInterface*> m_originalFrames;
     QList<FrameInterface*> m_frames;
     bool m_showPastFrame = false;
+
+    QList<QString> m_frameTitles;
+    DListView* m_frameLabels = nullptr;
+
+    static const int FramePointerRole = Dtk::UserRole + 1;
 
  private slots:
   // Go next page when current page index is changed in ControlPanelFrame.
