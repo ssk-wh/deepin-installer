@@ -252,6 +252,7 @@ void TimezoneMap::remark() {
     const QPoint dot_pos(parent_pos.x() - half_width,
                          parent_pos.y() - half_height);
     dot_->move(dot_pos);
+    dot_->raise();
     dot_->show();
     dot_->raise();
   }
