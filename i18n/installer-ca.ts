@@ -210,7 +210,7 @@
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="40"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="63"/>
         <source>Applying changes to your system, please wait...</source>
-        <translation>Aplicant els canvis al sistema. Espereu, si us plau...</translation>
+        <translation>S&apos;apliquen els canvis al sistema. Espereu, si us plau...</translation>
     </message>
 </context>
 <context>
@@ -347,7 +347,7 @@
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="37"/>
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="54"/>
         <source>Formatting...</source>
-        <translation>Formatant...</translation>
+        <translation>Es formata...</translation>
     </message>
 </context>
 <context>
@@ -1535,7 +1535,7 @@
     </message>
     <message>
         <source>Applying changes to your system, please wait...</source>
-        <translation type="vanished">Aplicant els canvis al sistema. Espereu, si us plau...</translation>
+        <translation type="vanished">S&apos;apliquen els canvis al sistema. Espereu, si us plau...</translation>
     </message>
 </context>
 <context>
@@ -1648,7 +1648,7 @@
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="215"/>
         <source>Installing</source>
-        <translation>Instal·lant</translation>
+        <translation>S&apos;instal·la</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="217"/>
@@ -1783,7 +1783,7 @@
     <name>installer::NewTableLoadingFrame</name>
     <message>
         <source>Formatting...</source>
-        <translation type="vanished">Formatant...</translation>
+        <translation type="vanished">Es formata...</translation>
     </message>
 </context>
 <context>

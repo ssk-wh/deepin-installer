@@ -66,7 +66,7 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="501"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
-        <translation type="unfinished"/>
+        <translation>Sekatan bagi direktori /boot/efi patut merupakan sekatan pertama pada cakera keras</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="506"/>
@@ -96,7 +96,7 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="528"/>
         <source>At least %1 GB is required for partition %2</source>
-        <translation type="unfinished"/>
+        <translation>Sekurang-kurangnya %1 GB diperlukan untuk sekatan %2</translation>
     </message>
 </context>
 <context>
@@ -146,7 +146,7 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="79"/>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation>Keluar</translation>
     </message>
 </context>
 <context>
@@ -167,7 +167,7 @@
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="202"/>
         <source>File system</source>
-        <translation type="unfinished"/>
+        <translation>Sistem fail</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="104"/>
@@ -190,12 +190,12 @@
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="107"/>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation>Cipta</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="246"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Sahkan</translation>
     </message>
 </context>
 <context>
@@ -224,7 +224,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="59"/>
         <source>Encrypt this disk</source>
-        <translation type="unfinished"/>
+        <translation>Sulitkan cakera ini</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="60"/>
@@ -239,7 +239,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation type="unfinished"/>
+        <translation>Sekurang-kurangnya %1 GB ruang cakera diperlukan untuk memasang UOS, untuk prestasi lebih baik, sebanyak %2 GB atau lebih ruang cakera disarankan</translation>
     </message>
 </context>
 <context>
@@ -252,7 +252,7 @@
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="172"/>
         <source>Here are a few cool things to look out for...</source>
-        <translation type="unfinished"/>
+        <translation>Di sini terdapat beberapa perkara menarik untuk diketahui...</translation>
     </message>
 </context>
 <context>
@@ -260,12 +260,12 @@
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="189"/>
         <source>System Disk</source>
-        <translation type="unfinished"/>
+        <translation>Cakera Sistem</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="189"/>
         <source>Data Disk</source>
-        <translation type="unfinished"/>
+        <translation>Cakera Data</translation>
     </message>
 </context>
 <context>
@@ -274,7 +274,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="116"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="151"/>
         <source>Create New Partition</source>
-        <translation type="unfinished"/>
+        <translation>Cipta Sekatan Baharu</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="118"/>
@@ -298,7 +298,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="121"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="170"/>
         <source>File system</source>
-        <translation type="unfinished"/>
+        <translation>Sistem fail</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="122"/>
@@ -338,7 +338,7 @@
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="216"/>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation>Cipta</translation>
     </message>
 </context>
 <context>
@@ -356,13 +356,13 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="76"/>
         <source>Format Warning</source>
-        <translation type="unfinished"/>
+        <translation>Amaran Format</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="57"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="94"/>
         <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation type="unfinished"/>
+        <translation>Meneruskan pemasangan akan memformat keseluruhan cakera, sila pastikan menyandar semua data anda. Jika anda tidak tahu apa yang anda lakukan, jangan diteruskan</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="59"/>
@@ -419,12 +419,12 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="443"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation type="unfinished"/>
+        <translation>Cakera sasaran bersifat dinamik, dan data anda mungkin hilang jika diteruskan. Sila menyandar fail-fail penting anda terlebih dahulu.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="447"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation type="unfinished"/>
+        <translation>Cakera sasaran bersifat dinamik yang akan diformatkan jika diteruskan. Sila menyandar fail-fail penting anda terlebih dahulu.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="461"/>
@@ -468,19 +468,19 @@
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="59"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="78"/>
         <source>Failed to Create New Partition</source>
-        <translation type="unfinished"/>
+        <translation>Gagal Mencipta Sekatan Baharu</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="81"/>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
-        <translation type="unfinished"/>
+        <translation>Anda patut memadam satu sekatan utama sebelum mencipta satu sekatan baharu, kerana hanya boleh ada empat sekatan utama di dalam cakera MBR</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="86"/>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
-        <translation type="unfinished"/>
+        <translation>Anda patut memadam satu sekatan utama sebelum mencipta yang logikal, atau mengalih sekatan logikal sedia ada di penghujung cakera</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="66"/>
@@ -509,7 +509,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="83"/>
         <source>Ready to Install</source>
-        <translation type="unfinished"/>
+        <translation>Sedia di Pasang</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="64"/>
@@ -607,7 +607,7 @@
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="40"/>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation type="unfinished"/>
+        <translation>Anda memerlukan sekurang-kurangnya %1 GB ruang cakera diperlukan untuk memasang UOS. Untuk prestasi lebih baik, sebanyak %2 GB atau lebih ruang cakera disarankan</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="49"/>
@@ -619,7 +619,7 @@
         <location filename="../src/ui/frames/install_success_frame.cpp" line="51"/>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="57"/>
         <source>Reboot to complete the installation</source>
-        <translation type="unfinished"/>
+        <translation>But semula untuk selesaikan pemasangan</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="53"/>
@@ -630,12 +630,12 @@
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="54"/>
         <source>Reboot Now</source>
-        <translation type="unfinished"/>
+        <translation>But Semula Sekarang</translation>
     </message>
     <message>
         <location filename="../src/base/translator.h" line="14"/>
         <source>Select system language</source>
-        <translation type="unfinished"/>
+        <translation>Pilih bahasa sistem</translation>
     </message>
 </context>
 <context>
@@ -650,7 +650,7 @@
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="44"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="66"/>
         <source>If you do not understand the settings, please select the recommended one</source>
-        <translation type="unfinished"/>
+        <translation>Jika anda tidak memahami tetapan, sila pilih yang disarankan</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="45"/>
@@ -685,7 +685,7 @@
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
         <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
-        <translation type="unfinished"/>
+        <translation>Windows tidak akan membut jika memasang UOS dalam cakera Windows, sila sahkan untuk teruskan</translation>
     </message>
 </context>
 <context>
@@ -721,17 +721,17 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="174"/>
         <source>Repeat password</source>
-        <translation type="unfinished"/>
+        <translation>Ulang kata laluan</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="175"/>
         <source>Root password</source>
-        <translation type="unfinished"/>
+        <translation>Kata laluan root</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="176"/>
         <source>Repeat root password</source>
-        <translation type="unfinished"/>
+        <translation>Ulang kata laluan root</translation>
     </message>
 </context>
 <context>
@@ -740,20 +740,20 @@
         <location filename="../src/ui/frames/timezone_frame.cpp" line="113"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="219"/>
         <source>Select Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Pilih Zon Waktu</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="116"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="220"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="353"/>
         <source>Click your zone on the map</source>
-        <translation type="unfinished"/>
+        <translation>Klik zon anda di atas peta</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="119"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="358"/>
         <source>Select your timezone from the list</source>
-        <translation type="unfinished"/>
+        <translation>Pilih zon waktu anda melalui senarai</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
@@ -765,19 +765,19 @@
         <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="225"/>
         <source>Map</source>
-        <translation type="unfinished"/>
+        <translation>Peta</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="231"/>
         <source>List</source>
-        <translation type="unfinished"/>
+        <translation>Senarai</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="125"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="282"/>
         <source>Time settings</source>
-        <translation type="unfinished"/>
+        <translation>Tetapan masa</translation>
     </message>
 </context>
 <context>
@@ -791,7 +791,7 @@
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="42"/>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
-        <translation type="unfinished"/>
+        <translation>Anda menggunakan mesin maya, yang mana akan mempengaruhi prestasi sistem dan pengalaman pengguna. Untuk menikmati kelancaran operasi, sila pasang UOS dalam persekitaran sebenar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="44"/>
@@ -802,7 +802,7 @@
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
-        <translation type="unfinished"/>
+        <translation>Sistem telah mengesan bahawa anda menggunakan satu mesin maya, yang mana akan mempengaruhi prestasi sistem dan pengalaman operasi, seperti kelancaran operasi, adalah disarankan pemasangan UOS dalam persekitaran mesin-sebenar.</translation>
     </message>
 </context>
 <context>
@@ -876,7 +876,7 @@
     </message>
     <message>
         <source>At least %1 GB is required for partition %2</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Sekurang-kurangnya %1 GB diperlukan untuk sekatan %2</translation>
     </message>
 </context>
 <context>
@@ -891,532 +891,532 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
         <source>Minimal Install</source>
-        <translation type="unfinished"/>
+        <translation>Pemasangan Minimum</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
         <source>Basic functionality.</source>
-        <translation type="unfinished"/>
+        <translation>Kefungisan asas</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
         <source>Compute Node</source>
-        <translation type="unfinished"/>
+        <translation>Nod Komputer</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
         <source>Installation for performing computation and processing.</source>
-        <translation type="unfinished"/>
+        <translation>Pemasangan untuk membuat pengiraan dan pemprosesan.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
         <source>Infrastructure Server</source>
-        <translation type="unfinished"/>
+        <translation>Pelayan Infrastruktur</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
         <source>Server for operating network infrastructure services.</source>
-        <translation type="unfinished"/>
+        <translation>Pelayan untuk mengendalikan perkhidmatan-perkhidmatan infrastruktur rangkaian.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
         <source>File and Print Server</source>
-        <translation type="unfinished"/>
+        <translation>Pelayan Fail dan Cetak</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
         <source>File, print, and storage server for enterprises.</source>
-        <translation type="unfinished"/>
+        <translation>Pelayan fail, cetak, dan storan untuk enterprise.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
         <source>Basic Web Server</source>
-        <translation type="unfinished"/>
+        <translation>Pelayan Sesawang Asas</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
         <source>Server for serving static and dynamic internet content.</source>
-        <translation type="unfinished"/>
+        <translation>Pelayan untuk melayan kandungan internet statik dan dinamik.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
         <source>Virtualization Host</source>
-        <translation type="unfinished"/>
+        <translation>Hos Pemayaan</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
         <source>Minimal virtualization host.</source>
-        <translation type="unfinished"/>
+        <translation>Hos pemayaan minimum.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
         <source>Server with GUI</source>
-        <translation type="unfinished"/>
+        <translation>Pelayan dengan GUI</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
         <source>Server for operating network infrastructure services, with a GUI.</source>
-        <translation type="unfinished"/>
+        <translation>Pelayan untuk mengendalikan perkhidmatan-perkhidmatan infrastruktur rangkaian, dengan GUI.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
         <source>DDE Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Atas Meja DDE</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
         <source>DDE is a highly intuitive and user friendly desktop environment.</source>
-        <translation type="unfinished"/>
+        <translation>DDE ialah sebuah persekitaran atas meja yang sangat intuitif dan mesra pengguna.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>Development and Creative Workstation</source>
-        <translation type="unfinished"/>
+        <translation>Stesen Kerja Pembangunan dan Kreatif</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>Workstation for software, hardware, graphics, or content development.</source>
-        <translation type="unfinished"/>
+        <translation>Stesen kerja utnuk pembangunan perisian, perkakasan, grafik, atau kandungan.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>Debugging Tools</source>
-        <translation type="unfinished"/>
+        <translation>Alatan Penyahpepijatan</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>Tools for debugging misbehaving applications and diagnosing performance problems.</source>
-        <translation type="unfinished"/>
+        <translation>Alatan untuk menyahpepijat aplikasi-aplikasi bermasalah dan mendiagnosis masalah-masalah prestasi.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>Directory Client</source>
-        <translation type="unfinished"/>
+        <translation>Klien Direktori</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>Clients for integration into a network managed by a directory service.</source>
-        <translation type="unfinished"/>
+        <translation>Klien untuk disepadu masuk ke dalam rangkaian terurus oleh satu perkhidmatan direktori.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Security Tools</source>
-        <translation type="unfinished"/>
+        <translation>Alatan Keselamatan</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Security tools for integrity and trust verification.</source>
-        <translation type="unfinished"/>
+        <translation>Alatan keselamatan untuk integriti dan pengesahan kepercayaan.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>Development Tools</source>
-        <translation type="unfinished"/>
+        <translation>Alatan Pembangunan</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>A basic development environment.</source>
-        <translation type="unfinished"/>
+        <translation>Sebuah persekitaran pembangunan asas.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Performance Tools</source>
-        <translation type="unfinished"/>
+        <translation>Alatan Prestasi</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Tools for diagnosing system and application-level performance problems.</source>
-        <translation type="unfinished"/>
+        <translation>Alatan untuk mendiagnosis sistem dan masalah-masalah prestasi tahap-aplikasi.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>Hardware Monitoring Utilities</source>
-        <translation type="unfinished"/>
+        <translation>Utiliti-Utiliti Memantau Perkakasan</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>A set of tools to monitor server hardware.</source>
-        <translation type="unfinished"/>
+        <translation>Satu set alatan untuk memantau perkakasan pelayan.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>Virtualization Hypervisor</source>
-        <translation type="unfinished"/>
+        <translation>Hipervisor Pemayaan</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>Smallest possible virtualization host installation.</source>
-        <translation type="unfinished"/>
+        <translation>Pemasangan hos pemayaan yang sekecil mungkin.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>Virtualization Platform</source>
-        <translation type="unfinished"/>
+        <translation>Platform Pemayaan</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>Provide an interface for accessing and controlling virtualized guests and containers.</source>
-        <translation type="unfinished"/>
+        <translation>Menyediakan satu antara muka untuk mencapai dan mengawal para tetamu dan bekas-bekas termaya.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>Virtualization Client</source>
-        <translation type="unfinished"/>
+        <translation>Klien Pemayaan</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>Clients for installing and managing virtualization instances.</source>
-        <translation type="unfinished"/>
+        <translation>Klien untuk memasang dan mengurus tika-tika pemayaan.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>Backup Client</source>
-        <translation type="unfinished"/>
+        <translation>Klien Sandar</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>Client tools for connecting to a backup server and doing backups.</source>
-        <translation type="unfinished"/>
+        <translation>Alatan klien untuk bersambung dengan pelayan sandar dan membuat sandaran.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>Backup Server</source>
-        <translation type="unfinished"/>
+        <translation>Pelayan Sandar</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>Software to centralize your infrastructure&apos;s backups.</source>
-        <translation type="unfinished"/>
+        <translation>Perisian yang berfungsi memusatkan sandar-sandar infrastuktur anda.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>File and Storage Server</source>
-        <translation type="unfinished"/>
+        <translation>Pelayan Fail dan Storan</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
-        <translation type="unfinished"/>
+        <translation>Pelayan storan rangkaian CIFS, SMB, NFS, iSCSI, iSER, dan iSNS.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>DNS Name Server</source>
-        <translation type="unfinished"/>
+        <translation>Pelayan Nama DNS</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>This package group allows you to run a DNS name server (BIND) on the system.</source>
-        <translation type="unfinished"/>
+        <translation>Kumpulan pakej ini membolehkan anda jalankan satu pelayan nama DNS (BIND) dalam sistem.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>E-mail Server</source>
-        <translation type="unfinished"/>
+        <translation>Pelayan E-mel</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
-        <translation type="unfinished"/>
+        <translation>Membolehkan sistem bertindak sebagai pelayan e-mel SMTP dan/atau IMAP.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>FTP Server</source>
-        <translation type="unfinished"/>
+        <translation>Pelayan FTP</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>Allows the system to act as an FTP server.</source>
-        <translation type="unfinished"/>
+        <translation>Membolehkan sistem bertindak sebagai pelayan FTP.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Print Server</source>
-        <translation type="unfinished"/>
+        <translation>Pelayan Cetak</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Allows the system to act as a print server.</source>
-        <translation type="unfinished"/>
+        <translation>Membolehkan sistem bertindak sebagai satu pelayan cetak.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Mainframe Access</source>
-        <translation type="unfinished"/>
+        <translation>Capaian Kerangka Utama</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Tools for accessing mainframe computing resources.</source>
-        <translation type="unfinished"/>
+        <translation>Alatan untuk mencapai sumber-sumber pengiraan kerangka utama.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Infiniband Support</source>
-        <translation type="unfinished"/>
+        <translation>Sokongan Infiniband</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
-        <translation type="unfinished"/>
+        <translation>Perisian yang direka untuk menyokong penggugusan dan kesambungan grid melalui InfiniBand berasaskan-RDMA dan fabrik-fabrik iWARP.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>High Availability</source>
-        <translation type="unfinished"/>
+        <translation>Ketersediaan Tinggi</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Infrastructure for highly available services and/or shared storage.</source>
-        <translation type="unfinished"/>
+        <translation>Infrastruktur untuk perkhidmatan dan/atau storan terkongsi dengan tahap tersedia yang tinggi.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Resilient Storage</source>
-        <translation type="unfinished"/>
+        <translation>Storan Lasak</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Clustered storage, including the GFS2 file system.</source>
-        <translation type="unfinished"/>
+        <translation>Storan Bergugus, termasuklah sistem fail GFS2.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>ldentity Management Server</source>
-        <translation type="unfinished"/>
+        <translation>Pelayan Pengurusan Identiti</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>Centralized management of users, servers and authentication policies.</source>
-        <translation type="unfinished"/>
+        <translation>Pengurusan pengguna, pelayan dan dasar-dasar pengesahihan berpusat.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Large Systems Performance</source>
-        <translation type="unfinished"/>
+        <translation>Prestasi Sistem-Sistem Besar</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Performance support tools for large systems.</source>
-        <translation type="unfinished"/>
+        <translation>Alatan sokongan prestasi untuk sistem-sistem berskala besar.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Load Balancer</source>
-        <translation type="unfinished"/>
+        <translation>Pengimbang Beban</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Load balancing support for network traffic.</source>
-        <translation type="unfinished"/>
+        <translation>Sokongan imbangan beban untuk trafik rangkaian.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>MariaDB Database Client</source>
-        <translation type="unfinished"/>
+        <translation>Klien Pangkalan Data MariaDB</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>The MariaDB SQL database client, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>Klien pangkalan data SQL MariaDB, dan pakej-pakej berkaitan.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>MariaDB Database Server</source>
-        <translation type="unfinished"/>
+        <translation>Pelayan Pangkalan Data MairaDB</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>The MariaDB SQL database server, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>Pelayan pangkalan data SQL MariaDB, dan pakej-pakej berkaitan.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>PostgreSQL Database Client</source>
-        <translation type="unfinished"/>
+        <translation>Klien Pangkalan Data PostgreSQL</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>The PostgreSQL SQL database client, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>Klien pangkalan data SQL PostgreSQL, dan pakej-pakej berkaitan.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>PostgreSQL Database Server</source>
-        <translation type="unfinished"/>
+        <translation>Pelayan Pangkalan Data PostgreSQL</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>The PostgreSQL SQL database server, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>Pelayan pangkalan data SQL PostgreSQL, dan pakej-pakej berkaitan.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Java Platform</source>
-        <translation type="unfinished"/>
+        <translation>Platform Java</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Java support for UOS.</source>
-        <translation type="unfinished"/>
+        <translation>Sokongan Java untuk UOS.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>PHP Support</source>
-        <translation type="unfinished"/>
+        <translation>Sokongan PHP</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>PHP web application framework.</source>
-        <translation type="unfinished"/>
+        <translation>Rangka kerja aplikasi sesawang PHP.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Python</source>
-        <translation type="unfinished"/>
+        <translation>Python</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Basic Python web application support.</source>
-        <translation type="unfinished"/>
+        <translation>Sokongan aplikasi sesawang Python asas.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>Perl for Web</source>
-        <translation type="unfinished"/>
+        <translation>Perl untuk Sesawang</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>Basic Perl web application support.</source>
-        <translation type="unfinished"/>
+        <translation>Sokongan aplikasi sesawang Perl asas.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>Internet Applications</source>
-        <translation type="unfinished"/>
+        <translation>Aplikasi-Aplikasi Internet</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>Email, chat, and video conferencing software.</source>
-        <translation type="unfinished"/>
+        <translation>Perisian emel, sembang dan sidang video.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>Web Servlet Engine</source>
-        <translation type="unfinished"/>
+        <translation>Enjin Servlet Sesawang</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>Allows the system to host Java servlets.</source>
-        <translation type="unfinished"/>
+        <translation>Membolehkan sistem mengehos servlet-servlet Java.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>Legacy x Window System Compatibility</source>
-        <translation type="unfinished"/>
+        <translation>Keserasian Sistem Window x Legasi</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>Compatibility programs for migration from or working with legacy X Window System environments.</source>
-        <translation type="unfinished"/>
+        <translation>Program-program keserasian untuk pemindahan dari atau bekerja dengan persekitaran-persekitaran Sistem Windows X legasi.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>Office Suite and Productivity</source>
-        <translation type="unfinished"/>
+        <translation>Suit dan Produktiviti Pejabat</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>A full-purpose office suite, and other productivity tools.</source>
-        <translation type="unfinished"/>
+        <translation>Sebuah suit pejabat yang lengkap, dan lain-lain alatan produktiviti.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>Additional Development</source>
-        <translation type="unfinished"/>
+        <translation>Pembangunan Tambahan</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>Additional development headers and libraries for building open-source applications.</source>
-        <translation type="unfinished"/>
+        <translation>Pengepala dan pustaka-pustaka pembangunan tambahan untuk membina aplikasi-aplikasi sumber-terbuka.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>Emacs</source>
-        <translation type="unfinished"/>
+        <translation>Emacs</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>The GNU Emacs extensible, customizable text editor.</source>
-        <translation type="unfinished"/>
+        <translation>Penyunting teks GNU Emacs boleh suai, boleh dilanjutkan.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>Graphics Creation Tools</source>
-        <translation type="unfinished"/>
+        <translation>Alatan Penciptaan Grafik</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>Software for creation and manipulation of still images.</source>
-        <translation type="unfinished"/>
+        <translation>Perisian untuk penciptaan dan manipulasi imej-imej kaku.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>Platform Development</source>
-        <translation type="unfinished"/>
+        <translation>Pembangunan Platform</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
-        <translation type="unfinished"/>
+        <translation>Pengepala dan pustaka-pustaka pembangunan disarankan untuk membangunkan aplikasi-aplikasi bagi menjalankan UOS.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>Technical Writing</source>
-        <translation type="unfinished"/>
+        <translation>Penulisan Teknikal</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>Tools for writing technical documentation.</source>
-        <translation type="unfinished"/>
+        <translation>Alatan untuk menulis dokumentasi teknikal.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
         <source>Virtualization Tools</source>
-        <translation type="unfinished"/>
+        <translation>Alatan Pemayaan</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
         <source>Tools for offline virtual image management.</source>
-        <translation type="unfinished"/>
+        <translation>Alatan untuk pengurusan imej maya luar talian.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
         <source>Network File System Client</source>
-        <translation type="unfinished"/>
+        <translation>Klien Sistem Fail Rangkaian</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
         <source>Enables the system to attach to network storage.</source>
-        <translation type="unfinished"/>
+        <translation>Membolehkan sistem dimasukkan ke dalam storan rangkaian.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>Guest Agents</source>
-        <translation type="unfinished"/>
+        <translation>Ejen-Ejen Tetamu</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>Agents used when running under a hypervisor.</source>
-        <translation type="unfinished"/>
+        <translation>Ejen-ejen yang digunakan ketika dijalankan bawah satu hipervisor.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>DDE Applications</source>
-        <translation type="unfinished"/>
+        <translation>Aplikasi-Aplikasi DDE</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>A set of commonly used DDE Applications.</source>
-        <translation type="unfinished"/>
+        <translation>Satu set Aplikasi-Aplikasi DDE yang digunakan secara umum.</translation>
     </message>
 </context>
 <context>
@@ -1450,7 +1450,7 @@
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="29"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="119"/>
         <source>Set the region for UOS EndPoint Management Platform</source>
-        <translation type="unfinished"/>
+        <translation>Tetapkan wilayah untuk Platform Pengurusan Titik Akhir UOS</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="116"/>
@@ -1471,7 +1471,7 @@
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Keluar</translation>
     </message>
 </context>
 <context>
@@ -1504,7 +1504,7 @@
     </message>
     <message>
         <source>File system</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Sistem fail</translation>
     </message>
     <message>
         <source>Mount point</source>
@@ -1520,11 +1520,11 @@
     </message>
     <message>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Cipta</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Sahkan</translation>
     </message>
 </context>
 <context>
@@ -1546,7 +1546,7 @@
     </message>
     <message>
         <source>Encrypt this disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Sulitkan cakera ini</translation>
     </message>
     <message>
         <source>Encrypt This Disk</source>
@@ -1558,7 +1558,7 @@
     </message>
     <message>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Sekurang-kurangnya %1 GB ruang cakera diperlukan untuk memasang UOS, untuk prestasi lebih baik, sebanyak %2 GB atau lebih ruang cakera disarankan</translation>
     </message>
 </context>
 <context>
@@ -1586,7 +1586,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
         <source>Encrypt this disk</source>
-        <translation type="unfinished"/>
+        <translation>Sulitkan cakera ini</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="206"/>
@@ -1619,17 +1619,17 @@
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="76"/>
         <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
-        <translation type="unfinished"/>
+        <translation>Maaf atas masalah yang berlaku, Sila ambil gambar atau imbas kod QR dan hantar kepada kami log ralat, atau simpan log ke dalam cakera luar. Kami akan cuba menyelesaikan masalah ini.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="78"/>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation>Keluar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="79"/>
         <source>Save Log</source>
-        <translation type="unfinished"/>
+        <translation>Simpan Log</translation>
     </message>
 </context>
 <context>
@@ -1640,7 +1640,7 @@
     </message>
     <message>
         <source>Here are a few cool things to look out for...</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Di sini terdapat beberapa perkara menarik untuk diketahui...</translation>
     </message>
 </context>
 <context>
@@ -1653,7 +1653,7 @@
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="217"/>
         <source>Here are a few cool things to look out for...</source>
-        <translation type="unfinished"/>
+        <translation>Di sini terdapat beberapa perkara menarik untuk diketahui...</translation>
     </message>
 </context>
 <context>
@@ -1668,11 +1668,11 @@
     <name>installer::MultipleDiskInstallationWidget</name>
     <message>
         <source>System Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Cakera Sistem</translation>
     </message>
     <message>
         <source>Data Disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Cakera Data</translation>
     </message>
 </context>
 <context>
@@ -1732,7 +1732,7 @@
     <name>installer::NewPartitionFrame</name>
     <message>
         <source>Create New Partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Cipta Sekatan Baharu</translation>
     </message>
     <message>
         <source>Create a new partition and define the type and size</source>
@@ -1748,7 +1748,7 @@
     </message>
     <message>
         <source>File system</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Sistem fail</translation>
     </message>
     <message>
         <source>Mount point</source>
@@ -1776,7 +1776,7 @@
     </message>
     <message>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Cipta</translation>
     </message>
 </context>
 <context>
@@ -1790,11 +1790,11 @@
     <name>installer::NewTableWarningFrame</name>
     <message>
         <source>Format Warning</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Amaran Format</translation>
     </message>
     <message>
         <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Meneruskan pemasangan akan memformat keseluruhan cakera, sila pastikan menyandar semua data anda. Jika anda tidak tahu apa yang anda lakukan, jangan diteruskan</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1833,11 +1833,11 @@
     </message>
     <message>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Cakera sasaran bersifat dinamik, dan data anda mungkin hilang jika diteruskan. Sila menyandar fail-fail penting anda terlebih dahulu.</translation>
     </message>
     <message>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Cakera sasaran bersifat dinamik yang akan diformatkan jika diteruskan. Sila menyandar fail-fail penting anda terlebih dahulu.</translation>
     </message>
     <message>
         <source>Next</source>
@@ -1871,15 +1871,15 @@
     </message>
     <message>
         <source>Failed to Create New Partition</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Gagal Mencipta Sekatan Baharu</translation>
     </message>
     <message>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Anda patut memadam satu sekatan utama sebelum mencipta satu sekatan baharu, kerana hanya boleh ada empat sekatan utama di dalam cakera MBR</translation>
     </message>
     <message>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Anda patut memadam satu sekatan utama sebelum mencipta yang logikal, atau mengalih sekatan logikal sedia ada di penghujung cakera</translation>
     </message>
     <message>
         <source>Back</source>
@@ -1898,7 +1898,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="103"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
-        <translation type="unfinished"/>
+        <translation>Anda mempunyai pemuat but EFI dalam cakera MBR, maka anda tidak boleh memasang UOS secara terus. Sila pilih salah satu penyelesaian di bawah dan teruskan.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="57"/>
@@ -1916,7 +1916,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="115"/>
         <source>Exit BIOS, and install UOS again</source>
-        <translation type="unfinished"/>
+        <translation>Keluar dari BIOS, dan pasang UOS sekali lagi</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="62"/>
@@ -1934,7 +1934,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="124"/>
         <source>After the backup, reboot and enter this interface again</source>
-        <translation type="unfinished"/>
+        <translation>Selepas sandar, but semula dan masukkan antara muka ini sekali lagi</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="67"/>
@@ -1988,7 +1988,7 @@
     <name>installer::PrepareInstallFrame</name>
     <message>
         <source>Ready to Install</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Sedia di Pasang</translation>
     </message>
     <message>
         <source>Make a backup of your important data and then continue</source>
@@ -2012,17 +2012,17 @@
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="150"/>
         <source>Save Log</source>
-        <translation type="unfinished"/>
+        <translation>Simpan Log</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="151"/>
         <source>Save the error log to a removable device</source>
-        <translation type="unfinished"/>
+        <translation>Simpan log ralat dalam sebuah peranti mudah alih</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="152"/>
         <source>Save as</source>
-        <translation type="unfinished"/>
+        <translation>Simpan sebagai</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="153"/>
@@ -2038,7 +2038,7 @@
     </message>
     <message>
         <source>If you do not understand the settings, please select the recommended one</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Jika anda tidak memahami tetapan, sila pilih yang disarankan</translation>
     </message>
     <message>
         <source>Back</source>
@@ -2051,19 +2051,19 @@
         <location filename="../src/ui/frames/install_component_frame.cpp" line="84"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="107"/>
         <source>Select Software</source>
-        <translation type="unfinished"/>
+        <translation>Pilih Perisian</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="85"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="110"/>
         <source>Basic Environment</source>
-        <translation type="unfinished"/>
+        <translation>Persekitaran Asas</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="86"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="115"/>
         <source>Add-Ons for Selected Environment</source>
-        <translation type="unfinished"/>
+        <translation>Tambahan untuk Persekitaran Terpilih</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="87"/>
@@ -2093,7 +2093,7 @@
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="289"/>
         <source>and</source>
-        <translation type="unfinished"/>
+        <translation>dan</translation>
     </message>
 </context>
 <context>
@@ -2116,7 +2116,7 @@
     </message>
     <message>
         <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Windows tidak akan membut jika memasang UOS dalam cakera Windows, sila sahkan untuk teruskan</translation>
     </message>
 </context>
 <context>
@@ -2125,43 +2125,43 @@
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
         <source>Time settings</source>
-        <translation type="unfinished"/>
+        <translation>Tetapan masa</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="63"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
         <source>Change date and time as you want</source>
-        <translation type="unfinished"/>
+        <translation>Ubah tarikh dan waktu yang anda mahukan</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="96"/>
         <source>Hour</source>
-        <translation type="unfinished"/>
+        <translation>Jam</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="97"/>
         <source>Minute</source>
-        <translation type="unfinished"/>
+        <translation>Minit</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="98"/>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>Tahun</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="99"/>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Bulan</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="100"/>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Hari</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="101"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Sahkan</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="102"/>
@@ -2209,15 +2209,15 @@
     </message>
     <message>
         <source>Repeat password</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ulang kata laluan</translation>
     </message>
     <message>
         <source>Root password</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Kata laluan root</translation>
     </message>
     <message>
         <source>Repeat root password</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ulang kata laluan root</translation>
     </message>
 </context>
 <context>
@@ -2240,17 +2240,17 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="282"/>
         <source>Repeat password</source>
-        <translation type="unfinished"/>
+        <translation>Ulang kata laluan</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="293"/>
         <source>Root password</source>
-        <translation type="unfinished"/>
+        <translation>Kata laluan root</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="302"/>
         <source>Repeat root password</source>
-        <translation type="unfinished"/>
+        <translation>Ulang kata laluan root</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="358"/>
@@ -2270,7 +2270,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="361"/>
         <source>Set root password</source>
-        <translation type="unfinished"/>
+        <translation>Tetapkan kata laluan root</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="362"/>
@@ -2349,7 +2349,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="104"/>
         <source>Test here</source>
-        <translation type="unfinished"/>
+        <translation>Uji di sini</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="105"/>
@@ -2359,22 +2359,22 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="106"/>
         <source>Select a proper keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Pilih satu bentangan papan kekunci yang sesuai</translation>
     </message>
 </context>
 <context>
     <name>installer::TimezoneFrame</name>
     <message>
         <source>Select Timezone</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Pilih Zon Waktu</translation>
     </message>
     <message>
         <source>Click your zone on the map</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Klik zon anda di atas peta</translation>
     </message>
     <message>
         <source>Select your timezone from the list</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Pilih zon waktu anda melalui senarai</translation>
     </message>
     <message>
         <source>Next</source>
@@ -2382,15 +2382,15 @@
     </message>
     <message>
         <source>Map</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Peta</translation>
     </message>
     <message>
         <source>List</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Senarai</translation>
     </message>
     <message>
         <source>Time settings</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Tetapan masa</translation>
     </message>
 </context>
 <context>
@@ -2424,7 +2424,7 @@
     </message>
     <message>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Anda menggunakan mesin maya, yang mana akan mempengaruhi prestasi sistem dan pengalaman pengguna. Untuk menikmati kelancaran operasi, sila pasang UOS dalam persekitaran sebenar</translation>
     </message>
     <message>
         <source>Continue</source>
@@ -2432,7 +2432,7 @@
     </message>
     <message>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Sistem telah mengesan bahawa anda menggunakan satu mesin maya, yang mana akan mempengaruhi prestasi sistem dan pengalaman operasi, seperti kelancaran operasi, adalah disarankan pemasangan UOS dalam persekitaran mesin-sebenar.</translation>
     </message>
 </context>
 </TS>

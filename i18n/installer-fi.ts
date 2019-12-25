@@ -61,17 +61,17 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="497"/>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation>Levyn ensimmäisen osion pitäisi sisältää /boot-hakemisto</translation>
+        <translation>Kiintolevyn ensimmäisessä osiossa tulisi olla /boot</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="501"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
-        <translation type="unfinished"/>
+        <translation>Kiintolevyn ensimmäinen osio tulisi olla /boot/efi</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="506"/>
         <source>At least %1 MB is required for /boot partition</source>
-        <translation>Vähintään %1 MB tilaa tarvitaan /boot-osiolle</translation>
+        <translation>Vähintään %1 Mt tilaa tarvitaan /boot-osiolle</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="510"/>
@@ -81,7 +81,7 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="514"/>
         <source>At least %1 MB is required for EFI partition</source>
-        <translation>Vähintään %1 MB tilaa tarvitaan EFI-osiolle</translation>
+        <translation>Vähintään %1 Mt tilaa tarvitaan EFI-osiolle</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="518"/>
@@ -91,7 +91,7 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="523"/>
         <source>At least %1 GB is required for Root partition</source>
-        <translation>Vähintään %1 GB tilaa tarvitaan juuriosiolle</translation>
+        <translation>Vähintään %1 Gt tilaa tarvitaan root osiolle</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="528"/>
@@ -140,7 +140,7 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="72"/>
         <source>Insufficient Disk Space</source>
-        <translation>Riittämätön levytila</translation>
+        <translation>Liian vähän levytilaa</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="60"/>
@@ -161,7 +161,7 @@
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="102"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="170"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation>Varmista, että olet varmuuskopioinut tärkeät tiedot, ja valitse sitten levy jolle haluat asentaa</translation>
+        <translation>Varmista, että olet varmuuskopioinut tärkeät tiedot ja valitse sitten asennettava levy</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
@@ -234,7 +234,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="61"/>
         <source>Please select a disk to start installation</source>
-        <translation>Valitse levy, johon haluat asentaa asennuksen</translation>
+        <translation>Valitse levy johon haluat asentaa</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
@@ -280,7 +280,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="153"/>
         <source>Create a new partition and define the type and size</source>
-        <translation>Luo uusi osio, ja määritä sen tyyppi ja koko</translation>
+        <translation>Luo uusi osio ja määritä sen tyyppi ja koko</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="119"/>
@@ -389,7 +389,7 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="90"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="240"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation>Varmista, että olet varmuuskopioinut tärkeät tiedot, ja valitse sitten levy jolle haluat asentaa</translation>
+        <translation>Varmista, että olet varmuuskopioinut tärkeät tiedot ja valitse sitten asennettava levy</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="91"/>
@@ -438,13 +438,13 @@
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="37"/>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="45"/>
         <source>Scan disks</source>
-        <translation>Levyjä skannataan</translation>
+        <translation>Etsi levyt</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="38"/>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="46"/>
         <source>Scanning disks, please wait...</source>
-        <translation>Levyjä skannataan, ole hyvä ja odota...</translation>
+        <translation>Levyjä etsitään, ole hyvä ja odota...</translation>
     </message>
 </context>
 <context>
@@ -852,11 +852,11 @@
     </message>
     <message>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation type="vanished">Levyn ensimmäisen osion pitäisi sisältää /boot-hakemisto</translation>
+        <translation type="vanished">Kiintolevyn ensimmäisessä osiossa tulisi olla /boot</translation>
     </message>
     <message>
         <source>At least %1 MB is required for /boot partition</source>
-        <translation type="vanished">Vähintään %1 MB tilaa tarvitaan /boot-osiolle</translation>
+        <translation type="vanished">Vähintään %1 Mt tilaa tarvitaan /boot-osiolle</translation>
     </message>
     <message>
         <source>Add an EFI partition to continue</source>
@@ -864,7 +864,7 @@
     </message>
     <message>
         <source>At least %1 MB is required for EFI partition</source>
-        <translation type="vanished">Vähintään %1 MB tilaa tarvitaan EFI-osiolle</translation>
+        <translation type="vanished">Vähintään %1 Mt tilaa tarvitaan EFI-osiolle</translation>
     </message>
     <message>
         <source>Add a Root partition to continue</source>
@@ -872,7 +872,7 @@
     </message>
     <message>
         <source>At least %1 GB is required for Root partition</source>
-        <translation type="vanished">Vähintään %1 GB tilaa tarvitaan juuriosiolle</translation>
+        <translation type="vanished">Vähintään %1 Gt tilaa tarvitaan root osiolle</translation>
     </message>
     <message>
         <source>At least %1 GB is required for partition %2</source>
@@ -1467,7 +1467,7 @@
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
         <source>Insufficient Disk Space</source>
-        <translation type="vanished">Riittämätön levytila</translation>
+        <translation type="vanished">Liian vähän levytilaa</translation>
     </message>
     <message>
         <source>Exit</source>
@@ -1500,7 +1500,7 @@
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="vanished">Varmista, että olet varmuuskopioinut tärkeät tiedot, ja valitse sitten levy jolle haluat asentaa</translation>
+        <translation type="vanished">Varmista, että olet varmuuskopioinut tärkeät tiedot ja valitse sitten asennettava levy</translation>
     </message>
     <message>
         <source>File system</source>
@@ -1554,7 +1554,7 @@
     </message>
     <message>
         <source>Please select a disk to start installation</source>
-        <translation type="vanished">Valitse levy, johon haluat asentaa asennuksen</translation>
+        <translation type="vanished">Valitse levy johon haluat asentaa</translation>
     </message>
     <message>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
@@ -1736,7 +1736,7 @@
     </message>
     <message>
         <source>Create a new partition and define the type and size</source>
-        <translation type="vanished">Luo uusi osio, ja määritä sen tyyppi ja koko</translation>
+        <translation type="vanished">Luo uusi osio ja määritä sen tyyppi ja koko</translation>
     </message>
     <message>
         <source>Type</source>
@@ -1813,7 +1813,7 @@
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="vanished">Varmista, että olet varmuuskopioinut tärkeät tiedot, ja valitse sitten levy jolle haluat asentaa</translation>
+        <translation type="vanished">Varmista, että olet varmuuskopioinut tärkeät tiedot ja valitse sitten asennettava levy</translation>
     </message>
     <message>
         <source>Simple</source>
@@ -1848,11 +1848,11 @@
     <name>installer::PartitionLoadingFrame</name>
     <message>
         <source>Scan disks</source>
-        <translation type="vanished">Levyjä skannataan</translation>
+        <translation type="vanished">Etsi levyt</translation>
     </message>
     <message>
         <source>Scanning disks, please wait...</source>
-        <translation type="vanished">Levyjä skannataan, ole hyvä ja odota...</translation>
+        <translation type="vanished">Levyjä etsitään, ole hyvä ja odota...</translation>
     </message>
 </context>
 <context>
@@ -2185,12 +2185,12 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="123"/>
         <source>User Avatar</source>
-        <translation>Käyttäjätilin avatari</translation>
+        <translation>Tunnuksen avatari</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="124"/>
         <source>Select an avatar for your account</source>
-        <translation>Valitse avatar käyttäjätilillesi</translation>
+        <translation>Valitse avatari tunnuksellesi</translation>
     </message>
 </context>
 <context>

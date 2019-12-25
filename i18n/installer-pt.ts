@@ -9,7 +9,7 @@
     <message>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="135"/>
         <source>To be formatted</source>
-        <translation>A ser formatada</translation>
+        <translation>A ser formatado</translation>
     </message>
 </context>
 <context>
@@ -36,37 +36,37 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="432"/>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation>%1 erro encontrado, corrija-o para continuar a instalação ou altere para o modo simples</translation>
+        <translation>%1 erro encontrado, corrigir para continuar a instalação ou alterar para o modo simples</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="436"/>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation>%1 erros encontrados, corrija-os para continuar a instalação ou altere para o modo simples</translation>
+        <translation>%1 erros encontrados, corrigir para continuar a instalação ou alterar para o modo simples</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="442"/>
         <source>%1 error found, continue to install after fixed</source>
-        <translation>%1 erro encontrado, continue a instalação depois de o ter corrigido</translation>
+        <translation>%1 erro encontrado, continuar a instalação depois de o corrigir</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="446"/>
         <source>%1 errors found, continue to install after fixed</source>
-        <translation>%1 erros encontrados, continue a instalação depois de os ter corrigido</translation>
+        <translation>%1 erros encontrados, continuar a instalação depois de os corrigir</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="493"/>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation>O tipo de sistema de ficheiros da partição do diretório /boot só pode ser %1</translation>
+        <translation>O tipo de sistema de ficheiros da partição do diretório /boot apenas pode ser %1</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="497"/>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation>A partição com o diretório /boot tem de ser a primeira partição do disco rígido</translation>
+        <translation>A partição com o diretório /boot deve ser a primeira partição do disco rígido</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="501"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
-        <translation type="unfinished"/>
+        <translation>A partição do diretório /boot/efi deve ser a primeira partição no disco rígido</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="506"/>
@@ -76,7 +76,7 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="510"/>
         <source>Add an EFI partition to continue</source>
-        <translation>Adicione uma partição EFI para continuar</translation>
+        <translation>Adicionar uma partição EFI para continuar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="514"/>
@@ -86,7 +86,7 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="518"/>
         <source>Add a Root partition to continue</source>
-        <translation>Adicione uma partição Root para continuar</translation>
+        <translation>Adicionar uma partição Root para continuar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="523"/>
@@ -140,7 +140,7 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="72"/>
         <source>Insufficient Disk Space</source>
-        <translation>Espaço em Disco Insuficiente</translation>
+        <translation>Espaço em disco insuficiente</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="60"/>
@@ -161,7 +161,7 @@
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="102"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="170"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation>Certifique-se que efetuou backup dos dados importantes, de seguida escolha o disco para instalação</translation>
+        <translation>Certifique-se que efetuou uma cópia de segurança dos seus dados e de seguida escolha o disco para instalação</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
@@ -204,7 +204,7 @@
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="38"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="61"/>
         <source>Tuning system</source>
-        <translation>A configurar o sistema</translation>
+        <translation>A preparar o sistema</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="40"/>
@@ -234,7 +234,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="61"/>
         <source>Please select a disk to start installation</source>
-        <translation>Por favor selecione um disco para começar a instalação</translation>
+        <translation>Selecionar um disco para começar a instalação</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
@@ -260,12 +260,12 @@
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="189"/>
         <source>System Disk</source>
-        <translation>Disco do Sistema</translation>
+        <translation>Disco do sistema</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="189"/>
         <source>Data Disk</source>
-        <translation>Disco de Dados</translation>
+        <translation>Disco de dados</translation>
     </message>
 </context>
 <context>
@@ -280,7 +280,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="153"/>
         <source>Create a new partition and define the type and size</source>
-        <translation>Crie uma nova partição e defina o tipo e o tamanho</translation>
+        <translation>Criar uma nova partição e definir o tipo e o tamanho</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="119"/>
@@ -362,7 +362,7 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="57"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="94"/>
         <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation>A instalação contínua formatará todo o disco, por favor faça uma cópia de segurança de todos os seus dados. Se não sabe o que está a fazer, por favor, não continue</translation>
+        <translation>A instalação contínua formatará todo o disco, faça uma cópia de segurança de todos os seus dados. Se não sabe o que está a fazer, não continue</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="59"/>
@@ -419,12 +419,12 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="443"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation>O disco de destino é dinâmico e os seus dados podem se perder se você continuar. Por favor, primeiro faça uma cópia de segurança dos seus ficheiros importantes.</translation>
+        <translation>O disco de destino é dinâmico e os seus dados podem se perder se continuar. Primeiro faça uma cópia de segurança dos seus ficheiros importantes.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="447"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation>O disco de destino é dinâmico, que será formatado se continuar. Por favor, primeiro faça uma cópia de segurança dos seus ficheiros importantes.</translation>
+        <translation>O disco de destino é dinâmico, que será formatado se continuar. Primeiro faça uma cópia de segurança dos seus ficheiros importantes.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="461"/>
@@ -521,7 +521,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="92"/>
         <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
-        <translation>As operações seguintes vão ser executadas, por favor confirme para prevenir a perda de dados</translation>
+        <translation>As operações seguintes vão ser executadas, confirmar para prevenir a perda de dados</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="68"/>
@@ -644,13 +644,13 @@
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="42"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="64"/>
         <source>Select location for boot loader</source>
-        <translation>Selecione a localização do gestor de arranque</translation>
+        <translation>Selecionar a localização do gestor de arranque</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="44"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="66"/>
         <source>If you do not understand the settings, please select the recommended one</source>
-        <translation>Se você não entende as definições, por favor selecione a opção recomendada</translation>
+        <translation>Se não entender as definições, selecionar a opção recomendada</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="45"/>
@@ -664,12 +664,12 @@
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="72"/>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation>Não é possível criar uma nova partição, por favor selecione uma existente!</translation>
+        <translation>Não é possível criar uma nova partição, selecionar uma existente!</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="79"/>
         <source>Please select one of the partitions to install!</source>
-        <translation>Por favor selecione uma das partições para instalação!</translation>
+        <translation>Selecionar uma das partições para instalação!</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="86"/>
@@ -685,7 +685,7 @@
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
         <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
-        <translation>O Windows não iniciará se instalar o UOS no disco do Windows, por favor confirme para continuar</translation>
+        <translation>O Windows não iniciará se instalar o UOS no disco do Windows, confirmar para continuar</translation>
     </message>
 </context>
 <context>
@@ -791,7 +791,7 @@
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="42"/>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
-        <translation>Está a usar uma máquina virtual que irá afetar o desempenho do sistema e a experiência do utilizador. Para obter uma experiência mais suave, instale o UOS num ambiente real</translation>
+        <translation>Está a usar uma máquina virtual o que irá afetar o desempenho do sistema e a experiência do utilizador. Para obter uma experiência mais suave, instalar o UOS num ambiente real</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="44"/>
@@ -813,7 +813,7 @@
     </message>
     <message>
         <source>To be formatted</source>
-        <translation type="vanished">A ser formatada</translation>
+        <translation type="vanished">A ser formatado</translation>
     </message>
 </context>
 <context>
@@ -832,27 +832,27 @@
     </message>
     <message>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation type="vanished">%1 erro encontrado, corrija-o para continuar a instalação ou altere para o modo simples</translation>
+        <translation type="vanished">%1 erro encontrado, corrigir para continuar a instalação ou alterar para o modo simples</translation>
     </message>
     <message>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation type="vanished">%1 erros encontrados, corrija-os para continuar a instalação ou altere para o modo simples</translation>
+        <translation type="vanished">%1 erros encontrados, corrigir para continuar a instalação ou alterar para o modo simples</translation>
     </message>
     <message>
         <source>%1 error found, continue to install after fixed</source>
-        <translation type="vanished">%1 erro encontrado, continue a instalação depois de o ter corrigido</translation>
+        <translation type="vanished">%1 erro encontrado, continuar a instalação depois de o corrigir</translation>
     </message>
     <message>
         <source>%1 errors found, continue to install after fixed</source>
-        <translation type="vanished">%1 erros encontrados, continue a instalação depois de os ter corrigido</translation>
+        <translation type="vanished">%1 erros encontrados, continuar a instalação depois de os corrigir</translation>
     </message>
     <message>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation type="vanished">O tipo de sistema de ficheiros da partição do diretório /boot só pode ser %1</translation>
+        <translation type="vanished">O tipo de sistema de ficheiros da partição do diretório /boot apenas pode ser %1</translation>
     </message>
     <message>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation type="vanished">A partição com o diretório /boot tem de ser a primeira partição do disco rígido</translation>
+        <translation type="vanished">A partição com o diretório /boot deve ser a primeira partição do disco rígido</translation>
     </message>
     <message>
         <source>At least %1 MB is required for /boot partition</source>
@@ -860,7 +860,7 @@
     </message>
     <message>
         <source>Add an EFI partition to continue</source>
-        <translation type="vanished">Adicione uma partição EFI para continuar</translation>
+        <translation type="vanished">Adicionar uma partição EFI para continuar</translation>
     </message>
     <message>
         <source>At least %1 MB is required for EFI partition</source>
@@ -868,7 +868,7 @@
     </message>
     <message>
         <source>Add a Root partition to continue</source>
-        <translation type="vanished">Adicione uma partição Root para continuar</translation>
+        <translation type="vanished">Adicionar uma partição Root para continuar</translation>
     </message>
     <message>
         <source>At least %1 GB is required for Root partition</source>
@@ -1467,7 +1467,7 @@
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
         <source>Insufficient Disk Space</source>
-        <translation type="vanished">Espaço em Disco Insuficiente</translation>
+        <translation type="vanished">Espaço em disco insuficiente</translation>
     </message>
     <message>
         <source>Exit</source>
@@ -1500,7 +1500,7 @@
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="vanished">Certifique-se que efetuou backup dos dados importantes, de seguida escolha o disco para instalação</translation>
+        <translation type="vanished">Certifique-se que efetuou uma cópia de segurança dos seus dados e de seguida escolha o disco para instalação</translation>
     </message>
     <message>
         <source>File system</source>
@@ -1531,7 +1531,7 @@
     <name>installer::FirstBootLoadingFrame</name>
     <message>
         <source>Tuning system</source>
-        <translation type="vanished">A configurar o sistema</translation>
+        <translation type="vanished">A preparar o sistema</translation>
     </message>
     <message>
         <source>Applying changes to your system, please wait...</source>
@@ -1554,7 +1554,7 @@
     </message>
     <message>
         <source>Please select a disk to start installation</source>
-        <translation type="vanished">Por favor selecione um disco para começar a instalação</translation>
+        <translation type="vanished">Selecionar um disco para começar a instalação</translation>
     </message>
     <message>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
@@ -1566,7 +1566,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="160"/>
         <source>Please input password</source>
-        <translation>Por favor insira uma palavra-passe</translation>
+        <translation>Introduzir uma palavra-passe</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="166"/>
@@ -1668,11 +1668,11 @@
     <name>installer::MultipleDiskInstallationWidget</name>
     <message>
         <source>System Disk</source>
-        <translation type="vanished">Disco do Sistema</translation>
+        <translation type="vanished">Disco do sistema</translation>
     </message>
     <message>
         <source>Data Disk</source>
-        <translation type="vanished">Disco de Dados</translation>
+        <translation type="vanished">Disco de dados</translation>
     </message>
 </context>
 <context>
@@ -1736,7 +1736,7 @@
     </message>
     <message>
         <source>Create a new partition and define the type and size</source>
-        <translation type="vanished">Crie uma nova partição e defina o tipo e o tamanho</translation>
+        <translation type="vanished">Criar uma nova partição e definir o tipo e o tamanho</translation>
     </message>
     <message>
         <source>Type</source>
@@ -1794,7 +1794,7 @@
     </message>
     <message>
         <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation type="vanished">A instalação contínua formatará todo o disco, por favor faça uma cópia de segurança de todos os seus dados. Se não sabe o que está a fazer, por favor, não continue</translation>
+        <translation type="vanished">A instalação contínua formatará todo o disco, faça uma cópia de segurança de todos os seus dados. Se não sabe o que está a fazer, não continue</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1833,11 +1833,11 @@
     </message>
     <message>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation type="vanished">O disco de destino é dinâmico e os seus dados podem se perder se você continuar. Por favor, primeiro faça uma cópia de segurança dos seus ficheiros importantes.</translation>
+        <translation type="vanished">O disco de destino é dinâmico e os seus dados podem se perder se continuar. Primeiro faça uma cópia de segurança dos seus ficheiros importantes.</translation>
     </message>
     <message>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation type="vanished">O disco de destino é dinâmico, que será formatado se continuar. Por favor, primeiro faça uma cópia de segurança dos seus ficheiros importantes.</translation>
+        <translation type="vanished">O disco de destino é dinâmico, que será formatado se continuar. Primeiro faça uma cópia de segurança dos seus ficheiros importantes.</translation>
     </message>
     <message>
         <source>Next</source>
@@ -1898,7 +1898,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="103"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
-        <translation>Tem um gestor de arranque EFI mas um disco MBR, pelo que não pode instalar o UOS directamente. Por favor, selecione uma das soluções abaixo e continue.</translation>
+        <translation>Tem um gestor de arranque EFI mas um disco MBR, pelo que não pode instalar o UOS directamente. Selecionar uma das soluções abaixo e continuar.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="57"/>
@@ -1970,7 +1970,7 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="147"/>
         <source>Please make sure all data were made a backup, then continue</source>
-        <translation>Por favor certifique-se que guardou os seus dados importantes e de seguida continue</translation>
+        <translation>Certifique-se de que todos os seus dados foram guardados e de seguida continue</translation>
     </message>
 </context>
 <context>
@@ -1996,7 +1996,7 @@
     </message>
     <message>
         <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
-        <translation type="vanished">As operações seguintes vão ser executadas, por favor confirme para prevenir a perda de dados</translation>
+        <translation type="vanished">As operações seguintes vão ser executadas, confirmar para prevenir a perda de dados</translation>
     </message>
     <message>
         <source>Back</source>
@@ -2034,11 +2034,11 @@
     <name>installer::SelectBootloaderFrame</name>
     <message>
         <source>Select location for boot loader</source>
-        <translation type="vanished">Selecione a localização do gestor de arranque</translation>
+        <translation type="vanished">Selecionar a localização do gestor de arranque</translation>
     </message>
     <message>
         <source>If you do not understand the settings, please select the recommended one</source>
-        <translation type="vanished">Se você não entende as definições, por favor selecione a opção recomendada</translation>
+        <translation type="vanished">Se não entender as definições, selecionar a opção recomendada</translation>
     </message>
     <message>
         <source>Back</source>
@@ -2100,11 +2100,11 @@
     <name>installer::SimplePartitionFrame</name>
     <message>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation type="vanished">Não é possível criar uma nova partição, por favor selecione uma existente!</translation>
+        <translation type="vanished">Não é possível criar uma nova partição, selecionar uma existente!</translation>
     </message>
     <message>
         <source>Please select one of the partitions to install!</source>
-        <translation type="vanished">Por favor selecione uma das partições para instalação!</translation>
+        <translation type="vanished">Selecionar uma das partições para instalação!</translation>
     </message>
     <message>
         <source>At least %1 GB is required for root partition</source>
@@ -2116,7 +2116,7 @@
     </message>
     <message>
         <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
-        <translation type="vanished">O Windows não iniciará se instalar o UOS no disco do Windows, por favor confirme para continuar</translation>
+        <translation type="vanished">O Windows não iniciará se instalar o UOS no disco do Windows, confirmar para continuar</translation>
     </message>
 </context>
 <context>
@@ -2295,12 +2295,12 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="402"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
-        <translation>Por favor insira um nome de utilizador que seja maior que %1 e menor que %2 caracteres</translation>
+        <translation>Introduza um nome de utilizador com mais de %1 caracteres e menos de %2 caracteres</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="424"/>
         <source>Please input computer name</source>
-        <translation>Por favor insira o nome do computador</translation>
+        <translation>Introduza o nome do computador</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="428"/>
@@ -2315,7 +2315,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="437"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
-        <translation>Por favor insira um nome do computador que seja maior que %1 carateres e menor que %2 carateres</translation>
+        <translation>Introduza o nome do computador com mais de %1 carateres e menos de %2 carateres</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="463"/>
@@ -2326,7 +2326,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="475"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="488"/>
         <source>Please input password longer than %1 characters and shorter than %2 characters</source>
-        <translation>Por favor insira uma palavra-passe que seja maior que %1 e menor que %2 caracteres</translation>
+        <translation>Introduza uma palavra-passe com mais de %1 caracteres e menos de %2 caracteres</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="482"/>
@@ -2424,7 +2424,7 @@
     </message>
     <message>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
-        <translation type="vanished">Está a usar uma máquina virtual que irá afetar o desempenho do sistema e a experiência do utilizador. Para obter uma experiência mais suave, instale o UOS num ambiente real</translation>
+        <translation type="vanished">Está a usar uma máquina virtual o que irá afetar o desempenho do sistema e a experiência do utilizador. Para obter uma experiência mais suave, instalar o UOS num ambiente real</translation>
     </message>
     <message>
         <source>Continue</source>

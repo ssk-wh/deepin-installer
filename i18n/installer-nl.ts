@@ -66,7 +66,7 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="501"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
-        <translation type="unfinished"/>
+        <translation>De partitie waar /boot/efi wordt vastgelegd moet de eerste partitie op de schijf zijn</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="506"/>
@@ -204,7 +204,7 @@
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="38"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="61"/>
         <source>Tuning system</source>
-        <translation>Bezig met afstellen van systeem</translation>
+        <translation>Het systeem wordt afgesteld</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="40"/>
@@ -1531,7 +1531,7 @@
     <name>installer::FirstBootLoadingFrame</name>
     <message>
         <source>Tuning system</source>
-        <translation type="vanished">Bezig met afstellen van systeem</translation>
+        <translation type="vanished">Het systeem wordt afgesteld</translation>
     </message>
     <message>
         <source>Applying changes to your system, please wait...</source>

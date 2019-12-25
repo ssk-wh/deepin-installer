@@ -66,7 +66,7 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="501"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
-        <translation type="unfinished"/>
+        <translation>Partycja katalogu /boot/efi powinna być pierwszą partycją na dysku twardym</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="506"/>
@@ -239,7 +239,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation type="unfinished"/>
+        <translation>Potrzebujesz co najmniej %1 GB miejsca na dysku, aby zainstalować UOS. Aby uzyskać lepszą wydajność, zaleca się %2 GB lub więcej</translation>
     </message>
 </context>
 <context>
@@ -607,7 +607,7 @@
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="40"/>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation type="unfinished"/>
+        <translation>Potrzebujesz co najmniej %1 GB miejsca na dysku, aby zainstalować UOS. Aby uzyskać lepszą wydajność, zaleca się %2 GB lub więcej</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="49"/>
@@ -685,7 +685,7 @@
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
         <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
-        <translation type="unfinished"/>
+        <translation>System Windows nie uruchomi się, jeśli zainstalujesz UOS na dysku Windows, potwierdź, aby kontynuować</translation>
     </message>
 </context>
 <context>
@@ -791,7 +791,7 @@
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="42"/>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
-        <translation type="unfinished"/>
+        <translation>Używasz maszyny wirtualnej, która wpłynie na wydajność systemu i wrażenia użytkownika. Aby uzyskać płynniejsze działanie, zainstaluj UOS w prawdziwym środowisku</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="44"/>
@@ -802,7 +802,7 @@
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
-        <translation type="unfinished"/>
+        <translation>System wykrył, że używasz maszyny wirtualnej, co wpłynie na wydajność systemu i jakość obsługi. Aby zapewnić płynne działanie, zaleca się instalację UOS w środowisku rzeczywistym</translation>
     </message>
 </context>
 <context>
@@ -1256,7 +1256,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Java support for UOS.</source>
-        <translation type="unfinished"/>
+        <translation>Obsługa Java dla UOS.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
@@ -1366,7 +1366,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
-        <translation type="unfinished"/>
+        <translation>Zalecane nagłówki i biblioteki programistyczne do tworzenia aplikacji do pracy na IOS.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
@@ -1450,7 +1450,7 @@
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="29"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="119"/>
         <source>Set the region for UOS EndPoint Management Platform</source>
-        <translation type="unfinished"/>
+        <translation>Ustaw region dla UOS EndPoint Management Platform</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="116"/>
@@ -1558,7 +1558,7 @@
     </message>
     <message>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Potrzebujesz co najmniej %1 GB miejsca na dysku, aby zainstalować UOS. Aby uzyskać lepszą wydajność, zaleca się %2 GB lub więcej</translation>
     </message>
 </context>
 <context>
@@ -1898,7 +1898,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="103"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
-        <translation type="unfinished"/>
+        <translation>Masz program ładujący EFI, ale dysk MBR, więc nie możesz bezpośrednio zainstalować UOS. Wybierz jedno z poniższych rozwiązań i kontynuuj.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="57"/>
@@ -1916,7 +1916,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="115"/>
         <source>Exit BIOS, and install UOS again</source>
-        <translation type="unfinished"/>
+        <translation>Zamknij BIOS i zainstaluj UOS ponownie</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="62"/>
@@ -2116,7 +2116,7 @@
     </message>
     <message>
         <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">System Windows nie uruchomi się, jeśli zainstalujesz UOS na dysku Windows, potwierdź, aby kontynuować</translation>
     </message>
 </context>
 <context>
@@ -2424,7 +2424,7 @@
     </message>
     <message>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Używasz maszyny wirtualnej, która wpłynie na wydajność systemu i wrażenia użytkownika. Aby uzyskać płynniejsze działanie, zainstaluj UOS w prawdziwym środowisku</translation>
     </message>
     <message>
         <source>Continue</source>
@@ -2432,7 +2432,7 @@
     </message>
     <message>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">System wykrył, że używasz maszyny wirtualnej, co wpłynie na wydajność systemu i jakość obsługi. Aby zapewnić płynne działanie, zaleca się instalację UOS w środowisku rzeczywistym</translation>
     </message>
 </context>
 </TS>
