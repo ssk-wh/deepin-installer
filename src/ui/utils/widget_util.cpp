@@ -27,10 +27,13 @@
 #include <QImageReader>
 #include <QApplication>
 #include <QPixmap>
+#include <QCryptographicHash>
 
 namespace installer {
 
 namespace {
+
+static QHash<QByteArray, QPair<qreal, QPixmap>> PIXMAP_CACHE;
 
 void WidgetTreeWalk(QWidget* root, int indent) {
   char prefix[indent+1];
@@ -110,6 +113,15 @@ void WidgetTreeWalk(QWidget* root) {
 }
 
 const QPixmap renderPixmap(const QString &path) {
+    const QByteArray& md5 { QCryptographicHash::hash(path.toUtf8(), QCryptographicHash::Md5) };
+
+    if (PIXMAP_CACHE.contains(md5)) {
+        const QPair<qreal, QPixmap>& result = PIXMAP_CACHE[md5];
+        if (qFuzzyCompare(result.first, qApp->devicePixelRatio())) {
+            return result.second;
+        }
+    }
+
     QImageReader reader;
     QPixmap pixmap;
     reader.setFileName(path);
@@ -122,6 +134,8 @@ const QPixmap renderPixmap(const QString &path) {
     else {
         pixmap.load(path);
     }
+
+    PIXMAP_CACHE[md5] = { qApp->devicePixelRatio(), pixmap };
 
     return pixmap;
 }
