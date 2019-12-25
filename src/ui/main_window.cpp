@@ -54,6 +54,7 @@
 #include "ui/frames/virtual_machine_frame.h"
 #include "ui/frames/saveinstallfailedlogframe.h"
 #include "ui/frames/install_component_frame.h"
+#include "ui/frames/install_results_frame.h"
 
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/pointer_button.h"
@@ -265,10 +266,6 @@ void MainWindow::initConnections() {
 
   connect(install_progress_frame_, &InstallProgressFrame::finished,
           this, &MainWindow::goNextPage);
-
-  connect(install_success_frame_, &InstallSuccessFrame::finished, this, [=] {
-      return GetSettingsBool(kRebootWhenInstallFinished) ? rebootSystem() : shutdownSystem();
-  });
 
   connect(install_success_frame_, &InstallSuccessFrame::finished, this, [=] {
       return GetSettingsBool(kRebootWhenInstallFinished) ? rebootSystem() : shutdownSystem();
@@ -606,6 +603,7 @@ void MainWindow::updateFrameLabelState(FrameInterface *frame, FrameLabelState st
 
 void MainWindow::onCurrentPageChanged(int index) {
   // Ignore null id.
+    int a = index;
   const PageId id = static_cast<PageId>(index + 1);
   this->setCurrentPage(id);
 }

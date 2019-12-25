@@ -158,14 +158,13 @@ void ControlPanelFrame::initUI() {
   page_combo_box_ = new TableComboBox();
   page_combo_box_->addItems({"ConfirmQuitFrame",
                              "DiskSpaceInsufficientFrame",
-                             "InstallFailedFrame",
                              "InstallProgressFrame",
-                             "InstallSuccessFrame",
                              "PartitionFrame",
                              "PrivilegeErrorFrame",
                              "SelectLanguageFrame",
                              "SystemInfoFrame",
                              "VirtualMachineFrame",
+                             "InstallResults",
                             });
 
   refresh_devices_button_ = new PointerButton();

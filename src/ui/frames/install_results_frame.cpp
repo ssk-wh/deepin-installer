@@ -65,8 +65,7 @@ void InstallResultsFrame::init()
 {
     const bool m_result = GetSettingsBool("DI_INSTALL_SUCCESSED");
 
-    if(m_result)
-    {
+    if (m_result) {
         m_private->showInstallSuccessFrame();
     } else {
         m_private->showInstallFailedFrame();
