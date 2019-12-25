@@ -236,6 +236,7 @@ void SelectLanguageFramePrivate::initUI() {
     m_languageView->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     m_languageModel=new QStandardItemModel(m_languageView);
     m_languageView->setModel(m_languageModel);
+    m_languageView->setFixedWidth(470);
 
     accept_license_ = new QCheckBox;
     accept_license_->setCheckable(true);
