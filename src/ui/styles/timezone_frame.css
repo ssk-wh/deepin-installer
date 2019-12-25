@@ -15,6 +15,7 @@ QPushButton#setTimePushButton[flat="true"] {
   background-position: center left;
 }
 
+<<<<<<< HEAD
 #timezoneMapButton, #timezoneListButton {
   font-size: 12px;
   color: #ffffff;
@@ -57,6 +58,16 @@ QPushButton#setTimePushButton[flat="true"] {
   border-right: 1px solid rgba(255, 255, 255, 0.4);
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   border-left-style: none;
+=======
+#setTimePushButton {
+  background-image: url(:/images/manual_normal.svg);
+}
+#setTimePushButton:hover {
+  background-image: url(:/images/manual_hover.svg);
+}
+#setTimePushButton:pressed {
+  background-image: url(:/images/manual_press.svg);
+>>>>>>> 899c0ca9... fix(timezone):show switch_button
 }
 
 QScrollBar:vertical

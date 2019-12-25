@@ -43,6 +43,8 @@
 #include "base/file_util.h"
 #include "ui/interfaces/frameinterfaceprivate.h"
 
+DWIDGET_USE_NAMESPACE
+
 namespace installer {
 
 // Priority of timezone: User > Conf > Scan
@@ -88,9 +90,9 @@ public:
 
   TitleLabel* title_label_ = nullptr;
   CommentLabel* comment_label_ = nullptr;
-  PointerButton* m_timezoneMapButton = nullptr;
-  PointerButton* m_timezoneListButton = nullptr;
-  QButtonGroup* m_mapListButtonGroup = nullptr;
+  DButtonBoxButton* m_timezoneMapButton = nullptr;
+  DButtonBoxButton* m_timezoneListButton = nullptr;
+  DButtonBox* m_mapListButtonGroup = nullptr;
   TimezoneMap* timezone_map_ = nullptr;
   SystemDateFrame* m_systemDateFrame = nullptr;
   SelectTimeZoneFrame* m_selectTimeZoneFrame = nullptr;
@@ -98,6 +100,7 @@ public:
   QVBoxLayout* m_upLayout = nullptr;
   QHBoxLayout* m_bottomLayout = nullptr;
   QPushButton* m_setTimePushButton = nullptr;
+  QList<DButtonBoxButton *> m_buttonList;
 
   QWidget* m_timezonePage = nullptr;
   QStackedLayout* m_stackedLayout = nullptr;
@@ -295,7 +298,7 @@ void TimezoneFramePrivate::initConnections() {
   connect(q_ptr, &TimezoneFrame::timezoneSet,
           timezone_map_, &TimezoneMap::setTimezoneData);
 
-  connect(m_mapListButtonGroup, static_cast<void (QButtonGroup::*)(QAbstractButton*)>(&QButtonGroup::buttonClicked)
+  connect(m_mapListButtonGroup, static_cast<void (DButtonBox::*)(QAbstractButton*)>(&DButtonBox::buttonClicked)
           , this, &TimezoneFramePrivate::onMapListButtonGroupToggled);
 
   connect(m_systemDateFrame, &SystemDateFrame::finished, this, [=] {
@@ -325,30 +328,28 @@ void TimezoneFramePrivate::initUI() {
   comment_label_ = new CommentLabel(tr("Click your zone on the map"));
   timezone_map_ = new TimezoneMap(q_ptr);
 
-  m_mapListButtonGroup = new QButtonGroup;
-  m_timezoneMapButton = new PointerButton;
+  m_mapListButtonGroup = new DButtonBox;
+  m_timezoneMapButton = new DButtonBoxButton("");
   m_timezoneMapButton->setObjectName("timezoneMapButton");
   m_timezoneMapButton->setCheckable(true);
-  m_timezoneMapButton->setFlat(true);
   m_timezoneMapButton->setMinimumWidth(60);
   m_timezoneMapButton->setMaximumHeight(36);
-  m_timezoneListButton = new PointerButton;
+  m_timezoneListButton = new DButtonBoxButton("");
   m_timezoneListButton->setObjectName("timezoneListButton");
   m_timezoneListButton->setCheckable(true);
-  m_timezoneListButton->setFlat(true);
   m_timezoneListButton->setMinimumWidth(60);
   m_timezoneListButton->setMaximumHeight(36);
 
-  m_mapListButtonGroup->addButton(m_timezoneMapButton);
-  m_mapListButtonGroup->addButton(m_timezoneListButton);
+  m_buttonList.append(m_timezoneMapButton);
+  m_buttonList.append(m_timezoneListButton);
+  m_mapListButtonGroup->setButtonList(m_buttonList, true);
   m_timezoneMapButton->setChecked(true);
 
   QHBoxLayout* buttonLayout = new QHBoxLayout();
   buttonLayout->setContentsMargins(0, 0, 0, 0);
   buttonLayout->setSpacing(0);
   buttonLayout->addStretch();
-  buttonLayout->addWidget(m_timezoneMapButton, 0, Qt::AlignCenter);
-  buttonLayout->addWidget(m_timezoneListButton, 0, Qt::AlignCenter);
+  buttonLayout->addWidget(m_mapListButtonGroup, 0, Qt::AlignCenter);
   buttonLayout->addStretch();
 
   m_upLayout = new QVBoxLayout();
