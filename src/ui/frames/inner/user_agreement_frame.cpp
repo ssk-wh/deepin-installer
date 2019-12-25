@@ -2,7 +2,6 @@
 #include "base/file_util.h"
 #include "service/settings_manager.h"
 #include "ui/frames/consts.h"
-#include "ui/widgets/nav_button.h"
 #include "ui/widgets/pointer_button.h"
 
 #include <QEvent>
@@ -99,8 +98,9 @@ void UserAgreementFrame::initUI()
 
     QScroller::grabGesture(m_sourceScrollArea, QScroller::TouchGesture);
 
-    m_sourceScrollArea->setFixedWidth(480);
+    m_sourceScrollArea->setFixedWidth(468);
 
+    m_back = new QPushButton(this);
     m_back = new QPushButton;
     m_back->setFixedSize(310, 36);
 
@@ -122,7 +122,7 @@ void UserAgreementFrame::initUI()
 
 void UserAgreementFrame::initConnect()
 {
-    connect(m_back, &NavButton::clicked, this, &UserAgreementFrame::back);
+    connect(m_back, &QPushButton::clicked, this, &UserAgreementFrame::back);
     connect(m_buttonBox, &DButtonBox::buttonClicked, this, &UserAgreementFrame::toggleLicense);
 }
 

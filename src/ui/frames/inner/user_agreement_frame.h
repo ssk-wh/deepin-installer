@@ -21,7 +21,6 @@ namespace {
     const int kEnglishToggleButtonId = 1;
 }
 
-class NavButton;
 class UserAgreementFrame : public QFrame
 {
     Q_OBJECT
