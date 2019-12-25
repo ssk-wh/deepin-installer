@@ -65,12 +65,6 @@ DWIDGET_USE_NAMESPACE
 
 namespace installer {
 
-enum class FrameLabelState{
-    Initial,
-    Show,
-    FinishedConfig
-};
-
 MainWindow::MainWindow(QWidget* parent)
     : FrameProxyInterface(parent),
       pages_(),
@@ -304,7 +298,7 @@ void MainWindow::initConnections() {
 
   connect(save_failedLog_frame_, &SaveInstallFailedLogFrame::requestBack, this, &MainWindow::backPage);
 
-  connect(m_frameLabels, &DListView::clicked, this, [this](const QModelIndex &idx) {
+  connect(m_frameLabelsView, &DListView::clicked, this, [this](const QModelIndex &idx) {
       FrameInterface* framePointer = idx.data(FramePointerRole).value<FrameInterface*>();
       Q_ASSERT(framePointer);
       onPreviousFrameSelected(framePointer);
@@ -390,10 +384,10 @@ void MainWindow::initPages() {
       "InstallSuccessFrame"
   };
 
-  m_frameLabels = new DListView(this);
-  m_frameLabels->setOrientation(QListView::TopToBottom, true);
-  QStandardItemModel* m_modelprofiles = new QStandardItemModel();
-  m_frameLabels->setModel(m_modelprofiles);
+  m_frameLabelsView = new DListView(this);
+  m_frameLabelsView->setOrientation(QListView::TopToBottom, true);
+  m_frameLabelsModel = new QStandardItemModel();
+  m_frameLabelsView->setModel(m_frameLabelsModel);
 
   for (int i = 0; i < m_originalFrames.count(); ++i){
       if (!m_originalFrames[i]->shouldDisplay()){
@@ -409,10 +403,11 @@ void MainWindow::initPages() {
       action->setIcon(QIcon(installer::renderPixmap(":/images/done_inactive.svg")));
       item->setActionList(Qt::Edge::RightEdge, {action});
 
-      m_modelprofiles->appendRow(item);
+      m_frameLabelsModel->appendRow(item);
+      m_frameModelItemMap[m_originalFrames[i]] = item;
   }
 
-  m_frameSelectedLayout->addWidget(m_frameLabels);
+  m_frameSelectedLayout->addWidget(m_frameLabelsView);
 }
 
 void MainWindow::initUI() {
@@ -550,6 +545,31 @@ bool MainWindow::checkBackButtonAvailable(PageId id) {
                              PageId::InstallFailedId,
                          })
             .contains(id);
+}
+
+void MainWindow::updateFrameLabelState(FrameInterface *frame, FrameLabelState state)
+{
+    if (!m_frameModelItemMap.contains(frame)){
+        return;
+    }
+
+    switch (state) {
+    case FrameLabelState::Initial:
+//        m_frameLabelsView[frame]->setNormalStyle();
+//        m_frameLabelsView[frame]->setBackable(false);
+        break;
+    case FrameLabelState::Show:
+//        m_frameLabelsView[frame]->setShowStyle();
+//        m_frameLabelsView[frame]->setBackable(false);
+        break;
+    case FrameLabelState::FinishedConfig:
+//        m_frameLabelsView[frame]->setNormalStyle();
+//        m_frameLabelsView[frame]->setBackable(true);
+        break;
+    default:
+        qWarning() << "invalid state value";
+        break;
+    }
 }
 
 void MainWindow::onCurrentPageChanged(int index) {

@@ -38,6 +38,13 @@ class QVBoxLayout;
 class GlobalShortcut;
 
 namespace installer {
+
+enum class FrameLabelState{
+    Initial,
+    Show,
+    FinishedConfig
+};
+
 class FrameInterface;
 class ConfirmQuitFrame;
 class ControlPanelFrame;
@@ -126,6 +133,7 @@ private:
   void backPage();
 
   static bool checkBackButtonAvailable(PageId id);
+  void updateFrameLabelState(FrameInterface *frame, FrameLabelState state);
 
   QLabel* background_label_ = nullptr;
   DImageButton* back_button_ = nullptr;
@@ -178,7 +186,9 @@ private:
     bool m_showPastFrame = false;
 
     QList<QString> m_frameTitles;
-    DListView* m_frameLabels = nullptr;
+    DListView* m_frameLabelsView = nullptr;
+    QStandardItemModel* m_frameLabelsModel = nullptr;
+    QMap<FrameInterface*, DStandardItem*> m_frameModelItemMap;
 
     static const int FramePointerRole = Dtk::UserRole + 1;
 
