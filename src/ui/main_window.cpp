@@ -87,7 +87,7 @@ MainWindow::MainWindow(QWidget* parent)
     Q_ASSERT(m_frames.count() > 0);
     m_frames.first()->init();
 
-    // TODO: updateFrameLabelState
+    updateFrameLabelState(m_frames.first(), FrameLabelState::Show);
     stacked_layout_->setCurrentWidget(m_frames.first());
 }
 
@@ -151,7 +151,7 @@ void MainWindow::nextFrame()
     Q_ASSERT(frame != nullptr);
 
     frame->finished();
-    // TODO: updateFrameLabelState
+    updateFrameLabelState(frame, FrameLabelState::FinishedConfig);
 
     if (!m_showPastFrame){
         m_frames.removeFirst();
@@ -167,7 +167,7 @@ void MainWindow::nextFrame()
                 (*it)->init();
             }
 
-            // TODO: updateFrameLabelState
+            updateFrameLabelState(*it, FrameLabelState::Show);
             stacked_layout_->setCurrentWidget(*it);
             m_showPastFrame = false;
             break;
@@ -183,22 +183,40 @@ void MainWindow::nextFrame()
     // TODO: reboot or shutdown
 }
 
-void MainWindow::onPreviousFrameSelected(FrameInterface* frame)
+void MainWindow::previousFrameSelected(FrameInterface* frame)
 {
     FrameInterface* currentFrame = qobject_cast<FrameInterface*>(stacked_layout_->currentWidget());
     Q_ASSERT(currentFrame != nullptr);
 
     if (m_showPastFrame){
-        // TODO: update current frame label state
+        updateFrameLabelState(currentFrame, FrameLabelState::FinishedConfig);
     }
     else {
-        // TODO: update current frame label state
+        updateFrameLabelState(currentFrame, FrameLabelState::Initial);
     }
 
-    // TODO: update the clicked frame label state
+    updateFrameLabelState(frame, FrameLabelState::Show);
     stacked_layout_->setCurrentWidget(frame);
 
     m_showPastFrame = true;
+}
+
+void MainWindow::onFrameLabelsViewClicked(const QModelIndex& index)
+{
+    Q_ASSERT(sender() == m_frameLabelsView);
+
+    FrameInterface* framePointer = index.data(FramePointerRole).value<FrameInterface*>();
+    Q_ASSERT(framePointer);
+    if (!m_frameModelItemMap[framePointer]->flags().testFlag(Qt::ItemFlag::ItemIsEnabled)){
+        // TODO: will user another way implement.
+        FrameInterface* frame = qobject_cast<FrameInterface*>(stacked_layout_->currentWidget());
+        Q_ASSERT(frame);
+        m_frameLabelsView->setCurrentIndex(m_frameLabelsModel->indexFromItem(
+                                               m_frameModelItemMap[frame]));
+        return;
+    }
+
+    previousFrameSelected(framePointer);
 }
 
 void MainWindow::showChildFrame(FrameInterface *frame) {
@@ -298,11 +316,7 @@ void MainWindow::initConnections() {
 
   connect(save_failedLog_frame_, &SaveInstallFailedLogFrame::requestBack, this, &MainWindow::backPage);
 
-  connect(m_frameLabelsView, &DListView::clicked, this, [this](const QModelIndex &idx) {
-      FrameInterface* framePointer = idx.data(FramePointerRole).value<FrameInterface*>();
-      Q_ASSERT(framePointer);
-      onPreviousFrameSelected(framePointer);
-  });
+  connect(m_frameLabelsView, &DListView::clicked, this, &MainWindow::onFrameLabelsViewClicked);
 }
 
 void MainWindow::initPages() {
@@ -359,10 +373,10 @@ void MainWindow::initPages() {
 
   m_originalFrames = {
       // TODO: move the front new statement over here
+      privilege_error_frame_,
       select_language_frame_,
-      timezone_frame_,
+      virtual_machine_frame_,
       m_selectComponentFrame,
-      system_info_frame_,
       partition_frame_,
       install_progress_frame_,
       install_success_frame_
@@ -375,10 +389,10 @@ void MainWindow::initPages() {
 
   // TODO: for current test, will be replaced later.
   m_frameTitles = {
+      "PrivilegeFrame",
       "LanguageFrame",
-      "TimezoneFrame",
+      "VirtualMachineFrame",
       "SelectComponentFrame",
-      "SystemInfoFrame",
       "PartitionFrame",
       "InstallProgressFrame",
       "InstallSuccessFrame"
@@ -386,28 +400,34 @@ void MainWindow::initPages() {
 
   m_frameLabelsView = new DListView(this);
   m_frameLabelsView->setOrientation(QListView::TopToBottom, true);
+  m_frameLabelsView->setItemSize(QSize(250, 80));
   m_frameLabelsModel = new QStandardItemModel();
   m_frameLabelsView->setModel(m_frameLabelsModel);
 
-  for (int i = 0; i < m_originalFrames.count(); ++i){
-      if (!m_originalFrames[i]->shouldDisplay()){
+  for (FrameInterface* frame : m_originalFrames){
+      if (!frame->shouldDisplay()){
           continue;
       }
 
       DStandardItem* item = new DStandardItem;
       item->setIcon(QIcon(installer::renderPixmap(":/images/NO_inactive.svg")));
-      item->setText(m_frameTitles[i]);
-      QVariant framePointer = QVariant::fromValue(m_originalFrames[i]);
+      // TODO: for current test, will be replaced in another way.
+      item->setText(m_frameTitles[m_originalFrames.indexOf(frame)]);
+      QVariant framePointer = QVariant::fromValue(frame);
       item->setData(framePointer, FramePointerRole);
+      item->setFlags(Qt::ItemFlag::NoItemFlags);
+
       DViewItemAction* action = new DViewItemAction;
       action->setIcon(QIcon(installer::renderPixmap(":/images/done_inactive.svg")));
+      action->setVisible(false);
       item->setActionList(Qt::Edge::RightEdge, {action});
 
       m_frameLabelsModel->appendRow(item);
-      m_frameModelItemMap[m_originalFrames[i]] = item;
+      m_frameModelItemMap[frame] = item;
   }
 
-  m_frameSelectedLayout->addWidget(m_frameLabelsView);
+  m_frameSelectedLayout->addSpacing(80);
+  m_frameSelectedLayout->addWidget(m_frameLabelsView, 0, Qt::AlignHCenter);
 }
 
 void MainWindow::initUI() {
@@ -439,19 +459,25 @@ void MainWindow::initUI() {
   vbox_layout->addLayout(stacked_layout_);
   vbox_layout->addSpacing(32);
 
+  QWidget* contentWidget = new QWidget;
+  contentWidget->setLayout(vbox_layout);
+
   m_frameSelectedLayout = new QVBoxLayout;
+  m_frameSelectedLayout->setMargin(0);
+  m_frameSelectedLayout->setSpacing(0);
 
   QWidget* frameSelectedListWidget = new QWidget;
   frameSelectedListWidget->setObjectName("frameSelectedListWidget");
   frameSelectedListWidget->setLayout(m_frameSelectedLayout);
-  frameSelectedListWidget->setFixedWidth(260);
+  frameSelectedListWidget->setFixedWidth(300);
 
   QHBoxLayout* mainLayout = new QHBoxLayout;
   mainLayout->setMargin(0);
   mainLayout->setSpacing(0);
 
   mainLayout->addWidget(frameSelectedListWidget);
-  mainLayout->addLayout(vbox_layout);
+  mainLayout->addSpacing(1);
+  mainLayout->addWidget(contentWidget);
 
   DBackgroundGroup* bgGroup = new DBackgroundGroup;
   bgGroup->setContentsMargins(10, 10, 10, 10);
@@ -553,18 +579,21 @@ void MainWindow::updateFrameLabelState(FrameInterface *frame, FrameLabelState st
         return;
     }
 
+    DStandardItem* item = m_frameModelItemMap[frame];
     switch (state) {
     case FrameLabelState::Initial:
-//        m_frameLabelsView[frame]->setNormalStyle();
-//        m_frameLabelsView[frame]->setBackable(false);
+        item->actionList(Qt::Edge::RightEdge).first()->setVisible(false);
+        item->setFlags(Qt::ItemFlag::NoItemFlags);
         break;
     case FrameLabelState::Show:
-//        m_frameLabelsView[frame]->setShowStyle();
-//        m_frameLabelsView[frame]->setBackable(false);
+        item->actionList(Qt::Edge::RightEdge).first()->setVisible(false);
+        item->setFlags(Qt::ItemFlag::ItemIsEnabled | Qt::ItemFlag::ItemIsSelectable);
+
+        m_frameLabelsView->setCurrentIndex(m_frameLabelsModel->indexFromItem(m_frameModelItemMap[frame]));
         break;
     case FrameLabelState::FinishedConfig:
-//        m_frameLabelsView[frame]->setNormalStyle();
-//        m_frameLabelsView[frame]->setBackable(true);
+        item->actionList(Qt::Edge::RightEdge).first()->setVisible(true);
+        item->setFlags(Qt::ItemFlag::ItemIsEnabled | Qt::ItemFlag::ItemIsSelectable);
         break;
     default:
         qWarning() << "invalid state value";

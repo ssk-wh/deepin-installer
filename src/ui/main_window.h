@@ -208,7 +208,9 @@ private:
   void showSaveLogFrame();
 
   // When user mouse press left page tables.
-  void onPreviousFrameSelected(FrameInterface* frame);
+  void previousFrameSelected(FrameInterface* frame);
+
+  void onFrameLabelsViewClicked(const QModelIndex& index);
 };
 
 }  // namespace installer
