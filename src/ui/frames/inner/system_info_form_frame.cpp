@@ -346,7 +346,7 @@ void SystemInfoFormFramePrivate::initUI()
     area->setWidget(content);
     area->setWidgetResizable(true);
     area->setFrameStyle(QScrollArea::NoFrame);
-    area->setFixedWidth(kSetRootPasswordCheckBoxWidth + 20);
+    area->setFixedWidth(kSetRootPasswordCheckBoxWidth);
     area->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     area->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
