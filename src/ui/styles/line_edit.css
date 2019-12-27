@@ -13,17 +13,6 @@ QLineEdit {
   color: #dadada;
 }
 
-QLineEdit:disabled {
-    border: 1px solid transparent;
-    border-radius: 4px;
-    padding-left: 5px;
-    background-color: rgba(255, 255, 255, 0.1);
-    outline: none;
-    font-size: 12px;
-    line-height: 1.25;
-    color: #dadada;
-}
-
 #LineEdit
 {
     border: none;
