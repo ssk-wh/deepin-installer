@@ -21,6 +21,8 @@
 #include "ui/delegates/table_combo_box_delegate.h"
 #include "ui/utils/widget_util.h"
 
+#include <QAbstractItemView>
+
 namespace installer {
 
 TableComboBox::TableComboBox(QWidget* parent) : QComboBox(parent) {
@@ -28,6 +30,7 @@ TableComboBox::TableComboBox(QWidget* parent) : QComboBox(parent) {
 
   // Same as PartitionSizeSlider.
   this->setFixedSize(310, 36);
+  view()->parentWidget()->setFixedWidth(310);
   QAbstractItemDelegate* delegate = new TableComboBoxDelegate(this);
   this->setItemDelegate(delegate);
   this->setStyleSheet(ReadFile(":/styles/table_combo_box.css"));
