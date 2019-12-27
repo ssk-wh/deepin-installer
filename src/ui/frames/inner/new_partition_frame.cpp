@@ -21,8 +21,6 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QStandardItemModel>
-#include <QScrollArea>
-#include <QScrollBar>
 
 #include "base/file_util.h"
 #include "service/settings_manager.h"
@@ -38,6 +36,7 @@
 #include "ui/widgets/partition_size_slider.h"
 #include "ui/widgets/table_combo_box.h"
 #include "ui/widgets/title_label.h"
+#include "ui/widgets/di_scrollarea.h"
 
 namespace installer {
 
@@ -214,18 +213,11 @@ void NewPartitionFrame::initUI() {
   // Same width as with table combobox.
   content_frame->setFixedWidth(mount_point_box_->width());
 
-  QScrollArea* area = new QScrollArea;
-  area->setObjectName("scrollArea");
+  DIScrollArea* area = new DIScrollArea(this);
   area->setWidget(content_frame);
-  area->setWidgetResizable(true);
-  area->setFrameStyle(QScrollArea::NoFrame);
   area->setFixedWidth(mount_point_box_->width() + 20);
-  area->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
   area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   area->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-  area->setContentsMargins(0, 0, 0, 0);
-  area->setStyleSheet("background: transparent;");
-  area->viewport()->setStyleSheet("background: transparent;");
 
   cancel_button_ = new NavButton(tr("Cancel"));
   create_button_ = new NavButton(tr("Create"));
