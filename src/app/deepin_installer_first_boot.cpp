@@ -18,7 +18,6 @@
 // Run this program to setup username, password, keyboard and timezone after
 // reboot system. Only if `system_info_setup_after_reboot` flag is enabled.
 
-#include <QApplication>
 #include <QDebug>
 #include <QIcon>
 
@@ -30,7 +29,10 @@
 #include "ui/first_boot_setup_window.h"
 
 #include <cstdlib>
+#include <DApplication>
 #include "base/auto_screen_scale.h"
+
+DWIDGET_USE_NAMESPACE
 
 int main(int argc, char *argv[])
 {
@@ -38,7 +40,8 @@ int main(int argc, char *argv[])
   qputenv("LANG", installer::kDefaultLang);
 
   Utils::AutoScreenScale();
-  QApplication app(argc, argv);
+  DApplication::loadDXcbPlugin();
+  DApplication app(argc, argv);
   app.setAttribute(Qt::AA_UseHighDpiPixmaps);
   app.setAttribute(Qt::AA_EnableHighDpiScaling);
   app.setApplicationDisplayName("Deepin Installer First Boot");
