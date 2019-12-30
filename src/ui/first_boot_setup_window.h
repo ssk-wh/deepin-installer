@@ -22,6 +22,7 @@
 
 #include <QFrame>
 #include <DMainWindow>
+#include <DImageButton>
 
 DWIDGET_USE_NAMESPACE
 
