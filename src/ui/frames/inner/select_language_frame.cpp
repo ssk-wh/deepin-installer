@@ -65,7 +65,7 @@ public:
     QLabel*                sub_title_label_    = nullptr;
     QPushButton*           next_button_        = nullptr;
     QStandardItemModel*    m_languageModel     = nullptr;
-    LanguageItem           lang_;  // Current selected language.    
+    LanguageItem           lang_;  // Current selected language.
     UserAgreementDelegate* user_license_delegate_ = nullptr;
     LanguageList           lang_list_;
     DStandardItem*         m_lastItem          = nullptr;
@@ -200,7 +200,7 @@ void SelectLanguageFramePrivate::initConnections()
 
 void SelectLanguageFramePrivate::appendLanguageitem()
 {
-    lang_list_ = GetLanguageList();   
+    lang_list_ = GetLanguageList();
     for(auto it = lang_list_.cbegin(); it!=lang_list_.cend(); ++it) {
         DStandardItem *item = new DStandardItem((*it).local_name);
         m_languageModel->appendRow(item);
