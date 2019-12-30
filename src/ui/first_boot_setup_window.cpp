@@ -32,7 +32,6 @@
 #include <unistd.h>
 #include <linux/kd.h>
 
-#include "widgets/pointer_button.h"
 #include "base/thread_util.h"
 #include "service/first_boot_hook_worker.h"
 #include "service/power_manager.h"
@@ -109,18 +108,19 @@ void FirstBootSetupWindow::initConnections() {
             multi_head_manager_, &MultiHeadManager::switchXRandRMode);
     connect(multi_head_manager_, &MultiHeadManager::primaryScreenChanged,
             this, &FirstBootSetupWindow::onPrimaryScreenChanged);
-    connect(back_button_, &PointerButton::clicked, this, &FirstBootSetupWindow::backPage);
-    connect(stacked_layout_, &QStackedLayout::currentChanged, back_button_, &PointerButton::raise);
+    connect(back_button_, &DImageButton::clicked, this, &FirstBootSetupWindow::backPage);
+    connect(stacked_layout_, &QStackedLayout::currentChanged, back_button_, &DImageButton::raise);
 }
 
 void FirstBootSetupWindow::initUI() {
-    back_button_ = new PointerButton(this);
-    back_button_->setObjectName("back_button");
+    back_button_ = new DImageButton(this);
     back_button_->setFixedSize(48, 38);
     back_button_->move(20, 20);
-    back_button_->setFlat(true);
     back_button_->setFocusPolicy(Qt::TabFocus);
-    back_button_->setStyleSheet(ReadFile(":/styles/back_button.css"));
+    back_button_->setNormalPic(":/images/back_normal.svg");
+    back_button_->setHoverPic(":/images/back_hover.svg");
+    back_button_->setPressPic(":/images/back_pressed.svg");
+    back_button_->setDisabledPic(":/images/back_disabled.svg");
     back_button_->hide();
 
   background_label_ = new QLabel(this);

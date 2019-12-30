@@ -19,6 +19,10 @@
 #define INSTALLER_UI_SETUP_WINDOW_H
 
 #include <QFrame>
+#include <DImageButton>
+
+DWIDGET_USE_NAMESPACE
+
 class QLabel;
 class QResizeEvent;
 class QStackedLayout;
@@ -27,7 +31,6 @@ class QThread;
 class GlobalShortcut;
 
 namespace installer {
-class PointerButton;
 class FirstBootLoadingFrame;
 class FirstBootHookWorker;
 class MultiHeadManager;
@@ -58,7 +61,7 @@ class FirstBootSetupWindow : public QFrame {
   void registerShortcut();
   void updateBackground();
 
-  PointerButton*         back_button_         = nullptr;
+  DImageButton*          back_button_         = nullptr;
   QLabel*                background_label_    = nullptr;
   SystemInfoFrame*       system_info_frame_   = nullptr;
   TimezoneFrame*         timezone_frame_      = nullptr;
