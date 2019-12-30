@@ -283,7 +283,7 @@ void SelectLanguageFramePrivate::updateTs()
 {
     next_button_->setText(tr("Next"));
     accept_license_->setText(tr("I have read and agree to"));
-    license_label_->setText(tr("Deepin Software End User License Agreement"));
+    license_label_->setText(tr("UOS Software End User License Agreement"));
 
     if (oem_license_label_ != nullptr) {
         oem_and_label_->setText(tr("and"));
