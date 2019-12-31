@@ -284,6 +284,9 @@ void TimezoneFrame::initUI() {
   m_setTimePushButton->setFlat(true);
   m_setTimePushButton->setFixedHeight(23);
   m_setTimePushButton->setText(tr("Time settings"));
+  m_setTimePushButton->setNormalPic(":/images/manual_normal.svg");
+  m_setTimePushButton->setHoverPic(":/images/manual_hover.svg");
+  m_setTimePushButton->setPressPic(":/images/manual_press.svg");
 
   QSizePolicy spaceRetain = m_setTimePushButton->sizePolicy();
   spaceRetain.setRetainSizeWhenHidden(true);

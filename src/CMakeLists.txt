@@ -912,6 +912,8 @@ add_executable(ctl-btn-test
                base/file_util.h
                ui/widgets/pointer_button.cpp
                ui/widgets/pointer_button.h
+               ui/utils/widget_util.cpp
+               ui/utils/widget_util.h
 
                ui/images/images.qrc
                ui/styles/styles.qrc

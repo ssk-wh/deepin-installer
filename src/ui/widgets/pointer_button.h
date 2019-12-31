@@ -26,14 +26,35 @@ namespace installer {
 class PointerButton : public QPushButton {
   Q_OBJECT
 
- public:
-  explicit PointerButton(QWidget* parent = nullptr);
-  PointerButton(const QString& text, QWidget* parent = nullptr);
+public:
+    explicit PointerButton(QWidget* parent = nullptr);
+    PointerButton(const QString& text, QWidget* parent = nullptr);
 
- protected:
-  // Override these two event handlers to implements hover effect.
-  void enterEvent(QEvent* event) override;
-  void leaveEvent(QEvent* event) override;
+    void setNormalPic(const QString& normalPic);
+    void setHoverPic(const QString& hoverPic);
+    void setPressPic(const QString& pressPic);
+
+protected:
+    // Override these two event handlers to implements hover effect.
+    void enterEvent(QEvent* event) override;
+    void leaveEvent(QEvent* event) override;
+    void mousePressEvent(QMouseEvent* event) override;
+    void mouseReleaseEvent(QMouseEvent* event) override;
+
+private:
+    void updatePic();
+
+private:
+    enum class ButtonStatus {
+        Normal,
+        Hover,
+        Press
+    };
+
+    ButtonStatus m_state;
+    QString m_normalPic;
+    QString m_hoverPic;
+    QString m_pressPic;
 };
 
 }  // namespace installer

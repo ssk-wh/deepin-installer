@@ -16,25 +16,106 @@
  */
 
 #include "ui/widgets/pointer_button.h"
+#include "ui/utils/widget_util.h"
+
+#include <QMouseEvent>
+#include <QDebug>
 
 namespace installer {
 
-PointerButton::PointerButton(QWidget* parent) : QPushButton(parent) {
+PointerButton::PointerButton(QWidget* parent)
+    : QPushButton(parent)
+    , m_state(ButtonStatus::Normal)
+{
 }
 
 PointerButton::PointerButton(const QString& text, QWidget* parent)
-    : PointerButton(parent) {
-  this->setText(text);
+    : PointerButton(parent)
+{
+    setText(text);
 }
 
-void PointerButton::enterEvent(QEvent* event) {
-  this->setCursor(Qt::PointingHandCursor);
-  QPushButton::enterEvent(event);
+void PointerButton::setNormalPic(const QString& normalPic)
+{
+    m_normalPic = normalPic;
+    updatePic();
 }
 
-void PointerButton::leaveEvent(QEvent* event) {
-  this->unsetCursor();
-  QPushButton::leaveEvent(event);
+void PointerButton::setHoverPic(const QString& hoverPic)
+{
+    m_hoverPic = hoverPic;
+    updatePic();
+}
+
+void PointerButton::setPressPic(const QString& pressPic)
+{
+    m_pressPic = pressPic;
+    updatePic();
+}
+
+void PointerButton::enterEvent(QEvent* event)
+{
+    setCursor(Qt::PointingHandCursor);
+
+    m_state = ButtonStatus::Hover;
+    updatePic();
+
+    return QPushButton::enterEvent(event);
+}
+
+void PointerButton::leaveEvent(QEvent* event)
+{
+    unsetCursor();
+
+    m_state = ButtonStatus::Normal;
+    updatePic();
+
+    return QPushButton::leaveEvent(event);
+}
+
+void PointerButton::mousePressEvent(QMouseEvent* event)
+{
+    if (event->button() == Qt::LeftButton) {
+        m_state = ButtonStatus::Press;
+        updatePic();
+    }
+
+    return QPushButton::mousePressEvent(event);
+}
+
+void PointerButton::mouseReleaseEvent(QMouseEvent* event)
+{
+    if (m_state == ButtonStatus::Press && rect().contains(event->pos())) {
+        m_state = ButtonStatus::Hover;
+        updatePic();
+        emit clicked();
+    }
+
+    return QPushButton::mouseReleaseEvent(event);
+}
+
+void PointerButton::updatePic()
+{
+    switch(m_state){
+    case ButtonStatus::Normal:
+        if (!m_normalPic.isEmpty()) {
+            setIcon(QIcon(installer::renderPixmap(m_normalPic)));
+        }
+        break;
+    case ButtonStatus::Hover:
+        if (!m_hoverPic.isEmpty()) {
+            setIcon(QIcon(installer::renderPixmap(m_hoverPic)));
+        }
+        break;
+    case ButtonStatus::Press:
+        if (!m_pressPic.isEmpty()) {
+            setIcon(QIcon(installer::renderPixmap(m_pressPic)));
+        }
+        break;
+    default:
+        qCritical() << "invalid PointerButton state";
+        break;
+    }
 }
 
 }  // namespace installer

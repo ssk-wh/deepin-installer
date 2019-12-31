@@ -104,7 +104,7 @@ class TimezoneFrame : public QFrame {
   QStackedLayout* m_mapOrListStackedLayout = nullptr;
   QVBoxLayout* m_upLayout = nullptr;
   QHBoxLayout* m_bottomLayout = nullptr;
-  QPushButton* m_setTimePushButton = nullptr;
+  PointerButton* m_setTimePushButton = nullptr;
 
   QWidget* m_timezonePage = nullptr;
   QStackedLayout* m_stackedLayout = nullptr;
