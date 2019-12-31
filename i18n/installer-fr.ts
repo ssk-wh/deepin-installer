@@ -1,15 +1,15 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" version="2.1">
 <context>
     <name>installer::AdvancedPartitionButton</name>
     <message>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="124"/>
         <source>Install here</source>
-        <translation>Install here</translation>
+        <translation>Installer ici</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="127"/>
         <source>To be formatted</source>
-        <translation>To be formatted</translation>
+        <translation>Va être formaté</translation>
     </message>
 </context>
 <context>
@@ -18,85 +18,85 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="91"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="177"/>
         <source>Change boot loader</source>
-        <translation>Change boot loader</translation>
+        <translation>Emplacement du chargeur d’amorçage </translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="93"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="571"/>
         <source>Done</source>
-        <translation>Done</translation>
+        <translation>Terminé</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="95"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="184"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="573"/>
         <source>Delete</source>
-        <translation>Delete</translation>
+        <translation>Supprimer</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="438"/>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation>%1 error found, fix to continue installation or switch to simple mode</translation>
+        <translation>%1 erreur trouvée, réparer pour continuer l&apos;installation ou basculer en mode simple</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="442"/>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation>%1 errors found, fix to continue installation or switch to simple mode</translation>
+        <translation>%1 erreurs trouvées, réparer pour continuer l&apos;installation ou basculer en mode simple</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="448"/>
         <source>%1 error found, continue to install after fixed</source>
-        <translation>%1 error found, continue to install after fixed</translation>
+        <translation>%1 erreur trouvée, l&apos;installation continuera après le réglage de celle-ci</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="452"/>
         <source>%1 errors found, continue to install after fixed</source>
-        <translation>%1 errors found, continue to install after fixed</translation>
+        <translation>%1 erreurs trouvées, l&apos;installation continuera après le réglage de celles-ci</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="499"/>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation>The partition filesystem type of /boot directory can only be %1 </translation>
+        <translation>Le type système de fichiers du  /boot ne peut être %1</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="503"/>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation>The partition of /boot directory should be the first partition on hard disk</translation>
+        <translation>La partition du /boot est idéalement la première sur le disque dur</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="507"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
-        <translation>The partition of /boot/efi directory should be the first partition on hard disk</translation>
+        <translation>La partition du répertoire /boot/efi doit être la première partition du disque dur</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="512"/>
         <source>At least %1 MB is required for /boot partition</source>
-        <translation>At least %1 MB is required for /boot partition</translation>
+        <translation>Au moins %1 MB est requis pour la partition /boot</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="516"/>
         <source>Add an EFI partition to continue</source>
-        <translation>Add an EFI partition to continue</translation>
+        <translation>Une partition EFI est requise</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="520"/>
         <source>At least %1 MB is required for EFI partition</source>
-        <translation>At least %1 MB is required for EFI partition</translation>
+        <translation>Au moins %1 MB est requis pour la partition EFI</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="524"/>
         <source>Add a Root partition to continue</source>
-        <translation>Add a Root partition to continue</translation>
+        <translation>Une partition root est requise</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="529"/>
         <source>At least %1 GB is required for Root partition</source>
-        <translation>At least %1 GB is required for Root partition</translation>
+        <translation>Au moins %1 GB est requis pour la partition root</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="534"/>
         <source>At least %1 GB is required for partition %2</source>
-        <translation>At least %1 GB is required for partition %2</translation>
+        <translation>Au moins %1 Go est requis pour la partition %2</translation>
     </message>
 </context>
 <context>
@@ -104,7 +104,7 @@
     <message>
         <location filename="../src/ui/models/bootloader_list_model.cpp" line="42"/>
         <source>%1 %2 (recommended)</source>
-        <translation>%1 %2 (recommended)</translation>
+        <translation>%1 %2 (recommandé)</translation>
     </message>
 </context>
 <context>
@@ -113,25 +113,25 @@
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="39"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="58"/>
         <source>Abort Installation</source>
-        <translation>Abort Installation</translation>
+        <translation>Annuler l&apos;installation</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="41"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="60"/>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
-        <translation>Relevant operations you made in the installation process will not take effect, abort or continue installation?</translation>
+        <translation>Les opérations que vous avez effectuées durant le processus d&apos;installation ne seront pas appliquées, annuler ou continuer l&apos;installation ?</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="43"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="67"/>
         <source>Continue</source>
-        <translation>Continue</translation>
+        <translation>Continuer</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="44"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="68"/>
         <source>Abort</source>
-        <translation>Abort</translation>
+        <translation>Annuler</translation>
     </message>
 </context>
 <context>
@@ -140,13 +140,13 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="72"/>
         <source>Insufficient Disk Space</source>
-        <translation>Insufficient Disk Space</translation>
+        <translation>Espace disque insuffisant</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="79"/>
         <source>Exit</source>
-        <translation>Exit</translation>
+        <translation>Quitter</translation>
     </message>
 </context>
 <context>
@@ -155,47 +155,47 @@
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="99"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="167"/>
         <source>Edit Disk</source>
-        <translation>Edit Disk</translation>
+        <translation>Éditer le disque</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="101"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="169"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation>Make sure you have backed up important data, then select the disk to install</translation>
+        <translation>Assurez-vous d&apos;avoir sauvegardé les données importantes puis sélectionner le disque où installer</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="102"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="201"/>
         <source>File system</source>
-        <translation>File system</translation>
+        <translation>Système de fichiers</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="203"/>
         <source>Mount point</source>
-        <translation>Mount point</translation>
+        <translation>Point de montage</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="104"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="218"/>
         <source>Format the partition</source>
-        <translation>Format the partition</translation>
+        <translation>Formater la partition</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="105"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="244"/>
         <source>Cancel</source>
-        <translation>Cancel</translation>
+        <translation>Annuler</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="106"/>
         <source>Create</source>
-        <translation>Create</translation>
+        <translation>Créer</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="245"/>
         <source>Confirm</source>
-        <translation>Confirm</translation>
+        <translation>Confirmer</translation>
     </message>
 </context>
 <context>
@@ -204,13 +204,13 @@
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="38"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="61"/>
         <source>Tuning system</source>
-        <translation>Tuning system</translation>
+        <translation>Réglage système</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="40"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="63"/>
         <source>Applying changes to your system, please wait...</source>
-        <translation>Applying changes to your system, please wait...</translation>
+        <translation>Application des modifications à votre système, veuillez patienter...</translation>
     </message>
 </context>
 <context>
@@ -219,27 +219,27 @@
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="150"/>
         <source>Install here</source>
-        <translation>Install here</translation>
+        <translation>Installer ici</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="59"/>
         <source>Encrypt this disk</source>
-        <translation>Encrypt this disk</translation>
+        <translation>Crypter ce disque</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="60"/>
         <source>Encrypt This Disk</source>
-        <translation>Encrypt This Disk</translation>
+        <translation>Crypter ce disque</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="61"/>
         <source>Please select a disk to start installation</source>
-        <translation>Please select a disk to start installation</translation>
+        <translation>Veuillez sélectionner un disque pour démarrer l’installation</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</translation>
+        <translation>Vous devez disposer d’au moins %1 Go d’espace disque pour installer UOS. Pour obtenir de meilleures performances, %2 Go ou plus sont recommandés</translation>
     </message>
 </context>
 <context>
@@ -247,12 +247,12 @@
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="170"/>
         <source>Installing</source>
-        <translation>Installing</translation>
+        <translation>Installation en cours</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="172"/>
         <source>Here are a few cool things to look out for...</source>
-        <translation>Here are a few cool things to look out for...</translation>
+        <translation>Voici quelques bonnes choses à surveiller...</translation>
     </message>
 </context>
 <context>
@@ -260,12 +260,12 @@
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="183"/>
         <source>System Disk</source>
-        <translation>System Disk</translation>
+        <translation>Disque système</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="183"/>
         <source>Data Disk</source>
-        <translation>Data Disk</translation>
+        <translation>Disque de données</translation>
     </message>
 </context>
 <context>
@@ -274,13 +274,13 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="117"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="152"/>
         <source>Create New Partition</source>
-        <translation>Create New Partition</translation>
+        <translation>Créer une nouvelle partition</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="119"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="154"/>
         <source>Create a new partition and define the type and size</source>
-        <translation>Create a new partition and define the type and size</translation>
+        <translation>Créer une nouvelle partition en définissant le type et la taille</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="120"/>
@@ -292,43 +292,43 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="121"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="166"/>
         <source>Location</source>
-        <translation>Location</translation>
+        <translation>Emplacement</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="122"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="171"/>
         <source>File system</source>
-        <translation>File system</translation>
+        <translation>Système de fichiers</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="123"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="179"/>
         <source>Mount point</source>
-        <translation>Mount point</translation>
+        <translation>Point de montage</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="124"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="186"/>
         <source>Size</source>
-        <translation>Size</translation>
+        <translation>Taille</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="126"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="169"/>
         <source>Start</source>
-        <translation>Start</translation>
+        <translation>Début</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="126"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="169"/>
         <source>End</source>
-        <translation>End</translation>
+        <translation>Fin</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="127"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="222"/>
         <source>Cancel</source>
-        <translation>Cancel</translation>
+        <translation>Annuler</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="128"/>
@@ -338,7 +338,7 @@
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="223"/>
         <source>Create</source>
-        <translation>Create</translation>
+        <translation>Créer</translation>
     </message>
 </context>
 <context>
@@ -347,7 +347,7 @@
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="37"/>
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="54"/>
         <source>Formatting...</source>
-        <translation>Formatting...</translation>
+        <translation>Formatage en cours...</translation>
     </message>
 </context>
 <context>
@@ -356,25 +356,25 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="76"/>
         <source>Format Warning</source>
-        <translation>Format Warning</translation>
+        <translation>Avertissement formatage</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="57"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="94"/>
         <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</translation>
+        <translation>La poursuite de l’installation formatera l’ensemble du disque. Faites une sauvegarde de toutes vos données. Si vous ne savez pas ce que vous faites, veuillez ne pas continuer</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="59"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="101"/>
         <source>Cancel</source>
-        <translation>Cancel</translation>
+        <translation>Annuler</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="102"/>
         <source>Continue</source>
-        <translation>Continue</translation>
+        <translation>Continuer</translation>
     </message>
 </context>
 <context>
@@ -383,53 +383,53 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="88"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="235"/>
         <source>Select Installation Location</source>
-        <translation>Select Installation Location</translation>
+        <translation>Sélectionner l&apos;emplacement </translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="90"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="237"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation>Make sure you have backed up important data, then select the disk to install</translation>
+        <translation>Assurez-vous d&apos;avoir sauvegardé les données importantes puis sélectionner le disque où installer</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="91"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="244"/>
         <source>Simple</source>
-        <translation>Simple</translation>
+        <translation>Simplifié</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="92"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="248"/>
         <source>Advanced</source>
-        <translation>Advanced</translation>
+        <translation>Avancé</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="93"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="252"/>
         <source>Full Disk</source>
-        <translation>Full Disk</translation>
+        <translation>Disque plein</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="94"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="338"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="482"/>
         <source>Start installation</source>
-        <translation>Start installation</translation>
+        <translation>Démarrer l&apos;installation</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="464"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</translation>
+        <translation>Le disque cible est dynamique et vos données risquent d&apos;être perdues si vous continuez. Faites d&apos;abord une sauvegarde de vos fichiers importants.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="468"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</translation>
+        <translation>Le disque cible est dynamique et sera formaté si vous continuez. Faites d&apos;abord une sauvegarde de vos fichiers importants.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="482"/>
         <source>Next</source>
-        <translation>Next</translation>
+        <translation>Suivant</translation>
     </message>
 </context>
 <context>
@@ -438,13 +438,13 @@
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="37"/>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="45"/>
         <source>Scan disks</source>
-        <translation>Scan disks</translation>
+        <translation>Analyser les disques</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="38"/>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="46"/>
         <source>Scanning disks, please wait...</source>
-        <translation>Scanning disks, please wait...</translation>
+        <translation>Analyse des disques, veuillez patienter...</translation>
     </message>
 </context>
 <context>
@@ -452,41 +452,41 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="45"/>
         <source>You should delete a primary partition before creating a new one</source>
-        <translation>You should delete a primary partition before creating a new one</translation>
+        <translation>Vous devez supprimer la partition principale avant d&apos;en créer une nouvelle</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="47"/>
         <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation>New logical partitions can only be created near existing logical partitions</translation>
+        <translation>Les partitions logiques peuvent uniquement être créées à côté d&apos;autres partitions logiques</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="52"/>
         <source>You should delete a primary partition before creating a new partition</source>
-        <translation>You should delete a primary partition before creating a new partition</translation>
+        <translation>Vous devez supprimer la partition principale avant de créer une nouvelle partition</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="59"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="78"/>
         <source>Failed to Create New Partition</source>
-        <translation>Failed to Create New Partition</translation>
+        <translation>Échec de la création d&apos;une nouvelle partition</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="81"/>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
-        <translation>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</translation>
+        <translation>Vous devez supprimer une partition principale avant d&apos;en créer une nouvelle, car il ne peut y avoir que quatre partitions principales sur un disque MBR.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="86"/>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
-        <translation>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</translation>
+        <translation>Vous devez supprimer une partition principale avant d&apos;en créer une logique ou déplacer la partition logique existante à la fin du disque.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="90"/>
         <source>Back</source>
-        <translation>Back</translation>
+        <translation>Précédent</translation>
     </message>
 </context>
 <context>
@@ -495,12 +495,12 @@
         <location filename="../src/ui/models/partition_type_model.cpp" line="41"/>
         <location filename="../src/ui/models/partition_type_model.cpp" line="47"/>
         <source>Logical Partition</source>
-        <translation>Logical Partition</translation>
+        <translation>Partition logique</translation>
     </message>
     <message>
         <location filename="../src/ui/models/partition_type_model.cpp" line="45"/>
         <source>Primary Partition</source>
-        <translation>Primary Partition</translation>
+        <translation>Partition primaire</translation>
     </message>
 </context>
 <context>
@@ -509,31 +509,31 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="83"/>
         <source>Ready to Install</source>
-        <translation>Ready to Install</translation>
+        <translation>Prêt pour l&apos;installation</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="85"/>
         <source>Make a backup of your important data and then continue</source>
-        <translation>Make a backup of your important data and then continue</translation>
+        <translation>Sauvegarder vos données importantes avant de poursuivre</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="92"/>
         <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
-        <translation>The following operations will be executed, please confirm and continue to avoid data loss</translation>
+        <translation>Les opérations suivantes seront exécutées</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="68"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="105"/>
         <source>Back</source>
-        <translation>Back</translation>
+        <translation>Précédent</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="69"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="106"/>
         <source>Continue</source>
-        <translation>Continue</translation>
+        <translation>Continuer</translation>
     </message>
 </context>
 <context>
@@ -541,101 +541,101 @@
     <message>
         <location filename="../src/partman/operation.cpp" line="254"/>
         <source>Create extended partition %1</source>
-        <translation>Create extended partition %1</translation>
+        <translation>Créer la partition étendue %1</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="258"/>
         <source>Create new partition %1, type: %2</source>
-        <translation>Create new partition %1, type: %2</translation>
+        <translation>Créer une nouvelle partition %1, type : %2 </translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="262"/>
         <source>Create new partition %1 as %2 (mountpoint), type: %3</source>
-        <translation>Create new partition %1 as %2 (mountpoint), type: %3</translation>
+        <translation>Créer une nouvelle partition %1 comme %2 (point de montage), type %3</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="271"/>
         <source>Delete %1 partition</source>
-        <translation>Delete %1 partition</translation>
+        <translation>Supprimer la partition %1</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="276"/>
         <source>Format %1 partition, type: %2</source>
-        <translation>Format %1 partition, type: %2</translation>
+        <translation>Formater la partition %1, type : %2</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="280"/>
         <source>Format %1 partition as %2 (mountpoint), type: %3</source>
-        <translation>Format %1 partition as %2 (mountpoint), type: %3</translation>
+        <translation>Formater la partition %1 comme %2 (point de montage), type : %3</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="288"/>
         <source>Use %1 partition as %2 (mountpoint)</source>
-        <translation>Use %1 partition as %2 (mountpoint)</translation>
+        <translation>Utiliser la partition %1 comme %2 (point de montage)</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="294"/>
         <source>Format %1 and create %2 new partition table</source>
-        <translation>Format %1 and create %2 new partition table</translation>
+        <translation>Formater %1 et créer %2 nouvelle table de partition </translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="300"/>
         <source>Adjust the size of %1 partition</source>
-        <translation>Adjust the size of %1 partition</translation>
+        <translation>Modifier la taille de la partition %1</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="262"/>
         <source>Do not use this partition</source>
-        <translation>Do not use this partition</translation>
+        <translation>Ne pas utiliser cette partition</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="275"/>
         <source>Swap partition</source>
-        <translation>Swap partition</translation>
+        <translation>Partition swap</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="278"/>
         <source>Unknown</source>
-        <translation>Unknown</translation>
+        <translation>Inconnu</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="319"/>
         <location filename="../src/ui/delegates/partition_util.cpp" line="350"/>
         <source>Freespace</source>
-        <translation>Freespace</translation>
+        <translation>Espace libre</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="40"/>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</translation>
+        <translation>Vous devez disposer d’au moins %1 Go d’espace disque pour installer UOS. Pour obtenir de meilleures performances, %2 Go ou plus sont recommandés</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="49"/>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="55"/>
         <source>Successfully Installed</source>
-        <translation>Successfully Installed</translation>
+        <translation>Installation réussie</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="51"/>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="57"/>
         <source>Reboot to complete the installation</source>
-        <translation>Reboot to complete the installation</translation>
+        <translation>Redémarrer l&apos;installation pour terminer</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="53"/>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="56"/>
         <source>Please remove the installation media before reboot</source>
-        <translation>Please remove the installation media before reboot</translation>
+        <translation>Veuillez retirer le média d&apos;installation avant de redémarrer</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="54"/>
         <source>Reboot Now</source>
-        <translation>Reboot Now</translation>
+        <translation>Redémarrer maintenant</translation>
     </message>
     <message>
         <location filename="../src/base/translator.h" line="14"/>
         <source>Select system language</source>
-        <translation>Select system language</translation>
+        <translation>Sélectionner la langue du système</translation>
     </message>
 </context>
 <context>
@@ -644,19 +644,19 @@
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="42"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="64"/>
         <source>Select location for boot loader</source>
-        <translation>Select location for boot loader</translation>
+        <translation>Emplacement du chargeur de démarrage</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="44"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="66"/>
         <source>If you do not understand the settings, please select the recommended one</source>
-        <translation>If you do not understand the settings, please select the recommended one</translation>
+        <translation>Si vous ne comprenez pas les paramètres, veuillez sélectionner celui recommandé.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="45"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="77"/>
         <source>Back</source>
-        <translation>Back</translation>
+        <translation>Précédent</translation>
     </message>
 </context>
 <context>
@@ -664,28 +664,28 @@
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="72"/>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation>Unable to create new partition, please select one of the existing partitions!</translation>
+        <translation>Impossible de créer de nouvelles partitions, veuillez en choisir une existante</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="79"/>
         <source>Please select one of the partitions to install!</source>
-        <translation>Please select one of the partitions to install!</translation>
+        <translation>Veuillez sélectionner une des partitions pour l&apos;installation</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="86"/>
         <source>At least %1 GB is required for root partition</source>
-        <translation>At least %1 GB is required for root partition</translation>
+        <translation>Au moins %1 GB est requis pour la partition root</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="115"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="234"/>
         <source>Install here</source>
-        <translation>Install here</translation>
+        <translation>Installer ici</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
         <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
-        <translation>Windows will not boot if you install UOS on Windows disk, please confirm to continue</translation>
+        <translation>Windows ne démarrera pas si vous installez UOS sur un disque Windows, veuillez confirmer pour continuer</translation>
     </message>
 </context>
 <context>
@@ -693,12 +693,12 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="104"/>
         <source>User Avatar</source>
-        <translation>User Avatar</translation>
+        <translation>Utiliser un avatar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="105"/>
         <source>Select an avatar for your account</source>
-        <translation>Select an avatar for your account</translation>
+        <translation>Sélectionner un avatar pour votre compte</translation>
     </message>
 </context>
 <context>
@@ -706,32 +706,32 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="173"/>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation>Nom d&apos;utilisateur</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="174"/>
         <source>Computer name</source>
-        <translation>Computer name</translation>
+        <translation>Nom de l&apos;ordinateur</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="175"/>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation>Mot de passe</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="176"/>
         <source>Repeat password</source>
-        <translation>Repeat password</translation>
+        <translation>Répéter le mot de passe</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="177"/>
         <source>Root password</source>
-        <translation>Root password</translation>
+        <translation>Mot de passe root</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="178"/>
         <source>Repeat root password</source>
-        <translation>Repeat root password</translation>
+        <translation>Répéter le mot de passe root</translation>
     </message>
 </context>
 <context>
@@ -740,44 +740,44 @@
         <location filename="../src/ui/frames/timezone_frame.cpp" line="114"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="223"/>
         <source>Select Timezone</source>
-        <translation>Select Timezone</translation>
+        <translation>Sélectionner le fuseau horaire</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="117"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="224"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="357"/>
         <source>Click your zone on the map</source>
-        <translation>Click your zone on the map</translation>
+        <translation>Cliquer votre zone sur la carte</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="362"/>
         <source>Select your timezone from the list</source>
-        <translation>Select your timezone from the list</translation>
+        <translation>Sélectionner votre fuseau horaire dans la liste</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="226"/>
         <source>Next</source>
-        <translation>Next</translation>
+        <translation>Suivant</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="229"/>
         <source>Map</source>
-        <translation>Map</translation>
+        <translation>Carte</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="125"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="235"/>
         <source>List</source>
-        <translation>List</translation>
+        <translation>Liste</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="126"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="286"/>
         <source>Time settings</source>
-        <translation>Time settings</translation>
+        <translation>Paramètres de l&apos;heure</translation>
     </message>
 </context>
 <context>
@@ -786,23 +786,23 @@
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="40"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="56"/>
         <source>Friendly Reminder</source>
-        <translation>Friendly Reminder</translation>
+        <translation>Petit rappel</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="42"/>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
-        <translation>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</translation>
+        <translation>Vous utilisez une machine virtuelle, ce qui affectera les performances du système et l&apos;expérience utilisateur. Pour une expérience plus fluide, installer UOS dans un environnement réel</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="44"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="67"/>
         <source>Continue</source>
-        <translation>Continue</translation>
+        <translation>Continuer</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
-        <translation>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</translation>
+        <translation>Le système a détecté que vous utilisez une machine virtuelle, ce qui affectera les performances du système et l&apos;expérience de fonctionnement. Pour une expérience fluide, il est recommandé d&apos;installer UOS dans un environnement de machine réelle</translation>
     </message>
 </context>
 <context>
@@ -810,382 +810,382 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
         <source>Minimal Install</source>
-        <translation>Minimal Install</translation>
+        <translation>Installation minimale</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
         <source>Basic functionality.</source>
-        <translation>Basic functionality.</translation>
+        <translation>Fonctionnalité de base.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
         <source>Compute Node</source>
-        <translation>Compute Node</translation>
+        <translation>Nœud de calcul</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
         <source>Installation for performing computation and processing.</source>
-        <translation>Installation for performing computation and processing.</translation>
+        <translation>Installation pour effectuer des calculs et des traitements.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
         <source>Infrastructure Server</source>
-        <translation>Infrastructure Server</translation>
+        <translation>Serveur d&apos;infrastructure</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
         <source>Server for operating network infrastructure services.</source>
-        <translation>Server for operating network infrastructure services.</translation>
+        <translation>Serveur pour l&apos;exploitation des services d&apos;infrastructure réseau.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
         <source>File and Print Server</source>
-        <translation>File and Print Server</translation>
+        <translation>Serveur de fichiers et d&apos;impression</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
         <source>File, print, and storage server for enterprises.</source>
-        <translation>File, print, and storage server for enterprises.</translation>
+        <translation>Serveur de fichiers, d&apos;impression et de stockage pour les entreprises.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
         <source>Basic Web Server</source>
-        <translation>Basic Web Server</translation>
+        <translation>Serveur web de base</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
         <source>Server for serving static and dynamic internet content.</source>
-        <translation>Server for serving static and dynamic internet content.</translation>
+        <translation>Serveur pour la diffusion de contenu internet statique et dynamique.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
         <source>Virtualization Host</source>
-        <translation>Virtualization Host</translation>
+        <translation>Hôte de virtualisation</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
         <source>Minimal virtualization host.</source>
-        <translation>Minimal virtualization host.</translation>
+        <translation>Hôte de virtualisation minimal.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
         <source>Server with GUI</source>
-        <translation>Server with GUI</translation>
+        <translation>Serveur avec interface graphique</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
         <source>Server for operating network infrastructure services, with a GUI.</source>
-        <translation>Server for operating network infrastructure services, with a GUI.</translation>
+        <translation>Serveur pour l&apos;exploitation des services d&apos;infrastructure réseau, avec une interface graphique.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
         <source>DDE Desktop</source>
-        <translation>DDE Desktop</translation>
+        <translation>Bureau DDE</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
         <source>DDE is a highly intuitive and user friendly desktop environment.</source>
-        <translation>DDE is a highly intuitive and user friendly desktop environment.</translation>
+        <translation>DDE est un environnement de bureau très intuitif et convivial.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>Development and Creative Workstation</source>
-        <translation>Development and Creative Workstation</translation>
+        <translation>Poste de travail de développement et de création</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>Workstation for software, hardware, graphics, or content development.</source>
-        <translation>Workstation for software, hardware, graphics, or content development.</translation>
+        <translation>Poste de travail pour le développement de logiciels, de matériel, de graphiques ou de contenu.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>Debugging Tools</source>
-        <translation>Debugging Tools</translation>
+        <translation>Outils de débogage</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>Tools for debugging misbehaving applications and diagnosing performance problems.</source>
-        <translation>Tools for debugging misbehaving applications and diagnosing performance problems.</translation>
+        <translation>Outils de débogage des applications défectueuses et de diagnostic des problèmes de performances.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>Directory Client</source>
-        <translation>Directory Client</translation>
+        <translation>Répertoire client</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>Clients for integration into a network managed by a directory service.</source>
-        <translation>Clients for integration into a network managed by a directory service.</translation>
+        <translation>Clients pour l&apos;intégration dans un réseau géré par un répertoire de service.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Security Tools</source>
-        <translation>Security Tools</translation>
+        <translation>Outils de sécurité</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Security tools for integrity and trust verification.</source>
-        <translation>Security tools for integrity and trust verification.</translation>
+        <translation>Outils de sécurité pour la vérification d&apos;intégrité et de confiance.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>Development Tools</source>
-        <translation>Development Tools</translation>
+        <translation>Outils de développement</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>A basic development environment.</source>
-        <translation>A basic development environment.</translation>
+        <translation>Un environnement de développement de base.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Performance Tools</source>
-        <translation>Performance Tools</translation>
+        <translation>Outils de performance</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Tools for diagnosing system and application-level performance problems.</source>
-        <translation>Tools for diagnosing system and application-level performance problems.</translation>
+        <translation>Outils de diagnostic des problèmes de performances du système et des applications.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>Hardware Monitoring Utilities</source>
-        <translation>Hardware Monitoring Utilities</translation>
+        <translation>Utilitaires de surveillance du matériel</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>A set of tools to monitor server hardware.</source>
-        <translation>A set of tools to monitor server hardware.</translation>
+        <translation>Un ensemble d&apos;outils pour surveiller le matériel du serveur.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>Virtualization Hypervisor</source>
-        <translation>Virtualization Hypervisor</translation>
+        <translation>Hyperviseur de virtualisation</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>Smallest possible virtualization host installation.</source>
-        <translation>Smallest possible virtualization host installation.</translation>
+        <translation>Installation d&apos;hôte de virtualisation la plus petite possible.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>Virtualization Platform</source>
-        <translation>Virtualization Platform</translation>
+        <translation>Plateforme de virtualisation</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>Provide an interface for accessing and controlling virtualized guests and containers.</source>
-        <translation>Provide an interface for accessing and controlling virtualized guests and containers.</translation>
+        <translation>Fourni une interface afin d&apos;accéder et de contrôler les environnements  virtualisés.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>Virtualization Client</source>
-        <translation>Virtualization Client</translation>
+        <translation>Client de virtualisation</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>Clients for installing and managing virtualization instances.</source>
-        <translation>Clients for installing and managing virtualization instances.</translation>
+        <translation>Clients pour l&apos;installation et la gestion des instances de virtualisation.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>Backup Client</source>
-        <translation>Backup Client</translation>
+        <translation>Client de sauvegarde</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>Client tools for connecting to a backup server and doing backups.</source>
-        <translation>Client tools for connecting to a backup server and doing backups.</translation>
+        <translation>Outils client permettant de se connecter à un serveur de sauvegarde et d&apos;effectuer des sauvegardes.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>Backup Server</source>
-        <translation>Backup Server</translation>
+        <translation>Serveur de sauvegarde</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>Software to centralize your infrastructure&apos;s backups.</source>
-        <translation>Software to centralize your infrastructure&apos;s backups.</translation>
+        <translation>Logiciel pour centraliser les sauvegardes de votre infrastructure.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>File and Storage Server</source>
-        <translation>File and Storage Server</translation>
+        <translation>Serveur de fichiers et de stockage</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
-        <translation>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</translation>
+        <translation>Serveur de stockage réseau CIFS, SMB, NFS, iSCSI, iSER et iSNS.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>DNS Name Server</source>
-        <translation>DNS Name Server</translation>
+        <translation>Serveur de noms DNS</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>This package group allows you to run a DNS name server (BIND) on the system.</source>
-        <translation>This package group allows you to run a DNS name server (BIND) on the system.</translation>
+        <translation>Ce groupe de paquets vous permet d&apos;exécuter un serveur de noms DNS (BIND) sur le système.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>E-mail Server</source>
-        <translation>E-mail Server</translation>
+        <translation>Serveur de messagerie</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
-        <translation>Allows the system to act as a SMTP and/or IMAP e-mail server.</translation>
+        <translation>Permet au système de jouer le rôle de serveur de messagerie SMTP et/ou IMAP.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>FTP Server</source>
-        <translation>FTP Server</translation>
+        <translation>Serveur FTP</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>Allows the system to act as an FTP server.</source>
-        <translation>Allows the system to act as an FTP server.</translation>
+        <translation>Permet au système d&apos;agir en tant que serveur FTP.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Print Server</source>
-        <translation>Print Server</translation>
+        <translation>Serveur d&apos;imprimante</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Allows the system to act as a print server.</source>
-        <translation>Allows the system to act as a print server.</translation>
+        <translation>Permet au système d&apos;agir en tant que serveur d&apos;impression.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Mainframe Access</source>
-        <translation>Mainframe Access</translation>
+        <translation>Accès à l&apos;unité centrale</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Tools for accessing mainframe computing resources.</source>
-        <translation>Tools for accessing mainframe computing resources.</translation>
+        <translation>Outils pour accéder aux ressources informatiques de l&apos;unité centrale.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Infiniband Support</source>
-        <translation>Infiniband Support</translation>
+        <translation>Prise en charge d&apos;Infiniband</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
-        <translation>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</translation>
+        <translation>Logiciel conçu pour prendre en charge l&apos;agrégation et la connectivité au réseau à l&apos;aide de matrices InfiniBand et iWARP basées sur RDMA.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>High Availability</source>
-        <translation>High Availability</translation>
+        <translation>Haute disponibilité</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Infrastructure for highly available services and/or shared storage.</source>
-        <translation>Infrastructure for highly available services and/or shared storage.</translation>
+        <translation>Infrastructure pour services hautement disponibles et/ou stockage partagé.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Resilient Storage</source>
-        <translation>Resilient Storage</translation>
+        <translation>Stockage résilient</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Clustered storage, including the GFS2 file system.</source>
-        <translation>Clustered storage, including the GFS2 file system.</translation>
+        <translation>Stockage en cluster, y compris le système de fichiers GFS2.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>ldentity Management Server</source>
-        <translation>ldentity Management Server</translation>
+        <translation>Serveur de gestion d&apos;identité</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>Centralized management of users, servers and authentication policies.</source>
-        <translation>Centralized management of users, servers and authentication policies.</translation>
+        <translation>Gestion centralisée des utilisateurs, des serveurs et des stratégies d&apos;authentification.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Large Systems Performance</source>
-        <translation>Large Systems Performance</translation>
+        <translation>Performance des grands systèmes</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Performance support tools for large systems.</source>
-        <translation>Performance support tools for large systems.</translation>
+        <translation>Outils d&apos;aide à la performance pour les grands systèmes.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Load Balancer</source>
-        <translation>Load Balancer</translation>
+        <translation>Équilibreur de charge</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Load balancing support for network traffic.</source>
-        <translation>Load balancing support for network traffic.</translation>
+        <translation>Prise en charge de l&apos;équilibrage de charge pour le trafic réseau.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>MariaDB Database Client</source>
-        <translation>MariaDB Database Client</translation>
+        <translation>Client de base de données MariaDB</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>The MariaDB SQL database client, and associated packages.</source>
-        <translation>The MariaDB SQL database client, and associated packages.</translation>
+        <translation>Le client de base de données MariaDB SQL et les paquets associés.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>MariaDB Database Server</source>
-        <translation>MariaDB Database Server</translation>
+        <translation>Serveur de base de données MariaDB</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>The MariaDB SQL database server, and associated packages.</source>
-        <translation>The MariaDB SQL database server, and associated packages.</translation>
+        <translation>Le serveur de base de données MariaDB SQL et les paquets associés.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>PostgreSQL Database Client</source>
-        <translation>PostgreSQL Database Client</translation>
+        <translation>Client de base de données PostgreSQL</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>The PostgreSQL SQL database client, and associated packages.</source>
-        <translation>The PostgreSQL SQL database client, and associated packages.</translation>
+        <translation>Le client de base de données PostgreSQL SQL et les paquets associés.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>PostgreSQL Database Server</source>
-        <translation>PostgreSQL Database Server</translation>
+        <translation>Serveur de base de données PostgreSQL</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>The PostgreSQL SQL database server, and associated packages.</source>
-        <translation>The PostgreSQL SQL database server, and associated packages.</translation>
+        <translation>Le serveur de base de données PostgreSQL SQL et les paquets associés.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Java Platform</source>
-        <translation>Java Platform</translation>
+        <translation>Plateforme Java</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Java support for UOS.</source>
-        <translation>Java support for UOS.</translation>
+        <translation>Prise en charge de Java pour UOS.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>PHP Support</source>
-        <translation>PHP Support</translation>
+        <translation>Support PHP</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>PHP web application framework.</source>
-        <translation>PHP web application framework.</translation>
+        <translation>Framework d&apos;application web PHP.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
@@ -1195,67 +1195,67 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Basic Python web application support.</source>
-        <translation>Basic Python web application support.</translation>
+        <translation>Prise en charge des applications Web Python de base.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>Perl for Web</source>
-        <translation>Perl for Web</translation>
+        <translation>Perl pour le web</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>Basic Perl web application support.</source>
-        <translation>Basic Perl web application support.</translation>
+        <translation>Support de base pour les applications web en Perl.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>Internet Applications</source>
-        <translation>Internet Applications</translation>
+        <translation>Applications internet</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>Email, chat, and video conferencing software.</source>
-        <translation>Email, chat, and video conferencing software.</translation>
+        <translation>Logiciel de messagerie, de discussion en ligne et de vidéoconférence.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>Web Servlet Engine</source>
-        <translation>Web Servlet Engine</translation>
+        <translation>Moteur de servlet web</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>Allows the system to host Java servlets.</source>
-        <translation>Allows the system to host Java servlets.</translation>
+        <translation>Permet au système d&apos;héberger des servlets Java.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>Legacy x Window System Compatibility</source>
-        <translation>Legacy x Window System Compatibility</translation>
+        <translation>Compatibilité des systèmes Legacy x Window</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>Compatibility programs for migration from or working with legacy X Window System environments.</source>
-        <translation>Compatibility programs for migration from or working with legacy X Window System environments.</translation>
+        <translation>Programmes de compatibilité pour la migration ou pour travailler avec un environnement de système windows x existant.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>Office Suite and Productivity</source>
-        <translation>Office Suite and Productivity</translation>
+        <translation>Suite bureautique et de productivité</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>A full-purpose office suite, and other productivity tools.</source>
-        <translation>A full-purpose office suite, and other productivity tools.</translation>
+        <translation>Une suite bureautique complète et d&apos;autres outils de productivité.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>Additional Development</source>
-        <translation>Additional Development</translation>
+        <translation>Développement supplémentaire</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>Additional development headers and libraries for building open-source applications.</source>
-        <translation>Additional development headers and libraries for building open-source applications.</translation>
+        <translation>En-têtes et bibliothèques de développement supplémentaires pour la création d&apos;applications open-source.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
@@ -1265,77 +1265,77 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>The GNU Emacs extensible, customizable text editor.</source>
-        <translation>The GNU Emacs extensible, customizable text editor.</translation>
+        <translation>L&apos;éditeur de texte extensible et personnalisable GNU Emacs.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>Graphics Creation Tools</source>
-        <translation>Graphics Creation Tools</translation>
+        <translation>Outils de création graphique</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>Software for creation and manipulation of still images.</source>
-        <translation>Software for creation and manipulation of still images.</translation>
+        <translation>Logiciel pour la création et la manipulation d&apos;images fixes.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>Platform Development</source>
-        <translation>Platform Development</translation>
+        <translation>Plate-forme de développement </translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
-        <translation>Recommended development headers and libraries for developing applications to run on UOS.</translation>
+        <translation>En-têtes et bibliothèques de développement recommandés pour développer des applications à exécuter sur UOS.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>Technical Writing</source>
-        <translation>Technical Writing</translation>
+        <translation>Rédaction technique</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>Tools for writing technical documentation.</source>
-        <translation>Tools for writing technical documentation.</translation>
+        <translation>Outils pour la rédaction de documentation technique.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
         <source>Virtualization Tools</source>
-        <translation>Virtualization Tools</translation>
+        <translation>Outils de virtualisation</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
         <source>Tools for offline virtual image management.</source>
-        <translation>Tools for offline virtual image management.</translation>
+        <translation>Outils pour la gestion d&apos;images virtuelles hors ligne.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
         <source>Network File System Client</source>
-        <translation>Network File System Client</translation>
+        <translation>Système de fichiers client</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
         <source>Enables the system to attach to network storage.</source>
-        <translation>Enables the system to attach to network storage.</translation>
+        <translation>Permet au système de se connecter au stockage réseau.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>Guest Agents</source>
-        <translation>Guest Agents</translation>
+        <translation>Agents invités</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>Agents used when running under a hypervisor.</source>
-        <translation>Agents used when running under a hypervisor.</translation>
+        <translation>Agents utilisés lors de l&apos;exécution sous hyperviseur.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>DDE Applications</source>
-        <translation>DDE Applications</translation>
+        <translation>Applications DDE</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>A set of commonly used DDE Applications.</source>
-        <translation>A set of commonly used DDE Applications.</translation>
+        <translation>Un ensemble d&apos;applications DDE couramment utilisées.</translation>
     </message>
 </context>
 <context>
@@ -1344,23 +1344,23 @@
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="28"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="118"/>
         <source>Set Control Region</source>
-        <translation>Set Control Region</translation>
+        <translation>Définir la région de contrôle</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="29"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="119"/>
         <source>Set the region for UOS EndPoint Management Platform</source>
-        <translation>Set the region for UOS EndPoint Management Platform</translation>
+        <translation>Définir la région pour UOS EndPoint Management Platform</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="116"/>
         <source>Next</source>
-        <translation>Next</translation>
+        <translation>Suivant</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="117"/>
         <source>Server Address</source>
-        <translation>Server Address</translation>
+        <translation>Adresse du serveur</translation>
     </message>
 </context>
 <context>
@@ -1368,17 +1368,17 @@
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="113"/>
         <source>Warning</source>
-        <translation>Warning</translation>
+        <translation>Attention</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="114"/>
         <source>Cancel</source>
-        <translation>Cancel</translation>
+        <translation>Annuler</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="115"/>
         <source>Next</source>
-        <translation>Next</translation>
+        <translation>Suivant</translation>
     </message>
 </context>
 <context>
@@ -1386,47 +1386,47 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="160"/>
         <source>Please input password</source>
-        <translation>Please input password</translation>
+        <translation>Merci de saisir le mot de passe</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="166"/>
         <source>Passwords do not match</source>
-        <translation>Passwords do not match</translation>
+        <translation> Les mots de passe ne correspondent pas</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
         <source>Encrypt This Disk</source>
-        <translation>Encrypt This Disk</translation>
+        <translation>Crypter ce disque</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="204"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation>Make sure you have backed up important data, then select the disk to install</translation>
+        <translation>Assurez-vous d&apos;avoir sauvegardé les données importantes puis sélectionner le disque où installer</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
         <source>Encrypt this disk</source>
-        <translation>Encrypt this disk</translation>
+        <translation>Crypter ce disque</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="206"/>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation>Mot de passe</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="207"/>
         <source>Repeat Password</source>
-        <translation>Repeat Password</translation>
+        <translation>Répéter le mot de passe</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="208"/>
         <source>Previous</source>
-        <translation>Previous</translation>
+        <translation>Précédent</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="209"/>
         <source>Start Installation</source>
-        <translation>Start Installation</translation>
+        <translation>Démarrer l&apos;installation</translation>
     </message>
 </context>
 <context>
@@ -1434,22 +1434,22 @@
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="76"/>
         <source>Installation Failed</source>
-        <translation>Installation Failed</translation>
+        <translation>Installation échouée</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="78"/>
         <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
-        <translation>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</translation>
+        <translation>Désolé pour ce problème. Veuillez svp faire une capture d&apos;écran ou scanner le code QR ou encore enregistrer le journal des erreurs sur un support externe, afin de nous l&apos;envoyer pour que nous puissions vous aider à le résoudre.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="80"/>
         <source>Exit</source>
-        <translation>Exit</translation>
+        <translation>Quitter</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="81"/>
         <source>Save Log</source>
-        <translation>Save Log</translation>
+        <translation>Enregistrer le journal</translation>
     </message>
 </context>
 <context>
@@ -1457,12 +1457,12 @@
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="215"/>
         <source>Installing</source>
-        <translation>Installing</translation>
+        <translation>Installation en cours</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="217"/>
         <source>Here are a few cool things to look out for...</source>
-        <translation>Here are a few cool things to look out for...</translation>
+        <translation>Voici quelques bonnes choses à surveiller...</translation>
     </message>
 </context>
 <context>
@@ -1470,7 +1470,7 @@
     <message>
         <location filename="../src/ui/models/mount_point_model.cpp" line="37"/>
         <source>Do not use</source>
-        <translation>Do not use</translation>
+        <translation>Ne pas utiliser</translation>
     </message>
 </context>
 <context>
@@ -1478,52 +1478,52 @@
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="71"/>
         <source>Skip</source>
-        <translation>Skip</translation>
+        <translation>Ignorer</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="72"/>
         <source>Next</source>
-        <translation>Next</translation>
+        <translation>Suivant</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="97"/>
         <source>Configure Network</source>
-        <translation>Configure Network</translation>
+        <translation>Configurer le réseau</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="130"/>
         <source>IP Address</source>
-        <translation>IP Address</translation>
+        <translation>Adresse IP</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="131"/>
         <source>Netmask</source>
-        <translation>Netmask</translation>
+        <translation>Masque de réseau</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="132"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>Passerelle</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="133"/>
         <source>Primary DNS</source>
-        <translation>Primary DNS</translation>
+        <translation>DNS primaire</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="134"/>
         <source>Secondary DNS</source>
-        <translation>Secondary DNS</translation>
+        <translation>DNS secondaire</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="201"/>
         <source>IP address error: illegal IP address, please have a check.</source>
-        <translation>IP address error: illegal IP address, please have a check.</translation>
+        <translation>Erreur d&apos;adresse IP : adresse IP illégale, veuillez vérifier.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="212"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
-        <translation>Netmask error: illegal netmask, please have a check.</translation>
+        <translation>Erreur de masque de réseau : masque de réseau illégal, veuillez vérifier.</translation>
     </message>
 </context>
 <context>
@@ -1532,49 +1532,49 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="53"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="92"/>
         <source>Warning</source>
-        <translation>Warning</translation>
+        <translation>Attention</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="103"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
-        <translation>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</translation>
+        <translation>Vous avez un chargeur de démarrage EFI mais un disque MBR. Vous ne pouvez donc pas installer directement UOS. Veuillez sélectionner l&apos;une des solutions ci-dessous et continuer.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="57"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="110"/>
         <source>Disable UEFI</source>
-        <translation>Disable UEFI</translation>
+        <translation>Désactiver UEFI</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="114"/>
         <source>Reboot, enter BIOS, and disable UEFI</source>
-        <translation>Reboot, enter BIOS, and disable UEFI</translation>
+        <translation>Redémarrer, entrer dans le BIOS et désactiver l&apos;UEFI</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="115"/>
         <source>Exit BIOS, and install UOS again</source>
-        <translation>Exit BIOS, and install UOS again</translation>
+        <translation>Quitter le BIOS et réinstaller UOS</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="119"/>
         <source>Format the disk</source>
-        <translation>Format the disk</translation>
+        <translation>Formater le disque</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="123"/>
         <source>Make a backup of all your data to avoid data loss</source>
-        <translation>Make a backup of all your data to avoid data loss</translation>
+        <translation>Sauvegarder vos données pour éviter toute perte de données</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="124"/>
         <source>After the backup, reboot and enter this interface again</source>
-        <translation>After the backup, reboot and enter this interface again</translation>
+        <translation>Après la sauvegarde, redémarrer et relancer cette interface.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="67"/>
@@ -1582,35 +1582,35 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="143"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="165"/>
         <source>Continue</source>
-        <translation>Continue</translation>
+        <translation>Continuer</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="70"/>
         <source>Make sure you have backed up all data before proceeding</source>
-        <translation>Make sure you have backed up all data before proceeding</translation>
+        <translation>Assurez-vous d&apos;avoir sauvegardé vos données avant de poursuivre</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="71"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="149"/>
         <source>Continuing installation will format your disk</source>
-        <translation>Continuing installation will format your disk</translation>
+        <translation>La poursuite de l&apos;installation va formater votre disque</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="72"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="164"/>
         <source>Reboot</source>
-        <translation>Reboot</translation>
+        <translation>Redémarrer</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="166"/>
         <source>Back</source>
-        <translation>Back</translation>
+        <translation>Précédent</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="147"/>
         <source>Please make sure all data were made a backup, then continue</source>
-        <translation>Please make sure all data were made a backup, then continue</translation>
+        <translation>Assurez-vous d&apos;avoir sauvegardé vos données importantes, puis continuer</translation>
     </message>
 </context>
 <context>
@@ -1618,22 +1618,22 @@
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="150"/>
         <source>Save Log</source>
-        <translation>Save Log</translation>
+        <translation>Enregistrer le journal</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="151"/>
         <source>Save the error log to a removable device</source>
-        <translation>Save the error log to a removable device</translation>
+        <translation>Enregistrer le journal des erreurs sur un périphérique amovible</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="152"/>
         <source>Save as</source>
-        <translation>Save as</translation>
+        <translation>Enregistrer sous</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="153"/>
         <source>Back</source>
-        <translation>Back</translation>
+        <translation>Précédent</translation>
     </message>
 </context>
 <context>
@@ -1642,25 +1642,25 @@
         <location filename="../src/ui/frames/install_component_frame.cpp" line="84"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="107"/>
         <source>Select Software</source>
-        <translation>Select Software</translation>
+        <translation>Sélectionner un logiciel</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="85"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="110"/>
         <source>Basic Environment</source>
-        <translation>Basic Environment</translation>
+        <translation>Environnement de base</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="86"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="115"/>
         <source>Add-Ons for Selected Environment</source>
-        <translation>Add-Ons for Selected Environment</translation>
+        <translation>Modules complémentaires pour l&apos;environnement sélectionné</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="87"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="166"/>
         <source>Next</source>
-        <translation>Next</translation>
+        <translation>Suivant</translation>
     </message>
 </context>
 <context>
@@ -1669,22 +1669,22 @@
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="241"/>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="284"/>
         <source>Next</source>
-        <translation>Next</translation>
+        <translation>Suivant</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="285"/>
         <source>I have read and agree to</source>
-        <translation>I have read and agree to</translation>
+        <translation>J’‏ai lu et accepte</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="286"/>
         <source>UOS Software End User License Agreement</source>
-        <translation>UOS Software End User License Agreement</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="289"/>
         <source>and</source>
-        <translation>and</translation>
+        <translation>et</translation>
     </message>
 </context>
 <context>
@@ -1693,18 +1693,18 @@
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
         <source>Time settings</source>
-        <translation>Time settings</translation>
+        <translation>Paramètres de l&apos;heure</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="63"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
         <source>Change date and time as you want</source>
-        <translation>Change date and time as you want</translation>
+        <translation>Changer la date et l&apos;heure</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="96"/>
         <source>Hour</source>
-        <translation>Hour</translation>
+        <translation>Heure</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="97"/>
@@ -1714,27 +1714,27 @@
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="98"/>
         <source>Year</source>
-        <translation>Year</translation>
+        <translation>Année</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="99"/>
         <source>Month</source>
-        <translation>Month</translation>
+        <translation>Mois</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="100"/>
         <source>Day</source>
-        <translation>Day</translation>
+        <translation>Jour</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="101"/>
         <source>Confirm</source>
-        <translation>Confirm</translation>
+        <translation>Confirmer</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="102"/>
         <source>Cancel</source>
-        <translation>Cancel</translation>
+        <translation>Annuler</translation>
     </message>
 </context>
 <context>
@@ -1742,12 +1742,12 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="123"/>
         <source>User Avatar</source>
-        <translation>User Avatar</translation>
+        <translation>Utiliser un avatar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="124"/>
         <source>Select an avatar for your account</source>
-        <translation>Select an avatar for your account</translation>
+        <translation>Sélectionner un avatar pour votre compte</translation>
     </message>
 </context>
 <context>
@@ -1755,118 +1755,118 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="276"/>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation>Nom d&apos;utilisateur</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="280"/>
         <source>Computer name</source>
-        <translation>Computer name</translation>
+        <translation>Nom de l&apos;ordinateur</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="284"/>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation>Mot de passe</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="289"/>
         <source>Repeat password</source>
-        <translation>Repeat password</translation>
+        <translation>Répéter le mot de passe</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="300"/>
         <source>Root password</source>
-        <translation>Root password</translation>
+        <translation>Mot de passe root</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="306"/>
         <source>Repeat root password</source>
-        <translation>Repeat root password</translation>
+        <translation>Répéter le mot de passe root</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="380"/>
         <source>Create User Account</source>
-        <translation>Create User Account</translation>
+        <translation>Créer un compte d&apos;utilisateur</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="381"/>
         <source>Fill in the username, computer name and your password</source>
-        <translation>Fill in the username, computer name and your password</translation>
+        <translation>Compléter le nom d&apos;utilisateur, le nom de l&apos;ordinateur et votre mot de passe</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="382"/>
         <source>Use that password to edit boot menu</source>
-        <translation>Use that password to edit boot menu</translation>
+        <translation>Utiliser ce mot de passe pour modifier le menu de démarrage</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="383"/>
         <source>Set root password</source>
-        <translation>Set root password</translation>
+        <translation>Définir le mot de passe root</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="384"/>
         <source>Next</source>
-        <translation>Next</translation>
+        <translation>Suivant</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="408"/>
         <source>This username already exists</source>
-        <translation>This username already exists</translation>
+        <translation>Ce nom d&apos;utilisateur existe déjà</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="412"/>
         <source>The first letter must be in lowercase</source>
-        <translation>The first letter must be in lowercase</translation>
+        <translation>La première lettre doit être en minuscule</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="418"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
-        <translation>Username must contain English letters (lowercase), numbers or special symbols (_-)</translation>
+        <translation>Le nom d&apos;utilisateur doit contenir des lettres (minuscules), des nombres ou des symboles (_-)</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="424"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
-        <translation>Please input username longer than %1 characters and shorter than %2 characters</translation>
+        <translation>Le nom d&apos;utilisateur doit être plus long que %1 et plus court que %2 caractères </translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="446"/>
         <source>Please input computer name</source>
-        <translation>Please input computer name</translation>
+        <translation>Veuillez entrer le nom de l&apos;ordinateur</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="450"/>
         <source>Computer name is invalid</source>
-        <translation>Computer name is invalid</translation>
+        <translation>Nom d&apos;ordinateur invalide</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="454"/>
         <source>Computer name already exists, please input another one</source>
-        <translation>Computer name already exists, please input another one</translation>
+        <translation>Ce nom d&apos;ordinateur existe déjà, veuillez en choisir un autre</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="459"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
-        <translation>Please input computer name longer than %1 characters and shorter than %2 characters</translation>
+        <translation>Le nom d&apos;ordinateur doit être plus long que %1 et plus court que %2 caractères </translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="486"/>
         <source>The password should be different from the username</source>
-        <translation>The password should be different from the username</translation>
+        <translation>Le mot de passe doit être différent du nom d’utilisateur.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="500"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="513"/>
         <source>Please input password longer than %1 characters and shorter than %2 characters</source>
-        <translation>Please input password longer than %1 characters and shorter than %2 characters</translation>
+        <translation>Le mot de passe doit être plus long que %1 et plus court que %2 caractères </translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="507"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+        <translation>Le mot de passe doit contenir des lettres ( Maj.-min.), des nombres ou des symboles (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="539"/>
         <source>Passwords do not match</source>
-        <translation>Passwords do not match</translation>
+        <translation> Les mots de passe ne correspondent pas</translation>
     </message>
 </context>
 <context>
@@ -1874,22 +1874,22 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="103"/>
         <source>Select keyboard layout</source>
-        <translation>Select keyboard layout</translation>
+        <translation>Sélectionner la disposition du clavier</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="104"/>
         <source>Test here</source>
-        <translation>Test here</translation>
+        <translation>Tester ici</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="105"/>
         <source>Back</source>
-        <translation>Back</translation>
+        <translation>Précédent</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="106"/>
         <source>Select a proper keyboard layout</source>
-        <translation>Select a proper keyboard layout</translation>
+        <translation>Sélectionner une disposition de clavier appropriée</translation>
     </message>
 </context>
 <context>
@@ -1897,12 +1897,12 @@
     <message>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="147"/>
         <source>End User License Agreement</source>
-        <translation>End User License Agreement</translation>
+        <translation>Contrat de licence de l&apos;utilisateur final</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="148"/>
         <source>Back</source>
-        <translation>Back</translation>
+        <translation>Précédent</translation>
     </message>
 </context>
 </TS>
