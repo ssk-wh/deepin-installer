@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en">
+<TS version="2.1">
 <context>
     <name>installer::AdvancedPartitionButton</name>
     <message>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="124"/>
         <source>Install here</source>
-        <translation type="unfinished">Install here</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="127"/>
         <source>To be formatted</source>
-        <translation type="unfinished">To be formatted</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -25,7 +25,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="177"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Change boot loader</source>
-        <translation type="unfinished">Change boot loader</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -40,7 +40,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="571"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Done</source>
-        <translation type="unfinished">Done</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -58,7 +58,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="573"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Delete</source>
-        <translation type="unfinished">Delete</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -77,7 +77,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="438"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation type="unfinished">%1 error found, fix to continue installation or switch to simple mode</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -90,7 +90,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="442"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation type="unfinished">%1 errors found, fix to continue installation or switch to simple mode</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -103,7 +103,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="448"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>%1 error found, continue to install after fixed</source>
-        <translation type="unfinished">%1 error found, continue to install after fixed</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -116,7 +116,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="452"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>%1 errors found, continue to install after fixed</source>
-        <translation type="unfinished">%1 errors found, continue to install after fixed</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -129,7 +129,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="499"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation type="unfinished">The partition filesystem type of /boot directory can only be %1 </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -142,12 +142,12 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="503"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation type="unfinished">The partition of /boot directory should be the first partition on hard disk</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="507"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
-        <translation type="unfinished">The partition of /boot/efi directory should be the first partition on hard disk</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -165,7 +165,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="512"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>At least %1 MB is required for /boot partition</source>
-        <translation type="unfinished">At least %1 MB is required for /boot partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -178,7 +178,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="516"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Add an EFI partition to continue</source>
-        <translation type="unfinished">Add an EFI partition to continue</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -191,7 +191,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="520"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>At least %1 MB is required for EFI partition</source>
-        <translation type="unfinished">At least %1 MB is required for EFI partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -204,7 +204,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="524"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Add a Root partition to continue</source>
-        <translation type="unfinished">Add a Root partition to continue</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -217,7 +217,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="529"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>At least %1 GB is required for Root partition</source>
-        <translation type="unfinished">At least %1 GB is required for Root partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -230,7 +230,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="534"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>At least %1 GB is required for partition %2</source>
-        <translation type="unfinished">At least %1 GB is required for partition %2</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -238,7 +238,7 @@
     <message>
         <location filename="../src/ui/models/bootloader_list_model.cpp" line="42"/>
         <source>%1 %2 (recommended)</source>
-        <translation type="unfinished">%1 %2 (recommended)</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -247,25 +247,25 @@
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="38"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="57"/>
         <source>Abort Installation</source>
-        <translation type="unfinished">Abort Installation</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="40"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="59"/>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
-        <translation type="unfinished">Relevant operations you made in the installation process will not take effect, abort or continue installation?</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="42"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="66"/>
         <source>Continue</source>
-        <translation type="unfinished">Continue</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="43"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="67"/>
         <source>Abort</source>
-        <translation type="unfinished">Abort</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -279,7 +279,7 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="90"/>
 >>>>>>> eae3cb6b... clean all ts file
         <source>Insufficient Disk Space</source>
-        <translation type="unfinished">Insufficient Disk Space</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -290,7 +290,7 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="97"/>
 >>>>>>> eae3cb6b... clean all ts file
         <source>Exit</source>
-        <translation type="unfinished">Exit</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -299,47 +299,47 @@
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="99"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="167"/>
         <source>Edit Disk</source>
-        <translation type="unfinished">Edit Disk</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="101"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="169"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="unfinished">Make sure you have backed up important data, then select the disk to install</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="102"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="201"/>
         <source>File system</source>
-        <translation type="unfinished">File system</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="103"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="203"/>
         <source>Mount point</source>
-        <translation type="unfinished">Mount point</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="104"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="218"/>
         <source>Format the partition</source>
-        <translation type="unfinished">Format the partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="105"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="244"/>
         <source>Cancel</source>
-        <translation type="unfinished">Cancel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="106"/>
         <source>Create</source>
-        <translation type="unfinished">Create</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="245"/>
         <source>Confirm</source>
-        <translation type="unfinished">Confirm</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -348,13 +348,13 @@
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="38"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="61"/>
         <source>Tuning system</source>
-        <translation type="unfinished">Tuning system</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="40"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="63"/>
         <source>Applying changes to your system, please wait...</source>
-        <translation type="unfinished">Applying changes to your system, please wait...</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -363,22 +363,22 @@
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="162"/>
         <source>Install here</source>
-        <translation type="unfinished">Install here</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
         <source>Encrypt this disk</source>
-        <translation type="unfinished">Encrypt this disk</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="63"/>
         <source>Encrypt This Disk</source>
-        <translation type="unfinished">Encrypt This Disk</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="64"/>
         <source>Please select a disk to start installation</source>
-        <translation type="unfinished">Please select a disk to start installation</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -406,6 +406,7 @@
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <translation>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</translation>
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
 =======
@@ -414,6 +415,9 @@
 =======
         <translation type="unfinished">You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</translation>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> 491f5c3e... update ts
     </message>
 </context>
 <context>
@@ -421,33 +425,41 @@
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="187"/>
         <source>Installing</source>
-        <translation type="unfinished">Installing</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="189"/>
         <source>Here are a few cool things to look out for...</source>
-        <translation type="unfinished">Here are a few cool things to look out for...</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>installer::MultipleDiskInstallationWidget</name>
     <message>
 <<<<<<< HEAD
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="183"/>
-=======
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="182"/>
->>>>>>> eae3cb6b... clean all ts file
-        <source>System Disk</source>
-        <translation type="unfinished">System Disk</translation>
-    </message>
-    <message>
 <<<<<<< HEAD
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="183"/>
 =======
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="182"/>
 >>>>>>> eae3cb6b... clean all ts file
+=======
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="183"/>
+>>>>>>> 491f5c3e... update ts
+        <source>System Disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="183"/>
+=======
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="182"/>
+>>>>>>> eae3cb6b... clean all ts file
+=======
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="183"/>
+>>>>>>> 491f5c3e... update ts
         <source>Data Disk</source>
-        <translation type="unfinished">Data Disk</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -466,7 +478,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="152"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Create New Partition</source>
-        <translation type="unfinished">Create New Partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -482,7 +494,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="154"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Create a new partition and define the type and size</source>
-        <translation type="unfinished">Create a new partition and define the type and size</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -498,7 +510,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="160"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Type</source>
-        <translation type="unfinished">Type</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -514,7 +526,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="166"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Location</source>
-        <translation type="unfinished">Location</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -530,7 +542,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="171"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>File system</source>
-        <translation type="unfinished">File system</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -546,7 +558,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="179"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Mount point</source>
-        <translation type="unfinished">Mount point</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -562,7 +574,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="186"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Size</source>
-        <translation type="unfinished">Size</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -578,7 +590,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="169"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Start</source>
-        <translation type="unfinished">Start</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -594,7 +606,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="169"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>End</source>
-        <translation type="unfinished">End</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -610,7 +622,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="222"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Cancel</source>
-        <translation type="unfinished">Cancel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -623,7 +635,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="128"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>OK</source>
-        <translation type="unfinished">OK</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -636,7 +648,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="223"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Create</source>
-        <translation type="unfinished">Create</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -645,7 +657,7 @@
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="37"/>
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="54"/>
         <source>Formatting...</source>
-        <translation type="unfinished">Formatting...</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -654,25 +666,25 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="76"/>
         <source>Format Warning</source>
-        <translation type="unfinished">Format Warning</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="57"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="94"/>
         <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation type="unfinished">Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="59"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="101"/>
         <source>Cancel</source>
-        <translation type="unfinished">Cancel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="102"/>
         <source>Continue</source>
-        <translation type="unfinished">Continue</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -690,7 +702,7 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="235"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Select Installation Location</source>
-        <translation type="unfinished">Select Installation Location</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -705,7 +717,7 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="237"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation type="unfinished">Make sure you have backed up important data, then select the disk to install</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -720,7 +732,7 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="244"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Simple</source>
-        <translation type="unfinished">Simple</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -735,7 +747,7 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="248"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Advanced</source>
-        <translation type="unfinished">Advanced</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -750,7 +762,7 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="252"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Full Disk</source>
-        <translation type="unfinished">Full Disk</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -785,23 +797,27 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="338"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="482"/>
         <source>Start installation</source>
-        <translation type="unfinished">Start installation</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="464"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation type="unfinished">The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="468"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation type="unfinished">The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="482"/>
         <source>Next</source>
+<<<<<<< HEAD
         <translation type="unfinished">Next</translation>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> 491f5c3e... update ts
     </message>
 </context>
 <context>
@@ -810,13 +826,13 @@
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="37"/>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="45"/>
         <source>Scan disks</source>
-        <translation type="unfinished">Scan disks</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="38"/>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="46"/>
         <source>Scanning disks, please wait...</source>
-        <translation type="unfinished">Scanning disks, please wait...</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -824,41 +840,41 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="45"/>
         <source>You should delete a primary partition before creating a new one</source>
-        <translation type="unfinished">You should delete a primary partition before creating a new one</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="47"/>
         <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation type="unfinished">New logical partitions can only be created near existing logical partitions</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="52"/>
         <source>You should delete a primary partition before creating a new partition</source>
-        <translation type="unfinished">You should delete a primary partition before creating a new partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="59"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="78"/>
         <source>Failed to Create New Partition</source>
-        <translation type="unfinished">Failed to Create New Partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="81"/>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
-        <translation type="unfinished">You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="86"/>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
-        <translation type="unfinished">You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="90"/>
         <source>Back</source>
-        <translation type="unfinished">Back</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -867,12 +883,12 @@
         <location filename="../src/ui/models/partition_type_model.cpp" line="41"/>
         <location filename="../src/ui/models/partition_type_model.cpp" line="47"/>
         <source>Logical Partition</source>
-        <translation type="unfinished">Logical Partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/models/partition_type_model.cpp" line="45"/>
         <source>Primary Partition</source>
-        <translation type="unfinished">Primary Partition</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -881,31 +897,31 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="83"/>
         <source>Ready to Install</source>
-        <translation type="unfinished">Ready to Install</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="85"/>
         <source>Make a backup of your important data and then continue</source>
-        <translation type="unfinished">Make a backup of your important data and then continue</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="92"/>
         <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
-        <translation type="unfinished">The following operations will be executed, please confirm and continue to avoid data loss</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="68"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="105"/>
         <source>Back</source>
-        <translation type="unfinished">Back</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="69"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="106"/>
         <source>Continue</source>
-        <translation type="unfinished">Continue</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -987,6 +1003,7 @@
 >>>>>>> eae3cb6b... clean all ts file
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/install_success_frame.cpp" line="98"/>
         <source>Reboot Now</source>
         <translation type="unfinished"></translation>
@@ -994,6 +1011,17 @@
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="99"/>
         <source>Successfully Installed</source>
+=======
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="49"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="55"/>
+        <source>Successfully Installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="51"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="57"/>
+        <source>Reboot to complete the installation</source>
+>>>>>>> 98cffad2... update ts
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1021,11 +1049,23 @@
         <location filename="../src/ui/frames/install_success_frame.cpp" line="100"/>
         <source>Please remove the installation media before reboot</source>
         <translation type="unfinished"></translation>
+<<<<<<< HEAD
     </message>
 >>>>>>> eae3cb6b... clean all ts file
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="101"/>
         <source>Reboot to complete the installation</source>
+=======
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="54"/>
+        <source>Reboot Now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/base/translator.h" line="14"/>
+        <source>Select system language</source>
+>>>>>>> 98cffad2... update ts
         <translation type="unfinished"></translation>
     </message>
 <<<<<<< HEAD
@@ -1057,19 +1097,19 @@
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="42"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="64"/>
         <source>Select location for boot loader</source>
-        <translation type="unfinished">Select location for boot loader</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="44"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="66"/>
         <source>If you do not understand the settings, please select the recommended one</source>
-        <translation type="unfinished">If you do not understand the settings, please select the recommended one</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="45"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="77"/>
         <source>Back</source>
-        <translation type="unfinished">Back</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1077,23 +1117,23 @@
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="75"/>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation type="unfinished">Unable to create new partition, please select one of the existing partitions!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="82"/>
         <source>Please select one of the partitions to install!</source>
-        <translation type="unfinished">Please select one of the partitions to install!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="89"/>
         <source>At least %1 GB is required for root partition</source>
-        <translation type="unfinished">At least %1 GB is required for root partition</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="237"/>
         <source>Install here</source>
-        <translation type="unfinished">Install here</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -1114,6 +1154,7 @@
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
         <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <translation type="unfinished"></translation>
 <<<<<<< HEAD
 =======
@@ -1125,6 +1166,9 @@
 =======
         <translation type="unfinished">Windows will not boot if you install UOS on Windows disk, please confirm to continue</translation>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> 491f5c3e... update ts
     </message>
 </context>
 <context>
@@ -1132,12 +1176,12 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="104"/>
         <source>User Avatar</source>
-        <translation type="unfinished">User Avatar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="105"/>
         <source>Select an avatar for your account</source>
-        <translation type="unfinished">Select an avatar for your account</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1149,7 +1193,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="173"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Username</source>
-        <translation type="unfinished">Username</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -1158,7 +1202,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="174"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Computer name</source>
-        <translation type="unfinished">Computer name</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -1167,7 +1211,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="175"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Password</source>
-        <translation type="unfinished">Password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -1176,7 +1220,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="176"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Repeat password</source>
-        <translation type="unfinished">Repeat password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -1185,7 +1229,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="177"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <source>Root password</source>
-        <translation type="unfinished">Root password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -1199,13 +1243,18 @@
 =======
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="178"/>
         <source>Repeat root password</source>
+<<<<<<< HEAD
         <translation type="unfinished">Repeat root password</translation>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> 491f5c3e... update ts
     </message>
 </context>
 <context>
     <name>installer::TimezoneFrame</name>
     <message>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         <location filename="../src/ui/frames/timezone_frame.cpp" line="140"/>
@@ -1223,18 +1272,29 @@
 =======
         <location filename="../src/ui/frames/timezone_frame.cpp" line="113"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="222"/>
+=======
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="114"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="223"/>
+>>>>>>> 491f5c3e... update ts
         <source>Select Timezone</source>
-        <translation type="unfinished">Select Timezone</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/timezone_frame.cpp" line="116"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="223"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="356"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
+=======
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="117"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="224"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="357"/>
+>>>>>>> 491f5c3e... update ts
         <source>Click your zone on the map</source>
-        <translation type="unfinished">Click your zone on the map</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         <location filename="../src/ui/frames/timezone_frame.cpp" line="146"/>
@@ -1273,33 +1333,41 @@
 =======
         <location filename="../src/ui/frames/timezone_frame.cpp" line="119"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="361"/>
+=======
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="120"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="362"/>
+>>>>>>> 491f5c3e... update ts
         <source>Select your timezone from the list</source>
-        <translation type="unfinished">Select your timezone from the list</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="122"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="225"/>
-        <source>Next</source>
-        <translation type="unfinished">Next</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="228"/>
-        <source>Map</source>
-        <translation type="unfinished">Map</translation>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="226"/>
+        <source>Next</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="124"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="234"/>
-        <source>List</source>
-        <translation type="unfinished">List</translation>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="229"/>
+        <source>Map</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="125"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="285"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="235"/>
+        <source>List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="126"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="286"/>
         <source>Time settings</source>
+<<<<<<< HEAD
         <translation type="unfinished">Time settings</translation>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> 491f5c3e... update ts
     </message>
 </context>
 <context>
@@ -1312,7 +1380,7 @@
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="62"/>
 >>>>>>> eae3cb6b... clean all ts file
         <source>Friendly Reminder</source>
-        <translation type="unfinished">Friendly Reminder</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
 <<<<<<< HEAD
@@ -1373,102 +1441,17 @@
 =======
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="64"/>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
-        <translation type="unfinished">You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="66"/>
         <source>Continue</source>
-        <translation type="unfinished">Continue</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
-        <translation type="unfinished">System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</translation>
-    </message>
-</context>
-<context>
-    <name>installer::AdvancedPartitionButton</name>
-    <message>
-        <source>Install here</source>
-        <translation type="obsolete">Install here</translation>
-    </message>
-    <message>
-        <source>To be formatted</source>
-        <translation type="obsolete">To be formatted</translation>
-    </message>
-</context>
-<context>
-    <name>installer::AdvancedPartitionFrame</name>
-    <message>
-        <source>Change boot loader</source>
-        <translation type="obsolete">Change boot loader</translation>
-    </message>
-    <message>
-        <source>Done</source>
-        <translation type="obsolete">Done</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation type="obsolete">Delete</translation>
-    </message>
-    <message>
-        <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation type="obsolete">%1 error found, fix to continue installation or switch to simple mode</translation>
-    </message>
-    <message>
-        <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation type="obsolete">%1 errors found, fix to continue installation or switch to simple mode</translation>
-    </message>
-    <message>
-        <source>%1 error found, continue to install after fixed</source>
-        <translation type="obsolete">%1 error found, continue to install after fixed</translation>
-    </message>
-    <message>
-        <source>%1 errors found, continue to install after fixed</source>
-        <translation type="obsolete">%1 errors found, continue to install after fixed</translation>
-    </message>
-    <message>
-        <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation type="obsolete">The partition filesystem type of /boot directory can only be %1 </translation>
-    </message>
-    <message>
-        <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation type="obsolete">The partition of /boot directory should be the first partition on hard disk</translation>
-    </message>
-    <message>
-        <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
-        <translation type="obsolete">The partition of /boot/efi directory should be the first partition on hard disk</translation>
-    </message>
-    <message>
-        <source>At least %1 MB is required for /boot partition</source>
-        <translation type="obsolete">At least %1 MB is required for /boot partition</translation>
-    </message>
-    <message>
-        <source>Add an EFI partition to continue</source>
-        <translation type="obsolete">Add an EFI partition to continue</translation>
-    </message>
-    <message>
-        <source>At least %1 MB is required for EFI partition</source>
-        <translation type="obsolete">At least %1 MB is required for EFI partition</translation>
-    </message>
-    <message>
-        <source>Add a Root partition to continue</source>
-        <translation type="obsolete">Add a Root partition to continue</translation>
-    </message>
-    <message>
-        <source>At least %1 GB is required for Root partition</source>
-        <translation type="obsolete">At least %1 GB is required for Root partition</translation>
-    </message>
-    <message>
-        <source>At least %1 GB is required for partition %2</source>
-        <translation type="obsolete">At least %1 GB is required for partition %2</translation>
-    </message>
-</context>
-<context>
-    <name>installer::BootloaderListModel</name>
-    <message>
-        <source>%1 %2 (recommended)</source>
-        <translation type="obsolete">%1 %2 (recommended)</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2011,6 +1994,7 @@
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Performance support tools for large systems.</source>
         <translation type="unfinished"></translation>
+<<<<<<< HEAD
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
@@ -2028,9 +2012,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>The MariaDB SQL database client, and associated packages.</source>
         <translation type="unfinished"></translation>
+=======
+        <source>Abort</source>
+        <translation type="obsolete">Abort</translation>
+=======
+>>>>>>> 98cffad2... update ts
+>>>>>>> 491f5c3e... update ts
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
@@ -2042,15 +2033,38 @@
         <source>The MariaDB SQL database server, and associated packages.</source>
         <translation type="unfinished"></translation>
     </message>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+</context>
+<context>
+    <name>installer::ControlPlatformFramePrivate</name>
+>>>>>>> 491f5c3e... update ts
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>PostgreSQL Database Client</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>The PostgreSQL SQL database client, and associated packages.</source>
         <translation type="unfinished"></translation>
+=======
+        <source>Exit</source>
+        <translation type="obsolete">Exit</translation>
+=======
+    <message>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="116"/>
+        <source>Next</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="117"/>
+        <source>Server Address</source>
+        <translation type="unfinished"></translation>
+>>>>>>> 98cffad2... update ts
+>>>>>>> 491f5c3e... update ts
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
@@ -2063,6 +2077,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>Java Platform</source>
         <translation type="unfinished"></translation>
@@ -2145,6 +2160,10 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>Allows the system to host Java servlets.</source>
+=======
+        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="115"/>
+        <source>Next</source>
+>>>>>>> 491f5c3e... update ts
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2211,6 +2230,7 @@
 >>>>>>> eae3cb6b... clean all ts file
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>Technical Writing</source>
         <translation type="unfinished"></translation>
@@ -2372,6 +2392,11 @@
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="121"/>
         <source>Server Address</source>
         <translation>Server Address</translation>
+=======
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="81"/>
+        <source>Save Log</source>
+        <translation type="unfinished"></translation>
+>>>>>>> 491f5c3e... update ts
     </message>
 </context>
 <context>
@@ -2422,6 +2447,7 @@
 <context>
     <name>installer::DynamicDiskWarningFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="113"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
@@ -2485,6 +2511,11 @@
     <message>
         <source>Confirm</source>
         <translation type="obsolete">Confirm</translation>
+=======
+        <location filename="../src/ui/models/mount_point_model.cpp" line="37"/>
+        <source>Do not use</source>
+        <translation type="unfinished"></translation>
+>>>>>>> 491f5c3e... update ts
     </message>
 </context>
 <context>
@@ -3378,6 +3409,7 @@
 =======
         <location filename="../src/ui/frames/networkframe.cpp" line="212"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
+<<<<<<< HEAD
         <translation>Netmask error: illegal netmask, please have a check.</translation>
     </message>
 </context>
@@ -3623,7 +3655,13 @@
     <message>
         <source>Back</source>
         <translation type="obsolete">Back</translation>
+<<<<<<< HEAD
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
+=======
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> 98cffad2... update ts
+>>>>>>> 491f5c3e... update ts
     </message>
 </context>
 <context>
@@ -3720,6 +3758,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="147"/>
         <source>Please make sure all data were made a backup, then continue</source>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <translation type="unfinished"></translation>
 >>>>>>> eae3cb6b... clean all ts file
 =======
@@ -3759,6 +3798,9 @@
         <source>Continue</source>
         <translation type="obsolete">Continue</translation>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> 491f5c3e... update ts
     </message>
 </context>
 <context>
@@ -3782,6 +3824,7 @@
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="152"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
+<<<<<<< HEAD
     </message>
 </context>
 <context>
@@ -3845,7 +3888,12 @@
 =======
         <source>Back</source>
         <translation type="obsolete">Back</translation>
+<<<<<<< HEAD
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
+=======
+=======
+>>>>>>> 98cffad2... update ts
+>>>>>>> 491f5c3e... update ts
     </message>
 </context>
 <context>
@@ -4018,12 +4066,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <source>Deepin Software End User License Agreement</source>
         <translation type="vanished">Deepin Software End User License Agreement</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="319"/>
+=======
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="289"/>
+>>>>>>> 98cffad2... update ts
         <source>and</source>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <translation type="unfinished"></translation>
 >>>>>>> eae3cb6b... clean all ts file
@@ -4053,6 +4106,9 @@
         <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
         <translation type="obsolete">Windows will not boot if you install UOS on Windows disk, please confirm to continue</translation>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> 491f5c3e... update ts
     </message>
 </context>
 <context>
@@ -4104,6 +4160,7 @@
         <source>Cancel</source>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
         <translation>Cancel</translation>
@@ -4143,6 +4200,9 @@
 >>>>>>> eae3cb6b... clean all ts file
 =======
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> 491f5c3e... update ts
     </message>
 </context>
 <context>
@@ -4155,6 +4215,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="124"/>
         <source>Select an avatar for your account</source>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -4230,6 +4291,9 @@
 =======
         <translation type="obsolete">Repeat root password</translation>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> 491f5c3e... update ts
     </message>
 </context>
 <context>
@@ -4579,7 +4643,11 @@
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="279"/>
         <source>Select a proper keyboard layout</source>
         <translation type="unfinished"></translation>
+<<<<<<< HEAD
 >>>>>>> eae3cb6b... clean all ts file
+=======
+<<<<<<< HEAD
+>>>>>>> 491f5c3e... update ts
     </message>
 </context>
 <context>
@@ -4701,7 +4769,12 @@
 >>>>>>> eae3cb6b... clean all ts file
 =======
         <translation type="obsolete">Time settings</translation>
+<<<<<<< HEAD
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
+=======
+=======
+>>>>>>> 98cffad2... update ts
+>>>>>>> 491f5c3e... update ts
     </message>
 </context>
 <context>
@@ -4716,11 +4789,14 @@
         <source>Back</source>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <translation>Back</translation>
 =======
         <translation type="unfinished"></translation>
 >>>>>>> eae3cb6b... clean all ts file
 =======
+=======
+>>>>>>> 491f5c3e... update ts
         <translation>Back</translation>
     </message>
     <message>
@@ -4789,6 +4865,9 @@
     <message>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
         <translation type="obsolete">System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</translation>
+=======
+        <translation type="unfinished"></translation>
+>>>>>>> 98cffad2... update ts
     </message>
 </context>
 </TS>
