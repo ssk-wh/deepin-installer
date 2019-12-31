@@ -162,7 +162,6 @@ def main():
         ("select_language_default_locale", "zh_CN"),
         ("timezone_default", "Asia/Shanghai"),
         ("timezone_use_local_time_regardless", "true"),
-        ("system_info_password_strong_check", "false"),
         ("skip_select_component_page", "true"),
         ("partition_skip_simple_partition_page", "true"),
     )
