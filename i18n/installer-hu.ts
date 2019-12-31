@@ -137,14 +137,24 @@
 <context>
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="67"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="81"/>
+=======
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="72"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Insufficient Disk Space</source>
         <translation>Nincs elegendő lemezterület</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="69"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="88"/>
+=======
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="60"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="79"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Exit</source>
         <translation type="unfinished"/>
     </message>
@@ -216,27 +226,45 @@
 <context>
     <name>installer::FullDiskFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="153"/>
+=======
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="58"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="150"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Install here</source>
         <translation>Telepítés ide</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
+=======
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="59"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Encrypt this disk</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="63"/>
+=======
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="60"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Encrypt This Disk</source>
         <translation>A lemez titkosítása</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="64"/>
+=======
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="61"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Please select a disk to start installation</source>
         <translation>Kérlek, válassz egy lemezt a telepítéshez</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="65"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
         <translation type="unfinished"/>
@@ -249,6 +277,10 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="179"/>
         <source>UOS</source>
+=======
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
+        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <translation type="unfinished"/>
     </message>
 </context>
@@ -615,6 +647,10 @@
         <translation>Üres hely</translation>
     </message>
     <message>
+<<<<<<< HEAD
+=======
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="40"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
         <translation type="unfinished"/>
     </message>
@@ -647,6 +683,7 @@
         <translation>Válassza ki az operációs rendszer nyelvét</translation>
     </message>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="48"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
@@ -664,6 +701,8 @@
     </message>
 =======
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
 </context>
 <context>
     <name>installer::SelectBootloaderFrame</name>
@@ -689,27 +728,45 @@
 <context>
     <name>installer::SimplePartitionFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="75"/>
+=======
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="72"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Unable to create new partition, please select one of the existing partitions!</source>
         <translation>Új partíciót nem lehet létrehozni. Válassz a már létező partíciók közül!</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="82"/>
+=======
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="79"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Please select one of the partitions to install!</source>
         <translation>Válassz ki egy partíciót a telepítéshez</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="89"/>
+=======
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="86"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>At least %1 GB is required for root partition</source>
         <translation>Legalább %1 GB hely szükséges a gyökér partíciónak</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="237"/>
+=======
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="115"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="234"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Install here</source>
         <translation>Telepítés ide</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="414"/>
         <source>Windows will not boot if you install %1 on Windows disk, please confirm to continue</source>
         <translation type="unfinished"/>
@@ -722,6 +779,10 @@
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="415"/>
         <source>UOS</source>
+=======
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
+        <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <translation type="unfinished"/>
     </message>
 </context>
@@ -741,32 +802,56 @@
 <context>
     <name>installer::SystemInfoFormFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="182"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="173"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Username</source>
         <translation>Felhasználónév</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="183"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="174"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Computer name</source>
         <translation>Számítógépnév</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="184"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="175"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Password</source>
         <translation>Jelszó</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="185"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="176"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Repeat password</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="186"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="177"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Root password</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="187"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="178"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Repeat root password</source>
         <translation type="unfinished"/>
     </message>
@@ -782,13 +867,21 @@
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="117"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="224"/>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/timezone_frame.cpp" line="360"/>
+=======
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="357"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Click your zone on the map</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="120"/>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/timezone_frame.cpp" line="365"/>
+=======
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="362"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Select your timezone from the list</source>
         <translation type="unfinished"/>
     </message>
@@ -820,12 +913,18 @@
 <context>
     <name>installer::VirtualMachineFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="43"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="59"/>
+=======
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="40"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="56"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Friendly Reminder</source>
         <translation> Emlékeztető</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="45"/>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install %1 in a real environment</source>
         <translation type="unfinished"/>
@@ -845,10 +944,20 @@
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="47"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="70"/>
+=======
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="42"/>
+        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="44"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="67"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Continue</source>
         <translation>Tovább</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="61"/>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install %1 in real-machine environment</source>
         <translation type="unfinished"/>
@@ -1017,377 +1126,674 @@
     <name>installer::BootloaderListModel</name>
     <message>
         <source>%1 %2 (recommended)</source>
+=======
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
+        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::ComponentInstallManager</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Minimal Install</source>
         <translation>Minimális telepítés</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Basic functionality.</source>
         <translation>Alapfunkció</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Compute Node</source>
         <translation>Számítási csomópont</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Installation for performing computation and processing.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Infrastructure Server</source>
         <translation>Infrastruktúra szerver</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Server for operating network infrastructure services.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>File and Print Server</source>
         <translation>Fájl- és nyomtatószerver</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>File, print, and storage server for enterprises.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Basic Web Server</source>
         <translation>Alapszintű webkiszolgáló</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Server for serving static and dynamic internet content.</source>
         <translation>Szerver statikus és dinamikus webtartalom szolgáltatására.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Virtualization Host</source>
         <translation>Virtualizációs gazdagép</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Minimal virtualization host.</source>
         <translation>Minimális virtualizációs gazdagép</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Server with GUI</source>
         <translation>Szerver grafikus felülettel</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Server for operating network infrastructure services, with a GUI.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>DDE Desktop</source>
         <translation>DDE Asztal</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>DDE is a highly intuitive and user friendly desktop environment.</source>
         <translation>A DDE egy intuitív és felhasználóbarát asztali környezet.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Development and Creative Workstation</source>
         <translation>Fejlesztői és kreatív munkaállomás</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Workstation for software, hardware, graphics, or content development.</source>
         <translation>Munkaállomás szoftver- és hardverfejlesztéshez, valamint grafikai feladatokhoz és tartalomkészítéshez.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Debugging Tools</source>
         <translation>Hibakereső eszközök</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Tools for debugging misbehaving applications and diagnosing performance problems.</source>
         <translation>Eszközök rosszul működő alkalmazások hibakereséséhez és teljesítményproblémák javításához.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Directory Client</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Clients for integration into a network managed by a directory service.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Security Tools</source>
         <translation>Biztonsági eszközök</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Security tools for integrity and trust verification.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Development Tools</source>
         <translation>Fejlesztői eszközök</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>A basic development environment.</source>
         <translation>Alapfunkciós fejlesztőkörnyezet.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Performance Tools</source>
         <translation>Teljesítményeszközök</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Tools for diagnosing system and application-level performance problems.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Hardware Monitoring Utilities</source>
         <translation>Hardverfelügyeleti eszközök</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>A set of tools to monitor server hardware.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Virtualization Hypervisor</source>
         <translation>Virtualizációs felügyelő</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Smallest possible virtualization host installation.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Virtualization Platform</source>
         <translation>Virtualizációs platform</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Provide an interface for accessing and controlling virtualized guests and containers.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Virtualization Client</source>
         <translation>Virtualizációs kliens</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Clients for installing and managing virtualization instances.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Backup Client</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Client tools for connecting to a backup server and doing backups.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Backup Server</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Software to centralize your infrastructure&apos;s backups.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>File and Storage Server</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>DNS Name Server</source>
         <translation>DNS névkiszolgáló</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>This package group allows you to run a DNS name server (BIND) on the system.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>E-mail Server</source>
         <translation>E-mail szerver</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>FTP Server</source>
         <translation>FTP szerver</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Allows the system to act as an FTP server.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Print Server</source>
         <translation>Nyomtatószerver</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Allows the system to act as a print server.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Mainframe Access</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Tools for accessing mainframe computing resources.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Infiniband Support</source>
         <translation>Infiniband támogatás</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>High Availability</source>
         <translation>Magas rendelkezésreállás</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Infrastructure for highly available services and/or shared storage.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Resilient Storage</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Clustered storage, including the GFS2 file system.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>ldentity Management Server</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Centralized management of users, servers and authentication policies.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Large Systems Performance</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Performance support tools for large systems.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Load Balancer</source>
         <translation>Terheléselosztás</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Load balancing support for network traffic.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>MariaDB Database Client</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>The MariaDB SQL database client, and associated packages.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>MariaDB Database Server</source>
         <translation>MariaDB adatbázis kiszolgáló</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>The MariaDB SQL database server, and associated packages.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>PostgreSQL Database Client</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>The PostgreSQL SQL database client, and associated packages.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>PostgreSQL Database Server</source>
         <translation>PostgreSQL adatbázis kiszolgáló</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>The PostgreSQL SQL database server, and associated packages.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Java Platform</source>
         <translation>Java Platform</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>Java support for %1.</source>
         <translation type="unfinished"/>
@@ -1410,170 +1816,302 @@
         <translation type="unfinished"/>
     </message>
     <message>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Java support for UOS.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>PHP Support</source>
         <translation>PHP támogatás</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>PHP web application framework.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Python</source>
         <translation>Python</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Basic Python web application support.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Perl for Web</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Basic Perl web application support.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Internet Applications</source>
         <translation>Internetes alkalmazások</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Email, chat, and video conferencing software.</source>
         <translation>Email, csevegő és videókonferencia-alkalmazások</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Web Servlet Engine</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Allows the system to host Java servlets.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Legacy x Window System Compatibility</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Compatibility programs for migration from or working with legacy X Window System environments.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Office Suite and Productivity</source>
         <translation>Irodai szoftvercsomag</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>A full-purpose office suite, and other productivity tools.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Additional Development</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Additional development headers and libraries for building open-source applications.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Emacs</source>
         <translation>Emacs</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>The GNU Emacs extensible, customizable text editor.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Graphics Creation Tools</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Software for creation and manipulation of still images.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Platform Development</source>
         <translation>Platform fejlesztőeszközök</translation>
     </message>
     <message>
+<<<<<<< HEAD
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Technical Writing</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Tools for writing technical documentation.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Virtualization Tools</source>
         <translation>Virtualizációs eszközök</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Tools for offline virtual image management.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Network File System Client</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Enables the system to attach to network storage.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Guest Agents</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Agents used when running under a hypervisor.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>DDE Applications</source>
         <translation>DDE alkalmazások</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>A set of commonly used DDE Applications.</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::ConfirmQuitFrame</name>
     <message>
         <source>Abort Installation</source>
@@ -1597,14 +2135,26 @@
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="31"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="122"/>
+=======
+    <name>installer::ControlPlatformFrame</name>
+    <message>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="28"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="118"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Set Control Region</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
+=======
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="29"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="119"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Set the region for UOS EndPoint Management Platform</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="32"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="123"/>
         <source>Set the region for %1 EndPoint Management Platform</source>
@@ -1624,16 +2174,24 @@
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="120"/>
+=======
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="116"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Next</source>
         <translation>Következő</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="121"/>
+=======
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="117"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Server Address</source>
         <translation>Szervercím</translation>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
         <source>Insufficient Disk Space</source>
@@ -1645,6 +2203,8 @@
     </message>
 </context>
 <context>
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     <name>installer::DynamicDiskWarningFrame</name>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="113"/>
@@ -1663,6 +2223,7 @@
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::EditPartitionFrame</name>
     <message>
         <source>Edit Disk</source>
@@ -1789,6 +2350,65 @@
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="78"/>
         <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
+=======
+    <name>installer::Full_Disk_Encrypt_frame</name>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="160"/>
+        <source>Please input password</source>
+        <translation>Kérlek add meg jelszavadat</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="166"/>
+        <source>Passwords do not match</source>
+        <translation>Jelszavak nem egyeznek</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
+        <source>Encrypt This Disk</source>
+        <translation>A lemez titkosítása</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="204"/>
+        <source>Make sure you have backed up important data, then select the disk to install</source>
+        <translation>Győződjön meg róla, hogy minden adatáról készített biztonsági mentést, majd válassza ki a lemezt a telepítéshez</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
+        <source>Encrypt this disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="206"/>
+        <source>Password</source>
+        <translation>Jelszó</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="207"/>
+        <source>Repeat Password</source>
+        <translation>Jelszó ismétlése</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="208"/>
+        <source>Previous</source>
+        <translation>Előző</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="209"/>
+        <source>Start Installation</source>
+        <translation>Telepítés megkezdése</translation>
+    </message>
+</context>
+<context>
+    <name>installer::InstallFailedFramePrivate</name>
+    <message>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="76"/>
+        <source>Installation Failed</source>
+        <translation>Sikertelen telepítés</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="78"/>
+        <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1803,6 +2423,7 @@
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::InstallProgressFrame</name>
     <message>
         <source>Installing</source>
@@ -1814,6 +2435,8 @@
     </message>
 </context>
 <context>
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     <name>installer::InstallProgressFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="215"/>
@@ -1835,6 +2458,7 @@
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::MultipleDiskInstallationWidget</name>
     <message>
         <source>System Disk</source>
@@ -1850,42 +2474,70 @@
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="71"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="136"/>
+=======
+    <name>installer::NetworkFrame</name>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="71"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Skip</source>
         <translation>Átugrás</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="72"/>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/networkframe.cpp" line="137"/>
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Next</source>
         <translation>Következő</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="97"/>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/networkframe.cpp" line="130"/>
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Configure Network</source>
         <translation>Hálózat beállítása</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/networkframe.cpp" line="131"/>
+=======
+        <location filename="../src/ui/frames/networkframe.cpp" line="130"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>IP Address</source>
         <translation>IP cím</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/networkframe.cpp" line="132"/>
+=======
+        <location filename="../src/ui/frames/networkframe.cpp" line="131"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Netmask</source>
         <translation>Alhálózati maszk</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/networkframe.cpp" line="133"/>
+=======
+        <location filename="../src/ui/frames/networkframe.cpp" line="132"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Gateway</source>
         <translation>Átjáró</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/networkframe.cpp" line="134"/>
+=======
+        <location filename="../src/ui/frames/networkframe.cpp" line="133"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Primary DNS</source>
         <translation>Elsődleges DNS</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/networkframe.cpp" line="135"/>
         <source>Secondary DNS</source>
         <translation>Másodlagos DNS</translation>
@@ -2266,6 +2918,21 @@
     <message>
         <source>Back</source>
         <translation type="unfinished"/>
+=======
+        <location filename="../src/ui/frames/networkframe.cpp" line="134"/>
+        <source>Secondary DNS</source>
+        <translation>Másodlagos DNS</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="201"/>
+        <source>IP address error: illegal IP address, please have a check.</source>
+        <translation>IP címhiba: nem megengedett IP cím! Kérem, ellenőrizze!</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="212"/>
+        <source>Netmask error: illegal netmask, please have a check.</source>
+        <translation>Alhálózati maszk hiba: nem megengedett maszk, kérem ellenőrizze.</translation>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -2323,34 +2990,57 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="73"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="143"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="165"/>
+<<<<<<< HEAD
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Continue</source>
         <translation>Folytatás</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="73"/>
+=======
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="70"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Make sure you have backed up all data before proceeding</source>
         <translation>Győződjön meg róla, hogy minden adatáról készített biztonsági mentést mielőtt folytatná</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="152"/>
+=======
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="71"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="149"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Continuing installation will format your disk</source>
         <translation>A telepítés folytatása formázni fogja a lemezt</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="75"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="167"/>
+=======
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="72"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="164"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Reboot</source>
         <translation>Újraindítás</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="169"/>
+=======
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="166"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Back</source>
         <translation>Vissza</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="106"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. Please select one of the below solutions and continue.</source>
@@ -2380,11 +3070,15 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="150"/>
+=======
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="147"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Please make sure all data were made a backup, then continue</source>
         <translation>Bizonyosodj meg róla, hogy minden adatról készítettél biztonsági mentést, majd folytasd a telepítést</translation>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::PartitionTypeModel</name>
     <message>
         <source>Logical Partition</source>
@@ -2419,6 +3113,8 @@
     </message>
 </context>
 <context>
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     <name>installer::SaveInstallFailedLogFrame</name>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="150"/>
@@ -2442,6 +3138,7 @@
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::SelectBootloaderFrame</name>
     <message>
         <source>Select location for boot loader</source>
@@ -2461,22 +3158,39 @@
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="85"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="130"/>
+=======
+    <name>installer::SelectInstallComponentFrame</name>
+    <message>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="107"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Select Software</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/install_component_frame.cpp" line="86"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="133"/>
+=======
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="110"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Basic Environment</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/install_component_frame.cpp" line="87"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="138"/>
+=======
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="115"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Add-Ons for Selected Environment</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/install_component_frame.cpp" line="88"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="189"/>
         <source>Next</source>
@@ -2488,21 +3202,38 @@
         <source>Select All</source>
         <translation type="unfinished"/>
     </message>
+=======
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="87"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="166"/>
+        <source>Next</source>
+        <translation>Következő</translation>
+    </message>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
 </context>
 <context>
     <name>installer::SelectLanguageFramePrivate</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="249"/>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="292"/>
+=======
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="241"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="284"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Next</source>
         <translation>Következő</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="293"/>
+=======
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="285"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>I have read and agree to</source>
         <translation>Elolvastam és egyetértek a(z)</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="294"/>
         <source>%1 Software End User License Agreement</source>
         <translation type="unfinished"/>
@@ -2518,16 +3249,24 @@
         <translation type="unfinished"/>
     </message>
     <message>
+=======
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="286"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>UOS Software End User License Agreement</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="297"/>
+=======
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="289"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>and</source>
         <translation>és</translation>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::SimplePartitionFrame</name>
     <message>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
@@ -2551,6 +3290,8 @@
     </message>
 </context>
 <context>
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     <name>installer::SystemDateFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
@@ -2601,6 +3342,7 @@
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::SystemInfoAvatarFrame</name>
     <message>
         <source>User Avatar</source>
@@ -2612,6 +3354,8 @@
     </message>
 </context>
 <context>
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     <name>installer::SystemInfoAvatarFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="123"/>
@@ -2625,6 +3369,7 @@
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::SystemInfoFormFrame</name>
     <message>
         <source>Username</source>
@@ -2655,117 +3400,211 @@
     <name>installer::SystemInfoFormFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="292"/>
+=======
+    <name>installer::SystemInfoFormFramePrivate</name>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="276"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Username</source>
         <translation>Felhasználónév</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="303"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="280"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Computer name</source>
         <translation>Számítógépnév</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="320"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="284"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Password</source>
         <translation>Jelszó</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="321"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="289"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Repeat password</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="331"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="300"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Root password</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="337"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="306"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Repeat root password</source>
         <translation type="unfinished"/>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="411"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="380"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Create User Account</source>
         <translation>Felhasználói fiók létrehozása</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="412"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="381"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Fill in the username, computer name and your password</source>
         <translation>Adja meg a felhasználónevet, számítógépnevet és a jelszavát</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="413"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="382"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Use that password to edit boot menu</source>
         <translation>Jelszó használata a boot menü szerkesztéséhez</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="414"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="383"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Set root password</source>
         <translation>Rendszergazda-jelszó beállítása</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="415"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="384"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Next</source>
         <translation>Következő</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="439"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="408"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>This username already exists</source>
         <translation>A felhasználónév már létezik</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="443"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="412"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>The first letter must be in lowercase</source>
         <translation>Az első betűnek kis betűnek kell lennie</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="449"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="418"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
         <translation>A felhasználónév csak angol kisbetűket (tehát nem ékezetes betűket), számokat vagy különleges szimbólumokat  ( aláhúzás vagy kötőjel ) tartalmazhat.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="455"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="424"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
         <translation>Adj meg egy felhasználónevet ami hosszabb mint %1 karakter és rövidebb mint %2 karakter</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="477"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="446"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Please input computer name</source>
         <translation>Add meg a számítógép nevét</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="481"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="450"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Computer name is invalid</source>
         <translation>Érvénytelen számítógépnév</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="485"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="454"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Computer name already exists, please input another one</source>
         <translation>Ez a számítógép név már létezik. Adj meg egy másik nevet</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="490"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="459"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
         <translation>Adj meg egy számítógép nevet ami hosszabb mint %1 karakter és rövidebb mint %2 karakter</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="517"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="486"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>The password should be different from the username</source>
         <translation>A felhasználónévnek és jelszónak különböznie kell egymástól</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="531"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="544"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="500"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="513"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Please input password longer than %1 characters and shorter than %2 characters</source>
         <translation>Adj meg egy jelszót ami hosszabb mint %1 karakter és rövidebb mint %2 karakter</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="538"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="507"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>A jelszónak tartalmaznia kell az angol ábécé betűit (kis-nagy betű érzékeny), arab számokat vagy speciális szimbólumokat (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="570"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="539"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Passwords do not match</source>
         <translation>Jelszavak nem egyeznek</translation>
     </message>
@@ -2794,6 +3633,7 @@
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::TimezoneFrame</name>
     <message>
         <source>Select Timezone</source>
@@ -2856,6 +3696,8 @@
     </message>
 </context>
 <context>
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     <name>installer::UserAgreementFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="147"/>
@@ -2868,6 +3710,7 @@
         <translation>Vissza</translation>
     </message>
 </context>
+<<<<<<< HEAD
 <context>
     <name>installer::VirtualMachineFrame</name>
     <message>
@@ -2906,4 +3749,6 @@
         <translation type="unfinished"/>
     </message>
 </context>
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
 </TS>

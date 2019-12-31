@@ -1003,15 +1003,6 @@
 >>>>>>> eae3cb6b... clean all ts file
     </message>
     <message>
-<<<<<<< HEAD
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="98"/>
-        <source>Reboot Now</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="99"/>
-        <source>Successfully Installed</source>
-=======
         <location filename="../src/ui/frames/install_success_frame.cpp" line="49"/>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="55"/>
         <source>Successfully Installed</source>
@@ -1021,7 +1012,6 @@
         <location filename="../src/ui/frames/install_success_frame.cpp" line="51"/>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="57"/>
         <source>Reboot to complete the installation</source>
->>>>>>> 98cffad2... update ts
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1050,12 +1040,15 @@
         <source>Please remove the installation media before reboot</source>
         <translation type="unfinished"></translation>
 <<<<<<< HEAD
+<<<<<<< HEAD
     </message>
 >>>>>>> eae3cb6b... clean all ts file
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="101"/>
         <source>Reboot to complete the installation</source>
 =======
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="54"/>
@@ -1065,7 +1058,6 @@
     <message>
         <location filename="../src/base/translator.h" line="14"/>
         <source>Select system language</source>
->>>>>>> 98cffad2... update ts
         <translation type="unfinished"></translation>
     </message>
 <<<<<<< HEAD
@@ -1995,6 +1987,7 @@
         <source>Performance support tools for large systems.</source>
         <translation type="unfinished"></translation>
 <<<<<<< HEAD
+<<<<<<< HEAD
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
@@ -2022,6 +2015,8 @@
 =======
 >>>>>>> 98cffad2... update ts
 >>>>>>> 491f5c3e... update ts
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
@@ -2033,6 +2028,7 @@
         <source>The MariaDB SQL database server, and associated packages.</source>
         <translation type="unfinished"></translation>
     </message>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -2054,6 +2050,8 @@
         <source>Exit</source>
         <translation type="obsolete">Exit</translation>
 =======
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="116"/>
         <source>Next</source>
@@ -2063,8 +2061,11 @@
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="117"/>
         <source>Server Address</source>
         <translation type="unfinished"></translation>
+<<<<<<< HEAD
 >>>>>>> 98cffad2... update ts
 >>>>>>> 491f5c3e... update ts
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
@@ -2230,6 +2231,7 @@
 >>>>>>> eae3cb6b... clean all ts file
     </message>
     <message>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>Technical Writing</source>
@@ -3662,6 +3664,11 @@
         <translation type="unfinished"></translation>
 >>>>>>> 98cffad2... update ts
 >>>>>>> 491f5c3e... update ts
+=======
+        <location filename="../src/ui/frames/networkframe.cpp" line="212"/>
+        <source>Netmask error: illegal netmask, please have a check.</source>
+        <translation type="unfinished"></translation>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -3825,6 +3832,7 @@
         <source>Back</source>
         <translation type="unfinished"></translation>
 <<<<<<< HEAD
+<<<<<<< HEAD
     </message>
 </context>
 <context>
@@ -3894,6 +3902,8 @@
 =======
 >>>>>>> 98cffad2... update ts
 >>>>>>> 491f5c3e... update ts
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -4066,15 +4076,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-<<<<<<< HEAD
-        <source>Deepin Software End User License Agreement</source>
-        <translation type="vanished">Deepin Software End User License Agreement</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="319"/>
-=======
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="289"/>
->>>>>>> 98cffad2... update ts
         <source>and</source>
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4644,6 +4646,7 @@
         <source>Select a proper keyboard layout</source>
         <translation type="unfinished"></translation>
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> eae3cb6b... clean all ts file
 =======
 <<<<<<< HEAD
@@ -4775,6 +4778,8 @@
 =======
 >>>>>>> 98cffad2... update ts
 >>>>>>> 491f5c3e... update ts
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -4787,6 +4792,7 @@
     <message>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="148"/>
         <source>Back</source>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -4866,8 +4872,9 @@
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
         <translation type="obsolete">System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</translation>
 =======
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <translation type="unfinished"></translation>
->>>>>>> 98cffad2... update ts
     </message>
 </context>
 </TS>

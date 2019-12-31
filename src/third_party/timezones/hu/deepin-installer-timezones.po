@@ -7,7 +7,10 @@
 # ddabrahim <ddabrahim@googlemail.com>, 2017
 # Laszlo Espadas, 2017
 # e7b367b198a92ab3e6fd7f551a36a082, 2019
+<<<<<<< HEAD
 # Kiss Zoltan <atari@freemail.hu>, 2020
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
 # 
 #, fuzzy
 msgid ""
@@ -16,7 +19,11 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-02 17:33+0800\n"
 "PO-Revision-Date: 2017-02-06 02:09+0000\n"
+<<<<<<< HEAD
 "Last-Translator: Kiss Zoltan <atari@freemail.hu>, 2020\n"
+=======
+"Last-Translator: e7b367b198a92ab3e6fd7f551a36a082, 2019\n"
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
 "Language-Team: Hungarian (https://www.transifex.com/linuxdeepin/teams/3976/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"

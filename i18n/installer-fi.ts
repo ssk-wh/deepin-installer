@@ -137,14 +137,24 @@
 <context>
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="67"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="81"/>
+=======
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="72"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Insufficient Disk Space</source>
         <translation>Liian vähän levytilaa</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="69"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="88"/>
+=======
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="60"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="79"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Exit</source>
         <translation>Poistu</translation>
     </message>
@@ -216,27 +226,45 @@
 <context>
     <name>installer::FullDiskFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="153"/>
+=======
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="58"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="150"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Install here</source>
         <translation>Asennetaan tänne</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
+=======
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="59"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Encrypt this disk</source>
         <translation>Salaa tämä levy</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="63"/>
+=======
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="60"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Encrypt This Disk</source>
         <translation>Salaa tämä levy</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="64"/>
+=======
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="61"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Please select a disk to start installation</source>
         <translation>Valitse levy johon haluat asentaa</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="65"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
         <translation type="unfinished"/>
@@ -250,6 +278,11 @@
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="179"/>
         <source>UOS</source>
         <translation type="unfinished"/>
+=======
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
+        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
+        <translation>Tarvitset vähintään %1 Gt levytilaa UOS-asennusta varten. Paremman suorituskyvyn saavuttamiseksi suositellaan %2 Gt tai enemmän</translation>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -262,7 +295,11 @@
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="172"/>
         <source>Here are a few cool things to look out for...</source>
+<<<<<<< HEAD
         <translation>Meillä on muutamia hienoja asioita, joihin kannattaa kiinnittää huomiota...</translation>
+=======
+        <translation>Tässä on muutamia hienoja asioita, joihin kannattaa kiinnittää huomiota ...</translation>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -417,7 +454,11 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="93"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="252"/>
         <source>Full Disk</source>
+<<<<<<< HEAD
         <translation>Käytä kaikki</translation>
+=======
+        <translation>Levy täynnä</translation>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="94"/>
@@ -531,7 +572,11 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="92"/>
         <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
+<<<<<<< HEAD
         <translation>Seuraavat toiminnot toteutetaan, ole hyvä ja vahvista jatkaaksesi</translation>
+=======
+        <translation>Seuraavat toiminnot toteutetaan, ole hyvä ja vahvista välttääksesi tietojen menettämistä</translation>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="68"/>
@@ -615,8 +660,14 @@
         <translation>Tallennustilaa</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
         <translation type="vanished">Tarvitset vähintään %1 Gt levytilaa UOS-asennusta varten. Paremman suorituskyvyn saavuttamiseksi suositellaan %2 Gt tai enemmän</translation>
+=======
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="40"/>
+        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
+        <translation>Tarvitset vähintään %1 Gt levytilaa UOS-asennusta varten. Paremman suorituskyvyn saavuttamiseksi suositellaan %2 Gt tai enemmän</translation>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="49"/>
@@ -634,7 +685,11 @@
         <location filename="../src/ui/frames/install_success_frame.cpp" line="53"/>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="56"/>
         <source>Please remove the installation media before reboot</source>
+<<<<<<< HEAD
         <translation>Voit poistaa asennusmedian nyt</translation>
+=======
+        <translation>Poista asennusmedia ennen käynnistystä uudelleen</translation>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="54"/>
@@ -646,6 +701,7 @@
         <source>Select system language</source>
         <translation>Valitse järjestelmän kieli</translation>
     </message>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="48"/>
@@ -664,6 +720,8 @@
     </message>
 =======
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
 </context>
 <context>
     <name>installer::SelectBootloaderFrame</name>
@@ -689,27 +747,45 @@
 <context>
     <name>installer::SimplePartitionFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="75"/>
+=======
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="72"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Unable to create new partition, please select one of the existing partitions!</source>
         <translation>Uutta osiota ei voitu luoda, valitse jokin nykyisistä osioista!</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="82"/>
+=======
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="79"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Please select one of the partitions to install!</source>
         <translation>Valitse osio, johon haluat asentaa!</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="89"/>
+=======
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="86"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>At least %1 GB is required for root partition</source>
         <translation>Vähintään %1 GB tilaa tarvitaan juuriosiolle</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="237"/>
+=======
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="115"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="234"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Install here</source>
         <translation>Asenna tänne</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="414"/>
         <source>Windows will not boot if you install %1 on Windows disk, please confirm to continue</source>
         <translation type="unfinished"/>
@@ -733,6 +809,11 @@
         <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
         <translation>Windows ei käynnisty, jos UOS asennetaan Windows-levylle. Vahvista jatkaaksesi</translation>
 >>>>>>> 1a7347df... chore: auto pull translation files from transifex
+=======
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
+        <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
+        <translation>Windows ei käynnisty, jos UOS asennetaan Windows-levylle. Vahvista jatkaaksesi</translation>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -751,32 +832,56 @@
 <context>
     <name>installer::SystemInfoFormFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="182"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="173"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Username</source>
         <translation>Käyttäjänimi</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="183"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="174"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Computer name</source>
         <translation>Tietokoneen nimi</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="184"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="175"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Password</source>
         <translation>Salasana</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="185"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="176"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Repeat password</source>
         <translation>Toista salasana</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="186"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="177"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Root password</source>
         <translation>Root salasana</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="187"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="178"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Repeat root password</source>
         <translation>Toista root salasana</translation>
     </message>
@@ -792,13 +897,21 @@
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="117"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="224"/>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/timezone_frame.cpp" line="360"/>
+=======
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="357"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Click your zone on the map</source>
         <translation>Klikkaa vyöhykettä kartalla</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="120"/>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/timezone_frame.cpp" line="365"/>
+=======
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="362"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Select your timezone from the list</source>
         <translation>Valitse aikavyöhyke luettelosta</translation>
     </message>
@@ -830,12 +943,18 @@
 <context>
     <name>installer::VirtualMachineFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="43"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="59"/>
+=======
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="40"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="56"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Friendly Reminder</source>
         <translation>Muistutus</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="45"/>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install %1 in a real environment</source>
         <translation type="unfinished"/>
@@ -855,10 +974,20 @@
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="47"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="70"/>
+=======
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="42"/>
+        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
+        <translation>Käytät virtuaalikonetta, joka rajoittaa järjestelmän suorituskykyä ja käyttökokemusta. Asenna UOS oikeaan tietokoneeseen saadaksesi sujuvamman käyttökokemuksen</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="44"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="67"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Continue</source>
         <translation>Jatka</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="61"/>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install %1 in real-machine environment</source>
         <translation type="unfinished"/>
@@ -1028,376 +1157,674 @@
     <message>
         <source>%1 %2 (recommended)</source>
         <translation type="unfinished"/>
+=======
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
+        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
+        <translation>Järjestelmä on havainnut käyttäväsi virtuaalikonetta, joka rajoittaa järjestelmän suorituskykyä ja käyttökokemusta. Sujuvan kokemuksen saavuttamiseksi on suositeltavaa asentaa UOS oikeaan tietokoneeseen.</translation>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
     <name>installer::ComponentInstallManager</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Minimal Install</source>
         <translation>Minimiasennus</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Basic functionality.</source>
         <translation>Perustoiminnot.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Compute Node</source>
         <translation>Tietokonepääte</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Installation for performing computation and processing.</source>
         <translation>Asennus laskennan ja käsittelyn suorittamiseen.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Infrastructure Server</source>
         <translation>Infrastruktuuripalvelin</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Server for operating network infrastructure services.</source>
         <translation>Palvelin verkkoinfrastruktuuripalvelujen käyttämiseen.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>File and Print Server</source>
         <translation>Tiedosto- ja tulostuspalvelin</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>File, print, and storage server for enterprises.</source>
         <translation>Tiedosto-, tulostus- ja tallennuspalvelin yrityksille.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Basic Web Server</source>
         <translation>Perus Web-palvelin</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Server for serving static and dynamic internet content.</source>
         <translation>Palvelin staattisen ja dynaamisen Internet-sisällön tarjoamiseksi.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Virtualization Host</source>
         <translation>Virtualisoinnin isäntä</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Minimal virtualization host.</source>
         <translation>Minimaalinen virtualisoinnin isäntä</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Server with GUI</source>
         <translation>Palvelin, graafinen</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Server for operating network infrastructure services, with a GUI.</source>
         <translation>Palvelin verkkoinfrastruktuuripalveluiden käyttämiseen, graafisen käyttöliittymän avulla.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>DDE Desktop</source>
         <translation>DDE työpöytä</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>DDE is a highly intuitive and user friendly desktop environment.</source>
         <translation>DDE on erittäin intuitiivinen ja käyttäjäystävällinen työpöytäympäristö.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Development and Creative Workstation</source>
         <translation>Toiminnan kehittäminen ja luova työasema</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Workstation for software, hardware, graphics, or content development.</source>
         <translation>Työasema ohjelmisto, laitteisto, grafiikan tai sisällön kehittämiseen.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Debugging Tools</source>
         <translation>Vianmääritystyökalut</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Tools for debugging misbehaving applications and diagnosing performance problems.</source>
         <translation>Työkalut virheellisten sovellusten vianmääritykseen ja suorituskyvyn diagnosointiin.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Directory Client</source>
         <translation>Hakemistopalvelun asiakas</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Clients for integration into a network managed by a directory service.</source>
         <translation>Asiakkaat, jotka voidaan integroida hakemistopalvelun hallitseman verkon.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Security Tools</source>
         <translation>Suojausvälineet</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Security tools for integrity and trust verification.</source>
         <translation>Suojausvälineet eheyden ja luottamuksen todentamiseksi.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Development Tools</source>
         <translation>Kehitystyökalut</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>A basic development environment.</source>
         <translation>Kehityksen perusympäristö.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Performance Tools</source>
         <translation>Suorituskykytyökalut</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Tools for diagnosing system and application-level performance problems.</source>
         <translation>Työkalut järjestelmä- ja sovellustason suorituskykyongelmien diagnosointiin.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Hardware Monitoring Utilities</source>
         <translation>Laitteiston valvonta-apuohjelmat</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>A set of tools to monitor server hardware.</source>
         <translation>Työkalusarja palvelinlaitteiden valvontaan.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Virtualization Hypervisor</source>
         <translation>Virtualisoinnin valvoja</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Smallest possible virtualization host installation.</source>
         <translation>Pienin mahdollinen virtualisointipalvelimen asennus.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Virtualization Platform</source>
         <translation>Virtualisointiympäristö</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Provide an interface for accessing and controlling virtualized guests and containers.</source>
         <translation>Tarjoa käyttöliittymä virtualisoitujen vieraiden pääsyyn ja säilöjen hallintaan.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Virtualization Client</source>
         <translation>Virtualisointiasiakas</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Clients for installing and managing virtualization instances.</source>
         <translation>Asiakkaat virtualisointi-ilmentymien asentamiseen ja hallintaan.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Backup Client</source>
         <translation>Varmuuskopion asiakas</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Client tools for connecting to a backup server and doing backups.</source>
         <translation>Asiakastyökalut yhteyden muodostamiseen varmuuskopiopalvelimeen ja varmuuskopioiden tekemiseen.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Backup Server</source>
         <translation>Varmuuskopiointipalvelin</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Software to centralize your infrastructure&apos;s backups.</source>
         <translation>Ohjelmisto infrastruktuuri varmuuskopioiden keskittämistä varten.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>File and Storage Server</source>
         <translation>Tiedosto- ja tallennuspalvelin</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
         <translation>CIFS, SMB, NFS, iSCSI, iSER ja iSNS-verkon tallennuspalvelin.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>DNS Name Server</source>
         <translation>DNS-nimipalvelin</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>This package group allows you to run a DNS name server (BIND) on the system.</source>
         <translation>Tämän pakettiryhmän avulla voit ajaa DNS-nimipalvelimen (BIND) järjestelmässä.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>E-mail Server</source>
         <translation>Sähköpostipalvelin</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
         <translation>Sallii järjestelmän toimia SMTP- ja/tai IMAP-sähköpostipalvelimena.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>FTP Server</source>
         <translation>FTP-palvelin</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Allows the system to act as an FTP server.</source>
         <translation>Sallii järjestelmän toimia FTP-palvelimena.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Print Server</source>
         <translation>Tulostuspalvelin</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Allows the system to act as a print server.</source>
         <translation>Sallii järjestelmän toimia tulostuspalvelimena.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Mainframe Access</source>
         <translation>Keskustietokoneen käyttö</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Tools for accessing mainframe computing resources.</source>
         <translation>Työkaluja keskustietokoneen resurssien käyttämiseen.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Infiniband Support</source>
         <translation>Infiniband tuki</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
         <translation>Ohjelmisto, joka on suunniteltu tukemaan klusterointia ja verkkoyhteyksiä käyttämällä RDMA-pohjaisia InfiniBand- ja iWARP-rakenteita.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>High Availability</source>
         <translation>Korkea saatavuus</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Infrastructure for highly available services and/or shared storage.</source>
         <translation>Infrastruktuuri erittäin suuresti tarjolla oleville palveluille tai jaetuille tallennuksille.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Resilient Storage</source>
         <translation>Joustava varastointi</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Clustered storage, including the GFS2 file system.</source>
         <translation>Klusteroitu tallennustila, mukaan lukien GFS2-tiedostojärjestelmä.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>ldentity Management Server</source>
         <translation>Identiteetin hallintapalvelin</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Centralized management of users, servers and authentication policies.</source>
         <translation>Keskitetty hallinta käyttäjille, palvelimille ja todennuskäytännöille.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Large Systems Performance</source>
         <translation>Suurten järjestelmien suorituskyky</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Performance support tools for large systems.</source>
         <translation>Suorituskyvyn tukityökalut suurille järjestelmille.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Load Balancer</source>
         <translation>Kuormituksen tasapainottaja</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Load balancing support for network traffic.</source>
         <translation>Verkkoliikenteen tuki kuormituksen tasapainottajalle.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>MariaDB Database Client</source>
         <translation>MariaDB -tietokannan asiakas</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>The MariaDB SQL database client, and associated packages.</source>
         <translation>MariaDB SQL-tietokanta-asiakas ja siihen liittyvät paketit.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>MariaDB Database Server</source>
         <translation>MariaDB -tietokantapalvelin</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>The MariaDB SQL database server, and associated packages.</source>
         <translation>MariaDB SQL-tietokantapalvelin ja siihen liittyvät paketit.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>PostgreSQL Database Client</source>
         <translation>PostgreSQL -tietokanta-asiakas</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>The PostgreSQL SQL database client, and associated packages.</source>
         <translation>PostgreSQL SQL-tietokantaohjelma ja siihen liittyvät paketit.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>PostgreSQL Database Server</source>
         <translation>PostgreSQL -tietokantapalvelin</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>The PostgreSQL SQL database server, and associated packages.</source>
         <translation>PostgreSQL SQL-tietokantapalvelin ja siihen liittyvät paketit.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Java Platform</source>
         <translation>Java-alusta</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>Java support for %1.</source>
         <translation type="unfinished"/>
@@ -1425,165 +1852,299 @@
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
+        <source>Java support for UOS.</source>
+        <translation>UOS Java -tuki.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>PHP Support</source>
         <translation>PHP-tuki</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>PHP web application framework.</source>
         <translation>PHP sovellusalusta.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Python</source>
         <translation>Python</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Basic Python web application support.</source>
         <translation>Python -sovellusten perustuki.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Perl for Web</source>
         <translation>Perl verkkoon</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Basic Perl web application support.</source>
         <translation>Perl perussovellustuki.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Internet Applications</source>
         <translation>Internet-sovellukset</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Email, chat, and video conferencing software.</source>
         <translation>Sähköposti-, chat- ja videoneuvottelu</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Web Servlet Engine</source>
         <translation>Verkkopalvelinmoottori</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Allows the system to host Java servlets.</source>
         <translation>Sallii järjestelmän isännöidä Java-palveluja.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Legacy x Window System Compatibility</source>
         <translation>Perinteisen X ikkunajärjestelmän yhteensopivuus</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Compatibility programs for migration from or working with legacy X Window System environments.</source>
         <translation>Yhteensopivuusohjelmat siirtymiseen vanhoista X Window -järjestelmäympäristöistä tai niiden kanssa työskentelemistä.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Office Suite and Productivity</source>
         <translation>Office Suite ja tuottavuus</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>A full-purpose office suite, and other productivity tools.</source>
         <translation>Täysi toimistopaketti ja muut tuottavuuden työkalut.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Additional Development</source>
         <translation>Ylimääräinen kehityspaketti</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Additional development headers and libraries for building open-source applications.</source>
         <translation>Muita kehityskirjastoja avoimen lähdekoodin sovellusten rakentamiseen.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Emacs</source>
         <translation>Emacs</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>The GNU Emacs extensible, customizable text editor.</source>
         <translation>GNU Emacs laajennettava, muokattava tekstieditori.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Graphics Creation Tools</source>
         <translation>Grafiikan luontityökalut</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Software for creation and manipulation of still images.</source>
         <translation>Ohjelmisto kuvien luomiseen ja käsittelemiseen.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Platform Development</source>
         <translation>Alustan kehittäminen</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
         <translation type="vanished">Suositellut kirjastot UOS -sovellusten kehittämiseen.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
+        <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
+        <translation>Suositellut kirjastot UOS -sovellusten kehittämiseen.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Technical Writing</source>
         <translation>Tekninen kirjoittaminen</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Tools for writing technical documentation.</source>
         <translation>Työkalut teknisen dokumentoinnin kirjoittamiseen.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Virtualization Tools</source>
         <translation>Virtualisointityökalut</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Tools for offline virtual image management.</source>
         <translation>Työkalut virtuaalisen näköistiedoston hallintaan.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Network File System Client</source>
         <translation>Verkkotiedostojärjestelmän asiakas</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Enables the system to attach to network storage.</source>
         <translation>Mahdollistaa järjestelmän liittämisen verkkolevylle.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Guest Agents</source>
         <translation>Vieras agentti</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Agents used when running under a hypervisor.</source>
         <translation>Agentit, joita käytetään suoritettaessa hypervisoria.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>DDE Applications</source>
         <translation>DDE-sovellukset</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
+=======
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>A set of commonly used DDE Applications.</source>
         <translation>Joukko yleisesti käytettyjä DDE-sovelluksia.</translation>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::ConfirmQuitFrame</name>
     <message>
         <source>Abort Installation</source>
@@ -1607,10 +2168,17 @@
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="31"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="122"/>
+=======
+    <name>installer::ControlPlatformFrame</name>
+    <message>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="28"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="118"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Set Control Region</source>
         <translation>Aseta ohjausalue</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <source>Set the region for UOS EndPoint Management Platform</source>
         <translation type="vanished">Aseta alue UOS EndPoint -hallintaympäristölle</translation>
     </message>
@@ -1634,16 +2202,30 @@
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="120"/>
+=======
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="29"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="119"/>
+        <source>Set the region for UOS EndPoint Management Platform</source>
+        <translation>Aseta alue UOS EndPoint -hallintaympäristölle</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="116"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Next</source>
         <translation>Seuraava</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="121"/>
+=======
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="117"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Server Address</source>
         <translation>Palvelimen osoite</translation>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
         <source>Insufficient Disk Space</source>
@@ -1655,6 +2237,8 @@
     </message>
 </context>
 <context>
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     <name>installer::DynamicDiskWarningFrame</name>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="113"/>
@@ -1673,6 +2257,7 @@
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::EditPartitionFrame</name>
     <message>
         <source>Edit Disk</source>
@@ -1799,6 +2384,61 @@
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="76"/>
         <source>Installation Failed</source>
         <translation>Asennus epäonnistui</translation>
+=======
+    <name>installer::Full_Disk_Encrypt_frame</name>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="160"/>
+        <source>Please input password</source>
+        <translation>Anna salasana</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="166"/>
+        <source>Passwords do not match</source>
+        <translation>Salasanat eivät täsmää</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
+        <source>Encrypt This Disk</source>
+        <translation>Salaa tämä levy</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="204"/>
+        <source>Make sure you have backed up important data, then select the disk to install</source>
+        <translation>Varmista, että olet varmuuskopioinut tärkeät tiedot, ja valitse sitten levy jolle haluat asentaa</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
+        <source>Encrypt this disk</source>
+        <translation>Salaa tämä levy</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="206"/>
+        <source>Password</source>
+        <translation>Salasana</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="207"/>
+        <source>Repeat Password</source>
+        <translation>Toista salasana</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="208"/>
+        <source>Previous</source>
+        <translation>Edellinen</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="209"/>
+        <source>Start Installation</source>
+        <translation>Aloita asennus</translation>
+    </message>
+</context>
+<context>
+    <name>installer::InstallFailedFramePrivate</name>
+    <message>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="76"/>
+        <source>Installation Failed</source>
+        <translation>Asennus epäonnistui</translation>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="78"/>
@@ -1817,6 +2457,7 @@
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::InstallProgressFrame</name>
     <message>
         <source>Installing</source>
@@ -1828,6 +2469,8 @@
     </message>
 </context>
 <context>
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     <name>installer::InstallProgressFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="215"/>
@@ -1837,7 +2480,11 @@
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="217"/>
         <source>Here are a few cool things to look out for...</source>
+<<<<<<< HEAD
         <translation>Meillä on muutamia hienoja asioita, joihin kannattaa kiinnittää huomiota...</translation>
+=======
+        <translation>Tässä on muutamia hienoja asioita, joihin kannattaa kiinnittää huomiota ...</translation>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -1849,6 +2496,7 @@
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::MultipleDiskInstallationWidget</name>
 <<<<<<< HEAD
 =======
@@ -1878,58 +2526,98 @@
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="71"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="136"/>
+=======
+    <name>installer::NetworkFrame</name>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="71"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Skip</source>
         <translation>Ohita</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="72"/>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/networkframe.cpp" line="137"/>
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Next</source>
         <translation>Seuraava</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="97"/>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/networkframe.cpp" line="130"/>
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Configure Network</source>
         <translation>Määritä verkko</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/networkframe.cpp" line="131"/>
+=======
+        <location filename="../src/ui/frames/networkframe.cpp" line="130"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>IP Address</source>
         <translation>IP-osoite</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/networkframe.cpp" line="132"/>
+=======
+        <location filename="../src/ui/frames/networkframe.cpp" line="131"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Netmask</source>
         <translation>Verkkopeite</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/networkframe.cpp" line="133"/>
+=======
+        <location filename="../src/ui/frames/networkframe.cpp" line="132"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Gateway</source>
         <translation>Yhdyskäytävä</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/networkframe.cpp" line="134"/>
+=======
+        <location filename="../src/ui/frames/networkframe.cpp" line="133"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Primary DNS</source>
         <translation>Ensisijainen DNS</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/networkframe.cpp" line="135"/>
+=======
+        <location filename="../src/ui/frames/networkframe.cpp" line="134"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Secondary DNS</source>
         <translation>Toissijainen DNS</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/networkframe.cpp" line="205"/>
+=======
+        <location filename="../src/ui/frames/networkframe.cpp" line="201"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>IP address error: illegal IP address, please have a check.</source>
         <translation>IP-osoitteen virhe: laiton IP-osoite, tarkista.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/networkframe.cpp" line="216"/>
+=======
+        <location filename="../src/ui/frames/networkframe.cpp" line="212"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Netmask error: illegal netmask, please have a check.</source>
         <translation>Netmask virhe: laiton verkkonpeite, ole hyvä ja tarkista.</translation>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::NewPartitionFrame</name>
 <<<<<<< HEAD
     <message>
@@ -2444,6 +3132,92 @@
     <message>
         <source>Continue</source>
         <translation type="unfinished"/>
+=======
+    <name>installer::PartitionTableWarningFrame</name>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="53"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="92"/>
+        <source>Warning</source>
+        <translation>Varoitus</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="55"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="103"/>
+        <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
+        <translation>Sinulla on EFI-käynnistäjä, mutta MBR-levy joten et voi asentaa UOS -ohjelmistoa suoraan. Valitse yksi alla olevista ratkaisuista ja jatka.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="57"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="110"/>
+        <source>Disable UEFI</source>
+        <translation>Poista UEFI</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="60"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="114"/>
+        <source>Reboot, enter BIOS, and disable UEFI</source>
+        <translation>Käynnistä uudelleen, siirry BIOSiin ja poista käytöstä UEFI</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="115"/>
+        <source>Exit BIOS, and install UOS again</source>
+        <translation>Sulje BIOS ja asenna UOS uudelleen</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="62"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="119"/>
+        <source>Format the disk</source>
+        <translation>Alusta levy</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="65"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="123"/>
+        <source>Make a backup of all your data to avoid data loss</source>
+        <translation>Tee varmuuskopio kaikista tiedoistasi tietojen häviämisen välttämiseksi</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="66"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="124"/>
+        <source>After the backup, reboot and enter this interface again</source>
+        <translation>Varmuuskopioinnin jälkeen käynnistä kone ja avaa tämä käyttöliittymä uudelleen</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="67"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="73"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="143"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="165"/>
+        <source>Continue</source>
+        <translation>Jatka</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="70"/>
+        <source>Make sure you have backed up all data before proceeding</source>
+        <translation>Varmista, että olet varmuuskopioinut kaikki tiedot ennen kuin jatkat</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="71"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="149"/>
+        <source>Continuing installation will format your disk</source>
+        <translation>Asennuksen jatkaminen alustaa valitun levyn</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="72"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="164"/>
+        <source>Reboot</source>
+        <translation>Käynnistä</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="166"/>
+        <source>Back</source>
+        <translation>Takaisin</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="147"/>
+        <source>Please make sure all data were made a backup, then continue</source>
+        <translation>Tarkista, että kaikista tiedoista on tehty varmuuskopio ja jatka sitten</translation>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -2470,6 +3244,7 @@
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::SelectBootloaderFrame</name>
     <message>
         <source>Select location for boot loader</source>
@@ -2489,22 +3264,39 @@
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="85"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="130"/>
+=======
+    <name>installer::SelectInstallComponentFrame</name>
+    <message>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="107"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Select Software</source>
         <translation>Valitse ohjelmisto</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/install_component_frame.cpp" line="86"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="133"/>
+=======
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="110"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Basic Environment</source>
         <translation>Perusympäristö</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/install_component_frame.cpp" line="87"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="138"/>
+=======
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="115"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Add-Ons for Selected Environment</source>
         <translation>Lisäosat valitulle ympäristölle</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/install_component_frame.cpp" line="88"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="189"/>
         <source>Next</source>
@@ -2516,21 +3308,38 @@
         <source>Select All</source>
         <translation type="unfinished"/>
     </message>
+=======
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="87"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="166"/>
+        <source>Next</source>
+        <translation>Seuraava</translation>
+    </message>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
 </context>
 <context>
     <name>installer::SelectLanguageFramePrivate</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="249"/>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="292"/>
+=======
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="241"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="284"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Next</source>
         <translation>Seuraava</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="293"/>
+=======
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="285"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>I have read and agree to</source>
         <translation>Olen lukenut ja hyväksynyt</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="294"/>
         <source>%1 Software End User License Agreement</source>
         <translation type="unfinished"/>
@@ -2551,11 +3360,20 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="297"/>
+=======
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="286"/>
+        <source>UOS Software End User License Agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="289"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>and</source>
         <translation>ja</translation>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::SimplePartitionFrame</name>
     <message>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
@@ -2583,6 +3401,8 @@
     </message>
 </context>
 <context>
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     <name>installer::SystemDateFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
@@ -2599,27 +3419,47 @@
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="96"/>
         <source>Hour</source>
+<<<<<<< HEAD
         <translation> tunti</translation>
+=======
+        <translation>Tunti</translation>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="97"/>
         <source>Minute</source>
+<<<<<<< HEAD
         <translation> min</translation>
+=======
+        <translation>Minuutti</translation>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="98"/>
         <source>Year</source>
+<<<<<<< HEAD
         <translation>vuosi</translation>
+=======
+        <translation>Vuosi</translation>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="99"/>
         <source>Month</source>
+<<<<<<< HEAD
         <translation>kuukausi</translation>
+=======
+        <translation>Kuukausi</translation>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="100"/>
         <source>Day</source>
+<<<<<<< HEAD
         <translation>päivä</translation>
+=======
+        <translation>Päivä</translation>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="101"/>
@@ -2633,6 +3473,7 @@
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::SystemInfoAvatarFrame</name>
     <message>
         <source>User Avatar</source>
@@ -2644,6 +3485,8 @@
     </message>
 </context>
 <context>
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     <name>installer::SystemInfoAvatarFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="123"/>
@@ -2657,6 +3500,7 @@
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::SystemInfoFormFrame</name>
     <message>
         <source>Username</source>
@@ -2714,117 +3558,212 @@
     <name>installer::SystemInfoFormFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="292"/>
+=======
+    <name>installer::SystemInfoFormFramePrivate</name>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="276"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Username</source>
         <translation>Käyttäjänimi</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="303"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="280"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Computer name</source>
         <translation>Tietokoneen nimi</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="320"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="284"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Password</source>
         <translation>Salasana</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="321"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="289"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Repeat password</source>
         <translation>Toista salasana</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="331"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="300"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Root password</source>
         <translation>Root salasana</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="337"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="306"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Repeat root password</source>
         <translation>Toista root salasana</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="411"/>
         <source>Create User Account</source>
         <translation>Luo käyttäjätunnus</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="412"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="380"/>
+        <source>Create User Account</source>
+        <translation>Luo käyttäjätili</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="381"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Fill in the username, computer name and your password</source>
         <translation>Syötä käyttäjätunnus, tietokoneen nimi ja salasana</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="413"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="382"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Use that password to edit boot menu</source>
         <translation>Käytä tätä salasanaa muokatessasi käynnistysvalikkoa</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="414"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="383"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Set root password</source>
         <translation>Aseta root salasana</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="415"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="384"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Next</source>
         <translation>Seuraava</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="439"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="408"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>This username already exists</source>
         <translation>Tämä käyttäjänimi on jo olemassa</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="443"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="412"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>The first letter must be in lowercase</source>
         <translation>Ensimmäisen kirjaimen on oltava pienaakkonen</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="449"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="418"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
         <translation>Käyttäjänimen on sisällettävä (pienaakkosia), numeroita tai erikoismerkkejä (_-)</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="455"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="424"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
         <translation>Ole hyvä ja syötä käyttäjänimi, joka on pidempi kuin %1 merkkiä ja lyhyempi kuin %2 merkkiä</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="477"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="446"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Please input computer name</source>
         <translation>Ole hyvä ja kirjoita laitteen nimi</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="481"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="450"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Computer name is invalid</source>
         <translation>Laitteen nimi ei kelpaa</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="485"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="454"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Computer name already exists, please input another one</source>
         <translation>Laitteen nimi on jo olemassa, ole hyvä ja syötä toinen</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="490"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="459"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
         <translation>Ole hyvä ja syötä laitteen nimi, joka on pidempi kuin %1 merkkiä ja lyhyempi kuin %2 merkkiä</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="517"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="486"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>The password should be different from the username</source>
         <translation>Salasanan pitäisi olla eri kuin käyttäjänimi</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="531"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="544"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="500"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="513"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Please input password longer than %1 characters and shorter than %2 characters</source>
         <translation>Ole hyvä ja syötä salasana, joka on pidempi kuin %1 merkkiä ja lyhyempi kuin %2 merkkiä</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="538"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="507"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>Salasanan on sisällettävä englantilaisia merkkejä (merkkikokoriippuvainen), numeroita tai erikoismerkkejä (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="570"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="539"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Passwords do not match</source>
         <translation>Salasanat eivät täsmää</translation>
     </message>
@@ -2853,6 +3792,7 @@
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::TimezoneFrame</name>
     <message>
         <source>Select Timezone</source>
@@ -2915,6 +3855,8 @@
     </message>
 </context>
 <context>
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     <name>installer::UserAgreementFrame</name>
     <message>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="147"/>
@@ -2927,6 +3869,7 @@
         <translation>Takaisin</translation>
     </message>
 </context>
+<<<<<<< HEAD
 <context>
     <name>installer::VirtualMachineFrame</name>
     <message>
@@ -2965,4 +3908,6 @@
         <translation type="unfinished"/>
     </message>
 </context>
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
 </TS>

@@ -66,7 +66,11 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="507"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
+<<<<<<< HEAD
         <translation>يجب أن يكون قسم القرص ذو المسار  &quot;/boot/efi&quot; هو القسم الأول على القرص</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="512"/>
@@ -96,7 +100,11 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="534"/>
         <source>At least %1 GB is required for partition %2</source>
+<<<<<<< HEAD
         <translation>مطلوب %1 جيجا بايت من المساحة على الأقل لأجل قسم القرص %2</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -137,14 +145,24 @@
 <context>
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="67"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="81"/>
+=======
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="72"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Insufficient Disk Space</source>
         <translation>مساحة القرص غير كافية</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="69"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="88"/>
+=======
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="60"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="79"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Exit</source>
         <translation>خروج</translation>
     </message>
@@ -195,7 +213,11 @@
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="245"/>
         <source>Confirm</source>
+<<<<<<< HEAD
         <translation>تأكيد</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -216,27 +238,45 @@
 <context>
     <name>installer::FullDiskFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="153"/>
+=======
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="58"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="150"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Install here</source>
         <translation>تثبيت هنا</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
+=======
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="59"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Encrypt this disk</source>
         <translation>تشفير هذا القرص</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="63"/>
+=======
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="60"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Encrypt This Disk</source>
         <translation>شفّر هذا القرص</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="64"/>
+=======
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="61"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Please select a disk to start installation</source>
         <translation>رجاءً قم باختيار القرص لبدأ عملية التثبيت</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="65"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
         <translation>يتطلب أكثر من %1 غ.ب من مساحة القرص لتثبيت %2، وﻷفضل أداء يجب توفير %3 أو أكثر</translation>
@@ -250,6 +290,11 @@
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="179"/>
         <source>UOS</source>
         <translation>UOS</translation>
+=======
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
+        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -262,7 +307,11 @@
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="172"/>
         <source>Here are a few cool things to look out for...</source>
+<<<<<<< HEAD
         <translation>هناك بعض الأشياء الجميلة التي يمكنك الإطلاع عليها...</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -270,12 +319,20 @@
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="183"/>
         <source>System Disk</source>
+<<<<<<< HEAD
         <translation>قرص النظام</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="183"/>
         <source>Data Disk</source>
+<<<<<<< HEAD
         <translation>معلومات القرص</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -284,7 +341,11 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="117"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="152"/>
         <source>Create New Partition</source>
+<<<<<<< HEAD
         <translation>إنشاء قسم جديد</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="119"/>
@@ -366,13 +427,21 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="76"/>
         <source>Format Warning</source>
+<<<<<<< HEAD
         <translation>تحذير تهيئة كامل القرص</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="57"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="94"/>
         <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
+<<<<<<< HEAD
         <translation>متابعة التثبيت ستقوم بتهيئة القرص بأكمله ، الرجاء إجراء نسخة احتياطية من كافة البيانات الخاصة بك لتجنب فقدان البيانات</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="59"/>
@@ -478,19 +547,31 @@
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="59"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="78"/>
         <source>Failed to Create New Partition</source>
+<<<<<<< HEAD
         <translation>فشل إنشاء قسم جديد في القرص</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="81"/>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
+<<<<<<< HEAD
         <translation>ينبغي أن تحذف قسم رئيسي من القرص قبل إنشاء قسم جديد، لأنه لا يمكن أن تحتوي الأقراص ذات نمط MBR على أكثر من 4 أقسام</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="86"/>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
+<<<<<<< HEAD
         <translation>ينبغي أن تحذف قسم رئيسي من القرص قبل إنشاء قسم جديد أو قم بنقل القسم المادي من القرص إلى آخر القرص</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="66"/>
@@ -519,7 +600,11 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="83"/>
         <source>Ready to Install</source>
+<<<<<<< HEAD
         <translation>جاخز للتنزيل</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="64"/>
@@ -615,8 +700,14 @@
         <translation>مساحة فارغة</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
         <translation type="vanished">يتطلب أكثر من %1 غ.ب من مساحة القرص لتثبيت نظام UOS، وﻷفضل أداء يجب توفير %2 أو أكثر</translation>
+=======
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="40"/>
+        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="49"/>
@@ -628,7 +719,11 @@
         <location filename="../src/ui/frames/install_success_frame.cpp" line="51"/>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="57"/>
         <source>Reboot to complete the installation</source>
+<<<<<<< HEAD
         <translation>أعد التشغيل لإكمال التثبيت</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="53"/>
@@ -639,6 +734,7 @@
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="54"/>
         <source>Reboot Now</source>
+<<<<<<< HEAD
         <translation>إعادة التشغيل الآن</translation>
     </message>
     <message>
@@ -660,6 +756,9 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="51"/>
         <source>UOS</source>
         <translation>UOS</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/base/translator.h" line="14"/>
@@ -679,7 +778,11 @@
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="44"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="66"/>
         <source>If you do not understand the settings, please select the recommended one</source>
+<<<<<<< HEAD
         <translation>ان لم تفهم كامل الإعدادات٫ من فضلك اختر الاعدادات الموصى بها</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="45"/>
@@ -691,27 +794,45 @@
 <context>
     <name>installer::SimplePartitionFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="75"/>
+=======
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="72"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Unable to create new partition, please select one of the existing partitions!</source>
         <translation>تعذر إنشاء قسم جديد ! يرجى تحديد أحد الأقسام الموجودة</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="82"/>
+=======
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="79"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Please select one of the partitions to install!</source>
         <translation>من فضلك اختر أحد الأقسام  للتثبيت!</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="89"/>
+=======
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="86"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>At least %1 GB is required for root partition</source>
         <translation>مطلوب على الأقل %1 غيغابايت لقسم الجذر</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="237"/>
+=======
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="115"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="234"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Install here</source>
         <translation>تثبيت هنا</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="414"/>
         <source>Windows will not boot if you install %1 on Windows disk, please confirm to continue</source>
         <translation>لن يتم تشغيل نظام ويندوز قمت بتثبيت %1 على نفس قرص ويندوز، يرجى التأكيد للمتابعة</translation>
@@ -725,6 +846,11 @@
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="415"/>
         <source>UOS</source>
         <translation>UOS</translation>
+=======
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
+        <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -743,21 +869,34 @@
 <context>
     <name>installer::SystemInfoFormFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="182"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="173"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Username</source>
         <translation>اسم المستخدم</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="183"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="174"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Computer name</source>
         <translation>اسم الحاسوب</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="184"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="175"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Password</source>
         <translation>كلمة المرور</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="185"/>
         <source>Repeat password</source>
         <translation>أدخل كلمة المرور مرة أخرى</translation>
@@ -771,6 +910,21 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="187"/>
         <source>Repeat root password</source>
         <translation>أعد إدخال كلمة مرور الجذر</translation>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="176"/>
+        <source>Repeat password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="177"/>
+        <source>Root password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="178"/>
+        <source>Repeat root password</source>
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -779,11 +933,16 @@
         <location filename="../src/ui/frames/timezone_frame.cpp" line="114"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="223"/>
         <source>Select Timezone</source>
+<<<<<<< HEAD
         <translation>أختر المنطقة الزمنية</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="117"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="224"/>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/timezone_frame.cpp" line="360"/>
         <source>Click your zone on the map</source>
         <translation>حدد منطقتك في الخريطة</translation>
@@ -793,6 +952,17 @@
         <location filename="../src/ui/frames/timezone_frame.cpp" line="365"/>
         <source>Select your timezone from the list</source>
         <translation>اختر منطقتك الزمنية من القائمة</translation>
+=======
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="357"/>
+        <source>Click your zone on the map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="120"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="362"/>
+        <source>Select your timezone from the list</source>
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="123"/>
@@ -816,18 +986,28 @@
         <location filename="../src/ui/frames/timezone_frame.cpp" line="126"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="286"/>
         <source>Time settings</source>
+<<<<<<< HEAD
         <translation>إعدادات الوقت</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
     <name>installer::VirtualMachineFrame</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="43"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="59"/>
+=======
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="40"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="56"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Friendly Reminder</source>
         <translation>تذكير ودي</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="45"/>
         <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install %1 in a real environment</source>
         <translation>انك تستخدم جهازا ظاهريا٫ مما له أثر على أداء و التجربة العملية٫ لتجربة مرنة٫ ننصح بتثبيت %1 على جهاز حقيقي </translation>
@@ -847,10 +1027,20 @@
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="47"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="70"/>
+=======
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="42"/>
+        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="44"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="67"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Continue</source>
         <translation>استمرار</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="61"/>
         <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install %1 in real-machine environment</source>
         <translation>اكتشف النظام انك تستخدم جهازا ظاهريا٫ مما له أثر على أداء و التجربة العملية٫ لتجربة مرنة٫ ننصح بتثبيت %1 على جهاز حقيقي </translation>
@@ -2225,10 +2415,548 @@
     <name>installer::NewTableLoadingFrame</name>
     <message>
         <source>Formatting...</source>
+=======
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
+        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
+    <name>installer::ComponentInstallManager</name>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
+        <source>Minimal Install</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
+        <source>Basic functionality.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
+        <source>Compute Node</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
+        <source>Installation for performing computation and processing.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
+        <source>Infrastructure Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
+        <source>Server for operating network infrastructure services.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+        <source>File and Print Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+        <source>File, print, and storage server for enterprises.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+        <source>Basic Web Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+        <source>Server for serving static and dynamic internet content.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+        <source>Virtualization Host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+        <source>Minimal virtualization host.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+        <source>Server with GUI</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+        <source>Server for operating network infrastructure services, with a GUI.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
+        <source>DDE Desktop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
+        <source>DDE is a highly intuitive and user friendly desktop environment.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+        <source>Development and Creative Workstation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+        <source>Workstation for software, hardware, graphics, or content development.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+        <source>Debugging Tools</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+        <source>Tools for debugging misbehaving applications and diagnosing performance problems.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+        <source>Directory Client</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+        <source>Clients for integration into a network managed by a directory service.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+        <source>Security Tools</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+        <source>Security tools for integrity and trust verification.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+        <source>Development Tools</source>
+        <translation>أدوات التطوير</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+        <source>A basic development environment.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+        <source>Performance Tools</source>
+        <translation>أدوات الأداء</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+        <source>Tools for diagnosing system and application-level performance problems.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+        <source>Hardware Monitoring Utilities</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+        <source>A set of tools to monitor server hardware.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+        <source>Virtualization Hypervisor</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+        <source>Smallest possible virtualization host installation.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+        <source>Virtualization Platform</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+        <source>Provide an interface for accessing and controlling virtualized guests and containers.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+        <source>Virtualization Client</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+        <source>Clients for installing and managing virtualization instances.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+        <source>Backup Client</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+        <source>Client tools for connecting to a backup server and doing backups.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+        <source>Backup Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+        <source>Software to centralize your infrastructure&apos;s backups.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+        <source>File and Storage Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+        <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+        <source>DNS Name Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+        <source>This package group allows you to run a DNS name server (BIND) on the system.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+        <source>E-mail Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+        <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+        <source>FTP Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+        <source>Allows the system to act as an FTP server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+        <source>Print Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+        <source>Allows the system to act as a print server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+        <source>Mainframe Access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+        <source>Tools for accessing mainframe computing resources.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+        <source>Infiniband Support</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+        <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+        <source>High Availability</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+        <source>Infrastructure for highly available services and/or shared storage.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+        <source>Resilient Storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+        <source>Clustered storage, including the GFS2 file system.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <source>ldentity Management Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <source>Centralized management of users, servers and authentication policies.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+        <source>Large Systems Performance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+        <source>Performance support tools for large systems.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+        <source>Load Balancer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+        <source>Load balancing support for network traffic.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+        <source>MariaDB Database Client</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+        <source>The MariaDB SQL database client, and associated packages.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+        <source>MariaDB Database Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+        <source>The MariaDB SQL database server, and associated packages.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+        <source>PostgreSQL Database Client</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+        <source>The PostgreSQL SQL database client, and associated packages.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+        <source>PostgreSQL Database Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+        <source>The PostgreSQL SQL database server, and associated packages.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
+        <source>Java Platform</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
+        <source>Java support for UOS.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
+        <source>PHP Support</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
+        <source>PHP web application framework.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
+        <source>Python</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
+        <source>Basic Python web application support.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
+        <source>Perl for Web</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
+        <source>Basic Perl web application support.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
+        <source>Internet Applications</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
+        <source>Email, chat, and video conferencing software.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
+        <source>Web Servlet Engine</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
+        <source>Allows the system to host Java servlets.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
+        <source>Legacy x Window System Compatibility</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
+        <source>Compatibility programs for migration from or working with legacy X Window System environments.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
+        <source>Office Suite and Productivity</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
+        <source>A full-purpose office suite, and other productivity tools.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
+        <source>Additional Development</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
+        <source>Additional development headers and libraries for building open-source applications.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
+        <source>Emacs</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
+        <source>The GNU Emacs extensible, customizable text editor.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
+        <source>Graphics Creation Tools</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
+        <source>Software for creation and manipulation of still images.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
+        <source>Platform Development</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
+        <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
+        <source>Technical Writing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
+        <source>Tools for writing technical documentation.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
+        <source>Virtualization Tools</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
+        <source>Tools for offline virtual image management.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
+        <source>Network File System Client</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
+        <source>Enables the system to attach to network storage.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
+        <source>Guest Agents</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
+        <source>Agents used when running under a hypervisor.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
+        <source>DDE Applications</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
+        <source>A set of commonly used DDE Applications.</source>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+<<<<<<< HEAD
     <name>installer::NewTableWarningFrame</name>
     <message>
         <source>Format Warning</source>
@@ -2283,10 +3011,123 @@
     </message>
     <message>
         <source>Next</source>
+=======
+    <name>installer::ControlPlatformFrame</name>
+    <message>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="28"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="118"/>
+        <source>Set Control Region</source>
+        <translation>اختر المنطقة</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="29"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="119"/>
+        <source>Set the region for UOS EndPoint Management Platform</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="116"/>
+        <source>Next</source>
+        <translation>التالي</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="117"/>
+        <source>Server Address</source>
+        <translation>عنوان السيرفر</translation>
+    </message>
+</context>
+<context>
+    <name>installer::DynamicDiskWarningFrame</name>
+    <message>
+        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="113"/>
+        <source>Warning</source>
+        <translation>تحذير</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="114"/>
+        <source>Cancel</source>
+        <translation>إلغاء</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="115"/>
+        <source>Next</source>
+        <translation>التالي</translation>
+    </message>
+</context>
+<context>
+    <name>installer::Full_Disk_Encrypt_frame</name>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="160"/>
+        <source>Please input password</source>
+        <translation>رجاءً أدخل كلمة المرور</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="166"/>
+        <source>Passwords do not match</source>
+        <translation>كلمتا المرور غير متطابقتين</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
+        <source>Encrypt This Disk</source>
+        <translation>شفّر هذا القرص</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="204"/>
+        <source>Make sure you have backed up important data, then select the disk to install</source>
+        <translation>تأكد من عمل نسخة احتياطية للبيانات المهمة، ثم اختر القرص للتثبيت</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
+        <source>Encrypt this disk</source>
+        <translation>تشفير هذا القرص</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="206"/>
+        <source>Password</source>
+        <translation>كلمة المرور</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="207"/>
+        <source>Repeat Password</source>
+        <translation>أدخل كلمة المرور مرة أخرى</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="208"/>
+        <source>Previous</source>
+        <translation>السابق</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="209"/>
+        <source>Start Installation</source>
+        <translation>بداية التثبيت</translation>
+    </message>
+</context>
+<context>
+    <name>installer::InstallFailedFramePrivate</name>
+    <message>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="76"/>
+        <source>Installation Failed</source>
+        <translation>فشل التثبيت</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="78"/>
+        <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="80"/>
+        <source>Exit</source>
+        <translation>خروج</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="81"/>
+        <source>Save Log</source>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::PartitionLoadingFrame</name>
     <message>
         <source>Scan disks</source>
@@ -2294,10 +3135,22 @@
     </message>
     <message>
         <source>Scanning disks, please wait...</source>
+=======
+    <name>installer::InstallProgressFramePrivate</name>
+    <message>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="215"/>
+        <source>Installing</source>
+        <translation>قيد التثبيت</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="217"/>
+        <source>Here are a few cool things to look out for...</source>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::PartitionNumberLimitationFrame</name>
     <message>
         <source>You should delete a primary partition before creating a new one</source>
@@ -2326,6 +3179,66 @@
     <message>
         <source>Back</source>
         <translation type="unfinished"/>
+=======
+    <name>installer::MountPointModel</name>
+    <message>
+        <location filename="../src/ui/models/mount_point_model.cpp" line="37"/>
+        <source>Do not use</source>
+        <translation>لا تستخدم</translation>
+    </message>
+</context>
+<context>
+    <name>installer::NetworkFrame</name>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="71"/>
+        <source>Skip</source>
+        <translation>تخطي</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="72"/>
+        <source>Next</source>
+        <translation>التالي</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="97"/>
+        <source>Configure Network</source>
+        <translation>ضبط الشبكة</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="130"/>
+        <source>IP Address</source>
+        <translation>عنوان IP</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="131"/>
+        <source>Netmask</source>
+        <translation>Netmask</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="132"/>
+        <source>Gateway</source>
+        <translation>Gateway</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="133"/>
+        <source>Primary DNS</source>
+        <translation>Primary DNS</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="134"/>
+        <source>Secondary DNS</source>
+        <translation>Secondary DNS</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="201"/>
+        <source>IP address error: illegal IP address, please have a check.</source>
+        <translation>خطأ في عنوان IP: عنوان IP غير قانوني، رجاءً تأكد.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="212"/>
+        <source>Netmask error: illegal netmask, please have a check.</source>
+        <translation>خطأ في Netmask:ال Netmask غير قانوني، رجاءً تأكد.</translation>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -2373,6 +3286,7 @@
         <translation>قم بعمل نسخة احتياطية من جميع البيانات الخاصة بك لتجنب فقدان البيانات</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="124"/>
         <source>After the backup, reboot and enter this interface again</source>
@@ -2476,6 +3390,48 @@
     <message>
         <source>Continue</source>
         <translation type="unfinished"/>
+=======
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="66"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="124"/>
+        <source>After the backup, reboot and enter this interface again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="67"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="73"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="143"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="165"/>
+        <source>Continue</source>
+        <translation>استمرار</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="70"/>
+        <source>Make sure you have backed up all data before proceeding</source>
+        <translation>تأكد من عمل نسخة احتياطية لبياناتك قبل الإكمال</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="71"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="149"/>
+        <source>Continuing installation will format your disk</source>
+        <translation>الاستمرار في التثبيت سيهيء قرصك ، بمعى آخر سيتم حذف جميع البيانات</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="72"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="164"/>
+        <source>Reboot</source>
+        <translation>إعادة تشغيل</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="166"/>
+        <source>Back</source>
+        <translation>رجوع</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="147"/>
+        <source>Please make sure all data were made a backup, then continue</source>
+        <translation>من فضلك تأكد من وضع نسخة احتياطية عن معلوماتك٫ ثم استمر</translation>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
 </context>
 <context>
@@ -2483,17 +3439,29 @@
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="150"/>
         <source>Save Log</source>
+<<<<<<< HEAD
         <translation>حفظ السجل</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="151"/>
         <source>Save the error log to a removable device</source>
+<<<<<<< HEAD
         <translation>حفظ سجل الأخطاء إلى جهاز قابل للإزالة</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="152"/>
         <source>Save as</source>
+<<<<<<< HEAD
         <translation>حفظ كـ</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="153"/>
@@ -2502,6 +3470,7 @@
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::SelectBootloaderFrame</name>
 <<<<<<< HEAD
 =======
@@ -2566,21 +3535,58 @@
         <source>Select All</source>
         <translation>اختيار الكل</translation>
     </message>
+=======
+    <name>installer::SelectInstallComponentFrame</name>
+    <message>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="107"/>
+        <source>Select Software</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="110"/>
+        <source>Basic Environment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="115"/>
+        <source>Add-Ons for Selected Environment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="87"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="166"/>
+        <source>Next</source>
+        <translation>التالي</translation>
+    </message>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
 </context>
 <context>
     <name>installer::SelectLanguageFramePrivate</name>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="249"/>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="292"/>
+=======
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="241"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="284"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Next</source>
         <translation>التالي</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="293"/>
+=======
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="285"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>I have read and agree to</source>
         <translation>أنا قرأت وأوفق على</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="294"/>
         <source>%1 Software End User License Agreement</source>
         <translation>اتفاقية ترخيص المستخدم لبرامج %1</translation>
@@ -2601,11 +3607,20 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="297"/>
+=======
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="286"/>
+        <source>UOS Software End User License Agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="289"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>and</source>
         <translation>و</translation>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::SimplePartitionFrame</name>
     <message>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
@@ -2633,18 +3648,28 @@
     </message>
 </context>
 <context>
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     <name>installer::SystemDateFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
         <source>Time settings</source>
+<<<<<<< HEAD
         <translation>إعدادات الوقت</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="63"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
         <source>Change date and time as you want</source>
+<<<<<<< HEAD
         <translation>قم بتغيير التاريخ والوقت كما تريد</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="96"/>
@@ -2674,7 +3699,11 @@
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="101"/>
         <source>Confirm</source>
+<<<<<<< HEAD
         <translation>تأكيد</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="102"/>
@@ -2683,6 +3712,7 @@
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::SystemInfoAvatarFrame</name>
     <message>
         <source>User Avatar</source>
@@ -2694,6 +3724,8 @@
     </message>
 </context>
 <context>
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     <name>installer::SystemInfoAvatarFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_avatar_frame.cpp" line="123"/>
@@ -2707,6 +3739,7 @@
     </message>
 </context>
 <context>
+<<<<<<< HEAD
     <name>installer::SystemInfoFormFrame</name>
     <message>
         <source>Username</source>
@@ -2737,20 +3770,34 @@
     <name>installer::SystemInfoFormFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="292"/>
+=======
+    <name>installer::SystemInfoFormFramePrivate</name>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="276"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Username</source>
         <translation>اسم المستخدم</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="303"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="280"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Computer name</source>
         <translation>اسم الحاسوب</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="320"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="284"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Password</source>
         <translation>كلمة المرور</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="321"/>
         <source>Repeat password</source>
         <translation>أدخل كلمة المرور مرة أخرى</translation>
@@ -2767,87 +3814,171 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="411"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="289"/>
+        <source>Repeat password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="300"/>
+        <source>Root password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="306"/>
+        <source>Repeat root password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="380"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Create User Account</source>
         <translation>إنشاء حساب المستخدم</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="412"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="381"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Fill in the username, computer name and your password</source>
         <translation>قم بكتابة اسم المستخدم، اسم الكمبيوتر وكلمة مرورك</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="413"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="382"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Use that password to edit boot menu</source>
         <translation>اسم تلك كلمة المرور لتعديل قائمة التشغيل</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="414"/>
         <source>Set root password</source>
         <translation>قم بتعيين كلمة مرور الجذر</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="415"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="383"/>
+        <source>Set root password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="384"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Next</source>
         <translation>التالي</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="439"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="408"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>This username already exists</source>
         <translation>اسم المستخدم هذا موجود مسبقا</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="443"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="412"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>The first letter must be in lowercase</source>
         <translation>الحرف الاول يجب ان يكون بحروف صغيرة</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="449"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="418"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
         <translation>اسم المستخدم  يجب أن يحتوي على أحرف إنكليزية (بحالة صغيرة) ، أو أرقام ، أو رموز خاصة مثل (_-)</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="455"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="424"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
         <translation>يرجى إدخال اسم مستخدم أطول من %1 من المحارف وأقصر من %2 من المحارف</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="477"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="446"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Please input computer name</source>
         <translation>الرجاء ادخال اسم الحاسوب</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="481"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="450"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Computer name is invalid</source>
         <translation>اسم الحاسوب غير صالح</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="485"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="454"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Computer name already exists, please input another one</source>
         <translation>اسم الحاسوب موجود مسبقاً٫ الرجاء إدخال اسماً آخر</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="490"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="459"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
         <translation>يرجى إدخال اسم حاسوب أطول من %1 من المحارف وأقصر من %2 من المحارف</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="517"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="486"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>The password should be different from the username</source>
         <translation>يجب أن تكون كلمة المرور مختلفة عن اسم المستخدم</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="531"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="544"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="500"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="513"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Please input password longer than %1 characters and shorter than %2 characters</source>
         <translation>يرجى إدخال كلمة مرور أطول من %1 من المحارف وأقصر من %2 من المحارف</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="538"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="507"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>كلمة المرور  يجب أن تحتوي على أحرف إنجيزية (بحالة صغيرة) ، أو أرقام ، أو رموز خاصة مثل (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="570"/>
+=======
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="539"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <source>Passwords do not match</source>
         <translation>كلمتا المرور غير متطابقتين</translation>
     </message>
@@ -2862,7 +3993,11 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="104"/>
         <source>Test here</source>
+<<<<<<< HEAD
         <translation>الاختبار هنا</translation>
+=======
+        <translation type="unfinished"/>
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="105"/>
@@ -2872,6 +4007,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="106"/>
         <source>Select a proper keyboard layout</source>
+<<<<<<< HEAD
         <translation>اختر تخطيط لوحة المفاتيح المناسب لك</translation>
     </message>
 </context>
@@ -2934,6 +4070,8 @@
     </message>
     <message>
         <source>Time settings</source>
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2950,6 +4088,7 @@
         <translation>رجوع</translation>
     </message>
 </context>
+<<<<<<< HEAD
 <context>
     <name>installer::VirtualMachineFrame</name>
     <message>
@@ -2988,4 +4127,6 @@
         <translation type="unfinished"/>
     </message>
 </context>
+=======
+>>>>>>> abe476cc... chore: auto pull translation files from transifex
 </TS>
