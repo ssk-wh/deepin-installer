@@ -16,6 +16,7 @@
 #include <QScrollBar>
 #include <QCollator>
 #include <QDebug>
+#include <QEvent>
 
 namespace installer {
 

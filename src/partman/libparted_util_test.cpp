@@ -15,6 +15,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <QFile>
+
 #include "partman/libparted_util.h"
 
 #include "third_party/googletest/include/gtest/gtest.h"

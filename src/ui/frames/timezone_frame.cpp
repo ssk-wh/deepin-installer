@@ -19,6 +19,7 @@
 
 #include <QDebug>
 #include <QEvent>
+#include <QKeyEvent>
 #include <QHBoxLayout>
 #include <QTimer>
 #include <QVBoxLayout>

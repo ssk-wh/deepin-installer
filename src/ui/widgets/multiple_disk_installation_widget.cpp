@@ -20,6 +20,7 @@
 #include <QStringListModel>
 #include <vector>
 #include <initializer_list>
+#include <QEvent>
 
 #include "ui/widgets/multiple_disk_installation_widget.h"
 #include "ui/views/disk_installation_view.h"
