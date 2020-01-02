@@ -45,7 +45,6 @@ public:
         , q_ptr(qobject_cast<VirtualMachineFrame* >(parent))
     {}
 
-    void initConnections();
     void initUI();
 
     VirtualMachineFrame* q_ptr = nullptr;
@@ -61,7 +60,6 @@ VirtualMachineFrame::VirtualMachineFrame(FrameProxyInterface* frameProxyInterfac
   setObjectName("virtual_machine_frame");
 
   m_private->initUI();
-  m_private->initConnections();
 }
 
 void VirtualMachineFrame::changeEvent(QEvent* event) {
@@ -94,12 +92,6 @@ void VirtualMachineFrame::finished()
 bool VirtualMachineFrame::shouldDisplay() const
 {
     return !GetSettingsBool(kSkipVirtualMachinePage) && IsVirtualMachine() ;
-}
-void VirtualMachineFramePrivate::initConnections() {
-    connect(nextButton, &QPushButton::clicked,
-            q_ptr, [=] {
-        q_ptr->m_proxy->nextFrame();
-    });
 }
 
 void VirtualMachineFramePrivate::initUI() {
