@@ -31,7 +31,6 @@ public:
     {}
 
     void initUI();
-    void initConnections();
     void onServerTypeClicked();
     void onComponentClicked();
     void clearComponentLayout();
@@ -59,7 +58,6 @@ SelectInstallComponentFrame::SelectInstallComponentFrame(FrameProxyInterface* fr
     setObjectName("install_component_frame");
 
     m_private->initUI();
-    m_private->initConnections();
 }
 
 SelectInstallComponentFrame::~SelectInstallComponentFrame()
@@ -275,14 +273,6 @@ void SelectInstallComponentFramePrivate::initUI()
     centerLayout->addSpacing(60);
 
     q_ptr->setStyleSheet(ReadFile(":/styles/install_component_frame.css"));
-}
-
-void SelectInstallComponentFramePrivate::initConnections()
-{
-    connect(nextButton, &QPushButton::clicked,
-            q_ptr, [=] {
-        q_ptr->m_proxy->nextFrame();
-    });
 }
 
 void SelectInstallComponentFramePrivate::onServerTypeClicked()
