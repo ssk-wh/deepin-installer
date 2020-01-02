@@ -501,15 +501,13 @@ Device::Ptr constructDevice1(int deviceNum)
     partition1->device_path = device->path;
     partition1->path = QString("%1p-1").arg(device->path);
     partition1->partition_number = -1;
-    partition1->type = PartitionType::Normal;
+    partition1->type = PartitionType::Unallocated;
     partition1->status = PartitionStatus::Real;
-    partition1->fs = FsType::LinuxSwap;
+    partition1->fs = FsType::Unknown;
     partition1->busy = false;
     partition1->start_sector = 2048;
     partition1->end_sector = 209715200;
     partition1->sector_size = 512;
-    partition1->length = 209715200 - 2048;
-    partition1->mount_point = "/";
 
     PartitionList partitions;
     partitions << Partition::Ptr(partition1);
@@ -541,10 +539,8 @@ Device::Ptr constructDevice2(int deviceNum)
     partition1->busy = false;
     partition1->label = QString("debugDevice%1p%2").arg(deviceNum).arg(partitionNo);
     partition1->start_sector = 2048;
-    partition1->end_sector = 209715199;
+    partition1->end_sector = 209715219;
     partition1->sector_size = 512;
-    partition1->length = 209715199 - 2048;
-    partition1->mount_point = "/home/zhangdd";
 
     ++partitionNo;
     Partition* partition2 = new Partition();
@@ -641,4 +637,8 @@ Device::Ptr constructDevice3(int deviceNum)
 
     return Device::Ptr(device);
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> aa0fefbe... feat: add device info for debug partition frame
 }  // namespace installer
