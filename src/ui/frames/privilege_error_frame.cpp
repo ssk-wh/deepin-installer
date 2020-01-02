@@ -39,7 +39,6 @@ public:
         , q_ptr(qobject_cast<PrivilegeErrorFrame* >(parent))
     {}
 
-    void initConnection();
     void initUI();
 
     PrivilegeErrorFrame* q_ptr = nullptr;
@@ -52,7 +51,6 @@ PrivilegeErrorFrame::PrivilegeErrorFrame(FrameProxyInterface* frameProxyInterfac
   setObjectName("privilege_error_frame");
 
   m_private->initUI();
-  m_private->initConnection();
 }
 
 PrivilegeErrorFrame::~PrivilegeErrorFrame()
@@ -73,13 +71,6 @@ void PrivilegeErrorFrame::finished()
 bool PrivilegeErrorFrame::shouldDisplay() const
 {
     return true;
-}
-
-void PrivilegeErrorFramePrivate::initConnection() {
-  connect(nextButton, &QPushButton::clicked,
-          q_ptr, [=] {
-          q_ptr->m_proxy->nextFrame();
-  });
 }
 
 void PrivilegeErrorFramePrivate::initUI() {
