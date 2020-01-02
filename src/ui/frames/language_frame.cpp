@@ -93,10 +93,8 @@ void LanguageFramePrivate::initUI() {
 }
 
 void LanguageFramePrivate::initConnect() {
-
-    connect(m_select_language_frame, &SelectLanguageFrame::requestApplyLanguage, q_ptr,
-        [=] {
-        q_ptr->m_proxy->nextFrame();
+    connect(m_select_language_frame, &SelectLanguageFrame::requestApplyLanguage, this, [=] {
+        emit nextButton->clicked();
     });
     connect(m_select_language_frame, &SelectLanguageFrame::timezoneUpdated, q_ptr,
             &LanguageFrame::timezoneUpdated);
@@ -108,7 +106,6 @@ void LanguageFramePrivate::initConnect() {
         connect(m_select_language_frame, &SelectLanguageFrame::requestShowOemUserLicense, this,
             &LanguageFramePrivate::showOemUserLicense);
     }
-    connect(nextButton, &QPushButton::click, m_select_language_frame, &SelectLanguageFrame::requestApplyLanguage);
 
     connect(m_select_language_frame, &SelectLanguageFrame::requestNextButtonEnable, nextButton, &QPushButton::setEnabled);
 }
