@@ -52,7 +52,7 @@ private:
     DButtonBoxButton* m_englishButton = nullptr;
     DButtonBox* m_buttonBox = nullptr;
     QLabel *m_sourceLbl;
-    NavButton *m_back;
+    QPushButton *m_back;
     QScrollArea *m_sourceScrollArea;
     QLocale::Language m_language;
     int m_nextFileIndex;

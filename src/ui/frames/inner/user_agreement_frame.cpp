@@ -101,7 +101,8 @@ void UserAgreementFrame::initUI()
 
     m_sourceScrollArea->setFixedWidth(480);
 
-    m_back = new NavButton(this);
+    m_back = new QPushButton;
+    m_back->setFixedSize(310, 36);
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins(0, 0, 0, 0);
@@ -117,7 +118,6 @@ void UserAgreementFrame::initUI()
     mainLayout->addWidget(m_back, 0, Qt::AlignHCenter);
 
     setLayout(mainLayout);
-    setStyleSheet(installer::ReadFile(":/styles/user_agreement_frame.css"));
 }
 
 void UserAgreementFrame::initConnect()
