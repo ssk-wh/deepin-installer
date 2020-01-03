@@ -43,9 +43,7 @@
 #include "ui/frames/confirm_quit_frame.h"
 #include "ui/frames/control_panel_frame.h"
 #include "ui/frames/disk_space_insufficient_frame.h"
-#include "ui/frames/install_failed_frame.h"
 #include "ui/frames/install_progress_frame.h"
-#include "ui/frames/install_success_frame.h"
 #include "ui/frames/partition_frame.h"
 #include "ui/frames/privilege_error_frame.h"
 #include "ui/frames/language_frame.h"
@@ -250,26 +248,15 @@ void MainWindow::initConnections() {
           this, &MainWindow::onCurrentPageChanged);
   connect(control_panel_frame_, &ControlPanelFrame::requestRefreshDevices,
           partition_frame_, &PartitionFrame::scanDevices);
-  connect(control_panel_frame_, &ControlPanelFrame::requestRefreshQR,
-          install_failed_frame_, &InstallFailedFrame::updateMessage);
+
   connect(control_panel_frame_, &ControlPanelFrame::requestSimulateSlide,
           install_progress_frame_, &InstallProgressFrame::simulate);
 
   connect(disk_space_insufficient_frame_, &DiskSpaceInsufficientFrame::finished,
           this, &MainWindow::shutdownSystem);
 
-  connect(install_failed_frame_, &InstallFailedFrame::finished,
-          this, &MainWindow::shutdownSystem);
-
-  connect(install_failed_frame_, &InstallFailedFrame::showSaveLogFrame,
-          this, &MainWindow::showSaveLogFrame);
-
   connect(install_progress_frame_, &InstallProgressFrame::finished,
           this, &MainWindow::goNextPage);
-
-  connect(install_success_frame_, &InstallSuccessFrame::finished, this, [=] {
-      return GetSettingsBool(kRebootWhenInstallFinished) ? rebootSystem() : shutdownSystem();
-  });
 
   connect(partition_frame_, &PartitionFrame::reboot,
           this, &MainWindow::rebootSystem);
@@ -333,17 +320,9 @@ void MainWindow::initPages() {
   pages_.insert(PageId::DiskSpaceInsufficientId,
                 stacked_layout_->addWidget(disk_space_insufficient_frame_));
 
-  install_failed_frame_ = new InstallFailedFrame(this);
-  pages_.insert(PageId::InstallFailedId,
-                stacked_layout_->addWidget(install_failed_frame_));
-
   install_progress_frame_ = new InstallProgressFrame(this);
   pages_.insert(PageId::InstallProgressId,
                 stacked_layout_->addWidget(install_progress_frame_));
-
-  install_success_frame_ = new InstallSuccessFrame(this);
-  pages_.insert(PageId::InstallSuccessId,
-                stacked_layout_->addWidget(install_success_frame_));
 
   partition_frame_ = new PartitionFrame(this);
   pages_.insert(PageId::PartitionId,
@@ -369,6 +348,9 @@ void MainWindow::initPages() {
   pages_.insert(PageId::SelectComponentId,
                 stacked_layout_->addWidget(m_selectComponentFrame));
 
+  m_installResultsFrame = new InstallResultsFrame(this);
+  pages_.insert(PageId::InstallResultsId, stacked_layout_->addWidget(m_installResultsFrame));
+
   save_failedLog_frame_ = new SaveInstallFailedLogFrame;
   stacked_layout_->addWidget(save_failedLog_frame_);
 
@@ -380,6 +362,7 @@ void MainWindow::initPages() {
       m_selectComponentFrame,
       partition_frame_,
       install_progress_frame_,
+      m_installResultsFrame,
   };
 
   for (FrameInterface* frame : m_originalFrames){
@@ -395,7 +378,7 @@ void MainWindow::initPages() {
       "SelectComponentFrame",
       "PartitionFrame",
       "InstallProgressFrame",
-      "InstallSuccessFrame"
+      "InstallResultsFrame"
   };
 
   m_frameLabelsView = new DListView(this);
@@ -567,8 +550,6 @@ bool MainWindow::checkBackButtonAvailable(PageId id) {
     return !QList<PageId>({
                              PageId::ConfirmQuitId,
                              PageId::InstallProgressId,
-                             PageId::InstallSuccessId,
-                             PageId::InstallFailedId,
                          })
             .contains(id);
 }
@@ -754,13 +735,6 @@ void MainWindow::goNextPage() {
 
     case PageId::InstallProgressId: {
         isMainPage = true;
-        if (install_progress_frame_->failed()) {
-            install_failed_frame_->updateMessage();
-            this->setCurrentPage(PageId::InstallFailedId);
-        } else {
-            install_success_frame_->setEjectLabelVisible(!auto_install_);
-            this->setCurrentPage(PageId::InstallSuccessId);
-        }
         break;
     }
 

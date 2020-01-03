@@ -49,9 +49,7 @@ class FrameInterface;
 class ConfirmQuitFrame;
 class ControlPanelFrame;
 class DiskSpaceInsufficientFrame;
-class InstallFailedFrame;
 class InstallProgressFrame;
-class InstallSuccessFrame;
 class MultiHeadManager;
 class PageIndicator;
 class PartitionFrame;
@@ -115,8 +113,6 @@ private:
       VirtualMachineId,
       UserAgreementId,
       SelectComponentId,
-      InstallFailedId,
-      InstallSuccessId,
   };
 
   void initConnections();
@@ -149,9 +145,7 @@ private:
   ConfirmQuitFrame* confirm_quit_frame_ = nullptr;
   ControlPanelFrame* control_panel_frame_ = nullptr;
   DiskSpaceInsufficientFrame* disk_space_insufficient_frame_ = nullptr;
-  InstallFailedFrame* install_failed_frame_ = nullptr;
   InstallProgressFrame* install_progress_frame_ = nullptr;
-  InstallSuccessFrame* install_success_frame_ = nullptr;
   PartitionFrame* partition_frame_ = nullptr;
   PrivilegeErrorFrame* privilege_error_frame_ = nullptr;
   LanguageFrame* select_language_frame_ = nullptr;
