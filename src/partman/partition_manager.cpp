@@ -343,6 +343,18 @@ DeviceList ScanDevices(bool enable_os_prober) {
     }
 #endif
 
+    const bool is_valid_dev = (lp_device->type == PedDeviceType::PED_DEVICE_IDE) ||
+                        (lp_device->type == PedDeviceType::PED_DEVICE_SCSI) ||
+        #ifdef QT_DEBUG
+                        (lp_device->type == PedDeviceType::PED_DEVICE_LOOP) ||
+        #endif
+                        (lp_device->type == PedDeviceType::PED_DEVICE_NVME);
+
+    if (!is_valid_dev) {
+        qDebug() << "device type: " << lp_device->type;
+        continue;
+    }
+
     Device::Ptr device(new Device);
     if (disk_type == nullptr) {
       // Current device has no partition table.
@@ -353,9 +365,8 @@ DeviceList ScanDevices(bool enable_os_prober) {
         device->table = PartitionTableType::GPT;
       } else if (disk_type_name == kPartitionTableMsDos) {
         device->table = PartitionTableType::MsDos;
-      }
 #ifdef QT_DEBUG
-      else if (disk_type_name == kPartitionLoop) {
+      } else if (disk_type_name == kPartitionLoop) {
         device->table = PartitionTableType::Others;
         qDebug() << "add device: " << disk_type_name << lp_device->path;
       }
@@ -364,13 +375,11 @@ DeviceList ScanDevices(bool enable_os_prober) {
       else if (disk_type_name == kPartitionCDRomDebug) {
           device->table = PartitionTableType::Others;
           qDebug() << "add device: " << disk_type_name << lp_device->path;
-      }
 #endif
-      else {
-        // Ignores other type of device->
-        qWarning() << "Ignores other type of device:" << lp_device->path
-                   << disk_type->name;
-        continue;
+      } else {
+          device->table = PartitionTableType::Empty;
+          qWarning() << "other type of device:" << lp_device->path
+                             << disk_type->name << lp_device->type;
       }
     }
 
