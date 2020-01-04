@@ -88,7 +88,6 @@ void PointerButton::mouseReleaseEvent(QMouseEvent* event)
     if (m_state == ButtonStatus::Press && rect().contains(event->pos())) {
         m_state = ButtonStatus::Hover;
         updatePic();
-        emit clicked();
     }
 
     return QPushButton::mouseReleaseEvent(event);
