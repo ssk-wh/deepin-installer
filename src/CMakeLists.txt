@@ -263,8 +263,6 @@ set(UI_FILES
     ui/delegates/popup_menu_delegate.h
     ui/delegates/simple_partition_delegate.cpp
     ui/delegates/simple_partition_delegate.h
-    ui/delegates/table_combo_box_delegate.cpp
-    ui/delegates/table_combo_box_delegate.h
     ui/delegates/timezone_map_util.cpp
     ui/delegates/timezone_map_util.h
     ui/delegates/componentinstallmanager.h
@@ -740,8 +738,6 @@ add_executable(combobox-test
                ui/tests/combobox_test.cpp
 
                ${BASE_FILES}
-               ui/delegates/table_combo_box_delegate.cpp
-               ui/delegates/table_combo_box_delegate.h
                ui/utils/widget_util.cpp
                ui/utils/widget_util.h
                ui/widgets/table_combo_box.cpp
