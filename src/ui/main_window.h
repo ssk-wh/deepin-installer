@@ -95,8 +95,8 @@ class MainWindow : public DMainWindow, public FrameProxyInterface {
   void exitInstall(bool reboot = false) override;
 
  protected:
-  // Move close button to appropriate position when window is resized.
-  void resizeEvent(QResizeEvent* event) override;
+  // Show ConfirmQuitFrame when top right corner is clicked.
+  void closeEvent(QCloseEvent* event) override;
 
 private:
   enum PageId {
@@ -136,7 +136,6 @@ private:
 
   QLabel* background_label_ = nullptr;
   DImageButton* back_button_ = nullptr;
-  DImageButton* close_button_ = nullptr;
   PageIndicator* page_indicator_ = nullptr;
   // All of frame pages are stored in this layout.
   // And they are referenced by id in |pages_|.
@@ -193,9 +192,6 @@ private:
  private slots:
   // Go next page when current page index is changed in ControlPanelFrame.
   void onCurrentPageChanged(int index);
-
-  // Show ConfirmQuitFrame when close_button_ is clicked.
-  void onCloseButtonClicked();
 
   // Move main window to primary screen when it is changed to |geometry|.
   void onPrimaryScreenChanged(const QRect& geometry);

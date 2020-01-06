@@ -228,12 +228,10 @@ void MainWindow::exitInstall(bool reboot)
     return reboot ? rebootSystem() : shutdownSystem();
 }
 
-void MainWindow::resizeEvent(QResizeEvent* event) {
-  if (close_button_) {
-    close_button_->move(width() - close_button_->width(), 0);
-    close_button_->raise();
-  }
-  QWidget::resizeEvent(event);
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    event->ignore();
+    stacked_layout_->setCurrentWidget(confirm_quit_frame_);
 }
 
 void MainWindow::initConnections() {
@@ -284,8 +282,6 @@ void MainWindow::initConnections() {
   connect(partition_frame_, &PartitionFrame::manualPartDone,
           install_progress_frame_, &InstallProgressFrame::runHooks);
 
-  connect(close_button_, &DImageButton::clicked,
-          this, &MainWindow::onCloseButtonClicked);
   connect(multi_head_manager_, &MultiHeadManager::primaryScreenChanged,
           this, &MainWindow::onPrimaryScreenChanged);
 
@@ -427,14 +423,6 @@ void MainWindow::initUI() {
   back_button_->setPressPic(":/images/back_pressed.svg");
   back_button_->setDisabledPic(":/images/back_disabled.svg");
 
-  close_button_ = new DImageButton(this);
-  close_button_->setObjectName("close_button");
-  close_button_->setFocusPolicy(Qt::TabFocus);
-  close_button_->setFixedSize(40, 40);
-  close_button_->setNormalPic(":/images/close_normal.svg");
-  close_button_->setHoverPic(":/images/close_hover.svg");
-  close_button_->setPressPic(":/images/close_press.svg");
-
   stacked_layout_ = new QStackedLayout();
 
   QVBoxLayout* vbox_layout = new QVBoxLayout();
@@ -506,7 +494,6 @@ void MainWindow::saveLogFile() {
 void MainWindow::updateWidgetVisible()
 {
     const bool checkVisible{ checkBackButtonAvailable(current_page_) };
-    close_button_->setVisible(checkVisible);
     back_button_->setVisible(m_old_frames.size() > 1 && checkVisible);
 
     // Raise control_panel_frame explicitly.
@@ -514,7 +501,6 @@ void MainWindow::updateWidgetVisible()
         control_panel_frame_->raise();
     }
 
-    close_button_->raise();
     back_button_->raise();
 }
 
@@ -584,10 +570,6 @@ void MainWindow::onCurrentPageChanged(int index) {
     int a = index;
   const PageId id = static_cast<PageId>(index + 1);
   this->setCurrentPage(id);
-}
-
-void MainWindow::onCloseButtonClicked() {
-  this->setCurrentPage(PageId::ConfirmQuitId);
 }
 
 void MainWindow::onPrimaryScreenChanged(const QRect& geometry) {
