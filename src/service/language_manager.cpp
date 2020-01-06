@@ -77,6 +77,10 @@ size_t LanguageManager::indexOf(std::shared_ptr<ObjectMapper> obj)
     return size_t(-1);
 }
 
+QString LanguageManager::tsText(installer::TranslatorType type) {
+    return TS_MAP.at(type);
+}
+
 std::shared_ptr<ObjectMapper> LanguageManager::indexOf(size_t index)
 {
     if (index > trList.size()) {
@@ -89,6 +93,8 @@ std::shared_ptr<ObjectMapper> LanguageManager::indexOf(size_t index)
 size_t LanguageManager::add(std::shared_ptr<ObjectMapper> obj)
 {
     trList.push_back(obj);
+
+    obj->func(qApp->translate("QObject", TS_MAP.at(obj->type).toUtf8()));
 
     connect(obj->target, &QObject::destroyed, this, [=] { remove(obj); });
 

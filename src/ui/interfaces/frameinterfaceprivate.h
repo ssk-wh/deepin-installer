@@ -6,6 +6,7 @@
 #include <QPushButton>
 
 #include "frameinterface.h"
+#include "service/language_manager.h"
 
 #define NEXTBTN_WIDTH 310
 #define NEXTBTN_HEIGHT 36
@@ -37,6 +38,9 @@ public:
         frameInterface->setLayout(mainLayout);
 
         connect(nextButton, &QPushButton::clicked, parent, &FrameInterface::nextFrame);
+
+        // Register Next button text
+        LanguageManager::translator(nextButton, &QPushButton::setText, TranslatorType::NextButton);
     }
 
 protected:

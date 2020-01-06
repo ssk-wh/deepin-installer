@@ -88,7 +88,7 @@ void LanguageFramePrivate::initUI() {
     m_frame_layout->addWidget(m_user_license_frame);
 
     nextButton->setEnabled(false);
-    nextButton->setText(tr("Next"));
+
     centerLayout->addLayout(m_frame_layout);
 }
 
@@ -123,7 +123,7 @@ void LanguageFramePrivate::showUserLicense() {
 }
 
 void LanguageFramePrivate::showLanguage() {
-    nextButton->setText(tr("Next"));
+    LanguageManager::translator(nextButton, &QPushButton::setText, TranslatorType::NextButton);
     nextButton->show();
 
     m_frame_layout->setCurrentWidget(m_select_language_frame);

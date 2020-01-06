@@ -70,7 +70,9 @@ public:
     size_t                        indexOf(std::shared_ptr<ObjectMapper> obj);
     std::shared_ptr<ObjectMapper> indexOf(size_t index);
 
-private:
+    static QString tsText(installer::TranslatorType type);
+
+  private:
     size_t add(std::shared_ptr<ObjectMapper> obj);
 
 private:

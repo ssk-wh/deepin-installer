@@ -3,6 +3,7 @@
 #include "service/settings_manager.h"
 #include "ui/frames/consts.h"
 #include "ui/widgets/pointer_button.h"
+#include "service/language_manager.h"
 
 #include <QEvent>
 #include <QLabel>
@@ -100,7 +101,6 @@ void UserAgreementFrame::initUI()
 
     m_sourceScrollArea->setFixedWidth(468);
 
-    m_back = new QPushButton(this);
     m_back = new QPushButton;
     m_back->setFixedSize(310, 36);
 
@@ -129,14 +129,15 @@ void UserAgreementFrame::initConnect()
 void UserAgreementFrame::updateText()
 {
     m_subTitle->setText(tr("End User License Agreement"));
-    m_back->setText(tr("Back"));
+    LanguageManager::translator(m_back, &QPushButton::setText, TranslatorType::BackButton);
 }
 
 void UserAgreementFrame::updateLicenseText()
 {
-    m_sourceLbl->setText(installer::ReadFile(m_fileNames[m_nextFileIndex]));
-
     if (m_nextFileIndex < m_fileNames.count() && m_fileNames.count() > 1) {
+        m_currentFileName = m_fileNames[m_nextFileIndex];
+        updateText();
+        m_sourceLbl->setText(installer::ReadFile(m_currentFileName));
         m_nextFileIndex = (m_nextFileIndex + 1) % m_fileNames.count();
     }
 }
