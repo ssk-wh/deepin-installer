@@ -25,6 +25,7 @@
 #include <QMap>
 #include <DImageButton>
 #include <DListView>
+#include <DMainWindow>
 
 DWIDGET_USE_NAMESPACE
 
@@ -70,7 +71,7 @@ class InstallResultsFrame;
 //   * handles keyboard shortcut like Ctrl+P and Ctrl+L;
 //   * handles window navigation (by providing a content area);
 //   * quit / abort installation process.
-class MainWindow : public FrameProxyInterface {
+class MainWindow : public DMainWindow, public FrameProxyInterface {
   Q_OBJECT
 
  public:

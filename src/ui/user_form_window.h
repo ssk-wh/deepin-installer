@@ -30,7 +30,7 @@ namespace installer {
 
 class SystemInfoFrame;
 
-class UserFormWindow : public FrameProxyInterface {
+class UserFormWindow : public QWidget, public FrameProxyInterface {
   Q_OBJECT
  public:
   explicit UserFormWindow(QWidget* parent = nullptr);

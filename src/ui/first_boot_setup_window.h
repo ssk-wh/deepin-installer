@@ -43,7 +43,7 @@ class NetworkFrame;
 class ControlPlatformFrame;
 
 // Main window of deepin_installer_first_boot.
-class FirstBootSetupWindow : public FrameProxyInterface {
+class FirstBootSetupWindow : public QWidget, public FrameProxyInterface {
   Q_OBJECT
 
  public:

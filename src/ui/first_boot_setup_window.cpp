@@ -53,7 +53,8 @@
 namespace installer {
 
 FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
-    : FrameProxyInterface(parent),
+    : QWidget(parent),
+      FrameProxyInterface(),
       hook_worker_thread_(new QThread(this)),
       hook_worker_(new FirstBootHookWorker())
 {

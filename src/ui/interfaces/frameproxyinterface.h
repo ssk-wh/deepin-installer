@@ -26,11 +26,8 @@
 
 namespace installer {
 class FrameInterface;
-class FrameProxyInterface : public QWidget {
-    Q_OBJECT
+class FrameProxyInterface {
 public:
-    explicit FrameProxyInterface(QWidget* parent = nullptr) : QWidget(parent) {}
-
     // 显示下一个Frame
     virtual void nextFrame() = 0;
 

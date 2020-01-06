@@ -27,7 +27,9 @@
 namespace installer {
 
 UserFormWindow::UserFormWindow(QWidget* parent)
-    : FrameProxyInterface(parent) {
+    : QWidget(parent)
+    , FrameProxyInterface()
+{
   initUI();
   initPages();
   initConnections();

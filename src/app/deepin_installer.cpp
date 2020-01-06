@@ -91,8 +91,6 @@ int main(int argc, char* argv[]) {
 
   installer::ComponentInstallManager::Instance();
 
-  DMainWindow w;
-
   installer::MainWindow main_window;
   main_window.setEnableAutoInstall(args_parser.isAutoInstallSet());
   main_window.setLogFile(args_parser.getLogFile());
@@ -100,8 +98,7 @@ int main(int argc, char* argv[]) {
   // Notify background thread to scan device info.
   main_window.scanDevicesAndTimezone();
 
-  w.setCentralWidget(&main_window);
-  w.show();
+  main_window.show();
 
   return app.exec();
 }

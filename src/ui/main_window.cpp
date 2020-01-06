@@ -65,7 +65,8 @@ DWIDGET_USE_NAMESPACE
 namespace installer {
 
 MainWindow::MainWindow(QWidget* parent)
-    : FrameProxyInterface(parent),
+    : DMainWindow(parent),
+      FrameProxyInterface(),
       pages_(),
       prev_page_(PageId::NullId),
       current_page_(PageId::NullId),
@@ -466,11 +467,7 @@ void MainWindow::initUI() {
   bgGroup->setContentsMargins(10, 10, 10, 10);
   bgGroup->setLayout(mainLayout);
 
-  QVBoxLayout* layout = new QVBoxLayout;
-  layout->setMargin(0);
-  layout->setSpacing(0);
-  layout->addWidget(bgGroup);
-  setLayout(layout);
+  setCentralWidget(bgGroup);
 
   control_panel_frame_ = new ControlPanelFrame(this);
   control_panel_frame_->hide();
