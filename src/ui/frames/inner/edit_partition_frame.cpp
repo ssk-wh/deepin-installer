@@ -22,6 +22,7 @@
 #include <QGridLayout>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QPainter>
 
 #include "base/file_util.h"
 #include "service/settings_manager.h"
@@ -54,11 +55,12 @@ bool IsInFormattedMountPointList(const QString& mount_point) {
 
 }  // namespace
 
-EditPartitionFrame::EditPartitionFrame(AdvancedPartitionDelegate* delegate,
+EditPartitionFrame::EditPartitionFrame(FrameProxyInterface* frameProxyInterface, AdvancedPartitionDelegate* delegate,
                                        QWidget* parent)
-    : QFrame(parent),
-      delegate_(delegate),
-      partition_() {
+    : ChildFrameInterface(frameProxyInterface, parent)
+    , delegate_(delegate)
+    , partition_()
+{
   this->setObjectName("edit_partition_frame");
 
   this->initUI();
@@ -105,8 +107,21 @@ void EditPartitionFrame::changeEvent(QEvent* event) {
     cancel_button_->setText(tr("Cancel"));
     ok_button_->setText(tr("Create"));
   } else {
-    QFrame::changeEvent(event);
+    QWidget::changeEvent(event);
   }
+}
+
+void EditPartitionFrame::paintEvent(QPaintEvent *event)
+{
+    QPainter painter(this);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
+    QPainterPath path;
+    path.addRoundedRect(rect(), 25, 25);
+    painter.setClipPath(path);
+    painter.fillRect(rect(), Qt::white);
+
+    return QWidget::paintEvent(event);
+
 }
 
 void EditPartitionFrame::forceFormat(bool force) {

@@ -24,6 +24,7 @@ class QLabel;
 class QProgressBar;
 
 #include "partman/partition.h"
+#include "ui/interfaces/frameinterface.h"
 
 namespace installer {
 
@@ -35,11 +36,11 @@ class NavButton;
 class TableComboBox;
 class TitleLabel;
 
-class EditPartitionFrame : public QFrame {
+class EditPartitionFrame : public ChildFrameInterface {
   Q_OBJECT
 
  public:
-  EditPartitionFrame(AdvancedPartitionDelegate* delegate,
+  EditPartitionFrame(FrameProxyInterface* frameProxyInterface, AdvancedPartitionDelegate* delegate,
                      QWidget* parent = nullptr);
 
   // Set partition information at |partition_path|.
@@ -50,6 +51,7 @@ class EditPartitionFrame : public QFrame {
 
  protected:
   void changeEvent(QEvent* event) override;
+  void paintEvent(QPaintEvent* event) override;
 
  private:
   // Format partition forcefully if |force| is true.

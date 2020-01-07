@@ -327,7 +327,7 @@ void PartitionFramePrivate::initUI() {
 
   advanced_partition_frame_ =
       new AdvancedPartitionFrame(advanced_delegate_, q_ptr);
-  edit_partition_frame_ = new EditPartitionFrame(advanced_delegate_, q_ptr);
+  edit_partition_frame_ = new EditPartitionFrame(q_ptr->m_proxy, advanced_delegate_);
   full_disk_partition_frame_ = new FullDiskFrame(full_disk_delegate_, q_ptr);
   new_partition_frame_ = new NewPartitionFrame(advanced_delegate_, q_ptr);
   new_table_loading_frame_ = new NewTableLoadingFrame(q_ptr);
@@ -478,7 +478,6 @@ void PartitionFramePrivate::initUI() {
   main_layout_->setContentsMargins(0, 0, 0, 0);
   main_layout_->addWidget(partition_loading_frame_);
   main_layout_->addWidget(main_frame_);
-  main_layout_->addWidget(edit_partition_frame_);
   main_layout_->addWidget(new_partition_frame_);
   main_layout_->addWidget(new_table_loading_frame_);
   main_layout_->addWidget(new_table_warning_frame_);
@@ -656,7 +655,7 @@ void PartitionFramePrivate::onPrepareInstallFrameFinished() {
 
 void PartitionFramePrivate::showEditPartitionFrame(const Partition::Ptr partition) {
   edit_partition_frame_->setPartition(partition);
-  main_layout_->setCurrentWidget(edit_partition_frame_);
+  q_ptr->m_proxy->showChindFrame(edit_partition_frame_);
 }
 
 void PartitionFramePrivate::showMainFrame() {
