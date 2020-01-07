@@ -39,20 +39,21 @@ private:
     void initUI();
     void initConnect();
     void updateText();
-    void toggleLicense();
+    void toggleLicense(QAbstractButton* button);
+    void updateLicenseText();
 
 private:
     QLabel *m_logoLbl;
     QLabel *m_subTitle;
     PointerButton* m_chineseButton = nullptr;
     PointerButton* m_englishButton = nullptr;
+    QAbstractButton* m_currentButton = nullptr;
     QButtonGroup* m_buttonGroup = nullptr;
     QLabel *m_sourceLbl;
     NavButton *m_back;
     QScrollArea *m_sourceScrollArea;
     QLocale::Language m_language;
     int m_nextFileIndex;
-    QString m_currentFileName;
     QStringList m_fileNames;
 };
 }
