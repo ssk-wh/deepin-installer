@@ -132,7 +132,7 @@ void UserAgreementFrame::updateText()
     LanguageManager::translator(m_back, &QPushButton::setText, TranslatorType::BackButton);
 }
 
-void UserAgreementFrame::updateLicenseText()
+void UserAgreementFrame::toggleLicense(QAbstractButton* button)
 {
     if (m_nextFileIndex < m_fileNames.count() && m_fileNames.count() > 1) {
         m_currentFileName = m_fileNames[m_nextFileIndex];
@@ -150,19 +150,9 @@ void UserAgreementFrame::setUserAgreement(const QString &primaryFileName, const 
 
     if (!secondaryFileName.isEmpty()) {
         m_fileNames.append(secondaryFileName);
-        //switch to primary user agreement,and update the text of m_sourceLbl.
-        toggleLicense();
-    } else {
-        m_sourceLbl->setText(installer::ReadFile(primaryFileName));
     }
 
     updateLicenseText();
-}
-
-void UserAgreementFrame::setCheckedButton(int buttonId)
-{
-    m_buttonGroup->button(buttonId)->setChecked(true);
-    m_currentButton = m_buttonGroup->button(buttonId);
 }
 
 void UserAgreementFrame::setCheckedButton(int buttonId)
