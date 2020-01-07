@@ -8,6 +8,7 @@ Build-Depends:
     dh-systemd,
     g++ (>=6.3.0),
     gettext,
+    tzdata,
     libattr1-dev,
     libparted-dev,
     libqt5x11extras5-dev,
