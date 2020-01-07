@@ -27,7 +27,8 @@ namespace {
 
 // TODO(xushaohua): Defines a constant value.
 // Duplicated with AvatarButton.
-const int kIconSize = 80;
+const int kIconSize = 48;
+const int kIconMargin = 8;
 
 }  // namespace
 
@@ -44,23 +45,40 @@ AvatarListDelegate::paint(QPainter* painter,
   const QRect& rect(option.rect);
   const QString icon_path = index.model()->data(index).toString();
   if (!icon_path.isEmpty()) {
-    const QRect ellipse_rect(rect.x() + (rect.width() - kIconSize) / 2,
-                             rect.y() + (rect.height() - kIconSize) / 2,
-                             kIconSize, kIconSize);
-    QPainterPath path;
-    path.addEllipse(ellipse_rect);
-    painter->setRenderHint(QPainter::Antialiasing);
-    // Scale image.
-    painter->setRenderHint(QPainter::SmoothPixmapTransform);
-    painter->setClipPath(path);
+      painter->setRenderHint(QPainter::Antialiasing);
+      // Scale image.
+      painter->setRenderHint(QPainter::SmoothPixmapTransform);
 
-    const QImage image(icon_path);
-    painter->drawImage(ellipse_rect, image);
-  } else {
-    qWarning() << "Avatar icon is empty!";
+      if (option.state & QStyle::State_Selected) {
+          const int margin = kIconMargin / 2;
+          const QRect ellipse_round(
+              rect.topLeft() + QPoint(margin, margin),
+              QSize(kIconSize + kIconMargin, kIconSize + kIconMargin));
+
+          QPen pen(QColor("#209cee"));
+          pen.setWidth(2);
+          painter->setPen(pen);
+          painter->drawEllipse(ellipse_round);
+      }
+
+      const QRect ellipse_rect(rect.topLeft() + QPoint(8, 8),
+                               QSize(kIconSize, kIconSize));
+
+      QPainterPath path;
+      path.addEllipse(ellipse_rect);
+
+      painter->setClipPath(path);
+
+      const QImage image(icon_path);
+      painter->drawImage(ellipse_rect, image);
   }
 
   painter->restore();
+}
+
+QSize AvatarListDelegate::sizeHint(const QStyleOptionViewItem &option,
+                                   const QModelIndex &index) const {
+  return QSize(kIconSize + kIconMargin, kIconSize + kIconMargin);
 }
 
 }  // namespace installer

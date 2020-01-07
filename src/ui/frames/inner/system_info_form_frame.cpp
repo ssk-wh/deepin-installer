@@ -16,6 +16,7 @@
  */
 
 #include "ui/frames/inner/system_info_form_frame.h"
+#include "ui/frames/inner/system_info_avatar_frame.h"
 
 #include "base/file_util.h"
 #include "service/settings_manager.h"
@@ -48,7 +49,7 @@
 namespace installer {
 
 namespace {
-const int kSetRootPasswordCheckBoxWidth = 310;
+const int kSetRootPasswordCheckBoxWidth = 408;
 const int kSetRootPasswordCheckBoxHeight = 36;
 }//namespace
 
@@ -108,7 +109,7 @@ private:
 
     TitleLabel*   m_titleLabel_         = nullptr;
     CommentLabel* m_commentLabel_       = nullptr;
-    AvatarButton* m_avatarButton_       = nullptr;
+    SystemInfoAvatarFrame* m_avatarButton_       = nullptr;
     LineEdit*     m_usernameEdit_       = nullptr;
     LineEdit*     m_hostnameEdit_       = nullptr;
     LineEdit*     m_passwordEdit_       = nullptr;
@@ -186,7 +187,7 @@ void SystemInfoFormFrame::updateAvatar(const QString& avatar)
 {
     Q_D(SystemInfoFormFrame);
 
-    d->m_avatarButton_->updateIcon(avatar);
+    // d->m_avatarButton_->updateIcon(avatar);
 }
 
 void SystemInfoFormFrame::readConf() {
@@ -246,9 +247,6 @@ void SystemInfoFormFrame::showEvent(QShowEvent* event)
 void SystemInfoFormFramePrivate::initConnections()
 {
     Q_Q(SystemInfoFormFrame);
-
-    connect(m_avatarButton_, &QPushButton::clicked, q,
-            &SystemInfoFormFrame::avatarClicked);
 
     connect(m_usernameEdit_, &LineEdit::editingFinished, this,
             &SystemInfoFormFramePrivate::onUsernameEditingFinished);
@@ -318,7 +316,7 @@ void SystemInfoFormFramePrivate::initUI()
 
     m_titleLabel_   = new TitleLabel("");
     m_commentLabel_ = new CommentLabel;
-    m_avatarButton_ = new AvatarButton;
+    m_avatarButton_ = new SystemInfoAvatarFrame;
 
     m_usernameEdit_ = new LineEdit(":/images/username_12.svg");
     m_usernameEdit_->setReadOnly(GetSettingsBool(kSystemInfoLockUsername));

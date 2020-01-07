@@ -81,6 +81,9 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
       Q_ASSERT(m_frames.first() == language_frame_);
       nextFrame();
   }
+
+
+  stacked_layout_->setCurrentWidget(system_info_frame_);
 }
 
 FirstBootSetupWindow::~FirstBootSetupWindow() {
@@ -174,9 +177,10 @@ void FirstBootSetupWindow::initUI() {
 
   m_originalFrames = {
       language_frame_,
-      timezone_frame_,
       system_info_frame_,
-      // TODO: add network frame, loading frame and control frame.
+      timezone_frame_,
+    //   control_platform_frame_,
+    //   loading_frame_,
   };
 
   stacked_layout_ = new QStackedLayout;
