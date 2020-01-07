@@ -80,7 +80,9 @@ class FirstBootSetupWindow : public DMainWindow, public FrameProxyInterface {
   GlobalShortcut*   monitor_mode_shortcut_ = nullptr;
   MultiHeadManager* multi_head_manager_    = nullptr;
 
-  QList<QWidget*> m_frames;
+  QList<FrameInterface*> m_originalFrames;
+  QList<FrameInterface*> m_frames;
+  bool m_showPastFrame = false;
 
   private slots:
   // Handles result of hook worker.
@@ -102,6 +104,9 @@ class FirstBootSetupWindow : public DMainWindow, public FrameProxyInterface {
   void updateBackButtonVisible(QWidget* page);
 
   bool changeToTTY(int ttyNum) const;
+
+  // When user mouse press left page tables.
+  void previousFrameSelected(FrameInterface* frame);
 };
 
 }  // namespace installer

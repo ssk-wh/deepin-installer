@@ -91,7 +91,40 @@ void FirstBootSetupWindow::fullscreen() {
 
 void FirstBootSetupWindow::nextFrame()
 {
+    FrameInterface* frame = qobject_cast<FrameInterface*>(stacked_layout_->currentWidget());
+    Q_ASSERT(frame != nullptr);
 
+    frame->finished();
+    // TODO: update frame label state.
+
+    if (!m_showPastFrame){
+        m_originalFrames.removeFirst();
+    }
+
+    for (auto it = m_originalFrames.begin(); it != m_originalFrames.end();) {
+        if ((*it)->shouldDisplay()){
+            // If the current display page is the fallback page clicked by the user
+            // , then, the next page is the one that has displayed earlier.
+            // If not, then, the next page is the one that displayed for the first time
+            // , so, must be initial.
+            if (!m_showPastFrame){
+                (*it)->init();
+            }
+
+            // TODO: update frame label state.
+            stacked_layout_->setCurrentWidget(*it);
+            m_showPastFrame = false;
+            break;
+        }
+        else {
+            (*it)->init();
+            (*it)->finished();
+            it = m_originalFrames.erase(it);
+            m_showPastFrame = false;
+        }
+    }
+
+    // TODO: reboot or shutdown
 }
 
 void FirstBootSetupWindow::showChildFrame(FrameInterface *frame)
@@ -143,20 +176,19 @@ void FirstBootSetupWindow::initUI() {
   loading_frame_ = new FirstBootLoadingFrame;
   control_platform_frame_ = new ControlPlatformFrame(this);
 
-  m_frames = {
+  m_originalFrames = {
       language_frame_,
       timezone_frame_,
       system_info_frame_,
-      network_frame_,
       control_platform_frame_,
-      loading_frame_,
+      // TODO: add network frame and loading frame.
   };
 
   stacked_layout_ = new QStackedLayout;
   stacked_layout_->setContentsMargins(0, 0, 0, 0);
   stacked_layout_->setSpacing(0);
 
-  for (QWidget* widget : m_frames) {
+  for (QWidget* widget : m_originalFrames) {
       stacked_layout_->addWidget(widget);
   }
 
@@ -263,14 +295,12 @@ void FirstBootSetupWindow::onTimezoneFinished() {
 
 void FirstBootSetupWindow::backPage()
 {
-    stacked_layout_->setCurrentWidget(m_frames.at(m_frames.indexOf(stacked_layout_->currentWidget()) - 1));
-    updateBackButtonVisible(stacked_layout_->currentWidget());
+    // TODO: this function will be delete later
 }
 
 void FirstBootSetupWindow::updateBackButtonVisible(QWidget* page)
 {
-    back_button_->setVisible(static_cast<bool>(m_frames.indexOf(page)));
-    back_button_->raise();
+    // TODO: this function will be delete later
 }
 
 bool FirstBootSetupWindow::changeToTTY(int ttyNum) const
@@ -345,6 +375,24 @@ bool FirstBootSetupWindow::changeToTTY(int ttyNum) const
     }
 
     return true;
+}
+
+void FirstBootSetupWindow::previousFrameSelected(FrameInterface *frame)
+{
+    FrameInterface* currentFrame = qobject_cast<FrameInterface*>(stacked_layout_->currentWidget());
+    Q_ASSERT(currentFrame != nullptr);
+
+    if (m_showPastFrame){
+        // TODO: update frame label state.
+    }
+    else {
+        // TODO: update frame label state.
+    }
+
+    // TODO: update frame label state.
+    stacked_layout_->setCurrentWidget(frame);
+
+    m_showPastFrame = true;
 }
 
 }  // namespace installer
