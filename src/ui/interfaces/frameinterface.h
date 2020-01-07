@@ -31,15 +31,35 @@ enum class FrameType {
     ChildFrame,  // 子页面
 };
 
-class FrameInterface : public QWidget {
+class BaseFrameInterface : public QWidget {
+    Q_OBJECT
+
+public:
+    explicit BaseFrameInterface(FrameType frameType, FrameProxyInterface* inter, QWidget* parent = nullptr)
+        : QWidget(parent)
+        , m_proxy(inter)
+        , m_frameType(frameType)
+    {
+    }
+
+    inline FrameType frameType() {
+        return m_frameType;
+    }
+
+protected:
+    FrameProxyInterface* m_proxy = nullptr;
+
+private:
+    FrameType m_frameType;
+};
+
+class FrameInterface : public BaseFrameInterface {
     Q_OBJECT
     friend class FrameInterfacePrivate;
 
 public:
-    explicit FrameInterface(FrameType frameType, FrameProxyInterface* inter, QWidget* parent = nullptr)
-        : QWidget(parent)
-        , m_frameType(frameType)
-        , m_proxy(inter)
+    explicit FrameInterface(FrameProxyInterface* inter, QWidget* parent = nullptr)
+        : BaseFrameInterface(FrameType::Frame, inter, parent)
     {
     }
 
@@ -59,20 +79,24 @@ public:
         return true;
     }
 
-    inline FrameType frameType() {
-        return m_frameType;
-    }
-
 private:
     void nextFrame() {
         m_proxy->nextFrame();
     }
+};
 
-protected:
-    FrameProxyInterface* m_proxy = nullptr;
+class ChildFrameInterface : public BaseFrameInterface
+{
+    Q_OBJECT
 
-private:
-    FrameType m_frameType;
+public:
+    explicit ChildFrameInterface(FrameProxyInterface* inter, QWidget* parent = nullptr)
+        : BaseFrameInterface(FrameType::ChildFrame, inter, parent)
+    {
+    }
+
+    virtual ~ChildFrameInterface() {}
+
 };
 }  // namespace installer
 

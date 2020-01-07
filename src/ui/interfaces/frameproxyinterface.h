@@ -26,6 +26,7 @@
 
 namespace installer {
 class FrameInterface;
+class ChildFrameInterface;
 class FrameProxyInterface {
 public:
     // 显示下一个Frame
@@ -36,6 +37,8 @@ public:
 
     // 退出安装
     virtual void exitInstall(bool reboot = false) = 0;
+
+    virtual void showChindFrame(ChildFrameInterface* childFrameInterface) {}
 };
 }  // namespace installer
 
