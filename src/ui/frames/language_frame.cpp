@@ -60,7 +60,7 @@ public:
 
 };
 LanguageFrame::LanguageFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
-    : FrameInterface(FrameType::Frame, frameProxyInterface, parent)
+    : FrameInterface(frameProxyInterface, parent)
     , m_private(new LanguageFramePrivate(this))
 {
     m_private->initUI();

@@ -45,7 +45,7 @@ public:
 };
 
 PrivilegeErrorFrame::PrivilegeErrorFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
-    : FrameInterface(FrameType::Frame, frameProxyInterface, parent)
+    : FrameInterface(frameProxyInterface, parent)
     , m_private(new PrivilegeErrorFramePrivate(this))
 {
   setObjectName("privilege_error_frame");

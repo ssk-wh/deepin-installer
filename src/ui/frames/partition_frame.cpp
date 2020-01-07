@@ -147,7 +147,7 @@ public:
 };
 
 PartitionFrame::PartitionFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
-    : FrameInterface(FrameType::Frame, frameProxyInterface, parent)
+    : FrameInterface(frameProxyInterface, parent)
     , m_private(new PartitionFramePrivate(this))
 {
     setObjectName("partition_frame");

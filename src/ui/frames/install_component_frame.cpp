@@ -52,7 +52,7 @@ public:
 };
 
 SelectInstallComponentFrame::SelectInstallComponentFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
-    : FrameInterface(FrameType::Frame, frameProxyInterface, parent)
+    : FrameInterface(frameProxyInterface, parent)
     , m_private(new SelectInstallComponentFramePrivate(this))
 {
     setObjectName("install_component_frame");

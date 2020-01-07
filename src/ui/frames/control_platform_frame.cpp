@@ -145,7 +145,7 @@ void ControlPlatformFramePrivate::initConnection()
 }
 
 ControlPlatformFrame::ControlPlatformFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
-    : FrameInterface(FrameType::Frame, frameProxyInterface, parent)
+    : FrameInterface(frameProxyInterface, parent)
     , m_private(new ControlPlatformFramePrivate(this))
 
 {

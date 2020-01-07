@@ -130,7 +130,7 @@ void TimezoneFramePrivate::updateTs()
 }
 
 TimezoneFrame::TimezoneFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
-    : FrameInterface(FrameType::Frame, frameProxyInterface, parent)
+    : FrameInterface(frameProxyInterface, parent)
     , m_private(new TimezoneFramePrivate(this))
 {
   setObjectName("system_info_timezone_frame");

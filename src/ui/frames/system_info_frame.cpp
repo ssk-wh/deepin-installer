@@ -83,7 +83,7 @@ public:
 };
 
 SystemInfoFrame::SystemInfoFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
-    : FrameInterface (FrameType::Frame, frameProxyInterface, parent)
+    : FrameInterface(frameProxyInterface, parent)
     , m_private(new SystemInfoFramePrivate(this))
 {
   setObjectName("system_info_frame");

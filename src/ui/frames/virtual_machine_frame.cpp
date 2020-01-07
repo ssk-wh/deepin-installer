@@ -54,8 +54,8 @@ public:
 };
 
 VirtualMachineFrame::VirtualMachineFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
-    : FrameInterface (FrameType::Frame, frameProxyInterface, parent)
-    , m_private (new VirtualMachineFramePrivate(this))
+    : FrameInterface(frameProxyInterface, parent)
+    , m_private(new VirtualMachineFramePrivate(this))
 {
   setObjectName("virtual_machine_frame");
 

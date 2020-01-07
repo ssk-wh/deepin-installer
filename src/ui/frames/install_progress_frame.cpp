@@ -98,7 +98,7 @@ public:
 };
 
 InstallProgressFrame::InstallProgressFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
-    : FrameInterface(FrameType::Frame, frameProxyInterface, parent)
+    : FrameInterface(frameProxyInterface, parent)
     , progress_(0)
     , d_private(new InstallProgressFramePrivate(this))
 {
