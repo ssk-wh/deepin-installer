@@ -606,6 +606,8 @@ add_executable(deepin-installer-user-form
                service/settings_manager.cpp
                service/settings_manager.h
                service/settings_name.h
+               service/language_manager.h
+               service/language_manager.cpp
 
                sysinfo/keyboard.cpp
                sysinfo/keyboard.h
@@ -835,6 +837,8 @@ add_executable(timezone-frame-test
                service/backend/geoip_request_worker.h
                service/backend/wifi_inspect_worker.cpp
                service/backend/wifi_inspect_worker.h
+               service/language_manager.h
+               service/language_manager.cpp
 
                partman/os_prober.cpp
                partman/os_prober.h
