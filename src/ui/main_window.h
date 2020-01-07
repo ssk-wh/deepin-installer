@@ -63,6 +63,7 @@ class VirtualMachineFrame;
 class SaveInstallFailedLogFrame;
 class SelectInstallComponentFrame;
 class InstallResultsFrame;
+class ShadowWidget;
 
 // MainWindow is a fullscreen window of deepin-installer.
 // All of ui frames are placed in MainWindow.
@@ -93,6 +94,7 @@ class MainWindow : public DMainWindow, public FrameProxyInterface {
   void nextFrame() override;
   void showChildFrame(FrameInterface *frame) override;
   void exitInstall(bool reboot = false) override;
+  void showChindFrame(ChildFrameInterface* childFrameInterface) override;
 
  protected:
   // Show ConfirmQuitFrame when top right corner is clicked.
@@ -156,6 +158,7 @@ private:
   SaveInstallFailedLogFrame* save_failedLog_frame_ = nullptr;
   SelectInstallComponentFrame* m_selectComponentFrame = nullptr;
   InstallResultsFrame* m_installResultsFrame = nullptr;
+  ShadowWidget* shadow_widget = nullptr;
 
   // To store frame pages, page_name => page_id.
   QHash<PageId, int> pages_;

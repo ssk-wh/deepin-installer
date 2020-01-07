@@ -425,6 +425,8 @@ set(UI_FILES
     ui/widgets/nav_button.h
     ui/widgets/partition_size_slider.cpp
     ui/widgets/partition_size_slider.h
+    ui/widgets/shadow_widget.h
+    ui/widgets/shadow_widget.cpp
     ui/widgets/pointer_button.cpp
     ui/widgets/pointer_button.h
     ui/widgets/popup_menu.cpp

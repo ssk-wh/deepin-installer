@@ -121,7 +121,6 @@ void EditPartitionFrame::paintEvent(QPaintEvent *event)
     painter.fillRect(rect(), Qt::white);
 
     return QWidget::paintEvent(event);
-
 }
 
 void EditPartitionFrame::forceFormat(bool force) {

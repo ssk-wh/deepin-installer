@@ -53,6 +53,7 @@
 #include "ui/frames/saveinstallfailedlogframe.h"
 #include "ui/frames/install_component_frame.h"
 #include "ui/frames/install_results_frame.h"
+#include "ui/widgets/shadow_widget.h"
 
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/pointer_button.h"
@@ -67,6 +68,7 @@ namespace installer {
 MainWindow::MainWindow(QWidget* parent)
     : DMainWindow(parent),
       FrameProxyInterface(),
+      shadow_widget(new ShadowWidget),
       pages_(),
       prev_page_(PageId::NullId),
       current_page_(PageId::NullId),
@@ -226,6 +228,14 @@ void MainWindow::showChildFrame(FrameInterface *frame) {
 void MainWindow::exitInstall(bool reboot)
 {
     return reboot ? rebootSystem() : shutdownSystem();
+}
+
+void MainWindow::showChindFrame(ChildFrameInterface* childFrameInterface)
+{
+    shadow_widget->setContent(childFrameInterface);
+    shadow_widget->setParent(this);
+    shadow_widget->setGeometry(rect());
+    shadow_widget->show();
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)
