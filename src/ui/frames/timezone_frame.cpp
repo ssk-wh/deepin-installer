@@ -104,8 +104,6 @@ public:
 
   TimezoneSource timezone_source_;
 
-  void onNextButtonClicked();
-
   // Update timezone after receiving signals from timezone manager.
   void onTimezoneManagerUpdated(const QString& timezone);
 
@@ -283,9 +281,6 @@ bool TimezoneFrame::eventFilter(QObject *watched, QEvent *event)
 }
 
 void TimezoneFramePrivate::initConnections() {
-  connect(nextButton, &QPushButton::clicked,
-          this, &TimezoneFramePrivate::onNextButtonClicked);
-
   connect(timezone_manager_, &TimezoneManager::timezoneUpdated,
           this, &TimezoneFramePrivate::onTimezoneManagerUpdated);
   connect(timezone_map_, &TimezoneMap::timezoneUpdated,
@@ -423,16 +418,6 @@ void TimezoneFramePrivate::initUI() {
 QString TimezoneFramePrivate::parseTimezoneAlias(const QString& timezone) {
   // If |timezone| not in alias map, returns itself.
   return alias_map_.value(timezone, timezone);
-}
-
-void TimezoneFramePrivate::onNextButtonClicked() {
-  if (IsTimezoneInTab(timezone_)) {
-    q_ptr->finished();
-    emit q_ptr->timezoneUpdated(timezone_);
-    q_ptr->m_proxy->nextFrame();
-  } else {
-    qWarning() << "Invalid timezone:" << timezone_;
-  }
 }
 
 void TimezoneFramePrivate::onTimezoneManagerUpdated(const QString& timezone) {
