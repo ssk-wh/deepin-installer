@@ -20,6 +20,9 @@
 
 #include <QFrame>
 #include <QStringList>
+#include <DIconButton>
+
+DWIDGET_USE_NAMESPACE
 
 class QLabel;
 class QGraphicsOpacityEffect;
@@ -53,11 +56,14 @@ class InstallProgressSlideFrame : public QFrame {
   void updateSlideImage();
 
   QLabel* container_label_ = nullptr;
+  QWidget* m_animationContainer = nullptr;
   QPropertyAnimation* pos_animation_ = nullptr;
   QGraphicsOpacityEffect* opacity_effect_ = nullptr;
   QPropertyAnimation* opacity_animation_ = nullptr;
   QParallelAnimationGroup* animation_group_ = nullptr;
   QVariantAnimation* null_animation_ = nullptr;
+  DIconButton* m_backButton = nullptr;
+  DIconButton* m_nextButton = nullptr;
 
   int slide_index_;
   QStringList slide_files_;
@@ -65,6 +71,9 @@ class InstallProgressSlideFrame : public QFrame {
  private slots:
   // Update slide image while switching to next animation loop
   void onAnimationCurrentLoopChanged();
+
+  void onBackButtonClicked();
+  void onNextButtonClicked();
 };
 
 }  // namespace installer

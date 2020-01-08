@@ -23,6 +23,7 @@
 #include <QLabel>
 #include <QPropertyAnimation>
 #include <QParallelAnimationGroup>
+#include <QHBoxLayout>
 
 #include "service/settings_manager.h"
 #include "ui/delegates/install_slide_frame_util.h"
@@ -82,12 +83,34 @@ void InstallProgressSlideFrame::stopSlide() {
 void InstallProgressSlideFrame::initConnections() {
   connect(animation_group_, &QParallelAnimationGroup::currentLoopChanged,
           this, &InstallProgressSlideFrame::onAnimationCurrentLoopChanged);
+  connect(m_backButton, &DIconButton::clicked, this, &InstallProgressSlideFrame::onBackButtonClicked);
+  connect(m_nextButton, &DIconButton::clicked, this, &InstallProgressSlideFrame::onNextButtonClicked);
 }
 
 void InstallProgressSlideFrame::initUI() {
-  container_label_ = new QLabel(this);
+  m_animationContainer = new QWidget;
+  container_label_ = new QLabel(m_animationContainer);
+  m_animationContainer->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
 
-  pos_animation_ = new QPropertyAnimation(container_label_, "pos", this);
+  m_backButton = new DIconButton(this);
+  m_backButton->setIcon(QIcon(":/images/backPicture.svg"));
+  m_nextButton = new DIconButton(this);
+  m_nextButton->setIcon(QIcon(":/images/nextPicture.svg"));
+
+  QHBoxLayout* layout = new QHBoxLayout;
+  layout->setMargin(0);
+  layout->setSpacing(0);
+  layout->addSpacing(40);
+  layout->addWidget(m_backButton, 0, Qt::AlignLeft);
+  layout->addSpacing(10);
+  layout->addWidget(m_animationContainer);
+  layout->addSpacing(10);
+  layout->addWidget(m_nextButton, 0, Qt::AlignRight);
+  layout->addSpacing(40);
+
+  setLayout(layout);
+
+  pos_animation_ = new QPropertyAnimation(container_label_, "pos", m_animationContainer);
   pos_animation_->setKeyValueAt(0.0, QPoint(-50, 0));
   pos_animation_->setKeyValueAt(0.1, QPoint(0, 0));
   pos_animation_->setKeyValueAt(0.9, QPoint(0, 0));
@@ -95,7 +118,7 @@ void InstallProgressSlideFrame::initUI() {
 
   opacity_effect_ = new QGraphicsOpacityEffect(container_label_);
   container_label_->setGraphicsEffect(opacity_effect_);
-  opacity_animation_ = new QPropertyAnimation(opacity_effect_, "opacity", this);
+  opacity_animation_ = new QPropertyAnimation(opacity_effect_, "opacity", m_animationContainer);
   opacity_animation_->setKeyValueAt(0.0, 0.0);
   opacity_animation_->setKeyValueAt(0.1, 1.0);
   opacity_animation_->setKeyValueAt(0.9, 1.0);
@@ -110,18 +133,31 @@ void InstallProgressSlideFrame::initUI() {
 void InstallProgressSlideFrame::updateSlideImage() {
   Q_ASSERT(slide_index_ < slide_files_.length());
   const QString filepath(slide_files_.at(slide_index_));
+  QPixmap pixmap;
   if (QFile::exists(filepath)) {
-    container_label_->setPixmap(installer::renderPixmap(filepath));
+    pixmap = installer::renderPixmap(filepath);
+    container_label_->setPixmap(pixmap);
   } else {
     qWarning() << "slide file not found:" << filepath;
   }
   container_label_->show();
-  setFixedSize(container_label_->size());
+  setFixedSize(pixmap.size());
   slide_index_ = (slide_index_ + 1) % slide_files_.length();
 }
 
 void InstallProgressSlideFrame::onAnimationCurrentLoopChanged() {
-  this->updateSlideImage();
+    updateSlideImage();
+}
+
+void InstallProgressSlideFrame::onBackButtonClicked()
+{
+    slide_index_ = (slide_index_ - 2) % slide_files_.length();
+    updateSlideImage();
+}
+
+void InstallProgressSlideFrame::onNextButtonClicked()
+{
+    updateSlideImage();
 }
 
 }  // namespace installer
