@@ -36,11 +36,11 @@ TEST(TimezoneMapUtilTest, ConvertLongitudeToX) {
 TEST(TimezoneMapUtilTest, GetNearestZones) {
   const ZoneInfoList total_zones = GetZoneInfoList();
   const double threshold = 100.0;
-  const int x = 630, y = 190, map_width = 800, map_height = 409;
+  const int x = 681, y = 182, map_width = 800, map_height = 409;
   const ZoneInfoList zones = GetNearestZones(total_zones, threshold, x, y,
                                              map_width, map_height);
-//  EXPECT_EQ(zones.length(), 2);
-//  EXPECT_EQ(zones.first().timezone, "Asia/Nanjing");
+  EXPECT_EQ(zones.length(), 1);
+  EXPECT_EQ(zones.first().timezone, "Asia/Tokyo");
 }
 
 }  // namespace
