@@ -37,10 +37,19 @@ public:
 
         frameInterface->setLayout(mainLayout);
 
-        connect(nextButton, &QPushButton::clicked, parent, &FrameInterface::nextFrame);
+        connect(nextButton, &QPushButton::clicked, parent, [=] {
+            if (validate()) {
+                parent->nextFrame();
+            }
+        });
 
         // Register Next button text
         LanguageManager::translator(nextButton, &QPushButton::setText, TranslatorType::NextButton);
+    }
+
+    // Verify that jumping to the next frame is allowed.
+    virtual bool validate() const {
+        return true;
     }
 
 protected:
