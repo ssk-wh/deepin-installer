@@ -99,11 +99,9 @@ public:
   QStackedLayout* m_mapOrListStackedLayout = nullptr;
   QVBoxLayout* m_upLayout = nullptr;
   QHBoxLayout* m_bottomLayout = nullptr;
-  QPushButton* m_setTimePushButton = nullptr;
   QList<DButtonBoxButton *> m_buttonList;
 
   QWidget* m_timezonePage = nullptr;
-  QStackedLayout* m_stackedLayout = nullptr;
 
   TimezoneSource timezone_source_;
 
@@ -127,7 +125,6 @@ void TimezoneFramePrivate::updateTs()
     nextButton->setText(tr("Next"));
     m_timezoneMapButton->setText(tr("Map"));
     m_timezoneListButton->setText(tr("List"));
-    m_setTimePushButton->setText(tr("Time settings"));
 }
 
 TimezoneFrame::TimezoneFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
@@ -248,18 +245,11 @@ void TimezoneFrame::showEvent(QShowEvent* event) {
 
   // NOTE(xushaohua): Add a delay to wait for paint event of timezone map.
   QTimer::singleShot(0, [&]() {
-      if(m_private->m_stackedLayout->currentWidget() == m_private->m_timezonePage){
-          if(m_private->m_mapOrListStackedLayout->currentWidget() == m_private->timezone_map_){
-              m_private->timezone_map_->showMark();
-          }
-          else {
-              m_private->timezone_map_->hideMark();
-          }
-          m_private->m_setTimePushButton->show();
+      if(m_private->m_mapOrListStackedLayout->currentWidget() == m_private->timezone_map_){
+          m_private->timezone_map_->showMark();
       }
       else {
           m_private->timezone_map_->hideMark();
-          m_private->m_setTimePushButton->hide();
       }
   });
 }
@@ -306,21 +296,16 @@ void TimezoneFramePrivate::initConnections() {
   });
 
   connect(m_systemDateFrame, &SystemDateFrame::cancel, this, [=] {
-      m_stackedLayout->setCurrentWidget(m_timezonePage);
       if(m_mapOrListStackedLayout->currentWidget() == timezone_map_){
           timezone_map_->showMark();
       }
       else {
           timezone_map_->hideMark();
       }
-      m_setTimePushButton->show();
   });
 
   connect(m_selectTimeZoneFrame, &SelectTimeZoneFrame::timezoneUpdated
           , this, &TimezoneFramePrivate::onSelectTimezoneUpdated);
-
-  connect(m_setTimePushButton, &QPushButton::clicked, this
-          , &TimezoneFramePrivate::onSetTimePushButtonClicked);
 }
 
 void TimezoneFramePrivate::initUI() {
@@ -372,43 +357,15 @@ void TimezoneFramePrivate::initUI() {
   hLayout->addLayout(m_mapOrListStackedLayout);
   m_upLayout->addLayout(hLayout);
 
-  m_upLayout->addWidget(nextButton, 0, Qt::AlignCenter | Qt::AlignBottom);
+  if (!GetSettingsBool(kSkipAutoSyncTimePage)) {
+    m_systemDateFrame = new SystemDateFrame;
+    m_upLayout->addWidget(m_systemDateFrame, 0, Qt::AlignHCenter);
+  }
 
   m_timezonePage = new QWidget;
   m_timezonePage->setLayout(m_upLayout);
 
-  m_stackedLayout = new QStackedLayout;
-  m_stackedLayout->addWidget(m_timezonePage);
-
-  m_setTimePushButton = new PointerButton();
-  m_setTimePushButton->setObjectName("setTimePushButton");
-  m_setTimePushButton->setFlat(true);
-  m_setTimePushButton->setFixedHeight(23);
-  m_setTimePushButton->setText(tr("Time settings"));
-  m_setTimePushButton->setNormalPic(":/images/manual_normal.svg");
-  m_setTimePushButton->setHoverPic(":/images/manual_hover.svg");
-  m_setTimePushButton->setPressPic(":/images/manual_press.svg");
-
-  QSizePolicy spaceRetain = m_setTimePushButton->sizePolicy();
-  spaceRetain.setRetainSizeWhenHidden(true);
-  m_setTimePushButton->setSizePolicy(spaceRetain);
-
-  m_bottomLayout = new QHBoxLayout();
-  m_bottomLayout->setContentsMargins(30, 0, 0, 0);
-  m_bottomLayout->setSpacing(30);
-  m_bottomLayout->addWidget(m_setTimePushButton);
-  m_bottomLayout->addStretch();
-
-  m_setTimePushButton->hide();
-  if (!GetSettingsBool(kSkipAutoSyncTimePage)) {
-    m_setTimePushButton->show();
-
-    m_systemDateFrame = new SystemDateFrame;
-    m_stackedLayout->addWidget(m_systemDateFrame);
-  }
-
-  centerLayout->addLayout(m_stackedLayout);
-  centerLayout->addLayout(m_bottomLayout);
+  centerLayout->addWidget(m_timezonePage);
 
   q_ptr->setContentsMargins(0, 0, 0, 0);
   q_ptr->setStyleSheet(ReadFile(":/styles/timezone_frame.css"));
@@ -461,13 +418,6 @@ void TimezoneFramePrivate::onSelectTimezoneUpdated(const QString &timezone)
     timezone_source_ = TimezoneSource::User;
     timezone_ = timezone;
     emit q_ptr->timezoneSet(timezone);
-}
-
-void TimezoneFramePrivate::onSetTimePushButtonClicked()
-{
-    m_stackedLayout->setCurrentWidget(m_systemDateFrame);
-    timezone_map_->hideMark();
-    m_setTimePushButton->hide();
 }
 
 }  // namespace installer
