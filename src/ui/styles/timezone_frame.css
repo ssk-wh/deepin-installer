@@ -15,50 +15,6 @@ QPushButton#setTimePushButton[flat="true"] {
   background-position: center left;
 }
 
-<<<<<<< HEAD
-#timezoneMapButton, #timezoneListButton {
-  font-size: 12px;
-  color: #ffffff;
-  text-align: center;
-  background: transparent;
-  outline: none;
-  margin: 0px;
-  padding: 10px;
-}
-
-#timezoneMapButton {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-right-style: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-#timezoneListButton {
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  border-left-style: none;
-}
-
-#timezoneMapButton::checked {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  border-right-style: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  border-left: 1px solid rgba(255, 255, 255, 0.4);
-}
-
-#timezoneListButton::checked {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  border-right: 1px solid rgba(255, 255, 255, 0.4);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  border-left-style: none;
-=======
 #setTimePushButton {
   background-image: url(:/images/manual_normal.svg);
 }
@@ -67,7 +23,6 @@ QPushButton#setTimePushButton[flat="true"] {
 }
 #setTimePushButton:pressed {
   background-image: url(:/images/manual_press.svg);
->>>>>>> 899c0ca9... fix(timezone):show switch_button
 }
 
 QScrollBar:vertical

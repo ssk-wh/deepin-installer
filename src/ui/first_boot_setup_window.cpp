@@ -24,6 +24,7 @@
 #include <QStackedLayout>
 #include <QThread>
 #include <QMap>
+#include <DBackgroundGroup>
 #include <linux/vt.h>
 #include <sys/types.h>
 #include <sys/ioctl.h>
@@ -50,11 +51,12 @@
 #include "ui/frames/networkframe.h"
 #include "ui/frames/control_platform_frame.h"
 
+DWIDGET_USE_NAMESPACE
+
 namespace installer {
 
 FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
-    : QWidget(parent),
-      FrameProxyInterface(),
+    : DMainWindow(parent),
       hook_worker_thread_(new QThread(this)),
       hook_worker_(new FirstBootHookWorker())
 {
@@ -100,11 +102,6 @@ void FirstBootSetupWindow::showChildFrame(FrameInterface *frame)
 void FirstBootSetupWindow::exitInstall(bool reboot)
 {
 
-}
-
-void FirstBootSetupWindow::resizeEvent(QResizeEvent *event) {
-  this->updateBackground();
-  QWidget::resizeEvent(event);
 }
 
 void FirstBootSetupWindow::initConnections() {
@@ -167,9 +164,12 @@ void FirstBootSetupWindow::initUI() {
   mainLayout->setSpacing(0);
   mainLayout->setMargin(0);
   mainLayout->addLayout(stacked_layout_);
-  mainLayout->addSpacing(32);
 
-  setLayout(mainLayout);
+  DBackgroundGroup* bgGroup = new DBackgroundGroup;
+  bgGroup->setContentsMargins(10, 10, 10, 10);
+  bgGroup->setLayout(mainLayout);
+
+  setCentralWidget(bgGroup);
 }
 
 void FirstBootSetupWindow::registerShortcut() {
@@ -187,19 +187,6 @@ void FirstBootSetupWindow::registerShortcut() {
   }
 
   multi_head_manager_ = new MultiHeadManager(this);
-}
-
-void FirstBootSetupWindow::updateBackground() {
-  if (!background_label_) {
-    qWarning() << "background_label is not initialized!";
-    return;
-  }
-  const QString image_path = GetWindowBackground();
-  // Other platforms may have performance issue.
-  const QPixmap pixmap = QPixmap(image_path).scaled(
-      size(), Qt::KeepAspectRatioByExpanding);
-  background_label_->setPixmap(pixmap);
-  background_label_->setFixedSize(size());
 }
 
 void FirstBootSetupWindow::onHookFinished(bool ok) {

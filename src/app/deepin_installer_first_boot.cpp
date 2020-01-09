@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
   app.setFont(font);
 
   installer::FirstBootSetupWindow window;
-  window.fullscreen();
+  window.show();
 
   return app.exec();
 }

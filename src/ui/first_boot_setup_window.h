@@ -21,7 +21,7 @@
 #include "ui/interfaces/frameproxyinterface.h"
 
 #include <QFrame>
-#include <DImageButton>
+#include <DMainWindow>
 
 DWIDGET_USE_NAMESPACE
 
@@ -43,7 +43,7 @@ class NetworkFrame;
 class ControlPlatformFrame;
 
 // Main window of deepin_installer_first_boot.
-class FirstBootSetupWindow : public QWidget, public FrameProxyInterface {
+class FirstBootSetupWindow : public DMainWindow, public FrameProxyInterface {
   Q_OBJECT
 
  public:
@@ -57,15 +57,11 @@ class FirstBootSetupWindow : public QWidget, public FrameProxyInterface {
   void showChildFrame(FrameInterface* frame) override;
   void exitInstall(bool reboot = false) override;
 
- protected:
-  void resizeEvent(QResizeEvent* event) override;
-
  private:
   void initConnections();
   void initUI();
 
   void registerShortcut();
-  void updateBackground();
 
   DImageButton*          back_button_         = nullptr;
   QLabel*                background_label_    = nullptr;
