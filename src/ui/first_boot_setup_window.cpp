@@ -58,7 +58,8 @@ namespace installer {
 FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
     : DMainWindow(parent),
       hook_worker_thread_(new QThread(this)),
-      hook_worker_(new FirstBootHookWorker())
+      hook_worker_(new FirstBootHookWorker()),
+      m_showPastFrame(false)
 {
   this->setObjectName("first_boot_setup_window");
 
@@ -69,15 +70,16 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
   this->registerShortcut();
   this->initConnections();
 
-  // Read default settings.
-  language_frame_->init();
-  system_info_frame_->init();
-  timezone_frame_->init();
+  Q_ASSERT(m_frames.count() > 0);
+  m_frames.first()->init();
+
+  // TODO: update frame label state.
+  stacked_layout_->setCurrentWidget(m_frames.first());
 
   if ( !GetSettingsBool(kSkipSelectLanguagePage) ||
         GetSettingsBool(kSkipSelectLanguagePageOnFirstBoot)) {
-      language_frame_->finished();
-      onLanguageSelected();
+      Q_ASSERT(m_frames.first() == language_frame_);
+      nextFrame();
   }
 }
 
@@ -98,10 +100,10 @@ void FirstBootSetupWindow::nextFrame()
     // TODO: update frame label state.
 
     if (!m_showPastFrame){
-        m_originalFrames.removeFirst();
+        m_frames.removeFirst();
     }
 
-    for (auto it = m_originalFrames.begin(); it != m_originalFrames.end();) {
+    for (auto it = m_frames.begin(); it != m_frames.end();) {
         if ((*it)->shouldDisplay()){
             // If the current display page is the fallback page clicked by the user
             // , then, the next page is the one that has displayed earlier.
@@ -119,7 +121,7 @@ void FirstBootSetupWindow::nextFrame()
         else {
             (*it)->init();
             (*it)->finished();
-            it = m_originalFrames.erase(it);
+            it = m_frames.erase(it);
             m_showPastFrame = false;
         }
     }
@@ -138,14 +140,8 @@ void FirstBootSetupWindow::exitInstall(bool reboot)
 }
 
 void FirstBootSetupWindow::initConnections() {
-    connect(language_frame_, &LanguageFrame::finished, this,
-            &FirstBootSetupWindow::onLanguageSelected);
-    connect(system_info_frame_, &SystemInfoFrame::finished,
-            this, &FirstBootSetupWindow::onSystemInfoFinished);
     connect(network_frame_, &NetworkFrame::requestNext,
             this, &FirstBootSetupWindow::onNetworkFinished);
-    connect(timezone_frame_, &TimezoneFrame::finished,
-            this, &FirstBootSetupWindow::onTimezoneFinished);
     connect(hook_worker_, &FirstBootHookWorker::hookFinished,
             this, &FirstBootSetupWindow::onHookFinished);
 
@@ -180,16 +176,16 @@ void FirstBootSetupWindow::initUI() {
       language_frame_,
       timezone_frame_,
       system_info_frame_,
-      control_platform_frame_,
-      // TODO: add network frame and loading frame.
+      // TODO: add network frame, loading frame and control frame.
   };
 
   stacked_layout_ = new QStackedLayout;
   stacked_layout_->setContentsMargins(0, 0, 0, 0);
   stacked_layout_->setSpacing(0);
 
-  for (QWidget* widget : m_originalFrames) {
-      stacked_layout_->addWidget(widget);
+  for (FrameInterface* frame : m_originalFrames) {
+      stacked_layout_->addWidget(frame);
+      m_frames << frame;
   }
 
   QVBoxLayout* mainLayout = new QVBoxLayout;
