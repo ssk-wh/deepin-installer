@@ -76,11 +76,6 @@ private:
     void updateCapsLockState(bool capslock);
     void systemInfoFrameFinish();
 
-    // To mark whether content is edited by user.
-
-    // Validate form content.
-    void onNextButtonClicked();
-
     // Hide tooltip frame when line-edit is being edited.
     void onEditingLineEdit();
 
@@ -146,6 +141,47 @@ SystemInfoFormFrame::~SystemInfoFormFrame()
 {
 }
 
+bool SystemInfoFormFrame::validateUserInfo()
+{
+    Q_D(SystemInfoFormFrame);
+
+    QString msg;
+    if (!d->validateUsername(msg)) {
+        d->tooltip_->setText(msg);
+        d->tooltip_->showBottom(d->m_usernameEdit_);
+    }
+    else if (!d->validateHostname(msg)) {
+        d->tooltip_->setText(msg);
+        d->tooltip_->showBottom(d->m_hostnameEdit_);
+    }
+    else if (!d->validatePassword(d->m_passwordEdit_, msg)) {
+        d->tooltip_->setText(msg);
+        d->tooltip_->showBottom(d->m_passwordEdit_);
+    }
+    else if (!d->validatePassword2(d->m_passwordEdit_, d->m_passwordCheckEdit_, msg)) {
+        d->tooltip_->setText(msg);
+        d->tooltip_->showBottom(d->m_passwordCheckEdit_);
+    }
+    else if (d->m_setRootPasswordCheck->isChecked()) {
+        if (!d->validatePassword(d->m_rootPasswordEdit, msg)) {
+            d->tooltip_->setText(msg);
+            d->tooltip_->showBottom(d->m_rootPasswordEdit);
+        }
+        else if (!d->validatePassword2(d->m_rootPasswordEdit, d->m_rootPasswordCheckEdit, msg)) {
+            d->tooltip_->setText(msg);
+            d->tooltip_->showBottom(d->m_rootPasswordCheckEdit);
+        }
+        else{
+            return true;
+        }
+    }
+    else {
+        return true;
+    }
+
+    return false;
+}
+
 void SystemInfoFormFrame::updateAvatar(const QString& avatar)
 {
     Q_D(SystemInfoFormFrame);
@@ -165,6 +201,8 @@ void SystemInfoFormFrame::readConf() {
 void SystemInfoFormFrame::writeConf()
 {
     Q_D(SystemInfoFormFrame);
+
+    d->systemInfoFrameFinish();
 
     WriteUsername(d->m_usernameEdit_->text());
     WriteHostname(d->m_hostnameEdit_->text());
@@ -211,8 +249,6 @@ void SystemInfoFormFramePrivate::initConnections()
 
     connect(m_avatarButton_, &QPushButton::clicked, q,
             &SystemInfoFormFrame::avatarClicked);
-    connect(q, &SystemInfoFormFrame::nextFrameClicked, this,
-            &SystemInfoFormFramePrivate::onNextButtonClicked);
 
     connect(m_usernameEdit_, &LineEdit::editingFinished, this,
             &SystemInfoFormFramePrivate::onUsernameEditingFinished);
@@ -233,14 +269,12 @@ void SystemInfoFormFramePrivate::initConnections()
             SLOT(setFocus()));
     connect(m_passwordEdit_, SIGNAL(returnPressed()), m_passwordCheckEdit_,
             SLOT(setFocus()));
-    connect(m_passwordCheckEdit_, &QLineEdit::returnPressed, this,
-            &SystemInfoFormFramePrivate::onNextButtonClicked);
+    connect(m_passwordCheckEdit_, &QLineEdit::returnPressed, q, &SystemInfoFormFrame::systemInfoFormDone);
     connect(m_setRootPasswordCheck, &QCheckBox::clicked, this
             , &SystemInfoFormFramePrivate::onSetRootPasswordCheckChanged);
     connect(m_rootPasswordEdit, SIGNAL(returnPressed()), m_rootPasswordCheckEdit
             , SLOT(setFocus()));
-    connect(m_rootPasswordCheckEdit, &QLineEdit::returnPressed, this,
-            &SystemInfoFormFramePrivate::onNextButtonClicked);
+    connect(m_rootPasswordCheckEdit, &QLineEdit::returnPressed, q, &SystemInfoFormFrame::systemInfoFormDone);
 
 
     QList<LineEdit*> list {
@@ -602,46 +636,6 @@ void SystemInfoFormFramePrivate::systemInfoFrameFinish()
         }
 
         WriteGrubPassword(match.captured(0).replace(" ", ""));
-    }
-
-    // Emit finished signal when all form inputs are ok.
-    emit q->nextFrameClicked();
-}
-
-void SystemInfoFormFramePrivate::onNextButtonClicked()
-{
-    QString msg;
-    if (!validateUsername(msg)) {
-        tooltip_->setText(msg);
-        tooltip_->showBottom(m_usernameEdit_);
-    }
-    else if (!validateHostname(msg)) {
-        tooltip_->setText(msg);
-        tooltip_->showBottom(m_hostnameEdit_);
-    }
-    else if (!validatePassword(m_passwordEdit_, msg)) {
-        tooltip_->setText(msg);
-        tooltip_->showBottom(m_passwordEdit_);
-    }
-    else if (!validatePassword2(m_passwordEdit_, m_passwordCheckEdit_, msg)) {
-        tooltip_->setText(msg);
-        tooltip_->showBottom(m_passwordCheckEdit_);
-    }
-    else if (m_setRootPasswordCheck->isChecked()) {
-        if (!validatePassword(m_rootPasswordEdit, msg)) {
-            tooltip_->setText(msg);
-            tooltip_->showBottom(m_rootPasswordEdit);
-        }
-        else if (!validatePassword2(m_rootPasswordEdit, m_rootPasswordCheckEdit, msg)) {
-            tooltip_->setText(msg);
-            tooltip_->showBottom(m_rootPasswordCheckEdit);
-        }
-        else{
-            systemInfoFrameFinish();
-        }
-    }
-    else {
-        systemInfoFrameFinish();
     }
 }
 

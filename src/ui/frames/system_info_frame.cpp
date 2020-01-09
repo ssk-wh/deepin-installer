@@ -80,6 +80,8 @@ public:
 
     // Update text in keyboard button.
     void updateLayout(const QString& layout);
+
+    bool validate() const;
 };
 
 SystemInfoFrame::SystemInfoFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
@@ -122,16 +124,13 @@ bool SystemInfoFrame::shouldDisplay() const
 }
 
 void SystemInfoFramePrivate::initConnections() {
-  connect(nextButton, &QPushButton::click, form_frame_,
-          &SystemInfoFormFrame::nextFrameClicked);
+  connect(form_frame_, &SystemInfoFormFrame::systemInfoFormDone, this, [=] {
+      emit nextButton->clicked();
+  });
   connect(avatar_frame_, &SystemInfoAvatarFrame::finished,
           this, &SystemInfoFramePrivate::showFormPage);
   connect(avatar_frame_, &SystemInfoAvatarFrame::avatarUpdated,
           form_frame_, &SystemInfoFormFrame::updateAvatar);
-  connect(form_frame_, &SystemInfoFormFrame::nextFrameClicked,
-          this, [=] {
-          q_ptr->m_proxy->nextFrame();
-  });
 
   // Save settings when finished signal is emitted.
   connect(form_frame_, &SystemInfoFormFrame::avatarClicked,
@@ -221,6 +220,11 @@ void SystemInfoFramePrivate::showKeyboardPage() {
 
 void SystemInfoFramePrivate::updateLayout(const QString& layout) {
   keyboard_button_->setText(layout);
+}
+
+bool SystemInfoFramePrivate::validate() const
+{
+    return form_frame_->validateUserInfo();
 }
 
 }  // namespace installer

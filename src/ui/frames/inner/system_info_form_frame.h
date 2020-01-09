@@ -35,12 +35,16 @@ class SystemInfoFormFrame : public QFrame {
 public:
     explicit SystemInfoFormFrame(QWidget* parent = nullptr);
     ~SystemInfoFormFrame() override;
+
+    // Validate form content.
+    bool validateUserInfo();
+
 signals:
     // Emitted when the avatar button is clicked.
     void avatarClicked();
 
-    // Emitted when nextbutton was clicked
-    void nextFrameClicked();
+    // Emitted when user input finished.
+    void systemInfoFormDone();
 
 public slots:
     // Update user avatar image.
