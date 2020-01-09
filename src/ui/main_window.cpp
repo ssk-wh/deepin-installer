@@ -238,6 +238,13 @@ void MainWindow::showChindFrame(ChildFrameInterface* childFrameInterface)
     shadow_widget->show();
 }
 
+void MainWindow::resizeEvent(QResizeEvent *event)
+{
+    shadow_widget->setFixedSize(event->size());
+
+    QWidget::resizeEvent(event);
+}
+
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     event->ignore();
