@@ -159,8 +159,8 @@ void SystemInfoFormFrame::writeConf()
     WriteHostname(d->m_hostnameEdit_->text());
     WritePassword(d->m_passwordEdit_->text());
     WriteRootPassword(GetSettingsBool(kSetRootPasswordFromUser)
-                      ? d->m_passwordEdit_->text()
-                      : d->m_rootPasswordEdit->text());
+                      ? d->m_rootPasswordEdit->text()
+                      : d->m_passwordEdit_->text());
 }
 
 void SystemInfoFormFrame::changeEvent(QEvent* event)
