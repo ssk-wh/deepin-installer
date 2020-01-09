@@ -41,16 +41,17 @@
 #include <QDebug>
 #include <functional>
 #include <QDateTime>
+#include <DCheckBox>
+
+DWIDGET_USE_NAMESPACE
 
 namespace installer {
 
 namespace {
-    int kHourMinuteQLineEditWidth = 120;
+    int kHourMinuteQLineEditWidth = 40;
     int kHourMinuteQLabelWidth = 40;
-    int kYearMonthDayQPushButtonWidth = 35;
-    int kYearMonthDayQLineEditWidth = 160;
-    int kYearMonthDayQLabelWidth = 110;
-    int kYearMonthDayQWidgetWidth = 340;
+    int kYearMonthDayQLineEditWidth = 60;
+    int kYearMonthDayQLabelWidth = 40;
     int kMaxIncrementYear = 30;
 }
 
@@ -59,19 +60,11 @@ class SystemDateFramePrivate : public QObject{
 public:
     SystemDateFramePrivate(SystemDateFrame* qq) : m_ptr(qq) {}
 
-    QLabel* m_title = new TitleLabel(tr("Time settings"));
-    CommentLabel* m_commentLabel = new CommentLabel(tr("Change date and time as you want"));
-
+    DCheckBox *m_setDateTimeCheckBox = new DCheckBox;
     TimeDateLineEdit* m_hourEdit = new TimeDateLineEdit;
     TimeDateLineEdit* m_minuteEdit = new TimeDateLineEdit;
-    PointerButton* m_addYearBtn   = new PointerButton;
-    PointerButton* m_minusYearBtn = new PointerButton;
     TimeDateLineEdit* m_yearEdit = new TimeDateLineEdit;
-    PointerButton* m_addMonthBtn = new PointerButton;
-    PointerButton* m_minusMonthBtn = new PointerButton;
     TimeDateLineEdit* m_monthEdit = new TimeDateLineEdit;
-    PointerButton* m_minusDayBtn = new PointerButton;
-    PointerButton* m_addDayBtn = new PointerButton;
     TimeDateLineEdit* m_dayEdit = new TimeDateLineEdit;
 
     QLabel* m_hourLabel = new QLabel;
@@ -79,9 +72,6 @@ public:
     QLabel* m_yearLabel = new QLabel;
     QLabel* m_monthLabel = new QLabel;
     QLabel* m_dayLabel = new QLabel;
-
-    NavButton* m_acceptBtn = new NavButton;
-    NavButton* m_cancelBtn = new NavButton;
 
     int m_maxYear = 9999;
 
@@ -91,15 +81,12 @@ public:
     void initConnection();
 
     void updateTs() {
-        m_title->setText(tr("Time settings"));
-        m_commentLabel->setText(tr("Change date and time as you want"));
+        m_setDateTimeCheckBox->setText(tr("Time settings"));
         m_hourLabel->setText(tr("Hour"));
         m_minuteLabel->setText(tr("Minute"));
         m_yearLabel->setText(tr("Year"));
         m_monthLabel->setText(tr("Month"));
         m_dayLabel->setText(tr("Day"));
-        m_acceptBtn->setText(tr("Confirm"));
-        m_cancelBtn->setText(tr("Cancel"));
     }
 
     void initDateTime();
@@ -117,12 +104,6 @@ public:
     void onHourEditingFinished();
     void onMinuteEditingFinished();
 
-    void onAddYearBtn();
-    void onMinusYearBtn();
-    void onAddMonthBtn();
-    void onMinusMonthBtn();
-    void onMinusDayBtn();
-    void onAddDayBtn();
     void onYearMonthDayChanged(TimeDateLineEdit* edit, bool add);
     void autoAdjustDay();
 
@@ -159,9 +140,6 @@ bool SystemDateFrame::event(QEvent *event)
 
     if (event->type() == QEvent::LanguageChange) {
         d->updateTs();
-    }
-    if (event->type() == QEvent::Show){
-        d->m_acceptBtn->setFocus();
     }
 
     return QWidget::event(event);
@@ -204,36 +182,6 @@ void SystemDateFramePrivate::onMinuteEditingFinished()
     if(!validateMinute(m_minuteEdit->text())){
         m_minuteEdit->setText(QString::number(QTime::currentTime().minute()));
     }
-}
-
-void SystemDateFramePrivate::onAddYearBtn()
-{
-    onYearMonthDayChanged(m_yearEdit, true);
-}
-
-void SystemDateFramePrivate::onMinusYearBtn()
-{
-    onYearMonthDayChanged(m_yearEdit, false);
-}
-
-void SystemDateFramePrivate::onAddMonthBtn()
-{
-    onYearMonthDayChanged(m_monthEdit, true);
-}
-
-void SystemDateFramePrivate::onMinusMonthBtn()
-{
-    onYearMonthDayChanged(m_monthEdit, false);
-}
-
-void SystemDateFramePrivate::onAddDayBtn()
-{
-    onYearMonthDayChanged(m_dayEdit, true);
-}
-
-void SystemDateFramePrivate::onMinusDayBtn()
-{
-    onYearMonthDayChanged(m_dayEdit, false);
 }
 
 void SystemDateFramePrivate::onYearMonthDayChanged(TimeDateLineEdit *edit, bool add)
@@ -421,26 +369,8 @@ void SystemDateFramePrivate::onNextButtonClicked()
 
 void SystemDateFramePrivate::init()
 {
-    QVBoxLayout* centerLayout = new QVBoxLayout;
-    centerLayout->setMargin(0);
-    centerLayout->setSpacing(kMainLayoutSpacing);
-    centerLayout->addSpacing(15);
-    centerLayout->addWidget(m_title, 0, Qt::AlignHCenter);
-    centerLayout->addWidget(m_commentLabel, 0, Qt::AlignHCenter);
-    centerLayout->addStretch();
-
-    m_ptr->setLayout(centerLayout);
-
-    auto createWidgetWithBg = [=](QWidget* content) -> QWidget* {
-        QWidget* bgWidget = new QWidget;
-        QHBoxLayout* layout = new QHBoxLayout;
-        layout->setMargin(0);
-        layout->setSpacing(0);
-        layout->addWidget(content);
-        bgWidget->setLayout(layout);
-        bgWidget->setObjectName("bgWidget");
-        return bgWidget;
-    };
+    m_setDateTimeCheckBox->setCheckable(true);
+    m_setDateTimeCheckBox->setChecked(false);
 
     m_hourEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{1,2}")));
     m_hourEdit->setObjectName("hourEdit");
@@ -448,7 +378,6 @@ void SystemDateFramePrivate::init()
     m_hourEdit->setFixedSize(kHourMinuteQLineEditWidth, 36);
     m_hourEdit->setAlignment(Qt::AlignCenter);
     m_hourEdit->setContextMenuPolicy(Qt::NoContextMenu);
-    QWidget* hourWidget = createWidgetWithBg(m_hourEdit);
 
     m_minuteEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{1,2}")));
     m_minuteEdit->setObjectName("minuteEdit");
@@ -456,7 +385,6 @@ void SystemDateFramePrivate::init()
     m_minuteEdit->setFixedSize(kHourMinuteQLineEditWidth, 36);
     m_minuteEdit->setAlignment(Qt::AlignCenter);
     m_minuteEdit->setContextMenuPolicy(Qt::NoContextMenu);
-    QWidget* minuteWidget = createWidgetWithBg(m_minuteEdit);
 
     m_hourLabel->setObjectName("hourLabel");
     m_hourLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
@@ -464,29 +392,6 @@ void SystemDateFramePrivate::init()
     m_minuteLabel->setObjectName("minuteLabel");
     m_minuteLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_minuteLabel->setFixedSize(kHourMinuteQLabelWidth, 36);
-
-    QHBoxLayout* timeLayout = new QHBoxLayout;
-    timeLayout->setSpacing(0);
-    timeLayout->setMargin(0);
-    timeLayout->addStretch();
-    timeLayout->addWidget(hourWidget);
-    timeLayout->addSpacing(0);
-    timeLayout->addWidget(m_hourLabel);
-    timeLayout->addSpacing(20);
-    timeLayout->addWidget(minuteWidget);
-    timeLayout->addSpacing(0);
-    timeLayout->addWidget(m_minuteLabel);
-    timeLayout->addStretch();
-
-    centerLayout->addStretch();
-    centerLayout->addLayout(timeLayout, 0);
-
-    QHBoxLayout* yearLayout = new QHBoxLayout;
-    yearLayout->setSpacing(0);
-    yearLayout->setMargin(0);
-
-    m_minusYearBtn->setFixedSize(kYearMonthDayQPushButtonWidth, 36);
-    m_addYearBtn->setFixedSize(kYearMonthDayQPushButtonWidth, 36);
 
     m_yearEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{1,4}")));
     m_yearEdit->setFixedSize(kYearMonthDayQLineEditWidth, 36);
@@ -497,29 +402,6 @@ void SystemDateFramePrivate::init()
     m_yearLabel->setFixedSize(kYearMonthDayQLabelWidth, 36);
     m_yearLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
-    yearLayout->addStretch();
-    m_minusYearBtn->setObjectName("minusButton");
-    yearLayout->addWidget(m_minusYearBtn);
-    yearLayout->addWidget(m_yearEdit);
-    yearLayout->addWidget(m_yearLabel);
-    m_addYearBtn->setObjectName("addButton");
-    yearLayout->addWidget(m_addYearBtn);
-    yearLayout->addStretch();
-
-    QWidget* yearWidget = new QWidget;
-    yearWidget->setObjectName("bgWidget");
-    yearWidget->setLayout(yearLayout);
-    yearWidget->setFixedSize(kYearMonthDayQWidgetWidth, 36);
-
-    QHBoxLayout* monthLayout = new QHBoxLayout;
-    monthLayout->setSpacing(0);
-    monthLayout->setMargin(0);
-
-    m_minusMonthBtn->setObjectName("minusButton");
-    m_minusMonthBtn->setFixedSize(kYearMonthDayQPushButtonWidth, 36);
-    m_addMonthBtn->setObjectName("addButton");
-    m_addMonthBtn->setFixedSize(kYearMonthDayQPushButtonWidth, 36);
-
     m_monthEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{1,2}")));
     m_monthEdit->setAlignment(Qt::AlignRight);
     m_monthEdit->setFixedSize(kYearMonthDayQLineEditWidth, 36);
@@ -528,27 +410,6 @@ void SystemDateFramePrivate::init()
     m_monthLabel->setObjectName("monthLabel");
     m_monthLabel->setFixedSize(kYearMonthDayQLabelWidth, 36);
     m_monthLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-
-    monthLayout->addStretch();
-    monthLayout->addWidget(m_minusMonthBtn);
-    monthLayout->addWidget(m_monthEdit);
-    monthLayout->addWidget(m_monthLabel);
-    monthLayout->addWidget(m_addMonthBtn);
-    monthLayout->addStretch();
-
-    QWidget* monthWidget = new QWidget;
-    monthWidget->setObjectName("bgWidget");
-    monthWidget->setLayout(monthLayout);
-    monthWidget->setFixedSize(kYearMonthDayQWidgetWidth, 36);
-
-    QHBoxLayout* dayLayout = new QHBoxLayout;
-    dayLayout->setSpacing(0);
-    dayLayout->setMargin(0);
-
-    m_minusDayBtn->setObjectName("minusButton");
-    m_addDayBtn->setObjectName("addButton");
-    m_minusDayBtn->setFixedSize(kYearMonthDayQPushButtonWidth, 36);
-    m_addDayBtn->setFixedSize(kYearMonthDayQPushButtonWidth, 36);
 
     m_dayEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{1,2}")));
     m_dayEdit->setAlignment(Qt::AlignRight);
@@ -559,32 +420,35 @@ void SystemDateFramePrivate::init()
     m_dayLabel->setFixedSize(kYearMonthDayQLabelWidth, 36);
     m_dayLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
-    dayLayout->addStretch();
-    dayLayout->addWidget(m_minusDayBtn);
-    dayLayout->addWidget(m_dayEdit);
-    dayLayout->addWidget(m_dayLabel);
-    dayLayout->addWidget(m_addDayBtn);
-    dayLayout->addStretch();
+    QHBoxLayout *mainLayout = new QHBoxLayout;
+    mainLayout->setMargin(0);
+    mainLayout->setSpacing(0);
 
-    QWidget* dayWidget = new QWidget;
-    dayWidget->setObjectName("bgWidget");
-    dayWidget->setLayout(dayLayout);
-    dayWidget->setFixedSize(kYearMonthDayQWidgetWidth, 36);
-
-    centerLayout->addSpacing(15);
-    centerLayout->addWidget(yearWidget, 0, Qt::AlignHCenter);
-    centerLayout->addSpacing(15);
-    centerLayout->addWidget(monthWidget, 0, Qt::AlignHCenter);
-    centerLayout->addSpacing(15);
-    centerLayout->addWidget(dayWidget, 0, Qt::AlignHCenter);
-
-    centerLayout->addStretch();
-
-    centerLayout->addWidget(m_acceptBtn, 0, Qt::AlignHCenter);
-    centerLayout->addSpacing(15);
-    centerLayout->addWidget(m_cancelBtn, 0, Qt::AlignHCenter);
+    mainLayout->addWidget(m_setDateTimeCheckBox, 0, Qt::AlignLeft);
+    mainLayout->addStretch();
+    mainLayout->addWidget(m_hourEdit);
+    mainLayout->addSpacing(5);
+    mainLayout->addWidget(m_hourLabel);
+    mainLayout->addSpacing(10);
+    mainLayout->addWidget(m_minuteEdit);
+    mainLayout->addSpacing(5);
+    mainLayout->addWidget(m_minuteLabel);
+    mainLayout->addSpacing(10);
+    mainLayout->addWidget(m_yearEdit);
+    mainLayout->addSpacing(5);
+    mainLayout->addWidget(m_yearLabel);
+    mainLayout->addSpacing(10);
+    mainLayout->addWidget(m_monthEdit);
+    mainLayout->addSpacing(5);
+    mainLayout->addWidget(m_monthLabel);
+    mainLayout->addSpacing(10);
+    mainLayout->addWidget(m_dayEdit);
+    mainLayout->addSpacing(5);
+    mainLayout->addWidget(m_dayLabel);
+    m_ptr->setLayout(mainLayout);
 
     setObjectName("systemDateFramePrivate");
+    m_ptr->setMaximumHeight(40);
     m_ptr->setStyleSheet(ReadFile(":/styles/system_date_frame.css"));
 }
 
@@ -614,17 +478,6 @@ void SystemDateFramePrivate::initConnection()
             , &SystemDateFramePrivate::onMinuteEditingFinished);
     connect(m_minuteEdit, &TimeDateLineEdit::lostFocus, this
             , &SystemDateFramePrivate::onMinuteEditingFinished);
-
-    connect(m_addYearBtn, &QPushButton::clicked, this, &SystemDateFramePrivate::onAddYearBtn);
-    connect(m_addMonthBtn, &QPushButton::clicked, this, &SystemDateFramePrivate::onAddMonthBtn);
-    connect(m_addDayBtn, &QPushButton::clicked, this, &SystemDateFramePrivate::onAddDayBtn);
-
-    connect(m_minusYearBtn, &QPushButton::clicked, this, &SystemDateFramePrivate::onMinusYearBtn);
-    connect(m_minusMonthBtn, &QPushButton::clicked, this, &SystemDateFramePrivate::onMinusMonthBtn);
-    connect(m_minusDayBtn, &QPushButton::clicked, this, &SystemDateFramePrivate::onMinusDayBtn);
-
-    connect(m_acceptBtn, &NavButton::clicked, this, &SystemDateFramePrivate::onNextButtonClicked);
-    connect(m_cancelBtn, &NavButton::clicked, m_ptr, &SystemDateFrame::cancel);
 }
 
 void SystemDateFramePrivate::initDateTime()
