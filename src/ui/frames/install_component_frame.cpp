@@ -15,6 +15,16 @@
 #include <QDebug>
 #include <QtConcurrent/QtConcurrent>
 #include <QCheckBox>
+#include <DFrame>
+#include <DVerticalLine>
+#include <QPainter>
+#include <QTimer>
+
+namespace  {
+    const int kBottomSpacing = 60;
+}
+
+DWIDGET_USE_NAMESPACE
 
 namespace installer {
 class SelectInstallComponentFramePrivate : public FrameInterfacePrivate
@@ -36,8 +46,11 @@ public:
     void clearComponentLayout();
     void checkAllComponent(bool checked);
     void updateSelectAllCheckBoxState();
+    void setWidgetLayout(QWidget* subWidget, FrameInterface* obj, QWidget* parentWiget);
+    void setSubTitleLayout();
 
     TitleLabel* m_selectPageLabel = nullptr;
+    QLabel* m_selectPromptLabel = nullptr;
     QLabel* m_serverTypeLabel = nullptr;
     QLabel* m_componentLabel = nullptr;
 
@@ -49,6 +62,8 @@ public:
 
     DIScrollArea* m_serverScrollArea = nullptr;
     DIScrollArea* m_compScrollArea = nullptr;
+    QWidget* m_baseComponentListWidget = nullptr;
+    QWidget* m_extraComponentListWidget = nullptr;
 
     QCheckBox* m_selectAllCheckBox = nullptr;
     QFrame *m_selectAllFrame = nullptr;
@@ -166,8 +181,18 @@ bool SelectInstallComponentFrame::eventFilter(QObject *watched, QEvent *event)
             m_private->checkAllComponent(m_private->m_selectAllCheckBox->isChecked());
         }
     }
+    if (event->type() == QEvent::Resize) {
+        m_private->setSubTitleLayout();
+    }
 
-    return QWidget::eventFilter(watched, event);
+}
+void SelectInstallComponentFrame::resizeEvent(QResizeEvent *event)
+{
+    QTimer::singleShot(0, this, [=] {
+        m_private->setSubTitleLayout();
+    });
+
+    QWidget::resizeEvent(event);
 }
 
 void SelectInstallComponentFramePrivate::initUI()
@@ -175,15 +200,17 @@ void SelectInstallComponentFramePrivate::initUI()
     m_selectPageLabel = new TitleLabel(tr("Select Software"));
     m_selectPageLabel->setObjectName("selectPageLabel");
 
-    m_serverTypeLabel = new QLabel(tr("Basic Environment"));
+    m_selectPromptLabel = new QLabel(tr("Please select the required"
+                                        " components according to your needs"));
+    m_selectPromptLabel->setObjectName("m_selectPromptLabel");
+
+    m_serverTypeLabel = new QLabel(tr("Basic Environment"), q_ptr);
     m_serverTypeLabel->setObjectName("serverTypeLabel");
     m_serverTypeLabel->setWordWrap(false);
-    m_serverTypeLabel->setAlignment(Qt::AlignHCenter);
 
-    m_componentLabel = new QLabel(tr("Add-Ons for Selected Environment"));
+    m_componentLabel = new QLabel(tr("Add-Ons for Selected Environment"), q_ptr);
     m_componentLabel->setObjectName("componentLabel");
     m_componentLabel->setWordWrap(false);
-    m_componentLabel->setAlignment(Qt::AlignHCenter);
 
     QVBoxLayout* serverLayout = new QVBoxLayout;
     serverLayout->setSpacing(1);
@@ -213,28 +240,27 @@ void SelectInstallComponentFramePrivate::initUI()
         serverWidgetList.last()->setIsTail(true);
     }
 
-    QWidget* serverWdg = new QWidget;
-    serverWdg->setLayout(serverLayout);
-    serverWdg->setObjectName("serverWdg");
+    m_baseComponentListWidget = new QWidget;
+    m_baseComponentListWidget->setLayout(serverLayout);
+    m_baseComponentListWidget->setObjectName("serverWdg");
 
     m_serverScrollArea = new DIScrollArea;
-    m_serverScrollArea->setWidget(serverWdg);
+    m_serverScrollArea->setWidget(m_baseComponentListWidget);
 
     m_componentLayout = new QVBoxLayout;
     m_componentLayout->setSpacing(1);
     m_componentLayout->setMargin(0);
 
-    QWidget *compWdg = new QWidget;
-    compWdg->setLayout(m_componentLayout);
-    compWdg->setObjectName("compWdg");
+    m_extraComponentListWidget = new QWidget;
+    m_extraComponentListWidget->setLayout(m_componentLayout);
+    m_extraComponentListWidget->setObjectName("compWdg");
 
     m_compScrollArea = new DIScrollArea;
-    m_compScrollArea->setWidget(compWdg);
+    m_compScrollArea->setWidget(m_extraComponentListWidget);
 
     QVBoxLayout* serverTypeLayout = new QVBoxLayout;
     serverTypeLayout->setMargin(0);
     serverTypeLayout->setSpacing(0);
-    serverTypeLayout->addWidget(m_serverTypeLabel);
     serverTypeLayout->addSpacing(20);
     serverTypeLayout->addWidget(m_serverScrollArea);
 
@@ -242,7 +268,6 @@ void SelectInstallComponentFramePrivate::initUI()
     componentLayout->setMargin(0);
     componentLayout->setSpacing(0);
     componentLayout->setContentsMargins(0, 0, 0, 0);
-    componentLayout->addWidget(m_componentLabel);
     componentLayout->addSpacing(20);
     componentLayout->addWidget(m_compScrollArea);
 
@@ -279,21 +304,31 @@ void SelectInstallComponentFramePrivate::initUI()
     QWidget* componentWidget = new QWidget;
     componentWidget->setLayout(componentLayout);
 
+    DVerticalLine* dVerticalLine = new DVerticalLine;
+
+    QHBoxLayout* hLineBoxLayout = new QHBoxLayout;
+    hLineBoxLayout->addWidget(dVerticalLine);
+
     QHBoxLayout* hLayout = new QHBoxLayout;
-    hLayout->setMargin(0);
-    hLayout->setSpacing(0);
-    hLayout->addWidget(serverWidget, 0, Qt::AlignRight);
-    hLayout->addSpacing(1);
-    hLayout->addWidget(componentWidget, 0, Qt::AlignLeft);
+    hLayout->setContentsMargins(3, 0, 3, 0);
+    hLayout->addWidget(serverWidget, 0, Qt::AlignLeft);
+    hLayout->addSpacing(3);
+    hLayout->addLayout(hLineBoxLayout);
+    hLayout->addSpacing(0);
+    hLayout->addWidget(componentWidget, 0, Qt::AlignRight);
+
+    DFrame* frame = new DFrame;
+    frame->setLayout(hLayout);
+    frame->installEventFilter(q_ptr);
 
     centerLayout->setSpacing(0);
     centerLayout->setMargin(0);
     centerLayout->addWidget(m_selectPageLabel, 0, Qt::AlignCenter);
-    centerLayout->addSpacing(50);
-    centerLayout->addLayout(hLayout);
+    centerLayout->addWidget(m_selectPromptLabel, 0, Qt::AlignCenter);
+    centerLayout->addSpacing(55);
+    centerLayout->addWidget(frame, 0, Qt::AlignCenter);
     centerLayout->addSpacing(60);
 
-    q_ptr->setStyleSheet(ReadFile(":/styles/install_component_frame.css"));
 }
 
 void SelectInstallComponentFramePrivate::onServerTypeClicked()
@@ -366,6 +401,20 @@ void SelectInstallComponentFramePrivate::onServerTypeClicked()
 
     // Write selected install type
     WriteSelectedInstallType(m_componentStructMap[m_currentComponentWidget]->id());
+}
+
+void SelectInstallComponentFramePrivate::setWidgetLayout(QWidget* subWidget,
+                                                             FrameInterface* obj, QWidget* parentWiget)
+{
+     subWidget->move(parentWiget->mapTo(obj, QPoint()).x()+
+                     (parentWiget->width() - subWidget->width()) / 2 + 20,
+                     parentWiget->mapTo(obj, QPoint()).y() - kBottomSpacing);
+}
+
+void SelectInstallComponentFramePrivate::setSubTitleLayout()
+{
+    setWidgetLayout(m_serverTypeLabel, q_ptr, m_baseComponentListWidget);
+    setWidgetLayout(m_componentLabel, q_ptr, m_extraComponentListWidget);
 }
 
 void SelectInstallComponentFramePrivate::onComponentClicked()

@@ -9,7 +9,11 @@ namespace installer {
 namespace {
     const int kComponentWidgetWidth = 468;
     const int kComponentWidgetMinHeight = 80;
-    const int KQLabelWidth = 350;
+    const int KQLabelWidth =260;
+
+    const int kComponentWidgetReduceX = 9;
+    const int kComponentWidgetReduceY = 7;
+    const int kComponentWidgetReduceWH = 12;
 }
 
 ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
@@ -18,6 +22,7 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
     , m_checkBox(nullptr)
     , m_isHead(false)
     , m_isTail(false)
+    , m_isflag(false)
 {
     m_titleLabel = new QLabel;
     m_titleLabel->setObjectName("titleLabel");
@@ -27,9 +32,9 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
     m_descLabel->setFixedWidth(KQLabelWidth);
     m_descLabel->setWordWrap(true);
     m_hLayout = new QHBoxLayout;
+    m_hLayout->addSpacing(15);
     m_vLayout = new QVBoxLayout;
     m_vLayout->addWidget(m_titleLabel, 0, Qt::AlignLeft);
-    m_vLayout->addSpacing(2);
     m_vLayout->addWidget(m_descLabel, 0, Qt::AlignLeft);
     if(singleSelected){
         m_radioBotton = new QRadioButton;
@@ -75,6 +80,44 @@ void ComponentWidget::setSelected(bool selected)
     else {
         m_checkBox->setChecked(selected);
     }
+}
+
+void ComponentWidget::paintEvent(QPaintEvent* event)
+{
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing);
+
+    QPainterPath PaintPath;
+    QColor color(0, 0, 0, 15);
+
+    if (m_isflag) {
+        color = QColor(0, 0, 0, 55);
+    }
+
+    PaintPath.addRoundedRect(rect().x() + kComponentWidgetReduceX, rect().y() + kComponentWidgetReduceY,
+                             rect().width() - kComponentWidgetReduceWH, rect().height() - kComponentWidgetReduceWH,
+                             11, 11);
+    painter.fillPath(PaintPath, color);
+
+    QWidget::paintEvent(event);
+}
+
+void ComponentWidget::enterEvent(QEvent* event)
+{
+    m_isflag = true;
+
+    update();
+
+    QFrame::leaveEvent(event);
+}
+
+void ComponentWidget::leaveEvent(QEvent* event)
+{
+    m_isflag = false;
+
+    update();
+
+    QFrame::leaveEvent(event);
 }
 
 bool ComponentWidget::isSelected() const
