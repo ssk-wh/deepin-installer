@@ -4,6 +4,9 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QMap>
+#include <dflowlayout.h>
+
+DWIDGET_USE_NAMESPACE
 
 namespace installer {
 class FullDiskPartitionColorBar: public QWidget {
@@ -33,7 +36,7 @@ private:
     FullDiskPartitionColorBar *m_fullDiskPartitionColorBar;
 
     QVBoxLayout *m_mainLayout;
-    QHBoxLayout *m_labelLayout;
-    QMap<QHBoxLayout*, QList<QWidget*>> m_labels;
+    DFlowLayout *m_labelLayout;
+    QList<QWidget*> m_labelLayoutWidgets;
 };
 }

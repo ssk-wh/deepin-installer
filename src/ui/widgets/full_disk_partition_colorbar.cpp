@@ -1,6 +1,8 @@
 #include "full_disk_partition_colorbar.h"
 #include "base/file_util.h"
 #include "ui/delegates/partition_util.h"
+#include "ui/utils/widget_util.h"
+#include "ui/widgets/partition_color_label.h"
 
 #include <QPainter>
 #include <QPainterPath>
@@ -9,7 +11,7 @@
 namespace installer {
 
 const int kColorBarWidth = 800;
-const int kPartitionLabelSpace = 15;
+const int kPartitionLabelSpace = 38;
 
 static const QMap<QString, QString> PART_NAME_COLOR_NAME_MAP{
     { QString("/boot"), QString("#C100AB") },
@@ -89,29 +91,28 @@ QSize FullDiskPartitionColorBar::sizeHint() const
 FullDiskPartitionWidget::FullDiskPartitionWidget(QWidget* parent)
     :QWidget(parent)
 {
-    m_fullDiskPartitionColorBar = new FullDiskPartitionColorBar;
+    m_fullDiskPartitionColorBar = new FullDiskPartitionColorBar(this);
 
-    m_labelLayout = new QHBoxLayout;
-    m_labelLayout->setSpacing(kPartitionLabelSpace);
+    m_labelLayout = new DFlowLayout(this);
+    m_labelLayout->setFlow(DFlowLayout::Flow::LeftToRight);
+    m_labelLayout->setContentsMargins(0, 0, 0, 0);
+    m_labelLayout->setHorizontalSpacing(kPartitionLabelSpace);
 
     m_mainLayout = new QVBoxLayout;
     m_mainLayout->addWidget(m_fullDiskPartitionColorBar, 0, Qt::AlignHCenter);
-    m_mainLayout->setMargin(0);
-    m_mainLayout->setSpacing(0);
     m_mainLayout->setContentsMargins(0, 0, 0, 0);
+    m_mainLayout->setSpacing(0);
 
-    QHBoxLayout* bottomLayout = new QHBoxLayout;
-    bottomLayout->setMargin(0);
-    bottomLayout->setSpacing(0);
+    QWidget *widget = new QWidget;
+    widget->setFixedWidth(kColorBarWidth);
+    widget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Maximum);
+    widget->setContentsMargins(0, 0, 0, 0);
+    widget->setLayout(m_labelLayout);
 
-    bottomLayout->addStretch();
-    bottomLayout->addLayout(m_labelLayout);
-    bottomLayout->addStretch();
-
-    m_mainLayout->addLayout(bottomLayout);
+    m_mainLayout->addSpacing(2);
+    m_mainLayout->addWidget(widget, 0, Qt::AlignHCenter);
 
     setLayout(m_mainLayout);
-    setStyleSheet(ReadFile(":/styles/full_disk_partition_colorbar.css"));
 }
 
 void FullDiskPartitionWidget::setDevices(const DeviceList& devices)
@@ -149,46 +150,52 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
 
     const PartitionList& partitions = device->partitions;
 
-    for (auto it = m_labels.begin(); it != m_labels.end(); ++it) {
-        for (QWidget* w : it.value()) {
-            it.key()->removeWidget(w);
-            w->deleteLater();
-        }
-        it.key()->deleteLater();
+    for (QWidget *w : m_labelLayoutWidgets) {
+        ClearLayout(w->layout());
+        w->layout()->deleteLater();
+        m_labelLayout->removeWidget(w);
+        w->deleteLater();
     }
 
-    m_labels.clear();
+    m_labelLayoutWidgets.clear();
+    int widgetIndex = 0;
 
     for (Partition::Ptr partition : partitions) {
         QHBoxLayout *layout = new QHBoxLayout;
         layout->setMargin(0);
-        layout->setSpacing(3);
+        layout->setSpacing(0);
 
-        QLabel *colorLable = new QLabel;
-        colorLable->setFixedSize(QSize(10, 10));
-        QPalette palette = colorLable->palette();
-        palette.setColor(QPalette::Background, GetPartitionColor(partition));
-        colorLable->setAutoFillBackground(true);
-        colorLable->setPalette(palette);
+        PartitionColorLabel *colorLable = new PartitionColorLabel(GetPartitionColor(partition));
         layout->addWidget(colorLable);
 
         QLabel *partNameLable = new QLabel();
+        partNameLable->setFixedWidth(85);
+        partNameLable->setAlignment(Qt::AlignmentFlag::AlignLeft);
         partNameLable->setText(GetPartitionDisplayText(partition));
+        layout->addSpacing(5);
         layout->addWidget(partNameLable);
 
         QLabel *partSize = new QLabel();
+        partSize->setFixedWidth(50);
+        partSize->setAlignment(Qt::AlignmentFlag::AlignRight);
         QString tmp = GetPartitionUsage(partition);
         int index = tmp.lastIndexOf('/');
         partSize->setText(index < 0 ? tmp : tmp.mid(index + 1));
         layout->addWidget(partSize);
 
         QLabel *fileSysType = new QLabel();
+        fileSysType->setFixedWidth(80);
+        fileSysType->setAlignment(Qt::AlignmentFlag::AlignRight);
         fileSysType->setText(GetFsTypeName(partition->fs));
+        layout->addSpacing(10);
         layout->addWidget(fileSysType);
 
-        m_labels[layout] << colorLable << partNameLable << partSize << fileSysType;
-
-        m_labelLayout->addLayout(layout);
+        QWidget *labelsWrapWidget = new QWidget;
+        labelsWrapWidget->setFixedSize(240, 25);
+        labelsWrapWidget->setLayout(layout);
+        m_labelLayoutWidgets << labelsWrapWidget;
+        m_labelLayout->insertWidget(widgetIndex, labelsWrapWidget);
+        ++widgetIndex;
     }
 
     setVisible(!device->partitions.isEmpty());
