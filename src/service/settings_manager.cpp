@@ -294,7 +294,8 @@ QByteArray GetFullDiskInstallPolicy() {
 
 
     const QStringList list {
-        QString("%1/full_disk_policy_%2.json").arg(GetOemDir().path()),
+        QString("%1/full_disk_policy_%2.json").arg(GetOemDir().path()).arg(type.toLower()),
+        QString("%1/full_disk_policy.json").arg(GetOemDir().path()),
         QString(RESOURCES_DIR "/override/full_disk_policy_%1.json").arg(type.toLower()),
         QString(RESOURCES_DIR "/full_disk_policy_%1.json").arg(type.toLower()),
         QString(RESOURCES_DIR "/full_disk_policy.json")
