@@ -26,7 +26,6 @@ DiskInstallationView::DiskInstallationView(QWidget* parent)
  :QListView(parent)
 {
     setObjectName("disk_installation_view");
-    setStyleSheet(ReadFile(":/styles/disk_installation_view.css"));
     QSizePolicy list_policy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     list_policy.setHorizontalStretch(0);
     list_policy.setVerticalStretch(0);

@@ -277,7 +277,6 @@ void FullDiskFrame::initUI() {
 
   this->setLayout(main_layout);
   this->setContentsMargins(0, 0, 0, 0);
-  this->setStyleSheet(ReadFile(":/styles/simple_disk_frame.css"));
 
   for (auto it = m_trList.begin(); it != m_trList.end(); ++it) {
       it->first(qApp->translate("installer::FullDiskFrame", it->second.toUtf8()));

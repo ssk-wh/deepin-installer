@@ -19,14 +19,17 @@
 #define MULTIPLE_DISK_INSTALLATION_WIDGET_H
 
 #include "partman/device.h"
+
 #include <QWidget>
+#include <DListView>
+
+DWIDGET_USE_NAMESPACE
 
 class QStackedLayout;
 class QStringListModel;
 
 namespace installer {
 
-class DiskInstallationView;
 class DiskInstallationDetailView;
 class DiskInstallationDetailModel;
 
@@ -52,7 +55,7 @@ public slots:
     void onDeviceListChanged(const DeviceList& devices);
 
 private slots:
-    void onInstallationSelectedChanged(int index);
+    void onInstallationSelectedChanged(const QModelIndex &index);
     void onInstallationDetailSelectedChanged(int index);
 
 private:
@@ -62,8 +65,8 @@ private:
     const QStringList getDiskTypes();
 
 private:
-    DiskInstallationView* m_left_view     = nullptr;
-    QStringListModel* m_left_model   = nullptr;
+    DListView* m_left_view = nullptr;
+    QStringListModel* m_left_model = nullptr;
     DiskInstallationDetailView* m_right_view[kDiskModelMaxCount]    = {nullptr, nullptr};
     DiskInstallationDetailModel* m_right_model[kDiskModelMaxCount] = {nullptr, nullptr};
     QStackedLayout* m_right_layout = nullptr;

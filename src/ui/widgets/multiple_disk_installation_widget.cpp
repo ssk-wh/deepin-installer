@@ -23,10 +23,8 @@
 #include <QEvent>
 
 #include "ui/widgets/multiple_disk_installation_widget.h"
-#include "ui/views/disk_installation_view.h"
 #include "ui/views/disk_installation_detail_view.h"
 #include "ui/models/disk_installation_detail_model.h"
-#include "ui/delegates/disk_installation_delegate.h"
 #include "ui/delegates/disk_installation_detail_delegate.h"
 
 namespace installer {
@@ -40,7 +38,7 @@ MultipleDiskInstallationWidget::MultipleDiskInstallationWidget(QWidget *parent)
 
 void MultipleDiskInstallationWidget::initConnections()
 {
-    connect(m_left_view, &DiskInstallationView::currentSelectedChange,
+    connect(m_left_view, &DListView::clicked,
             this, &MultipleDiskInstallationWidget::onInstallationSelectedChanged);
     for (int i = 0; i < kDiskModelMaxCount; i++) {
       connect(m_right_view[i], &DiskInstallationDetailView::currentSelectedChange,
@@ -53,9 +51,7 @@ void MultipleDiskInstallationWidget::initConnections()
 void MultipleDiskInstallationWidget::initUI()
 {
     m_left_model = new QStringListModel(getDiskTypes());
-    m_left_view = new DiskInstallationView();
-    DiskInstallationItemDelegate* delegate = new DiskInstallationItemDelegate(m_left_view);
-    m_left_view->setItemDelegate(delegate);
+    m_left_view = new DListView();
     m_left_view->setModel(m_left_model);
     m_right_layout = new QStackedLayout();
     for (int i = 0; i < kDiskModelMaxCount; i++) {
@@ -119,30 +115,33 @@ void MultipleDiskInstallationWidget::onDeviceListChanged(const DeviceList& devic
    m_left_view->setCurrentIndex(m_left_model->index(0, 0));
 }
 
-void MultipleDiskInstallationWidget::onInstallationSelectedChanged(int index)
+void MultipleDiskInstallationWidget::onInstallationSelectedChanged(const QModelIndex &index)
 {
-    if (index < 0) {
+    // TODO: will delete variate row.
+    int row = index.row();
+
+    if (row < 0) {
         return;
     }
 
     int current_detail_index;
-    m_current_left_index = index;
-    current_detail_index = m_right_model[index]->selectedIndex();
+    m_current_left_index = row;
+    current_detail_index = m_right_model[row]->selectedIndex();
 
     // all disks are unavailable for data disk before system disk is selected
     // you can select any other disk for data disk, except the one which is selected as system disk
     if (static_cast<int>(DiskModelType::DataDisk) == m_current_left_index) {
         int sys_index = m_right_model[static_cast<int>(DiskModelType::SystemDisk)]->selectedIndex();
         if (-1 == sys_index) {
-            m_right_model[index]->disableIndex(DiskInstallationTypes::ItemIndexs(0, m_right_model[index]->devices().length()));
+            m_right_model[row]->disableIndex(DiskInstallationTypes::ItemIndexs(0, m_right_model[row]->devices().length()));
         }
         else {
-            m_right_model[index]->disableIndex(DiskInstallationTypes::ItemIndexs { sys_index });
+            m_right_model[row]->disableIndex(DiskInstallationTypes::ItemIndexs { sys_index });
         }
     }
 
-    m_right_view[index]->setCurrentIndex(m_right_model[index]->index(current_detail_index, 0));
-    m_right_layout->setCurrentIndex(index);
+    m_right_view[row]->setCurrentIndex(m_right_model[row]->index(current_detail_index, 0));
+    m_right_layout->setCurrentIndex(row);
 }
 
 void MultipleDiskInstallationWidget::onInstallationDetailSelectedChanged(int index)
