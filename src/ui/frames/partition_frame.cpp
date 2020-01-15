@@ -211,6 +211,8 @@ void PartitionFramePrivate::initConnections() {
           this, &PartitionFramePrivate::onSimpleFrameButtonToggled);
   connect(advanced_frame_button_, &QPushButton::toggled,
           this, &PartitionFramePrivate::onAdvancedFrameButtonToggled);
+
+  disconnect(nextButton, 0, 0, 0);
   connect(nextButton, &QPushButton::clicked, this, [=] {
        if (partition_stacked_layout_->currentWidget() == full_disk_partition_frame_ && full_disk_partition_frame_->isEncrypt()) {
            showEncryptFrame();
@@ -306,7 +308,6 @@ void PartitionFramePrivate::initConnections() {
 
   connect(full_disk_encrypt_frame_, &Full_Disk_Encrypt_frame::finished, q_ptr, [=] {
       q_ptr->autoPart();
-//      emit finished();
       q_ptr->m_proxy->nextFrame();
   });
 
@@ -639,7 +640,6 @@ void PartitionFramePrivate::onPrepareInstallFrameFinished() {
 
     // full disk encrypt operations is empty.
     if (isFullDiskPartitionMode() && full_disk_partition_frame_->isEncrypt()) {
-//        emit finished();
         q_ptr->m_proxy->nextFrame();
     }
     else if (operations.isEmpty()) {
@@ -648,7 +648,6 @@ void PartitionFramePrivate::onPrepareInstallFrameFinished() {
     }
     else {
         partition_model_->manualPart(operations);
-//        emit finished();
         q_ptr->m_proxy->nextFrame();
     }
 }
