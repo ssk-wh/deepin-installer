@@ -273,22 +273,44 @@ void SystemInfoFormFramePrivate::initUI()
     m_avatarButton_ = new AvatarButton;
 
     m_usernameEdit_ = new LineEdit(":/images/username_12.svg");
-    m_usernameEdit_->setPlaceholderText(tr("Username"));
     m_usernameEdit_->setReadOnly(GetSettingsBool(kSystemInfoLockUsername));
 
+    QString str = GetSettingsString(kSystemInfoDefaultUsername);
+    if (!str.isEmpty()) {
+        m_usernameEdit_->setText(str);
+    }
+    else {
+        m_usernameEdit_->setPlaceholderText(tr("Username"));
+    }
+
     m_hostnameEdit_ = new LineEdit(":/images/username_12.svg");
-    m_hostnameEdit_->setPlaceholderText(tr("Computer name"));
     m_hostnameEdit_->setReadOnly(GetSettingsBool(kSystemInfoLockHostname));
 
+    str = GetSettingsString(kSystemInfoDefaultHostname);
+    if (!str.isEmpty()) {
+        m_hostnameEdit_->setText(str);
+    }
+    else {
+        m_hostnameEdit_->setPlaceholderText(tr("Computer name"));
+    }
+
     m_passwordEdit_ = new LineEdit(":/images/username_12.svg");
-    m_passwordEdit_->setPlaceholderText(tr("Password"));
     m_passwordEdit_->setEchoMode(QLineEdit::Password);
     m_passwordEdit_->setReadOnly(GetSettingsBool(kSystemInfoLockPassword));
 
     m_passwordCheckEdit_ = new LineEdit(":/images/password_12.svg");
-    m_passwordCheckEdit_->setPlaceholderText(tr("Repeat password"));
     m_passwordCheckEdit_->setEchoMode(QLineEdit::Password);
     m_passwordCheckEdit_->setReadOnly(m_passwordEdit_->isReadOnly());
+
+    str = GetSettingsString(kSystemInfoDefaultPassword);
+    if (!str.isEmpty()) {
+        m_passwordEdit_->setText(str);
+        m_passwordCheckEdit_->setText(str);
+    }
+    else {
+        m_passwordEdit_->setPlaceholderText(tr("Password"));
+        m_passwordCheckEdit_->setPlaceholderText(tr("Repeat password"));
+    }
 
     m_setRootPasswordCheck = new QCheckBox;
     m_setRootPasswordCheck->setCheckable(true);
