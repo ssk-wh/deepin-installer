@@ -127,11 +127,15 @@ NetworkFrame::NetworkFrame(QWidget *parent)
 bool NetworkFrame::event(QEvent *event)
 {
     if (event->type() == QEvent::LanguageChange) {
+        m_subTitle->setText(tr("Configure Network"));
         m_ipv4Edit->setPlaceholderText(tr("IP Address"));
         m_maskEdit->setPlaceholderText(tr("Netmask"));
         m_gatewayEdit->setPlaceholderText(tr("Gateway"));
         m_primaryDNSEdit->setPlaceholderText(tr("Primary DNS"));
         m_secondDNSEdit->setPlaceholderText(tr("Secondary DNS"));
+        m_skipButton->setText(tr("Skip"));
+        m_saveButton->setText(tr("Next"));
+        m_errorTip->hide();
     }
 
     return QWidget::event(event);
