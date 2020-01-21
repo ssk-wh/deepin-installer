@@ -20,6 +20,22 @@
 # This script setups variables and function used in hook script.
 # Also handles chroot environment.
 
+get_oem_path() {
+    local fileList=`find / -path "*/oem/*.job"`
+    local fileName
+    for name in $fileList
+    do
+        fileName=$name
+        break
+    done
+
+    local subString="oem"
+    fileName=${fileName%${subString}*}
+    fileName=$fileName$subString
+
+    echo $fileName
+}
+
 # Folder path of hooks.
 HOOKS_DIR=/tmp/installer
 
@@ -63,6 +79,8 @@ elif [ -d /usr/lib/live/mount/medium/oem ]; then
 elif [ -d /run/live/medium/oem ]; then
   # chroot mode
   OEM_DIR=/run/live/medium/oem
+else
+  OEM_DIR=`get_oem_path`
 fi
 
 # Mark $OEM_DIR as readonly constant.
