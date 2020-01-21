@@ -60,6 +60,9 @@ elif [ -d /media/apt/oem ]; then
 elif [ -d /usr/lib/live/mount/medium/oem ]; then
   # chroot mode
   OEM_DIR=/usr/lib/live/mount/medium/oem
+elif [ -d /run/live/medium/oem ]; then
+  # chroot mode
+  OEM_DIR=/run/live/medium/oem
 fi
 
 # Mark $OEM_DIR as readonly constant.
