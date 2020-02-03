@@ -183,6 +183,9 @@ const char kSelectedInstallType[] = "selected_component_install_type";
 // Minimum size of Other partitions
 const char kPartitionOthersMinimumSize[] = "partition_others_minimum_size";
 
+// Auto detect installation mode
+const char kAutoDetectInstallationMode[] = "auto_detect_installation_mode";
+
 // Force the Legacy(MBR) installation mode
 const char kForceLegacyInstallationMode[] = "force_legacy_installation_mode";
 

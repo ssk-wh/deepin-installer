@@ -416,18 +416,20 @@ int GetPartitionUsageValue(const Partition::Ptr partition) {
 }
 
 bool IsEfiEnabled() {
-    if (GetSettingsBool(kForceLegacyInstallationMode)){
-        return false;
-    }
-
     // NOTE(justforlxz): 龙芯有PMON固件的bug，不支持UEFI但是反馈给内核是支持的
     if (QFile::exists("/proc/boardinfo")) {
-      QFile file("/proc/boardinfo");
-      if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-          if (file.readAll().simplified().contains("PMON")) {
-            return false;
-          }
-      }
+        QFile file("/proc/boardinfo");
+        if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            if (file.readAll().simplified().contains("PMON")) {
+                return false;
+            }
+        }
+    }
+
+    // NOTE(justforlxz): 如果关闭了自动探测，则检查是否开启了强制MBR模式
+    // kAutoDetectInstallationMode用于强制Legacy或UEFI引导的。
+    if (!GetSettingsBool(kAutoDetectInstallationMode)) {
+        return !GetSettingsBool(kForceLegacyInstallationMode);
     }
 
     return QDir("/sys/firmware/efi").exists();

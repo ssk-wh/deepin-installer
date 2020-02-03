@@ -54,6 +54,10 @@ slide 目录的结果应该与 resources/slide 目录相同.
 ## 任务栏默认图标和顺序
 在配置文件里面修改 `launcher_apps_in_launcher` 即可.
 
+## 控制安装器引导方式
+* `auto_detect_installation_mode` 配合 `force_legacy_installation_mode` 使用，用于关闭自动探测安装方式。
+* `force_legacy_installation_mode` 设置强制使用legacy模式，如果关闭，则为UEFI引导方式。
+
 ## 自动分区
 需要把 `skip_partition_page` 设置为`1`, 然后把 `partition_do_auto_part`
 设置为 `1`. 安装器自带的自动分区的脚本位于 `hooks/auto_part.sh`, 也可以自定义
