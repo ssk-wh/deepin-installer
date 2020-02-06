@@ -20,7 +20,7 @@
 
 #include "partman/device.h"
 
-#include <QWidget>
+#include <DFrame>
 #include <DListView>
 
 DWIDGET_USE_NAMESPACE
@@ -41,7 +41,7 @@ enum class DiskModelType : int {
 
 static const int kDiskModelMaxCount = static_cast<int>(DiskModelType::DiskModelCount);
 
-class MultipleDiskInstallationWidget : public QWidget
+class MultipleDiskInstallationWidget : public DFrame
 {
     Q_OBJECT
 public:

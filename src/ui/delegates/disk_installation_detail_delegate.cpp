@@ -21,6 +21,7 @@
 
 #include <QDebug>
 #include <QPainter>
+#include <QPainterPath>
 #include <QStyle>
 #include <QApplication>
 #include <QFileInfo>
@@ -31,6 +32,8 @@ namespace installer {
 
 namespace {
 
+const int kItemSpace = 10;
+
 const int kOsIconLeftMargin = 10;
 // Left margin of text content.
 const int kTextLeftMargin = 40;
@@ -39,9 +42,9 @@ const int kDiskPercentLeftMarin = 400;
 const int kDiskPercentHeight = 6;
 const int kSelectedLeftMargin = 580;
 // Right margin of selected item, used to locate background image.
-const int kSelectedRightMargin = 20;
+const int kSelectedRightMargin = 2;
 // Size of bottom border.
-const int kBorderBottom = 1;
+const int kBorderBottom = 10;
 const int kItemRightMargin = 10;
 const QString kDriverIcon = ":/images/driver_128.svg";
 const QString kDriverInstallIcon = ":/images/driver_install_128.svg";
@@ -54,17 +57,28 @@ DiskInstallationDetailDelegate::DiskInstallationDetailDelegate(QObject* parent)
 
 }
 
+void DiskInstallationDetailDelegate::setItemSize(QSize itemSize)
+{
+    m_itemSize = itemSize;
+}
+
 void DiskInstallationDetailDelegate::paint(QPainter* painter,
                                   const QStyleOptionViewItem& option,
                                   const QModelIndex& index) const {
     painter->save();
     painter->setRenderHint(QPainter::SmoothPixmapTransform);
 
-    const QRect& rect(option.rect);
-    const QRect background_rect(rect.x(), rect.y(), rect.width(),
-                                rect.height() - kBorderBottom);
+    QRect rect(option.rect.x() + kItemSpace, option.rect.y() + kItemSpace
+               , option.rect.width() - 2 * kItemSpace, option.rect.height() - kItemSpace);
+
+    QPainterPath path;
+    path.addRoundedRect(rect, 8, 8);
+    painter->setClipPath(path);
 
     if (option.state & QStyle::State_Selected) {
+      // Draw background color of selected item, no matter it is active or not.
+      painter->fillRect(rect, QBrush(getSelectedColor()));
+
       // Draw background image of selected item.
       const QPixmap pixmap = installer::renderPixmap(":/images/select.svg");
       const qreal ratio = qApp->devicePixelRatio();
@@ -72,16 +86,12 @@ void DiskInstallationDetailDelegate::paint(QPainter* painter,
       const int y = rect.y() + static_cast<int>((rect.height() - pixmap.height() / ratio) / 2);
       const QRect pixmap_rect(x, y, static_cast<int>(pixmap.width() / ratio), static_cast<int>(pixmap.height() / ratio));
       painter->drawPixmap(pixmap_rect, pixmap);
-
-      // Draw background color of selected item, no matter it is active or not.
-      const QColor selected_color(255, 255, 255, 51);
-      const QBrush background_brush(selected_color);
-      painter->fillRect(background_rect, background_brush);
     }  else if (option.state & QStyle::State_MouseOver) {
       // Draw background color when mouse is hover
-      const QColor selected_color(255, 255, 255, 25);
-      const QBrush background_brush(selected_color);
-      painter->fillRect(background_rect, background_brush);
+      painter->fillRect(rect, QBrush(getHoveredColor()));
+    }
+    else {
+      painter->fillRect(rect, QBrush(getNormalColor()));
     }
 
     Device::Ptr device (index.model()->data(index).value<Device::Ptr>());
@@ -100,7 +110,7 @@ void DiskInstallationDetailDelegate::paint(QPainter* painter,
 
     // Draw text
     QString text = humanReadableDeviceName(device);
-    const QColor text_color(255, 255, 255, 255);
+    const QColor text_color(Qt::black);
     painter->setPen(QPen(text_color));
     int text_x = std::max(rect.x() + kTextLeftMargin, os_rect.right() + kItemRightMargin);
     QRect text_rect(text_x, rect.y(),
@@ -110,7 +120,7 @@ void DiskInstallationDetailDelegate::paint(QPainter* painter,
 
     // Draw disk size
     DeviceSize device_size = humanReadableDeviceSize(device);
-    text = humanReadableDeviceSizeString(device_size);    
+    text = humanReadableDeviceSizeString(device_size);
     text_rect = QRect(rect.x() + kDiskSizeLeftMarin, rect.y(),
            kDiskPercentLeftMarin - kItemRightMargin - (rect.x() + kDiskSizeLeftMarin),
            rect.height());
@@ -118,10 +128,10 @@ void DiskInstallationDetailDelegate::paint(QPainter* painter,
     painter->drawText(text_rect, Qt::AlignLeft | Qt::AlignVCenter, text);
 
     //Draw disk percent
-    const QColor full_color(255,255,255, 25);
+    const QColor full_color(Qt::gray);
     const QRect full_rect(rect.x() + kDiskPercentLeftMarin,
           static_cast<int>(rect.y()+(rect.height() - kDiskPercentHeight)/2),
-          kSelectedLeftMargin - kItemRightMargin - (rect.x() + kDiskPercentLeftMarin),
+          kSelectedLeftMargin - kItemRightMargin - (rect.x() + kDiskPercentLeftMarin) - 40,
           kDiskPercentHeight);
     QPainterPath full_path;
     full_path.addRoundedRect(full_rect, full_rect.height()/2, full_rect.height()/2);
@@ -131,27 +141,27 @@ void DiskInstallationDetailDelegate::paint(QPainter* painter,
     if (disk_percent < 0) {
         disk_percent = 0.0;
     }
-    const QColor percent_color(44, 167, 248, 196);
+    const QColor percent_color(Qt::blue);
     const QRect percent_rect(rect.x() + kDiskPercentLeftMarin,
           static_cast<int>(rect.y()+(rect.height() - kDiskPercentHeight)/2),
-          static_cast<int>((kSelectedLeftMargin - kItemRightMargin - (rect.x() + kDiskPercentLeftMarin))*disk_percent),
+          30 + static_cast<int>((kSelectedLeftMargin - kItemRightMargin - (rect.x() + kDiskPercentLeftMarin))*disk_percent),
           kDiskPercentHeight);
     QPainterPath percent_path;
     percent_path.addRoundedRect(percent_rect, percent_rect.height()/2, percent_rect.height()/2);
     painter->fillPath(percent_path, percent_color);
 
-    // Draw bottom border of item without last one.
-    if (index.row() + 1 != index.model()->rowCount(index)) {
-      const QColor border_color(0, 0, 0, 20);
-      QPen border_pen(border_color);
-      border_pen.setWidth(kBorderBottom);
-      painter->setPen(border_pen);
-      const QLine border_line(option.rect.bottomLeft(), option.rect.bottomRight());
-      painter->drawLine(border_line);
-    }
-
     painter->restore();
 }
+
+QSize DiskInstallationDetailDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    if (m_itemSize.isValid()) {
+        return m_itemSize;
+    }
+
+    return QStyledItemDelegate::sizeHint(option, index);
+}
+
 const QString DiskInstallationDetailDelegate::humanReadableDeviceName(const Device::Ptr & device)
 {
     return QFileInfo(device->path).fileName();
@@ -197,6 +207,24 @@ qreal DiskInstallationDetailDelegate::humanReadableDeviceSizePercent(const DiskI
         return 0.0;
     }
     return static_cast<qreal>(size.used)/static_cast<qreal>(size.length);
+}
+
+QColor DiskInstallationDetailDelegate::getNormalColor() const
+{
+    // TODO(chenxiong): use dtk normal color
+    return QColor(Qt::lightGray);
+}
+
+QColor DiskInstallationDetailDelegate::getHoveredColor() const
+{
+    // TODO(chenxiong): use dtk hovered color
+    return QColor(Qt::gray);
+}
+
+QColor DiskInstallationDetailDelegate::getSelectedColor() const
+{
+    // TODO(chenxiong): use dtk selected color
+    return QColor(Qt::lightGray);
 }
 
 }

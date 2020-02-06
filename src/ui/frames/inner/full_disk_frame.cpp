@@ -26,6 +26,7 @@
 #include <QApplication>
 #include <QStackedLayout>
 #include <DSysInfo>
+#include <DFrame>
 
 #include "base/file_util.h"
 #include "partman/device.h"
@@ -39,6 +40,7 @@
 #include "ui/widgets/multiple_disk_installation_widget.h"
 
 DCORE_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 namespace installer {
 
@@ -237,12 +239,14 @@ void FullDiskFrame::initUI() {
   hDiskLayout->setSpacing(0);
   hDiskLayout->addLayout(m_disk_layout);
 
-  QFrame* scroll_frame = new QFrame();
+  DFrame* scroll_frame = new DFrame();
+  scroll_frame->setFrameRounded(true);
   scroll_frame->setObjectName("scroll_frame");
   scroll_frame->setContentsMargins(0, 0, 0, 0);
   scroll_frame->setLayout(hDiskLayout);
 
-  QScrollArea* scroll_area = new QScrollArea();
+  QScrollArea* scroll_area = new QScrollArea;
+  scroll_area->setFrameShape(QFrame::Shape::NoFrame);
   scroll_area->setObjectName("scroll_area");
   scroll_area->setWidget(scroll_frame);
   scroll_area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);

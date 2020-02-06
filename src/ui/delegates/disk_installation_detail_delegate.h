@@ -38,14 +38,26 @@ public:
 
     explicit DiskInstallationDetailDelegate(QObject* parent = nullptr);
 
+    void setItemSize(QSize itemSize);
+
+protected:
     void paint(QPainter* painter,
                const QStyleOptionViewItem& option,
                const QModelIndex& index) const override;
+    QSize sizeHint(const QStyleOptionViewItem &option,
+                   const QModelIndex &index) const override;
 
+private:
     static const QString    humanReadableDeviceName(const Device::Ptr & device);
     static const DeviceSize humanReadableDeviceSize(const Device::Ptr & device);
     static const QString    humanReadableDeviceSizeString(const DeviceSize & size);
     static       qreal      humanReadableDeviceSizePercent(const DeviceSize& size);
+
+    QColor getNormalColor() const;
+    QColor getHoveredColor() const;
+    QColor getSelectedColor() const;
+
+    QSize m_itemSize;
 };
 
 }

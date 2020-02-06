@@ -18,11 +18,13 @@
 #ifndef DISK_INSTALLATION_DETAIL_VIEW_H
 #define DISK_INSTALLATION_DETAIL_VIEW_H
 
-#include <QListView>
+#include <DListView>
+
+DWIDGET_USE_NAMESPACE
 
 namespace installer {
 
-class DiskInstallationDetailView : public QListView
+class DiskInstallationDetailView : public DListView
 {
 Q_OBJECT
 public:

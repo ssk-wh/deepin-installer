@@ -20,14 +20,13 @@
 
 namespace installer {
 
-static const int kDiskInstallationDetailWidth = 619;
+static const int kDiskInstallationDetailWidth = 600;
 
 DiskInstallationDetailView::DiskInstallationDetailView(QWidget* parent)
- :  QListView(parent)
+ :  DListView(parent)
   , m_current_index(0)
 {
     setObjectName("disk_installation_view");
-    setStyleSheet(ReadFile(":/styles/disk_installation_detail_view.css"));
     setEditTriggers(QAbstractItemView::NoEditTriggers);
     setSelectionMode(QAbstractItemView::SingleSelection);
     setFixedWidth(kDiskInstallationDetailWidth);

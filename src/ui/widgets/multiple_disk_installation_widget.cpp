@@ -21,25 +21,35 @@
 #include <vector>
 #include <initializer_list>
 #include <QEvent>
+#include <DFrame>
+#include <DVerticalLine>
+#include <QListView>
 
 #include "ui/widgets/multiple_disk_installation_widget.h"
 #include "ui/views/disk_installation_detail_view.h"
 #include "ui/models/disk_installation_detail_model.h"
 #include "ui/delegates/disk_installation_detail_delegate.h"
 
+DWIDGET_USE_NAMESPACE
+
 namespace installer {
 
 MultipleDiskInstallationWidget::MultipleDiskInstallationWidget(QWidget *parent)
-    : QWidget(parent)
+    : DFrame(parent)
 {
     initUI();
     initConnections();
+
+    setFrameRounded(true);
 }
 
 void MultipleDiskInstallationWidget::initConnections()
 {
-    connect(m_left_view, &DListView::clicked,
-            this, &MultipleDiskInstallationWidget::onInstallationSelectedChanged);
+    connect(m_left_view->selectionModel(), &QItemSelectionModel::currentChanged,
+            this, [&] (const QModelIndex &current, const QModelIndex &previous) {
+        Q_UNUSED(previous);
+        onInstallationSelectedChanged(current);
+    });
     for (int i = 0; i < kDiskModelMaxCount; i++) {
       connect(m_right_view[i], &DiskInstallationDetailView::currentSelectedChange,
               this, &MultipleDiskInstallationWidget::onInstallationDetailSelectedChanged);
@@ -52,12 +62,16 @@ void MultipleDiskInstallationWidget::initUI()
 {
     m_left_model = new QStringListModel(getDiskTypes());
     m_left_view = new DListView();
+    m_left_view->setFixedWidth(176);
+    m_left_view->setItemSize(QSize(156, 70));
+    m_left_view->setItemSpacing(10);
     m_left_view->setModel(m_left_model);
     m_right_layout = new QStackedLayout();
     for (int i = 0; i < kDiskModelMaxCount; i++) {
         m_right_model[i] = new DiskInstallationDetailModel();
         m_right_view[i] = new DiskInstallationDetailView();
         DiskInstallationDetailDelegate* delegate = new DiskInstallationDetailDelegate(m_right_view[i]);
+        delegate->setItemSize(QSize(580, 70));
         m_right_view[i]->setItemDelegate(delegate);
         m_right_view[i]->setModel(m_right_model[i]);
         m_right_layout->addWidget(m_right_view[i]);
@@ -65,7 +79,7 @@ void MultipleDiskInstallationWidget::initUI()
     m_right_layout->setCurrentIndex(0);
 
     QHBoxLayout * leftlayout = new QHBoxLayout();
-    leftlayout->setMargin(0);
+    leftlayout->setContentsMargins(10, 10, 10, 10);
     leftlayout->setSpacing(0);
     leftlayout->addWidget(m_left_view);
 
@@ -78,7 +92,8 @@ void MultipleDiskInstallationWidget::initUI()
     hboxlayout->setMargin(0);
     hboxlayout->setSpacing(0);
     hboxlayout->addLayout(leftlayout);
-    hboxlayout->addSpacing(1);
+    DVerticalLine* verticalLine = new DVerticalLine;
+    hboxlayout->addWidget(verticalLine);
     hboxlayout->addLayout(rightLayout);
 
     QVBoxLayout* main_layout = new QVBoxLayout();
