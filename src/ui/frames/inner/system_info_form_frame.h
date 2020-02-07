@@ -47,6 +47,8 @@ public slots:
     // Update user avatar image.
     void updateAvatar(const QString& avatar);
 
+    void readConf();
+
     // Write form content to conf file.
     void writeConf();
 

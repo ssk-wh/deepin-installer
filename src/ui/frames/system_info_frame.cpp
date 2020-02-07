@@ -55,6 +55,8 @@ void SystemInfoFrame::readConf() {
   // Read default avatar explicitly.
   avatar_frame_->readConf();
 
+  form_frame_->readConf();
+
   // Read default keyboard layout.
   keyboard_frame_->readConf();
 }
