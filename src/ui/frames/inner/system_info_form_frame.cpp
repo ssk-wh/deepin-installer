@@ -199,6 +199,15 @@ void SystemInfoFormFrame::readConf() {
     d->m_passwordCheckEdit_->setText(GetSettingsString(kSystemInfoDefaultPassword));
 }
 
+void SystemInfoFormFrame::readConf() {
+    Q_D(SystemInfoFormFrame);
+
+    d->m_usernameEdit_->setText(GetSettingsString(kSystemInfoDefaultUsername));
+    d->m_hostnameEdit_->setText(GetSettingsString(kSystemInfoDefaultHostname));
+    d->m_passwordEdit_->setText(GetSettingsString(kSystemInfoDefaultPassword));
+    d->m_passwordCheckEdit_->setText(GetSettingsString(kSystemInfoDefaultPassword));
+}
+
 void SystemInfoFormFrame::writeConf()
 {
     Q_D(SystemInfoFormFrame);

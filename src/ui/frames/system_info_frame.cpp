@@ -107,6 +107,8 @@ void SystemInfoFrame::init() {
 
   m_private->form_frame_->readConf();
 
+  form_frame_->readConf();
+
   // Read default keyboard layout.
   m_private->keyboard_frame_->readConf();
 }
