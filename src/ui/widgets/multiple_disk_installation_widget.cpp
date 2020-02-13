@@ -128,37 +128,38 @@ void MultipleDiskInstallationWidget::onDeviceListChanged(const DeviceList& devic
         m_right_model[i]->setSelectedIndex(-1);
    }
 
-   m_right_model[static_cast<int>(DiskModelType::DataDisk)]->disableIndex(DiskInstallationTypes::ItemIndexs{ -1 });
    m_left_view->setCurrentIndex(m_left_model->index(0, 0));
 }
 
 void MultipleDiskInstallationWidget::onInstallationSelectedChanged(const QModelIndex &index)
 {
-    // TODO: will delete variate row.
-    int row = index.row();
+    if (!index.isValid()) {
+        return;
+    }
 
-    if (row < 0) {
+    if (index.row() >= kDiskModelMaxCount) {
         return;
     }
 
     int current_detail_index;
-    m_current_left_index = row;
-    current_detail_index = m_right_model[row]->selectedIndex();
+    m_current_left_index = index.row();
+    current_detail_index = m_right_model[m_current_left_index]->selectedIndex();
 
     // all disks are unavailable for data disk before system disk is selected
     // you can select any other disk for data disk, except the one which is selected as system disk
     if (static_cast<int>(DiskModelType::DataDisk) == m_current_left_index) {
         int sys_index = m_right_model[static_cast<int>(DiskModelType::SystemDisk)]->selectedIndex();
         if (-1 == sys_index) {
-            m_right_model[row]->disableIndex(DiskInstallationTypes::ItemIndexs(0, m_right_model[row]->devices().length()));
+            m_right_model[m_current_left_index]->disableIndex(
+                        DiskInstallationTypes::ItemIndexs(0, m_right_model[m_current_left_index]->devices().length()));
         }
         else {
-            m_right_model[row]->disableIndex(DiskInstallationTypes::ItemIndexs { sys_index });
+            m_right_model[m_current_left_index]->disableIndex(DiskInstallationTypes::ItemIndexs { sys_index });
         }
     }
 
-    m_right_view[row]->setCurrentIndex(m_right_model[row]->index(current_detail_index, 0));
-    m_right_layout->setCurrentIndex(row);
+    m_right_view[m_current_left_index]->setCurrentIndex(m_right_model[m_current_left_index]->index(current_detail_index, 0));
+    m_right_layout->setCurrentIndex(m_current_left_index);
 }
 
 void MultipleDiskInstallationWidget::onInstallationDetailSelectedChanged(int index)
