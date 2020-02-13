@@ -65,23 +65,14 @@ public:
     void setSelectedIndex(int index);
     int  selectedIndex();
     void disableIndex(const DiskInstallationTypes::ItemIndexs & indexes);
-    Qt::ItemFlags flags(const QModelIndex &index) const override;
-    void setDeviceConflictPolicy(const DiskInstallationTypes::DeviceConflictPolicy& policy);
 
 signals:
     void diskListChanged();
-
-public slots:
-
-private:
-    void doDisableIndex();
 
 private:
     DeviceList     m_all_disks;
     DeviceList     m_disks;
     int            m_index = -1;
-    DiskInstallationTypes::ItemIndexs           m_disabled_indexes;
-    DiskInstallationTypes::DeviceConflictPolicy m_device_conflict_policy = DiskInstallationTypes::DeviceConflictPolicy::Invisible;
 };
 
 }

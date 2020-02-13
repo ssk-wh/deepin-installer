@@ -70,6 +70,8 @@ void MultipleDiskInstallationWidget::initUI()
     for (int i = 0; i < kDiskModelMaxCount; i++) {
         m_right_model[i] = new DiskInstallationDetailModel();
         m_right_view[i] = new DiskInstallationDetailView();
+        m_right_view[i]->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        m_right_view[i]->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         DiskInstallationDetailDelegate* delegate = new DiskInstallationDetailDelegate(m_right_view[i]);
         delegate->setItemSize(QSize(580, 70));
         m_right_view[i]->setItemDelegate(delegate);

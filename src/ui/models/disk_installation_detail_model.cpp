@@ -49,7 +49,6 @@ void DiskInstallationDetailModel::setDevices(DeviceList & devices)
 {    
     m_all_disks = devices;
     m_disks = m_all_disks;
-    m_disabled_indexes.clear();
     emit diskListChanged();
 }
 
@@ -75,48 +74,19 @@ int  DiskInstallationDetailModel::selectedIndex()
 
 void DiskInstallationDetailModel::disableIndex(const DiskInstallationTypes::ItemIndexs & indexes)
 {
-    m_disabled_indexes = indexes;
-    doDisableIndex();
-    if (DiskInstallationTypes::DeviceConflictPolicy::Invisible == m_device_conflict_policy
-        && m_disks.length() != m_all_disks.length()) {
-        m_index = -1;
-        emit diskListChanged();
-    }
-}
-
-Qt::ItemFlags DiskInstallationDetailModel::flags(const QModelIndex &index) const
-{
-    Qt::ItemFlags flags = QAbstractListModel::flags(index);
-    if (DiskInstallationTypes::DeviceConflictPolicy::Ignore == m_device_conflict_policy) {
-        return flags;
-    }
-    if (m_disabled_indexes.contains(index.row())) {
-        if (DiskInstallationTypes::DeviceConflictPolicy::Disabled == m_device_conflict_policy) {
-            flags &= (~(Qt::ItemFlag::ItemIsEnabled |Qt::ItemFlag::ItemIsSelectable));
-        }
-    }
-    return flags;
-}
-
-void DiskInstallationDetailModel::setDeviceConflictPolicy(const DiskInstallationTypes::DeviceConflictPolicy& policy)
-{
-    m_device_conflict_policy = policy;
-}
-
-void DiskInstallationDetailModel::doDisableIndex()
-{
-    if (DiskInstallationTypes::DeviceConflictPolicy::Invisible != m_device_conflict_policy) {
+    if (indexes.isEmpty()) {
         return;
     }
 
     m_disks = m_all_disks;
-    if (DiskInstallationTypes::DeviceConflictPolicy::Invisible == m_device_conflict_policy) {
-        for (int i = m_disks.length() - 1; i >= 0; i--) {
-            if (m_disabled_indexes.contains(i)) {
-                m_disks.removeAt(i);
-            }
+    for (int i = m_disks.length() - 1; i >= 0; i--) {
+        if (indexes.contains(i)) {
+            m_disks.removeAt(i);
         }
     }
+
+    m_index = -1;
+    emit diskListChanged();
 }
 
 DiskInstallationTypes::ItemIndexs::ItemIndexs(int start, int end)
