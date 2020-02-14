@@ -36,4 +36,9 @@ TableComboBox::TableComboBox(QWidget* parent) : QComboBox(parent) {
   this->setStyleSheet(ReadFile(":/styles/table_combo_box.css"));
 }
 
+void TableComboBox::setHeight(int height)
+{
+    view()->parentWidget()->setFixedHeight(height);
+}
+
 }  // namespace installer

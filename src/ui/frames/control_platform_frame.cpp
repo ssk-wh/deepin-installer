@@ -46,6 +46,7 @@ ControlPlatformFrame::ControlPlatformFrame(QWidget* parent)
     layout->setMargin(0);
     layout->setSpacing(10);
 
+    m_regionBox->setHeight(300);
     m_regionBox->setModel(m_regionModel);
 
     QLabel *logo_label = new QLabel;

@@ -27,7 +27,9 @@ class TableComboBox : public QComboBox {
   Q_OBJECT
 
  public:
-  explicit TableComboBox(QWidget* parent = nullptr);
+    explicit TableComboBox(QWidget* parent = nullptr);
+
+    void setHeight(int height);
 };
 
 }  // namespace installer
