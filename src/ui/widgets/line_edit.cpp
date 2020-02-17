@@ -195,6 +195,10 @@ void LineEdit::onFocusChanged(QWidget *old, QWidget *now)
         return;
     }
 
+    if (old == m_lineEdit) {
+        emit editingFinished();
+    }
+
     if (now == m_lineEdit){
         emit gotFocus();
     }
