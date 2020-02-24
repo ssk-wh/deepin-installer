@@ -36,9 +36,6 @@ public:
 signals:
      void currentSelectedChange(int index);
 
-public slots:
-    void onDiskListChanged();
-
 private:
     int m_current_index;
 };

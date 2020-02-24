@@ -49,7 +49,6 @@ void DiskInstallationDetailModel::setDevices(DeviceList & devices)
 {    
     m_all_disks = devices;
     m_disks = m_all_disks;
-    emit diskListChanged();
 }
 
 DeviceList & DiskInstallationDetailModel::devices()
@@ -57,9 +56,13 @@ DeviceList & DiskInstallationDetailModel::devices()
     return m_all_disks;
 }
 
-DeviceList & DiskInstallationDetailModel::virtualDevices()
+Device::Ptr DiskInstallationDetailModel::getDevice(int index) const
 {
-    return m_disks;
+    if (index < 0 || index >= m_disks.count()) {
+        return nullptr;
+    }
+
+    return m_disks.at(index);
 }
 
 void DiskInstallationDetailModel::setSelectedIndex(int index)
@@ -70,6 +73,11 @@ void DiskInstallationDetailModel::setSelectedIndex(int index)
 int  DiskInstallationDetailModel::selectedIndex()
 {
     return m_index;
+}
+
+int DiskInstallationDetailModel::getIndex(Device::Ptr device) const
+{
+    return m_disks.indexOf(device);
 }
 
 void DiskInstallationDetailModel::disableIndex(const DiskInstallationTypes::ItemIndexs & indexes)
@@ -86,7 +94,6 @@ void DiskInstallationDetailModel::disableIndex(const DiskInstallationTypes::Item
     }
 
     m_index = -1;
-    emit diskListChanged();
 }
 
 DiskInstallationTypes::ItemIndexs::ItemIndexs(int start, int end)

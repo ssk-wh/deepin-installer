@@ -112,6 +112,7 @@ FullDiskPartitionWidget::FullDiskPartitionWidget(QWidget* parent)
     m_mainLayout->addSpacing(2);
     m_mainLayout->addWidget(widget, 0, Qt::AlignHCenter);
 
+    setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
     setLayout(m_mainLayout);
 }
 

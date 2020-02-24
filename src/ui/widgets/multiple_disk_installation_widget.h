@@ -46,7 +46,6 @@ class MultipleDiskInstallationWidget : public DFrame
     Q_OBJECT
 public:
     explicit MultipleDiskInstallationWidget(QWidget *parent = nullptr);    
-    bool validate() const;
 
 signals:
     void currentDeviceChanged(int type, const Device::Ptr device);
@@ -67,9 +66,8 @@ private:
 private:
     DListView* m_left_view = nullptr;
     QStringListModel* m_left_model = nullptr;
-    DiskInstallationDetailView* m_right_view[kDiskModelMaxCount]    = {nullptr, nullptr};
+    DiskInstallationDetailView* m_right_view = nullptr;
     DiskInstallationDetailModel* m_right_model[kDiskModelMaxCount] = {nullptr, nullptr};
-    QStackedLayout* m_right_layout = nullptr;
     int m_current_left_index = -1;
     DeviceList  m_devices;
 };

@@ -61,13 +61,11 @@ public:
     int rowCount(const QModelIndex& parent) const override;
     void setDevices(DeviceList & devices);
     DeviceList & devices();
-    DeviceList & virtualDevices();
+    Device::Ptr getDevice(int index) const;
     void setSelectedIndex(int index);
     int  selectedIndex();
+    int getIndex(Device::Ptr device) const;
     void disableIndex(const DiskInstallationTypes::ItemIndexs & indexes);
-
-signals:
-    void diskListChanged();
 
 private:
     DeviceList     m_all_disks;

@@ -30,14 +30,8 @@ DiskInstallationDetailView::DiskInstallationDetailView(QWidget* parent)
     setEditTriggers(QAbstractItemView::NoEditTriggers);
     setSelectionMode(QAbstractItemView::SingleSelection);
     setFixedWidth(kDiskInstallationDetailWidth);
-    setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     setSelectionRectVisible(false);
     setUniformItemSizes(true);
-}
-
-void DiskInstallationDetailView::onDiskListChanged()
-{
-    this->reset();
 }
 
 void DiskInstallationDetailView::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)

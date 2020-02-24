@@ -261,6 +261,7 @@ void FullDiskFrame::initUI() {
   main_layout->setContentsMargins(0, 0, 0, 0);
   main_layout->setSpacing(0);
   main_layout->addWidget(scroll_area, 0, Qt::AlignHCenter);
+  main_layout->addSpacing(10);
   main_layout->addWidget(m_diskPartitionWidget, 0, Qt::AlignHCenter);
 
   QHBoxLayout* h_layout = new QHBoxLayout();
