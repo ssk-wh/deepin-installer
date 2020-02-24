@@ -41,8 +41,7 @@ private:
     void initUI();
     void initConnect();
     void updateText();
-    void toggleLicense(QAbstractButton* button);
-    void updateLicenseText();
+    void toggleLicense();
 
 private:
     QLabel *m_logoLbl;
@@ -55,6 +54,7 @@ private:
     QScrollArea *m_sourceScrollArea;
     QLocale::Language m_language;
     int m_nextFileIndex;
+    QString m_currentFileName;
     QStringList m_fileNames;
     QList<DButtonBoxButton *> m_btnlist;
 };
