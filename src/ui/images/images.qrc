@@ -101,15 +101,17 @@
         <file>manual_hover.svg</file>
         <file>manual_press.svg</file>
         <file>continent_arrow.svg</file>
-        <file>password_hide_hover.svg</file>
-        <file>password_hide_normal.svg</file>
-        <file>password_hide_press.svg</file>
-        <file>password_show_hover.svg</file>
-        <file>password_show_normal.svg</file>
-        <file>password_show_press.svg</file>
-        <file>NO_inactive.svg</file>
         <file>done_inactive.svg</file>
         <file>backPicture.svg</file>
         <file>nextPicture.svg</file>
+        <file>NO_inactive1.svg</file>
+        <file>NO_inactive2.svg</file>
+        <file>NO_inactive3.svg</file>
+        <file>NO_inactive4.svg</file>
+        <file>NO_inactive5.svg</file>
+        <file>NO_inactive6.svg</file>
+        <file>NO_inactive7.svg</file>
+        <file>NO_inactive8.svg</file>
+        <file>NO_inactive9.svg</file>
     </qresource>
 </RCC>

@@ -407,20 +407,23 @@ void MainWindow::initPages() {
   m_frameLabelsModel = new QStandardItemModel();
   m_frameLabelsView->setModel(m_frameLabelsModel);
 
+  int i = 1;
   for (FrameInterface* frame : m_originalFrames){
       if (!frame->shouldDisplay()){
           continue;
       }
 
       DStandardItem* item = new DStandardItem;
-      item->setIcon(QIcon(installer::renderPixmap(":/images/NO_inactive.svg")));
+      QString pixPathTemplate(":/images/NO_inactive%1.svg");
+      item->setIcon(QIcon(installer::renderPixmap(pixPathTemplate.arg(i))));
+      ++i;
       // TODO: for current test, will be replaced in another way.
       item->setText(m_frameTitles[m_originalFrames.indexOf(frame)]);
       QVariant framePointer = QVariant::fromValue(frame);
       item->setData(framePointer, FramePointerRole);
       item->setFlags(Qt::ItemFlag::NoItemFlags);
 
-      DViewItemAction* action = new DViewItemAction;
+      DViewItemAction* action = new DViewItemAction(Qt::AlignmentFlag::AlignVCenter);
       action->setIcon(QIcon(installer::renderPixmap(":/images/done_inactive.svg")));
       action->setVisible(false);
       item->setActionList(Qt::Edge::RightEdge, {action});
