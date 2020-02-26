@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 #include <QMap>
 #include <QLabel>
+#include <QCheckBox>
 
 namespace installer {
 
@@ -31,6 +32,7 @@ signals:
 
 protected:
     bool event(QEvent* event) override;
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     void initUI();
@@ -38,6 +40,8 @@ private:
     void onServerTypeClicked();
     void onComponentClicked();
     void clearComponentLayout();
+    void checkAllComponent(bool checked);
+    void updateSelectAllCheckBoxState();
 
 private:
     TitleLabel* m_selectPageLabel = nullptr;
@@ -53,6 +57,8 @@ private:
     DIScrollArea* m_serverScrollArea = nullptr;
     DIScrollArea* m_compScrollArea = nullptr;
 
+    QCheckBox* m_selectAllCheckBox = nullptr;
+    QFrame *m_selectAllFrame = nullptr;
     NavButton* m_nextButton = nullptr;
 };
 
