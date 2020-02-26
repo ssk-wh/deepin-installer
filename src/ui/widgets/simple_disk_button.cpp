@@ -86,7 +86,6 @@ void SimpleDiskButton::initUI() {
 
   this->setLayout(layout);
 
-  this->setStyleSheet(ReadFile(":/styles/simple_disk_button.css"));
   this->setCheckable(true);
   this->setFixedSize(kButtonWidth, kButtonHeight);
 }

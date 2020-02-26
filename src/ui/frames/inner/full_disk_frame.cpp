@@ -252,7 +252,7 @@ void FullDiskFrame::initUI() {
   scroll_area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   scroll_area->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
   scroll_area->setWidgetResizable(true);
-  scroll_area->setFixedWidth(800);
+  scroll_area->setFixedWidth(kWindowWidth);
   scroll_area->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
   m_diskPartitionWidget = new FullDiskPartitionWidget;
