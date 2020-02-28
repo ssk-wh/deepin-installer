@@ -361,8 +361,7 @@ void PartitionFramePrivate::initUI() {
   full_disk_frame_button_ = new DButtonBoxButton(tr("Full Disk"), q_ptr);
   full_disk_frame_button_->setMinimumWidth(86);
 
-  m_buttonGroup->setButtonList({simple_frame_button_, advanced_frame_button_
-                                , full_disk_frame_button_}, true);
+  m_buttonGroup->setButtonList({advanced_frame_button_, full_disk_frame_button_}, true);
   m_buttonGroup->setVisible(true);
 
   QHBoxLayout* button_layout = new QHBoxLayout();
