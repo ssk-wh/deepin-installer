@@ -20,11 +20,11 @@
 
 #include <QFrame>
 class QLabel;
+class QPushButton;
 
 namespace installer {
 
 class CommentLabel;
-class ExpandedNavButton;
 class NavButton;
 class TitleLabel;
 
@@ -65,9 +65,9 @@ class PartitionTableWarningFrame : public QFrame {
   QLabel* list_item2_ = nullptr;
   QLabel* list_title3_ = nullptr;
   QLabel* list_item3_ = nullptr;
-  ExpandedNavButton* reject_button_ = nullptr;
-  ExpandedNavButton* accept_button_ = nullptr;
-  NavButton* cancel_button_ = nullptr;
+  QPushButton* reject_button_ = nullptr;
+  QPushButton* accept_button_ = nullptr;
+  QPushButton* cancel_button_ = nullptr;
 
   QString device_path_;
 

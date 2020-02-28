@@ -23,6 +23,8 @@
 #include <QLabel>
 #include <DSysInfo>
 
+#include <DFrame>
+
 #include "base/file_util.h"
 #include "ui/frames/consts.h"
 #include "ui/widgets/comment_label.h"
@@ -30,7 +32,7 @@
 #include "ui/widgets/title_label.h"
 #include "ui/utils/widget_util.h"
 
-DCORE_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 namespace installer {
 
@@ -67,7 +69,7 @@ void PartitionTableWarningFrame::changeEvent(QEvent* event) {
         QString("1.%1\n2.%2")
             .arg(tr("Make a backup of all your data to avoid data loss"))
             .arg(tr("After the backup, reboot and enter this interface again")));
-    list_title3_->setText(tr("Continue"));
+    list_title3_->setText(tr("C.%1").arg(tr("Continue")));
     list_item3_->setText(
         QString("1.%1\n2.%2")
             .arg(tr("Make sure you have backed up all data before proceeding"))
@@ -110,8 +112,12 @@ void PartitionTableWarningFrame::initUI() {
   comment_layout->setSpacing(0);
   comment_layout->addWidget(comment_label_);
 
+  QHBoxLayout* listTitleLayouA_ = new QHBoxLayout;
   list_title1_ = new QLabel(QString("A.%1").arg(tr("Disable UEFI")), this);
   list_title1_->setObjectName("list_title1");
+  listTitleLayouA_->addSpacing(15);
+  listTitleLayouA_->addWidget(list_title1_);
+
   list_item1_ = new QLabel(
       QString("1.%1\n2.%2")
           .arg(tr("Reboot, enter BIOS, and disable UEFI"))
@@ -119,8 +125,12 @@ void PartitionTableWarningFrame::initUI() {
       this);
   list_item1_->setObjectName("list_item1");
   list_item1_->setWordWrap(true);
+
+  QHBoxLayout* listTitleLayouB_ = new QHBoxLayout;
   list_title2_ = new QLabel(QString("B.%1").arg(tr("Format the disk")), this);
   list_title2_->setObjectName("list_title2");
+  listTitleLayouB_->addSpacing(15);
+  listTitleLayouB_->addWidget(list_title2_);
   list_item2_ = new QLabel(
       QString("1.%1\n2.%2")
           .arg(tr("Make a backup of all your data to avoid data loss"))
@@ -131,20 +141,22 @@ void PartitionTableWarningFrame::initUI() {
   QVBoxLayout* left_frame_layout = new QVBoxLayout();
   left_frame_layout->setContentsMargins(20, 20, 20, 20);
   left_frame_layout->setSpacing(0);
-  left_frame_layout->addWidget(list_title1_);
+  left_frame_layout->addLayout(listTitleLayouA_);
   left_frame_layout->addWidget(list_item1_);
   left_frame_layout->addStretch();
-  left_frame_layout->addSpacing(5);
-  left_frame_layout->addWidget(list_title2_);
+  left_frame_layout->addSpacing(20);
+  left_frame_layout->addLayout(listTitleLayouB_);
   left_frame_layout->addWidget(list_item2_);
   left_frame_layout->addStretch();
-  QFrame* left_frame = new QFrame();
+  DFrame* left_frame = new DFrame();
   left_frame->setObjectName("left_frame");
-  left_frame->setFixedWidth(480);
   left_frame->setLayout(left_frame_layout);
 
+  QHBoxLayout* listTitleLayou3_ = new QHBoxLayout;
   list_title3_ = new QLabel(tr("Continue"), this);
   list_title3_->setObjectName("list_title3");
+  listTitleLayou3_->addSpacing(15);
+  listTitleLayou3_->addWidget(list_title3_);
   list_item3_ = new QLabel(
       QString("1.%1\n2.%2")
           .arg(tr("Please make sure all data were made a backup, "
@@ -156,17 +168,17 @@ void PartitionTableWarningFrame::initUI() {
   QVBoxLayout* right_frame_layout = new QVBoxLayout();
   right_frame_layout->setContentsMargins(20, 20, 20, 20);
   right_frame_layout->setSpacing(0);
-  right_frame_layout->addWidget(list_title3_);
+  right_frame_layout->addLayout(listTitleLayou3_);
   right_frame_layout->addWidget(list_item3_);
   right_frame_layout->addStretch();
-  QFrame* right_frame = new QFrame();
+  DFrame* right_frame = new DFrame();
   right_frame->setObjectName("right_frame");
-  right_frame->setFixedWidth(480);
   right_frame->setLayout(right_frame_layout);
 
-  reject_button_ = new ExpandedNavButton(tr("Reboot"));
-  accept_button_ = new ExpandedNavButton(tr("Continue"));
-  cancel_button_ = new NavButton(tr("Back"));
+  reject_button_ = new QPushButton(tr("Reboot"));
+  accept_button_ = new QPushButton(tr("Continue"));
+  cancel_button_ = new QPushButton(tr("Back"));
+  cancel_button_->setFixedWidth(310);
 
   QGridLayout* content_layout = new QGridLayout();
   content_layout->setContentsMargins(0, 0, 0, 0);
@@ -190,10 +202,10 @@ void PartitionTableWarningFrame::initUI() {
   layout->addLayout(content_layout);
   layout->addStretch();
   layout->addWidget(cancel_button_, 0, Qt::AlignHCenter);
+  layout->addStretch();
 
   this->setLayout(layout);
   this->setContentsMargins(0, 0, 0, 0);
-  this->setStyleSheet(ReadFile(":/styles/partition_table_warning_frame.css"));
 }
 
 void PartitionTableWarningFrame::onConfirmButtonClicked() {

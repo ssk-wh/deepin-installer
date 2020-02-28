@@ -643,7 +643,8 @@ void PartitionFramePrivate::showEditPartitionFrame(const Partition::Ptr partitio
 }
 
 void PartitionFramePrivate::showMainFrame() {
-  main_layout_->setCurrentWidget(main_frame_);
+  main_layout_->setCurrentWidget(partition_table_warning_frame_);
+
 }
 
 void PartitionFramePrivate::showNewPartitionFrame(
