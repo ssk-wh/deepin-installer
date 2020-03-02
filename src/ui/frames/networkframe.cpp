@@ -13,6 +13,7 @@
 #include <QEvent>
 #include <QNetworkInterface>
 #include <QProcess>
+#include <DBackgroundGroup>
 
 #include <networkmanagerqt/connection.h>
 #include <networkmanagerqt/connectionsettings.h>
@@ -26,6 +27,54 @@
 #include "ui/widgets/system_info_tip.h"
 
 using namespace installer;
+
+namespace installer {
+class WhiteBackgroundWidget : public QFrame {
+    Q_OBJECT
+public:
+    enum class Position {
+        Left,
+        Center,
+        Right,
+        Top,
+        Bottom
+    };
+
+    explicit WhiteBackgroundWidget(Position position, QWidget* parent = nullptr) : QFrame(parent) {
+        const QString backgroundCSS("background: rgba(255, 255, 255, 0.1);");
+        QString borderRadiusCSS("border-top-left-radius: %1;"
+                                "border-top-right-radius: %2;"
+                                "border-bottom-left-radius: %3;"
+                                "border-bottom-right-radius: %4;");
+        const QString radius = "5";
+        const QString nonRadius = "0";
+        switch (position) {
+        case Position::Left: {
+            borderRadiusCSS = borderRadiusCSS.arg(radius).arg(nonRadius).arg(radius).arg(nonRadius);
+        }
+            break;
+        case Position::Right: {
+            borderRadiusCSS = borderRadiusCSS.arg(nonRadius).arg(radius).arg(nonRadius).arg(radius);
+        }
+            break;
+        case Position::Top: {
+            borderRadiusCSS = borderRadiusCSS.arg(radius).arg(radius).arg(nonRadius).arg(nonRadius);
+        }
+            break;
+        case Position::Bottom: {
+            borderRadiusCSS = borderRadiusCSS.arg(nonRadius).arg(nonRadius).arg(radius).arg(radius);
+        }
+            break;
+        default: {
+            borderRadiusCSS = "";
+        }
+        }
+
+        setStyleSheet(backgroundCSS + borderRadiusCSS);
+        setMinimumSize(400, 500);
+    }
+};
+}
 
 static uint coverMask(const QString &source)
 {
@@ -75,14 +124,11 @@ NetworkFrame::NetworkFrame(QWidget *parent)
     , m_secondDNSEdit(new LineEdit(QString(":/images/hostname_12.svg")))
     , m_skipButton(new NavButton(tr("Skip")))
     , m_saveButton(new NavButton(tr("Next")))
-    , m_errorTip(new SystemInfoTip(this))
 {
     auto i = NetworkManager::activeConnections();
     for (auto t : i) {
         qDebug() << t->path();
     }
-
-    m_errorTip->hide();
 
     m_validityCheck = std::unique_ptr<
         QRegularExpressionValidator>(new QRegularExpressionValidator(QRegularExpression(
@@ -107,17 +153,46 @@ NetworkFrame::NetworkFrame(QWidget *parent)
     m_subTitle = new QLabel(tr("Configure Network"));
     layout->addWidget(m_subTitle, 0, Qt::AlignHCenter);
 
+    // 左侧布局
+    QVBoxLayout* leftLayout = new QVBoxLayout;
+    leftLayout->setMargin(0);
+    leftLayout->setSpacing(0);
+    WhiteBackgroundWidget* leftWidget = new WhiteBackgroundWidget(WhiteBackgroundWidget::Position::Left);
+    leftWidget->setLayout(leftLayout);
+
+    // 右侧布局
+    QVBoxLayout* rightLayout = new QVBoxLayout;
+    leftLayout->setMargin(0);
+    leftLayout->setSpacing(5);
+    WhiteBackgroundWidget* rightWidget = new WhiteBackgroundWidget(WhiteBackgroundWidget::Position::Right);
+    rightWidget->setLayout(rightLayout);
+
+    QHBoxLayout* centerLayout = new QHBoxLayout;
+    centerLayout->setMargin(0);
+    centerLayout->setSpacing(0);
+
+    centerLayout->addStretch();
+    centerLayout->addWidget(leftWidget);
+    centerLayout->addSpacing(1);
+    centerLayout->addWidget(rightWidget);
+    centerLayout->addStretch();
+
+    layout->addStretch();
+    layout->addLayout(centerLayout);
     layout->addStretch();
 
-    for (auto it = editList.begin(); it != editList.end(); ++it) {
-        layout->addWidget((*it), 0, Qt::AlignHCenter);
-    }
-
-    layout->addStretch();
     layout->addWidget(m_skipButton, 0, Qt::AlignHCenter);
     layout->addWidget(m_saveButton, 0, Qt::AlignHCenter);
 
     setLayout(layout);
+
+    m_errorTip = new SystemInfoTip(rightWidget);
+
+    for (auto it = editList.begin(); it != editList.end(); ++it) {
+        rightLayout->addWidget((*it), 0, Qt::AlignHCenter);
+    }
+
+    rightLayout->addStretch();
 
     setStyleSheet("QLabel{color: white;}");
 
@@ -230,3 +305,5 @@ void NetworkFrame::checkMaskValidity()
         m_errorTip->hide();
     }
 }
+
+#include "networkframe.moc"
