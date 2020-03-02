@@ -53,6 +53,11 @@ void PointerButton::setPressPic(const QString& pressPic)
     updatePic();
 }
 
+PointerButton::ButtonStatus PointerButton::getStatus() const
+{
+    return m_state;
+}
+
 void PointerButton::enterEvent(QEvent* event)
 {
     setCursor(Qt::PointingHandCursor);

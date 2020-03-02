@@ -20,6 +20,8 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QStyle>
+#include <QPainter>
+#include <QApplication>
 
 #include "base/file_util.h"
 #include "ui/delegates/partition_util.h"
@@ -30,17 +32,22 @@ namespace installer {
 
 namespace {
 const int kWindowWidth = 960;
+const int kBtnSize = 35;
 
-const int kBtnSize = 24;
+const int kItemSpace = 10;
 
-const char kStyleFile[] = ":/styles/advanced_partition_button.css";
+const int kOsIconLeftMargin = 10;
+const int kDevicePathLeftMargin = 40;
+const int kDiskSizeLeftMarin = 300;
+const int kDiskPercentLeftMarin = 400;
+const int kDiskPercentHeight = 6;
+const int kSelectedLeftMargin = 580;
+const int kMountPointLeftMargin = 550;
+const int kTipLeftMargin = 640;
+const int kFileSystemLeftMargin = 770;
+const int kControlButtonLeftMargin = 820;
 
-const char kCtlBtnState[] = "ctlState";
-const char kCtlBtnStateDelete[] = "delete";
-const char kCtlBtnStateEdit[] = "edit";
-const char kCtlBtnStateNew[] = "new";
-const char kCtlBtnStateHide[] = "hide";
-
+const int kItemRightMargin = 10;
 }  // namespace
 
 AdvancedPartitionButton::AdvancedPartitionButton(const Partition::Ptr partition,
@@ -48,19 +55,143 @@ AdvancedPartitionButton::AdvancedPartitionButton(const Partition::Ptr partition,
     : PointerButton(parent),
       partition_(partition),
       editable_(false) {
-  this->setObjectName("advanced_partition_button");
+    setObjectName("advanced_partition_button");
 
-  this->initUI();
-  this->initConnections();
+    initUI();
+    initConnections();
 }
 
 const Partition::Ptr AdvancedPartitionButton::partition() const {
-  return partition_;
+    return partition_;
 }
 
 void AdvancedPartitionButton::setEditable(bool editable) {
-  this->editable_ = editable;
-  this->updateStatus();
+    editable_ = editable;
+    updateStatus();
+}
+
+void AdvancedPartitionButton::paintEvent(QPaintEvent *event)
+{
+    Q_UNUSED(event);
+
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::RenderHint::HighQualityAntialiasing);
+    painter.setPen(Qt::NoPen);
+
+    QRect backgroudRect(rect().x() + kItemSpace, rect().y() + kItemSpace
+                        , rect().width() - 2 * kItemSpace, rect().height() - kItemSpace);
+    QPainterPath path;
+    path.addRoundedRect(backgroudRect, 5, 5);
+    painter.setClipPath(path);
+
+    // Draw background.
+    if (getStatus() == PointerButton::ButtonStatus::Normal) {
+        // TODO(chenxiong): use dtk color
+        painter.fillRect(backgroudRect, Qt::lightGray);
+    }
+    else if (getStatus() == PointerButton::ButtonStatus::Hover) {
+        // TODO(chenxiong): use dtk color
+        painter.fillRect(backgroudRect, Qt::gray);
+    }
+    else {
+        // TODO(chenxiong): use dtk color
+        painter.fillRect(backgroudRect, Qt::blue);
+    }
+
+    // Draw OS icon.
+    const QPixmap os_icon = installer::renderPixmap(GetOsTypeIcon(partition_->os));
+    const qreal ratio = qApp->devicePixelRatio();
+    const int os_height = static_cast<int>(os_icon.height()/ ratio) > backgroudRect.height() ?
+                backgroudRect.height():static_cast<int>(os_icon.height()/ ratio);
+    const int os_width = static_cast<int>(os_icon.width()*os_height/os_icon.height());
+    const int x = backgroudRect.x() + kOsIconLeftMargin;
+    const int y = backgroudRect.y() + static_cast<int>((backgroudRect.height() - os_height) / 2);
+    const QRect os_rect(x, y, os_width, os_height);
+    painter.drawPixmap(os_rect, os_icon);
+
+    // Draw partition label name and partition path.
+    QString text = GetPartitionLabel(partition_);
+    if (partition_->type != PartitionType::Unallocated) {
+        text.append(QString("(%1)").arg(GetPartitionName(partition_->path)));
+    }
+    const QColor text_color(Qt::black);
+    painter.setPen(QPen(text_color));
+    int text_x = std::max(backgroudRect.x() + kDevicePathLeftMargin, os_rect.right() + kItemRightMargin);
+    QRect text_rect(text_x, backgroudRect.y(), kDiskSizeLeftMarin - text_x, backgroudRect.height());
+    text = painter.fontMetrics().elidedText(text, Qt::TextElideMode::ElideRight, text_rect.width());
+    painter.drawText(text_rect, Qt::AlignLeft | Qt::AlignVCenter, text);
+
+    // Draw disk size.
+    text = GetPartitionUsage(partition_);
+    text_rect = QRect(backgroudRect.x() + kDiskSizeLeftMarin, backgroudRect.y(),
+           kDiskPercentLeftMarin - kItemRightMargin - (backgroudRect.x() + kDiskSizeLeftMarin),
+           backgroudRect.height());
+    text = painter.fontMetrics().elidedText(text, Qt::TextElideMode::ElideRight, text_rect.width());
+    painter.drawText(text_rect, Qt::AlignLeft | Qt::AlignVCenter, text);
+
+    //Draw disk percent.
+    const QColor full_color(Qt::gray);
+    const QRect full_rect(backgroudRect.x() + kDiskPercentLeftMarin,
+          static_cast<int>(backgroudRect.y()+(backgroudRect.height() - kDiskPercentHeight)/2),
+          kSelectedLeftMargin - kItemRightMargin - (backgroudRect.x() + kDiskPercentLeftMarin) - 40,
+          kDiskPercentHeight);
+    QPainterPath full_path;
+    full_path.addRoundedRect(full_rect, full_rect.height()/2, full_rect.height()/2);
+    painter.fillPath(full_path,full_color);
+
+    qreal disk_percent = GetPartitionUsageValue(partition_);
+    if (disk_percent < 0) {
+        disk_percent = 0.0;
+    }
+    const QColor percent_color(Qt::blue);
+    const QRect percent_rect(backgroudRect.x() + kDiskPercentLeftMarin,
+          static_cast<int>(backgroudRect.y() + (backgroudRect.height() - kDiskPercentHeight)/2),
+          30 + static_cast<int>((kSelectedLeftMargin - kItemRightMargin - (backgroudRect.x() + kDiskPercentLeftMarin))*disk_percent),
+          kDiskPercentHeight);
+    QPainterPath percent_path;
+    percent_path.addRoundedRect(percent_rect, percent_rect.height()/2, percent_rect.height()/2);
+    painter.fillPath(percent_path, percent_color);
+
+    // Draw mount point.
+    text = partition_->mount_point;
+    text_rect = QRect(backgroudRect.x() + kMountPointLeftMargin, backgroudRect.y(),
+           kTipLeftMargin - kItemRightMargin - (backgroudRect.x() + kMountPointLeftMargin),
+           backgroudRect.height());
+    text = painter.fontMetrics().elidedText(text, Qt::TextElideMode::ElideRight, text_rect.width());
+    painter.drawText(text_rect, Qt::AlignLeft | Qt::AlignVCenter, text);
+
+    // Draw tip.
+    if (partition_->mount_point == kMountPointRoot) {
+        text = tr("Install here");
+    } else if (partition_->status == PartitionStatus::Format ||
+               partition_->status == PartitionStatus::New) {
+        text = tr("To be formatted");
+    }
+    else {
+        text.clear();
+    }
+    text_rect = QRect(backgroudRect.x() + kTipLeftMargin, backgroudRect.y(),
+           kFileSystemLeftMargin - kItemRightMargin - (backgroudRect.x() + kTipLeftMargin),
+           backgroudRect.height());
+    text = painter.fontMetrics().elidedText(text, Qt::TextElideMode::ElideRight, text_rect.width());
+    painter.drawText(text_rect, Qt::AlignLeft | Qt::AlignVCenter, text);
+
+    // Draw filesystem name.
+    text.clear();
+    if (partition_->type == PartitionType::Normal ||
+        partition_->type == PartitionType::Logical) {
+        text = GetFsTypeName(partition_->fs);
+    }
+    text_rect = QRect(backgroudRect.x() + kFileSystemLeftMargin, backgroudRect.y(),
+           kControlButtonLeftMargin - kItemRightMargin - (backgroudRect.x() + kFileSystemLeftMargin),
+           backgroudRect.height());
+    text = painter.fontMetrics().elidedText(text, Qt::TextElideMode::ElideRight, text_rect.width());
+    painter.drawText(text_rect, Qt::AlignLeft | Qt::AlignVCenter, text);
+
+    m_controlButtonPos = QPoint(backgroudRect.x() + kControlButtonLeftMargin
+                                , backgroudRect.y() + (backgroudRect.height() - kBtnSize) / 2);
+
+    painter.end();
 }
 
 void AdvancedPartitionButton::initConnections() {
@@ -71,103 +202,16 @@ void AdvancedPartitionButton::initConnections() {
 }
 
 void AdvancedPartitionButton::initUI() {
-  QLabel* os_label = new QLabel();
-  os_label->setObjectName("os_label");
-  os_label->setPixmap(installer::renderPixmap(GetOsTypeIcon(partition_->os)));
-
-  // partition label name
-  QLabel* name_label = new QLabel();
-  name_label->setObjectName("name_label");
-  name_label->setText(GetPartitionLabel(partition_));
-
-  // partition path
-  QLabel* path_label = new QLabel();
-  path_label->setObjectName("path_label");
-  if (partition_->type != PartitionType::Unallocated) {
-    const QString name = GetPartitionName(partition_->path);
-    path_label->setText(QString("(%1)").arg(name));
-  }
-
-  QHBoxLayout* path_layout = new QHBoxLayout();
-  path_layout->setContentsMargins(0, 0, 0, 0);
-  path_layout->setSpacing(10);
-  path_layout->addWidget(os_label);
-  path_layout->addWidget(name_label);
-  path_layout->addWidget(path_label);
-  path_layout->addStretch();
-  QFrame* path_frame = new QFrame();
-  path_frame->setObjectName("path_frame");
-  path_frame->setContentsMargins(0, 0, 0, 0);
-  path_frame->setLayout(path_layout);
-
-  // partition space usage
-  QLabel* usage_label = new QLabel();
-  usage_label->setObjectName("usage_label");
-  usage_label->setText(GetPartitionUsage(partition_));
-  usage_label->setFixedWidth(64);
-
-  QProgressBar* usage_bar = new RoundedProgressBar();
-  usage_bar->setValue(GetPartitionUsageValue(partition_));
-  usage_bar->setFixedSize(100, 6);
-
-  // mount point
-  QLabel* mount_point_label = new QLabel();
-  mount_point_label->setObjectName("mount_point_label");
-  mount_point_label->setText(partition_->mount_point);
-  mount_point_label->setFixedWidth(64);
-
-  // tip
-  QLabel* tip_label = new QLabel();
-  tip_label->setObjectName("tip_label");
-  tip_label->setFixedWidth(212);
-  if (partition_->mount_point == kMountPointRoot) {
-    tip_label->setText(tr("Install here"));
-  } else if (partition_->status == PartitionStatus::Format ||
-             partition_->status == PartitionStatus::New) {
-    tip_label->setText(tr("To be formatted"));
-  }
-
-  // filesystem name
-  QLabel* fs_label = new QLabel();
-  fs_label->setObjectName("fs_label");
-  if (partition_->type == PartitionType::Normal ||
-      partition_->type == PartitionType::Logical) {
-    fs_label->setText(GetFsTypeName(partition_->fs));
-  }
-  fs_label->setFixedWidth(80);
-
-  QFrame* control_button_wrapper = new QFrame();
-  control_button_wrapper->setObjectName("control_button_wrapper");
-  control_button_wrapper->setContentsMargins(0, 0, 0, 0);
-  control_button_wrapper->setFixedSize(kBtnSize, kBtnSize);
-
-  control_button_ = new PointerButton(control_button_wrapper);
+  control_button_ = new PointerButton(this);
   control_button_->setObjectName("control_button");
   control_button_->setFlat(true);
   control_button_->setFixedSize(kBtnSize, kBtnSize);
-  control_button_->setProperty(kCtlBtnState, kCtlBtnStateHide);
 
-  QHBoxLayout* layout = new QHBoxLayout();
-  layout->setContentsMargins(0, 0, 0, 0);
-  layout->setSpacing(0);
-  layout->addSpacing(20);
-  layout->addWidget(path_frame, 0, Qt::AlignLeft);
-  layout->addStretch();
-  layout->addWidget(usage_label, 0, Qt::AlignRight);
-  layout->addWidget(usage_bar, 0, Qt::AlignRight);
-  layout->addWidget(mount_point_label, 0, Qt::AlignRight);
-  layout->addWidget(tip_label, 0, Qt::AlignRight);
-  layout->addWidget(fs_label, 0, Qt::AlignRight);
-  layout->addWidget(control_button_wrapper, 0, Qt::AlignRight);
-  layout->addSpacing(15);
-
-  this->setContentsMargins(0, 0, 0, 0);
-  this->setLayout(layout);
-  this->setFixedHeight(60);
-  this->setCheckable(true);
-  this->setChecked(false);
-  this->setFlat(true);
-  this->setStyleSheet(ReadFile(kStyleFile));
+  setContentsMargins(0, 0, 0, 0);
+  setFixedHeight(60);
+  setCheckable(true);
+  setChecked(false);
+  setFlat(true);
 }
 
 void AdvancedPartitionButton::updateStatus() {
@@ -177,25 +221,36 @@ void AdvancedPartitionButton::updateStatus() {
     if (partition_->type == PartitionType::Normal ||
         partition_->type == PartitionType::Logical) {
       control_status_ = ControlStatus::Delete;
-      control_button_->setProperty(kCtlBtnState, kCtlBtnStateDelete);
+      control_button_->setNormalPic(":/images/partition_delete_normal.svg");
+      control_button_->setHoverPic(":/images/partition_delete_hover.svg");
+      control_button_->setPressPic(":/images/partition_delete_press.svg");
     }
   } else if (this->isChecked()) {
     if (partition_->type == PartitionType::Normal ||
         partition_->type == PartitionType::Logical) {
       control_status_ = ControlStatus::Edit;
-      control_button_->setProperty(kCtlBtnState, kCtlBtnStateEdit);
+      control_button_->setNormalPic(":/images/edit_normal.svg");
+      control_button_->setHoverPic(":/images/edit_hover.svg");
+      control_button_->setPressPic(":/images/edit_press.svg");
     } else if (partition_->type == PartitionType::Unallocated) {
       control_status_ = ControlStatus::New;
-      control_button_->setProperty(kCtlBtnState, kCtlBtnStateNew);
+      control_button_->setNormalPic(":/images/partition_new_normal.svg");
+      control_button_->setHoverPic(":/images/partition_new_hover.svg");
+      control_button_->setPressPic(":/images/partition_new_press.svg");
     }
   } else {
-    control_button_->setProperty(kCtlBtnState, kCtlBtnStateHide);
+    control_button_->setIcon(QIcon());
   }
 
   control_button_->setVisible(control_status_ != ControlStatus::Hide);
   control_button_->style()->unpolish(control_button_);
   control_button_->style()->polish(control_button_);
   control_button_->update();
+
+  if (control_status_ != ControlStatus::Hide) {
+      control_button_->move(m_controlButtonPos);
+      control_button_->raise();
+  }
 }
 
 void AdvancedPartitionButton::onControlButtonClicked() {

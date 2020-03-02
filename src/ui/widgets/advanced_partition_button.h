@@ -49,11 +49,15 @@ class AdvancedPartitionButton : public PointerButton {
  public slots:
   void setEditable(bool editable);
 
+protected:
+  void paintEvent(QPaintEvent* event) override;
+
  private:
   void initConnections();
   void initUI();
 
   const Partition::Ptr partition_;
+  QPoint m_controlButtonPos;
 
   // Switch status between new-partition, edit-partition and delete-partition.
   PointerButton* control_button_ = nullptr;

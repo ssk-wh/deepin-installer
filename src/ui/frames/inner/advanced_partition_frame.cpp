@@ -247,7 +247,9 @@ void AdvancedPartitionFrame::initUI() {
 
   this->setLayout(main_layout);
   this->setContentsMargins(0, 0, 0, 0);
-  this->setStyleSheet(ReadFile(":/styles/advanced_partition_frame.css"));
+  QSizePolicy container_policy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
+  container_policy.setVerticalStretch(100);
+  this->setSizePolicy(container_policy);
 }
 
 AdvancedPartitionButton* AdvancedPartitionFrame::getAppropriateButtonForState(

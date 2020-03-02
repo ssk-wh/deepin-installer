@@ -27,12 +27,20 @@ class PointerButton : public QPushButton {
   Q_OBJECT
 
 public:
+    enum class ButtonStatus {
+        Normal,
+        Hover,
+        Press
+    };
+
     explicit PointerButton(QWidget* parent = nullptr);
     PointerButton(const QString& text, QWidget* parent = nullptr);
 
     void setNormalPic(const QString& normalPic);
     void setHoverPic(const QString& hoverPic);
     void setPressPic(const QString& pressPic);
+
+    ButtonStatus getStatus() const;
 
 protected:
     // Override these two event handlers to implements hover effect.
@@ -45,12 +53,6 @@ private:
     void updatePic();
 
 private:
-    enum class ButtonStatus {
-        Normal,
-        Hover,
-        Press
-    };
-
     ButtonStatus m_state;
     QString m_normalPic;
     QString m_hoverPic;
