@@ -14,6 +14,11 @@
 #include <QNetworkInterface>
 #include <QProcess>
 
+#include <networkmanagerqt/connection.h>
+#include <networkmanagerqt/connectionsettings.h>
+#include <networkmanagerqt/activeconnection.h>
+#include <networkmanagerqt/manager.h>
+
 #include "service/settings_manager.h"
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/line_edit.h"
@@ -72,6 +77,11 @@ NetworkFrame::NetworkFrame(QWidget *parent)
     , m_saveButton(new NavButton(tr("Next")))
     , m_errorTip(new SystemInfoTip(this))
 {
+    auto i = NetworkManager::activeConnections();
+    for (auto t : i) {
+        qDebug() << t->path();
+    }
+
     m_errorTip->hide();
 
     m_validityCheck = std::unique_ptr<

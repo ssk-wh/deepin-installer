@@ -87,6 +87,7 @@ find_package(QTermWidget5 REQUIRED)
 find_package(DtkCMake REQUIRED)
 find_package(DtkWidget REQUIRED)
 find_package(DtkGui REQUIRED)
+find_package(KF5NetworkManagerQt)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
@@ -113,6 +114,25 @@ add_subdirectory(third_party/timezones)
 add_subdirectory(third_party/zlib_wrapper)
 
 configure_file(base/consts.h base/consts.h @ONLY)
+
+# KF5 network manager
+get_target_property(KF5_QT_INCLUDE_DIRS KF5::NetworkManagerQt INTERFACE_INCLUDE_DIRECTORIES)
+
+set(TRY_KF5_LIBRARIES
+IMPORTED_LOCATION_DEBIAN
+IMPORTED_LOCATION_NOCONFIG
+)
+
+foreach(LETTER ${TRY_KF5_LIBRARIES})
+    if (NOT KF5_QT_LIBRARIES)
+        get_target_property(KF5_QT_LIBRARIES KF5::NetworkManagerQt ${LETTER})
+    endif()
+endforeach()
+
+if (NOT KF5_QT_LIBRARIES)
+    find_library(KF5_QT_LIBRARIES libKF5NetworkManagerQt.so)
+endif()
+# end KF5 network manager
 
 set(BASE_FILES
     base/command.cpp
@@ -570,9 +590,10 @@ add_executable(deepin-installer
 
 target_include_directories(deepin-installer PUBLIC
                ${QTERMWIDGET_INCLUDE_DIRS}
+               ${KF5_QT_INCLUDE_DIRS}
 )
 
-target_link_libraries(deepin-installer ${LINK_LIBS} qtermwidget5)
+target_link_libraries(deepin-installer ${LINK_LIBS} qtermwidget5 ${KF5_QT_LIBRARIES})
 add_dependencies(deepin-installer installer-qm-update)
 
 
@@ -602,9 +623,15 @@ add_executable(deepin-installer-first-boot
                ${SYSINFO_FILES}
                ${UI_FILES}
                )
+target_include_directories(deepin-installer-first-boot PUBLIC
+               ${QTERMWIDGET_INCLUDE_DIRS}
+               ${KF5_QT_INCLUDE_DIRS}
+)
+
 target_link_libraries(deepin-installer-first-boot
                       ${LINK_LIBS}
                       qtermwidget5
+                      ${KF5_QT_LIBRARIES}
                       )
 
 add_executable(deepin-installer-user-form
