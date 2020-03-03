@@ -19,6 +19,9 @@
 
 #include <QPainter>
 #include <QPainterPath>
+#include <DPalette>
+
+DGUI_USE_NAMESPACE
 
 namespace installer {
 
@@ -42,7 +45,7 @@ void RoundedProgressBar::paintEvent(QPaintEvent* event) {
   const int radius = height / 2;
   QPainterPath base_path;
   // base_color == "rgba(255, 255, 255, 0.1)"
-  const QColor base_color(255, 255, 255, 25);
+  const QColor base_color(0, 0, 0, 255 * 0.03);
   base_path.addRoundedRect(0, 0, width, height, radius, radius);
   painter.fillPath(base_path, base_color);
 
