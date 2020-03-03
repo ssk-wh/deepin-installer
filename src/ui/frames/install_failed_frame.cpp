@@ -216,7 +216,6 @@ void InstallFailedFramePrivate::initUI()
 
     m_ptr->setLayout(layout);
     m_ptr->setContentsMargins(0, 0, 0, 0);
-    m_ptr->setStyleSheet(ReadFile(":/styles/install_failed_frame.css"));
 }
 
 void InstallFailedFramePrivate::onControlButtonClicked()
