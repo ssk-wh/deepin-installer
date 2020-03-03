@@ -112,6 +112,7 @@ void InstallSuccessFramePrivate::initUI()
     layout->addWidget(eject_label_, 0, Qt::AlignCenter);
     layout->addWidget(reboot_button_, 0, Qt::AlignCenter);
 
+    q_ptr->setLayout(layout);
     q_ptr->setContentsMargins(0, 0, 0, 0);
 }
 
