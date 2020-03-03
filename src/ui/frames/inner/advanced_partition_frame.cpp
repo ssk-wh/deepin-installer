@@ -24,7 +24,8 @@
 #include <QScrollArea>
 #include <QScrollBar>
 #include <QTimer>
-#include <QCheckBox>
+#include <DFrame>
+#include <DPalette>
 
 #include "base/file_util.h"
 #include "service/settings_manager.h"
@@ -33,6 +34,9 @@
 #include "ui/delegates/partition_util.h"
 #include "ui/widgets/advanced_partition_button.h"
 #include "ui/utils/widget_util.h"
+
+DWIDGET_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 
 namespace installer {
 
@@ -186,6 +190,7 @@ void AdvancedPartitionFrame::initUI() {
   scroll_area_->setMaximumWidth(kWindowWidth);
   scroll_area_->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   scroll_area_->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+  scroll_area_->setFrameShape(QFrame::Shape::NoFrame);
 
   bootloader_tip_button_ = new PointerButton(tr("Change boot loader"), this);
   bootloader_tip_button_->setObjectName("bootloader_tip_button");
@@ -214,13 +219,15 @@ void AdvancedPartitionFrame::initUI() {
   bottom_layout->addStretch();
   bottom_layout->addWidget(editing_button_);
 
-  QFrame* bottom_frame = new QFrame();
-  bottom_frame->setObjectName("bottom_frame");
-  bottom_frame->setContentsMargins(0, 0, 0, 0);
-  bottom_frame->setLayout(bottom_layout);
-  bottom_frame->setMaximumWidth(kWindowWidth);
-  bottom_frame->setFixedHeight(40);
-  bottom_frame->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
+  DFrame *m_bgGroup = new DFrame(this);
+  m_bgGroup->setBackgroundRole(DPalette::ItemBackground);
+  m_bgGroup->setLineWidth(0);
+  m_bgGroup->lower();
+  m_bgGroup->setContentsMargins(0, 0, 0, 0);
+  m_bgGroup->setLayout(bottom_layout);
+  m_bgGroup->setMaximumWidth(kWindowWidth - 20);
+  m_bgGroup->setFixedHeight(42);
+  m_bgGroup->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
 
   QVBoxLayout* main_layout = new QVBoxLayout();
   main_layout->setContentsMargins(0, 0, 0, 0);
@@ -228,9 +235,9 @@ void AdvancedPartitionFrame::initUI() {
   QHBoxLayout* upLayout = new QHBoxLayout();
   upLayout->addWidget(scroll_area_);
   main_layout->addLayout(upLayout);
-  main_layout->addSpacing(2);
+  main_layout->addSpacing(10);
   QHBoxLayout* downLayout = new QHBoxLayout();
-  downLayout->addWidget(bottom_frame);
+  downLayout->addWidget(m_bgGroup);
   main_layout->addLayout(downLayout);
   main_layout->addSpacing(8);
 
