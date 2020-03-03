@@ -19,6 +19,10 @@
 #include <QLabel>
 #include <QCheckBox>
 #include <QEvent>
+#include <QPushButton>
+
+#define NEXTBTN_WIDTH 310
+#define NEXTBTN_HEIGHT 36
 
 using namespace installer;
 
@@ -27,29 +31,20 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QW
     , m_layout(new QVBoxLayout(this))
     , m_frameLbl(new TitleLabel(""))
     , m_frameSubLbl(new QLabel)
-    , m_encryptCheck(new QCheckBox)
     , m_encryptLbl(new QLabel)
     , m_encryptCheckLbl(new QLabel)
-    , m_encryptEdit(new LineEdit(""))
-    , m_encryptRepeatEdit(new LineEdit(""))
-    , m_cancelBtn(new NavButton)
-    , m_nextBtn(new NavButton)
+    , m_encryptEdit(new DPasswordEdit)
+    , m_encryptRepeatEdit(new DPasswordEdit)
+    , m_cancelBtn(new QPushButton)
+    , m_nextBtn(new QPushButton)
     , m_errTip(new SystemInfoTip(this))
     , m_diskPartitionWidget(new FullDiskPartitionWidget)
     , m_diskPartitionDelegate(delegate)
 {
     m_layout->setMargin(0);
     m_layout->setSpacing(10);
-
     m_errTip->hide();
-
-    m_encryptCheck->setObjectName("check_box");
-    m_encryptCheck->setCheckable(true);
-    m_encryptCheck->setChecked(true);
-    m_encryptCheck->setFocusPolicy(Qt::NoFocus);
-
     setObjectName("FullDiskEncryptFrame");
-
     m_layout->addStretch();
 
     // add encrypt label
@@ -84,31 +79,47 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QW
     // add round progress bar
     RoundedProgressBar* spacingBar = new RoundedProgressBar;
     spacingBar->setFixedHeight(2);
-    spacingBar->setFixedWidth(500);
+    spacingBar->setFixedWidth(600);
 
     m_layout->addSpacing(10);
     m_layout->addWidget(spacingBar, 0, Qt::AlignHCenter);
     m_layout->addSpacing(10);
 
-    // add encrypt checkbox
-    m_encryptCheck->setFixedWidth(m_encryptEdit->width());
-    m_layout->addWidget(m_encryptCheck, 0, Qt::AlignHCenter);
-    m_layout->addSpacing(10);
-
     // add encrypt input
-    m_encryptLbl->setFixedWidth(m_encryptEdit->width());
-    m_encryptCheckLbl->setFixedWidth(m_encryptEdit->width());
     m_encryptLbl->setAlignment(Qt::AlignLeft);
     m_encryptCheckLbl->setAlignment(Qt::AlignLeft);
-    m_layout->addWidget(m_encryptLbl, 0, Qt::AlignHCenter);
-    m_layout->addWidget(m_encryptEdit, 0, Qt::AlignHCenter);
+
+    QHBoxLayout *encryptLayout = new QHBoxLayout;
+    encryptLayout->setContentsMargins(0, 0, 0, 0);
+    encryptLayout->setSpacing(0);
+    encryptLayout->addWidget(m_encryptLbl, 0, Qt::AlignLeft | Qt::AlignHCenter);
+    encryptLayout->addWidget(m_encryptEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
+    QFrame *encryptFrame = new QFrame;
+    encryptFrame->setLayout(encryptLayout);
+    m_encryptLbl->setFixedWidth(150);
+    m_encryptEdit->setFixedWidth(350);
+    encryptFrame->setFixedWidth(600);
+
+    QHBoxLayout *encryptCheckLayout = new QHBoxLayout;
+    encryptCheckLayout->setContentsMargins(0, 0, 0, 0);
+    encryptCheckLayout->setSpacing(0);
+    encryptCheckLayout->addWidget(m_encryptCheckLbl, 0, Qt::AlignLeft | Qt::AlignHCenter);
+    encryptCheckLayout->addWidget(m_encryptRepeatEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
+    QFrame *encryptCheckFrame = new QFrame;
+    encryptCheckFrame->setLayout(encryptCheckLayout);
+    m_encryptCheckLbl->setFixedWidth(150);
+    m_encryptRepeatEdit->setFixedWidth(350);
+    encryptCheckFrame->setFixedWidth(600);
+
+    m_layout->addWidget(encryptFrame, 0, Qt::AlignHCenter);
     m_layout->addSpacing(10);
-    m_layout->addWidget(m_encryptCheckLbl, 0, Qt::AlignHCenter);
-    m_layout->addWidget(m_encryptRepeatEdit, 0, Qt::AlignHCenter);
+    m_layout->addWidget(encryptCheckFrame, 0, Qt::AlignHCenter);
 
     m_layout->addStretch();
 
     // add buttons
+    m_cancelBtn->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);
+    m_nextBtn->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);
     m_layout->addWidget(m_cancelBtn, 0, Qt::AlignHCenter);
     m_layout->addWidget(m_nextBtn, 0, Qt::AlignHCenter);
 
@@ -119,7 +130,6 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QW
     m_encryptEdit->setEchoMode(QLineEdit::Password);
     m_encryptRepeatEdit->setEchoMode(QLineEdit::Password);
 
-    setStyleSheet(ReadFile(":/styles/full_encrypt_frame.css"));
     updateText();
 
     initConnections();
@@ -145,41 +155,32 @@ void Full_Disk_Encrypt_frame::initConnections()
 {
     connect(m_cancelBtn, &NavButton::clicked, this, &Full_Disk_Encrypt_frame::cancel);
     connect(m_nextBtn, &NavButton::clicked, this, &Full_Disk_Encrypt_frame::onNextBtnClicked);
-    connect(m_encryptCheck, &QCheckBox::clicked, this, &Full_Disk_Encrypt_frame::onEncryptUpdated);
-    connect(m_encryptEdit, &LineEdit::textChanged, m_errTip, &SystemInfoTip::hide);
-    connect(m_encryptRepeatEdit, &LineEdit::textChanged, m_errTip, &SystemInfoTip::hide);
+    connect(m_encryptEdit, &DLineEdit::textChanged, m_errTip, &SystemInfoTip::hide);
+    connect(m_encryptRepeatEdit, &DLineEdit::textChanged, m_errTip, &SystemInfoTip::hide);
     connect(KeyboardMonitor::instance(), &KeyboardMonitor::capslockStatusChanged, this, &Full_Disk_Encrypt_frame::updateEditCapsLockState);
 }
 
 void Full_Disk_Encrypt_frame::onNextBtnClicked()
 {
-    if (m_encryptCheck->isChecked()) {
-        // check password
-
-        if (m_encryptEdit->text().isEmpty()) {
-            m_errTip->setText(tr("Please input password"));
-            m_errTip->showBottom(m_encryptEdit);
-            return;
-        }
-
-        if (m_encryptEdit->text() != m_encryptRepeatEdit->text()) {
-            m_errTip->setText(tr("Passwords do not match"));
-            m_errTip->showBottom(m_encryptRepeatEdit);
-            return;
-        }
-
-        WriteFullDiskEncryptPassword(m_encryptEdit->text());
-    }
-    else {
-        WriteFullDiskEncryptPassword("");
+    if (m_encryptEdit->text().isEmpty()) {
+        m_errTip->setText(tr("Please input password"));
+        m_errTip->showBottom(m_encryptEdit);
+        return;
     }
 
-    bool encrypt = m_encryptCheck->isChecked();
+    if (m_encryptEdit->text() != m_encryptRepeatEdit->text()) {
+        m_errTip->setText(tr("Passwords do not match"));
+        m_errTip->showBottom(m_encryptRepeatEdit);
+        return;
+    }
+
+    WriteFullDiskEncryptPassword(m_encryptEdit->text());
+
     FinalFullDiskResolution resolution;
     m_diskPartitionDelegate->getFinalDiskResolution(resolution);
     FinalFullDiskOptionList& option_list = resolution.option_list;
     for (FinalFullDiskOption& option : option_list) {
-        option.encrypt = encrypt;
+        option.encrypt = true;
     }
     WriteFullDiskResolution(resolution);
 
@@ -202,16 +203,15 @@ void Full_Disk_Encrypt_frame::updateText()
 {
     m_frameLbl->setText(tr("Encrypt This Disk"));
     m_frameSubLbl->setText(tr("Make sure you have backed up important data, then select the disk to install"));
-    m_encryptCheck->setText(tr("Encrypt this disk"));
-    m_encryptLbl->setText(tr("Password"));
-    m_encryptCheckLbl->setText(tr("Repeat Password"));
+    m_encryptLbl->setText(tr("Password").append(" :"));
+    m_encryptCheckLbl->setText(tr("Repeat Password").append(" :"));
     m_cancelBtn->setText(tr("Previous"));
     m_nextBtn->setText(tr("Start Installation"));
 }
 
 void Full_Disk_Encrypt_frame::updateEditCapsLockState(bool on) {
-    for (LineEdit *edit : m_editList) {
-        edit->setCapsLockVisible(on && edit->hasFocus());
+    for (DLineEdit *edit : m_editList) {
+//        edit->setCapsLockVisible(on && edit->hasFocus());
     }
 }
 

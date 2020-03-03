@@ -4,15 +4,18 @@
 #include "partman/device.h"
 
 #include <QWidget>
+#include <DLineEdit>
+#include <DPasswordEdit>
+
+DWIDGET_USE_NAMESPACE
 
 class QVBoxLayout;
 class QLabel;
 class QCheckBox;
+class QPushButton;
 
 namespace installer {
 class RoundedProgressBar;
-class NavButton;
-class LineEdit;
 class TitleLabel;
 class SystemInfoTip;
 class FullDiskPartitionWidget;
@@ -57,15 +60,14 @@ private:
     TitleLabel *m_frameLbl;
     QLabel *m_frameSubLbl;
     FullDiskDiskInfo  m_diskinfo[FULL_DISK_DISK_MAX_COUNT];
-    QCheckBox *m_encryptCheck;
     QLabel *m_encryptLbl;
     QLabel *m_encryptCheckLbl;
-    LineEdit *m_encryptEdit;
-    LineEdit *m_encryptRepeatEdit;
-    NavButton *m_cancelBtn;
-    NavButton *m_nextBtn;
+    DPasswordEdit *m_encryptEdit;
+    DPasswordEdit *m_encryptRepeatEdit;
+    QPushButton *m_cancelBtn;
+    QPushButton *m_nextBtn;
     SystemInfoTip *m_errTip;
-    QList<LineEdit*> m_editList;
+    QList<DLineEdit*> m_editList;
     FullDiskPartitionWidget *m_diskPartitionWidget;
     FullDiskDelegate *m_diskPartitionDelegate;
 
