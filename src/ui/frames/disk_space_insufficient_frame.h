@@ -22,10 +22,11 @@
 
 #include <QFrame>
 
+class QPushButton;
+
 namespace installer {
 
 class CommentLabel;
-class NavButton;
 class TitleLabel;
 
 // This frame is displayed when no enough disk space is detected.
@@ -48,7 +49,7 @@ private:
 
   TitleLabel* title_label_ = nullptr;
   CommentLabel* comment_label_ = nullptr;
-  NavButton* abort_button_ = nullptr;
+  QPushButton* abort_button_ = nullptr;
 };
 
 }  // namespace installer

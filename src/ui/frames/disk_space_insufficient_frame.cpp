@@ -22,12 +22,12 @@
 #include "ui/delegates/partition_util.h"
 #include "ui/frames/consts.h"
 #include "ui/widgets/comment_label.h"
-#include "ui/widgets/nav_button.h"
 #include "ui/widgets/title_label.h"
 #include "ui/delegates/main_window_util.h"
 
 #include <QEvent>
 #include <QHBoxLayout>
+#include <QPushButton>
 
 DCORE_USE_NAMESPACE
 
@@ -102,7 +102,8 @@ void DiskSpaceInsufficientFrame::initUI() {
   comment_layout->addSpacing(0);
   comment_layout->addWidget(comment_label_);
 
-  abort_button_ = new NavButton(tr("Exit"));
+  abort_button_ = new QPushButton(tr("Exit"));
+  abort_button_->setFixedSize(310, 36);
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
