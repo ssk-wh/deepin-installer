@@ -21,11 +21,11 @@
 #include <QFrame>
 class QLabel;
 class QTextEdit;
+class QPushButton;
 
 namespace installer {
 
 class CommentLabel;
-class NavButton;
 class TitleLabel;
 
 class PrepareInstallFrame : public QFrame {
@@ -54,8 +54,8 @@ class PrepareInstallFrame : public QFrame {
   TitleLabel* title_label_ = nullptr;
   CommentLabel* comment_label_ = nullptr;
   QLabel* subtitle_label_ = nullptr;
-  NavButton* abort_button_ = nullptr;
-  NavButton* continue_button_ = nullptr;
+  QPushButton* abort_button_ = nullptr;
+  QPushButton* continue_button_ = nullptr;
   QTextEdit* description_edit_ = nullptr;
 };
 

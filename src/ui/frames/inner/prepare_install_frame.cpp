@@ -22,11 +22,11 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QTextEdit>
+#include <QPushButton>
 
 #include "base/file_util.h"
 #include "ui/frames/consts.h"
 #include "ui/widgets/comment_label.h"
-#include "ui/widgets/nav_button.h"
 #include "ui/widgets/title_label.h"
 
 namespace installer {
@@ -102,8 +102,10 @@ void PrepareInstallFrame::initUI() {
   description_edit_->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   description_edit_->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-  abort_button_ = new NavButton(tr("Back"));
-  continue_button_ = new NavButton(tr("Continue"));
+  abort_button_ = new QPushButton(tr("Back"));
+  abort_button_->setFixedSize(310, 36);
+  continue_button_ = new QPushButton(tr("Continue"));
+  continue_button_->setFixedSize(310, 36);
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
@@ -120,7 +122,6 @@ void PrepareInstallFrame::initUI() {
   layout->addWidget(continue_button_, 0, Qt::AlignCenter);
 
   this->setLayout(layout);
-  this->setStyleSheet(ReadFile(":/styles/prepare_install_frame.css"));
 }
 
 }  // namespace installer
