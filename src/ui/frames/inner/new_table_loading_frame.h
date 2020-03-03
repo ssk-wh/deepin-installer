@@ -19,11 +19,13 @@
 #define INSTALLER_UI_FRAMES_INNER_NEW_TABLE_LOADING_FRAME_H
 
 #include <QFrame>
+#include <DWaterProgress>
+
+DWIDGET_USE_NAMESPACE
 
 namespace installer {
 
 class CommentLabel;
-class SpinnerLabel;
 
 // Display loading animation when creating new partition table.
 class NewTableLoadingFrame : public QFrame {
@@ -45,7 +47,7 @@ class NewTableLoadingFrame : public QFrame {
   void initUI();
 
   CommentLabel* comment_label_ = nullptr;
-  SpinnerLabel* spinner_label_ = nullptr;
+  Dtk::Widget::DWaterProgress *m_waterProgress = nullptr;
 };
 
 }  // namespace installer

@@ -16,13 +16,11 @@
  */
 
 #include "ui/frames/inner/new_table_loading_frame.h"
+#include "ui/frames/consts.h"
+#include "ui/widgets/comment_label.h"
 
 #include <QEvent>
 #include <QVBoxLayout>
-
-#include "ui/frames/consts.h"
-#include "ui/widgets/comment_label.h"
-#include "ui/widgets/spinner_label.h"
 
 namespace installer {
 
@@ -41,26 +39,30 @@ void NewTableLoadingFrame::changeEvent(QEvent* event) {
 }
 
 void NewTableLoadingFrame::hideEvent(QHideEvent* event) {
-  spinner_label_->stop();
-  QFrame::hideEvent(event);
+    m_waterProgress->stop();
+    QFrame::hideEvent(event);
 }
 
 void NewTableLoadingFrame::showEvent(QShowEvent* event) {
-  spinner_label_->start();
-  QFrame::showEvent(event);
+    m_waterProgress->start();
+    QFrame::showEvent(event);
 }
 
 void NewTableLoadingFrame::initUI() {
   comment_label_ = new CommentLabel(tr("Formatting..."));
-  spinner_label_ = new SpinnerLabel();
+  comment_label_->setAlignment(Qt::AlignHCenter);
+
+  m_waterProgress = new Dtk::Widget::DWaterProgress;
+  m_waterProgress->setTextVisible(false);
+  m_waterProgress->setFixedSize(100, 100);
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
   layout->setSpacing(kMainLayoutSpacing);
   layout->addStretch();
-  layout->addWidget(spinner_label_, 0, Qt::AlignCenter);
+  layout->addWidget(m_waterProgress, 0, Qt::AlignHCenter);
   layout->addSpacing(15);
-  layout->addWidget(comment_label_, 0, Qt::AlignCenter);
+  layout->addWidget(comment_label_, 0, Qt::AlignHCenter);
   layout->addStretch();
 
   this->setLayout(layout);

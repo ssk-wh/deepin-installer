@@ -28,11 +28,10 @@ CommentLabel::CommentLabel(QWidget *parent)
 
 CommentLabel::CommentLabel(const QString& text, QWidget* parent)
   : QLabel(text, parent) {
-  this->setObjectName("comment_label");
+  setObjectName("comment_label");
 
-  this->setStyleSheet(ReadFile(":/styles/comment_label.css"));
-  this->setFixedWidth(540);
-  this->setWordWrap(true);
+  setFixedWidth(540);
+  setWordWrap(true);
 }
 
 }  // namespace installer
