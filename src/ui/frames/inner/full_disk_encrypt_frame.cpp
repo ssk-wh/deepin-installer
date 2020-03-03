@@ -92,8 +92,8 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QW
     QHBoxLayout *encryptLayout = new QHBoxLayout;
     encryptLayout->setContentsMargins(0, 0, 0, 0);
     encryptLayout->setSpacing(0);
-    encryptLayout->addWidget(m_encryptLbl, 0, Qt::AlignLeft | Qt::AlignHCenter);
-    encryptLayout->addWidget(m_encryptEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
+    encryptLayout->addWidget(m_encryptLbl, 0, Qt::AlignLeft | Qt::AlignVCenter);
+    encryptLayout->addWidget(m_encryptEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
     QFrame *encryptFrame = new QFrame;
     encryptFrame->setLayout(encryptLayout);
     m_encryptLbl->setFixedWidth(150);
@@ -103,8 +103,8 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QW
     QHBoxLayout *encryptCheckLayout = new QHBoxLayout;
     encryptCheckLayout->setContentsMargins(0, 0, 0, 0);
     encryptCheckLayout->setSpacing(0);
-    encryptCheckLayout->addWidget(m_encryptCheckLbl, 0, Qt::AlignLeft | Qt::AlignHCenter);
-    encryptCheckLayout->addWidget(m_encryptRepeatEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
+    encryptCheckLayout->addWidget(m_encryptCheckLbl, 0, Qt::AlignLeft | Qt::AlignVCenter);
+    encryptCheckLayout->addWidget(m_encryptRepeatEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
     QFrame *encryptCheckFrame = new QFrame;
     encryptCheckFrame->setLayout(encryptCheckLayout);
     m_encryptCheckLbl->setFixedWidth(150);
