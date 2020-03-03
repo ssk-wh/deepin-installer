@@ -462,6 +462,7 @@ void PartitionFramePrivate::initUI() {
 
   main_layout_ = new QStackedLayout();
   main_layout_->setContentsMargins(0, 0, 0, 0);
+  // Keep PartitionLoadingFrame is the first display page.
   main_layout_->addWidget(partition_loading_frame_);
   main_layout_->addWidget(main_frame_);
   main_layout_->addWidget(new_partition_frame_);

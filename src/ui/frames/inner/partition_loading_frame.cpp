@@ -44,6 +44,7 @@ void PartitionLoadingFrame::changeEvent(QEvent* event) {
 void PartitionLoadingFrame::initUI() {
   title_label_ = new TitleLabel(tr("Scan disks"));
   comment_label_ = new CommentLabel(tr("Scanning disks, please wait..."));
+  comment_label_->setAlignment(Qt::AlignCenter);
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
