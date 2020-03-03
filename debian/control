@@ -31,7 +31,8 @@ Build-Depends:
     libqtermwidget5-0-dev,
     libutf8proc-dev,
     libdtkwidget-dev,
-    libdtkgui-dev
+    libdtkgui-dev,
+    libkf5networkmanagerqt-dev
 Standards-Version: 3.9.8
 Homepage: http://www.deepin.org
 

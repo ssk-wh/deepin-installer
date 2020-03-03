@@ -1625,6 +1625,7 @@
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
         <translation type="unfinished"/>
     </message>
+<<<<<<< HEAD
     <message>
         <source>%1 error found, continue to install after fixed</source>
         <translation type="unfinished"/>
@@ -1644,6 +1645,148 @@
     <message>
         <source>At least %1 MB is required for /boot partition</source>
         <translation type="unfinished"/>
+=======
+</context>
+<context>
+    <name>installer::MultipleDiskInstallationWidget</name>
+    <message>
+        <source>System Disk</source>
+        <translation type="obsolete">System Disk</translation>
+    </message>
+    <message>
+        <source>Data Disk</source>
+        <translation type="obsolete">Data Disk</translation>
+    </message>
+</context>
+<context>
+    <name>installer::NetworkDeviceWidget</name>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="141"/>
+        <source>Ethernet (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>installer::NetworkEditWidget</name>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="181"/>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="182"/>
+        <source>Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="212"/>
+        <source>Ip:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="213"/>
+        <source>Mask:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="214"/>
+        <source>Gateway:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="215"/>
+        <source>Primary DNS:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="216"/>
+        <source>Second DNS:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="250"/>
+        <source>Auto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="250"/>
+        <source>Manual</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="365"/>
+        <source>IP address error: illegal IP address, please have a check.</source>
+        <translation type="unfinished">IP address error: illegal IP address, please have a check.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="376"/>
+        <source>Netmask error: illegal netmask, please have a check.</source>
+        <translation type="unfinished">Netmask error: illegal netmask, please have a check.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="391"/>
+        <source>IP Address</source>
+        <translation type="unfinished">IP Address</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="392"/>
+        <source>Netmask</source>
+        <translation type="unfinished">Netmask</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="393"/>
+        <source>Gateway</source>
+        <translation type="unfinished">Gateway</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="394"/>
+        <source>Primary DNS</source>
+        <translation type="unfinished">Primary DNS</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="395"/>
+        <source>Secondary DNS</source>
+        <translation type="unfinished">Secondary DNS</translation>
+    </message>
+</context>
+<context>
+    <name>installer::NetworkFrame</name>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="461"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="545"/>
+        <source>Skip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="462"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="546"/>
+        <source>Next</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="473"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="544"/>
+        <source>Configure Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="130"/>
+        <source>IP Address</source>
+<<<<<<< HEAD
+        <translation type="unfinished"></translation>
+=======
+        <translation type="vanished">IP Address</translation>
+>>>>>>> e3aad3be... feat(network): add network info
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="131"/>
+        <source>Netmask</source>
+<<<<<<< HEAD
+        <translation type="unfinished"></translation>
+=======
+        <translation type="vanished">Netmask</translation>
+>>>>>>> e3aad3be... feat(network): add network info
+>>>>>>> fbbffe30... feat(network): add network info
     </message>
     <message>
         <source>Add an EFI partition to continue</source>
@@ -3029,9 +3172,14 @@
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="133"/>
         <source>Gateway</source>
+<<<<<<< HEAD
         <translation type="unfinished"></translation>
+=======
+        <translation type="vanished">Gateway</translation>
+>>>>>>> e3aad3be... feat(network): add network info
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/networkframe.cpp" line="134"/>
         <source>Primary DNS</source>
         <translation type="unfinished"></translation>
@@ -3414,6 +3562,42 @@
 =======
         <translation type="unfinished"></translation>
 >>>>>>> eae3cb6b... clean all ts file
+=======
+        <location filename="../src/ui/frames/networkframe.cpp" line="133"/>
+        <source>Primary DNS</source>
+<<<<<<< HEAD
+        <translation type="unfinished"></translation>
+=======
+        <translation type="vanished">Primary DNS</translation>
+>>>>>>> e3aad3be... feat(network): add network info
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="134"/>
+        <source>Secondary DNS</source>
+<<<<<<< HEAD
+        <translation type="unfinished"></translation>
+=======
+        <translation type="vanished">Secondary DNS</translation>
+>>>>>>> e3aad3be... feat(network): add network info
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="201"/>
+        <source>IP address error: illegal IP address, please have a check.</source>
+<<<<<<< HEAD
+        <translation type="unfinished"></translation>
+=======
+        <translation type="vanished">IP address error: illegal IP address, please have a check.</translation>
+>>>>>>> e3aad3be... feat(network): add network info
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="212"/>
+        <source>Netmask error: illegal netmask, please have a check.</source>
+<<<<<<< HEAD
+        <translation type="unfinished"></translation>
+=======
+        <translation type="vanished">Netmask error: illegal netmask, please have a check.</translation>
+>>>>>>> e3aad3be... feat(network): add network info
+>>>>>>> fbbffe30... feat(network): add network info
     </message>
 </context>
 <context>
@@ -4959,6 +5143,7 @@
         <translation type="unfinished"></translation>
     </message>
 </context>
+<<<<<<< HEAD
 <context>
     <name>installer::MainWindow</name>
 <message><source>Privilege error</source><translation type="unfinished"></translation></message>
@@ -4972,4 +5157,6 @@
 <message><source>Installing</source><translation type="unfinished"></translation></message>
 <message><source>Done</source><translation type="unfinished"></translation></message>
 </context>
+=======
+>>>>>>> e3aad3be... feat(network): add network info
 </TS>

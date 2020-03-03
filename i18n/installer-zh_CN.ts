@@ -2513,6 +2513,7 @@
 </context>
 <context>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <name>installer::MultipleDiskInstallationWidget</name>
     <message>
         <source>System Disk</source>
@@ -2529,6 +2530,64 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="71"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="136"/>
 =======
+=======
+    <name>installer::NetworkDeviceWidget</name>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="141"/>
+        <source>Ethernet (%1)</source>
+        <translation>以太网(%1)</translation>
+    </message>
+</context>
+<context>
+    <name>installer::NetworkEditWidget</name>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="181"/>
+        <source>Edit</source>
+        <translation>编辑</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="182"/>
+        <source>Accept</source>
+        <translation>确认</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="212"/>
+        <source>Ip:</source>
+        <translation>IP:</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="213"/>
+        <source>Mask:</source>
+        <translation>子网掩码:</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="214"/>
+        <source>Gateway:</source>
+        <translation>网关地址:</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="215"/>
+        <source>Primary DNS:</source>
+        <translation>首要DNS:</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="216"/>
+        <source>Second DNS:</source>
+        <translation>次要DNS:</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="250"/>
+        <source>Auto</source>
+        <translation>自动</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="250"/>
+        <source>Manual</source>
+        <translation>手动</translation>
+    </message>
+</context>
+<context>
+>>>>>>> fbbffe30... feat(network): add network info
     <name>installer::NetworkFrame</name>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="71"/>
@@ -3819,6 +3878,7 @@
 </context>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <context>
     <name>installer::VirtualMachineFrame</name>
     <message>
@@ -3866,6 +3926,8 @@
 </TS>
 >>>>>>> abe476cc... chore: auto pull translation files from transifex
 =======
+=======
+>>>>>>> fbbffe30... feat(network): add network info
 <context>
     <name>installer::MainWindow</name>
 <message><source>Privilege error</source><translation>权限错误</translation></message>
@@ -3880,4 +3942,10 @@
 <message><source>Done</source><translation>完成</translation></message>
 </context>
 </TS>
+<<<<<<< HEAD
 >>>>>>> 296abb30... feat: add frame name translate
+=======
+=======
+</TS>
+>>>>>>> e3aad3be... feat(network): add network info
+>>>>>>> fbbffe30... feat(network): add network info

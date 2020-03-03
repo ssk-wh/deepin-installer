@@ -2,7 +2,6 @@
 #define NETWORKFRAME_H
 
 #include <QWidget>
-#include <memory>
 
 class QRegularExpressionValidator;
 class QLabel;
@@ -22,6 +21,7 @@ protected:
 
 private:
     void saveConf();
+    void onDeviceSelected();
 
 private:
     QLabel*                                      m_subTitle;

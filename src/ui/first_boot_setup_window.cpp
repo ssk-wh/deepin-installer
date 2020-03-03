@@ -97,8 +97,6 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
       Q_ASSERT(m_frames.first() == language_frame_);
       nextFrame();
   }
-
-  stacked_layout_->setCurrentWidget(network_frame_);
 }
 
 FirstBootSetupWindow::~FirstBootSetupWindow() {
