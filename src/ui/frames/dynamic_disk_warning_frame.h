@@ -1,15 +1,17 @@
 #ifndef DYNAMIC_DISK_WARNING_FRAME_H
 #define DYNAMIC_DISK_WARNING_FRAME_H
 
+#include "partman/device.h"
+
 #include <QLabel>
 #include <QWidget>
 #include <utility>
-#include "partman/device.h"
 
 class QHBoxLayout;
+class QPushButton;
 
 namespace installer {
-class NavButton;
+
 class DynamicDiskWarningFrame : public QWidget {
     Q_OBJECT
 public:
@@ -32,8 +34,8 @@ private:
 private:
     QLabel*      m_warning;
     QLabel*      m_warningTips;
-    NavButton*   m_cancelBtn;
-    NavButton*   m_acceptBtn;
+    QPushButton*   m_cancelBtn;
+    QPushButton*   m_acceptBtn;
     QHBoxLayout* m_diskListLayout;
 };
 }  // namespace installer

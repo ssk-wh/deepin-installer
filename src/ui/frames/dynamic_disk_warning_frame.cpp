@@ -1,11 +1,11 @@
 #include "dynamic_disk_warning_frame.h"
 #include "ui/utils/widget_util.h"
-#include "ui/widgets/nav_button.h"
 #include "base/file_util.h"
 
 #include <QEvent>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QPushButton>
 
 using namespace installer;
 
@@ -13,8 +13,8 @@ DynamicDiskWarningFrame::DynamicDiskWarningFrame(QWidget* parent)
     : QWidget(parent)
     , m_warning(new QLabel)
     , m_warningTips(new QLabel)
-    , m_cancelBtn(new NavButton)
-    , m_acceptBtn(new NavButton)
+    , m_cancelBtn(new QPushButton)
+    , m_acceptBtn(new QPushButton)
     , m_diskListLayout(new QHBoxLayout)
 {
     m_warning->setObjectName("WarningText");
@@ -50,16 +50,17 @@ DynamicDiskWarningFrame::DynamicDiskWarningFrame(QWidget* parent)
     layout->addSpacing(10);
     layout->addWidget(m_warningTips, 1, Qt::AlignHCenter);
 
+    m_cancelBtn->setFixedSize(310, 36);
+    m_acceptBtn->setFixedSize(310, 36);
+
     layout->addStretch();
     layout->addWidget(m_cancelBtn, 0, Qt::AlignHCenter);
     layout->addWidget(m_acceptBtn, 0, Qt::AlignHCenter);
 
     setLayout(layout);
 
-    connect(m_cancelBtn, &NavButton::clicked, this, &DynamicDiskWarningFrame::requestCancel);
-    connect(m_acceptBtn, &NavButton::clicked, this, &DynamicDiskWarningFrame::requestNext);
-
-    setStyleSheet(ReadFile(":/styles/dynamic_disk_warning_frame.css"));
+    connect(m_cancelBtn, &QPushButton::clicked, this, &DynamicDiskWarningFrame::requestCancel);
+    connect(m_acceptBtn, &QPushButton::clicked, this, &DynamicDiskWarningFrame::requestNext);
 }
 
 void DynamicDiskWarningFrame::setDevice(const QList<Device::Ptr> list)
