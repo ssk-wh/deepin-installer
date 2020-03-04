@@ -894,535 +894,638 @@
 </context>
 <context>
     <name>installer::ComponentInstallManager</name>
+    <message><source>Basic Server Environment</source><translation type="vanished">Basic Server Environment</translation></message>
+<message><source>Applies to standard common service environments, such as Web services and database services.</source><translation type="vanished">Applies to standard common service environments, such as Web services and database services.</translation></message>
+<message><source>Cloud and Virtualzalition</source><translation type="vanished">Cloud and Virtualzalition</translation></message>
+<message><source>Applies to IaaS environments, such as virtualization, containers, and clouds.</source><translation type="vanished">Applies to IaaS environments, such as virtualization, containers, and clouds.</translation></message>
+<message><source>Big Data</source><translation type="vanished">Big Data</translation></message>
+<message><source>Applies to servers that provide parallel processing of massive data.</source><translation type="vanished">Applies to servers that provide parallel processing of massive data.</translation></message>
+<message><source>Server Environment with GUI</source><translation type="vanished">Server Environment with GUI</translation></message>
+<message><source>Operates the services and applications on the graphical user interface.</source><translation type="vanished">Operates the services and applications on the graphical user interface.</translation></message>
+<message><source>Custom Installation</source><translation type="vanished">Custom Installation</translation></message>
+<message><source>Provides most package groups for custom selection, covering minimum to maximum installation.</source><translation type="vanished">Provides most package groups for custom selection, covering minimum to maximum installation.</translation></message>
+<message><source>Debugging Tools</source><translation type="vanished">Debugging Tools</translation></message>
+<message><source>Provide debugging package for program function and performance.</source><translation type="vanished">Provide debugging package for program function and performance.</translation></message>
+<message><source>Applications with GUI</source><translation type="vanished">Applications with GUI</translation></message>
+<message><source>Commonly used server application packages in graphical user interface.</source><translation type="vanished">Commonly used server application packages in graphical user interface.</translation></message>
+<message><source>Development Tools</source><translation type="vanished">Development Tools</translation></message>
+<message><source>Development tool packages in multiple programming languages.</source><translation type="vanished">Development tool packages in multiple programming languages.</translation></message>
+<message><source>Directory Client</source><translation type="vanished">Directory Client</translation></message>
+<message><source>Clients for integration into a network managed by a directory service.</source><translation type="vanished">Clients for integration into a network managed by a directory service.</translation></message>
+<message><source>Domain Name Service</source><translation type="vanished">Domain Name Service</translation></message>
+<message><source>Environments for running the domain name service (DNS).</source><translation type="vanished">Environments for running the domain name service (DNS).</translation></message>
+<message><source>File and Storage Server</source><translation type="vanished">File and Storage Server</translation></message>
+<message><source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source><translation type="vanished">CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</translation></message>
+<message><source>Graphics Creation Tools</source><translation type="vanished">Graphics Creation Tools</translation></message>
+<message><source>Software for creating and editing images.</source><translation type="vanished">Software for creating and editing images.</translation></message>
+<message><source>Load Balancer</source><translation type="vanished">Load Balancer</translation></message>
+<message><source>Load balancing support for network traffic.</source><translation type="vanished">Load balancing support for network traffic.</translation></message>
+<message><source>MariaDB Database Server</source><translation type="vanished">MariaDB Database Server</translation></message>
+<message><source>The MariaDB SQL database server, and associated packages.</source><translation type="vanished">The MariaDB SQL database server, and associated packages.</translation></message>
+<message><source>E-mail Server</source><translation type="vanished">E-mail Server</translation></message>
+<message><source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source><translation type="vanished">Allows the system to act as a SMTP and/or IMAP e-mail server.</translation></message>
+<message><source>Network File System Client</source><translation type="vanished">Network File System Client</translation></message>
+<message><source>Environments for network storage devices.</source><translation type="vanished">Environments for network storage devices.</translation></message>
+<message><source>Performance Tools</source><translation type="vanished">Performance Tools</translation></message>
+<message><source>Packages for monitoring and diagnosing hardware devices, system programs, and applications.</source><translation type="vanished">Packages for monitoring and diagnosing hardware devices, system programs, and applications.</translation></message>
+<message><source>Security Tools</source><translation type="vanished">Security Tools</translation></message>
+<message><source>Packages for integrity and trust verification.</source><translation type="vanished">Packages for integrity and trust verification.</translation></message>
+<message><source>Web Server</source><translation type="vanished">Web Server</translation></message>
+<message><source>Provides Java servelets and Web common service components.</source><translation type="vanished">Provides Java servelets and Web common service components.</translation></message>
+<message><source>Guest Agents</source><translation type="vanished">Guest Agents</translation></message>
+<message><source>Agents used when running under a hypervisor.</source><translation type="vanished">Agents used when running under a hypervisor.</translation></message>
+<message><source>Virtualization Client</source><translation type="vanished">Virtualization Client</translation></message>
+<message><source>Clients for installing and managing virtualization instances.</source><translation type="vanished">Clients for installing and managing virtualization instances.</translation></message>
+<message><source>Virtualization Hypervisor</source><translation type="vanished">Virtualization Hypervisor</translation></message>
+<message><source>Smallest possible virtualization host installation.</source><translation type="vanished">Smallest possible virtualization host installation.</translation></message>
+<message><source>Virtualization Tools</source><translation type="vanished">Virtualization Tools</translation></message>
+<message><source>Tools for offline virtual image management.</source><translation type="vanished">Tools for offline virtual image management.</translation></message>
+<message><source>Virtualization Platform</source><translation type="vanished">Virtualization Platform</translation></message>
+<message><source>Provides an interface for acessing and controlling virtualized guests and containers.</source><translation type="vanished">Provides an interface for acessing and controlling virtualized guests and containers.</translation></message>
+<message><source>High Availability</source><translation type="vanished">High Availability</translation></message>
+<message><source>Infrastructure for highly available services and/or shared storage.</source><translation type="vanished">Infrastructure for highly available services and/or shared storage.</translation></message>
+<message><source>InfiniBand Support</source><translation type="vanished">InfiniBand Support</translation></message>
+<message><source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source><translation type="vanished">Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</translation></message>
+<message><source>Large Systems Performance</source><translation type="vanished">Large Systems Performance</translation></message>
+<message><source>Performance support tools for large systems.</source><translation type="vanished">Performance support tools for large systems.</translation></message>
+<message><source>Platform Development</source><translation type="vanished">Platform Development</translation></message>
+<message><source>Recommended development headers and libraries for developing applications to run on UOS.</source><translation type="vanished">Recommended development headers and libraries for developing applications to run on UOS.</translation></message>
+<message><source>Internet Applications</source><translation type="vanished">Internet Applications</translation></message>
+<message><source>Email, chat, and video conferencing software.</source><translation type="vanished">Email, chat, and video conferencing software.</translation></message>
+<message><source>Virtualization Toolset</source><translation type="vanished">Virtualization Toolset</translation></message>
+<message><source>Toolset for virtualization enviroment (host and guest).</source><translation type="vanished">Toolset for virtualization enviroment (host and guest).</translation></message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
-        <source>Minimal Install</source>
-        <translation>Minimal Install</translation>
+        <source>Basic Server Environment</source>
+        <translation type="vanished">Basic Server Environment</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
-        <source>Basic functionality.</source>
-        <translation>Basic functionality.</translation>
+        <source>Cloud and Virtualzalition</source>
+        <translation type="vanished">Cloud and Virtualzalition</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
-        <source>Compute Node</source>
-        <translation>Compute Node</translation>
+        <source>Big Data</source>
+        <translation type="vanished">Big Data</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
-        <source>Installation for performing computation and processing.</source>
-        <translation>Installation for performing computation and processing.</translation>
+        <source>Server Environment with GUI</source>
+        <translation type="vanished">Server Environment with GUI</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
-        <source>Infrastructure Server</source>
-        <translation>Infrastructure Server</translation>
+        <source>Custom Installation</source>
+        <translation type="vanished">Custom Installation</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
-        <source>Server for operating network infrastructure services.</source>
-        <translation>Server for operating network infrastructure services.</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
-        <source>File and Print Server</source>
-        <translation>File and Print Server</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
-        <source>File, print, and storage server for enterprises.</source>
-        <translation>File, print, and storage server for enterprises.</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
-        <source>Basic Web Server</source>
-        <translation>Basic Web Server</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
         <source>Server for serving static and dynamic internet content.</source>
-        <translation>Server for serving static and dynamic internet content.</translation>
-    </message>
+        <translation type="vanished">Server for serving static and dynamic internet content.</translation></message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
         <source>Virtualization Host</source>
-        <translation>Virtualization Host</translation>
+        <translation type="vanished">Virtualization Host</translation>
+    </message>
+    <message>
+        <source>Minimal virtualization host.</source>
+        <translation type="vanished">Minimal virtualization host.</translation>
+    </message>
+    <message>
+        <source>Server with GUI</source>
+        <translation type="vanished">Server with GUI</translation>
+    </message>
+    <message>
+        <source>Server for operating network infrastructure services, with a GUI.</source>
+        <translation type="vanished">Server for operating network infrastructure services, with a GUI.</translation>
+    </message>
+    <message>
+        <source>DDE Desktop</source>
+        <translation type="vanished">DDE Desktop</translation>
+    </message>
+    <message>
+        <source>DDE is a highly intuitive and user friendly desktop environment.</source>
+        <translation type="vanished">DDE is a highly intuitive and user friendly desktop environment.</translation>
+    </message>
+    <message>
+        <source>Development and Creative Workstation</source>
+        <translation type="vanished">Development and Creative Workstation</translation>
+    </message>
+    <message>
+        <source>Workstation for software, hardware, graphics, or content development.</source>
+        <translation type="vanished">Workstation for software, hardware, graphics, or content development.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
-        <source>Minimal virtualization host.</source>
-        <translation>Minimal virtualization host.</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
-        <source>Server with GUI</source>
-        <translation>Server with GUI</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
-        <source>Server for operating network infrastructure services, with a GUI.</source>
-        <translation>Server for operating network infrastructure services, with a GUI.</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
-        <source>DDE Desktop</source>
-        <translation>DDE Desktop</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
-        <source>DDE is a highly intuitive and user friendly desktop environment.</source>
-        <translation>DDE is a highly intuitive and user friendly desktop environment.</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
-        <source>Development and Creative Workstation</source>
-        <translation>Development and Creative Workstation</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
-        <source>Workstation for software, hardware, graphics, or content development.</source>
-        <translation>Workstation for software, hardware, graphics, or content development.</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>Debugging Tools</source>
         <translation>Debugging Tools</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>Tools for debugging misbehaving applications and diagnosing performance problems.</source>
-        <translation>Tools for debugging misbehaving applications and diagnosing performance problems.</translation>
+        <translation type="vanished">Tools for debugging misbehaving applications and diagnosing performance problems.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>Directory Client</source>
         <translation>Directory Client</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>Clients for integration into a network managed by a directory service.</source>
         <translation>Clients for integration into a network managed by a directory service.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>Security Tools</source>
         <translation>Security Tools</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Security tools for integrity and trust verification.</source>
-        <translation>Security tools for integrity and trust verification.</translation>
+        <translation type="vanished">Security tools for integrity and trust verification.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
         <source>Development Tools</source>
         <translation>Development Tools</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>A basic development environment.</source>
-        <translation>A basic development environment.</translation>
+        <translation type="vanished">A basic development environment.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>Performance Tools</source>
         <translation>Performance Tools</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Tools for diagnosing system and application-level performance problems.</source>
-        <translation>Tools for diagnosing system and application-level performance problems.</translation>
+        <translation type="vanished">Tools for diagnosing system and application-level performance problems.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>Hardware Monitoring Utilities</source>
-        <translation>Hardware Monitoring Utilities</translation>
+        <translation type="vanished">Hardware Monitoring Utilities</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>A set of tools to monitor server hardware.</source>
-        <translation>A set of tools to monitor server hardware.</translation>
+        <translation type="vanished">A set of tools to monitor server hardware.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>Virtualization Hypervisor</source>
         <translation>Virtualization Hypervisor</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>Smallest possible virtualization host installation.</source>
         <translation>Smallest possible virtualization host installation.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>Virtualization Platform</source>
         <translation>Virtualization Platform</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>Provide an interface for accessing and controlling virtualized guests and containers.</source>
-        <translation>Provide an interface for accessing and controlling virtualized guests and containers.</translation>
+        <translation type="vanished">Provide an interface for accessing and controlling virtualized guests and containers.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>Virtualization Client</source>
         <translation>Virtualization Client</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>Clients for installing and managing virtualization instances.</source>
         <translation>Clients for installing and managing virtualization instances.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>Backup Client</source>
-        <translation>Backup Client</translation>
+        <translation type="vanished">Backup Client</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>Client tools for connecting to a backup server and doing backups.</source>
-        <translation>Client tools for connecting to a backup server and doing backups.</translation>
+        <translation type="vanished">Client tools for connecting to a backup server and doing backups.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>Backup Server</source>
-        <translation>Backup Server</translation>
+        <translation type="vanished">Backup Server</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>Software to centralize your infrastructure&apos;s backups.</source>
-        <translation>Software to centralize your infrastructure&apos;s backups.</translation>
+        <translation type="vanished">Software to centralize your infrastructure&apos;s backups.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>File and Storage Server</source>
         <translation>File and Storage Server</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
         <translation>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>DNS Name Server</source>
-        <translation>DNS Name Server</translation>
+        <translation type="vanished">DNS Name Server</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>This package group allows you to run a DNS name server (BIND) on the system.</source>
-        <translation>This package group allows you to run a DNS name server (BIND) on the system.</translation>
+        <translation type="vanished">This package group allows you to run a DNS name server (BIND) on the system.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>E-mail Server</source>
         <translation>E-mail Server</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
         <translation>Allows the system to act as a SMTP and/or IMAP e-mail server.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>FTP Server</source>
-        <translation>FTP Server</translation>
+        <translation type="vanished">FTP Server</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>Allows the system to act as an FTP server.</source>
-        <translation>Allows the system to act as an FTP server.</translation>
+        <translation type="vanished">Allows the system to act as an FTP server.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Print Server</source>
-        <translation>Print Server</translation>
+        <translation type="vanished">Print Server</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Allows the system to act as a print server.</source>
-        <translation>Allows the system to act as a print server.</translation>
+        <translation type="vanished">Allows the system to act as a print server.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Mainframe Access</source>
-        <translation>Mainframe Access</translation>
+        <translation type="vanished">Mainframe Access</translation>
+    </message>
+    <message>
+        <source>Tools for accessing mainframe computing resources.</source>
+        <translation type="vanished">Tools for accessing mainframe computing resources.</translation>
+    </message>
+    <message>
+        <source>Infiniband Support</source>
+        <translation type="vanished">Infiniband Support</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
-        <source>Tools for accessing mainframe computing resources.</source>
-        <translation>Tools for accessing mainframe computing resources.</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
-        <source>Infiniband Support</source>
-        <translation>Infiniband Support</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
         <translation>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>High Availability</source>
         <translation>High Availability</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
+        <source>Basic Server Environment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
+        <source>Applies to standard common service environments, such as Web services and database services.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
+        <source>Cloud and Virtualzalition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
+        <source>Applies to IaaS environments, such as virtualization, containers, and clouds.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
+        <source>Big Data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
+        <source>Applies to servers that provide parallel processing of massive data.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+        <source>Server Environment with GUI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+        <source>Operates the services and applications on the graphical user interface.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+        <source>Custom Installation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+        <source>Provides most package groups for custom selection, covering minimum to maximum installation.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+        <source>Provide debugging package for program function and performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+        <source>Applications with GUI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+        <source>Commonly used server application packages in graphical user interface.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
+        <source>Development tool packages in multiple programming languages.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+        <source>Domain Name Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+        <source>Environments for running the domain name service (DNS).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+        <source>Software for creating and editing images.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+        <source>Environments for network storage devices.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+        <source>Packages for monitoring and diagnosing hardware devices, system programs, and applications.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+        <source>Packages for integrity and trust verification.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+        <source>Web Server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+        <source>Provides Java servelets and Web common service components.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+        <source>Provides an interface for acessing and controlling virtualized guests and containers.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Infrastructure for highly available services and/or shared storage.</source>
         <translation>Infrastructure for highly available services and/or shared storage.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+        <source>InfiniBand Support</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <source>Virtualization Toolset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <source>Toolset for virtualization enviroment (host and guest).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Resilient Storage</source>
-        <translation>Resilient Storage</translation>
+        <translation type="vanished">Resilient Storage</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Clustered storage, including the GFS2 file system.</source>
-        <translation>Clustered storage, including the GFS2 file system.</translation>
+        <translation type="vanished">Clustered storage, including the GFS2 file system.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>ldentity Management Server</source>
-        <translation>ldentity Management Server</translation>
+        <translation type="vanished">ldentity Management Server</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>Centralized management of users, servers and authentication policies.</source>
-        <translation>Centralized management of users, servers and authentication policies.</translation>
+        <translation type="vanished">Centralized management of users, servers and authentication policies.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Large Systems Performance</source>
         <translation>Large Systems Performance</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Performance support tools for large systems.</source>
         <translation>Performance support tools for large systems.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>Load Balancer</source>
         <translation>Load Balancer</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>Load balancing support for network traffic.</source>
         <translation>Load balancing support for network traffic.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>MariaDB Database Client</source>
-        <translation>MariaDB Database Client</translation>
+        <translation type="vanished">MariaDB Database Client</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>The MariaDB SQL database client, and associated packages.</source>
-        <translation>The MariaDB SQL database client, and associated packages.</translation>
+        <translation type="vanished">The MariaDB SQL database client, and associated packages.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>MariaDB Database Server</source>
         <translation>MariaDB Database Server</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>The MariaDB SQL database server, and associated packages.</source>
         <translation>The MariaDB SQL database server, and associated packages.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>PostgreSQL Database Client</source>
-        <translation>PostgreSQL Database Client</translation>
+        <translation type="vanished">PostgreSQL Database Client</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>The PostgreSQL SQL database client, and associated packages.</source>
-        <translation>The PostgreSQL SQL database client, and associated packages.</translation>
+        <translation type="vanished">The PostgreSQL SQL database client, and associated packages.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>PostgreSQL Database Server</source>
-        <translation>PostgreSQL Database Server</translation>
+        <translation type="vanished">PostgreSQL Database Server</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>The PostgreSQL SQL database server, and associated packages.</source>
-        <translation>The PostgreSQL SQL database server, and associated packages.</translation>
+        <translation type="vanished">The PostgreSQL SQL database server, and associated packages.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Java Platform</source>
-        <translation>Java Platform</translation>
+        <translation type="vanished">Java Platform</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>Java support for UOS.</source>
-        <translation>Java support for UOS.</translation>
+        <translation type="vanished">Java support for UOS.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>PHP Support</source>
-        <translation>PHP Support</translation>
+        <translation type="vanished">PHP Support</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>PHP web application framework.</source>
-        <translation>PHP web application framework.</translation>
+        <translation type="vanished">PHP web application framework.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Python</source>
-        <translation>Python</translation>
+        <translation type="vanished">Python</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Basic Python web application support.</source>
-        <translation>Basic Python web application support.</translation>
+        <translation type="vanished">Basic Python web application support.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>Perl for Web</source>
-        <translation>Perl for Web</translation>
+        <translation type="vanished">Perl for Web</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>Basic Perl web application support.</source>
-        <translation>Basic Perl web application support.</translation>
+        <translation type="vanished">Basic Perl web application support.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Internet Applications</source>
         <translation>Internet Applications</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Email, chat, and video conferencing software.</source>
         <translation>Email, chat, and video conferencing software.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>Web Servlet Engine</source>
-        <translation>Web Servlet Engine</translation>
+        <translation type="vanished">Web Servlet Engine</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>Allows the system to host Java servlets.</source>
-        <translation>Allows the system to host Java servlets.</translation>
+        <translation type="vanished">Allows the system to host Java servlets.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>Legacy x Window System Compatibility</source>
-        <translation>Legacy x Window System Compatibility</translation>
+        <translation type="vanished">Legacy x Window System Compatibility</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>Compatibility programs for migration from or working with legacy X Window System environments.</source>
-        <translation>Compatibility programs for migration from or working with legacy X Window System environments.</translation>
+        <translation type="vanished">Compatibility programs for migration from or working with legacy X Window System environments.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>Office Suite and Productivity</source>
-        <translation>Office Suite and Productivity</translation>
+        <translation type="vanished">Office Suite and Productivity</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>A full-purpose office suite, and other productivity tools.</source>
-        <translation>A full-purpose office suite, and other productivity tools.</translation>
+        <translation type="vanished">A full-purpose office suite, and other productivity tools.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>Additional Development</source>
-        <translation>Additional Development</translation>
+        <translation type="vanished">Additional Development</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>Additional development headers and libraries for building open-source applications.</source>
-        <translation>Additional development headers and libraries for building open-source applications.</translation>
+        <translation type="vanished">Additional development headers and libraries for building open-source applications.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>Emacs</source>
-        <translation>Emacs</translation>
+        <translation type="vanished">Emacs</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>The GNU Emacs extensible, customizable text editor.</source>
-        <translation>The GNU Emacs extensible, customizable text editor.</translation>
+        <translation type="vanished">The GNU Emacs extensible, customizable text editor.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Graphics Creation Tools</source>
         <translation>Graphics Creation Tools</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>Software for creation and manipulation of still images.</source>
-        <translation>Software for creation and manipulation of still images.</translation>
+        <translation type="vanished">Software for creation and manipulation of still images.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Platform Development</source>
         <translation>Platform Development</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
         <translation>Recommended development headers and libraries for developing applications to run on UOS.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>Technical Writing</source>
-        <translation>Technical Writing</translation>
+        <translation type="vanished">Technical Writing</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>Tools for writing technical documentation.</source>
-        <translation>Tools for writing technical documentation.</translation>
+        <translation type="vanished">Tools for writing technical documentation.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>Virtualization Tools</source>
         <translation>Virtualization Tools</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>Tools for offline virtual image management.</source>
         <translation>Tools for offline virtual image management.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>Network File System Client</source>
         <translation>Network File System Client</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
         <source>Enables the system to attach to network storage.</source>
-        <translation>Enables the system to attach to network storage.</translation>
+        <translation type="vanished">Enables the system to attach to network storage.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>Guest Agents</source>
         <translation>Guest Agents</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>Agents used when running under a hypervisor.</source>
         <translation>Agents used when running under a hypervisor.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>DDE Applications</source>
-        <translation>DDE Applications</translation>
+        <translation type="vanished">DDE Applications</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>A set of commonly used DDE Applications.</source>
-        <translation>A set of commonly used DDE Applications.</translation>
+        <translation type="vanished">A set of commonly used DDE Applications.</translation>
     </message>
 </context>
 <context>

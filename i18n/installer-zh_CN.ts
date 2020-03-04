@@ -807,11 +807,66 @@
 </context>
 <context>
     <name>installer::ComponentInstallManager</name>
-    <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
-        <source>Minimal Install</source>
-        <translation>最小安装</translation>
-    </message>
+<message><source>Basic Server Environment</source><translation>常规服务器环境</translation></message>
+<message><source>Applies to standard common service environments, such as Web services and database services.</source><translation>适用于标准化常用服务环境，如Web服务、数据库服务。</translation></message>
+<message><source>Cloud and Virtualzalition</source><translation>云和虚拟化</translation></message>
+<message><source>Applies to IaaS environments, such as virtualization, containers, and clouds.</source><translation>适用于虚拟化、容器、云等基础设施即服务的运行环境。</translation></message>
+<message><source>Big Data</source><translation>大数据</translation></message>
+<message><source>Applies to servers that provide parallel processing of massive data.</source><translation>适用于提供海量数据并行处理的服务器。</translation></message>
+<message><source>Server Environment with GUI</source><translation>图形化服务器环境</translation></message>
+<message><source>Operates the services and applications on the graphical user interface.</source><translation>通过图形化用户界面，提供的服务、应用进行操作。</translation></message>
+<message><source>Custom Installation</source><translation>自定义安装</translation></message>
+<message><source>Provides most package groups for custom selection, covering minimum to maximum installation.</source><translation>提供绝大多数软件包组的自定义选择，覆盖最小至最大安装。</translation></message>
+<message><source>Debugging Tools</source><translation>调试工具</translation></message>
+<message><source>Provide debugging package for program function and performance.</source><translation>提供对程序功能和性能的调试软件包。</translation></message>
+<message><source>Applications with GUI</source><translation>图形界面应用</translation></message>
+<message><source>Commonly used server application packages in graphical user interface.</source><translation>图形化界面中常用的服务器应用程序软件包。</translation></message>
+<message><source>Development Tools</source><translation>开发工具</translation></message>
+<message><source>Development tool packages in multiple programming languages.</source><translation>多种编程语言的开发工具软件包集合。</translation></message>
+<message><source>Directory Client</source><translation>目录客户端</translation></message>
+<message><source>Clients for integration into a network managed by a directory service.</source><translation>用于使用目录服务管理网络的客户端程序。</translation></message>
+<message><source>Domain Name Service</source><translation>域名服务</translation></message>
+<message><source>Environments for running the domain name service (DNS).</source><translation>用于承担域名服务（DNS）的运行环境。</translation></message>
+<message><source>File and Storage Server</source><translation>文件及存储服务器</translation></message>
+<message><source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source><translation>CIFS、SMB、NFS、iSCSI、iSER和iSNS等网络存储服务器。</translation></message>
+<message><source>Graphics Creation Tools</source><translation>图形生成工具</translation></message>
+<message><source>Software for creating and editing images.</source><translation>生成和编辑图像的软件包集合。</translation></message>
+<message><source>Load Balancer</source><translation>负载均衡</translation></message>
+<message><source>Load balancing support for network traffic.</source><translation>针对服务器网络流量负载提供均衡管理的软件包。</translation></message>
+<message><source>MariaDB Database Server</source><translation>MariaDB数据库服务器</translation></message>
+<message><source>The MariaDB SQL database server, and associated packages.</source><translation>MariaDB SQL数据库服务器的标准组件及关联软件包。</translation></message>
+<message><source>E-mail Server</source><translation>电子邮件服务器</translation></message>
+<message><source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source><translation>用于承担SMTP、IMAP等电子邮件服务的运行环境。</translation></message>
+<message><source>Network File System Client</source><translation>网络文件系统客户端</translation></message>
+<message><source>Environments for network storage devices.</source><translation>使用网络存储设备的运行环境。</translation></message>
+<message><source>Performance Tools</source><translation>性能工具</translation></message>
+<message><source>Packages for monitoring and diagnosing hardware devices, system programs, and applications.</source><translation>提供监控和诊断硬件设备、系统程序和应用程序的软件包集合。</translation></message>
+<message><source>Security Tools</source><translation>安全性工具</translation></message>
+<message><source>Packages for integrity and trust verification.</source><translation>用于完整性和可信验证的软件包。</translation></message>
+<message><source>Web Server</source><translation>Web服务器</translation></message>
+<message><source>Provides Java servelets and Web common service components.</source><translation>提供Web服务器引擎及Web常用服务组件。</translation></message>
+<message><source>Guest Agents</source><translation>虚拟机代理</translation></message>
+<message><source>Agents used when running under a hypervisor.</source><translation>在Hypervisor中运行时使用的代理软件包。</translation></message>
+<message><source>Virtualization Client</source><translation>虚拟化客户端</translation></message>
+<message><source>Clients for installing and managing virtualization instances.</source><translation>用于安装和管理虚拟化事件的客户端。</translation></message>
+<message><source>Virtualization Hypervisor</source><translation>虚拟化Hypervisor</translation></message>
+<message><source>Smallest possible virtualization host installation.</source><translation>虚拟化主机的最小化安装。</translation></message>
+<message><source>Virtualization Tools</source><translation>虚拟化工具</translation></message>
+<message><source>Tools for offline virtual image management.</source><translation>用于离线虚拟机镜像管理的工具。</translation></message>
+<message><source>Virtualization Platform</source><translation>虚拟化平台</translation></message>
+<message><source>Provides an interface for acessing and controlling virtualized guests and containers.</source><translation>提供虚拟机、容器的访问和控制接口。</translation></message>
+<message><source>High Availability</source><translation>高可用</translation></message>
+<message><source>Infrastructure for highly available services and/or shared storage.</source><translation>用于高度可用服务和（或者）共享存储的基础设施。</translation></message>
+<message><source>InfiniBand Support</source><translation>InfiniBand支持</translation></message>
+<message><source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source><translation>用于支持集群或使用RDMA InfiniBand和iWARP光纤网络连接性的软件。</translation></message>
+<message><source>Large Systems Performance</source><translation>大系统性能</translation></message>
+<message><source>Performance support tools for large systems.</source><translation>用于大型系统的性能支持工具。</translation></message>
+<message><source>Platform Development</source><translation>平台开发</translation></message>
+<message><source>Recommended development headers and libraries for developing applications to run on UOS.</source><translation>为开发UOS中运行的应用程序，提供标头和程序库。</translation></message>
+<message><source>Internet Applications</source><translation>互联网应用</translation></message>
+<message><source>Email, chat, and video conferencing software.</source><translation>电子邮件、聊天和视频会议软件。</translation></message>
+<message><source>Virtualization Toolset</source><translation>虚拟化工具集</translation></message>
+<message><source>Toolset for virtualization enviroment (host and guest).</source><translation>虚拟化运行环境（宿主机和客户机）所需的集合软件包。</translation></message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
         <source>Basic functionality.</source>
