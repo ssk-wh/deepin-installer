@@ -16,18 +16,17 @@
  */
 
 #include "ui/frames/inner/new_table_warning_frame.h"
-
-#include <QEvent>
-#include <QLabel>
-#include <QVBoxLayout>
-#include <QPushButton>
-
 #include "base/file_util.h"
 #include "ui/delegates/partition_util.h"
 #include "ui/frames/consts.h"
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/title_label.h"
 #include "ui/utils/widget_util.h"
+
+#include <QEvent>
+#include <QLabel>
+#include <QVBoxLayout>
+#include <QPushButton>
 
 namespace installer {
 
@@ -119,9 +118,6 @@ void NewTableWarningFrame::initUI() {
 
   this->setLayout(layout);
   this->setContentsMargins(0, 0, 0, 0);
-  const QString style(ReadFile(":/styles/new_table_warning_frame.css"));
-  this->setStyleSheet(style);
-  AppendStyleSheet(title_label_, style);
 }
 
 void NewTableWarningFrame::onConfirmButtonClicked() {
