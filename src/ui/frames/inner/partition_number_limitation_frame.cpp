@@ -16,12 +16,11 @@
  */
 
 #include "ui/frames/inner/partition_number_limitation_frame.h"
+#include "ui/widgets/comment_label.h"
+#include "ui/widgets/title_label.h"
 
 #include <QEvent>
 #include <QVBoxLayout>
-
-#include "ui/widgets/comment_label.h"
-#include "ui/widgets/title_label.h"
 
 namespace installer {
 
