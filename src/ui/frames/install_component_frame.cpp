@@ -12,6 +12,7 @@
 #include <QEvent>
 #include <QDebug>
 #include <QtConcurrent/QtConcurrent>
+#include <QTimer>
 
 namespace installer {
 
@@ -113,6 +114,15 @@ bool SelectInstallComponentFrame::eventFilter(QObject *watched, QEvent *event)
     }
 
     return QWidget::eventFilter(watched, event);
+}
+
+void SelectInstallComponentFrame::resizeEvent(QResizeEvent *event)
+{
+    QTimer::singleShot(0, this, [=] {
+        m_componentLabel->setFixedWidth(m_serverTypeLabel->width());
+    });
+
+    QWidget::resizeEvent(event);
 }
 
 void SelectInstallComponentFrame::initUI()
