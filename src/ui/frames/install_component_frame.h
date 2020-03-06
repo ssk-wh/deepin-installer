@@ -41,7 +41,6 @@ public:
 protected:
     bool event(QEvent* event) override;
     bool eventFilter(QObject *watched, QEvent *event) override;
-    void resizeEvent(QResizeEvent* event) override;
 
 private:
     QScopedPointer<SelectInstallComponentFramePrivate> m_private;

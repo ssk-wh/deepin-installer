@@ -14,7 +14,7 @@
 #include <QEvent>
 #include <QDebug>
 #include <QtConcurrent/QtConcurrent>
-#include <QTimer>
+#include <QCheckBox>
 
 namespace installer {
 class SelectInstallComponentFramePrivate : public FrameInterfacePrivate
@@ -34,6 +34,8 @@ public:
     void onServerTypeClicked();
     void onComponentClicked();
     void clearComponentLayout();
+    void checkAllComponent(bool checked);
+    void updateSelectAllCheckBoxState();
 
     TitleLabel* m_selectPageLabel = nullptr;
     QLabel* m_serverTypeLabel = nullptr;
@@ -47,6 +49,9 @@ public:
 
     DIScrollArea* m_serverScrollArea = nullptr;
     DIScrollArea* m_compScrollArea = nullptr;
+
+    QCheckBox* m_selectAllCheckBox = nullptr;
+    QFrame *m_selectAllFrame = nullptr;
 
     SelectInstallComponentFrame* q_ptr = nullptr;
 };
@@ -135,6 +140,7 @@ bool SelectInstallComponentFrame::event(QEvent* event) {
         m_private->m_serverTypeLabel->setText(tr("Basic Environment"));
         m_private->m_componentLabel->setText(tr("Add-Ons for Selected Environment"));
         m_private->nextButton->setText(tr("Next"));
+        m_private->m_selectAllCheckBox->setText(tr("Select All"));
 
         for (auto it = m_private->m_componentStructMap.cbegin(); it != m_private->m_componentStructMap.cend(); ++it) {
             QPair<QString, QString> ts = ComponentInstallManager::Instance()->updateTs(it.value());
@@ -150,6 +156,18 @@ bool SelectInstallComponentFrame::event(QEvent* event) {
     }
 
     return QWidget::event(event);
+}
+
+bool SelectInstallComponentFrame::eventFilter(QObject *watched, QEvent *event)
+{
+    if (watched == m_private->m_selectAllFrame) {
+        if (event->type() == QMouseEvent::MouseButtonPress) {
+            m_private->m_selectAllCheckBox->setChecked(!m_private->m_selectAllCheckBox->isChecked());
+            m_private->checkAllComponent(m_private->m_selectAllCheckBox->isChecked());
+        }
+    }
+
+    return QWidget::eventFilter(watched, event);
 }
 
 void SelectInstallComponentFramePrivate::initUI()
@@ -228,8 +246,6 @@ void SelectInstallComponentFramePrivate::initUI()
     componentLayout->addSpacing(20);
     componentLayout->addWidget(m_compScrollArea);
 
-    componentLayout->addSpacing(1);
-
     QHBoxLayout *allCheckLayout = new QHBoxLayout;
     allCheckLayout->setContentsMargins(0, 0, 0, 0);
 
@@ -239,6 +255,10 @@ void SelectInstallComponentFramePrivate::initUI()
     m_selectAllCheckBox->setChecked(false);
     m_selectAllCheckBox->setText(tr("Select All"));
     m_selectAllCheckBox->setFocusPolicy(Qt::NoFocus);
+
+    connect(m_selectAllCheckBox, &QCheckBox::clicked, this, [&] {
+        checkAllComponent(m_selectAllCheckBox->isChecked());
+    });
     m_selectAllCheckBox->installEventFilter(this);
 
     allCheckLayout->addSpacing(8);
@@ -254,6 +274,7 @@ void SelectInstallComponentFramePrivate::initUI()
     QWidget* serverWidget = new QWidget;
     serverWidget->setLayout(serverTypeLayout);
 
+    componentLayout->addSpacing(1);
     componentLayout->addWidget(m_selectAllFrame);
     QWidget* componentWidget = new QWidget;
     componentWidget->setLayout(componentLayout);
@@ -366,6 +387,26 @@ void SelectInstallComponentFramePrivate::clearComponentLayout()
         item->widget()->deleteLater();
         delete item;
     }
+}
+
+void SelectInstallComponentFramePrivate::checkAllComponent(bool checked)
+{
+    for (auto it = m_componentInfoMap.cbegin(); it != m_componentInfoMap.end(); ++it) {
+        it.key()->setSelected(checked);
+        it.value()->Selected = checked;
+    }
+}
+
+void SelectInstallComponentFramePrivate::updateSelectAllCheckBoxState()
+{
+    for (auto it = m_componentInfoMap.cbegin(); it != m_componentInfoMap.end(); ++it) {
+        if (!it.key()->isSelected()) {
+            m_selectAllCheckBox->setChecked(false);
+            return;
+        }
+    }
+
+    m_selectAllCheckBox->setChecked(true);
 }
 
 }// namespace installer
