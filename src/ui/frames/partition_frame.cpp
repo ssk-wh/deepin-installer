@@ -330,7 +330,7 @@ void PartitionFramePrivate::initUI() {
       new AdvancedPartitionFrame(advanced_delegate_, q_ptr);
   edit_partition_frame_ = new EditPartitionFrame(q_ptr->m_proxy, advanced_delegate_);
   full_disk_partition_frame_ = new FullDiskFrame(full_disk_delegate_, q_ptr);
-  new_partition_frame_ = new NewPartitionFrame(advanced_delegate_, q_ptr);
+  new_partition_frame_ = new NewPartitionFrame(q_ptr->m_proxy, advanced_delegate_);
   new_table_loading_frame_ = new NewTableLoadingFrame(q_ptr);
   new_table_warning_frame_ = new NewTableWarningFrame(q_ptr);
   partition_loading_frame_ = new PartitionLoadingFrame(q_ptr);
@@ -465,7 +465,6 @@ void PartitionFramePrivate::initUI() {
   // Keep PartitionLoadingFrame is the first display page.
   main_layout_->addWidget(partition_loading_frame_);
   main_layout_->addWidget(main_frame_);
-  main_layout_->addWidget(new_partition_frame_);
   main_layout_->addWidget(new_table_loading_frame_);
   main_layout_->addWidget(new_table_warning_frame_);
   main_layout_->addWidget(partition_number_limitation_frame_);
@@ -651,7 +650,7 @@ void PartitionFramePrivate::showMainFrame() {
 void PartitionFramePrivate::showNewPartitionFrame(
     const Partition::Ptr partition) {
   new_partition_frame_->setPartition(partition);
-  main_layout_->setCurrentWidget(new_partition_frame_);
+  q_ptr->m_proxy->showChindFrame(new_partition_frame_);
 }
 
 void PartitionFramePrivate::showNewTableLoadingFrame() {

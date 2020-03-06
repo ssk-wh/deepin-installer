@@ -20,26 +20,27 @@
 
 #include <QFrame>
 class QLabel;
+class QPushButton;
 
 #include "partman/partition.h"
+#include "ui/interfaces/frameinterface.h"
 
 namespace installer {
 
 class CommentLabel;
 class FsModel;
 class MountPointModel;
-class NavButton;
 class AdvancedPartitionDelegate;
 class PartitionTypeModel;
 class PartitionSizeSlider;
 class TableComboBox;
 class TitleLabel;
 
-class NewPartitionFrame : public QFrame {
+class NewPartitionFrame : public ChildFrameInterface {
   Q_OBJECT
 
  public:
-  NewPartitionFrame(AdvancedPartitionDelegate* delegate,
+  NewPartitionFrame(FrameProxyInterface* frameProxyInterface, AdvancedPartitionDelegate* delegate,
                     QWidget* parent = nullptr);
 
   // Reset partition information at |partition_path|.
@@ -50,6 +51,7 @@ class NewPartitionFrame : public QFrame {
 
  protected:
   void changeEvent(QEvent* event) override;
+  void paintEvent(QPaintEvent* event) override;
 
  private:
   void initConnections();
@@ -71,8 +73,8 @@ class NewPartitionFrame : public QFrame {
   QLabel* size_label_ = nullptr;
   PartitionSizeSlider* size_slider_ = nullptr;
 
-  NavButton* cancel_button_ = nullptr;
-  NavButton* create_button_ = nullptr;
+  QPushButton* cancel_button_ = nullptr;
+  QPushButton* create_button_ = nullptr;
 
   AdvancedPartitionDelegate* delegate_ = nullptr;
   FsModel* fs_model_ = nullptr;

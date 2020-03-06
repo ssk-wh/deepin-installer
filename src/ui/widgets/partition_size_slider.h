@@ -41,6 +41,8 @@ class PartitionSizeSlider : public QFrame {
   // Get minimum size, in bytes.
   qint64 minimum() const { return minimum_size_; }
 
+  void paintEvent(QPaintEvent* event) override;
+
  signals:
   // Emitted when slide |value| is updated by user or by program.
   void valueChanged(qint64 value);

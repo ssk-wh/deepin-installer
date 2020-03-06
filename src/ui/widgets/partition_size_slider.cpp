@@ -22,6 +22,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QSlider>
+#include <QPainter>
 
 #include "base/file_util.h"
 #include "partman/structs.h"
@@ -43,15 +44,30 @@ qint64 PartitionSizeSlider::value() {
   if (slider_->value() == slider_->maximum()) {
     return maximum_size_;
   } else {
-    return slider_->value() * kMebiByte;
+    return slider_->value() * kGibiByte;
   }
+}
+
+void PartitionSizeSlider::paintEvent(QPaintEvent *event)
+{
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing, true);
+
+    QPainterPath PaintPath;
+    for (int i = 0; i <10; i++)
+    {
+        const QColor fullAreaColor(0, 0, 0, 6);
+
+        PaintPath.addRoundedRect(rect(), 11, 11);
+        painter.fillPath(PaintPath, fullAreaColor);
+    }
 }
 
 void PartitionSizeSlider::setMaximum(qint64 maximum_size) {
   Q_ASSERT(maximum_size >= 0);
   maximum_size_ = maximum_size;
   // First convert bytes to mebibytes.
-  const int mebi_size = static_cast<int>(maximum_size / kMebiByte);
+  const int mebi_size = static_cast<int>(maximum_size / kGibiByte);
   slider_->setMaximum(mebi_size);
   slider_->setValue(mebi_size);
 }
@@ -62,7 +78,7 @@ void PartitionSizeSlider::setMinimum(qint64 minimum_size) {
   const qint64 min_size = qMin(minimum_size, maximum_size_);
   minimum_size_ = min_size;
   // Convert bytes to mebibytes.
-  const int mebi_size = static_cast<int>(min_size / kMebiByte);
+  const int mebi_size = static_cast<int>(min_size / kGibiByte);
   slider_->setMinimum(mebi_size);
 }
 
@@ -72,7 +88,7 @@ void PartitionSizeSlider::setValue(qint64 size) {
   qint64 real_size = qMin(size, maximum_size_);
   real_size = qMax(size, minimum_size_);
   // Convert to mebibytes.
-  const int mebi_size = static_cast<int>(real_size / kMebiByte);
+  const int mebi_size = static_cast<int>(real_size / kGibiByte);
   slider_->setValue(mebi_size);
   editor_->setText(QString("%1").arg(mebi_size));
 }
@@ -96,7 +112,7 @@ void PartitionSizeSlider::initUI() {
   // Disable context menu.
   editor_->setContextMenuPolicy(Qt::NoContextMenu);
 
-  QLabel* size_label = new QLabel("MB");
+  QLabel* size_label = new QLabel("Gb");
   size_label->setObjectName("size_label");
 
   QHBoxLayout* layout = new QHBoxLayout();
@@ -116,7 +132,7 @@ void PartitionSizeSlider::onEditorTextChanged(const QString& text) {
   bool ok;
   int value = text.toInt(&ok);
   if (ok) {
-    const int tmp = static_cast<int>(maximum_size_ / kMebiByte);
+    const int tmp = static_cast<int>(maximum_size_ / kGibiByte);
     if(value > tmp){
       value = tmp;
       editor_->setText(QString::number(value));
@@ -128,7 +144,7 @@ void PartitionSizeSlider::onEditorTextChanged(const QString& text) {
     slider_->blockSignals(false);
 
     // Also emit valueChanged() signal.
-    emit this->valueChanged(value * kMebiByte);
+    emit this->valueChanged(value * kGibiByte);
   }
 }
 
@@ -136,7 +152,7 @@ void PartitionSizeSlider::onSliderValueChanged(int value) {
   editor_->setText(QString::number(value));
 
   // Emit valueChanged() signal.
-  emit this->valueChanged(value * kMebiByte);
+  emit this->valueChanged(value * kGibiByte);
 }
 
 }  // namespace installer
