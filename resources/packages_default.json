@@ -5,11 +5,10 @@
 			"base"
 		],
 		"uninstall": [
+			"uninstall-lightdm"
 		],
 		"choice": [
-			"dde",
 			"debugging-tools",
-			"deepin",
 			"development-tools",
 			"directory-client",
 			"dns-server",
@@ -30,6 +29,7 @@
 			"base"
 		],
 		"uninstall": [
+			"uninstall-lightdm"
 		],
 		"choice": [
 			"guest-agents",
@@ -50,6 +50,7 @@
 			"base"
 		],
 		"uninstall": [
+			"uninstall-lightdm"
 		],
 		"choice": [
 			"debugging-tools",
@@ -100,6 +101,7 @@
 			"base"
 		],
 		"uninstall": [
+			"uninstall-lightdm"
 		],
 		"choice": [
 			"debugging-tools",

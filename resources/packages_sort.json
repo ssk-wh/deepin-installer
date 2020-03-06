@@ -1,9 +1,7 @@
 [
 	{
 		"Basic-Server-Environment": [
-			"dde",
 			"debugging-tools",
-			"deepin",
 			"development-tools",
 			"directory-client",
 			"dns-server",
