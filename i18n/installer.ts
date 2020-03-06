@@ -1448,7 +1448,74 @@
 </context>
 <context>
     <name>installer::ComponentInstallManager</name>
+<<<<<<< HEAD
 >>>>>>> eae3cb6b... clean all ts file
+=======
+<message><source>Basic Server Environment</source><translation type="vanished">Basic Server Environment</translation></message>
+<message><source>Applies to standard common service environments, such as Web services and database services.</source><translation type="vanished">Applies to standard common service environments, such as Web services and database services.</translation></message>
+<message><source>Cloud and Virtualzalition</source><translation type="vanished">Cloud and Virtualzalition</translation></message>
+<message><source>Applies to IaaS environments, such as virtualization, containers, and clouds.</source><translation type="vanished">Applies to IaaS environments, such as virtualization, containers, and clouds.</translation></message>
+<message><source>Big Data</source><translation type="vanished">Big Data</translation></message>
+<message><source>Applies to servers that provide parallel processing of massive data.</source><translation type="vanished">Applies to servers that provide parallel processing of massive data.</translation></message>
+<message><source>Server Environment with GUI</source><translation type="vanished">Server Environment with GUI</translation></message>
+<message><source>Operates the services and applications on the graphical user interface.</source><translation type="vanished">Operates the services and applications on the graphical user interface.</translation></message>
+<message><source>Custom Installation</source><translation type="vanished">Custom Installation</translation></message>
+<message><source>Provides most package groups for custom selection, covering minimum to maximum installation.</source><translation type="vanished">Provides most package groups for custom selection, covering minimum to maximum installation.</translation></message>
+<message><source>Debugging Tools</source><translation type="vanished">Debugging Tools</translation></message>
+<message><source>Provide debugging package for program function and performance.</source><translation type="vanished">Provide debugging package for program function and performance.</translation></message>
+<message><source>Applications with GUI</source><translation type="vanished">Applications with GUI</translation></message>
+<message><source>Commonly used server application packages in graphical user interface.</source><translation type="vanished">Commonly used server application packages in graphical user interface.</translation></message>
+<message><source>Development Tools</source><translation type="vanished">Development Tools</translation></message>
+<message><source>Development tool packages in multiple programming languages.</source><translation type="vanished">Development tool packages in multiple programming languages.</translation></message>
+<message><source>Directory Client</source><translation type="vanished">Directory Client</translation></message>
+<message><source>Clients for integration into a network managed by a directory service.</source><translation type="vanished">Clients for integration into a network managed by a directory service.</translation></message>
+<message><source>Domain Name Service</source><translation type="vanished">Domain Name Service</translation></message>
+<message><source>Environments for running the domain name service (DNS).</source><translation type="vanished">Environments for running the domain name service (DNS).</translation></message>
+<message><source>File and Storage Server</source><translation type="vanished">File and Storage Server</translation></message>
+<message><source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source><translation type="vanished">CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</translation></message>
+<message><source>Graphics Creation Tools</source><translation type="vanished">Graphics Creation Tools</translation></message>
+<message><source>Software for creating and editing images.</source><translation type="vanished">Software for creating and editing images.</translation></message>
+<message><source>Load Balancer</source><translation type="vanished">Load Balancer</translation></message>
+<message><source>Load balancing support for network traffic.</source><translation type="vanished">Load balancing support for network traffic.</translation></message>
+<message><source>MariaDB Database Server</source><translation type="vanished">MariaDB Database Server</translation></message>
+<message><source>The MariaDB SQL database server, and associated packages.</source><translation type="vanished">The MariaDB SQL database server, and associated packages.</translation></message>
+<message><source>E-mail Server</source><translation type="vanished">E-mail Server</translation></message>
+<message><source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source><translation type="vanished">Allows the system to act as a SMTP and/or IMAP e-mail server.</translation></message>
+<message><source>Network File System Client</source><translation type="vanished">Network File System Client</translation></message>
+<message><source>Environments for network storage devices.</source><translation type="vanished">Environments for network storage devices.</translation></message>
+<message><source>Performance Tools</source><translation type="vanished">Performance Tools</translation></message>
+<message><source>Packages for monitoring and diagnosing hardware devices, system programs, and applications.</source><translation type="vanished">Packages for monitoring and diagnosing hardware devices, system programs, and applications.</translation></message>
+<message><source>Security Tools</source><translation type="vanished">Security Tools</translation></message>
+<message><source>Packages for integrity and trust verification.</source><translation type="vanished">Packages for integrity and trust verification.</translation></message>
+<message><source>Web Server</source><translation type="vanished">Web Server</translation></message>
+<message><source>Provides Java servelets and Web common service components.</source><translation type="vanished">Provides Java servelets and Web common service components.</translation></message>
+<message><source>Guest Agents</source><translation type="vanished">Guest Agents</translation></message>
+<message><source>Agents used when running under a hypervisor.</source><translation type="vanished">Agents used when running under a hypervisor.</translation></message>
+<message><source>Virtualization Client</source><translation type="vanished">Virtualization Client</translation></message>
+<message><source>Clients for installing and managing virtualization instances.</source><translation type="vanished">Clients for installing and managing virtualization instances.</translation></message>
+<message><source>Virtualization Hypervisor</source><translation type="vanished">Virtualization Hypervisor</translation></message>
+<message><source>Smallest possible virtualization host installation.</source><translation type="vanished">Smallest possible virtualization host installation.</translation></message>
+<message><source>Virtualization Tools</source><translation type="vanished">Virtualization Tools</translation></message>
+<message><source>Tools for offline virtual image management.</source><translation type="vanished">Tools for offline virtual image management.</translation></message>
+<message><source>Virtualization Platform</source><translation type="vanished">Virtualization Platform</translation></message>
+<message><source>Provides an interface for acessing and controlling virtualized guests and containers.</source><translation type="vanished">Provides an interface for acessing and controlling virtualized guests and containers.</translation></message>
+<message><source>High Availability</source><translation type="vanished">High Availability</translation></message>
+<message><source>Infrastructure for highly available services and/or shared storage.</source><translation type="vanished">Infrastructure for highly available services and/or shared storage.</translation></message>
+<message><source>InfiniBand Support</source><translation type="vanished">InfiniBand Support</translation></message>
+<message><source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source><translation type="vanished">Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</translation></message>
+<message><source>Large Systems Performance</source><translation type="vanished">Large Systems Performance</translation></message>
+<message><source>Performance support tools for large systems.</source><translation type="vanished">Performance support tools for large systems.</translation></message>
+<message><source>Platform Development</source><translation type="vanished">Platform Development</translation></message>
+<message><source>Recommended development headers and libraries for developing applications to run on UOS.</source><translation type="vanished">Recommended development headers and libraries for developing applications to run on UOS.</translation></message>
+<message><source>Internet Applications</source><translation type="vanished">Internet Applications</translation></message>
+<message><source>Email, chat, and video conferencing software.</source><translation type="vanished">Email, chat, and video conferencing software.</translation></message>
+<message><source>Virtualization Toolset</source><translation type="vanished">Virtualization Toolset</translation></message>
+<message><source>Toolset for virtualization enviroment (host and guest).</source><translation type="vanished">Toolset for virtualization enviroment (host and guest).</translation></message>
+    <message>
+        <source>Select All</source>
+        <translation>Select All</translation>
+    </message>
+>>>>>>> 151a188b... feat: adjust select component page translate.
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
         <source>Minimal Install</source>
