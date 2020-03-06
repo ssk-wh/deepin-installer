@@ -22,6 +22,7 @@
 class QCheckBox;
 class QLabel;
 class QProgressBar;
+class QPushButton;
 
 #include "partman/partition.h"
 #include "ui/interfaces/frameinterface.h"
@@ -32,7 +33,6 @@ class AdvancedPartitionDelegate;
 class CommentLabel;
 class FsModel;
 class MountPointModel;
-class NavButton;
 class TableComboBox;
 class TitleLabel;
 
@@ -64,7 +64,6 @@ class EditPartitionFrame : public ChildFrameInterface {
   void initUI();
 
   TitleLabel* title_label_ = nullptr;
-  CommentLabel* comment_label_ = nullptr;
   QLabel* os_label_ = nullptr;
   QLabel* name_label_ = nullptr;
   QLabel* usage_label_ = nullptr;
@@ -74,8 +73,8 @@ class EditPartitionFrame : public ChildFrameInterface {
   TableComboBox* mount_point_box_ = nullptr;
   QLabel* mount_point_label_ = nullptr;
   QCheckBox* format_check_box_ = nullptr;
-  NavButton* cancel_button_ = nullptr;
-  NavButton* ok_button_ = nullptr;
+  QPushButton* cancel_button_ = nullptr;
+  QPushButton* ok_button_ = nullptr;
 
   AdvancedPartitionDelegate* delegate_ = nullptr;
   FsModel* fs_model_ = nullptr;
