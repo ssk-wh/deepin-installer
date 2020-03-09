@@ -1512,6 +1512,7 @@
 <message><source>Virtualization Toolset</source><translation type="vanished">Virtualization Toolset</translation></message>
 <message><source>Toolset for virtualization enviroment (host and guest).</source><translation type="vanished">Toolset for virtualization enviroment (host and guest).</translation></message>
     <message>
+<<<<<<< HEAD
         <source>Select All</source>
         <translation>Select All</translation>
     </message>
@@ -2059,6 +2060,10 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Load Balancer</source>
+=======
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="178"/>
+        <source>Set Control Region</source>
+>>>>>>> 99e3400e... feat: adjust select component page translate
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4016,8 +4021,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/install_component_frame.cpp" line="89"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="216"/>
+=======
+>>>>>>> 99e3400e... feat: adjust select component page translate
         <source>Select All</source>
         <translation>Select All</translation>
     </message>

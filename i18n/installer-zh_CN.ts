@@ -1228,6 +1228,7 @@
 <message><source>Email, chat, and video conferencing software.</source><translation>电子邮件、聊天和视频会议软件。</translation></message>
 <message><source>Virtualization Toolset</source><translation>虚拟化工具集</translation></message>
 <message><source>Toolset for virtualization enviroment (host and guest).</source><translation>虚拟化运行环境（宿主机和客户机）所需的集合软件包。</translation></message>
+<<<<<<< HEAD
     <message>
         <source>Select All</source>
         <translation>全选</translation>
@@ -2208,6 +2209,8 @@
         <source>A set of commonly used DDE Applications.</source>
         <translation>一组经常使用的应用程序。</translation>
     </message>
+=======
+>>>>>>> 99e3400e... feat: adjust select component page translate
 </context>
 <context>
 <<<<<<< HEAD
@@ -3285,7 +3288,14 @@
         <source>Next</source>
         <translation>下一步</translation>
     </message>
+<<<<<<< HEAD
 >>>>>>> abe476cc... chore: auto pull translation files from transifex
+=======
+    <message>
+        <source>Select All</source>
+        <translation>全选</translation>
+    </message>
+>>>>>>> 99e3400e... feat: adjust select component page translate
 </context>
 <context>
     <name>installer::SelectLanguageFramePrivate</name>
