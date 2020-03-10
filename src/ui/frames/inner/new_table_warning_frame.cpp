@@ -20,12 +20,12 @@
 #include <QEvent>
 #include <QLabel>
 #include <QVBoxLayout>
+#include <QPushButton>
 
 #include "base/file_util.h"
 #include "ui/delegates/partition_util.h"
 #include "ui/frames/consts.h"
 #include "ui/widgets/comment_label.h"
-#include "ui/widgets/nav_button.h"
 #include "ui/widgets/title_label.h"
 #include "ui/utils/widget_util.h"
 
@@ -98,8 +98,10 @@ void NewTableWarningFrame::initUI() {
   comment_layout->setSpacing(0);
   comment_layout->addWidget(comment_label_);
 
-  cancel_button_ = new NavButton(tr("Cancel"));
-  confirm_button_ = new NavButton(tr("Continue"));
+  cancel_button_ = new QPushButton(tr("Cancel"));
+  cancel_button_->setFixedSize(310, 36);
+  confirm_button_ = new QPushButton(tr("Continue"));
+  confirm_button_->setFixedSize(310, 36);
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);

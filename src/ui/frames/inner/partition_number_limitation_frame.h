@@ -19,11 +19,11 @@
 #define INSTALLER_UI_FRAMES_INNER_PARTITION_NUMBER_LIMITATION_FRAME_H
 
 #include <QFrame>
+#include <QPushButton>
 
 namespace installer {
 
 class CommentLabel;
-class NavButton;
 class TitleLabel;
 
 // Display this info page when reaching max number of primary partitions
@@ -53,7 +53,7 @@ class PartitionNumberLimitationFrame : public QFrame {
   TitleLabel* title_label_ = nullptr;
   CommentLabel* comment1_label_ = nullptr;
   CommentLabel* comment2_label_ = nullptr;
-  NavButton* back_button_ = nullptr;
+  QPushButton* back_button_ = nullptr;
 };
 
 }  // namespace installer

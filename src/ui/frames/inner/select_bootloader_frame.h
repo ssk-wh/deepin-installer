@@ -18,15 +18,15 @@
 #ifndef INSTALLER_UI_FRAMES_INNER_SELECT_BOOTLOADER_FRAME_H
 #define INSTALLER_UI_FRAMES_INNER_SELECT_BOOTLOADER_FRAME_H
 
-#include <QFrame>
-
 #include "partman/device.h"
+
+#include <QFrame>
+#include <QPushButton>
 
 namespace installer {
 
 class CommentLabel;
 class FramelessListView;
-class NavButton;
 class BootloaderListModel;
 class TitleLabel;
 
@@ -61,7 +61,7 @@ class SelectBootloaderFrame : public QFrame {
   CommentLabel* comment_label_ = nullptr;
   FramelessListView* list_view_ = nullptr;
   BootloaderListModel* list_model_ = nullptr;
-  NavButton* back_button_ = nullptr;
+  QPushButton* back_button_ = nullptr;
 
  private slots:
   // Update partition list

@@ -25,6 +25,7 @@
 #include <QStandardItemModel>
 #include <QCollator>
 #include <algorithm>
+#include <QPushButton>
 
 #include <DListView>
 #include <DStandardItem>
@@ -37,7 +38,6 @@
 #include "ui/models/keyboard_layout_variant_model.h"
 #include "ui/utils/widget_util.h"
 #include "ui/views/frameless_list_view.h"
-#include "ui/widgets/nav_button.h"
 #include "ui/widgets/title_label.h"
 #include "ui/widgets/comment_label.h"
 
@@ -114,7 +114,7 @@ private:
     QStandardItemModel* m_variantModel = new QStandardItemModel;
     QLineEdit* m_testEdit = new QLineEdit;
     QString m_currentLocale;
-    NavButton* m_backButton = new NavButton;
+    QPushButton* m_backButton = new QPushButton;
     XkbConfig xkb_config_;
 
     DListView* m_layoutView = new DListView;
@@ -428,6 +428,8 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     m_testEdit->setFixedSize(kLayoutWidth, 36);
     // Disable context menu.
     m_testEdit->setContextMenuPolicy(Qt::NoContextMenu);
+
+    m_backButton->setFixedSize(310, 36);
 
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setContentsMargins(0, 0, 0, 0);

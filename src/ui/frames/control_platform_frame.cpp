@@ -136,7 +136,7 @@ void ControlPlatformFramePrivate::initConnection()
         networkAccessManager->get(QNetworkRequest(m_serverUrl));
     });
 
-    connect(nextButton, &NavButton::clicked, this,
+    connect(nextButton, &QPushButton::clicked, this,
             &ControlPlatformFramePrivate::onNextClicked);
     connect(m_regionBox,
             static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this,

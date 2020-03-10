@@ -21,7 +21,6 @@
 #include <QVBoxLayout>
 
 #include "ui/widgets/comment_label.h"
-#include "ui/widgets/nav_button.h"
 #include "ui/widgets/title_label.h"
 
 namespace installer {
@@ -87,7 +86,8 @@ void PartitionNumberLimitationFrame::initUI() {
          "or move the existing logical partition to the end of the disk"));
   comment2_label_->setFixedWidth(kWindowWidth);
 
-  back_button_ = new NavButton(tr("Back"));
+  back_button_ = new QPushButton(tr("Back"));
+  back_button_->setFixedSize(310, 36);
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setMargin(0);

@@ -24,7 +24,6 @@
 #include "ui/models/bootloader_list_model.h"
 #include "ui/views/frameless_list_view.h"
 #include "ui/widgets/comment_label.h"
-#include "ui/widgets/nav_button.h"
 #include "ui/widgets/title_label.h"
 
 namespace installer {
@@ -74,7 +73,8 @@ void SelectBootloaderFrame::initUI() {
   list_model_ = new BootloaderListModel(this);
   list_view_->setModel(list_model_);
 
-  back_button_ = new NavButton(tr("Back"));
+  back_button_ = new QPushButton(tr("Back"));
+  back_button_->setFixedSize(310, 36);
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);

@@ -19,12 +19,13 @@
 #define INSTALLER_UI_FRAMES_INNER_NEW_TABLE_WARNING_FRAME_H
 
 #include <QFrame>
+
 class QLabel;
+class QPushButton;
 
 namespace installer {
 
 class CommentLabel;
-class NavButton;
 class TitleLabel;
 
 // Display warning message before creating new partition table.
@@ -56,8 +57,8 @@ class NewTableWarningFrame : public QFrame {
   QLabel* disk_name_label_ = nullptr;
   TitleLabel* title_label_ = nullptr;
   CommentLabel* comment_label_ = nullptr;
-  NavButton* cancel_button_ = nullptr;
-  NavButton* confirm_button_ = nullptr;
+  QPushButton* cancel_button_ = nullptr;
+  QPushButton* confirm_button_ = nullptr;
 
   QString device_path_;
 
