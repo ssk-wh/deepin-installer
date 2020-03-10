@@ -123,10 +123,11 @@ void SystemInfoAvatarFramePrivate::initUI() {
   list_view_->setUniformItemSizes(true);
   list_view_->setFlow(QListView::LeftToRight);
   list_view_->setViewMode(QListView::IconMode);
-  list_view_->setFixedWidth(365);
+  list_view_->setFrameShape(QListView::NoFrame);
+  list_view_->setFixedWidth(600);
   list_view_->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   list_view_->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-  list_view_->setStyleSheet(ReadFile(":/styles/avatar_list_view.css"));;
+//  list_view_->setStyleSheet(ReadFile(":/styles/avatar_list_view.css"));;
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
