@@ -81,9 +81,6 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
       Q_ASSERT(m_frames.first() == language_frame_);
       nextFrame();
   }
-
-
-  stacked_layout_->setCurrentWidget(system_info_frame_);
 }
 
 FirstBootSetupWindow::~FirstBootSetupWindow() {
@@ -192,16 +189,88 @@ void FirstBootSetupWindow::initUI() {
       m_frames << frame;
   }
 
-  QVBoxLayout* mainLayout = new QVBoxLayout;
-  mainLayout->setSpacing(0);
+  QVBoxLayout* vbox_layout = new QVBoxLayout();
+  vbox_layout->setContentsMargins(0, 0, 0, 0);
+  vbox_layout->setSpacing(0);
+  vbox_layout->addLayout(stacked_layout_);
+  vbox_layout->addSpacing(32);
+
+  QWidget* contentWidget = new QWidget;
+  contentWidget->setLayout(vbox_layout);
+
+  // TODO: for current test, will be replaced later.
+  m_frameTitles = {
+      "LanguageFrame",
+      "SystemInfoFrame",
+      "TimezoneFrame"
+  };
+
+  m_frameLabelsView = new DListView(this);
+  m_frameLabelsView->setOrientation(QListView::TopToBottom, true);
+  m_frameLabelsView->setItemSize(QSize(250, 80));
+  m_frameLabelsModel = new QStandardItemModel();
+  m_frameLabelsView->setModel(m_frameLabelsModel);
+
+  int i = 1;
+  for (FrameInterface* frame : m_originalFrames){
+      if (!frame->shouldDisplay()){
+          continue;
+      }
+
+      DStandardItem* item = new DStandardItem;
+      QString pixPathTemplate(":/images/NO_inactive%1.svg");
+      item->setIcon(QIcon(installer::renderPixmap(pixPathTemplate.arg(i))));
+      ++i;
+      // TODO: for current test, will be replaced in another way.
+      item->setText(m_frameTitles[m_originalFrames.indexOf(frame)]);
+      QVariant framePointer = QVariant::fromValue(frame);
+      item->setData(framePointer, FramePointerRole);
+      item->setFlags(Qt::ItemFlag::NoItemFlags);
+
+      DViewItemAction* action = new DViewItemAction(Qt::AlignmentFlag::AlignVCenter);
+      action->setIcon(QIcon(installer::renderPixmap(":/images/done_inactive.svg")));
+      action->setVisible(false);
+      item->setActionList(Qt::Edge::RightEdge, {action});
+
+      m_frameLabelsModel->appendRow(item);
+      m_frameModelItemMap[frame] = item;
+  }
+
+  m_frameSelectedLayout = new QVBoxLayout;
+  m_frameSelectedLayout->setMargin(0);
+  m_frameSelectedLayout->setSpacing(0);
+  m_frameSelectedLayout->addSpacing(80);
+  m_frameSelectedLayout->addWidget(m_frameLabelsView, 0, Qt::AlignHCenter);
+
+  QWidget* frameSelectedListWidget = new QWidget;
+  frameSelectedListWidget->setObjectName("frameSelectedListWidget");
+  frameSelectedListWidget->setLayout(m_frameSelectedLayout);
+  frameSelectedListWidget->setFixedWidth(300);
+
+  QHBoxLayout* mainLayout = new QHBoxLayout;
   mainLayout->setMargin(0);
-  mainLayout->addLayout(stacked_layout_);
+  mainLayout->setSpacing(0);
+
+  mainLayout->addWidget(frameSelectedListWidget);
+  mainLayout->addSpacing(1);
+  mainLayout->addWidget(contentWidget);
 
   DBackgroundGroup* bgGroup = new DBackgroundGroup;
   bgGroup->setContentsMargins(10, 10, 10, 10);
   bgGroup->setLayout(mainLayout);
 
   setCentralWidget(bgGroup);
+
+//  QVBoxLayout* mainLayout = new QVBoxLayout;
+//  mainLayout->setSpacing(0);
+//  mainLayout->setMargin(0);
+//  mainLayout->addLayout(stacked_layout_);
+
+//  DBackgroundGroup* bgGroup = new DBackgroundGroup;
+//  bgGroup->setContentsMargins(10, 10, 10, 10);
+//  bgGroup->setLayout(mainLayout);
+
+//  setCentralWidget(bgGroup);
 }
 
 void FirstBootSetupWindow::registerShortcut() {

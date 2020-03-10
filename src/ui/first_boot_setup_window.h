@@ -23,6 +23,7 @@
 #include <QFrame>
 #include <DMainWindow>
 #include <DImageButton>
+#include <DListView>
 
 DWIDGET_USE_NAMESPACE
 
@@ -30,6 +31,7 @@ class QLabel;
 class QResizeEvent;
 class QStackedLayout;
 class QThread;
+class QVBoxLayout;
 
 class GlobalShortcut;
 
@@ -81,9 +83,18 @@ class FirstBootSetupWindow : public DMainWindow, public FrameProxyInterface {
   GlobalShortcut*   monitor_mode_shortcut_ = nullptr;
   MultiHeadManager* multi_head_manager_    = nullptr;
 
+  QVBoxLayout* m_frameSelectedLayout = nullptr;
+
   QList<FrameInterface*> m_originalFrames;
   QList<FrameInterface*> m_frames;
   bool m_showPastFrame = false;
+
+  QList<QString> m_frameTitles;
+  DListView* m_frameLabelsView = nullptr;
+  QStandardItemModel* m_frameLabelsModel = nullptr;
+  QMap<FrameInterface*, DStandardItem*> m_frameModelItemMap;
+
+  static const int FramePointerRole = Dtk::UserRole + 1;
 
   private slots:
   // Handles result of hook worker.
