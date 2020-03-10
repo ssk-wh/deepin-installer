@@ -36,6 +36,13 @@ class QVBoxLayout;
 class GlobalShortcut;
 
 namespace installer {
+
+enum class FrameLabelState{
+    Initial,
+    Show,
+    FinishedConfig
+};
+
 class FirstBootLoadingFrame;
 class FirstBootHookWorker;
 class MultiHeadManager;
@@ -119,6 +126,8 @@ class FirstBootSetupWindow : public DMainWindow, public FrameProxyInterface {
 
   // When user mouse press left page tables.
   void previousFrameSelected(FrameInterface* frame);
+
+  void updateFrameLabelState(FrameInterface *frame, FrameLabelState state);
 };
 
 }  // namespace installer

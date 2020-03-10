@@ -73,7 +73,7 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
   Q_ASSERT(m_frames.count() > 0);
   m_frames.first()->init();
 
-  // TODO: update frame label state.
+  updateFrameLabelState(m_frames.first(), FrameLabelState::Show);
   stacked_layout_->setCurrentWidget(m_frames.first());
 
   if ( !GetSettingsBool(kSkipSelectLanguagePage) ||
@@ -97,7 +97,7 @@ void FirstBootSetupWindow::nextFrame()
     Q_ASSERT(frame != nullptr);
 
     frame->finished();
-    // TODO: update frame label state.
+    updateFrameLabelState(frame, FrameLabelState::FinishedConfig);
 
     if (!m_showPastFrame){
         m_frames.removeFirst();
@@ -113,7 +113,7 @@ void FirstBootSetupWindow::nextFrame()
                 (*it)->init();
             }
 
-            // TODO: update frame label state.
+            updateFrameLabelState(*it, FrameLabelState::Show);
             stacked_layout_->setCurrentWidget(*it);
             m_showPastFrame = false;
             break;
@@ -260,17 +260,6 @@ void FirstBootSetupWindow::initUI() {
   bgGroup->setLayout(mainLayout);
 
   setCentralWidget(bgGroup);
-
-//  QVBoxLayout* mainLayout = new QVBoxLayout;
-//  mainLayout->setSpacing(0);
-//  mainLayout->setMargin(0);
-//  mainLayout->addLayout(stacked_layout_);
-
-//  DBackgroundGroup* bgGroup = new DBackgroundGroup;
-//  bgGroup->setContentsMargins(10, 10, 10, 10);
-//  bgGroup->setLayout(mainLayout);
-
-//  setCentralWidget(bgGroup);
 }
 
 void FirstBootSetupWindow::registerShortcut() {
@@ -452,16 +441,44 @@ void FirstBootSetupWindow::previousFrameSelected(FrameInterface *frame)
     Q_ASSERT(currentFrame != nullptr);
 
     if (m_showPastFrame){
-        // TODO: update frame label state.
+        updateFrameLabelState(currentFrame, FrameLabelState::FinishedConfig);
     }
     else {
-        // TODO: update frame label state.
+        updateFrameLabelState(currentFrame, FrameLabelState::Initial);
     }
 
-    // TODO: update frame label state.
+    updateFrameLabelState(frame, FrameLabelState::Show);
     stacked_layout_->setCurrentWidget(frame);
 
     m_showPastFrame = true;
+}
+
+void FirstBootSetupWindow::updateFrameLabelState(FrameInterface *frame, FrameLabelState state)
+{
+    if (!m_frameModelItemMap.contains(frame)){
+        return;
+    }
+
+    DStandardItem* item = m_frameModelItemMap[frame];
+    switch (state) {
+    case FrameLabelState::Initial:
+        item->actionList(Qt::Edge::RightEdge).first()->setVisible(false);
+        item->setFlags(Qt::ItemFlag::NoItemFlags);
+        break;
+    case FrameLabelState::Show:
+        item->actionList(Qt::Edge::RightEdge).first()->setVisible(false);
+        item->setFlags(Qt::ItemFlag::ItemIsEnabled | Qt::ItemFlag::ItemIsSelectable);
+
+        m_frameLabelsView->setCurrentIndex(m_frameLabelsModel->indexFromItem(m_frameModelItemMap[frame]));
+        break;
+    case FrameLabelState::FinishedConfig:
+        item->actionList(Qt::Edge::RightEdge).first()->setVisible(true);
+        item->setFlags(Qt::ItemFlag::ItemIsEnabled | Qt::ItemFlag::ItemIsSelectable);
+        break;
+    default:
+        qWarning() << "invalid state value";
+        break;
+    }
 }
 
 }  // namespace installer
