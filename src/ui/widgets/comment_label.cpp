@@ -31,6 +31,7 @@ CommentLabel::CommentLabel(const QString& text, QWidget* parent)
   setObjectName("comment_label");
 
   setFixedWidth(540);
+  setAlignment(Qt::AlignCenter);
   setWordWrap(true);
 }
 
