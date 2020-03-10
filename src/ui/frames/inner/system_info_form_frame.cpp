@@ -45,11 +45,15 @@
 #include <QPushButton>
 #include <QScrollArea>
 #include <QScrollBar>
+#include <DLineEdit>
+#include <DPasswordEdit>
+
+DWIDGET_USE_NAMESPACE
 
 namespace installer {
 
 namespace {
-const int kSetRootPasswordCheckBoxWidth = 408;
+const int kSetRootPasswordCheckBoxWidth = 608;
 const int kSetRootPasswordCheckBoxHeight = 36;
 }//namespace
 
@@ -71,8 +75,8 @@ private:
     // Validate line-edit. If failed, write tooltip to |msg| and returns false.
     bool validateUsername(QString& msg);
     bool validateHostname(QString& msg);
-    bool validatePassword(LineEdit* passwordEdit, QString& msg);
-    bool validatePassword2(LineEdit* passwordEdit, LineEdit* passwordCheckEdit, QString& msg);
+    bool validatePassword(DPasswordEdit* passwordEdit, QString& msg);
+    bool validatePassword2(DPasswordEdit* passwordEdit, DPasswordEdit* passwordCheckEdit, QString& msg);
 
     void updateCapsLockState(bool capslock);
     void systemInfoFrameFinish();
@@ -110,19 +114,28 @@ private:
     TitleLabel*   m_titleLabel_         = nullptr;
     CommentLabel* m_commentLabel_       = nullptr;
     SystemInfoAvatarFrame* m_avatarButton_       = nullptr;
-    LineEdit*     m_usernameEdit_       = nullptr;
-    LineEdit*     m_hostnameEdit_       = nullptr;
-    LineEdit*     m_passwordEdit_       = nullptr;
-    LineEdit*     m_passwordCheckEdit_ = nullptr;
+    QLabel* m_usernameLabel = nullptr;
+    DLineEdit*     m_usernameEdit       = nullptr;
+    QLabel* m_hostnameLabel = nullptr;
+    DLineEdit*     m_hostnameEdit       = nullptr;
+    QLabel* m_passwordLabel = nullptr;
+    DPasswordEdit*     m_passwordEdit       = nullptr;
+    QLabel* m_passwordCheckLabel = nullptr;
+    DPasswordEdit*     m_passwordCheckEdit = nullptr;
     QCheckBox*    m_grubPasswordCheck_ = nullptr;
     QCheckBox*    m_setRootPasswordCheck = nullptr;
-    LineEdit*     m_rootPasswordEdit = nullptr;
-    LineEdit*     m_rootPasswordCheckEdit = nullptr;
+    QLabel* m_rootPasswordLabel = nullptr;
+    DPasswordEdit*     m_rootPasswordEdit = nullptr;
+    QLabel* m_rootPasswordCheckLabel = nullptr;
+    DPasswordEdit*     m_rootPasswordCheckEdit = nullptr;
+
+    QFrame *m_rootPasswordFrame = nullptr;
+    QFrame *m_rootPasswordCheckFrame = nullptr;
 
     // Display tooltip error message.
     SystemInfoTip*         tooltip_     = nullptr;
 
-    std::vector<LineEdit*> m_editList;
+    std::vector<DLineEdit*> m_editList;
 
 };
 
@@ -149,19 +162,19 @@ bool SystemInfoFormFrame::validateUserInfo()
     QString msg;
     if (!d->validateUsername(msg)) {
         d->tooltip_->setText(msg);
-        d->tooltip_->showBottom(d->m_usernameEdit_);
+        d->tooltip_->showBottom(d->m_usernameEdit);
     }
     else if (!d->validateHostname(msg)) {
         d->tooltip_->setText(msg);
-        d->tooltip_->showBottom(d->m_hostnameEdit_);
+        d->tooltip_->showBottom(d->m_hostnameEdit);
     }
-    else if (!d->validatePassword(d->m_passwordEdit_, msg)) {
+    else if (!d->validatePassword(d->m_passwordEdit, msg)) {
         d->tooltip_->setText(msg);
-        d->tooltip_->showBottom(d->m_passwordEdit_);
+        d->tooltip_->showBottom(d->m_passwordEdit);
     }
-    else if (!d->validatePassword2(d->m_passwordEdit_, d->m_passwordCheckEdit_, msg)) {
+    else if (!d->validatePassword2(d->m_passwordEdit, d->m_passwordCheckEdit, msg)) {
         d->tooltip_->setText(msg);
-        d->tooltip_->showBottom(d->m_passwordCheckEdit_);
+        d->tooltip_->showBottom(d->m_passwordCheckEdit);
     }
     else if (d->m_setRootPasswordCheck->isChecked()) {
         if (!d->validatePassword(d->m_rootPasswordEdit, msg)) {
@@ -193,10 +206,10 @@ void SystemInfoFormFrame::updateAvatar(const QString& avatar)
 void SystemInfoFormFrame::readConf() {
     Q_D(SystemInfoFormFrame);
 
-    d->m_usernameEdit_->setText(GetSettingsString(kSystemInfoDefaultUsername));
-    d->m_hostnameEdit_->setText(GetSettingsString(kSystemInfoDefaultHostname));
-    d->m_passwordEdit_->setText(GetSettingsString(kSystemInfoDefaultPassword));
-    d->m_passwordCheckEdit_->setText(GetSettingsString(kSystemInfoDefaultPassword));
+    d->m_usernameEdit->setText(GetSettingsString(kSystemInfoDefaultUsername));
+    d->m_hostnameEdit->setText(GetSettingsString(kSystemInfoDefaultHostname));
+    d->m_passwordEdit->setText(GetSettingsString(kSystemInfoDefaultPassword));
+    d->m_passwordCheckEdit->setText(GetSettingsString(kSystemInfoDefaultPassword));
 }
 
 void SystemInfoFormFrame::writeConf()
@@ -205,12 +218,12 @@ void SystemInfoFormFrame::writeConf()
 
     d->systemInfoFrameFinish();
 
-    WriteUsername(d->m_usernameEdit_->text());
-    WriteHostname(d->m_hostnameEdit_->text());
-    WritePassword(d->m_passwordEdit_->text());
+    WriteUsername(d->m_usernameEdit->text());
+    WriteHostname(d->m_hostnameEdit->text());
+    WritePassword(d->m_passwordEdit->text());
     WriteRootPassword(GetSettingsBool(kSetRootPasswordFromUser)
                       ? d->m_rootPasswordEdit->text()
-                      : d->m_passwordEdit_->text());
+                      : d->m_passwordEdit->text());
 }
 
 void SystemInfoFormFrame::changeEvent(QEvent* event)
@@ -218,14 +231,6 @@ void SystemInfoFormFrame::changeEvent(QEvent* event)
     Q_D(SystemInfoFormFrame);
 
     if (event->type() == QEvent::LanguageChange) {
-
-
-        d->m_usernameEdit_->setPlaceholderText(tr("Username"));
-        d->m_hostnameEdit_->setPlaceholderText(tr("Computer name"));
-        d->m_passwordEdit_->setPlaceholderText(tr("Password"));
-        d->m_passwordCheckEdit_->setPlaceholderText(tr("Repeat password"));
-        d->m_rootPasswordEdit->setPlaceholderText(tr("Root password"));
-        d->m_rootPasswordCheckEdit->setPlaceholderText(tr("Repeat root password"));
         d->updateTex();
     }
     else {
@@ -238,7 +243,7 @@ void SystemInfoFormFrame::showEvent(QShowEvent* event)
     Q_D(SystemInfoFormFrame);
 
     QFrame::showEvent(event);
-    d->m_usernameEdit_->setFocus();
+    d->m_usernameEdit->setFocus();
     d->tooltip_->hide();
     d->updateDevice();
 
@@ -248,61 +253,62 @@ void SystemInfoFormFramePrivate::initConnections()
 {
     Q_Q(SystemInfoFormFrame);
 
-    connect(m_usernameEdit_, &LineEdit::editingFinished, this,
+    connect(m_usernameEdit, &DLineEdit::editingFinished, this,
             &SystemInfoFormFramePrivate::onUsernameEditingFinished);
-    connect(m_hostnameEdit_, &LineEdit::editingFinished, this,
+    connect(m_hostnameEdit, &DLineEdit::editingFinished, this,
             &SystemInfoFormFramePrivate::onHostnameEditingFinished);
-    connect(m_passwordEdit_, &LineEdit::editingFinished, this,
+    connect(m_passwordEdit, &DLineEdit::editingFinished, this,
             &SystemInfoFormFramePrivate::onPasswordEditingFinished);
-    connect(m_passwordCheckEdit_, &LineEdit::editingFinished, this,
+    connect(m_passwordCheckEdit, &DLineEdit::editingFinished, this,
             &SystemInfoFormFramePrivate::onPassword2EditingFinished);
-    connect(m_rootPasswordEdit, &LineEdit::editingFinished, this
+    connect(m_rootPasswordEdit, &DLineEdit::editingFinished, this
             , &SystemInfoFormFramePrivate::onRootPasswordEditingFinished);
-    connect(m_rootPasswordCheckEdit, &LineEdit::editingFinished, this
+    connect(m_rootPasswordCheckEdit, &DLineEdit::editingFinished, this
             , &SystemInfoFormFramePrivate::onRootPasswordCheckEditingFinished);
 
-    connect(m_usernameEdit_, SIGNAL(returnPressed()), m_hostnameEdit_,
+    connect(m_usernameEdit, SIGNAL(returnPressed()), m_hostnameEdit,
             SLOT(setFocus()));
-    connect(m_hostnameEdit_, SIGNAL(returnPressed()), m_passwordEdit_,
+    connect(m_hostnameEdit, SIGNAL(returnPressed()), m_passwordEdit,
             SLOT(setFocus()));
-    connect(m_passwordEdit_, SIGNAL(returnPressed()), m_passwordCheckEdit_,
+    connect(m_passwordEdit, SIGNAL(returnPressed()), m_passwordCheckEdit,
             SLOT(setFocus()));
-    connect(m_passwordCheckEdit_, &QLineEdit::returnPressed, q, &SystemInfoFormFrame::systemInfoFormDone);
+    connect(m_passwordCheckEdit, &DPasswordEdit::returnPressed, q, &SystemInfoFormFrame::systemInfoFormDone);
     connect(m_setRootPasswordCheck, &QCheckBox::clicked, this
             , &SystemInfoFormFramePrivate::onSetRootPasswordCheckChanged);
     connect(m_rootPasswordEdit, SIGNAL(returnPressed()), m_rootPasswordCheckEdit
             , SLOT(setFocus()));
-    connect(m_rootPasswordCheckEdit, &QLineEdit::returnPressed, q, &SystemInfoFormFrame::systemInfoFormDone);
+    connect(m_rootPasswordCheckEdit, &DPasswordEdit::returnPressed, q, &SystemInfoFormFrame::systemInfoFormDone);
 
 
-    QList<LineEdit*> list {
-        m_usernameEdit_,
-        m_hostnameEdit_,
-        m_passwordEdit_,
-        m_passwordCheckEdit_,
+    QList<DLineEdit*> list {
+        m_usernameEdit,
+        m_hostnameEdit,
+        m_passwordEdit,
+        m_passwordCheckEdit,
         m_rootPasswordEdit,
         m_rootPasswordCheckEdit
     };
 
-    for (LineEdit* edit : list) {
-        connect(edit, &LineEdit::textEdited, this,
+    for (DLineEdit* edit : list) {
+        connect(edit, &DLineEdit::textEdited, this,
                 &SystemInfoFormFramePrivate::onEditingLineEdit);
-        connect(edit, &LineEdit::gotFocus, this, [=] {
-            updateCapsLockState(KeyboardMonitor::instance()->isCapslockOn());
-        });
+        // TODO(chenxiong)
+        //        connect(edit, &DLineEdit::gotFocus, this, [=] {
+        //            updateCapsLockState(KeyboardMonitor::instance()->isCapslockOn());
+        //        });
     }
 
-    connect(m_usernameEdit_, &LineEdit::textEdited, this,
+    connect(m_usernameEdit, &DLineEdit::textEdited, this,
             &SystemInfoFormFramePrivate::onUsernameEdited);
-    connect(m_hostnameEdit_, &LineEdit::textEdited, this,
+    connect(m_hostnameEdit, &DLineEdit::textEdited, this,
             &SystemInfoFormFramePrivate::onHostnameEdited);
-    connect(m_passwordEdit_, &LineEdit::textEdited, this,
+    connect(m_passwordEdit, &DPasswordEdit::textEdited, this,
             &SystemInfoFormFramePrivate::onPasswordEdited);
-    connect(m_passwordCheckEdit_, &LineEdit::textEdited, this,
+    connect(m_passwordCheckEdit, &DPasswordEdit::textEdited, this,
             &SystemInfoFormFramePrivate::onPassword2Edited);
-    connect(m_rootPasswordEdit, &LineEdit::textEdited, this
+    connect(m_rootPasswordEdit, &DPasswordEdit::textEdited, this
             , &SystemInfoFormFramePrivate::onRootPasswordEdited);
-    connect(m_rootPasswordCheckEdit, &LineEdit::textEdited, this
+    connect(m_rootPasswordCheckEdit, &DPasswordEdit::textEdited, this
             , &SystemInfoFormFramePrivate::onRootPasswordCheckEdited);
 
     connect(KeyboardMonitor::instance(),
@@ -316,70 +322,154 @@ void SystemInfoFormFramePrivate::initUI()
 
     m_titleLabel_   = new TitleLabel("");
     m_commentLabel_ = new CommentLabel;
+    m_commentLabel_->setAlignment(Qt::AlignCenter);
     m_avatarButton_ = new SystemInfoAvatarFrame;
 
-    m_usernameEdit_ = new LineEdit(":/images/username_12.svg");
-    m_usernameEdit_->setReadOnly(GetSettingsBool(kSystemInfoLockUsername));
+    m_usernameLabel = new QLabel;
+    m_usernameLabel->setAlignment(Qt::AlignLeft);
+    m_usernameEdit = new DLineEdit;
+    m_usernameEdit->lineEdit()->setReadOnly(GetSettingsBool(kSystemInfoLockUsername));
 
     QString str = GetSettingsString(kSystemInfoDefaultUsername);
     if (!str.isEmpty()) {
-        m_usernameEdit_->setText(str);
+        m_usernameEdit->setText(str);
     }
     else {
-        m_usernameEdit_->setPlaceholderText(tr("Username"));
+        m_usernameEdit->lineEdit()->setPlaceholderText(tr("Username"));
     }
 
-    m_hostnameEdit_ = new LineEdit(":/images/username_12.svg");
-    m_hostnameEdit_->setReadOnly(GetSettingsBool(kSystemInfoLockHostname));
+    QHBoxLayout *usernameLayout = new QHBoxLayout;
+    usernameLayout->setContentsMargins(0, 0, 0, 0);
+    usernameLayout->setSpacing(0);
+    usernameLayout->addWidget(m_usernameLabel, 0, Qt::AlignLeft | Qt::AlignVCenter);
+    usernameLayout->addWidget(m_usernameEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
+    QFrame *usernameFrame = new QFrame;
+    usernameFrame->setLayout(usernameLayout);
+    m_usernameLabel->setFixedWidth(150);
+    m_usernameEdit->setFixedWidth(350);
+    usernameFrame->setFixedWidth(600);
+
+    m_hostnameLabel = new QLabel;
+    m_hostnameLabel->setAlignment(Qt::AlignLeft);
+    m_hostnameEdit = new DLineEdit;
+    m_hostnameEdit->lineEdit()->setReadOnly(GetSettingsBool(kSystemInfoLockHostname));
 
     str = GetSettingsString(kSystemInfoDefaultHostname);
     if (!str.isEmpty()) {
-        m_hostnameEdit_->setText(str);
+        m_hostnameEdit->setText(str);
     }
     else {
-        m_hostnameEdit_->setPlaceholderText(tr("Computer name"));
+        m_hostnameEdit->lineEdit()->setPlaceholderText(tr("Computer name"));
     }
 
-    m_passwordEdit_ = new LineEdit(":/images/username_12.svg");
-    m_passwordEdit_->setEchoMode(QLineEdit::Password);
-    m_passwordEdit_->setReadOnly(GetSettingsBool(kSystemInfoLockPassword));
+    QHBoxLayout *hostnameLayout = new QHBoxLayout;
+    hostnameLayout->setContentsMargins(0, 0, 0, 0);
+    hostnameLayout->setSpacing(0);
+    hostnameLayout->addWidget(m_hostnameLabel, 0, Qt::AlignLeft | Qt::AlignVCenter);
+    hostnameLayout->addWidget(m_hostnameEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
+    QFrame *hostnameFrame = new QFrame;
+    hostnameFrame->setLayout(hostnameLayout);
+    m_hostnameLabel->setFixedWidth(150);
+    m_hostnameEdit->setFixedWidth(350);
+    hostnameFrame->setFixedWidth(600);
 
-    m_passwordCheckEdit_ = new LineEdit(":/images/password_12.svg");
-    m_passwordCheckEdit_->setEchoMode(QLineEdit::Password);
-    m_passwordCheckEdit_->setReadOnly(m_passwordEdit_->isReadOnly());
+    m_passwordLabel = new QLabel;
+    m_passwordLabel->setAlignment(Qt::AlignLeft);
+    m_passwordEdit = new DPasswordEdit;
+    m_passwordEdit->setEchoMode(QLineEdit::Password);
+    m_passwordEdit->lineEdit()->setReadOnly(GetSettingsBool(kSystemInfoLockPassword));
+
+    QHBoxLayout *passwordLayout = new QHBoxLayout;
+    passwordLayout->setContentsMargins(0, 0, 0, 0);
+    passwordLayout->setSpacing(0);
+    passwordLayout->addWidget(m_passwordLabel, 0, Qt::AlignLeft | Qt::AlignVCenter);
+    passwordLayout->addWidget(m_passwordEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
+    QFrame *passwordFrame = new QFrame;
+    passwordFrame->setLayout(passwordLayout);
+    m_passwordLabel->setFixedWidth(150);
+    m_passwordEdit->setFixedWidth(350);
+    passwordFrame->setFixedWidth(600);
+
+    m_passwordCheckLabel = new QLabel;
+    m_passwordCheckLabel->setAlignment(Qt::AlignLeft);
+    m_passwordCheckEdit = new DPasswordEdit;;
+    m_passwordCheckEdit->setEchoMode(QLineEdit::Password);
+    m_passwordCheckEdit->lineEdit()->setReadOnly(m_passwordEdit->lineEdit()->isReadOnly());
 
     str = GetSettingsString(kSystemInfoDefaultPassword);
     if (!str.isEmpty()) {
-        m_passwordEdit_->setText(str);
-        m_passwordCheckEdit_->setText(str);
+        m_passwordEdit->setText(str);
+        m_passwordCheckEdit->setText(str);
     }
     else {
-        m_passwordEdit_->setPlaceholderText(tr("Password"));
-        m_passwordCheckEdit_->setPlaceholderText(tr("Repeat password"));
+        m_passwordEdit->lineEdit()->setPlaceholderText(tr("Password"));
+        m_passwordCheckEdit->lineEdit()->setPlaceholderText(tr("Repeat password"));
     }
+
+    QHBoxLayout *passwordCheckLayout = new QHBoxLayout;
+    passwordCheckLayout->setContentsMargins(0, 0, 0, 0);
+    passwordCheckLayout->setSpacing(0);
+    passwordCheckLayout->addWidget(m_passwordCheckLabel, 0, Qt::AlignLeft | Qt::AlignVCenter);
+    passwordCheckLayout->addWidget(m_passwordCheckEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
+    QFrame *passwordCheckFrame = new QFrame;
+    passwordCheckFrame->setLayout(passwordCheckLayout);
+    m_passwordCheckLabel->setFixedWidth(150);
+    m_passwordCheckEdit->setFixedWidth(350);
+    passwordCheckFrame->setFixedWidth(600);
 
     m_setRootPasswordCheck = new QCheckBox;
     m_setRootPasswordCheck->setCheckable(true);
     m_setRootPasswordCheck->setChecked(false);
     m_setRootPasswordCheck->setObjectName("RootPasswordCheckBox");
     m_setRootPasswordCheck->setVisible(GetSettingsBool(kSetRootPasswordFromUser));
+    m_setRootPasswordCheck->setVisible(true);
 
-    m_rootPasswordEdit = new LineEdit(":/images/username_12.svg");
-    m_rootPasswordEdit->setPlaceholderText(tr("Root password"));
+    m_rootPasswordLabel = new QLabel;
+    m_rootPasswordLabel->setAlignment(Qt::AlignLeft);
+    m_rootPasswordEdit = new DPasswordEdit;
     m_rootPasswordEdit->setEchoMode(QLineEdit::Password);
-    m_rootPasswordEdit->setReadOnly(GetSettingsBool(kSystemInfoLockPassword));
-    m_rootPasswordEdit->hide();
+    m_rootPasswordEdit->lineEdit()->setReadOnly(GetSettingsBool(kSystemInfoLockPassword));
 
-    m_rootPasswordCheckEdit = new LineEdit(":/images/username_12.svg");
-    m_rootPasswordCheckEdit->setPlaceholderText(tr("Repeat root password"));
+    QHBoxLayout *rootPasswordLayout = new QHBoxLayout;
+    rootPasswordLayout->setContentsMargins(0, 0, 0, 0);
+    rootPasswordLayout->setSpacing(0);
+    rootPasswordLayout->addWidget(m_rootPasswordLabel, 0, Qt::AlignLeft | Qt::AlignVCenter);
+    rootPasswordLayout->addWidget(m_rootPasswordEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
+    m_rootPasswordFrame = new QFrame;
+    m_rootPasswordFrame->setLayout(rootPasswordLayout);
+    m_rootPasswordLabel->setFixedWidth(150);
+    m_rootPasswordEdit->setFixedWidth(350);
+    m_rootPasswordFrame->setFixedWidth(600);
+    QSizePolicy sp_retain = m_rootPasswordEdit->sizePolicy();
+    sp_retain.setRetainSizeWhenHidden(true);
+    m_rootPasswordFrame->setSizePolicy(sp_retain);
+    m_rootPasswordFrame->hide();
+
+    m_rootPasswordCheckLabel = new QLabel;
+    m_rootPasswordCheckLabel->setAlignment(Qt::AlignLeft);
+    m_rootPasswordCheckEdit = new DPasswordEdit;
     m_rootPasswordCheckEdit->setEchoMode(QLineEdit::Password);
-    m_rootPasswordCheckEdit->setReadOnly(m_rootPasswordEdit->isReadOnly());
-    m_rootPasswordCheckEdit->hide();
+    m_rootPasswordCheckEdit->lineEdit()->setReadOnly(m_rootPasswordEdit->lineEdit()->isReadOnly());
 
-    m_editList.push_back(m_usernameEdit_);
-    m_editList.push_back(m_hostnameEdit_);
-    m_editList.push_back(m_passwordEdit_);
-    m_editList.push_back(m_passwordCheckEdit_);
+    QHBoxLayout *rootPasswordCheckLayout = new QHBoxLayout;
+    rootPasswordCheckLayout->setContentsMargins(0, 0, 0, 0);
+    rootPasswordCheckLayout->setSpacing(0);
+    rootPasswordCheckLayout->addWidget(m_rootPasswordCheckLabel, 0, Qt::AlignLeft | Qt::AlignVCenter);
+    rootPasswordCheckLayout->addWidget(m_rootPasswordCheckEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
+    m_rootPasswordCheckFrame = new QFrame;
+    m_rootPasswordCheckFrame->setLayout(rootPasswordCheckLayout);
+    m_rootPasswordCheckLabel->setFixedWidth(150);
+    m_rootPasswordCheckEdit->setFixedWidth(350);
+    m_rootPasswordCheckFrame->setFixedWidth(600);
+    sp_retain = m_rootPasswordEdit->sizePolicy();
+    sp_retain.setRetainSizeWhenHidden(true);
+    m_rootPasswordCheckFrame->setSizePolicy(sp_retain);
+    m_rootPasswordCheckFrame->hide();
+
+    m_editList.push_back(m_usernameEdit);
+    m_editList.push_back(m_hostnameEdit);
+    m_editList.push_back(m_passwordEdit);
+    m_editList.push_back(m_passwordCheckEdit);
     m_editList.push_back(m_rootPasswordEdit);
     m_editList.push_back(m_rootPasswordCheckEdit);
 
@@ -392,15 +482,15 @@ void SystemInfoFormFramePrivate::initUI()
     QVBoxLayout* layout = new QVBoxLayout;
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(kMainLayoutSpacing);
-    layout->addWidget(m_usernameEdit_, 0, Qt::AlignCenter);
-    layout->addWidget(m_hostnameEdit_, 0, Qt::AlignCenter);
-    layout->addWidget(m_passwordEdit_, 0, Qt::AlignCenter);
-    layout->addWidget(m_passwordCheckEdit_, 0, Qt::AlignCenter);
+    layout->addWidget(usernameFrame, 0, Qt::AlignHCenter);
+    layout->addWidget(hostnameFrame, 0, Qt::AlignHCenter);
+    layout->addWidget(passwordFrame, 0, Qt::AlignHCenter);
+    layout->addWidget(passwordCheckFrame, 0, Qt::AlignHCenter);
     m_setRootPasswordCheck->setFixedSize(kSetRootPasswordCheckBoxWidth, kSetRootPasswordCheckBoxHeight);
-    layout->addWidget(m_setRootPasswordCheck, 0, Qt::AlignCenter);
-    layout->addWidget(m_rootPasswordEdit, 0, Qt::AlignCenter);
-    layout->addWidget(m_rootPasswordCheckEdit, 0, Qt::AlignCenter);
-    layout->addWidget(m_grubPasswordCheck_, 0, Qt::AlignCenter);
+    layout->addWidget(m_setRootPasswordCheck, 0, Qt::AlignHCenter);
+    layout->addWidget(m_rootPasswordFrame, 0, Qt::AlignHCenter);
+    layout->addWidget(m_rootPasswordCheckFrame, 0, Qt::AlignHCenter);
+    layout->addWidget(m_grubPasswordCheck_, 0, Qt::AlignHCenter);
 
     QFrame* content = new QFrame;
     content->setAutoFillBackground(false);
@@ -417,6 +507,7 @@ void SystemInfoFormFramePrivate::initUI()
     area->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     area->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    area->setContentsMargins(0, 0, 0, 0);
 
     tooltip_ = new SystemInfoTip(content);
     tooltip_->hide();
@@ -429,17 +520,32 @@ void SystemInfoFormFramePrivate::initUI()
     mainLayout->addWidget(m_commentLabel_, 0, Qt::AlignHCenter);
     mainLayout->addWidget(m_avatarButton_, 0, Qt::AlignHCenter);
     mainLayout->addStretch();
-    mainLayout->addWidget(area, 0, Qt::AlignCenter);
+    mainLayout->addWidget(area, 0, Qt::AlignHCenter);
     mainLayout->addSpacing(10);
 
     q->setLayout(mainLayout);
     q->setContentsMargins(0, 0, 0, 0);
-    q->setStyleSheet(ReadFile(":/styles/system_info_form_frame.css"));
+    q->setFixedWidth(800);
 
+    updateTex();
 }
 
 void SystemInfoFormFramePrivate::updateTex()
 {
+    m_usernameEdit->lineEdit()->setPlaceholderText(tr("Username"));
+    m_hostnameEdit->lineEdit()->setPlaceholderText(tr("Computer name"));
+    m_passwordEdit->lineEdit()->setPlaceholderText(tr("Password"));
+    m_passwordCheckEdit->lineEdit()->setPlaceholderText(tr("Repeat password"));
+    m_rootPasswordEdit->lineEdit()->setPlaceholderText(tr("Root password"));
+    m_rootPasswordCheckEdit->lineEdit()->setPlaceholderText(tr("Repeat root password"));
+
+    m_usernameLabel->setText(tr("Username").append(" :"));
+    m_hostnameLabel->setText(tr("Computer name").append(" :"));
+    m_passwordLabel->setText(tr("Password").append(" :"));
+    m_passwordCheckLabel->setText(tr("Repeat password").append(" :"));
+    m_rootPasswordLabel->setText(tr("Root password").append(" :"));
+    m_rootPasswordCheckLabel->setText(tr("Repeat root password").append(" :"));
+
     m_titleLabel_->setText(tr("Create User Account"));
     m_commentLabel_->setText(tr("Fill in the username, computer name and your password"));
     m_grubPasswordCheck_->setText(tr("Use that password to edit boot menu"));
@@ -463,8 +569,8 @@ bool SystemInfoFormFramePrivate::validateUsername(QString& msg)
     const QString reserved_username_file = GetReservedUsernameFile();
     const int     min_len = GetSettingsInt(kSystemInfoUsernameMinLen);
     const int     max_len = GetSettingsInt(kSystemInfoUsernameMaxLen);
-    const ValidateUsernameState state = ValidateUsername(
-                m_usernameEdit_->text(), reserved_username_file, min_len, max_len);
+    const ValidateUsernameState state = ValidateUsername(m_usernameEdit->text()
+                                                         , reserved_username_file, min_len, max_len);
     switch (state) {
     case ValidateUsernameState::ReservedError: {
         msg = tr("This username already exists");
@@ -476,8 +582,7 @@ bool SystemInfoFormFramePrivate::validateUsername(QString& msg)
     }
     case ValidateUsernameState::EmptyError:  // fall through
     case ValidateUsernameState::InvalidCharError: {
-        msg =
-                tr("Username must contain English letters (lowercase), "
+        msg = tr("Username must contain English letters (lowercase), "
                    "numbers or special symbols (_-)");
         return false;
     }
@@ -502,7 +607,7 @@ bool SystemInfoFormFramePrivate::validateHostname(QString& msg)
     const QStringList reserved =
             GetSettingsStringList(kSystemInfoHostnameReserved);
     const ValidateHostnameState state =
-            ValidateHostname(m_hostnameEdit_->text(), reserved);
+            ValidateHostname(m_hostnameEdit->text(), reserved);
     switch (state) {
     case ValidateHostnameState::EmptyError: {
         msg = tr("Please input computer name");
@@ -532,7 +637,7 @@ bool SystemInfoFormFramePrivate::validateHostname(QString& msg)
     return true;
 }
 
-bool SystemInfoFormFramePrivate::validatePassword(LineEdit* passwordEdit, QString& msg)
+bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, QString& msg)
 {
 #ifndef QT_DEBUG
     const bool strong_pwd_check = GetSettingsBool(kSystemInfoPasswordStrongCheck);
@@ -544,7 +649,7 @@ bool SystemInfoFormFramePrivate::validatePassword(LineEdit* passwordEdit, QStrin
     int max_len = 16;
 
     if (strong_pwd_check) {
-        if (passwordEdit->text().toLower() == m_usernameEdit_->text().toLower()) {
+        if (passwordEdit->text().toLower() == m_usernameEdit->text().toLower()) {
             msg = tr("The password should be different from the username");
             return false;
         }
@@ -553,7 +658,7 @@ bool SystemInfoFormFramePrivate::validatePassword(LineEdit* passwordEdit, QStrin
     }
 
     const QStringList validate = GetSettingsStringList(kSystemInfoPasswordValidate);
-    const int         required_num{ GetSettingsInt(kSystemInfoPasswordValidateRequired) };
+    const int required_num{ GetSettingsInt(kSystemInfoPasswordValidateRequired) };
     ValidatePasswordState state = ValidatePassword(
         passwordEdit->text(), min_len, max_len, strong_pwd_check, validate, required_num);
 
@@ -566,8 +671,7 @@ bool SystemInfoFormFramePrivate::validatePassword(LineEdit* passwordEdit, QStrin
         return false;
     }
     case ValidatePasswordState::StrongError: {  // fall through
-        msg = tr(
-                    "The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)");
+        msg = tr("The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)");
         return false;
     }
     case ValidatePasswordState::TooShortError:  // fall through
@@ -590,12 +694,13 @@ bool SystemInfoFormFramePrivate::validatePassword(LineEdit* passwordEdit, QStrin
 
 void SystemInfoFormFramePrivate::updateCapsLockState(bool capsLock)
 {
-    for (LineEdit* edit : m_editList) {
-        edit->setCapsLockVisible(edit->hasFocus() && capsLock);
+    for (DLineEdit* edit : m_editList) {
+        // TODO(chenxiong)
+        //        edit->setCapsLockVisible(edit->hasFocus() && capsLock);
     }
 }
 
-bool SystemInfoFormFramePrivate::validatePassword2(LineEdit* passwordEdit, LineEdit* passwordCheckEdit, QString& msg)
+bool SystemInfoFormFramePrivate::validatePassword2(DPasswordEdit *passwordEdit, DPasswordEdit *passwordCheckEdit, QString& msg)
 {
     if (passwordEdit->text() != passwordCheckEdit->text()) {
         msg = tr("Passwords do not match");
@@ -619,7 +724,7 @@ void SystemInfoFormFramePrivate::systemInfoFrameFinish()
         QProcess process;
         process.setProgram("grub-mkpasswd-pbkdf2");
         process.start();
-        const QString password{ m_passwordEdit_->text() };
+        const QString password{ m_passwordEdit->text() };
         process.write(QString("%1\n%1\n").arg(password).toLatin1());
         process.closeWriteChannel();
         process.waitForFinished();
@@ -650,13 +755,13 @@ void SystemInfoFormFramePrivate::onUsernameEdited()
     if (!m_isHostnameEditedManually_ &&
             !GetSettingsBool(kSystemInfoLockHostname)) {
         // Update hostname based on username.
-        const QString username = m_usernameEdit_->text();
+        const QString username = m_usernameEdit->text();
         if (username.isEmpty()) {
-            m_hostnameEdit_->setText("");
+            m_hostnameEdit->setText("");
         }
         else {
             // Add suffix to username
-            m_hostnameEdit_->setText(
+            m_hostnameEdit->setText(
                         username + GetSettingsString(kSystemInfoHostnameAutoSuffix));
         }
     }
@@ -671,7 +776,7 @@ void SystemInfoFormFramePrivate::onUsernameEditingFinished()
         QString msg;
         if (!validateUsername(msg)) {
             tooltip_->setText(msg);
-            tooltip_->showBottom(m_usernameEdit_);
+            tooltip_->showBottom(m_usernameEdit);
         }
     }
 }
@@ -689,7 +794,7 @@ void SystemInfoFormFramePrivate::onHostnameEditingFinished()
         QString msg;
         if (!validateHostname(msg)) {
             tooltip_->setText(msg);
-            tooltip_->showBottom(m_hostnameEdit_);
+            tooltip_->showBottom(m_hostnameEdit);
         }
     }
 }
@@ -704,9 +809,9 @@ void SystemInfoFormFramePrivate::onPasswordEditingFinished()
     if (m_isPasswordEdited_) {
         m_isPasswordEdited_ = false;
         QString msg;
-        if (!validatePassword(m_passwordEdit_, msg)) {
+        if (!validatePassword(m_passwordEdit, msg)) {
             tooltip_->setText(msg);
-            tooltip_->showBottom(m_passwordEdit_);
+            tooltip_->showBottom(m_passwordEdit);
         }
     }
 }
@@ -721,13 +826,13 @@ void SystemInfoFormFramePrivate::onPassword2EditingFinished()
     if (m_isPassword2Edited_) {
         m_isPassword2Edited_ = false;
         QString msg;
-        if (!validatePassword(m_passwordEdit_, msg)) {
+        if (!validatePassword(m_passwordEdit, msg)) {
             tooltip_->setText(msg);
-            tooltip_->showBottom(m_passwordEdit_);
+            tooltip_->showBottom(m_passwordEdit);
         }
-        else if (!validatePassword2(m_passwordEdit_, m_passwordCheckEdit_, msg)) {
+        else if (!validatePassword2(m_passwordEdit, m_passwordCheckEdit, msg)) {
             tooltip_->setText(msg);
-            tooltip_->showBottom(m_passwordCheckEdit_);
+            tooltip_->showBottom(m_passwordCheckEdit);
         }
     }
 }
@@ -774,12 +879,12 @@ void SystemInfoFormFramePrivate::onSetRootPasswordCheckChanged(bool enable)
 {
     if (enable) {
         m_rootPasswordEdit->setFocus();
-        m_rootPasswordEdit->show();
-        m_rootPasswordCheckEdit->show();
+        m_rootPasswordFrame->show();
+        m_rootPasswordCheckFrame->show();
     }
     else {
-        m_rootPasswordEdit->hide();
-        m_rootPasswordCheckEdit->hide();
+        m_rootPasswordFrame->hide();
+        m_rootPasswordCheckFrame->hide();
 
         if (tooltip_->isVisible()) {
             tooltip_->hide();

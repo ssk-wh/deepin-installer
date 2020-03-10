@@ -24,8 +24,6 @@
 namespace installer {
 
 class AvatarButton;
-class CommentLabel;
-class LineEdit;
 class SystemInfoTip;
 class TitleLabel;
 class SystemInfoFormFramePrivate;
