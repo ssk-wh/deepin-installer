@@ -175,7 +175,6 @@ void SystemInfoFramePrivate::initUI() {
   nextButton->setText(tr("Next"));
 
   q_ptr->setContentsMargins(0, 0, 0, 0);
-  q_ptr->setStyleSheet(ReadFile(":/styles/system_info_frame.css"));
 }
 
 void SystemInfoFramePrivate::updateHeadBar() {
