@@ -13,7 +13,7 @@ namespace {
 
     const int kComponentWidgetReduceX = 9;
     const int kComponentWidgetReduceY = 7;
-    const int kComponentWidgetReduceWH = 12;
+    const int kComponentWidgetReduceWH = 20;
 }
 
 ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
@@ -69,7 +69,6 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
     setMinimumHeight(kComponentWidgetMinHeight);
     setObjectName("ComponentWidget");
     setLayout(m_hLayout);
-    setStyleSheet(ReadFile(":/styles/component_widget.css"));
 }
 
 void ComponentWidget::setSelected(bool selected)

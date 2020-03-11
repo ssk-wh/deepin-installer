@@ -185,6 +185,7 @@ bool SelectInstallComponentFrame::eventFilter(QObject *watched, QEvent *event)
         m_private->setSubTitleLayout();
     }
 
+    return QWidget::eventFilter(watched, event);
 }
 void SelectInstallComponentFrame::resizeEvent(QResizeEvent *event)
 {
