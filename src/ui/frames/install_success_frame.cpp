@@ -101,6 +101,8 @@ void InstallSuccessFramePrivate::initUI()
     comment_layout->setSpacing(0);
     comment_layout->addWidget(comment_label_);
 
+    reboot_button_->setFixedSize(310, 36);
+
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(kMainLayoutSpacing);

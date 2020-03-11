@@ -93,6 +93,7 @@ void InstallResultsFramePrivate::initUI()
     m_frame_layout->addWidget(m_installSuccessFrame);
     m_frame_layout->addWidget(m_installFailedFrame);
 
+    nextButton->hide();
     centerLayout->addLayout(m_frame_layout);
 }
 
