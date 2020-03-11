@@ -64,7 +64,9 @@ void ConfirmQuitFrame::initUI() {
   comment_layout->addWidget(comment_label_);
 
   continue_button_ = new QPushButton(tr("Continue"));
+  continue_button_->setFixedSize(310, 36);
   abort_button_ = new QPushButton(tr("Abort"));
+  abort_button_->setFixedSize(310, 36);
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
