@@ -57,7 +57,7 @@ void QRWidget::paintEvent(QPaintEvent* event) {
                                    1, QR_ECLEVEL_L, QR_MODE_8, 1);
   if (qr != NULL){
     QColor fg("black");
-    QColor bg("white");
+    QColor bg("lightGray");
     painter.setBrush(bg);
     painter.setPen(Qt::NoPen);
     painter.drawRect(0, 0, width(), height());

@@ -38,6 +38,9 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QStackedLayout>
+#include <DFrame>
+
+DWIDGET_USE_NAMESPACE
 
 namespace installer {
 
@@ -151,11 +154,6 @@ void InstallFailedFramePrivate::initUI()
     title_label_ = new TitleLabel("");
     comment_label_ = new CommentLabel;
 
-    QHBoxLayout *comment_layout = new QHBoxLayout();
-    comment_layout->setContentsMargins(0, 0, 0, 0);
-    comment_layout->setSpacing(0);
-    comment_layout->addWidget(comment_label_);
-
     m_plainTextEdit = new QPlainTextEdit;
     m_plainTextEdit->setObjectName("plainTextEdit");
     m_plainTextEdit->setContextMenuPolicy(Qt::NoContextMenu);
@@ -164,12 +162,11 @@ void InstallFailedFramePrivate::initUI()
     m_plainTextEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_plainTextEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    QFrame *content_frame = new QFrame();
+    DFrame *content_frame = new DFrame();
     content_frame->setObjectName("content_frame");
     content_frame->setFixedSize(kContentWindowWidth, kContentWindowHeight);
 
     qr_widget_ = new QRWidget(content_frame);
-    qr_widget_->setStyleSheet("background: transparent");
     qr_widget_->setMargin(kQrMargin);
     qr_widget_->setFixedSize(kQrWindowSize, kQrWindowSize);
 
@@ -189,7 +186,7 @@ void InstallFailedFramePrivate::initUI()
 
     content_frame->setLayout(stacked_layout);
 
-    control_button_ = new PointerButton(content_frame);
+    control_button_ = new QPushButton(content_frame);
     control_button_->setObjectName("control_button");
     control_button_->setFlat(true);
     control_button_->setFixedSize(kControlButtonSize, kControlButtonSize);
@@ -199,7 +196,9 @@ void InstallFailedFramePrivate::initUI()
     control_button_->show();
 
     reboot_button_ = new QPushButton;
+    reboot_button_->setFixedSize(310, 36);
     save_log_button_ = new QPushButton;
+    save_log_button_->setFixedSize(310, 36);
 
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setContentsMargins(0, 0, 0, 0);
@@ -207,10 +206,11 @@ void InstallFailedFramePrivate::initUI()
     layout->addStretch();
     layout->addWidget(status_label, 0, Qt::AlignCenter);
     layout->addWidget(title_label_, 0, Qt::AlignCenter);
-    layout->addLayout(comment_layout);
+    layout->addWidget(comment_label_, 0, Qt::AlignCenter);
     layout->addStretch();
     layout->addWidget(content_frame, 0, Qt::AlignCenter);
     layout->addStretch();
+    layout->addSpacing(kMainLayoutSpacing);
     layout->addWidget(save_log_button_, 0, Qt::AlignCenter);
     layout->addWidget(reboot_button_, 0, Qt::AlignCenter);
 
