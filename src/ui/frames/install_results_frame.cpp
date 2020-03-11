@@ -68,6 +68,7 @@ void InstallResultsFrame::init()
     if (m_result) {
         m_private->showInstallSuccessFrame();
     } else {
+        m_private->m_installFailedFrame->updateMessage();
         m_private->showInstallFailedFrame();
     }
 }
