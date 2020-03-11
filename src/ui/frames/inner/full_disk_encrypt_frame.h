@@ -2,6 +2,7 @@
 #define FULL_DISK_ENCRYPT_FRAME_H
 
 #include "partman/device.h"
+#include <ui/interfaces/frameinterface.h>
 
 #include <QWidget>
 #include <DLineEdit>
@@ -31,14 +32,15 @@ struct FullDiskDiskInfo {
     QLabel* m_deviceSizeLbl;
 };
 
-class Full_Disk_Encrypt_frame : public QWidget
+class Full_Disk_Encrypt_frame : public ChildFrameInterface
 {
     Q_OBJECT
 public:
-    explicit Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QWidget *parent = nullptr);
+    explicit Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxyInterface, FullDiskDelegate * delegate, QWidget *parent = nullptr);
 
     void onShowDeviceInfomation();
 
+    void paintEvent(QPaintEvent *event);
 signals:
     void cancel();
     void finished();

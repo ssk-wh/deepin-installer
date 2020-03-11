@@ -20,17 +20,19 @@
 #include <QCheckBox>
 #include <QEvent>
 #include <QPushButton>
+#include <QPainter>
 
-#define NEXTBTN_WIDTH 310
+#define NEXTBTN_WIDTH 210
 #define NEXTBTN_HEIGHT 36
 
 using namespace installer;
 
-Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QWidget *parent)
-    : QWidget(parent)
+Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxyInterface, FullDiskDelegate * delegate, QWidget *parent)
+    : ChildFrameInterface(frameProxyInterface, parent)
     , m_layout(new QVBoxLayout(this))
     , m_frameLbl(new TitleLabel(""))
     , m_frameSubLbl(new QLabel)
+    , m_tilabel(new QLabel)
     , m_encryptLbl(new QLabel)
     , m_encryptCheckLbl(new QLabel)
     , m_encryptEdit(new DPasswordEdit)
@@ -41,7 +43,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QW
     , m_diskPartitionWidget(new FullDiskPartitionWidget)
     , m_diskPartitionDelegate(delegate)
 {
-    m_layout->setMargin(0);
+    m_layout->setContentsMargins(40, 0, 40, 0);
     m_layout->setSpacing(10);
     m_errTip->hide();
     setObjectName("FullDiskEncryptFrame");
@@ -49,7 +51,6 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QW
 
     // add encrypt label
     m_layout->addWidget(m_frameLbl, 0, Qt::AlignHCenter);
-    m_layout->addWidget(m_frameSubLbl, 0, Qt::AlignHCenter);
 
     QHBoxLayout * hboxlayout = new QHBoxLayout();
     hboxlayout->addStretch();
@@ -76,52 +77,69 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QW
     m_layout->addLayout(hboxlayout);
     m_layout->addWidget(m_diskPartitionWidget, 0, Qt::AlignHCenter);
 
+    m_encryptEdit->setFixedWidth(320);
+    m_encryptRepeatEdit->setFixedWidth(320);
+
     // add round progress bar
     RoundedProgressBar* spacingBar = new RoundedProgressBar;
     spacingBar->setFixedHeight(2);
-    spacingBar->setFixedWidth(600);
+    spacingBar->setFixedWidth(537);
 
     m_layout->addSpacing(10);
     m_layout->addWidget(spacingBar, 0, Qt::AlignHCenter);
     m_layout->addSpacing(10);
 
-    // add encrypt input
-    m_encryptLbl->setAlignment(Qt::AlignLeft);
-    m_encryptCheckLbl->setAlignment(Qt::AlignLeft);
-
     QHBoxLayout *encryptLayout = new QHBoxLayout;
     encryptLayout->setContentsMargins(0, 0, 0, 0);
-    encryptLayout->setSpacing(0);
-    encryptLayout->addWidget(m_encryptLbl, 0, Qt::AlignLeft | Qt::AlignVCenter);
-    encryptLayout->addWidget(m_encryptEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
+    encryptLayout->addWidget(m_encryptLbl, 0, Qt::AlignLeft);
+    encryptLayout->addWidget(m_encryptEdit, 0, Qt::AlignRight);
+
     QFrame *encryptFrame = new QFrame;
     encryptFrame->setLayout(encryptLayout);
-    m_encryptLbl->setFixedWidth(150);
-    m_encryptEdit->setFixedWidth(350);
-    encryptFrame->setFixedWidth(600);
+    encryptFrame->setFixedWidth(460);
 
     QHBoxLayout *encryptCheckLayout = new QHBoxLayout;
     encryptCheckLayout->setContentsMargins(0, 0, 0, 0);
-    encryptCheckLayout->setSpacing(0);
-    encryptCheckLayout->addWidget(m_encryptCheckLbl, 0, Qt::AlignLeft | Qt::AlignVCenter);
-    encryptCheckLayout->addWidget(m_encryptRepeatEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
+    encryptCheckLayout->addWidget(m_encryptCheckLbl, 0, Qt::AlignLeft);
+    encryptCheckLayout->addWidget(m_encryptRepeatEdit, 0, Qt::AlignRight);
+
     QFrame *encryptCheckFrame = new QFrame;
     encryptCheckFrame->setLayout(encryptCheckLayout);
-    m_encryptCheckLbl->setFixedWidth(150);
-    m_encryptRepeatEdit->setFixedWidth(350);
-    encryptCheckFrame->setFixedWidth(600);
-
-    m_layout->addWidget(encryptFrame, 0, Qt::AlignHCenter);
-    m_layout->addSpacing(10);
-    m_layout->addWidget(encryptCheckFrame, 0, Qt::AlignHCenter);
-
-    m_layout->addStretch();
+    encryptCheckFrame->setFixedWidth(460);
 
     // add buttons
-    m_cancelBtn->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);
-    m_nextBtn->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);
-    m_layout->addWidget(m_cancelBtn, 0, Qt::AlignHCenter);
-    m_layout->addWidget(m_nextBtn, 0, Qt::AlignHCenter);
+    m_cancelBtn->setFixedWidth(NEXTBTN_WIDTH);
+    m_nextBtn->setFixedWidth(NEXTBTN_WIDTH);
+
+    QHBoxLayout* bt_layout = new QHBoxLayout;
+    bt_layout->setContentsMargins(0, 0, 0, 0);
+    bt_layout->setSpacing(40);
+    bt_layout->addWidget(m_cancelBtn, 0, Qt::AlignHCenter);
+    bt_layout->addWidget(m_nextBtn, 0, Qt::AlignHCenter);
+
+    m_tilabel->setFixedWidth(460);
+    m_tilabel->setWordWrap(true);
+
+    QFrame* bt_frame = new QFrame;
+    bt_frame->setContentsMargins(0, 0, 0, 0);
+    bt_frame->setLayout(bt_layout);
+
+    QVBoxLayout* bottom_layout = new QVBoxLayout;
+    bottom_layout->addWidget(encryptFrame, 0, Qt::AlignHCenter);
+    bottom_layout->addSpacing(20);
+    bottom_layout->addWidget(encryptCheckFrame, 0, Qt::AlignHCenter);
+    bottom_layout->addSpacing(20);
+    bottom_layout->addWidget(m_tilabel, 0, Qt::AlignCenter);
+    bottom_layout->addSpacing(20);
+    bottom_layout->addWidget(bt_frame, 0, Qt::AlignHCenter);
+
+    QFrame* bottom_frame = new QFrame;
+    bottom_frame->setContentsMargins(0, 0, 0, 0);
+    bottom_frame->setFixedWidth(600);
+    bottom_frame->setLayout(bottom_layout);
+
+    m_layout->addWidget(bottom_frame, 0, Qt::AlignCenter);
+    m_layout->addSpacing(50);
 
     setLayout(m_layout);
 
@@ -134,6 +152,17 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QW
 
     initConnections();
     onEncryptUpdated(true);
+}
+void Full_Disk_Encrypt_frame::paintEvent(QPaintEvent *event)
+{
+    QPainter painter(this);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
+    QPainterPath path;
+    path.addRoundedRect(rect(), 25, 25);
+    painter.setClipPath(path);
+    painter.fillRect(rect(), Qt::white);
+
+    return QWidget::paintEvent(event);
 }
 
 void Full_Disk_Encrypt_frame::onShowDeviceInfomation()
@@ -202,9 +231,10 @@ void Full_Disk_Encrypt_frame::onEncryptUpdated(bool checked)
 void Full_Disk_Encrypt_frame::updateText()
 {
     m_frameLbl->setText(tr("Encrypt This Disk"));
-    m_frameSubLbl->setText(tr("Make sure you have backed up important data, then select the disk to install"));
     m_encryptLbl->setText(tr("Password").append(" :"));
     m_encryptCheckLbl->setText(tr("Repeat Password").append(" :"));
+    ti_label->setText(tr("Please take good care of your security secret key,"
+                         " once the secret key is lost, all your data will be lost!!"));
     m_cancelBtn->setText(tr("Previous"));
     m_nextBtn->setText(tr("Start Installation"));
 }
