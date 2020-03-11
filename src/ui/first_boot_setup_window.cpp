@@ -25,6 +25,7 @@
 #include <QThread>
 #include <QMap>
 #include <DBackgroundGroup>
+#include <DTitlebar>
 #include <linux/vt.h>
 #include <sys/types.h>
 #include <sys/ioctl.h>
@@ -69,6 +70,13 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
   this->initUI();
   this->registerShortcut();
   this->initConnections();
+
+  Qt::WindowFlags flags = windowFlags();
+  flags &= ~Qt::WindowMinMaxButtonsHint;
+  flags |= Qt::WindowCloseButtonHint;
+  setWindowFlags(flags);
+
+  titlebar()->setMenuVisible(false);
 
   Q_ASSERT(m_frames.count() > 0);
   m_frames.first()->init();
