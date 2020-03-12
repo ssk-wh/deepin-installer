@@ -106,8 +106,6 @@ public:
 
     void onYearMonthDayChanged(TimeDateLineEdit* edit, bool add);
     void autoAdjustDay();
-
-    void onNextButtonClicked();
 };
 
 SystemDateFrame::SystemDateFrame(QWidget *parent)
@@ -143,6 +141,37 @@ bool SystemDateFrame::event(QEvent *event)
     }
 
     return QWidget::event(event);
+}
+
+bool SystemDateFrame::validateTimeDate()
+{
+    Q_D(SystemDateFrame);
+
+    if(!d->validateHour(d->m_hourEdit->text())){
+        return false;
+    }
+    if(!d->validateMinute(d->m_minuteEdit->text())){
+        return false;
+    }
+    if(!d->validateYear(d->m_yearEdit->text())){
+        return false;
+    }
+    if(!d->validateMonth(d->m_monthEdit->text())){
+        return false;
+    }
+    if(!d->validateDay(d->m_dayEdit->text())){
+        return false;
+    }
+
+    if(d->m_hourEdit->text().toInt() == 0
+            && d->m_minuteEdit->text().toInt() == 0
+            && d->m_yearEdit->text().toInt() == 1970
+            && d->m_monthEdit->text().toInt() == 1
+            && d->m_dayEdit->text().toInt() == 1){
+        return false;
+    }
+
+    return true;
 }
 
 void SystemDateFramePrivate::onYearEditingFinished()
@@ -327,31 +356,9 @@ bool SystemDateFramePrivate::validateDay(const QString& str)
     return true;
 }
 
-void SystemDateFramePrivate::onNextButtonClicked()
+void SystemDateFrame::timeDateSetFinished()
 {
-    if(!validateHour(m_hourEdit->text())){
-        return;
-    }
-    if(!validateMinute(m_minuteEdit->text())){
-        return;
-    }
-    if(!validateYear(m_yearEdit->text())){
-        return;
-    }
-    if(!validateMonth(m_monthEdit->text())){
-        return;
-    }
-    if(!validateDay(m_dayEdit->text())){
-        return;
-    }
-
-    if(m_hourEdit->text().toInt() == 0
-            && m_minuteEdit->text().toInt() == 0
-            && m_yearEdit->text().toInt() == 1970
-            && m_monthEdit->text().toInt() == 1
-            && m_dayEdit->text().toInt() == 1){
-        return;
-    }
+    Q_D(SystemDateFrame);
 
 #if 0 // 更改到timezone_frame中writeConf完成
     QProcess process;

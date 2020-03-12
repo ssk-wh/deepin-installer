@@ -80,6 +80,7 @@ public:
 
   void initConnections();
   void initUI();
+  bool validate() const;
 
   // Convert timezone alias to its original name.
   QString parseTimezoneAlias(const QString& timezone);
@@ -145,7 +146,7 @@ TimezoneFrame::~TimezoneFrame()
 
 bool TimezoneFrame::shouldDisplay() const
 {
-  return GetSettingsBool(kSystemInfoSetupAfterReboot) || GetSettingsBool(kSkipTimezonePage);
+    return GetSettingsBool(kSystemInfoSetupAfterReboot) || GetSettingsBool(kSkipTimezonePage);
 }
 
 void TimezoneFrame::init() {
@@ -292,19 +293,6 @@ void TimezoneFramePrivate::initConnections() {
   connect(m_mapListButtonGroup, static_cast<void (DButtonBox::*)(QAbstractButton*)>(&DButtonBox::buttonClicked)
           , this, &TimezoneFramePrivate::onMapListButtonGroupToggled);
 
-  connect(m_systemDateFrame, &SystemDateFrame::finished, this, [=] {
-          q_ptr->m_proxy->nextFrame();
-  });
-
-  connect(m_systemDateFrame, &SystemDateFrame::cancel, this, [=] {
-      if(m_mapOrListStackedLayout->currentWidget() == timezone_map_){
-          timezone_map_->showMark();
-      }
-      else {
-          timezone_map_->hideMark();
-      }
-  });
-
   connect(m_selectTimeZoneFrame, &SelectTimeZoneFrame::timezoneUpdated
           , this, &TimezoneFramePrivate::onSelectTimezoneUpdated);
 }
@@ -372,6 +360,11 @@ void TimezoneFramePrivate::initUI() {
   q_ptr->setStyleSheet(ReadFile(":/styles/timezone_frame.css"));
 
   updateTs();
+}
+
+bool TimezoneFramePrivate::validate() const
+{
+    return m_systemDateFrame->validateTimeDate();
 }
 
 QString TimezoneFramePrivate::parseTimezoneAlias(const QString& timezone) {
