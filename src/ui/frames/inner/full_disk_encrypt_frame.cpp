@@ -233,7 +233,7 @@ void Full_Disk_Encrypt_frame::updateText()
     m_frameLbl->setText(tr("Encrypt This Disk"));
     m_encryptLbl->setText(tr("Password").append(" :"));
     m_encryptCheckLbl->setText(tr("Repeat Password").append(" :"));
-    ti_label->setText(tr("Please take good care of your security secret key,"
+    m_tilabel->setText(tr("Please take good care of your security secret key,"
                          " once the secret key is lost, all your data will be lost!!"));
     m_cancelBtn->setText(tr("Previous"));
     m_nextBtn->setText(tr("Start Installation"));
