@@ -90,7 +90,7 @@ void DiskSpaceInsufficientFrame::changeEvent(QEvent* event) {
 
 void DiskSpaceInsufficientFrame::initConnections() {
   connect(abort_button_, &QPushButton::clicked, this, [=] {
-          m_proxy->nextFrame();
+          emit abortInstall();
   });
 }
 

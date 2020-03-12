@@ -40,6 +40,9 @@ public:
   void finished() override;
   bool shouldDisplay() const override;
 
+signals:
+  void abortInstall();
+
 protected:
   void changeEvent(QEvent* event) override;
 
