@@ -130,6 +130,7 @@ OSType GetCurrentType() {
         { "Desktop", OSType::Community },
         { "Professional", OSType::Professional },
         { "Server", OSType::Server },
+        { "Personal", OSType::Personal },
     }[type];
 }
 
@@ -506,6 +507,7 @@ void AddConfigFile() {
         case OSType::Community: prefix = "community"; break;
         case OSType::Professional: prefix = "professional"; break;
         case OSType::Server: prefix = "server"; break;
+        case OSType::Personal: prefix = "personal"; break;
     }
 
     QMap<QString, QString> BUILD_ARCH_MAP{ { "x86_64",  "x86" },

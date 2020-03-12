@@ -28,7 +28,8 @@ namespace installer {
     enum class OSType {
         Community,
         Professional,
-        Server
+        Server,
+        Personal
     };
 
 // Get absolute path to oem/ folder. Note that oem folder may not exist.
