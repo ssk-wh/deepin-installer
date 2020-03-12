@@ -49,8 +49,6 @@ class SelectLanguageFrame : public QFrame {
   void writeConf();
 
  signals:
-  void finished();
-
   // Emitted when new language item is selected.
   void timezoneUpdated(const QString& timezone);
 
