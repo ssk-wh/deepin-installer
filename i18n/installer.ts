@@ -626,8 +626,8 @@
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="53"/>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="56"/>
-        <source>Please remove the installation media before reboot</source>
-        <translation>Please remove the installation media before reboot</translation>
+        <source>Please restart the system before removing the installation media</source>
+        <translation>Please restart the system before removing the installation media</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="54"/>

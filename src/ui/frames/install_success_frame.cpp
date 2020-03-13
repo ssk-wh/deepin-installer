@@ -50,11 +50,8 @@ public:
         comment_label_->setText(
             QObject::tr("Reboot to complete the installation"));
         eject_label_->setText(
-            QObject::tr("Please remove the installation media before reboot"));
+            QObject::tr("Please restart the system before removing the installation media"));
         reboot_button_->setText(QObject::tr("Reboot Now"));
-        title_label_->setText(QObject::tr("Successfully Installed"));
-        eject_label_->setText(QObject::tr("Please remove the installation media before reboot"));
-        comment_label_->setText(QObject::tr("Reboot to complete the installation"));
     }
 };
 
