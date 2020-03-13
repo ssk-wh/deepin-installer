@@ -1,4 +1,13 @@
 {
+	"efi": [
+		"grub-pc",
+		"grub-efi-amd64",
+		"grub-efi-amd64-signed",
+		"mokutil",
+		"shim",
+		"shim-signed",
+		"grub-efi-ia32"
+	],
 	"additional-devel": [
 		"pyqt5-dev",
 		"libsdl2-dev",
@@ -504,5 +513,41 @@
 		"tomcat9",
 		"tomcat9-admin",
 		"tomcat9-examples"
+	],
+	"zh_CN": [
+		"im-config",
+		"fcitx",
+		"fcitx-config-gtk",
+		"fcitx-frontend-gtk2",
+		"fcitx-frontend-gtk3",
+		"fcitx-frontend-qt4",
+		"fcitx-frontend-qt5",
+		"fcitx-modules",
+		"fcitx-module-kimpanel",
+		"fcitx-module-lua",
+		"fcitx-module-x11",
+		"fcitx-module-dbus",
+		"fcitx-table-wbpy",
+		"fcitx-ui-classic",
+		"sogouimebs"
+	],
+	"en_US": [
+	],
+	"zh_TW": [
+		"im-config",
+		"fcitx",
+		"fcitx-config-gtk",
+		"fcitx-frontend-gtk2",
+		"fcitx-frontend-gtk3",
+		"fcitx-frontend-qt4",
+		"fcitx-frontend-qt5",
+		"fcitx-modules",
+		"fcitx-module-kimpanel",
+		"fcitx-module-lua",
+		"fcitx-module-x11",
+		"fcitx-module-dbus",
+		"fcitx-chewing",
+		"fcitx-table-cangjie-big",
+		"fcitx-ui-classic"
 	]
 }
