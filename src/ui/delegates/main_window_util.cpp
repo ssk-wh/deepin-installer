@@ -82,7 +82,12 @@ int GetVisiblePages() {
 }
 
 bool IsDiskSpaceInsufficient() {
-  const int minimum = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
+  int minimum = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
+  if (minimum <= 0) {
+    minimum = qMin(GetSettingsInt(kPartitionRootMiniSpace)
+                   , GetSettingsInt(kPartitionFullDiskMiniSpace));
+  }
+          //GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
   const qint64 maximum_device_size = GetMaximumDeviceSize();
   return minimum * kGibiByte > maximum_device_size;
 }

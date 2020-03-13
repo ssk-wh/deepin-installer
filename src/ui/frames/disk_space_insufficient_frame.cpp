@@ -35,7 +35,12 @@ namespace {
 // Get content of comment label.
 // Value of minimum disk space is changed based on size of physical memory.
 QString GetCommentLabel() {
-  const int minimum = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
+  int minimum = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
+  if (minimum <= 0) {
+    minimum = qMin(GetSettingsInt(kPartitionRootMiniSpace)
+                   , GetSettingsInt(kPartitionFullDiskMiniSpace));
+  }
+
   const int recommended = GetSettingsInt(kPartitionRecommendedDiskSpace);
   return QObject::tr("You need at least %1 GB disk space to install UOS. "
                      "To get better performance, %2 GB or more is recommended")
