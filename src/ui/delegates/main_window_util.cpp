@@ -87,6 +87,7 @@ bool IsDiskSpaceInsufficient() {
     minimum = qMin(GetSettingsInt(kPartitionRootMiniSpace)
                    , GetSettingsInt(kPartitionFullDiskMiniSpace));
   }
+          //GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
   const qint64 maximum_device_size = GetMaximumDeviceSize();
   return minimum * kGibiByte > maximum_device_size;
 }
