@@ -73,6 +73,7 @@ const char kDebugOemDir[] = "/tmp/oem";
 const char kUbuntuOemDir[] = "/cdrom/oem";
 const char kDeepinOemDir[] = "/lib/live/mount/medium/oem";
 const char kDeepinOemCandidateDir[] = "/usr/lib/live/mount/medium/oem";
+const char kDeepinOemCandidateDir2[] = "/run/live/medium/oem";
 
 // Filename of oem settings
 const char kOemSettingsFilename[] = "settings.ini";
@@ -114,8 +115,10 @@ QDir GetOemDir() {
       g_oem_dir = kUbuntuOemDir;
     } else if (QDir(kDeepinOemDir).exists()) {
       g_oem_dir = kDeepinOemDir;
-    } else {
+    } else if (QDir(kDeepinOemCandidateDir).exists()) {
       g_oem_dir = kDeepinOemCandidateDir;
+    } else {
+      g_oem_dir = kDeepinOemCandidateDir2;
     }
   }
   return QDir(g_oem_dir);
