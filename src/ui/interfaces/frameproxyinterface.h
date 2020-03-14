@@ -39,6 +39,8 @@ public:
     virtual void exitInstall(bool reboot = false) = 0;
 
     virtual void showChindFrame(ChildFrameInterface* childFrameInterface) {}
+
+    virtual void hideChildFrame() const = 0;
 };
 }  // namespace installer
 
