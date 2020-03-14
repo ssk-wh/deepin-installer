@@ -48,6 +48,8 @@ class UserFormWindow : public QWidget, public FrameProxyInterface {
   // exit install
   void exitInstall(bool reboot = false) override;
 
+  void hideChildFrame() const override;
+
  protected:
   // Move close button to appropriate position when window is resized.
   void resizeEvent(QResizeEvent* event) override;

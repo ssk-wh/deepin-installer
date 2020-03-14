@@ -56,6 +56,11 @@ void UserFormWindow::exitInstall(bool reboot){
 
 }
 
+void UserFormWindow::hideChildFrame() const
+{
+
+}
+
 void UserFormWindow::initConnections() {
 
 }
