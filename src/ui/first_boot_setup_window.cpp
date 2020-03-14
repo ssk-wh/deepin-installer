@@ -147,6 +147,11 @@ void FirstBootSetupWindow::exitInstall(bool reboot)
 
 }
 
+void FirstBootSetupWindow::hideChildFrame() const
+{
+
+}
+
 void FirstBootSetupWindow::initConnections() {
     connect(network_frame_, &NetworkFrame::requestNext,
             this, &FirstBootSetupWindow::onNetworkFinished);
