@@ -343,12 +343,22 @@ DeviceList ScanDevices(bool enable_os_prober) {
     }
 #endif
 
-    const bool is_valid_dev = (lp_device->type == PedDeviceType::PED_DEVICE_IDE) ||
-                        (lp_device->type == PedDeviceType::PED_DEVICE_SCSI) ||
-        #ifdef QT_DEBUG
-                        (lp_device->type == PedDeviceType::PED_DEVICE_LOOP) ||
-        #endif
-                        (lp_device->type == PedDeviceType::PED_DEVICE_NVME);
+    const bool is_valid_dev = [&](PedDeviceType type) -> bool {
+        std::list<PedDeviceType> blackList {
+#ifndef QT_DEBUG
+            PedDeviceType::PED_DEVICE_LOOP,
+#endif
+            PedDeviceType::PED_DEVICE_UNKNOWN,
+        };
+
+        for (PedDeviceType _type : blackList) {
+            if (_type == type) {
+                return false;
+            }
+        }
+
+        return true;
+    }(lp_device->type);
 
     if (!is_valid_dev) {
         qDebug() << "device type: " << lp_device->type;
