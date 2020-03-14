@@ -213,6 +213,14 @@ void PartitionFramePrivate::initConnections() {
 
   connect(m_buttonGroup, &DButtonBox::buttonClicked, this, &PartitionFramePrivate::onButtonGroupToggled);
 
+  connect(nextButton, &QPushButton::clicked, this, [=] {
+      if (partition_stacked_layout_->currentWidget() == full_disk_partition_frame_ && full_disk_partition_frame_->isEncrypt()) {
+          showEncryptFrame();
+      }
+      else {
+          onNextButtonClicked();
+      }
+  });
 
   // Show main frame when device is refreshed.
   connect(partition_model_, &PartitionModel::deviceRefreshed,
@@ -333,7 +341,7 @@ void PartitionFramePrivate::initUI() {
   simple_partition_frame_ =
       new SimplePartitionFrame(simple_partition_delegate_, q_ptr);
 
-  full_disk_encrypt_frame_ = new Full_Disk_Encrypt_frame(q_ptr->m_proxy, full_disk_delegate_);
+  full_disk_encrypt_frame_ = new Full_Disk_Encrypt_frame(full_disk_delegate_, q_ptr);
 
   dynamic_disk_warning_frame_ = new DynamicDiskWarningFrame(q_ptr);
 
@@ -462,6 +470,7 @@ void PartitionFramePrivate::initUI() {
   main_layout_->addWidget(partition_table_warning_frame_);
   main_layout_->addWidget(prepare_install_frame_);
   main_layout_->addWidget(select_bootloader_frame_);
+  main_layout_->addWidget(full_disk_encrypt_frame_);
   main_layout_->addWidget(dynamic_disk_warning_frame_);
 
   centerLayout->addLayout(main_layout_);
@@ -690,7 +699,7 @@ void PartitionFramePrivate::showEncryptFrame()
 {
     if (full_disk_partition_frame_->validate()) {
         if (!GetSettingsBool(KPartitionSkipFullCryptPage) && full_disk_partition_frame_->isEncrypt()) {
-            q_ptr->m_proxy->showChindFrame(full_disk_encrypt_frame_);
+            main_layout_->setCurrentWidget(full_disk_encrypt_frame_);
         }
         else {
             q_ptr->autoPart();
