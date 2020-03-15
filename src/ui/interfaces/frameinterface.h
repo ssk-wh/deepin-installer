@@ -46,6 +46,10 @@ public:
         return m_frameType;
     }
 
+    inline void setFrameType(FrameType type) {
+        m_frameType = type;
+    }
+
 protected:
     FrameProxyInterface* m_proxy = nullptr;
 
