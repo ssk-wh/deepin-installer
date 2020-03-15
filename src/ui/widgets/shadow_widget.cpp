@@ -32,6 +32,11 @@ void installer::ShadowWidget::setContent(ChildFrameInterface* inter)
     m_centerLayout->addWidget(childFrameInterface, 0, Qt::AlignCenter);
 }
 
+void ShadowWidget::eraseContent()
+{
+    childFrameInterface = nullptr;
+}
+
 void installer::ShadowWidget::paintEvent(QPaintEvent* event)
 {
     QPainter painter(this);

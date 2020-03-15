@@ -95,6 +95,7 @@ class MainWindow : public DMainWindow, public FrameProxyInterface {
   void showChildFrame(FrameInterface *frame) override;
   void exitInstall(bool reboot = false) override;
   void showChindFrame(ChildFrameInterface* childFrameInterface) override;
+  void hideChildFrame() const override;
   void resizeEvent(QResizeEvent* event) override;
 
  protected:

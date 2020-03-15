@@ -245,10 +245,12 @@ void PartitionFramePrivate::initConnections() {
           &AdvancedPartitionFrame::requestSelectBootloaderFrame,
           this, &PartitionFramePrivate::showSelectBootloaderFrame);
 
-  connect(edit_partition_frame_, &EditPartitionFrame::finished,
-          this, &PartitionFramePrivate::showMainFrame);
-  connect(new_partition_frame_, &NewPartitionFrame::finished,
-          this, &PartitionFramePrivate::showMainFrame);
+  connect(edit_partition_frame_, &EditPartitionFrame::finished, this, [=] {
+      q_ptr->m_proxy->hideChildFrame();
+  });
+  connect(new_partition_frame_, &NewPartitionFrame::finished, this, [=] {
+      q_ptr->m_proxy->hideChildFrame();
+  });
 
   connect(new_table_warning_frame_, &NewTableWarningFrame::canceled,
           this, &PartitionFramePrivate::showMainFrame);
@@ -644,7 +646,6 @@ void PartitionFramePrivate::showEditPartitionFrame(const Partition::Ptr partitio
 
 void PartitionFramePrivate::showMainFrame() {
   main_layout_->setCurrentWidget(main_frame_);
-
 }
 
 void PartitionFramePrivate::showNewPartitionFrame(

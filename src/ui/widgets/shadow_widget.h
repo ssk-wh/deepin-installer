@@ -15,6 +15,7 @@ public:
     explicit ShadowWidget(QWidget* parent = nullptr);
 
     void setContent(ChildFrameInterface* inter);
+    void eraseContent();
 
 protected:
     void paintEvent(QPaintEvent* event) override;

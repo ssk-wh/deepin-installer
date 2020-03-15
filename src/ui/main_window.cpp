@@ -238,10 +238,19 @@ void MainWindow::exitInstall(bool reboot)
 
 void MainWindow::showChindFrame(ChildFrameInterface* childFrameInterface)
 {
+    if (shadow_widget->isVisible()) {
+        return;
+    }
     shadow_widget->setContent(childFrameInterface);
     shadow_widget->setParent(this);
     shadow_widget->setGeometry(rect());
     shadow_widget->show();
+}
+
+void MainWindow::hideChildFrame() const
+{
+    shadow_widget->eraseContent();
+    shadow_widget->hide();
 }
 
 void MainWindow::resizeEvent(QResizeEvent *event)
@@ -488,6 +497,8 @@ void MainWindow::initUI() {
 
   multi_head_manager_ = new MultiHeadManager(this);
   back_button_->raise();
+
+  shadow_widget->hide();
 }
 
 void MainWindow::registerShortcut() {
