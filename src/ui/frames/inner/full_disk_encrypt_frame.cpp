@@ -212,7 +212,7 @@ void Full_Disk_Encrypt_frame::onNextBtnClicked()
     }
     WriteFullDiskResolution(resolution);
 
-    emit finished();
+    emit encryptFinished();
 }
 
 void Full_Disk_Encrypt_frame::onEncryptUpdated(bool checked)

@@ -43,7 +43,7 @@ public:
 
 signals:
     void cancel();
-    void finished();
+    void encryptFinished();
 
 protected:
     void changeEvent(QEvent *event) override;
