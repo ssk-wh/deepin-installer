@@ -207,20 +207,11 @@ void PartitionFramePrivate::initConnections() {
            showEncryptFrame();
        }
        else {
-          onNextButtonClicked();
+           onNextButtonClicked();
        }
   });
 
   connect(m_buttonGroup, &DButtonBox::buttonClicked, this, &PartitionFramePrivate::onButtonGroupToggled);
-
-  connect(nextButton, &QPushButton::clicked, this, [=] {
-      if (partition_stacked_layout_->currentWidget() == full_disk_partition_frame_ && full_disk_partition_frame_->isEncrypt()) {
-          showEncryptFrame();
-      }
-      else {
-          onNextButtonClicked();
-      }
-  });
 
   // Show main frame when device is refreshed.
   connect(partition_model_, &PartitionModel::deviceRefreshed,

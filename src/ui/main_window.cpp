@@ -286,27 +286,11 @@ void MainWindow::initConnections() {
   connect(disk_space_insufficient_frame_, &DiskSpaceInsufficientFrame::finished,
           this, &MainWindow::shutdownSystem);
 
-  connect(install_progress_frame_, &InstallProgressFrame::finished,
-          this, &MainWindow::goNextPage);
-
   connect(partition_frame_, &PartitionFrame::reboot,
           this, &MainWindow::rebootSystem);
-  connect(partition_frame_, &PartitionFrame::finished,
-          this, &MainWindow::goNextPage);
-
-  connect(privilege_error_frame_, &PrivilegeErrorFrame::finished,
-          this, &MainWindow::goNextPage);
-
-  connect(select_language_frame_, &LanguageFrame::finished,
-          this, &MainWindow::goNextPage);
 
   connect(select_language_frame_, &LanguageFrame::timezoneUpdated,
           timezone_frame_, &TimezoneFrame::updateTimezoneBasedOnLanguage);
-  connect(timezone_frame_, &TimezoneFrame::finished,
-          this, &MainWindow::goNextPage);
-
-  connect(virtual_machine_frame_, &VirtualMachineFrame::finished,
-          this, &MainWindow::goNextPage);
 
   // Notify InstallProgressFrame that partition job has finished.
   connect(partition_frame_, &PartitionFrame::autoPartDone,
@@ -326,59 +310,44 @@ void MainWindow::initConnections() {
   connect(brithtness_decrease_shortcut_, &QShortcut::activated,
           DecreaseBrightness);
 
-  connect(back_button_, &DImageButton::clicked, this, &MainWindow::backPage);
-
-  connect(m_selectComponentFrame, &SelectInstallComponentFrame::finished,
-          this, &MainWindow::goNextPage);
-
-  connect(save_failedLog_frame_, &SaveInstallFailedLogFrame::requestBack, this, &MainWindow::backPage);
+//  connect(save_failedLog_frame_, &SaveInstallFailedLogFrame::requestBack, this, &MainWindow::backPage);
 
   connect(m_frameLabelsView, &DListView::clicked, this, &MainWindow::onFrameLabelsViewClicked);
 }
 
 void MainWindow::initPages() {
   confirm_quit_frame_ = new ConfirmQuitFrame(this);
-  pages_.insert(PageId::ConfirmQuitId,
-               stacked_layout_->addWidget(confirm_quit_frame_));
+  stacked_layout_->addWidget(confirm_quit_frame_);
 
   select_language_frame_ = new LanguageFrame(this);
-  pages_.insert(PageId::SelectLanguageId,
-                stacked_layout_->addWidget(select_language_frame_));
+  stacked_layout_->addWidget(select_language_frame_);
 
   disk_space_insufficient_frame_ = new DiskSpaceInsufficientFrame(this);
-  pages_.insert(PageId::DiskSpaceInsufficientId,
-                stacked_layout_->addWidget(disk_space_insufficient_frame_));
+  stacked_layout_->addWidget(disk_space_insufficient_frame_);
 
   install_progress_frame_ = new InstallProgressFrame(this);
-  pages_.insert(PageId::InstallProgressId,
-                stacked_layout_->addWidget(install_progress_frame_));
+  stacked_layout_->addWidget(install_progress_frame_);
 
   partition_frame_ = new PartitionFrame(this);
-  pages_.insert(PageId::PartitionId,
-                stacked_layout_->addWidget(partition_frame_));
+  stacked_layout_->addWidget(partition_frame_);
 
   privilege_error_frame_ = new PrivilegeErrorFrame(this);
-  pages_.insert(PageId::PrivilegeErrorId,
-                stacked_layout_->addWidget(privilege_error_frame_));
+  stacked_layout_->addWidget(privilege_error_frame_);
 
   system_info_frame_ = new SystemInfoFrame(this);
-  pages_.insert(PageId::SystemInfoId,
-                stacked_layout_->addWidget(system_info_frame_));
+  stacked_layout_->addWidget(system_info_frame_);
 
   timezone_frame_ = new TimezoneFrame(this);
-  pages_.insert(PageId::TimezoneId,
-                stacked_layout_->addWidget(timezone_frame_));
+  stacked_layout_->addWidget(timezone_frame_);
 
   virtual_machine_frame_ = new VirtualMachineFrame(this);
-  pages_.insert(PageId::VirtualMachineId,
-                stacked_layout_->addWidget(virtual_machine_frame_));
+  stacked_layout_->addWidget(virtual_machine_frame_);
 
   m_selectComponentFrame = new SelectInstallComponentFrame(this);
-  pages_.insert(PageId::SelectComponentId,
-                stacked_layout_->addWidget(m_selectComponentFrame));
+  stacked_layout_->addWidget(m_selectComponentFrame);
 
   m_installResultsFrame = new InstallResultsFrame(this);
-  pages_.insert(PageId::InstallResultsId, stacked_layout_->addWidget(m_installResultsFrame));
+  stacked_layout_->addWidget(m_installResultsFrame);
 
   save_failedLog_frame_ = new SaveInstallFailedLogFrame;
   stacked_layout_->addWidget(save_failedLog_frame_);
