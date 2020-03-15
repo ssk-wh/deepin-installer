@@ -23,10 +23,6 @@ void installer::ShadowWidget::setContent(ChildFrameInterface* inter)
     }
 
     childFrameInterface = inter;
-<<<<<<< HEAD
-
-=======
->>>>>>> feat: modify full disk encrypt frame as childFrame
     m_centerLayout->addWidget(childFrameInterface, 0, Qt::AlignCenter);
 }
 
