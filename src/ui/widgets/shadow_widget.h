@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QResizeEvent>
 
+class QStackedLayout;
 class QVBoxLayout;
 
 namespace installer {
@@ -22,7 +23,8 @@ protected:
 
 private:
     ChildFrameInterface* childFrameInterface;
-    QVBoxLayout* m_centerLayout;
+    QStackedLayout* m_centerLayout;
+    QVBoxLayout* m_mainLayout;
 };
 }
 #endif // PARTITION_SHADOW_WIDGET_H

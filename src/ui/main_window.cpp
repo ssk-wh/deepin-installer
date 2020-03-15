@@ -244,6 +244,7 @@ void MainWindow::showChindFrame(ChildFrameInterface* childFrameInterface)
     shadow_widget->setContent(childFrameInterface);
     shadow_widget->setParent(this);
     shadow_widget->setGeometry(rect());
+    shadow_widget->raise();
     shadow_widget->show();
 }
 

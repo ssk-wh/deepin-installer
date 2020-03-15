@@ -2,6 +2,7 @@
 #include "ui/interfaces/frameinterface.h"
 
 #include <QPainter>
+#include <QStackedLayout>
 #include <QVBoxLayout>
 
 namespace installer {
@@ -9,25 +10,36 @@ namespace installer {
 ShadowWidget::ShadowWidget(QWidget* parent)
     : QWidget(parent)
     , childFrameInterface(nullptr)
-    , m_centerLayout(new QVBoxLayout)
+    , m_centerLayout(new QStackedLayout)
+    , m_mainLayout(new QVBoxLayout)
 {
-    m_centerLayout->setContentsMargins(0, 0, 0, 0);
-    setLayout(m_centerLayout);
+    QWidget* widget = new QWidget;
+    widget->setLayout(m_centerLayout);
+    m_mainLayout->addWidget(widget, 0, Qt::AlignCenter);
+
+    m_mainLayout->setContentsMargins(0, 0, 0, 0);
+    setLayout(m_mainLayout);
 }
 
 void installer::ShadowWidget::setContent(ChildFrameInterface* inter)
+{
+    Q_ASSERT(inter != nullptr);
+
+    if (childFrameInterface) {
+        eraseContent();
+    }
+
+    childFrameInterface = inter;
+    m_centerLayout->addWidget(childFrameInterface);
+}
+
+void ShadowWidget::eraseContent()
 {
     if (childFrameInterface) {
         m_centerLayout->removeWidget(childFrameInterface);
         childFrameInterface->hide();
     }
 
-    childFrameInterface = inter;
-    m_centerLayout->addWidget(childFrameInterface, 0, Qt::AlignCenter);
-}
-
-void ShadowWidget::eraseContent()
-{
     childFrameInterface = nullptr;
 }
 
