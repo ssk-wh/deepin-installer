@@ -205,11 +205,6 @@ void Full_Disk_Encrypt_frame::updateText()
     m_frameSubLbl->setText(tr("Make sure you have backed up important data, then select the disk to install"));
     m_encryptLbl->setText(tr("Password").append(" :"));
     m_encryptCheckLbl->setText(tr("Repeat Password").append(" :"));
-<<<<<<< HEAD
-    m_tilabel->setText(tr("Please take good care of your security secret key,"
-                         " once the secret key is lost, all your data will be lost!!"));
-=======
->>>>>>> parent of 77136906... refactor:modify fulldiskencryptframe UI style
     m_cancelBtn->setText(tr("Previous"));
     m_nextBtn->setText(tr("Start Installation"));
 }
