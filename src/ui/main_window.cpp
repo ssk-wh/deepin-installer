@@ -357,6 +357,7 @@ void MainWindow::initPages() {
       // TODO: move the front new statement over here
       privilege_error_frame_,
       select_language_frame_,
+      disk_space_insufficient_frame_,
       virtual_machine_frame_,
       m_selectComponentFrame,
       partition_frame_,
@@ -373,6 +374,7 @@ void MainWindow::initPages() {
   m_frameTitles = {
       "PrivilegeFrame",
       "LanguageFrame",
+      "DiskSpaceInsufficient",
       "VirtualMachineFrame",
       "SelectComponentFrame",
       "PartitionFrame",
@@ -388,7 +390,7 @@ void MainWindow::initPages() {
 
   int i = 1;
   for (FrameInterface* frame : m_originalFrames){
-      if (!frame->shouldDisplay()){
+      if (!frame->shouldDisplay() || frame->frameType() != FrameType::Frame){
           continue;
       }
 

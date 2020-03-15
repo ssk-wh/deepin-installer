@@ -226,7 +226,7 @@ void FirstBootSetupWindow::initUI() {
 
   int i = 1;
   for (FrameInterface* frame : m_originalFrames){
-      if (!frame->shouldDisplay()){
+      if (!frame->shouldDisplay() || frame->frameType() != FrameType::Frame){
           continue;
       }
 
