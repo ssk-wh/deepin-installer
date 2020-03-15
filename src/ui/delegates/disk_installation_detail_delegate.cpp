@@ -212,19 +212,19 @@ qreal DiskInstallationDetailDelegate::humanReadableDeviceSizePercent(const DiskI
 QColor DiskInstallationDetailDelegate::getNormalColor() const
 {
     // TODO(chenxiong): use dtk normal color
-    return QColor(Qt::lightGray);
+    return QColor(245,245,245);
 }
 
 QColor DiskInstallationDetailDelegate::getHoveredColor() const
 {
     // TODO(chenxiong): use dtk hovered color
-    return QColor(Qt::gray);
+    return QColor(206,206,206);
 }
 
 QColor DiskInstallationDetailDelegate::getSelectedColor() const
 {
     // TODO(chenxiong): use dtk selected color
-    return QColor(Qt::lightGray);
+    return QColor(245,245,245);
 }
 
 }

@@ -87,15 +87,15 @@ void AdvancedPartitionButton::paintEvent(QPaintEvent *event)
     // Draw background.
     if (getStatus() == PointerButton::ButtonStatus::Normal) {
         // TODO(chenxiong): use dtk color
-        painter.fillRect(backgroudRect, Qt::lightGray);
+        painter.fillRect(backgroudRect, QColor(245,245,245));
     }
     else if (getStatus() == PointerButton::ButtonStatus::Hover) {
         // TODO(chenxiong): use dtk color
-        painter.fillRect(backgroudRect, Qt::gray);
+        painter.fillRect(backgroudRect, QColor(206,206,206));
     }
     else {
         // TODO(chenxiong): use dtk color
-        painter.fillRect(backgroudRect, Qt::blue);
+        painter.fillRect(backgroudRect, QColor(245,245,245));
     }
 
     // Draw OS icon.
