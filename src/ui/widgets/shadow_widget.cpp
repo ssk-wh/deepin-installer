@@ -21,7 +21,7 @@ ShadowWidget::ShadowWidget(QWidget* parent)
     setLayout(m_mainLayout);
 }
 
-void installer::ShadowWidget::setContent(ChildFrameInterface* inter)
+void installer::ShadowWidget::setContent(BaseFrameInterface* inter)
 {
     Q_ASSERT(inter != nullptr);
 
