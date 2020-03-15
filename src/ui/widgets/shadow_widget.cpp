@@ -15,7 +15,6 @@ ShadowWidget::ShadowWidget(QWidget* parent)
     setLayout(m_centerLayout);
 }
 
-
 void installer::ShadowWidget::setContent(ChildFrameInterface* inter)
 {
     if (childFrameInterface) {
@@ -24,7 +23,10 @@ void installer::ShadowWidget::setContent(ChildFrameInterface* inter)
     }
 
     childFrameInterface = inter;
+<<<<<<< HEAD
 
+=======
+>>>>>>> feat: modify full disk encrypt frame as childFrame
     m_centerLayout->addWidget(childFrameInterface, 0, Qt::AlignCenter);
 }
 
@@ -41,4 +43,5 @@ void installer::ShadowWidget::paintEvent(QPaintEvent* event)
 
     QWidget::paintEvent(event);
 }
+
 }

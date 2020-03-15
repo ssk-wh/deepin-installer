@@ -296,8 +296,9 @@ void PartitionFramePrivate::initConnections() {
   connect(simple_partition_frame_, &SimplePartitionFrame::requestNewTable,
           this, &PartitionFramePrivate::showPartitionTableWarningFrame);
 
-  connect(full_disk_encrypt_frame_, &Full_Disk_Encrypt_frame::cancel,
-          this, &PartitionFramePrivate::showMainFrame);
+  connect(full_disk_encrypt_frame_, &Full_Disk_Encrypt_frame::cancel, this, [=] {
+      q_ptr->m_proxy->hideChildFrame();
+  });
 
   connect(full_disk_encrypt_frame_, &Full_Disk_Encrypt_frame::finished, q_ptr, [=] {
       q_ptr->autoPart();
