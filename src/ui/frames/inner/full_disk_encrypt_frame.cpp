@@ -20,17 +20,20 @@
 #include <QCheckBox>
 #include <QEvent>
 #include <QPushButton>
+#include <QPainter>
 
 #define NEXTBTN_WIDTH 310
 #define NEXTBTN_HEIGHT 36
 
 using namespace installer;
 
-Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QWidget *parent)
-    : QWidget(parent)
+Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxyInterface
+                                                 , FullDiskDelegate * delegate, QWidget *parent)
+    : ChildFrameInterface(frameProxyInterface, parent)
     , m_layout(new QVBoxLayout(this))
     , m_frameLbl(new TitleLabel(""))
     , m_frameSubLbl(new QLabel)
+    , m_tilabel(new QLabel)
     , m_encryptLbl(new QLabel)
     , m_encryptCheckLbl(new QLabel)
     , m_encryptEdit(new DPasswordEdit)
@@ -41,7 +44,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QW
     , m_diskPartitionWidget(new FullDiskPartitionWidget)
     , m_diskPartitionDelegate(delegate)
 {
-    m_layout->setMargin(0);
+    m_layout->setContentsMargins(40, 0, 40, 0);
     m_layout->setSpacing(10);
     m_errTip->hide();
     setObjectName("FullDiskEncryptFrame");
@@ -117,11 +120,24 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FullDiskDelegate * delegate, QW
 
     m_layout->addStretch();
 
+    m_tilabel->setFixedWidth(600);
+    m_tilabel->setWordWrap(true);
+    m_layout->addWidget(m_tilabel, 0, Qt::AlignHCenter);
+
+    QHBoxLayout *buttonLayout = new QHBoxLayout;
+    buttonLayout->setContentsMargins(0, 0, 0, 0);
+    buttonLayout->setSpacing(0);
+    buttonLayout->addWidget(m_nextBtn, 0, Qt::AlignHCenter | Qt::AlignLeft);
+    buttonLayout->addSpacing(10);
+    buttonLayout->addWidget(m_cancelBtn, 0, Qt::AlignHCenter | Qt::AlignRight);
+    QWidget *buttonWrapWidget = new QWidget;
+    buttonWrapWidget->setLayout(buttonLayout);
+
     // add buttons
     m_cancelBtn->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);
     m_nextBtn->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);
-    m_layout->addWidget(m_cancelBtn, 0, Qt::AlignHCenter);
-    m_layout->addWidget(m_nextBtn, 0, Qt::AlignHCenter);
+    m_layout->addWidget(buttonWrapWidget, 0, Qt::AlignHCenter);
+    m_layout->addSpacing(10);
 
     setLayout(m_layout);
 
@@ -149,6 +165,18 @@ void Full_Disk_Encrypt_frame::changeEvent(QEvent *event)
     }
 
     return QWidget::changeEvent(event);
+}
+
+void Full_Disk_Encrypt_frame::paintEvent(QPaintEvent *event)
+{
+    QPainter painter(this);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
+    QPainterPath path;
+    path.addRoundedRect(rect(), 25, 25);
+    painter.setClipPath(path);
+    painter.fillRect(rect(), Qt::white);
+
+    return QWidget::paintEvent(event);
 }
 
 void Full_Disk_Encrypt_frame::initConnections()
@@ -207,6 +235,8 @@ void Full_Disk_Encrypt_frame::updateText()
     m_encryptCheckLbl->setText(tr("Repeat Password").append(" :"));
     m_cancelBtn->setText(tr("Previous"));
     m_nextBtn->setText(tr("Start Installation"));
+    m_tilabel->setText(tr("Please take good care of your security secret key,"
+                         " once the secret key is lost, all your data will be lost!!"));
 }
 
 void Full_Disk_Encrypt_frame::updateEditCapsLockState(bool on) {

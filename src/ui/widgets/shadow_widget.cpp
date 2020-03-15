@@ -4,9 +4,6 @@
 #include <QPainter>
 #include <QVBoxLayout>
 
-const int ChildFrameWidght = 698;
-const int ChildFrameHeight = 678;
-
 namespace installer {
 
 ShadowWidget::ShadowWidget(QWidget* parent)
@@ -28,7 +25,6 @@ void installer::ShadowWidget::setContent(ChildFrameInterface* inter)
 
     childFrameInterface = inter;
 
-    childFrameInterface->resize(ChildFrameWidght, ChildFrameHeight);
     m_centerLayout->addWidget(childFrameInterface, 0, Qt::AlignCenter);
 }
 
