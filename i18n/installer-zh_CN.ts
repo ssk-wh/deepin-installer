@@ -3260,9 +3260,16 @@
     </message>
     <message>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <location filename="../src/ui/frames/install_component_frame.cpp" line="87"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="138"/>
 =======
+=======
+        <source>Select the component according to your needs</source>
+        <translation type="unfinished">请根据您的需要选择组件</translation>
+    </message>
+    <message>
+>>>>>>> eb3cb217... feat: adjust selected component page
         <location filename="../src/ui/frames/install_component_frame.cpp" line="86"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="115"/>
 >>>>>>> abe476cc... chore: auto pull translation files from transifex

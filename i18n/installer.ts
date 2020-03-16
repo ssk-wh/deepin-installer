@@ -4002,9 +4002,16 @@
     </message>
     <message>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <location filename="../src/ui/frames/install_component_frame.cpp" line="87"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="138"/>
 =======
+=======
+        <source>Select the component according to your needs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+>>>>>>> eb3cb217... feat: adjust selected component page
         <location filename="../src/ui/frames/install_component_frame.cpp" line="162"/>
 >>>>>>> eae3cb6b... clean all ts file
         <source>Add-Ons for Selected Environment</source>

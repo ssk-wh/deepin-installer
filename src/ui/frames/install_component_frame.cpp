@@ -22,6 +22,7 @@
 
 namespace  {
     const int kBottomSpacing = 60;
+    const int kItemSpacing = 10;
 }
 
 DWIDGET_USE_NAMESPACE
@@ -143,8 +144,9 @@ bool SelectInstallComponentFrame::shouldDisplay() const
 {
 #ifdef QT_DEBUG
     return true;
-#endif // QT_DEBUG
+#else
     return !GetSettingsBool(kSkipSelectComponentPage);
+#endif // QT_DEBUG
 }
 
 bool SelectInstallComponentFrame::event(QEvent* event) {
@@ -153,6 +155,7 @@ bool SelectInstallComponentFrame::event(QEvent* event) {
         // update all widget ts
         m_private->m_selectPageLabel->setText(tr("Select Software"));
         m_private->m_serverTypeLabel->setText(tr("Basic Environment"));
+        m_private->m_selectPromptLabel->setText(tr("Select the component according to your needs"));
         m_private->m_componentLabel->setText(tr("Add-Ons for Selected Environment"));
         m_private->nextButton->setText(tr("Next"));
         m_private->m_selectAllCheckBox->setText(tr("Select All"));
@@ -201,8 +204,7 @@ void SelectInstallComponentFramePrivate::initUI()
     m_selectPageLabel = new TitleLabel(tr("Select Software"));
     m_selectPageLabel->setObjectName("selectPageLabel");
 
-    m_selectPromptLabel = new QLabel(tr("Please select the required"
-                                        " components according to your needs"));
+    m_selectPromptLabel = new QLabel(tr("Select the component according to your needs"));
     m_selectPromptLabel->setObjectName("m_selectPromptLabel");
 
     m_serverTypeLabel = new QLabel(tr("Basic Environment"), q_ptr);
@@ -214,7 +216,7 @@ void SelectInstallComponentFramePrivate::initUI()
     m_componentLabel->setWordWrap(false);
 
     QVBoxLayout* serverLayout = new QVBoxLayout;
-    serverLayout->setSpacing(1);
+    serverLayout->setSpacing(kItemSpacing);
     serverLayout->setMargin(0);
 
     ComponentInstallManager* manager = ComponentInstallManager::Instance();
@@ -249,7 +251,7 @@ void SelectInstallComponentFramePrivate::initUI()
     m_serverScrollArea->setWidget(m_baseComponentListWidget);
 
     m_componentLayout = new QVBoxLayout;
-    m_componentLayout->setSpacing(1);
+    m_componentLayout->setSpacing(kItemSpacing);
     m_componentLayout->setMargin(0);
 
     m_extraComponentListWidget = new QWidget;
@@ -260,16 +262,13 @@ void SelectInstallComponentFramePrivate::initUI()
     m_compScrollArea->setWidget(m_extraComponentListWidget);
 
     QVBoxLayout* serverTypeLayout = new QVBoxLayout;
-    serverTypeLayout->setMargin(0);
+    serverTypeLayout->setContentsMargins(kItemSpacing, kItemSpacing, kItemSpacing, kItemSpacing);
     serverTypeLayout->setSpacing(0);
-    serverTypeLayout->addSpacing(20);
     serverTypeLayout->addWidget(m_serverScrollArea);
 
     QVBoxLayout* componentLayout = new QVBoxLayout;
-    componentLayout->setMargin(0);
+    componentLayout->setContentsMargins(kItemSpacing, kItemSpacing, kItemSpacing, 0);
     componentLayout->setSpacing(0);
-    componentLayout->setContentsMargins(0, 0, 0, 0);
-    componentLayout->addSpacing(20);
     componentLayout->addWidget(m_compScrollArea);
 
     QHBoxLayout *allCheckLayout = new QHBoxLayout;
@@ -287,7 +286,7 @@ void SelectInstallComponentFramePrivate::initUI()
     });
     m_selectAllCheckBox->installEventFilter(this);
 
-    allCheckLayout->addSpacing(8);
+    allCheckLayout->addSpacing(kItemSpacing);
     allCheckLayout->addWidget(m_selectAllCheckBox, 0, Qt::AlignLeft | Qt::AlignVCenter);
     allCheckLayout->addStretch();
     m_selectAllFrame = new QFrame;
@@ -300,7 +299,7 @@ void SelectInstallComponentFramePrivate::initUI()
     QWidget* serverWidget = new QWidget;
     serverWidget->setLayout(serverTypeLayout);
 
-    componentLayout->addSpacing(1);
+    componentLayout->addSpacing(kItemSpacing);
     componentLayout->addWidget(m_selectAllFrame);
     QWidget* componentWidget = new QWidget;
     componentWidget->setLayout(componentLayout);
@@ -311,11 +310,8 @@ void SelectInstallComponentFramePrivate::initUI()
     hLineBoxLayout->addWidget(dVerticalLine);
 
     QHBoxLayout* hLayout = new QHBoxLayout;
-    hLayout->setContentsMargins(3, 0, 3, 0);
     hLayout->addWidget(serverWidget, 0, Qt::AlignLeft);
-    hLayout->addSpacing(3);
     hLayout->addLayout(hLineBoxLayout);
-    hLayout->addSpacing(0);
     hLayout->addWidget(componentWidget, 0, Qt::AlignRight);
 
     DFrame* frame = new DFrame;
@@ -329,7 +325,6 @@ void SelectInstallComponentFramePrivate::initUI()
     centerLayout->addSpacing(55);
     centerLayout->addWidget(frame, 0, Qt::AlignCenter);
     centerLayout->addSpacing(60);
-
 }
 
 void SelectInstallComponentFramePrivate::onServerTypeClicked()

@@ -8,12 +8,8 @@ namespace installer {
 
 namespace {
     const int kComponentWidgetWidth = 468;
-    const int kComponentWidgetMinHeight = 80;
+    const int kComponentWidgetMinHeight = 70;
     const int KQLabelWidth =260;
-
-    const int kComponentWidgetReduceX = 9;
-    const int kComponentWidgetReduceY = 7;
-    const int kComponentWidgetReduceWH = 20;
 }
 
 ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
@@ -34,6 +30,7 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
     m_hLayout = new QHBoxLayout;
     m_hLayout->addSpacing(15);
     m_vLayout = new QVBoxLayout;
+    m_vLayout->setSpacing(0);
     m_vLayout->addWidget(m_titleLabel, 0, Qt::AlignLeft);
     m_vLayout->addWidget(m_descLabel, 0, Qt::AlignLeft);
     if(singleSelected){
@@ -93,9 +90,7 @@ void ComponentWidget::paintEvent(QPaintEvent* event)
         color = QColor(0, 0, 0, 55);
     }
 
-    PaintPath.addRoundedRect(rect().x() + kComponentWidgetReduceX, rect().y() + kComponentWidgetReduceY,
-                             rect().width() - kComponentWidgetReduceWH, rect().height() - kComponentWidgetReduceWH,
-                             11, 11);
+    PaintPath.addRoundedRect(rect(), 10, 10);
     painter.fillPath(PaintPath, color);
 
     QWidget::paintEvent(event);
