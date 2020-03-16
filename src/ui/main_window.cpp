@@ -86,9 +86,10 @@ MainWindow::MainWindow(QWidget* parent)
 
     Qt::WindowFlags flags = windowFlags();
     flags &= ~Qt::WindowMinMaxButtonsHint;
+    flags |= Qt::WindowCloseButtonHint;
     setWindowFlags(flags);
 
-    // TODO: Will hide titleBar menu later
+    titlebar()->setMenuVisible(false);
 
     SetBrightness(GetSettingsInt(kScreenDefaultBrightness));
     WriteDisplayPort(getenv("DISPLAY"));
