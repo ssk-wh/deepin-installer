@@ -28,6 +28,7 @@
 #include <QEvent>
 #include <QHBoxLayout>
 #include <QPushButton>
+#include <QPainter>
 
 DCORE_USE_NAMESPACE
 
@@ -87,6 +88,18 @@ void DiskSpaceInsufficientFrame::changeEvent(QEvent* event) {
   } else {
     FrameInterface::changeEvent(event);
   }
+}
+
+void DiskSpaceInsufficientFrame::paintEvent(QPaintEvent *event)
+{
+    QPainter painter(this);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
+    QPainterPath path;
+    path.addRoundedRect(rect(), 25, 25);
+    painter.setClipPath(path);
+    painter.fillRect(rect(), Qt::white);
+
+    return QWidget::paintEvent(event);
 }
 
 void DiskSpaceInsufficientFrame::initConnections() {

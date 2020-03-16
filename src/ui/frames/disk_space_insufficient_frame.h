@@ -45,6 +45,7 @@ signals:
 
 protected:
   void changeEvent(QEvent* event) override;
+  void paintEvent(QPaintEvent *event) override;
 
 private:
   void initConnections();
