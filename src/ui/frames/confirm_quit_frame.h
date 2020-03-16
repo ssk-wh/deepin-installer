@@ -18,6 +18,8 @@
 #ifndef INSTALLER_UI_FRAMES_CONFIRM_QUIT_FRAME_H
 #define INSTALLER_UI_FRAMES_CONFIRM_QUIT_FRAME_H
 
+#include "ui/interfaces/frameinterface.h"
+
 #include <QFrame>
 #include <QPushButton>
 
@@ -27,11 +29,11 @@ class CommentLabel;
 class TitleLabel;
 
 // This frame is displayed when close-button is clicked.
-class ConfirmQuitFrame : public QFrame {
+class ConfirmQuitFrame : public BaseFrameInterface {
   Q_OBJECT
 
  public:
-  explicit ConfirmQuitFrame(QWidget* parent = nullptr);
+  explicit ConfirmQuitFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
 
  signals:
   // Emitted when cancel-button is clicked.
@@ -42,6 +44,7 @@ class ConfirmQuitFrame : public QFrame {
 
  protected:
   void changeEvent(QEvent* event) override;
+  void paintEvent(QPaintEvent *event) override;
 
  private:
   void initConnections();

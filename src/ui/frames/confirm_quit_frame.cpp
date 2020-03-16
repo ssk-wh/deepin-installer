@@ -16,17 +16,19 @@
  */
 
 #include "ui/frames/confirm_quit_frame.h"
-
-#include <QEvent>
-#include <QHBoxLayout>
-
 #include "ui/frames/consts.h"
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/title_label.h"
 
+#include <QEvent>
+#include <QHBoxLayout>
+#include <QPainter>
+
 namespace installer {
 
-ConfirmQuitFrame::ConfirmQuitFrame(QWidget* parent) : QFrame(parent) {
+ConfirmQuitFrame::ConfirmQuitFrame(FrameProxyInterface *frameProxyInterface, QWidget* parent)
+    : BaseFrameInterface (FrameType::ExtFrame, frameProxyInterface, parent)
+{
   this->setObjectName("confirm_quit_frame");
 
   this->initUI();
@@ -42,8 +44,20 @@ void ConfirmQuitFrame::changeEvent(QEvent* event) {
     continue_button_->setText(tr("Continue"));
     abort_button_->setText(tr("Abort"));
   } else {
-    QFrame::changeEvent(event);
+    QWidget::changeEvent(event);
   }
+}
+
+void ConfirmQuitFrame::paintEvent(QPaintEvent *event)
+{
+    QPainter painter(this);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
+    QPainterPath path;
+    path.addRoundedRect(rect(), 25, 25);
+    painter.setClipPath(path);
+    painter.fillRect(rect(), Qt::white);
+
+    return QWidget::paintEvent(event);
 }
 
 void ConfirmQuitFrame::initConnections() {
@@ -81,6 +95,7 @@ void ConfirmQuitFrame::initUI() {
 
   this->setLayout(layout);
   this->setContentsMargins(0, 0, 0, 0);
+  setFixedSize(1000, 800);
 }
 
 }  // namespace installer
