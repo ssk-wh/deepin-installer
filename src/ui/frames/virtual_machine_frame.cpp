@@ -29,6 +29,7 @@
 #include <QEvent>
 #include <QLabel>
 #include <QVBoxLayout>
+#include <QPainter>
 
 DCORE_USE_NAMESPACE
 
@@ -75,6 +76,18 @@ void VirtualMachineFrame::changeEvent(QEvent* event) {
   }
 }
 
+void VirtualMachineFrame::paintEvent(QPaintEvent *event)
+{
+    QPainter painter(this);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
+    QPainterPath path;
+    path.addRoundedRect(rect(), 25, 25);
+    painter.setClipPath(path);
+    painter.fillRect(rect(), Qt::white);
+
+    return QWidget::paintEvent(event);
+}
+
 VirtualMachineFrame::~VirtualMachineFrame()
 {
 
@@ -117,6 +130,14 @@ void VirtualMachineFramePrivate::initUI() {
   centerLayout->addStretch();
 
   q_ptr->setContentsMargins(0, 0, 0, 0);
+
+  disconnect(nextButton, nullptr, nullptr, nullptr);
+  connect(nextButton, &QPushButton::clicked, this, [=] {
+      q_ptr->m_proxy->hideChildFrame();
+      q_ptr->m_proxy->nextFrame();
+  });
+
+  q_ptr->setFixedSize(1000, 800);
 }
 
 }  // namespace installer
