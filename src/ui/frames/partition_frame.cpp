@@ -201,7 +201,7 @@ PartitionFramePrivate::~PartitionFramePrivate()
 }
 
 void PartitionFramePrivate::initConnections() {
-  disconnect(nextButton, 0, 0, 0);
+  disconnect(nextButton, nullptr, nullptr, nullptr);
   connect(nextButton, &QPushButton::clicked, this, [=] {
        if (partition_stacked_layout_->currentWidget() == full_disk_partition_frame_ && full_disk_partition_frame_->isEncrypt()) {
            showEncryptFrame();

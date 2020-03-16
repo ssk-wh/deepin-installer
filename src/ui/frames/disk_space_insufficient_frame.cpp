@@ -127,8 +127,11 @@ void DiskSpaceInsufficientFrame::initUI() {
   layout->addLayout(comment_layout);
   layout->addStretch();
   layout->addWidget(abort_button_, 0, Qt::AlignCenter);
+  layout->addSpacing(10);
   setLayout(layout);
   setContentsMargins(0, 0, 0, 0);
+
+  setFixedSize(1000, 800);
 }
 
 }  // namespace installer
