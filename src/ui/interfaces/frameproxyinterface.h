@@ -25,6 +25,7 @@
 #include <QWidget>
 
 namespace installer {
+class BaseFrameInterface;
 class FrameInterface;
 class ChildFrameInterface;
 class FrameProxyInterface {
@@ -38,7 +39,7 @@ public:
     // 退出安装
     virtual void exitInstall(bool reboot = false) = 0;
 
-    virtual void showChindFrame(ChildFrameInterface* childFrameInterface) {}
+    virtual void showChindFrame(BaseFrameInterface* childFrameInterface) {}
 
     virtual void hideChildFrame() const = 0;
 };
