@@ -187,8 +187,8 @@ void FirstBootSetupWindow::initUI() {
 
   m_originalFrames = {
       language_frame_,
-      system_info_frame_,
       timezone_frame_,
+      system_info_frame_,
     //   control_platform_frame_,
     //   loading_frame_,
   };
@@ -214,8 +214,8 @@ void FirstBootSetupWindow::initUI() {
   // TODO: for current test, will be replaced later.
   m_frameTitles = {
       "LanguageFrame",
-      "SystemInfoFrame",
-      "TimezoneFrame"
+      "TimezoneFrame",
+      "SystemInfoFrame"
   };
 
   m_frameLabelsView = new DListView(this);
