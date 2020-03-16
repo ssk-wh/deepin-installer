@@ -24,6 +24,7 @@
 #include "ui/widgets/title_label.h"
 
 #include <QVBoxLayout>
+#include <QPainter>
 
 namespace installer {
 
@@ -43,6 +44,18 @@ public:
 
     PrivilegeErrorFrame* q_ptr = nullptr;
 };
+
+void PrivilegeErrorFrame::paintEvent(QPaintEvent *event)
+{
+    QPainter painter(this);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
+    QPainterPath path;
+    path.addRoundedRect(rect(), 25, 25);
+    painter.setClipPath(path);
+    painter.fillRect(rect(), Qt::white);
+
+    return QWidget::paintEvent(event);
+}
 
 PrivilegeErrorFrame::PrivilegeErrorFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
     : FrameInterface(frameProxyInterface, parent)
@@ -87,6 +100,14 @@ void PrivilegeErrorFramePrivate::initUI() {
   centerLayout->addStretch();
 
   centerLayout->setContentsMargins(0, 0, 0, 0);
+
+  disconnect(nextButton, nullptr, nullptr, nullptr);
+  connect(nextButton, &QPushButton::clicked, this, [=] {
+      q_ptr->m_proxy->hideChildFrame();
+      q_ptr->m_proxy->nextFrame();
+  });
+
+  q_ptr->setFixedSize(1000, 800);
 }
 
 }  // namespace installer

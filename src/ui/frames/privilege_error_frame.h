@@ -33,6 +33,9 @@ class PrivilegeErrorFrame : public FrameInterface {
 
   friend PrivilegeErrorFramePrivate;
 
+protected:
+  void paintEvent(QPaintEvent *event) override;
+
  public:
   explicit PrivilegeErrorFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
   ~PrivilegeErrorFrame() override;
