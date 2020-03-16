@@ -28,6 +28,7 @@
 #include <QList>
 #include <DStandardItem>
 #include <DBackgroundGroup>
+#include <DTitlebar>
 
 #include "ui/interfaces/frameinterface.h"
 #include "base/file_util.h"
@@ -96,7 +97,12 @@ MainWindow::MainWindow(QWidget* parent)
     m_frames.first()->init();
 
     updateFrameLabelState(m_frames.first(), FrameLabelState::Show);
-    stacked_layout_->setCurrentWidget(m_frames.first());
+    if (m_frames.first()->frameType() == FrameType::Frame) {
+        stacked_layout_->setCurrentWidget(m_frames.first());
+    }
+    else {
+        showChindFrame(m_frames.first());
+    }
 }
 
 void MainWindow::fullscreen() {
@@ -176,7 +182,12 @@ void MainWindow::nextFrame()
             }
 
             updateFrameLabelState(*it, FrameLabelState::Show);
-            stacked_layout_->setCurrentWidget(*it);
+            if ((*it)->frameType() == FrameType::Frame) {
+                stacked_layout_->setCurrentWidget(*it);
+            }
+            else {
+                showChindFrame(*it);
+            }
             m_showPastFrame = false;
             break;
         }
@@ -236,7 +247,7 @@ void MainWindow::exitInstall(bool reboot)
     return reboot ? rebootSystem() : shutdownSystem();
 }
 
-void MainWindow::showChindFrame(ChildFrameInterface* childFrameInterface)
+void MainWindow::showChindFrame(BaseFrameInterface* childFrameInterface)
 {
     if (shadow_widget->isVisible()) {
         return;
@@ -264,14 +275,12 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     event->ignore();
-    stacked_layout_->setCurrentWidget(confirm_quit_frame_);
+    showChindFrame(confirm_quit_frame_);
 }
 
 void MainWindow::initConnections() {
-  connect(confirm_quit_frame_, &ConfirmQuitFrame::quitCancelled,
-          this, [=](){
-             setCurrentPage(prev_page_);
-             prev_page_ = PageId::NullId;
+  connect(confirm_quit_frame_, &ConfirmQuitFrame::quitCancelled, this, [=](){
+             hideChildFrame();
           });
   connect(confirm_quit_frame_, &ConfirmQuitFrame::quitConfirmed,
           this, &MainWindow::shutdownSystem);
@@ -318,13 +327,12 @@ void MainWindow::initConnections() {
 
 void MainWindow::initPages() {
   confirm_quit_frame_ = new ConfirmQuitFrame(this);
-  stacked_layout_->addWidget(confirm_quit_frame_);
+  confirm_quit_frame_->hide();
 
   select_language_frame_ = new LanguageFrame(this);
   stacked_layout_->addWidget(select_language_frame_);
 
   disk_space_insufficient_frame_ = new DiskSpaceInsufficientFrame(this);
-  stacked_layout_->addWidget(disk_space_insufficient_frame_);
 
   install_progress_frame_ = new InstallProgressFrame(this);
   stacked_layout_->addWidget(install_progress_frame_);
@@ -333,7 +341,6 @@ void MainWindow::initPages() {
   stacked_layout_->addWidget(partition_frame_);
 
   privilege_error_frame_ = new PrivilegeErrorFrame(this);
-  stacked_layout_->addWidget(privilege_error_frame_);
 
   system_info_frame_ = new SystemInfoFrame(this);
   stacked_layout_->addWidget(system_info_frame_);
@@ -342,7 +349,6 @@ void MainWindow::initPages() {
   stacked_layout_->addWidget(timezone_frame_);
 
   virtual_machine_frame_ = new VirtualMachineFrame(this);
-  stacked_layout_->addWidget(virtual_machine_frame_);
 
   m_selectComponentFrame = new SelectInstallComponentFrame(this);
   stacked_layout_->addWidget(m_selectComponentFrame);
