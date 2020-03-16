@@ -42,6 +42,10 @@ check_efi_mode(){
   if [ -d "/sys/firmware/efi" ]; then
     declare -g EFI=true
   fi
+  local force_efi=$(installer_get force_efi_mode)
+  if [ x"$force_efi" = "xtrue" ];then
+    declare -g EFI=true
+  fi
 }
 
 chech_use_crypt(){
