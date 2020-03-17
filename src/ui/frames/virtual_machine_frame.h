@@ -48,6 +48,8 @@ class VirtualMachineFrame : public FrameInterface {
   // Read the configuration file to confirm that the current page is available
   bool shouldDisplay() const override;
 
+  QString returnFrameName() const override;
+
  protected:
   void changeEvent(QEvent* event) override;
   void paintEvent(QPaintEvent *event) override;

@@ -87,6 +87,11 @@ bool PrivilegeErrorFrame::shouldDisplay() const
     return true;
 }
 
+QString PrivilegeErrorFrame::returnFrameName() const
+{
+    return "Privilege error";
+}
+
 void PrivilegeErrorFramePrivate::initUI() {
   TitleLabel* title_label = new TitleLabel("Privilege error!");
   CommentLabel* comment_label = new CommentLabel(

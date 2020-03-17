@@ -43,6 +43,7 @@ protected:
   virtual void init() override;
   virtual void finished() override;
   virtual bool shouldDisplay() const override;
+  QString returnFrameName() const override;
 
 private:
     QScopedPointer<PrivilegeErrorFramePrivate> m_private;

@@ -149,6 +149,11 @@ bool SelectInstallComponentFrame::shouldDisplay() const
 #endif // QT_DEBUG
 }
 
+QString SelectInstallComponentFrame::returnFrameName() const
+{
+    return "Select Software";
+}
+
 bool SelectInstallComponentFrame::event(QEvent* event) {
 
     if (event->type() == QEvent::LanguageChange) {

@@ -74,6 +74,11 @@ bool LanguageFrame::shouldDisplay() const
     return !GetSettingsBool(kSkipSelectLanguagePage);
 }
 
+QString LanguageFrame::returnFrameName() const
+{
+    return "Select system language";
+}
+
 void LanguageFrame::init() {
     m_private->m_select_language_frame->readConf();
 }

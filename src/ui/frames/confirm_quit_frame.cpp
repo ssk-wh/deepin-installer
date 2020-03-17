@@ -32,7 +32,7 @@ ConfirmQuitFrame::ConfirmQuitFrame(FrameProxyInterface *frameProxyInterface, QWi
   this->setObjectName("confirm_quit_frame");
 
   this->initUI();
-  this->initConnections();
+    this->initConnections();
 }
 
 void ConfirmQuitFrame::changeEvent(QEvent* event) {

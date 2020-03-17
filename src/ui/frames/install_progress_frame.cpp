@@ -148,6 +148,11 @@ bool InstallProgressFrame::shouldDisplay() const
     return true;
 }
 
+QString InstallProgressFrame::returnFrameName() const
+{
+    return "Installing";
+}
+
 void InstallProgressFrame::simulate() {
     Q_D(InstallProgressFrame);
 

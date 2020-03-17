@@ -38,6 +38,8 @@ public:
     // Read the configuration file to confirm that the current page is available
     bool shouldDisplay() const override;
 
+    QString returnFrameName() const override;
+
 protected:
     bool event(QEvent* event) override;
     void resizeEvent(QResizeEvent* event) override;

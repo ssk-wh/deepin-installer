@@ -65,6 +65,7 @@ class PartitionFrame : public FrameInterface {
   void init() override;
   void finished() override;
   bool shouldDisplay() const override;
+  QString returnFrameName() const override;
 
   void autoPart();
 

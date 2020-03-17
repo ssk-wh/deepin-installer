@@ -146,7 +146,12 @@ TimezoneFrame::~TimezoneFrame()
 
 bool TimezoneFrame::shouldDisplay() const
 {
-    return GetSettingsBool(kSystemInfoSetupAfterReboot) || GetSettingsBool(kSkipTimezonePage);
+    return !(GetSettingsBool(kSystemInfoSetupAfterReboot) || GetSettingsBool(kSkipTimezonePage));
+}
+
+QString TimezoneFrame::returnFrameName() const
+{
+    return "Select Timezone";
 }
 
 void TimezoneFrame::init() {

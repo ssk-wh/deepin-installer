@@ -125,6 +125,11 @@ bool SystemInfoFrame::shouldDisplay() const
     return !(GetSettingsBool(kSystemInfoSetupAfterReboot) || GetSettingsBool(kSkipSystemInfoPage));
 }
 
+QString SystemInfoFrame::returnFrameName() const
+{
+    return "Create User Account";
+}
+
 void SystemInfoFramePrivate::initConnections() {
   connect(form_frame_, &SystemInfoFormFrame::systemInfoFormDone, this, [=] {
       emit nextButton->clicked();

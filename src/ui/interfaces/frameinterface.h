@@ -50,6 +50,10 @@ public:
         m_frameType = type;
     }
 
+    virtual QString returnFrameName() const {
+        return "";
+    }
+
 protected:
     FrameProxyInterface* m_proxy = nullptr;
 

@@ -45,6 +45,7 @@ public:
     void init() override;
     void finished() override;
     bool shouldDisplay() const override;
+    QString returnFrameName() const override;
 
 private:
     QScopedPointer<InstallResultsFramePrivate> m_private;

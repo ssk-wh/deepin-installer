@@ -49,6 +49,7 @@ public:
     void init() override;
     void finished() override;
     bool shouldDisplay() const override;
+    QString returnFrameName() const override;
 
 public slots:
     // Run hooks when partition job is done

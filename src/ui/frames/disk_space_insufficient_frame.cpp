@@ -77,7 +77,12 @@ void DiskSpaceInsufficientFrame::finished()
 bool DiskSpaceInsufficientFrame::shouldDisplay() const
 {
     return !GetSettingsBool(kSkipDiskSpaceInsufficientPage) &&
-                IsDiskSpaceInsufficient();
+            IsDiskSpaceInsufficient();
+}
+
+QString DiskSpaceInsufficientFrame::returnFrameName() const
+{
+    return "Insufficient Disk Space";
 }
 
 void DiskSpaceInsufficientFrame::changeEvent(QEvent* event) {

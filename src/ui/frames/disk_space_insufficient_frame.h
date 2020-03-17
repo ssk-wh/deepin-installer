@@ -39,6 +39,7 @@ public:
   void init() override;
   void finished() override;
   bool shouldDisplay() const override;
+  QString returnFrameName() const override;
 
 signals:
   void abortInstall();

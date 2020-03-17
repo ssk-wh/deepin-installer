@@ -108,6 +108,11 @@ bool VirtualMachineFrame::shouldDisplay() const
     return !GetSettingsBool(kSkipVirtualMachinePage) && IsVirtualMachine() ;
 }
 
+QString VirtualMachineFrame::returnFrameName() const
+{
+    return "Friendly Reminder";
+}
+
 void VirtualMachineFramePrivate::initUI() {
   title_label_ = new TitleLabel(tr("Friendly Reminder"));
   comment_label_ = new CommentLabel(

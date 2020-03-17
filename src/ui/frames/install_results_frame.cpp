@@ -83,6 +83,11 @@ bool InstallResultsFrame::shouldDisplay() const
     return true;
 }
 
+QString InstallResultsFrame::returnFrameName() const
+{
+    return "Done";
+}
+
 InstallResultsFrame::~InstallResultsFrame()
 {
 

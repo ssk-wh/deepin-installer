@@ -50,6 +50,7 @@ class SystemInfoFrame : public FrameInterface {
   void finished() override;
   // read the configuration file to verify that the current page is available
   bool shouldDisplay() const override;
+  QString returnFrameName() const override;
 
 private:
     QScopedPointer<SystemInfoFramePrivate> m_private;
