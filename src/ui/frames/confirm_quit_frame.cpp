@@ -95,7 +95,6 @@ void ConfirmQuitFrame::initUI() {
 
   this->setLayout(layout);
   this->setContentsMargins(0, 0, 0, 0);
-  setFixedSize(1000, 800);
 }
 
 }  // namespace installer

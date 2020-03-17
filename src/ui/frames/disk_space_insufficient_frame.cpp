@@ -135,8 +135,6 @@ void DiskSpaceInsufficientFrame::initUI() {
   layout->addSpacing(10);
   setLayout(layout);
   setContentsMargins(0, 0, 0, 0);
-
-  setFixedSize(1000, 800);
 }
 
 }  // namespace installer

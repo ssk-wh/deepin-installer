@@ -141,8 +141,6 @@ void VirtualMachineFramePrivate::initUI() {
       q_ptr->m_proxy->hideChildFrame();
       q_ptr->m_proxy->nextFrame();
   });
-
-  q_ptr->setFixedSize(1000, 800);
 }
 
 }  // namespace installer
