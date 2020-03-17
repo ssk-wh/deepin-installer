@@ -24,7 +24,6 @@
 #define INSTALL_RESULTS_FRAME_H
 
 #include "ui/interfaces/frameinterface.h"
-#include "ui/interfaces/frameinterfaceprivate.h"
 
 #include <QWidget>
 #include <QStackedLayout>
@@ -46,6 +45,9 @@ public:
     void finished() override;
     bool shouldDisplay() const override;
     QString returnFrameName() const override;
+
+signals:
+    void successFinished();
 
 private:
     QScopedPointer<InstallResultsFramePrivate> m_private;

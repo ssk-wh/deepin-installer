@@ -337,6 +337,10 @@ void MainWindow::initConnections() {
   connect(brithtness_decrease_shortcut_, &QShortcut::activated,
           DecreaseBrightness);
 
+  connect(m_installResultsFrame, &InstallResultsFrame::successFinished, this, [=] {
+      GetSettingsBool(kRebootWhenInstallFinished) ?
+          this->rebootSystem() : this->shutdownSystem();
+  });
 //  connect(save_failedLog_frame_, &SaveInstallFailedLogFrame::requestBack, this, &MainWindow::backPage);
 
   connect(m_frameLabelsView, &DListView::clicked, this, &MainWindow::onFrameLabelsViewClicked);

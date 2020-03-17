@@ -89,7 +89,6 @@ void InstallSuccessFramePrivate::initConnections()
 {
     QObject::connect(reboot_button_, &QPushButton::clicked,
             q_ptr, &InstallSuccessFrame::finished);
-
 }
 
 void InstallSuccessFramePrivate::initUI()

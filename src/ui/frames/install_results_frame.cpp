@@ -26,6 +26,8 @@
 #include "ui/widgets/pointer_button.h"
 #include "ui/frames/install_progress_frame.h"
 #include "service/settings_manager.h"
+#include "service/settings_name.h"
+
 #include <QButtonGroup>
 
 namespace installer {
@@ -33,16 +35,18 @@ namespace installer {
 class InstallResultsFramePrivate : public FrameInterfacePrivate
 {
     Q_OBJECT
+
 public:
     explicit InstallResultsFramePrivate(FrameInterface* parent)
         : FrameInterfacePrivate (parent)
-        , q_ptr(qobject_cast<InstallResultsFrame* > (parent))
         , m_frame_layout(new QStackedLayout)
+        , q_ptr(qobject_cast<InstallResultsFrame* >(parent))
         , m_installSuccessFrame(new InstallSuccessFrame)
         , m_installFailedFrame(new InstallFailedFrame)
     {}
 
     void initUI();
+    void initConnection();
     void showNextFrame();
     void showInstallSuccessFrame();
     void showInstallFailedFrame();
@@ -101,6 +105,13 @@ void InstallResultsFramePrivate::initUI()
 
     nextButton->hide();
     centerLayout->addLayout(m_frame_layout);
+}
+
+void InstallResultsFramePrivate::initConnection()
+{
+    connect(m_installSuccessFrame, &InstallSuccessFrame::finished, this, [=] {
+        emit q_ptr->successFinished();
+    });
 }
 
 void InstallResultsFramePrivate::showNextFrame()
