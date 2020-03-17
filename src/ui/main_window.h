@@ -101,6 +101,7 @@ class MainWindow : public DMainWindow, public FrameProxyInterface {
  protected:
   // Show ConfirmQuitFrame when top right corner is clicked.
   void closeEvent(QCloseEvent* event) override;
+  void changeEvent(QEvent* event) override;
 
 private:
   enum PageId {
@@ -123,6 +124,7 @@ private:
   void initConnections();
   void initPages();
   void initUI();
+  void constructLabelView();
   void registerShortcut();
 
   // Copy log file if needed.
@@ -137,6 +139,8 @@ private:
 
   static bool checkBackButtonAvailable(PageId id);
   void updateFrameLabelState(FrameInterface *frame, FrameLabelState state);
+
+  FrameInterface* getFrameInterface(QStandardItem *item) const;
 
   QLabel* background_label_ = nullptr;
   DImageButton* back_button_ = nullptr;

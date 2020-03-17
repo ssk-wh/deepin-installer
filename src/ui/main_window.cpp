@@ -279,6 +279,22 @@ void MainWindow::closeEvent(QCloseEvent *event)
     showChindFrame(confirm_quit_frame_);
 }
 
+void MainWindow::changeEvent(QEvent *event)
+{
+    if (event->type() == QEvent::LanguageChange) {
+        for (int i = 0; i < m_frameLabelsModel->rowCount(); ++i) {
+            QStandardItem* item = m_frameLabelsModel->item(i);
+            FrameInterface* frame = getFrameInterface(item);
+            if (frame) {
+                item->setText(tr(frame->returnFrameName().toLatin1().data()));
+            }
+        }
+    }
+    else {
+        QWidget::changeEvent(event);
+    }
+}
+
 void MainWindow::initConnections() {
   connect(confirm_quit_frame_, &ConfirmQuitFrame::quitCancelled, this, [=](){
              hideChildFrame();
@@ -366,6 +382,8 @@ void MainWindow::initPages() {
       select_language_frame_,
       disk_space_insufficient_frame_,
       virtual_machine_frame_,
+      timezone_frame_,
+      system_info_frame_,
       m_selectComponentFrame,
       partition_frame_,
       install_progress_frame_,
@@ -379,14 +397,16 @@ void MainWindow::initPages() {
 
   // TODO: for current test, will be replaced later.
   m_frameTitles = {
-      "PrivilegeFrame",
-      "LanguageFrame",
-      "DiskSpaceInsufficient",
-      "VirtualMachineFrame",
-      "SelectComponentFrame",
-      "PartitionFrame",
-      "InstallProgressFrame",
-      "InstallResultsFrame"
+      tr("Privilege error"),
+      tr("Select system language"),
+      tr("Insufficient Disk Space"),
+      tr("Friendly Reminder"),
+      tr("Select Timezone"),
+      tr("Create User Account"),
+      tr("Select Software"),
+      tr("Select Installation Location"),
+      tr("Installing"),
+      tr("Done")
   };
 
   m_frameLabelsView = new DListView(this);
@@ -395,33 +415,40 @@ void MainWindow::initPages() {
   m_frameLabelsModel = new QStandardItemModel();
   m_frameLabelsView->setModel(m_frameLabelsModel);
 
-  int i = 1;
-  for (FrameInterface* frame : m_originalFrames){
-      if (!frame->shouldDisplay() || frame->frameType() != FrameType::Frame){
-          continue;
-      }
-
-      DStandardItem* item = new DStandardItem;
-      QString pixPathTemplate(":/images/NO_inactive%1.svg");
-      item->setIcon(QIcon(installer::renderPixmap(pixPathTemplate.arg(i))));
-      ++i;
-      // TODO: for current test, will be replaced in another way.
-      item->setText(m_frameTitles[m_originalFrames.indexOf(frame)]);
-      QVariant framePointer = QVariant::fromValue(frame);
-      item->setData(framePointer, FramePointerRole);
-      item->setFlags(Qt::ItemFlag::NoItemFlags);
-
-      DViewItemAction* action = new DViewItemAction(Qt::AlignmentFlag::AlignVCenter);
-      action->setIcon(QIcon(installer::renderPixmap(":/images/done_inactive.svg")));
-      action->setVisible(false);
-      item->setActionList(Qt::Edge::RightEdge, {action});
-
-      m_frameLabelsModel->appendRow(item);
-      m_frameModelItemMap[frame] = item;
-  }
-
   m_frameSelectedLayout->addSpacing(80);
   m_frameSelectedLayout->addWidget(m_frameLabelsView, 0, Qt::AlignHCenter);
+
+  constructLabelView();
+}
+
+void MainWindow::constructLabelView()
+{
+    m_frameLabelsModel->clear();
+
+    int i = 1;
+    for (FrameInterface* frame : m_originalFrames){
+        if (!frame->shouldDisplay() || frame->frameType() != FrameType::Frame){
+            continue;
+        }
+
+        DStandardItem* item = new DStandardItem;
+        QString pixPathTemplate(":/images/NO_inactive%1.svg");
+        item->setIcon(QIcon(installer::renderPixmap(pixPathTemplate.arg(i))));
+        ++i;
+
+        item->setText(tr(frame->returnFrameName().toLatin1().data()));
+        QVariant framePointer = QVariant::fromValue(frame);
+        item->setData(framePointer, FramePointerRole);
+        item->setFlags(Qt::ItemFlag::NoItemFlags);
+
+        DViewItemAction* action = new DViewItemAction(Qt::AlignmentFlag::AlignVCenter);
+        action->setIcon(QIcon(installer::renderPixmap(":/images/done_inactive.svg")));
+        action->setVisible(false);
+        item->setActionList(Qt::Edge::RightEdge, {action});
+
+        m_frameLabelsModel->appendRow(item);
+        m_frameModelItemMap[frame] = item;
+    }
 }
 
 void MainWindow::initUI() {
@@ -579,6 +606,17 @@ void MainWindow::updateFrameLabelState(FrameInterface *frame, FrameLabelState st
         qWarning() << "invalid state value";
         break;
     }
+}
+
+FrameInterface *MainWindow::getFrameInterface(QStandardItem *item) const
+{
+    for (auto it = m_frameModelItemMap.begin(); it != m_frameModelItemMap.end(); ++it) {
+        if (it.value() == item) {
+            return it.key();
+        }
+    }
+
+    return nullptr;
 }
 
 void MainWindow::onCurrentPageChanged(int index) {
