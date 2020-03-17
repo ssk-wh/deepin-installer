@@ -10,16 +10,24 @@
     "name": "disk_minimum_space_required",
     "description": "",
     "type": "Integer",
-    "minimum": 10,
-    "maximum": 20
+    "minimum": 15,
+    "maximum": 0
+  },
+  {
+    "title": "全盘安装时需要的最小硬盘容量",
+    "name": "partition_full_disk_minimum_space",
+    "description": "",
+    "type": "Integer",
+    "minimum": 64,
+    "maximum": 0
   },
   {
     "title": "安装时推荐的硬盘容量",
     "name": "disk_recommended_space",
     "description": "",
     "type": "Integer",
-    "minimum": 15,
-    "maximum": 50
+    "minimum": 128,
+    "maximum": 0
   },
 
   {

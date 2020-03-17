@@ -94,7 +94,7 @@ bool FullDiskFrame::validate() const {
     }
 
     Device::Ptr device(new Device(*m_delegate->virtualDevices()[index]));
-    const qint64 root_required = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
+    const qint64 root_required = GetSettingsInt(kPartitionFullDiskMiniSpace);
     const qint64 root_required_bytes = kGibiByte * root_required;
     if (device->getByteLength() < root_required_bytes) {
         m_diskTooSmallTip->show();
@@ -171,7 +171,7 @@ void FullDiskFrame::initUI() {
   m_diskTooSmallTip->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
   m_diskTooSmallTip->hide();
   addTransLate(m_trList, [ = ] (const QString& msg) {
-      int min_size = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
+      int min_size = GetSettingsInt(kPartitionFullDiskMiniSpace);
       int recommend_size = GetSettingsInt(kPartitionRecommendedDiskSpace);
       m_diskTooSmallTip->setText(msg.arg(min_size).arg(recommend_size));
   }, QString("You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended"));
