@@ -99,6 +99,7 @@ bool FullDiskFrame::validate() const {
     }
 
     Device::Ptr device(new Device(*m_delegate->virtualDevices()[index]));
+
     if (m_delegate->selectedDisks().count() < 2) {
         const qint64 root_required = GetSettingsInt(kPartitionFullDiskMiniSpace);
         const qint64 root_required_bytes = kGibiByte * root_required;
