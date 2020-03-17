@@ -63,6 +63,7 @@ InstallResultsFrame::InstallResultsFrame(FrameProxyInterface* frameProxyInterfac
     , m_private(new InstallResultsFramePrivate(this))
 {
     m_private->initUI();
+    m_private->initConnection();
 }
 
 void InstallResultsFrame::init()

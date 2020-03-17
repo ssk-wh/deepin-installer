@@ -37,6 +37,7 @@ class InstallResultsFramePrivate;
 class InstallResultsFrame : public FrameInterface
 {
     Q_OBJECT
+
 public:
     InstallResultsFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
     ~InstallResultsFrame() override;
