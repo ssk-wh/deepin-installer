@@ -39,16 +39,17 @@ esac
 msg "CPUTYPE=$SYSTEM_NAME"
 
 SRCPATH=/media/cdrom/live/platform/$SYSTEM_NAME
-rm -rf /boot/*
-rm -rf /lib/modules/*
-[ -d /media/cdrom/live/boot ] && cp -rvf /media/cdrom/live/boot/* /boot/
+
+[ -d $SRCPATH/live/boot ] && \
+  rm -rf /boot/* && cp -rvf $SRCPATH/live/boot/* /boot/
 
 [ -f $SRCPATH/xorg.conf ] && \
   install -v -Dm644 $SRCPATH/xorg.conf /etc/X11/xorg.conf
 
 # Replace kernel image and modules.
 mkdir -pv /lib/modules
-[ -d $SRCPATH/modules ] && cp -rf $SRCPATH/modules/* /lib/modules
+[ -d $SRCPATH/modules ] && \
+  rm -rf /lib/modules/* && cp -rf $SRCPATH/modules/* /lib/modules
 
 for _FILE in $(ls ${SRCPATH} | grep "^vmlinu"); do
   install -v -Dm755 ${SRCPATH}/${_FILE} /boot/${_FILE}
