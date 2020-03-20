@@ -18,4 +18,4 @@ if [ -d "/deepin-installer/in_check/" ];then
 fi
 
 # logout to run lightdm-stop.sh
-qdbus --literal com.deepin.SessionManager /com/deepin/SessionManager com.deepin.SessionManager.RequestLogout
+qdbus --system --literal org.freedesktop.login1 /org/freedesktop/login1/session/self org.freedesktop.login1.Session.Terminate
