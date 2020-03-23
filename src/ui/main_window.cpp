@@ -64,6 +64,13 @@ Q_DECLARE_METATYPE(installer::FrameInterface*)
 
 DWIDGET_USE_NAMESPACE
 
+namespace {
+    const int kLeftViewWidth = 200;
+    const int kLeftViewItemWidth = 180;
+    const int kLeftViewItemHeight = 36;
+    const int kLeftViewItemSpacing = 10;
+}
+
 namespace installer {
 
 MainWindow::MainWindow(QWidget* parent)
@@ -414,12 +421,12 @@ void MainWindow::initPages() {
   };
 
   m_frameLabelsView = new DListView(this);
-  m_frameLabelsView->setOrientation(QListView::TopToBottom, true);
-  m_frameLabelsView->setItemSize(QSize(250, 80));
+  m_frameLabelsView->setResizeMode(QListView::Adjust);
+  m_frameLabelsView->setItemSize(QSize(kLeftViewItemWidth, kLeftViewItemHeight + kLeftViewItemSpacing));
   m_frameLabelsModel = new QStandardItemModel();
   m_frameLabelsView->setModel(m_frameLabelsModel);
 
-  m_frameSelectedLayout->addSpacing(80);
+  m_frameSelectedLayout->addSpacing(60);
   m_frameSelectedLayout->addWidget(m_frameLabelsView, 0, Qt::AlignHCenter);
 
   constructLabelView();
@@ -480,13 +487,13 @@ void MainWindow::initUI() {
   contentWidget->setLayout(vbox_layout);
 
   m_frameSelectedLayout = new QVBoxLayout;
-  m_frameSelectedLayout->setMargin(0);
+  m_frameSelectedLayout->setContentsMargins(kLeftViewItemSpacing, 0, kLeftViewItemSpacing, 0);
   m_frameSelectedLayout->setSpacing(0);
 
   QWidget* frameSelectedListWidget = new QWidget;
   frameSelectedListWidget->setObjectName("frameSelectedListWidget");
   frameSelectedListWidget->setLayout(m_frameSelectedLayout);
-  frameSelectedListWidget->setFixedWidth(300);
+  frameSelectedListWidget->setFixedWidth(kLeftViewWidth);
 
   QHBoxLayout* mainLayout = new QHBoxLayout;
   mainLayout->setMargin(0);
