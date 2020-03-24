@@ -7,9 +7,9 @@
 namespace installer {
 
 namespace {
-    const int kComponentWidgetWidth = 468;
+    const int kComponentWidgetWidth = 250;
     const int kComponentWidgetMinHeight = 70;
-    const int KQLabelWidth =260;
+    const int KQLabelWidth =250;
 }
 
 ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
@@ -22,11 +22,12 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
 {
     m_titleLabel = new QLabel;
     m_titleLabel->setObjectName("titleLabel");
-    m_titleLabel->setFixedWidth(KQLabelWidth);
+    m_titleLabel->setMinimumWidth(KQLabelWidth);
     m_descLabel = new QLabel;
     m_descLabel->setObjectName("descLabel");
-    m_descLabel->setFixedWidth(KQLabelWidth);
+    m_descLabel->setMinimumWidth(KQLabelWidth);
     m_descLabel->setWordWrap(true);
+    m_descLabel->adjustSize();
     m_hLayout = new QHBoxLayout;
     m_hLayout->addSpacing(15);
     m_vLayout = new QVBoxLayout;
@@ -61,8 +62,7 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
     m_hLayout->addLayout(m_vLayout);
     m_hLayout->addStretch();
 
-    setLayout(m_hLayout);
-    setMaximumWidth(kComponentWidgetWidth);
+    setMinimumWidth(kComponentWidgetWidth);
     setMinimumHeight(kComponentWidgetMinHeight);
     setObjectName("ComponentWidget");
     setLayout(m_hLayout);

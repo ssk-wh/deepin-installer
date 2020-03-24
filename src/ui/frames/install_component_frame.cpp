@@ -23,6 +23,8 @@
 namespace  {
     const int kBottomSpacing = 60;
     const int kItemSpacing = 10;
+
+    const int kListViewWidth = 270;
 }
 
 DWIDGET_USE_NAMESPACE
@@ -195,6 +197,7 @@ bool SelectInstallComponentFrame::eventFilter(QObject *watched, QEvent *event)
 
     return QWidget::eventFilter(watched, event);
 }
+
 void SelectInstallComponentFrame::resizeEvent(QResizeEvent *event)
 {
     QTimer::singleShot(0, this, [=] {
@@ -215,10 +218,12 @@ void SelectInstallComponentFramePrivate::initUI()
     m_serverTypeLabel = new QLabel(tr("Basic Environment"), q_ptr);
     m_serverTypeLabel->setObjectName("serverTypeLabel");
     m_serverTypeLabel->setWordWrap(false);
+    m_serverTypeLabel->setAlignment(Qt::AlignHCenter);
 
     m_componentLabel = new QLabel(tr("Add-Ons for Selected Environment"), q_ptr);
     m_componentLabel->setObjectName("componentLabel");
     m_componentLabel->setWordWrap(false);
+    m_componentLabel->setAlignment(Qt::AlignHCenter);
 
     QVBoxLayout* serverLayout = new QVBoxLayout;
     serverLayout->setSpacing(kItemSpacing);
@@ -253,6 +258,7 @@ void SelectInstallComponentFramePrivate::initUI()
     m_baseComponentListWidget->setObjectName("serverWdg");
 
     m_serverScrollArea = new DIScrollArea;
+    m_serverScrollArea->setFrameShape(QFrame::Shape::NoFrame);
     m_serverScrollArea->setWidget(m_baseComponentListWidget);
 
     m_componentLayout = new QVBoxLayout;
@@ -264,6 +270,7 @@ void SelectInstallComponentFramePrivate::initUI()
     m_extraComponentListWidget->setObjectName("compWdg");
 
     m_compScrollArea = new DIScrollArea;
+    m_compScrollArea->setFrameShape(QFrame::Shape::NoFrame);
     m_compScrollArea->setWidget(m_extraComponentListWidget);
 
     QVBoxLayout* serverTypeLayout = new QVBoxLayout;
@@ -301,13 +308,19 @@ void SelectInstallComponentFramePrivate::initUI()
     m_selectAllFrame->installEventFilter(this);
     m_selectAllFrame->hide();
 
-    QWidget* serverWidget = new QWidget;
+    QFrame* serverWidget = new QFrame;
+    serverWidget->setFrameShape(QFrame::Shape::NoFrame);
+    serverWidget->setContentsMargins(0, 0, 0, 0);
     serverWidget->setLayout(serverTypeLayout);
+    serverWidget->setFixedWidth(kListViewWidth);
 
     componentLayout->addSpacing(kItemSpacing);
     componentLayout->addWidget(m_selectAllFrame);
-    QWidget* componentWidget = new QWidget;
+    QFrame* componentWidget = new QFrame;
+    componentWidget->setFrameShape(QFrame::Shape::NoFrame);
+    componentWidget->setContentsMargins(0, 0, 0, 0);
     componentWidget->setLayout(componentLayout);
+    componentWidget->setFixedWidth(kListViewWidth);
 
     DVerticalLine* dVerticalLine = new DVerticalLine;
 
@@ -315,11 +328,15 @@ void SelectInstallComponentFramePrivate::initUI()
     hLineBoxLayout->addWidget(dVerticalLine);
 
     QHBoxLayout* hLayout = new QHBoxLayout;
+    hLayout->setContentsMargins(0, 0, 0, 0);
+    hLayout->setSpacing(0);
     hLayout->addWidget(serverWidget, 0, Qt::AlignLeft);
     hLayout->addLayout(hLineBoxLayout);
     hLayout->addWidget(componentWidget, 0, Qt::AlignRight);
 
     DFrame* frame = new DFrame;
+    frame->setFrameRounded(true);
+    frame->setContentsMargins(1, 1, 1, 1);
     frame->setLayout(hLayout);
     frame->installEventFilter(q_ptr);
 
@@ -329,7 +346,7 @@ void SelectInstallComponentFramePrivate::initUI()
     centerLayout->addWidget(m_selectPromptLabel, 0, Qt::AlignCenter);
     centerLayout->addSpacing(55);
     centerLayout->addWidget(frame, 0, Qt::AlignCenter);
-    centerLayout->addSpacing(60);
+    centerLayout->addSpacing(20);
 }
 
 void SelectInstallComponentFramePrivate::onServerTypeClicked()
@@ -407,9 +424,10 @@ void SelectInstallComponentFramePrivate::onServerTypeClicked()
 void SelectInstallComponentFramePrivate::setWidgetLayout(QWidget* subWidget,
                                                              FrameInterface* obj, QWidget* parentWiget)
 {
-     subWidget->move(parentWiget->mapTo(obj, QPoint()).x()+
-                     (parentWiget->width() - subWidget->width()) / 2 + 20,
-                     parentWiget->mapTo(obj, QPoint()).y() - kBottomSpacing);
+    subWidget->setFixedWidth(parentWiget->width());
+    subWidget->move(parentWiget->mapTo(obj, QPoint()).x() +
+                    (parentWiget->width() - subWidget->width()) / 2,
+                    parentWiget->mapTo(obj, QPoint()).y() - kBottomSpacing);
 }
 
 void SelectInstallComponentFramePrivate::setSubTitleLayout()
