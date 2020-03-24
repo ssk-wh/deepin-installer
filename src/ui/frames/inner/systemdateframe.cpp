@@ -49,10 +49,15 @@ namespace installer {
 
 namespace {
     int kSystemDateTimeFrameWidth = 691;
-    int kMonthDayHourMinuteQLineEditWidth = 40;
+    int kMonthDayHourMinuteQLineEditWidth = 38;
     int kDateTimeLabelWidth = 45;
-    int kYearQLineEditWidth = 60;
+    int kYearQLineEditWidth = 55;
     int kMaxIncrementYear = 30;
+
+    int kDateTimeItemInnerSpacing = 1;
+    int kDateTimeItemExternalSpacing = 2;
+
+    int kDateTimeFontSize = 10; // 10pt
 }
 
 class SystemDateFramePrivate : public QObject{
@@ -77,7 +82,7 @@ public:
 
     SystemDateFrame* m_ptr;
 
-    void init();
+    void initUI();
     void initConnection();
 
     void updateTs() {
@@ -112,7 +117,7 @@ SystemDateFrame::SystemDateFrame(QWidget *parent)
     : QWidget(parent)
     , d_private(new SystemDateFramePrivate(this))
 {
-    d_private->init();
+    d_private->initUI();
     d_private->initDateTime();
     d_private->initConnection();
     d_private->updateTs();
@@ -374,7 +379,7 @@ void SystemDateFrame::timeDateSetFinished()
     emit m_ptr->finished();
 }
 
-void SystemDateFramePrivate::init()
+void SystemDateFramePrivate::initUI()
 {
     m_setDateTimeCheckBox->setCheckable(true);
     m_setDateTimeCheckBox->setChecked(false);
@@ -383,14 +388,14 @@ void SystemDateFramePrivate::init()
     m_hourEdit->setObjectName("hourEdit");
     m_hourEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_hourEdit->setFixedSize(kMonthDayHourMinuteQLineEditWidth, 36);
-    m_hourEdit->setAlignment(Qt::AlignCenter);
+    m_hourEdit->setAlignment(Qt::AlignHCenter);
     m_hourEdit->setContextMenuPolicy(Qt::NoContextMenu);
 
     m_minuteEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{1,2}")));
     m_minuteEdit->setObjectName("minuteEdit");
     m_minuteEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_minuteEdit->setFixedSize(kMonthDayHourMinuteQLineEditWidth, 36);
-    m_minuteEdit->setAlignment(Qt::AlignCenter);
+    m_minuteEdit->setAlignment(Qt::AlignHCenter);
     m_minuteEdit->setContextMenuPolicy(Qt::NoContextMenu);
 
     m_hourLabel->setObjectName("hourLabel");
@@ -403,14 +408,14 @@ void SystemDateFramePrivate::init()
     m_yearEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{1,4}")));
     m_yearEdit->setFixedSize(kYearQLineEditWidth, 36);
     m_yearEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    m_yearEdit->setAlignment(Qt::AlignRight);
+    m_yearEdit->setAlignment(Qt::AlignHCenter);
     m_yearEdit->setContextMenuPolicy(Qt::NoContextMenu);
     m_yearLabel->setObjectName("yearLabel");
     m_yearLabel->setFixedSize(kDateTimeLabelWidth, 36);
     m_yearLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
     m_monthEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{1,2}")));
-    m_monthEdit->setAlignment(Qt::AlignRight);
+    m_monthEdit->setAlignment(Qt::AlignHCenter);
     m_monthEdit->setFixedSize(kMonthDayHourMinuteQLineEditWidth, 36);
     m_monthEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_monthEdit->setContextMenuPolicy(Qt::NoContextMenu);
@@ -419,7 +424,7 @@ void SystemDateFramePrivate::init()
     m_monthLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
     m_dayEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{1,2}")));
-    m_dayEdit->setAlignment(Qt::AlignRight);
+    m_dayEdit->setAlignment(Qt::AlignHCenter);
     m_dayEdit->setFixedSize(kMonthDayHourMinuteQLineEditWidth, 36);
     m_dayEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_dayEdit->setContextMenuPolicy(Qt::NoContextMenu);
@@ -434,28 +439,42 @@ void SystemDateFramePrivate::init()
     mainLayout->addWidget(m_setDateTimeCheckBox, 0, Qt::AlignLeft);
     mainLayout->addStretch();
     mainLayout->addWidget(m_yearEdit);
-    mainLayout->addSpacing(5);
+    mainLayout->addSpacing(kDateTimeItemInnerSpacing);
     mainLayout->addWidget(m_yearLabel);
-    mainLayout->addSpacing(10);
+    mainLayout->addSpacing(kDateTimeItemExternalSpacing);
     mainLayout->addWidget(m_monthEdit);
-    mainLayout->addSpacing(5);
+    mainLayout->addSpacing(kDateTimeItemInnerSpacing);
     mainLayout->addWidget(m_monthLabel);
-    mainLayout->addSpacing(10);
+    mainLayout->addSpacing(kDateTimeItemExternalSpacing);
     mainLayout->addWidget(m_dayEdit);
-    mainLayout->addSpacing(5);
+    mainLayout->addSpacing(kDateTimeItemInnerSpacing);
     mainLayout->addWidget(m_dayLabel);
-    mainLayout->addSpacing(10);
+    mainLayout->addSpacing(kDateTimeItemExternalSpacing);
     mainLayout->addWidget(m_hourEdit);
-    mainLayout->addSpacing(5);
+    mainLayout->addSpacing(kDateTimeItemInnerSpacing);
     mainLayout->addWidget(m_hourLabel);
-    mainLayout->addSpacing(10);
+    mainLayout->addSpacing(kDateTimeItemExternalSpacing);
     mainLayout->addWidget(m_minuteEdit);
-    mainLayout->addSpacing(5);
+    mainLayout->addSpacing(kDateTimeItemInnerSpacing);
     mainLayout->addWidget(m_minuteLabel);
     m_ptr->setLayout(mainLayout);
 
+    QFont font;
+    font.setPointSize(kDateTimeFontSize);
+    m_hourEdit->setFont(font);
+    m_hourLabel->setFont(font);
+    m_minuteEdit->setFont(font);
+    m_minuteLabel->setFont(font);
+    m_yearEdit->setFont(font);
+    m_yearLabel->setFont(font);
+    m_monthEdit->setFont(font);
+    m_monthLabel->setFont(font);
+    m_dayEdit->setFont(font);
+    m_dayLabel->setFont(font);
+    m_setDateTimeCheckBox->setFont(font);
+
     setObjectName("systemDateFramePrivate");
-    m_ptr->setFixedWidth(kSystemDateTimeFrameWidth);
+    m_ptr->setMaximumWidth(kSystemDateTimeFrameWidth);
     m_ptr->setMaximumHeight(40);
 }
 
