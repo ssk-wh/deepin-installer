@@ -23,12 +23,12 @@ DWIDGET_USE_NAMESPACE
 namespace installer {
 
 namespace {
-    int kContinentListViewWidth = 255;
-    int kTimeZoneListViewWidth = 255;
+    const int kContinentListViewWidth = 255;
+    const int kTimeZoneListViewWidth = 255;
 }
 
 SelectTimeZoneFrame::SelectTimeZoneFrame(QWidget *parent)
-    : QFrame (parent)
+    : DFrame (parent)
     , m_allTimeZone(GetContinentZoneInfo())
     , m_currentContinentIndex(QModelIndex())
     , m_currentTimezoneIndex(QModelIndex())
@@ -201,11 +201,14 @@ void SelectTimeZoneFrame::initUI()
     frame->setContentsMargins(1, 1, 1, 1);
     frame->setLayout(listViewLayout);
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->setContentsMargins(0, 0, 0, 0);
     mainLayout->setSpacing(0);
+    mainLayout->addStretch();
     mainLayout->addWidget(frame);
+    mainLayout->addStretch();
 
+    setFrameRounded(false);
     setContentsMargins(0, 0, 0, 0);
     setLayout(mainLayout);
 

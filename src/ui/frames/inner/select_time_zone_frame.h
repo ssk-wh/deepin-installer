@@ -8,6 +8,7 @@
 
 #include <DListView>
 #include <DStandardItem>
+#include <DFrame>
 
 DWIDGET_USE_NAMESPACE
 
@@ -16,7 +17,7 @@ namespace installer {
 class TimeZoneModel;
 class ContinentModel;
 
-class SelectTimeZoneFrame : public QFrame
+class SelectTimeZoneFrame : public DFrame
 {
     Q_OBJECT
 
