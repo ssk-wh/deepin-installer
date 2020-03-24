@@ -16,12 +16,15 @@
 #include <QCollator>
 #include <QDebug>
 #include <QEvent>
+#include <DFrame>
+
+DWIDGET_USE_NAMESPACE
 
 namespace installer {
 
 namespace {
-    int kContinentListViewWidth = 240;
-    int kTimeZoneListViewWidth = 450;
+    int kContinentListViewWidth = 255;
+    int kTimeZoneListViewWidth = 255;
 }
 
 SelectTimeZoneFrame::SelectTimeZoneFrame(QWidget *parent)
@@ -136,8 +139,8 @@ void SelectTimeZoneFrame::updateTimezoneModelData()
 void SelectTimeZoneFrame::initUI()
 {
     m_continentListView = new DListView;
-    m_continentListView->setFixedWidth(kContinentListViewWidth);
-    m_continentListView->setStyleSheet(ReadFile(":/styles/select_time_zone_frame.css"));
+    m_continentListView->setMinimumWidth(kContinentListViewWidth);
+    m_continentListView->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
     m_continentListView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_continentListView->setContextMenuPolicy(Qt::NoContextMenu);
     m_continentListView->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
@@ -154,9 +157,9 @@ void SelectTimeZoneFrame::initUI()
     m_timeZoneListView->setMovement(QListView::Static);
     m_timeZoneListView->setSelectionMode(QListView::NoSelection);
     m_timeZoneListView->setFrameShape(QFrame::NoFrame);
-    m_timeZoneListView->setFixedWidth(kTimeZoneListViewWidth);
+    m_timeZoneListView->setMinimumWidth(kTimeZoneListViewWidth);
+    m_timeZoneListView->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
     m_timeZoneListView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    m_timeZoneListView->setStyleSheet(ReadFile(":/styles/select_time_zone_frame.css"));
     m_timeZoneListView->setContextMenuPolicy(Qt::NoContextMenu);
     m_timeZoneListView->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     m_timeZoneListView->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
@@ -164,18 +167,47 @@ void SelectTimeZoneFrame::initUI()
     m_timeZoneModel = new QStandardItemModel;
     m_timeZoneListView->setModel(m_timeZoneModel);
 
+    QVBoxLayout *leftLayout = new QVBoxLayout;
+    leftLayout->setContentsMargins(10, 10, 10, 0);
+    leftLayout->setSpacing(0);
+    leftLayout->addWidget(m_continentListView);
+    QFrame *leftListViewWrap = new QFrame;
+    leftListViewWrap->setContentsMargins(0, 0, 0, 0);
+    leftListViewWrap->setLayout(leftLayout);
+
+    QVBoxLayout *rightLayout = new QVBoxLayout;
+    rightLayout->setContentsMargins(10, 10, 10, 0);
+    rightLayout->setSpacing(0);
+    rightLayout->addWidget(m_timeZoneListView);
+    QFrame *rightListViewWrap =  new QFrame;
+    rightListViewWrap->setContentsMargins(0, 0, 0, 0);
+    rightListViewWrap->setLayout(rightLayout);
+
+    DVerticalLine* dVerticalLine = new DVerticalLine;
+    QHBoxLayout* hLineBoxLayout = new QHBoxLayout;
+    hLineBoxLayout->addWidget(dVerticalLine);
+
     QHBoxLayout* listViewLayout = new QHBoxLayout;
-    listViewLayout->setMargin(5);
-    listViewLayout->setContentsMargins(10, 10, 10, 10);
+    listViewLayout->setContentsMargins(0, 0, 0, 0);
     listViewLayout->setSpacing(0);
     listViewLayout->addStretch();
-    listViewLayout->addWidget(m_continentListView);
-    listViewLayout->addSpacing(1);
-    listViewLayout->addWidget(m_timeZoneListView);
+    listViewLayout->addWidget(leftListViewWrap, 0, Qt::AlignLeft);
+    listViewLayout->addLayout(hLineBoxLayout);
+    listViewLayout->addWidget(rightListViewWrap, 0, Qt::AlignRight);
     listViewLayout->addStretch();
 
-    setLayout(listViewLayout);
-    this->setStyleSheet(ReadFile(":/styles/select_time_zone_frame.css"));
+    DFrame *frame = new DFrame;
+    frame->setFrameRounded(true);
+    frame->setContentsMargins(1, 1, 1, 1);
+    frame->setLayout(listViewLayout);
+
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setSpacing(0);
+    mainLayout->addWidget(frame);
+
+    setContentsMargins(0, 0, 0, 0);
+    setLayout(mainLayout);
 
     updateContinentModelData();
 }

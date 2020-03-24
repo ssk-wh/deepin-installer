@@ -357,12 +357,12 @@ void TimezoneFramePrivate::initUI() {
   }
 
   m_timezonePage = new QWidget;
+  m_timezonePage->setContentsMargins(0, 0, 0, 0);
   m_timezonePage->setLayout(m_upLayout);
 
   centerLayout->addWidget(m_timezonePage);
 
   q_ptr->setContentsMargins(0, 0, 0, 0);
-  q_ptr->setStyleSheet(ReadFile(":/styles/timezone_frame.css"));
 
   updateTs();
 }
