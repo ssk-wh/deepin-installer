@@ -37,10 +37,10 @@ const int kItemSpace = 10;
 const int kOsIconLeftMargin = 10;
 // Left margin of text content.
 const int kTextLeftMargin = 40;
-const int kDiskSizeLeftMarin = 240;
-const int kDiskPercentLeftMarin = 400;
+const int kDiskSizeLeftMarin = 173;
+const int kDiskPercentLeftMarin = 250;
 const int kDiskPercentHeight = 6;
-const int kSelectedLeftMargin = 580;
+const int kSelectedLeftMargin = 366;
 // Right margin of selected item, used to locate background image.
 const int kSelectedRightMargin = 2;
 // Size of bottom border.

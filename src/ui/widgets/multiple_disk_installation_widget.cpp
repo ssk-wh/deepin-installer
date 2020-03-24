@@ -32,6 +32,11 @@
 
 DWIDGET_USE_NAMESPACE
 
+namespace {
+    const int kLeftListViewWidth = 130;
+    const int kRightListViewWidth = 390;
+}
+
 namespace installer {
 
 MultipleDiskInstallationWidget::MultipleDiskInstallationWidget(QWidget *parent)
@@ -40,8 +45,6 @@ MultipleDiskInstallationWidget::MultipleDiskInstallationWidget(QWidget *parent)
 {
     initUI();
     initConnections();
-
-    setFrameRounded(true);
 }
 
 void MultipleDiskInstallationWidget::initConnections()
@@ -59,16 +62,18 @@ void MultipleDiskInstallationWidget::initUI()
 {
     m_left_model = new QStringListModel(getDiskTypes());
     m_left_view = new DListView();
-    m_left_view->setFixedWidth(176);
-    m_left_view->setItemSize(QSize(156, 70));
-    m_left_view->setItemSpacing(10);
+    m_left_view->setFixedWidth(kLeftListViewWidth - 20);
+    m_left_view->setItemSize(QSize(kLeftListViewWidth - 20, 46));
+    m_left_view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_left_view->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_left_view->setModel(m_left_model);
 
     m_right_view = new DiskInstallationDetailView();
+    m_right_view->setFixedWidth(kRightListViewWidth);
     m_right_view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_right_view->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     DiskInstallationDetailDelegate* delegate = new DiskInstallationDetailDelegate(m_right_view);
-    delegate->setItemSize(QSize(580, 70));
+    delegate->setItemSize(QSize(kRightListViewWidth - 20, 46));
     m_right_view->setItemDelegate(delegate);
 
     for (int i = 0; i < kDiskModelMaxCount; i++) {
@@ -79,16 +84,45 @@ void MultipleDiskInstallationWidget::initUI()
     leftlayout->setContentsMargins(10, 10, 10, 10);
     leftlayout->setSpacing(0);
     leftlayout->addWidget(m_left_view);
+    QWidget *leftWrapWidget = new QWidget;
+    leftWrapWidget->setContentsMargins(0, 0, 0, 0);
+    leftWrapWidget->setLayout(leftlayout);
+
+    QHBoxLayout * rightlayout = new QHBoxLayout();
+    rightlayout->setContentsMargins(0, 0, 0, 0);
+    rightlayout->setSpacing(0);
+    rightlayout->addWidget(m_right_view);
+    QWidget *rightWrapWidget = new QWidget;
+    rightWrapWidget->setContentsMargins(0, 0, 0, 0);
+    rightWrapWidget->setLayout(rightlayout);
+
+    DVerticalLine* verticalLine = new DVerticalLine;
 
     QHBoxLayout * hboxlayout = new QHBoxLayout();
-    hboxlayout->setMargin(0);
+    hboxlayout->setContentsMargins(0, 0, 0, 0);
     hboxlayout->setSpacing(0);
-    hboxlayout->addLayout(leftlayout);
-    DVerticalLine* verticalLine = new DVerticalLine;
-    hboxlayout->addWidget(verticalLine);
-    hboxlayout->addWidget(m_right_view);
 
-    setLayout(hboxlayout);
+    hboxlayout->addStretch();
+    hboxlayout->addWidget(leftWrapWidget, 0, Qt::AlignRight);
+    hboxlayout->addWidget(verticalLine);
+    hboxlayout->addWidget(rightWrapWidget, 0, Qt::AlignLeft);
+    hboxlayout->addStretch();
+
+    DFrame *frame = new DFrame;
+    frame->setFrameRounded(true);
+    frame->setContentsMargins(1, 1, 1, 1);
+    frame->setLayout(hboxlayout);
+
+    QHBoxLayout *mainLayout = new QHBoxLayout;
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setSpacing(0);
+    mainLayout->addStretch();
+    mainLayout->addWidget(frame);
+    mainLayout->addStretch();
+
+    setFrameRounded(false);
+    setContentsMargins(0, 0, 0, 0);
+    setLayout(mainLayout);
 }
 
 void MultipleDiskInstallationWidget::onDeviceListChanged(const DeviceList& devices)

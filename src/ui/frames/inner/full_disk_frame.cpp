@@ -49,7 +49,7 @@ namespace {
 // 4 partitions are displays at each row.
 const int kDiskColumns = 1;
 
-const int kWindowWidth = 800;
+const int kWindowWidth = 578;
 
 enum class DiskCountType : int
 {
@@ -228,14 +228,15 @@ void FullDiskFrame::initUI() {
   m_install_tip->setParent(m_grid_wrapper);
 
   m_diskInstallationWidget = new MultipleDiskInstallationWidget();
+
   m_disk_layout = new QStackedLayout();
   m_disk_layout->setSpacing(0);
-  m_disk_layout->setContentsMargins(0,0,0,0);
+  m_disk_layout->setContentsMargins(0, 0, 0, 0);
   m_disk_layout->addWidget(m_grid_wrapper);
   m_disk_layout->addWidget(m_diskInstallationWidget);
 
   QHBoxLayout* hDiskLayout = new QHBoxLayout;
-  hDiskLayout->setMargin(0);
+  hDiskLayout->setContentsMargins(0, 0, 0, 0);
   hDiskLayout->setSpacing(0);
   hDiskLayout->addLayout(m_disk_layout);
 
@@ -245,22 +246,12 @@ void FullDiskFrame::initUI() {
   scroll_frame->setContentsMargins(0, 0, 0, 0);
   scroll_frame->setLayout(hDiskLayout);
 
-  QScrollArea* scroll_area = new QScrollArea;
-  scroll_area->setFrameShape(QFrame::Shape::NoFrame);
-  scroll_area->setObjectName("scroll_area");
-  scroll_area->setWidget(scroll_frame);
-  scroll_area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-  scroll_area->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-  scroll_area->setWidgetResizable(true);
-  scroll_area->setFixedWidth(kWindowWidth);
-  scroll_area->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-
   m_diskPartitionWidget = new FullDiskPartitionWidget;
 
   QVBoxLayout* main_layout = new QVBoxLayout();
   main_layout->setContentsMargins(0, 0, 0, 0);
   main_layout->setSpacing(0);
-  main_layout->addWidget(scroll_area, 0, Qt::AlignHCenter);
+  main_layout->addWidget(scroll_frame, 0, Qt::AlignHCenter);
   main_layout->addSpacing(10);
   main_layout->addWidget(m_diskPartitionWidget, 0, Qt::AlignHCenter);
 
