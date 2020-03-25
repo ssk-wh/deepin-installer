@@ -10,8 +10,10 @@
 
 namespace installer {
 
-const int kColorBarWidth = 800;
-const int kPartitionLabelSpace = 38;
+const int kColorBarWidth = 525;
+const int kPartitionLabelSpace = 5;
+
+const int kPartitionNameFont = 10;
 
 static const QMap<QString, QString> PART_NAME_COLOR_NAME_MAP{
     { QString("/boot"), QString("#C100AB") },
@@ -161,23 +163,28 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
     m_labelLayoutWidgets.clear();
     int widgetIndex = 0;
 
+    QFont font;
+    font.setPointSize(kPartitionNameFont);
+
     for (Partition::Ptr partition : partitions) {
         QHBoxLayout *layout = new QHBoxLayout;
-        layout->setMargin(0);
+        layout->setContentsMargins(0, 0, 0, 0);
         layout->setSpacing(0);
 
         PartitionColorLabel *colorLable = new PartitionColorLabel(GetPartitionColor(partition));
         layout->addWidget(colorLable);
 
         QLabel *partNameLable = new QLabel();
-        partNameLable->setFixedWidth(85);
+        partNameLable->setFont(font);
+        partNameLable->setFixedWidth(65);
         partNameLable->setAlignment(Qt::AlignmentFlag::AlignLeft);
         partNameLable->setText(GetPartitionDisplayText(partition));
-        layout->addSpacing(5);
+        layout->addSpacing(2);
         layout->addWidget(partNameLable);
 
         QLabel *partSize = new QLabel();
-        partSize->setFixedWidth(50);
+        partSize->setFont(font);
+        partSize->setFixedWidth(45);
         partSize->setAlignment(Qt::AlignmentFlag::AlignRight);
         QString tmp = GetPartitionUsage(partition);
         int index = tmp.lastIndexOf('/');
@@ -185,14 +192,15 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
         layout->addWidget(partSize);
 
         QLabel *fileSysType = new QLabel();
-        fileSysType->setFixedWidth(80);
-        fileSysType->setAlignment(Qt::AlignmentFlag::AlignRight);
+        fileSysType->setFont(font);
+        fileSysType->setFixedWidth(75);
+        fileSysType->setAlignment(Qt::AlignmentFlag::AlignLeft);
         fileSysType->setText(GetFsTypeName(partition->fs));
-        layout->addSpacing(10);
+        layout->addSpacing(2);
         layout->addWidget(fileSysType);
 
         QWidget *labelsWrapWidget = new QWidget;
-        labelsWrapWidget->setFixedSize(240, 25);
+        labelsWrapWidget->setFixedSize(165, 25);
         labelsWrapWidget->setLayout(layout);
         m_labelLayoutWidgets << labelsWrapWidget;
         m_labelLayout->insertWidget(widgetIndex, labelsWrapWidget);
