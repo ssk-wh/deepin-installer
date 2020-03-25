@@ -31,23 +31,24 @@
 namespace installer {
 
 namespace {
-const int kWindowWidth = 960;
 const int kBtnSize = 35;
 
 const int kItemSpace = 10;
 
 const int kOsIconLeftMargin = 10;
 const int kDevicePathLeftMargin = 40;
-const int kDiskSizeLeftMarin = 300;
-const int kDiskPercentLeftMarin = 400;
+const int kDiskSizeLeftMarin = 150;
+const int kDiskPercentLeftMarin = 205;
 const int kDiskPercentHeight = 6;
-const int kSelectedLeftMargin = 580;
-const int kMountPointLeftMargin = 550;
-const int kTipLeftMargin = 640;
-const int kFileSystemLeftMargin = 770;
-const int kControlButtonLeftMargin = 820;
+const int kMountPointLeftMargin = 280;
+const int kTipLeftMargin = 370;
+
+const int kFileSystemLeftMargin = 470;
+const int kControlButtonLeftMargin = 510;
 
 const int kItemRightMargin = 10;
+
+const int kPartitionInfoFontSize = 9; // 9pt
 }  // namespace
 
 AdvancedPartitionButton::AdvancedPartitionButton(const Partition::Ptr partition,
@@ -116,6 +117,11 @@ void AdvancedPartitionButton::paintEvent(QPaintEvent *event)
     }
     const QColor text_color(Qt::black);
     painter.setPen(QPen(text_color));
+
+    QFont font;
+    font.setPointSize(kPartitionInfoFontSize);
+    painter.setFont(font);
+
     int text_x = std::max(backgroudRect.x() + kDevicePathLeftMargin, os_rect.right() + kItemRightMargin);
     QRect text_rect(text_x, backgroudRect.y(), kDiskSizeLeftMarin - text_x, backgroudRect.height());
     text = painter.fontMetrics().elidedText(text, Qt::TextElideMode::ElideRight, text_rect.width());
@@ -124,7 +130,7 @@ void AdvancedPartitionButton::paintEvent(QPaintEvent *event)
     // Draw disk size.
     text = GetPartitionUsage(partition_);
     text_rect = QRect(backgroudRect.x() + kDiskSizeLeftMarin, backgroudRect.y(),
-           kDiskPercentLeftMarin - kItemRightMargin - (backgroudRect.x() + kDiskSizeLeftMarin),
+           kDiskPercentLeftMarin - (backgroudRect.x() + kDiskSizeLeftMarin),
            backgroudRect.height());
     text = painter.fontMetrics().elidedText(text, Qt::TextElideMode::ElideRight, text_rect.width());
     painter.drawText(text_rect, Qt::AlignLeft | Qt::AlignVCenter, text);
@@ -133,7 +139,7 @@ void AdvancedPartitionButton::paintEvent(QPaintEvent *event)
     const QColor full_color(Qt::gray);
     const QRect full_rect(backgroudRect.x() + kDiskPercentLeftMarin,
           static_cast<int>(backgroudRect.y()+(backgroudRect.height() - kDiskPercentHeight)/2),
-          kSelectedLeftMargin - kItemRightMargin - (backgroudRect.x() + kDiskPercentLeftMarin) - 40,
+          kMountPointLeftMargin - (backgroudRect.x() + kDiskPercentLeftMarin) - 5,
           kDiskPercentHeight);
     QPainterPath full_path;
     full_path.addRoundedRect(full_rect, full_rect.height()/2, full_rect.height()/2);
@@ -146,7 +152,7 @@ void AdvancedPartitionButton::paintEvent(QPaintEvent *event)
     const QColor percent_color(Qt::blue);
     const QRect percent_rect(backgroudRect.x() + kDiskPercentLeftMarin,
           static_cast<int>(backgroudRect.y() + (backgroudRect.height() - kDiskPercentHeight)/2),
-          30 + static_cast<int>((kSelectedLeftMargin - kItemRightMargin - (backgroudRect.x() + kDiskPercentLeftMarin))*disk_percent),
+          static_cast<int>((kMountPointLeftMargin - (backgroudRect.x() + kDiskPercentLeftMarin))*disk_percent),
           kDiskPercentHeight);
     QPainterPath percent_path;
     percent_path.addRoundedRect(percent_rect, percent_rect.height()/2, percent_rect.height()/2);
@@ -155,7 +161,7 @@ void AdvancedPartitionButton::paintEvent(QPaintEvent *event)
     // Draw mount point.
     text = partition_->mount_point;
     text_rect = QRect(backgroudRect.x() + kMountPointLeftMargin, backgroudRect.y(),
-           kTipLeftMargin - kItemRightMargin - (backgroudRect.x() + kMountPointLeftMargin),
+           kTipLeftMargin - (backgroudRect.x() + kMountPointLeftMargin),
            backgroudRect.height());
     text = painter.fontMetrics().elidedText(text, Qt::TextElideMode::ElideRight, text_rect.width());
     painter.drawText(text_rect, Qt::AlignLeft | Qt::AlignVCenter, text);
@@ -171,7 +177,7 @@ void AdvancedPartitionButton::paintEvent(QPaintEvent *event)
         text.clear();
     }
     text_rect = QRect(backgroudRect.x() + kTipLeftMargin, backgroudRect.y(),
-           kFileSystemLeftMargin - kItemRightMargin - (backgroudRect.x() + kTipLeftMargin),
+           kFileSystemLeftMargin - (backgroudRect.x() + kTipLeftMargin),
            backgroudRect.height());
     text = painter.fontMetrics().elidedText(text, Qt::TextElideMode::ElideRight, text_rect.width());
     painter.drawText(text_rect, Qt::AlignLeft | Qt::AlignVCenter, text);
@@ -183,9 +189,12 @@ void AdvancedPartitionButton::paintEvent(QPaintEvent *event)
         text = GetFsTypeName(partition_->fs);
     }
     text_rect = QRect(backgroudRect.x() + kFileSystemLeftMargin, backgroudRect.y(),
-           kControlButtonLeftMargin - kItemRightMargin - (backgroudRect.x() + kFileSystemLeftMargin),
+           kControlButtonLeftMargin - (backgroudRect.x() + kFileSystemLeftMargin),
            backgroudRect.height());
     text = painter.fontMetrics().elidedText(text, Qt::TextElideMode::ElideRight, text_rect.width());
+
+    font.setPointSize(kPartitionInfoFontSize);
+    painter.setFont(font);
     painter.drawText(text_rect, Qt::AlignLeft | Qt::AlignVCenter, text);
 
     m_controlButtonPos = QPoint(backgroudRect.x() + kControlButtonLeftMargin

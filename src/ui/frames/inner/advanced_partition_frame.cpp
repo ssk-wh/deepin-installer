@@ -225,7 +225,7 @@ void AdvancedPartitionFrame::initUI() {
   m_bgGroup->lower();
   m_bgGroup->setContentsMargins(0, 0, 0, 0);
   m_bgGroup->setLayout(bottom_layout);
-  m_bgGroup->setMaximumWidth(kWindowWidth - 20);
+  m_bgGroup->setFixedWidth(540);
   m_bgGroup->setFixedHeight(42);
   m_bgGroup->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
 
@@ -237,7 +237,7 @@ void AdvancedPartitionFrame::initUI() {
   main_layout->addLayout(upLayout);
   main_layout->addSpacing(10);
   QHBoxLayout* downLayout = new QHBoxLayout();
-  downLayout->addWidget(m_bgGroup);
+  downLayout->addWidget(m_bgGroup, 0, Qt::AlignVCenter);
   main_layout->addLayout(downLayout);
   main_layout->addSpacing(8);
 
