@@ -22,10 +22,17 @@
 #include <QPushButton>
 #include <QPainter>
 
-#define NEXTBTN_WIDTH 310
+#define NEXTBTN_WIDTH 240
 #define NEXTBTN_HEIGHT 36
 
 using namespace installer;
+
+namespace {
+    const int kMainFrameWidth = 600;
+    const int kMainFrameHeight = 500;
+
+    const int kContentWidth = 500;
+}
 
 Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxyInterface
                                                  , FullDiskDelegate * delegate, QWidget *parent)
@@ -44,11 +51,15 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     , m_diskPartitionWidget(new FullDiskPartitionWidget)
     , m_diskPartitionDelegate(delegate)
 {
-    m_layout->setContentsMargins(40, 0, 40, 0);
+    m_layout->setContentsMargins(0, 0, 0, 0);
     m_layout->setSpacing(10);
     m_errTip->hide();
     setObjectName("FullDiskEncryptFrame");
     m_layout->addStretch();
+
+    m_frameSubLbl->setWordWrap(true);
+    m_frameSubLbl->setFixedWidth(kContentWidth);
+    m_frameSubLbl->setAlignment(Qt::AlignCenter);
 
     // add encrypt label
     m_layout->addWidget(m_frameLbl, 0, Qt::AlignHCenter);
@@ -82,7 +93,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     // add round progress bar
     RoundedProgressBar* spacingBar = new RoundedProgressBar;
     spacingBar->setFixedHeight(2);
-    spacingBar->setFixedWidth(600);
+    spacingBar->setFixedWidth(kContentWidth);
 
     m_layout->addSpacing(10);
     m_layout->addWidget(spacingBar, 0, Qt::AlignHCenter);
@@ -101,7 +112,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     encryptFrame->setLayout(encryptLayout);
     m_encryptLbl->setFixedWidth(150);
     m_encryptEdit->setFixedWidth(350);
-    encryptFrame->setFixedWidth(600);
+    encryptFrame->setFixedWidth(kContentWidth);
 
     QHBoxLayout *encryptCheckLayout = new QHBoxLayout;
     encryptCheckLayout->setContentsMargins(0, 0, 0, 0);
@@ -112,7 +123,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     encryptCheckFrame->setLayout(encryptCheckLayout);
     m_encryptCheckLbl->setFixedWidth(150);
     m_encryptRepeatEdit->setFixedWidth(350);
-    encryptCheckFrame->setFixedWidth(600);
+    encryptCheckFrame->setFixedWidth(kContentWidth);
 
     m_layout->addWidget(encryptFrame, 0, Qt::AlignHCenter);
     m_layout->addSpacing(10);
@@ -120,7 +131,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
 
     m_layout->addStretch();
 
-    m_tilabel->setFixedWidth(600);
+    m_tilabel->setFixedWidth(kContentWidth);
     m_tilabel->setWordWrap(true);
     m_layout->addWidget(m_tilabel, 0, Qt::AlignHCenter);
 
@@ -140,6 +151,8 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     m_layout->addSpacing(10);
 
     setLayout(m_layout);
+    setContentsMargins(0, 0, 0, 0);
+    setFixedSize(QSize(kMainFrameWidth, kMainFrameHeight));
 
     m_editList << m_encryptEdit << m_encryptRepeatEdit;
 
