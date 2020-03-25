@@ -481,9 +481,9 @@ void MainWindow::initUI() {
   vbox_layout->setContentsMargins(0, 0, 0, 0);
   vbox_layout->setSpacing(0);
   vbox_layout->addLayout(stacked_layout_);
-  vbox_layout->addSpacing(32);
 
   QWidget* contentWidget = new QWidget;
+  contentWidget->setContentsMargins(0, 0, 0, 0);
   contentWidget->setLayout(vbox_layout);
 
   m_frameSelectedLayout = new QVBoxLayout;
@@ -496,7 +496,7 @@ void MainWindow::initUI() {
   frameSelectedListWidget->setFixedWidth(kLeftViewWidth);
 
   QHBoxLayout* mainLayout = new QHBoxLayout;
-  mainLayout->setMargin(0);
+  mainLayout->setContentsMargins(0, 0, 0, 0);
   mainLayout->setSpacing(0);
 
   mainLayout->addWidget(frameSelectedListWidget);
@@ -507,6 +507,7 @@ void MainWindow::initUI() {
   bgGroup->setContentsMargins(10, 10, 10, 10);
   bgGroup->setLayout(mainLayout);
 
+  setContentsMargins(0, 0, 0, 0);
   setCentralWidget(bgGroup);
 
   control_panel_frame_ = new ControlPanelFrame(this);
