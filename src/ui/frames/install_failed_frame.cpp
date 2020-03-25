@@ -46,11 +46,11 @@ namespace installer {
 
 namespace {
 
-const int kContentWindowWidth = 580;
-const int kContentWindowHeight = 320;
+const int kContentWindowWidth = 500;
+const int kContentWindowHeight = 200;
 
 const int kQrMargin = 8;
-const int kQrWindowSize = 280;
+const int kQrWindowSize = 142;
 
 const int kControlButtonSize = 32;
 
@@ -65,7 +65,6 @@ public:
     QLabel *title_label_;
     CommentLabel *comment_label_ ;
     QPushButton *reboot_button_ ;
-    QPushButton *save_log_button_;
     QRWidget *qr_widget_;
     QWidget* qrParentWidget;
     QPlainTextEdit *m_plainTextEdit ;
@@ -81,7 +80,6 @@ public:
             tr("Sorry for the trouble. Please photo or scan the QR code to send us the error log, "
                "or save the log to an external disk. We will help solve the issue."));
         reboot_button_->setText(tr("Exit"));
-        save_log_button_->setText(tr("Save Log"));
     }
 
     void onControlButtonClicked();
@@ -143,8 +141,6 @@ void InstallFailedFramePrivate::initConnections()
             this, &InstallFailedFramePrivate::onControlButtonClicked);
     connect(reboot_button_, &QPushButton::clicked,
             m_ptr, &InstallFailedFrame::finished);
-    connect(save_log_button_, &QPushButton::clicked,
-            m_ptr, &InstallFailedFrame::showSaveLogFrame);
 }
 
 void InstallFailedFramePrivate::initUI()
@@ -197,21 +193,16 @@ void InstallFailedFramePrivate::initUI()
 
     reboot_button_ = new QPushButton;
     reboot_button_->setFixedSize(310, 36);
-    save_log_button_ = new QPushButton;
-    save_log_button_->setFixedSize(310, 36);
 
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setContentsMargins(0, 0, 0, 0);
-    layout->setSpacing(kMainLayoutSpacing);
-    layout->addStretch();
+    layout->setSpacing(10);
     layout->addWidget(status_label, 0, Qt::AlignCenter);
     layout->addWidget(title_label_, 0, Qt::AlignCenter);
     layout->addWidget(comment_label_, 0, Qt::AlignCenter);
     layout->addStretch();
     layout->addWidget(content_frame, 0, Qt::AlignCenter);
     layout->addStretch();
-    layout->addSpacing(kMainLayoutSpacing);
-    layout->addWidget(save_log_button_, 0, Qt::AlignCenter);
     layout->addWidget(reboot_button_, 0, Qt::AlignCenter);
 
     m_ptr->setLayout(layout);
