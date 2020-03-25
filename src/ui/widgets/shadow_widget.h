@@ -25,6 +25,8 @@ private:
     BaseFrameInterface* childFrameInterface;
     QStackedLayout* m_centerLayout;
     QVBoxLayout* m_mainLayout;
+
+    QWidget* widget;
 };
 }
 #endif // PARTITION_SHADOW_WIDGET_H
