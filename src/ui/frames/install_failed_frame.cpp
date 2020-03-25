@@ -183,6 +183,8 @@ void InstallFailedFramePrivate::initUI()
     content_frame->setLayout(stacked_layout);
 
     control_button_ = new QPushButton(content_frame);
+    control_button_->setFocusPolicy(Qt::NoFocus);
+    control_button_->setIcon(QIcon(installer::renderPixmap(":/images/failed_qr.svg")));
     control_button_->setObjectName("control_button");
     control_button_->setFlat(true);
     control_button_->setFixedSize(kControlButtonSize, kControlButtonSize);
@@ -214,9 +216,11 @@ void InstallFailedFramePrivate::onControlButtonClicked()
     // Toggle visibility of m_scrollArea and qr_widget_.
     if (stacked_layout->currentWidget() == m_plainTextEdit) {
         stacked_layout->setCurrentWidget(qrParentWidget);
+        control_button_->setIcon(QIcon(installer::renderPixmap(":/images/failed_data.svg")));
     }
     else {
         stacked_layout->setCurrentWidget(m_plainTextEdit);
+        control_button_->setIcon(QIcon(installer::renderPixmap(":/images/failed_qr.svg")));
     }
 
     control_button_->raise();

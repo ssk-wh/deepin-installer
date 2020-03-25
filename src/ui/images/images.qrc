@@ -113,5 +113,7 @@
         <file>NO_inactive7.svg</file>
         <file>NO_inactive8.svg</file>
         <file>NO_inactive9.svg</file>
+        <file>failed_data.svg</file>
+        <file>failed_qr.svg</file>
     </qresource>
 </RCC>
