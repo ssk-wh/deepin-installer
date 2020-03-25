@@ -49,8 +49,13 @@ namespace {
 // Minimum size of new partition is 100 Mib.
 const qint64 kMinimumPartitionSize = 100 * kMebiByte;
 const int kButtonwidth = 197;
-const int kLeftRightSpacing = 87;
+
 const int kMainFrameWidth = 560;
+const int kMainFrameHeight = 500;
+
+const int kHintLabelWidth = 80;
+const int kHintLabelInputWidgetSpacing = 10;
+const int kInputWidgetWidth = 310;
 }  // namespace
 
 NewPartitionFrame::NewPartitionFrame(FrameProxyInterface* frameProxyInterface, AdvancedPartitionDelegate* delegate,
@@ -170,24 +175,28 @@ void NewPartitionFrame::initUI() {
   type_box_ = new TableComboBox();
   type_model_ = new PartitionTypeModel(type_box_);
   type_box_->setModel(type_model_);
+  type_label_->setFixedWidth(kHintLabelWidth);
+  type_box_->setFixedWidth(kInputWidgetWidth);
 
   QHBoxLayout* type_layout = new QHBoxLayout;
   type_layout->addStretch();
   type_layout->addWidget(type_label_, 0, Qt::AlignLeft);
-  type_layout->addSpacing(50);
-  type_layout->addWidget(type_box_, 0, Qt::AlignLeft);
+  type_layout->addSpacing(kHintLabelInputWidgetSpacing);
+  type_layout->addWidget(type_box_, 0, Qt::AlignRight);
   type_layout->addStretch();
 
   alignment_label_ = new QLabel(tr("Location"));
   alignment_label_->setObjectName("alignment_label");
   alignment_box_ = new TableComboBox();
   alignment_box_->addItems({tr("Start"), tr("End")});
+  alignment_label_->setFixedWidth(kHintLabelWidth);
+  alignment_box_->setFixedWidth(kInputWidgetWidth);
 
   QHBoxLayout* alignment_layout = new QHBoxLayout;
   alignment_layout->addStretch();
   alignment_layout->addWidget(alignment_label_, 0, Qt::AlignLeft);
-  alignment_layout->addSpacing(50);
-  alignment_layout->addWidget(alignment_box_, 0, Qt::AlignLeft);
+  alignment_layout->addSpacing(kHintLabelInputWidgetSpacing);
+  alignment_layout->addWidget(alignment_box_, 0, Qt::AlignRight);
   alignment_layout->addStretch();
 
   fs_label_ = new QLabel(tr("File system"));
@@ -195,14 +204,16 @@ void NewPartitionFrame::initUI() {
   fs_box_ = new TableComboBox();
   fs_model_ = new FsModel(delegate_->getFsTypeList(), fs_box_);
   fs_box_->setModel(fs_model_);
+  fs_label_->setFixedWidth(kHintLabelWidth);
+  fs_box_->setFixedWidth(kInputWidgetWidth);
 
   fs_model_->setShowRecovery(GetSettingsBool(kEnableRecoveryPartition));
 
   QHBoxLayout* fs_layout = new QHBoxLayout;
   fs_layout->addStretch();
   fs_layout->addWidget(fs_label_, 0, Qt::AlignLeft);
-  fs_layout->addSpacing(22);
-  fs_layout->addWidget(fs_box_, 0, Qt::AlignLeft);
+  fs_layout->addSpacing(kHintLabelInputWidgetSpacing);
+  fs_layout->addWidget(fs_box_, 0, Qt::AlignRight);
   fs_layout->addStretch();
 
   mount_point_label_ = new QLabel(tr("Mount point"));
@@ -211,12 +222,14 @@ void NewPartitionFrame::initUI() {
   mount_point_model_ = new MountPointModel(delegate_->getMountPoints(),
                                            mount_point_box_);
   mount_point_box_->setModel(mount_point_model_);
+  mount_point_label_->setFixedWidth(kHintLabelWidth);
+  mount_point_box_->setFixedWidth(kInputWidgetWidth);
 
   QHBoxLayout* mount_layout = new QHBoxLayout;
   mount_layout->addStretch();
   mount_layout->addWidget(mount_point_label_, 0, Qt::AlignLeft);
-  mount_layout->addSpacing(36);
-  mount_layout->addWidget(mount_point_box_, 0, Qt::AlignLeft);
+  mount_layout->addSpacing(kHintLabelInputWidgetSpacing);
+  mount_layout->addWidget(mount_point_box_, 0, Qt::AlignRight);
   mount_layout->addStretch();
 
   size_label_ = new QLabel(tr("Size"));
@@ -224,12 +237,14 @@ void NewPartitionFrame::initUI() {
   size_label_->setFrameShape(QFrame::NoFrame);
   size_slider_ = new PartitionSizeSlider();
   size_slider_->setFixedWidth(mount_point_box_->width());
+  size_label_->setFixedWidth(kHintLabelWidth);
+  size_slider_->setFixedWidth(kInputWidgetWidth);
 
   QHBoxLayout* size_layout = new QHBoxLayout;
   size_layout->addStretch();
   size_layout->addWidget(size_label_, 0, Qt::AlignLeft);
-  size_layout->addSpacing(50);
-  size_layout->addWidget(size_slider_, 0, Qt::AlignLeft);
+  size_layout->addSpacing(kHintLabelInputWidgetSpacing);
+  size_layout->addWidget(size_slider_, 0, Qt::AlignRight);
   size_layout->addStretch();
 
   QVBoxLayout* content_layout = new QVBoxLayout();
@@ -241,7 +256,6 @@ void NewPartitionFrame::initUI() {
   content_layout->addLayout(size_layout);
 
   QFrame* content_frame = new QFrame();
-  content_frame->setFixedWidth(kMainFrameWidth);
   content_frame->setObjectName("content_frame");
   content_frame->setLayout(content_layout);
 
@@ -252,11 +266,10 @@ void NewPartitionFrame::initUI() {
   create_button_->setFocus();
 
   QHBoxLayout* bt_layout = new QHBoxLayout;
-  bt_layout->addSpacing(kLeftRightSpacing);
+  bt_layout->addStretch();
   bt_layout->addWidget(cancel_button_, 0, Qt::AlignHCenter);
   bt_layout->addSpacing(20);
   bt_layout->addWidget(create_button_, 0, Qt::AlignHCenter);
-  bt_layout->addSpacing(kLeftRightSpacing);
   bt_layout->addStretch();
 
   QVBoxLayout* layout = new QVBoxLayout();
@@ -273,6 +286,7 @@ void NewPartitionFrame::initUI() {
 
   this->setLayout(layout);
   this->setContentsMargins(0, 0, 0, 0);
+  setFixedSize(QSize(kMainFrameWidth, kMainFrameHeight));
 }
 
 void NewPartitionFrame::updateSlideSize() {
