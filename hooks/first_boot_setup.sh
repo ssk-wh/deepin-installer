@@ -65,7 +65,7 @@ detect_btrfs() {
 
 # Purge packages
 uninstall_packages() {
-  if [ ! -d "/target/recovery" ];then
+  if [ ! -d "/recovery" ];then
     add_uninstall_package "deepin-clone"
   fi
 
