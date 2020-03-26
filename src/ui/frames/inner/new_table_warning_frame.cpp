@@ -28,6 +28,13 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 
+namespace {
+    const int kButtonWidth = 200;
+    const int kButtonHeight = 36;
+
+    const int kCommentLabelWidth = 398;
+}
+
 namespace installer {
 
 NewTableWarningFrame::NewTableWarningFrame(QWidget* parent)
@@ -70,8 +77,6 @@ void NewTableWarningFrame::initConnections() {
 }
 
 void NewTableWarningFrame::initUI() {
-  QLabel* warning_label = new QLabel();
-  warning_label->setPixmap(installer::renderPixmap(":/images/warning.svg"));
   title_label_ = new TitleLabel(tr("Format Warning"));
   title_label_->setObjectName("title_label");
 
@@ -80,41 +85,35 @@ void NewTableWarningFrame::initUI() {
   disk_name_label_ = new QLabel();
   disk_name_label_->setObjectName("disk_name_label");
 
-  QHBoxLayout* title_layout = new QHBoxLayout();
-  title_layout->setContentsMargins(0, 0, 0, 0);
-  title_layout->setSpacing(0);
-  title_layout->addStretch();
-  title_layout->addWidget(warning_label);
-  title_layout->addSpacing(8);
-  title_layout->addWidget(title_label_);
-  title_layout->addStretch();
-
   comment_label_ = new CommentLabel(
     tr("Continuing installation will format the whole disk, "
        "please make a backup of all your data. If you do not know what you are doing, please do not continue"));
-  QHBoxLayout* comment_layout = new QHBoxLayout();
-  comment_layout->setContentsMargins(0, 0, 0, 0);
-  comment_layout->setSpacing(0);
-  comment_layout->addWidget(comment_label_);
+  comment_label_->setFixedWidth(kCommentLabelWidth);
 
   cancel_button_ = new QPushButton(tr("Cancel"));
-  cancel_button_->setFixedSize(310, 36);
+  cancel_button_->setFixedSize(kButtonWidth, kButtonHeight);
   confirm_button_ = new QPushButton(tr("Continue"));
-  confirm_button_->setFixedSize(310, 36);
+  confirm_button_->setFixedSize(kButtonWidth, kButtonHeight);
+
+  QHBoxLayout *buttonLayout = new QHBoxLayout;
+  buttonLayout->setContentsMargins(0, 0, 0, 0);
+  buttonLayout->setSpacing(0);
+  buttonLayout->addWidget(cancel_button_, 0, Qt::AlignHCenter | Qt::AlignLeft);
+  buttonLayout->addSpacing(20);
+  buttonLayout->addWidget(confirm_button_, 0, Qt::AlignHCenter | Qt::AlignRight);
+  QWidget *buttonWrapWidget = new QWidget;
+  buttonWrapWidget->setLayout(buttonLayout);
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
   layout->setSpacing(kMainLayoutSpacing);
-  layout->addStretch();
+  layout->addSpacing(90);
+  layout->addWidget(title_label_, 0, Qt::AlignHCenter);
   layout->addWidget(disk_label, 0, Qt::AlignHCenter);
   layout->addWidget(disk_name_label_, 0, Qt::AlignHCenter);
-  layout->addSpacing(40);
-  layout->addLayout(title_layout);
-  layout->addLayout(comment_layout);
+  layout->addWidget(comment_label_, 0, Qt::AlignHCenter);
   layout->addStretch();
-  layout->addWidget(cancel_button_, 0, Qt::AlignHCenter);
-  layout->addSpacing(kNavButtonVerticalSpacing);
-  layout->addWidget(confirm_button_, 0, Qt::AlignHCenter);
+  layout->addWidget(buttonWrapWidget, 0, Qt::AlignHCenter);
 
   this->setLayout(layout);
   this->setContentsMargins(0, 0, 0, 0);
