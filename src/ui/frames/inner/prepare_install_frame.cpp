@@ -29,6 +29,11 @@
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/title_label.h"
 
+namespace {
+    const int kButtonWidth = 200;
+    const int kButtonHeight = 36;
+}
+
 namespace installer {
 
 PrepareInstallFrame::PrepareInstallFrame(QWidget* parent)
@@ -103,23 +108,32 @@ void PrepareInstallFrame::initUI() {
   description_edit_->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
   abort_button_ = new QPushButton(tr("Back"));
-  abort_button_->setFixedSize(310, 36);
+  abort_button_->setFixedSize(kButtonWidth, kButtonHeight);
   continue_button_ = new QPushButton(tr("Continue"));
-  continue_button_->setFixedSize(310, 36);
+  continue_button_->setFixedSize(kButtonWidth, kButtonHeight);
+
+  QHBoxLayout *buttonLayout = new QHBoxLayout;
+  buttonLayout->setContentsMargins(0, 0, 0, 0);
+  buttonLayout->setSpacing(0);
+  buttonLayout->addWidget(abort_button_, 0, Qt::AlignHCenter | Qt::AlignLeft);
+  buttonLayout->addSpacing(20);
+  buttonLayout->addWidget(continue_button_, 0, Qt::AlignHCenter | Qt::AlignRight);
+  QWidget *buttonWrapWidget = new QWidget;
+  buttonWrapWidget->setLayout(buttonLayout);
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
   layout->setSpacing(kMainLayoutSpacing);
   layout->addStretch();
-  layout->addWidget(title_label_, 0, Qt::AlignCenter);
+  layout->addWidget(title_label_, 0, Qt::AlignHCenter);
   layout->addLayout(comment_layout);
   layout->addStretch();
-  layout->addWidget(subtitle_label_, 0, Qt::AlignCenter);
+  layout->addWidget(subtitle_label_, 0, Qt::AlignHCenter);
   layout->addWidget(description_edit_, 0, Qt::AlignHCenter);
   layout->addStretch();
-  layout->addWidget(abort_button_, 0, Qt::AlignCenter);
-  layout->addSpacing(kNavButtonVerticalSpacing);
-  layout->addWidget(continue_button_, 0, Qt::AlignCenter);
+  layout->addWidget(buttonWrapWidget, 0, Qt::AlignHCenter);
+//  layout->addSpacing(kNavButtonVerticalSpacing);
+//  layout->addWidget(continue_button_, 0, Qt::AlignCenter);
 
   this->setLayout(layout);
 }
