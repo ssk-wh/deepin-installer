@@ -53,8 +53,12 @@ DWIDGET_USE_NAMESPACE
 namespace installer {
 
 namespace {
-const int kSetRootPasswordCheckBoxWidth = 608;
+const int kSetRootPasswordCheckBoxWidth = 520;
 const int kSetRootPasswordCheckBoxHeight = 36;
+
+const int kMainWindowWidth = 520;
+const int kHintLabelWidth = 140;
+const int kInputWidgetWidth = 340;
 }//namespace
 
 class SystemInfoFormFramePrivate : public QObject
@@ -323,7 +327,9 @@ void SystemInfoFormFramePrivate::initUI()
     m_titleLabel_   = new TitleLabel("");
     m_commentLabel_ = new CommentLabel;
     m_commentLabel_->setAlignment(Qt::AlignCenter);
+
     m_avatarButton_ = new SystemInfoAvatarFrame;
+    m_avatarButton_->setFixedWidth(kMainWindowWidth);
 
     m_usernameLabel = new QLabel;
     m_usernameLabel->setAlignment(Qt::AlignLeft);
@@ -345,9 +351,9 @@ void SystemInfoFormFramePrivate::initUI()
     usernameLayout->addWidget(m_usernameEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
     QFrame *usernameFrame = new QFrame;
     usernameFrame->setLayout(usernameLayout);
-    m_usernameLabel->setFixedWidth(150);
-    m_usernameEdit->setFixedWidth(400);
-    usernameFrame->setFixedWidth(600);
+    m_usernameLabel->setFixedWidth(kHintLabelWidth);
+    m_usernameEdit->setFixedWidth(kInputWidgetWidth);
+    usernameFrame->setFixedWidth(kMainWindowWidth);
 
     m_hostnameLabel = new QLabel;
     m_hostnameLabel->setAlignment(Qt::AlignLeft);
@@ -369,9 +375,9 @@ void SystemInfoFormFramePrivate::initUI()
     hostnameLayout->addWidget(m_hostnameEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
     QFrame *hostnameFrame = new QFrame;
     hostnameFrame->setLayout(hostnameLayout);
-    m_hostnameLabel->setFixedWidth(150);
-    m_hostnameEdit->setFixedWidth(400);
-    hostnameFrame->setFixedWidth(600);
+    m_hostnameLabel->setFixedWidth(kHintLabelWidth);
+    m_hostnameEdit->setFixedWidth(kInputWidgetWidth);
+    hostnameFrame->setFixedWidth(kMainWindowWidth);
 
     m_passwordLabel = new QLabel;
     m_passwordLabel->setAlignment(Qt::AlignLeft);
@@ -386,9 +392,9 @@ void SystemInfoFormFramePrivate::initUI()
     passwordLayout->addWidget(m_passwordEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
     QFrame *passwordFrame = new QFrame;
     passwordFrame->setLayout(passwordLayout);
-    m_passwordLabel->setFixedWidth(150);
-    m_passwordEdit->setFixedWidth(400);
-    passwordFrame->setFixedWidth(600);
+    m_passwordLabel->setFixedWidth(kHintLabelWidth);
+    m_passwordEdit->setFixedWidth(kInputWidgetWidth);
+    passwordFrame->setFixedWidth(kMainWindowWidth);
 
     m_passwordCheckLabel = new QLabel;
     m_passwordCheckLabel->setAlignment(Qt::AlignLeft);
@@ -413,9 +419,9 @@ void SystemInfoFormFramePrivate::initUI()
     passwordCheckLayout->addWidget(m_passwordCheckEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
     QFrame *passwordCheckFrame = new QFrame;
     passwordCheckFrame->setLayout(passwordCheckLayout);
-    m_passwordCheckLabel->setFixedWidth(150);
-    m_passwordCheckEdit->setFixedWidth(400);
-    passwordCheckFrame->setFixedWidth(600);
+    m_passwordCheckLabel->setFixedWidth(kHintLabelWidth);
+    m_passwordCheckEdit->setFixedWidth(kInputWidgetWidth);
+    passwordCheckFrame->setFixedWidth(kMainWindowWidth);
 
     m_setRootPasswordCheck = new QCheckBox;
     m_setRootPasswordCheck->setCheckable(true);
@@ -437,9 +443,9 @@ void SystemInfoFormFramePrivate::initUI()
     rootPasswordLayout->addWidget(m_rootPasswordEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
     m_rootPasswordFrame = new QFrame;
     m_rootPasswordFrame->setLayout(rootPasswordLayout);
-    m_rootPasswordLabel->setFixedWidth(150);
-    m_rootPasswordEdit->setFixedWidth(400);
-    m_rootPasswordFrame->setFixedWidth(600);
+    m_rootPasswordLabel->setFixedWidth(kHintLabelWidth);
+    m_rootPasswordEdit->setFixedWidth(kInputWidgetWidth);
+    m_rootPasswordFrame->setFixedWidth(kMainWindowWidth);
     QSizePolicy sp_retain = m_rootPasswordEdit->sizePolicy();
     sp_retain.setRetainSizeWhenHidden(true);
     m_rootPasswordFrame->setSizePolicy(sp_retain);
@@ -458,9 +464,9 @@ void SystemInfoFormFramePrivate::initUI()
     rootPasswordCheckLayout->addWidget(m_rootPasswordCheckEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
     m_rootPasswordCheckFrame = new QFrame;
     m_rootPasswordCheckFrame->setLayout(rootPasswordCheckLayout);
-    m_rootPasswordCheckLabel->setFixedWidth(150);
-    m_rootPasswordCheckEdit->setFixedWidth(400);
-    m_rootPasswordCheckFrame->setFixedWidth(600);
+    m_rootPasswordCheckLabel->setFixedWidth(kHintLabelWidth);
+    m_rootPasswordCheckEdit->setFixedWidth(kInputWidgetWidth);
+    m_rootPasswordCheckFrame->setFixedWidth(kMainWindowWidth);
     sp_retain = m_rootPasswordEdit->sizePolicy();
     sp_retain.setRetainSizeWhenHidden(true);
     m_rootPasswordCheckFrame->setSizePolicy(sp_retain);
@@ -503,7 +509,7 @@ void SystemInfoFormFramePrivate::initUI()
     area->viewport()->setAutoFillBackground(false);
     area->setWidgetResizable(true);
     area->setFrameStyle(QScrollArea::NoFrame);
-    area->setFixedWidth(800);
+    area->setFixedWidth(kMainWindowWidth);
     area->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     area->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
