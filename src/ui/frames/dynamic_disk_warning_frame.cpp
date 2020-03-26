@@ -1,6 +1,7 @@
 #include "dynamic_disk_warning_frame.h"
 #include "ui/utils/widget_util.h"
 #include "base/file_util.h"
+#include "ui/widgets/title_label.h"
 
 #include <QEvent>
 #include <QHBoxLayout>
@@ -9,9 +10,14 @@
 
 using namespace installer;
 
+namespace {
+    const int kButtonWidth = 200;
+    const int kButtonHeight = 36;
+}
+
 DynamicDiskWarningFrame::DynamicDiskWarningFrame(QWidget* parent)
     : QWidget(parent)
-    , m_warning(new QLabel)
+    , m_warning(new TitleLabel(""))
     , m_warningTips(new QLabel)
     , m_cancelBtn(new QPushButton)
     , m_acceptBtn(new QPushButton)
@@ -23,50 +29,44 @@ DynamicDiskWarningFrame::DynamicDiskWarningFrame(QWidget* parent)
     m_warningTips->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     m_warningTips->setFixedWidth(310);
 
-    QVBoxLayout* layout = new QVBoxLayout;
-    layout->setMargin(0);
-    layout->setSpacing(10);
-
-    layout->addStretch();
-
-    m_diskListLayout->setMargin(0);
+    m_diskListLayout->setContentsMargins(0, 0, 0, 0);
     m_diskListLayout->setSpacing(30);
 
+    m_cancelBtn->setFixedSize(kButtonWidth, kButtonHeight);
+    m_acceptBtn->setFixedSize(kButtonWidth, kButtonHeight);
+
+    QHBoxLayout *buttonLayout = new QHBoxLayout;
+    buttonLayout->setContentsMargins(0, 0, 0, 0);
+    buttonLayout->setSpacing(0);
+    buttonLayout->addWidget(m_cancelBtn, 0, Qt::AlignHCenter | Qt::AlignLeft);
+    buttonLayout->addSpacing(20);
+    buttonLayout->addWidget(m_acceptBtn, 0, Qt::AlignHCenter | Qt::AlignRight);
+    QWidget *buttonWrapWidget = new QWidget;
+    buttonWrapWidget->setLayout(buttonLayout);
+
+    QVBoxLayout* layout = new QVBoxLayout;
+    layout->setContentsMargins(0, 0, 0, 0);
+    layout->setSpacing(0);
+    layout->addSpacing(90);
+    layout->addWidget(m_warning, 0, Qt::AlignHCenter);
     layout->addLayout(m_diskListLayout);
-
-    QHBoxLayout* warningLayout = new QHBoxLayout;
-    warningLayout->setMargin(0);
-    warningLayout->setSpacing(10);
-
-    QLabel* warningIcon = new QLabel;
-    warningIcon->setPixmap(installer::renderPixmap(":/images/warning.svg"));
-    warningLayout->addStretch();
-    warningLayout->addWidget(warningIcon, 0, Qt::AlignVCenter);
-    warningLayout->addWidget(m_warning, 0, Qt::AlignVCenter);
-    warningLayout->addStretch();
-
-    layout->addLayout(warningLayout);
-
     layout->addSpacing(10);
     layout->addWidget(m_warningTips, 1, Qt::AlignHCenter);
-
-    m_cancelBtn->setFixedSize(310, 36);
-    m_acceptBtn->setFixedSize(310, 36);
-
     layout->addStretch();
-    layout->addWidget(m_cancelBtn, 0, Qt::AlignHCenter);
-    layout->addWidget(m_acceptBtn, 0, Qt::AlignHCenter);
+    layout->addWidget(buttonWrapWidget, 0, Qt::AlignHCenter);
 
     setLayout(layout);
 
     connect(m_cancelBtn, &QPushButton::clicked, this, &DynamicDiskWarningFrame::requestCancel);
     connect(m_acceptBtn, &QPushButton::clicked, this, &DynamicDiskWarningFrame::requestNext);
+
+    refreshTs();
 }
 
 void DynamicDiskWarningFrame::setDevice(const QList<Device::Ptr> list)
 {
     QLayoutItem* child;
-    while ((child = m_diskListLayout->takeAt(0)) != 0) {
+    while ((child = m_diskListLayout->takeAt(0)) != nullptr) {
         if (child->widget()) {
             child->widget()->setParent(nullptr);
         }
@@ -74,7 +74,7 @@ void DynamicDiskWarningFrame::setDevice(const QList<Device::Ptr> list)
         delete child;
     }
 
-    for (const Device::Ptr device : list) {
+    for (const Device::Ptr &device : list) {
         QVBoxLayout* diskLayout = new QVBoxLayout;
         diskLayout->setMargin(0);
         diskLayout->setSpacing(0);

@@ -11,6 +11,7 @@ class QHBoxLayout;
 class QPushButton;
 
 namespace installer {
+class TitleLabel;
 
 class DynamicDiskWarningFrame : public QWidget {
     Q_OBJECT
@@ -32,7 +33,7 @@ private:
     void refreshTs();
 
 private:
-    QLabel*      m_warning;
+    TitleLabel*      m_warning;
     QLabel*      m_warningTips;
     QPushButton*   m_cancelBtn;
     QPushButton*   m_acceptBtn;
