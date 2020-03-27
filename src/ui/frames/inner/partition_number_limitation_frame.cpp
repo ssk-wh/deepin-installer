@@ -25,7 +25,8 @@
 namespace installer {
 
 namespace {
-    const int kWindowWidth = 960;
+    const int kHintLabelWidth = 390;
+    const int kTitleFontSize = 24; // 24pt
 }
 
 PartitionNumberLimitationFrame::PartitionNumberLimitationFrame(
@@ -36,8 +37,8 @@ PartitionNumberLimitationFrame::PartitionNumberLimitationFrame(
   this->initConnections();
 }
 
-void
-PartitionNumberLimitationFrame::setHasExtendedPartition(bool has_ext_part) {
+void PartitionNumberLimitationFrame::setHasExtendedPartition(bool has_ext_part)
+{
   if (has_ext_part) {
     comment1_label_->setText(
         tr("You should delete a primary partition before creating a new one"));
@@ -73,17 +74,22 @@ void PartitionNumberLimitationFrame::initConnections() {
 }
 
 void PartitionNumberLimitationFrame::initUI() {
-  title_label_ = new TitleLabel(tr("Failed to Create New Partition"));
+  title_label_ = new QLabel(tr("Failed to Create New Partition"));
+  QFont font;
+  font.setPointSize(kTitleFontSize);
+  title_label_->setFont(font);
 
   comment1_label_ = new CommentLabel(
       tr("You should delete a primary partition before creating a new one, "
          "as there can only be four primary partitions on an MBR disk"));
-  comment1_label_->setFixedWidth(kWindowWidth);
+  comment1_label_->setFixedWidth(kHintLabelWidth);
+  comment1_label_->setWordWrap(true);
 
   comment2_label_ = new CommentLabel(
       tr("You should delete a primary partition before creating a logical one, "
          "or move the existing logical partition to the end of the disk"));
-  comment2_label_->setFixedWidth(kWindowWidth);
+  comment2_label_->setFixedWidth(kHintLabelWidth);
+  comment2_label_->setWordWrap(true);
 
   back_button_ = new QPushButton(tr("Back"));
   back_button_->setFixedSize(310, 36);

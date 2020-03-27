@@ -20,6 +20,7 @@
 
 #include <QFrame>
 #include <QPushButton>
+#include <QLabel>
 
 namespace installer {
 
@@ -50,7 +51,7 @@ class PartitionNumberLimitationFrame : public QFrame {
   void initConnections();
   void initUI();
 
-  TitleLabel* title_label_ = nullptr;
+  QLabel* title_label_ = nullptr;
   CommentLabel* comment1_label_ = nullptr;
   CommentLabel* comment2_label_ = nullptr;
   QPushButton* back_button_ = nullptr;
