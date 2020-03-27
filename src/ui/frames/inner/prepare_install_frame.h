@@ -53,7 +53,6 @@ class PrepareInstallFrame : public QFrame {
 
   TitleLabel* title_label_ = nullptr;
   CommentLabel* comment_label_ = nullptr;
-  QLabel* subtitle_label_ = nullptr;
   QPushButton* abort_button_ = nullptr;
   QPushButton* continue_button_ = nullptr;
   QTextEdit* description_edit_ = nullptr;
