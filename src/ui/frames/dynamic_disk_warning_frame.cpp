@@ -13,6 +13,8 @@ using namespace installer;
 namespace {
     const int kButtonWidth = 200;
     const int kButtonHeight = 36;
+
+    const int kWarningTipsWidth = 398;
 }
 
 DynamicDiskWarningFrame::DynamicDiskWarningFrame(QWidget* parent)
@@ -26,8 +28,7 @@ DynamicDiskWarningFrame::DynamicDiskWarningFrame(QWidget* parent)
     m_warning->setObjectName("WarningText");
     m_warningTips->setObjectName("WarningTips");
     m_warningTips->setWordWrap(true);
-    m_warningTips->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-    m_warningTips->setFixedWidth(310);
+    m_warningTips->setFixedWidth(kWarningTipsWidth);
 
     m_diskListLayout->setContentsMargins(0, 0, 0, 0);
     m_diskListLayout->setSpacing(30);
@@ -42,6 +43,7 @@ DynamicDiskWarningFrame::DynamicDiskWarningFrame(QWidget* parent)
     buttonLayout->addSpacing(20);
     buttonLayout->addWidget(m_acceptBtn, 0, Qt::AlignHCenter | Qt::AlignRight);
     QWidget *buttonWrapWidget = new QWidget;
+    buttonWrapWidget->setContentsMargins(0, 0, 0, 0);
     buttonWrapWidget->setLayout(buttonLayout);
 
     QVBoxLayout* layout = new QVBoxLayout;
