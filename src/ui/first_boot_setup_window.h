@@ -64,7 +64,6 @@ class FirstBootSetupWindow : public DMainWindow, public FrameProxyInterface {
   void fullscreen();
 
   void nextFrame() override;
-  void showChildFrame(FrameInterface* frame) override;
   void exitInstall(bool reboot = false) override;
   void hideChildFrame() const override;
 

@@ -92,9 +92,8 @@ class MainWindow : public DMainWindow, public FrameProxyInterface {
   void setLogFile(const QString& log_file);
 
   void nextFrame() override;
-  void showChildFrame(FrameInterface *frame) override;
   void exitInstall(bool reboot = false) override;
-  void showChindFrame(BaseFrameInterface* childFrameInterface) override;
+  void showChildFrame(BaseFrameInterface* childFrameInterface) override;
   void hideChildFrame() const override;
   void resizeEvent(QResizeEvent* event) override;
 
@@ -193,6 +192,8 @@ private:
 
     QList<QString> m_frameTitles;
     DListView* m_frameLabelsView = nullptr;
+    QWidget* m_frameSelectedListWidget = nullptr;
+    QWidget* m_frameLabelsViewCoverWidget = nullptr;
     QStandardItemModel* m_frameLabelsModel = nullptr;
     QMap<FrameInterface*, DStandardItem*> m_frameModelItemMap;
 

@@ -48,10 +48,6 @@ void UserFormWindow::nextFrame(){
 
 }
 
-void UserFormWindow::showChildFrame(FrameInterface *frame){
-
-}
-
 void UserFormWindow::exitInstall(bool reboot){
 
 }

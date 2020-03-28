@@ -42,9 +42,6 @@ class UserFormWindow : public QWidget, public FrameProxyInterface {
   // Displays the next Frame
   void nextFrame() override;
 
-  // Displays the  subFrame
-  void showChildFrame(FrameInterface *frame) override;
-
   // exit install
   void exitInstall(bool reboot = false) override;
 

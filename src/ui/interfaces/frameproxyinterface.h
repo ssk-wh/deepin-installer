@@ -33,13 +33,11 @@ public:
     // 显示下一个Frame
     virtual void nextFrame() = 0;
 
-    // 显示子页面
-    virtual void showChildFrame(FrameInterface *frame) = 0;
-
     // 退出安装
     virtual void exitInstall(bool reboot = false) = 0;
 
-    virtual void showChindFrame(BaseFrameInterface* childFrameInterface) {}
+    // 显示子页面
+    virtual void showChildFrame(BaseFrameInterface* childFrameInterface) {}
 
     virtual void hideChildFrame() const = 0;
 };

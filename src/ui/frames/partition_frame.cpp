@@ -637,7 +637,7 @@ void PartitionFramePrivate::onPrepareInstallFrameFinished() {
 
 void PartitionFramePrivate::showEditPartitionFrame(const Partition::Ptr partition) {
   edit_partition_frame_->setPartition(partition);
-  q_ptr->m_proxy->showChindFrame(edit_partition_frame_);
+  q_ptr->m_proxy->showChildFrame(edit_partition_frame_);
 }
 
 void PartitionFramePrivate::showMainFrame() {
@@ -647,7 +647,7 @@ void PartitionFramePrivate::showMainFrame() {
 void PartitionFramePrivate::showNewPartitionFrame(
     const Partition::Ptr partition) {
   new_partition_frame_->setPartition(partition);
-  q_ptr->m_proxy->showChindFrame(new_partition_frame_);
+  q_ptr->m_proxy->showChildFrame(new_partition_frame_);
 }
 
 void PartitionFramePrivate::showNewTableLoadingFrame() {
@@ -696,7 +696,7 @@ void PartitionFramePrivate::showEncryptFrame()
 {
     if (full_disk_partition_frame_->validate()) {
         if (!GetSettingsBool(KPartitionSkipFullCryptPage) && full_disk_partition_frame_->isEncrypt()) {
-            q_ptr->m_proxy->showChindFrame(full_disk_encrypt_frame_);
+            q_ptr->m_proxy->showChildFrame(full_disk_encrypt_frame_);
         }
         else {
             q_ptr->autoPart();

@@ -109,7 +109,7 @@ MainWindow::MainWindow(QWidget* parent)
         stacked_layout_->setCurrentWidget(m_frames.first());
     }
     else {
-        showChindFrame(m_frames.first());
+        showChildFrame(m_frames.first());
     }
 }
 
@@ -194,7 +194,7 @@ void MainWindow::nextFrame()
                 stacked_layout_->setCurrentWidget(*it);
             }
             else {
-                showChindFrame(*it);
+                showChildFrame(*it);
             }
             m_showPastFrame = false;
             break;
@@ -246,16 +246,12 @@ void MainWindow::onFrameLabelsViewClicked(const QModelIndex& index)
     previousFrameSelected(framePointer);
 }
 
-void MainWindow::showChildFrame(FrameInterface *frame) {
-
-}
-
 void MainWindow::exitInstall(bool reboot)
 {
     return reboot ? rebootSystem() : shutdownSystem();
 }
 
-void MainWindow::showChindFrame(BaseFrameInterface* childFrameInterface)
+void MainWindow::showChildFrame(BaseFrameInterface* childFrameInterface)
 {
     if (shadow_widget->isVisible()) {
         return;
@@ -283,7 +279,7 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     event->ignore();
-    showChindFrame(confirm_quit_frame_);
+    showChildFrame(confirm_quit_frame_);
 }
 
 void MainWindow::changeEvent(QEvent *event)
@@ -490,16 +486,21 @@ void MainWindow::initUI() {
   m_frameSelectedLayout->setContentsMargins(kLeftViewItemSpacing, 0, kLeftViewItemSpacing, 0);
   m_frameSelectedLayout->setSpacing(0);
 
-  QWidget* frameSelectedListWidget = new QWidget;
-  frameSelectedListWidget->setObjectName("frameSelectedListWidget");
-  frameSelectedListWidget->setLayout(m_frameSelectedLayout);
-  frameSelectedListWidget->setFixedWidth(kLeftViewWidth);
+  m_frameSelectedListWidget = new QWidget;
+  m_frameSelectedListWidget->setObjectName("frameSelectedListWidget");
+  m_frameSelectedListWidget->setLayout(m_frameSelectedLayout);
+  m_frameSelectedListWidget->setFixedWidth(kLeftViewWidth);
+
+  m_frameLabelsViewCoverWidget = new QWidget(m_frameSelectedListWidget);
+  m_frameLabelsViewCoverWidget->setObjectName("frameLabelsViewCoverWidget");
+  m_frameLabelsViewCoverWidget->setStyleSheet("{background-color: rgba(255, 255, 255, 0.5);}");
+  m_frameLabelsViewCoverWidget->hide();
 
   QHBoxLayout* mainLayout = new QHBoxLayout;
   mainLayout->setContentsMargins(0, 0, 0, 0);
   mainLayout->setSpacing(0);
 
-  mainLayout->addWidget(frameSelectedListWidget);
+  mainLayout->addWidget(m_frameSelectedListWidget);
   mainLayout->addSpacing(1);
   mainLayout->addWidget(contentWidget);
 

@@ -137,11 +137,6 @@ void FirstBootSetupWindow::nextFrame()
     // TODO: reboot or shutdown
 }
 
-void FirstBootSetupWindow::showChildFrame(FrameInterface *frame)
-{
-
-}
-
 void FirstBootSetupWindow::exitInstall(bool reboot)
 {
 
