@@ -31,8 +31,19 @@
 #include "ui/widgets/expanded_nav_button.h"
 #include "ui/widgets/title_label.h"
 #include "ui/utils/widget_util.h"
+#include "ui/widgets/partition_table_widget.h"
+
+#include <QDebug>
+#include <QEvent>
+#include <QGridLayout>
+#include <QLabel>
+#include <DFrame>
 
 DWIDGET_USE_NAMESPACE
+
+namespace {
+    const int kTitleCommentWidth = 384;
+}
 
 namespace installer {
 
@@ -76,7 +87,7 @@ void PartitionTableWarningFrame::changeEvent(QEvent* event) {
             .arg(tr("Continuing installation will format your disk")));
     reject_button_->setText(tr("Reboot"));
     accept_button_->setText(tr("Continue"));
-    cancel_button_->setText(tr("Back"));
+    cancel_button_->setText(tr("Next"));
   } else {
     QFrame::changeEvent(event);
   }
@@ -177,35 +188,31 @@ void PartitionTableWarningFrame::initUI() {
 
   reject_button_ = new QPushButton(tr("Reboot"));
   accept_button_ = new QPushButton(tr("Continue"));
-  cancel_button_ = new QPushButton(tr("Back"));
-  cancel_button_->setFixedWidth(310);
-
-  QGridLayout* content_layout = new QGridLayout();
-  content_layout->setContentsMargins(0, 0, 0, 0);
-  content_layout->setAlignment(Qt::AlignCenter);
-  content_layout->setVerticalSpacing(kMainLayoutSpacing);
-  content_layout->setHorizontalSpacing(40);
-  content_layout->setColumnMinimumWidth(0, 480);
-  content_layout->setColumnMinimumWidth(1, 480);
-  content_layout->addWidget(left_frame, 0, 0);
-  content_layout->addWidget(right_frame, 0, 1);
-  content_layout->addWidget(reject_button_, 1, 0);
-  content_layout->addWidget(accept_button_, 1, 1);
+  cancel_button_ = new QPushButton(tr("Next"));
+  cancel_button_->setFixedSize(QSize(310, 36));
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
-  layout->setSpacing(kMainLayoutSpacing);
-  layout->addStretch();
+  layout->setSpacing(0);
+
+  layout->addSpacing(kMainLayoutSpacing);
   layout->addLayout(title_layout);
-  layout->addLayout(comment_layout);
+  layout->addSpacing(kMainLayoutSpacing);
+  layout->addWidget(comment_label_, 0, Qt::AlignHCenter);
   layout->addStretch();
-  layout->addLayout(content_layout);
+  layout->addSpacing(kMainLayoutSpacing);
+  layout->addWidget(m_warningWidget1, 0, Qt::AlignHCenter);
+  layout->addSpacing(kMainLayoutSpacing);
+  layout->addWidget(m_warningWidget2, 0, Qt::AlignHCenter);
+  layout->addSpacing(kMainLayoutSpacing);
+  layout->addWidget(m_warningWidget3, 0, Qt::AlignHCenter);
+  layout->addSpacing(kMainLayoutSpacing);
   layout->addStretch();
   layout->addWidget(cancel_button_, 0, Qt::AlignHCenter);
-  layout->addStretch();
+  layout->addSpacing(10);
 
-  this->setLayout(layout);
-  this->setContentsMargins(0, 0, 0, 0);
+  setLayout(layout);
+  setContentsMargins(0, 0, 0, 0);
 }
 
 void PartitionTableWarningFrame::onConfirmButtonClicked() {
