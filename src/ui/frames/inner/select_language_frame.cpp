@@ -224,6 +224,7 @@ void SelectLanguageFramePrivate::initUI() {
     LanguageManager::translator(sub_title_label_, &CommentLabel::setText, TranslatorType::SelectLanguageSubTitle);
 
     m_languageView = new DListView();
+    m_languageView->setFocusPolicy(Qt::NoFocus);
     m_languageView->setEditTriggers(QListView::NoEditTriggers);
     m_languageView->setIconSize(QSize(32, 32));
     m_languageView->setResizeMode(QListView::Adjust);

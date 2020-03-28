@@ -31,8 +31,10 @@
 namespace installer {
 
 namespace {
-const int kBtnSize = 35;
+const int kMainWindowWidth = 525;
+const int kMainWindowHeight = 40;
 
+const int kBtnSize = 35;
 const int kItemSpace = 10;
 
 const int kOsIconLeftMargin = 10;
@@ -217,7 +219,8 @@ void AdvancedPartitionButton::initUI() {
   control_button_->setFixedSize(kBtnSize, kBtnSize);
 
   setContentsMargins(0, 0, 0, 0);
-  setFixedHeight(60);
+  setFixedWidth(kMainWindowWidth);
+  setFixedHeight(kMainWindowHeight);
   setCheckable(true);
   setChecked(false);
   setFlat(true);

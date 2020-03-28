@@ -195,6 +195,7 @@ void InstallFailedFramePrivate::initUI()
 
     reboot_button_ = new QPushButton;
     reboot_button_->setFixedSize(310, 36);
+    reboot_button_->setFocusPolicy(Qt::NoFocus);
 
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setContentsMargins(0, 0, 0, 0);

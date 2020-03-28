@@ -353,6 +353,7 @@ void PartitionFramePrivate::initUI() {
   comment_layout->addWidget(comment_label_);
 
   m_buttonGroup = new DButtonBox(q_ptr);
+  m_buttonGroup->setFocusPolicy(Qt::NoFocus);
   simple_frame_button_ = new DButtonBoxButton(tr("Simple"), q_ptr);
   simple_frame_button_->setMinimumWidth(86);
   advanced_frame_button_ = new DButtonBoxButton(tr("Advanced"), q_ptr);
