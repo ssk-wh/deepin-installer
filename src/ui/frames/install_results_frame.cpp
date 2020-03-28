@@ -100,7 +100,8 @@ InstallResultsFrame::~InstallResultsFrame()
 
 void InstallResultsFramePrivate::initUI()
 {
-    m_frame_layout->setMargin(0);
+    m_frame_layout->setContentsMargins(0, 0, 0, 0);
+    m_frame_layout->setSpacing(0);
     m_frame_layout->addWidget(m_installSuccessFrame);
     m_frame_layout->addWidget(m_installFailedFrame);
 
