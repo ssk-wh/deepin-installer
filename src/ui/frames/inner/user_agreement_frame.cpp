@@ -11,6 +11,9 @@
 #include <QScrollArea>
 #include <QScrollBar>
 #include <QScroller>
+#include <DFrame>
+
+DWIDGET_USE_NAMESPACE
 
 using namespace installer;
 
@@ -44,13 +47,16 @@ void UserAgreementFrame::initUI()
     m_subTitle->setObjectName("user_agreement_subtitle");
 
     m_buttonBox = new DButtonBox;
+    m_buttonBox->setFocusPolicy(Qt::NoFocus);
     m_chineseButton = new DButtonBoxButton("中文");
     m_chineseButton->setObjectName("chineseButton");
     m_chineseButton->setCheckable(true);
+    m_chineseButton->setFixedWidth(75);
     m_chineseButton->setFixedHeight(36);
     m_englishButton = new DButtonBoxButton("English");
     m_englishButton->setObjectName("englishButton");
     m_englishButton->setCheckable(true);
+    m_englishButton->setFixedWidth(75);
     m_englishButton->setFixedHeight(36);
 
     m_btnlist.append(m_chineseButton);
@@ -72,9 +78,17 @@ void UserAgreementFrame::initUI()
     m_sourceLbl = new QLabel(this);
     m_sourceLbl->setObjectName("user_agreement_sourceLbl");
     m_sourceLbl->setWordWrap(true);
+    QPalette pl = m_sourceLbl->palette();
+    pl.setBrush(QPalette::Base, QBrush(QColor(255, 0, 0, 0)));
+    m_sourceLbl->setPalette(pl);
 
     QWidget *sourceWidget = new QWidget;
     sourceWidget->setObjectName("sourceWidget");
+    sourceWidget->setContentsMargins(0, 0, 0, 0);
+    QPalette pl2 = sourceWidget->palette();
+    pl2.setBrush(QPalette::Base, QBrush(QColor(255, 0, 0, 0)));
+    sourceWidget->setPalette(pl2);
+
     QHBoxLayout *sourceLayout = new QHBoxLayout;
     sourceLayout->setMargin(0);
     sourceLayout->setSpacing(0);
@@ -98,8 +112,21 @@ void UserAgreementFrame::initUI()
     m_sourceScrollArea->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
 
     QScroller::grabGesture(m_sourceScrollArea, QScroller::TouchGesture);
-
     m_sourceScrollArea->setFixedWidth(468);
+    QPalette pl3 = m_sourceScrollArea->palette();
+    pl3.setBrush(QPalette::Base, QBrush(QColor(255, 0, 0, 0)));
+    m_sourceScrollArea->setPalette(pl3);
+
+    QHBoxLayout* descriptionLayout = new QHBoxLayout();
+    descriptionLayout->setContentsMargins(10, 10, 10, 10);
+    descriptionLayout->setSpacing(0);
+    descriptionLayout->addWidget(m_sourceScrollArea);
+
+    DFrame *m_bgGroup = new DFrame(this);
+    m_bgGroup->setBackgroundRole(DPalette::ItemBackground);
+    m_bgGroup->setLineWidth(0);
+    m_bgGroup->setContentsMargins(0, 0, 0, 0);
+    m_bgGroup->setLayout(descriptionLayout);
 
     m_back = new QPushButton;
     m_back->setFixedSize(310, 36);
@@ -113,7 +140,7 @@ void UserAgreementFrame::initUI()
     mainLayout->addWidget(m_subTitle, 0, Qt::AlignHCenter);
     mainLayout->addSpacing(10);
     mainLayout->addWidget(buttonBoxWidget, 0, Qt::AlignHCenter);
-    mainLayout->addWidget(m_sourceScrollArea, 0, Qt::AlignHCenter);
+    mainLayout->addWidget(m_bgGroup, 0, Qt::AlignHCenter);
     mainLayout->addSpacing(19);
     mainLayout->addWidget(m_back, 0, Qt::AlignHCenter);
 
