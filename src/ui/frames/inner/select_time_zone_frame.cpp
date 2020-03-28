@@ -150,6 +150,7 @@ void SelectTimeZoneFrame::initUI()
     m_continentListView->setModel(m_continentModel);
 
     m_timeZoneListView = new DListView;
+    m_timeZoneListView->setFocusPolicy(Qt::NoFocus);
     m_timeZoneListView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     m_timeZoneListView->setEditTriggers(QListView::NoEditTriggers);
     m_timeZoneListView->setIconSize(QSize(32, 32));
