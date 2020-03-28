@@ -215,6 +215,7 @@ private:
   void previousFrameSelected(FrameInterface* frame);
 
   void onFrameLabelsViewClicked(const QModelIndex& index);
+  void disableFrameLabelsView();
 };
 
 }  // namespace installer

@@ -246,6 +246,17 @@ void MainWindow::onFrameLabelsViewClicked(const QModelIndex& index)
     previousFrameSelected(framePointer);
 }
 
+void MainWindow::disableFrameLabelsView()
+{
+    if (m_frameLabelsViewCoverWidget->isVisible()) {
+        return;
+    }
+
+    m_frameLabelsViewCoverWidget->setFixedSize(m_frameSelectedListWidget->size());
+    m_frameLabelsViewCoverWidget->raise();
+    m_frameLabelsViewCoverWidget->show();
+}
+
 void MainWindow::exitInstall(bool reboot)
 {
     return reboot ? rebootSystem() : shutdownSystem();
