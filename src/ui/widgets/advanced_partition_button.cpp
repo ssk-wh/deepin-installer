@@ -31,10 +31,10 @@
 namespace installer {
 
 namespace {
-const int kMainWindowWidth = 525;
+const int kMainWindowWidth = 555;
 const int kMainWindowHeight = 40;
 
-const int kBtnSize = 35;
+const int kBtnSize = 25;
 const int kItemSpace = 10;
 
 const int kOsIconLeftMargin = 10;

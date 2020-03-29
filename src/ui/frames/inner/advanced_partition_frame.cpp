@@ -42,12 +42,13 @@ namespace installer {
 
 namespace {
 
-const int kWindowWidth = 960;
+const int kWindowWidth = 555;
 
 // Vertical spacing between error message labels.
 const int kMsgLabelSpacing = 2;
 const char kLastErrMsgLabel[] = "last_err_msg_label";
 
+const int kErrorMsgLabelHeight = 36;
 }  // namespace
 
 AdvancedPartitionFrame::AdvancedPartitionFrame(
@@ -146,9 +147,8 @@ void AdvancedPartitionFrame::initUI() {
   msg_container_frame_ = new QFrame();
   msg_container_frame_->setObjectName("msg_container_frame");
   msg_container_frame_->setContentsMargins(0, 0, 0, 0);
-  msg_container_frame_->setMaximumWidth(kWindowWidth);
-  msg_container_frame_->setMinimumWidth(800);
-  msg_container_frame_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+  msg_container_frame_->setFixedWidth(kWindowWidth - 20);
+  msg_container_frame_->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
   msg_container_frame_->setLayout(msg_container_layout);
 
   partition_button_group_ = new QButtonGroup(this);
@@ -156,13 +156,12 @@ void AdvancedPartitionFrame::initUI() {
   partition_layout_ = new QVBoxLayout();
   partition_layout_->setContentsMargins(0, 0, 0, 0);
   partition_layout_->setSpacing(0);
-  partition_layout_->setSizeConstraint(QLayout::SetMinAndMaxSize);
 
   QFrame* partition_list_frame = new QFrame();
   partition_list_frame->setObjectName("partition_list_frame");
   partition_list_frame->setContentsMargins(0, 0, 0, 0);
   partition_list_frame->setLayout(partition_layout_);
-  partition_list_frame->setMaximumWidth(kWindowWidth);
+  partition_list_frame->setFixedWidth(kWindowWidth);
   partition_list_frame->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
 
   QVBoxLayout* scroll_layout = new QVBoxLayout();
@@ -225,13 +224,15 @@ void AdvancedPartitionFrame::initUI() {
   m_bgGroup->lower();
   m_bgGroup->setContentsMargins(0, 0, 0, 0);
   m_bgGroup->setLayout(bottom_layout);
-  m_bgGroup->setFixedWidth(540);
+  m_bgGroup->setFixedWidth(kWindowWidth - 20);
   m_bgGroup->setFixedHeight(42);
   m_bgGroup->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
 
   QVBoxLayout* main_layout = new QVBoxLayout();
   main_layout->setContentsMargins(0, 0, 0, 0);
   main_layout->setSpacing(0);
+  main_layout->addWidget(msg_container_frame_, 0, Qt::AlignHCenter);
+  main_layout->addSpacing(8);
   QHBoxLayout* upLayout = new QHBoxLayout();
   upLayout->addWidget(scroll_area_);
   main_layout->addLayout(upLayout);
@@ -435,8 +436,8 @@ void AdvancedPartitionFrame::showErrorMessage(ValidateState state) {
   const QString text = this->validateStateToText(state);
   error_label->setText(text);
   error_label->show();
+  error_label->setFixedHeight(kErrorMsgLabelHeight);
   msg_layout_->addWidget(error_label);
-  error_label->setFixedHeight(error_label->maximumHeight());
 
   connect(error_label, &AdvancedPartitionErrorLabel::entered,
           this, &AdvancedPartitionFrame::onErrorLabelEntered);
