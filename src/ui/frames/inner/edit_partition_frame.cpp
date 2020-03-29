@@ -45,11 +45,15 @@ namespace installer {
 
 namespace {
 
+const int kMainFrameWidth = 560;
+const int kMainFrameHeight = 500;
+
 const int kProgressBarWidth = 240;
-const int KLableWidth = 56;
+const int KLableWidth = 86;
 const int kComboxWidth = 310;
-const int kButtonWidth = 197;
-const int kBroundSpacing = 75;
+
+const int kButtonWidth = 240;
+const int kButtonHeight = 36;
 
 // Check whether partition with |mount_point| should be formatted
 // compulsively.
@@ -236,7 +240,6 @@ void EditPartitionFrame::initUI() {
   fs_box_->setModel(fs_model_);
   fs_box_->setFixedWidth(kComboxWidth);
 
-
   mount_point_box_ = new TableComboBox();
   mount_point_box_->setObjectName("mount_point_box");
   mount_point_model_ = new MountPointModel(delegate_->getMountPoints(), this);
@@ -261,49 +264,41 @@ void EditPartitionFrame::initUI() {
   mount_layout->addStretch();
 
   cancel_button_ = new QPushButton(tr("Cancel"));
-  cancel_button_->setFixedWidth(kButtonWidth);
+  cancel_button_->setFixedSize(QSize(kButtonWidth, kButtonHeight));
   ok_button_ = new QPushButton(tr("Confirm"));
-  ok_button_->setFixedWidth(kButtonWidth);
+  ok_button_->setFixedSize(QSize(kButtonWidth, kButtonHeight));
 
-  QHBoxLayout * bt_layout = new QHBoxLayout;
-  bt_layout->addSpacing(kBroundSpacing);
-  bt_layout->addWidget(cancel_button_);
-  bt_layout->addSpacing(20);
-  bt_layout->addWidget(ok_button_);
-  bt_layout->addSpacing(kBroundSpacing);
-
-  QFrame *bt_frame = new QFrame;
-  bt_frame->setContentsMargins(0, 0, 0, 0);
-  bt_frame->setLayout(bt_layout);
-
-  QVBoxLayout* bottom_Vlayout = new QVBoxLayout;
-  bottom_Vlayout->addLayout(fs_layout);
-  bottom_Vlayout->addSpacing(kMainLayoutSpacing);
-  bottom_Vlayout->addLayout(mount_layout);
-  bottom_Vlayout->addSpacing(90);
-  bottom_Vlayout->addWidget(format_check_box_, 0, Qt::AlignCenter);
-  bottom_Vlayout->addSpacing(kMainLayoutSpacing);
-  bottom_Vlayout->addWidget(bt_frame, 0, Qt::AlignCenter);
-
-  QFrame * bottom_frame = new QFrame;
-  bottom_frame->setLayout(bottom_Vlayout);
+  QHBoxLayout *buttonLayout = new QHBoxLayout;
+  buttonLayout->setContentsMargins(0, 0, 0, 0);
+  buttonLayout->setSpacing(0);
+  buttonLayout->addWidget(cancel_button_, 0, Qt::AlignHCenter | Qt::AlignLeft);
+  buttonLayout->addSpacing(10);
+  buttonLayout->addWidget(ok_button_, 0, Qt::AlignHCenter | Qt::AlignRight);
+  QWidget *buttonWrapWidget = new QWidget;
+  buttonWrapWidget->setContentsMargins(0, 0, 0, 0);
+  buttonWrapWidget->setLayout(buttonLayout);
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
   layout->setSpacing(0);
-  layout->addStretch();
-  layout->addWidget(title_label_, 0, Qt::AlignHCenter);
   layout->addSpacing(kMainLayoutSpacing);
-  layout->addStretch();
+  layout->addWidget(title_label_, 0, Qt::AlignHCenter);
   layout->addWidget(os_label_, 0, Qt::AlignHCenter);
   layout->addSpacing(10);
   layout->addWidget(bar_frame, 0, Qt::AlignHCenter);
   layout->addLayout(line_layout);
-  layout->addWidget(bottom_frame, 0, Qt::AlignHCenter);
-  layout->addSpacing(30);
+  layout->addLayout(fs_layout);
+  layout->addSpacing(kMainLayoutSpacing);
+  layout->addLayout(mount_layout);
+  layout->addStretch();
+  layout->addWidget(format_check_box_, 0, Qt::AlignCenter);
+  layout->addSpacing(kMainLayoutSpacing);
+  layout->addWidget(buttonWrapWidget, 0, Qt::AlignCenter);
+  layout->addSpacing(10);
 
-  this->setLayout(layout);
-  this->setContentsMargins(0, 0, 0, 0);
+  setFixedSize(QSize(kMainFrameWidth, kMainFrameHeight));
+  setLayout(layout);
+  setContentsMargins(0, 0, 0, 0);
 }
 
 void EditPartitionFrame::onFsChanged(int index) {
