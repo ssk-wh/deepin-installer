@@ -144,7 +144,7 @@ void DiskInstallationDetailDelegate::paint(QPainter* painter,
     const QColor percent_color(Qt::blue);
     const QRect percent_rect(rect.x() + kDiskPercentLeftMarin,
           static_cast<int>(rect.y()+(rect.height() - kDiskPercentHeight)/2),
-          30 + static_cast<int>((kSelectedLeftMargin - kItemRightMargin - (rect.x() + kDiskPercentLeftMarin))*disk_percent),
+          static_cast<int>((kSelectedLeftMargin - kItemRightMargin - (rect.x() + kDiskPercentLeftMarin))*disk_percent),
           kDiskPercentHeight);
     QPainterPath percent_path;
     percent_path.addRoundedRect(percent_rect, percent_rect.height()/2, percent_rect.height()/2);
