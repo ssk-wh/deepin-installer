@@ -4962,13 +4962,13 @@
 <context>
     <name>installer::MainWindow</name>
 <message><source>Privilege error</source><translation type="unfinished"></translation></message>
-<message><source>Select system language</source><translation type="unfinished"></translation></message>
-<message><source>Insufficient Disk Space</source><translation type="unfinished"></translation></message>
+<message><source>Select language</source><translation type="unfinished"></translation></message>
+<message><source>Insufficient Space</source><translation type="unfinished"></translation></message>
 <message><source>Friendly Reminder</source><translation type="unfinished"></translation></message>
 <message><source>Select Timezone</source><translation type="unfinished"></translation></message>
-<message><source>Create User Account</source><translation type="unfinished"></translation></message>
+<message><source>Create Account</source><translation type="unfinished"></translation></message>
 <message><source>Select Software</source><translation type="unfinished"></translation></message>
-<message><source>Select Installation Location</source><translation type="unfinished"></translation></message>
+<message><source>Installation Location</source><translation type="unfinished"></translation></message>
 <message><source>Installing</source><translation type="unfinished"></translation></message>
 <message><source>Done</source><translation type="unfinished"></translation></message>
 </context>

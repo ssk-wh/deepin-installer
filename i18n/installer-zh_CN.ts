@@ -3869,13 +3869,13 @@
 <context>
     <name>installer::MainWindow</name>
 <message><source>Privilege error</source><translation>权限错误</translation></message>
-<message><source>Select system language</source><translation>请选择语言</translation></message>
-<message><source>Insufficient Disk Space</source><translation>磁盘空间不足</translation></message>
+<message><source>Select language</source><translation>选择语言</translation></message>
+<message><source>Insufficient Space</source><translation>空间不足</translation></message>
 <message><source>Friendly Reminder</source><translation>友情提示</translation></message>
 <message><source>Select Timezone</source><translation>选择时区</translation></message>
-<message><source>Create User Account</source><translation>创建用户</translation></message>
+<message><source>Create Account</source><translation>创建用户</translation></message>
 <message><source>Select Software</source><translation>选择组件</translation></message>
-<message><source>Select Installation Location</source><translation>选择安装位置</translation></message>
+<message><source>Installation Location</source><translation>安装位置</translation></message>
 <message><source>Installing</source><translation>正在安装</translation></message>
 <message><source>Done</source><translation>完成</translation></message>
 </context>

@@ -174,7 +174,7 @@ bool PartitionFrame::shouldDisplay() const{
 
 QString PartitionFrame::returnFrameName() const
 {
-    return "Select Installation Location";
+    return "Installation Location";
 }
 
 void PartitionFrame::autoPart() {

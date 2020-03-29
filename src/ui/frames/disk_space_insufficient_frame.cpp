@@ -82,7 +82,7 @@ bool DiskSpaceInsufficientFrame::shouldDisplay() const
 
 QString DiskSpaceInsufficientFrame::returnFrameName() const
 {
-    return "Insufficient Disk Space";
+    return "Insufficient Space";
 }
 
 void DiskSpaceInsufficientFrame::changeEvent(QEvent* event) {

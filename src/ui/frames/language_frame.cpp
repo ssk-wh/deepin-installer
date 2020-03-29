@@ -76,7 +76,7 @@ bool LanguageFrame::shouldDisplay() const
 
 QString LanguageFrame::returnFrameName() const
 {
-    return "Select system language";
+    return "Select language";
 }
 
 void LanguageFrame::init() {

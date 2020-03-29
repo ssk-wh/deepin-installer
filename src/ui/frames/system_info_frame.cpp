@@ -127,7 +127,7 @@ bool SystemInfoFrame::shouldDisplay() const
 
 QString SystemInfoFrame::returnFrameName() const
 {
-    return "Create User Account";
+    return "Create Account";
 }
 
 void SystemInfoFramePrivate::initConnections() {
