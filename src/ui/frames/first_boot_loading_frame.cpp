@@ -27,10 +27,31 @@
 
 namespace installer {
 
-FirstBootLoadingFrame::FirstBootLoadingFrame(QWidget* parent) : QFrame(parent) {
+FirstBootLoadingFrame::FirstBootLoadingFrame(FrameProxyInterface *frameProxyInterface, QWidget* parent)
+    : FrameInterface(frameProxyInterface, parent) {
   this->setObjectName("first_boot_loading_frame");
 
-  this->initUI();
+    this->initUI();
+}
+
+void FirstBootLoadingFrame::init()
+{
+
+}
+
+void FirstBootLoadingFrame::finished()
+{
+
+}
+
+bool FirstBootLoadingFrame::shouldDisplay() const
+{
+    return true;
+}
+
+QString FirstBootLoadingFrame::returnFrameName() const
+{
+    return "Tuning system";
 }
 
 void FirstBootLoadingFrame::changeEvent(QEvent* event) {
@@ -39,18 +60,18 @@ void FirstBootLoadingFrame::changeEvent(QEvent* event) {
     comment_label_->setText(
         tr("Applying changes to your system, please wait..."));
   } else {
-    QFrame::changeEvent(event);
+    QWidget::changeEvent(event);
   }
 }
 
 void FirstBootLoadingFrame::hideEvent(QHideEvent* event) {
   spinner_label_->stop();
-  QFrame::hideEvent(event);
+  QWidget::hideEvent(event);
 }
 
 void FirstBootLoadingFrame::showEvent(QShowEvent* event) {
   spinner_label_->start();
-  QFrame::showEvent(event);
+  QWidget::showEvent(event);
 }
 
 void FirstBootLoadingFrame::initConnections() {

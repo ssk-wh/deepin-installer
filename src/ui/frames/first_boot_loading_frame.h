@@ -18,6 +18,8 @@
 #ifndef INSTALLER_UI_FRAMES_FIRST_BOOT_LOADING_FRAME_H
 #define INSTALLER_UI_FRAMES_FIRST_BOOT_LOADING_FRAME_H
 
+#include "ui/interfaces/frameinterface.h"
+
 #include <QFrame>
 
 namespace installer {
@@ -27,11 +29,16 @@ class SpinnerLabel;
 class TitleLabel;
 
 // Display loading animation after SystemInfoFrame in first-boot-setup window.
-class FirstBootLoadingFrame : public QFrame {
+class FirstBootLoadingFrame : public FrameInterface {
   Q_OBJECT
 
  public:
-  explicit FirstBootLoadingFrame(QWidget* parent = nullptr);
+    explicit FirstBootLoadingFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
+
+    void init() override;
+    void finished() override;
+    bool shouldDisplay() const override;
+    QString returnFrameName() const override;
 
  protected:
   void changeEvent(QEvent* event) override;
