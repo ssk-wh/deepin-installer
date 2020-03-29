@@ -413,20 +413,6 @@ void MainWindow::initPages() {
       m_frames << frame;
   }
 
-  // TODO: for current test, will be replaced later.
-  m_frameTitles = {
-      tr("Privilege error"),
-      tr("Select system language"),
-      tr("Insufficient Disk Space"),
-      tr("Friendly Reminder"),
-      tr("Select Timezone"),
-      tr("Create User Account"),
-      tr("Select Software"),
-      tr("Select Installation Location"),
-      tr("Installing"),
-      tr("Done")
-  };
-
   m_frameLabelsView = new DListView(this);
   m_frameLabelsView->setResizeMode(QListView::Adjust);
   m_frameLabelsView->setItemSize(QSize(kLeftViewItemWidth, kLeftViewItemHeight + kLeftViewItemSpacing));
@@ -483,6 +469,8 @@ void MainWindow::initUI() {
   back_button_->setDisabledPic(":/images/back_disabled.svg");
 
   stacked_layout_ = new QStackedLayout();
+  stacked_layout_->setContentsMargins(0, 0, 0, 0);
+  stacked_layout_->setSpacing(0);
 
   QVBoxLayout* vbox_layout = new QVBoxLayout();
   vbox_layout->setContentsMargins(0, 0, 0, 0);
