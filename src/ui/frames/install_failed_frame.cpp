@@ -45,15 +45,16 @@ DWIDGET_USE_NAMESPACE
 namespace installer {
 
 namespace {
-
-const int kContentWindowWidth = 500;
-const int kContentWindowHeight = 200;
+const int kContentWindowWidth = 538;
+const int kContentWindowHeight = 226;
 
 const int kQrMargin = 8;
 const int kQrWindowSize = 142;
 
 const int kControlButtonSize = 32;
 
+const int kButtonWidth = 200;
+const int kButtonHeight = 36;
 }  // namespace
 
 class InstallFailedFramePrivate : public QObject
@@ -65,6 +66,7 @@ public:
     QLabel *title_label_;
     CommentLabel *comment_label_ ;
     QPushButton *reboot_button_ ;
+    QPushButton *saveLogButton ;
     QRWidget *qr_widget_;
     QWidget* qrParentWidget;
     QPlainTextEdit *m_plainTextEdit ;
@@ -80,6 +82,7 @@ public:
             tr("Sorry for the trouble. Please photo or scan the QR code to send us the error log, "
                "or save the log to an external disk. We will help solve the issue."));
         reboot_button_->setText(tr("Exit"));
+        saveLogButton->setText(tr("Save Log"));
     }
 
     void onControlButtonClicked();
@@ -141,6 +144,10 @@ void InstallFailedFramePrivate::initConnections()
             this, &InstallFailedFramePrivate::onControlButtonClicked);
     connect(reboot_button_, &QPushButton::clicked,
             m_ptr, &InstallFailedFrame::finished);
+
+    // TODO: show save log frame.
+    //    connect(saveLogButton, &QPushButton::clicked,
+    //            m_ptr, [=] {});
 }
 
 void InstallFailedFramePrivate::initUI()
@@ -194,8 +201,20 @@ void InstallFailedFramePrivate::initUI()
     control_button_->show();
 
     reboot_button_ = new QPushButton;
-    reboot_button_->setFixedSize(310, 36);
+    reboot_button_->setFixedSize(kButtonWidth, kButtonHeight);
     reboot_button_->setFocusPolicy(Qt::NoFocus);
+    saveLogButton = new QPushButton;
+    saveLogButton->setFixedSize(kButtonWidth, kButtonHeight);
+    saveLogButton->setFocusPolicy(Qt::NoFocus);
+
+    QHBoxLayout *buttonLayout = new QHBoxLayout;
+    buttonLayout->setContentsMargins(0, 0, 0, 0);
+    buttonLayout->setSpacing(0);
+    buttonLayout->addWidget(reboot_button_, 0, Qt::AlignHCenter | Qt::AlignLeft);
+    buttonLayout->addSpacing(10);
+    buttonLayout->addWidget(saveLogButton, 0, Qt::AlignHCenter | Qt::AlignRight);
+    QWidget *buttonWrapWidget = new QWidget;
+    buttonWrapWidget->setLayout(buttonLayout);
 
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setContentsMargins(0, 0, 0, 0);
@@ -206,7 +225,7 @@ void InstallFailedFramePrivate::initUI()
     layout->addStretch();
     layout->addWidget(content_frame, 0, Qt::AlignCenter);
     layout->addStretch();
-    layout->addWidget(reboot_button_, 0, Qt::AlignCenter);
+    layout->addWidget(buttonWrapWidget, 0, Qt::AlignCenter);
 
     m_ptr->setLayout(layout);
     m_ptr->setContentsMargins(0, 0, 0, 0);
