@@ -54,6 +54,13 @@
 
 DWIDGET_USE_NAMESPACE
 
+namespace {
+    const int kLeftViewWidth = 240;
+    const int kLeftViewItemWidth = 180;
+    const int kLeftViewItemHeight = 36;
+    const int kLeftViewItemSpacing = 10;
+}
+
 namespace installer {
 
 FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
@@ -67,9 +74,10 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
   hook_worker_thread_->start();
   hook_worker_->moveToThread(hook_worker_thread_);
 
-  this->initUI();
-  this->registerShortcut();
-  this->initConnections();
+  initUI();
+  initPages();
+  registerShortcut();
+  initConnections();
 
   Qt::WindowFlags flags = windowFlags();
   flags &= ~Qt::WindowMinMaxButtonsHint;
@@ -172,102 +180,112 @@ void FirstBootSetupWindow::initUI() {
     back_button_->setDisabledPic(":/images/back_disabled.svg");
     back_button_->hide();
 
-  background_label_ = new QLabel(this);
-  language_frame_ = new LanguageFrame(this);
-  system_info_frame_ = new SystemInfoFrame(this);
-  network_frame_ = new NetworkFrame;
-  timezone_frame_ = new TimezoneFrame(this);
-  loading_frame_ = new FirstBootLoadingFrame;
-  control_platform_frame_ = new ControlPlatformFrame(this);
+    stacked_layout_ = new QStackedLayout;
+    stacked_layout_->setContentsMargins(0, 0, 0, 0);
+    stacked_layout_->setSpacing(0);
 
-  m_originalFrames = {
-      language_frame_,
-      timezone_frame_,
-      system_info_frame_,
-    //   control_platform_frame_,
-    //   loading_frame_,
-  };
+    QVBoxLayout* vbox_layout = new QVBoxLayout();
+    vbox_layout->setContentsMargins(0, 0, 0, 0);
+    vbox_layout->setSpacing(0);
+    vbox_layout->addLayout(stacked_layout_);
 
-  stacked_layout_ = new QStackedLayout;
-  stacked_layout_->setContentsMargins(0, 0, 0, 0);
-  stacked_layout_->setSpacing(0);
+    QWidget* contentWidget = new QWidget;
+    contentWidget->setContentsMargins(0, 0, 0, 0);
+    contentWidget->setLayout(vbox_layout);
 
-  for (FrameInterface* frame : m_originalFrames) {
-      stacked_layout_->addWidget(frame);
-      m_frames << frame;
-  }
+    m_frameSelectedLayout = new QVBoxLayout;
+    m_frameSelectedLayout->setContentsMargins(kLeftViewItemSpacing, 0, kLeftViewItemSpacing, 0);
+    m_frameSelectedLayout->setSpacing(0);
 
-  QVBoxLayout* vbox_layout = new QVBoxLayout();
-  vbox_layout->setContentsMargins(0, 0, 0, 0);
-  vbox_layout->setSpacing(0);
-  vbox_layout->addLayout(stacked_layout_);
-  vbox_layout->addSpacing(32);
+    m_frameSelectedListWidget = new QWidget;
+    m_frameSelectedListWidget->setObjectName("frameSelectedListWidget");
+    m_frameSelectedListWidget->setLayout(m_frameSelectedLayout);
+    m_frameSelectedListWidget->setFixedWidth(kLeftViewWidth);
 
-  QWidget* contentWidget = new QWidget;
-  contentWidget->setLayout(vbox_layout);
+    m_frameLabelsViewCoverWidget = new QWidget(m_frameSelectedListWidget);
+    m_frameLabelsViewCoverWidget->setObjectName("frameLabelsViewCoverWidget");
+    m_frameLabelsViewCoverWidget->setStyleSheet("{background-color: rgba(255, 255, 255, 0.5);}");
+    m_frameLabelsViewCoverWidget->hide();
 
-  // TODO: for current test, will be replaced later.
-  m_frameTitles = {
-      "LanguageFrame",
-      "TimezoneFrame",
-      "SystemInfoFrame"
-  };
+    QHBoxLayout* mainLayout = new QHBoxLayout;
+    mainLayout->setMargin(0);
+    mainLayout->setSpacing(0);
 
-  m_frameLabelsView = new DListView(this);
-  m_frameLabelsView->setOrientation(QListView::TopToBottom, true);
-  m_frameLabelsView->setItemSize(QSize(250, 80));
-  m_frameLabelsModel = new QStandardItemModel();
-  m_frameLabelsView->setModel(m_frameLabelsModel);
+    mainLayout->addWidget(m_frameSelectedListWidget);
+    mainLayout->addSpacing(1);
+    mainLayout->addWidget(contentWidget);
 
-  int i = 1;
-  for (FrameInterface* frame : m_originalFrames){
-      if (!frame->shouldDisplay() || frame->frameType() != FrameType::Frame){
-          continue;
-      }
+    DBackgroundGroup* bgGroup = new DBackgroundGroup;
+    bgGroup->setContentsMargins(10, 10, 10, 10);
+    bgGroup->setLayout(mainLayout);
 
-      DStandardItem* item = new DStandardItem;
-      QString pixPathTemplate(":/images/NO_inactive%1.svg");
-      item->setIcon(QIcon(installer::renderPixmap(pixPathTemplate.arg(i))));
-      ++i;
-      // TODO: for current test, will be replaced in another way.
-      item->setText(m_frameTitles[m_originalFrames.indexOf(frame)]);
-      QVariant framePointer = QVariant::fromValue(frame);
-      item->setData(framePointer, FramePointerRole);
-      item->setFlags(Qt::ItemFlag::NoItemFlags);
+    setContentsMargins(0, 0, 0, 0);
+    setCentralWidget(bgGroup);
+}
 
-      DViewItemAction* action = new DViewItemAction(Qt::AlignmentFlag::AlignVCenter);
-      action->setIcon(QIcon(installer::renderPixmap(":/images/done_inactive.svg")));
-      action->setVisible(false);
-      item->setActionList(Qt::Edge::RightEdge, {action});
+void FirstBootSetupWindow::initPages()
+{
+    language_frame_ = new LanguageFrame(this);
+    system_info_frame_ = new SystemInfoFrame(this);
+    network_frame_ = new NetworkFrame;
+    timezone_frame_ = new TimezoneFrame(this);
+    loading_frame_ = new FirstBootLoadingFrame(this);
+    control_platform_frame_ = new ControlPlatformFrame(this);
 
-      m_frameLabelsModel->appendRow(item);
-      m_frameModelItemMap[frame] = item;
-  }
+    m_originalFrames = {
+        language_frame_,
+        timezone_frame_,
+        system_info_frame_,
+        //      network_frame_,
+        //   control_platform_frame_,
+        loading_frame_,
+    };
 
-  m_frameSelectedLayout = new QVBoxLayout;
-  m_frameSelectedLayout->setMargin(0);
-  m_frameSelectedLayout->setSpacing(0);
-  m_frameSelectedLayout->addSpacing(80);
-  m_frameSelectedLayout->addWidget(m_frameLabelsView, 0, Qt::AlignHCenter);
+    for (FrameInterface* frame : m_originalFrames) {
+        stacked_layout_->addWidget(frame);
+        m_frames << frame;
+    }
 
-  QWidget* frameSelectedListWidget = new QWidget;
-  frameSelectedListWidget->setObjectName("frameSelectedListWidget");
-  frameSelectedListWidget->setLayout(m_frameSelectedLayout);
-  frameSelectedListWidget->setFixedWidth(300);
+    m_frameLabelsView = new DListView(this);
+    m_frameLabelsView->setResizeMode(QListView::Adjust);
+    m_frameLabelsView->setItemSize(QSize(kLeftViewItemWidth, kLeftViewItemHeight + kLeftViewItemSpacing));
+    m_frameLabelsModel = new QStandardItemModel();
+    m_frameLabelsView->setModel(m_frameLabelsModel);
 
-  QHBoxLayout* mainLayout = new QHBoxLayout;
-  mainLayout->setMargin(0);
-  mainLayout->setSpacing(0);
+    m_frameSelectedLayout->addSpacing(60);
+    m_frameSelectedLayout->addWidget(m_frameLabelsView, 0, Qt::AlignHCenter);
 
-  mainLayout->addWidget(frameSelectedListWidget);
-  mainLayout->addSpacing(1);
-  mainLayout->addWidget(contentWidget);
+    constructLabelView();
+}
 
-  DBackgroundGroup* bgGroup = new DBackgroundGroup;
-  bgGroup->setContentsMargins(10, 10, 10, 10);
-  bgGroup->setLayout(mainLayout);
+void FirstBootSetupWindow::constructLabelView()
+{
+    m_frameLabelsModel->clear();
 
-  setCentralWidget(bgGroup);
+    int i = 1;
+    for (FrameInterface* frame : m_originalFrames){
+        if (!frame->shouldDisplay() || frame->frameType() != FrameType::Frame){
+            continue;
+        }
+
+        DStandardItem* item = new DStandardItem;
+        QString pixPathTemplate(":/images/NO_inactive%1.svg");
+        item->setIcon(QIcon(installer::renderPixmap(pixPathTemplate.arg(i))));
+        ++i;
+
+        item->setText(tr(frame->returnFrameName().toLatin1().data()));
+        QVariant framePointer = QVariant::fromValue(frame);
+        item->setData(framePointer, FramePointerRole);
+        item->setFlags(Qt::ItemFlag::NoItemFlags);
+
+        DViewItemAction* action = new DViewItemAction(Qt::AlignmentFlag::AlignVCenter);
+        action->setIcon(QIcon(installer::renderPixmap(":/images/done_inactive.svg")));
+        action->setVisible(false);
+        item->setActionList(Qt::Edge::RightEdge, {action});
+
+        m_frameLabelsModel->appendRow(item);
+        m_frameModelItemMap[frame] = item;
+    }
 }
 
 void FirstBootSetupWindow::registerShortcut() {

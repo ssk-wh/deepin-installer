@@ -70,6 +70,8 @@ class FirstBootSetupWindow : public DMainWindow, public FrameProxyInterface {
  private:
   void initConnections();
   void initUI();
+  void initPages();
+  void constructLabelView();
 
   void registerShortcut();
 
@@ -98,6 +100,8 @@ class FirstBootSetupWindow : public DMainWindow, public FrameProxyInterface {
 
   QList<QString> m_frameTitles;
   DListView* m_frameLabelsView = nullptr;
+  QWidget* m_frameSelectedListWidget = nullptr;
+  QWidget* m_frameLabelsViewCoverWidget = nullptr;
   QStandardItemModel* m_frameLabelsModel = nullptr;
   QMap<FrameInterface*, DStandardItem*> m_frameModelItemMap;
 
