@@ -643,6 +643,8 @@ void PartitionFramePrivate::showEditPartitionFrame(const Partition::Ptr partitio
 
 void PartitionFramePrivate::showMainFrame() {
   main_layout_->setCurrentWidget(main_frame_);
+
+  emit q_ptr->disCoverMainWindowFrameLabelsView();
 }
 
 void PartitionFramePrivate::showNewPartitionFrame(
@@ -653,6 +655,8 @@ void PartitionFramePrivate::showNewPartitionFrame(
 
 void PartitionFramePrivate::showNewTableLoadingFrame() {
   main_layout_->setCurrentWidget(new_table_loading_frame_);
+
+  emit q_ptr->coverMainWindowFrameLabelsView();
 }
 
 void PartitionFramePrivate::showNewTableWarningFrame(const QString& device_path) {
@@ -677,20 +681,28 @@ void PartitionFramePrivate::showNewTableWarningFrame(const QString& device_path)
 
   new_table_warning_frame_->setDevicePath(device_path, device_info);
   main_layout_->setCurrentWidget(new_table_warning_frame_);
+
+  emit q_ptr->coverMainWindowFrameLabelsView();
 }
 
 void PartitionFramePrivate::showPartitionNumberLimitationFrame() {
   main_layout_->setCurrentWidget(partition_number_limitation_frame_);
+
+  emit q_ptr->coverMainWindowFrameLabelsView();
 }
 
 void PartitionFramePrivate::showPartitionTableWarningFrame(
     const QString& device_path) {
   partition_table_warning_frame_->setDevicePath(device_path);
   main_layout_->setCurrentWidget(partition_table_warning_frame_);
+
+  emit q_ptr->coverMainWindowFrameLabelsView();
 }
 
 void PartitionFramePrivate::showSelectBootloaderFrame() {
     main_layout_->setCurrentWidget(select_bootloader_frame_);
+
+    q_ptr->m_proxy->showChildFrame(new_partition_frame_);
 }
 
 void PartitionFramePrivate::showEncryptFrame()
@@ -708,6 +720,8 @@ void PartitionFramePrivate::showEncryptFrame()
 
 void PartitionFramePrivate::showDynamicDiskFrame() {
   main_layout_->setCurrentWidget(dynamic_disk_warning_frame_);
+
+  emit q_ptr->coverMainWindowFrameLabelsView();
 }
 
 void PartitionFramePrivate::showPrepareInstallFrame()
@@ -726,6 +740,8 @@ void PartitionFramePrivate::showPrepareInstallFrame()
 
     prepare_install_frame_->updateDescription(descriptions);
     main_layout_->setCurrentWidget(prepare_install_frame_);
+
+    emit q_ptr->coverMainWindowFrameLabelsView();
 }
 
 }  // namespace installer

@@ -246,7 +246,7 @@ void MainWindow::onFrameLabelsViewClicked(const QModelIndex& index)
     previousFrameSelected(framePointer);
 }
 
-void MainWindow::disableFrameLabelsView()
+void MainWindow::coverFrameLabelsView()
 {
     if (m_frameLabelsViewCoverWidget->isVisible()) {
         return;
@@ -255,6 +255,11 @@ void MainWindow::disableFrameLabelsView()
     m_frameLabelsViewCoverWidget->setFixedSize(m_frameSelectedListWidget->size());
     m_frameLabelsViewCoverWidget->raise();
     m_frameLabelsViewCoverWidget->show();
+}
+
+void MainWindow::disCoverFrameLabelsView()
+{
+    m_frameLabelsViewCoverWidget->hide();
 }
 
 void MainWindow::exitInstall(bool reboot)
@@ -329,6 +334,10 @@ void MainWindow::initConnections() {
 
   connect(partition_frame_, &PartitionFrame::reboot,
           this, &MainWindow::rebootSystem);
+  connect(partition_frame_, &PartitionFrame::coverMainWindowFrameLabelsView
+          , this, &MainWindow::coverFrameLabelsView);
+  connect(partition_frame_, &PartitionFrame::disCoverMainWindowFrameLabelsView
+          , this, &MainWindow::disCoverFrameLabelsView);
 
   connect(select_language_frame_, &LanguageFrame::timezoneUpdated,
           timezone_frame_, &TimezoneFrame::updateTimezoneBasedOnLanguage);

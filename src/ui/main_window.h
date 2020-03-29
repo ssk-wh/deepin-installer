@@ -95,12 +95,14 @@ class MainWindow : public DMainWindow, public FrameProxyInterface {
   void exitInstall(bool reboot = false) override;
   void showChildFrame(BaseFrameInterface* childFrameInterface) override;
   void hideChildFrame() const override;
-  void resizeEvent(QResizeEvent* event) override;
+  void coverFrameLabelsView();
+  void disCoverFrameLabelsView();
 
  protected:
   // Show ConfirmQuitFrame when top right corner is clicked.
   void closeEvent(QCloseEvent* event) override;
   void changeEvent(QEvent* event) override;
+  void resizeEvent(QResizeEvent* event) override;
 
 private:
   enum PageId {
@@ -215,7 +217,6 @@ private:
   void previousFrameSelected(FrameInterface* frame);
 
   void onFrameLabelsViewClicked(const QModelIndex& index);
-  void disableFrameLabelsView();
 };
 
 }  // namespace installer
