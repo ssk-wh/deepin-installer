@@ -55,6 +55,8 @@ const int kControlButtonSize = 32;
 
 const int kButtonWidth = 200;
 const int kButtonHeight = 36;
+
+const int kCommentLabelWidth = 363;
 }  // namespace
 
 class InstallFailedFramePrivate : public QObject
@@ -155,9 +157,16 @@ void InstallFailedFramePrivate::initUI()
     QLabel *status_label = new QLabel();
     status_label->setPixmap(installer::renderPixmap(":/images/fail.svg"));
     title_label_ = new TitleLabel("");
+
     comment_label_ = new CommentLabel;
+    comment_label_->setFixedWidth(kCommentLabelWidth);
+    QHBoxLayout* comment_layout = new QHBoxLayout();
+    comment_layout->setContentsMargins(0, 0, 0, 0);
+    comment_layout->setSpacing(0);
+    comment_layout->addWidget(comment_label_);
 
     m_plainTextEdit = new QPlainTextEdit;
+    m_plainTextEdit->setFrameShape(QFrame::Shape::NoFrame);
     m_plainTextEdit->setObjectName("plainTextEdit");
     m_plainTextEdit->setContextMenuPolicy(Qt::NoContextMenu);
     m_plainTextEdit->setReadOnly(true);
@@ -167,6 +176,7 @@ void InstallFailedFramePrivate::initUI()
 
     DFrame *content_frame = new DFrame();
     content_frame->setObjectName("content_frame");
+    content_frame->setFrameRounded(true);
     content_frame->setFixedSize(kContentWindowWidth, kContentWindowHeight);
 
     qr_widget_ = new QRWidget(content_frame);
@@ -219,13 +229,13 @@ void InstallFailedFramePrivate::initUI()
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(10);
-    layout->addWidget(status_label, 0, Qt::AlignCenter);
-    layout->addWidget(title_label_, 0, Qt::AlignCenter);
-    layout->addWidget(comment_label_, 0, Qt::AlignCenter);
+    layout->addWidget(status_label, 0, Qt::AlignHCenter);
+    layout->addWidget(title_label_, 0, Qt::AlignHCenter);
+    layout->addLayout(comment_layout);
     layout->addStretch();
-    layout->addWidget(content_frame, 0, Qt::AlignCenter);
+    layout->addWidget(content_frame, 0, Qt::AlignHCenter);
     layout->addStretch();
-    layout->addWidget(buttonWrapWidget, 0, Qt::AlignCenter);
+    layout->addWidget(buttonWrapWidget, 0, Qt::AlignHCenter);
 
     m_ptr->setLayout(layout);
     m_ptr->setContentsMargins(0, 0, 0, 0);
