@@ -29,6 +29,11 @@
 #include "ui/delegates/install_slide_frame_util.h"
 #include "ui/utils/widget_util.h"
 
+namespace {
+    const int kAnimationWidth = 412;
+    const int kAnimationHeight = 232;
+}
+
 namespace installer {
 
 InstallProgressSlideFrame::InstallProgressSlideFrame(QWidget* parent)
@@ -89,8 +94,8 @@ void InstallProgressSlideFrame::initConnections() {
 
 void InstallProgressSlideFrame::initUI() {
   m_animationContainer = new QWidget;
+  m_animationContainer->setFixedSize(QSize(kAnimationWidth, kAnimationHeight));
   container_label_ = new QLabel(m_animationContainer);
-  m_animationContainer->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
 
   m_backButton = new DIconButton(this);
   m_backButton->setIcon(QIcon(":/images/backPicture.svg"));
@@ -98,15 +103,15 @@ void InstallProgressSlideFrame::initUI() {
   m_nextButton->setIcon(QIcon(":/images/nextPicture.svg"));
 
   QHBoxLayout* layout = new QHBoxLayout;
-  layout->setMargin(0);
+  layout->setContentsMargins(0, 0, 0, 0);
   layout->setSpacing(0);
-  layout->addSpacing(40);
-  layout->addWidget(m_backButton, 0, Qt::AlignLeft);
+  layout->addStretch();
+  layout->addWidget(m_backButton, 0, Qt::AlignRight);
   layout->addSpacing(10);
   layout->addWidget(m_animationContainer);
   layout->addSpacing(10);
-  layout->addWidget(m_nextButton, 0, Qt::AlignRight);
-  layout->addSpacing(40);
+  layout->addWidget(m_nextButton, 0, Qt::AlignLeft);
+  layout->addStretch();
 
   setLayout(layout);
 
@@ -136,12 +141,12 @@ void InstallProgressSlideFrame::updateSlideImage() {
   QPixmap pixmap;
   if (QFile::exists(filepath)) {
     pixmap = installer::renderPixmap(filepath);
+    pixmap = pixmap.scaled(m_animationContainer->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     container_label_->setPixmap(pixmap);
   } else {
     qWarning() << "slide file not found:" << filepath;
   }
   container_label_->show();
-  setFixedSize(pixmap.size());
   slide_index_ = (slide_index_ + 1) % slide_files_.length();
 }
 

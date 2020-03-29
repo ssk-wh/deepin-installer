@@ -44,7 +44,9 @@ namespace installer {
 
 namespace {
 
-const int kProgressBarWidth = 640;
+const int kProgressBarWidth = 500;
+const int kProgressBarHeight = 20;
+
 const int kTooltipWidth = 60;
 const int kTooltipHeight = 31;
 const int kTooltipLabelMargin = 2;
@@ -261,25 +263,25 @@ void InstallProgressFramePrivate::initUI() {
     // and draw progress bar chunk by hand.
     progress_bar_ = new RoundedProgressBar();
     progress_bar_->setObjectName("progress_bar");
-    progress_bar_->setFixedSize(kProgressBarWidth, 8);
+    progress_bar_->setFixedSize(kProgressBarWidth, kProgressBarHeight);
     progress_bar_->setTextVisible(false);
-    // Set progress range to [0, 1000] so that progress bar can be painted
+    // Set progress range to [0, 999] so that progress bar can be painted
     // more smoothly.
-    progress_bar_->setRange(0, 1000);
+    progress_bar_->setRange(0, 999);
     progress_bar_->setOrientation(Qt::Horizontal);
     progress_bar_->setValue(0);
 
     //add main layout
     centerLayout->addStretch();
-    centerLayout->addWidget(title_label_, 0, Qt::AlignCenter);
+    centerLayout->addWidget(title_label_, 0, Qt::AlignHCenter);
     centerLayout->addSpacing(kMainLayoutSpacing);
     centerLayout->addLayout(comment_layout);
     centerLayout->addStretch();
-    centerLayout->addWidget(slide_frame_, 0, Qt::AlignCenter);
+    centerLayout->addWidget(slide_frame_, 0, Qt::AlignHCenter);
     centerLayout->addStretch();
     centerLayout->addWidget(tooltip_frame, 0, Qt::AlignHCenter);
     centerLayout->addSpacing(5);
-    centerLayout->addWidget(progress_bar_, 0, Qt::AlignCenter);
+    centerLayout->addWidget(progress_bar_, 0, Qt::AlignHCenter);
     centerLayout->addStretch();
 
     Q_Q(InstallProgressFrame);
