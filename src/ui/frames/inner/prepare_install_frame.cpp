@@ -55,19 +55,14 @@ PrepareInstallFrame::PrepareInstallFrame(QWidget* parent)
 void PrepareInstallFrame::updateDescription(const QStringList& descriptions) {
   const QString prefix("•   ");
   QStringList modified_desc_list;
-  int max_width = 0;
   QFontMetrics metrics(description_edit_->font());
   for (const QString& description : descriptions) {
     const QString content = prefix + description;
     modified_desc_list.append(content);
-    max_width = qMax(metrics.width(content), max_width);
   }
   const QString description_text = modified_desc_list.join("\n");
   qDebug() << "description:" << description_text;
   description_edit_->setPlainText(description_text);
-  Q_ASSERT(max_width >= 0);
-  // Add horizontal margins.
-  description_edit_->setFixedWidth(max_width + 20);
 }
 
 void PrepareInstallFrame::changeEvent(QEvent* event) {
@@ -95,6 +90,8 @@ void PrepareInstallFrame::initUI() {
       tr("Make a backup of your important data and then continue"));
 
   description_edit_ = new QTextEdit();
+  description_edit_->setFixedWidth(kDescriptionWidth - 20);
+  description_edit_->setLineWrapMode(QTextEdit::WidgetWidth);
 
   description_edit_->setFrameShape(QFrame::Shape::NoFrame);
   QPalette pl = description_edit_->palette();
