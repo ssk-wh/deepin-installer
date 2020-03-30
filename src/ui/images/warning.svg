@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
-    <title>warning</title>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>icon/warning</title>
     <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="安装器8" transform="translate(-900.000000, -133.000000)">
-            <g id="ISO安装器16-Copy" transform="translate(7.000000, 6.000000)">
-                <g id="Group-34" transform="translate(893.000000, 120.000000)">
-                    <g id="Group" transform="translate(0.000000, 7.000000)">
-                        <path d="M21.8637789,4.48076383 L41.1227419,37.496129 L41.1227419,37.496129 C41.4010222,37.9731809 41.2398859,38.5854986 40.762834,38.8637789 C40.609898,38.9529916 40.4360176,39 40.258963,39 L1.741037,39 L1.741037,39 C1.18875225,39 0.741036999,38.5522847 0.741036999,38 C0.741036999,37.8229454 0.788045397,37.649065 0.877258098,37.496129 L20.1362211,4.48076383 L20.1362211,4.48076383 C20.4145014,4.00371192 21.0268191,3.84257567 21.503871,4.12085595 C21.6528747,4.20777474 21.7768601,4.3317602 21.8637789,4.48076383 Z" id="Triangle" fill="#FFCE00"></path>
-                        <path d="M19.768,27.48 L22.232,27.48 L22.744,14.68 L22.872,10.904 L19.16,10.904 L19.256,14.68 L19.768,27.48 Z M20.984,35.416 C22.392,35.416 23.48,34.36 23.48,32.856 C23.48,31.352 22.392,30.232 20.984,30.232 C19.608,30.232 18.552,31.352 18.552,32.856 C18.552,34.36 19.608,35.416 20.984,35.416 Z" id="!" fill="#000000"></path>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FF674A" offset="0%"></stop>
+            <stop stop-color="#EC5783" offset="100%"></stop>
+        </linearGradient>
+        <path d="M9.99071429,0 C15.5186566,0 20,4.4782507 20,10 C20,15.5217493 15.5186566,20 9.99071429,20 C4.47205964,20 0,15.521755 0,10 C0,4.47824507 4.47205964,0 9.99071429,0 Z" id="path-2"></path>
+        <filter x="-27.5%" y="-17.5%" width="155.0%" height="155.0%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.443137255   0 0 0 0 0.443137255  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="安装器-服务器版22" transform="translate(-396.000000, -218.000000)">
+            <g id="icon/warning" transform="translate(399.000000, 219.000000)">
+                <g id="warning">
+                    <g id="Shape">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                        <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
                     </g>
+                    <path d="M9,5 L11,5 L11,11 L9,11 L9,5 Z M9,13 L11,13 L11,15 L9,15 L9,13 Z" id="Combined-Shape" fill="#FFFFFF" fill-rule="nonzero" opacity="0.900000036"></path>
                 </g>
             </g>
         </g>

@@ -18,6 +18,7 @@
 #include "ui/frames/inner/partition_number_limitation_frame.h"
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/title_label.h"
+#include "ui/utils/widget_util.h"
 
 #include <QEvent>
 #include <QVBoxLayout>
@@ -27,6 +28,7 @@ namespace installer {
 namespace {
     const int kHintLabelWidth = 390;
     const int kTitleFontSize = 24; // 24pt
+    const int kWarningLabelSize = 30;
 }
 
 PartitionNumberLimitationFrame::PartitionNumberLimitationFrame(
@@ -74,10 +76,28 @@ void PartitionNumberLimitationFrame::initConnections() {
 }
 
 void PartitionNumberLimitationFrame::initUI() {
+    QLabel* warning_label = new QLabel();
+    warning_label->setFixedSize(QSize(kWarningLabelSize, kWarningLabelSize));
+    QPixmap pixmap = installer::renderPixmap(":/images/warning.svg");
+    pixmap = pixmap.scaled(warning_label->size(), Qt::KeepAspectRatio
+                           , Qt::SmoothTransformation);
+    warning_label->setPixmap(pixmap);
+
   title_label_ = new QLabel(tr("Failed to Create New Partition"));
   QFont font;
   font.setPointSize(kTitleFontSize);
   title_label_->setFont(font);
+  title_label_->setContentsMargins(0, 0, 0, 0);
+  title_label_->adjustSize();
+
+  QHBoxLayout* title_layout = new QHBoxLayout();
+  title_layout->setContentsMargins(0, 0, 0, 0);
+  title_layout->setSpacing(0);
+  title_layout->addStretch();
+  title_layout->addWidget(warning_label, 0, Qt::AlignVCenter);
+  title_layout->addSpacing(8);
+  title_layout->addWidget(title_label_, 0, Qt::AlignVCenter);
+  title_layout->addStretch();
 
   comment1_label_ = new CommentLabel(
       tr("You should delete a primary partition before creating a new one, "
@@ -98,7 +118,7 @@ void PartitionNumberLimitationFrame::initUI() {
   layout->setMargin(0);
   layout->setSpacing(0);
   layout->addStretch();
-  layout->addWidget(title_label_, 0, Qt::AlignHCenter);
+  layout->addLayout(title_layout);
   layout->addSpacing(40);
   layout->addWidget(comment1_label_, 0, Qt::AlignHCenter);
   layout->addSpacing(20);

@@ -43,6 +43,7 @@ DWIDGET_USE_NAMESPACE
 
 namespace {
     const int kTitleCommentWidth = 384;
+    const int kWarningLabelSize = 30;
 }
 
 namespace installer {
@@ -104,8 +105,16 @@ void PartitionTableWarningFrame::initConnections() {
 
 void PartitionTableWarningFrame::initUI() {
   QLabel* warning_label = new QLabel();
-  warning_label->setPixmap(installer::renderPixmap(":/images/warning.svg"));
+  warning_label->setFixedSize(QSize(kWarningLabelSize, kWarningLabelSize));
+  QPixmap pixmap = installer::renderPixmap(":/images/warning.svg");
+  pixmap = pixmap.scaled(warning_label->size(), Qt::KeepAspectRatio
+                         , Qt::SmoothTransformation);
+  warning_label->setPixmap(pixmap);
+
   title_label_ = new TitleLabel(tr("Warning"));
+  title_label_->setContentsMargins(0, 0, 0, 0);
+  title_label_->adjustSize();
+
   QHBoxLayout* title_layout = new QHBoxLayout();
   title_layout->setContentsMargins(0, 0, 0, 0);
   title_layout->setSpacing(0);
