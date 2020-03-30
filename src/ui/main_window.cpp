@@ -295,7 +295,8 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     event->ignore();
-    showChildFrame(confirm_quit_frame_);
+
+    confirm_quit_frame_->display();
 }
 
 void MainWindow::changeEvent(QEvent *event)
@@ -316,7 +317,7 @@ void MainWindow::changeEvent(QEvent *event)
 
 void MainWindow::initConnections() {
   connect(confirm_quit_frame_, &ConfirmQuitFrame::quitCancelled, this, [=](){
-             hideChildFrame();
+             confirm_quit_frame_->close();
           });
   connect(confirm_quit_frame_, &ConfirmQuitFrame::quitConfirmed,
           this, &MainWindow::shutdownSystem);

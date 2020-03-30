@@ -23,21 +23,34 @@
 #include <QEvent>
 #include <QHBoxLayout>
 #include <QPainter>
+#include <DDialog>
+
+DWIDGET_USE_NAMESPACE
+
+namespace {
+    const int kCloseDialogWidth = 400;
+    const int kCloseDialogHeight = 220;
+}
 
 namespace installer {
 
-ConfirmQuitFrame::ConfirmQuitFrame(FrameProxyInterface *frameProxyInterface, QWidget* parent)
-    : BaseFrameInterface (FrameType::ExtFrame, frameProxyInterface, parent)
+ConfirmQuitFrame::ConfirmQuitFrame(QWidget* parent)
+    : DDialog(parent)
 {
-  this->setObjectName("confirm_quit_frame");
+    setObjectName("confirm_quit_frame");
 
-  this->initUI();
-    this->initConnections();
+    initUI();
+    initConnections();
+}
+
+void ConfirmQuitFrame::display()
+{
+    exec();
 }
 
 void ConfirmQuitFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    title_label_->setText(tr("Abort Installation"));
+    setTitle(tr("Abort Installation"));
     comment_label_->setText(
         tr("Relevant operations you made in the installation "
            "process will not take effect, abort or continue installation?"));
@@ -48,18 +61,6 @@ void ConfirmQuitFrame::changeEvent(QEvent* event) {
   }
 }
 
-void ConfirmQuitFrame::paintEvent(QPaintEvent *event)
-{
-    QPainter painter(this);
-    painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
-    QPainterPath path;
-    path.addRoundedRect(rect(), 25, 25);
-    painter.setClipPath(path);
-    painter.fillRect(rect(), Qt::white);
-
-    return QWidget::paintEvent(event);
-}
-
 void ConfirmQuitFrame::initConnections() {
   connect(continue_button_, &QPushButton::clicked,
           this, &ConfirmQuitFrame::quitCancelled);
@@ -68,33 +69,31 @@ void ConfirmQuitFrame::initConnections() {
 }
 
 void ConfirmQuitFrame::initUI() {
-  title_label_ = new TitleLabel(tr("Abort Installation"));
   comment_label_ = new CommentLabel(
       tr("Relevant operations you made in the installation "
          "process will not take effect, abort or continue installation?"));
-  QHBoxLayout* comment_layout = new QHBoxLayout();
-  comment_layout->setContentsMargins(0, 0, 0, 0);
-  comment_layout->setSpacing(0);
-  comment_layout->addWidget(comment_label_);
 
   continue_button_ = new QPushButton(tr("Continue"));
-  continue_button_->setFixedSize(310, 36);
+  continue_button_->setFixedSize(170, 36);
   abort_button_ = new QPushButton(tr("Abort"));
-  abort_button_->setFixedSize(310, 36);
+  abort_button_->setFixedSize(170, 36);
 
-  QVBoxLayout* layout = new QVBoxLayout();
-  layout->setContentsMargins(0, 0, 0, 0);
-  layout->setSpacing(kMainLayoutSpacing);
-  layout->addStretch();
-  layout->addWidget(title_label_, 0, Qt::AlignCenter);
-  layout->addLayout(comment_layout);
-  layout->addStretch();
-  layout->addWidget(continue_button_, 0, Qt::AlignCenter);
-  layout->addSpacing(kNavButtonVerticalSpacing);
-  layout->addWidget(abort_button_, 0, Qt::AlignCenter);
+  setTitle(tr("Abort Installation"));
+  QLabel *commentLabel = new QLabel(
+      tr("Relevant operations you made in the installation "
+         "process will not take effect, abort or continue installation?"));
+  commentLabel->setWordWrap(true);
+  commentLabel->setAlignment(Qt::AlignCenter);
 
-  this->setLayout(layout);
-  this->setContentsMargins(0, 0, 0, 0);
+  addContent(commentLabel, Qt::AlignTop | Qt::AlignHCenter);
+
+  int index = 1;
+  insertButton(index, continue_button_, true);
+  ++index;
+  insertButton(index, abort_button_);
+
+  setContentsMargins(0, 0, 0, 0);
+  setFixedSize(kCloseDialogWidth, kCloseDialogHeight);
 }
 
 }  // namespace installer
