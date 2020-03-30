@@ -70,7 +70,7 @@ public:
     QPushButton *reboot_button_ ;
     QPushButton *saveLogButton ;
     QRWidget *qr_widget_;
-    QWidget* qrParentWidget;
+    DFrame* qrParentWidget;
     QPlainTextEdit *m_plainTextEdit ;
     QPushButton *control_button_ ;
     QStackedLayout* stacked_layout;
@@ -166,7 +166,7 @@ void InstallFailedFramePrivate::initUI()
     comment_layout->addWidget(comment_label_);
 
     m_plainTextEdit = new QPlainTextEdit;
-    m_plainTextEdit->setFrameShape(QFrame::Shape::NoFrame);
+    m_plainTextEdit->setFrameShape(QFrame::NoFrame);
     m_plainTextEdit->setObjectName("plainTextEdit");
     m_plainTextEdit->setContextMenuPolicy(Qt::NoContextMenu);
     m_plainTextEdit->setReadOnly(true);
@@ -175,6 +175,7 @@ void InstallFailedFramePrivate::initUI()
     m_plainTextEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     DFrame *content_frame = new DFrame();
+    content_frame->setContentsMargins(1, 1, 1, 1);
     content_frame->setObjectName("content_frame");
     content_frame->setFrameRounded(true);
     content_frame->setFixedSize(kContentWindowWidth, kContentWindowHeight);
@@ -188,16 +189,22 @@ void InstallFailedFramePrivate::initUI()
     qrLayout->setSpacing(0);
     qrLayout->addWidget(qr_widget_, 0, Qt::AlignCenter);
 
-    qrParentWidget = new QWidget;
+    qrParentWidget = new DFrame;
+    qrParentWidget->setFrameShape(QFrame::Shape::NoFrame);
     qrParentWidget->setLayout(qrLayout);
 
     stacked_layout = new QStackedLayout;
-    stacked_layout->addWidget(qrParentWidget);
     stacked_layout->addWidget(m_plainTextEdit);
+    stacked_layout->addWidget(qrParentWidget);
 
     stacked_layout->setAlignment(qr_widget_, Qt::AlignCenter);
 
-    content_frame->setLayout(stacked_layout);
+    QHBoxLayout* switchLayout = new QHBoxLayout;
+    switchLayout->setContentsMargins(5, 5, 5, 5);
+    switchLayout->setSpacing(0);
+    switchLayout->addLayout(stacked_layout);
+
+    content_frame->setLayout(switchLayout);
 
     control_button_ = new QPushButton(content_frame);
     control_button_->setFocusPolicy(Qt::NoFocus);
