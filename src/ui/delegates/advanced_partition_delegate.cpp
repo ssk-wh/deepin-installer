@@ -117,6 +117,7 @@ bool AdvancedPartitionDelegate::isPartitionTableMatch(
 
 ValidateStates AdvancedPartitionDelegate::validate() const {
   ValidateStates states;
+  bool found_lvm = false;
   bool found_efi = false;
   bool efi_large_enough = false;
   Partition::Ptr rootPartition;
@@ -160,6 +161,8 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
       }
       else if (partition->mount_point == kMountPointEFI) {
           efiPartition = partition;
+      } else if (partition->fs == FsType::LVM2PV) {
+          found_lvm = true;
       }
     }
   }
@@ -213,6 +216,9 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
 
   if (!bootPartition.isNull() && !boot_large_enough) {
     states.append(ValidateState::BootTooSmall);
+  } else if(bootPartition.isNull() && found_lvm) {
+    states.append(ValidateState::BootBeforeLvm);
+    return states;
   }
 
   // Check filesystem type is suitable for /boot folder.

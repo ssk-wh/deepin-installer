@@ -118,6 +118,16 @@ class Ext4Formater : public PartitionFormater {
           return args;
   }
 };
+
+class LVMPVFormater : public PartitionFormater {
+  public:
+  using PartitionFormater::PartitionFormater;
+  virtual QStringList args() override {
+          QStringList args(path()) ;
+          return args;
+  }
+};
+
 class F2FSFormater : public PartitionFormater {
   public:
   using PartitionFormater::PartitionFormater;
@@ -326,7 +336,9 @@ bool Mkfs(const Partition::Ptr partition)
         { FsType::Reiser4, Formater(new Reiser4Formater(partition)) },
         { FsType::Reiserfs, Formater(new ReiserFsFormater(partition)) },
         { FsType::Xfs, Formater(new XfsFormater(partition)) },
-        { FsType::Recovery, Formater(new Ext4Formater(partition))}
+        { FsType::Recovery, Formater(new Ext4Formater(partition))},
+        { FsType::LVM2PV, Formater(new LVMPVFormater(partition))}
+
     };
 
     if (!map.contains(partition->fs)) {

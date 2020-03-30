@@ -546,6 +546,9 @@ QString AdvancedPartitionFrame::validateStateToText(ValidateState state) {
       return tr("At least %1 MB is required for /boot partition")
           .arg( boot_recommended);
     }
+    case ValidateState::BootBeforeLvm: {
+      return tr("Before Lvm is required for /boot partition");
+    }
     case ValidateState::EfiMissing: {
       return tr("Add an EFI partition to continue");
     }

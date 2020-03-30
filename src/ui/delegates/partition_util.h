@@ -38,7 +38,7 @@ const QMap<FsType, QString> FsFormatCmdMap{
     { FsType::HfsPlus, QString("/usr/bin/hpfsck") },
     { FsType::Jfs, QString("mkfs.jfs") },
     { FsType::LinuxSwap, QString("mkswap") },
-    { FsType::LVM2PV, QString("lvm") },
+    { FsType::LVM2PV, QString("pvcreate") },
     { FsType::Nilfs2, QString("mkfs.nilfs2") },
     { FsType::NTFS, QString("mkfs.ntfs") },
     { FsType::Reiser4, QString("mkfs.reiser4") },
