@@ -19,6 +19,7 @@
 #include "ui/frames/consts.h"
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/title_label.h"
+#include "ui/utils/widget_util.h"
 
 #include <QEvent>
 #include <QHBoxLayout>
@@ -77,6 +78,11 @@ void ConfirmQuitFrame::initUI() {
   continue_button_->setFixedSize(170, 36);
   abort_button_ = new QPushButton(tr("Abort"));
   abort_button_->setFixedSize(170, 36);
+
+  QPixmap pixmap = installer::renderPixmap(":/images/interaction_warning.svg");
+  const auto ratio = devicePixelRatioF();
+  pixmap = pixmap.scaled(48 * ratio, 48 * ratio, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+  setIconPixmap(pixmap);
 
   setTitle(tr("Abort Installation"));
   QLabel *commentLabel = new QLabel(
