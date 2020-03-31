@@ -365,6 +365,11 @@ void MainWindow::initConnections() {
       GetSettingsBool(kRebootWhenInstallFinished) ?
           this->rebootSystem() : this->shutdownSystem();
   });
+  connect(m_installResultsFrame, &InstallResultsFrame::saveFailedLog, this, [=] {
+     showSaveLogFrame();
+  });
+  connect(m_installResultsFrame, &InstallResultsFrame::failedFinished, this
+          , &MainWindow::shutdownSystem);
 //  connect(save_failedLog_frame_, &SaveInstallFailedLogFrame::requestBack, this, &MainWindow::backPage);
 
   connect(m_frameLabelsView, &DListView::clicked, this, &MainWindow::onFrameLabelsViewClicked);

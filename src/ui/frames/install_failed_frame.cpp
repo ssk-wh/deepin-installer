@@ -146,10 +146,8 @@ void InstallFailedFramePrivate::initConnections()
             this, &InstallFailedFramePrivate::onControlButtonClicked);
     connect(reboot_button_, &QPushButton::clicked,
             m_ptr, &InstallFailedFrame::finished);
-
-    // TODO: show save log frame.
-    //    connect(saveLogButton, &QPushButton::clicked,
-    //            m_ptr, [=] {});
+    connect(saveLogButton, &QPushButton::clicked,
+            m_ptr, &InstallFailedFrame::showSaveLogFrame);
 }
 
 void InstallFailedFramePrivate::initUI()

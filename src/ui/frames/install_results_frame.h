@@ -49,6 +49,8 @@ public:
 
 signals:
     void successFinished();
+    void failedFinished();
+    void saveFailedLog();
 
 private:
     QScopedPointer<InstallResultsFramePrivate> m_private;

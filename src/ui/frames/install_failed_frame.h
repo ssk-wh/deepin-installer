@@ -36,7 +36,7 @@ class InstallFailedFrame : public QFrame {
   // Emitted when reboot button is clocked.
   void finished();
 
-  void showSaveLogFrame() const;
+  void showSaveLogFrame();
 
  public slots:
   // Reload error message.

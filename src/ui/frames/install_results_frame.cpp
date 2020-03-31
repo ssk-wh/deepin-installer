@@ -114,6 +114,12 @@ void InstallResultsFramePrivate::initConnection()
     connect(m_installSuccessFrame, &InstallSuccessFrame::finished, this, [=] {
         emit q_ptr->successFinished();
     });
+    connect(m_installFailedFrame, &InstallFailedFrame::showSaveLogFrame, this, [=] {
+        emit q_ptr->saveFailedLog();
+    });
+    connect(m_installFailedFrame, &InstallFailedFrame::finished, this, [=] {
+        emit q_ptr->failedFinished();
+    });
 }
 
 void InstallResultsFramePrivate::showNextFrame()
