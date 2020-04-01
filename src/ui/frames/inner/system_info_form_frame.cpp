@@ -21,6 +21,7 @@
 #include "base/file_util.h"
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
+#include "service/log_manager.h"
 #include "sysinfo/validate_hostname.h"
 #include "sysinfo/validate_password.h"
 #include "sysinfo/validate_username.h"
@@ -194,6 +195,8 @@ bool SystemInfoFormFrame::validateUserInfo()
         }
     }
     else {
+        // add user info log
+        installer::outputByFormat("user name: " + d->m_usernameEdit->text());
         return true;
     }
 

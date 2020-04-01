@@ -616,6 +616,8 @@ add_executable(deepin-installer-user-form
                service/settings_name.h
                service/language_manager.h
                service/language_manager.cpp
+               service/log_manager.h
+               service/log_manager.cpp
 
                sysinfo/keyboard.cpp
                sysinfo/keyboard.h
