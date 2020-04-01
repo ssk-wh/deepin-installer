@@ -210,6 +210,8 @@ void HooksManager::handleRunHooks() {
 
   // add system version log
   installer::outputByFormat("system version: UOS " + QSysInfo().productVersion());
+  // add kernel versionlog
+  installer::outputByFormat("kernel version:" + QSysInfo().kernelVersion());
   // add hooks scripts start time
   QDateTime startTime = QDateTime::currentDateTime();
   installer::outputByFormat("run hook...");
