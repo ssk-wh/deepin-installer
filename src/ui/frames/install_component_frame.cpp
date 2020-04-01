@@ -7,6 +7,7 @@
 #include "ui/delegates/componentinstallmanager.h"
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
+#include "service/log_manager.h"
 
 #include "ui/interfaces/frameinterfaceprivate.h"
 
@@ -118,6 +119,9 @@ void SelectInstallComponentFrame::finished()
 
     if (!packages.isEmpty()) {
         WriteComponentLanguage(packages.join(" "));
+
+        // add package info log
+        installer::outputByFormat("language packages list: " + packages.join(" "));
     }
 
     if (!m_private->m_currentComponentWidget) {
@@ -132,6 +136,9 @@ void SelectInstallComponentFrame::finished()
 
     if (!installPackages.isEmpty()) {
         WriteComponentPackages(installPackages.join(" "));
+
+        // add package info log
+        installer::outputByFormat("install packages list: " + installPackages.join(" "));
     }
 
     const QStringList uninstallPackages =
@@ -139,6 +146,9 @@ void SelectInstallComponentFrame::finished()
             current);
     if (!uninstallPackages.isEmpty()) {
         WriteComponentUninstallPackages(uninstallPackages.join(" "));
+
+        // add package info log
+        installer::outputByFormat("uninstall packages list: " + uninstallPackages.join(" "));
     }
 }
 
