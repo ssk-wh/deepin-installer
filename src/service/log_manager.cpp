@@ -123,4 +123,10 @@ bool RedirectLog(const QString& log_file) {
   return ok;
 }
 
+void outputByFormat(const QString &infolog) {
+    qCritical() << QString("[deepin-installer %1]:%2")\
+                   .arg(QDateTime::currentDateTime().toString("yyyy-MM-dd:hh:mm:ss"))\
+                   .arg(infolog);
+}
+
 }  // namespace installer

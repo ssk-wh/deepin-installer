@@ -28,6 +28,8 @@ QString GetLogFilepath();
 // Redirect stdout and stderr to |log_file|.
 bool RedirectLog(const QString& log_file);
 
+void outputByFormat(const QString &infolog);
+
 }  // namespace installer
 
 
