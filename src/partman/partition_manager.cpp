@@ -21,6 +21,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QCollator>
+#include <QProcess>
 
 #include "base/command.h"
 #include "partman/libparted_util.h"
@@ -213,32 +214,83 @@ void PartitionManager::doAutoPart(const QString& script_path) {
 void PartitionManager::doManualPart(const OperationList& operations) {
   qDebug() << Q_FUNC_INFO << "\n" << "operations:" << operations;
   bool ok = true;
+  bool isLvm2Pv = false;
+  bool islvm = false; 
   // Copy operation list, as partition path will be updated in applyToDisk().
   OperationList real_operations(operations);
+  PartitionList lvmpv_PartitionList;
+
   for (int i = 0; ok && i < real_operations.length(); ++i) {
-    Operation& operation = real_operations[i];
-    ok = operation.applyToDisk();
+      Operation::Ptr operation = real_operations[i];
+      if (!operation->new_partition) continue;
+      if (operation->new_partition->fs == FsType::LVM2PV
+              && (operation->type == OperationType::Create || operation->type ==OperationType::Format)) {
+            isLvm2Pv = true;
+            lvmpv_PartitionList.append(operation->new_partition);
+      } else if (operation->orig_partition->fs == FsType::LVM2PV && operation->type == OperationType::Delete) {
+          for(Partition::Ptr pvPartitiom : lvmpv_PartitionList) {
+              if (pvPartitiom->path == operation->orig_partition->path) {
+                  int delret = lvmpv_PartitionList.indexOf(pvPartitiom);
+                  lvmpv_PartitionList.removeAt(delret);
+                  if (lvmpv_PartitionList.size() == 0) {
+                      isLvm2Pv = false;
+                  }
+              }
+          }
+      }
+      if (operation->new_partition->is_lvm) {
+          islvm = true;
+          //注意一定要isLvm2Pv = false;
+          isLvm2Pv = false;
+      }
   }
   qDebug() << Q_FUNC_INFO << "\n" << "real operations:" << real_operations;
 
   DeviceList devices;
+  if (!islvm && isLvm2Pv) {     
+      devices = ScanVgDevices(lvmpv_PartitionList);
+      emit this->manualPartDone(ok, devices);
+      return ;
+  }
+
+  for (int i = 0; ok && i < real_operations.length(); ++i) {
+    Operation::Ptr operation = real_operations[i];
+    if (operation->type == OperationType::NewPartTable) {
+        DeviceList fulldisk_devices = ScanDevices(false);
+        for (Device::Ptr device : fulldisk_devices) {
+            if(operation->device->path == device->path) {
+                operation->umount(device);
+            }
+        }
+    }
+    ok = operation->applyToDisk();
+  }
+
   if (ok) {
-    devices = ScanDevices(false);
+    devices = ScanDevices(false);    
+    if (islvm && !isLvm2Pv) {
+        devices.append(real_operations.back()->device);
+        VgDevice::p_installer_VgDevice->enableVG(true);
+    }
     // Update mount point of real partitions.
     std::map<QString, Partition::Ptr> mountMap;
-    for (const Operation& operation : real_operations) {
-        if ((operation.type == OperationType::Create) ||
-            (operation.type == OperationType::Format) ||
-            (operation.type == OperationType::MountPoint)) {
-            mountMap[operation.new_partition->mount_point] = operation.new_partition;
+    for (const Operation::Ptr operation : real_operations) {
+        if (!operation->new_partition || !operation->orig_partition) continue;
+        if ((operation->type == OperationType::Create) ||
+            (operation->type == OperationType::Format) ||
+            (operation->type == OperationType::MountPoint)) {
+            mountMap[operation->new_partition->mount_point] = operation->new_partition;
         }
 
-        if (operation.type == OperationType::Delete) {
-            mountMap.erase(operation.orig_partition->mount_point);
+        if (operation->type == OperationType::Delete) {
+            mountMap.erase(operation->orig_partition->mount_point);
         }
     }
 
+    DeviceList ok_devices;
     for (Device::Ptr device : devices) {
+        if (!device) continue;
+        ok_devices.append(device);
         for (Partition::Ptr partition : device->partitions) {
             auto it = std::find_if(
                 mountMap.cbegin(), mountMap.cend(),
@@ -254,6 +306,7 @@ void PartitionManager::doManualPart(const OperationList& operations) {
             }
         }
     }
+    devices = ok_devices;
   }
 
   emit this->manualPartDone(ok, devices);
@@ -283,6 +336,20 @@ DeviceList ScanDevices(bool enable_os_prober) {
   // 3. Retrieve partition metadata.
 
    EnableVG(false);
+   // 通过 pvdisplay -s 扫描出 LVM2PV 的path
+   QProcess process;
+   QStringList devicePathList;
+   process.start("pvdisplay -s");
+   process.waitForFinished();
+   QString str = process.readLine();
+   while (str.size() > 0) {
+       str.replace("\n","");
+       auto lst = str.split("\"");
+       if (lst.size() == 3) {
+           devicePathList.append(lst[1]);
+       }
+       str = process.readLine();
+   }
 
   // Let libparted detect all devices and construct device list.
   ped_device_probe_all();
@@ -426,6 +493,14 @@ DeviceList ScanDevices(bool enable_os_prober) {
         for (Partition::Ptr partition : device->partitions) {
           partition->device_path = device->path;
           partition->sector_size = device->sector_size;
+
+          // 判断是否是LVM2PV
+          for (QString partitionPath : devicePathList) {
+              if (partition->path == partitionPath) {
+                  partition->fs = FsType::LVM2PV;
+              }
+          }
+
           if (!partition->path.isEmpty() &&
               partition->type != PartitionType::Unallocated) {
             // Read partition label and os.
@@ -460,7 +535,7 @@ DeviceList ScanDevices(bool enable_os_prober) {
   }
 
   // Add simulated disks in debug mode for debugging the partition frame.
-  #ifdef QT_DEBUG
+  #ifdef QT_DEBUG_sadhu
       int deviceNum = 1;
 
       // add a MBR disk which has not any partitions.
@@ -482,6 +557,39 @@ DeviceList ScanDevices(bool enable_os_prober) {
   });
 
   return devices;
+}
+
+DeviceList ScanVgDevices(PartitionList & partitionList)
+{
+    VgDevice* device = VgDevice::installer_VgDevice(partitionList);
+    device->model = "VG device";
+    device->path = QString("/dev/%1").arg(device->m_vgName);
+    device->length = device->getSize() / 512;
+    device->sectors = 63;
+    device->sector_size = 512;
+    device->max_prims = kGPTPartitionNums;
+    device->read_only = false;
+    device->table = PartitionTableType::GPT;
+
+    int partitionNo = 1;
+    LvPartition* partition1 = new LvPartition();
+    partition1->device_path = device->path;
+    partition1->path = QString("%1/lv1").arg(device->path);
+    partition1->partition_number = -1;
+    partition1->type = PartitionType::Unallocated;
+    partition1->status = PartitionStatus::Real;
+    partition1->fs = FsType::Unknown;
+    partition1->busy = false;
+    partition1->start_sector = 0;
+    partition1->end_sector = device->length;
+    partition1->sector_size = 512;
+
+    PartitionList partitions;
+    partitions << Partition::Ptr(partition1);
+    device->partitions = partitions;
+    DeviceList devices;
+    devices.append(Device::Ptr(device));
+    return devices;
 }
 
 Device::Ptr constructDevice1(int deviceNum)

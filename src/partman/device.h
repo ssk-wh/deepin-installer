@@ -25,6 +25,10 @@
 #include "partman/partition.h"
 
 namespace installer {
+enum DeviceType {
+    NormalDevice = 0,
+    VGDevice
+};
 
 class Device {
  public:
@@ -44,7 +48,7 @@ class Device {
   qint64 sector_size;  // logical sector size
   int max_prims;
   bool read_only;
-
+  DeviceType device_type;
   PartitionTableType table;
 
   // Returns size of device. Returns -1 if failed.

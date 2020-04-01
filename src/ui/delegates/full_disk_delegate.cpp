@@ -98,10 +98,10 @@ bool FullDiskDelegate::formatWholeDevice(const QString& device_path,
   Device::Ptr new_device(new Device(*device));
   new_device->partitions.clear();
   new_device->table = type;
-  const Operation operation(new_device);
+  Operation::Ptr operation(newOperation(new_device));
   operations_.append(operation);
   // Update virtual device property at the same time.
-  operation.applyToVisual(device);
+  operation->applyToVisual(device);
 
   if (device->partitions.length() == 0) {
       qCritical() << "partition is empty" << device;
@@ -227,6 +227,9 @@ void FullDiskDelegate::onManualPartDone(const DeviceList& devices) {
 
   // Check use-specified partitions with mount point.
   for (const Device::Ptr device : devices) {
+      //删除 lvm  逻辑卷时会出现设备为空的情况
+      if (!device) continue;
+
     for (const Partition::Ptr partition : device->partitions) {
       if (!partition->mount_point.isEmpty()) {
         // Add in-used partitions to mount_point list.
@@ -422,9 +425,9 @@ struct  FullDiskPolicyComparator {
 
 bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOption& option)
 {
-    Operation operation(device);
+    Operation::Ptr operation(newOperation(device));
     operations_.append(operation);
-    operation.applyToVisual(device);
+    operation->applyToVisual(device);
 
     int            primary_count { 0 };
     const uint     swapSize{ getSwapSize() };
@@ -615,19 +618,19 @@ void FullDiskDelegate::getFinalDiskResolution(FinalFullDiskResolution& resolutio
 {
     resolution.option_list.clear();
     FinalFullDiskOption option;
-    for (Operation op : operations()) {
-        if (OperationType::Create != op.type || FsType::Empty == op.new_partition->fs) {
+    for (Operation::Ptr op : operations()) {
+        if (OperationType::Create != op->type || FsType::Empty == op->new_partition->fs) {
             continue;
         }
 
         FinalFullDiskPolicy policy;
-        policy.filesystem = GetFsTypeName(op.new_partition->fs);
-        policy.mountPoint = op.new_partition->mount_point;
-        policy.label = op.new_partition->label;
-        policy.offset = op.new_partition->start_sector * op.new_partition->sector_size;
-        policy.size = (op.new_partition->end_sector - op.new_partition->start_sector) *
-                op.new_partition->sector_size;
-        policy.device = op.new_partition->device_path;
+        policy.filesystem = GetFsTypeName(op->new_partition->fs);
+        policy.mountPoint = op->new_partition->mount_point;
+        policy.label = op->new_partition->label;
+        policy.offset = op->new_partition->start_sector * op->new_partition->sector_size;
+        policy.size = (op->new_partition->end_sector - op->new_partition->start_sector) *
+                op->new_partition->sector_size;
+        policy.device = op->new_partition->device_path;
 
         if (option.policy_list.length() > 0
             && option.policy_list.last().device != policy.device) {

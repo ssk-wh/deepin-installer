@@ -76,9 +76,9 @@ class Partition {
  public:
   Partition();
   Partition(const Partition &partition);
-  ~Partition();
-
+  virtual ~Partition();
   typedef QSharedPointer<Partition> Ptr;
+  virtual Partition* newPartition();
 
   bool operator==(const Partition& other) const;
 
@@ -92,7 +92,7 @@ class Partition {
   FsType fs;
   OsType os;
   bool busy;  // Set to true when this partition is being used.
-
+  bool is_lvm;
   // sector size of the disk device needed for converting to/from sectors
   // and bytes
   qint64 sector_size;
@@ -111,7 +111,7 @@ class Partition {
   PartitionFlags flags;
 
   // Change partition number and partition path.
-  void changeNumber(int partition_number);
+  virtual void changeNumber(int partition_number);
 
   // Returns actual partition size.
   // |length| is set only if this partition has a filesystem.

@@ -75,7 +75,7 @@ class AdvancedPartitionFrame : public QFrame {
  protected:
   void changeEvent(QEvent* event) override;
 
- private:
+ protected:
   void initConnections();
   void initUI();
 

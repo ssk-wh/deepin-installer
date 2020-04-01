@@ -164,16 +164,22 @@ set(OEM_FILES
 set(PARTMAN_FILES
     partman/device.cpp
     partman/device.h
+    partman/vg_device.cpp
+    partman/vg_device.h
     partman/fs.cpp
     partman/fs.h
     partman/libparted_util.cpp
     partman/libparted_util.h
     partman/operation.cpp
     partman/operation.h
+    partman/lvm_operation.cpp
+    partman/lvm_operation.h
     partman/os_prober.cpp
     partman/os_prober.h
     partman/partition.cpp
     partman/partition.h
+    partman/lv_partition.cpp
+    partman/lv_partition.h
     partman/partition_format.cpp
     partman/partition_format.h
     partman/partition_manager.cpp
@@ -259,6 +265,8 @@ set(UI_FILES
     ui/delegates/advanced_partition_animations.h
     ui/delegates/advanced_partition_delegate.cpp
     ui/delegates/advanced_partition_delegate.h
+    ui/delegates/lvm_partition_delegate.cpp
+    ui/delegates/lvm_partition_delegate.h
     ui/delegates/partition_delegate.h
     ui/delegates/partition_delegate.cpp
     ui/delegates/network_operate.h
@@ -304,6 +312,8 @@ set(UI_FILES
     ui/frames/consts.h
     ui/frames/inner/advanced_partition_frame.cpp
     ui/frames/inner/advanced_partition_frame.h
+    ui/frames/inner/lvm_partition_frame.cpp
+    ui/frames/inner/lvm_partition_frame.h
     ui/frames/inner/edit_partition_frame.cpp
     ui/frames/inner/edit_partition_frame.h
     ui/frames/inner/full_disk_frame.cpp

@@ -21,12 +21,14 @@
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
 #include "ui/delegates/advanced_partition_delegate.h"
+#include "ui/delegates/lvm_partition_delegate.h"
 #include "ui/delegates/full_disk_delegate.h"
 #include "ui/delegates/simple_partition_delegate.h"
 #include "ui/frames/dynamic_disk_warning_frame.h"
 #include "ui/delegates/partition_util.h"
 #include "ui/frames/consts.h"
 #include "ui/frames/inner/advanced_partition_frame.h"
+#include "ui/frames/inner/lvm_partition_frame.h"
 #include "ui/frames/inner/edit_partition_frame.h"
 #include "ui/frames/inner/full_disk_frame.h"
 #include "ui/frames/inner/new_partition_frame.h"
@@ -73,6 +75,7 @@ public:
         , q_ptr(qobject_cast<PartitionFrame* >(parent))
         ,partition_model_(new PartitionModel(this))
         ,advanced_delegate_(new AdvancedPartitionDelegate(this))
+        ,lvm_delegate_(new LvmPartitionDelegate(this))
         ,full_disk_delegate_(new FullDiskDelegate(this))
         ,simple_partition_delegate_(new SimplePartitionDelegate(this))
     {}
@@ -113,9 +116,12 @@ public:
      PartitionFrame* q_ptr=nullptr;
 
      AdvancedPartitionFrame* advanced_partition_frame_ = nullptr;
+     LvmPartitionFrame* lvm_partition_frame_ = nullptr;
      EditPartitionFrame* edit_partition_frame_ = nullptr;
+     EditPartitionFrame* edit_lvm_partition_frame_ = nullptr;
      FullDiskFrame* full_disk_partition_frame_ = nullptr;
      NewPartitionFrame* new_partition_frame_ = nullptr;
+     NewPartitionFrame* new_lvm_partition_frame_ = nullptr;
      NewTableLoadingFrame* new_table_loading_frame_ = nullptr;
      NewTableWarningFrame* new_table_warning_frame_ = nullptr;
      PartitionLoadingFrame* partition_loading_frame_ = nullptr;
@@ -139,6 +145,7 @@ public:
 
      PartitionModel* partition_model_ = nullptr;
      AdvancedPartitionDelegate* advanced_delegate_ = nullptr;
+     LvmPartitionDelegate* lvm_delegate_ = nullptr;
      FullDiskDelegate* full_disk_delegate_ = nullptr;
      SimplePartitionDelegate* simple_partition_delegate_ = nullptr;
 };
@@ -194,7 +201,7 @@ void PartitionFrame::changeEvent(QEvent* event) {
     m_private->simple_frame_button_->setText(tr("Simple"));
     m_private->advanced_frame_button_->setText(tr("Advanced"));
     m_private->full_disk_frame_button_->setText(tr("Full Disk"));
-    m_private->nextButton->setText(tr("Start installation"));
+    m_private->nextButton->setText(tr("Next"));
   } else {
       FrameInterface::changeEvent(event);
   }
@@ -241,10 +248,31 @@ void PartitionFramePrivate::initConnections() {
           &AdvancedPartitionFrame::requestSelectBootloaderFrame,
           this, &PartitionFramePrivate::showSelectBootloaderFrame);
 
+  connect(lvm_partition_frame_,
+          &AdvancedPartitionFrame::requestEditPartitionFrame,
+          this, &PartitionFramePrivate::showEditPartitionFrame);
+  connect(lvm_partition_frame_,
+          &AdvancedPartitionFrame::requestNewPartitionFrame,
+          this, &PartitionFramePrivate::showNewPartitionFrame);
+  connect(lvm_partition_frame_, &AdvancedPartitionFrame::requestNewTable,
+          this, &PartitionFramePrivate::showPartitionTableWarningFrame);
+  connect(lvm_partition_frame_,
+          &AdvancedPartitionFrame::requestPartitionNumberLimitationFrame,
+          this, &PartitionFramePrivate::showPartitionNumberLimitationFrame);
+  connect(lvm_partition_frame_,
+          &AdvancedPartitionFrame::requestSelectBootloaderFrame,
+          this, &PartitionFramePrivate::showSelectBootloaderFrame);
+
   connect(edit_partition_frame_, &EditPartitionFrame::finished, this, [=] {
       q_ptr->m_proxy->hideChildFrame();
   });
+  connect(edit_lvm_partition_frame_, &EditPartitionFrame::finished, this, [=] {
+      q_ptr->m_proxy->hideChildFrame();
+  });
   connect(new_partition_frame_, &NewPartitionFrame::finished, this, [=] {
+      q_ptr->m_proxy->hideChildFrame();
+  });
+  connect(new_lvm_partition_frame_, &NewPartitionFrame::finished, this, [=] {
       q_ptr->m_proxy->hideChildFrame();
   });
 
@@ -285,6 +313,17 @@ void PartitionFramePrivate::initConnections() {
 
   connect(partition_model_, &PartitionModel::deviceRefreshed,
           advanced_delegate_, &AdvancedPartitionDelegate::onDeviceRefreshed);
+
+  connect(select_bootloader_frame_, &SelectBootloaderFrame::bootloaderUpdated,
+          lvm_partition_frame_,
+          &AdvancedPartitionFrame::setBootloaderPath);
+  connect(select_bootloader_frame_, &SelectBootloaderFrame::finished,
+          this, &PartitionFramePrivate::showMainFrame);
+  connect(lvm_delegate_, &AdvancedPartitionDelegate::deviceRefreshed,
+          select_bootloader_frame_, &SelectBootloaderFrame::deviceRefreshed);
+
+  connect(partition_model_, &PartitionModel::deviceRefreshed,
+          lvm_delegate_, &AdvancedPartitionDelegate::onDeviceRefreshed);
 
   if (!GetSettingsBool(kPartitionSkipSimplePartitionPage)) {
     connect(partition_model_, &PartitionModel::deviceRefreshed,
@@ -329,9 +368,12 @@ void PartitionFramePrivate::initUI() {
 
   advanced_partition_frame_ =
       new AdvancedPartitionFrame(advanced_delegate_, q_ptr);
+  lvm_partition_frame_  = new LvmPartitionFrame(lvm_delegate_, q_ptr);
   edit_partition_frame_ = new EditPartitionFrame(q_ptr->m_proxy, advanced_delegate_);
+  edit_lvm_partition_frame_ = new EditPartitionFrame(q_ptr->m_proxy, lvm_delegate_);
   full_disk_partition_frame_ = new FullDiskFrame(full_disk_delegate_, q_ptr);
   new_partition_frame_ = new NewPartitionFrame(q_ptr->m_proxy, advanced_delegate_);
+  new_lvm_partition_frame_ = new NewPartitionFrame(q_ptr->m_proxy, lvm_delegate_);
   new_table_loading_frame_ = new NewTableLoadingFrame(q_ptr);
   new_table_warning_frame_ = new NewTableWarningFrame(q_ptr);
   partition_loading_frame_ = new PartitionLoadingFrame(q_ptr);
@@ -380,6 +422,7 @@ void PartitionFramePrivate::initUI() {
   partition_stacked_layout_->addWidget(simple_partition_frame_);
   partition_stacked_layout_->addWidget(advanced_partition_frame_);
   partition_stacked_layout_->addWidget(full_disk_partition_frame_);
+  partition_stacked_layout_->addWidget(lvm_partition_frame_);
 
   if (GetSettingsBool(kPartitionSkipSimplePartitionPage)) {
       simple_frame_button_->hide();
@@ -546,12 +589,19 @@ void PartitionFramePrivate::onNextButtonClicked() {
     if (!full_disk_partition_frame_->validate()) {
       return;
     }
-  } else {
+  } else if (AdvancedPartitionDelegate::install_Lvm_Status != Install_Lvm_Status::Lvm_Install) {
     // Validate advanced partition frame.
     if (!advanced_partition_frame_->validate()) {
       return;
     }
+  } else if (AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_Install) {
+    // Validate advanced partition frame.
+    if (!lvm_partition_frame_->validate()) {
+      return;
+    }
   }
+
+
 
   // check disk is raw
   QList<Device::Ptr> device;
@@ -570,6 +620,12 @@ void PartitionFramePrivate::onNextButtonClicked() {
     return;
   }
 
+  if (AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_No_Need) {
+      prepare_install_frame_->setInstallLvmTitel(false);
+  } else {
+      prepare_install_frame_->setInstallLvmTitel(true);
+  }
+
     showPrepareInstallFrame();
 }
 
@@ -580,11 +636,22 @@ void PartitionFramePrivate::onFullDiskCryptoButtonClicked(bool encrypto)
 
 void PartitionFramePrivate::onManualPartDone(bool ok, const DeviceList& devices) {
   if (ok) {
+
     // Write settings to file.
     if (isSimplePartitionMode()) {
       simple_partition_delegate_->onManualPartDone(devices);
     } else if (isFullDiskPartitionMode()) {
       full_disk_delegate_->onManualPartDone(devices);
+    } else if (Install_Lvm_Status::Lvm_Format_Pv == AdvancedPartitionDelegate::install_Lvm_Status) {        
+        lvm_delegate_->onLvmPartDone(ok,devices);
+        m_buttonGroup->setVisible(false);
+        partition_stacked_layout_->setCurrentWidget(lvm_partition_frame_);
+        main_layout_->setCurrentWidget(main_frame_);
+        title_label_->setText(tr("Lvm configer"));
+        comment_label_->setText(tr(""));
+        return ;
+    } else if (Install_Lvm_Status::Lvm_Install == AdvancedPartitionDelegate::install_Lvm_Status) {
+        lvm_delegate_->onManualPartDone(devices);
     } else {
       advanced_delegate_->onManualPartDone(devices);
     }
@@ -598,15 +665,15 @@ void PartitionFramePrivate::onPrepareInstallFrameFinished() {
     bool found_boot;
     if (isSimplePartitionMode()) {
         found_boot = simple_partition_delegate_->setBootFlag();
-    }
-    else if (isFullDiskPartitionMode() && !full_disk_partition_frame_->isEncrypt()){
+    } else if (isFullDiskPartitionMode() && !full_disk_partition_frame_->isEncrypt()){
         found_boot = full_disk_delegate_->setBootFlag();
-    }
-    else {
+    } else if (AdvancedPartitionDelegate::install_Lvm_Status != Install_Lvm_Status::Lvm_Install) {
         found_boot = advanced_delegate_->setBootFlag();
+    } else if (AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_Install) {
+        found_boot = lvm_delegate_->setBootFlag();
     }
 
-    if (!found_boot && !isFullDiskPartitionMode()) {
+    if (!found_boot && !isFullDiskPartitionMode() &&AdvancedPartitionDelegate::install_Lvm_Status != Install_Lvm_Status::Lvm_Install) {
         qCritical() << "No boot partition found, we shall never reach here!";
         return;
     }
@@ -615,12 +682,14 @@ void PartitionFramePrivate::onPrepareInstallFrameFinished() {
     OperationList operations;
     if (isSimplePartitionMode()) {
         operations = simple_partition_delegate_->operations();
-    }
-    else if (isFullDiskPartitionMode() && !full_disk_partition_frame_->isEncrypt()) {
+    } else if (isFullDiskPartitionMode() && !full_disk_partition_frame_->isEncrypt()) {
         operations = full_disk_delegate_->operations();
-    }
-    else {
+    } else if (AdvancedPartitionDelegate::install_Lvm_Status != Install_Lvm_Status::Lvm_Install){
         operations = advanced_delegate_->operations();
+    } else if (AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_Install){
+        //注意一定要先添加老分区操作，否则会产生不可预料的后果
+        operations = lvm_delegate_->m_oldOperationList;
+        operations.append(lvm_delegate_->operations());
     }
 
     // full disk encrypt operations is empty.
@@ -633,13 +702,23 @@ void PartitionFramePrivate::onPrepareInstallFrameFinished() {
     }
     else {
         partition_model_->manualPart(operations);
-        q_ptr->m_proxy->nextFrame();
+        if (AdvancedPartitionDelegate::install_Lvm_Status != Install_Lvm_Status::Lvm_Format_Pv) {
+            q_ptr->m_proxy->nextFrame();
+        } else {
+            lvm_delegate_->m_oldOperationList = operations;
+            advanced_partition_frame_->hide();
+        }
     }
 }
 
 void PartitionFramePrivate::showEditPartitionFrame(const Partition::Ptr partition) {
-  edit_partition_frame_->setPartition(partition);
-  q_ptr->m_proxy->showChildFrame(edit_partition_frame_);
+    if (Install_Lvm_Status::Lvm_Install == AdvancedPartitionDelegate::install_Lvm_Status) {
+        edit_lvm_partition_frame_->setPartition(partition);
+        q_ptr->m_proxy->showChildFrame(edit_lvm_partition_frame_);
+    } else {
+        edit_partition_frame_->setPartition(partition);
+        q_ptr->m_proxy->showChildFrame(edit_partition_frame_);
+    }
 }
 
 void PartitionFramePrivate::showMainFrame() {
@@ -650,8 +729,13 @@ void PartitionFramePrivate::showMainFrame() {
 
 void PartitionFramePrivate::showNewPartitionFrame(
     const Partition::Ptr partition) {
-  new_partition_frame_->setPartition(partition);
-  q_ptr->m_proxy->showChildFrame(new_partition_frame_);
+    if (Install_Lvm_Status::Lvm_Install == AdvancedPartitionDelegate::install_Lvm_Status) {
+        new_lvm_partition_frame_->setPartition(partition);
+        q_ptr->m_proxy->showChildFrame(new_lvm_partition_frame_);
+    } else {
+        new_partition_frame_->setPartition(partition);
+        q_ptr->m_proxy->showChildFrame(new_partition_frame_);
+    }
 }
 
 void PartitionFramePrivate::showNewTableLoadingFrame() {
@@ -667,8 +751,10 @@ void PartitionFramePrivate::showNewTableWarningFrame(const QString& device_path)
   } else if (isFullDiskPartitionMode()) {
     qCritical() << "Never show new table warning frame for simple disk frame";
     return;
-  } else {
+  } else if (AdvancedPartitionDelegate::install_Lvm_Status != Install_Lvm_Status::Lvm_Install) {
     devices = advanced_delegate_->realDevices();
+  } else if (AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_Install) {
+    devices = lvm_delegate_->realDevices();
   }
 
   const int device_index = DeviceIndex(devices, device_path);
@@ -731,8 +817,10 @@ void PartitionFramePrivate::showPrepareInstallFrame()
     }
     else if (isFullDiskPartitionMode()) {
         descriptions = full_disk_delegate_->getOptDescriptions();
-    } else {
+    } else if (AdvancedPartitionDelegate::install_Lvm_Status != Install_Lvm_Status::Lvm_Install) {
       descriptions = advanced_delegate_->getOptDescriptions();
+    } else if (AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_Install) {
+      descriptions = lvm_delegate_->getOptDescriptions();
     }
 
     qDebug() << "descriptions: " << descriptions;

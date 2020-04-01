@@ -36,7 +36,7 @@ class PrepareInstallFrame : public QFrame {
 
   // Update descriptions of operations.
   void updateDescription(const QStringList& descriptions);
-
+  void setInstallLvmTitel(bool yes = false);
  signals:
   // Emitted when abort-button is clicked, returning to previous page.
   void aborted();

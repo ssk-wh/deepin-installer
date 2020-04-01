@@ -19,6 +19,8 @@
 
 #include <QRegularExpression>
 
+#include "base/command.h"
+
 namespace installer {
 
 QDebug& operator<<(QDebug& debug, const PartitionType& partition_type) {
@@ -94,7 +96,8 @@ Partition::Partition()
       start_sector(-1),
       end_sector(-1),
       mount_point(),
-      flags()
+      flags(),
+      is_lvm(false)
 {}
 
 Partition::Partition(const Partition &partition)
@@ -114,11 +117,15 @@ Partition::Partition(const Partition &partition)
       start_sector(partition.start_sector),
       end_sector(partition.end_sector),
       mount_point(partition.mount_point),
-      flags(partition.flags) {
+      flags(partition.flags),
+      is_lvm(partition.is_lvm) {
 }
 
 Partition::~Partition() {
 
+}
+Partition* Partition::newPartition() {
+    return new Partition(*this);
 }
 
 bool Partition::operator==(const Partition &other) const {

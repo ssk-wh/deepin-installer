@@ -17,6 +17,8 @@
 
 #include "partman/device.h"
 
+#include "base/command.h"
+
 namespace installer {
 
 Device::Device()
@@ -31,7 +33,8 @@ Device::Device()
       sector_size(0),
       max_prims(0),
       read_only(true),
-      table(PartitionTableType::Unknown) {
+      table(PartitionTableType::Unknown),
+      device_type(DeviceType::NormalDevice) {
 }
 
 Device::Device(const Device &device)
@@ -47,6 +50,7 @@ Device::Device(const Device &device)
     , max_prims(device.max_prims)
     , read_only(device.read_only)
     , table(device.table)
+    , device_type(device.device_type)
 {
 
 }

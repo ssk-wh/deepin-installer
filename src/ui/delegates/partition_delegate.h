@@ -3,7 +3,7 @@
 #include <QObject>
 
 #include "partman/device.h"
-#include "partman/operation.h"
+#include "partman/lvm_operation.h"
 #include "service/settings_manager.h"
 #include "ui/delegates/advanced_validate_state.h"
 
@@ -44,8 +44,8 @@ public:
     // Get human readable operation descriptions.
     inline QStringList getOptDescriptions() const {
         QStringList descriptions;
-        for (const Operation& operation : operations_) {
-            descriptions.append(operation.description());
+        for (const Operation::Ptr operation : operations_) {
+            descriptions.append(operation->description());
         }
 
         return descriptions;
@@ -83,6 +83,16 @@ public:
 
     // Validate whether selected partition is appropriate.
     virtual ValidateStates validate() const;
+
+    virtual Partition* newPartition();
+
+    virtual Partition* newPartition(const Partition &partition);
+
+    virtual Operation* newOperation(const Device::Ptr device);
+
+    virtual Operation* newOperation(OperationType type,
+                                    const Partition::Ptr orig_partition,
+                                    const Partition::Ptr new_partition);
 
     virtual bool createPartition(const Partition::Ptr partition,
                                  PartitionType        partition_type,
@@ -150,8 +160,7 @@ public:
                                     qint64&               start_sector,
                                     qint64&               end_sector);
 
-    Device::Ptr findDevice(const QString& devicePath);
-
+    Device::Ptr findDevice(const QString& devicePath);   
 signals:
     void deviceRefreshed(const DeviceList& devices);
 

@@ -100,10 +100,10 @@ bool SimplePartitionDelegate::formatWholeDevice(const QString& device_path,
   Device::Ptr new_device(new Device(*device));
   new_device->partitions.clear();
   new_device->table = type;
-  const Operation operation(new_device);
+  Operation::Ptr operation(newOperation(new_device));
   operations_.append(operation);
   // Update virtual device property at the same time.
-  operation.applyToVisual(device);
+  operation->applyToVisual(device);
 
   if (device->partitions.length() == 0) {
     qCritical() << "partition is empty" << device;
@@ -125,8 +125,8 @@ bool SimplePartitionDelegate::formatWholeDevice(const QString& device_path,
     qCritical() << "Failed to create /boot partition on" << unallocated;
     return false;
   }
-  Operation& boot_operation = operations_.last();
-  boot_operation.applyToVisual(device);
+  Operation::Ptr boot_operation = operations_.last();
+  boot_operation->applyToVisual(device);
 
   unallocated = device->partitions.last();
   // Create swap partition->
@@ -142,8 +142,8 @@ bool SimplePartitionDelegate::formatWholeDevice(const QString& device_path,
     qCritical() << "Failed to created swap partition:" << device;
     return false;
   }
-  Operation& swap_operation = operations_.last();
-  swap_operation.applyToVisual(device);
+  Operation::Ptr swap_operation = operations_.last();
+  swap_operation->applyToVisual(device);
 
   const qint64 kRootMaximumSize = 300 * kGibiByte;
   const qint64 device_size = device->getByteLength();

@@ -31,8 +31,12 @@ const char kMountPointUnused[] = "unused";
 
 }  // namespace
 
+Install_Lvm_Status AdvancedPartitionDelegate::install_Lvm_Status = Install_Lvm_Status::Lvm_No_Need;
+QStringList AdvancedPartitionDelegate::mountPoints_AdvancedPartition;
+
 AdvancedPartitionDelegate::AdvancedPartitionDelegate(QObject* parent)
-    : partition::Delegate(parent)
+    : m_islvm(false),
+      partition::Delegate(parent)
     {
   this->setObjectName("advanced_partition_delegate");
 }
@@ -51,6 +55,10 @@ FsTypeList AdvancedPartitionDelegate::getFsTypeList() const {
       if (!SpawnCmd("which", QStringList() << cmd)) continue;
 #endif
       FsType type = GetFsTypeByName(fs_name);
+      if (install_Lvm_Status == Install_Lvm_Status::Lvm_Install) {
+          if(type == FsType::LVM2PV || type == FsType::EFI)
+              continue;
+      }
       fs_types.append(type);
     }
   }
@@ -72,6 +80,7 @@ FsTypeList AdvancedPartitionDelegate::getBootFsTypeList() const {
 
 QStringList AdvancedPartitionDelegate::getMountPoints() const {
   QStringList mount_points;
+  QStringList new_mount_points;
   if (mount_points.isEmpty()) {
     // Read available mount points.
     mount_points = GetSettingsStringList(kPartitionMountPoints);
@@ -81,9 +90,18 @@ QStringList AdvancedPartitionDelegate::getMountPoints() const {
       if (mount_point == kMountPointUnused) {
         mount_point = "";
       }
+      new_mount_points.append(mount_point);
+      if (install_Lvm_Status == Install_Lvm_Status::Lvm_Install) {
+          for (QString mountpoint : mountPoints_AdvancedPartition) {
+              if(mountpoint == mount_point && mountpoint != "") {
+                  new_mount_points.pop_back();
+                  break;
+              }
+          }
+      }
     }
   }
-  return mount_points;
+  return new_mount_points;
 }
 
 QList<Device::Ptr> AdvancedPartitionDelegate::getAllUsedDevice() const
@@ -93,13 +111,13 @@ QList<Device::Ptr> AdvancedPartitionDelegate::getAllUsedDevice() const
     auto operations_ { operations() };
     auto real_devices_ { realDevices() };
 
-    for (const Operation& operation : operations_) {
-        if (operation.type != OperationType::NewPartTable) {
+    for (const Operation::Ptr operation : operations_) {
+        if (operation->type != OperationType::NewPartTable) {
             for (Device::Ptr device : real_devices_) {
                 if (list.contains(device)) {
                     continue;
                 }
-                if (device->path == operation.orig_partition->device_path) {
+                if (device->path == operation->orig_partition->device_path) {
                     list << device;
                     break;
                 }
@@ -138,8 +156,20 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
   const qint64 partition_min_size_bytes = partition_min_size_by_gb * kGibiByte;
 
   Device::Ptr root_device;
+  DeviceList pv_devices;
+
+  if (install_Lvm_Status != Install_Lvm_Status::Lvm_Install) {
+      mountPoints_AdvancedPartition.clear();
+      install_Lvm_Status = Install_Lvm_Status::Lvm_No_Need;
+  }
+
   for (const Device::Ptr device : virtualDevices()) {
     for (const Partition::Ptr partition : device->partitions) {
+
+      if (install_Lvm_Status != Install_Lvm_Status::Lvm_Install) {
+        mountPoints_AdvancedPartition.append(partition->mount_point);
+      }
+
       if (partition->mount_point == kMountPointRoot) {
         // Check / partition->
         root_device = device;
@@ -161,9 +191,19 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
       }
       else if (partition->mount_point == kMountPointEFI) {
           efiPartition = partition;
-      } else if (partition->fs == FsType::LVM2PV) {
-          found_lvm = true;
       }
+
+      if (partition->fs == FsType::LVM2PV && partition->status != PartitionStatus::Real ) {
+          found_lvm = true;
+          if (pv_devices.indexOf(device) < 0) {
+              pv_devices.append(device);
+          }
+
+          if (install_Lvm_Status == Install_Lvm_Status::Lvm_No_Need) {
+              install_Lvm_Status = Install_Lvm_Status::Lvm_Format_Pv;
+          }
+      }
+
     }
   }
 
@@ -187,6 +227,27 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
              break;
           }
       }
+  } else if(install_Lvm_Status == Install_Lvm_Status::Lvm_Format_Pv) {
+      for (const Device::Ptr device : pv_devices) {
+        for (const Partition::Ptr partition : device->partitions) {
+             if (partition->fs == FsType::EFI) {
+                 found_efi = true;
+                 efiPartition = partition;
+                 if (partition->status == PartitionStatus::Real) {
+                   // For existing EFI partition->
+                   const qint64 efi_minimum_bytes = efi_minimum * kMebiByte;
+                   const qint64 efi_real_bytes = partition->getByteLength() + kMebiByte;
+                   efi_large_enough = (efi_real_bytes >= efi_minimum_bytes);
+                 } else {
+                   // For newly created EFI partition->
+                   const qint64 efi_recommended_bytes = efi_recommended * kMebiByte;
+                   const qint64 efi_real_bytes = partition->getByteLength() + kMebiByte;
+                   efi_large_enough = (efi_real_bytes >= efi_recommended_bytes);
+                 }
+                 break;
+              }
+          }
+      }
   }
 
   if (!rootPartition.isNull()) {
@@ -194,8 +255,18 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
     if (!root_large_enough) {
       states.append(ValidateState::RootTooSmall);
     }
-  } else {
-    states.append(ValidateState::RootMissing);
+  } else if (install_Lvm_Status != Install_Lvm_Status::Lvm_Format_Pv) {
+      states.append(ValidateState::RootMissing);
+      for (QString mountPoint : mountPoints_AdvancedPartition) {
+          if (mountPoint == kMountPointRoot) {
+               states.pop_back();
+               break;
+          }
+      }
+  }
+
+  if (install_Lvm_Status == Install_Lvm_Status::Lvm_Install) {
+      return states;
   }
 
   // Check whether efi filesystem exists.
@@ -208,7 +279,7 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
       }
     }
     else {
-      if (!rootPartition.isNull()){
+      if (!rootPartition.isNull() || install_Lvm_Status == Install_Lvm_Status::Lvm_Format_Pv){
         states.append(ValidateState::EfiMissing);
       }
     }
@@ -301,7 +372,7 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
     QString        esp_path;
     Device::Ptr    root_device;
     Partition::Ptr efi_partition;
-
+    bool is_lvm = false;
     // Check use-specified partitions with mount point.
     for (const Device::Ptr device : devices) {
         for (const Partition::Ptr partition : device->partitions) {
@@ -314,13 +385,27 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
                     root_path   = partition->path;
                     root_device = device;
                 }
+
+                if (partition->mount_point == kMountPointBoot && bootloader_path_ == "") {
+                    bootloader_path_ = partition->device_path;
+                }
+            }
+
+            if (partition->is_lvm) {
+                is_lvm = true;
+            }
+
+            if (partition->fs == FsType::EFI && esp_path != partition->path) {
+                // NOTE(lxz): maybe we shoud check efi freespcae
+                esp_path = partition->path;                
             }
         }
     }
 
     // Find this device efi partition
     for (Partition::Ptr partition : root_device->partitions) {
-        if (partition->fs == FsType::EFI && esp_path != partition->path) {
+        if (!root_device) continue;
+        if (!partition->is_lvm && partition->fs == FsType::EFI && esp_path != partition->path) {
             // NOTE(lxz): maybe we shoud check efi freespcae
             esp_path = partition->path;
             break;
@@ -329,6 +414,7 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
 
     // Check linux-swap.
    for (Partition::Ptr partition : root_device->partitions) {
+        if (!root_device) continue;
         if (partition->fs == FsType::LinuxSwap) {
             found_swap = true;
             const QString record(QString("%1=swap").arg(partition->path));
@@ -379,11 +465,11 @@ bool AdvancedPartitionDelegate::unFormatPartition(const Partition::Ptr partition
   if (partition->status == PartitionStatus::Format) {
     OperationList operations_ = operations();
     for (int index = operations_.length() - 1; index >= 0; --index) {
-      const Operation& operation = operations_.at(index);
+      const Operation::Ptr operation = operations_.at(index);
       // Remove the last FormatOperation if its new_partition range is the
       // same with |partition|.
-      if (operation.type == OperationType::Format &&
-          operation.new_partition == partition) {
+      if (operation->type == OperationType::Format &&
+          operation->new_partition == partition) {
         operations_.removeAt(index);
         return true;
       }

@@ -21,7 +21,7 @@
 #include <QDebug>
 #include <QList>
 
-#include "partman/device.h"
+#include "partman/vg_device.h"
 
 namespace installer {
 
@@ -46,7 +46,10 @@ class Operation {
             const Partition::Ptr orig_partition,
             const Partition::Ptr new_partition);
   ~Operation();
+  void umount(const Partition::Ptr partition);
+  void umount(const Device::Ptr device);
 
+  typedef QSharedPointer<Operation> Ptr;
   OperationType type;
 
   // This property is used only for NewPartTable. When partition table of
@@ -60,7 +63,7 @@ class Operation {
 
   // Apply changes to disk. Returns operation status.
   // Note that this method shall be called in the background thread.
-  bool applyToDisk();
+  virtual bool applyToDisk();  
 
   // Apply operation by updating device properties.
   void applyToVisual(const Device::Ptr device) const;
@@ -82,7 +85,7 @@ class Operation {
 };
 QDebug& operator<<(QDebug& debug, const Operation& operation);
 
-typedef QList<Operation> OperationList;
+typedef QList<Operation::Ptr> OperationList;
 
 // Merge |operation| in |operations|.
 void MergeOperations(OperationList& operations, const Operation& operation);

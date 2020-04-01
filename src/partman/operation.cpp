@@ -15,14 +15,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "partman/operation.h"
+#include "partman/lvm_operation.h"
 
 #include <QDebug>
+#include <QDir>
 #include <memory>
 
 #include "partman/libparted_util.h"
 #include "partman/partition_format.h"
 #include "ui/delegates/partition_util.h"
+#include "base/command.h"
 
 namespace installer {
 
@@ -71,11 +73,51 @@ Operation::Operation(OperationType type,
                      const Partition::Ptr orig_partition,
                      const Partition::Ptr new_partition)
     : type(type),
-      orig_partition(new Partition(*orig_partition)),
-      new_partition(new Partition(*new_partition)) {
+      orig_partition(orig_partition->newPartition()), //TODO  newPartition  controversial
+      new_partition(new_partition->newPartition()) {
 }
 
 Operation::~Operation() {
+}
+
+void Operation::umount(const Partition::Ptr partition) {
+    if(partition->fs == FsType::LVM2PV) {
+        //判断pv是否已经分配给其他vg
+        QStringList argsPath(partition->path);
+        QString output;
+        SpawnCmd("pvdisplay", argsPath, output);
+        QStringList msglinelist = output.split(QRegExp("[\r\n]"),QString::SkipEmptyParts);
+        if (msglinelist.size() > 0) {
+            for (QString msg : msglinelist) {
+                int ret_index= msg.indexOf("VG Name");
+                if (ret_index > -1) {
+                    msg.replace("VG Name","");
+                    msg.replace("\n","");
+                    msg.replace(" ","");
+                    if (msg.size() > 0) {
+                       QDir dir( "/dev/" + msg );
+                       QFileInfoList fileInfoList = dir.entryInfoList();
+                       for (QFileInfo fileInfo : fileInfoList) {
+                           if (fileInfo.fileName() == "." || fileInfo.fileName() == "..")  continue;
+                           SpawnCmd("umount", QStringList(fileInfo.absoluteFilePath()));
+                           SpawnCmd("lvremove", QStringList({fileInfo.absoluteFilePath(), "-y"}));
+
+                       }
+                       SpawnCmd("vgremove", QStringList({"/dev/" + msg, "-y"}));
+                     }
+                 }
+             }
+         }
+    }
+
+    SpawnCmd("umount", QStringList(partition->path));
+}
+void Operation::umount(const Device::Ptr device) {
+    if (device) {
+        for(Partition::Ptr partition : device->partitions) {
+            umount(partition);
+        }
+    }
 }
 
 bool Operation::applyToDisk() {
@@ -88,6 +130,7 @@ bool Operation::applyToDisk() {
       }
 
       // Create new partition in disk partition table.
+      umount(orig_partition);
       if (!CreatePartition(new_partition)) {
         qCritical() << "CreatePartition() failed" << new_partition;
         return false;
@@ -125,6 +168,7 @@ bool Operation::applyToDisk() {
 
     case OperationType::Delete: {
       // Delete partition from disk partition table.
+      umount(orig_partition);
       if (!DeletePartition(orig_partition)) {
         qCritical() << "DeletePartition() failed:" << orig_partition;
         return false;
@@ -141,6 +185,7 @@ bool Operation::applyToDisk() {
       }
 
       // Update filesystem type in partition table.
+      umount(orig_partition);
       if (!SetPartitionType(new_partition)) {
         qCritical() << "OperationFormat SetPartitionType() failed:"
                     << new_partition;
@@ -198,6 +243,7 @@ bool Operation::applyToDisk() {
 
     case OperationType::Resize: {
       // Resize extended partition.
+      umount(orig_partition);
       if (!ResizeMovePartition(new_partition)) {
         qCritical() << "ResizeMovePartition() failed:" << new_partition;
         return false;

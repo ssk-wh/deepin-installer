@@ -73,6 +73,19 @@ NewPartitionFrame::NewPartitionFrame(FrameProxyInterface* frameProxyInterface, A
 void NewPartitionFrame::setPartition(const Partition::Ptr partition) {
   // Update partition information.
   partition_ = partition;
+
+  if (fs_model_) {
+      fs_model_->deleteLater();
+  }
+  fs_model_ = new FsModel(delegate_->getFsTypeList(), this);
+  fs_box_->setModel(fs_model_);
+
+  if (mount_point_model_) {
+      mount_point_model_->deleteLater();
+  }
+  mount_point_model_ = new MountPointModel(delegate_->getMountPoints(), this);
+  mount_point_box_->setModel(mount_point_model_);
+
   const bool primary_ok = delegate_->canAddPrimary(partition);
   const bool logical_ok = delegate_->canAddLogical(partition);
   if (! (primary_ok || logical_ok)) {
@@ -249,8 +262,10 @@ void NewPartitionFrame::initUI() {
 
   QVBoxLayout* content_layout = new QVBoxLayout();
   content_layout->setSpacing(20);
-  content_layout->addLayout(type_layout);
-  content_layout->addLayout(alignment_layout);
+  if (!delegate_->m_islvm) {
+      content_layout->addLayout(type_layout);
+      content_layout->addLayout(alignment_layout);
+  }
   content_layout->addLayout(fs_layout);
   content_layout->addLayout(mount_layout);
   content_layout->addLayout(size_layout);

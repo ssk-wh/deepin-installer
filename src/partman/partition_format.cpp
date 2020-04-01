@@ -123,7 +123,7 @@ class LVMPVFormater : public PartitionFormater {
   public:
   using PartitionFormater::PartitionFormater;
   virtual QStringList args() override {
-          QStringList args(path()) ;
+          QStringList args({path(),"-y"}) ;
           return args;
   }
 };

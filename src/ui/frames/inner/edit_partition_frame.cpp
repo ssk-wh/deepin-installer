@@ -80,6 +80,18 @@ void EditPartitionFrame::setPartition(const Partition::Ptr partition) {
   // Update partition information.
   partition_ = partition;
 
+  if (fs_model_) {
+      fs_model_->deleteLater();
+  }
+  fs_model_ = new FsModel(delegate_->getFsTypeList(), this);
+  fs_box_->setModel(fs_model_);
+
+  if (mount_point_model_) {
+      mount_point_model_->deleteLater();
+  }
+  mount_point_model_ = new MountPointModel(delegate_->getMountPoints(), this);
+  mount_point_box_->setModel(mount_point_model_);
+
   os_label_->setPixmap(QPixmap(GetOsTypeLargeIcon(partition->os)));
   name_label_->setText(GetPartitionLabelAndPath(partition));
   usage_label_->setText(GetPartitionUsage(partition));

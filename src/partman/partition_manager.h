@@ -75,7 +75,7 @@ class PartitionManager : public QObject {
 // Detect OS types if |enable_os_prober| is true.
 // Do not call this function directly, use PartitionManager instead.
 DeviceList ScanDevices(bool enable_os_prober);
-
+DeviceList ScanVgDevices(PartitionList & partitionList);
 // Construct a disk which partition table is MBR and has not any partitions.
 Device::Ptr constructDevice1(int deviceNum);
 
