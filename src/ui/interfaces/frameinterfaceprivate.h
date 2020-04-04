@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QPushButton>
+#include <QShortcut>
+#include <QTimer>
 
 #include "frameinterface.h"
 #include "service/language_manager.h"
@@ -37,11 +39,8 @@ public:
 
         frameInterface->setLayout(mainLayout);
 
-        connect(nextButton, &QPushButton::clicked, parent, [=] {
-            if (validate()) {
-                parent->nextFrame();
-            }
-        });
+        connect(nextButton, &QPushButton::clicked, this, &FrameInterfacePrivate::onNextButtonClickHandle);
+        QTimer::singleShot(0, this, &FrameInterfacePrivate::registerShortcutKey);
 
         // Register Next button text
         LanguageManager::translator(nextButton, &QPushButton::setText, TranslatorType::NextButton);
@@ -50,6 +49,23 @@ public:
     // Verify that jumping to the next frame is allowed.
     virtual bool validate() const {
         return true;
+    }
+
+    virtual void onNextButtonClickHandle() const {
+        FrameInterface* parent = dynamic_cast<FrameInterface*>(this->parent());
+        if (parent != nullptr) {
+            if (validate()) {
+                parent->nextFrame();
+            }
+        }
+    }
+
+    virtual void registerShortcutKey() const {
+        QShortcut *key = new QShortcut(QKeySequence(Qt::Key_Return), nextButton);
+        key->setAutoRepeat(false);
+        connect(key, &QShortcut::activated, this, [=]{
+            emit nextButton->click();
+        });
     }
 
 protected:

@@ -52,6 +52,11 @@ public:
     void showLanguage();
     void showOemUserLicense();
 
+    void onNextButtonClickHandle() const override {
+        FrameInterfacePrivate::onNextButtonClickHandle();
+        nextButton->setEnabled(false);
+    }
+
     LanguageFrame*       q_ptr                   = nullptr;
     QStackedLayout*      m_frame_layout          = nullptr;
     UserAgreementDelegate* m_user_license_delegate = nullptr;
