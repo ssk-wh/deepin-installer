@@ -335,6 +335,7 @@ void SystemInfoFormFramePrivate::initUI()
     m_usernameLabel->setAlignment(Qt::AlignLeft);
     m_usernameEdit = new DLineEdit;
     m_usernameEdit->lineEdit()->setReadOnly(GetSettingsBool(kSystemInfoLockUsername));
+    m_usernameEdit->setContextMenuPolicy(Qt::NoContextMenu);
 
     QString str = GetSettingsString(kSystemInfoDefaultUsername);
     if (!str.isEmpty()) {
@@ -359,6 +360,7 @@ void SystemInfoFormFramePrivate::initUI()
     m_hostnameLabel->setAlignment(Qt::AlignLeft);
     m_hostnameEdit = new DLineEdit;
     m_hostnameEdit->lineEdit()->setReadOnly(GetSettingsBool(kSystemInfoLockHostname));
+    m_hostnameEdit->setContextMenuPolicy(Qt::NoContextMenu);
 
     str = GetSettingsString(kSystemInfoDefaultHostname);
     if (!str.isEmpty()) {
@@ -384,6 +386,7 @@ void SystemInfoFormFramePrivate::initUI()
     m_passwordEdit = new DPasswordEdit;
     m_passwordEdit->setEchoMode(QLineEdit::Password);
     m_passwordEdit->lineEdit()->setReadOnly(GetSettingsBool(kSystemInfoLockPassword));
+    m_passwordEdit->setContextMenuPolicy(Qt::NoContextMenu);
 
     QHBoxLayout *passwordLayout = new QHBoxLayout;
     passwordLayout->setContentsMargins(0, 0, 0, 0);
@@ -401,6 +404,7 @@ void SystemInfoFormFramePrivate::initUI()
     m_passwordCheckEdit = new DPasswordEdit;;
     m_passwordCheckEdit->setEchoMode(QLineEdit::Password);
     m_passwordCheckEdit->lineEdit()->setReadOnly(m_passwordEdit->lineEdit()->isReadOnly());
+    m_passwordCheckEdit->setContextMenuPolicy(Qt::NoContextMenu);
 
     str = GetSettingsString(kSystemInfoDefaultPassword);
     if (!str.isEmpty()) {
@@ -435,6 +439,7 @@ void SystemInfoFormFramePrivate::initUI()
     m_rootPasswordEdit = new DPasswordEdit;
     m_rootPasswordEdit->setEchoMode(QLineEdit::Password);
     m_rootPasswordEdit->lineEdit()->setReadOnly(GetSettingsBool(kSystemInfoLockPassword));
+    m_rootPasswordEdit->setContextMenuPolicy(Qt::NoContextMenu);
 
     QHBoxLayout *rootPasswordLayout = new QHBoxLayout;
     rootPasswordLayout->setContentsMargins(0, 0, 0, 0);
@@ -456,6 +461,7 @@ void SystemInfoFormFramePrivate::initUI()
     m_rootPasswordCheckEdit = new DPasswordEdit;
     m_rootPasswordCheckEdit->setEchoMode(QLineEdit::Password);
     m_rootPasswordCheckEdit->lineEdit()->setReadOnly(m_rootPasswordEdit->lineEdit()->isReadOnly());
+    m_rootPasswordCheckEdit->setContextMenuPolicy(Qt::NoContextMenu);
 
     QHBoxLayout *rootPasswordCheckLayout = new QHBoxLayout;
     rootPasswordCheckLayout->setContentsMargins(0, 0, 0, 0);
