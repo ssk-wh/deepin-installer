@@ -124,7 +124,6 @@ public:
 void TimezoneFramePrivate::updateTs()
 {
     title_label_->setText(tr("Select Timezone"));
-    nextButton->setText(tr("Next"));
     m_timezoneMapButton->setText(tr("Map"));
     m_timezoneListButton->setText(tr("List"));
 }

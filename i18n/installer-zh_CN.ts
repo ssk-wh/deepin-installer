@@ -746,6 +746,7 @@
     </message>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="48"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
@@ -765,6 +766,18 @@
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
 =======
 >>>>>>> abe476cc... chore: auto pull translation files from transifex
+=======
+    <message>
+        <location filename="../src/base/translator.h" line="16"/>
+        <source>Next</source>
+        <translation>下一步</translation>
+    </message>
+    <message>
+        <location filename="../src/base/translator.h" line="17"/>
+        <source>Back</source>
+        <translation>上一步</translation>
+    </message>
+>>>>>>> efe0cbd3... fix：Modify the next button in the installer page to be Chinese
 </context>
 <context>
     <name>installer::SelectBootloaderFrame</name>
