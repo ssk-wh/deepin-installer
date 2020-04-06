@@ -22,6 +22,7 @@
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/nav_button.h"
 #include "ui/widgets/title_label.h"
+#include "sysinfo/users.h"
 
 #include <QVBoxLayout>
 #include <QPainter>
@@ -84,7 +85,7 @@ void PrivilegeErrorFrame::finished()
 
 bool PrivilegeErrorFrame::shouldDisplay() const
 {
-    return true;
+    return !HasRootPrivilege();
 }
 
 QString PrivilegeErrorFrame::returnFrameName() const
