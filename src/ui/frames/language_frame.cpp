@@ -121,6 +121,7 @@ void LanguageFramePrivate::showUserLicense() {
         m_user_license_frame->setCheckedButton(kChineseToggleButtonId);
     } else {
         m_user_license_frame->setUserAgreement(en_US_license, zh_CN_license);
+        m_user_license_frame->setCheckedButton(kEnglishToggleButtonId);
     }
     m_frame_layout->setCurrentWidget(m_user_license_frame);
 
