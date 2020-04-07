@@ -1,6 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
-  <g fill="#FFF" fill-rule="evenodd" transform="translate(10 10)">
-    <rect width="20" height="20" fill-opacity=".15" rx="10"/>
-    <polygon fill-rule="nonzero" points="10.243 10.95 7.061 14.132 6.707 14.485 6 13.778 6.354 13.425 9.536 10.243 6.354 7.061 6 6.707 6.707 6 7.061 6.354 10.243 9.536 13.425 6.354 13.778 6 14.485 6.707 14.132 7.061 10.95 10.243 14.132 13.425 14.485 13.778 13.778 14.485 13.425 14.132" opacity=".6"/>
-  </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>titlebutton/close_normal</title>
+    <desc>Created with Sketch.</desc>
+    <g id="titlebutton/close_normal" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="close_normal" transform="translate(19.000000, 19.000000)" fill="#626E88" fill-rule="nonzero">
+            <polygon id="Combined-Shape" points="1.64644661 11.5459415 1.29289322 11.8994949 0.585786438 11.1923882 0.939339828 10.8388348 5.53553391 6.24264069 0.939339828 1.64644661 0.585786438 1.29289322 1.29289322 0.585786438 1.64644661 0.939339828 6.24264069 5.53553391 10.8388348 0.939339828 11.1923882 0.585786438 11.8994949 1.29289322 11.5459415 1.64644661 6.94974747 6.24264069 11.5459415 10.8388348 11.8994949 11.1923882 11.1923882 11.8994949 10.8388348 11.5459415 6.24264069 6.94974747"></polygon>
+        </g>
+    </g>
 </svg>

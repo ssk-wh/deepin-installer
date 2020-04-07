@@ -99,7 +99,7 @@ class MainWindow : public DMainWindow, public FrameProxyInterface {
 
  protected:
   // Show ConfirmQuitFrame when top right corner is clicked.
-  void closeEvent(QCloseEvent* event) override;
+  void onCloseEvent();
   void changeEvent(QEvent* event) override;
   void resizeEvent(QResizeEvent* event) override;
 
@@ -144,6 +144,7 @@ private:
 
   QLabel* background_label_ = nullptr;
   DImageButton* back_button_ = nullptr;
+  DImageButton* close_button_ = nullptr;
   PageIndicator* page_indicator_ = nullptr;
   // All of frame pages are stored in this layout.
   // And they are referenced by id in |pages_|.

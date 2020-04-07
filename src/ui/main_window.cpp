@@ -288,13 +288,16 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 {
     shadow_widget->setFixedSize(event->size());
 
+    if (close_button_) {
+      close_button_->move(width() - close_button_->width(), 0);
+      close_button_->raise();
+    }
+
     QWidget::resizeEvent(event);
 }
 
-void MainWindow::closeEvent(QCloseEvent *event)
+void MainWindow::onCloseEvent()
 {
-    event->ignore();
-
     confirm_quit_frame_->display();
 }
 
@@ -315,6 +318,8 @@ void MainWindow::changeEvent(QEvent *event)
 }
 
 void MainWindow::initConnections() {
+  connect(close_button_, &DImageButton::clicked, this, &MainWindow::onCloseEvent);
+
   connect(confirm_quit_frame_, &ConfirmQuitFrame::quitCancelled, this, [=](){
              confirm_quit_frame_->close();
           });
@@ -474,6 +479,15 @@ void MainWindow::initUI() {
   back_button_->setHoverPic(":/images/back_hover.svg");
   back_button_->setPressPic(":/images/back_pressed.svg");
   back_button_->setDisabledPic(":/images/back_disabled.svg");
+
+  // TODO: use titleBar implement.
+  close_button_ = new DImageButton(this);
+  close_button_->setObjectName("close_button");
+  close_button_->setFocusPolicy(Qt::TabFocus);
+  close_button_->setFixedSize(40, 40);
+  close_button_->setNormalPic(":/images/close_normal.svg");
+  close_button_->setHoverPic(":/images/close_normal.svg");
+  close_button_->setPressPic(":/images/close_normal.svg");
 
   stacked_layout_ = new QStackedLayout();
   stacked_layout_->setContentsMargins(0, 0, 0, 0);
