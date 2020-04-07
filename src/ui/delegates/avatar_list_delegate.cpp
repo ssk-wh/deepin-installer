@@ -49,19 +49,20 @@ AvatarListDelegate::paint(QPainter* painter,
       // Scale image.
       painter->setRenderHint(QPainter::SmoothPixmapTransform);
 
+      const int iconMargin = kIconMargin / 2;
       if (option.state & QStyle::State_Selected) {
-          const int margin = kIconMargin / 2;
+          const int apertureMargin = iconMargin / 2;
           const QRect ellipse_round(
-              rect.topLeft() + QPoint(margin, margin),
-              QSize(kIconSize + kIconMargin, kIconSize + kIconMargin));
+              rect.topLeft() + QPoint(apertureMargin, apertureMargin),
+              QSize(kIconSize + iconMargin, kIconSize + iconMargin));
 
           QPen pen(QColor("#209cee"));
-          pen.setWidth(2);
+          pen.setWidth(apertureMargin);
           painter->setPen(pen);
           painter->drawEllipse(ellipse_round);
       }
 
-      const QRect ellipse_rect(rect.topLeft() + QPoint(8, 8),
+      const QRect ellipse_rect(rect.topLeft() + QPoint(iconMargin, iconMargin ),
                                QSize(kIconSize, kIconSize));
 
       QPainterPath path;

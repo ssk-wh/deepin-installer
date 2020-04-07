@@ -127,6 +127,7 @@ void SystemInfoAvatarFramePrivate::initUI() {
   list_view_->setFixedWidth(600);
   list_view_->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   list_view_->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+  list_view_->setDragEnabled(false);
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
