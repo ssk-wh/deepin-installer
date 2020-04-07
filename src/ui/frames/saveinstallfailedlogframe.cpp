@@ -38,6 +38,7 @@
 #include <QScrollArea>
 #include <QFileInfo>
 #include <QDateTime>
+#include <QPainter>
 #include <ddiskmanager.h>
 #include <dblockdevice.h>
 #include <ddiskdevice.h>
@@ -46,9 +47,15 @@ using namespace installer;
 
 // 4 partitions are displays at each row.
 const int kDiskColumns = 4;
-const int kWindowWidth = 960;
+const int kWindowWidth = 600;
+const int kWindowHeight = 500;
+const int kScrollAreaMinHeigh = 250;
 
-SaveInstallFailedLogFrame::SaveInstallFailedLogFrame(QWidget *parent) : QWidget(parent)
+const int kButtonWidth = 197;
+const int kButtonHeight = 36;
+
+SaveInstallFailedLogFrame::SaveInstallFailedLogFrame(FrameProxyInterface *frameProxyInterface, QWidget *parent)
+    : ChildFrameInterface(frameProxyInterface, parent)
 {
     m_title = new QLabel;
     m_subTitle = new CommentLabel;
@@ -71,16 +78,29 @@ SaveInstallFailedLogFrame::SaveInstallFailedLogFrame(QWidget *parent) : QWidget(
     area->setObjectName("scroll_area");
     area->setFrameStyle(QFrame::NoFrame);
     area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    area->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    area->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     area->setContentsMargins(0, 0, 0, 0);
     area->setWidget(widget);
     area->setAutoFillBackground(false);
     area->viewport()->setAutoFillBackground(false);
     widget->setFixedWidth(kWindowWidth);
     area->setFixedWidth(kWindowWidth);
+    area->setFixedHeight(kScrollAreaMinHeigh);
 
     m_saveBtn = new QPushButton;
+    m_saveBtn->setFixedSize(kButtonWidth, kButtonHeight);
     m_backBtn = new QPushButton;
+    m_backBtn->setFixedSize(kButtonWidth, kButtonHeight);
+
+    QHBoxLayout *buttonLayout = new QHBoxLayout;
+    buttonLayout->setContentsMargins(0, 0, 0, 0);
+    buttonLayout->setSpacing(0);
+    buttonLayout->addWidget(m_saveBtn, 0, Qt::AlignHCenter | Qt::AlignLeft);
+    buttonLayout->addSpacing(10);
+    buttonLayout->addWidget(m_backBtn, 0, Qt::AlignHCenter | Qt::AlignRight);
+    QWidget *buttonWrapWidget = new QWidget;
+    buttonWrapWidget->setContentsMargins(0, 0, 0, 0);
+    buttonWrapWidget->setLayout(buttonLayout);
 
     QVBoxLayout* mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
@@ -92,9 +112,9 @@ SaveInstallFailedLogFrame::SaveInstallFailedLogFrame(QWidget *parent) : QWidget(
     mainLayout->addSpacing(10);
     mainLayout->addWidget(area, 0, Qt::AlignHCenter);
     mainLayout->addStretch();
-    mainLayout->addWidget(m_saveBtn, 0, Qt::AlignHCenter);
     mainLayout->addSpacing(10);
-    mainLayout->addWidget(m_backBtn, 0, Qt::AlignHCenter);
+    mainLayout->addWidget(buttonWrapWidget, 0, Qt::AlignHCenter);
+    mainLayout->addSpacing(10);
 
     m_saveBtn->setDisabled(true);
 
@@ -106,8 +126,6 @@ SaveInstallFailedLogFrame::SaveInstallFailedLogFrame(QWidget *parent) : QWidget(
     layout->addStretch();
 
     setLayout(layout);
-
-    setStyleSheet(ReadFile(":/styles/simple_partition_frame.css"));
 
     updateTs();
 
@@ -142,6 +160,18 @@ bool SaveInstallFailedLogFrame::event(QEvent *event)
     }
 
     return QWidget::event(event);
+}
+
+void SaveInstallFailedLogFrame::paintEvent(QPaintEvent *event)
+{
+    QPainter painter(this);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
+    QPainterPath path;
+    path.addRoundedRect(rect(), 25, 25);
+    painter.setClipPath(path);
+    painter.fillRect(rect(), Qt::white);
+
+    return QWidget::paintEvent(event);
 }
 
 void SaveInstallFailedLogFrame::updateTs()

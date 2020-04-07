@@ -51,7 +51,6 @@
 #include "ui/frames/system_info_frame.h"
 #include "ui/frames/timezone_frame.h"
 #include "ui/frames/virtual_machine_frame.h"
-#include "ui/frames/saveinstallfailedlogframe.h"
 #include "ui/frames/install_component_frame.h"
 #include "ui/frames/install_results_frame.h"
 #include "ui/widgets/shadow_widget.h"
@@ -365,12 +364,8 @@ void MainWindow::initConnections() {
       GetSettingsBool(kRebootWhenInstallFinished) ?
           this->rebootSystem() : this->shutdownSystem();
   });
-  connect(m_installResultsFrame, &InstallResultsFrame::saveFailedLog, this, [=] {
-     showSaveLogFrame();
-  });
   connect(m_installResultsFrame, &InstallResultsFrame::failedFinished, this
           , &MainWindow::shutdownSystem);
-//  connect(save_failedLog_frame_, &SaveInstallFailedLogFrame::requestBack, this, &MainWindow::backPage);
 
   connect(m_frameLabelsView, &DListView::clicked, this, &MainWindow::onFrameLabelsViewClicked);
 }
@@ -405,9 +400,6 @@ void MainWindow::initPages() {
 
   m_installResultsFrame = new InstallResultsFrame(this);
   stacked_layout_->addWidget(m_installResultsFrame);
-
-  save_failedLog_frame_ = new SaveInstallFailedLogFrame;
-  stacked_layout_->addWidget(save_failedLog_frame_);
 
   m_originalFrames = {
       // TODO: move the front new statement over here
@@ -834,13 +826,6 @@ void MainWindow::shutdownSystem() {
   if (!ShutdownSystem()) {
       qWarning() << "ShutdownSystem() failed!";
   }
-}
-
-void MainWindow::showSaveLogFrame()
-{
-    stacked_layout_->setCurrentWidget(save_failedLog_frame_);
-    save_failedLog_frame_->startDeviceWatch(true);
-    m_old_frames << stacked_layout_->currentWidget();
 }
 
 }  // namespace installer

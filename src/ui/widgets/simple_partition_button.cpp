@@ -29,10 +29,10 @@ namespace installer {
 
 namespace {
 
-const int kButtonWidth = 220;
-const int kButtonHeight = 220;
-const int kOsIconWidth = 120;
-const int kOsIconHeight = 120;
+const int kButtonWidth = 120 ;
+const int kButtonHeight = 120 ;
+const int kOsIconWidth = 48;
+const int kOsIconHeight = 48;
 
 }  // namespace
 
@@ -50,10 +50,14 @@ SimplePartitionButton::SimplePartitionButton(const Partition::Ptr partition,
 void SimplePartitionButton::setSelected(bool selected) {
   selected_ = selected;
   if (selected) {
-    const QPixmap pixmap = installer::renderPixmap(":/images/driver_install_128.svg");
+    QPixmap pixmap = installer::renderPixmap(":/images/driver_install_128.svg");
+    pixmap = pixmap.scaled(os_label_->size(), Qt::KeepAspectRatio
+                           , Qt::SmoothTransformation);
     os_label_->setPixmap(pixmap);
   } else {
     QPixmap pixmap(GetOsTypeLargeIcon(partition_->os));
+    pixmap = pixmap.scaled(os_label_->size(), Qt::KeepAspectRatio
+                           , Qt::SmoothTransformation);
     os_label_->setPixmap(pixmap);
   }
 }
@@ -62,7 +66,10 @@ void SimplePartitionButton::initUI() {
   os_label_ = new QLabel();
   os_label_->setObjectName("fs_label");
   os_label_->setFixedSize(kOsIconWidth, kOsIconHeight);
-  os_label_->setPixmap(QPixmap(GetOsTypeLargeIcon(partition_->os)));
+  QPixmap pixmap(GetOsTypeLargeIcon(partition_->os));
+  pixmap = pixmap.scaled(os_label_->size(), Qt::KeepAspectRatio
+                         , Qt::SmoothTransformation);
+  os_label_->setPixmap(pixmap);
 
   QLabel* path_label = new QLabel(GetPartitionLabelAndPath(partition_));
   path_label->setObjectName("path_label");
@@ -91,7 +98,6 @@ void SimplePartitionButton::initUI() {
 
   this->setLayout(layout);
 
-  this->setStyleSheet(ReadFile(":/styles/simple_partition_button.css"));
   this->setCheckable(true);
   this->setFixedSize(kButtonWidth, kButtonHeight);
 }

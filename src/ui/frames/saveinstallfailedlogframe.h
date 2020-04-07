@@ -22,6 +22,8 @@
 #ifndef SAVEINSTALLFAILEDLOGFRAME_H
 #define SAVEINSTALLFAILEDLOGFRAME_H
 
+#include "ui/interfaces/frameinterface.h"
+
 #include <QWidget>
 #include <QMap>
 #include <QSharedPointer>
@@ -37,11 +39,11 @@ class DDiskManager;
 namespace installer {
 class CommentLabel;
 class Partition;
-class SaveInstallFailedLogFrame : public QWidget
+class SaveInstallFailedLogFrame : public ChildFrameInterface
 {
     Q_OBJECT
 public:
-    explicit SaveInstallFailedLogFrame(QWidget *parent = nullptr);
+    explicit SaveInstallFailedLogFrame(FrameProxyInterface* frameProxyInterface, QWidget *parent = nullptr);
 
     void startDeviceWatch(bool enable);
 
@@ -50,6 +52,7 @@ signals:
 
 protected:
     bool event(QEvent* event) override;
+    void paintEvent(QPaintEvent* event) override;
 
 private:
     void updateTs();

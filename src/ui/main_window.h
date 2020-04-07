@@ -60,7 +60,6 @@ class LanguageFrame;
 class SystemInfoFrame;
 class TimezoneFrame;
 class VirtualMachineFrame;
-class SaveInstallFailedLogFrame;
 class SelectInstallComponentFrame;
 class InstallResultsFrame;
 class ShadowWidget;
@@ -162,7 +161,6 @@ private:
   TimezoneFrame* timezone_frame_ = nullptr;
   VirtualMachineFrame* virtual_machine_frame_ = nullptr;
   MultiHeadManager* multi_head_manager_ = nullptr;
-  SaveInstallFailedLogFrame* save_failedLog_frame_ = nullptr;
   SelectInstallComponentFrame* m_selectComponentFrame = nullptr;
   InstallResultsFrame* m_installResultsFrame = nullptr;
   ShadowWidget* shadow_widget = nullptr;
@@ -211,7 +209,6 @@ private:
   void goNextPage();
   void rebootSystem();
   void shutdownSystem();
-  void showSaveLogFrame();
 
   // When user mouse press left page tables.
   void previousFrameSelected(FrameInterface* frame);

@@ -27,6 +27,7 @@
 #include "ui/frames/install_progress_frame.h"
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
+#include "ui/frames/saveinstallfailedlogframe.h"
 
 #include <QButtonGroup>
 
@@ -43,6 +44,7 @@ public:
         , q_ptr(qobject_cast<InstallResultsFrame* >(parent))
         , m_installSuccessFrame(new InstallSuccessFrame)
         , m_installFailedFrame(new InstallFailedFrame)
+        , save_failedLog_frame_(new SaveInstallFailedLogFrame(q_ptr->m_proxy))
     {}
 
     void initUI();
@@ -56,6 +58,7 @@ public:
     InstallResultsFrame* q_ptr = nullptr;
     InstallSuccessFrame* m_installSuccessFrame = nullptr;
     InstallFailedFrame* m_installFailedFrame = nullptr;
+    SaveInstallFailedLogFrame* save_failedLog_frame_ = nullptr;
 };
 
 InstallResultsFrame::InstallResultsFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
@@ -107,6 +110,8 @@ void InstallResultsFramePrivate::initUI()
 
     nextButton->hide();
     centerLayout->addLayout(m_frame_layout);
+
+    save_failedLog_frame_->hide();
 }
 
 void InstallResultsFramePrivate::initConnection()
@@ -115,10 +120,14 @@ void InstallResultsFramePrivate::initConnection()
         emit q_ptr->successFinished();
     });
     connect(m_installFailedFrame, &InstallFailedFrame::showSaveLogFrame, this, [=] {
-        emit q_ptr->saveFailedLog();
+        save_failedLog_frame_->startDeviceWatch(true);
+        q_ptr->m_proxy->showChildFrame(save_failedLog_frame_);
     });
     connect(m_installFailedFrame, &InstallFailedFrame::finished, this, [=] {
         emit q_ptr->failedFinished();
+    });
+    connect(save_failedLog_frame_, &SaveInstallFailedLogFrame::requestBack, this, [=] {
+        q_ptr->m_proxy->hideChildFrame();
     });
 }
 
