@@ -591,6 +591,28 @@ void MainWindow::setCurrentPage(PageId page_id) {
   updateWidgetVisible();
 }
 
+void MainWindow::setWindowIcon(const QString &path)
+{
+    QPixmap pixmap(path);
+    if (pixmap.isNull()) {
+        qDebug() << "set window icon is null. path: " << path;
+    } else {
+        const int marginSize = this->layout()->margin();
+        const int iconSize = this->menuWidget()->height() - 2 * marginSize;
+
+        QLabel *windowLabel = new QLabel;
+        windowLabel->setFixedSize(iconSize, iconSize);
+        windowLabel->setPixmap(pixmap);
+        windowLabel->setParent(this);
+        windowLabel->raise();
+        windowLabel->setVisible(true);
+        windowLabel->move(QPoint(x() + marginSize, y() + marginSize));
+
+        // 设置任务栏窗口图标
+        return QMainWindow::setWindowIcon(QIcon(path));
+    }
+}
+
 void MainWindow::backPage()
 {
     // 在goNextPage()中已经更新过返回按钮的可见了

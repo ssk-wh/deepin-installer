@@ -95,6 +95,8 @@ int main(int argc, char* argv[]) {
   main_window.setEnableAutoInstall(args_parser.isAutoInstallSet());
   main_window.setLogFile(args_parser.getLogFile());
 
+  main_window.setWindowIcon(":/images/deepin-installer-32px.svg");
+
   // Notify background thread to scan device info.
   main_window.scanDevicesAndTimezone();
   main_window.fullscreen();

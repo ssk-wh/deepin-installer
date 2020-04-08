@@ -90,6 +90,9 @@ class MainWindow : public DMainWindow, public FrameProxyInterface {
   // Set filepath to which log file will be backup.
   void setLogFile(const QString& log_file);
 
+  // Set the icon in the upper left corner of the window. The size of the icon is recommended: 32px.
+  void setWindowIcon(const QString &path);
+
   void nextFrame() override;
   void exitInstall(bool reboot = false) override;
   void showChildFrame(BaseFrameInterface* childFrameInterface) override;

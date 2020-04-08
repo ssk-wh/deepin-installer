@@ -116,5 +116,6 @@
         <file>failed_data.svg</file>
         <file>failed_qr.svg</file>
         <file>interaction_warning.svg</file>
+        <file>deepin-installer-32px.svg</file>
     </qresource>
 </RCC>
