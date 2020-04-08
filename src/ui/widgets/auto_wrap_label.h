@@ -15,31 +15,24 @@
  * along with this program.  If not, see .
  */
 
-#ifndef AUTOLABEL_H
-#define AUTOLABEL_H
+#pragma once
 
 #include <QLabel>
 
-class AutoLabel : public QLabel
+namespace installer {
+class AutoWrapLabel : public QLabel
 {
     Q_OBJECT
 public:
-    explicit AutoLabel(QWidget *parent=nullptr, Qt::WindowFlags f=Qt::WindowFlags());
-    explicit AutoLabel(const QString &text, QWidget *parent=nullptr, Qt::WindowFlags f=Qt::WindowFlags());
+    explicit AutoWrapLabel(QWidget *parent=nullptr);
 
     QString text() const;
-
-public Q_SLOTS:
-    void setText(const QString &);
+    void setText(const QString &string);
 
 protected:
     void paintEvent(QPaintEvent *) override;
 
 private:
-    void setInputText(const QString &text);
-
-private:
     QString m_inputText;        // 保存setText中原始字符串
 };
-
-#endif // AUTOLABEL_H
+}

@@ -489,8 +489,8 @@ set(UI_FILES
     ui/widgets/multiple_disk_installation_widget.cpp
     ui/widgets/time_date_line_edit.h
     ui/widgets/time_date_line_edit.cpp
-    ui/widgets/autolabel.h
-    ui/widgets/autolabel.cpp
+    ui/widgets/auto_wrap_label.h
+    ui/widgets/auto_wrap_label.cpp
 
     ui/xrandr/multi_head_manager.cpp
     ui/xrandr/multi_head_manager.h

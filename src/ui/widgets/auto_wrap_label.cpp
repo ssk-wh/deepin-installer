@@ -15,46 +15,39 @@
  * along with this program.  If not, see .
  */
 
-#include "autolabel.h"
+#include "auto_wrap_label.h"
 
-
-AutoLabel::AutoLabel(QWidget *parent, Qt::WindowFlags f):
-    QLabel (parent, f)
+namespace installer {
+AutoWrapLabel::AutoWrapLabel(QWidget *parent)
+    : QLabel(parent)
 {
 
 }
 
-AutoLabel::AutoLabel(const QString &text, QWidget *parent, Qt::WindowFlags f):
-    QLabel(text, parent, f)
+void AutoWrapLabel::setText(const QString &string)
 {
-    this->setText(text);
-}
+    m_inputText = string;
 
-void AutoLabel::setText(const QString &text)
-{
-    this->setInputText(text);
-
-    if (text.isEmpty())
-    {
-        return QLabel::setText(text);
+    if (string.isEmpty()) {
+        return QLabel::setText(string);
     }
 
     // 计算一行显示的字符的size
-    int ch_win = QLabel::fontMetrics().width(text.at(0));
-    int show_wid = this->width() - 2 * this->margin();
-    int show_size = show_wid / ch_win;
+    int perCharWidth = QLabel::fontMetrics().width(string.at(0));
+    int perLineWidth = this->width() - 2 * this->margin();
+    int perLineCount = perLineWidth / perCharWidth;
 
     QStringList setList;
-    QStringList lineList = text.split("\n");
+    QStringList lineList = string.split("\n");
 
     // 对输入的每一行就行处理，如果长度超出每一行的size，则在超出的每部分上插入"\n"
     foreach (QString line, lineList) {
-        if (line.size() <= show_size) {
+        if (line.size() <= perLineCount) {
             setList.append(line);
-
-        } else {
-            for (int pos = line.size() / show_size; pos > 0; pos--) {
-                line.insert(pos * show_size, "\n");
+        }
+        else {
+            for (int pos = line.size() / perLineCount; pos > 0; pos--) {
+                line.insert(pos * perLineCount, "\n");
             }
 
             setList.append(line);
@@ -64,18 +57,14 @@ void AutoLabel::setText(const QString &text)
     return QLabel::setText(setList.join("\n"));
 }
 
-QString AutoLabel::text() const
+QString AutoWrapLabel::text() const
 {
     return m_inputText;
 }
 
-void AutoLabel::paintEvent(QPaintEvent *event)
+void AutoWrapLabel::paintEvent(QPaintEvent *event)
 {
     this->setText(m_inputText);
     return QLabel::paintEvent(event);
 }
-
-void AutoLabel::setInputText(const QString &text)
-{
-    m_inputText = text;
 }

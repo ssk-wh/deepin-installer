@@ -1,5 +1,6 @@
 #include "component_widget.h"
 #include "base/file_util.h"
+#include "ui/widgets/auto_wrap_label.h"
 #include <QStyleOption>
 #include <QPainter>
 #include <QEvent>
@@ -9,7 +10,7 @@ namespace installer {
 namespace {
     const int kComponentWidgetWidth = 250;
     const int kComponentWidgetMinHeight = 70;
-    const int KQLabelWidth =250;
+    const int KQLabelWidth =186;
 }
 
 ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
@@ -20,12 +21,12 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
     , m_isTail(false)
     , m_isflag(false)
 {
-    m_titleLabel = new QLabel;
+    m_titleLabel = new AutoWrapLabel;
     m_titleLabel->setObjectName("titleLabel");
-    m_titleLabel->setMinimumWidth(KQLabelWidth);
-    m_descLabel = new QLabel;
+    m_titleLabel->setFixedWidth(KQLabelWidth);
+    m_descLabel = new AutoWrapLabel;
     m_descLabel->setObjectName("descLabel");
-    m_descLabel->setMinimumWidth(KQLabelWidth);
+    m_descLabel->setFixedWidth(KQLabelWidth);
     m_descLabel->setWordWrap(true);
     m_descLabel->adjustSize();
     m_hLayout = new QHBoxLayout;

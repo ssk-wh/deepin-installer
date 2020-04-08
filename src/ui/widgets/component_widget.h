@@ -8,6 +8,7 @@
 #include <QVBoxLayout>
 
 namespace installer {
+class AutoWrapLabel;
 
 class ComponentWidget : public QFrame
 {
@@ -43,8 +44,8 @@ private:
     QCheckBox* m_checkBox;
     QHBoxLayout* m_hLayout;
     QVBoxLayout* m_vLayout;
-    QLabel* m_titleLabel;
-    QLabel* m_descLabel;
+    AutoWrapLabel* m_titleLabel;
+    AutoWrapLabel* m_descLabel;
     bool m_isHead;
     bool m_isTail;
     bool m_isflag;
