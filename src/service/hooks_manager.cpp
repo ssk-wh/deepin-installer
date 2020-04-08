@@ -29,7 +29,6 @@
 #include "service/backend/hook_worker.h"
 #include "service/settings_name.h"
 #include "service/settings_manager.h"
-#include "service/log_manager.h"
 
 namespace installer {
 
@@ -209,12 +208,12 @@ void HooksManager::handleRunHooks() {
   hooks_pack_ = before_chroot;
 
   // add system version log
-  installer::outputByFormat("system version: UOS " + QSysInfo().productVersion());
+  qInfo() << "system version: UOS " << QSysInfo().productVersion();
   // add kernel versionlog
-  installer::outputByFormat("kernel version:" + QSysInfo().kernelVersion());
+  qInfo() << "kernel version:" << QSysInfo().kernelVersion();
   // add hooks scripts start time
   QDateTime startTime = QDateTime::currentDateTime();
-  installer::outputByFormat("run hook...");
+  qInfo() << "run hook...";
 
   this->runHooksPack();
 
