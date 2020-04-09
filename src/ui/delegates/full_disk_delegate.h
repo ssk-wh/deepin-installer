@@ -81,6 +81,14 @@ class FullDiskDelegate : public partition::Delegate{
 
   void getFinalDiskResolution(FinalFullDiskResolution& resolution);
 
+  void setAutoInstall(bool autoinstall);
+
+public Q_SLOTS:
+  void onDeviceRefreshed(const DeviceList& devices) override;
+
+Q_SIGNALS:
+  void requestAutoInstallFinished(bool finished) const;
+
 private:
   // get root partition size range from settings
   const SizeRange getRootPartitionSizeRange();
@@ -105,6 +113,9 @@ private:
 private:
   // Get auto swap size
   uint getSwapSize() const;
+
+private:
+  bool m_autoInstall;
 };
 
 }  // namespace installer

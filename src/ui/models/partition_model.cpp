@@ -66,8 +66,6 @@ void PartitionModel::manualPart(const OperationList& operations) {
 }
 
 void PartitionModel::scanDevices() {
-  // If auto-part is not set, scan devices right now.
-  if (!GetSettingsBool(kPartitionDoAutoPart)) {
 #ifndef NDEBUG
     // Do not unmount any partitions in debug mode.
     const bool umount = false;
@@ -76,7 +74,6 @@ void PartitionModel::scanDevices() {
 #endif
     const bool enable_os_prober = GetSettingsBool(kPartitionEnableOsProber);
     emit partition_manager_->refreshDevices(umount, enable_os_prober);
-  }
 }
 
 void PartitionModel::initConnections() {

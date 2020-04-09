@@ -17,6 +17,7 @@
 
 #include "ui/delegates/full_disk_delegate.h"
 
+#include "base/command.h"
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
 #include "ui/delegates/partition_util.h"
@@ -26,6 +27,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
+#include <QDateTime>
 
 namespace installer {
 
@@ -41,6 +43,7 @@ const char kPartitionFullDiskRootPartitionUsage[] = "partition_full_disk_root_pa
 
 FullDiskDelegate::FullDiskDelegate(QObject* parent)
     : partition::Delegate(parent)
+    , m_autoInstall(false)
 {
     this->setObjectName("full_disk_delegate");
 }
@@ -327,6 +330,7 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
     resetOperations();
     selected_devices.clear();
     if (selectedDisks().isEmpty()) {
+        qWarning() << Q_FUNC_INFO << "select Disk is Empty";
         return false;
     }
 
@@ -334,6 +338,7 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
     for (QString device_path : device_path_list) {
         int device_index = DeviceIndex(virtual_devices_, device_path);
         if (device_index == -1) {
+            qWarning() << Q_FUNC_INFO << "not find device: " << device_path;
             return false;
         }
     }
@@ -348,6 +353,7 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
     {
         const QByteArray& policyStr{ GetFullDiskInstallPolicy() };
         if (policyStr.isEmpty()) {
+            qWarning() << Q_FUNC_INFO << "policy is empty";
             return false;
         }
 
@@ -582,6 +588,8 @@ void FullDiskDelegate::addSystemDisk(const QString & device_path)
     selected_devices.clear();
     selected_disks.clear();
     selected_disks.append(device_path);
+
+    qInfo() << Q_FUNC_INFO << "add system disk: " << device_path;
 }
 
 void FullDiskDelegate::addDataDisk(const QString & device_path)
@@ -594,6 +602,8 @@ void FullDiskDelegate::addDataDisk(const QString & device_path)
     }
     selected_disks.removeAll(device_path);
     selected_disks.append(device_path);
+
+    qInfo() << Q_FUNC_INFO << "add data disk: " << device_path;
 }
 
 const QStringList & FullDiskDelegate::selectedDisks()
@@ -633,6 +643,47 @@ void FullDiskDelegate::getFinalDiskResolution(FinalFullDiskResolution& resolutio
     if (option.policy_list.length() > 0) {
         resolution.option_list.append(option);
     }
+}
+
+void FullDiskDelegate::setAutoInstall(bool autoinstall)
+{
+    m_autoInstall = autoinstall;
+}
+
+void FullDiskDelegate::onDeviceRefreshed(const DeviceList &devices)
+{
+    partition::Delegate::onDeviceRefreshed(devices);
+
+    if (!m_autoInstall) {
+        return;
+    }
+
+    if (virtual_devices_.isEmpty()) {
+        qWarning() << "device list is empty!";
+        return;
+    }
+
+    const int diskRequired = GetSettingsInt(kPartitionFullDiskMiniSpace);
+
+    QMap<qint64, QString> deviceSpeedMap;
+
+    for (Device::Ptr device : virtual_devices_) {
+        if (device->length < diskRequired) continue;
+
+        qint64 currentTime = QDateTime::currentMSecsSinceEpoch();
+        SpawnCmd("dd", {QString("if=%1").arg(device->path), QString("of=%1").arg(device->path), "bs=8k", "count=2048", "iflag=direct,nonblock", "oflag=direct,nonblock"});
+        deviceSpeedMap[QDateTime::currentMSecsSinceEpoch() - currentTime] = device->path;
+    }
+
+    qDebug() << deviceSpeedMap;
+
+    addSystemDisk(deviceSpeedMap.first());
+
+    if (deviceSpeedMap.keys().length() > 1) {
+        addDataDisk(deviceSpeedMap.values()[1]);
+    }
+
+    emit requestAutoInstallFinished(formatWholeDeviceMultipleDisk());
 }
 
 const SizeRange FullDiskDelegate::getRootPartitionSizeRange()

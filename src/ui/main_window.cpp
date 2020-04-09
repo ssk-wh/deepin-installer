@@ -101,7 +101,7 @@ void MainWindow::fullscreen() {
   if (auto_install_) {
     // In auto-install mode, partitioning is done in hook script.
     // So notify InstallProgressFrame to run hooks directly.
-    emit partition_frame_->autoPartDone(true);
+    partition_frame_->autoPart();
   }
 }
 

@@ -75,12 +75,26 @@ PartitionFrame::PartitionFrame(QWidget* parent)
 }
 
 void PartitionFrame::autoPart() {
-  WriteFullDiskMode(true);
-  partition_model_->autoPart();
+    full_disk_delegate_->setAutoInstall(true);
+    scanDevices();
 }
 
 void PartitionFrame::scanDevices() const {
-  partition_model_->scanDevices();
+    partition_model_->scanDevices();
+}
+
+void PartitionFrame::onAutoInstallPrepareFinished(bool finished)
+{
+    if (!finished) {
+        qWarning() << Q_FUNC_INFO << "install failed!";
+        return;
+    }
+
+    OperationList list = full_disk_delegate_->operations();
+
+    partition_model_->manualPart(list);
+
+    emit this->finished();
 }
 
 void PartitionFrame::changeEvent(QEvent* event) {
@@ -210,6 +224,8 @@ void PartitionFrame::initConnections() {
 
   connect(full_disk_partition_frame_, &FullDiskFrame::cryptoStateChanged,
           this, &PartitionFrame::onFullDiskCryptoButtonClicked);
+
+  connect(full_disk_delegate_, &FullDiskDelegate::requestAutoInstallFinished, this, &PartitionFrame::onAutoInstallPrepareFinished);
 }
 
 void PartitionFrame::initUI() {
