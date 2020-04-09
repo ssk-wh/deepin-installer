@@ -80,6 +80,7 @@ const char kSystemInfoDefaultKeyboardLayoutVariant[] =
     "system_info_default_keyboard_layout_variant";
 const char kSystemInfoDisableKeyboardPage[] =
     "system_info_disable_keyboard_page";
+const char kSystemInfoDisableLicense[] = "system_info_disable_license";
 
 // Timezone
 const char kTimezoneDefault[] = "timezone_default";

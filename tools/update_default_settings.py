@@ -158,6 +158,10 @@ def main():
         ("partition_full_disk_large_root_part_range", "\"20:150\""),
     )
 
+    x86_community_settings = (
+        ("system_info_disable_license", "true"),
+    )
+
     x86_professinal_settings = (
         ("select_language_default_locale", "zh_CN"),
         ("timezone_default", "Asia/Shanghai"),
@@ -188,6 +192,7 @@ def main():
     update_settings(sw_professional_file, sw_community_settings)
     update_settings(sw_server_file, sw_server_settings)
 
+    update_settings(x86_community_file, x86_community_settings)
     update_settings(x86_professional_file, x86_professinal_settings)
     update_settings(x86_server_file, x86_server_settings)
 

@@ -238,8 +238,13 @@ void SelectLanguageFramePrivate::initUI() {
     }
 
     license_layout->addStretch();
+
+    QFrame* licenseWidget = new QFrame;
+    licenseWidget->setLayout(license_layout);
+    licenseWidget->setVisible(!GetSettingsBool(kSystemInfoDisableLicense));
+
     next_button_ = new NavButton(tr("Next"));
-    next_button_->setEnabled(false);
+    next_button_->setEnabled(GetSettingsBool(kSystemInfoDisableLicense));
 
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setContentsMargins(0, 0, 0, 0);
@@ -251,7 +256,7 @@ void SelectLanguageFramePrivate::initUI() {
     layout->addSpacing(20);
     layout->addWidget(language_view_, 0, Qt::AlignHCenter);
     layout->addSpacing(20);
-    layout->addLayout(license_layout);
+    layout->addWidget(licenseWidget);
 
     layout->addSpacing(20);
     layout->addWidget(next_button_, 0, Qt::AlignCenter);
@@ -307,7 +312,7 @@ void SelectLanguageFramePrivate::onLanguageListSelected(const QModelIndex& curre
         lang_ = language_item;
         q->writeConf();
         emit q->timezoneUpdated(language_item.timezone);
-        onAccpetLicenseChanged(accept_license_->isChecked());
+        onAccpetLicenseChanged(GetSettingsBool(kSystemInfoDisableLicense) || accept_license_->isChecked());
     }
 }
 
