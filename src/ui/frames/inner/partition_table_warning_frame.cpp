@@ -21,6 +21,7 @@
 #include <QEvent>
 #include <QGridLayout>
 #include <QLabel>
+#include <DSysInfo>
 
 #include "base/file_util.h"
 #include "ui/frames/consts.h"
@@ -28,6 +29,8 @@
 #include "ui/widgets/expanded_nav_button.h"
 #include "ui/widgets/title_label.h"
 #include "ui/utils/widget_util.h"
+
+DCORE_USE_NAMESPACE
 
 namespace installer {
 
@@ -100,8 +103,8 @@ void PartitionTableWarningFrame::initUI() {
   title_layout->addStretch();
 
   comment_label_ = new CommentLabel(
-      tr("You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. "
-         "Please select one of the below solutions and continue."));
+      tr("You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. "
+         "Please select one of the below solutions and continue.").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")));
   QHBoxLayout* comment_layout = new QHBoxLayout();
   comment_layout->setContentsMargins(0, 0, 0, 0);
   comment_layout->setSpacing(0);
@@ -112,7 +115,7 @@ void PartitionTableWarningFrame::initUI() {
   list_item1_ = new QLabel(
       QString("1.%1\n2.%2")
           .arg(tr("Reboot, enter BIOS, and disable UEFI"))
-          .arg(tr("Exit BIOS, and install UOS again")),
+          .arg(tr("Exit BIOS, and install %1 again").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS"))),
       this);
   list_item1_->setObjectName("list_item1");
   list_item1_->setWordWrap(true);

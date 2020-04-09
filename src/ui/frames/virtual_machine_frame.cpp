@@ -20,11 +20,14 @@
 #include <QEvent>
 #include <QLabel>
 #include <QVBoxLayout>
+#include <DSysInfo>
 
 #include "ui/frames/consts.h"
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/nav_button.h"
 #include "ui/widgets/title_label.h"
+
+DCORE_USE_NAMESPACE
 
 namespace installer {
 
@@ -40,7 +43,7 @@ void VirtualMachineFrame::changeEvent(QEvent* event) {
     title_label_->setText(tr("Friendly Reminder"));
     comment_label_->setText(
         tr("You are using a virtual machine which will affect system performance and user experience. "
-           "To get a smoother experience, please install UOS in a real environment"));
+           "To get a smoother experience, please install %1 in a real environment").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")));
     next_button_->setText(tr("Continue"));
   } else {
     QFrame::changeEvent(event);
@@ -57,8 +60,8 @@ void VirtualMachineFrame::initUI() {
   comment_label_ = new CommentLabel(
       tr("System has detected that you are using a virtual machine, "
          "which will affect the system performance and operation experience, "
-         "for a smooth experience, it is recommended to install UOS "
-         "in real-machine environment"));
+         "for a smooth experience, it is recommended to install %1 "
+         "in real-machine environment").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")));
   QHBoxLayout* comment_layout = new QHBoxLayout();
   comment_layout->setContentsMargins(0, 0, 0, 0);
   comment_layout->setSpacing(0);

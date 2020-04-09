@@ -25,6 +25,7 @@
 #include <QVBoxLayout>
 #include <QCheckBox>
 #include <QScrollBar>
+#include <DSysInfo>
 
 #include "base/file_util.h"
 #include "base/translator.h"
@@ -42,6 +43,8 @@
 #include "service/language_manager.h"
 
 #include "service/language_manager.h"
+
+DCORE_USE_NAMESPACE
 
 namespace installer {
 
@@ -288,7 +291,7 @@ void SelectLanguageFramePrivate::updateTs()
 {
     next_button_->setText(tr("Next"));
     accept_license_->setText(tr("I have read and agree to"));
-    license_label_->setText(tr("UOS Software End User License Agreement"));
+    license_label_->setText(tr("%1 Software End User License Agreement").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")));
 
     if (oem_license_label_ != nullptr) {
         oem_and_label_->setText(tr("and"));

@@ -25,6 +25,7 @@
 #include <QCheckBox>
 #include <QApplication>
 #include <QStackedLayout>
+#include <DSysInfo>
 
 #include "base/file_util.h"
 #include "partman/device.h"
@@ -36,6 +37,8 @@
 #include "ui/widgets/simple_disk_button.h"
 #include "ui/widgets/full_disk_partition_colorbar.h"
 #include "ui/widgets/multiple_disk_installation_widget.h"
+
+DCORE_USE_NAMESPACE
 
 namespace installer {
 
@@ -59,7 +62,7 @@ QT_TRANSLATE_NOOP("FullDiskFrame", "Install here")
 QT_TRANSLATE_NOOP("FullDiskFrame", "Encrypt this disk")
 QT_TRANSLATE_NOOP("FullDiskFrame", "Encrypt This Disk")
 QT_TRANSLATE_NOOP("FullDiskFrame", "Please select a disk to start installation")
-QT_TRANSLATE_NOOP("FullDiskFrame", "You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended")
+QT_TRANSLATE_NOOP("FullDiskFrame", "You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended")
 #endif
 
 FullDiskFrame::FullDiskFrame(FullDiskDelegate* delegate, QWidget* parent)
@@ -173,8 +176,8 @@ void FullDiskFrame::initUI() {
   addTransLate(m_trList, [ = ] (const QString& msg) {
       int min_size = GetSettingsInt(kPartitionFullDiskMiniSpace);
       int recommend_size = GetSettingsInt(kPartitionRecommendedDiskSpace);
-      m_diskTooSmallTip->setText(msg.arg(min_size).arg(recommend_size));
-  }, QString("You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended"));
+      m_diskTooSmallTip->setText(msg.arg(min_size).arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")).arg(recommend_size));
+  }, QString("You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended"));
 
   QHBoxLayout* tip_layout = new QHBoxLayout();
   tip_layout->setContentsMargins(0, 0, 0, 0);

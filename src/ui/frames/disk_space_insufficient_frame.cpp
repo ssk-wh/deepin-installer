@@ -19,6 +19,7 @@
 
 #include <QEvent>
 #include <QHBoxLayout>
+#include <DSysInfo>
 
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
@@ -27,6 +28,8 @@
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/nav_button.h"
 #include "ui/widgets/title_label.h"
+
+DCORE_USE_NAMESPACE
 
 namespace installer {
 
@@ -42,9 +45,10 @@ QString GetCommentLabel() {
   }
 
   const int recommended = GetSettingsInt(kPartitionRecommendedDiskSpace);
-  return QObject::tr("You need at least %1 GB disk space to install UOS. "
-                     "To get better performance, %2 GB or more is recommended")
+  return QObject::tr("You need at least %1 GB disk space to install %2. "
+                     "To get better performance, %3 GB or more is recommended")
       .arg(minimum)
+      .arg(DSysInfo::productType() == DSysInfo::Deepin ? QObject::tr("Deepin") : QObject::tr("UOS"))
       .arg(recommended);
 }
 

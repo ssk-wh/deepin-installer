@@ -27,6 +27,9 @@
 
 #include <QDebug>
 #include <QPair>
+#include <DSysInfo>
+
+DCORE_USE_NAMESPACE
 
 using namespace installer;
 
@@ -318,7 +321,7 @@ QPair<QString, QString> ComponentInstallManager::updateTs(const QString& id) con
         {"mariadb-server", {tr("MariaDB Database Server"), tr("The MariaDB SQL database server, and associated packages.")}},
         {"postgresql-client", {tr("PostgreSQL Database Client"), tr("The PostgreSQL SQL database client, and associated packages.")}},
         {"postgresql-server", {tr("PostgreSQL Database Server"), tr("The PostgreSQL SQL database server, and associated packages.")}},
-        {"java-platform", {tr("Java Platform"), tr("Java support for UOS.")}},
+        {"java-platform", {tr("Java Platform"), tr("Java support for %1.").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS"))}},
         {"php", {tr("PHP Support"), tr("PHP web application framework.")}},
         {"python-web", {tr("Python"), tr("Basic Python web application support.")}},
         {"perl-web", {tr("Perl for Web"), tr("Basic Perl web application support.")}},
@@ -329,7 +332,7 @@ QPair<QString, QString> ComponentInstallManager::updateTs(const QString& id) con
         {"additional-devel", {tr("Additional Development"), tr("Additional development headers and libraries for building open-source applications.")}},
         {"emacs", {tr("Emacs"), tr("The GNU Emacs extensible, customizable text editor.")}},
         {"graphics", {tr("Graphics Creation Tools"), tr("Software for creation and manipulation of still images.")}},
-        {"platform-devel", {tr("Platform Development"), tr("Recommended development headers and libraries for developing applications to run on UOS.")}},
+        {"platform-devel", {tr("Platform Development"), tr("Recommended development headers and libraries for developing applications to run on %1.").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS"))}},
         {"technical-writing", {tr("Technical Writing"), tr("Tools for writing technical documentation.")}},
         {"virtualization-tools", {tr("Virtualization Tools"), tr("Tools for offline virtual image management.")}},
         {"network-file-system-client", {tr("Network File System Client"), tr("Enables the system to attach to network storage.")}},

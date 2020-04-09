@@ -11,6 +11,7 @@
 #include <QHostAddress>
 #include <QNetworkInterface>
 #include <QDBusInterface>
+#include <DSysInfo>
 
 #include "ui/widgets/line_edit.h"
 #include "ui/widgets/nav_button.h"
@@ -21,12 +22,14 @@
 #include "ui/widgets/comment_label.h"
 #include "service/settings_name.h"
 
+DCORE_USE_NAMESPACE
+
 using namespace installer;
 
 ControlPlatformFrame::ControlPlatformFrame(QWidget* parent)
     : QWidget(parent)
     , m_titleLbl(new TitleLabel(tr("Set Control Region")))
-    , m_subTitleLbl(new CommentLabel(tr("Set the region for UOS EndPoint Management Platform")))
+    , m_subTitleLbl(new CommentLabel(tr("Set the region for %1 EndPoint Management Platform").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS"))))
     , m_serverLineEdit(new LineEdit(QString(":/images/hostname_12.svg")))
     , m_regionBox(new TableComboBox)
     , m_nextButton(new NavButton)
@@ -117,7 +120,7 @@ bool ControlPlatformFrame::event(QEvent* event)
         m_nextButton->setText(tr("Next"));
         m_serverLineEdit->setPlaceholderText(tr("Server Address"));
         m_titleLbl->setText(tr("Set Control Region"));
-        m_subTitleLbl->setText(tr("Set the region for UOS EndPoint Management Platform"));
+        m_subTitleLbl->setText(tr("Set the region for %1 EndPoint Management Platform").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")));
     }
 
     return QWidget::event(event);
