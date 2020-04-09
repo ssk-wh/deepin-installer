@@ -17,15 +17,6 @@
         "platform": [ "sw" ]
     },
     {
-        "filesystem": "ext4",
-        "mountPoint": "/",
-        "label": "Roota",
-        "usage": "root-size",
-        "alignStart": true,
-        "device": "",
-        "platform": [ "x86", "sw", "loongson", "arm" ]
-    },
-    {
         "filesystem": "linux-swap",
         "mountPoint": "swap",
         "label": "SWAP",
@@ -40,6 +31,15 @@
         "label": "Backup",
         "usage": "10Gib",
         "alignStart": false,
+        "device": "",
+        "platform": [ "x86", "sw", "loongson", "arm" ]
+    },
+    {
+        "filesystem": "ext4",
+        "mountPoint": "/",
+        "label": "Roota",
+        "usage": "root-size",
+        "alignStart": true,
         "device": "",
         "platform": [ "x86", "sw", "loongson", "arm" ]
     },
