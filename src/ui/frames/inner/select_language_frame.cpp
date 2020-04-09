@@ -270,6 +270,13 @@ void SelectLanguageFramePrivate::initUI() {
 
     license_layout->addStretch();
 
+    QFrame* licenseWidget = new QFrame;
+    licenseWidget->setLayout(license_layout);
+    licenseWidget->setVisible(!GetSettingsBool(kSystemInfoDisableLicense));
+
+    next_button_ = new QPushButton;
+    next_button_->setEnabled(GetSettingsBool(kSystemInfoDisableLicense));
+
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(kMainLayoutSpacing);

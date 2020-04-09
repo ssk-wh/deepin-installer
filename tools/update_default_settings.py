@@ -166,6 +166,10 @@ def main():
         ("partition_skip_simple_partition_page", "true"),
     )
 
+    x86_community_settings = (
+        ("system_info_disable_license", "true"),
+    )
+
     x86_professinal_settings = (
         ("select_language_default_locale", "zh_CN"),
         ("timezone_default", "Asia/Shanghai"),
