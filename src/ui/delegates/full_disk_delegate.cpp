@@ -666,24 +666,45 @@ void FullDiskDelegate::onDeviceRefreshed(const DeviceList &devices)
         return;
     }
 
-    const int diskRequired = GetSettingsInt(kPartitionFullDiskMiniSpace);
+    const qint64 root_required = GetSettingsInt(kPartitionFullDiskMiniSpace);
+    const qint64 root_required_bytes = kGibiByte * root_required;
 
-    QMap<qint64, QString> deviceSpeedMap;
+    QMap<Device::Ptr, qint64> deviceSpeedMap;
+    QList<Device::Ptr> deviceList;
 
     for (Device::Ptr device : virtual_devices_) {
-        if (device->length < diskRequired) continue;
-
         qint64 currentTime = QDateTime::currentMSecsSinceEpoch();
         SpawnCmd("dd", {QString("if=%1").arg(device->path), QString("of=%1").arg(device->path), "bs=8k", "count=2048", "iflag=direct,nonblock", "oflag=direct,nonblock"});
-        deviceSpeedMap[QDateTime::currentMSecsSinceEpoch() - currentTime] = device->path;
+        deviceSpeedMap[device] = QDateTime::currentMSecsSinceEpoch() - currentTime;
+        deviceList << device;
     }
 
-    qDebug() << deviceSpeedMap;
+    if (deviceList.length() > 1) {
+        std::sort(deviceList.begin(), deviceList.end(), [=](Device::Ptr p1, Device::Ptr p2) {
+            return deviceSpeedMap[p1] < deviceSpeedMap[p2];
+        });
+    }
 
-    addSystemDisk(deviceSpeedMap.first());
+    for (auto it = deviceList.begin(); it != deviceList.end();) {
+        Device::Ptr device = *it;
+        if (device->getByteLength() >= root_required_bytes) {
+            addSystemDisk(device->path);
+            it = deviceList.erase(it);
+        }
+        else {
+            ++it;
+        }
+    }
 
-    if (deviceSpeedMap.keys().length() > 1) {
-        addDataDisk(deviceSpeedMap.values()[1]);
+    if (deviceList.length() == deviceSpeedMap.keys().length()) {
+        qWarning() << Q_FUNC_INFO << "not found system disk, please check!";
+        return;
+    }
+
+    for (auto it = deviceList.begin(); it != deviceList.end();) {
+        Device::Ptr device = *it;
+        addDataDisk(device->path);
+        it = deviceList.erase(it);
     }
 
     emit requestAutoInstallFinished(formatWholeDeviceMultipleDisk());
