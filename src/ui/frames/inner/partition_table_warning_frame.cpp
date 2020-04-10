@@ -55,13 +55,13 @@ void PartitionTableWarningFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     title_label_->setText(tr("Warning"));
     comment_label_->setText(
-        tr("You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. "
-           "Please select one of the below solutions and continue."));
+        tr("You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. "
+           "Please select one of the below solutions and continue.").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")));
     list_title1_->setText(QString("A.%1").arg(tr("Disable UEFI")));
     list_item1_->setText(
         QString("1.%1\n2.%2")
             .arg(tr("Reboot, enter BIOS, and disable UEFI"))
-            .arg(tr("Exit BIOS, and install UOS again")));
+            .arg(tr("Exit BIOS, and install %1 again").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS"))));
     list_title2_->setText(QString("B.%1").arg(tr("Format the disk")));
     list_item2_->setText(
         QString("1.%1\n2.%2")
