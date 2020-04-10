@@ -90,11 +90,11 @@ void PartitionFrame::onAutoInstallPrepareFinished(bool finished)
         return;
     }
 
+    qInfo() << Q_FUNC_INFO << "set BootFlag: " << full_disk_delegate_->setBootFlag();
+
     OperationList list = full_disk_delegate_->operations();
 
     partition_model_->manualPart(list);
-
-    emit this->finished();
 }
 
 void PartitionFrame::changeEvent(QEvent* event) {
