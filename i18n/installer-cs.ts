@@ -66,7 +66,7 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="507"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
-        <translation type="unfinished"/>
+        <translation>Oddíl s adresářem /boot/efi by měl být umístěn jako první oddíl na pevném disku</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="512"/>
@@ -137,14 +137,14 @@
 <context>
     <name>installer::DiskSpaceInsufficientFrame</name>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="72"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="67"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="81"/>
         <source>Insufficient Disk Space</source>
         <translation>Nedostatek místa na disku</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="60"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="79"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="69"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="88"/>
         <source>Exit</source>
         <translation>Opustit</translation>
     </message>
@@ -216,30 +216,40 @@
 <context>
     <name>installer::FullDiskFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="150"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="153"/>
         <source>Install here</source>
         <translation>Instalovat zde</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="59"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
         <source>Encrypt this disk</source>
         <translation>Zašifrovat tento disk</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="60"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="63"/>
         <source>Encrypt This Disk</source>
         <translation>Zašifrovat tento disk</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="64"/>
         <source>Please select a disk to start installation</source>
         <translation>Vyberte, prosím, disk pro započetí instalace</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="62"/>
-        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation>Pro instalaci Deepinu je potřeba nejméně %1 GB úložiště. Pro lepší výkon je doporučeno %2 GB nebo více.</translation>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="65"/>
+        <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
+        <translation>Pro instalaci %2 je zapotřebí přinejmenším %1 GB prostoru na disku. Pro lepší výkon je doporučeno %3 GB a více</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="179"/>
+        <source>Deepin</source>
+        <translation>Deepin</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="179"/>
+        <source>UOS</source>
+        <translation>UOS</translation>
     </message>
 </context>
 <context>
@@ -347,7 +357,7 @@
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="37"/>
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="54"/>
         <source>Formatting...</source>
-        <translation>Formátuje se...</translation>
+        <translation>Formátování…</translation>
     </message>
 </context>
 <context>
@@ -605,9 +615,8 @@
         <translation>Volné místo</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="40"/>
         <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
-        <translation>Pro instalaci UOS je potřeba nejméně %1 GB úložiště. Pro lepší výkon je doporučeno %2 GB nebo více.</translation>
+        <translation type="vanished">Pro instalaci UOS je potřeba nejméně %1 GB úložiště. Pro lepší výkon je doporučeno %2 GB nebo více.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="49"/>
@@ -637,6 +646,21 @@
         <source>Select system language</source>
         <translation>Zvolit jazyk systému</translation>
     </message>
+    <message>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="48"/>
+        <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
+        <translation>Pro instalaci %2 je zapotřebí přinejmenším %1 GB prostoru na disku. Pro lepší výkon je doporučeno %3 GB a více</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="51"/>
+        <source>Deepin</source>
+        <translation>Deepin</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="51"/>
+        <source>UOS</source>
+        <translation>UOS</translation>
+    </message>
 </context>
 <context>
     <name>installer::SelectBootloaderFrame</name>
@@ -662,30 +686,40 @@
 <context>
     <name>installer::SimplePartitionFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="72"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="75"/>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
         <translation>Nelze vytvořit nový oddíl. Vyberte, prosím, jeden ze stávajících oddílů!</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="79"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="82"/>
         <source>Please select one of the partitions to install!</source>
         <translation>Vyberte, prosím, jeden diskový oddíl pro instalování</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="89"/>
         <source>At least %1 GB is required for root partition</source>
         <translation>Pro oddíl root je požadováno alespoň %1 GB</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="115"/>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="234"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="118"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="237"/>
         <source>Install here</source>
         <translation>Instalovat zde</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="411"/>
-        <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
-        <translation>Systém Windows se nebude zavádět pokud nainstalujete UOS na disk s Windows. Potvrďte prosím pro pokračování</translation>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="414"/>
+        <source>Windows will not boot if you install %1 on Windows disk, please confirm to continue</source>
+        <translation>Pokud %1 nainstalujete na disk s Windows, ty pak nebudou startovat</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="415"/>
+        <source>Deepin</source>
+        <translation>Deepin</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="415"/>
+        <source>UOS</source>
+        <translation>UOS</translation>
     </message>
 </context>
 <context>
@@ -704,32 +738,32 @@
 <context>
     <name>installer::SystemInfoFormFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="173"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="182"/>
         <source>Username</source>
         <translation>Uživatelské jméno</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="174"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="183"/>
         <source>Computer name</source>
         <translation>Název počítače</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="175"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="184"/>
         <source>Password</source>
         <translation>Heslo</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="176"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="185"/>
         <source>Repeat password</source>
         <translation>Zopakovat heslo</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="177"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="186"/>
         <source>Root password</source>
         <translation>Heslo root</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="178"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="187"/>
         <source>Repeat root password</source>
         <translation>Zopakovat heslo root</translation>
     </message>
@@ -745,13 +779,13 @@
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="117"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="224"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="357"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="360"/>
         <source>Click your zone on the map</source>
         <translation>Označte svou zónu na mapě</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="120"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="362"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="365"/>
         <source>Select your timezone from the list</source>
         <translation>Zvolte časové pásmo ze seznamu </translation>
     </message>
@@ -783,584 +817,747 @@
 <context>
     <name>installer::VirtualMachineFrame</name>
     <message>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="40"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="56"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="43"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="59"/>
         <source>Friendly Reminder</source>
         <translation>Přátelské připomenutí</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="42"/>
-        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
-        <translation>Používáte virtuální stroj, což ovlivní výkon systému a pocit z jeho chodu. Pro hladký chod se doporučuje UOS nainstalovat do skutečného prostředí</translation>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="45"/>
+        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install %1 in a real environment</source>
+        <translation>Používáte virtuální stroj, což má vliv na výkon systému a dojem z používání. Pro lepší zážitek, nainstalujte %1 na fyzický hardware</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="44"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="67"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="46"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="64"/>
+        <source>Deepin</source>
+        <translation>Deepin</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="46"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="64"/>
+        <source>UOS</source>
+        <translation>UOS</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="47"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="70"/>
         <source>Continue</source>
         <translation>Pokračovat</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="58"/>
-        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
-        <translation>Systém zjistil, že používáte virtuální stroj, což ovlivňuje výkon systému a pocit z jeho chodu. Pro hladký chod se doporučuje UOS nainstalovat do skutečného prostředí</translation>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="61"/>
+        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install %1 in real-machine environment</source>
+        <translation>Systém zjistil, že ho používáte ve virtuálním stroji, což může ovlivnit výkon systému a dojem z používání. Pro lepší zážitek je doporučeno nainstalovat %1 přímo na fyzický hardware</translation>
+    </message>
+</context>
+<context>
+    <name>installer::AdvancedPartitionButton</name>
+    <message>
+        <source>Install here</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To be formatted</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::AdvancedPartitionFrame</name>
+    <message>
+        <source>Change boot loader</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 error found, fix to continue installation or switch to simple mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 errors found, fix to continue installation or switch to simple mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 error found, continue to install after fixed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 errors found, continue to install after fixed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The partition filesystem type of /boot directory can only be %1 </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The partition of /boot directory should be the first partition on hard disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>At least %1 MB is required for /boot partition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add an EFI partition to continue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>At least %1 MB is required for EFI partition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add a Root partition to continue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>At least %1 GB is required for Root partition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>At least %1 GB is required for partition %2</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::BootloaderListModel</name>
+    <message>
+        <source>%1 %2 (recommended)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::ComponentInstallManager</name>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
         <source>Minimal Install</source>
         <translation>Minimální instalace</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="285"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
         <source>Basic functionality.</source>
         <translation>Základní funkcionalita.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
         <source>Compute Node</source>
-        <translation type="unfinished"/>
+        <translation>Výpočetní uzel</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="286"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
         <source>Installation for performing computation and processing.</source>
-        <translation type="unfinished"/>
+        <translation>Instalace pro provádění výpočtů a zpracování.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
         <source>Infrastructure Server</source>
-        <translation type="unfinished"/>
+        <translation>Infrastrukturní server</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
         <source>Server for operating network infrastructure services.</source>
-        <translation type="unfinished"/>
+        <translation>Server pro provozování služeb síťové infrastruktury.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
         <source>File and Print Server</source>
-        <translation type="unfinished"/>
+        <translation>Souborový a tiskový server</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
         <source>File, print, and storage server for enterprises.</source>
-        <translation type="unfinished"/>
+        <translation>Souborový, tiskový a úložný server pro podniky.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
         <source>Basic Web Server</source>
-        <translation type="unfinished"/>
+        <translation>Základní webový server</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
         <source>Server for serving static and dynamic internet content.</source>
-        <translation type="unfinished"/>
+        <translation>Server pro poskytování statického a dynamického internetového obsahu.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>Virtualization Host</source>
-        <translation type="unfinished"/>
+        <translation>Hostitel virtualizace</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>Minimal virtualization host.</source>
-        <translation type="unfinished"/>
+        <translation>Minimální hostitel virtualizace.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>Server with GUI</source>
-        <translation type="unfinished"/>
+        <translation>Server s grafickým uživatelským rozhraním</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>Server for operating network infrastructure services, with a GUI.</source>
-        <translation type="unfinished"/>
+        <translation>Server pro provozování služeb síťové infrastruktury, s grafickým uživatelským rozhraním.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>DDE Desktop</source>
-        <translation type="unfinished"/>
+        <translation>DDE desktop</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>DDE is a highly intuitive and user friendly desktop environment.</source>
-        <translation type="unfinished"/>
+        <translation>DDE je velmi intuitivní a uživateli přívětivé desktopové prostředí.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Development and Creative Workstation</source>
-        <translation type="unfinished"/>
+        <translation>Osobní počítač pro vývoj a tvorbu obsahu</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Workstation for software, hardware, graphics, or content development.</source>
-        <translation type="unfinished"/>
+        <translation>Osobní počítač pro tvorbu software, hardware, grafiky a obsahu.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>Debugging Tools</source>
-        <translation type="unfinished"/>
+        <translation>Ladící nástroje</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>Tools for debugging misbehaving applications and diagnosing performance problems.</source>
-        <translation type="unfinished"/>
+        <translation>Nástroje pro ladění nesprávně se chovajících aplikací a diagnostiku výkonnostních problémů.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Directory Client</source>
-        <translation type="unfinished"/>
+        <translation>Adresářový klient</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Clients for integration into a network managed by a directory service.</source>
-        <translation type="unfinished"/>
+        <translation>Klienti pro napojení do sítě spravované adresářovou službou.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>Security Tools</source>
-        <translation type="unfinished"/>
+        <translation>Nástroje pro zabezpečení</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>Security tools for integrity and trust verification.</source>
-        <translation type="unfinished"/>
+        <translation>Nástroje pro ověřování neporušenosti a důvěryhodnosti.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>Development Tools</source>
-        <translation type="unfinished"/>
+        <translation>Nástroje pro vývoj</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>A basic development environment.</source>
-        <translation type="unfinished"/>
+        <translation>Základní vývojové prostředí</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>Performance Tools</source>
-        <translation type="unfinished"/>
+        <translation>Nástroje pro výkonnost</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>Tools for diagnosing system and application-level performance problems.</source>
-        <translation type="unfinished"/>
+        <translation>Nástroje pro diagnostikování problémů s výkonností na úrovni systému a aplikací.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>Hardware Monitoring Utilities</source>
-        <translation type="unfinished"/>
+        <translation>Nástroje na monitorování hardware</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>A set of tools to monitor server hardware.</source>
-        <translation type="unfinished"/>
+        <translation>Sada nástrojů pro monitorování serverového hardware.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>Virtualization Hypervisor</source>
-        <translation type="unfinished"/>
+        <translation>Hypervizor virtualizace</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>Smallest possible virtualization host installation.</source>
-        <translation type="unfinished"/>
+        <translation>Nejmenší možná instalace hostitele virtualizace.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>Virtualization Platform</source>
-        <translation type="unfinished"/>
+        <translation>Virtualizační platforma</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>Provide an interface for accessing and controlling virtualized guests and containers.</source>
-        <translation type="unfinished"/>
+        <translation>Poskytuje rozhraní pro přístup a ovládání virtualizovaných hostů a kontejnerů.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>Virtualization Client</source>
-        <translation type="unfinished"/>
+        <translation>Virtualizační klient</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>Clients for installing and managing virtualization instances.</source>
-        <translation type="unfinished"/>
+        <translation>Klienti pro instalaci a správu virtualizačních instancí.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>Backup Client</source>
-        <translation type="unfinished"/>
+        <translation>Klient zálohování</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>Client tools for connecting to a backup server and doing backups.</source>
-        <translation type="unfinished"/>
+        <translation>Klientské nástroje pro připojování se k zálohovacímu serveru a provádění záloh.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>Backup Server</source>
-        <translation type="unfinished"/>
+        <translation>Zálohovací server</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>Software to centralize your infrastructure&apos;s backups.</source>
-        <translation type="unfinished"/>
+        <translation>Software pro centralizaci záloh vaší infrastruktury.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>File and Storage Server</source>
-        <translation type="unfinished"/>
+        <translation>Souborový a úložný server</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
-        <translation type="unfinished"/>
+        <translation>Server pro CIFS, SMB, NFS, iSCSI, iSER, a iSNS síťové úložiště.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>DNS Name Server</source>
-        <translation type="unfinished"/>
+        <translation>DNS jmenný server</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>This package group allows you to run a DNS name server (BIND) on the system.</source>
-        <translation type="unfinished"/>
+        <translation>Tento balíček umožňuje na systému provozovat DNS jmenný server (BI|ND).</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>E-mail Server</source>
-        <translation type="unfinished"/>
+        <translation>E-mailový server</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
-        <translation type="unfinished"/>
+        <translation>Umožňuje systému působit jako SMTP a/nebo IMAP e-mailový server.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>FTP Server</source>
-        <translation type="unfinished"/>
+        <translation>FTP server</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Allows the system to act as an FTP server.</source>
-        <translation type="unfinished"/>
+        <translation>Umožňuje systému fungovat jako FTP server.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Print Server</source>
-        <translation type="unfinished"/>
+        <translation>Tiskový server</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Allows the system to act as a print server.</source>
-        <translation type="unfinished"/>
+        <translation>Umožňuje systému fungovat jako tiskový server.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Mainframe Access</source>
-        <translation type="unfinished"/>
+        <translation>Přístup k mainframe</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Tools for accessing mainframe computing resources.</source>
-        <translation type="unfinished"/>
+        <translation>Nástroje pro přistupování k mainframe výpočetním prostředkům.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>Infiniband Support</source>
-        <translation type="unfinished"/>
+        <translation>Podpora Infiniband</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
-        <translation type="unfinished"/>
+        <translation>Software navržený pro podporu klastrování a konektivity v mřížce pomocí na RDMA založených InfiniBand a iWARP podkladu.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>High Availability</source>
-        <translation type="unfinished"/>
+        <translation>Vysoká dostupnost</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Infrastructure for highly available services and/or shared storage.</source>
-        <translation type="unfinished"/>
+        <translation>Infrastruktura pro vysoce dostupné služby a/nebo sdílené úložiště.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Resilient Storage</source>
-        <translation type="unfinished"/>
+        <translation>Proti výpadku odolné úložiště</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Clustered storage, including the GFS2 file system.</source>
-        <translation type="unfinished"/>
+        <translation>Klastrované úložiště, včetně souborového systému GFS2.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>ldentity Management Server</source>
-        <translation type="unfinished"/>
+        <translation>Server pro správu identit</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Centralized management of users, servers and authentication policies.</source>
-        <translation type="unfinished"/>
+        <translation>Centralizovaná správa uživatelských účtů, serverů a zásad ověřování se.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Large Systems Performance</source>
-        <translation type="unfinished"/>
+        <translation>Výkon velkých systémů</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Performance support tools for large systems.</source>
-        <translation type="unfinished"/>
+        <translation>Nástroje pro podporu výkonu pro velké systémy.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Load Balancer</source>
-        <translation type="unfinished"/>
+        <translation>Rozdělování zátěže</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Load balancing support for network traffic.</source>
-        <translation type="unfinished"/>
+        <translation>Podpora pro rozkládání zátěže síťovým provozem.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>MariaDB Database Client</source>
-        <translation type="unfinished"/>
+        <translation>Klient databáze MariaDB</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>The MariaDB SQL database client, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>Klient SQL databáze MariaDB a související balíčky.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>MariaDB Database Server</source>
-        <translation type="unfinished"/>
+        <translation>MariaDB databázový server</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>The MariaDB SQL database server, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>MariaDB SQL databázový server a související balíčky.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>PostgreSQL Database Client</source>
-        <translation type="unfinished"/>
+        <translation>Klient databáze PostgreSQL</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>The PostgreSQL SQL database client, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>Klient SQL databáze PostgreSQL a související balíčky.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>PostgreSQL Database Server</source>
-        <translation type="unfinished"/>
+        <translation>PostgreSQL databázový server</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>The PostgreSQL SQL database server, and associated packages.</source>
-        <translation type="unfinished"/>
+        <translation>PostgreSQL databázový server a související balíčky.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>Java Platform</source>
-        <translation type="unfinished"/>
+        <translation>Java platforma</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
+        <source>Java support for %1.</source>
+        <translation>Podpora Java pro %1.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
+        <source>Deepin</source>
+        <translation>Deepin</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
+        <source>UOS</source>
+        <translation>UOS</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
+        <source>Recommended development headers and libraries for developing applications to run on %1.</source>
+        <translation>Doporučené vývojové hlavičky a knihovny pro vyvíjení aplikací pro spouštění pod %1.</translation>
+    </message>
+    <message>
         <source>Java support for UOS.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Podpora Java pro UOS.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>PHP Support</source>
-        <translation type="unfinished"/>
+        <translation>Podpora PHP</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>PHP web application framework.</source>
-        <translation type="unfinished"/>
+        <translation>PHP framework pro webové aplikace.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>Python</source>
-        <translation type="unfinished"/>
+        <translation>Python</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>Basic Python web application support.</source>
-        <translation type="unfinished"/>
+        <translation>Základní podpora Python pro webové aplikace.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>Perl for Web</source>
-        <translation type="unfinished"/>
+        <translation>Perl pro Web</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>Basic Perl web application support.</source>
-        <translation type="unfinished"/>
+        <translation>Základní podpora Perl pro webové aplikace.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>Internet Applications</source>
-        <translation type="unfinished"/>
+        <translation>Aplikace pro Internet</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>Email, chat, and video conferencing software.</source>
-        <translation type="unfinished"/>
+        <translation>E-mail, chat a software pro videokonference.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>Web Servlet Engine</source>
-        <translation type="unfinished"/>
+        <translation>Engine pro web servlet</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>Allows the system to host Java servlets.</source>
-        <translation type="unfinished"/>
+        <translation>Umožňuje systému hostovat Java serverlety.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>Legacy x Window System Compatibility</source>
-        <translation type="unfinished"/>
+        <translation>Kompatibilita se staršími x Window System</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>Compatibility programs for migration from or working with legacy X Window System environments.</source>
-        <translation type="unfinished"/>
+        <translation>Programy pro kompatibilitu pro migraci z nebo práci se staršími prostředími X Window System.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>Office Suite and Productivity</source>
-        <translation type="unfinished"/>
+        <translation>Kancelářský balík a produktivita</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>A full-purpose office suite, and other productivity tools.</source>
-        <translation type="unfinished"/>
+        <translation>Kancelářský balík pro všechny účely a ostatní nástroje pro produktivitu.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>Additional Development</source>
-        <translation type="unfinished"/>
+        <translation>Další vývoj</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>Additional development headers and libraries for building open-source applications.</source>
-        <translation type="unfinished"/>
+        <translation>Další vývojové hlavičky a knihovny pro sestavování open source aplikací.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>Emacs</source>
-        <translation type="unfinished"/>
+        <translation>Emacs</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>The GNU Emacs extensible, customizable text editor.</source>
-        <translation type="unfinished"/>
+        <translation>GNU Emacs – rozšiřitelný a přizpůsobitelný textový editor.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
         <source>Graphics Creation Tools</source>
-        <translation type="unfinished"/>
+        <translation>Nástroje pro tvorbu grafiky</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
         <source>Software for creation and manipulation of still images.</source>
-        <translation type="unfinished"/>
+        <translation>Software pro vytváření a úpravy obrázků.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
         <source>Platform Development</source>
-        <translation type="unfinished"/>
+        <translation>Vývoj pro platformu</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Doporučené vývojářské hlavičkové soubory a knihovny pro vývoj aplikací pro spouštění v UOS.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>Technical Writing</source>
-        <translation type="unfinished"/>
+        <translation>Psaní technické dokumentace</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>Tools for writing technical documentation.</source>
-        <translation type="unfinished"/>
+        <translation>Nástroje pro psaní technické dokumentace.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>Virtualization Tools</source>
-        <translation type="unfinished"/>
+        <translation>Virtualizační nástroje</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>Tools for offline virtual image management.</source>
-        <translation type="unfinished"/>
+        <translation>Nástroje pro správu obrazů virtualizace bez připojení k síti.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
         <source>Network File System Client</source>
-        <translation type="unfinished"/>
+        <translation>Klient síťového souborového systému</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
         <source>Enables the system to attach to network storage.</source>
-        <translation type="unfinished"/>
+        <translation>Umožňuje systému připojovat síťové úložiště.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
         <source>Guest Agents</source>
-        <translation type="unfinished"/>
+        <translation>Agenti do hosta</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
         <source>Agents used when running under a hypervisor.</source>
-        <translation type="unfinished"/>
+        <translation>Agenti používané při provozování ve virtualizaci.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
         <source>DDE Applications</source>
+        <translation>DDE aplikace</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
+        <source>A set of commonly used DDE Applications.</source>
+        <translation>Sada běžně používaných DDE aplikací.</translation>
+    </message>
+</context>
+<context>
+    <name>installer::ConfirmQuitFrame</name>
+    <message>
+        <source>Abort Installation</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
-        <source>A set of commonly used DDE Applications.</source>
+        <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Abort</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::ControlPlatformFrame</name>
     <message>
-        <location filename="../src/ui/frames/control_platform_frame.cpp" line="28"/>
-        <location filename="../src/ui/frames/control_platform_frame.cpp" line="118"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="31"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="122"/>
         <source>Set Control Region</source>
         <translation>Nastavte oblast kontroly</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/control_platform_frame.cpp" line="29"/>
-        <location filename="../src/ui/frames/control_platform_frame.cpp" line="119"/>
         <source>Set the region for UOS EndPoint Management Platform</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nastavit oblast pro UOS EndPoint Management Platform</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/control_platform_frame.cpp" line="116"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="32"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="123"/>
+        <source>Set the region for %1 EndPoint Management Platform</source>
+        <translation>Nastavit oblast pro %1 platformu správy koncových bodů</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="32"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="123"/>
+        <source>Deepin</source>
+        <translation>Deepin</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="32"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="123"/>
+        <source>UOS</source>
+        <translation>UOS</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="120"/>
         <source>Next</source>
         <translation>Další</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/control_platform_frame.cpp" line="117"/>
+        <location filename="../src/ui/frames/control_platform_frame.cpp" line="121"/>
         <source>Server Address</source>
         <translation>Adresa serveru</translation>
+    </message>
+</context>
+<context>
+    <name>installer::DiskSpaceInsufficientFrame</name>
+    <message>
+        <source>Insufficient Disk Space</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1382,6 +1579,75 @@
     </message>
 </context>
 <context>
+    <name>installer::EditPartitionFrame</name>
+    <message>
+        <source>Edit Disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Make sure you have backed up important data, then select the disk to install</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Format the partition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::FirstBootLoadingFrame</name>
+    <message>
+        <source>Tuning system</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Applying changes to your system, please wait...</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::FullDiskFrame</name>
+    <message>
+        <source>Install here</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Encrypt this disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Encrypt This Disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please select a disk to start installation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You need at least %1 GB disk space to install UOS. To get better performance, %2 GB or more is recommended</source>
+        <translation type="vanished">Pro instalaci Deepinu je potřeba nejméně %1 GB úložiště. Pro lepší výkon je doporučeno %2 GB nebo více.</translation>
+    </message>
+</context>
+<context>
     <name>installer::Full_Disk_Encrypt_frame</name>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="160"/>
@@ -1391,7 +1657,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="166"/>
         <source>Passwords do not match</source>
-        <translation>Heslo se neshoduje</translation>
+        <translation>Zadání hesla se neshodují</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="203"/>
@@ -1453,6 +1719,17 @@
     </message>
 </context>
 <context>
+    <name>installer::InstallProgressFrame</name>
+    <message>
+        <source>Installing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Here are a few cool things to look out for...</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>installer::InstallProgressFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="215"/>
@@ -1474,143 +1751,373 @@
     </message>
 </context>
 <context>
+    <name>installer::MultipleDiskInstallationWidget</name>
+    <message>
+        <source>System Disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Data Disk</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>installer::NetworkFrame</name>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="71"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="136"/>
         <source>Skip</source>
         <translation>Přeskočit</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="72"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="137"/>
         <source>Next</source>
         <translation>Další</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="97"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="130"/>
         <source>Configure Network</source>
         <translation>Konfigurace sítě</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="130"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="131"/>
         <source>IP Address</source>
         <translation>IP adresa</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="131"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="132"/>
         <source>Netmask</source>
         <translation>Maska sítě</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="132"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="133"/>
         <source>Gateway</source>
         <translation>Brána</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="133"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="134"/>
         <source>Primary DNS</source>
         <translation>Primární DNS</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="134"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="135"/>
         <source>Secondary DNS</source>
         <translation>Sekundární DNS</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="201"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="205"/>
         <source>IP address error: illegal IP address, please have a check.</source>
         <translation>Chyba adresy IP: nedovolená adresa IP, prosím zkontrolujte.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="212"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="216"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
         <translation>Chyba masky sítě: nedovolená maska sítě, prosím zkontrolujte.</translation>
     </message>
 </context>
 <context>
+    <name>installer::NewPartitionFrame</name>
+    <message>
+        <source>Create New Partition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create a new partition and define the type and size</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File system</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Mount point</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::NewTableLoadingFrame</name>
+    <message>
+        <source>Formatting...</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::NewTableWarningFrame</name>
+    <message>
+        <source>Format Warning</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionFrame</name>
+    <message>
+        <source>Select Installation Location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Make sure you have backed up important data, then select the disk to install</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Simple</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Full Disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Start installation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionLoadingFrame</name>
+    <message>
+        <source>Scan disks</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Scanning disks, please wait...</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionNumberLimitationFrame</name>
+    <message>
+        <source>You should delete a primary partition before creating a new one</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>New logical partitions can only be created near existing logical partitions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You should delete a primary partition before creating a new partition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to Create New Partition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>installer::PartitionTableWarningFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="53"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="92"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="56"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="95"/>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="55"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="103"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Zjistilo se, že váš zavaděč na základové desce je EFI a že formát disku je MBR. Tím pádem systém nelze nainstalovat přímo. Pro pokračování vyberte, prosím, jedno z řešení níže.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="57"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="110"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="60"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="113"/>
         <source>Disable UEFI</source>
         <translation>Zakázat UEFI</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="60"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="114"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="63"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="117"/>
         <source>Reboot, enter BIOS, and disable UEFI</source>
         <translation>Restartovat, jít do BIOSu, a zakázat UEFI</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="61"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="115"/>
         <source>Exit BIOS, and install UOS again</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Ukončit BIOS, a jít do instalace UOS</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="62"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="119"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="65"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="122"/>
         <source>Format the disk</source>
         <translation>Formátovat disk</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="65"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="123"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="68"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="126"/>
         <source>Make a backup of all your data to avoid data loss</source>
         <translation>Zazálohujte všechna data pro vyhnutí se ztrátě dat</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="66"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="69"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="127"/>
         <source>After the backup, reboot and enter this interface again</source>
-        <translation type="unfinished"/>
+        <translation>Po provedení zálohy, restartujte a vstupte znovu do tohoto rozhraní</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="67"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="73"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="143"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="165"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="70"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="146"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="168"/>
         <source>Continue</source>
         <translation>Pokračovat</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="70"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="73"/>
         <source>Make sure you have backed up all data before proceeding</source>
         <translation>Před pokračováním se ujistěte, že máte všechna data zálohována</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="71"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="149"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="152"/>
         <source>Continuing installation will format your disk</source>
         <translation>Následující instalace naformátuje disk</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="72"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="164"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="75"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="167"/>
         <source>Reboot</source>
         <translation>Restartovat</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="166"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="169"/>
         <source>Back</source>
         <translation>Zpět</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="147"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="58"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="106"/>
+        <source>You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. Please select one of the below solutions and continue.</source>
+        <translation>Máte UEFI zavaděč, ale MBR disk, proto není možné nainstalovat %1 přímo. Vyberte jedno z níže nabízených řešení a pokračujte.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="59"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="64"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="107"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="118"/>
+        <source>Deepin</source>
+        <translation>Deepin</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="59"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="64"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="107"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="118"/>
+        <source>UOS</source>
+        <translation>UOS</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="64"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="118"/>
+        <source>Exit BIOS, and install %1 again</source>
+        <translation>Ukončit BIOS a nainstalovat %1 znovu</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="150"/>
         <source>Please make sure all data were made a backup, then continue</source>
         <translation>Ujistěte se, prosím, že jste zazálohoval všechna důležitá data, než budete pokračovat</translation>
+    </message>
+</context>
+<context>
+    <name>installer::PartitionTypeModel</name>
+    <message>
+        <source>Logical Partition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Primary Partition</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::PrepareInstallFrame</name>
+    <message>
+        <source>Ready to Install</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Make a backup of your important data and then continue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The following operations will be executed, please confirm and continue to avoid data loss</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1623,12 +2130,12 @@
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="151"/>
         <source>Save the error log to a removable device</source>
-        <translation type="unfinished"/>
+        <translation>Uložit záznam s událostmi chyb na vyjímatelné zařízení</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="152"/>
         <source>Save as</source>
-        <translation type="unfinished"/>
+        <translation>Uložit jako</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="153"/>
@@ -1637,54 +2144,112 @@
     </message>
 </context>
 <context>
-    <name>installer::SelectInstallComponentFrame</name>
+    <name>installer::SelectBootloaderFrame</name>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="84"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="107"/>
-        <source>Select Software</source>
+        <source>Select location for boot loader</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="85"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="110"/>
-        <source>Basic Environment</source>
+        <source>If you do not understand the settings, please select the recommended one</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>installer::SelectInstallComponentFrame</name>
+    <message>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="130"/>
+        <source>Select Software</source>
+        <translation>Vybrat software</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="86"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="115"/>
-        <source>Add-Ons for Selected Environment</source>
-        <translation type="unfinished"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="133"/>
+        <source>Basic Environment</source>
+        <translation>Základní prostředí</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="87"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="166"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="138"/>
+        <source>Add-Ons for Selected Environment</source>
+        <translation>Doplňky do zvoleného prostředí</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="88"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="189"/>
         <source>Next</source>
         <translation>Další</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="89"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="216"/>
+        <source>Select All</source>
+        <translation>Vybrat vše</translation>
     </message>
 </context>
 <context>
     <name>installer::SelectLanguageFramePrivate</name>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="241"/>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="284"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="249"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="292"/>
         <source>Next</source>
         <translation>Další</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="285"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="293"/>
         <source>I have read and agree to</source>
         <translation>Četl jsem a souhlasím</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="286"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="294"/>
+        <source>%1 Software End User License Agreement</source>
+        <translation>%1 licenční ujednání s koncovým uživatelem</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="294"/>
+        <source>Deepin</source>
+        <translation>Deepin</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="294"/>
+        <source>UOS</source>
+        <translation>UOS</translation>
+    </message>
+    <message>
         <source>UOS Software End User License Agreement</source>
+        <translation type="vanished">UOS Software Licenční ujednání pro koncového uživatele</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="297"/>
+        <source>and</source>
+        <translation>a</translation>
+    </message>
+</context>
+<context>
+    <name>installer::SimplePartitionFrame</name>
+    <message>
+        <source>Unable to create new partition, please select one of the existing partitions!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="289"/>
-        <source>and</source>
+        <source>Please select one of the partitions to install!</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>At least %1 GB is required for root partition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Install here</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Windows will not boot if you install UOS on Windows disk, please confirm to continue</source>
+        <translation type="vanished">Systém Windows se nebude zavádět pokud nainstalujete UOS na disk s Windows. Potvrďte prosím pro pokračování</translation>
     </message>
 </context>
 <context>
@@ -1699,32 +2264,32 @@
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="63"/>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
         <source>Change date and time as you want</source>
-        <translation type="unfinished"/>
+        <translation>Změňte datum a čas dle potřeby</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="96"/>
         <source>Hour</source>
-        <translation type="unfinished"/>
+        <translation>Hodina</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="97"/>
         <source>Minute</source>
-        <translation type="unfinished"/>
+        <translation>Minuta</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="98"/>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>Rok</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="99"/>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Měsíc</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="100"/>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Den</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="101"/>
@@ -1735,6 +2300,17 @@
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="102"/>
         <source>Cancel</source>
         <translation>Zrušit</translation>
+    </message>
+</context>
+<context>
+    <name>installer::SystemInfoAvatarFrame</name>
+    <message>
+        <source>User Avatar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select an avatar for your account</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1751,120 +2327,147 @@
     </message>
 </context>
 <context>
+    <name>installer::SystemInfoFormFrame</name>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Computer name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Repeat password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Root password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Repeat root password</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>installer::SystemInfoFormFramePrivate</name>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="276"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="292"/>
         <source>Username</source>
         <translation>Uživatelské jméno</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="280"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="303"/>
         <source>Computer name</source>
         <translation>Název počítače</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="284"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="320"/>
         <source>Password</source>
         <translation>Heslo</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="289"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="321"/>
         <source>Repeat password</source>
         <translation>Zopakovat heslo</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="300"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="331"/>
         <source>Root password</source>
         <translation>Heslo root</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="306"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="337"/>
         <source>Repeat root password</source>
         <translation>Zopakovat heslo root</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="380"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="411"/>
         <source>Create User Account</source>
         <translation>Vytvořit uživatelský účet</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="381"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="412"/>
         <source>Fill in the username, computer name and your password</source>
         <translation>Vyplňte uživatelské jméno, název počítače a heslo</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="382"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="413"/>
         <source>Use that password to edit boot menu</source>
         <translation>Použijte toto heslo pro upravení nabídky pro zavedení</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="383"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="414"/>
         <source>Set root password</source>
-        <translation type="unfinished"/>
+        <translation>Nastavit heslo pro účet správce (root)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="384"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="415"/>
         <source>Next</source>
         <translation>Další</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="408"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="439"/>
         <source>This username already exists</source>
         <translation>Toto uživatelské jméno Již existuje</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="412"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="443"/>
         <source>The first letter must be in lowercase</source>
         <translation>První písmeno musí být malé</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="418"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="449"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
         <translation>Uživatelské jméno musí obsahovat anglické písmena (malá písmena), čísla nebo speciální symboly (_-) </translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="424"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="455"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
         <translation>Zadejte, prosím, uživatelské jméno delší než %1 znaků a kratší než %2 znaků</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="446"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="477"/>
         <source>Please input computer name</source>
         <translation>Zadejte, prosím, název počítače</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="450"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="481"/>
         <source>Computer name is invalid</source>
         <translation>Název počítače je neplatný</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="454"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="485"/>
         <source>Computer name already exists, please input another one</source>
         <translation>Název počítače již existuje. Zadejte, prosím, jiný název</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="459"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="490"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
         <translation>Zadejte, prosím, název počítače delší než %1 znaků a kratší než %2 znaků</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="486"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="517"/>
         <source>The password should be different from the username</source>
         <translation>Heslo se má lišit od uživatelského jména</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="500"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="513"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="531"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="544"/>
         <source>Please input password longer than %1 characters and shorter than %2 characters</source>
         <translation>Zadejte, prosím, heslo delší než %1 znaků a kratší než %2 znaků</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="507"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="538"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>Heslo musí obsahovat anglická písmena (rozlišují se velká a malá písmena), číslice nebo zvláštní symboly (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="539"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="570"/>
         <source>Passwords do not match</source>
         <translation>Heslo se neshoduje</translation>
     </message>
@@ -1879,7 +2482,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="104"/>
         <source>Test here</source>
-        <translation type="unfinished"/>
+        <translation>Vyzkoušejte zde</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="105"/>
@@ -1889,6 +2492,37 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="106"/>
         <source>Select a proper keyboard layout</source>
+        <translation>Vyberte příslušné rozvržení klávesnice</translation>
+    </message>
+</context>
+<context>
+    <name>installer::TimezoneFrame</name>
+    <message>
+        <source>Select Timezone</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Click your zone on the map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select your timezone from the list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>List</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time settings</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1903,6 +2537,25 @@
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="148"/>
         <source>Back</source>
         <translation>Zpět</translation>
+    </message>
+</context>
+<context>
+    <name>installer::VirtualMachineFrame</name>
+    <message>
+        <source>Friendly Reminder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You are using a virtual machine which will affect system performance and user experience. To get a smoother experience, please install UOS in a real environment</source>
+        <translation type="vanished">Používáte virtuální stroj, což ovlivní výkon systému a pocit z jeho chodu. Pro hladký chod se doporučuje UOS nainstalovat do skutečného prostředí</translation>
+    </message>
+    <message>
+        <source>System has detected that you are using a virtual machine, which will affect the system performance and operation experience, for a smooth experience, it is recommended to install UOS in real-machine environment</source>
+        <translation type="vanished">Systém zjistil, že používáte virtuální stroj, což ovlivňuje výkon systému a pocit z jeho chodu. Pro hladký chod se doporučuje UOS nainstalovat do skutečného prostředí</translation>
     </message>
 </context>
 </TS>
