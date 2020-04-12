@@ -159,7 +159,11 @@ def main():
     )
 
     x86_community_settings = (
-        ("system_info_disable_license", "true"),
+        ("select_language_default_locale", "zh_CN"),
+        ("timezone_default", "Asia/Shanghai"),
+        ("timezone_use_local_time_regardless", "true"),
+        ("skip_select_component_page", "true"),
+        ("partition_skip_simple_partition_page", "true"),
     )
 
     x86_professinal_settings = (
