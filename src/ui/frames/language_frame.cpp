@@ -19,21 +19,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <DSysInfo>
+
 #include "ui/frames/language_frame.h"
 #include "ui/frames/inner/select_language_frame.h"
 #include "ui/frames/inner/user_agreement_frame.h"
 #include "service/settings_manager.h"
 #include "ui/delegates/user_agreement_delegate.h"
 
-namespace installer {
+DCORE_USE_NAMESPACE
 
-#ifdef PROFESSIONAL
-const QString zh_CN_license { ":/license/deepin-end-user-license-agreement_zh_CN.txt" };
-const QString en_US_license{ ":/license/deepin-end-user-license-agreement_en_US.txt" };
-#else
-const QString zh_CN_license { ":/license/deepin-end-user-license-agreement_community_zh_CN.txt" };
-const QString en_US_license{ ":/license/deepin-end-user-license-agreement_community_en_US.txt" };
-#endif  // PROFESSIONAL
+namespace installer {
 
 LanguageFrame::LanguageFrame(QWidget *parent)
     : QWidget(parent)
@@ -80,13 +76,26 @@ void LanguageFrame::initConnect() {
 }
 
 void LanguageFrame::showUserLicense() {
+    QString zh_CN_license;
+    QString en_US_license;
+
+    if (DSysInfo::deepinType() == DSysInfo::DeepinDesktop) {
+      zh_CN_license = ":/license/deepin-end-user-license-agreement_zh_CN.txt";
+      en_US_license = ":/license/deepin-end-user-license-agreement_en_US.txt";
+    }
+    else {
+      zh_CN_license = ":/license/deepin-end-user-license-agreement_community_zh_CN.txt";
+      en_US_license = ":/license/deepin-end-user-license-agreement_community_en_US.txt";
+    }
+
     if (installer::ReadLocale() == "zh_CN") {
         m_user_license_frame->setUserAgreement(zh_CN_license, en_US_license);
         m_user_license_frame->setCheckedButton(kChineseToggleButtonId);
     } else {
         m_user_license_frame->setUserAgreement(en_US_license, zh_CN_license);
         m_user_license_frame->setCheckedButton(kEnglishToggleButtonId);
-    }    
+    }
+
     m_frame_layout->setCurrentWidget(m_user_license_frame);
 }
 
