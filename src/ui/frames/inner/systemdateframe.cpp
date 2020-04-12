@@ -143,6 +143,16 @@ SystemDateFrame::~SystemDateFrame()
 {
 }
 
+QString SystemDateFrame::timedate() const {
+  return QString("%1-%2-%3 %4:%5:%6")
+      .arg(d_private->m_yearEdit->text(), 4, '0')
+      .arg(d_private->m_monthEdit->text(), 2, '0')
+      .arg(d_private->m_dayEdit->text(), 2, '0')
+      .arg(d_private->m_hourEdit->text(), 2, '0')
+      .arg(d_private->m_minuteEdit->text(), 2, '0')
+      .arg("0", 2, '0');
+}
+
 bool SystemDateFrame::event(QEvent *event)
 {
     Q_D(SystemDateFrame);
@@ -395,16 +405,16 @@ void SystemDateFramePrivate::onNextButtonClicked()
         return;
     }
 
+#if 0 // 更改到timezone_frame中writeConf完成
     QProcess process;
     qDebug() << process.execute("timedatectl", QStringList() << "set-ntp" << "false");
 
-    QString dateTime = QString("%1-%2-%3 %4:%5:%6").arg(m_yearEdit->text(), 4, '0')
-            .arg(m_monthEdit->text(), 2, '0').arg(m_dayEdit->text(), 2, '0')
-            .arg(m_hourEdit->text(), 2, '0').arg(m_minuteEdit->text(), 2, '0').arg("0", 2, '0');
+    const QString dateTime = m_ptr->timedate();
 
     qDebug() << process.execute("timedatectl", QStringList() << "set-time" << dateTime);
     WriteIsLocalTime(true);
     WriteIsLocalTimeForce(true);
+#endif
 
     emit m_ptr->finished();
 }

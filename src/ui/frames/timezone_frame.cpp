@@ -27,6 +27,8 @@
 #include <QApplication>
 #include <QButtonGroup>
 #include <QAbstractButton>
+#include <QProcess>
+#include <QScopedPointer>
 
 #include "partman/os_prober.h"
 #include "service/settings_manager.h"
@@ -106,7 +108,20 @@ void TimezoneFrame::writeConf() {
     qWarning() << "Invalid timezone:" << timezone_;
     timezone_ = kDefaultTimezone;
   }
+
   WriteTimezone(timezone_);
+  WriteIsLocalTime(true);
+  WriteIsLocalTimeForce(true);
+
+  QScopedPointer<QProcess> process(new QProcess);
+  process->start("timedatectl", {"set-timezone", timezone_});
+  process->waitForFinished();
+
+  process->start("timedatectl", {"set-ntp", "false"});
+  process->waitForFinished();
+
+  process->start("timedatectl", {"set-time", m_systemDateFrame->timedate()});
+  process->waitForFinished();
 }
 
 void TimezoneFrame::changeEvent(QEvent* event) {

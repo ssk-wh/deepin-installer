@@ -35,6 +35,8 @@ public:
     explicit SystemDateFrame(QWidget *parent = nullptr);
     ~SystemDateFrame() override;
 
+    QString timedate() const;
+
 signals:
     void finished();
     void cancel();
