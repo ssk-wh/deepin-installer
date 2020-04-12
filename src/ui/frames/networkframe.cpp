@@ -188,7 +188,14 @@ public:
         m_primaryDNSEdit = new LineEdit(QString(":/images/hostname_12.svg"));
         m_secondDNSEdit = new LineEdit(QString(":/images/hostname_12.svg"));
 
+        m_ipv4Edit->setPlaceholderText(tr("IP Address"));
+        m_maskEdit->setPlaceholderText(tr("Netmask"));
+        m_gatewayEdit->setPlaceholderText(tr("Gateway"));
+        m_primaryDNSEdit->setPlaceholderText(tr("Primary DNS"));
+        m_secondDNSEdit->setPlaceholderText(tr("Secondary DNS"));
+
         m_errorTip = new SystemInfoTip(this);
+        m_errorTip->hide();
 
         QVBoxLayout* mainLayout = new QVBoxLayout;
         mainLayout->setMargin(0);
@@ -300,9 +307,22 @@ public:
         connect(m_maskEdit, &LineEdit::editingFinished, this,
                 &NetworkEditWidget::checkMaskValidity);
 
+        m_editList = {
+            m_ipv4Edit,
+            m_maskEdit,
+            m_gatewayEdit,
+            m_primaryDNSEdit,
+            m_secondDNSEdit
+        };
+
+        for (auto it = m_editList.begin(); it != m_editList.end(); ++it) {
+            connect(*it, &LineEdit::textEdited, this, &NetworkEditWidget::onEditingLineEdit);
+        }
+
         connect(m_editBtn, &QPushButton::clicked, this, &NetworkEditWidget::onEdit);
         connect(m_acceptBtn, &QPushButton::clicked, this, &NetworkEditWidget::onEditFinished);
-        connect(m_dhcpTypeWidget, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &NetworkEditWidget::onDHCPChanged);
+        connect(m_dhcpTypeWidget, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged)
+                , this, &NetworkEditWidget::onDHCPChanged);
     }
 
     void setIpConfig(const QNetworkAddressEntry& address) {
@@ -355,34 +375,77 @@ public:
         m_editBtn->show();
         m_acceptBtn->hide();
         m_dhcpTypeWidget->setEnabled(true);
+        m_errorTip->hide();
     }
 
     void checkIPValidity()
     {
         LineEdit *edit = qobject_cast<LineEdit *>(sender());
 
+        checkEditIPValidity(edit);
+    }
+
+    bool checkEditIPValidity(LineEdit *edit)
+    {
         if (!checkip(edit->text())) {
             m_errorTip->setText(tr("IP address error: illegal IP address, please have a check."));
             m_errorTip->showBottom(edit);
+            return false;
         }
         else {
             m_errorTip->hide();
+            return true;
         }
     }
 
-    void checkMaskValidity()
+    bool checkMaskValidity()
     {
         if (!checkMask(m_maskEdit->text())) {
             m_errorTip->setText(tr("Netmask error: illegal netmask, please have a check."));
             m_errorTip->showBottom(m_maskEdit);
+            return false;
         }
         else {
+            m_errorTip->hide();
+            return true;
+        }
+    }
+
+    bool validate()
+    {
+        for (auto it = m_editList.begin(); it != m_editList.end(); ++it) {
+            if (*it != m_maskEdit) {
+                if (!checkEditIPValidity(*it)) {
+                    return false;
+                }
+            }
+            else {
+                if (!checkMaskValidity()) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    // Hide error tip frame when line-edit is being edited.
+    void onEditingLineEdit()
+    {
+        if (m_errorTip->isVisible()) {
             m_errorTip->hide();
         }
     }
 
     void onDHCPChanged(int index) {
         m_dhcpType = index == 0 ? DHCPTYpe::Auto : DHCPTYpe::Manual;
+
+        if (m_dhcpType == DHCPTYpe::Manual) {
+            onEdit();
+        }
+        else {
+            onEditFinished();
+        }
     }
 
     bool event(QEvent *event)
@@ -439,6 +502,7 @@ private:
     QWidget* m_primaryDNSWidget;
     QWidget* m_secondDNSWidget;
     QList<QPair<QWidget*, LineEdit*>> m_widgetList;
+    QList<LineEdit *> m_editList;
     NavButton* m_editBtn;
     NavButton* m_acceptBtn;
     LineEdit* m_ipv4Edit;
@@ -532,7 +596,9 @@ NetworkFrame::NetworkFrame(QWidget *parent)
 
     if (!interfaceList.isEmpty()) {
         m_currentNetworkEditWidget->setInterface(interfaceList.first());
-        m_currentNetworkEditWidget->setIpConfig(interfaceList.first().addressEntries().first());
+        if (!interfaceList.first().addressEntries().isEmpty()) {
+            m_currentNetworkEditWidget->setIpConfig(interfaceList.first().addressEntries().first());
+        }
     }
 
     leftLayout->addStretch();
@@ -551,30 +617,9 @@ bool NetworkFrame::event(QEvent *event)
 
 void NetworkFrame::saveConf()
 {
-//    std::list<LineEdit *> editList = { m_ipv4Edit, m_gatewayEdit, m_primaryDNSEdit,
-//                                       m_secondDNSEdit };
-
-//    for (LineEdit *edit : editList) {
-//        if (!checkip(edit->text())) {
-//            emit edit->editingFinished();
-//            return;
-//        }
-//    }
-
-//    if (!checkMask(m_maskEdit->text())) {
-//        emit m_maskEdit->editingFinished();
-//        return;
-//    }
-
-//    const auto interfaces = QNetworkInterface::allInterfaces();
-//    QNetworkInterface interface;
-//    for (const QNetworkInterface i : interfaces) {
-//        // FIXME: name == lo
-//        if (i.name() != "lo") {
-//            interface = i;
-//            break;
-//        }
-//    }
+    if (!m_currentNetworkEditWidget->validate()) {
+        return;
+    }
 
     if (m_currentNetworkEditWidget->connectType() == NetworkEditWidget::DHCPTYpe::Manual) {
         const QString& ip = m_currentNetworkEditWidget->ip();
@@ -584,29 +629,24 @@ void NetworkFrame::saveConf()
         const QString& secondDNS = m_currentNetworkEditWidget->secondDNS();
         const QString& interface = m_currentNetworkEditWidget->interface().name();
 
-        qDebug() << QProcess::execute("nmcli", QStringList() << "con"
-                                      << "add"
-                                      << "type"
-                                      << "ethernet"
-                                      << "con-name"
-                                      << QString("\"%1-lab\"").arg(interface)
-                                      << "ifname"
-                                      << interface
-                                      << "ip4"
-                                      << QString("%1/%2").arg(ip).arg(coverMask(mask))
-                                      << "gw4"
-                                      << gateway
-                                      );
+        QStringList cmd = QStringList() << "con"
+                                        << "mod"
+                                        << interface
+                                        << "ipv4.addr"
+                                        << QString("%1/%2").arg(ip).arg(coverMask(mask))
+                                        << "gw4"
+                                        << gateway;
+        qDebug() << QProcess::execute("nmcli", cmd);
 
         qDebug() << QProcess::execute("nmcli", QStringList() << "con"
                                       << "mod"
-                                      << QString("\"%1-lab\"").arg(interface)
+                                      << interface
                                       << "ipv4.dns"
                                       << QString("%1 %2").arg(primaryDNS, secondDNS));
 
         qDebug() << QProcess::execute("nmcli", QStringList() << "con"
                                       << "up"
-                                      << QString("\"%1-lab\"").arg(interface)
+                                      << interface
                                       << "ifname"
                                       << interface);
 
@@ -618,7 +658,9 @@ void NetworkFrame::saveConf()
 void NetworkFrame::onDeviceSelected()
 {
     NetworkDeviceWidget* device = qobject_cast<NetworkDeviceWidget*>(sender());
-    m_currentNetworkEditWidget->setIpConfig(device->interface().addressEntries().first());
+    if (!device->interface().addressEntries().isEmpty()) {
+        m_currentNetworkEditWidget->setIpConfig(device->interface().addressEntries().first());
+    }
     m_currentNetworkEditWidget->setInterface(device->interface());
 }
 
