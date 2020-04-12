@@ -270,7 +270,7 @@ QString GetReservedUsernameFile() {
 }
 
 QString GetVendorLogo() {
-  QString oem_file = DSysInfo::deepinDistributorLogo(DSysInfo::Transparent);
+  QString oem_file = DSysInfo::distributionOrgLogo(DSysInfo::Distribution, DSysInfo::Transparent);
   if (QFile::exists(oem_file)) {
     return oem_file;
   }
