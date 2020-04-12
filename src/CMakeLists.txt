@@ -45,14 +45,6 @@ execute_process(COMMAND uname -m
 string(REGEX REPLACE "\n$" "" INSTALLER_BUILD_ARCH "${INSTALLER_BUILD_ARCH}")
 message("build arch: ${INSTALLER_BUILD_ARCH}")
 
-set(IS_PROFESSIONAL FALSE)
-if (EXISTS "/etc/deepin-version")
-  file(STRINGS "/etc/deepin-version" IS_PROFESSIONAL REGEX "Type *= *Professional")
-  if(IS_PROFESSIONAL)
-      add_definitions("-DPROFESSIONAL")
-  endif()
-endif()
-
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(INSTALLER_SHARE_DIR ${CMAKE_INSTALL_PREFIX}/share/deepin-installer)

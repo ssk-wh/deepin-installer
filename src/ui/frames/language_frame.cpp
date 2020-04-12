@@ -80,12 +80,12 @@ void LanguageFrame::showUserLicense() {
     QString en_US_license;
 
     if (DSysInfo::deepinType() == DSysInfo::DeepinDesktop) {
-      zh_CN_license = ":/license/deepin-end-user-license-agreement_zh_CN.txt";
-      en_US_license = ":/license/deepin-end-user-license-agreement_en_US.txt";
+        zh_CN_license = ":/license/deepin-end-user-license-agreement_community_zh_CN.txt";
+        en_US_license = ":/license/deepin-end-user-license-agreement_community_en_US.txt";
     }
     else {
-      zh_CN_license = ":/license/deepin-end-user-license-agreement_community_zh_CN.txt";
-      en_US_license = ":/license/deepin-end-user-license-agreement_community_en_US.txt";
+        zh_CN_license = ":/license/deepin-end-user-license-agreement_zh_CN.txt";
+        en_US_license = ":/license/deepin-end-user-license-agreement_en_US.txt";
     }
 
     if (installer::ReadLocale() == "zh_CN") {
