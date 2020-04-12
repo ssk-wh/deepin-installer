@@ -3879,6 +3879,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <context>
     <name>installer::VirtualMachineFrame</name>
     <message>
@@ -3928,6 +3929,8 @@
 =======
 =======
 >>>>>>> fbbffe30... feat(network): add network info
+=======
+>>>>>>> 4451c09f... feat: network frame rebase adjust
 <context>
     <name>installer::MainWindow</name>
 <message><source>Privilege error</source><translation>权限错误</translation></message>
@@ -3943,9 +3946,12 @@
 </context>
 </TS>
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 296abb30... feat: add frame name translate
 =======
 =======
 </TS>
 >>>>>>> e3aad3be... feat(network): add network info
 >>>>>>> fbbffe30... feat(network): add network info
+=======
+>>>>>>> 4451c09f... feat: network frame rebase adjust
