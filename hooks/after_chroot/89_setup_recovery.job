@@ -18,8 +18,7 @@
 # set recovery partition
 
 DI_UEFI=$(installer_get "DI_UEFI")
-
-if [ ! -d "/target/recovery" ];then
+if [ x"$(installer_get DI_FULLDISK_MODE)" != xtrue ];then
     return 0
 fi
 
