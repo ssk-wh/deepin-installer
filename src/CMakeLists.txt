@@ -479,6 +479,8 @@ set(UI_FILES
     ui/widgets/component_widget.cpp
     ui/widgets/partition_table_widget.h
     ui/widgets/partition_table_widget.cpp
+    ui/widgets/network_device_widget.h
+    ui/widgets/network_device_widget.cpp
     ui/widgets/di_scrollarea.h
     ui/widgets/di_scrollarea.cpp
     ui/widgets/multiple_disk_installation_widget.h

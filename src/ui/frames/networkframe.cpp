@@ -1,4 +1,9 @@
 #include "networkframe.h"
+#include "service/settings_manager.h"
+#include "service/settings_name.h"
+#include "ui/utils/widget_util.h"
+#include "ui/widgets/system_info_tip.h"
+#include "ui/widgets/network_device_widget.h"
 
 #include <QDebug>
 #include <QDir>
@@ -18,14 +23,32 @@
 #include <QStringListModel>
 #include <memory>
 #include <QTimer>
+#include <QPainter>
+#include <QPushButton>
+#include <QFont>
+#include <DFrame>
+#include <DVerticalLine>
+#include <DLineEdit>
 
-#include "service/settings_manager.h"
-#include "ui/utils/widget_util.h"
-#include "ui/widgets/line_edit.h"
-#include "ui/widgets/nav_button.h"
-#include "ui/widgets/system_info_tip.h"
+DWIDGET_USE_NAMESPACE
 
 using namespace installer;
+
+namespace {
+    const int kViewWidth = 260;
+    const int kViewHeight = 370;
+
+    const int kNextButtonWidth = 340;
+    const int kNextButtonHeight = 36;
+
+    const int kEditSaveButtonWidth = 140;
+    const int kEditSaveButtonHeight = 36;
+
+    const int kLineEditWidth = 140;
+    const int kLineEditHeight = 36;
+
+    const int kFontSize = 10;
+}
 
 static uint coverMask(const QString &source)
 {
@@ -67,99 +90,6 @@ static bool checkMask(QString mask)
 }
 
 namespace installer {
-class WhiteBackgroundWidget : public QFrame {
-    Q_OBJECT
-public:
-    enum class Position {
-        Left,
-        Center,
-        Right,
-        Top,
-        Bottom
-    };
-
-    explicit WhiteBackgroundWidget(Position position, QWidget* parent = nullptr) : QFrame(parent) {
-        setObjectName("WhiteBackgroundWidget");
-        const QString backgroundCSS("background: rgba(255, 255, 255, 0.1);");
-        QString borderRadiusCSS("border-top-left-radius: %1;"
-                                "border-top-right-radius: %2;"
-                                "border-bottom-left-radius: %3;"
-                                "border-bottom-right-radius: %4;");
-        const QString radius = "5";
-        const QString nonRadius = "0";
-        switch (position) {
-        case Position::Left: {
-            borderRadiusCSS = borderRadiusCSS.arg(radius).arg(nonRadius).arg(radius).arg(nonRadius);
-        }
-            break;
-        case Position::Right: {
-            borderRadiusCSS = borderRadiusCSS.arg(nonRadius).arg(radius).arg(nonRadius).arg(radius);
-        }
-            break;
-        case Position::Top: {
-            borderRadiusCSS = borderRadiusCSS.arg(radius).arg(radius).arg(nonRadius).arg(nonRadius);
-        }
-            break;
-        case Position::Bottom: {
-            borderRadiusCSS = borderRadiusCSS.arg(nonRadius).arg(nonRadius).arg(radius).arg(radius);
-        }
-            break;
-        default: {
-            borderRadiusCSS = "";
-        }
-        }
-
-        setStyleSheet("#WhiteBackgroundWidget { " + backgroundCSS + borderRadiusCSS + "}");
-        setMinimumSize(400, 500);
-    }
-};
-
-class NetworkDeviceWidget : public QFrame {
-    Q_OBJECT
-public:
-    explicit NetworkDeviceWidget(QWidget* parent = nullptr) : QFrame(parent) {
-        setObjectName("NetworkDeviceWidget");
-
-        m_deviceName = new QLabel;
-
-        QVBoxLayout* layout = new QVBoxLayout;
-        layout->setMargin(10);
-        layout->setSpacing(0);
-
-        layout->addWidget(m_deviceName);
-
-        setLayout(layout);
-
-        setStyleSheet("#NetworkDeviceWidget {"
-                      "background: rgba(255, 255, 255, 0.1);"
-                      "border-radius: 5px;"
-                      "margin: 2px;"
-                      "}");
-    }
-
-    void setDeviceInfo(const QNetworkInterface& interface) {
-        m_deviceName->setText(tr("Ethernet (%1)").arg(interface.humanReadableName()));
-        m_interface = interface;
-    }
-
-    QNetworkInterface interface() const {
-        return m_interface;
-    }
-
-signals:
-    void clicked() const;
-
-protected:
-    void mousePressEvent(QMouseEvent* event) override {
-        emit clicked();
-
-        return QFrame::mousePressEvent(event);
-    }
-
-private:
-    QLabel* m_deviceName;
-    QNetworkInterface m_interface;
-};
 
 class NetworkEditWidget : public QWidget
 {
@@ -177,22 +107,32 @@ public:
         m_maskWidget = new QWidget;
         m_gatewayWidget = new QWidget;
         m_primaryDNSWidget = new QWidget;
-        m_secondDNSWidget = new QWidget;
-        m_editBtn = new NavButton(tr("Edit"));
-        m_acceptBtn = new NavButton(tr("Accept"));
+
+        m_editBtn = new QPushButton(tr("Edit"));
+        m_editBtn->setFixedSize(kEditSaveButtonWidth, kEditSaveButtonHeight);
+        m_acceptBtn = new QPushButton(tr("Accept"));
+        m_acceptBtn->setFixedSize(kEditSaveButtonWidth, kEditSaveButtonHeight);
         m_dhcpType = DHCPTYpe::Auto;
 
-        m_ipv4Edit = new LineEdit(QString(":/images/hostname_12.svg"));
-        m_maskEdit = new LineEdit(QString(":/images/hostname_12.svg"));
-        m_gatewayEdit = new LineEdit(QString(":/images/hostname_12.svg"));
-        m_primaryDNSEdit = new LineEdit(QString(":/images/hostname_12.svg"));
-        m_secondDNSEdit = new LineEdit(QString(":/images/hostname_12.svg"));
+        QFont font;
+        font.setPixelSize(kFontSize);
+        m_ipv4Edit = new DLineEdit;
+        m_ipv4Edit->setFixedSize(kLineEditWidth, kLineEditHeight);
+        m_ipv4Edit->lineEdit()->setFont(font);
+        m_maskEdit = new DLineEdit;
+        m_maskEdit->setFixedSize(kLineEditWidth, kLineEditHeight);
+        m_maskEdit->lineEdit()->setFont(font);
+        m_gatewayEdit = new DLineEdit;
+        m_gatewayEdit->setFixedSize(kLineEditWidth, kLineEditHeight);
+        m_gatewayEdit->lineEdit()->setFont(font);
+        m_primaryDNSEdit = new DLineEdit;
+        m_primaryDNSEdit->setFixedSize(kLineEditWidth, kLineEditHeight);
+        m_primaryDNSEdit->lineEdit()->setFont(font);
 
-        m_ipv4Edit->setPlaceholderText(tr("IP Address"));
-        m_maskEdit->setPlaceholderText(tr("Netmask"));
-        m_gatewayEdit->setPlaceholderText(tr("Gateway"));
-        m_primaryDNSEdit->setPlaceholderText(tr("Primary DNS"));
-        m_secondDNSEdit->setPlaceholderText(tr("Secondary DNS"));
+        m_ipv4Edit->lineEdit()->setPlaceholderText(tr("IP Address"));
+        m_maskEdit->lineEdit()->setPlaceholderText(tr("Netmask"));
+        m_gatewayEdit->lineEdit()->setPlaceholderText(tr("Gateway"));
+        m_primaryDNSEdit->lineEdit()->setPlaceholderText(tr("Primary DNS"));
 
         m_errorTip = new SystemInfoTip(this);
         m_errorTip->hide();
@@ -207,12 +147,6 @@ public:
                     m_maskWidget,
                     m_gatewayWidget,
                     m_primaryDNSWidget,
-                    m_secondDNSWidget,
-                    m_ipv4Edit,
-                    m_maskEdit,
-                    m_gatewayEdit,
-                    m_primaryDNSEdit,
-                    m_secondDNSEdit
         };
 
         QMap<QWidget*, QString> tmpM {
@@ -220,22 +154,56 @@ public:
             {m_maskWidget, tr("Mask:")},
             {m_gatewayWidget, tr("Gateway:")},
             {m_primaryDNSWidget, tr("Primary DNS:")},
-            {m_secondDNSWidget, tr("Second DNS:")},
         };
 
+        m_widgetList = {
+            {m_ipWidget, m_ipv4Edit},
+            {m_maskWidget, m_maskEdit},
+            {m_gatewayWidget, m_gatewayEdit},
+            {m_primaryDNSWidget, m_primaryDNSEdit},
+        };
+
+        m_editList = {
+            m_ipv4Edit,
+            m_maskEdit,
+            m_gatewayEdit,
+            m_primaryDNSEdit,
+        };
+
+        for (auto it = m_editList.begin(); it != m_editList.end(); ++it) {
+            connect(*it, &DLineEdit::textEdited, this, &NetworkEditWidget::onEditingLineEdit);
+            (*it)->lineEdit()->setValidator(m_validityCheck.get());
+            (*it)->lineEdit()->setAlignment(Qt::AlignCenter);
+        }
+
+        int i = 0;
         for (auto it = tmpM.begin(); it != tmpM.end(); ++it) {
             QHBoxLayout* layout = new QHBoxLayout;
             layout->setMargin(0);
             layout->setSpacing(0);
 
             QLabel* name = new QLabel(it.value());
+            name->setFixedSize(100, 20);
             QLabel* valueName = new QLabel;
 
             layout->addWidget(name, 0, Qt::AlignLeft | Qt::AlignHCenter);
             layout->addWidget(valueName, 0, Qt::AlignRight | Qt::AlignHCenter);
+            Q_ASSERT(i < m_editList.size());
+            layout->addWidget(m_editList[i], 0, Qt::AlignRight | Qt::AlignHCenter);
+            m_editList[i]->hide();
+            ++i;
 
             labelHandleMap[it.key()] = [=](const QString& text) -> void {
                 valueName->setText(text);
+            };
+
+            labelShowMap[it.key()] = [=](const bool show) -> void {
+                if (show) {
+                    valueName->show();
+                }
+                else {
+                    valueName->hide();
+                }
             };
 
             labelTextMap[it.key()] = [=]() -> QString {
@@ -250,6 +218,7 @@ public:
         dhcpLayout->setSpacing(0);
 
         QLabel* dhcpName = new QLabel("DHCP");
+        dhcpName->setFixedSize(53, 20);
         dhcpLayout->addWidget(dhcpName, 0, Qt::AlignLeft | Qt::AlignHCenter);
         dhcpLayout->addWidget(m_dhcpTypeWidget, 0, Qt::AlignRight | Qt::AlignHCenter);
 
@@ -257,7 +226,7 @@ public:
         dhcpTypeModel->setStringList({tr("Auto"), tr("Manual")});
         m_dhcpTypeWidget->setModel(dhcpTypeModel);
 
-        m_dhcpTypeWidget->setFixedWidth(280);
+        m_dhcpTypeWidget->setFixedSize(kLineEditWidth, kLineEditHeight);
 
         m_connectTypeWidget->setLayout(dhcpLayout);
 
@@ -265,29 +234,9 @@ public:
             mainLayout->addWidget(w);
         }
 
-        m_widgetList = {
-            {m_ipWidget, m_ipv4Edit},
-            {m_maskWidget, m_maskEdit},
-            {m_gatewayWidget, m_gatewayEdit},
-            {m_primaryDNSWidget, m_primaryDNSEdit},
-            {m_secondDNSWidget, m_secondDNSEdit},
-        };
-
-        for (auto it = m_widgetList.begin(); it != m_widgetList.end(); ++it) {
-            it->second->hide();
-            mainLayout->setAlignment(it->second, Qt::AlignHCenter);
-        }
-
         m_validityCheck = std::unique_ptr<
             QRegularExpressionValidator>(new QRegularExpressionValidator(QRegularExpression(
             "((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)?\\.){0,3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)?")));
-
-        std::list<LineEdit *> editList = { m_ipv4Edit, m_maskEdit, m_gatewayEdit,
-                                           m_primaryDNSEdit, m_secondDNSEdit };
-
-        for (auto it = editList.begin(); it != editList.end(); ++it) {
-            (*it)->setValidator(m_validityCheck.get());
-        }
 
         mainLayout->addStretch();
         mainLayout->addWidget(m_editBtn, 0, Qt::AlignHCenter);
@@ -297,27 +246,13 @@ public:
 
         m_acceptBtn->hide();
 
-        connect(m_ipv4Edit, &LineEdit::editingFinished, this, &NetworkEditWidget::checkIPValidity);
-        connect(m_gatewayEdit, &LineEdit::editingFinished, this,
+        connect(m_ipv4Edit, &DLineEdit::editingFinished, this, &NetworkEditWidget::checkIPValidity);
+        connect(m_gatewayEdit, &DLineEdit::editingFinished, this,
                 &NetworkEditWidget::checkIPValidity);
-        connect(m_primaryDNSEdit, &LineEdit::editingFinished, this,
+        connect(m_primaryDNSEdit, &DLineEdit::editingFinished, this,
                 &NetworkEditWidget::checkIPValidity);
-        connect(m_secondDNSEdit, &LineEdit::editingFinished, this,
-                &NetworkEditWidget::checkIPValidity);
-        connect(m_maskEdit, &LineEdit::editingFinished, this,
+        connect(m_maskEdit, &DLineEdit::editingFinished, this,
                 &NetworkEditWidget::checkMaskValidity);
-
-        m_editList = {
-            m_ipv4Edit,
-            m_maskEdit,
-            m_gatewayEdit,
-            m_primaryDNSEdit,
-            m_secondDNSEdit
-        };
-
-        for (auto it = m_editList.begin(); it != m_editList.end(); ++it) {
-            connect(*it, &LineEdit::textEdited, this, &NetworkEditWidget::onEditingLineEdit);
-        }
 
         connect(m_editBtn, &QPushButton::clicked, this, &NetworkEditWidget::onEdit);
         connect(m_acceptBtn, &QPushButton::clicked, this, &NetworkEditWidget::onEditFinished);
@@ -342,16 +277,13 @@ public:
 
             if (!dnsList.isEmpty()) {
                 labelHandleMap[m_primaryDNSWidget](dnsList.first());
-                if (dnsList.length() > 1) {
-                    labelHandleMap[m_secondDNSWidget](dnsList[1]);
-                }
             }
         }
     }
 
     void onEdit() {
         for (auto it = m_widgetList.begin(); it != m_widgetList.end(); ++it) {
-            it->first->hide();
+            labelShowMap[it->first](false);
             it->second->show();
         }
         m_editBtn->hide();
@@ -362,13 +294,12 @@ public:
         m_maskEdit->setText(labelTextMap[m_maskWidget]());
         m_gatewayEdit->setText(labelTextMap[m_gatewayWidget]());
         m_primaryDNSEdit->setText(labelTextMap[m_primaryDNSWidget]());
-        m_secondDNSEdit->setText(labelTextMap[m_secondDNSWidget]());
         m_dhcpTypeWidget->setEnabled(false);
     }
 
     void onEditFinished() {
         for (auto it = m_widgetList.begin(); it != m_widgetList.end(); ++it) {
-            it->first->show();
+            labelShowMap[it->first](true);
             it->second->hide();
             labelHandleMap[it->first](it->second->text());
         }
@@ -380,12 +311,12 @@ public:
 
     void checkIPValidity()
     {
-        LineEdit *edit = qobject_cast<LineEdit *>(sender());
+        DLineEdit *edit = qobject_cast<DLineEdit *>(sender());
 
         checkEditIPValidity(edit);
     }
 
-    bool checkEditIPValidity(LineEdit *edit)
+    bool checkEditIPValidity(DLineEdit *edit)
     {
         if (!checkip(edit->text())) {
             m_errorTip->setText(tr("IP address error: illegal IP address, please have a check."));
@@ -451,11 +382,10 @@ public:
     bool event(QEvent *event)
     {
         if (event->type() == QEvent::LanguageChange) {
-            m_ipv4Edit->setPlaceholderText(tr("IP Address"));
-            m_maskEdit->setPlaceholderText(tr("Netmask"));
-            m_gatewayEdit->setPlaceholderText(tr("Gateway"));
-            m_primaryDNSEdit->setPlaceholderText(tr("Primary DNS"));
-            m_secondDNSEdit->setPlaceholderText(tr("Secondary DNS"));
+            m_ipv4Edit->lineEdit()->setPlaceholderText(tr("IP Address"));
+            m_maskEdit->lineEdit()->setPlaceholderText(tr("Netmask"));
+            m_gatewayEdit->lineEdit()->setPlaceholderText(tr("Gateway"));
+            m_primaryDNSEdit->lineEdit()->setPlaceholderText(tr("Primary DNS"));
             m_errorTip->hide();
         }
 
@@ -486,10 +416,6 @@ public:
         return labelTextMap[m_primaryDNSWidget]();
     }
 
-    QString secondDNS() const {
-        return labelTextMap[m_secondDNSWidget]();
-    }
-
     DHCPTYpe connectType() const {
         return m_dhcpType;
     }
@@ -500,30 +426,28 @@ private:
     QWidget* m_maskWidget;
     QWidget* m_gatewayWidget;
     QWidget* m_primaryDNSWidget;
-    QWidget* m_secondDNSWidget;
-    QList<QPair<QWidget*, LineEdit*>> m_widgetList;
-    QList<LineEdit *> m_editList;
-    NavButton* m_editBtn;
-    NavButton* m_acceptBtn;
-    LineEdit* m_ipv4Edit;
-    LineEdit* m_maskEdit;
-    LineEdit* m_gatewayEdit;
-    LineEdit* m_primaryDNSEdit;
-    LineEdit* m_secondDNSEdit;
+    QList<QPair<QWidget*, DLineEdit*>> m_widgetList;
+    QList<DLineEdit *> m_editList;
+    QPushButton* m_editBtn;
+    QPushButton* m_acceptBtn;
+    DLineEdit* m_ipv4Edit;
+    DLineEdit* m_maskEdit;
+    DLineEdit* m_gatewayEdit;
+    DLineEdit* m_primaryDNSEdit;
     DHCPTYpe m_dhcpType;
     std::unique_ptr<QRegularExpressionValidator> m_validityCheck;
     SystemInfoTip*                               m_errorTip;
     QMap<QWidget*, std::function<void (const QString& text)>> labelHandleMap;
+    QMap<QWidget*, std::function<void (const bool show)>> labelShowMap;
     QMap<QWidget*, std::function<QString ()>> labelTextMap;
     QComboBox *m_dhcpTypeWidget;
     QNetworkInterface m_interface;
 };
 }
 
-NetworkFrame::NetworkFrame(QWidget *parent)
-    : QWidget(parent)
-    , m_skipButton(new NavButton(tr("Skip")))
-    , m_saveButton(new NavButton(tr("Next")))
+NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *parent)
+    : FrameInterface(frameProxyInterface, parent)
+    , m_nextButton(new QPushButton(tr("Next")))
 {
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
@@ -539,46 +463,56 @@ NetworkFrame::NetworkFrame(QWidget *parent)
 
     // 左侧布局
     QVBoxLayout* leftLayout = new QVBoxLayout;
-    leftLayout->setMargin(0);
+    leftLayout->setContentsMargins(10, 10, 10, 10);
     leftLayout->setSpacing(0);
-    WhiteBackgroundWidget* leftWidget = new WhiteBackgroundWidget(WhiteBackgroundWidget::Position::Left);
+    QFrame *leftWidget = new QFrame;
+    leftWidget->setContentsMargins(0, 0, 0, 0);
+    leftWidget->setFixedSize(kViewWidth, kViewHeight);
     leftWidget->setLayout(leftLayout);
 
     // 右侧布局
     QVBoxLayout* rightLayout = new QVBoxLayout;
-    leftLayout->setMargin(0);
-    leftLayout->setSpacing(5);
-    WhiteBackgroundWidget* rightWidget = new WhiteBackgroundWidget(WhiteBackgroundWidget::Position::Right);
-    rightWidget->setLayout(rightLayout);
+    rightLayout->setContentsMargins(10, 10, 10, 10);
+    rightLayout->setSpacing(0);
 
     m_currentNetworkEditWidget = new NetworkEditWidget;
     rightLayout->addWidget(m_currentNetworkEditWidget);
 
+    QFrame *rightWidget = new QFrame;
+    rightWidget->setContentsMargins(0, 0, 0, 0);
+    rightWidget->setFixedSize(kViewWidth, kViewHeight);
+    rightWidget->setLayout(rightLayout);
+
+    DVerticalLine* dVerticalLine = new DVerticalLine;
+
     QHBoxLayout* centerLayout = new QHBoxLayout;
-    centerLayout->setMargin(0);
+    centerLayout->setContentsMargins(0, 0, 0, 0);
     centerLayout->setSpacing(0);
 
     centerLayout->addStretch();
-    centerLayout->addWidget(leftWidget);
-    centerLayout->addSpacing(1);
-    centerLayout->addWidget(rightWidget);
+    centerLayout->addWidget(leftWidget, 0, Qt::AlignRight);
+    centerLayout->addWidget(dVerticalLine);
+    centerLayout->addWidget(rightWidget, 0, Qt::AlignLeft);
     centerLayout->addStretch();
 
+    DFrame *frame = new DFrame;
+    frame->setFrameRounded(true);
+    frame->setContentsMargins(1, 1, 1, 1);
+    frame->setLayout(centerLayout);
+
     layout->addStretch();
-    layout->addLayout(centerLayout);
+    layout->addWidget(frame, 0, Qt::AlignHCenter);
     layout->addStretch();
 
-    layout->addWidget(m_skipButton, 0, Qt::AlignHCenter);
-    layout->addWidget(m_saveButton, 0, Qt::AlignHCenter);
+    m_nextButton->setFixedSize(kNextButtonWidth, kNextButtonHeight);
+    layout->addWidget(m_nextButton, 0, Qt::AlignHCenter);
+    layout->addSpacing(10);
 
     setLayout(layout);
 
     rightLayout->addStretch();
 
-    setStyleSheet("QLabel{color: white;}");
-
-    connect(m_skipButton, &NavButton::clicked, this, &NetworkFrame::requestNext);
-    connect(m_saveButton, &NavButton::clicked, this, &NetworkFrame::saveConf);
+    connect(m_nextButton, &QPushButton::clicked, this, &NetworkFrame::saveConf);
 
     const auto interfaces = QNetworkInterface::allInterfaces();
     QList<QNetworkInterface> interfaceList;
@@ -588,7 +522,6 @@ NetworkFrame::NetworkFrame(QWidget *parent)
             interfaceList << i;
             NetworkDeviceWidget* device = new NetworkDeviceWidget;
             leftLayout->addWidget(device);
-            device->setFixedHeight(100);
             device->setDeviceInfo(i);
             connect(device, &NetworkDeviceWidget::clicked, this, &NetworkFrame::onDeviceSelected);
         }
@@ -608,11 +541,25 @@ bool NetworkFrame::event(QEvent *event)
 {
     if (event->type() == QEvent::LanguageChange) {
         m_subTitle->setText(tr("Configure Network"));
-        m_skipButton->setText(tr("Skip"));
-        m_saveButton->setText(tr("Next"));
+        m_nextButton->setText(tr("Next"));
     }
 
     return QWidget::event(event);
+}
+
+void NetworkFrame::init()
+{
+
+}
+
+void NetworkFrame::finished()
+{
+
+}
+
+bool NetworkFrame::shouldDisplay() const
+{
+    return !GetSettingsBool(kSkipNetworkPage);
 }
 
 void NetworkFrame::saveConf()
@@ -626,7 +573,6 @@ void NetworkFrame::saveConf()
         const QString& mask = m_currentNetworkEditWidget->mask();
         const QString& gateway = m_currentNetworkEditWidget->gateway();
         const QString& primaryDNS = m_currentNetworkEditWidget->primaryDNS();
-        const QString& secondDNS = m_currentNetworkEditWidget->secondDNS();
         const QString& interface = m_currentNetworkEditWidget->interface().name();
 
         QStringList cmd = QStringList() << "con"
@@ -642,7 +588,7 @@ void NetworkFrame::saveConf()
                                       << "mod"
                                       << interface
                                       << "ipv4.dns"
-                                      << QString("%1 %2").arg(primaryDNS, secondDNS));
+                                      << QString("%1").arg(primaryDNS));
 
         qDebug() << QProcess::execute("nmcli", QStringList() << "con"
                                       << "up"
