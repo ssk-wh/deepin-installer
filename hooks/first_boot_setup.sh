@@ -125,6 +125,10 @@ setup_default_target() {
     msg "TARGET:after={$(systemctl get-default)}"
 }
 
+setup_bluetooth_service() {
+    systemctl restart bluetooth.service
+}
+
 main() {
   [ -f "${CONF_FILE}" ] || error "deepin-installer.conf not found"
   cat "${CONF_FILE}"
@@ -143,6 +147,9 @@ main() {
   # setup_username_password_hostname() will clear value of DI_PASSWORD
   customize_user
   setup_username_password_hostname
+
+  # 解决蓝牙主机名问题
+  setup_bluetooth_service
 
   sync
   cleanup_oem_license
