@@ -232,19 +232,8 @@ void ControlPlatformFramePrivate::onRegionSelected()
 }
 
 void ControlPlatformFramePrivate::onNetworkStateChanged() {
-    auto deleteAllChild = [=](QLayout* layout) -> void {
-        QLayoutItem* child;
-        while ((child = layout->takeAt(0)) != 0) {
-            if (child->widget()) {
-                child->widget()->setParent(nullptr);
-            }
-
-            delete child;
-        }
-    };
-
-    deleteAllChild(m_macInfoLayout);
-    deleteAllChild(m_ipInfoLayout);
+    ClearLayout(m_macInfoLayout);
+    ClearLayout(m_ipInfoLayout);
 
     const QList<QNetworkInterface> interfaces = QNetworkInterface::allInterfaces();
 
