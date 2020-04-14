@@ -4,6 +4,7 @@
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/system_info_tip.h"
 #include "ui/widgets/network_device_widget.h"
+#include "ui/delegates/network_operate.h"
 
 #include <QDebug>
 #include <QDir>
@@ -95,11 +96,6 @@ class NetworkEditWidget : public QWidget
 {
     Q_OBJECT
 public:
-    enum class DHCPTYpe {
-        Auto = 0,
-        Manual,
-    };
-
     explicit NetworkEditWidget (QWidget* parent = nullptr) : QWidget(parent) {
         m_connectTypeWidget = new QWidget;
         m_dhcpTypeWidget = new QComboBox;
@@ -400,6 +396,16 @@ public:
         return m_interface;
     }
 
+    void setNetworkOperate(NetworkOperate *networkOperate)
+    {
+        m_networkOperate = networkOperate;
+    }
+
+    NetworkOperate* networkOperate()
+    {
+        return m_networkOperate;
+    }
+
     QString ip() const {
         return labelTextMap[m_ipWidget]();
     }
@@ -442,6 +448,7 @@ private:
     QMap<QWidget*, std::function<QString ()>> labelTextMap;
     QComboBox *m_dhcpTypeWidget;
     QNetworkInterface m_interface;
+    NetworkOperate *m_networkOperate = nullptr;
 };
 }
 
@@ -516,6 +523,7 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
 
     const auto interfaces = QNetworkInterface::allInterfaces();
     QList<QNetworkInterface> interfaceList;
+    bool hasSet = false;
     for (const QNetworkInterface &i : interfaces) {
         // FIXME: name == lo
         if (i.name() != "lo" && i.flags().testFlag(QNetworkInterface::IsUp)) {
@@ -524,13 +532,16 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
             leftLayout->addWidget(device);
             device->setDeviceInfo(i);
             connect(device, &NetworkDeviceWidget::clicked, this, &NetworkFrame::onDeviceSelected);
-        }
-    }
 
-    if (!interfaceList.isEmpty()) {
-        m_currentNetworkEditWidget->setInterface(interfaceList.first());
-        if (!interfaceList.first().addressEntries().isEmpty()) {
-            m_currentNetworkEditWidget->setIpConfig(interfaceList.first().addressEntries().first());
+            if (!hasSet) {
+                m_currentNetworkEditWidget->setInterface(i);
+                m_currentNetworkEditWidget->setNetworkOperate(device->networkOperate());
+                if (!i.addressEntries().isEmpty()) {
+                    m_currentNetworkEditWidget->setIpConfig(i.addressEntries().first());
+                }
+
+                hasSet = true;
+            }
         }
     }
 
@@ -568,34 +579,15 @@ void NetworkFrame::saveConf()
         return;
     }
 
-    if (m_currentNetworkEditWidget->connectType() == NetworkEditWidget::DHCPTYpe::Manual) {
-        const QString& ip = m_currentNetworkEditWidget->ip();
-        const QString& mask = m_currentNetworkEditWidget->mask();
-        const QString& gateway = m_currentNetworkEditWidget->gateway();
-        const QString& primaryDNS = m_currentNetworkEditWidget->primaryDNS();
-        const QString& interface = m_currentNetworkEditWidget->interface().name();
+    if (m_currentNetworkEditWidget->connectType() == DHCPTYpe::Manual) {
+        NetworkSettingInfo networkSettingInfo;
 
-        QStringList cmd = QStringList() << "con"
-                                        << "mod"
-                                        << interface
-                                        << "ipv4.addr"
-                                        << QString("%1/%2").arg(ip).arg(coverMask(mask))
-                                        << "gw4"
-                                        << gateway;
-        qDebug() << QProcess::execute("nmcli", cmd);
+        networkSettingInfo.ip = m_currentNetworkEditWidget->ip();
+        networkSettingInfo.mask = m_currentNetworkEditWidget->mask();
+        networkSettingInfo.gateway = m_currentNetworkEditWidget->gateway();
+        networkSettingInfo.primaryDNS = m_currentNetworkEditWidget->primaryDNS();
 
-        qDebug() << QProcess::execute("nmcli", QStringList() << "con"
-                                      << "mod"
-                                      << interface
-                                      << "ipv4.dns"
-                                      << QString("%1").arg(primaryDNS));
-
-        qDebug() << QProcess::execute("nmcli", QStringList() << "con"
-                                      << "up"
-                                      << interface
-                                      << "ifname"
-                                      << interface);
-
+        m_currentNetworkEditWidget->networkOperate()->setIpV4(networkSettingInfo);
     }
 
     emit requestNext();
@@ -608,6 +600,7 @@ void NetworkFrame::onDeviceSelected()
         m_currentNetworkEditWidget->setIpConfig(device->interface().addressEntries().first());
     }
     m_currentNetworkEditWidget->setInterface(device->interface());
+    m_currentNetworkEditWidget->setNetworkOperate(device->networkOperate());
 }
 
 #include "networkframe.moc"

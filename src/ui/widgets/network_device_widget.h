@@ -1,5 +1,7 @@
 #pragma once
 
+#include "ui/delegates/network_operate.h"
+
 #include <QWidget>
 #include <QLabel>
 #include <QPushButton>
@@ -24,6 +26,7 @@ public:
 
     void setDeviceInfo(const QNetworkInterface& interface);
     QNetworkInterface interface() const;
+    NetworkOperate* networkOperate() const;
 
 signals:
     void clicked();
@@ -44,6 +47,7 @@ private:
     bool m_isflag;
 
     QNetworkInterface m_interface;
+    NetworkOperate *m_networkOperate = nullptr;
 };
 
 }

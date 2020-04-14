@@ -140,9 +140,16 @@ bool NetworkDeviceWidget::eventFilter(QObject *watched, QEvent *event)
 void NetworkDeviceWidget::setDeviceInfo(const QNetworkInterface& interface) {
     m_deviceName->setText(tr("Ethernet (%1)").arg(interface.humanReadableName()));
     m_interface = interface;
+    m_networkOperate = new NetworkOperate(interface.humanReadableName());
 }
 
 QNetworkInterface NetworkDeviceWidget::interface() const {
     return m_interface;
 }
+
+NetworkOperate *NetworkDeviceWidget::networkOperate() const
+{
+    return m_networkOperate;
+}
+
 }

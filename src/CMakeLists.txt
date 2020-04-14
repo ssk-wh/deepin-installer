@@ -87,7 +87,7 @@ find_package(QTermWidget5 REQUIRED)
 find_package(DtkCMake REQUIRED)
 find_package(DtkWidget REQUIRED)
 find_package(DtkGui REQUIRED)
-find_package(KF5NetworkManagerQt)
+find_package(KF5NetworkManagerQt REQUIRED)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
@@ -261,6 +261,8 @@ set(UI_FILES
     ui/delegates/advanced_partition_delegate.h
     ui/delegates/partition_delegate.h
     ui/delegates/partition_delegate.cpp
+    ui/delegates/network_operate.h
+    ui/delegates/network_operate.cpp
     ui/delegates/advanced_validate_state.h
     ui/delegates/advanced_validate_state.cpp
     ui/delegates/avatar_list_delegate.cpp
