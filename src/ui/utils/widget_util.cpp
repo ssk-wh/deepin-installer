@@ -81,14 +81,14 @@ void ShowFullscreen(QWidget* widget) {
   // NOTE(xushaohua): If geometry of primary screen changes too fast, this
   // function may return false screen geometry.
   const QRect rect = qApp->desktop()->screenGeometry();
-  ShowFullscreen(widget, rect);
+  ShowFullscreen(widget, rect, 1);
   widget->showFullScreen();
 }
 
-void ShowFullscreen(QWidget* widget, const QRect& geometry) {
-  qDebug() << "ShowFullscreen()" << geometry;
+void ShowFullscreen(QWidget* widget, const QRect& geometry, qreal ratio) {
+  qDebug() << "ShowFullscreen()" << geometry << ratio;
   widget->move(geometry.topLeft());
-  widget->setFixedSize(geometry.size());
+  widget->setFixedSize(geometry.size() / ratio);
 }
 
 void SetQComboBoxTransparent(QComboBox* box) {

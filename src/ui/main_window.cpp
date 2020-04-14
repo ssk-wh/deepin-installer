@@ -440,7 +440,7 @@ void MainWindow::onCloseButtonClicked() {
 
 void MainWindow::onPrimaryScreenChanged(const QRect& geometry) {
   qDebug() << "onPrimaryScreenChanged()" << geometry;
-  ShowFullscreen(this, geometry);
+  ShowFullscreen(this, geometry, devicePixelRatioF());
 }
 
 void MainWindow::goNextPage() {
