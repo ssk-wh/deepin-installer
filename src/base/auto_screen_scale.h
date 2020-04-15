@@ -1,4 +1,5 @@
 #include "base/utils.h"
+#include "base/file_util.h"
 
 #include <X11/Xlib.h>
 #include <X11/extensions/Xrandr.h>
@@ -10,6 +11,11 @@ namespace Utils
 {
 void AutoScreenScale()
 {
+    const QString& result = installer::ReadFile("/proc/cmdline");
+    if (result.contains("installer.disable.scale")) {
+        return;
+    }
+
     double scaleRatio = 1.0;
     Display *display = XOpenDisplay(NULL);
 
