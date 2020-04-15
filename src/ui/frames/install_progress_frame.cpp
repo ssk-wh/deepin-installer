@@ -137,7 +137,7 @@ void InstallProgressFrame::startSlide() {
 
 void InstallProgressFrame::init()
 {
-
+    startSlide();
 }
 
 void InstallProgressFrame::finished()
