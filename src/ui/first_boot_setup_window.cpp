@@ -227,7 +227,7 @@ void FirstBootSetupWindow::initPages()
 {
     language_frame_ = new LanguageFrame(this);
     system_info_frame_ = new SystemInfoFrame(this);
-    network_frame_ = new NetworkFrame;
+    network_frame_ = new NetworkFrame(this);
     timezone_frame_ = new TimezoneFrame(this);
     loading_frame_ = new FirstBootLoadingFrame(this);
     control_platform_frame_ = new ControlPlatformFrame(this);
@@ -236,8 +236,8 @@ void FirstBootSetupWindow::initPages()
         language_frame_,
         timezone_frame_,
         system_info_frame_,
-        //      network_frame_,
-        //   control_platform_frame_,
+        network_frame_,
+        control_platform_frame_,
         loading_frame_,
     };
 
