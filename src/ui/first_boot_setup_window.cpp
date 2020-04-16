@@ -86,6 +86,8 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
 
   titlebar()->setMenuVisible(false);
 
+  SettingCustom::Instance()->setSettingsBool(kSystemInfoSetupAfterReboot, false);
+
   Q_ASSERT(m_frames.count() > 0);
   m_frames.first()->init();
 

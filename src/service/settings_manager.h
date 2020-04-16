@@ -41,6 +41,20 @@ QString GetCurrentPlatform();
 
 // Read settings value from ini file.
 
+class SettingCustom : public QObject
+{
+    Q_OBJECT
+public:
+    static SettingCustom* Instance();
+
+    void setSettingsBool(const QString& key, const bool value);
+    bool getSettingsBool(const QString& key);
+    bool hasSetting(const QString& key);
+
+private:
+    QObject settingObject;
+};
+
 // Get boolean option value from settings file.
 // If |key| does not exist, returns false.
 bool GetSettingsBool(const QString& key);

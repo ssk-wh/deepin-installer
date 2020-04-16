@@ -147,6 +147,10 @@ QString GetCurrentPlatform() {
 }
 
 bool GetSettingsBool(const QString& key) {
+    if (SettingCustom::Instance()->hasSetting(key)) {
+        return SettingCustom::Instance()->getSettingsBool(key);
+    }
+
   const QVariant value = GetSettingsValue(key);
   if (value.isValid()) {
     return value.toBool();
@@ -682,6 +686,37 @@ void WriteDiskPartitionSetting(const DiskPartitionSetting& setting)
 void WriteInstallSuccessed(bool successed)
 {
     AppendToConfigFile("DI_INSTALL_SUCCESSED", successed);
+}
+
+SettingCustom *SettingCustom::Instance()
+{
+    static SettingCustom settingCustom;
+    return &settingCustom;
+}
+
+void SettingCustom::setSettingsBool(const QString &key, const bool value)
+{
+    settingObject.setProperty(key.toLatin1(), QVariant(value));
+}
+
+bool SettingCustom::getSettingsBool(const QString &key)
+{
+    const QVariant value = settingObject.property(key.toLatin1());
+    if (value.isValid()) {
+      return value.toBool();
+    }
+
+    return false;
+}
+
+bool SettingCustom::hasSetting(const QString &key)
+{
+    const QVariant value = settingObject.property(key.toLatin1());
+    if (value.isValid()) {
+      return true;
+    }
+
+    return false;
 }
 
 }  // namespace installer
