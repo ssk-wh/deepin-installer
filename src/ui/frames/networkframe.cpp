@@ -548,6 +548,11 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     leftLayout->addStretch();
 }
 
+QString NetworkFrame::returnFrameName() const
+{
+    return "Network Config";
+}
+
 bool NetworkFrame::event(QEvent *event)
 {
     if (event->type() == QEvent::LanguageChange) {

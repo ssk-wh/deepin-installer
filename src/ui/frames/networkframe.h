@@ -15,6 +15,8 @@ class NetworkFrame : public FrameInterface {
 public:
     explicit NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget* parent = nullptr);
 
+    QString returnFrameName() const override;
+
 signals:
     void requestNext();
 

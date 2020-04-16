@@ -174,6 +174,11 @@ bool ControlPlatformFrame::shouldDisplay() const
     return true;
 }
 
+QString ControlPlatformFrame::returnFrameName() const
+{
+    return "Control Platform";
+}
+
 bool ControlPlatformFrame::event(QEvent* event)
 {
     if (event->type() == QEvent::LanguageChange) {

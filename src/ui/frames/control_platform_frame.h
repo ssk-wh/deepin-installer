@@ -29,6 +29,8 @@ public:
     virtual void init() override;
     virtual void finished() override;
     virtual bool shouldDisplay() const override;
+    QString returnFrameName() const override;
+
 
 protected:
     bool event(QEvent* event) override;
