@@ -171,7 +171,7 @@ void ControlPlatformFrame::finished()
 
 bool ControlPlatformFrame::shouldDisplay() const
 {
-    return true;
+    return !(GetSettingsBool(kSystemInfoSetupAfterReboot) || GetSettingsBool(kSkipControlPlatformPage));
 }
 
 QString ControlPlatformFrame::returnFrameName() const
