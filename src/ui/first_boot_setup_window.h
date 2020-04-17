@@ -130,6 +130,7 @@ class FirstBootSetupWindow : public DMainWindow, public FrameProxyInterface {
 
   // When user mouse press left page tables.
   void previousFrameSelected(FrameInterface* frame);
+  void onFrameLabelsViewClicked(const QModelIndex& index);
 
   void updateFrameLabelState(FrameInterface *frame, FrameLabelState state);
 };

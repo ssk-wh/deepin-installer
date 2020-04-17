@@ -168,6 +168,8 @@ void FirstBootSetupWindow::initConnections() {
             this, &FirstBootSetupWindow::onPrimaryScreenChanged);
     connect(back_button_, &DImageButton::clicked, this, &FirstBootSetupWindow::backPage);
     connect(stacked_layout_, &QStackedLayout::currentChanged, back_button_, &DImageButton::raise);
+
+    connect(m_frameLabelsView, &DListView::clicked, this, &FirstBootSetupWindow::onFrameLabelsViewClicked);
 }
 
 void FirstBootSetupWindow::initUI() {
@@ -478,6 +480,24 @@ void FirstBootSetupWindow::previousFrameSelected(FrameInterface *frame)
     stacked_layout_->setCurrentWidget(frame);
 
     m_showPastFrame = true;
+}
+
+void FirstBootSetupWindow::onFrameLabelsViewClicked(const QModelIndex &index)
+{
+    Q_ASSERT(sender() == m_frameLabelsView);
+
+    FrameInterface* framePointer = index.data(FramePointerRole).value<FrameInterface*>();
+    Q_ASSERT(framePointer);
+    if (!m_frameModelItemMap[framePointer]->flags().testFlag(Qt::ItemFlag::ItemIsEnabled)){
+        // TODO: will user another way implement.
+        FrameInterface* frame = qobject_cast<FrameInterface*>(stacked_layout_->currentWidget());
+        Q_ASSERT(frame);
+        m_frameLabelsView->setCurrentIndex(m_frameLabelsModel->indexFromItem(
+                                               m_frameModelItemMap[frame]));
+        return;
+    }
+
+    previousFrameSelected(framePointer);
 }
 
 void FirstBootSetupWindow::updateFrameLabelState(FrameInterface *frame, FrameLabelState state)
