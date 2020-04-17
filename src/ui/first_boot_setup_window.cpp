@@ -70,6 +70,7 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
       m_showPastFrame(false)
 {
   this->setObjectName("first_boot_setup_window");
+  SettingCustom::Instance()->setSettingsBool(kSystemInfoSetupAfterReboot, false);
 
   hook_worker_thread_->start();
   hook_worker_->moveToThread(hook_worker_thread_);
@@ -85,8 +86,6 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
   setWindowFlags(flags);
 
   titlebar()->setMenuVisible(false);
-
-  SettingCustom::Instance()->setSettingsBool(kSystemInfoSetupAfterReboot, false);
 
   Q_ASSERT(m_frames.count() > 0);
   m_frames.first()->init();

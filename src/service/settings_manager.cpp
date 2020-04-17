@@ -696,12 +696,12 @@ SettingCustom *SettingCustom::Instance()
 
 void SettingCustom::setSettingsBool(const QString &key, const bool value)
 {
-    settingObject.setProperty(key.toLatin1(), QVariant(value));
+    SettingCustom::Instance()->setProperty(key.toLatin1(), QVariant(value));
 }
 
 bool SettingCustom::getSettingsBool(const QString &key)
 {
-    const QVariant value = settingObject.property(key.toLatin1());
+    const QVariant value = SettingCustom::Instance()->property(key.toLatin1());
     if (value.isValid()) {
       return value.toBool();
     }
@@ -711,7 +711,7 @@ bool SettingCustom::getSettingsBool(const QString &key)
 
 bool SettingCustom::hasSetting(const QString &key)
 {
-    const QVariant value = settingObject.property(key.toLatin1());
+    const QVariant value = SettingCustom::Instance()->property(key.toLatin1());
     if (value.isValid()) {
       return true;
     }
