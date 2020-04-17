@@ -99,6 +99,7 @@ public:
     explicit NetworkEditWidget (QWidget* parent = nullptr) : QWidget(parent) {
         m_connectTypeWidget = new QWidget;
         m_dhcpTypeWidget = new QComboBox;
+        m_dhcpTypeWidget->setEnabled(false);
         m_ipWidget = new QWidget;
         m_maskWidget = new QWidget;
         m_gatewayWidget = new QWidget;
@@ -290,7 +291,7 @@ public:
         m_maskEdit->setText(labelTextMap[m_maskWidget]());
         m_gatewayEdit->setText(labelTextMap[m_gatewayWidget]());
         m_primaryDNSEdit->setText(labelTextMap[m_primaryDNSWidget]());
-        m_dhcpTypeWidget->setEnabled(false);
+        m_dhcpTypeWidget->setEnabled(true);
     }
 
     void onEditFinished() {
@@ -301,7 +302,7 @@ public:
         }
         m_editBtn->show();
         m_acceptBtn->hide();
-        m_dhcpTypeWidget->setEnabled(true);
+        m_dhcpTypeWidget->setEnabled(false);
         m_errorTip->hide();
     }
 
@@ -524,20 +525,20 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     const auto interfaces = QNetworkInterface::allInterfaces();
     QList<QNetworkInterface> interfaceList;
     bool hasSet = false;
-    for (const QNetworkInterface &i : interfaces) {
+    for (const QNetworkInterface &interface : interfaces) {
         // FIXME: name == lo
-        if (i.name() != "lo" && i.flags().testFlag(QNetworkInterface::IsUp)) {
-            interfaceList << i;
+        if (interface.name() != "lo" && interface.flags().testFlag(QNetworkInterface::IsUp)) {
+            interfaceList << interface;
             NetworkDeviceWidget* device = new NetworkDeviceWidget;
             leftLayout->addWidget(device);
-            device->setDeviceInfo(i);
+            device->setDeviceInfo(interface);
             connect(device, &NetworkDeviceWidget::clicked, this, &NetworkFrame::onDeviceSelected);
 
             if (!hasSet) {
-                m_currentNetworkEditWidget->setInterface(i);
+                m_currentNetworkEditWidget->setInterface(interface);
                 m_currentNetworkEditWidget->setNetworkOperate(device->networkOperate());
-                if (!i.addressEntries().isEmpty()) {
-                    m_currentNetworkEditWidget->setIpConfig(i.addressEntries().first());
+                if (!interface.addressEntries().isEmpty()) {
+                    m_currentNetworkEditWidget->setIpConfig(interface.addressEntries().first());
                 }
 
                 hasSet = true;
@@ -580,20 +581,20 @@ bool NetworkFrame::shouldDisplay() const
 
 void NetworkFrame::saveConf()
 {
-    if (!m_currentNetworkEditWidget->validate()) {
-        return;
-    }
+//    if (!m_currentNetworkEditWidget->validate()) {
+//        return;
+//    }
 
+    NetworkSettingInfo networkSettingInfo;
+    networkSettingInfo.setIpMode = m_currentNetworkEditWidget->connectType();
     if (m_currentNetworkEditWidget->connectType() == DHCPTYpe::Manual) {
-        NetworkSettingInfo networkSettingInfo;
-
         networkSettingInfo.ip = m_currentNetworkEditWidget->ip();
         networkSettingInfo.mask = m_currentNetworkEditWidget->mask();
         networkSettingInfo.gateway = m_currentNetworkEditWidget->gateway();
         networkSettingInfo.primaryDNS = m_currentNetworkEditWidget->primaryDNS();
-
-        m_currentNetworkEditWidget->networkOperate()->setIpV4(networkSettingInfo);
     }
+
+    m_currentNetworkEditWidget->networkOperate()->setIpV4(networkSettingInfo);
 
     emit requestNext();
 }

@@ -62,8 +62,13 @@ bool NetworkOperate::setIpV4(NetworkSettingInfo info)
     ipAddress.setIp(QHostAddress(info.ip));
     ipAddress.setNetmask(QHostAddress(info.mask));
     ipAddress.setGateway(QHostAddress(info.gateway));
-    ipv4Setting->setMethod(NetworkManager::Ipv4Setting::Manual);
-    ipv4Setting->setAddresses(QList<NetworkManager::IpAddress>() << ipAddress);
+    if (info.setIpMode == DHCPTYpe::Manual){
+        ipv4Setting->setMethod(NetworkManager::Ipv4Setting::Manual);
+        ipv4Setting->setAddresses(QList<NetworkManager::IpAddress>() << ipAddress);
+    }
+    else {
+        ipv4Setting->setMethod(NetworkManager::Ipv4Setting::Automatic);
+    }
 
     QDBusPendingReply<> reply = deactivateConnection(m_activeConnection->path());
     reply.waitForFinished();
