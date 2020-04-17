@@ -575,7 +575,7 @@ void NetworkFrame::finished()
 
 bool NetworkFrame::shouldDisplay() const
 {
-    return !GetSettingsBool(kSkipNetworkPage);
+    return !(GetSettingsBool(kSystemInfoSetupAfterReboot) || GetSettingsBool(kSkipNetworkPage));
 }
 
 void NetworkFrame::saveConf()
