@@ -100,6 +100,17 @@ MainWindow::MainWindow(QWidget* parent)
     SetBrightness(GetSettingsInt(kScreenDefaultBrightness));
     WriteDisplayPort(getenv("DISPLAY"));
 
+    for (auto it = m_frames.begin(); it != m_frames.end();) {
+        if ((*it)->shouldDisplay()) {
+            break;
+        }
+        else {
+            (*it)->init();
+            (*it)->finished();
+            it = m_frames.erase(it);
+        }
+    }
+
     Q_ASSERT(m_frames.count() > 0);
     m_frames.first()->init();
 
