@@ -156,7 +156,7 @@ void InstallProgressSlideFrame::onAnimationCurrentLoopChanged() {
 
 void InstallProgressSlideFrame::onBackButtonClicked()
 {
-    slide_index_ = (slide_index_ - 2) % slide_files_.length();
+    slide_index_ = (slide_files_.length() + slide_index_ - 2) % slide_files_.length();
     updateSlideImage();
 }
 
