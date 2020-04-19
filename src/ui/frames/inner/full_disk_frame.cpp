@@ -245,6 +245,7 @@ void FullDiskFrame::initUI() {
   scroll_frame->setObjectName("scroll_frame");
   scroll_frame->setContentsMargins(0, 0, 0, 0);
   scroll_frame->setLayout(hDiskLayout);
+  scroll_frame->setMaximumHeight(530);
 
   m_diskPartitionWidget = new FullDiskPartitionWidget;
 
