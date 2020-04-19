@@ -283,6 +283,7 @@ void InstallProgressFramePrivate::initUI() {
     centerLayout->addSpacing(5);
     centerLayout->addWidget(progress_bar_, 0, Qt::AlignHCenter);
     centerLayout->addStretch();
+    nextButton->hide();
 
     Q_Q(InstallProgressFrame);
     q->setStyleSheet(ReadFile(":/styles/install_progress_frame.css"));
