@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
   app.setAttribute(Qt::AA_UseHighDpiPixmaps);
   app.setAttribute(Qt::AA_EnableHighDpiScaling);
   app.setApplicationDisplayName("Deepin Installer First Boot");
-  app.setApplicationName("deepin-installer-first-boot");
+  app.setApplicationName(" ");
   app.setApplicationVersion(installer::kAppVersion);
   app.setOrganizationDomain(installer::kOrganizationDomain);
   app.setWindowIcon(QIcon(":/images/deepin_installer.svg"));
