@@ -157,10 +157,11 @@ void FirstBootSetupWindow::hideChildFrame() const
 }
 
 void FirstBootSetupWindow::initConnections() {
-    connect(network_frame_, &NetworkFrame::requestNext,
-            this, &FirstBootSetupWindow::onNetworkFinished);
     connect(hook_worker_, &FirstBootHookWorker::hookFinished,
             this, &FirstBootSetupWindow::onHookFinished);
+
+    connect(control_platform_frame_, &ControlPlatformFrame::requestFinished, this,
+            &FirstBootSetupWindow::onControlPlatformFinished);
 
     connect(monitor_mode_shortcut_, &GlobalShortcut::activated,
             multi_head_manager_, &MultiHeadManager::switchXRandRMode);
@@ -365,9 +366,6 @@ void FirstBootSetupWindow::onNetworkFinished()
 
 void FirstBootSetupWindow::onControlPlatformFinished()
 {
-    // Display loading frame.
-    stacked_layout_->setCurrentWidget(loading_frame_);
-    back_button_->hide();
     emit hook_worker_->startHook();
 }
 
