@@ -39,14 +39,18 @@ blacklist lbm-nouveau
 
 alias nouveau off
 alias lbm-nouveau off
-
 EOF
+
+: > /root/etc/apt/sources.list
+
+for d in $(ls /root/lib/live/mount/medium/dists);do
+    echo "deb [trusted=yes] file:/lib/live/mount/medium ${name} main" >> /root/etc/apt/sources.list
+done
+
     mount -n -o bind /sys /root/sys
     mount -n -o bind /proc /root/proc
     mount -n -o bind /dev /root/dev
-    chroot /root apt-cdrom -o Acquire::cdrom::mount=/lib/live/mount/medium \
-    		       -o Dir::Media::MountPath=/lib/live/mount/medium \
-    		       -o Acquire::cdrom::AutoDetect=false -m add
+    chroot /root apt-get update
     chroot /root apt-get -y install --no-install-recommends nvidia-drivers nvidia-prime || true
     umount /root/dev
     umount /root/proc
