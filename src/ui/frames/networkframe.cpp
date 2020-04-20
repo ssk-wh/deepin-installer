@@ -596,7 +596,7 @@ void NetworkFrame::saveConf()
 
     m_currentNetworkEditWidget->networkOperate()->setIpV4(networkSettingInfo);
 
-    emit requestNext();
+    m_proxy->nextFrame();
 }
 
 void NetworkFrame::onDeviceSelected()
