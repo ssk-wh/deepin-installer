@@ -31,6 +31,8 @@ public:
     virtual bool shouldDisplay() const override;
     QString returnFrameName() const override;
 
+signals:
+    void requestFinished();
 
 protected:
     bool event(QEvent* event) override;

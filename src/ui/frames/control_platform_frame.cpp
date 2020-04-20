@@ -61,7 +61,6 @@ public:
     void initUI();
     void initConnection();
     void onNetworkFinished(QNetworkReply* reply);
-    void onNextClicked();
     void onRegionSelected();
     void onNetworkStateChanged();
 };
@@ -136,8 +135,6 @@ void ControlPlatformFramePrivate::initConnection()
         networkAccessManager->get(QNetworkRequest(m_serverUrl));
     });
 
-    connect(nextButton, &QPushButton::clicked, this,
-            &ControlPlatformFramePrivate::onNextClicked);
     connect(m_regionBox,
             static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this,
             &ControlPlatformFramePrivate::onRegionSelected);
@@ -166,7 +163,24 @@ void ControlPlatformFrame::init()
 
 void ControlPlatformFrame::finished()
 {
+    // save config
+    RegionInfo info = m_private->m_regionModel->findInfoByIndex(m_private->m_regionBox->currentIndex());
 
+    QFile file("/etc/dmcg/config.json");
+    if (file.open(QIODevice::Text | QIODevice::WriteOnly)) {
+        QJsonObject obj;
+        obj["protocol"]    = m_private->m_serverUrl.scheme();
+        obj["server_port"] = m_private->m_serverUrl.port();
+        obj["server_host"] = m_private->m_serverUrl.host();
+        obj["area_id"]     = info.Id;
+        obj["Area"] = info.toJson();
+        QJsonDocument doc;
+        doc.setObject(obj);
+        file.write(doc.toJson());
+        file.close();
+    }
+
+    emit requestFinished();
 }
 
 bool ControlPlatformFrame::shouldDisplay() const
@@ -207,28 +221,6 @@ void ControlPlatformFramePrivate::onNetworkFinished(QNetworkReply* reply)
     }
 
     m_regionModel->setList(list);
-}
-
-void ControlPlatformFramePrivate::onNextClicked()
-{
-    // save config
-    RegionInfo info = m_regionModel->findInfoByIndex(m_regionBox->currentIndex());
-
-    QFile file("/etc/dmcg/config.json");
-    if (file.open(QIODevice::Text | QIODevice::WriteOnly)) {
-        QJsonObject obj;
-        obj["protocol"]    = m_serverUrl.scheme();
-        obj["server_port"] = m_serverUrl.port();
-        obj["server_host"] = m_serverUrl.host();
-        obj["area_id"]     = info.Id;
-        obj["Area"] = info.toJson();
-        QJsonDocument doc;
-        doc.setObject(obj);
-        file.write(doc.toJson());
-        file.close();
-    }
-
-    q_ptr->m_proxy->nextFrame();
 }
 
 void ControlPlatformFramePrivate::onRegionSelected()
