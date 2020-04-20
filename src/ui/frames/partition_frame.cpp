@@ -308,6 +308,7 @@ void PartitionFramePrivate::initConnections() {
 
   connect(full_disk_encrypt_frame_, &Full_Disk_Encrypt_frame::encryptFinished, q_ptr, [=] {
       q_ptr->autoPart();
+      q_ptr->m_proxy->hideChildFrame();
       q_ptr->m_proxy->nextFrame();
   });
 
