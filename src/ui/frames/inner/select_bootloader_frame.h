@@ -23,11 +23,13 @@
 
 #include <QFrame>
 #include <QPushButton>
+#include <DListView>
+
+DWIDGET_USE_NAMESPACE
 
 namespace installer {
 
 class CommentLabel;
-class FramelessListView;
 class BootloaderListModel;
 class TitleLabel;
 
@@ -53,6 +55,7 @@ class SelectBootloaderFrame : public ChildFrameInterface {
 
  protected:
   void changeEvent(QEvent* event) override;
+  void paintEvent(QPaintEvent* event) override;
 
  private:
   void initConnections();
@@ -60,7 +63,7 @@ class SelectBootloaderFrame : public ChildFrameInterface {
 
   TitleLabel* title_label_ = nullptr;
   CommentLabel* comment_label_ = nullptr;
-  FramelessListView* list_view_ = nullptr;
+  DListView* list_view_ = nullptr;
   BootloaderListModel* list_model_ = nullptr;
   QPushButton* back_button_ = nullptr;
 

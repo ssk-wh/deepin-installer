@@ -19,6 +19,7 @@
 
 #include <QEvent>
 #include <QHBoxLayout>
+#include <QPainter>
 
 #include "ui/frames/consts.h"
 #include "ui/models/bootloader_list_model.h"
@@ -48,6 +49,18 @@ void SelectBootloaderFrame::changeEvent(QEvent* event) {
   }
 }
 
+void SelectBootloaderFrame::paintEvent(QPaintEvent *event)
+{
+    QPainter painter(this);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
+    QPainterPath path;
+    path.addRoundedRect(rect(), 25, 25);
+    painter.setClipPath(path);
+    painter.fillRect(rect(), Qt::white);
+
+    return QWidget::paintEvent(event);
+}
+
 void SelectBootloaderFrame::initConnections() {
   connect(back_button_, &QPushButton::clicked,
           this, &SelectBootloaderFrame::finished);
@@ -69,7 +82,7 @@ void SelectBootloaderFrame::initUI() {
   comment_layout->setSpacing(0);
   comment_layout->addWidget(comment_label_);
 
-  list_view_ = new FramelessListView();
+  list_view_ = new DListView;
   list_view_->setFixedWidth(560);
   list_model_ = new BootloaderListModel(this);
   list_view_->setModel(list_model_);
