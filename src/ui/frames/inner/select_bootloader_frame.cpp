@@ -77,6 +77,14 @@ void SelectBootloaderFrame::initUI() {
   back_button_ = new QPushButton(tr("Back"));
   back_button_->setFixedSize(310, 36);
 
+  QHBoxLayout *buttonLayout = new QHBoxLayout;
+  buttonLayout->setContentsMargins(0, 0, 0, 0);
+  buttonLayout->setSpacing(0);
+  buttonLayout->addWidget(back_button_, 0, Qt::AlignHCenter | Qt::AlignLeft);
+  QWidget *buttonWrapWidget = new QWidget;
+  buttonWrapWidget->setContentsMargins(0, 0, 0, 0);
+  buttonWrapWidget->setLayout(buttonLayout);
+
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
   layout->setSpacing(kMainLayoutSpacing);
@@ -88,7 +96,8 @@ void SelectBootloaderFrame::initUI() {
   layout->addWidget(list_view_, 0, Qt::AlignHCenter);
   layout->addStretch();
   layout->addSpacing(50);
-  layout->addWidget(back_button_, 0, Qt::AlignCenter);
+  layout->addWidget(buttonWrapWidget, 0, Qt::AlignCenter);
+  layout->addSpacing(10);
 
   this->setLayout(layout);
   this->setContentsMargins(0, 0, 0, 0);
