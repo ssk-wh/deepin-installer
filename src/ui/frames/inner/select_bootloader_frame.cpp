@@ -28,8 +28,9 @@
 
 namespace installer {
 
-SelectBootloaderFrame::SelectBootloaderFrame(QWidget* parent)
-    : QFrame(parent) {
+SelectBootloaderFrame::SelectBootloaderFrame(FrameProxyInterface *frameProxyInterface, QWidget* parent)
+    : ChildFrameInterface(frameProxyInterface, parent)
+{
   this->setObjectName("select_bootloader_frame");
 
   this->initUI();
@@ -43,7 +44,7 @@ void SelectBootloaderFrame::changeEvent(QEvent* event) {
         tr("If you do not understand the settings, please select the recommended one"));
     back_button_->setText(tr("Back"));
   } else {
-    QFrame::changeEvent(event);
+    QWidget::changeEvent(event);
   }
 }
 

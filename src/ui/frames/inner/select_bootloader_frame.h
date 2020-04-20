@@ -19,6 +19,7 @@
 #define INSTALLER_UI_FRAMES_INNER_SELECT_BOOTLOADER_FRAME_H
 
 #include "partman/device.h"
+#include "ui/interfaces/frameinterface.h"
 
 #include <QFrame>
 #include <QPushButton>
@@ -35,11 +36,11 @@ class TitleLabel;
 // PartitionDelegate and AdvancedPartitionFrame.
 // It refreshes available partition list for bootloader when mount-point list
 // is updated in PartitionDelegate.
-class SelectBootloaderFrame : public QFrame {
+class SelectBootloaderFrame : public ChildFrameInterface {
   Q_OBJECT
 
  public:
-  explicit SelectBootloaderFrame(QWidget* parent = nullptr);
+  explicit SelectBootloaderFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
 
  signals:
   // Emitted when currently used bootloader path is updated.

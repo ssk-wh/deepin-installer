@@ -277,8 +277,9 @@ void PartitionFramePrivate::initConnections() {
           &AdvancedPartitionFrame::setBootloaderPath);
   connect(select_bootloader_frame_, &SelectBootloaderFrame::bootloaderUpdated,
           advanced_delegate_, &AdvancedPartitionDelegate::setBootloaderPath);
-  connect(select_bootloader_frame_, &SelectBootloaderFrame::finished,
-          this, &PartitionFramePrivate::showMainFrame);
+  connect(select_bootloader_frame_, &SelectBootloaderFrame::finished, this, [=] {
+      q_ptr->m_proxy->hideChildFrame();
+  });
   connect(advanced_delegate_, &AdvancedPartitionDelegate::deviceRefreshed,
           select_bootloader_frame_, &SelectBootloaderFrame::deviceRefreshed);
 
@@ -336,7 +337,7 @@ void PartitionFramePrivate::initUI() {
   partition_number_limitation_frame_ = new PartitionNumberLimitationFrame(q_ptr);
   partition_table_warning_frame_ = new PartitionTableWarningFrame(q_ptr);
   prepare_install_frame_ = new PrepareInstallFrame(q_ptr);
-  select_bootloader_frame_ = new SelectBootloaderFrame(q_ptr);
+  select_bootloader_frame_ = new SelectBootloaderFrame(q_ptr->m_proxy);
   simple_partition_frame_ =
       new SimplePartitionFrame(simple_partition_delegate_, q_ptr);
 
@@ -469,7 +470,6 @@ void PartitionFramePrivate::initUI() {
   main_layout_->addWidget(partition_number_limitation_frame_);
   main_layout_->addWidget(partition_table_warning_frame_);
   main_layout_->addWidget(prepare_install_frame_);
-  main_layout_->addWidget(select_bootloader_frame_);
   main_layout_->addWidget(dynamic_disk_warning_frame_);
 
   centerLayout->addLayout(main_layout_);
@@ -700,9 +700,7 @@ void PartitionFramePrivate::showPartitionTableWarningFrame(
 }
 
 void PartitionFramePrivate::showSelectBootloaderFrame() {
-    main_layout_->setCurrentWidget(select_bootloader_frame_);
-
-    q_ptr->m_proxy->showChildFrame(new_partition_frame_);
+    q_ptr->m_proxy->showChildFrame(select_bootloader_frame_);
 }
 
 void PartitionFramePrivate::showEncryptFrame()
