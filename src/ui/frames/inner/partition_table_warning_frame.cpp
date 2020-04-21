@@ -194,6 +194,11 @@ void PartitionTableWarningFrame::initUI() {
   right_frame->setObjectName("right_frame");
   right_frame->setLayout(right_frame_layout);
 
+  m_warningWidget3 = new PartitionTableWarningWidget;
+  m_warningWidget3->setTitle(QString("%1").arg(tr("Cancel")));
+  m_warningWidget3->setDesc(QString("1.%1")
+                            .arg(tr("Nothing to do")));
+
   m_buttonBox = new DButtonBox(this);
   m_buttonBox->setButtonList({m_warningWidget1, m_warningWidget2, m_warningWidget3}, true);
   m_warningWidget1->setChecked(true);
