@@ -95,12 +95,11 @@ void PartitionTableWarningFrame::changeEvent(QEvent* event) {
 }
 
 void PartitionTableWarningFrame::initConnections() {
-  connect(reject_button_, &QPushButton::clicked,
-          this, &PartitionTableWarningFrame::reboot);
-  connect(accept_button_, &QPushButton::clicked,
-          this, &PartitionTableWarningFrame::onConfirmButtonClicked);
-  connect(cancel_button_, &QPushButton::clicked,
-          this, &PartitionTableWarningFrame::canceled);
+  connect(next_button_, &QPushButton::clicked,
+          this, &PartitionTableWarningFrame::onNextButtonClicked);
+
+  connect(m_buttonBox, &DButtonBox::buttonClicked, this
+          , &PartitionTableWarningFrame::onButtonGroupToggled);
 }
 
 void PartitionTableWarningFrame::initUI() {
@@ -195,10 +194,13 @@ void PartitionTableWarningFrame::initUI() {
   right_frame->setObjectName("right_frame");
   right_frame->setLayout(right_frame_layout);
 
-  reject_button_ = new QPushButton(tr("Reboot"));
-  accept_button_ = new QPushButton(tr("Continue"));
-  cancel_button_ = new QPushButton(tr("Next"));
-  cancel_button_->setFixedSize(QSize(310, 36));
+  m_buttonBox = new DButtonBox(this);
+  m_buttonBox->setButtonList({m_warningWidget1, m_warningWidget2, m_warningWidget3}, true);
+  m_warningWidget1->setChecked(true);
+  m_warningWidget1->updateCheckedAppearance();
+
+  next_button_ = new QPushButton(tr("Next"));
+  next_button_->setFixedSize(QSize(310, 36));
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
@@ -217,7 +219,7 @@ void PartitionTableWarningFrame::initUI() {
   layout->addWidget(m_warningWidget3, 0, Qt::AlignHCenter);
   layout->addSpacing(kMainLayoutSpacing);
   layout->addStretch();
-  layout->addWidget(cancel_button_, 0, Qt::AlignHCenter);
+  layout->addWidget(next_button_, 0, Qt::AlignHCenter);
   layout->addSpacing(10);
 
   setLayout(layout);
@@ -225,7 +227,28 @@ void PartitionTableWarningFrame::initUI() {
 }
 
 void PartitionTableWarningFrame::onConfirmButtonClicked() {
-  emit this->confirmed(device_path_);
+    emit this->confirmed(device_path_);
+}
+
+void PartitionTableWarningFrame::onButtonGroupToggled(QAbstractButton *button)
+{
+    m_warningWidget1->updateCheckedAppearance();
+    m_warningWidget2->updateCheckedAppearance();
+    m_warningWidget3->updateCheckedAppearance();
+    m_currentButton = button;
+}
+
+void PartitionTableWarningFrame::onNextButtonClicked()
+{
+    if (m_currentButton == m_warningWidget1) {
+        emit reboot();
+    }
+    else if (m_currentButton == m_warningWidget2) {
+        emit confirmed(device_path_);
+    }
+    else {
+        emit canceled();
+    }
 }
 
 }  // namespace installer

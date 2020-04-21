@@ -19,8 +19,14 @@
 #define INSTALLER_UI_FRAMES_INNER_PARTITION_TABLE_WARNING_FRAME_H
 
 #include <QFrame>
+#include <DButtonBox>
+
+DWIDGET_USE_NAMESPACE
+
 class QLabel;
 class QPushButton;
+class QButtonGroup;
+class QAbstractButton;
 
 namespace installer {
 
@@ -61,23 +67,20 @@ class PartitionTableWarningFrame : public QFrame {
   TitleLabel* title_label_ = nullptr;
   CommentLabel* comment_label_ = nullptr;
 
+  DButtonBox* m_buttonBox = nullptr;
+  QAbstractButton* m_currentButton = nullptr;
   PartitionTableWarningWidget *m_warningWidget1 = nullptr;
   PartitionTableWarningWidget *m_warningWidget2 = nullptr;
   PartitionTableWarningWidget *m_warningWidget3 = nullptr;
-//  QLabel* list_title1_ = nullptr;
-//  QLabel* list_item1_ = nullptr;
-//  QLabel* list_title2_ = nullptr;
-//  QLabel* list_item2_ = nullptr;
-//  QLabel* list_title3_ = nullptr;
-//  QLabel* list_item3_ = nullptr;
-  QPushButton* reject_button_ = nullptr;
-  QPushButton* accept_button_ = nullptr;
-  QPushButton* cancel_button_ = nullptr;
+
+  QPushButton* next_button_ = nullptr;
 
   QString device_path_;
 
  private slots:
   void onConfirmButtonClicked();
+  void onButtonGroupToggled(QAbstractButton *button);
+  void onNextButtonClicked();
 };
 
 }  // namespace installer

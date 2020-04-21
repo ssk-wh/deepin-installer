@@ -15,7 +15,7 @@ namespace {
 }
 
 PartitionTableWarningWidget::PartitionTableWarningWidget(QWidget *parent)
-    : QPushButton (parent)
+    : DButtonBoxButton ("", parent)
     , m_isflag(false)
 {
     m_titleLabel = new QLabel;
@@ -47,6 +47,7 @@ PartitionTableWarningWidget::PartitionTableWarningWidget(QWidget *parent)
     Q_ASSERT(!pixmap.isNull());
     m_checkedLabel->setPixmap(pixmap);
     m_checkedLabel->setFixedSize(pixmap.size() / devicePixelRatioF());
+    m_checkedLabel->setVisible(isChecked());
 
     m_hLayout = new QHBoxLayout;
     m_hLayout->setContentsMargins(10, 10, 10, 10);
@@ -61,11 +62,6 @@ PartitionTableWarningWidget::PartitionTableWarningWidget(QWidget *parent)
     setObjectName("PartitionTableWarningWidget");
     setContentsMargins(0, 0, 0, 0);
     setLayout(m_hLayout);
-}
-
-void PartitionTableWarningWidget::setSelected(bool selected)
-{
-
 }
 
 void PartitionTableWarningWidget::paintEvent(QPaintEvent* event)
@@ -104,10 +100,6 @@ void PartitionTableWarningWidget::leaveEvent(QEvent* event)
     QWidget::leaveEvent(event);
 }
 
-bool PartitionTableWarningWidget::isSelected() const
-{
-}
-
 void PartitionTableWarningWidget::setTitle(const QString &title)
 {
     m_titleLabel->setText(title);
@@ -115,27 +107,12 @@ void PartitionTableWarningWidget::setTitle(const QString &title)
 
 void PartitionTableWarningWidget::setDesc(const QString &desc)
 {
-   m_descLabel->setText(desc);
+    m_descLabel->setText(desc);
 }
 
-void PartitionTableWarningWidget::mousePressEvent(QMouseEvent *event)
+void PartitionTableWarningWidget::updateCheckedAppearance()
 {
-    setSelected(!isSelected());
-
-    QWidget::mousePressEvent(event);
-
-    emit clicked();
-}
-
-bool PartitionTableWarningWidget::eventFilter(QObject *watched, QEvent *event)
-{
-    Q_UNUSED(watched);
-
-    if(event->type() == QEvent::KeyPress){
-        return true;
-    }
-
-    return QWidget::eventFilter(watched, event);
+    m_checkedLabel->setVisible(isChecked());
 }
 
 }

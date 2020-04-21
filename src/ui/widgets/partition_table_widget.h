@@ -6,27 +6,25 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 
+#include <DButtonBox>
+
+DWIDGET_USE_NAMESPACE
+
 namespace installer {
 
-class PartitionTableWarningWidget : public QPushButton
+class PartitionTableWarningWidget : public DButtonBoxButton
 {
     Q_OBJECT
 
 public:
     explicit PartitionTableWarningWidget(QWidget* parent = nullptr);
 
-    bool isSelected() const;
-
     void setTitle(const QString& title);
     void setDesc(const QString& desc);
-    void setSelected(bool selected);
 
-signals:
-    void clicked();
+    void updateCheckedAppearance();
 
 protected:
-    void mousePressEvent(QMouseEvent* event) override;
-    bool eventFilter(QObject *watched, QEvent *event) override;
     void paintEvent(QPaintEvent* event) override;
     void enterEvent(QEvent* event) override;
     void leaveEvent(QEvent* event) override;
