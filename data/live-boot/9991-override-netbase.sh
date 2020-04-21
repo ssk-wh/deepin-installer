@@ -41,6 +41,14 @@ alias nouveau off
 alias lbm-nouveau off
 EOF
 
+    chroot /root dpkg-divert --rename --quiet --add /usr/sbin/update-initramfs
+cat > /root/usr/sbin/update-initramfs << EOF
+#!/bin/sh
+
+exit 0
+EOF
+    chmod 0755 /chroot/usr/sbin/update-initramfs
+
 : > /root/etc/apt/sources.list
 
 for name in $(ls /root/lib/live/mount/medium/dists);do
