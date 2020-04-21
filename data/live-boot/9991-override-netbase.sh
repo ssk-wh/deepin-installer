@@ -43,7 +43,7 @@ EOF
 
 : > /root/etc/apt/sources.list
 
-for d in $(ls /root/lib/live/mount/medium/dists);do
+for name in $(ls /root/lib/live/mount/medium/dists);do
     echo "deb [trusted=yes] file:/lib/live/mount/medium ${name} main" >> /root/etc/apt/sources.list
 done
 
@@ -51,7 +51,7 @@ done
     mount -n -o bind /proc /root/proc
     mount -n -o bind /dev /root/dev
     chroot /root apt-get update
-    chroot /root apt-get -y install --no-install-recommends nvidia-drivers nvidia-prime || true
+    chroot /root apt-get -y install --no-install-recommends nvidia-driver || true
     umount /root/dev
     umount /root/proc
     umount /root/sys
