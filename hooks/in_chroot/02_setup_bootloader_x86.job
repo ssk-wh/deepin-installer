@@ -83,8 +83,7 @@ case ${BOOT} in
       echo "Mount DI_HOST_DEV: " ${DI_HOST_DEV}
     fi
 
-    grub-install --no-floppy ${DI_BOOTLOADER} --target=i386-pc --force|| \
-      error "grub-install failed! ${DI_BOOTLOADER}"
+    grub-install --no-floppy ${DI_BOOTLOADER} --target=i386-pc --force 2>/dev/null || true
     ;;
 
   "uefi")

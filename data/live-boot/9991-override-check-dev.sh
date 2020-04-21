@@ -56,59 +56,6 @@ check_dev ()
     devname="${2}"
     skip_uuid_check="${3}"
 
-    # support for fromiso=.../isofrom=....
-    if [ -n "$FROMISO" ]
-    then
-        ISO_DEVICE=$(dirname $FROMISO)
-        if ! [ -b $ISO_DEVICE ]
-        then
-            # to support unusual device names like /dev/cciss/c0d0p1
-            # as well we have to identify the block device name, let's
-            # do that for up to 15 levels
-            i=15
-            while [ -n "$ISO_DEVICE" ] && [ "$i" -gt 0 ]
-            do
-                ISO_DEVICE=$(dirname ${ISO_DEVICE})
-                [ -b "$ISO_DEVICE" ] && break
-                i=$(($i -1))
-            done
-        fi
-
-        if [ "$ISO_DEVICE" = "/" ]
-        then
-            # not a block device, check if it's an iso file, for
-            # example an ISO when booting on an ONIE system
-            if echo "${FROMISO}" | grep -q "\.iso$"
-            then
-                fs_type=$(get_fstype "${FROMISO}")
-                if is_supported_fs ${fs_type}
-                then
-                    mkdir /run/live/fromiso
-                    mount -t $fs_type "${FROMISO}" /run/live/fromiso
-                    if [ "$?" != 0 ]
-                    then
-                        echo "Warning: unable to mount ${FROMISO}." >>/boot.log
-                    fi
-                    devname="/run/live/fromiso"
-                fi
-            else
-                echo "Warning: device for bootoption fromiso= ($FROMISO) not found.">>/boot.log
-            fi
-        else
-            fs_type=$(get_fstype "${ISO_DEVICE}")
-            if is_supported_fs ${fs_type}
-            then
-                mkdir /run/live/fromiso
-                mount -t $fs_type "$ISO_DEVICE" /run/live/fromiso
-                ISO_NAME="$(echo $FROMISO | sed "s|$ISO_DEVICE||")"
-                loopdevname=$(setup_loop "/run/live/fromiso/${ISO_NAME}" "loop" "/sys/block/loop*" "" '')
-                devname="${loopdevname}"
-            else
-                echo "Warning: unable to mount $ISO_DEVICE." >>/boot.log
-            fi
-        fi
-    fi
-
     if [ -z "${devname}" ]
     then
         devname=$(sys2dev "${sysdev}")
@@ -199,9 +146,9 @@ check_dev ()
         mount -t ${fstype} -o ro,noatime "${devname}" ${mountpoint} || continue
         [ -n "$devuid" ] && echo "$devuid" >> /var/lib/live/boot/devices-already-tried-to-mount
 
-        if [ -n "${FINDISO}" ]
+        if [ -n "${FROMISO}" ]
         then
-            if [ -f ${mountpoint}/${FINDISO} ]
+            if [ -f ${mountpoint}/${FROMISO} ]
             then
                 umount ${mountpoint}
                 mkdir -p /run/live/findiso
@@ -225,7 +172,7 @@ check_dev ()
                 else
                     mount -t ${fstype} -o ro,noatime "${devname}" /run/live/findiso
                 fi
-                loopdevname=$(setup_loop "/run/live/findiso/${FINDISO}" "loop" "/sys/block/loop*" 0 "")
+                loopdevname=$(setup_loop "/run/live/findiso/${FROMISO}" "loop" "/sys/block/loop*" 0 "")
                 devname="${loopdevname}"
                 mount -t iso9660 -o ro,noatime "${devname}" ${mountpoint}
             else
@@ -250,3 +197,4 @@ check_dev ()
 
     return 1
 }
+
