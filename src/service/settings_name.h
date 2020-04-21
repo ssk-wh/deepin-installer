@@ -87,6 +87,7 @@ const char kTimezoneDefault[] = "timezone_default";
 const char kTimezoneUseWindowsTime[] = "timezone_use_windows_time";
 const char kTimezoneUseGeoIp[] = "timezone_use_geoip";
 const char kTimezoneUseRegdomain[] = "timezone_use_regdomain";
+const char kTimezoneUseLocalTime[] = "timezone_use_local_time_regardless";
 
 // Partition
 const char kPartitionDefaultButton[] = "partition_default_button";

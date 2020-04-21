@@ -114,6 +114,17 @@ void TimezoneFrame::writeConf() {
   WriteIsLocalTimeForce(true);
 
   QScopedPointer<QProcess> process(new QProcess);
+
+  const QString localRtc = [=]() -> QString {
+    const bool forceUse = GetSettingsBool(kTimezoneUseLocalTime);
+    const bool DI_IS_LOCALE_TIME = GetSettingsBool("DI_IS_LOCAL_TIME");
+
+    return forceUse || DI_IS_LOCALE_TIME ? "true" : "false";
+  }();
+
+  process->start("timedatectl", {"set-local-rtc", localRtc});
+  process->waitForFinished();
+
   process->start("timedatectl", {"set-timezone", timezone_});
   process->waitForFinished();
 
