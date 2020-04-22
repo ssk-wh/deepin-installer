@@ -400,8 +400,9 @@ QString GetPartitionUsage(const Partition::Ptr partition) {
   }
 }
 
-int GetPartitionUsageValue(const Partition::Ptr partition) {
-  qint64 total, used;
+qreal GetPartitionUsageValue(const Partition::Ptr partition) {
+    qreal ret = 0.0;
+  qreal total, used;
   if (partition->type != PartitionType::Unallocated && (partition->length > 0) && (partition->length >= partition->freespace)) {
     total = partition->length;
     used = total - partition->freespace;
@@ -410,10 +411,9 @@ int GetPartitionUsageValue(const Partition::Ptr partition) {
     used = 0;
   }
   if (total > 0 && used >= 0 && total >= used) {
-    return int(100.0 * used / total);
-  } else {
-    return 0;
+    ret = used / total;
   }
+  return ret;
 }
 
 bool IsEfiEnabled() {

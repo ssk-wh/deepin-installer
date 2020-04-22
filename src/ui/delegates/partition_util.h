@@ -98,7 +98,7 @@ void removeOsProberDataByPath(const QString& path);
 QString GetPartitionUsage(const Partition::Ptr partition);
 
 // Get partition usage percentage (0-100).
-int GetPartitionUsageValue(const Partition::Ptr partition);
+qreal GetPartitionUsageValue(const Partition::Ptr partition);
 
 // Check if EFI feature is enabled in this machine.
 bool IsEfiEnabled();
