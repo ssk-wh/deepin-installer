@@ -29,6 +29,11 @@
 
 #include <QHBoxLayout>
 #include <QStackedLayout>
+#include <DFrame>
+#include <DPalette>
+
+DWIDGET_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 
 namespace installer {
 
@@ -152,15 +157,30 @@ void SystemInfoFramePrivate::initConnections() {
 }
 
 void SystemInfoFramePrivate::initUI() {
-  keyboard_button_ = new PointerButton();
+  keyboard_button_ = new QPushButton();
   keyboard_button_->setObjectName("keyboard_button");
   keyboard_button_->setFlat(true);
+  keyboard_button_->setFixedWidth(100);
   keyboard_button_->setFixedHeight(23);
+
+  QHBoxLayout* keyboardLayout = new QHBoxLayout();
+  keyboardLayout->setContentsMargins(0, 0, 0, 0);
+  keyboardLayout->setSpacing(0);
+  keyboardLayout->addWidget(keyboard_button_);
+
+  DFrame *bgGroup = new DFrame;
+  bgGroup->setBackgroundRole(DPalette::ItemBackground);
+  bgGroup->setLineWidth(0);
+  bgGroup->lower();
+  bgGroup->setContentsMargins(0, 0, 0, 0);
+  bgGroup->setLayout(keyboardLayout);
+  bgGroup->setFixedWidth(100);
+  bgGroup->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
 
   bottom_layout_ = new QHBoxLayout();
   bottom_layout_->setContentsMargins(30, 0, 0, 0);
   bottom_layout_->setSpacing(30);
-  bottom_layout_->addWidget(keyboard_button_);
+  bottom_layout_->addWidget(bgGroup);
   bottom_layout_->addStretch();
 
   avatar_frame_ = new SystemInfoAvatarFrame();
@@ -201,6 +221,7 @@ void SystemInfoFramePrivate::restoreLastPage() {
     // Displays default page if last_page_ is Rnot set.
     stacked_layout_->setCurrentWidget(form_frame_);
   }
+  nextButton->show();
   updateHeadBar();
 }
 
@@ -213,6 +234,7 @@ void SystemInfoFramePrivate::showAvatarPage() {
 
 void SystemInfoFramePrivate::showFormPage() {
   stacked_layout_->setCurrentWidget(form_frame_);
+  nextButton->show();
   updateHeadBar();
 }
 
@@ -220,6 +242,7 @@ void SystemInfoFramePrivate::showKeyboardPage() {
   if (!disable_keyboard_) {
     last_page_ = stacked_layout_->currentIndex();
     stacked_layout_->setCurrentWidget(keyboard_frame_);
+    nextButton->hide();
     updateHeadBar();
   }
 }

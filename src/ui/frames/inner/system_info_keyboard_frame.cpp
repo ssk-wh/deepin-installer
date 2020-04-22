@@ -47,7 +47,9 @@ namespace installer {
 
 namespace {
 
-const int kLayoutWidth = 800;
+const int kLayoutWidth = 516;
+const int kLeftViewWidth = 190;
+const int kRightViewWidth = kLayoutWidth - kLeftViewWidth - 2;
 
 }  // namespace
 
@@ -107,11 +109,10 @@ private:
     // Get description at |index|.
     QString getVariantDescription(const QModelIndex& index);
 
-
     TitleLabel* m_titleLabel = new TitleLabel("");
     QLabel* m_guideLabel = new CommentLabel;
-    QStandardItemModel* m_layoutModel = new QStandardItemModel;
-    QStandardItemModel* m_variantModel = new QStandardItemModel;
+    QStandardItemModel* m_layoutModel = nullptr;
+    QStandardItemModel* m_variantModel = nullptr;
     QLineEdit* m_testEdit = new QLineEdit;
     QString m_currentLocale;
     QPushButton* m_backButton = new QPushButton;
@@ -274,8 +275,6 @@ QString SystemInfoKeyboardFramePrivate::getVariantDescription(
   }
 }
 
-
-
 void SystemInfoKeyboardFramePrivate::updateTs() {
     m_titleLabel->setText(tr("Select keyboard layout"));
     m_testEdit->setPlaceholderText(tr("Test here"));
@@ -369,15 +368,15 @@ void SystemInfoKeyboardFramePrivate::initConnections() {
             this, &SystemInfoKeyboardFramePrivate::onVariantViewSelected);
 
     connect(m_backButton, &QPushButton::clicked,
-            q, &SystemInfoKeyboardFrame::finished);
+            q_ptr, &SystemInfoKeyboardFrame::finished);
 }
 
 void SystemInfoKeyboardFramePrivate::initUI() {
-    Q_Q(SystemInfoKeyboardFrame);
-
     m_layoutView->setObjectName("layout_view");
+    m_layoutModel = new QStandardItemModel(m_layoutView);
     m_layoutView->setModel(m_layoutModel);
-    m_layoutView->setFixedWidth(300);
+    m_layoutView->setItemSize(QSize(kLeftViewWidth, 40));
+    m_layoutView->setFixedWidth(kLeftViewWidth);
     m_layoutView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_layoutView->setContextMenuPolicy(Qt::NoContextMenu);
     m_layoutView->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
@@ -391,8 +390,10 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     m_layoutView->setFrameShape(QFrame::NoFrame);
 
     m_variantView->setObjectName("variant_view");
-    m_variantView->setFixedWidth(499);
+    m_variantView->setFixedWidth(kRightViewWidth);
+    m_variantModel = new QStandardItemModel(m_variantView);
     m_variantView->setModel(m_variantModel);
+    m_variantView->setItemSize(QSize(kLeftViewWidth, 40));
     m_variantView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_variantView->setContextMenuPolicy(Qt::NoContextMenu);
     m_variantView->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
@@ -410,8 +411,8 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     keyboard_layout->setSpacing(0);
     keyboard_layout->addStretch();
     keyboard_layout->addWidget(m_layoutView);
-    // Add 1px margin between these two list views.
-    keyboard_layout->addSpacing(1);
+    // Add 2px margin between these two list views.
+    keyboard_layout->addSpacing(2);
     keyboard_layout->addWidget(m_variantView);
     keyboard_layout->addStretch();
 
@@ -434,26 +435,20 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(0);
-    layout->addSpacing(kMainLayoutSpacing + 40);
+    layout->addSpacing(30);
     layout->addWidget(m_titleLabel, 0, Qt::AlignCenter);
-    layout->addSpacing(kMainLayoutSpacing + 30);
+    layout->addSpacing(20);
     layout->addWidget(m_guideLabel, 0, Qt::AlignCenter);
-    layout->addSpacing(kMainLayoutSpacing + 30);
+    layout->addSpacing(15);
     layout->addWidget(keyboard_wrapper, 0, Qt::AlignHCenter);
     layout->addSpacing(10);
     layout->addWidget(m_testEdit, 0, Qt::AlignHCenter);
     layout->addStretch();
-    layout->addSpacing(kMainLayoutSpacing + 30);
+    layout->addSpacing(15);
     layout->addWidget(m_backButton, 0, Qt::AlignHCenter);
 
-    q->setLayout(layout);
-    q->setContentsMargins(0, 0, 0, 0);
-    const QString style = ReadFile(":/styles/system_info_keyboard_frame.css");
-    q->setStyleSheet(style);
-
-    // Update style of list views, adding border radius.
-    AppendStyleSheet(m_layoutView, style);
-    AppendStyleSheet(m_variantView, style);
+    q_ptr->setLayout(layout);
+    q_ptr->setContentsMargins(0, 0, 0, 0);
 }
 
 void SystemInfoKeyboardFramePrivate::onLayoutViewSelectionChanged(
@@ -501,8 +496,6 @@ void SystemInfoKeyboardFramePrivate::onVariantViewSelected(
     }
 
     m_lastItemVar = item;
-
-
 
     const QModelIndex layout_index = m_layoutView->currentIndex();
     const QString layout = getLayoutName(layout_index);
