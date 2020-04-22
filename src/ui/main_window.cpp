@@ -64,7 +64,7 @@ Q_DECLARE_METATYPE(installer::FrameInterface*)
 DWIDGET_USE_NAMESPACE
 
 namespace {
-    const int kLeftViewWidth = 240;
+    const int kLeftViewWidth = 200;
     const int kLeftViewItemWidth = 180;
     const int kLeftViewItemHeight = 36;
     const int kLeftViewItemSpacing = 10;
