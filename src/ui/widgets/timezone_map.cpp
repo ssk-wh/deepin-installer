@@ -213,6 +213,7 @@ void TimezoneMap::popupZoneWindow(const QPoint& pos) {
                        parent_pos.y() - half_height);
   dot_->move(dot_pos);
   dot_->show();
+  dot_->raise();
 }
 
 void TimezoneMap::remark() {
@@ -246,11 +247,13 @@ void TimezoneMap::remark() {
     // Add 2px margin.
     const QPoint zone_pin_pos(parent_pos.x(), parent_pos.y() - half_height - 2);
     zone_pin_->popup(zone_pin_pos);
+    zone_pin_->raise();
 
     const QPoint dot_pos(parent_pos.x() - half_width,
                          parent_pos.y() - half_height);
     dot_->move(dot_pos);
     dot_->show();
+    dot_->raise();
   }
 }
 
@@ -282,6 +285,7 @@ void TimezoneMap::onPopupWindowActivated(int index) {
   // Hide popup window and dot first.
   popup_window_->hide();
   dot_->hide();
+  dot_->raise();
 
   // Update current selected timezone and mark it on map.
   Q_ASSERT(index < nearest_zones_.length());
