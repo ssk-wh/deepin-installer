@@ -1,69 +1,71 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
-    <title>deepin-installer-32px</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <filter x="-13.8%" y="-14.3%" width="144.8%" height="146.4%" filterUnits="objectBoundingBox" id="filter-1">
-            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.15 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
-            <feMerge>
-                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
-                <feMergeNode in="SourceGraphic"></feMergeNode>
-            </feMerge>
-        </filter>
-        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
-            <stop stop-color="#EBBD7E" offset="0%"></stop>
-            <stop stop-color="#E4A54F" offset="12.9080202%"></stop>
-            <stop stop-color="#EBBB7B" offset="13.6776839%"></stop>
-            <stop stop-color="#DB9056" offset="100%"></stop>
-        </linearGradient>
-        <path d="M0.079588528,3.78776393 L0.75,2 C1.20113017,0.796986208 2.35118164,2.36017475e-16 3.63600094,0 L22.3639991,0 C23.6488184,2.17554743e-15 24.7988698,0.796986208 25.25,2 L25.9204115,3.78776393 C25.9730413,3.92811025 26,4.07677829 26,4.22666823 L26,23.5 C26,24.8807119 24.8807119,26 23.5,26 L2.5,26 C1.11928813,26 1.69088438e-16,24.8807119 0,23.5 L0,4.22666823 C-1.83562234e-17,4.07677829 0.0269586569,3.92811025 0.079588528,3.78776393 Z" id="path-3"></path>
-        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-5">
-            <stop stop-color="#ECD7C2" offset="0%"></stop>
-            <stop stop-color="#E3B181" offset="36.9744411%"></stop>
-            <stop stop-color="#F8DFBB" offset="40.4664845%"></stop>
-            <stop stop-color="#EACAA7" offset="44.9811796%"></stop>
-            <stop stop-color="#FCD2A0" offset="100%"></stop>
-        </linearGradient>
-        <path d="M10,0 L9,3.5 L9,8.32676608 C9,8.36128388 9.0279822,8.38926608 9.0625,8.38926608 C9.08109772,8.38926608 9.09872938,8.38098376 9.11060332,8.36666997 L10.2003076,7.05305389 C10.3325374,6.89365351 10.5689505,6.87162745 10.7283508,7.00385731 C10.7560751,7.02685587 10.7803411,7.05372905 10.8004008,7.08364858 L11.6503421,8.35135766 C11.6887864,8.4086983 11.7664354,8.42401682 11.823776,8.38557252 C11.835968,8.37739836 11.846625,8.36714068 11.8552585,8.35526957 L12.7593824,7.11209916 C12.8811968,6.94460444 13.1157281,6.90757317 13.2832228,7.02938752 C13.3212714,7.05705921 13.3537732,7.09164353 13.3790315,7.13133524 L14.1537213,8.34870483 C14.1907848,8.4069475 14.2680457,8.4241166 14.3262884,8.38705308 C14.3387413,8.37912847 14.3496923,8.36906086 14.3586338,8.35731674 L15.3429229,7.06451916 C15.4683821,6.89973688 15.7036694,6.86785925 15.8684517,6.99331849 C15.8967318,7.01484993 15.9218071,7.04029265 15.9429249,7.06888294 L16.8872271,8.34732287 C16.9077353,8.37508782 16.9468684,8.38097057 16.9746334,8.36046237 C16.9905866,8.34867877 17,8.33002273 17,8.3101895 L17,3.5 L17,3.5 L16,0 L10,0 Z" id="path-6"></path>
-        <filter x="-6.2%" y="-5.9%" width="112.5%" height="122.4%" filterUnits="objectBoundingBox" id="filter-7">
-            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.08 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
-        </filter>
-        <filter x="-40.6%" y="-38.2%" width="181.2%" height="176.5%" filterUnits="objectBoundingBox" id="filter-8">
-            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.22 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
-            <feMerge>
-                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
-                <feMergeNode in="SourceGraphic"></feMergeNode>
-            </feMerge>
-        </filter>
-        <linearGradient x1="15.9680666%" y1="14.2236863%" x2="100%" y2="60.55387%" id="linearGradient-9">
-            <stop stop-color="#0071FF" offset="0%"></stop>
-            <stop stop-color="#00E8FC" offset="48.7201963%"></stop>
-            <stop stop-color="#00A2FF" offset="100%"></stop>
-        </linearGradient>
-    </defs>
-    <g id="deepin-installer-32px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="编组-2" filter="url(#filter-1)" transform="translate(2.000000, 2.000000)">
-            <mask id="mask-4" fill="white">
-                <use xlink:href="#path-3"></use>
-            </mask>
-            <use id="蒙版" fill="url(#linearGradient-2)" xlink:href="#path-3"></use>
-            <g id="路径-10" mask="url(#mask-4)">
-                <use fill="black" fill-opacity="1" filter="url(#filter-7)" xlink:href="#path-6"></use>
-                <use fill="url(#linearGradient-5)" fill-rule="evenodd" xlink:href="#path-6"></use>
-            </g>
-            <g id="编组" filter="url(#filter-8)" transform="translate(21.000000, 19.000000) rotate(-360.000000) translate(-21.000000, -19.000000) translate(13.000000, 10.500000)" fill-rule="nonzero">
-                <circle id="椭圆形" fill="url(#linearGradient-9)" cx="8" cy="8.5" r="8"></circle>
-                <path d="M11,5 C11.5128358,5 11.9355072,5.38604019 11.9932723,5.88337887 L12,6 L12,9 C12,12 11,14 8,14 C5,14 4,12 4.0043492,9.20016408 L4,9 L4,6 C4,5.44771525 4.44771525,5 5,5 C5.51283584,5 5.93550716,5.38604019 5.99327227,5.88337887 L6,6 L6,9 C6,11 6.5,12 8,12 C9.5,12 10,11 10,9 L10,6 C10,5.44771525 10.4477153,5 11,5 Z" id="路径-25" fill="#FFFFFF"></path>
-            </g>
-            <path d="M3.5,18 C3.75,18 4,18.2916667 4,18.5833333 L4,18.5833333 L4,20.5 C4,22.1108305 3.80282556,23 2.5,23 C1.19717444,23 1,22.1108305 1,20.5 L1,20.5 L1,18.5833333 C1,18.2916667 1.25,18 1.5,18 C1.75,18 2,18.2916667 2,18.5833333 L2,18.5833333 L2.00058318,20.8473574 C2.00554017,21.7523197 2.05263158,22 2.5,22 C3,22 3,21.6906139 3,20.5 L3,20.5 L3,18.5833333 C3,18.2916667 3.25,18 3.5,18 Z M6.5,18 C7.3071854,18 8,18.7381545 8,20.0688406 L8,21.0833333 C8,22.4140194 7.3071854,23 6.5,23 C5.6928146,23 5,22.4140194 5,21.0833333 L5,20.0688406 C5,18.7381545 5.6928146,18 6.5,18 Z M11.1066667,18 L11.212828,18.0014577 C11.6326531,18.0102041 12,18.0714286 12,18.5 C12,18.9285714 11.6326531,18.9897959 11.212828,18.9985423 L11,19 C10.5,19 10,19 10,19.5 C10,19.8333333 10.1666667,20 10.5,20 C11.5,20 12,20.5 12,21.5 C12,22.0057967 11.5,23 10.5,23 L10.5,23 L9.5,23 C9.25,23 9,22.75 9,22.5 C9,22.25 9.25,22 9.5,22 L9.5,22 L10.5,22 C10.6108307,22 11,22 11,21.5 C11,21.1666667 10.8333333,21 10.5,21 C9.5,21 9,20.2804024 9,19.5 C9,18.7195976 9.5,18 10.5,18 C10.8111111,18 11.0133333,18 11.1066667,18 Z M6.5,19 C6.13181017,19 6,19.211997 6,20.1875 L6,20.5 C6,21.475503 6.13181017,22 6.5,22 C6.86818983,22 7,21.475503 7,20.5 L7,20.1875 C7,19.211997 6.86818983,19 6.5,19 Z" id="形状结合" fill="#1B1B1B" fill-rule="nonzero" opacity="0.302013579"></path>
-        </g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <filter id="deepin-installer-32px-a" width="144.8%" height="146.4%" x="-13.8%" y="-14.3%" filterUnits="objectBoundingBox">
+      <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.15 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="deepin-installer-32px-c" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#EBBD7E"/>
+      <stop offset="12.908%" stop-color="#E4A54F"/>
+      <stop offset="13.678%" stop-color="#EBBB7B"/>
+      <stop offset="100%" stop-color="#DB9056"/>
+    </linearGradient>
+    <path id="deepin-installer-32px-b" d="M0.079588528,3.78776393 L0.75,2 C1.20113017,0.796986208 2.35118164,2.36017475e-16 3.63600094,0 L22.3639991,0 C23.6488184,2.17554743e-15 24.7988698,0.796986208 25.25,2 L25.9204115,3.78776393 C25.9730413,3.92811025 26,4.07677829 26,4.22666823 L26,23.5 C26,24.8807119 24.8807119,26 23.5,26 L2.5,26 C1.11928813,26 1.69088438e-16,24.8807119 0,23.5 L0,4.22666823 C-1.83562234e-17,4.07677829 0.0269586569,3.92811025 0.079588528,3.78776393 Z"/>
+    <linearGradient id="deepin-installer-32px-d" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#0B0B0B" stop-opacity=".2"/>
+      <stop offset="100%" stop-opacity=".095"/>
+    </linearGradient>
+    <linearGradient id="deepin-installer-32px-h" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#ECD7C2"/>
+      <stop offset="36.974%" stop-color="#E3B181"/>
+      <stop offset="40.466%" stop-color="#F8DFBB"/>
+      <stop offset="44.981%" stop-color="#EACAA7"/>
+      <stop offset="100%" stop-color="#FCD2A0"/>
+    </linearGradient>
+    <path id="deepin-installer-32px-g" d="M10,0 L9,3.5 L9,8.32676608 C9,8.36128388 9.0279822,8.38926608 9.0625,8.38926608 C9.08109772,8.38926608 9.09872938,8.38098376 9.11060332,8.36666997 L10.2003076,7.05305389 C10.3325374,6.89365351 10.5689505,6.87162745 10.7283508,7.00385731 C10.7560751,7.02685587 10.7803411,7.05372905 10.8004008,7.08364858 L11.6503421,8.35135766 C11.6887864,8.4086983 11.7664354,8.42401682 11.823776,8.38557252 C11.835968,8.37739836 11.846625,8.36714068 11.8552585,8.35526957 L12.7593824,7.11209916 C12.8811968,6.94460444 13.1157281,6.90757317 13.2832228,7.02938752 C13.3212714,7.05705921 13.3537732,7.09164353 13.3790315,7.13133524 L14.1537213,8.34870483 C14.1907848,8.4069475 14.2680457,8.4241166 14.3262884,8.38705308 C14.3387413,8.37912847 14.3496923,8.36906086 14.3586338,8.35731674 L15.3429229,7.06451916 C15.4683821,6.89973688 15.7036694,6.86785925 15.8684517,6.99331849 C15.8967318,7.01484993 15.9218071,7.04029265 15.9429249,7.06888294 L16.8872271,8.34732287 C16.9077353,8.37508782 16.9468684,8.38097057 16.9746334,8.36046237 C16.9905866,8.34867877 17,8.33002273 17,8.3101895 L17,3.5 L17,3.5 L16,0 L10,0 Z"/>
+    <filter id="deepin-installer-32px-f" width="112.5%" height="122.4%" x="-6.2%" y="-5.9%" filterUnits="objectBoundingBox">
+      <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.08 0"/>
+    </filter>
+    <filter id="deepin-installer-32px-i" width="181.2%" height="176.5%" x="-40.6%" y="-38.2%" filterUnits="objectBoundingBox">
+      <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="1"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.22 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="deepin-installer-32px-j" x1="16.653%" x2="100%" y1="14.661%" y2="67.838%">
+      <stop offset="0%" stop-color="#00D9FC"/>
+      <stop offset="100%" stop-color="#1170E7"/>
+    </linearGradient>
+    <linearGradient id="deepin-installer-32px-k" x1="33.841%" x2="62.94%" y1="4.875%" y2="83.806%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#CDE2E8"/>
+    </linearGradient>
+    <path id="deepin-installer-32px-l" d="M6.625,4.5 L9.375,4.5 C9.72017797,4.5 10,4.77982203 10,5.125 L10,8.5 L10,8.5 L11.8697241,8.5 C12.1458665,8.5 12.3697241,8.72385763 12.3697241,9 C12.3697241,9.12438302 12.3233633,9.24430041 12.2396942,9.3363364 L8.46246255,13.4912912 C8.23027072,13.7467022 7.83499052,13.7655251 7.5795795,13.5333332 C7.56490647,13.5199941 7.55087658,13.5059642 7.53753745,13.4912912 L3.76030582,9.3363364 C3.57455235,9.13200759 3.58961065,8.81578343 3.79393946,8.63002996 C3.88597544,8.54636089 4.00589283,8.5 4.13027585,8.5 L6,8.5 L6,8.5 L6,5.125 C6,4.77982203 6.27982203,4.5 6.625,4.5 Z"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd" filter="url(#deepin-installer-32px-a)" transform="translate(2 2)">
+    <mask id="deepin-installer-32px-e" fill="#fff">
+      <use xlink:href="#deepin-installer-32px-b"/>
+    </mask>
+    <use fill="url(#deepin-installer-32px-c)" xlink:href="#deepin-installer-32px-b"/>
+    <path fill="url(#deepin-installer-32px-d)" fill-rule="nonzero" d="M11.4775,17.0431717 L11.5176445,17.091215 C11.5528979,17.2073323 11.6113922,17.3159291 11.6913465,17.4100142 L11.6913465,17.4100142 L12.5265,18.3931717 L9.45902665,21.8055185 C9.46719056,21.8675955 9.47210473,21.9145331 9.47376917,21.9463313 C9.51243978,22.6851101 8.94725521,23.3135748 8.20937417,23.3522926 C7.47149312,23.3910105 6.84379224,22.8251385 6.80512164,22.0863597 C6.76645103,21.347581 7.33296992,20.7190463 8.06951664,20.6803985 L8.06053952,20.680942 C8.22494774,20.5630357 8.38534494,20.4847656 8.50045325,20.3567106 L11.4775,17.0431717 Z M12.4595315,9.60691201 L13.7974802,9.7004705 L13.1053262,10.3839165 C13.0479542,10.4044883 12.9541691,10.4330187 12.895948,10.4476063 C12.895948,10.4476063 12.0505219,10.6346925 11.3800357,11.1221434 C10.7095495,11.6095943 10.5276121,12.4482774 11.0413547,13.4353913 C11.3427707,14.0145372 11.539437,14.2145447 11.951587,14.6821366 C12.4335517,15.2289346 12.8608775,15.6652216 13.0465086,15.8512309 C13.1265511,15.8692443 13.2024001,15.9092354 13.2641056,15.9709864 L18.7139417,21.4248411 C19.0850346,21.7962077 19.0952719,22.4138531 18.743496,22.7990667 C18.6355796,22.899823 18.3690844,23.1249346 18.3690844,23.1249346 C17.9615978,23.45398 17.3526058,23.3933054 17.0131645,22.9938724 L12.0258201,17.1250824 C11.968507,17.0576401 11.9341771,16.9767139 11.9222507,16.8929717 C11.7725628,16.7048508 11.1930567,16.0014456 9.99717611,14.8229477 C8.58453077,13.430836 8.34398756,14.1324576 8.08360121,14.3632586 C7.82321485,14.5940597 7.84983791,14.8083484 7.84983791,14.8083484 C7.8272606,14.9401777 7.73601995,15.1166299 7.63372224,15.2021609 L7.21794021,15.5497959 C7.17924756,15.5686907 6.45440202,14.7944956 6.22448672,14.5383173 C6.02696665,14.3182347 5.71171745,13.8777769 5.71171745,13.8777769 C5.67568066,13.828192 5.68062585,13.7528266 5.72146457,13.7079933 C5.72146457,13.7079933 6.10652009,13.2704743 6.24899797,13.262059 C6.66716117,13.2373606 6.86069977,13.1984249 7.06561504,12.885852 C7.27053032,12.5732791 7.27043815,12.3269445 7.38437653,12.146058 C7.46012907,12.0257946 8.09276298,11.2452112 9.01866822,10.6986922 C10.7947598,9.65034757 12.1735135,9.58691168 12.4595315,9.60691201 Z M7.93784533,21.3542843 L7.44058023,21.888186 L7.65375705,22.5863061 L8.36419897,22.7505245 L8.86146407,22.2166228 L8.64828725,21.5185027 L7.93784533,21.3542843 Z M18.3596248,10.7449958 L17.3110154,10.9499906 C16.7150506,11.0659756 16.3258458,11.6429956 16.4415589,12.2390133 C16.4415907,12.2391773 16.4416226,12.2393414 16.4416546,12.2395055 L16.4708521,12.3557833 C16.6345626,12.8847247 17.1740877,13.2162619 17.7299933,13.108073 L17.7299933,13.108073 L18.9782721,12.8653816 C18.7522525,13.7788126 17.9518536,14.4768761 16.9645808,14.52868 C16.9170258,14.5311753 16.8697454,14.532134 16.8227878,14.5315995 C16.7238715,14.5422639 16.6243108,14.5463711 16.5248115,14.5438783 C16.1907682,14.5359864 15.8690421,14.674596 15.6456956,14.923327 L14.3165,16.4011717 L13.5745635,15.6600003 C13.5185038,15.6038993 13.4558454,15.5561942 13.388369,15.5175741 L13.2837635,15.4665435 C13.2186983,15.4007307 13.1514475,15.3319027 13.08239,15.2603457 L14.3963285,13.7977036 C14.6200316,13.5489539 14.7244601,13.2144507 14.6813474,12.8826768 C14.6651884,12.7581286 14.6593918,12.6323897 14.6640396,12.506872 C14.6626199,12.4884856 14.6614239,12.4700313 14.6604545,12.4515113 C14.597085,11.2408759 15.5259353,10.2080281 16.7350997,10.1445812 C17.3606135,10.1117595 17.9386072,10.3447891 18.3596248,10.7449958 Z" mask="url(#deepin-installer-32px-e)"/>
+    <g mask="url(#deepin-installer-32px-e)">
+      <use fill="#000" filter="url(#deepin-installer-32px-f)" xlink:href="#deepin-installer-32px-g"/>
+      <use fill="url(#deepin-installer-32px-h)" xlink:href="#deepin-installer-32px-g"/>
     </g>
+    <g filter="url(#deepin-installer-32px-i)" transform="translate(13 10.5)">
+      <circle cx="8" cy="8.5" r="8" fill="url(#deepin-installer-32px-j)" fill-rule="nonzero"/>
+      <use fill="url(#deepin-installer-32px-k)" fill-rule="nonzero" xlink:href="#deepin-installer-32px-l"/>
+    </g>
+  </g>
 </svg>
