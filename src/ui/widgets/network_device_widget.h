@@ -24,8 +24,8 @@ public:
     void setDesc(const QString& desc);
     void setSelected(bool selected);
 
-    void setDeviceInfo(const QNetworkInterface& interface);
-    QNetworkInterface interface() const;
+    void setDeviceInfo(NetworkManager::Device::Ptr device);
+    NetworkManager::Device::Ptr getDevice() const;
     NetworkOperate* networkOperate() const;
 
 signals:
@@ -46,7 +46,7 @@ private:
     QLabel *m_checkedLabel;
     bool m_isflag;
 
-    QNetworkInterface m_interface;
+    NetworkManager::Device::Ptr m_device = nullptr;
     NetworkOperate *m_networkOperate = nullptr;
 };
 

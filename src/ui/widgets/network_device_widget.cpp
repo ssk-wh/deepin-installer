@@ -137,14 +137,14 @@ bool NetworkDeviceWidget::eventFilter(QObject *watched, QEvent *event)
     return QWidget::eventFilter(watched, event);
 }
 
-void NetworkDeviceWidget::setDeviceInfo(const QNetworkInterface& interface) {
-    m_deviceName->setText(tr("Ethernet (%1)").arg(interface.humanReadableName()));
-    m_interface = interface;
-    m_networkOperate = new NetworkOperate(interface.humanReadableName());
+void NetworkDeviceWidget::setDeviceInfo(Device::Ptr device) {
+    m_deviceName->setText(tr("Ethernet (%1)").arg(device->interfaceName()));
+    m_device = device;
+    m_networkOperate = new NetworkOperate(device);
 }
 
-QNetworkInterface NetworkDeviceWidget::interface() const {
-    return m_interface;
+NetworkManager::Device::Ptr NetworkDeviceWidget::getDevice() const {
+    return m_device;
 }
 
 NetworkOperate *NetworkDeviceWidget::networkOperate() const

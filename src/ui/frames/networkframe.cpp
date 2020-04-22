@@ -30,6 +30,7 @@
 #include <DFrame>
 #include <DVerticalLine>
 #include <DLineEdit>
+#include <DSwitchButton>
 
 DWIDGET_USE_NAMESPACE
 
@@ -97,6 +98,10 @@ class NetworkEditWidget : public QWidget
     Q_OBJECT
 public:
     explicit NetworkEditWidget (QWidget* parent = nullptr) : QWidget(parent) {
+        m_switch = new QWidget;
+        m_switchButton =  new DSwitchButton;
+        m_switchButton->setEnabled(false);
+        m_deviceEnable = false;
         m_connectTypeWidget = new QWidget;
         m_dhcpTypeWidget = new QComboBox;
         m_dhcpTypeWidget->setEnabled(false);
@@ -105,7 +110,11 @@ public:
         m_gatewayWidget = new QWidget;
         m_primaryDNSWidget = new QWidget;
 
+        m_device = nullptr;
+        m_networkOperate = nullptr;
+
         m_editBtn = new QPushButton(tr("Edit"));
+        m_editBtn->setEnabled(m_deviceEnable);
         m_editBtn->setFixedSize(kEditSaveButtonWidth, kEditSaveButtonHeight);
         m_acceptBtn = new QPushButton(tr("Accept"));
         m_acceptBtn->setFixedSize(kEditSaveButtonWidth, kEditSaveButtonHeight);
@@ -137,14 +146,6 @@ public:
         QVBoxLayout* mainLayout = new QVBoxLayout;
         mainLayout->setMargin(0);
         mainLayout->setSpacing(20);
-
-        QList<QWidget*> tmpL {
-                    m_connectTypeWidget,
-                    m_ipWidget,
-                    m_maskWidget,
-                    m_gatewayWidget,
-                    m_primaryDNSWidget,
-        };
 
         QMap<QWidget*, QString> tmpM {
             {m_ipWidget, tr("Ip:")},
@@ -214,7 +215,7 @@ public:
         dhcpLayout->setMargin(0);
         dhcpLayout->setSpacing(0);
 
-        QLabel* dhcpName = new QLabel("DHCP");
+        QLabel* dhcpName = new QLabel(tr("DHCP"));
         dhcpName->setFixedSize(53, 20);
         dhcpLayout->addWidget(dhcpName, 0, Qt::AlignLeft | Qt::AlignHCenter);
         dhcpLayout->addWidget(m_dhcpTypeWidget, 0, Qt::AlignRight | Qt::AlignHCenter);
@@ -222,14 +223,27 @@ public:
         QStringListModel* dhcpTypeModel = new QStringListModel(m_dhcpTypeWidget);
         dhcpTypeModel->setStringList({tr("Auto"), tr("Manual")});
         m_dhcpTypeWidget->setModel(dhcpTypeModel);
-
         m_dhcpTypeWidget->setFixedSize(kLineEditWidth, kLineEditHeight);
 
         m_connectTypeWidget->setLayout(dhcpLayout);
 
-        for (QWidget* w : tmpL) {
-            mainLayout->addWidget(w);
-        }
+        QLabel* switchName = new QLabel(tr("Network Switch"));
+        switchName->setFixedSize(130, 20);
+        connect(m_switchButton, &DSwitchButton::checkedChanged, this, &NetworkEditWidget::setDeviceEnable);
+
+        QHBoxLayout* switchLayout = new QHBoxLayout;
+        switchLayout->setMargin(0);
+        switchLayout->setSpacing(0);
+        switchLayout->addWidget(switchName, 0, Qt::AlignLeft | Qt::AlignHCenter);
+        switchLayout->addWidget(m_switchButton, 0, Qt::AlignRight | Qt::AlignHCenter);
+        m_switch->setLayout(switchLayout);
+
+        mainLayout->addWidget(m_switch);
+        mainLayout->addWidget(m_connectTypeWidget);
+        mainLayout->addWidget(m_ipWidget);
+        mainLayout->addWidget(m_maskWidget);
+        mainLayout->addWidget(m_gatewayWidget);
+        mainLayout->addWidget(m_primaryDNSWidget);
 
         m_validityCheck = std::unique_ptr<
             QRegularExpressionValidator>(new QRegularExpressionValidator(QRegularExpression(
@@ -257,24 +271,26 @@ public:
                 , this, &NetworkEditWidget::onDHCPChanged);
     }
 
-    void setIpConfig(const QNetworkAddressEntry& address) {
+    void setIpConfig(NetworkManager::Device::Ptr dev) {
+        if (dev.isNull()) {
+            return;
+        }
+
+        NetworkManager::IpConfig ipConfig = dev->ipV4Config();
+        if (!ipConfig.isValid()) {
+            return;
+        }
+
+        if (ipConfig.addresses().isEmpty()) {
+            return;
+        }
+
+        NetworkManager::IpAddress address = ipConfig.addresses().at(0);
         labelHandleMap[m_ipWidget](address.ip().toString());
         labelHandleMap[m_maskWidget](address.netmask().toString());
-        labelHandleMap[m_gatewayWidget](address.broadcast().toString());
-        QFile resolv("/etc/resolv.conf");
-        if (resolv.open(QIODevice::Text | QIODevice::ReadOnly)) {
-            QStringList dnsList;
-            QString line;
-            QTextStream stream(&resolv);
-            while (stream.readLineInto(&line)) {
-                if (line.startsWith("nameserver")) {
-                    dnsList << line.split(" ").last();
-                }
-            }
-
-            if (!dnsList.isEmpty()) {
-                labelHandleMap[m_primaryDNSWidget](dnsList.first());
-            }
+        labelHandleMap[m_gatewayWidget](address.gateway().toString());
+        if (!ipConfig.nameservers().isEmpty()) {
+            labelHandleMap[m_primaryDNSWidget](ipConfig.nameservers().at(0).toString());
         }
     }
 
@@ -389,12 +405,13 @@ public:
         return QWidget::event(event);
     }
 
-    void setInterface(const QNetworkInterface& interface) {
-        m_interface = interface;
+    void setDevice(NetworkManager::Device::Ptr device) {
+        m_device = device;
+        m_switchButton->setEnabled(true);
     }
 
-    QNetworkInterface interface() const {
-        return m_interface;
+    NetworkManager::Device::Ptr getDevice() const {
+        return m_device;
     }
 
     void setNetworkOperate(NetworkOperate *networkOperate)
@@ -402,7 +419,7 @@ public:
         m_networkOperate = networkOperate;
     }
 
-    NetworkOperate* networkOperate()
+    NetworkOperate* getNetworkOperate()
     {
         return m_networkOperate;
     }
@@ -427,7 +444,21 @@ public:
         return m_dhcpType;
     }
 
+    void setDeviceEnable(bool enable)
+    {
+        m_deviceEnable = enable;
+        m_editBtn->setEnabled(enable);
+    }
+
+    bool getDeviceEnable() const
+    {
+        return m_deviceEnable;
+    }
+
 private:
+    QWidget* m_switch;
+    DSwitchButton* m_switchButton;
+    bool m_deviceEnable = false;
     QWidget* m_connectTypeWidget;
     QWidget* m_ipWidget;
     QWidget* m_maskWidget;
@@ -448,7 +479,7 @@ private:
     QMap<QWidget*, std::function<void (const bool show)>> labelShowMap;
     QMap<QWidget*, std::function<QString ()>> labelTextMap;
     QComboBox *m_dhcpTypeWidget;
-    QNetworkInterface m_interface;
+    NetworkManager::Device::Ptr m_device = nullptr;
     NetworkOperate *m_networkOperate = nullptr;
 };
 }
@@ -472,7 +503,7 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     // 左侧布局
     QVBoxLayout* leftLayout = new QVBoxLayout;
     leftLayout->setContentsMargins(10, 10, 10, 10);
-    leftLayout->setSpacing(0);
+    leftLayout->setSpacing(10);
     QFrame *leftWidget = new QFrame;
     leftWidget->setContentsMargins(0, 0, 0, 0);
     leftWidget->setFixedSize(kViewWidth, kViewHeight);
@@ -485,6 +516,7 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
 
     m_currentNetworkEditWidget = new NetworkEditWidget;
     rightLayout->addWidget(m_currentNetworkEditWidget);
+    rightLayout->addStretch();
 
     QFrame *rightWidget = new QFrame;
     rightWidget->setContentsMargins(0, 0, 0, 0);
@@ -513,36 +545,36 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     layout->addStretch();
 
     m_nextButton->setFixedSize(kNextButtonWidth, kNextButtonHeight);
-    layout->addWidget(m_nextButton, 0, Qt::AlignHCenter);
-    layout->addSpacing(10);
-
-    setLayout(layout);
-
-    rightLayout->addStretch();
-
     connect(m_nextButton, &QPushButton::clicked, this, &NetworkFrame::saveConf);
 
-    const auto interfaces = QNetworkInterface::allInterfaces();
-    QList<QNetworkInterface> interfaceList;
+    layout->addWidget(m_nextButton, 0, Qt::AlignHCenter);
+    layout->addSpacing(10);
+    setLayout(layout);
+
+    NetworkManager::Device::List list = NetworkManager::networkInterfaces();
     bool hasSet = false;
-    for (const QNetworkInterface &interface : interfaces) {
-        // FIXME: name == lo
-        if (interface.name() != "lo" && interface.flags().testFlag(QNetworkInterface::IsUp)) {
-            interfaceList << interface;
-            NetworkDeviceWidget* device = new NetworkDeviceWidget;
-            leftLayout->addWidget(device);
-            device->setDeviceInfo(interface);
-            connect(device, &NetworkDeviceWidget::clicked, this, &NetworkFrame::onDeviceSelected);
 
-            if (!hasSet) {
-                m_currentNetworkEditWidget->setInterface(interface);
-                m_currentNetworkEditWidget->setNetworkOperate(device->networkOperate());
-                if (!interface.addressEntries().isEmpty()) {
-                    m_currentNetworkEditWidget->setIpConfig(interface.addressEntries().first());
-                }
+    foreach (NetworkManager::Device::Ptr dev, list) {
+        qDebug() << dev->uni();
+        qDebug() << "managed: " << dev->managed();
+        qDebug() << "interface name: " << dev->interfaceName();
 
-                hasSet = true;
-            }
+        if (dev->interfaceName() == "lo" || !dev->managed()) {
+            continue;
+        }
+
+        NetworkDeviceWidget* deviceWidget = new NetworkDeviceWidget;
+        deviceWidget->setDeviceInfo(dev);
+        connect(deviceWidget, &NetworkDeviceWidget::clicked, this, &NetworkFrame::onDeviceSelected);
+
+        leftLayout->addWidget(deviceWidget);
+
+        if (!hasSet) {
+            m_currentNetworkEditWidget->setDevice(dev);
+            m_currentNetworkEditWidget->setNetworkOperate(deviceWidget->networkOperate());
+            m_currentNetworkEditWidget->setIpConfig(dev);
+
+            hasSet = true;
         }
     }
 
@@ -581,20 +613,57 @@ bool NetworkFrame::shouldDisplay() const
 
 void NetworkFrame::saveConf()
 {
-//    if (!m_currentNetworkEditWidget->validate()) {
-//        return;
-//    }
+    // TODO:
+    //    if (!m_currentNetworkEditWidget->validate()) {
+    //        return;
+    //    }
 
-    NetworkSettingInfo networkSettingInfo;
-    networkSettingInfo.setIpMode = m_currentNetworkEditWidget->connectType();
-    if (m_currentNetworkEditWidget->connectType() == DHCPTYpe::Manual) {
-        networkSettingInfo.ip = m_currentNetworkEditWidget->ip();
-        networkSettingInfo.mask = m_currentNetworkEditWidget->mask();
-        networkSettingInfo.gateway = m_currentNetworkEditWidget->gateway();
-        networkSettingInfo.primaryDNS = m_currentNetworkEditWidget->primaryDNS();
+    NetworkManager::Device::Ptr device = m_currentNetworkEditWidget->getDevice();
+    if (device.isNull()) {
+        m_proxy->nextFrame();
+        return;
     }
 
-    m_currentNetworkEditWidget->networkOperate()->setIpV4(networkSettingInfo);
+    NetworkOperate* operate = m_currentNetworkEditWidget->getNetworkOperate();
+
+    if (!m_currentNetworkEditWidget->getDeviceEnable()) {
+        operate->setDeviceEnable(device->uni(), false);
+    }
+    else {
+        // If the user has previously disabled the network card
+        // , then leave the page. The network card must be enabled
+        // until the user come back to this page again.
+        operate->setDeviceEnable(device->uni(), true);
+
+        NetworkSettingInfo networkSettingInfo;
+        networkSettingInfo.setIpMode = m_currentNetworkEditWidget->connectType();
+        if (m_currentNetworkEditWidget->connectType() == DHCPTYpe::Manual) {
+            networkSettingInfo.ip = m_currentNetworkEditWidget->ip();
+            networkSettingInfo.mask = m_currentNetworkEditWidget->mask();
+            networkSettingInfo.gateway = m_currentNetworkEditWidget->gateway();
+            networkSettingInfo.primaryDNS = m_currentNetworkEditWidget->primaryDNS();
+        }
+
+        // If at least one network connection is found, then config it.
+        // Else create one network connection with the configuration.
+        if (!operate->getConnection().isNull()) {
+            if (!operate->setIpV4(networkSettingInfo)) {
+                qDebug() << "saveConf() set ipV4 failed";
+            }
+        }
+        else {
+            if (operate->createNetworkConnection()) {
+                if (!operate->setIpV4(networkSettingInfo)) {
+                    qDebug() << "saveConf() set ipV4 failed";
+                }
+            }
+            else {
+                qDebug() << "saveConf() create network connection failed";
+            }
+        }
+
+        operate->setDeviceEnable(device->uni(), true);
+    }
 
     m_proxy->nextFrame();
 }
@@ -602,10 +671,10 @@ void NetworkFrame::saveConf()
 void NetworkFrame::onDeviceSelected()
 {
     NetworkDeviceWidget* device = qobject_cast<NetworkDeviceWidget*>(sender());
-    if (!device->interface().addressEntries().isEmpty()) {
-        m_currentNetworkEditWidget->setIpConfig(device->interface().addressEntries().first());
-    }
-    m_currentNetworkEditWidget->setInterface(device->interface());
+
+    // TODO: delete two.
+    m_currentNetworkEditWidget->setIpConfig(device->getDevice());
+    m_currentNetworkEditWidget->setDevice(device->getDevice());
     m_currentNetworkEditWidget->setNetworkOperate(device->networkOperate());
 }
 

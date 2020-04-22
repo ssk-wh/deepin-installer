@@ -16,7 +16,6 @@
 using namespace NetworkManager;
 
 namespace installer {
-
 enum class DHCPTYpe {
     Auto = 0,
     Manual,
@@ -33,11 +32,14 @@ typedef struct tagNetworkSettingInfo {
 class NetworkOperate : public QObject {
     Q_OBJECT
 public:
-    explicit NetworkOperate(const QString &interfaceName, QObject* parent = nullptr);
+    explicit NetworkOperate(NetworkManager::Device::Ptr device, QObject* parent = nullptr);
     ~NetworkOperate();
 
-    void setConnection();
+    bool createNetworkConnection();
+    void setNetworkConnection();
     bool setIpV4(NetworkSettingInfo info);
+    void setDeviceEnable(const QString &devPath, const bool enable);
+    NetworkManager::Connection::Ptr getConnection() const;
 
 private:
     QString m_interfaceName;
