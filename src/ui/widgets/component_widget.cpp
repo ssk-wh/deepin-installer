@@ -9,7 +9,7 @@ namespace installer {
 namespace {
     const int kComponentWidgetWidth = 250;
     const int kComponentWidgetMinHeight = 70;
-    const int KQLabelWidth =186;
+    const int KQLabelWidth = 200;
 }
 
 ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
@@ -34,7 +34,7 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
     m_descLabel->setWordWrap(true);
     m_descLabel->adjustSize();
     m_hLayout = new QHBoxLayout;
-    m_hLayout->addSpacing(15);
+    m_hLayout->addSpacing(0);
     m_vLayout = new QVBoxLayout;
     m_vLayout->setSpacing(0);
     m_vLayout->addWidget(m_titleLabel, 0, Qt::AlignLeft);
@@ -63,7 +63,7 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
         connect(m_checkBox, &QCheckBox::clicked, this
                 , &ComponentWidget::clicked);
     }
-    m_hLayout->addSpacing(5);
+    m_hLayout->addSpacing(0);
     m_hLayout->addLayout(m_vLayout);
     m_hLayout->addStretch();
 
