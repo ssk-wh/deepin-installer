@@ -141,7 +141,7 @@ void AdvancedPartitionButton::paintEvent(QPaintEvent *event)
     const QColor full_color(Qt::gray);
     const QRect full_rect(backgroudRect.x() + kDiskPercentLeftMarin,
           static_cast<int>(backgroudRect.y()+(backgroudRect.height() - kDiskPercentHeight)/2),
-          kMountPointLeftMargin - (backgroudRect.x() + kDiskPercentLeftMarin) - 5,
+          static_cast<int>(kMountPointLeftMargin - (backgroudRect.x() + kDiskPercentLeftMarin)),
           kDiskPercentHeight);
     QPainterPath full_path;
     full_path.addRoundedRect(full_rect, full_rect.height()/2, full_rect.height()/2);
