@@ -8,32 +8,29 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QNetworkInterface>
+#include <DButtonBox>
+
+DWIDGET_USE_NAMESPACE
 
 namespace installer {
 
-class NetworkDeviceWidget : public QPushButton
+class NetworkDeviceWidget : public DButtonBoxButton
 {
     Q_OBJECT
 
 public:
     explicit NetworkDeviceWidget(QWidget* parent = nullptr);
 
-    bool isSelected() const;
-
     void setTitle(const QString& title);
     void setDesc(const QString& desc);
-    void setSelected(bool selected);
+
+    void updateCheckedAppearance();
 
     void setDeviceInfo(NetworkManager::Device::Ptr device);
     NetworkManager::Device::Ptr getDevice() const;
     NetworkOperate* networkOperate() const;
 
-signals:
-    void clicked();
-
 protected:
-    void mousePressEvent(QMouseEvent* event) override;
-    bool eventFilter(QObject *watched, QEvent *event) override;
     void paintEvent(QPaintEvent* event) override;
     void enterEvent(QEvent* event) override;
     void leaveEvent(QEvent* event) override;

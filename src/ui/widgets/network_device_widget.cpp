@@ -15,7 +15,7 @@ namespace {
 }
 
 NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
-    : QPushButton (parent)
+    : DButtonBoxButton("", parent)
     , m_isflag(false)
 {
     m_deviceName = new QLabel;
@@ -47,6 +47,7 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     Q_ASSERT(!pixmap.isNull());
     m_checkedLabel->setPixmap(pixmap);
     m_checkedLabel->setFixedSize(pixmap.size() / devicePixelRatioF());
+    m_checkedLabel->setVisible(isChecked());
 
     m_hLayout = new QHBoxLayout;
     m_hLayout->setContentsMargins(10, 10, 10, 10);
@@ -60,11 +61,6 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     setObjectName("PartitionTableWarningWidget");
     setContentsMargins(0, 0, 0, 0);
     setLayout(m_hLayout);
-}
-
-void NetworkDeviceWidget::setSelected(bool selected)
-{
-
 }
 
 void NetworkDeviceWidget::paintEvent(QPaintEvent* event)
@@ -103,10 +99,6 @@ void NetworkDeviceWidget::leaveEvent(QEvent* event)
     QWidget::leaveEvent(event);
 }
 
-bool NetworkDeviceWidget::isSelected() const
-{
-}
-
 void NetworkDeviceWidget::setTitle(const QString &title)
 {
     m_deviceName->setText(title);
@@ -114,30 +106,16 @@ void NetworkDeviceWidget::setTitle(const QString &title)
 
 void NetworkDeviceWidget::setDesc(const QString &desc)
 {
-   m_descLabel->setText(desc);
+    m_descLabel->setText(desc);
 }
 
-void NetworkDeviceWidget::mousePressEvent(QMouseEvent *event)
+void NetworkDeviceWidget::updateCheckedAppearance()
 {
-    setSelected(!isSelected());
-
-    QWidget::mousePressEvent(event);
-
-    emit clicked();
-}
-
-bool NetworkDeviceWidget::eventFilter(QObject *watched, QEvent *event)
-{
-    Q_UNUSED(watched);
-
-    if(event->type() == QEvent::KeyPress){
-        return true;
-    }
-
-    return QWidget::eventFilter(watched, event);
+    m_checkedLabel->setVisible(isChecked());
 }
 
 void NetworkDeviceWidget::setDeviceInfo(Device::Ptr device) {
+    // TODO: replace Ethernet use actual device type.
     m_deviceName->setText(tr("Ethernet (%1)").arg(device->interfaceName()));
     m_device = device;
     m_networkOperate = new NetworkOperate(device);

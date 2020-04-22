@@ -563,19 +563,30 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
             continue;
         }
 
-        NetworkDeviceWidget* deviceWidget = new NetworkDeviceWidget;
+        NetworkDeviceWidget* deviceWidget = new NetworkDeviceWidget(this);
+        deviceWidget->setCheckable(true);
         deviceWidget->setDeviceInfo(dev);
-        connect(deviceWidget, &NetworkDeviceWidget::clicked, this, &NetworkFrame::onDeviceSelected);
-
-        leftLayout->addWidget(deviceWidget);
+        m_buttonList << deviceWidget;
 
         if (!hasSet) {
+            deviceWidget->setChecked(true);
+            deviceWidget->updateCheckedAppearance();
             m_currentNetworkEditWidget->setDevice(dev);
             m_currentNetworkEditWidget->setNetworkOperate(deviceWidget->networkOperate());
             m_currentNetworkEditWidget->setIpConfig(dev);
 
             hasSet = true;
         }
+    }
+
+    m_buttonBox = new DButtonBox;
+    m_buttonBox->setButtonList(m_buttonList, true);
+    connect(m_buttonBox, &DButtonBox::buttonClicked, this
+            , &NetworkFrame::onButtonGroupToggled);
+
+    for (DButtonBoxButton* button : m_buttonList) {
+        NetworkDeviceWidget* widget = qobject_cast<NetworkDeviceWidget*>(button);
+        leftLayout->addWidget(widget);
     }
 
     leftLayout->addStretch();
@@ -668,9 +679,13 @@ void NetworkFrame::saveConf()
     m_proxy->nextFrame();
 }
 
-void NetworkFrame::onDeviceSelected()
+void NetworkFrame::onButtonGroupToggled(QAbstractButton *button)
 {
-    NetworkDeviceWidget* device = qobject_cast<NetworkDeviceWidget*>(sender());
+    for (DButtonBoxButton* button : m_buttonList) {
+        qobject_cast<NetworkDeviceWidget *>(button)->updateCheckedAppearance();
+    }
+
+    NetworkDeviceWidget* device = qobject_cast<NetworkDeviceWidget*>(button);
 
     // TODO: delete two.
     m_currentNetworkEditWidget->setIpConfig(device->getDevice());
