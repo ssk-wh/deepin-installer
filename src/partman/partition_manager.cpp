@@ -489,7 +489,7 @@ Device::Ptr constructDevice1(int deviceNum)
     Device* device = new Device();
     device->model = "debug device";
     device->path = QString("/dev/debugDevice%1").arg(deviceNum);
-    device->length = 209715200;
+    device->length = 3097152000000;
     device->sectors = 63;
     device->sector_size = 512;
     device->max_prims = 4;
@@ -501,13 +501,16 @@ Device::Ptr constructDevice1(int deviceNum)
     partition1->device_path = device->path;
     partition1->path = QString("%1p-1").arg(device->path);
     partition1->partition_number = -1;
-    partition1->type = PartitionType::Unallocated;
+    partition1->type = PartitionType::Normal;
     partition1->status = PartitionStatus::Real;
-    partition1->fs = FsType::Unknown;
+    partition1->fs = FsType::LinuxSwap;
     partition1->busy = false;
-    partition1->start_sector = 2048;
+    partition1->start_sector = 0;
     partition1->end_sector = 209715200;
     partition1->sector_size = 512;
+    partition1->length = 3097152000000;
+    partition1->freespace = partition1->length / 2;
+    partition1->mount_point = "/";
 
     PartitionList partitions;
     partitions << Partition::Ptr(partition1);
@@ -541,6 +544,9 @@ Device::Ptr constructDevice2(int deviceNum)
     partition1->start_sector = 2048;
     partition1->end_sector = 209715219;
     partition1->sector_size = 512;
+    partition1->length = 409715200 / 2;
+    partition1->freespace = partition1->length / 4;
+    partition1->mount_point = "/home/zhangdd";
 
     ++partitionNo;
     Partition* partition2 = new Partition();
