@@ -32,23 +32,23 @@ namespace installer {
 
 namespace {
 const int kMainWindowWidth = 555;
-const int kMainWindowHeight = 40;
+const int kMainWindowHeight = 50;
 
 const int kBtnSize = 25;
-const int kItemSpace = 10;
+const int kItemSpace = 4;
 
-const int kOsIconLeftMargin = 10;
-const int kDevicePathLeftMargin = 40;
-const int kDiskSizeLeftMarin = 150;
-const int kDiskPercentLeftMarin = 205;
+const int kOsIconLeftMargin = 1;
+const int kDevicePathLeftMargin = 31;
+const int kDiskSizeLeftMarin = 141;
+const int kDiskPercentLeftMarin = 218;
 const int kDiskPercentHeight = 6;
-const int kMountPointLeftMargin = 280;
-const int kTipLeftMargin = 370;
+const int kMountPointLeftMargin = 295;
+const int kTipLeftMargin = 375;
 
-const int kFileSystemLeftMargin = 470;
-const int kControlButtonLeftMargin = 510;
+const int kFileSystemLeftMargin = 452;
+const int kControlButtonLeftMargin = 520;
 
-const int kItemRightMargin = 10;
+const int kItemRightMargin = 3;
 
 const int kPartitionInfoFontSize = 9; // 9pt
 }  // namespace
