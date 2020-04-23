@@ -145,6 +145,7 @@ void SelectTimeZoneFrame::initUI()
     m_continentListView->setContextMenuPolicy(Qt::NoContextMenu);
     m_continentListView->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     m_continentListView->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    m_continentListView->setEditTriggers(QListView::NoEditTriggers);
 
     m_continentModel = new ContinentModel;
     m_continentListView->setModel(m_continentModel);
