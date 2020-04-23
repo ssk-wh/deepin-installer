@@ -69,7 +69,7 @@ private:
     DPasswordEdit *m_encryptEdit;
     DPasswordEdit *m_encryptRepeatEdit;
     QPushButton *m_cancelBtn;
-    QPushButton *m_nextBtn;
+    QPushButton *m_confirmBtn;
     SystemInfoTip *m_errTip;
     QList<DLineEdit*> m_editList;
     FullDiskPartitionWidget *m_diskPartitionWidget;

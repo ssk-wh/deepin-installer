@@ -46,7 +46,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     , m_encryptEdit(new DPasswordEdit)
     , m_encryptRepeatEdit(new DPasswordEdit)
     , m_cancelBtn(new QPushButton)
-    , m_nextBtn(new QPushButton)
+    , m_confirmBtn(new QPushButton)
     , m_errTip(new SystemInfoTip(this))
     , m_diskPartitionWidget(new FullDiskPartitionWidget)
     , m_diskPartitionDelegate(delegate)
@@ -138,15 +138,15 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     QHBoxLayout *buttonLayout = new QHBoxLayout;
     buttonLayout->setContentsMargins(0, 0, 0, 0);
     buttonLayout->setSpacing(0);
-    buttonLayout->addWidget(m_nextBtn, 0, Qt::AlignHCenter | Qt::AlignLeft);
-    buttonLayout->addSpacing(10);
     buttonLayout->addWidget(m_cancelBtn, 0, Qt::AlignHCenter | Qt::AlignRight);
+    buttonLayout->addSpacing(10);
+    buttonLayout->addWidget(m_confirmBtn, 0, Qt::AlignHCenter | Qt::AlignLeft);
     QWidget *buttonWrapWidget = new QWidget;
     buttonWrapWidget->setLayout(buttonLayout);
 
     // add buttons
     m_cancelBtn->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);
-    m_nextBtn->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);
+    m_confirmBtn->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);
     m_layout->addWidget(buttonWrapWidget, 0, Qt::AlignHCenter);
     m_layout->addSpacing(10);
 
@@ -195,7 +195,7 @@ void Full_Disk_Encrypt_frame::paintEvent(QPaintEvent *event)
 void Full_Disk_Encrypt_frame::initConnections()
 {
     connect(m_cancelBtn, &QPushButton::clicked, this, &Full_Disk_Encrypt_frame::cancel);
-    connect(m_nextBtn, &QPushButton::clicked, this, &Full_Disk_Encrypt_frame::onNextBtnClicked);
+    connect(m_confirmBtn, &QPushButton::clicked, this, &Full_Disk_Encrypt_frame::onNextBtnClicked);
     connect(m_encryptEdit, &DLineEdit::textChanged, m_errTip, &SystemInfoTip::hide);
     connect(m_encryptRepeatEdit, &DLineEdit::textChanged, m_errTip, &SystemInfoTip::hide);
     connect(KeyboardMonitor::instance(), &KeyboardMonitor::capslockStatusChanged, this, &Full_Disk_Encrypt_frame::updateEditCapsLockState);
@@ -246,8 +246,8 @@ void Full_Disk_Encrypt_frame::updateText()
     m_frameSubLbl->setText(tr("Make sure you have backed up important data, then select the disk to install"));
     m_encryptLbl->setText(tr("Password").append(" :"));
     m_encryptCheckLbl->setText(tr("Repeat Password").append(" :"));
-    m_cancelBtn->setText(tr("Previous"));
-    m_nextBtn->setText(tr("Start Installation"));
+    m_cancelBtn->setText(tr("Cancel"));
+    m_confirmBtn->setText(tr("Confirm"));
     m_tilabel->setText(tr("Please take good care of your security secret key,"
                          " once the secret key is lost, all your data will be lost!!"));
 }
