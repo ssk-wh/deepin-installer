@@ -24,6 +24,8 @@
 #include <QPropertyAnimation>
 #include <QParallelAnimationGroup>
 #include <QHBoxLayout>
+#include <QTimer>
+#include <QResizeEvent>
 
 #include "service/settings_manager.h"
 #include "ui/delegates/install_slide_frame_util.h"
@@ -94,7 +96,7 @@ void InstallProgressSlideFrame::initConnections() {
 
 void InstallProgressSlideFrame::initUI() {
   m_animationContainer = new QWidget;
-  m_animationContainer->setFixedSize(QSize(kAnimationWidth, kAnimationHeight));
+  m_animationContainer->setMinimumSize(QSize(kAnimationWidth, kAnimationHeight));
   container_label_ = new QLabel(m_animationContainer);
 
   m_backButton = new DIconButton(this);
@@ -106,14 +108,16 @@ void InstallProgressSlideFrame::initUI() {
   layout->setContentsMargins(0, 0, 0, 0);
   layout->setSpacing(0);
   layout->addStretch();
-  layout->addWidget(m_backButton, 0, Qt::AlignRight);
+  layout->addWidget(m_backButton, 0, Qt::AlignRight | Qt::AlignVCenter);
   layout->addSpacing(10);
   layout->addWidget(m_animationContainer);
   layout->addSpacing(10);
-  layout->addWidget(m_nextButton, 0, Qt::AlignLeft);
+  layout->addWidget(m_nextButton, 0, Qt::AlignLeft | Qt::AlignVCenter);
   layout->addStretch();
 
   setLayout(layout);
+
+  setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
 
   pos_animation_ = new QPropertyAnimation(container_label_, "pos", m_animationContainer);
   pos_animation_->setKeyValueAt(0.0, QPoint(-50, 0));
@@ -138,16 +142,36 @@ void InstallProgressSlideFrame::initUI() {
 void InstallProgressSlideFrame::updateSlideImage() {
   Q_ASSERT(slide_index_ < slide_files_.length());
   const QString filepath(slide_files_.at(slide_index_));
-  QPixmap pixmap;
   if (QFile::exists(filepath)) {
-    pixmap = installer::renderPixmap(filepath);
-    pixmap = pixmap.scaled(m_animationContainer->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
-    container_label_->setPixmap(pixmap);
-  } else {
+    m_cachePixmap = installer::renderPixmap(filepath);
+  }
+  else {
     qWarning() << "slide file not found:" << filepath;
   }
+
+  updateSlidePixmap();
   container_label_->show();
+
   slide_index_ = (slide_index_ + 1) % slide_files_.length();
+}
+
+void InstallProgressSlideFrame::updateSlidePixmap()
+{
+    const int buttonWidth = m_backButton->width();
+    constexpr int buttonSpacing = 20;
+    const int width = this->width() - (buttonWidth + buttonSpacing) * 2;
+    const QPixmap pixmap = m_cachePixmap.scaled(QSize(width, height()) * 0.618/* 随手写的黄金分割 */, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
+    m_animationContainer->setFixedSize(pixmap.size());
+    container_label_->resize(m_animationContainer->size());
+    container_label_->setPixmap(std::move(pixmap));
+}
+
+void InstallProgressSlideFrame::resizeEvent(QResizeEvent *event)
+{
+    QTimer::singleShot(0, this, &InstallProgressSlideFrame::updateSlidePixmap);
+
+    return QFrame::resizeEvent(event);
 }
 
 void InstallProgressSlideFrame::onAnimationCurrentLoopChanged() {

@@ -240,10 +240,6 @@ void InstallProgressFramePrivate::initUI() {
     title_label_ = new TitleLabel(tr("Installing"));
     comment_label_ = new CommentLabel(
                 tr("Here are a few cool things to look out for..."));
-    QHBoxLayout* comment_layout = new QHBoxLayout();
-    comment_layout->setContentsMargins(0, 0, 0, 0);
-    comment_layout->setSpacing(0);
-    comment_layout->addWidget(comment_label_);
 
     slide_frame_ = new InstallProgressSlideFrame();
 
@@ -272,17 +268,13 @@ void InstallProgressFramePrivate::initUI() {
     progress_bar_->setValue(0);
 
     //add main layout
-    centerLayout->addStretch();
     centerLayout->addWidget(title_label_, 0, Qt::AlignHCenter);
     centerLayout->addSpacing(kMainLayoutSpacing);
-    centerLayout->addLayout(comment_layout);
-    centerLayout->addStretch();
-    centerLayout->addWidget(slide_frame_, 0, Qt::AlignHCenter);
-    centerLayout->addStretch();
-    centerLayout->addWidget(tooltip_frame, 0, Qt::AlignHCenter);
+    centerLayout->addWidget(comment_label_, 0, Qt::AlignHCenter | Qt::AlignTop);
+    centerLayout->addWidget(slide_frame_);
+    centerLayout->addWidget(tooltip_frame, 0, Qt::AlignHCenter | Qt::AlignBottom);
     centerLayout->addSpacing(5);
     centerLayout->addWidget(progress_bar_, 0, Qt::AlignHCenter);
-    centerLayout->addStretch();
     nextButton->hide();
 
     Q_Q(InstallProgressFrame);

@@ -54,6 +54,7 @@ class InstallProgressSlideFrame : public QFrame {
   void initUI();
   // Update slide image by index.
   void updateSlideImage();
+  void updateSlidePixmap();
 
   QLabel* container_label_ = nullptr;
   QWidget* m_animationContainer = nullptr;
@@ -64,9 +65,13 @@ class InstallProgressSlideFrame : public QFrame {
   QVariantAnimation* null_animation_ = nullptr;
   DIconButton* m_backButton = nullptr;
   DIconButton* m_nextButton = nullptr;
+  QPixmap m_cachePixmap;
 
   int slide_index_;
   QStringList slide_files_;
+
+protected:
+  void resizeEvent(QResizeEvent* event) override;
 
  private slots:
   // Update slide image while switching to next animation loop
