@@ -67,6 +67,9 @@ class FirstBootSetupWindow : public DMainWindow, public FrameProxyInterface {
   void exitInstall(bool reboot = false) override;
   void hideChildFrame() const override;
 
+  // Set the icon in the upper left corner of the window. The size of the icon is recommended: 32px.
+  void setWindowIcon(const QString &path);
+
  private:
   void initConnections();
   void initUI();
