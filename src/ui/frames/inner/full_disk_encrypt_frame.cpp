@@ -108,26 +108,26 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     encryptLayout->setSpacing(0);
     encryptLayout->addWidget(m_encryptLbl, 0, Qt::AlignLeft | Qt::AlignVCenter);
     encryptLayout->addWidget(m_encryptEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
-    QFrame *encryptFrame = new QFrame;
-    encryptFrame->setLayout(encryptLayout);
+    m_encryptFrame = new QFrame;
+    m_encryptFrame->setLayout(encryptLayout);
     m_encryptLbl->setFixedWidth(150);
     m_encryptEdit->setFixedWidth(350);
-    encryptFrame->setFixedWidth(kContentWidth);
+    m_encryptFrame->setFixedWidth(kContentWidth);
 
     QHBoxLayout *encryptCheckLayout = new QHBoxLayout;
     encryptCheckLayout->setContentsMargins(0, 0, 0, 0);
     encryptCheckLayout->setSpacing(0);
     encryptCheckLayout->addWidget(m_encryptCheckLbl, 0, Qt::AlignLeft | Qt::AlignVCenter);
     encryptCheckLayout->addWidget(m_encryptRepeatEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
-    QFrame *encryptCheckFrame = new QFrame;
-    encryptCheckFrame->setLayout(encryptCheckLayout);
+    m_encryptCheckFrame = new QFrame;
+    m_encryptCheckFrame->setLayout(encryptCheckLayout);
     m_encryptCheckLbl->setFixedWidth(150);
     m_encryptRepeatEdit->setFixedWidth(350);
-    encryptCheckFrame->setFixedWidth(kContentWidth);
+    m_encryptCheckFrame->setFixedWidth(kContentWidth);
 
-    m_layout->addWidget(encryptFrame, 0, Qt::AlignHCenter);
+    m_layout->addWidget(m_encryptFrame, 0, Qt::AlignHCenter);
     m_layout->addSpacing(10);
-    m_layout->addWidget(encryptCheckFrame, 0, Qt::AlignHCenter);
+    m_layout->addWidget(m_encryptCheckFrame, 0, Qt::AlignHCenter);
 
     m_layout->addStretch();
 
@@ -205,12 +205,14 @@ void Full_Disk_Encrypt_frame::onNextBtnClicked()
 {
     if (m_encryptEdit->text().isEmpty()) {
         m_errTip->setText(tr("Please input password"));
+        m_errTip->setRelativePosition(m_encryptFrame->pos());
         m_errTip->showBottom(m_encryptEdit);
         return;
     }
 
     if (m_encryptEdit->text() != m_encryptRepeatEdit->text()) {
         m_errTip->setText(tr("Passwords do not match"));
+        m_errTip->setRelativePosition(m_encryptCheckFrame->pos());
         m_errTip->showBottom(m_encryptRepeatEdit);
         return;
     }

@@ -37,6 +37,9 @@ class SystemInfoTip : public QFrame {
   // Show tooltip at bottom of |widget|.
   void showBottom(QWidget* widget);
 
+  // Need prompt controls and SystemInfoTip please set is not under the same parent window
+  void setRelativePosition(QPoint point);
+
  protected:
   void paintEvent(QPaintEvent* event) override;
 
@@ -44,6 +47,7 @@ class SystemInfoTip : public QFrame {
   void initUI();
 
   QLabel* label_ = nullptr;
+  QPoint  m_relativePosition;
 };
 
 }  // namespace installer

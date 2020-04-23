@@ -53,7 +53,10 @@ const int kMaximumLabelWidth = kMaximumWindowWidth - kWindowMarginLeft -
 
 }  // namespace
 
-SystemInfoTip::SystemInfoTip(QWidget* parent) : QFrame(parent) {
+SystemInfoTip::SystemInfoTip(QWidget* parent) :
+    QFrame(parent),
+    m_relativePosition(QPoint(0, 0))
+{
   this->setObjectName("system_info_tip");
 
   this->initUI();
@@ -80,10 +83,16 @@ void SystemInfoTip::setText(const QString& text) {
 
 void SystemInfoTip::showBottom(QWidget* widget) {
   // Move this to bottom of |widget|.
-  const int y = widget->y() + widget->height() + kWindowTopMargin;
-  this->move(widget->x(), y);
+    QPoint point = m_relativePosition + QPoint(widget->x(), widget->y()
+                                                + widget->height() + kWindowTopMargin);
+  this->move(point);
   this->show();
   this->raise();
+}
+
+void SystemInfoTip::setRelativePosition(QPoint point)
+{
+    m_relativePosition = point;
 }
 
 void SystemInfoTip::paintEvent(QPaintEvent* event) {

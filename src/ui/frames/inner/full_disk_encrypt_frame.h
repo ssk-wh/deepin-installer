@@ -66,6 +66,8 @@ private:
     FullDiskDiskInfo  m_diskinfo[FULL_DISK_DISK_MAX_COUNT];
     QLabel *m_encryptLbl;
     QLabel *m_encryptCheckLbl;
+    QFrame *m_encryptFrame;
+    QFrame *m_encryptCheckFrame;
     DPasswordEdit *m_encryptEdit;
     DPasswordEdit *m_encryptRepeatEdit;
     QPushButton *m_cancelBtn;
