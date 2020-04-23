@@ -345,7 +345,7 @@ void MainWindow::initConnections() {
   connect(control_panel_frame_, &ControlPanelFrame::requestSimulateSlide,
           install_progress_frame_, &InstallProgressFrame::simulate);
 
-  connect(disk_space_insufficient_frame_, &DiskSpaceInsufficientFrame::finished,
+  connect(disk_space_insufficient_frame_, &DiskSpaceInsufficientFrame::abortInstall,
           this, &MainWindow::shutdownSystem);
 
   connect(partition_frame_, &PartitionFrame::reboot,
