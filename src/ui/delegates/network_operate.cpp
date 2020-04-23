@@ -94,9 +94,12 @@ bool NetworkOperate::setIpV4(NetworkSettingInfo info)
     if (info.setIpMode == DHCPTYpe::Manual){
         ipv4Setting->setMethod(NetworkManager::Ipv4Setting::Manual);
         ipv4Setting->setAddresses(QList<NetworkManager::IpAddress>() << ipAddress);
+        ipv4Setting->setDns(QList<QHostAddress>() << QHostAddress(info.primaryDNS));
     }
     else {
         ipv4Setting->setMethod(NetworkManager::Ipv4Setting::Automatic);
+        ipv4Setting->setAddresses(QList<NetworkManager::IpAddress>());
+        ipv4Setting->setDns(QList<QHostAddress>());
     }
 
     QDBusPendingReply<> reply;
