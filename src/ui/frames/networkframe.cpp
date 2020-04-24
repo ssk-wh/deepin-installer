@@ -273,15 +273,18 @@ public:
 
     void setIpConfig(NetworkManager::Device::Ptr dev) {
         if (dev.isNull()) {
+            clearIpInfo();
             return;
         }
 
         NetworkManager::IpConfig ipConfig = dev->ipV4Config();
         if (!ipConfig.isValid()) {
+            clearIpInfo();
             return;
         }
 
         if (ipConfig.addresses().isEmpty()) {
+            clearIpInfo();
             return;
         }
 
@@ -292,6 +295,14 @@ public:
         if (!ipConfig.nameservers().isEmpty()) {
             labelHandleMap[m_primaryDNSWidget](ipConfig.nameservers().at(0).toString());
         }
+    }
+
+    void clearIpInfo()
+    {
+        labelHandleMap[m_ipWidget]("");
+        labelHandleMap[m_maskWidget]("");
+        labelHandleMap[m_gatewayWidget]("");
+        labelHandleMap[m_primaryDNSWidget]("");
     }
 
     void onEdit() {
