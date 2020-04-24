@@ -75,8 +75,14 @@ PartitionFrame::PartitionFrame(QWidget* parent)
 }
 
 void PartitionFrame::autoPart() {
-    full_disk_delegate_->setAutoInstall(true);
-    scanDevices();
+    if (full_disk_partition_frame_->isEncrypt()) {
+        WriteFullDiskMode(true);
+        partition_model_->autoPart();
+    }
+    else {
+        full_disk_delegate_->setAutoInstall(true);
+        scanDevices();
+    }
 }
 
 void PartitionFrame::scanDevices() const {
