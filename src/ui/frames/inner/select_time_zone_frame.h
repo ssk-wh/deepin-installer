@@ -39,6 +39,7 @@ protected:
 private:
     void initUI();
     void initConnections();
+    void setSelectItem(QModelIndex index);
 
     ContinentZoneInfoList m_allTimeZone;
     QMap<QString, QString> m_mapEnglishToInternation;
