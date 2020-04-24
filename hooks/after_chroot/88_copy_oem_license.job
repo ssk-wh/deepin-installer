@@ -24,4 +24,12 @@ if [ -d ${OEM_DIR}/license ]; then
 	cp -fr ${OEM_DIR}/license ${OEM_TARGET_DIR}/.
 fi
 
+# add activation for wubi support
+DI_LUPIN=$(installer_get "DI_LUPIN")
+if [ x${DI_LUPIN} = xtrue ]; then
+  if [ -e /host/deepin/install/boot/grub/data.bin ];then
+    install -Dm644  /host/deepin/install/boot/grub/data.bin /target/var/uos/.kta
+  fi
+fi
+
 return 0
