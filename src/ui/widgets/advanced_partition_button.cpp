@@ -202,6 +202,7 @@ void AdvancedPartitionButton::paintEvent(QPaintEvent *event)
     m_controlButtonPos = QPoint(backgroudRect.x() + kControlButtonLeftMargin
                                 , backgroudRect.y() + (backgroudRect.height() - kBtnSize) / 2);
 
+    updateStatus();
     painter.end();
 }
 
