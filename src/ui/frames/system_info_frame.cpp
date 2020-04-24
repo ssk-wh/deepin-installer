@@ -158,29 +158,13 @@ void SystemInfoFramePrivate::initConnections() {
 
 void SystemInfoFramePrivate::initUI() {
   keyboard_button_ = new QPushButton();
-  keyboard_button_->setObjectName("keyboard_button");
-  keyboard_button_->setFlat(true);
   keyboard_button_->setFixedWidth(100);
-  keyboard_button_->setFixedHeight(23);
-
-  QHBoxLayout* keyboardLayout = new QHBoxLayout();
-  keyboardLayout->setContentsMargins(0, 0, 0, 0);
-  keyboardLayout->setSpacing(0);
-  keyboardLayout->addWidget(keyboard_button_);
-
-  DFrame *bgGroup = new DFrame;
-  bgGroup->setBackgroundRole(DPalette::ItemBackground);
-  bgGroup->setLineWidth(0);
-  bgGroup->lower();
-  bgGroup->setContentsMargins(0, 0, 0, 0);
-  bgGroup->setLayout(keyboardLayout);
-  bgGroup->setFixedWidth(100);
-  bgGroup->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
+  keyboard_button_->setFixedHeight(30);
 
   bottom_layout_ = new QHBoxLayout();
   bottom_layout_->setContentsMargins(30, 0, 0, 0);
   bottom_layout_->setSpacing(30);
-  bottom_layout_->addWidget(bgGroup);
+  bottom_layout_->addWidget(keyboard_button_);
   bottom_layout_->addStretch();
 
   avatar_frame_ = new SystemInfoAvatarFrame();
