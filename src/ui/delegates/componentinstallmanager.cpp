@@ -258,15 +258,17 @@ QStringList ComponentInstallManager::uninstallPackageListByComponentStruct(QShar
     }
 
     QList<QSharedPointer<ComponentInfo>> uninstallList = componentStruct->uninstall();
+    QSet<QString>       result;
     for (QSharedPointer<ComponentInfo> info : uninstallList) {
         for (QSharedPointer<ComponentInfo> i : m_packageList) {
             if (info->Id == i->Id) {
-                return QSet<QString>(i->PackageList.toSet() & installedList.toSet()).toList();
+                result += QSet<QString>(i->PackageList.toSet() & installedList.toSet());
+                break;
             }
         }
     }
 
-    return {};
+    return result.toList();
 }
 
 QStringList ComponentInstallManager::loadStructForLanguage(const QString &lang) const
