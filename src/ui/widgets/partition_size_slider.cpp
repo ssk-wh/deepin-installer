@@ -108,7 +108,7 @@ void PartitionSizeSlider::initUI() {
   editor_ = new QLineEdit();
   editor_->setObjectName("editor");
   editor_->setValidator(new QRegExpValidator(QRegExp("[0-9]*")));
-  editor_->setFixedWidth(68);
+  editor_->setFixedWidth(90);
   // Disable context menu.
   editor_->setContextMenuPolicy(Qt::NoContextMenu);
 
