@@ -182,31 +182,31 @@ public:
 
             QLabel* name = new QLabel(it.value());
             name->setFixedSize(100, 20);
-            QLabel* valueName = new QLabel;
+//            QLabel* valueName = new QLabel;
 
             layout->addWidget(name, 0, Qt::AlignLeft | Qt::AlignHCenter);
-            layout->addWidget(valueName, 0, Qt::AlignRight | Qt::AlignHCenter);
+//            layout->addWidget(valueName, 0, Qt::AlignRight | Qt::AlignHCenter);
             Q_ASSERT(i < m_editList.size());
             layout->addWidget(m_editList[i], 0, Qt::AlignRight | Qt::AlignHCenter);
-            m_editList[i]->hide();
+//            m_editList[i]->hide();
             ++i;
 
-            labelHandleMap[it.key()] = [=](const QString& text) -> void {
-                valueName->setText(text);
-            };
+//            labelHandleMap[it.key()] = [=](const QString& text) -> void {
+//                valueName->setText(text);
+//            };
 
-            labelShowMap[it.key()] = [=](const bool show) -> void {
-                if (show) {
-                    valueName->show();
-                }
-                else {
-                    valueName->hide();
-                }
-            };
+//            labelShowMap[it.key()] = [=](const bool show) -> void {
+//                if (show) {
+//                    valueName->show();
+//                }
+//                else {
+//                    valueName->hide();
+//                }
+//            };
 
-            labelTextMap[it.key()] = [=]() -> QString {
-                return valueName->text();
-            };
+//            labelTextMap[it.key()] = [=]() -> QString {
+//                return valueName->text();
+//            };
 
             it.key()->setLayout(layout);
         }
@@ -289,44 +289,53 @@ public:
         }
 
         NetworkManager::IpAddress address = ipConfig.addresses().at(0);
-        labelHandleMap[m_ipWidget](address.ip().toString());
-        labelHandleMap[m_maskWidget](address.netmask().toString());
-        labelHandleMap[m_gatewayWidget](address.gateway().toString());
+        m_ipv4Edit->setText(address.ip().toString());
+        m_maskEdit->setText(address.netmask().toString());
+        m_gatewayEdit->setText(address.gateway().toString());
+//        labelHandleMap[m_ipWidget](address.ip().toString());
+//        labelHandleMap[m_maskWidget](address.netmask().toString());
+//        labelHandleMap[m_gatewayWidget](address.gateway().toString());
         if (!ipConfig.nameservers().isEmpty()) {
-            labelHandleMap[m_primaryDNSWidget](ipConfig.nameservers().at(0).toString());
+            m_primaryDNSEdit->setText(ipConfig.nameservers().at(0).toString());
+//            labelHandleMap[m_primaryDNSWidget](ipConfig.nameservers().at(0).toString());
         }
     }
 
-    void clearIpInfo()
+    void setEditEnable(const bool enable)
     {
-        labelHandleMap[m_ipWidget]("");
-        labelHandleMap[m_maskWidget]("");
-        labelHandleMap[m_gatewayWidget]("");
-        labelHandleMap[m_primaryDNSWidget]("");
+        for (auto it = m_widgetList.begin(); it != m_widgetList.end(); ++it) {
+            it->second->setEnabled(enable);
+        }
     }
 
     void onEdit() {
-        for (auto it = m_widgetList.begin(); it != m_widgetList.end(); ++it) {
-            labelShowMap[it->first](false);
-            it->second->show();
-        }
+//        for (auto it = m_widgetList.begin(); it != m_widgetList.end(); ++it) {
+////            labelShowMap[it->first](false);
+////            it->second->show();
+//            it->second->setEnabled(true);
+//        }
+        setEditEnable(true);
+
         m_editBtn->hide();
         m_acceptBtn->show();
         m_dhcpTypeWidget->setCurrentIndex(1);
 
-        m_ipv4Edit->setText(labelTextMap[m_ipWidget]());
-        m_maskEdit->setText(labelTextMap[m_maskWidget]());
-        m_gatewayEdit->setText(labelTextMap[m_gatewayWidget]());
-        m_primaryDNSEdit->setText(labelTextMap[m_primaryDNSWidget]());
+//        m_ipv4Edit->setText(labelTextMap[m_ipWidget]());
+//        m_maskEdit->setText(labelTextMap[m_maskWidget]());
+//        m_gatewayEdit->setText(labelTextMap[m_gatewayWidget]());
+//        m_primaryDNSEdit->setText(labelTextMap[m_primaryDNSWidget]());
         m_dhcpTypeWidget->setEnabled(true);
     }
 
     void onEditFinished() {
-        for (auto it = m_widgetList.begin(); it != m_widgetList.end(); ++it) {
-            labelShowMap[it->first](true);
-            it->second->hide();
-            labelHandleMap[it->first](it->second->text());
-        }
+//        for (auto it = m_widgetList.begin(); it != m_widgetList.end(); ++it) {
+////            labelShowMap[it->first](true);
+////            it->second->hide();
+////            labelHandleMap[it->first](it->second->text());
+//            it->second->setEnabled(false);
+//        }
+        setEditEnable(false);
+
         m_editBtn->show();
         m_acceptBtn->hide();
         m_dhcpTypeWidget->setEnabled(false);
@@ -437,19 +446,23 @@ public:
     }
 
     QString ip() const {
-        return labelTextMap[m_ipWidget]();
+//        return labelTextMap[m_ipWidget]();
+        return m_ipv4Edit->text();
     }
 
     QString mask() const {
-        return labelTextMap[m_maskWidget]();
+//        return labelTextMap[m_maskWidget]();
+        return m_maskEdit->text();
     }
 
     QString gateway() const {
-        return labelTextMap[m_gatewayWidget]();
+//        return labelTextMap[m_gatewayWidget]();
+        return m_gatewayEdit->text();
     }
 
     QString primaryDNS() const {
-        return labelTextMap[m_primaryDNSWidget]();
+//        return labelTextMap[m_primaryDNSWidget]();
+        return m_primaryDNSEdit->text();
     }
 
     DHCPTYpe connectType() const {
@@ -460,6 +473,7 @@ public:
     {
         m_deviceEnable = enable;
         m_editBtn->setEnabled(enable);
+        setEditEnable(enable);
     }
 
     bool getDeviceEnable() const
@@ -487,9 +501,9 @@ private:
     DHCPTYpe m_dhcpType;
     std::unique_ptr<QRegularExpressionValidator> m_validityCheck;
     SystemInfoTip*                               m_errorTip;
-    QMap<QWidget*, std::function<void (const QString& text)>> labelHandleMap;
-    QMap<QWidget*, std::function<void (const bool show)>> labelShowMap;
-    QMap<QWidget*, std::function<QString ()>> labelTextMap;
+//    QMap<QWidget*, std::function<void (const QString& text)>> labelHandleMap;
+//    QMap<QWidget*, std::function<void (const bool show)>> labelShowMap;
+//    QMap<QWidget*, std::function<QString ()>> labelTextMap;
     QComboBox *m_dhcpTypeWidget;
     NetworkManager::Device::Ptr m_device = nullptr;
     NetworkOperate *m_networkOperate = nullptr;
