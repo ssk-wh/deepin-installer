@@ -77,9 +77,8 @@ PartitionFrame::PartitionFrame(QWidget* parent)
 void PartitionFrame::autoPart() {
     // 如果开启了WUBI安装，则直接下一步
     if (GetSettingsBool("DI_LUPIN")) {
-      emit finished();
-      emit autoPartDone(true);
-      return;
+        emit autoPartDone(true);
+        return;
     }
 
     if (full_disk_partition_frame_->isEncrypt()) {
