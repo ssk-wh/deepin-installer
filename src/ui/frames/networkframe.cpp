@@ -174,41 +174,46 @@ public:
             (*it)->lineEdit()->setAlignment(Qt::AlignCenter);
         }
 
-        int i = 0;
-        for (auto it = tmpM.begin(); it != tmpM.end(); ++it) {
-            QHBoxLayout* layout = new QHBoxLayout;
-            layout->setMargin(0);
-            layout->setSpacing(0);
+        {
+            QHBoxLayout* ipLayout = new QHBoxLayout;
+            ipLayout->setMargin(0);
+            ipLayout->setSpacing(0);
+            QLabel* ipName = new QLabel(tr("Ip:"));
+            ipName->setFixedSize(100, 20);
 
-            QLabel* name = new QLabel(it.value());
-            name->setFixedSize(100, 20);
-//            QLabel* valueName = new QLabel;
+            ipLayout->addWidget(ipName, 0, Qt::AlignLeft | Qt::AlignHCenter);
+            ipLayout->addWidget(m_ipv4Edit, 0, Qt::AlignRight | Qt::AlignHCenter);
+            m_ipWidget->setLayout(ipLayout);
 
-            layout->addWidget(name, 0, Qt::AlignLeft | Qt::AlignHCenter);
-//            layout->addWidget(valueName, 0, Qt::AlignRight | Qt::AlignHCenter);
-            Q_ASSERT(i < m_editList.size());
-            layout->addWidget(m_editList[i], 0, Qt::AlignRight | Qt::AlignHCenter);
-//            m_editList[i]->hide();
-            ++i;
+            QHBoxLayout* maskLayout = new QHBoxLayout;
+            maskLayout->setMargin(0);
+            maskLayout->setSpacing(0);
+            QLabel* maskName = new QLabel(tr("Mask:"));
+            maskName->setFixedSize(100, 20);
 
-//            labelHandleMap[it.key()] = [=](const QString& text) -> void {
-//                valueName->setText(text);
-//            };
+            maskLayout->addWidget(maskName, 0, Qt::AlignLeft | Qt::AlignHCenter);
+            maskLayout->addWidget(m_maskEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
+            m_maskWidget->setLayout(maskLayout);
 
-//            labelShowMap[it.key()] = [=](const bool show) -> void {
-//                if (show) {
-//                    valueName->show();
-//                }
-//                else {
-//                    valueName->hide();
-//                }
-//            };
+            QHBoxLayout* gatewayLayout = new QHBoxLayout;
+            gatewayLayout->setMargin(0);
+            gatewayLayout->setSpacing(0);
+            QLabel* gatewayName = new QLabel(tr("Gateway:"));
+            gatewayName->setFixedSize(100, 20);
 
-//            labelTextMap[it.key()] = [=]() -> QString {
-//                return valueName->text();
-//            };
+            gatewayLayout->addWidget(gatewayName, 0, Qt::AlignLeft | Qt::AlignHCenter);
+            gatewayLayout->addWidget(m_gatewayEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
+            m_gatewayWidget->setLayout(gatewayLayout);
 
-            it.key()->setLayout(layout);
+            QHBoxLayout* dnsLayout = new QHBoxLayout;
+            dnsLayout->setMargin(0);
+            dnsLayout->setSpacing(0);
+            QLabel* dnsName = new QLabel(tr("Primary DNS:"));
+            dnsName->setFixedSize(100, 20);
+
+            dnsLayout->addWidget(dnsName, 0, Qt::AlignLeft | Qt::AlignHCenter);
+            dnsLayout->addWidget(m_primaryDNSEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
+            m_primaryDNSWidget->setLayout(dnsLayout);
         }
 
         QHBoxLayout* dhcpLayout = new QHBoxLayout;
@@ -292,12 +297,8 @@ public:
         m_ipv4Edit->setText(address.ip().toString());
         m_maskEdit->setText(address.netmask().toString());
         m_gatewayEdit->setText(address.gateway().toString());
-//        labelHandleMap[m_ipWidget](address.ip().toString());
-//        labelHandleMap[m_maskWidget](address.netmask().toString());
-//        labelHandleMap[m_gatewayWidget](address.gateway().toString());
         if (!ipConfig.nameservers().isEmpty()) {
             m_primaryDNSEdit->setText(ipConfig.nameservers().at(0).toString());
-//            labelHandleMap[m_primaryDNSWidget](ipConfig.nameservers().at(0).toString());
         }
     }
 
@@ -309,31 +310,16 @@ public:
     }
 
     void onEdit() {
-//        for (auto it = m_widgetList.begin(); it != m_widgetList.end(); ++it) {
-////            labelShowMap[it->first](false);
-////            it->second->show();
-//            it->second->setEnabled(true);
-//        }
         setEditEnable(true);
 
         m_editBtn->hide();
         m_acceptBtn->show();
         m_dhcpTypeWidget->setCurrentIndex(1);
 
-//        m_ipv4Edit->setText(labelTextMap[m_ipWidget]());
-//        m_maskEdit->setText(labelTextMap[m_maskWidget]());
-//        m_gatewayEdit->setText(labelTextMap[m_gatewayWidget]());
-//        m_primaryDNSEdit->setText(labelTextMap[m_primaryDNSWidget]());
         m_dhcpTypeWidget->setEnabled(true);
     }
 
     void onEditFinished() {
-//        for (auto it = m_widgetList.begin(); it != m_widgetList.end(); ++it) {
-////            labelShowMap[it->first](true);
-////            it->second->hide();
-////            labelHandleMap[it->first](it->second->text());
-//            it->second->setEnabled(false);
-//        }
         setEditEnable(false);
 
         m_editBtn->show();
@@ -446,22 +432,18 @@ public:
     }
 
     QString ip() const {
-//        return labelTextMap[m_ipWidget]();
         return m_ipv4Edit->text();
     }
 
     QString mask() const {
-//        return labelTextMap[m_maskWidget]();
         return m_maskEdit->text();
     }
 
     QString gateway() const {
-//        return labelTextMap[m_gatewayWidget]();
         return m_gatewayEdit->text();
     }
 
     QString primaryDNS() const {
-//        return labelTextMap[m_primaryDNSWidget]();
         return m_primaryDNSEdit->text();
     }
 
@@ -501,9 +483,6 @@ private:
     DHCPTYpe m_dhcpType;
     std::unique_ptr<QRegularExpressionValidator> m_validityCheck;
     SystemInfoTip*                               m_errorTip;
-//    QMap<QWidget*, std::function<void (const QString& text)>> labelHandleMap;
-//    QMap<QWidget*, std::function<void (const bool show)>> labelShowMap;
-//    QMap<QWidget*, std::function<QString ()>> labelTextMap;
     QComboBox *m_dhcpTypeWidget;
     NetworkManager::Device::Ptr m_device = nullptr;
     NetworkOperate *m_networkOperate = nullptr;
