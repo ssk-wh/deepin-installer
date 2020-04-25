@@ -26,7 +26,7 @@ typedef struct tagNetworkSettingInfo {
     QString mask;
     QString gateway;
     QString primaryDNS;
-    DHCPTYpe setIpMode;
+    DHCPTYpe setIpMode = DHCPTYpe::Auto;
 } NetworkSettingInfo;
 
 class NetworkOperate : public QObject {
@@ -39,6 +39,8 @@ public:
     void setNetworkConnection();
     bool setIpV4(NetworkSettingInfo info);
     void setDeviceEnable(const QString &devPath, const bool enable);
+    bool getDeviceEnable(const QString &devPath);
+
     NetworkManager::Connection::Ptr getConnection() const;
 
 private:

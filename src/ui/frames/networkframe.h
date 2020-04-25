@@ -2,6 +2,7 @@
 #define NETWORKFRAME_H
 
 #include "ui/interfaces/frameinterface.h"
+#include "ui/delegates/network_operate.h"
 
 #include <DButtonBox>
 
@@ -10,6 +11,7 @@ DWIDGET_USE_NAMESPACE
 class QRegularExpressionValidator;
 class QLabel;
 class QPushButton;
+class QVBoxLayout;
 
 namespace installer {
 class NetworkEditWidget;
@@ -21,18 +23,23 @@ public:
 
     QString returnFrameName() const override;
 
+    void initDeviceWidgetList();
+
 signals:
     void requestNext();
 
 protected:
     bool event(QEvent *event) override;
+    void showEvent(QShowEvent* event) override;
 
 private:
+    QVBoxLayout*                                m_leftLayout;
     QLabel*                                     m_subTitle;
     QPushButton*                                m_nextButton;
     NetworkEditWidget*                          m_currentNetworkEditWidget;
     DButtonBox*                                 m_buttonBox = nullptr;
     QList<DButtonBoxButton*>                    m_buttonList;
+    QMap<NetworkManager::Device::Ptr, NetworkSettingInfo> m_deviceConfigInfo;
 
     void init() override;
     void finished() override;

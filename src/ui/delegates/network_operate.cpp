@@ -143,4 +143,19 @@ void NetworkOperate::setDeviceEnable(const QString &devPath, const bool enable)
     deviceManager.callWithArgumentList(QDBus::Block, "EnableDevice", arg);
 }
 
+bool NetworkOperate::getDeviceEnable(const QString &devPath)
+{
+    QDBusInterface deviceManager("com.deepin.daemon.Network",
+              "/com/deepin/daemon/Network",
+              "com.deepin.daemon.Network",
+              QDBusConnection::sessionBus());
+
+    QList<QVariant> arg;
+    arg << QVariant::fromValue(QDBusObjectPath(devPath));
+    QDBusPendingReply<bool> reply = deviceManager.callWithArgumentList(QDBus::Block, "IsDeviceEnabled", arg);
+
+    bool enable = reply.value();
+    return enable;
+}
+
 }

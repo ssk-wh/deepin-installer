@@ -24,6 +24,12 @@ public:
     void setTitle(const QString& title);
     void setDesc(const QString& desc);
 
+    void setNetworkSettingInfo(const NetworkSettingInfo info);
+    NetworkSettingInfo* getNetworkSettingInfo() const;
+
+    bool deviceEnable() const;
+    void setDeviceEnable(const bool enable);
+
     void updateCheckedAppearance();
 
     void setDeviceInfo(NetworkManager::Device::Ptr device);
@@ -45,6 +51,8 @@ private:
 
     NetworkManager::Device::Ptr m_device = nullptr;
     NetworkOperate *m_networkOperate = nullptr;
+    NetworkSettingInfo* m_networkSettingInfo = nullptr;
+    bool m_deviceEnable = true;
 };
 
 }

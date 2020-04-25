@@ -17,6 +17,8 @@ namespace {
 NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     : DButtonBoxButton("", parent)
     , m_isflag(false)
+    , m_networkSettingInfo(nullptr)
+    , m_deviceEnable(true)
 {
     m_deviceName = new QLabel;
     m_deviceName->setObjectName("titleLabel");
@@ -107,6 +109,27 @@ void NetworkDeviceWidget::setTitle(const QString &title)
 void NetworkDeviceWidget::setDesc(const QString &desc)
 {
     m_descLabel->setText(desc);
+}
+
+void NetworkDeviceWidget::setNetworkSettingInfo(const NetworkSettingInfo info)
+{
+    m_networkSettingInfo = new NetworkSettingInfo();
+    *m_networkSettingInfo = info;
+}
+
+NetworkSettingInfo* NetworkDeviceWidget::getNetworkSettingInfo() const
+{
+    return m_networkSettingInfo;
+}
+
+bool NetworkDeviceWidget::deviceEnable() const
+{
+    return m_deviceEnable;
+}
+
+void NetworkDeviceWidget::setDeviceEnable(const bool enable)
+{
+    m_deviceEnable = enable;
 }
 
 void NetworkDeviceWidget::updateCheckedAppearance()
