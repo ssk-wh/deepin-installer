@@ -419,6 +419,7 @@ public:
     void setDevice(NetworkManager::Device::Ptr device) {
         m_device = device;
         m_switchButton->setEnabled(true);
+        m_switchButton->setChecked(true);
     }
 
     NetworkManager::Device::Ptr getDevice() const {
