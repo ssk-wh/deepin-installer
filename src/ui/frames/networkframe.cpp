@@ -278,6 +278,7 @@ public:
 
     void clearWidgetIpInfo()
     {
+        m_dhcpTypeWidget->setCurrentIndex(0);
         m_ipv4Edit->setText("");
         m_maskEdit->setText("");
         m_gatewayEdit->setText("");
@@ -623,8 +624,6 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     layout->addWidget(m_nextButton, 0, Qt::AlignHCenter);
     layout->addSpacing(10);
     setLayout(layout);
-
-    setStyleSheet("QLabel{color: white;}");
 
     m_buttonBox = new DButtonBox;
     initDeviceWidgetList();
