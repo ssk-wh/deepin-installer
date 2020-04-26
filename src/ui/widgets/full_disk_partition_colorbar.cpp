@@ -94,6 +94,7 @@ FullDiskPartitionWidget::FullDiskPartitionWidget(QWidget* parent)
     :QWidget(parent)
 {
     m_fullDiskPartitionColorBar = new FullDiskPartitionColorBar(this);
+    m_fullDiskPartitionColorBar->setFixedHeight(20);
 
     m_labelLayout = new DFlowLayout(this);
     m_labelLayout->setFlow(DFlowLayout::Flow::LeftToRight);
