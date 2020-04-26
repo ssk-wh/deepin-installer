@@ -98,6 +98,8 @@ void PartitionSizeSlider::initConnection() {
           this, &PartitionSizeSlider::onSliderValueChanged);
   connect(editor_, &QLineEdit::textChanged,
           this, &PartitionSizeSlider::onEditorTextChanged);
+  connect(editor_, &QLineEdit::editingFinished,
+          this, &PartitionSizeSlider::onEditorFinished);
 }
 
 void PartitionSizeSlider::initUI() {
@@ -111,6 +113,13 @@ void PartitionSizeSlider::initUI() {
   editor_->setFixedWidth(90);
   // Disable context menu.
   editor_->setContextMenuPolicy(Qt::NoContextMenu);
+  connect(editor_, &QLineEdit::selectionChanged, this,[=] {
+      if (editor_->text().isEmpty() || !editor_->selectedText().isEmpty()){
+          editor_->setFocus();
+      } else {
+        this->setFocus();
+      }
+  });
 
   QLabel* size_label = new QLabel("MB");
   size_label->setObjectName("size_label");
@@ -153,6 +162,12 @@ void PartitionSizeSlider::onSliderValueChanged(int value) {
 
   // Emit valueChanged() signal.
   emit this->valueChanged(value * kMebiByte);
+}
+
+void PartitionSizeSlider::onEditorFinished()
+{
+    int value = slider_->value();
+    editor_->setText(QString::number(value));
 }
 
 }  // namespace installer

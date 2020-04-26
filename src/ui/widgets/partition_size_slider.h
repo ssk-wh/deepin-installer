@@ -72,6 +72,7 @@ class PartitionSizeSlider : public QFrame {
  private:
   void onEditorTextChanged(const QString& text);
   void onSliderValueChanged(int value);
+  void onEditorFinished();
 };
 
 }  // namespace installer
