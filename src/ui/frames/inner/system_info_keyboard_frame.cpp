@@ -313,6 +313,7 @@ void SystemInfoKeyboardFrame::readConf() {
         }
         else {
             qWarning() << "Invalid default keyboard variant:" << variant;
+            d->m_variantView->setCurrentIndex(d->m_variantModel->index(0, 0));
         }
     } else {
         qWarning() << "Invalid default keyboard layout:" << layout;
@@ -493,9 +494,9 @@ void SystemInfoKeyboardFramePrivate::onLayoutViewSelectionChanged(
 
     // Scroll to top of variant view.
     m_variantView->scrollToTop();
-    if (m_layoutView->selectionModel()->selectedIndexes().size() > 0)  {
+    if (m_variantModel->rowCount() > 0)  {
         // Select the default layout variant.
-        m_variantView->setCurrentIndex(m_variantModel->index(0,0));
+        m_variantView->setCurrentIndex(m_variantModel->index(0, 0));
     }
 }
 

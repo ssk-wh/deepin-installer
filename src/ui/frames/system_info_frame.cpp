@@ -112,8 +112,6 @@ void SystemInfoFrame::init() {
 
   m_private->form_frame_->readConf();
 
-  m_private->form_frame_->readConf();
-
   // Read default keyboard layout.
   m_private->keyboard_frame_->readConf();
 }
@@ -158,7 +156,7 @@ void SystemInfoFramePrivate::initConnections() {
 
 void SystemInfoFramePrivate::initUI() {
   keyboard_button_ = new QPushButton();
-  keyboard_button_->setFixedWidth(100);
+  keyboard_button_->setFixedWidth(250);
   keyboard_button_->setFixedHeight(30);
 
   bottom_layout_ = new QHBoxLayout();
