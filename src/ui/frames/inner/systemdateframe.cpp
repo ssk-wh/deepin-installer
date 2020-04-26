@@ -383,6 +383,11 @@ void SystemDateFramePrivate::initUI()
 {
     m_setDateTimeCheckBox->setCheckable(true);
     m_setDateTimeCheckBox->setChecked(false);
+    m_hourEdit->setEnabled(false);
+    m_minuteEdit->setEnabled(false);
+    m_yearEdit->setEnabled(false);
+    m_monthEdit->setEnabled(false);
+    m_dayEdit->setEnabled(false);
 
     m_hourEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{1,2}")));
     m_hourEdit->setObjectName("hourEdit");
@@ -480,6 +485,21 @@ void SystemDateFramePrivate::initUI()
 
 void SystemDateFramePrivate::initConnection()
 {
+    connect(m_setDateTimeCheckBox, &DCheckBox::stateChanged, this, [=] {
+        if (m_setDateTimeCheckBox->isChecked()) {
+            m_hourEdit->setEnabled(true);
+            m_minuteEdit->setEnabled(true);
+            m_yearEdit->setEnabled(true);
+            m_monthEdit->setEnabled(true);
+            m_dayEdit->setEnabled(true);
+        } else {
+            m_hourEdit->setEnabled(false);
+            m_minuteEdit->setEnabled(false);
+            m_yearEdit->setEnabled(false);
+            m_monthEdit->setEnabled(false);
+            m_dayEdit->setEnabled(false);
+        }
+    });
     connect(m_yearEdit, &QLineEdit::editingFinished, this,
             &SystemDateFramePrivate::onYearEditingFinished);
     connect(m_yearEdit, &TimeDateLineEdit::lostFocus, this,
