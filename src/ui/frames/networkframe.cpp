@@ -640,9 +640,10 @@ void NetworkFrame::initDeviceWidgetList()
     foreach (NetworkManager::Device::Ptr dev, list) {
         qDebug() << dev->uni();
         qDebug() << "managed: " << dev->managed();
+        qDebug() << "type: " << dev->type();
         qDebug() << "interface name: " << dev->interfaceName();
 
-        if (dev->interfaceName() == "lo" || !dev->managed()) {
+        if (dev->interfaceName() == "lo" || dev->type() == NetworkManager::Device::Type::Wifi) {
             continue;
         }
 
