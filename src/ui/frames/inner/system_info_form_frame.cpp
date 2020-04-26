@@ -47,6 +47,7 @@
 #include <QScrollBar>
 #include <DLineEdit>
 #include <DPasswordEdit>
+#include <QAction>
 
 DWIDGET_USE_NAMESPACE
 
@@ -132,6 +133,7 @@ private:
     DPasswordEdit*     m_rootPasswordEdit = nullptr;
     QLabel* m_rootPasswordCheckLabel = nullptr;
     DPasswordEdit*     m_rootPasswordCheckEdit = nullptr;
+    QAction *m_capsLock = nullptr;
 
     QFrame *m_rootPasswordFrame = nullptr;
     QFrame *m_rootPasswordCheckFrame = nullptr;
@@ -249,8 +251,8 @@ void SystemInfoFormFrame::showEvent(QShowEvent* event)
     QFrame::showEvent(event);
     d->m_usernameEdit->setFocus();
     d->tooltip_->hide();
-    d->updateDevice();
 
+    d_private->updateCapsLockState(KeyboardMonitor::instance()->isCapslockOn());
 }
 
 void SystemInfoFormFramePrivate::initConnections()
@@ -369,6 +371,9 @@ void SystemInfoFormFramePrivate::initUI()
     else {
         m_hostnameEdit->lineEdit()->setPlaceholderText(tr("Computer name"));
     }
+
+    m_capsLock = new QAction();
+    m_capsLock->setIcon(QIcon(":/images/capslock.svg"));
 
     QHBoxLayout *hostnameLayout = new QHBoxLayout;
     hostnameLayout->setContentsMargins(0, 0, 0, 0);
@@ -706,8 +711,13 @@ bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, Q
 void SystemInfoFormFramePrivate::updateCapsLockState(bool capsLock)
 {
     for (DLineEdit* edit : m_editList) {
-        // TODO(chenxiong)
-        //        edit->setCapsLockVisible(edit->hasFocus() && capsLock);
+        QLineEdit *lineEdit = edit->lineEdit();
+        if (capsLock) {
+            lineEdit->addAction(m_capsLock, QLineEdit::TrailingPosition);
+        } else {
+            lineEdit->removeAction(m_capsLock);
+        }
+        lineEdit->update();
     }
 }
 
