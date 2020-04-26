@@ -160,7 +160,7 @@ void InstallProgressSlideFrame::updateSlidePixmap()
     const int buttonWidth = m_backButton->width();
     constexpr int buttonSpacing = 20;
     const int width = this->width() - (buttonWidth + buttonSpacing) * 2;
-    const QPixmap pixmap = m_cachePixmap.scaled(QSize(width, height()) * 0.618/* 随手写的黄金分割 */, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    const QPixmap pixmap = m_cachePixmap.scaled(QSize(width, height()) * devicePixelRatioF() * 0.618/* 随手写的黄金分割 */, Qt::KeepAspectRatio, Qt::SmoothTransformation);
 
     m_animationContainer->setFixedSize(pixmap.size());
     container_label_->resize(m_animationContainer->size());
