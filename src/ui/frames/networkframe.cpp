@@ -364,6 +364,10 @@ public:
     }
 
     void onEditFinished() {
+        if (!validate()) {
+            return;
+        }
+
         setEditEnable(false);
 
         m_editBtn->show();
@@ -421,16 +425,23 @@ public:
 
     bool validate()
     {
-        for (auto it = m_editList.begin(); it != m_editList.end(); ++it) {
-            if (*it != m_maskEdit) {
-                if (!checkEditIPValidity(*it)) {
-                    return false;
-                }
+        if (!checkEditIPValidity(m_ipv4Edit)) {
+            return false;
+        }
+
+        if (!checkMaskValidity()) {
+            return false;
+        }
+
+        if (!m_gatewayEdit->text().isEmpty()) {
+            if (!checkEditIPValidity(m_gatewayEdit)) {
+                return false;
             }
-            else {
-                if (!checkMaskValidity()) {
-                    return false;
-                }
+        }
+
+        if (!m_primaryDNSEdit->text().isEmpty()) {
+            if (!checkEditIPValidity(m_primaryDNSEdit)) {
+                return false;
             }
         }
 
@@ -643,6 +654,7 @@ void NetworkFrame::initDeviceWidgetList()
         qDebug() << "type: " << dev->type();
         qDebug() << "interface name: " << dev->interfaceName();
 
+        // FIXME: what about !dev->managed()
         if (dev->interfaceName() == "lo" || dev->type() == NetworkManager::Device::Type::Wifi) {
             continue;
         }
@@ -716,11 +728,6 @@ void NetworkFrame::showEvent(QShowEvent *event)
 
 void NetworkFrame::saveConf()
 {
-    // TODO:
-    //    if (!m_currentNetworkEditWidget->validate()) {
-    //        return;
-    //    }
-
     for (DButtonBoxButton* button : m_buttonList) {
         qobject_cast<NetworkDeviceWidget *>(button)->updateCheckedAppearance();
         NetworkDeviceWidget* deviceWidget = qobject_cast<NetworkDeviceWidget*>(button);
