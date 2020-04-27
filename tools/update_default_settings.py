@@ -172,6 +172,7 @@ def main():
         ("timezone_use_local_time_regardless", "true"),
         ("skip_select_component_page", "true"),
         ("partition_skip_simple_partition_page", "true"),
+        ("enable_install_nvidia_driver", "true"),
     )
 
     x86_server_settings = (

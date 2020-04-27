@@ -121,11 +121,17 @@ bool FullDiskFrame::isEncrypt() const
     return m_encryptCheck->isChecked();
 }
 
+bool FullDiskFrame::isInstallNvidia() const
+{
+    return m_installNvidiaCheck->isChecked();
+}
+
 void FullDiskFrame::changeEvent(QEvent* event) {
     if (event->type() == QEvent::LanguageChange) {
         for (auto it = m_trList.begin(); it != m_trList.end(); ++it) {
             it->first(qApp->translate("installer::FullDiskFrame", it->second.toUtf8()));
         }
+        m_installNvidiaCheck->setText(tr("Install NVIDIA closed source driver"));
     }
     else {
         QFrame::changeEvent(event);
@@ -141,6 +147,7 @@ void FullDiskFrame::initConnections() {
           (&QButtonGroup::buttonToggled),
           this, &FullDiskFrame::onPartitionButtonToggled);
   connect(m_encryptCheck, &QCheckBox::clicked, this, &FullDiskFrame::cryptoStateChanged);
+  connect(m_installNvidiaCheck, &QCheckBox::clicked, this, &FullDiskFrame::installNvidiaStateChanged);
   connect(m_delegate, &FullDiskDelegate::deviceRefreshed,
           m_diskInstallationWidget, &MultipleDiskInstallationWidget::onDeviceListChanged);
   connect(m_diskInstallationWidget, &MultipleDiskInstallationWidget::currentDeviceChanged,
@@ -163,6 +170,13 @@ void FullDiskFrame::initUI() {
   m_encryptCheck->setChecked(false);
   m_encryptCheck->setFocusPolicy(Qt::NoFocus);
   addTransLate(m_trList, std::bind(&QCheckBox::setText, m_encryptCheck, std::placeholders::_1), QString("Encrypt this disk"));
+
+  m_installNvidiaCheck = new QCheckBox;
+  m_installNvidiaCheck->setObjectName("check_box");
+  m_installNvidiaCheck->setCheckable(true);
+  m_installNvidiaCheck->setChecked(false);
+  m_installNvidiaCheck->setFocusPolicy(Qt::NoFocus);
+  m_installNvidiaCheck->setText(tr("Install NVIDIA closed source driver"));
 
   m_errorTip = new QLabel;
   m_errorTip->setObjectName("msg_label");
@@ -244,13 +258,22 @@ void FullDiskFrame::initUI() {
   main_layout->setSpacing(0);
   main_layout->addWidget(scroll_area, 0, Qt::AlignHCenter);
   main_layout->addWidget(m_diskPartitionWidget, 0, Qt::AlignHCenter);
-  main_layout->addWidget(m_encryptCheck, 0, Qt::AlignHCenter);
+
+  QHBoxLayout* h_layout = new QHBoxLayout();
+  h_layout->addWidget(m_encryptCheck);
+  h_layout->addSpacing(10);
+  h_layout->addWidget(m_installNvidiaCheck);
+  main_layout->addLayout(h_layout);
+  main_layout->setAlignment(h_layout, Qt::AlignHCenter);
+
   main_layout->addSpacing(10);
   main_layout->addWidget(m_errorTip, 0, Qt::AlignHCenter);
   main_layout->addWidget(m_diskTooSmallTip, 0, Qt::AlignHCenter);
   main_layout->addSpacing(10);
 
   m_encryptCheck->setVisible(!GetSettingsBool(KPartitionSkipFullCryptPage));
+  m_installNvidiaCheck->setVisible(GetSettingsBool(KEnableInstallNvidiaDriver));
+  WriteEnableNvidiaDriver(false);
 
   this->setLayout(main_layout);
   this->setContentsMargins(0, 0, 0, 0);
@@ -378,6 +401,11 @@ void FullDiskFrame::onCurrentDeviceChanged(int type, const Device::Ptr device)
     }
     m_diskPartitionWidget->setDevices(m_delegate->selectedDevices());
     emit showDeviceInfomation();
+}
+
+void FullDiskFrame::installNvidiaStateChanged(bool install_nvidia)
+{
+    WriteEnableNvidiaDriver(install_nvidia);
 }
 
 }  // namespace installer

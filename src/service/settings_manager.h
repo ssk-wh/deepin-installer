@@ -104,6 +104,9 @@ bool DeleteConfigFile();
 
 // Setup uefi mode or not.
 void WriteUEFI(bool is_efi);
+
+void WriteEnableNvidiaDriver(bool is_enable_nvidia_driver);
+
 //void WriteInstallerMode(bool is_simple_mode);
 
 // Get current locale.

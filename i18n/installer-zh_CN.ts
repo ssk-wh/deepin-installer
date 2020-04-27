@@ -34,6 +34,12 @@
         <translation>删除</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="107"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="242"/>
+        <source>Install NVIDIA closed source driver</source>
+        <translation>集成Nvidia闭源驱动</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="438"/>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
         <translation>发现%1处错误，修复后即可继续安装或切换到简单模式</translation>
@@ -240,6 +246,12 @@
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="65"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
         <translation>安装%2至少需要%1 GB磁盘空间，为了更好的使用，建议您划分%3 GB以上</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="134"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="179"/>
+        <source>Install NVIDIA closed source driver</source>
+        <translation>集成Nvidia闭源驱动</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="179"/>

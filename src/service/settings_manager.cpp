@@ -410,6 +410,10 @@ void WriteUEFI(bool is_efi) {
   AppendToConfigFile("DI_UEFI", is_efi);
 }
 
+void WriteEnableNvidiaDriver(bool is_enable_nvidia_driver) {
+  AppendToConfigFile("DI_ENABLE_NVIDIA_DRIVER", is_enable_nvidia_driver);
+}
+
 QString ReadLocale() {
   QSettings settings(kInstallerConfigFile, QSettings::IniFormat);
   QString locale;
