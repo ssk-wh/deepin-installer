@@ -343,6 +343,7 @@ QString GetComponentDefault() {
             continue;
         }
         if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
+            qInfo() << "read file " << file.fileName();
             return file.readAll();
         }
     }
@@ -359,6 +360,7 @@ QString GetComponentExtra() {
             continue;
         }
         if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
+            qInfo() << "read file " << file.fileName();
             return file.readAll();
         }
     }
@@ -375,6 +377,7 @@ QString GetComponentSort(){
             continue;
         }
         if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
+            qInfo() << "read file " << file.fileName();
             return file.readAll();
         }
     }
