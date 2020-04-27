@@ -483,6 +483,9 @@ public:
     void setNetworkDeviceWidget(NetworkDeviceWidget* deviceWidget)
     {
         m_deviceWidget = deviceWidget;
+        setDevice(m_deviceWidget->getDevice());
+        setNetworkOperate(m_deviceWidget->networkOperate());
+        setIpConfig(m_deviceWidget->getDevice());
     }
 
     NetworkDeviceWidget* getNetworkDeviceWidget() const
@@ -670,9 +673,6 @@ void NetworkFrame::initDeviceWidgetList()
             deviceWidget->setChecked(true);
             deviceWidget->updateCheckedAppearance();
             m_currentNetworkEditWidget->setNetworkDeviceWidget(deviceWidget);
-            m_currentNetworkEditWidget->setDevice(dev);
-            m_currentNetworkEditWidget->setNetworkOperate(deviceWidget->networkOperate());
-            m_currentNetworkEditWidget->setIpConfig(dev);
             m_currentNetworkEditWidget->updateEditStateByDeviceToggle();
 
             hasSet = true;
@@ -784,9 +784,6 @@ void NetworkFrame::onButtonGroupToggled(QAbstractButton *button)
 
     // TODO: delete two.
     m_currentNetworkEditWidget->setNetworkDeviceWidget(deviceWidget);
-    m_currentNetworkEditWidget->setDevice(deviceWidget->getDevice());
-    m_currentNetworkEditWidget->setNetworkOperate(deviceWidget->networkOperate());
-    m_currentNetworkEditWidget->setIpConfig(deviceWidget->getDevice());
     m_currentNetworkEditWidget->updateEditStateByDeviceToggle();
 }
 
