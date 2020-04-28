@@ -39,6 +39,7 @@ class FirstBootLoadingFrame : public FrameInterface {
     void finished() override;
     bool shouldDisplay() const override;
     QString returnFrameName() const override;
+    bool allowPrevious() const override;
 
  protected:
   void changeEvent(QEvent* event) override;

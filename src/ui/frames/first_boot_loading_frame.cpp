@@ -54,6 +54,11 @@ QString FirstBootLoadingFrame::returnFrameName() const
     return "Tuning system";
 }
 
+bool FirstBootLoadingFrame::allowPrevious() const
+{
+    return false;
+}
+
 void FirstBootLoadingFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     title_label_->setText(tr("Tuning system"));
