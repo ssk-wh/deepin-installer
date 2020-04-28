@@ -121,6 +121,42 @@ QMap<DHCPTYpe, NetworkSettingInfo> NetworkDeviceWidget::getNetworkSettingInfo() 
     return m_networkSettingInfo;
 }
 
+void NetworkDeviceWidget::readNetworkSettingInfo()
+{
+    if (m_device.isNull()) {
+        return;
+    }
+
+    NetworkManager::IpConfig ipConfig = m_device->ipV4Config();
+    if (!ipConfig.isValid()) {
+        return;
+    }
+
+    if (ipConfig.addresses().isEmpty()) {
+        return;
+    }
+
+    // TODO: how to get device dhcp method.
+    NetworkManager::IpAddress address = ipConfig.addresses().at(0);
+
+    NetworkSettingInfo networkSettingInfo;
+    networkSettingInfo.setIpMode = m_networkOperate->getDhcp();
+    setDhcp(m_networkOperate->getDhcp());
+
+    networkSettingInfo.ip = address.ip().toString();
+    networkSettingInfo.mask = address.netmask().toString();
+    networkSettingInfo.gateway = address.gateway().toString();
+    if (!ipConfig.nameservers().isEmpty()) {
+        networkSettingInfo.primaryDNS = ipConfig.nameservers().at(0).toString();
+    }
+
+    QMap<DHCPTYpe, NetworkSettingInfo> saveInfo;
+    m_networkSettingInfo[networkSettingInfo.setIpMode] = networkSettingInfo;
+
+    networkSettingInfo.setIpMode = DHCPTYpe::Manual;
+    m_networkSettingInfo[networkSettingInfo.setIpMode] = networkSettingInfo;
+}
+
 bool NetworkDeviceWidget::deviceEnable() const
 {
     return m_deviceEnable;
@@ -151,6 +187,8 @@ void NetworkDeviceWidget::setDeviceInfo(Device::Ptr device) {
     m_deviceName->setText(tr("Ethernet (%1)").arg(device->interfaceName()));
     m_device = device;
     m_networkOperate = new NetworkOperate(device);
+
+    readNetworkSettingInfo();
 }
 
 NetworkManager::Device::Ptr NetworkDeviceWidget::getDevice() const {

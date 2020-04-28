@@ -234,7 +234,7 @@ public:
 
         QLabel* switchName = new QLabel(tr("Network Switch"));
         switchName->setFixedSize(130, 20);
-        connect(m_switchButton, &DSwitchButton::checkedChanged, this, &NetworkEditWidget::setDeviceEnable);
+        connect(m_switchButton, &DSwitchButton::checkedChanged, this, &NetworkEditWidget::onSwitchStateChanged);
 
         QHBoxLayout* switchLayout = new QHBoxLayout;
         switchLayout->setMargin(0);
@@ -284,82 +284,42 @@ public:
         m_primaryDNSEdit->setText("");
     }
 
-    void readIpConfig(NetworkManager::Device::Ptr dev, bool first) {
-        if (!first) {
-            int index = getNetworkDeviceWidget()->getDhcp() == DHCPTYpe::Auto ? 0 : 1;
-
-            m_dhcpTypeWidget->blockSignals(true);
-            m_dhcpTypeWidget->setCurrentIndex(index);
-            m_dhcpType = index == 0 ? DHCPTYpe::Auto : DHCPTYpe::Manual;
-            m_dhcpTypeWidget->blockSignals(false);
-
-            QMap<DHCPTYpe, NetworkSettingInfo> info = getNetworkDeviceWidget()->getNetworkSettingInfo();
-            // Info may be empty, for example, able didn't plug.
-            if (info.count() > 0) {
-                m_ipv4Edit->setText(info[m_dhcpType].ip);
-                m_maskEdit->setText(info[m_dhcpType].mask);
-                m_gatewayEdit->setText(info[m_dhcpType].gateway);
-                m_primaryDNSEdit->setText(info[m_dhcpType].primaryDNS);
-            }
-            else {
-                clearWidgetIpInfo();
-            }
-
-            return;
-        }
-
-        if (dev.isNull()) {
-            clearWidgetIpInfo();
-            return;
-        }
-
-        NetworkManager::IpConfig ipConfig = dev->ipV4Config();
-        if (!ipConfig.isValid()) {
-            clearWidgetIpInfo();
-            return;
-        }
-
-        if (ipConfig.addresses().isEmpty()) {
-            clearWidgetIpInfo();
-            return;
-        }
-
-        // TODO: how to get device dhcp method.
-        // Will trigger onDHCP slot, so block signal.
-        m_dhcpTypeWidget->blockSignals(true);
-        m_dhcpTypeWidget->setCurrentIndex(0);
-        m_dhcpType = DHCPTYpe::Auto;
-        m_dhcpTypeWidget->blockSignals(false);
-
-        NetworkManager::IpAddress address = ipConfig.addresses().at(0);
-        m_ipv4Edit->setText(address.ip().toString());
-        m_maskEdit->setText(address.netmask().toString());
-        m_gatewayEdit->setText(address.gateway().toString());
-        if (!ipConfig.nameservers().isEmpty()) {
-            m_primaryDNSEdit->setText(ipConfig.nameservers().at(0).toString());
+    void setIpLineEditConfig(const DHCPTYpe dhcp)
+    {
+        QMap<DHCPTYpe, NetworkSettingInfo> info = getNetworkDeviceWidget()->getNetworkSettingInfo();
+        if (info.count() > 0) {
+            m_ipv4Edit->setText(info[dhcp].ip);
+            m_maskEdit->setText(info[dhcp].mask);
+            m_gatewayEdit->setText(info[dhcp].gateway);
+            m_primaryDNSEdit->setText(info[dhcp].primaryDNS);
         }
         else {
-            m_primaryDNSEdit->setText("");
+            clearWidgetIpInfo();
         }
-
-        // Save the device info to device widget.
-        NetworkSettingInfo networkSettingInfo;
-        networkSettingInfo.setIpMode = DHCPTYpe::Auto;
-        networkSettingInfo.ip = ip();
-        networkSettingInfo.mask = mask();
-        networkSettingInfo.gateway = gateway();
-        networkSettingInfo.primaryDNS = primaryDNS();
-
-        QMap<DHCPTYpe, NetworkSettingInfo> saveInfo;
-        saveInfo[networkSettingInfo.setIpMode] = networkSettingInfo;
-
-        networkSettingInfo.setIpMode = DHCPTYpe::Manual;
-        saveInfo[networkSettingInfo.setIpMode] = networkSettingInfo;
-
-        getNetworkDeviceWidget()->setNetworkSettingInfo(saveInfo);
     }
 
-    void setEditEnable(const bool enable)
+    void readIpConfig() {
+        int index = getNetworkDeviceWidget()->getDhcp() == DHCPTYpe::Auto ? 0 : 1;
+
+        m_dhcpTypeWidget->blockSignals(true);
+        m_dhcpTypeWidget->setCurrentIndex(index);
+        m_dhcpType = index == 0 ? DHCPTYpe::Auto : DHCPTYpe::Manual;
+        m_dhcpTypeWidget->blockSignals(false);
+
+        QMap<DHCPTYpe, NetworkSettingInfo> info = getNetworkDeviceWidget()->getNetworkSettingInfo();
+        // Info may be empty, for example, able didn't plug.
+        if (info.count() > 0) {
+            m_ipv4Edit->setText(info[m_dhcpType].ip);
+            m_maskEdit->setText(info[m_dhcpType].mask);
+            m_gatewayEdit->setText(info[m_dhcpType].gateway);
+            m_primaryDNSEdit->setText(info[m_dhcpType].primaryDNS);
+        }
+        else {
+            clearWidgetIpInfo();
+        }
+    }
+
+    void setLineEditEnable(const bool enable)
     {
         for (auto it = m_widgetList.begin(); it != m_widgetList.end(); ++it) {
             it->second->setEnabled(enable);
@@ -367,18 +327,20 @@ public:
     }
 
     void onEdit() {
-        setEditEnable(true);
+        m_dhcpTypeWidget->setEnabled(true);
+
+        m_dhcpTypeWidget->blockSignals(true);
+        m_dhcpTypeWidget->setCurrentIndex(1);
+        m_dhcpType = DHCPTYpe::Manual;
+        setIpLineEditConfig(m_dhcpType);
+        m_dhcpTypeWidget->blockSignals(false);
 
         m_editBtn->hide();
+        m_acceptBtn->setEnabled(true);
         m_acceptBtn->show();
-        m_dhcpTypeWidget->setCurrentIndex(1);
 
-        m_dhcpTypeWidget->setEnabled(true);
-    }
-
-    void saveDeviceEnable(const bool enable)
-    {
-        getNetworkDeviceWidget()->setDeviceEnable(enable);
+        setLineEditEnable(true);
+        m_errorTip->hide();
     }
 
     void saveConfigInfo()
@@ -407,11 +369,15 @@ public:
             return;
         }
 
-        setEditEnable(false);
+        getNetworkDeviceWidget()->setDhcp(m_dhcpType);
+
+        m_dhcpTypeWidget->setEnabled(false);
 
         m_editBtn->show();
+        m_editBtn->setEnabled(true);
         m_acceptBtn->hide();
-        m_dhcpTypeWidget->setEnabled(false);
+
+        setLineEditEnable(false);
         m_errorTip->hide();
 
         saveConfigInfo();
@@ -419,14 +385,12 @@ public:
 
     void updateEditStateByDeviceToggle()
     {
-        setEditEnable(false);
-
-        m_deviceEnable = m_deviceWidget->deviceEnable();
+        // Will toggle other widget state change.
+        m_switchButton->blockSignals(true);
         m_switchButton->setChecked(m_deviceWidget->deviceEnable());
-        m_editBtn->show();
-        m_acceptBtn->hide();
-        m_dhcpTypeWidget->setEnabled(false);
-        m_errorTip->hide();
+        m_switchButton->blockSignals(false);
+
+        onSwitchStateChanged(m_deviceWidget->deviceEnable());
     }
 
     void checkIPValidity()
@@ -498,11 +462,27 @@ public:
     void onDHCPChanged(int index) {
         m_dhcpType = index == 0 ? DHCPTYpe::Auto : DHCPTYpe::Manual;
 
+        setIpLineEditConfig(m_dhcpType);
+
+        getNetworkDeviceWidget()->setDhcp(m_dhcpType);
+
         if (m_dhcpType == DHCPTYpe::Manual) {
-            onEdit();
+            m_editBtn->hide();
+            m_acceptBtn->setEnabled(true);
+            m_acceptBtn->show();
+
+            setLineEditEnable(true);
+            m_errorTip->hide();
         }
         else {
-            onEditFinished();
+            m_dhcpTypeWidget->setEnabled(false);
+
+            m_editBtn->show();
+            m_editBtn->setEnabled(true);
+            m_acceptBtn->hide();
+
+            setLineEditEnable(false);
+            m_errorTip->hide();
         }
     }
 
@@ -524,6 +504,7 @@ public:
         m_deviceWidget = deviceWidget;
         setDevice(m_deviceWidget->getDevice());
         setNetworkOperate(m_deviceWidget->networkOperate());
+        readIpConfig();
     }
 
     NetworkDeviceWidget* getNetworkDeviceWidget() const
@@ -570,12 +551,32 @@ public:
         return m_dhcpType;
     }
 
-    void setDeviceEnable(bool enable)
+    void onSwitchStateChanged(bool enable)
     {
         m_deviceEnable = enable;
-        m_editBtn->setEnabled(enable);
 
-        saveDeviceEnable(enable);
+        if (m_deviceEnable) {
+            m_dhcpTypeWidget->setEnabled(false);
+            setLineEditEnable(false);
+
+            m_editBtn->show();
+            m_editBtn->setEnabled(true);
+            m_acceptBtn->hide();
+
+            m_errorTip->hide();
+        }
+        else {
+            m_dhcpTypeWidget->setEnabled(false);
+            setLineEditEnable(false);
+
+            m_editBtn->show();
+            m_editBtn->setEnabled(false);
+            m_acceptBtn->hide();
+
+            m_errorTip->hide();
+        }
+
+        getNetworkDeviceWidget()->setDeviceEnable(enable);
     }
 
     bool getDeviceEnable() const
@@ -711,7 +712,6 @@ void NetworkFrame::initDeviceWidgetList()
             deviceWidget->setChecked(true);
             deviceWidget->updateCheckedAppearance();
             m_currentNetworkEditWidget->setNetworkDeviceWidget(deviceWidget);
-            m_currentNetworkEditWidget->readIpConfig(deviceWidget->getDevice(), true);
             m_currentNetworkEditWidget->updateEditStateByDeviceToggle();
 
             hasSet = true;
@@ -825,7 +825,6 @@ void NetworkFrame::onButtonGroupToggled(QAbstractButton *button)
 
     // TODO: delete two.
     m_currentNetworkEditWidget->setNetworkDeviceWidget(deviceWidget);
-    m_currentNetworkEditWidget->readIpConfig(deviceWidget->getDevice(), false);
     m_currentNetworkEditWidget->updateEditStateByDeviceToggle();
 }
 

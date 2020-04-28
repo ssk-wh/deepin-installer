@@ -40,6 +40,7 @@ public:
     bool setIpV4(NetworkSettingInfo info);
     void setDeviceEnable(const QString &devPath, const bool enable);
     bool getDeviceEnable(const QString &devPath);
+    DHCPTYpe getDhcp() const;
 
     NetworkManager::Connection::Ptr getConnection() const;
 
@@ -48,5 +49,6 @@ private:
     NetworkManager::Device::Ptr m_device = nullptr;
     NetworkManager::Connection::Ptr m_connection = nullptr;
     ActiveConnection::Ptr m_activeConnection = nullptr;
+    DHCPTYpe m_configMethod = DHCPTYpe::Auto;
 };
 }  // namespace installer
