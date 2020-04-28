@@ -24,6 +24,7 @@ public:
     void setTitle(const QString& title);
     void setDesc(const QString& desc);
 
+    void readNetworkSettingInfo();
     void setNetworkSettingInfo(const QMap<DHCPTYpe, NetworkSettingInfo>& info);
     QMap<DHCPTYpe, NetworkSettingInfo> getNetworkSettingInfo() const;
 

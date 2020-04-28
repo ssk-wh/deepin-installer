@@ -150,7 +150,6 @@ void NetworkDeviceWidget::readNetworkSettingInfo()
         networkSettingInfo.primaryDNS = ipConfig.nameservers().at(0).toString();
     }
 
-
     m_networkSettingInfo[networkSettingInfo.setIpMode] = networkSettingInfo;
 
     // If set ip mode is auto, then the manual configuration is the same as the automatic configuration.
@@ -164,7 +163,6 @@ void NetworkDeviceWidget::readNetworkSettingInfo()
         info.setIpMode = DHCPTYpe::Auto;
         m_networkSettingInfo[info.setIpMode] = info;
     }
-
 }
 
 bool NetworkDeviceWidget::deviceEnable() const
@@ -197,6 +195,8 @@ void NetworkDeviceWidget::setDeviceInfo(Device::Ptr device) {
     m_deviceName->setText(tr("Ethernet (%1)").arg(device->interfaceName()));
     m_device = device;
     m_networkOperate = new NetworkOperate(device);
+
+    readNetworkSettingInfo();
 }
 
 NetworkManager::Device::Ptr NetworkDeviceWidget::getDevice() const {
