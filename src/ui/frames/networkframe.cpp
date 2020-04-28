@@ -403,7 +403,9 @@ public:
     bool checkEditIPValidity(DLineEdit *edit)
     {
         if (!checkip(edit->text())) {
+            QWidget *parent = qobject_cast<QWidget *>(edit->parent());
             m_errorTip->setText(tr("IP address error: illegal IP address, please have a check."));
+            m_errorTip->setRelativePosition(parent->pos());
             m_errorTip->showBottom(edit);
             return false;
         }
@@ -417,6 +419,7 @@ public:
     {
         if (!checkMask(m_maskEdit->text())) {
             m_errorTip->setText(tr("Netmask error: illegal netmask, please have a check."));
+            m_errorTip->setRelativePosition(m_maskWidget->pos());
             m_errorTip->showBottom(m_maskEdit);
             return false;
         }
