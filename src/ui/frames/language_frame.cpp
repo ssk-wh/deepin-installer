@@ -57,6 +57,12 @@ public:
         nextButton->setEnabled(false);
     }
 
+    void updateNextButton() const override {
+        if (m_select_language_frame->isChecked()) {
+            nextButton->setEnabled(true);
+        }
+    }
+
     LanguageFrame*       q_ptr                   = nullptr;
     QStackedLayout*      m_frame_layout          = nullptr;
     UserAgreementDelegate* m_user_license_delegate = nullptr;

@@ -48,6 +48,8 @@ class SelectLanguageFrame : public QFrame {
   // Write locale to settings file.
   void writeConf();
 
+  bool isChecked();
+
  signals:
   // Emitted when new language item is selected.
   void timezoneUpdated(const QString& timezone);

@@ -135,7 +135,13 @@ void SelectLanguageFrame::readConf() {
 
 void SelectLanguageFrame::writeConf() {
   Q_D(SelectLanguageFrame);
-  WriteLocale(d->lang_.locale);
+    WriteLocale(d->lang_.locale);
+}
+
+bool SelectLanguageFrame::isChecked()
+{
+    bool enable = GetSettingsBool(kSystemInfoDisableLicense) || d_private->accept_license_->isChecked();
+    return !d_private->lang_.name.isEmpty() && enable;
 }
 
 void SelectLanguageFrame::changeEvent(QEvent* event) {
