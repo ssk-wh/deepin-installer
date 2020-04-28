@@ -24,11 +24,14 @@ public:
     void setTitle(const QString& title);
     void setDesc(const QString& desc);
 
-    void setNetworkSettingInfo(const NetworkSettingInfo info);
-    NetworkSettingInfo* getNetworkSettingInfo() const;
+    void setNetworkSettingInfo(const QMap<DHCPTYpe, NetworkSettingInfo>& info);
+    QMap<DHCPTYpe, NetworkSettingInfo> getNetworkSettingInfo() const;
 
     bool deviceEnable() const;
     void setDeviceEnable(const bool enable);
+
+    DHCPTYpe getDhcp() const;
+    void setDhcp(const DHCPTYpe dhcp);
 
     void updateCheckedAppearance();
 
@@ -51,8 +54,9 @@ private:
 
     NetworkManager::Device::Ptr m_device = nullptr;
     NetworkOperate *m_networkOperate = nullptr;
-    NetworkSettingInfo* m_networkSettingInfo = nullptr;
+    QMap<DHCPTYpe, NetworkSettingInfo> m_networkSettingInfo;
     bool m_deviceEnable = true;
+    DHCPTYpe m_dhcpType = DHCPTYpe::Auto;
 };
 
 }

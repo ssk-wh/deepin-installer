@@ -278,22 +278,32 @@ public:
 
     void clearWidgetIpInfo()
     {
-        m_dhcpTypeWidget->setCurrentIndex(0);
         m_ipv4Edit->setText("");
         m_maskEdit->setText("");
         m_gatewayEdit->setText("");
         m_primaryDNSEdit->setText("");
     }
 
-    void setIpConfig(NetworkManager::Device::Ptr dev) {
-        NetworkSettingInfo* info = getNetworkDeviceWidget()->getNetworkSettingInfo();
-        if (info != nullptr) {
-            int index = info->setIpMode == DHCPTYpe::Auto ? 0 : 1;
+    void readIpConfig(NetworkManager::Device::Ptr dev, bool first) {
+        if (!first) {
+            int index = getNetworkDeviceWidget()->getDhcp() == DHCPTYpe::Auto ? 0 : 1;
+
+            m_dhcpTypeWidget->blockSignals(true);
             m_dhcpTypeWidget->setCurrentIndex(index);
-            m_ipv4Edit->setText(info->ip);
-            m_maskEdit->setText(info->mask);
-            m_gatewayEdit->setText(info->gateway);
-            m_primaryDNSEdit->setText(info->primaryDNS);
+            m_dhcpType = index == 0 ? DHCPTYpe::Auto : DHCPTYpe::Manual;
+            m_dhcpTypeWidget->blockSignals(false);
+
+            QMap<DHCPTYpe, NetworkSettingInfo> info = getNetworkDeviceWidget()->getNetworkSettingInfo();
+            // Info may be empty, for example, able didn't plug.
+            if (info.count() > 0) {
+                m_ipv4Edit->setText(info[m_dhcpType].ip);
+                m_maskEdit->setText(info[m_dhcpType].mask);
+                m_gatewayEdit->setText(info[m_dhcpType].gateway);
+                m_primaryDNSEdit->setText(info[m_dhcpType].primaryDNS);
+            }
+            else {
+                clearWidgetIpInfo();
+            }
 
             return;
         }
@@ -314,6 +324,13 @@ public:
             return;
         }
 
+        // TODO: how to get device dhcp method.
+        // Will trigger onDHCP slot, so block signal.
+        m_dhcpTypeWidget->blockSignals(true);
+        m_dhcpTypeWidget->setCurrentIndex(0);
+        m_dhcpType = DHCPTYpe::Auto;
+        m_dhcpTypeWidget->blockSignals(false);
+
         NetworkManager::IpAddress address = ipConfig.addresses().at(0);
         m_ipv4Edit->setText(address.ip().toString());
         m_maskEdit->setText(address.netmask().toString());
@@ -324,6 +341,22 @@ public:
         else {
             m_primaryDNSEdit->setText("");
         }
+
+        // Save the device info to device widget.
+        NetworkSettingInfo networkSettingInfo;
+        networkSettingInfo.setIpMode = DHCPTYpe::Auto;
+        networkSettingInfo.ip = ip();
+        networkSettingInfo.mask = mask();
+        networkSettingInfo.gateway = gateway();
+        networkSettingInfo.primaryDNS = primaryDNS();
+
+        QMap<DHCPTYpe, NetworkSettingInfo> saveInfo;
+        saveInfo[networkSettingInfo.setIpMode] = networkSettingInfo;
+
+        networkSettingInfo.setIpMode = DHCPTYpe::Manual;
+        saveInfo[networkSettingInfo.setIpMode] = networkSettingInfo;
+
+        getNetworkDeviceWidget()->setNetworkSettingInfo(saveInfo);
     }
 
     void setEditEnable(const bool enable)
@@ -350,17 +383,23 @@ public:
 
     void saveConfigInfo()
     {
-        NetworkSettingInfo networkSettingInfo;
+        QMap<DHCPTYpe, NetworkSettingInfo> info
+                = getNetworkDeviceWidget()->getNetworkSettingInfo();
 
+        NetworkSettingInfo networkSettingInfo;
         networkSettingInfo.setIpMode = connectType();
+
+        // Save manual config info, auto config does not save.
         if (connectType() == DHCPTYpe::Manual) {
             networkSettingInfo.ip = ip();
             networkSettingInfo.mask = mask();
             networkSettingInfo.gateway = gateway();
             networkSettingInfo.primaryDNS = primaryDNS();
-        }
 
-        getNetworkDeviceWidget()->setNetworkSettingInfo(networkSettingInfo);
+            info[networkSettingInfo.setIpMode] = networkSettingInfo;
+
+            getNetworkDeviceWidget()->setNetworkSettingInfo(info);
+        }
     }
 
     void onEditFinished() {
@@ -485,7 +524,6 @@ public:
         m_deviceWidget = deviceWidget;
         setDevice(m_deviceWidget->getDevice());
         setNetworkOperate(m_deviceWidget->networkOperate());
-        setIpConfig(m_deviceWidget->getDevice());
     }
 
     NetworkDeviceWidget* getNetworkDeviceWidget() const
@@ -673,6 +711,7 @@ void NetworkFrame::initDeviceWidgetList()
             deviceWidget->setChecked(true);
             deviceWidget->updateCheckedAppearance();
             m_currentNetworkEditWidget->setNetworkDeviceWidget(deviceWidget);
+            m_currentNetworkEditWidget->readIpConfig(deviceWidget->getDevice(), true);
             m_currentNetworkEditWidget->updateEditStateByDeviceToggle();
 
             hasSet = true;
@@ -746,18 +785,20 @@ void NetworkFrame::saveConf()
             // until the user come back to this page again.
             operate->setDeviceEnable(device->uni(), true);
 
-            NetworkSettingInfo* networkSettingInfo = deviceWidget->getNetworkSettingInfo();
-            if (networkSettingInfo != nullptr) {
+            QMap<DHCPTYpe, NetworkSettingInfo> inMap = deviceWidget->getNetworkSettingInfo();
+            if (inMap.count() > 0) {
+                NetworkSettingInfo networkSettingInfo = inMap[deviceWidget->getDhcp()];
+
                 // If at least one network connection is found, then config it.
                 // Else create one network connection with the configuration.
                 if (!operate->getConnection().isNull()) {
-                    if (!operate->setIpV4(*networkSettingInfo)) {
+                    if (!operate->setIpV4(networkSettingInfo)) {
                         qDebug() << "saveConf() set ipV4 failed";
                     }
                 }
                 else {
                     if (operate->createNetworkConnection()) {
-                        if (!operate->setIpV4(*networkSettingInfo)) {
+                        if (!operate->setIpV4(networkSettingInfo)) {
                             qDebug() << "saveConf() set ipV4 failed";
                         }
                     }
@@ -784,6 +825,7 @@ void NetworkFrame::onButtonGroupToggled(QAbstractButton *button)
 
     // TODO: delete two.
     m_currentNetworkEditWidget->setNetworkDeviceWidget(deviceWidget);
+    m_currentNetworkEditWidget->readIpConfig(deviceWidget->getDevice(), false);
     m_currentNetworkEditWidget->updateEditStateByDeviceToggle();
 }
 

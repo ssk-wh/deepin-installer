@@ -17,8 +17,8 @@ namespace {
 NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     : DButtonBoxButton("", parent)
     , m_isflag(false)
-    , m_networkSettingInfo(nullptr)
     , m_deviceEnable(true)
+    , m_dhcpType(DHCPTYpe::Auto)
 {
     m_deviceName = new QLabel;
     m_deviceName->setObjectName("titleLabel");
@@ -111,13 +111,12 @@ void NetworkDeviceWidget::setDesc(const QString &desc)
     m_descLabel->setText(desc);
 }
 
-void NetworkDeviceWidget::setNetworkSettingInfo(const NetworkSettingInfo info)
+void NetworkDeviceWidget::setNetworkSettingInfo(const QMap<DHCPTYpe, NetworkSettingInfo> &info)
 {
-    m_networkSettingInfo = new NetworkSettingInfo();
-    *m_networkSettingInfo = info;
+    m_networkSettingInfo = info;
 }
 
-NetworkSettingInfo* NetworkDeviceWidget::getNetworkSettingInfo() const
+QMap<DHCPTYpe, NetworkSettingInfo> NetworkDeviceWidget::getNetworkSettingInfo() const
 {
     return m_networkSettingInfo;
 }
@@ -130,6 +129,16 @@ bool NetworkDeviceWidget::deviceEnable() const
 void NetworkDeviceWidget::setDeviceEnable(const bool enable)
 {
     m_deviceEnable = enable;
+}
+
+DHCPTYpe NetworkDeviceWidget::getDhcp() const
+{
+    return m_dhcpType;
+}
+
+void NetworkDeviceWidget::setDhcp(const DHCPTYpe dhcp)
+{
+    m_dhcpType = dhcp;
 }
 
 void NetworkDeviceWidget::updateCheckedAppearance()
