@@ -87,6 +87,15 @@ public:
         return true;
     }
 
+signals:
+    void updateNextButton();
+
+protected:
+    void showEvent(QShowEvent *event) override {
+        emit updateNextButton();
+        return BaseFrameInterface::showEvent(event);
+    }
+
 private:
     void nextFrame() {
         m_proxy->nextFrame();

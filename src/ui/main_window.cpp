@@ -198,10 +198,15 @@ void MainWindow::nextFrame()
             if (!m_showPastFrame){
                 (*it)->init();
             }
-
+            m_hasShowFrames << frame;
             updateFrameLabelState(*it, FrameLabelState::Show);
             if ((*it)->frameType() == FrameType::Frame) {
                 stacked_layout_->setCurrentWidget(*it);
+                // Can only appear back or not back, to traverse the updates
+                if ((*it)->allowPrevious() != m_currentPreviousState) {
+                    updateFrameLabelPreviousState(m_currentPreviousState);
+                    m_currentPreviousState = (*it)->allowPrevious();
+                }
             }
             else {
                 showChildFrame(*it);
@@ -668,9 +673,28 @@ void MainWindow::updateFrameLabelState(FrameInterface *frame, FrameLabelState st
         item->actionList(Qt::Edge::RightEdge).first()->setVisible(true);
         item->setFlags(Qt::ItemFlag::ItemIsEnabled | Qt::ItemFlag::ItemIsSelectable);
         break;
+    case FrameLabelState::Previous:
+        item->actionList(Qt::Edge::RightEdge).first()->setVisible(true);
+        item->setFlags(Qt::ItemFlag::NoItemFlags);
+        break;
     default:
         qWarning() << "invalid state value";
         break;
+    }
+}
+
+void MainWindow::updateFrameLabelPreviousState(bool allow)
+{
+    FrameInterface* currentFrame = qobject_cast<FrameInterface*>(stacked_layout_->currentWidget());
+    Q_ASSERT(currentFrame != nullptr);
+    for (FrameInterface* frame : m_hasShowFrames) {
+        if (frame != currentFrame) {
+            if (!allow) {
+                updateFrameLabelState(frame, FrameLabelState::FinishedConfig);
+            } else {
+                updateFrameLabelState(frame, FrameLabelState::Previous);
+            }
+        }
     }
 }
 

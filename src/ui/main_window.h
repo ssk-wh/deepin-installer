@@ -43,7 +43,8 @@ namespace installer {
 enum class FrameLabelState{
     Initial,
     Show,
-    FinishedConfig
+    FinishedConfig,
+    Previous
 };
 
 class FrameInterface;
@@ -142,6 +143,7 @@ private:
 
   static bool checkBackButtonAvailable(PageId id);
   void updateFrameLabelState(FrameInterface *frame, FrameLabelState state);
+  void updateFrameLabelPreviousState(bool allow);
 
   FrameInterface* getFrameInterface(QStandardItem *item) const;
 
@@ -192,7 +194,9 @@ private:
 
     QList<FrameInterface*> m_originalFrames;
     QList<FrameInterface*> m_frames;
+    QList<FrameInterface*> m_hasShowFrames;
     bool m_showPastFrame = false;
+    bool m_currentPreviousState = true;
 
     QList<QString> m_frameTitles;
     DListView* m_frameLabelsView = nullptr;

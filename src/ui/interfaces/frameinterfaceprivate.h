@@ -39,6 +39,8 @@ public:
 
         frameInterface->setLayout(mainLayout);
 
+        connect(parent, &FrameInterface::updateNextButton, this,
+                &FrameInterfacePrivate::updateNextButton);
         connect(nextButton, &QPushButton::clicked, this, &FrameInterfacePrivate::onNextButtonClickHandle);
         QTimer::singleShot(0, this, &FrameInterfacePrivate::registerShortcutKey);
 
@@ -49,6 +51,10 @@ public:
     // Verify that jumping to the next frame is allowed.
     virtual bool validate() const {
         return true;
+    }
+
+    virtual void updateNextButton() const {
+        nextButton->setEnabled(true);
     }
 
     virtual void onNextButtonClickHandle() const {
