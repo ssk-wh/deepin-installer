@@ -150,11 +150,21 @@ void NetworkDeviceWidget::readNetworkSettingInfo()
         networkSettingInfo.primaryDNS = ipConfig.nameservers().at(0).toString();
     }
 
-    QMap<DHCPTYpe, NetworkSettingInfo> saveInfo;
+
     m_networkSettingInfo[networkSettingInfo.setIpMode] = networkSettingInfo;
 
-    networkSettingInfo.setIpMode = DHCPTYpe::Manual;
-    m_networkSettingInfo[networkSettingInfo.setIpMode] = networkSettingInfo;
+    // If set ip mode is auto, then the manual configuration is the same as the automatic configuration.
+    // If set ip mode is manual, then the auto configuration ip info is empty.
+    if (networkSettingInfo.setIpMode == DHCPTYpe::Auto) {
+        networkSettingInfo.setIpMode = DHCPTYpe::Manual;
+        m_networkSettingInfo[networkSettingInfo.setIpMode] = networkSettingInfo;
+    }
+    else {
+        NetworkSettingInfo info;
+        info.setIpMode = DHCPTYpe::Auto;
+        m_networkSettingInfo[info.setIpMode] = info;
+    }
+
 }
 
 bool NetworkDeviceWidget::deviceEnable() const
