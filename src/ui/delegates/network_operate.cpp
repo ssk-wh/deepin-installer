@@ -12,7 +12,6 @@ NetworkOperate::NetworkOperate(NetworkManager::Device::Ptr device, QObject* pare
     , m_device(device)
     , m_connection(nullptr)
     , m_activeConnection(nullptr)
-    , m_configMethod(DHCPTYpe::Auto)
 {
     Q_ASSERT(m_device != nullptr);
     m_interfaceName = m_device->interfaceName();
@@ -28,12 +27,6 @@ void NetworkOperate::setNetworkConnection()
     m_activeConnection = m_device->activeConnection();
     if (!m_activeConnection.isNull()) {
         m_connection = findConnectionByUuid(m_activeConnection->uuid());
-
-        NetworkManager::ConnectionSettings::Ptr settings = m_connection->settings();
-        NetworkManager::Ipv4Setting::Ptr ipv4Setting
-                = settings->setting(Setting::Ipv4).dynamicCast<Ipv4Setting>();
-        m_configMethod = ipv4Setting->method() == NetworkManager::Ipv4Setting::ConfigMethod::Manual ?
-                    DHCPTYpe::Manual : DHCPTYpe::Auto;
     }
     else {
         qDebug() << "This device has no active connection";
@@ -163,11 +156,6 @@ bool NetworkOperate::getDeviceEnable(const QString &devPath)
 
     bool enable = reply.value();
     return enable;
-}
-
-DHCPTYpe NetworkOperate::getDhcp() const
-{
-    return m_configMethod;
 }
 
 }
