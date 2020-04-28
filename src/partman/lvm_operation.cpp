@@ -119,6 +119,7 @@ bool LvmOperation::lvmkfs() {
 
     QStringList args("-t");
     args.append(GetFsTypeName(lvpartition->fs));
+    args.append("-f");
     args.append(lvpartition->path);
 
     return SpawnCmd("mkfs", args);
