@@ -48,6 +48,7 @@ public:
     void finished() override;
     bool shouldDisplay() const override;
     QString returnFrameName() const override;
+    bool allowPrevious() const override;
 
 signals:
     void successFinished();

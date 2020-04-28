@@ -96,6 +96,11 @@ QString InstallResultsFrame::returnFrameName() const
     return "Done";
 }
 
+bool InstallResultsFrame::allowPrevious() const
+{
+    return false;
+}
+
 InstallResultsFrame::~InstallResultsFrame()
 {
 
