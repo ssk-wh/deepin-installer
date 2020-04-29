@@ -50,6 +50,8 @@ public:
     void finished() override;
     bool shouldDisplay() const override;
     QString returnFrameName() const override;
+    // 控制是否允许上一步
+    bool allowPrevious() const override;
 
 public slots:
     // Run hooks when partition job is done

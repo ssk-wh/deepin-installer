@@ -155,6 +155,11 @@ QString InstallProgressFrame::returnFrameName() const
     return "Installing";
 }
 
+bool InstallProgressFrame::allowPrevious() const
+{
+    return false;
+}
+
 void InstallProgressFrame::simulate() {
     Q_D(InstallProgressFrame);
 
