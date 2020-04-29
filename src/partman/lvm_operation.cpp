@@ -54,8 +54,8 @@ bool LvmOperation::CreatePartition() {
     QString timeStr = timedt.toString("yyyyMMddhhmmsszzz");   
     VgDevice::p_installer_VgDevice->update();
     lvinit();
-    lvmkfs();    
-    return true;
+
+    return lvmkfs();
 }
 
 bool LvmOperation::updatePartition() {
@@ -117,11 +117,12 @@ bool LvmOperation::lvmkfs() {
     QSharedPointer<LvPartition>  lvpartition = getLvPatition();
     if (!lvpartition->m_initOk) return false;
 
-    QStringList args("-t");
-    args.append(GetFsTypeName(lvpartition->fs));
-    args.append(lvpartition->path);
+    if (!Mkfs(lvpartition)) {
+      qCritical() << "Lvm Mkfs() failed:" << lvpartition;
+      return false;
+    }
 
-    return SpawnCmd("mkfs", args);
+    return true;
 }
 
 bool LvmOperation::lvdestroy() {
