@@ -12,6 +12,7 @@
 #include <QScrollBar>
 #include <QScroller>
 #include <DFrame>
+#include <QShortcut>
 
 DWIDGET_USE_NAMESPACE
 
@@ -149,6 +150,11 @@ void UserAgreementFrame::initUI()
 
 void UserAgreementFrame::initConnect()
 {
+    QShortcut *key = new QShortcut(QKeySequence(Qt::Key_Return), m_back);
+    key->setAutoRepeat(false);
+    connect(key, &QShortcut::activated, this, [=]{
+        emit m_back->click();
+    });
     connect(m_back, &QPushButton::clicked, this, &UserAgreementFrame::back);
     connect(m_buttonBox, &DButtonBox::buttonClicked, this, &UserAgreementFrame::toggleLicense);
 }
