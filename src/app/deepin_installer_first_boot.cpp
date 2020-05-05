@@ -28,6 +28,7 @@
 #include "sysinfo/users.h"
 #include "ui/delegates/language_delegate.h"
 #include "ui/first_boot_setup_window.h"
+#include "ui/utils/keyboardmonitor.h"
 
 #include <cstdlib>
 #include <DApplication>
@@ -74,6 +75,8 @@ int main(int argc, char *argv[])
   QFont font(app.font());
   font.setFamily(installer::GetUIDefaultFont());
   app.setFont(font);
+
+  installer::KeyboardMonitor::instance()->setNumlockStatus(installer::KeyboardMonitor::instance()->isNumlockOn());
 
   installer::FirstBootSetupWindow window;
   window.fullscreen();

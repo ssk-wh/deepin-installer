@@ -30,6 +30,7 @@
 #include "ui/delegates/installer_args_parser.h"
 #include "ui/main_window.h"
 #include "base/auto_screen_scale.h"
+#include "ui/utils/keyboardmonitor.h"
 
 DCORE_USE_NAMESPACE
 
@@ -54,6 +55,8 @@ int main(int argc, char* argv[]) {
   QFont font(app.font());
   font.setFamily(installer::GetUIDefaultFont());
   app.setFont(font);
+
+  installer::KeyboardMonitor::instance()->setNumlockStatus(installer::KeyboardMonitor::instance()->isNumlockOn());
 
   // Parse argument list.
   installer::InstallerArgsParser args_parser;
