@@ -119,6 +119,7 @@ private:
     TitleLabel*   m_titleLabel_         = nullptr;
     CommentLabel* m_commentLabel_       = nullptr;
     SystemInfoAvatarFrame* m_avatarButton_       = nullptr;
+    AvatarButton *m_currentAvatarButton;
     QLabel* m_usernameLabel = nullptr;
     DLineEdit*     m_usernameEdit       = nullptr;
     QLabel* m_hostnameLabel = nullptr;
@@ -206,12 +207,13 @@ void SystemInfoFormFrame::updateAvatar(const QString& avatar)
 {
     Q_D(SystemInfoFormFrame);
 
-    // d->m_avatarButton_->updateIcon(avatar);
+     d->m_currentAvatarButton->updateIcon(avatar);
 }
 
 void SystemInfoFormFrame::readConf() {
     Q_D(SystemInfoFormFrame);
 
+    d->m_currentAvatarButton->updateIcon(GetSettingsString(kSystemInfoDefaultAvator));
     d->m_usernameEdit->setText(GetSettingsString(kSystemInfoDefaultUsername));
     d->m_hostnameEdit->setText(GetSettingsString(kSystemInfoDefaultHostname));
     d->m_passwordEdit->setText(GetSettingsString(kSystemInfoDefaultPassword));
@@ -224,6 +226,7 @@ void SystemInfoFormFrame::writeConf()
 
     d->systemInfoFrameFinish();
 
+    WriteAvatar(d->m_currentAvatarButton->avatar());
     WriteUsername(d->m_usernameEdit->text());
     WriteHostname(d->m_hostnameEdit->text());
     WritePassword(d->m_passwordEdit->text());
@@ -317,6 +320,8 @@ void SystemInfoFormFramePrivate::initConnections()
     connect(m_rootPasswordCheckEdit, &DPasswordEdit::textEdited, this
             , &SystemInfoFormFramePrivate::onRootPasswordCheckEdited);
 
+    connect(m_avatarButton_, &SystemInfoAvatarFrame::avatarUpdated, q, &SystemInfoFormFrame::updateAvatar);
+
     connect(KeyboardMonitor::instance(),
             &KeyboardMonitor::capslockStatusChanged, this,
             &SystemInfoFormFramePrivate::updateCapsLockState);
@@ -332,6 +337,9 @@ void SystemInfoFormFramePrivate::initUI()
 
     m_avatarButton_ = new SystemInfoAvatarFrame;
     m_avatarButton_->setFixedWidth(kMainWindowWidth);
+
+    m_currentAvatarButton = new AvatarButton(q);
+    m_currentAvatarButton->hide();
 
     m_usernameLabel = new QLabel;
     m_usernameLabel->setAlignment(Qt::AlignLeft);
