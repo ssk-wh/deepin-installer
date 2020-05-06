@@ -24,12 +24,15 @@
 #include "service/hooks_manager.h"
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
+#include "service/log_manager.h"
 #include "ui/frames/consts.h"
 #include "ui/frames/inner/install_progress_slide_frame.h"
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/rounded_progress_bar.h"
 #include "ui/widgets/tooltip_pin.h"
 #include "ui/widgets/title_label.h"
+#include "ui/widgets/link_button.h"
+#include "ui/frames/inner/install_log_frame.h"
 
 #include <math.h>
 #include <QDebug>
@@ -39,6 +42,7 @@
 #include <QThread>
 #include <QTimer>
 #include <QVBoxLayout>
+#include <QStackedLayout>
 
 namespace installer {
 
@@ -80,6 +84,8 @@ public:
     void onRetainingTimerTimeout();
     void onSimulationTimerTimeout();
 
+    void toggleInstallerLog(bool toggle);
+
     Q_DECLARE_PUBLIC(InstallProgressFrame)
     InstallProgressFrame* q_ptr = nullptr;
 
@@ -90,8 +96,11 @@ public:
 
     TitleLabel* title_label_ = nullptr;
     CommentLabel* comment_label_ = nullptr;
+    QStackedLayout* m_progressAndLogLayout = nullptr;
     InstallProgressSlideFrame* slide_frame_ = nullptr;
+    InstallLogFrame* m_installerLog = nullptr;
     QLabel* tooltip_label_ = nullptr;
+    LinkButton* m_installerLogShowButton = nullptr;
     QProgressBar* progress_bar_ = nullptr;
 
     QPropertyAnimation* progress_animation_ = nullptr;
@@ -239,6 +248,7 @@ void InstallProgressFramePrivate::initConnections() {
             hooks_manager_, &HooksManager::deleteLater);
     connect(simulation_timer_, &QTimer::timeout,
             this, &InstallProgressFramePrivate::onSimulationTimerTimeout);
+    connect(m_installerLogShowButton, &LinkButton::toggle, this, &InstallProgressFramePrivate::toggleInstallerLog);
 }
 
 void InstallProgressFramePrivate::initUI() {
@@ -247,6 +257,13 @@ void InstallProgressFramePrivate::initUI() {
                 tr("Here are a few cool things to look out for..."));
 
     slide_frame_ = new InstallProgressSlideFrame();
+    m_installerLog = new InstallLogFrame();
+    m_installerLog->setLogPath(installer::GetLogFilepath());
+
+    m_progressAndLogLayout = new QStackedLayout;
+    m_progressAndLogLayout->addWidget(slide_frame_);
+    m_progressAndLogLayout->addWidget(m_installerLog);
+    m_progressAndLogLayout->setCurrentWidget(slide_frame_);
 
     QFrame* tooltip_frame = new QFrame();
     tooltip_frame->setObjectName("tooltip_frame");
@@ -258,6 +275,10 @@ void InstallProgressFramePrivate::initUI() {
     tooltip_label_->setText("0%");
     // Add left margin.
     tooltip_label_->move(kTooltipLabelMargin, tooltip_label_->y());
+
+    m_installerLogShowButton = new LinkButton;
+    m_installerLogShowButton->setText(tr("installer log"));
+    m_installerLogShowButton->setIconList(QStringList() << ":/images/arrows_up.svg" << ":/images/arrows_down.svg");
 
     // NOTE(xushaohua): QProgressBar::paintEvent() has performance issue on
     // loongson platform, when chunk style is set. So we override paintEvent()
@@ -276,7 +297,9 @@ void InstallProgressFramePrivate::initUI() {
     centerLayout->addWidget(title_label_, 0, Qt::AlignHCenter);
     centerLayout->addSpacing(kMainLayoutSpacing);
     centerLayout->addWidget(comment_label_, 0, Qt::AlignHCenter | Qt::AlignTop);
-    centerLayout->addWidget(slide_frame_);
+    centerLayout->addLayout(m_progressAndLogLayout);
+    centerLayout->addWidget(m_installerLogShowButton, 0, Qt::AlignHCenter);
+    centerLayout->addSpacing(5);
     centerLayout->addWidget(tooltip_frame, 0, Qt::AlignHCenter | Qt::AlignBottom);
     centerLayout->addSpacing(5);
     centerLayout->addWidget(progress_bar_, 0, Qt::AlignHCenter);
@@ -355,6 +378,15 @@ void InstallProgressFramePrivate::onSimulationTimerTimeout() {
         simulation_timer_->stop();
     } else {
         onProgressUpdate(progress);
+    }
+}
+
+void InstallProgressFramePrivate::toggleInstallerLog(bool toggle)
+{
+    if (toggle) {
+        m_progressAndLogLayout->setCurrentWidget(m_installerLog);
+    } else {
+        m_progressAndLogLayout->setCurrentWidget(slide_frame_);
     }
 }
 

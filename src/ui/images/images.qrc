@@ -117,5 +117,7 @@
         <file>failed_qr.svg</file>
         <file>interaction_warning.svg</file>
         <file>deepin-installer-32px.svg</file>
+        <file>arrows_down.svg</file>
+        <file>arrows_up.svg</file>
     </qresource>
 </RCC>

@@ -354,6 +354,8 @@ set(UI_FILES
     ui/frames/inner/systemdateframe.cpp
     ui/frames/inner/select_time_zone_frame.h
     ui/frames/inner/select_time_zone_frame.cpp
+    ui/frames/inner/install_log_frame.h
+    ui/frames/inner/install_log_frame.cpp
     ui/frames/timezone_frame.cpp
     ui/frames/timezone_frame.h
 
@@ -501,6 +503,8 @@ set(UI_FILES
     ui/widgets/time_date_line_edit.cpp
     ui/widgets/auto_wrap_label.h
     ui/widgets/auto_wrap_label.cpp
+    ui/widgets/link_button.h
+    ui/widgets/link_button.cpp
 
     ui/xrandr/multi_head_manager.cpp
     ui/xrandr/multi_head_manager.h
