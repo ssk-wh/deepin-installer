@@ -3,6 +3,7 @@
 #include "partman/partition.h"
 #include "service/settings_name.h"
 #include "ui/delegates/partition_util.h"
+#include "base/command.h"
 
 #include <QUuid>
 
@@ -10,6 +11,18 @@ using namespace installer;
 using namespace installer::partition;
 
 Delegate::Delegate(QObject* parent) : QObject(parent) {}
+
+bool Delegate::scanNvidia()
+{
+   QString cmd("lspci");
+   QStringList args("-n");
+   QString output;
+   if (!SpawnCmd(cmd, args, output)) {
+       return false;
+   }
+
+   return (output.indexOf(QRegExp(".*03(80|0[0-2]): 10de")) > -1);
+}
 
 bool Delegate::canAddLogical(const Partition::Ptr partition) const
 {

@@ -20,6 +20,8 @@ class Delegate : public QObject {
 public:
     explicit Delegate(QObject* parent = nullptr);
 
+    bool scanNvidia();
+
     // Get virtual device list.
     inline const DeviceList virtualDevices() const {
         return virtual_devices_;

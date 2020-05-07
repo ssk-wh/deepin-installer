@@ -242,7 +242,7 @@ void AdvancedPartitionFrame::initUI() {
   m_installNvidiaCheck->setText(tr("Install NVIDIA closed source driver"));
   main_layout->addWidget(m_installNvidiaCheck, 0 ,Qt::AlignHCenter);
 
-  m_installNvidiaCheck->setVisible(GetSettingsBool(KEnableInstallNvidiaDriver));
+  m_installNvidiaCheck->setVisible(delegate_->scanNvidia());
   WriteEnableNvidiaDriver(false);
 
   this->setLayout(main_layout);

@@ -272,7 +272,7 @@ void FullDiskFrame::initUI() {
   main_layout->addSpacing(10);
 
   m_encryptCheck->setVisible(!GetSettingsBool(KPartitionSkipFullCryptPage));
-  m_installNvidiaCheck->setVisible(GetSettingsBool(KEnableInstallNvidiaDriver));
+  m_installNvidiaCheck->setVisible(m_delegate->scanNvidia());
   WriteEnableNvidiaDriver(false);
 
   this->setLayout(main_layout);
