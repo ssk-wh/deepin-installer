@@ -48,6 +48,7 @@ public:
 
     void initConnections();
     void initUI();
+
     void updateTs();
 };
 

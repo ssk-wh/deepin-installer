@@ -650,9 +650,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="100"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="53"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="56"/>
         <source>Click the button below and then remove the installation media immediately</source>
-        <translation type="unfinished"></translation>
+        <translation>Click the button below and then remove the installation media immediately</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="54"/>
@@ -1712,7 +1713,6 @@
         <translation type="unfinished"></translation>
     </message>
 </context>
-<<<<<<< HEAD
 <context>
     <name>installer::MainWindow</name>
 <message><source>Privilege error</source><translation type="unfinished"></translation></message>
@@ -1726,6 +1726,4 @@
 <message><source>Installing</source><translation type="unfinished"></translation></message>
 <message><source>Done</source><translation type="unfinished"></translation></message>
 </context>
-=======
->>>>>>> e3aad3be... feat(network): add network info
 </TS>
