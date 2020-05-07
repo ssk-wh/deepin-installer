@@ -16,6 +16,7 @@
  */
 
 #include "ui/delegates/lvm_partition_delegate.h"
+#include "ui/delegates/partition_util.h"
 
 namespace installer {
 
@@ -47,6 +48,19 @@ Operation* LvmPartitionDelegate::newOperation(OperationType type,
                                 const Partition::Ptr orig_partition,
                                 const Partition::Ptr new_partition) {
     return new LvmOperation(type, orig_partition, new_partition);
+}
+
+QStringList LvmPartitionDelegate::getOptDescriptions() const {
+    QStringList descriptions;
+    for (const Operation::Ptr operation : m_oldOperationList) {
+        descriptions.append(operation->description());
+    }
+
+    for (const Operation::Ptr operation : operations_) {
+        descriptions.append(operation->description());
+    }
+
+    return descriptions;
 }
 
 }  // namespace installer

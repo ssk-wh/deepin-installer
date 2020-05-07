@@ -42,7 +42,7 @@ public:
     }
 
     // Get human readable operation descriptions.
-    inline QStringList getOptDescriptions() const {
+    virtual QStringList getOptDescriptions() const {
         QStringList descriptions;
         for (const Operation::Ptr operation : operations_) {
             descriptions.append(operation->description());

@@ -35,6 +35,7 @@ class LvmPartitionDelegate : public AdvancedPartitionDelegate {
   virtual Operation* newOperation(OperationType type,
                                   const Partition::Ptr orig_partition,
                                   const Partition::Ptr new_partition);
+  virtual QStringList getOptDescriptions() const;  
   OperationList m_oldOperationList;
 };
 

@@ -189,11 +189,20 @@
 >>>>>>> eae3cb6b... clean all ts file
 =======
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="520"/>
+<<<<<<< HEAD
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
+=======
+        <source>Before Lvm is required for /boot partition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="523"/>
+>>>>>>> 1c3a0f77... feat(lvm-step): update LVM step by task 21246,21242,21240
         <source>At least %1 MB is required for EFI partition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="548"/>
@@ -203,10 +212,14 @@
 =======
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="524"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
+=======
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="527"/>
+>>>>>>> 1c3a0f77... feat(lvm-step): update LVM step by task 21246,21242,21240
         <source>Add a Root partition to continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="553"/>
@@ -216,10 +229,14 @@
 =======
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="529"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
+=======
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="532"/>
+>>>>>>> 1c3a0f77... feat(lvm-step): update LVM step by task 21246,21242,21240
         <source>At least %1 GB is required for Root partition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="558"/>
@@ -229,6 +246,9 @@
 =======
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="534"/>
 >>>>>>> b9112cdd... feat: replace user agreement Deepin to UOS
+=======
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="537"/>
+>>>>>>> 1c3a0f77... feat(lvm-step): update LVM step by task 21246,21242,21240
         <source>At least %1 GB is required for partition %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -811,6 +831,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="482"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="613"/>
         <source>Next</source>
 <<<<<<< HEAD
         <translation type="unfinished">Next</translation>
@@ -818,6 +839,26 @@
 =======
         <translation type="unfinished"></translation>
 >>>>>>> 491f5c3e... update ts
+    </message>
+    <message>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="609"/>
+        <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="613"/>
+        <source>Start installation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="629"/>
+        <source>Lvm configer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="709"/>
+        <source>Select Installation Location</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

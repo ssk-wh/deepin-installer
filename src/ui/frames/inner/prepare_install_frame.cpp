@@ -65,14 +65,6 @@ void PrepareInstallFrame::updateDescription(const QStringList& descriptions) {
   description_edit_->setPlainText(description_text);
 }
 
-void PrepareInstallFrame::setInstallLvmTitel(bool yes) {
-    if (yes) {
-        title_label_->setText(tr("Lvm configer"));
-    } else {
-        title_label_->setText(tr("Ready to Install"));
-    }
-}
-
 void PrepareInstallFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     title_label_->setText(tr("Ready to Install"));

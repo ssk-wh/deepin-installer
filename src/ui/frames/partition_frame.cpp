@@ -148,6 +148,8 @@ public:
      LvmPartitionDelegate* lvm_delegate_ = nullptr;
      FullDiskDelegate* full_disk_delegate_ = nullptr;
      SimplePartitionDelegate* simple_partition_delegate_ = nullptr;
+
+     QHBoxLayout* next_layout = nullptr;
 };
 
 PartitionFrame::PartitionFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
@@ -262,6 +264,8 @@ void PartitionFramePrivate::initConnections() {
   connect(lvm_partition_frame_,
           &AdvancedPartitionFrame::requestSelectBootloaderFrame,
           this, &PartitionFramePrivate::showSelectBootloaderFrame);
+  connect(lvm_partition_frame_, &LvmPartitionFrame::aborted,
+          this, &PartitionFramePrivate::showMainFrame);
 
   connect(edit_partition_frame_, &EditPartitionFrame::finished, this, [=] {
       q_ptr->m_proxy->hideChildFrame();
@@ -479,7 +483,7 @@ void PartitionFramePrivate::initUI() {
 
   // and advanced partition page.
   nextButton->setText(tr("Start installation"));
-  QHBoxLayout* next_layout = new QHBoxLayout();
+  next_layout = new QHBoxLayout();  
   next_layout->setContentsMargins(0, 0, 0, 0);
   next_layout->addWidget(nextButton);
 
@@ -618,15 +622,15 @@ void PartitionFramePrivate::onNextButtonClicked() {
     dynamic_disk_warning_frame_->setDevice(device);
     showDynamicDiskFrame();
     return;
-  }
-
-  if (AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_No_Need) {
-      prepare_install_frame_->setInstallLvmTitel(false);
-  } else {
-      prepare_install_frame_->setInstallLvmTitel(true);
-  }
+  } 
 
     showPrepareInstallFrame();
+
+    if (AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_Format_Pv) {
+       emit prepare_install_frame_->finished();
+       lvm_partition_frame_->updateLayout(next_layout, tr("Back"));
+       emit q_ptr->disCoverMainWindowFrameLabelsView();
+    }
 }
 
 void PartitionFramePrivate::onFullDiskCryptoButtonClicked(bool encrypto)
@@ -647,8 +651,7 @@ void PartitionFramePrivate::onManualPartDone(bool ok, const DeviceList& devices)
         m_buttonGroup->setVisible(false);
         partition_stacked_layout_->setCurrentWidget(lvm_partition_frame_);
         main_layout_->setCurrentWidget(main_frame_);
-        title_label_->setText(tr("Lvm configer"));
-        comment_label_->setText(tr(""));
+        title_label_->setText(tr("Lvm configer"));        
         return ;
     } else if (Install_Lvm_Status::Lvm_Install == AdvancedPartitionDelegate::install_Lvm_Status) {
         lvm_delegate_->onManualPartDone(devices);
@@ -722,6 +725,15 @@ void PartitionFramePrivate::showEditPartitionFrame(const Partition::Ptr partitio
 }
 
 void PartitionFramePrivate::showMainFrame() {
+  if (main_layout_->currentWidget() == main_frame_
+          && partition_stacked_layout_->currentWidget() == lvm_partition_frame_) {
+      m_buttonGroup->setVisible(true);
+      advanced_delegate_->onDeviceRefreshed(advanced_delegate_->realDevices());
+      partition_stacked_layout_->setCurrentWidget(advanced_partition_frame_);
+      main_layout_->setCurrentWidget(main_frame_);
+      title_label_->setText(tr("Select Installation Location"));
+  }
+
   main_layout_->setCurrentWidget(main_frame_);
 
   emit q_ptr->disCoverMainWindowFrameLabelsView();

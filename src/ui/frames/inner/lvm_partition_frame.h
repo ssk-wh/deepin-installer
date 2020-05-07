@@ -20,6 +20,10 @@
 
 #include "advanced_partition_frame.h"
 
+#include <QHBoxLayout>
+#include <QPushButton>
+#include <QStackedLayout>
+
 namespace installer {
 
 // Advanced partition mode
@@ -28,7 +32,17 @@ class LvmPartitionFrame : public AdvancedPartitionFrame {
 
  public:
   LvmPartitionFrame(AdvancedPartitionDelegate* delegate_,
-                         QWidget* parent = nullptr);
+                     QWidget* parent = nullptr);
+  void updateLayout(QHBoxLayout* layout, QString text);
+ signals:
+  // Emitted when abort-button is clicked, returning to previous page.
+  void aborted();
+ private slots:
+  void onLastButtonClicked();
+
+ protected:
+  QPushButton* m_lastButton;
+  QHBoxLayout* m_lastButtonLayout;
 };
 
 }  // namespace installer

@@ -89,21 +89,26 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="520"/>
+        <source>Before Lvm is required for /boot partition</source>
+        <translation>LVM 配置前需要新建boot分区</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="523"/>
         <source>At least %1 MB is required for EFI partition</source>
         <translation>EFI分区至少需要%1 MB磁盘空间</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="524"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="527"/>
         <source>Add a Root partition to continue</source>
         <translation>需要添加一个根分区才能继续安装</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="529"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="532"/>
         <source>At least %1 GB is required for Root partition</source>
         <translation>根分区至少需要%1 GB磁盘空间</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="534"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="537"/>
         <source>At least %1 GB is required for partition %2</source>
         <translation>%2分区至少需要%1 GB磁盘空间</translation>
     </message>
@@ -490,8 +495,29 @@
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="482"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="613"/>
         <source>Next</source>
         <translation>下一步</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="609"/>
+        <source>Back</source>
+        <translation>上一步</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="613"/>
+        <source>Start installation</source>
+        <translation>开始安装</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="629"/>
+        <source>Lvm configer</source>
+        <translation>逻辑卷配置</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="709"/>
+        <source>Select Installation Location</source>
+        <translation >选择安装位置</translation>
     </message>
 </context>
 <context>
