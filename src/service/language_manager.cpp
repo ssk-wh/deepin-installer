@@ -17,8 +17,6 @@ using namespace installer;
 
 LanguageManager::LanguageManager()
 {
-    qApp->installEventFilter(this);
-
     tsLifeCycleTimer->setInterval(0);
     tsLifeCycleTimer->setSingleShot(true);
 
@@ -43,7 +41,7 @@ bool LanguageManager::eventFilter(QObject* watched, QEvent* event)
         std::unique_lock<std::mutex> lock(tsListMutex);
 
         for (std::shared_ptr<ObjectMapper> mapper : trList) {
-            if (mapper->target->parent()) {
+            if (mapper && qApp && mapper->target->parent()) {
                 mapper->func(qApp->translate("QObject", TS_MAP.at(mapper->type).toUtf8()));
             }
         }
