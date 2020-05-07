@@ -25,6 +25,9 @@ namespace  {
     const int kItemSpacing = 10;
 
     const int kListViewWidth = 270;
+
+    const QList<QString> kMinimalInstallTypeList = {"Basic-Server-Environment"
+                                                   , "Server-Environment-with-GUI"};
 }
 
 DWIDGET_USE_NAMESPACE
@@ -51,6 +54,7 @@ public:
     void updateSelectAllCheckBoxState();
     void setWidgetLayout(QWidget* subWidget, FrameInterface* obj, QWidget* parentWiget);
     void setSubTitleLayout();
+    bool isMinimalGraphicInstall();
 
     TitleLabel* m_selectPageLabel = nullptr;
     QLabel* m_selectPromptLabel = nullptr;
@@ -107,6 +111,8 @@ void SelectInstallComponentFrame::init()
 
 void SelectInstallComponentFrame::finished()
 {
+    // Write if minimal graphic install.
+    WriteIsMinimalGraphicInstall(m_private->isMinimalGraphicInstall());
 
     WriteComponentPackages("");
     WriteComponentUninstallPackages("");
@@ -475,6 +481,26 @@ void SelectInstallComponentFramePrivate::updateSelectAllCheckBoxState()
     }
 
     m_selectAllCheckBox->setChecked(true);
+}
+
+bool SelectInstallComponentFramePrivate::isMinimalGraphicInstall()
+{
+    if (!m_currentComponentWidget) {
+        return false;
+    }
+
+    Q_ASSERT(m_componentStructMap.contains(m_currentComponentWidget));
+    if (kMinimalInstallTypeList.indexOf(m_componentStructMap[m_currentComponentWidget]->id()) < 0) {
+        return false;
+    }
+
+    for (auto it = m_componentInfoMap.cbegin(); it != m_componentInfoMap.end(); ++it) {
+        if (it.key()->isSelected()) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 }// namespace installer

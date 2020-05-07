@@ -152,6 +152,7 @@ void WriteComponentPackages(const QString& packages);
 void WriteComponentUninstallPackages(const QString& packages);
 void WriteComponentLanguage(const QString& packages);
 void WriteInstallSuccessed(bool successed);
+void WriteIsMinimalGraphicInstall(bool isMinimal);
 
 
 // Write disk info.
