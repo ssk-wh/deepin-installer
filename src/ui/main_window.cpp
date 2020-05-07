@@ -417,7 +417,9 @@ void MainWindow::initPages() {
   confirm_quit_frame_->hide();
 
   m_repairSystemFrame = new RepairSystemFrame(this);
-  stacked_layout_->addWidget(m_repairSystemFrame);
+  if (m_repairSystemFrame->shouldDisplay()) {
+    stacked_layout_->addWidget(m_repairSystemFrame);
+  }
 
   select_language_frame_ = new LanguageFrame(this);
   stacked_layout_->addWidget(select_language_frame_);

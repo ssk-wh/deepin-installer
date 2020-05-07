@@ -123,8 +123,6 @@ void installer::RepairSystemPrivate::initConnection() {
 
 void installer::RepairSystemPrivate::updateTs()
 {
-    qInfo() << "kLanguageFileTpl = " << kLanguageFileTpl;
-
     QTranslator* trans = new QTranslator(this);
     trans->load(kLanguageFileTpl);
     qApp->installTranslator(trans);
