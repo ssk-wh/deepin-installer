@@ -1037,7 +1037,7 @@
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
 =======
         <location filename="../src/ui/frames/install_success_frame.cpp" line="100"/>
-        <source>Please remove the installation media before reboot</source>
+        <source>Click the button below and then remove the installation media immediately</source>
         <translation type="unfinished"></translation>
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1904,19 +1904,13 @@
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="130"/>
         <source>IP Address</source>
-<<<<<<< HEAD
-        <translation type="unfinished"></translation>
-=======
         <translation type="vanished">IP Address</translation>
->>>>>>> e3aad3be... feat(network): add network info
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="131"/>
         <source>Netmask</source>
-<<<<<<< HEAD
-        <translation type="unfinished"></translation>
-=======
         <translation type="vanished">Netmask</translation>
+<<<<<<< HEAD
 >>>>>>> e3aad3be... feat(network): add network info
 >>>>>>> fbbffe30... feat(network): add network info
     </message>
@@ -1956,6 +1950,33 @@
         <translation type="unfinished"/>
 >>>>>>> 1a7347df... chore: auto pull translation files from transifex
 >>>>>>> 1007a836... chore: auto pull translation files from transifex
+=======
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="132"/>
+        <source>Gateway</source>
+        <translation type="vanished">Gateway</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="133"/>
+        <source>Primary DNS</source>
+        <translation type="vanished">Primary DNS</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="134"/>
+        <source>Secondary DNS</source>
+        <translation type="vanished">Secondary DNS</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="201"/>
+        <source>IP address error: illegal IP address, please have a check.</source>
+        <translation type="vanished">IP address error: illegal IP address, please have a check.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="212"/>
+        <source>Netmask error: illegal netmask, please have a check.</source>
+        <translation type="vanished">Netmask error: illegal netmask, please have a check.</translation>
+>>>>>>> 87e3edbc... feat: modify install success hint
     </message>
 </context>
 <context>

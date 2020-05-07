@@ -81,7 +81,7 @@ void InstallSuccessFramePrivate::updateTs()
 {
     reboot_button_->setText(QObject::tr("Reboot Now"));
     title_label_->setText(QObject::tr("Successfully Installed"));
-    eject_label_->setText(QObject::tr("Please remove the installation media before reboot"));
+    eject_label_->setText(QObject::tr("Click the button below and then remove the installation media immediately"));
     comment_label_->setText(QObject::tr("Reboot to complete the installation"));
 }
 
