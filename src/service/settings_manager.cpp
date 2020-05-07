@@ -585,11 +585,6 @@ void WriteSwapPartitionSize(const uint size) {
     AppendToConfigFile("DI_SWAP_SIZE", size);
 }
 
-void WriteIsMinimalGraphicInstall(bool isMinimal)
-{
-    AppendToConfigFile("DI_MINIMAL_GRAPHIC_INSTALL", isMinimal);
-}
-
 void WriteSelectedInstallType(const QString &installType)
 {
     AppendToConfigFile(kSelectedInstallType, installType);

@@ -58,6 +58,12 @@ namespace installer {
                 m_uninstall << QSharedPointer<ComponentInfo>(new ComponentInfo);
                 m_uninstall.last()->Id = value.toString();
             }
+
+            array = obj["choice-uninstall"].toArray();
+            for (QJsonValue value : array) {
+                m_choiceUninstall << QSharedPointer<ComponentInfo>(new ComponentInfo);
+                m_choiceUninstall.last()->Id = value.toString();
+            }
         }
 
         inline QString id() const {
@@ -77,11 +83,16 @@ namespace installer {
             return m_uninstall;
         }
 
+        inline QList<QSharedPointer<ComponentInfo>> choiceUninstall() const {
+            return m_choiceUninstall;
+        }
+
     private:
         QString m_id;
         QList<QSharedPointer<ComponentInfo>> m_default;
         QList<QSharedPointer<ComponentInfo>> m_extra;
         QList<QSharedPointer<ComponentInfo>> m_uninstall;
+        QList<QSharedPointer<ComponentInfo>> m_choiceUninstall;
     };
 }
 
@@ -104,7 +115,8 @@ public:
 
     QStringList GetAvailablePackages() const;
     QStringList packageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const;
-    QStringList uninstallPackageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const;
+    QStringList uninstallPackageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct
+                                                      , const bool isMinimalGhaphicInstall) const;
 
     QStringList loadStructForLanguage(const QString& lang) const;
     QPair<QString, QString> updateTs(const QString& id) const;

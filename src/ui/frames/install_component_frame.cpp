@@ -111,9 +111,6 @@ void SelectInstallComponentFrame::init()
 
 void SelectInstallComponentFrame::finished()
 {
-    // Write if minimal graphic install.
-    WriteIsMinimalGraphicInstall(m_private->isMinimalGraphicInstall());
-
     WriteComponentPackages("");
     WriteComponentUninstallPackages("");
 
@@ -140,9 +137,10 @@ void SelectInstallComponentFrame::finished()
         WriteComponentPackages(installPackages.join(" "));
     }
 
+    // Write if minimal graphic install is true, add choice-uninstall to uninstall packages.
     const QStringList uninstallPackages =
         ComponentInstallManager::Instance()->uninstallPackageListByComponentStruct(
-            current);
+            current, m_private->isMinimalGraphicInstall());
     if (!uninstallPackages.isEmpty()) {
         WriteComponentUninstallPackages(uninstallPackages.join(" "));
     }
