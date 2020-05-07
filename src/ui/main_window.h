@@ -162,6 +162,7 @@ private:
 
   ConfirmQuitFrame* confirm_quit_frame_ = nullptr;
   ControlPanelFrame* control_panel_frame_ = nullptr;
+  RepairSystemFrame* m_repairSystemFrame = nullptr;
   DiskSpaceInsufficientFrame* disk_space_insufficient_frame_ = nullptr;
   InstallProgressFrame* install_progress_frame_ = nullptr;
   PartitionFrame* partition_frame_ = nullptr;
@@ -170,7 +171,6 @@ private:
   SystemInfoFrame* system_info_frame_ = nullptr;
   TimezoneFrame* timezone_frame_ = nullptr;
   VirtualMachineFrame* virtual_machine_frame_ = nullptr;
-  RepairSystemFrame* m_repairSystemFrame = nullptr;
   MultiHeadManager* multi_head_manager_ = nullptr;
   SelectInstallComponentFrame* m_selectComponentFrame = nullptr;
   InstallResultsFrame* m_installResultsFrame = nullptr;

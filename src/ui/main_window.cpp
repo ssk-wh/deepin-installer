@@ -53,6 +53,7 @@
 #include "ui/frames/virtual_machine_frame.h"
 #include "ui/frames/install_component_frame.h"
 #include "ui/frames/install_results_frame.h"
+#include "ui/frames/repair_system_frame.h"
 #include "ui/widgets/shadow_widget.h"
 #include "ui/frames/repair_system_frame.h"
 
@@ -404,11 +405,19 @@ void MainWindow::initConnections() {
           this, &MainWindow::setCloseButtonVisible);
 
   connect(m_frameLabelsView, &DListView::clicked, this, &MainWindow::onFrameLabelsViewClicked);
+
+  connect(m_repairSystemFrame, &RepairSystemFrame::repair, this, [=] {
+    qInfo() << "System repair...";
+    this->close();
+  });
 }
 
 void MainWindow::initPages() {
   confirm_quit_frame_ = new ConfirmQuitFrame(this);
   confirm_quit_frame_->hide();
+
+  m_repairSystemFrame = new RepairSystemFrame(this);
+  stacked_layout_->addWidget(m_repairSystemFrame);
 
   select_language_frame_ = new LanguageFrame(this);
   stacked_layout_->addWidget(select_language_frame_);
@@ -431,10 +440,6 @@ void MainWindow::initPages() {
 
   virtual_machine_frame_ = new VirtualMachineFrame(this);
 
-  m_repairSystemFrame = new RepairSystemFrame(this);
-  pages_.insert(PageId::RepairSystemId,
-                stacked_layout_->addWidget(m_repairSystemFrame));
-
   m_selectComponentFrame = new SelectInstallComponentFrame(this);
   stacked_layout_->addWidget(m_selectComponentFrame);
 
@@ -444,6 +449,7 @@ void MainWindow::initPages() {
   m_originalFrames = {
       // TODO: move the front new statement over here
       privilege_error_frame_,
+      m_repairSystemFrame,
       select_language_frame_,
       disk_space_insufficient_frame_,
       virtual_machine_frame_,

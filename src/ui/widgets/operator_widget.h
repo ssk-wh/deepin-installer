@@ -43,6 +43,7 @@ public:
 protected:
     virtual void selectChange();
 
+    void paintEvent(QPaintEvent *event) override;
     void resizeEvent(QResizeEvent *event) override;
 
 private:

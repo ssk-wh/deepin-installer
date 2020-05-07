@@ -510,6 +510,7 @@ set(UI_FILES
     ui/widgets/time_date_line_edit.cpp
     ui/widgets/auto_wrap_label.h
     ui/widgets/auto_wrap_label.cpp
+
     ui/widgets/link_button.h
     ui/widgets/link_button.cpp
     ui/widgets/operator_widget.h

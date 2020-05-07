@@ -18,7 +18,6 @@
 #include "operator_widget.h"
 
 #include "base/file_util.h"
-
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QMouseEvent>
@@ -67,7 +66,6 @@ void installer::OperatorWidget::setSelect(bool checked)
 void installer::OperatorWidget::selectChange()
 {
     setFocus();
-
     if (m_isCancelSelect) {
         setCheckable(!isChecked());
         m_selectIconLabel->setVisible(!m_selectIconLabel->isVisible());
@@ -75,6 +73,20 @@ void installer::OperatorWidget::selectChange()
         setCheckable(true);
         m_selectIconLabel->setVisible(true);
     }
+}
+
+void installer::OperatorWidget::paintEvent(QPaintEvent *event)
+{
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing);
+
+    QPainterPath PaintPath;
+    QColor color(0, 0, 0, 15);
+
+    PaintPath.addRoundedRect(rect(), 10, 10);
+    painter.fillPath(PaintPath, color);
+
+    QWidget::paintEvent(event);
 }
 
 void installer::OperatorWidget::resizeEvent(QResizeEvent *event)
@@ -115,7 +127,6 @@ void installer::OperatorWidget::initUi()
     mainLayout->addStretch();
     mainLayout->addWidget(m_selectIconLabel);
     setLayout(mainLayout);
-    setStyleSheet(ReadFile(":/styles/operator_widget.css"));
 }
 
 void installer::OperatorWidget::initConnection()

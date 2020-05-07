@@ -18,42 +18,42 @@
 #ifndef REPAIR_SYSTEM_FRAME_H
 #define REPAIR_SYSTEM_FRAME_H
 
-#include <QFrame>
-#include <DPushButton>
+#include "ui/interfaces/frameinterface.h"
 
-DWIDGET_USE_NAMESPACE
+#include <QScopedPointer>
 
 namespace installer {
 
-class OperatorWidget;
-class NavButton;
+class RepairSystemPrivate;
 
-class RepairSystemFrame : public QFrame
+class RepairSystemFrame : public FrameInterface
 {
     Q_OBJECT
-public:
-    explicit RepairSystemFrame(QWidget *parent);
 
-    bool shouldDisplay() const;
+    friend class RepairSystemPrivate;
+
+public:
+    explicit RepairSystemFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
+    ~RepairSystemFrame() override;
 
 signals:
- // This signal is emitted when continue-button is clicked.
-    void finished() const;
     void repair() const;
 
-public slots:
+public:
+    void init() override;
+    void finished() override;
+    bool shouldDisplay() const override;
+    QString returnFrameName() const override;
     void repairSystem() const;
 
-private:
-    void initUi();
-    void initConnection() const;
-    bool isRepair() const;
-    void updateTs();
+protected:
+    void paintEvent(QPaintEvent *event) override;
 
 private:
-    OperatorWidget* m_installerWidget = nullptr;
-    OperatorWidget* m_repairWidget = nullptr;
-    NavButton* m_nextButton = nullptr;
+    bool isRepair() const;
+
+private:
+    QScopedPointer<RepairSystemPrivate> m_private;
 };
 
 }
