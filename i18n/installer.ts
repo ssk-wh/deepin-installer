@@ -756,32 +756,32 @@
 <context>
     <name>installer::SystemInfoFormFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="182"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="186"/>
         <source>Username</source>
         <translation type="unfinished">Username</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="183"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="187"/>
         <source>Computer name</source>
         <translation type="unfinished">Computer name</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="184"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="188"/>
         <source>Password</source>
         <translation type="unfinished">Password</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="185"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="189"/>
         <source>Repeat password</source>
         <translation type="unfinished">Repeat password</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="186"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="190"/>
         <source>Root password</source>
         <translation type="unfinished">Root password</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="187"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="191"/>
         <source>Repeat root password</source>
         <translation type="unfinished">Repeat root password</translation>
     </message>
@@ -2398,120 +2398,125 @@
 <context>
     <name>installer::SystemInfoFormFramePrivate</name>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="292"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="298"/>
         <source>Username</source>
         <translation>Username</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="303"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="309"/>
         <source>Computer name</source>
         <translation>Computer name</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="320"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="326"/>
         <source>Password</source>
         <translation>Password</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="321"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="327"/>
         <source>Repeat password</source>
         <translation>Repeat password</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="331"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="337"/>
         <source>Root password</source>
         <translation>Root password</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="337"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="343"/>
         <source>Repeat root password</source>
         <translation>Repeat root password</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="411"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="418"/>
         <source>Create User Account</source>
         <translation>Create User Account</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="412"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="419"/>
         <source>Fill in the username, computer name and your password</source>
         <translation>Fill in the username, computer name and your password</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="413"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="420"/>
         <source>Use that password to edit boot menu</source>
         <translation>Use that password to edit boot menu</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="414"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="421"/>
         <source>Set root password</source>
         <translation>Set root password</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="415"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="422"/>
         <source>Next</source>
         <translation>Next</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="439"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="446"/>
         <source>This username already exists</source>
         <translation>This username already exists</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="443"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="450"/>
         <source>The first letter must be in lowercase</source>
         <translation>The first letter must be in lowercase</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="449"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="456"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
         <translation>Username must contain English letters (lowercase), numbers or special symbols (_-)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="455"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="462"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
         <translation>Please input username longer than %1 characters and shorter than %2 characters</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="477"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="484"/>
         <source>Please input computer name</source>
         <translation>Please input computer name</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="481"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="488"/>
         <source>Computer name is invalid</source>
         <translation>Computer name is invalid</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="485"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="492"/>
         <source>Computer name already exists, please input another one</source>
         <translation>Computer name already exists, please input another one</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="490"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="497"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
         <translation>Please input computer name longer than %1 characters and shorter than %2 characters</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="517"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="524"/>
         <source>The password should be different from the username</source>
         <translation>The password should be different from the username</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="531"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="544"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="538"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="551"/>
         <source>Please input password longer than %1 characters and shorter than %2 characters</source>
         <translation>Please input password longer than %1 characters and shorter than %2 characters</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="538"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="545"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="570"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="577"/>
         <source>Passwords do not match</source>
         <translation>Passwords do not match</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="821"/>
+        <source>Your PC supports fingerprint identification, so you can add fingerprint password in Control Center &gt; Account, and then use the fingerprint to unlock and authenticate</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -2483,6 +2483,11 @@
         <source>Passwords do not match</source>
         <translation>两次输入的密码不一致</translation>
     </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="821"/>
+        <source>Your PC supports fingerprint identification, so you can add fingerprint password in Control Center &gt; Account, and then use the fingerprint to unlock and authenticate</source>
+        <translation>本机支持指纹识别功能，您可以在“控制中心>账户”中添加您的指纹，然后使用指纹来解锁和验证身份</translation>
+    </message>
 </context>
 <context>
     <name>installer::SystemInfoKeyboardFramePrivate</name>

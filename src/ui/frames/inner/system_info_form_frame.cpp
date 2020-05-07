@@ -27,6 +27,8 @@
 #include <QCheckBox>
 #include <QDebug>
 #include <QScrollBar>
+#include <QDBusInterface>
+#include <QDBusConnection>
 
 #include "base/file_util.h"
 #include "service/settings_manager.h"
@@ -59,6 +61,7 @@ public:
     SystemInfoFormFrame* q_ptr;
     Q_DECLARE_PUBLIC(SystemInfoFormFrame)
 
+    void updateDevice();
 private:
     void initConnections();
     void initUI();
@@ -97,6 +100,7 @@ private:
     void onRootPasswordCheckEditingFinished();
     void onSetRootPasswordCheckChanged(bool enable);
 
+    bool searchDevice();   
 private:
     bool m_isUsernameEdited_ = false;
     bool m_isHostnameEdited_ = false;
@@ -199,6 +203,8 @@ void SystemInfoFormFrame::showEvent(QShowEvent* event)
     QFrame::showEvent(event);
     d->m_usernameEdit_->setFocus();
     d->tooltip_->hide();
+    d->updateDevice();
+
 }
 
 void SystemInfoFormFramePrivate::initConnections()
@@ -404,6 +410,7 @@ void SystemInfoFormFramePrivate::initUI()
     q->setLayout(mainLayout);
     q->setContentsMargins(0, 0, 0, 0);
     q->setStyleSheet(ReadFile(":/styles/system_info_form_frame.css"));
+
 }
 
 void SystemInfoFormFramePrivate::updateTex()
@@ -793,6 +800,26 @@ void SystemInfoFormFramePrivate::onSetRootPasswordCheckChanged(bool enable)
         if (tooltip_->isVisible()) {
             tooltip_->hide();
         }
+    }
+}
+
+bool SystemInfoFormFramePrivate::searchDevice() {
+    QDBusInterface fingerprint_interface("com.deepin.daemon.Authenticate",
+                                                                "/com/deepin/daemon/Authenticate/Fingerprint",
+                                                                "com.deepin.daemon.Authenticate.Fingerprint",
+                                                                QDBusConnection::systemBus());
+    QVariant  pDefaultDevice(fingerprint_interface.property("DefaultDevice"));
+    if (pDefaultDevice.type() != QVariant::Type::String) return false;
+    QString devName(pDefaultDevice.toString());
+    if (devName.size() == 0) return false;
+
+    return true;
+}
+
+void SystemInfoFormFramePrivate::updateDevice() {    
+    if (searchDevice()) {
+       tooltip_->setText(tr("Your PC supports fingerprint identification, so you can add fingerprint password in Control Center > Account, and then use the fingerprint to unlock and authenticate"));
+       tooltip_->showBottom(m_passwordEdit_);
     }
 }
 
