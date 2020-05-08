@@ -114,11 +114,11 @@ void PartitionSizeSlider::initUI() {
   // Disable context menu.
   editor_->setContextMenuPolicy(Qt::NoContextMenu);
   connect(editor_, &QLineEdit::selectionChanged, this,[=] {
-      if (editor_->text().isEmpty() || !editor_->selectedText().isEmpty()){
-          editor_->setFocus();
-      } else {
-        this->setFocus();
-      }
+    editor_->setFocus();
+  });
+
+  connect(editor_, &QLineEdit::editingFinished, this,[=] {
+    this->setFocus();
   });
 
   QLabel* size_label = new QLabel("MB");
