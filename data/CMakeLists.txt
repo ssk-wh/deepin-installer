@@ -17,6 +17,14 @@ install(
     DESTINATION ${CMAKE_INSTALL_PREFIX}/share/xgreeters/
 )
 
+install(
+    FILES ${CMAKE_CURRENT_SOURCE_DIR}/deepin-livecd-relaunch
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/bin/deepin-livecd-relaunch
+    PERMISSIONS OWNER_READ OWNER_EXECUTE
+                GROUP_READ GROUP_EXECUTE
+                WORLD_READ WORLD_EXECUTE
+)
+
 option(USE_SYSTEMD "bootup as a systemd service" FALSE)
 message("USE_SYSTEMD: ${USE_SYSTEMD}")
 if (USE_SYSTEMD)
