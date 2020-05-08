@@ -72,7 +72,8 @@ Depends:
     cryptsetup,
     lvm2,
     dde-account-faces,
-    dde-qt5integration
+    dde-qt5integration,
+    deepin-repair-tools
 Description: Release version of deepin installer
  New version of deepin-installer, rewritten with Qt5.
 
