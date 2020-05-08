@@ -197,7 +197,12 @@ void PartitionFrame::scanDevices()  const{
 
 void PartitionFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    m_private->title_label_->setText(tr("Select Installation Location"));
+      if (m_private->partition_stacked_layout_->currentWidget() ==  m_private->lvm_partition_frame_) {
+          m_private->title_label_->setText(tr("Lvm configer"));
+      } else {
+          m_private->title_label_->setText(tr("Select Installation Location"));
+      }
+
     m_private->comment_label_->setText(
         tr("Make sure you have backed up important data, then select the disk to install"));
     m_private->simple_frame_button_->setText(tr("Simple"));

@@ -43,6 +43,7 @@ void LvmPartitionFrame::updateLayout(QHBoxLayout* layout, QString text) {
     m_lastButtonLayout->setContentsMargins(margin / 2, 0, margin / 2, 0);
     m_lastButtonLayout->insertWidget(0, m_lastButton);
     m_lastButton->setText(text);
+    m_lastButton->show();
 }
 
 void LvmPartitionFrame::onLastButtonClicked() {
