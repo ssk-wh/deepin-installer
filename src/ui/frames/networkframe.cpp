@@ -700,7 +700,9 @@ void NetworkFrame::initDeviceWidgetList()
         qDebug() << "interface name: " << dev->interfaceName();
 
         // FIXME: what about !dev->managed()
-        if (dev->interfaceName() == "lo" || dev->type() == NetworkManager::Device::Type::Wifi) {
+        if (dev->interfaceName() == "lo"
+            || dev->interfaceName().contains("vmnet")
+            || dev->type() == NetworkManager::Device::Type::Wifi) {
             continue;
         }
 
@@ -794,20 +796,8 @@ void NetworkFrame::saveConf()
 
                 // If at least one network connection is found, then config it.
                 // Else create one network connection with the configuration.
-                if (!operate->getConnection().isNull()) {
-                    if (!operate->setIpV4(networkSettingInfo)) {
-                        qDebug() << "saveConf() set ipV4 failed";
-                    }
-                }
-                else {
-                    if (operate->createNetworkConnection()) {
-                        if (!operate->setIpV4(networkSettingInfo)) {
-                            qDebug() << "saveConf() set ipV4 failed";
-                        }
-                    }
-                    else {
-                        qDebug() << "saveConf() create network connection failed";
-                    }
+                if (!operate->setIpV4(networkSettingInfo)) {
+                    qDebug() << "saveConf() set ipV4 failed";
                 }
 
                 operate->setDeviceEnable(device->uni(), true);

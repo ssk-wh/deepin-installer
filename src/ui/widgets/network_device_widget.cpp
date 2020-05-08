@@ -136,7 +136,6 @@ void NetworkDeviceWidget::readNetworkSettingInfo()
         return;
     }
 
-    // TODO: how to get device dhcp method.
     NetworkManager::IpAddress address = ipConfig.addresses().at(0);
 
     NetworkSettingInfo networkSettingInfo;

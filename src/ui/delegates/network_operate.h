@@ -36,11 +36,14 @@ public:
     ~NetworkOperate();
 
     bool createNetworkConnection();
-    void setNetworkConnection();
+    void initNetworkConnection();
     bool setIpV4(NetworkSettingInfo info);
     void setDeviceEnable(const QString &devPath, const bool enable);
     bool getDeviceEnable(const QString &devPath);
     DHCPTYpe getDhcp() const;
+    bool activateConn();
+    bool isIpv4Address(const QString &ip);
+    void readIpInfo(NetworkSettingInfo& networkSettingInfo);
 
     NetworkManager::Connection::Ptr getConnection() const;
 
@@ -48,7 +51,7 @@ private:
     QString m_interfaceName;
     NetworkManager::Device::Ptr m_device = nullptr;
     NetworkManager::Connection::Ptr m_connection = nullptr;
-    ActiveConnection::Ptr m_activeConnection = nullptr;
+    NetworkManager::ConnectionSettings::Ptr m_connectionSettings = nullptr;
     DHCPTYpe m_configMethod = DHCPTYpe::Auto;
 };
 }  // namespace installer
