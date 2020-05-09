@@ -81,6 +81,7 @@ int main(int argc, char* argv[]) {
   // Delete old settings file and generate a new one.
   installer::DeleteConfigFile();
   installer::AddConfigFile();
+  installer::BeforeInstallHook();
 
   qDebug() << "Version:" << installer::kAppVersion;
 

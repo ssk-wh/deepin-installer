@@ -178,6 +178,9 @@ void WriteUserExperience(bool checked);
 // Other settings will be updated later.
 void AddConfigFile();
 
+//Run some job before install
+void BeforeInstallHook();
+
 // Save swap size for FullDiskInstall
 void WriteSwapPartitionSize(const uint size);
 
