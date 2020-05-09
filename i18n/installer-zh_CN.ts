@@ -1212,6 +1212,10 @@
 </context>
 <context>
     <name>installer::ComponentInstallManager</name>
+<message><source>Core</source><translation>核心组件</translation></message>
+<message><source>Core packages for server OS.</source><translation>服务器操作系统核心组件软件包。</translation></message>
+<message><source>Base</source><translation>基本组件</translation></message>
+<message><source>Base packages for server OS.</source><translation>服务器操作系统基本组件软件包。</translation></message>
 <message><source>Basic Server Environment</source><translation>常规服务器环境</translation></message>
 <message><source>Applies to standard common service environments, such as Web services and database services.</source><translation>适用于标准化常用服务环境，如Web服务、数据库服务。</translation></message>
 <message><source>Cloud and Virtualzalition</source><translation>云和虚拟化</translation></message>

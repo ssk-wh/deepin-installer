@@ -1490,8 +1490,15 @@
 <context>
     <name>installer::ComponentInstallManager</name>
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> eae3cb6b... clean all ts file
 =======
+=======
+<message><source>Core</source><translation type="vanished">Core</translation></message>
+<message><source>Core packages for server OS.</source><translation type="vanished">Core packages for server OS.</translation></message>
+<message><source>Base</source><translation type="vanished">Base</translation></message>
+<message><source>Base packages for server OS.</source><translation type="vanished">Base packages for server OS.</translation></message>
+>>>>>>> f303d69d... feat: add core and base translate
 <message><source>Basic Server Environment</source><translation type="vanished">Basic Server Environment</translation></message>
 <message><source>Applies to standard common service environments, such as Web services and database services.</source><translation type="vanished">Applies to standard common service environments, such as Web services and database services.</translation></message>
 <message><source>Cloud and Virtualzalition</source><translation type="vanished">Cloud and Virtualzalition</translation></message>
