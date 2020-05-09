@@ -49,6 +49,8 @@ ValidatePasswordState ValidatePassword(const QString&     password,
                                        const QStringList& validatePolicy,
                                        int                validateRequiredNum);
 
+extern QString PasswordPromptInfo();
+
 }  // namespace installer
 
 #endif  // INSTALLER_SYSINFO_VALIDATE_PASSWORD_H

@@ -66,4 +66,20 @@ ValidatePasswordState ValidatePassword(const QString&     password,
     return ValidatePasswordState::Ok;
 }
 
+QString PasswordPromptInfo()
+{
+    QString prompt;
+
+    switch (GetCurrentType()) {
+    case OSType::Server:
+        prompt = QObject::tr("The password must have at least 8 characters, and contain at least 3 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols");
+        break;
+    case OSType::Community:
+        prompt = QObject::tr("The password cannot be empty");
+        break;
+    }
+
+    return prompt;
+}
+
 }  // namespace installer
