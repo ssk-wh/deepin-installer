@@ -20,6 +20,7 @@
 
 #include <QDebug>
 #include <QIcon>
+#include <DLog>
 
 #include "base/consts.h"
 #include "service/log_manager.h"
@@ -33,6 +34,7 @@
 #include "base/auto_screen_scale.h"
 
 DWIDGET_USE_NAMESPACE
+DCORE_USE_NAMESPACE
 
 int main(int argc, char *argv[])
 {
@@ -63,6 +65,8 @@ int main(int argc, char *argv[])
   }
   // Initialize log service.
   installer::RedirectLog(log_file);
+
+  DLogManager::registerConsoleAppender();
 
   QFont font(app.font());
   font.setFamily(installer::GetUIDefaultFont());

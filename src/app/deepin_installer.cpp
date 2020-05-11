@@ -20,6 +20,7 @@
 #include <QApplication>
 #include <QDebug>
 #include <QIcon>
+#include <DLog>
 
 #include "ui/delegates/componentinstallmanager.h"
 #include "base/consts.h"
@@ -29,6 +30,8 @@
 #include "ui/delegates/installer_args_parser.h"
 #include "ui/main_window.h"
 #include "base/auto_screen_scale.h"
+
+DCORE_USE_NAMESPACE
 
 int main(int argc, char* argv[]) {
   // Reset LC_ALL to en_US.UTF-8.
@@ -68,6 +71,8 @@ int main(int argc, char* argv[]) {
     log_file = QString("/var/log/%1").arg(kLogFileName);
   }
   installer::RedirectLog(log_file);
+
+  DLogManager::registerConsoleAppender();
 
   // Delete old settings file and generate a new one.
   installer::DeleteConfigFile();

@@ -197,8 +197,20 @@ void HooksManager::handleRunHooks() {
   after_chroot->init(HookType::AfterChroot, kAfterChrootStartVal,
                      kAfterChrootEndVal, nullptr);
 
+  // add system version log
+  qInfo() << "system version: UOS " << QSysInfo().productVersion();
+  // add kernel versionlog
+  qInfo() << "kernel version: " << QSysInfo().kernelVersion();
+  // add hooks scripts start time
+  QDateTime startTime = QDateTime::currentDateTime();
+  qInfo() << "run hook...";
+
   hooks_pack_ = before_chroot;
   this->runHooksPack();
+
+  // add hooks scripts end time
+  qInfo() << "hook done. Time consuming: " << startTime.secsTo(QDateTime::currentDateTime()) << "s";
+
 }
 
 void HooksManager::handleReadUnsquashfsTimeout() {

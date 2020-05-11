@@ -478,6 +478,9 @@ void WriteTimezone(const QString& timezone) {
 
 void WriteUsername(const QString& username) {
   AppendToConfigFile("DI_USERNAME", username);
+
+  // add user info log
+  qInfo() << "create user: " << username;
 }
 
 void WritePartitionInfo(const QString& root_disk,
@@ -583,15 +586,24 @@ void WriteSelectedInstallType(const QString &installType)
 void WriteComponentPackages(const QString &packages)
 {
     AppendToConfigFile("DI_COMPONENT_PACKAGES", packages);
+
+    // add package info log
+    qInfo() << "install packages list: " << packages;
 }
 
 void WriteComponentUninstallPackages(const QString& packages)
 {
     AppendToConfigFile("DI_COMPONENT_UNINSTALL", packages);
+
+    // add package info log
+    qInfo() << "uninstall packages list: " <<  packages;
 }
 
 void WriteComponentLanguage(const QString& packages) {
     AppendToConfigFile("DI_COMPONENT_LANGUAGE", packages);
+
+    // add package info log
+    qInfo() << "language packages list: " << packages;
 }
 
 void WriteIsLocalTime(bool isLocalTime)
