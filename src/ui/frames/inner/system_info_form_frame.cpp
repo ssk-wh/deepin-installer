@@ -804,11 +804,11 @@ void SystemInfoFormFramePrivate::onSetRootPasswordCheckChanged(bool enable)
 }
 
 bool SystemInfoFormFramePrivate::searchDevice() {
-    QDBusInterface fingerprint_interface("com.deepin.daemon.Authenticate",
+    QDBusInterface fingerprintInterface("com.deepin.daemon.Authenticate",
                                                                 "/com/deepin/daemon/Authenticate/Fingerprint",
                                                                 "com.deepin.daemon.Authenticate.Fingerprint",
                                                                 QDBusConnection::systemBus());
-    QVariant  pDefaultDevice(fingerprint_interface.property("DefaultDevice"));
+    QVariant  pDefaultDevice(fingerprintInterface.property("DefaultDevice"));
     if (pDefaultDevice.type() != QVariant::Type::String) return false;
     QString devName(pDefaultDevice.toString());
     if (devName.size() == 0) return false;
