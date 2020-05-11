@@ -252,6 +252,8 @@ void EditPartitionFrame::initUI() {
   fs_box_->setModel(fs_model_);
   fs_box_->setFixedWidth(kComboxWidth);
 
+  fs_model_->setShowRecovery(GetSettingsBool(kEnableRecoveryPartition));
+
   mount_point_box_ = new TableComboBox();
   mount_point_box_->setObjectName("mount_point_box");
   mount_point_model_ = new MountPointModel(delegate_->getMountPoints(), this);
