@@ -139,6 +139,11 @@ void LineEdit::setFocus()
     m_lineEdit->setFocus();
 }
 
+QLineEdit *LineEdit::lineEdit() const
+{
+    return m_lineEdit;
+}
+
 void LineEdit::resetLineEditMaxWidth(bool visible)
 {
     if (visible){

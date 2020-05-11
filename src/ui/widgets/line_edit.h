@@ -52,6 +52,8 @@ public:
     bool hasFocus() const;
     void setFocus();
 
+    QLineEdit* lineEdit() const;
+
 signals:
     void gotFocus();
 
