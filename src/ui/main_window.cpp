@@ -368,7 +368,7 @@ void MainWindow::initConnections() {
           this, &MainWindow::goNextPage);
 
   connect(m_repairSystemFrame, &RepairSystemFrame::repair,
-          this, &MainWindow::close);
+          qApp, &QApplication::quit);
 
   // Notify InstallProgressFrame that partition job has finished.
   connect(partition_frame_, &PartitionFrame::autoPartDone,

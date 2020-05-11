@@ -95,6 +95,7 @@ void installer::RepairSystemFrame::initUi()
     centerLayout->addStretch(25);
     centerLayout->addWidget(m_nextButton, 0, Qt::AlignHCenter | Qt::AlignBottom);
     setLayout(centerLayout);
+    setFocus();
 }
 
 void installer::RepairSystemFrame::initConnection() const
@@ -102,11 +103,13 @@ void installer::RepairSystemFrame::initConnection() const
     connect(m_installerWidget, &OperatorWidget::clicked, this, [=] {
        m_repairWidget->setSelect(false);
        m_nextButton->setEnabled(true);
+       m_nextButton->setFocus();
     });
 
     connect(m_repairWidget, &OperatorWidget::clicked, this, [=] {
        m_installerWidget->setSelect(false);
        m_nextButton->setEnabled(true);
+       m_nextButton->setFocus();
     });
 
     disconnect(m_nextButton, nullptr, nullptr, nullptr);

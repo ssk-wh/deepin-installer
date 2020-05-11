@@ -5,6 +5,6 @@ QWidget {
   border: none;
   outline: none;
 
-  background-color: rgba(0, 0, 0, 15);
+  background-color: transparent;
 }
 
