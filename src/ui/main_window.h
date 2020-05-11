@@ -64,6 +64,7 @@ class VirtualMachineFrame;
 class SelectInstallComponentFrame;
 class InstallResultsFrame;
 class ShadowWidget;
+class RepairSystemFrame;
 
 // MainWindow is a fullscreen window of deepin-installer.
 // All of ui frames are placed in MainWindow.
@@ -125,6 +126,7 @@ private:
       VirtualMachineId,
       UserAgreementId,
       SelectComponentId,
+      RepairSystemId
   };
 
   void initConnections();
@@ -168,6 +170,7 @@ private:
   SystemInfoFrame* system_info_frame_ = nullptr;
   TimezoneFrame* timezone_frame_ = nullptr;
   VirtualMachineFrame* virtual_machine_frame_ = nullptr;
+  RepairSystemFrame* m_repairSystemFrame = nullptr;
   MultiHeadManager* multi_head_manager_ = nullptr;
   SelectInstallComponentFrame* m_selectComponentFrame = nullptr;
   InstallResultsFrame* m_installResultsFrame = nullptr;

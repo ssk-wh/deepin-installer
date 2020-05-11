@@ -1,0 +1,10 @@
+/** Used in OperatorWidget class **/
+
+QWidget {
+  color: #ffffff;
+  border: none;
+  outline: none;
+
+  background-color: rgba(0, 0, 0, 15);
+}
+

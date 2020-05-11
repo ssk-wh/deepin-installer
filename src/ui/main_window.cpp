@@ -54,6 +54,7 @@
 #include "ui/frames/install_component_frame.h"
 #include "ui/frames/install_results_frame.h"
 #include "ui/widgets/shadow_widget.h"
+#include "ui/frames/repair_system_frame.h"
 
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/pointer_button.h"
@@ -363,6 +364,12 @@ void MainWindow::initConnections() {
   connect(select_language_frame_, &LanguageFrame::timezoneUpdated,
           timezone_frame_, &TimezoneFrame::updateTimezoneBasedOnLanguage);
 
+  connect(m_repairSystemFrame, &RepairSystemFrame::finished,
+          this, &MainWindow::goNextPage);
+
+  connect(m_repairSystemFrame, &RepairSystemFrame::repair,
+          this, &MainWindow::close);
+
   // Notify InstallProgressFrame that partition job has finished.
   connect(partition_frame_, &PartitionFrame::autoPartDone,
           install_progress_frame_, &InstallProgressFrame::runHooks);
@@ -420,6 +427,10 @@ void MainWindow::initPages() {
   stacked_layout_->addWidget(timezone_frame_);
 
   virtual_machine_frame_ = new VirtualMachineFrame(this);
+
+  m_repairSystemFrame = new RepairSystemFrame(this);
+  pages_.insert(PageId::RepairSystemId,
+                stacked_layout_->addWidget(m_repairSystemFrame));
 
   m_selectComponentFrame = new SelectInstallComponentFrame(this);
   stacked_layout_->addWidget(m_selectComponentFrame);
@@ -786,6 +797,19 @@ void MainWindow::goNextPage() {
     }
 
     case PageId::DiskSpaceInsufficientId: {
+        // Check whether to show VirtualMachinePage.
+        if (!m_repairSystemFrame->shouldDisplay()) {
+            prev_page_ = current_page_;
+            current_page_ = PageId::RepairSystemId;
+        } else {
+            page_indicator_->goNextPage();
+            isMainPage = true;
+            this->setCurrentPage(PageId::RepairSystemId);
+            break;
+        }
+    }
+
+    case PageId::RepairSystemId: {
         // Check whether to show VirtualMachinePage.
         if (!GetSettingsBool(kSkipVirtualMachinePage) &&
                 IsVirtualMachine()) {

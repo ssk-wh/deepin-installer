@@ -119,5 +119,12 @@
         <file>deepin-installer-32px.svg</file>
         <file>arrows_down.svg</file>
         <file>arrows_up.svg</file>
+        <file>password_hide_hover.svg</file>
+        <file>password_hide_normal.svg</file>
+        <file>password_hide_press.svg</file>
+        <file>password_show_hover.svg</file>
+        <file>password_show_normal.svg</file>
+        <file>password_show_press.svg</file>
+        <file>select_blue.svg</file>
     </qresource>
 </RCC>

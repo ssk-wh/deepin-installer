@@ -395,6 +395,8 @@ set(UI_FILES
     ui/frames/install_component_frame.cpp
     ui/frames/install_results_frame.h
     ui/frames/install_results_frame.cpp
+    ui/frames/repair_system_frame.h
+    ui/frames/repair_system_frame.cpp
 
     ui/models/bootloader_list_model.cpp
     ui/models/bootloader_list_model.h
@@ -505,6 +507,8 @@ set(UI_FILES
     ui/widgets/auto_wrap_label.cpp
     ui/widgets/link_button.h
     ui/widgets/link_button.cpp
+    ui/widgets/operator_widget.h
+    ui/widgets/operator_widget.cpp
 
     ui/xrandr/multi_head_manager.cpp
     ui/xrandr/multi_head_manager.h

@@ -70,10 +70,6 @@ TimezoneMap::TimezoneMap(QWidget* parent)
 }
 
 TimezoneMap::~TimezoneMap() {
-  if (popup_window_) {
-    delete popup_window_;
-    popup_window_ = nullptr;
-  }
 }
 
 const QString TimezoneMap::getTimezone() const {
