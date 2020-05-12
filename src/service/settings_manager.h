@@ -109,6 +109,7 @@ QString GetSelectedInstallType();
 QString GetComponentDefault();
 QString GetComponentExtra();
 QString GetComponentSort();
+QString GetLanguageSort();
 
 // Append settings in |conf_file| into default conf file.
 bool AppendConfigFile(const QString& conf_file);

@@ -27,6 +27,9 @@
 #include <QScrollBar>
 #include <QPushButton>
 #include <QStandardItemModel>
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonObject>
 
 #include <DListView>
 #include <DStandardItem>
@@ -70,6 +73,7 @@ public:
     LanguageList           lang_list_;
     DStandardItem*         m_lastItem          = nullptr;
     DListView*             m_languageView      = nullptr;
+    QList<QString>         m_lauguageSortList;
 
     void initConnections();
     void initUI();
@@ -78,6 +82,7 @@ public:
     void onLanguageListSelected(const QModelIndex& current);
     void onAccpetLicenseChanged(bool enable);
     void appendLanguageitem();
+    void readLanguageSortFile();
 
     // Get language item at |index|.
     LanguageItem languageItemAt(const QModelIndex& index);
@@ -98,6 +103,7 @@ SelectLanguageFrame::SelectLanguageFrame(UserAgreementDelegate* delegate, QWidge
 
     d_private->initUI();
     d_private->initConnections();
+    d_private->readLanguageSortFile();
     d_private->appendLanguageitem();
     d_private->m_languageView->installEventFilter(this);
 }
@@ -207,9 +213,35 @@ void SelectLanguageFramePrivate::initConnections()
 void SelectLanguageFramePrivate::appendLanguageitem()
 {
     lang_list_ = GetLanguageList();
+
+    qSort(lang_list_.begin(), lang_list_.end(), [&] (LanguageItem& left, LanguageItem& right) {
+        return m_lauguageSortList.indexOf(left.name) < m_lauguageSortList.indexOf(right.name);
+    });
+
+    m_languageModel->clear();
+
     for(auto it = lang_list_.cbegin(); it!=lang_list_.cend(); ++it) {
+        if (m_lauguageSortList.indexOf((*it).name) < 0) {
+            qInfo() << (*it).name << " is not exist in language sort file";
+        }
+
         DStandardItem *item = new DStandardItem((*it).local_name);
         m_languageModel->appendRow(item);
+    }
+}
+
+void SelectLanguageFramePrivate::readLanguageSortFile()
+{
+    QJsonParseError error;
+    QJsonDocument doc = QJsonDocument::fromJson(GetLanguageSort().toUtf8(), &error);
+
+    if (error.error == QJsonParseError::NoError){
+        if(doc.isArray()){
+            QJsonArray array = doc.array();
+            for (auto it = array.begin(); it != array.end(); ++it) {
+                m_lauguageSortList << it->toString();
+            }
+        }
     }
 }
 
