@@ -87,14 +87,9 @@ EOF
     || x"${DI_FORCE_LOCAL_TIME}" = xtrue ]]; then
     # Use RTC time, "timedatectl set-local-rtc 1"
     enable_local_rtc
-  fi
-
-  if [ x"${DI_FORCE_LOCAL_TIME}" != xtrue ]; then
-    # enable NTP service.
-    local readonly TIME_SERVICE=/etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service
-    [ -f "${TIME_SERVICE}" ] || \
-      ln -sv /lib/systemd/system/systemd-timesyncd.service "${TIME_SERVICE}"
-      systemctl restart systemd-timesyncd.service
+  else
+      systemctl enable systemd-timesyncd.service
+      systemctl start systemd-timesyncd.service
   fi
 
   # Check locale
