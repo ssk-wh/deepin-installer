@@ -56,13 +56,27 @@ void installer::InstallLogFrame::setLogPath(const QString &path)
         if (!file.open(QIODevice::ReadOnly)) {
             qDebug() << "Failed to open the log file. file: " << m_logPath;
         }
-
-        while (!file.atEnd()) {
-            m_installLog->insertPlainText(file.readLine());
-            m_installLog->moveCursor(QTextCursor::End);
-        }
+        m_installLog->insertPlainText(file.readAll());
+        m_installLog->moveCursor(QTextCursor::End);
+        file.close();
     });
+}
 
-    m_timer->start();
+void installer::InstallLogFrame::showEvent(QShowEvent *event)
+{
+    if (m_timer != nullptr) {
+        m_timer->start();
+    }
+
+    QFrame::showEvent(event);
+}
+
+void installer::InstallLogFrame::hideEvent(QHideEvent *event)
+{
+    if (m_timer != nullptr) {
+        m_timer->stop();
+    }
+
+    QFrame::hideEvent(event);
 }
 

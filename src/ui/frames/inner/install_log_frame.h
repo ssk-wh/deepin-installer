@@ -20,6 +20,10 @@ public:
     explicit InstallLogFrame(QFrame *parent = nullptr);
     void setLogPath(const QString &);
 
+protected:
+    void showEvent(QShowEvent *event) override;
+    void hideEvent(QHideEvent *event) override;
+
 private:
     QPlainTextEdit *m_installLog = nullptr;
     QTimer* m_timer = nullptr;
