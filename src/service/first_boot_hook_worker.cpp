@@ -16,10 +16,10 @@
  */
 
 #include "service/first_boot_hook_worker.h"
+#include "base/command.h"
+#include "service/settings_manager.h"
 
 #include <QDebug>
-
-#include "base/command.h"
 
 namespace installer {
 
@@ -33,8 +33,10 @@ const char kFirstBootHookFile[] = BUILTIN_HOOKS_DIR "/first_boot_setup.sh";
 FirstBootHookWorker::FirstBootHookWorker(QObject* parent) : QObject(parent) {
   this->setObjectName("first_boot_hook_worker");
 
-  connect(this, &FirstBootHookWorker::startHook,
-          this, &FirstBootHookWorker::doStartHook);
+  connect(this, &FirstBootHookWorker::startHook, this, [=] {
+      updateComponentUninstallPackages();
+      doStartHook();
+  });
 }
 
 void FirstBootHookWorker::doStartHook() {
@@ -48,6 +50,28 @@ void FirstBootHookWorker::doStartHook() {
   }
 
   emit this->hookFinished(ok);
+}
+
+void FirstBootHookWorker::updateComponentUninstallPackages()
+{
+    QString dpkgResult;
+    qDebug() << SpawnCmd("dpkg", { "-l" }, dpkgResult);
+
+    QTextStream stream(&dpkgResult);
+    QString line;
+    QStringList installedList;
+    while (stream.readLineInto(&line)) {
+        const QStringList list {
+            line.simplified().split(" ")
+        };
+
+        if (list.startsWith("ii")) {
+            installedList << QString(list.at(1)).split(":").first();
+        }
+    }
+
+    WriteComponentUninstallPackages(QSet<QString>(ReadComponentUninstallPackages().toSet()
+                                                  & installedList.toSet()).toList().join(" "));
 }
 
 }  // namespace installer

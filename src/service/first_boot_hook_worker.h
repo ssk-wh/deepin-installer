@@ -36,8 +36,9 @@ class FirstBootHookWorker : public QObject {
   // Notify hook manager to run hook worker in background.
   void startHook();
 
- private slots:
+ private:
   void doStartHook();
+  void updateComponentUninstallPackages();
 };
 
 }  // namespace installer

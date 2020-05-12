@@ -126,6 +126,9 @@ void WriteEnableNvidiaDriver(bool is_enable_nvidia_driver);
 // Get current locale.
 QString ReadLocale();
 
+// Get intend to uninstall packages.
+QStringList ReadComponentUninstallPackages();
+
 QString GetUIDefaultFont();
 
 void WriteAvatar(const QString& avatar);

@@ -242,28 +242,12 @@ QStringList ComponentInstallManager::packageListByComponentStruct(QSharedPointer
 
 QStringList ComponentInstallManager::uninstallPackageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct
                                                                            , const bool isMinimalGhaphicInstall) const {
-    QString dpkgResult;
-    qDebug() << SpawnCmd("dpkg", { "-l" }, dpkgResult);
-
-    QTextStream stream(&dpkgResult);
-    QString line;
-    QStringList installedList;
-    while (stream.readLineInto(&line)) {
-        const QStringList list {
-            line.simplified().split(" ")
-        };
-
-        if (list.startsWith("ii")) {
-            installedList << QString(list.at(1)).split(":").first();
-        }
-    }
-
     QList<QSharedPointer<ComponentInfo>> uninstallList = componentStruct->uninstall();
     QSet<QString>       result;
     for (QSharedPointer<ComponentInfo> info : uninstallList) {
         for (QSharedPointer<ComponentInfo> i : m_packageList) {
             if (info->Id == i->Id) {
-                result += QSet<QString>(i->PackageList.toSet() & installedList.toSet());
+                result += QSet<QString>(i->PackageList.toSet());
                 break;
             }
         }
@@ -274,7 +258,7 @@ QStringList ComponentInstallManager::uninstallPackageListByComponentStruct(QShar
         for (QSharedPointer<ComponentInfo> info : choiceUninstallList) {
             for (QSharedPointer<ComponentInfo> i : m_packageList) {
                 if (info->Id == i->Id) {
-                    result += QSet<QString>(i->PackageList.toSet() & installedList.toSet());
+                    result += QSet<QString>(i->PackageList.toSet());
                     break;
                 }
             }

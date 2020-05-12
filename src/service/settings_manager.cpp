@@ -47,6 +47,7 @@ namespace {
 QString g_oem_dir;
 
 const char kLocaleKey[] = "DI_LOCALE";
+const char kComponentUninstallPackages[] = "DI_COMPONENT_UNINSTALL";
 
 // Absolute path to installer config file.
 #ifdef QT_DEBUG
@@ -440,6 +441,19 @@ QString ReadLocale() {
   // Remove codec name from locale.
   const int dot_index = locale.indexOf('.');
   return (dot_index == -1) ? locale : locale.left(dot_index);
+}
+
+QStringList ReadComponentUninstallPackages()
+{
+    QSettings settings(kInstallerConfigFile, QSettings::IniFormat);
+
+    const QVariant value = settings.value(kComponentUninstallPackages);
+    if (value.isValid()) {
+      return value.toString().split(" ");
+    }
+
+    qCritical() << "ReadComponentUninstallPackages() failed with key:" << kComponentUninstallPackages;
+    return QStringList();
 }
 
 QString GetUIDefaultFont() {
