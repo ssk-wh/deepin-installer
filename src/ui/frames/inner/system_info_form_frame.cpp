@@ -808,9 +808,9 @@ bool SystemInfoFormFramePrivate::searchDevice() {
                                                                 "/com/deepin/daemon/Authenticate/Fingerprint",
                                                                 "com.deepin.daemon.Authenticate.Fingerprint",
                                                                 QDBusConnection::systemBus());
-    QVariant  pDefaultDevice(fingerprintInterface.property("DefaultDevice"));
-    if (pDefaultDevice.type() != QVariant::Type::String) return false;
-    QString devName(pDefaultDevice.toString());
+    QVariant  defaultDevice(fingerprintInterface.property("DefaultDevice"));
+    if (defaultDevice.type() != QVariant::Type::String) return false;
+    QString devName(defaultDevice.toString());
     if (devName.size() == 0) return false;
 
     return true;
