@@ -191,6 +191,22 @@ bool SelectLanguageFrame::eventFilter(QObject* obj, QEvent* event) {
         }
     }
 
+    if (event->type() == QEvent::KeyPress && obj == d->m_languageView) {
+        QKeyEvent* key = dynamic_cast<QKeyEvent*>(event);
+        switch (key->key()) {
+            case Qt::Key_Enter:
+            case Qt::Key_Return:
+                QModelIndex index = d->m_languageView->currentIndex();
+                DStandardItem* item = dynamic_cast<DStandardItem* >(d->m_languageModel->item(index.row()));
+                if (d->m_lastItem) {
+                    d->m_lastItem->setCheckState(Qt::Unchecked);
+                }
+                d->m_lastItem = item;
+                d->m_lastItem->setCheckState(Qt::Checked);
+                break;
+        }
+    }
+
     return QObject::eventFilter(obj, event);
 }
 
@@ -275,6 +291,7 @@ void SelectLanguageFramePrivate::initUI() {
     m_languageModel=new QStandardItemModel(m_languageView);
     m_languageView->setModel(m_languageModel);
     m_languageView->setFixedWidth(470);
+    m_languageView->installEventFilter(q);
 
     accept_license_ = new QCheckBox;
     accept_license_->setCheckable(true);
