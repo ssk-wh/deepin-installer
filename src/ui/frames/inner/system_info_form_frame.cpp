@@ -811,9 +811,8 @@ bool SystemInfoFormFramePrivate::searchDevice() {
     QVariant  defaultDevice(fingerprintInterface.property("DefaultDevice"));
     if (defaultDevice.type() != QVariant::Type::String) return false;
     QString deviceName(defaultDevice.toString());
-    if (deviceName.size() == 0) return false;
-
-    return true;
+    
+    return !deviceName.isEmpty();
 }
 
 void SystemInfoFormFramePrivate::updateDevice() {    
