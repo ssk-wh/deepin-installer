@@ -238,21 +238,19 @@ void EditPartitionFrame::initUI() {
   line_layout->addWidget(dHerticalLine);
   line_layout->addSpacing(30);
 
-  fs_label_ = new QLabel(tr("File system"));
-  fs_label_->setObjectName("fs_label");
-  fs_label_->setFixedWidth(KLableWidth);
-
   mount_point_label_ = new QLabel(tr("Mount point"));
   mount_point_label_->setObjectName("mount_point_label");
   mount_point_label_->setFixedWidth(KLableWidth);
 
+  fs_label_ = new QLabel(tr("File system"));
+  fs_label_->setObjectName("fs_label");
+  fs_label_->setFixedWidth(KLableWidth);
+  fs_model_ = new FsModel(delegate_->getFsTypeList(), this);
+  fs_model_->setShowRecovery(GetSettingsBool(kEnableRecoveryPartition));
   fs_box_ = new TableComboBox();
   fs_box_->setObjectName("fs_box");
-  fs_model_ = new FsModel(delegate_->getFsTypeList(), this);
   fs_box_->setModel(fs_model_);
   fs_box_->setFixedWidth(kComboxWidth);
-
-  fs_model_->setShowRecovery(GetSettingsBool(kEnableRecoveryPartition));
 
   mount_point_box_ = new TableComboBox();
   mount_point_box_->setObjectName("mount_point_box");

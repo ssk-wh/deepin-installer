@@ -214,13 +214,12 @@ void NewPartitionFrame::initUI() {
 
   fs_label_ = new QLabel(tr("File system"));
   fs_label_->setObjectName("fs_label");
-  fs_box_ = new TableComboBox();
-  fs_model_ = new FsModel(delegate_->getFsTypeList(), fs_box_);
-  fs_box_->setModel(fs_model_);
   fs_label_->setFixedWidth(kHintLabelWidth);
-  fs_box_->setFixedWidth(kInputWidgetWidth);
-
+  fs_model_ = new FsModel(delegate_->getFsTypeList(), fs_box_);
   fs_model_->setShowRecovery(GetSettingsBool(kEnableRecoveryPartition));
+  fs_box_ = new TableComboBox();
+  fs_box_->setModel(fs_model_);
+  fs_box_->setFixedWidth(kInputWidgetWidth);
 
   QHBoxLayout* fs_layout = new QHBoxLayout;
   fs_layout->addStretch();
