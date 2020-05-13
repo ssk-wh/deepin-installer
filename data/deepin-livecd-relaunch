@@ -11,6 +11,11 @@ autologin-user=${LIVE_USERNAME}
 autologin-user-timeout=0
 EOF
 
+mkdir -p /var/lib/deepin/developer-mode
+cat > /var/lib/deepin/developer-mod/enabled << EOF
+1
+EOF
+
 file=/usr/share/applications/deepin-repair-tools.desktop
 if [ -f "$file" ]; then
     install -d -o $LIVE_USERNAME -g $LIVE_USERNAME /home/$LIVE_USERNAME/Desktop
