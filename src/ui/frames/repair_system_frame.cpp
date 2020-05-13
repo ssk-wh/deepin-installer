@@ -80,6 +80,7 @@ void installer::RepairSystemFrame::initUi()
     m_installerWidget->setBody(tr("Choose to install system, will be installed on the system in the storage medium."));
 
     m_repairWidget = new OperatorWidget;
+    m_repairWidget->setSelect(true);
     m_repairWidget->setFixedSize(kItemWidth, kItemHeight);
     m_repairWidget->setSelectIcon(":/images/select_blue.svg");
     m_repairWidget->setTitle(tr("Repair System"));
