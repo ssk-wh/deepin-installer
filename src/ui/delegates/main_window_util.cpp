@@ -81,6 +81,7 @@ int GetVisiblePages() {
   return pages;
 }
 
+<<<<<<< HEAD
 bool IsDiskSpaceInsufficient() {
   int minimum = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
   if (minimum <= 0) {
@@ -90,6 +91,22 @@ bool IsDiskSpaceInsufficient() {
 
   const qint64 maximum_device_size = GetMaximumDeviceSize();
   return minimum * kGibiByte > maximum_device_size;
+=======
+bool IsDiskSpaceInsufficient(bool isautoinstall) {
+    int minimum = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
+    if (minimum <= 0) {
+        minimum = qMin(GetSettingsInt(kPartitionRootMiniSpace)
+                       , GetSettingsInt(kPartitionFullDiskMiniSpace));
+    }
+
+    if (isautoinstall) {
+        minimum = GetSettingsInt(kPartitionFullDiskMiniSpace);
+    }
+
+    //GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
+    const qint64 maximum_device_size = GetMaximumDeviceSize();
+    return minimum * kGibiByte > maximum_device_size;
+>>>>>>> 解决无人值守安装bug【25337】选择读写速度快的硬盘为系统盘和【25345】磁盘大小不足时安装停住问题，增加磁盘空间不足的提示
 }
 
 bool ReadErrorMsg(QString& msg, QString& encoded_msg) {

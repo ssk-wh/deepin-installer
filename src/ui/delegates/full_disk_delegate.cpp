@@ -690,6 +690,8 @@ void FullDiskDelegate::onDeviceRefreshed(const DeviceList &devices)
         if (device->getByteLength() >= root_required_bytes) {
             addSystemDisk(device->path);
             it = deviceList.erase(it);
+            qDebug()<<"add system disk path :"<< device->path;
+            break;//将找到的第一块读写速度快且大小符合条件的硬盘作为系统盘，跳出循环
         }
         else {
             ++it;
@@ -698,12 +700,12 @@ void FullDiskDelegate::onDeviceRefreshed(const DeviceList &devices)
 
     if (deviceList.length() == deviceSpeedMap.keys().length()) {
         qWarning() << Q_FUNC_INFO << "not found system disk, please check!";
-        return;
+        return;//这里的return不知是否会导致安装进度暂停，
     }
 
     for (auto it = deviceList.begin(); it != deviceList.end();) {
         Device::Ptr device = *it;
-        addDataDisk(device->path);
+        addDataDisk(device->path);//每次将包含有此项的删除掉，再次添加此项
         it = deviceList.erase(it);
     }
 

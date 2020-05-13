@@ -127,7 +127,8 @@ MainWindow::MainWindow(QWidget* parent)
 void MainWindow::fullscreen() {
   if (auto_install_) {
     // Read default locale from settings.ini and go to InstallProgressFrame.
-    current_page_ = PageId::PartitionId;
+    // 当配置了页面跳过和自动安装时，对于磁盘空间检测的异常需要有异常提示界面
+    // current_page_ = PageId::PartitionId;
 
     // Set language.
     QTranslator* translator = new QTranslator(this);
@@ -172,6 +173,7 @@ void MainWindow::scanDevicesAndTimezone() {
 
 void MainWindow::setEnableAutoInstall(bool auto_install) {
   auto_install_ = auto_install;
+  disk_space_insufficient_frame_->setEnableAutoInstall(auto_install);
 }
 
 void MainWindow::setLogFile(const QString& log_file) {
@@ -670,6 +672,11 @@ bool MainWindow::checkBackButtonAvailable(PageId id) {
                              PageId::InstallProgressId,
                          })
             .contains(id);
+}
+
+void MainWindow::onPrimaryScreenChanged(const QRect& geometry) {
+  qDebug() << "onPrimaryScreenChanged()" << geometry;
+  ShowFullscreen(this, geometry);
 }
 
 void MainWindow::updateFrameLabelState(FrameInterface *frame, FrameLabelState state)

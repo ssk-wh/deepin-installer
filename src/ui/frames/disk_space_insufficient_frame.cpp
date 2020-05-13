@@ -40,11 +40,15 @@ namespace {
 
 // Get content of comment label.
 // Value of minimum disk space is changed based on size of physical memory.
-QString GetCommentLabel() {
+QString GetCommentLabel(bool isautoinstall) {
   int minimum = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
   if (minimum <= 0) {
     minimum = qMin(GetSettingsInt(kPartitionRootMiniSpace)
                    , GetSettingsInt(kPartitionFullDiskMiniSpace));
+  }
+
+  if (isautoinstall) {
+      minimum = GetSettingsInt(kPartitionFullDiskMiniSpace);
   }
 
   const int recommended = GetSettingsInt(kPartitionRecommendedDiskSpace);
@@ -62,6 +66,7 @@ DiskSpaceInsufficientFrame::DiskSpaceInsufficientFrame(FrameProxyInterface* fram
   setObjectName("disk_space_insufficient_frame");
   setFrameType(FrameType::ExtFrame);
 
+<<<<<<< HEAD
   initUI();
   initConnections();
 }
@@ -87,10 +92,16 @@ QString DiskSpaceInsufficientFrame::returnFrameName() const
     return "Insufficient Space";
 }
 
+void DiskSpaceInsufficientFrame::setEnableAutoInstall(bool auto_install)
+{
+    comment_label_->setText(GetCommentLabel(auto_install_));
+    auto_install_ = auto_install;
+}
+
 void DiskSpaceInsufficientFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     title_label_->setText(tr("Insufficient Disk Space"));
-    comment_label_->setText(GetCommentLabel());
+    comment_label_->setText(GetCommentLabel(auto_install_));
     abort_button_->setText(tr("Exit"));
   } else {
     FrameInterface::changeEvent(event);
@@ -117,7 +128,7 @@ void DiskSpaceInsufficientFrame::initConnections() {
 
 void DiskSpaceInsufficientFrame::initUI() {
   title_label_ = new TitleLabel(tr("Insufficient Disk Space"));
-  comment_label_ = new CommentLabel(GetCommentLabel());
+  comment_label_ = new CommentLabel(GetCommentLabel(auto_install_));
   QHBoxLayout* comment_layout = new QHBoxLayout();
   comment_layout->setContentsMargins(0, 0, 0, 0);
   comment_layout->addSpacing(0);

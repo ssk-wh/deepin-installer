@@ -42,7 +42,7 @@ bool SetChildTransparent(QWidget* root, const QString& child_name);
 void ShowFullscreen(QWidget* widget);
 
 // Resize |widget| to fill |geometry|.
-void ShowFullscreen(QWidget* widget, const QRect& geometry, qreal ratio);
+void ShowFullscreen(QWidget* widget, const QRect& geometry);
 
 // Set popup window background to transparent.
 void SetQComboBoxTransparent(QComboBox* box);
