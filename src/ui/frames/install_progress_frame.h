@@ -60,8 +60,12 @@ public slots:
     // Update progress value with a QTimer object.
     void simulate();
 
+signals:
+    void closeButtionChange(bool change);
+
 protected:
     void changeEvent(QEvent* event) override;
+    void showEvent(QShowEvent *event) override;
 
 private:
     // Progress value.

@@ -220,6 +220,12 @@ void InstallProgressFrame::changeEvent(QEvent* event) {
     }
 }
 
+void InstallProgressFrame::showEvent(QShowEvent *event)
+{
+    Q_EMIT closeButtionChange(false);
+    return FrameInterface::showEvent(event);
+}
+
 InstallProgressFramePrivate::InstallProgressFramePrivate(FrameInterface* parent)
     : FrameInterfacePrivate(parent)
     , q_ptr(qobject_cast<InstallProgressFrame* >(parent))

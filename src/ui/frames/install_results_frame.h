@@ -50,10 +50,14 @@ public:
     QString returnFrameName() const override;
     bool allowPrevious() const override;
 
+protected:
+    void showEvent(QShowEvent *event) override;
+
 signals:
     void successFinished();
     void failedFinished();
     void saveFailedLog();
+    void closeButtionChange(bool change);
 
 private:
     QScopedPointer<InstallResultsFramePrivate> m_private;

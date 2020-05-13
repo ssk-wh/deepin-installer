@@ -28,6 +28,7 @@
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
 #include "ui/frames/saveinstallfailedlogframe.h"
+#include "ui/main_window.h"
 
 #include <QButtonGroup>
 
@@ -99,6 +100,12 @@ QString InstallResultsFrame::returnFrameName() const
 bool InstallResultsFrame::allowPrevious() const
 {
     return false;
+}
+
+void InstallResultsFrame::showEvent(QShowEvent *event)
+{
+    Q_EMIT closeButtionChange(false);
+    return FrameInterface::showEvent(event);
 }
 
 InstallResultsFrame::~InstallResultsFrame()

@@ -387,6 +387,11 @@ void MainWindow::initConnections() {
   });
   connect(m_installResultsFrame, &InstallResultsFrame::failedFinished, this
           , &MainWindow::shutdownSystem);
+  connect(m_installResultsFrame, &InstallResultsFrame::closeButtionChange, this
+          , &MainWindow::setCloseButtonVisible);
+
+  connect(install_progress_frame_, &InstallProgressFrame::closeButtionChange,
+          this, &MainWindow::setCloseButtonVisible);
 
   connect(m_frameLabelsView, &DListView::clicked, this, &MainWindow::onFrameLabelsViewClicked);
 }
@@ -627,6 +632,11 @@ void MainWindow::setWindowIcon(const QString &path)
         // 设置任务栏窗口图标
         return QMainWindow::setWindowIcon(QIcon(path));
     }
+}
+
+void MainWindow::setCloseButtonVisible(bool visible)
+{
+    close_button_->setVisible(visible);
 }
 
 void MainWindow::backPage()
