@@ -21,6 +21,10 @@
 
 namespace installer {
 
+#ifdef QT_DEBUG_test
+    attribute =  true;
+#endif // QT_DEBUG
+
 TitleLabel::TitleLabel(const QString& text, QWidget* parent)
   : QLabel(text, parent) {
   this->setAlignment(Qt::AlignHCenter);
