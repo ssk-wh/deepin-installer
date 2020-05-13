@@ -30,7 +30,7 @@ if [ ! -f "/boot/efi/SI_FAILED" ];then
     touch /boot/efi/SI_SUCCESS
     setNetworkBoot
     # remove check mode files and test user
-    userdel -f ${DI_SI_USER}
+    userdel -rf ${DI_SI_USER}
     rm -rf /deepin-installer
     reboot
 fi

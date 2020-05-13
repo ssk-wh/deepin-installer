@@ -1,11 +1,34 @@
+#!/bin/bash
 
 DI_RECOVERY_PATH=$(installer_get "DI_RECOVERY_PATH")
 DI_BOOT_PARTITION=$(installer_get "DI_BOOT_PARTITION")
 DI_ROOT_PARTITION=$(installer_get "DI_ROOT_PARTITION")
+DI_SYSTEM_CHECK_MODE=$(installer_get "system_check_mode")
 
 if [ -z ${DI_RECOVERY_PATH} ];then
     return 0;
 fi
+
+# mount all point
+/tmp/installer/hook_manager.sh /tmp/installer/before_chroot/11_mount_target.job
+/tmp/installer/hook_manager.sh /tmp/installer/before_chroot/41_setup_mount_points.job
+
+chroot /target deepin-installer-settings set "/etc/deepin-installer.conf" "system_check_mode" "false"
+
+CONF_FILE=/target/etc/lightdm/lightdm.conf
+cp ${CONF_FILE} /tmp/lightdm.conf
+cat > "${CONF_FILE}" <<EOF
+[Seat:*]
+greeter-setup-script=/usr/bin/deepin-installer-first-boot
+EOF
+
+if [ x${DI_SYSTEM_CHECK_MODE} == "xtrue" ]; then
+    DI_SI_USER=$(chroot /target deepin-installer-settings get "/etc/deepin-installer.conf" "DI_SI_USER")
+    chroot /target userdel -rf ${DI_SI_USER}
+fi
+
+# umount all point
+/tmp/installer/hook_manager.sh /tmp/installer/after_chroot/90_unmount.job
 
 mkdir -p /target/recovery
 mount ${DI_RECOVERY_PATH} /target/recovery || error "Faild to mount recovery"
@@ -22,7 +45,7 @@ if [ ! -z ${DI_BOOT_PARTITION} ];then
     md5sum boot.dim > boot.md5
 fi
 
-deepin-clone --tui $(installer_get "DI_ROOT_PARTITION") /target/recovery/backup/system.dim
+deepin-clone --tui ${DI_ROOT_PARTITION} /target/recovery/backup/system.dim
 
 if [ ! -f "/target/recovery/backup/system.dim" ];then
     return -1
@@ -30,5 +53,25 @@ fi
 
 cd /target/recovery/backup
 md5sum system.dim > system.md5
+
+cd /
+umount -R /target/recovery
+
+# mount all point
+/tmp/installer/hook_manager.sh /tmp/installer/before_chroot/11_mount_target.job
+/tmp/installer/hook_manager.sh /tmp/installer/before_chroot/41_setup_mount_points.job
+
+chroot /target deepin-installer-settings set /etc/deepin-installer.conf system_check_mode ${DI_SYSTEM_CHECK_MODE}
+
+cp /tmp/lightdm.conf ${CONF_FILE}
+
+if [ x${DI_SYSTEM_CHECK_MODE} == "xtrue" ]; then
+    /tmp/installer/hook_manager.sh /tmp/installer/in_chroot/48_setup_check_mode_user.job
+fi
+
+# umount all point
+/tmp/installer/hook_manager.sh /tmp/installer/after_chroot/90_unmount.job
+
+sync
 
 return 0
