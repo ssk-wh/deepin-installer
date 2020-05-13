@@ -48,11 +48,12 @@ private:
     void initUi();
     void initConnection() const;
     bool isRepair() const;
+    void updateTs();
 
 private:
     OperatorWidget* m_installerWidget = nullptr;
     OperatorWidget* m_repairWidget = nullptr;
-    NavButton* m_nextButton;
+    NavButton* m_nextButton = nullptr;
 };
 
 }

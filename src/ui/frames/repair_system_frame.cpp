@@ -27,6 +27,8 @@
 
 #include <QProcess>
 #include <QVBoxLayout>
+#include <QTranslator>
+#include <QApplication>
 
 DWIDGET_USE_NAMESPACE
 
@@ -34,12 +36,14 @@ DWIDGET_USE_NAMESPACE
 namespace  {
     const int kItemWidth = 660;
     const int kItemHeight = 100;
+    const char kLanguageFileTpl[] = I18N_DIR "/repair-zh_CN.qm";
 }
 
 
 installer::RepairSystemFrame::RepairSystemFrame(QWidget *parent):
     QFrame(parent)
 {
+    updateTs();
     initUi();
     initConnection();
 }
@@ -128,4 +132,11 @@ bool installer::RepairSystemFrame::isRepair() const
     return true;
 #endif // QT_DEBUG
     return !GetOsProberItems().isEmpty();
+}
+
+void installer::RepairSystemFrame::updateTs()
+{
+    QTranslator* trans = new QTranslator(this);
+    trans->load(kLanguageFileTpl);
+    qApp->installTranslator(trans);
 }
