@@ -27,7 +27,6 @@ installer_set DI_RECOVERY_PATH $(df -h | grep /recovery$ | awk '{print $1}')
 # 备份boot的UUID
 echo $(lsblk -f | grep -i /boot$ | awk '{print $4}') > /target/recovery/backup/boot.info
 echo "# hide boot" >> /target/etc/udev/rules.d/80-udisks2.rules
-
 if cat /target/recovery/backup/boot.info | grep '[0-9a-f]\{8\}\(\-[0-9a-f]\{4\}\)\{3\}\-[0-9a-f]\{12\}' ; then
     echo "ENV{ID_FS_UUID}==\"$(cat /target/recovery/backup/boot.info)\", ENV{UDISKS_IGNORE}=\"1\"" >> /target/etc/udev/rules.d/80-udisks2.rules
 fi
