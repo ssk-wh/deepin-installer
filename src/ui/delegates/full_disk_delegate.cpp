@@ -677,6 +677,7 @@ void FullDiskDelegate::onDeviceRefreshed(const DeviceList &devices)
         SpawnCmd("dd", {QString("if=%1").arg(device->path), QString("of=%1").arg(device->path), "bs=8k", "count=64000", "iflag=direct,nonblock", "oflag=direct,nonblock"});
         deviceSpeedMap[device] = QDateTime::currentMSecsSinceEpoch() - currentTime;
         deviceList << device;
+        qWarning() << Q_FUNC_INFO << "Device:"<< device->path <<" time use :" << deviceSpeedMap[device] << "data size 8k * 64000";
     }
 
     if (deviceList.length() > 1) {
