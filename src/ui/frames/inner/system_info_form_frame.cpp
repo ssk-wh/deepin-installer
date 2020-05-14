@@ -259,22 +259,6 @@ void SystemInfoFormFrame::showEvent(QShowEvent* event)
     d_private->updateCapsLockState(KeyboardMonitor::instance()->isCapslockOn());
 }
 
-bool SystemInfoFormFrame::eventFilter(QObject *watched, QEvent *event)
-{
-    Q_D(SystemInfoFormFrame);
-
-    if (watched == d->m_passwordEdit->lineEdit() && event->type() == QEvent::MouseButtonPress) {
-        QString prompt = PasswordPromptInfo();
-        if (!prompt.isEmpty()) {
-            d->tooltip_->setText(prompt);
-            d->tooltip_->showBottom(d->m_passwordEdit);
-        }
-    }
-
-    return QFrame::eventFilter(watched, event);
-}
-
-
 void SystemInfoFormFramePrivate::initConnections()
 {
     Q_Q(SystemInfoFormFrame);
@@ -435,7 +419,6 @@ void SystemInfoFormFramePrivate::initUI()
     m_passwordCheckEdit->setEchoMode(QLineEdit::Password);
     m_passwordCheckEdit->lineEdit()->setReadOnly(m_passwordEdit->lineEdit()->isReadOnly());
     m_passwordCheckEdit->setContextMenuPolicy(Qt::NoContextMenu);
-
 
     str = GetSettingsString(kSystemInfoDefaultPassword);
     if (!str.isEmpty()) {
