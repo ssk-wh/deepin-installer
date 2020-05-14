@@ -160,7 +160,7 @@ void TimezoneMap::initUI() {
 
   Q_ASSERT(this->parentWidget());
   // Set parent widget of dot_ to TimezoneFrame.
-  dot_ = new QLabel(this->parentWidget());
+  dot_ = new QLabel(this);
   const QPixmap dot_pixmap = installer::renderPixmap(kDotFile);
   Q_ASSERT(!dot_pixmap.isNull());
   dot_->setPixmap(dot_pixmap);
@@ -168,14 +168,14 @@ void TimezoneMap::initUI() {
   dot_->hide();
 
   // Set parent widget of zone_pin_ to TimezoneFrame.
-  zone_pin_ = new TooltipPin(this->parentWidget());
+  zone_pin_ = new TooltipPin(this);
   zone_pin_->setFixedHeight(kZonePinHeight);
   zone_pin_->setMinimumWidth(kZonePinMinimumWidth);
   // Allow mouse event to pass through.
   zone_pin_->setAttribute(Qt::WA_TransparentForMouseEvents, true);
   zone_pin_->hide();
 
-  popup_window_ = new PopupMenu(this->parentWidget());
+  popup_window_ = new PopupMenu(this);
   popup_window_->hide();
 
   layout->addWidget(map_label_, 0, Qt::AlignCenter);
@@ -201,7 +201,7 @@ void TimezoneMap::popupZoneWindow(const QPoint& pos) {
   const int half_width = dot_->width() / 2;
   const int half_height = dot_->height() / 2;
   // Position relative to parent.
-  const QPoint parent_pos(mapToParent(map_label_->mapToParent(pos)));
+  const QPoint parent_pos(map_label_->mapToParent(pos));
 
   // Add 8px margin.
   const QPoint popup_pos(parent_pos.x(), parent_pos.y() - half_height - 8);
@@ -242,7 +242,7 @@ void TimezoneMap::remark() {
 
     const int half_width = dot_->width() / 2;
     const int half_height = dot_->height() / 2;
-    const QPoint parent_pos(mapToParent(map_label_->mapToParent(zone_pos)));
+    const QPoint parent_pos(map_label_->mapToParent(zone_pos));
 
     // Add 2px margin.
     const QPoint zone_pin_pos(parent_pos.x(), parent_pos.y() - half_height - 2);
