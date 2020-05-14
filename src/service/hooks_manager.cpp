@@ -210,7 +210,7 @@ void HooksManager::handleRunHooks() {
   this->runHooksPack();
 
   // add hooks scripts end time
-  qInfo() << "hook done. Time consuming: " << startTime.secsTo(QDateTime::currentDateTime()) << "s";
+  qInfo() << "hook done. Time consuming: " << startTime.msecsTo(QDateTime::currentDateTime()) << "ms";
 }
 
 void HooksManager::handleReadUnsquashfsTimeout() {

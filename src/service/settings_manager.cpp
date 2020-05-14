@@ -130,11 +130,7 @@ QDir GetOemDir() {
 OSType GetCurrentType() {
     QSettings settings("/etc/deepin-version", QSettings::IniFormat);
     settings.beginGroup("Release");
-#ifdef QT_DEBUG
-    const QString& type = "Professional";
-#else
     const QString& type = settings.value("Type", "Desktop").toString();
-#endif // QT_DEBUG
 
     return QMap<QString, OSType>{
         { "Desktop", OSType::Community },
@@ -529,7 +525,9 @@ void WriteUsername(const QString& username) {
   AppendToConfigFile("DI_USERNAME", username);
 
   // add user info log
-  qInfo() << "create user: " << username;
+  if (!username.isEmpty()) {
+    qInfo() << "create user: " << username;
+  }
 }
 
 void WritePartitionInfo(const QString& root_disk,
