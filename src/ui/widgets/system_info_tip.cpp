@@ -83,6 +83,11 @@ void SystemInfoTip::setText(const QString& text) {
 
 void SystemInfoTip::showBottom(QWidget* widget) {
   // Move this to bottom of |widget|.
+    QWidget* parent = dynamic_cast<QWidget*>(widget->parent());
+    if (parent != nullptr) {
+        setRelativePosition(parent->pos());
+    }
+
     QPoint point = m_relativePosition + QPoint(widget->x(), widget->y()
                                                 + widget->height() + kWindowTopMargin);
   this->move(point);
