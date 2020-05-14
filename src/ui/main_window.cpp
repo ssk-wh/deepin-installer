@@ -744,178 +744,19 @@ void MainWindow::onCurrentPageChanged(int index) {
   this->setCurrentPage(id);
 }
 
-void MainWindow::onPrimaryScreenChanged(const QRect& geometry) {
-  qDebug() << "onPrimaryScreenChanged()" << geometry;
-  ShowFullscreen(this, geometry, devicePixelRatioF());
-}
-
 void MainWindow::goNextPage() {
-//    // Page order:
-//    //   * privilege error frame;
-//    //   * select language frame;
-//    //   * disk space insufficient page;
-//    //   * virtual machine page;
-//    //   * system info page;
-//    //   * timezone page;
-//    //   * partition page;
-//    //   * install progress page;
-//    //   * install success page or install failed page;
-//    // And confirm-quit-page can be triggered at any moment except in
-//    // install progress page.
-
-//    bool isMainPage = false;
-//    bool isPexInstall = false;
-
-//    switch (current_page_) {
-//    case PageId::NullId: {
-//        if (HasRootPrivilege()) {
-//            prev_page_ = current_page_;
-//            current_page_ = PageId::PrivilegeErrorId;
-//        } else {
-//            this->setCurrentPage(PageId::PrivilegeErrorId);
-//            break;
-//        }
-//    }
-
-//    case PageId::PrivilegeErrorId: {
-//        if (isPexInstall || !m_repairSystemFrame->shouldDisplay()) {
-//            prev_page_ = current_page_;
-//            current_page_ = PageId::RepairSystemId;
-//        } else {
-//            page_indicator_->goNextPage();
-//            isMainPage = true;
-//            this->setCurrentPage(PageId::RepairSystemId);
-//            break;
-//        }
-//    }
-
-//    case PageId::RepairSystemId: {
-//        select_language_frame_->readConf();
-//        if (isPexInstall || GetSettingsBool(kSkipSelectLanguagePage)) {
-//            select_language_frame_->writeConf();
-//            prev_page_ = current_page_;
-//            current_page_ = PageId::SelectLanguageId;
-//        } else {
-//            isMainPage = true;
-//            this->setCurrentPage(PageId::SelectLanguageId);
-//            break;
-//        }
-//    }
-
-//    case PageId::SelectLanguageId: {
-//        // Check whether to show DiskSpaceInsufficientPage.
-//        if (!GetSettingsBool(kSkipDiskSpaceInsufficientPage) &&
-//                IsDiskSpaceInsufficient()) {
-//            isMainPage = true;
-//            this->setCurrentPage(PageId::DiskSpaceInsufficientId);
-//            break;
-//        }
-//        else {
-//            prev_page_ = current_page_;
-//            current_page_ = PageId::DiskSpaceInsufficientId;
-//        }
-//    }
-
-//    case PageId::DiskSpaceInsufficientId: {
-//        // Check whether to show VirtualMachinePage.
-//        if (!isPexInstall && !GetSettingsBool(kSkipVirtualMachinePage) &&
-//                IsVirtualMachine()) {
-//            prev_page_ = current_page_;
-//            current_page_ = PageId::VirtualMachineId;
-//        } else {
-//            page_indicator_->goNextPage();
-//            isMainPage = true;
-//            this->setCurrentPage(PageId::VirtualMachineId);
-//            break;
-//        }
-//    }
-
-//    case PageId::VirtualMachineId: {
-//        // Check whether to show SystemInfoPage.
-//        system_info_frame_->init();
-//        if (GetSettingsBool(kSystemInfoSetupAfterReboot) || GetSettingsBool(kSkipSystemInfoPage)) {
-//            system_info_frame_->finished();
-//            prev_page_ = current_page_;
-//            current_page_ = PageId::SystemInfoId;
-//        } else {
-//            isMainPage = true;
-//            this->setCurrentPage(PageId::SystemInfoId);
-//            break;
-//        }
-//    }
-
-//    case PageId::SystemInfoId: {
-//        if (GetSettingsBool(kSystemInfoSetupAfterReboot) || GetSettingsBool(kSkipTimezonePage)) {
-//            timezone_frame_->finished();
-//            prev_page_ = current_page_;
-//            current_page_ = PageId::TimezoneId;
-//        } else {
-//            isMainPage = true;
-//            this->setCurrentPage(PageId::TimezoneId);
-//            break;
-//        }
-//    }
-
-//    case PageId::TimezoneId: {
-//      //Check whether to show SelectComponentPage.
-//#ifdef QT_DEBUG
-//        if (false) {
-//#else
-//        if(GetSettingsBool(kSkipSelectComponentPage)){
-//#endif // QT_DEBUG
-//            prev_page_ = current_page_;
-//            current_page_ = PageId::SelectComponentId; //PageId::PartitionId;
-//        } else {
-//            m_selectComponentFrame->init();
-//            isMainPage = true;
-//            this->setCurrentPage(PageId::SelectComponentId); //(PageId::PartitionId);
-//            break;
-//        }
-//    }
-
-//    case PageId::SelectComponentId: {
-//        m_selectComponentFrame->finished();
-
-//        // Check whether to show PartitionPage.
-//        if (GetSettingsBool(kSkipPartitionPage)) {
-//            if (GetSettingsBool(kPartitionDoAutoPart)) {
-//                partition_frame_->autoPart();
-//            }
-//            prev_page_ = current_page_;
-//            current_page_ = PageId::PartitionId;
-//        }
-//        else{
-//            isMainPage = true;
-//            this->setCurrentPage(PageId::PartitionId);
-//            break;
-//        }
-//    }
-
-//    case PageId::PartitionId: {
-//        // Show InstallProgressFrame.
-//        isMainPage = true;
-//        install_progress_frame_->startSlide();
-//        this->setCurrentPage(PageId::InstallProgressId);
-//        break;
-//    }
-
-//    case PageId::InstallProgressId: {
-//        isMainPage = true;
-//        break;
-//    }
-
-//    default: {
-//        qWarning() << "[MainWindow]::goNextPage() We shall never reach here"
-//                   << static_cast<int>(current_page_) << this->sender();
-//        break;
-//    }
-//    }
-
-//    if(isMainPage){
-//        m_old_frames << stacked_layout_->currentWidget();
-//    }
-
-//    updateWidgetVisible();
+    // Page order:
+    //   * privilege error frame;
+    //   * select language frame;
+    //   * disk space insufficient page;
+    //   * virtual machine page;
+    //   * system info page;
+    //   * timezone page;
+    //   * partition page;
+    //   * install progress page;
+    //   * install success page or install failed page;
+    // And confirm-quit-page can be triggered at any moment except in
+    // install progress page.
 }
 
 void MainWindow::rebootSystem() {
