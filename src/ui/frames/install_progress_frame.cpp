@@ -33,6 +33,7 @@
 #include "ui/widgets/title_label.h"
 #include "ui/widgets/link_button.h"
 #include "ui/frames/inner/install_log_frame.h"
+#include "ui/utils/widget_util.h"
 
 #include <math.h>
 #include <QDebug>
@@ -43,6 +44,7 @@
 #include <QTimer>
 #include <QVBoxLayout>
 #include <QStackedLayout>
+#include <QApplication>
 
 namespace installer {
 
@@ -106,6 +108,8 @@ public:
     QPropertyAnimation* progress_animation_ = nullptr;
 
     QTimer* simulation_timer_ = nullptr;
+
+    std::list<std::pair<std::function<void (QString)>, QString>> m_trList;
 };
 
 InstallProgressFrame::InstallProgressFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
@@ -208,6 +212,9 @@ void InstallProgressFrame::changeEvent(QEvent* event) {
         d->title_label_->setText(tr("Installing"));
         d->comment_label_->setText(
                     tr("Here are a few cool things to look out for..."));
+        for (auto it = d->m_trList.begin(); it != d->m_trList.end(); ++it) {
+            it->first(qApp->translate("installer::InstallProgressFramePrivate", it->second.toUtf8()));
+        }
     } else {
         FrameInterface::changeEvent(event);
     }
@@ -277,8 +284,9 @@ void InstallProgressFramePrivate::initUI() {
     tooltip_label_->move(kTooltipLabelMargin, tooltip_label_->y());
 
     m_installerLogShowButton = new LinkButton;
-    m_installerLogShowButton->setText(tr("installer log"));
+    m_installerLogShowButton->setText(tr("Show log"));
     m_installerLogShowButton->setIconList(QStringList() << ":/images/arrows_up.svg" << ":/images/arrows_down.svg");
+    addTransLate(m_trList, std::bind(&LinkButton::setText, m_installerLogShowButton, std::placeholders::_1), QString("Show log"));
 
     // NOTE(xushaohua): QProgressBar::paintEvent() has performance issue on
     // loongson platform, when chunk style is set. So we override paintEvent()
@@ -384,8 +392,10 @@ void InstallProgressFramePrivate::onSimulationTimerTimeout() {
 void InstallProgressFramePrivate::toggleInstallerLog(bool toggle)
 {
     if (toggle) {
+        m_installerLogShowButton->setText(tr("Hide log"));
         m_progressAndLogLayout->setCurrentWidget(m_installerLog);
     } else {
+        m_installerLogShowButton->setText(tr("Show log"));
         m_progressAndLogLayout->setCurrentWidget(slide_frame_);
     }
 }

@@ -1,5 +1,19 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
 <context>
+    <name>installer::InstallProgressFramePrivate</name>
+    <message>
+		<location filename="../src/ui/frame/install_progress_frame.cpp" line="211"/>
+		<location filename="../src/ui/frame/install_progress_frame.cpp" line="390"/>
+        <source>Show log</source>
+        <translation>显示日志</translation>
+	</message>
+	<message>
+		<location filename="../src/ui/frame/install_progress_frame.cpp" line="387"/>
+        <source>Hide log</source>
+        <translation>隐藏日志</translation>
+    </message>
+</context>
+<context>
     <name>installer::AdvancedPartitionButton</name>
     <message>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="124"/>
