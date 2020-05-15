@@ -12,6 +12,7 @@ usr/bin/deepin-installer-settings
 usr/bin/deepin-installer-simpleini
 usr/bin/deepin-installer-unsquashfs
 usr/bin/deepin-installer-user-form
+usr/bin/deepin-livecd-relaunch
 usr/share/applications/deepin-installer.desktop
 usr/share/deepin-installer/hooks/*
 usr/share/deepin-installer/check_hooks/*

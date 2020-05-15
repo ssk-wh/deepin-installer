@@ -19,7 +19,7 @@ install(
 
 install(
     FILES ${CMAKE_CURRENT_SOURCE_DIR}/deepin-livecd-relaunch
-    DESTINATION ${CMAKE_INSTALL_PREFIX}/bin/deepin-livecd-relaunch
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/bin/
     PERMISSIONS OWNER_READ OWNER_EXECUTE
                 GROUP_READ GROUP_EXECUTE
                 WORLD_READ WORLD_EXECUTE

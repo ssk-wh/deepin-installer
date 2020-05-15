@@ -11,10 +11,9 @@ autologin-user=${LIVE_USERNAME}
 autologin-user-timeout=0
 EOF
 
+# enable develop mode
 mkdir -p /var/lib/deepin/developer-mode
-cat > /var/lib/deepin/developer-mod/enabled << EOF
-1
-EOF
+echo -n 1 > /var/lib/deepin/developer-mode/enabled
 
 file=/usr/share/applications/deepin-repair-tools.desktop
 if [ -f "$file" ]; then
