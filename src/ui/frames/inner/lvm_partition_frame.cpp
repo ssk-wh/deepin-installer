@@ -44,6 +44,9 @@ void LvmPartitionFrame::updateLayout(QHBoxLayout* layout, QString text) {
     m_lastButtonLayout->insertWidget(0, m_lastButton);
     m_lastButton->setText(text);
     m_lastButton->show();
+
+    // Register Back button text
+    LanguageManager::translator(m_lastButton, &QPushButton::setText, TranslatorType::BackButton);
 }
 
 void LvmPartitionFrame::onLastButtonClicked() {
