@@ -258,21 +258,6 @@ void SystemInfoFormFrame::showEvent(QShowEvent* event)
     d_private->updateCapsLockState(KeyboardMonitor::instance()->isCapslockOn());
 }
 
-bool SystemInfoFormFrame::eventFilter(QObject *watched, QEvent *event)
-{
-    Q_D(SystemInfoFormFrame);
-
-    if (watched == d->m_passwordEdit->lineEdit() && event->type() == QEvent::MouseButtonPress) {
-        QString prompt = PasswordPromptInfo();
-        if (!prompt.isEmpty()) {
-            d->tooltip_->setText(prompt);
-            d->tooltip_->showBottom(d->m_passwordEdit);
-        }
-    }
-
-    return QFrame::eventFilter(watched, event);
-}
-
 void SystemInfoFormFramePrivate::initConnections()
 {
     Q_Q(SystemInfoFormFrame);
@@ -415,7 +400,6 @@ void SystemInfoFormFramePrivate::initUI()
     m_passwordEdit->setEchoMode(QLineEdit::Password);
     m_passwordEdit->lineEdit()->setReadOnly(GetSettingsBool(kSystemInfoLockPassword));
     m_passwordEdit->setContextMenuPolicy(Qt::NoContextMenu);
-    m_passwordEdit->lineEdit()->installEventFilter(q);
 
     QHBoxLayout *passwordLayout = new QHBoxLayout;
     passwordLayout->setContentsMargins(0, 0, 0, 0);
@@ -702,40 +686,34 @@ bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, Q
     ValidatePasswordState state = ValidatePassword(
         passwordEdit->text(), min_len, max_len, strong_pwd_check, validate, required_num);
 
-    QString prompt = PasswordPromptInfo();
-    if (!prompt.isEmpty()) {
-        msg = prompt;
-    } else {
-        switch (state) {
-        case ValidatePasswordState::EmptyError: {
-            msg = tr("Please input password longer than %1 characters and "
-                     "shorter than %2 characters")
-                    .arg(min_len)
-                    .arg(max_len);
-            return false;
-        }
-        case ValidatePasswordState::StrongError: {  // fall through
-            msg = tr("The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)");
-            return false;
-        }
-        case ValidatePasswordState::TooShortError:  // fall through
-        case ValidatePasswordState::TooLongError: {
-            msg = tr("Please input password longer than %1 characters and "
-                     "shorter than %2 characters")
-                    .arg(min_len)
-                    .arg(max_len);
-            return false;
-        }
-        case ValidatePasswordState::Ok: {
-            // Pass
-            break;
-        }
-        default:
-            break;
-        }
+    switch (state) {
+    case ValidatePasswordState::EmptyError: {
+        msg = tr("Please input password longer than %1 characters and "
+                 "shorter than %2 characters")
+                .arg(min_len)
+                .arg(max_len);
+        return false;
     }
-
-    return state == ValidatePasswordState::Ok;
+    case ValidatePasswordState::StrongError: {  // fall through
+        msg = tr("The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)");
+        return false;
+    }
+    case ValidatePasswordState::TooShortError:  // fall through
+    case ValidatePasswordState::TooLongError: {
+        msg = tr("Please input password longer than %1 characters and "
+                 "shorter than %2 characters")
+                .arg(min_len)
+                .arg(max_len);
+        return false;
+    }
+    case ValidatePasswordState::Ok: {
+        // Pass
+        break;
+    }
+    default:
+        break;
+    }
+    return true;
 }
 
 void SystemInfoFormFramePrivate::updateCapsLockState(bool capsLock)
@@ -932,11 +910,6 @@ void SystemInfoFormFramePrivate::onSetRootPasswordCheckChanged(bool enable)
         m_rootPasswordEdit->setFocus();
         m_rootPasswordFrame->show();
         m_rootPasswordCheckFrame->show();
-        QString prompt = PasswordPromptInfo();
-        if (!prompt.isEmpty()) {
-            tooltip_->setText(prompt);
-            tooltip_->showBottom(m_passwordEdit);
-        }
     }
     else {
         m_rootPasswordFrame->hide();

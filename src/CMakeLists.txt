@@ -740,14 +740,12 @@ add_executable(deepin-installer-oem
                service/settings_name.h
                service/system_language.cpp
                service/system_language.h
-               service/settings_manager.cpp
-               service/settings_manager.h
 
                ${BASE_FILES}
                ${OEM_FILES}
                ${SYSINFO_FILES}
                )
-target_link_libraries(deepin-installer-oem ${LINK_LIBS})
+target_link_libraries(deepin-installer-oem ${Qt_LIBS})
 
 add_executable(deepin-installer-unsquashfs
 
@@ -821,12 +819,10 @@ add_executable(locale-manager-test
                service/backend/geoip_request_worker.h
                service/timezone_manager.cpp
                service/timezone_manager.h
-               service/settings_manager.cpp
-               service/settings_manager.h
 
                ${SYSINFO_FILES}
                )
-target_link_libraries(locale-manager-test ${LINK_LIBS})
+target_link_libraries(locale-manager-test ${Qt_LIBS})
 
 
 # QR widget test
