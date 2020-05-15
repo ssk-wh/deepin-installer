@@ -25,9 +25,6 @@ namespace  {
     const int kItemSpacing = 10;
 
     const int kListViewWidth = 270;
-
-    const QList<QString> kMinimalInstallTypeList = {"Basic-Server-Environment"
-                                                   , "Server-Environment-with-GUI"};
 }
 
 DWIDGET_USE_NAMESPACE
@@ -484,11 +481,6 @@ void SelectInstallComponentFramePrivate::updateSelectAllCheckBoxState()
 bool SelectInstallComponentFramePrivate::isMinimalGraphicInstall()
 {
     if (!m_currentComponentWidget) {
-        return false;
-    }
-
-    Q_ASSERT(m_componentStructMap.contains(m_currentComponentWidget));
-    if (kMinimalInstallTypeList.indexOf(m_componentStructMap[m_currentComponentWidget]->id()) < 0) {
         return false;
     }
 
