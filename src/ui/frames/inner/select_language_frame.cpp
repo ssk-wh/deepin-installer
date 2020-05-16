@@ -73,7 +73,7 @@ public:
     LanguageList           lang_list_;
     DStandardItem*         m_lastItem          = nullptr;
     DListView*             m_languageView      = nullptr;
-    QList<QString>         m_lauguageSortList;
+    QList<QString>         m_languageSortList;
 
     void initConnections();
     void initUI();
@@ -230,14 +230,19 @@ void SelectLanguageFramePrivate::appendLanguageitem()
 {
     lang_list_ = GetLanguageList();
 
-    qSort(lang_list_.begin(), lang_list_.end(), [&] (LanguageItem& left, LanguageItem& right) {
-        return m_lauguageSortList.indexOf(left.name) < m_lauguageSortList.indexOf(right.name);
-    });
+    if (!m_languageSortList.isEmpty()) {
+        qSort(lang_list_.begin(), lang_list_.end(), [&] (LanguageItem& left, LanguageItem& right) {
+            return m_languageSortList.indexOf(left.name) < m_languageSortList.indexOf(right.name);
+        });
+    }
+    else {
+        qCritical() << "language sort list is empty";
+    }
 
     m_languageModel->clear();
 
     for(auto it = lang_list_.cbegin(); it!=lang_list_.cend(); ++it) {
-        if (m_lauguageSortList.indexOf((*it).name) < 0) {
+        if (m_languageSortList.indexOf((*it).name) < 0) {
             qInfo() << (*it).name << " is not exist in language sort file";
         }
 
@@ -255,7 +260,7 @@ void SelectLanguageFramePrivate::readLanguageSortFile()
         if(doc.isArray()){
             QJsonArray array = doc.array();
             for (auto it = array.begin(); it != array.end(); ++it) {
-                m_lauguageSortList << it->toString();
+                m_languageSortList << it->toString();
             }
         }
     }
