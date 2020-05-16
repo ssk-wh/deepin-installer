@@ -350,6 +350,7 @@ QString GetComponentDefault() {
         }
     }
 
+    qCritical() << "component default file not found:" << kComponentDefaultFile;
     return "";
 }
 
@@ -367,6 +368,7 @@ QString GetComponentExtra() {
         }
     }
 
+    qCritical() << "component extra file not found:" << kComponentExtraFile;
     return "";
 }
 
@@ -384,6 +386,7 @@ QString GetComponentSort(){
         }
     }
 
+    qCritical() << "component sort file not found:" << kComponentSortFile;
     return "";
 }
 
@@ -402,6 +405,7 @@ QString GetLanguageSort()
         }
     }
 
+    qCritical() << "language sort file not found:" << kLanguageSortFile;
     return "";
 }
 
