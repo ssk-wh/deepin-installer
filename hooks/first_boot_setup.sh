@@ -77,6 +77,7 @@ uninstall_packages() {
 
   local list=$(installer_get "DI_UNINSTALL_PACKAGES")
   apt-get -y purge ${list}
+  apt autoremove -y
 }
 
 # Replace lightdm.conf with lightdm.conf.real.
