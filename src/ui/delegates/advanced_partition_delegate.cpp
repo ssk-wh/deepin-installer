@@ -62,6 +62,17 @@ FsTypeList AdvancedPartitionDelegate::getFsTypeList() const {
       fs_types.append(type);
     }
   }
+
+  if (GetSettingsBool(kEnableRecoveryPartition)) {
+      if (fs_types.indexOf(FsType::Recovery) == -1) {
+          fs_types.append(FsType::Recovery);
+      }
+  } else {
+      if (fs_types.indexOf(FsType::Recovery) != -1) {
+          fs_types.removeAll(FsType::Recovery);
+      }
+  }
+
   return fs_types;
 }
 

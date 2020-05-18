@@ -246,7 +246,6 @@ void EditPartitionFrame::initUI() {
   fs_label_->setObjectName("fs_label");
   fs_label_->setFixedWidth(KLableWidth);
   fs_model_ = new FsModel(delegate_->getFsTypeList(), this);
-  fs_model_->setShowRecovery(GetSettingsBool(kEnableRecoveryPartition));
   fs_box_ = new TableComboBox();
   fs_box_->setObjectName("fs_box");
   fs_box_->setModel(fs_model_);
