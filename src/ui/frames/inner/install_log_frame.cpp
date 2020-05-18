@@ -28,23 +28,6 @@ installer::InstallLogFrame::InstallLogFrame(QFrame *parent) :
 
 void installer::InstallLogFrame::setLogPath(const QString &path)
 {
-#ifdef QT_DEBUG_zdd
-    QTimer* m_test = new QTimer;
-    m_test->setInterval(10);
-
-    connect(m_test, &QTimer::timeout, this, [=] {
-        QFile file(path);
-        if (!file.open(QIODevice::WriteOnly)) {
-            qDebug() << "Failed to open the log file. file: " << path;
-        }
-
-        static int cnt = 0;
-        file.write(QString("open file: " + path + QString::number(cnt++) + "\n").toStdString().c_str());
-    });
-
-    m_test->start();
-#endif // QT_DEBUG
-
     m_logPath = path;
     if (m_timer == nullptr) {
         m_timer = new QTimer;

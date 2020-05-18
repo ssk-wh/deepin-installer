@@ -21,10 +21,10 @@ signals:
     void toggle(bool toggle);
 
 public slots:
+    void updateIcon();
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
-    bool updateIcon();
 
 private:
     QLabel *m_iconLabel = nullptr;

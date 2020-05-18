@@ -68,7 +68,7 @@ bool installer::LinkButton::eventFilter(QObject *watched, QEvent *event)
     return QWidget::eventFilter(watched, event);
 }
 
-bool installer::LinkButton::updateIcon()
+void installer::LinkButton::updateIcon()
 {
     m_currentIconPos++;
     if (m_currentIconPos >= m_iconList.size()) {
