@@ -87,6 +87,10 @@ const char kSystemInfoDisableKeyboardPage[] =
     "system_info_disable_keyboard_page";
 const char kSystemInfoDisableLicense[] = "system_info_disable_license";
 const char kSystemInfoDisableExperience[] = "system_info_disable_experience";
+const char kSystemInfoPasswordDistCheck[] = "system_info_password_dist_check";
+const char kSystemInfoPasswordDistPath[] = "system_info_password_dist_path";
+const char kSystemInfoPasswordPalindromeCheck[] = "system_info_password_palingrome_check";
+const char kSystemInfoPasswordPalindromeLength[] = "system_info_password_palingrome_length";
 
 // Timezone
 const char kTimezoneDefault[] = "timezone_default";

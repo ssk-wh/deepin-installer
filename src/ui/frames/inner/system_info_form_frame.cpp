@@ -21,6 +21,7 @@
 #include "base/file_util.h"
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
+#include "service/pwquality_manager.h"
 #include "sysinfo/validate_hostname.h"
 #include "sysinfo/validate_password.h"
 #include "sysinfo/validate_username.h"
@@ -725,7 +726,18 @@ bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, Q
         break;
     }
 
-    emit q_ptr->requestNextButtonEnable(true);
+    QString dict = PwqualityManager::instance()->dictChecked(passwordEdit->text());
+    if (!dict.isEmpty()) {
+        msg = tr("Contains a dictionary of string: %1").arg(dict);
+        return false;
+    }
+
+    QString palingrome = PwqualityManager::instance()->palindromeChecked(passwordEdit->text());
+    if (!palingrome.isEmpty()) {
+        msg = tr("String contains a palindrome: %1").arg(palingrome);
+        return false;
+    }
+
     return true;
 }
 
