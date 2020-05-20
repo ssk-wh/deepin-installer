@@ -459,6 +459,22 @@ DeviceList ScanDevices(bool enable_os_prober) {
     devices.append(device);
   }
 
+  // Add simulated disks in debug mode for debugging the partition frame.
+  #ifdef QT_DEBUG
+      int deviceNum = 1;
+
+      // add a MBR disk which has not any partitions.
+      devices << constructDevice1(deviceNum);
+
+      // add a MBR disk which has two partitions.
+      ++deviceNum;
+      devices << constructDevice2(deviceNum);
+
+      // add a GPT disk which has four partitions and one of the partitions is working.
+      ++deviceNum;
+      devices << constructDevice3(deviceNum);
+  #endif // QT_DEBUG
+
   QCollator collator;
   collator.setCaseSensitivity(Qt::CaseInsensitive);
   std::sort(devices.begin(), devices.end(), [=](Device::Ptr a, Device::Ptr b) {
@@ -468,4 +484,161 @@ DeviceList ScanDevices(bool enable_os_prober) {
   return devices;
 }
 
+Device::Ptr constructDevice1(int deviceNum)
+{
+    Device* device = new Device();
+    device->model = "debug device";
+    device->path = QString("/dev/debugDevice%1").arg(deviceNum);
+    device->length = 209715200;
+    device->sectors = 63;
+    device->sector_size = 512;
+    device->max_prims = 4;
+    device->read_only = true;
+    device->table = PartitionTableType::MsDos;
+
+    int partitionNo = 1;
+    Partition* partition1 = new Partition();
+    partition1->device_path = device->path;
+    partition1->path = QString("%1p-1").arg(device->path);
+    partition1->partition_number = -1;
+    partition1->type = PartitionType::Normal;
+    partition1->status = PartitionStatus::Real;
+    partition1->fs = FsType::LinuxSwap;
+    partition1->busy = false;
+    partition1->start_sector = 2048;
+    partition1->end_sector = 209715200;
+    partition1->sector_size = 512;
+    partition1->length = 209715200 - 2048;
+    partition1->mount_point = "/";
+
+    PartitionList partitions;
+    partitions << Partition::Ptr(partition1);
+    device->partitions = partitions;
+
+    return Device::Ptr(device);
+}
+
+Device::Ptr constructDevice2(int deviceNum)
+{
+    Device* device = new Device();
+    device->model = "debug device";
+    device->path = QString("/dev/debugDevice%1").arg(deviceNum);
+    device->length = 409715200;
+    device->sectors = 63;
+    device->sector_size = 512;
+    device->max_prims = 4;
+    device->read_only = true;
+    device->table = PartitionTableType::MsDos;
+
+    int partitionNo = 1;
+    Partition* partition1 = new Partition();
+    partition1->device_path = device->path;
+    partition1->path = QString("%1p%2").arg(device->path).arg(partitionNo);
+    partition1->partition_number = partitionNo;
+    partition1->type = PartitionType::Normal;
+    partition1->status = PartitionStatus::Real;
+    partition1->fs = FsType::Ext4;
+    partition1->busy = false;
+    partition1->label = QString("debugDevice%1p%2").arg(deviceNum).arg(partitionNo);
+    partition1->start_sector = 2048;
+    partition1->end_sector = 209715199;
+    partition1->sector_size = 512;
+    partition1->length = 209715199 - 2048;
+    partition1->mount_point = "/home/zhangdd";
+
+    ++partitionNo;
+    Partition* partition2 = new Partition();
+    partition2->device_path = device->path;
+    partition2->path = QString("%1p%2").arg(device->path).arg(partitionNo);
+    partition2->partition_number = partitionNo;
+    partition2->type = PartitionType::Normal;
+    partition2->status = PartitionStatus::Real;
+    partition2->fs = FsType::Ext4;
+    partition2->busy = false;
+    partition2->label = QString("debugDevice%1p%2").arg(deviceNum).arg(partitionNo);
+    partition2->start_sector = 209715200;
+    partition2->end_sector = 409715200;
+    partition2->sector_size = 512;
+
+    PartitionList partitions;
+    partitions << Partition::Ptr(partition1) << Partition::Ptr(partition2);
+    device->partitions = partitions;
+
+    return Device::Ptr(device);
+}
+
+Device::Ptr constructDevice3(int deviceNum)
+{
+    Device* device = new Device();
+    device->model = "debug device";
+    device->path = QString("/dev/debugDevice%1").arg(deviceNum);
+    device->length = 701651888;
+    device->sectors = 63;
+    device->sector_size = 512;
+    device->max_prims = 128;
+    device->read_only = false;
+    device->table = PartitionTableType::GPT;
+
+    int partitionNo = 1;
+    Partition* partition1 = new Partition();
+    partition1->device_path = device->path;
+    partition1->path = QString("%1p%2").arg(device->path).arg(partitionNo);
+    partition1->partition_number = partitionNo;
+    partition1->type = PartitionType::Normal;
+    partition1->status = PartitionStatus::Real;
+    partition1->fs = FsType::Ext4;
+    partition1->busy = true;
+    partition1->label = QString("debugDevice%1p%2").arg(deviceNum).arg(partitionNo);
+    partition1->start_sector = 2048;
+    partition1->end_sector = 251656191;
+    partition1->sector_size = 512;
+
+    ++partitionNo;
+    Partition* partition2 = new Partition();
+    partition2->device_path = device->path;
+    partition2->path = QString("%1p%2").arg(device->path).arg(partitionNo);
+    partition2->partition_number = partitionNo;
+    partition2->type = PartitionType::Normal;
+    partition2->status = PartitionStatus::Real;
+    partition2->fs = FsType::Ext4;
+    partition2->busy = false;
+    partition2->label = QString("debugDevice%1p%2").arg(deviceNum).arg(partitionNo);
+    partition2->start_sector = 251656192;
+    partition2->end_sector = 351651839;
+    partition2->sector_size = 512;
+
+    ++partitionNo;
+    Partition* partition3 = new Partition();
+    partition3->device_path = device->path;
+    partition3->path = QString("%1p%2").arg(device->path).arg(partitionNo);
+    partition3->partition_number = partitionNo;
+    partition3->type = PartitionType::Normal;
+    partition3->status = PartitionStatus::Real;
+    partition3->fs = FsType::Ext4;
+    partition3->busy = false;
+    partition3->label = QString("debugDevice%1p%2").arg(deviceNum).arg(partitionNo);
+    partition3->start_sector = 351651840;
+    partition3->end_sector = 501651839;
+    partition3->sector_size = 512;
+
+    ++partitionNo;
+    Partition* partition4 = new Partition();
+    partition4->device_path = device->path;
+    partition4->path = QString("%1p-1").arg(device->path);
+    partition4->partition_number = -1;
+    partition4->type = PartitionType::Unallocated;
+    partition4->status = PartitionStatus::Real;
+    partition4->fs = FsType::Unknown;
+    partition4->busy = false;
+    partition4->start_sector = 501651840;
+    partition4->end_sector = 701651839;
+    partition4->sector_size = 512;
+
+    PartitionList partitions;
+    partitions << Partition::Ptr(partition1) << Partition::Ptr(partition2)
+               << Partition::Ptr(partition3) << Partition::Ptr(partition4);
+    device->partitions = partitions;
+
+    return Device::Ptr(device);
+}
 }  // namespace installer

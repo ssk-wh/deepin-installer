@@ -738,8 +738,8 @@ void FullDiskDelegate::adjustFullDiskPolicy(const Device::Ptr& device, FullDiskO
         { // make sure that roota & rootb use all left space
             policy.sectors += root_free_sectors;
             qint64 partitionSize = policy.sectors * device->sector_size;
-            partitionSize = std::max(partitionSize, adjust.root_size_range.min_size_bytes);
-            partitionSize = std::min(partitionSize, adjust.root_size_range.max_size_bytes);
+            //            partitionSize = std::max(partitionSize, adjust.root_size_range.min_size_bytes);
+            //            partitionSize = std::min(partitionSize, adjust.root_size_range.max_size_bytes);
             policy.sectors = partitionSize / device->sector_size;
         }
 

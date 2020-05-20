@@ -76,6 +76,15 @@ class PartitionManager : public QObject {
 // Do not call this function directly, use PartitionManager instead.
 DeviceList ScanDevices(bool enable_os_prober);
 
+// Construct a disk which partition table is MBR and has not any partitions.
+Device::Ptr constructDevice1(int deviceNum);
+
+// Construct a disk which partition table is MBR and has two partitions.
+Device::Ptr constructDevice2(int deviceNum);
+
+// Construct a disk which partition table is GPT, has four partitions
+// and one partition is working.
+Device::Ptr constructDevice3(int deviceNum);
 }  // namespace installer
 
 #endif  // INSTALLER_PARTMAN_PARTITION_MANAGER_H
