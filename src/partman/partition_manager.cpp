@@ -535,7 +535,7 @@ DeviceList ScanDevices(bool enable_os_prober) {
   }
 
   // Add simulated disks in debug mode for debugging the partition frame.
-  #ifdef QT_DEBUG_sadhu
+  #ifdef QT_DEBUG
       int deviceNum = 1;
 
       // add a MBR disk which has not any partitions.
