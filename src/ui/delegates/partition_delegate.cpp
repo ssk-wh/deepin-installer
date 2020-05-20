@@ -222,7 +222,7 @@ ValidateStates Delegate::validate() const
         states << ValidateState::MaxPrimPartErr;
     }
 
-    const int    root_required      = GetSettingsInt(kPartitionRootMiniSpace);
+    const int    root_required      = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
     const qint64 root_minimum_bytes = root_required * kGibiByte;
     const qint64 root_real_bytes    = root_partition->getByteLength() + kMebiByte;
     if (root_real_bytes < root_minimum_bytes) {

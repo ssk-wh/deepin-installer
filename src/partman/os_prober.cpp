@@ -78,7 +78,7 @@ OsProberItems GetOsProberItems() {
       }
 
       const QStringList items = line.split(':');
-      Q_ASSERT(items.length() == 4);
+      //Q_ASSERT(items.length() == 4);
       if (items.length() != 4) {
         continue;
       }

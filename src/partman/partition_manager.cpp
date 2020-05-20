@@ -354,7 +354,7 @@ DeviceList ScanDevices(bool enable_os_prober) {
   // Let libparted detect all devices and construct device list.
   ped_device_probe_all();
 
-#ifdef QT_DEBUG
+#ifdef QT_DEBUG_sadhu
   // NOTE(justforlxz): The loop device is not loaded by
   // default and needs to be processed manually.
   QDir dir("/dev/");
@@ -751,4 +751,5 @@ Device::Ptr constructDevice3(int deviceNum)
 
     return Device::Ptr(device);
 }
+
 }  // namespace installer

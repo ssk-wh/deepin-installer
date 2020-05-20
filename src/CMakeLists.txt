@@ -98,6 +98,8 @@ pkg_search_module(X11EXT REQUIRED xext)
 pkg_search_module(X11TST REQUIRED xtst)
 pkg_search_module(X11RandR REQUIRED xrandr)
 pkg_search_module(UDisk2 REQUIRED udisks2-qt5)
+#pkg_search_module(ncursesw REQUIRED ncurses++w)
+
 
 include_directories(AFTER ${Parted_INCLUDE_DIRS})
 include_directories(AFTER ${X11_INCLUDE_DIRS})
@@ -289,6 +291,7 @@ set(UI_FILES
     ui/delegates/main_window_util.h
     ui/delegates/partition_util.cpp
     ui/delegates/partition_util.h
+
     ui/delegates/popup_menu_delegate.cpp
     ui/delegates/popup_menu_delegate.h
     ui/delegates/simple_partition_delegate.cpp
@@ -303,12 +306,9 @@ set(UI_FILES
     ui/delegates/disk_installation_delegate.cpp
     ui/delegates/disk_installation_detail_delegate.h
     ui/delegates/disk_installation_detail_delegate.cpp
-
     ui/interfaces/frameproxyinterface.h
     ui/interfaces/frameinterface.h
     ui/interfaces/frameinterfaceprivate.h
-
-
     ui/frames/consts.h
     ui/frames/inner/advanced_partition_frame.cpp
     ui/frames/inner/advanced_partition_frame.h
@@ -318,6 +318,7 @@ set(UI_FILES
     ui/frames/inner/edit_partition_frame.h
     ui/frames/inner/full_disk_frame.cpp
     ui/frames/inner/full_disk_frame.h
+
     ui/frames/inner/full_disk_encrypt_frame.h
     ui/frames/inner/full_disk_encrypt_frame.cpp
     ui/frames/inner/install_progress_slide_frame.cpp
@@ -334,6 +335,7 @@ set(UI_FILES
     ui/frames/inner/partition_number_limitation_frame.h
     ui/frames/inner/partition_table_warning_frame.cpp
     ui/frames/inner/partition_table_warning_frame.h
+
     ui/frames/inner/prepare_install_frame.cpp
     ui/frames/inner/prepare_install_frame.h
     ui/frames/inner/select_bootloader_frame.cpp
@@ -449,6 +451,7 @@ set(UI_FILES
     ui/widgets/device_model_label.h
     ui/widgets/expanded_nav_button.cpp
     ui/widgets/expanded_nav_button.h
+
     ui/widgets/flat_button.cpp
     ui/widgets/flat_button.h
     ui/widgets/full_disk_partition_colorbar.cpp
@@ -468,6 +471,7 @@ set(UI_FILES
     ui/widgets/pointer_button.cpp
     ui/widgets/pointer_button.h
     ui/widgets/popup_menu.cpp
+
     ui/widgets/popup_menu.h
     ui/widgets/qr_widget.cpp
     ui/widgets/qr_widget.h
@@ -483,6 +487,7 @@ set(UI_FILES
     ui/widgets/system_info_tip.h
     ui/widgets/table_combo_box.cpp
     ui/widgets/table_combo_box.h
+
     ui/widgets/timezone_map.cpp
     ui/widgets/timezone_map.h
     ui/widgets/title_label.cpp
@@ -512,8 +517,10 @@ set(UI_FILES
 
     ui/xrandr/multi_head_manager.cpp
     ui/xrandr/multi_head_manager.h
+
     ui/xrandr/multi_head_worker.cpp
     ui/xrandr/multi_head_worker.h
+
     ui/xrandr/xrandr_wrapper.cpp
     ui/xrandr/xrandr_wrapper.h
 
@@ -524,6 +531,102 @@ set(UI_FILES
     # Required by SpinnerLabel.
     ui/widgets/spinner/spinner.qrc
     )
+
+set(CLI_UI_FILES
+    license/license.qrc
+    ui/interfaces_cli/frameinterface.h
+    ui/interfaces_cli/frameinterface.cpp
+    ui/interfaces_cli/frameinterfaceprivate.h
+    ui/delegates/installer_args_parser.h
+    ui/delegates/installer_args_parser.cpp
+    ui/delegates/componentinstallmanager.h
+    ui/delegates/componentinstallmanager.cpp
+    ui/delegates/language_delegate.cpp
+    ui/delegates/language_delegate.h
+    ui/delegates/full_disk_delegate.cpp
+    ui/delegates/full_disk_delegate.h
+    ui/delegates/partition_delegate.h
+    ui/delegates/partition_delegate.cpp
+    ui/delegates/partition_util.cpp
+    ui/delegates/partition_util.h
+    ui/delegates/advanced_partition_animations.cpp
+    ui/delegates/advanced_partition_animations.h
+    ui/delegates/advanced_partition_delegate.cpp
+    ui/delegates/advanced_partition_delegate.h
+    ui/delegates/lvm_partition_delegate.cpp
+    ui/delegates/lvm_partition_delegate.h
+    ui/delegates/partition_delegate.h
+    ui/delegates/partition_delegate.cpp
+    ui/delegates/network_operate.h
+    ui/delegates/network_operate.cpp
+    ui/delegates/advanced_validate_state.h
+    ui/delegates/advanced_validate_state.cpp
+    ui/models/partition_model.cpp
+    ui/models/partition_model.h
+    ui/frames_cli/inner/full_disk_frame.h
+    ui/frames_cli/inner/full_disk_frame.cpp
+    ui/frames_cli/inner/advanced_partition_frame.h
+    ui/frames_cli/inner/advanced_partition_frame.cpp
+    ui/frames_cli/inner/partition_table_warning_frame.h
+    ui/frames_cli/inner/partition_table_warning_frame.cpp
+    ui/frames_cli/inner/new_partition_frame.h
+    ui/frames_cli/inner/new_partition_frame.cpp
+    ui/frames_cli/inner/prepare_install_frame.h
+    ui/frames_cli/inner/prepare_install_frame.cpp
+    ui/frames_cli/language_frame.h
+    ui/frames_cli/language_frame.cpp
+    ui/frames_cli/privilege_error_frame.h
+    ui/frames_cli/privilege_error_frame.cpp
+    ui/frames_cli/disk_space_insufficient_frame.h
+    ui/frames_cli/disk_space_insufficient_frame.cpp
+    ui/frames_cli/system_info_frame.h
+    ui/frames_cli/system_info_frame.cpp
+    ui/frames_cli/install_component_frame.h
+    ui/frames_cli/install_component_frame.cpp
+    ui/frames_cli/install_failed_frame.h
+    ui/frames_cli/install_failed_frame.cpp
+    ui/frames_cli/install_process_frame.h
+    ui/frames_cli/install_process_frame.cpp
+    ui/frames_cli/install_success_frame.h
+    ui/frames_cli/install_success_frame.cpp
+    ui/frames_cli/network_frame.h
+    ui/frames_cli/network_frame.cpp
+    ui/frames_cli/partition_frame.h
+    ui/frames_cli/partition_frame.cpp
+    ui/frames_cli/time_zone_frame.h
+    ui/frames_cli/time_zone_frame.cpp
+    ui/frames_cli/virtual_machine_frame.h
+    ui/frames_cli/virtual_machine_frame.cpp
+    ui/frames_cli/licence_frame.h
+    ui/frames_cli/licence_frame.cpp
+    ui/frames_cli/keyboard_frame.h
+    ui/frames_cli/keyboard_frame.cpp
+    ui/models_cli/partition_type_model.h
+    ui/models_cli/partition_type_model.cpp
+    ui/ncurses_widgets/ncurses_util.h
+    ui/ncurses_widgets/ncurses_util.cpp
+    ui/ncurses_widgets/ncurses_button.h
+    ui/ncurses_widgets/ncurses_button.cpp
+    ui/ncurses_widgets/ncurses_windows_base.h
+    ui/ncurses_widgets/ncurses_windows_base.cpp
+    ui/ncurses_widgets/ncurses_label.h
+    ui/ncurses_widgets/ncurses_label.cpp
+    ui/ncurses_widgets/ncurses_text_brower.h
+    ui/ncurses_widgets/ncurses_text_brower.cpp
+    ui/ncurses_widgets/ncurses_list_view.h
+    ui/ncurses_widgets/ncurses_list_view.cpp
+    ui/ncurses_widgets/ncurses_line_edit.h
+    ui/ncurses_widgets/ncurses_line_edit.cpp
+    ui/ncurses_widgets/ncurses_checkbox.h
+    ui/ncurses_widgets/ncurses_checkbox.cpp
+    ui/ncurses_widgets/ncurses_progressbar.h
+    ui/ncurses_widgets/ncurses_progressbar.cpp
+    ui/ncurses_widgets/ncurses_checkbox_list.h
+    ui/ncurses_widgets/ncurses_checkbox_list.cpp
+    ui/ncurses_widgets/operator_widget.h
+    ui/ncurses_widgets/operator_widget.cpp
+    )
+
 
 set(ROOT_UNITTEST_FILES
     #    partman/operation_test.cpp
@@ -620,6 +723,25 @@ target_link_libraries(deepin-installer ${LINK_LIBS} qtermwidget5 ${KF5_QT_LIBRAR
 add_dependencies(deepin-installer installer-qm-update)
 
 
+add_executable(deepin-installer-cli
+              app/deepin_install_cli.cpp
+              ui/main_window_cli.h
+              ui/main_window_cli.cpp
+              ${CLI_UI_FILES}
+              ${BASE_FILES}
+              ${PARTMAN_FILES}
+              ${SERVICE_FILES}
+              ${SYSINFO_FILES}
+              )
+
+target_include_directories(deepin-installer-cli PUBLIC
+               ${KF5_QT_INCLUDE_DIRS}
+)
+
+target_link_libraries(deepin-installer-cli ${LINK_LIBS} ncurses++w ncursesw panelw ${KF5_QT_LIBRARIES})
+add_dependencies(deepin-installer-cli installer-qm-update)
+
+
 # Set/get ini files.
 add_executable(deepin-installer-settings
                app/deepin_installer_settings.cpp)
@@ -655,7 +777,7 @@ target_link_libraries(deepin-installer-first-boot
                       ${LINK_LIBS}
                       qtermwidget5
                       ${KF5_QT_LIBRARIES}
-                      )
+)
 
 add_executable(deepin-installer-user-form
                app/deepin_installer_user_form.cpp

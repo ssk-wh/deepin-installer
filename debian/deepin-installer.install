@@ -2,10 +2,12 @@ etc/live/config.conf.d/deepin-installer.conf
 usr/share/xgreeters/
 lib/*
 usr/bin/deepin-installer
+usr/bin/deepin-installer-cli
 usr/bin/deepin-installer-auto-install
 usr/bin/deepin-installer-first-boot
 usr/bin/deepin-installer-first-boot-pkexec
 usr/bin/deepin-installer-pkexec
+usr/bin/deepin-installer-systemd-pkexec
 usr/bin/deepin-installer-settings
 usr/bin/deepin-installer-simpleini
 usr/bin/deepin-installer-unsquashfs

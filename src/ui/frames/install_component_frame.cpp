@@ -138,7 +138,11 @@ void SelectInstallComponentFrame::finished()
     // Write if minimal graphic install is true, add choice-uninstall to uninstall packages.
     const QStringList uninstallPackages =
         ComponentInstallManager::Instance()->uninstallPackageListByComponentStruct(
+<<<<<<< HEAD
             current, m_private->isMinimalGraphicInstall());
+=======
+            current, false);
+>>>>>>> meger form dev_guonafu
     if (!uninstallPackages.isEmpty()) {
         WriteComponentUninstallPackages(uninstallPackages.join(" "));
     }

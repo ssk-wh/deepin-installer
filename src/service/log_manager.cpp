@@ -28,6 +28,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QtGlobal>
+#include <QMutex>
 
 namespace installer {
 
@@ -89,6 +90,58 @@ void InstallerMessageOutput(QtMsgType msg_type,
 }
 #endif
 
+void InstallerMessageOutputWithOutStd(QtMsgType msg_type,
+                                 const QMessageLogContext& context,
+                                 const QString& msg) {
+    static QMutex mutex;
+    mutex.lock();
+
+
+    const QByteArray& msg_ref(msg.toLocal8Bit());
+    const QString filename = QFileInfo(context.file).fileName();
+    const QByteArray& filename_ref(filename.toLocal8Bit());
+    QString strMsg("");
+    switch (msg_type) {
+     case QtDebugMsg: {
+        strMsg = "[%1 Debug: %2:%3] %4";
+        break;
+     }
+     case QtInfoMsg: {
+       strMsg = "[%1 Info: %2:%3] %4";
+       break;
+     }
+     case QtWarningMsg: {
+       strMsg = "[%1 Warning: %2:%3] %4";
+       break;
+     }
+     case QtCriticalMsg: {
+       strMsg = "[%1 Critical: %2:%3] %4";
+       break;
+     }
+     case QtFatalMsg: {
+       strMsg = "[%1 Fatal: %2:%3] %4";
+       // Abort process.
+       abort();
+     }
+    }
+    QString strDateTime = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss.zzz");
+#ifndef N_DEBUG
+    strMsg = strMsg.arg(strDateTime).arg(filename_ref.constData()).arg(context.line).arg(msg_ref.constData());
+#else
+    strMsg = strMsg.arg(strDateTime).arg(msg_ref.constData());
+#endif
+
+    QFile file(GetLogFilepath());
+    file.open(QIODevice::ReadWrite | QIODevice::Append);
+    QTextStream stream(&file);
+    stream << strMsg << "\n";
+    file.flush();
+    file.close();
+
+    mutex.unlock();
+}
+
+
 }  // namespace
 
 QString GetLogFilepath() {
@@ -122,5 +175,19 @@ bool RedirectLog(const QString& log_file) {
   }
   return ok;
 }
+
+bool RedirectLogWithOutStd(const QString& log_file) {
+    g_log_file = log_file;
+    BackupLogFile();
+    qInstallMessageHandler(InstallerMessageOutputWithOutStd);
+    int log_fd = open(log_file.toStdString().c_str(), O_RDWR | O_CREAT | O_TRUNC,
+                      S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+    if (log_fd == -1) {
+      qCritical() << "Failed to create log file:" << log_file;
+      return false;
+    }
+    return true;
+}
+
 
 }  // namespace installer
