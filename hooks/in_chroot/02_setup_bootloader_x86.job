@@ -110,6 +110,9 @@ case ${BOOT} in
       # so we may patch grub or use grub.efi.signed.
       install_package shim-signed grub-efi-amd64-signed efibootmgr
 
+      mount -t efivarfs efivarfs /sys/firmware/efi/efivars
+      rm /sys/firmware/efi/efivars/dump-*
+
       # uefi-secure-boot options is enabled by default
       grub-install --target=x86_64-efi --uefi-secure-boot \
         --efi-directory=/boot/efi --bootloader-id="${BOOTLOADER_ID}" \
@@ -127,6 +130,8 @@ case ${BOOT} in
       [ -f "${fallback_efi}" ] && cp "${fallback_efi}" "${fallback_efi_bak}"
       # Override fallback efi with shim.
       cp -vf /boot/efi/EFI/${BOOTLOADER_ID}/shim*.efi "${fallback_efi}"
+
+      umount /sys/firmware/efi/efivars
     fi
 
     ;;
