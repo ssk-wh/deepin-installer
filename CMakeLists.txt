@@ -5,7 +5,7 @@ project(deepin-installer C CXX)
 # 启用CTest检查
 include(Dart)
 # 启用CTest
-include(CTest)
+#include(CTest)
 
 # Import folders
 add_subdirectory(data)
