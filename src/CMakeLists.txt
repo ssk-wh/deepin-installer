@@ -1178,18 +1178,20 @@ add_executable(unsquashfs_gui
 target_link_libraries(unsquashfs_gui ${Qt_LIBS})
 
 ## tests
-add_test(NAME deepin-installler-tests COMMAND $<TARGET_FILE:deepin-installer-tests>)
+#add_test(NAME deepin-installler-tests COMMAND $<TARGET_FILE:deepin-installer-tests>)
 
 ## Installation
 install(PROGRAMS
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-auto-install
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-first-boot-pkexec
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-pkexec
+        ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-systemd-pkexec
         DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
         )
 
 install(TARGETS
         deepin-installer
+        deepin-installer-cli
         deepin-installer-first-boot
         deepin-installer-oem
         deepin-installer-settings
