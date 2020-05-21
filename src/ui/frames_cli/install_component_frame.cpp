@@ -135,6 +135,12 @@ void InstallComponentFramePrivate::hide()
 
 void InstallComponentFramePrivate::initInfoList()
 {
+    QStringList testselects = m_extrachoiceslist->getSelectItems();
+    if(testselects.size() > 0) {
+        //如果之前有过选择，则保留选择状态，不做清空
+        return;
+    }
+
     ComponentInstallManager* manager = ComponentInstallManager::Instance();
     QList<QSharedPointer<ComponentStruct>> serverList = manager->list();
 
@@ -191,6 +197,10 @@ void InstallComponentFramePrivate::writeInfoList()
         QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(*it);
 
         if(!tsPair.first.compare(m_basicenvironmentlist->getCurrentTitle())) {
+            for (int i = 0; i< (*it)->defaultValue().size(); i++) {
+                (*it)->defaultValue()[i]->Selected = true;
+            }
+
             //QList<QSharedPointer<ComponentInfo>> testextra = (*it)->extra();
             QStringList testselects = m_extrachoiceslist->getSelectItems();
             //foreach(QSharedPointer<ComponentInfo> testinfo, (*it)->extra()) {
@@ -314,6 +324,7 @@ bool ComponentFrame::init()
     if (m_currState == FRAME_STATE_NOT_START) {
         d->initInfoList();
         m_private->layout();
+        m_currState = FRAME_STATE_RUNNING;
     }
     return true;
 }

@@ -40,10 +40,10 @@ void LicenceFramePrivate::initUI()
     setBackground(NcursesUtil::getInstance()->dialog_attr());
     FrameInterfacePrivate::initUI();
 
+    m_ncursesTextBrower = new NcursesTextBrower(this, height() - 11, width() - 5, begy() + 2, begx() + 1);
+
     m_NcursesCheckBox = new NcursesCheckBox(this, 1, (width() - 5) / 2, begy(), begx());
     m_NcursesCheckBox->setIsUseTitle(false);
-
-    m_ncursesTextBrower = new NcursesTextBrower(this, height() - 11, width() - 5, begy() + 2, begx() + 1);
 }
 
 bool LicenceFramePrivate::validate()
@@ -109,6 +109,7 @@ bool LicenceFrame::init()
 {
     if (m_currState == FRAME_STATE_NOT_START) {
         m_private->layout();
+        m_currState = FRAME_STATE_RUNNING;
     }
     return true;
 }

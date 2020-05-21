@@ -114,6 +114,7 @@ bool DiskSpaceInsufficient::init()
 {
     //if (m_currState == FRAME_STATE_NOT_START) {
     //    m_private->initUI();
+    //    m_currState = FRAME_STATE_RUNNING;
     //}
     //Q_D(DiskSpaceInsufficient);
     //d->updateTs();

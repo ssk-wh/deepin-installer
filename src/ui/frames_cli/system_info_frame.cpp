@@ -375,6 +375,7 @@ bool SystemInfoFrame::init()
     if (m_currState == FRAME_STATE_NOT_START) {
         //readConf();
         m_private->layout();
+        m_currState = FRAME_STATE_RUNNING;
     }
     //m_private->show();
     return true;

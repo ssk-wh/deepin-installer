@@ -26,6 +26,7 @@ NcursesProgressBar::~NcursesProgressBar()
 void NcursesProgressBar::show()
 {
     NCursesWindowBase::show();
+    m_progressSlidmonitor->show();
 }
 
 void NcursesProgressBar::setRange(int rangevalue)

@@ -259,6 +259,7 @@ bool KeyboardFrame::init()
     if (m_currState == FRAME_STATE_NOT_START) {
         d->readConf();
         m_private->layout();
+        m_currState = FRAME_STATE_RUNNING;
     }
     return true;
 }

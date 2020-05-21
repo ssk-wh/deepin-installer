@@ -89,7 +89,6 @@ void InstallProcessFramePrivate::hide()
 
 void InstallProcessFramePrivate::initConnection()
 {
-    connect(m_processTimer, SIGNAL(timeout()), this, SLOT(slot_timeout()));
 }
 
 bool InstallProcessFramePrivate::validate()
@@ -201,6 +200,7 @@ bool InstallProcessFrame::init()
     Q_D(InstallProcessFrame);
     if (m_currState == FRAME_STATE_NOT_START) {
         m_private->layout();
+        m_currState = FRAME_STATE_RUNNING;
     }
     return true;
 }

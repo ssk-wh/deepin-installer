@@ -225,12 +225,14 @@ PartitionFrame::~PartitionFrame()
 bool PartitionFrame::init()
 {
     if (m_currState == FRAME_STATE_NOT_START) {
+        scanDevices();
         //m_private->layout();
+        m_currState = FRAME_STATE_RUNNING;
     }
 
     Q_D(PartitionFrame);
     d->setValue();
-    scanDevices();
+
     return true;
 }
 

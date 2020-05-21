@@ -93,6 +93,8 @@ bool TimeZoneFrame::init()
             m_timezone = m_currentTimeZoneList.at(d->m_currentTimezoneIndex);
             qDebug() << m_timezone;
         });
+
+        m_currState = FRAME_STATE_RUNNING;
     }
 
     Q_D(TimeZoneFrame);

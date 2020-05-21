@@ -135,17 +135,14 @@ void FrameInterface::initConnection()
 
 void FrameInterface::show()
 {
-    setFrameState(FRAME_STATE_NOT_START);
     init();
     m_private->updateTs();
     m_private->show();
-    setFrameState(FRAME_STATE_RUNNING);
 }
 
 void FrameInterface::hide()
 {
     hideAllChild();
-    setFrameState(FRAME_STATE_ABORT);
     m_private->hide();
 }
 
@@ -166,7 +163,7 @@ void FrameInterface::hideChild(int index)
 void FrameInterface::hideAllChild()
 {
     for(int i = 0; i < m_childFrame.size(); i++){
-        m_childFrame[i]->setFrameState(FRAME_STATE_ABORT);
+        //m_childFrame[i]->setFrameState(FRAME_STATE_ABORT);
         m_childFrame[i]->hide();
     }
 }

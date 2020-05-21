@@ -146,6 +146,7 @@ bool LanguageFrame::init()
     Q_D(LanguageFrame);
     if (m_currState == FRAME_STATE_NOT_START) {
         d->readConf();
+        m_currState = FRAME_STATE_RUNNING;
     }
     return true;
 }

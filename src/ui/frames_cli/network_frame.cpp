@@ -671,6 +671,7 @@ bool NetwrokFrame::init()
     Q_D(NetwrokFrame);
     if (m_currState == FRAME_STATE_NOT_START) {
         m_private->layout();
+        m_currState = FRAME_STATE_RUNNING;
     }
     d->resetValue();
     d->initIPConfig();
