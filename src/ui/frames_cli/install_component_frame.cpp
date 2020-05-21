@@ -200,7 +200,6 @@ void InstallComponentFramePrivate::writeInfoList()
             for (int i = 0; i< (*it)->defaultValue().size(); i++) {
                 (*it)->defaultValue()[i]->Selected = true;
             }
-
             //QList<QSharedPointer<ComponentInfo>> testextra = (*it)->extra();
             QStringList testselects = m_extrachoiceslist->getSelectItems();
             //foreach(QSharedPointer<ComponentInfo> testinfo, (*it)->extra()) {
