@@ -1,5 +1,4 @@
 deepin-installer-reborn (5.1.0) stable; urgency=medium
-
   * Add screen brightness shortcut
   * Support empty password
   * Hide timezone page if it is disabled

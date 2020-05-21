@@ -515,6 +515,7 @@ void AdvancedPartitionFrame::doNextBtnClicked()
 
 void AdvancedPartitionFrame::onPrepareInstallFrameFinished()
 {
+    if (!m_isShow) return ;
     bool found_boot = false;
     if (AdvancedPartitionDelegate::install_Lvm_Status != Install_Lvm_Status::Lvm_Install) {
         found_boot = m_delegate->setBootFlag();
@@ -551,6 +552,7 @@ void AdvancedPartitionFrame::onPrepareInstallFrameFinished()
 
 void AdvancedPartitionFrame::onManualPartDone(bool ok, const DeviceList& devices)
 {
+  if (!m_isShow) return ;
   if (ok) {
 
    if (Install_Lvm_Status::Lvm_Format_Pv == AdvancedPartitionDelegate::install_Lvm_Status) {
@@ -569,6 +571,10 @@ void AdvancedPartitionFrame::onManualPartDone(bool ok, const DeviceList& devices
   emit d->startInstall();
 }
 
+
+void AdvancedPartitionFrame::setShowEnable( bool isShow) {
+    m_isShow = isShow;
+}
 
 void AdvancedPartitionFrame::readConf()
 {

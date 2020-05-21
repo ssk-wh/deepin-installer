@@ -8,6 +8,7 @@
 namespace installer {
 
 class NcursesLabel;
+class NcursesCheckBox;
 class NcursesCheckBoxList;
 struct ComponentInfo;
 class ComponentStruct;
@@ -35,6 +36,7 @@ public:
 
 private slots:
     void slot_KeyTriger(int keycode, int listtype);
+    void slot_SelectChange(bool select);
 
 private:
     NcursesLabel* m_tiltleLabel;
@@ -45,6 +47,7 @@ private:
     QMap<QString, QVector<ComponentInfo>> m_componentInfomap;
     NcursesCheckBoxList* m_basicenvironmentlist;
     NcursesCheckBoxList* m_extrachoiceslist;
+    NcursesCheckBox* m_selectallextra;
     bool m_isshow;
 };
 

@@ -156,7 +156,7 @@ void WriteComponentPackages(const QString& packages);
 void WriteComponentUninstallPackages(const QString& packages);
 void WriteComponentLanguage(const QString& packages);
 void WriteInstallSuccessed(bool successed);
-
+void WriteSystemInfoSetupAfterReboot(bool after);
 // Write disk info.
 //  * |root_disk|, device path to install system into, like /dev/sda;
 //  * |root_partition|, partition path to install system into;

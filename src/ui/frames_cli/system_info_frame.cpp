@@ -29,6 +29,8 @@ bool SystemInfoFramePrivate::validate()
         }
         m_label_error_info->setText("");
 
+        writeConf();
+
         return true;
 
 ERROR:
@@ -48,7 +50,6 @@ ERROR:
         qCritical() << QString(e.message);
     }
 
-    writeConf();
     return true;
 }
 
@@ -79,6 +80,8 @@ void SystemInfoFramePrivate::writeConf()
     WriteUsername(m_le_username->text());
     WriteHostname(m_le_hostname->text());
     WritePassword(m_le_password->text());
+    WriteSystemInfoSetupAfterReboot(false);
+
 //    WriteRootPassword(GetSettingsBool(kSetRootPasswordFromUser)
 //                     ? d->m_rootPasswordEdit->text()
 //                     : d->m_passwordEdit->text());

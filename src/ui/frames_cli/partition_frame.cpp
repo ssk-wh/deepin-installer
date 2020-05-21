@@ -212,7 +212,7 @@ PartitionFrame::PartitionFrame(FrameInterface* parent) :
     connect( static_cast<AdvancedPartitionFramePrivate*>(m_advancedPartitionFrame->getPrivate()),
              &AdvancedPartitionFramePrivate::startInstall, d, &PartitionFramePrivate::dostartInstall);
     connect( static_cast<FullDiskFramePrivate*>(m_fullDiskFrame->getPrivate()),
-             &FullDiskFramePrivate::startInstall, this, &PartitionFrame::FullDiskPartitionComplete);
+             &FullDiskFramePrivate::startInstall, d, &PartitionFramePrivate::dostartInstall);
     connect(d, &PartitionFramePrivate::showChildSignal, this, &PartitionFrame::showChildSlot);
 }
 
@@ -261,17 +261,22 @@ void PartitionFrame::writeConf()
 
 void PartitionFrame::showChildSlot(int index)
 {
+    if( index == 0){
+        m_fullDiskFrame->setShowEnable(true);
+        m_advancedPartitionFrame->setShowEnable(false);
+    } else if(index == 1) {
+        m_fullDiskFrame->setShowEnable(false);
+        m_advancedPartitionFrame->setShowEnable(true);
+    }
+
     hide();
     showChild(index);
 }
 
-void PartitionFrame::FullDiskPartitionComplete()
-{
-//    if(m_fullDiskFrame->doFullDiskPartition())
-//    {
-//        Q_D(PartitionFrame);
-//        emit d->dostartInstall();
-//    }
-}
+//void PartitionFrame::FullDiskPartitionComplete()
+//{
+//    Q_D(PartitionFrame);
+//    emit d->dostartInstall();
+//}
 
 }

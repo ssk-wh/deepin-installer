@@ -205,6 +205,8 @@ QString FullDiskFrame::getFrameName()
 
 bool FullDiskFrame::doFullDiskPartition()
 {
+    if (!m_isShow) return false;
+
     Q_D(FullDiskFrame);
     QString testname = d->getSystemDiskList()->getCurrenItem();
     for (Device::Ptr device : m_DeviceList) {
@@ -273,6 +275,7 @@ bool FullDiskFrame::doFullDiskPartition()
     // Get operation list.
 
     // full disk encrypt operations is empty.
+    m_delegate->setBootFlag();
     OperationList operations = m_delegate->operations();
     m_partitionModel->manualPart(operations);
 
@@ -281,8 +284,22 @@ bool FullDiskFrame::doFullDiskPartition()
 
 void FullDiskFrame::onManualPartDone(bool ok, const DeviceList &devices)
 {
-    Q_D(FullDiskFrame);
-    emit d->startInstall();
+    if (!m_isShow) {
+        return;
+    }
+
+    if (ok) {
+        m_delegate->onManualPartDone(devices);
+        Q_D(FullDiskFrame);
+        emit d->startInstall();
+    } else {
+        qWarning() << Q_FUNC_INFO << "onManualPartDone failed";
+    }
+}
+
+void FullDiskFrame::setShowEnable(bool isShow)
+{
+    m_isShow = isShow;
 }
 
 void FullDiskFrame::onDeviceRefreshed(const DeviceList& devices)

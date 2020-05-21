@@ -147,8 +147,10 @@ void NcursesCheckBox::onKeyPress(int keyCode)
         case 32:{
             if(m_select){
                 setSelect(false);
+                emit signal_SelectChange(false);
             } else {
                 setSelect(true);
+                emit signal_SelectChange(true);
             }
 
         }

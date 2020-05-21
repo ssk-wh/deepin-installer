@@ -2,6 +2,7 @@
 #include "ui/ncurses_widgets/ncurses_label.h"
 #include "ui/ncurses_widgets/ncurses_progressbar.h"
 #include "ui/ncurses_widgets/ncurses_list_view.h"
+#include "ui/ncurses_widgets/ncurses_checkbox.h"
 #include "ui/ncurses_widgets/ncurses_checkbox_list.h"
 #include "ui/delegates/componentinstallmanager.h"
 #include "service/settings_manager.h"
@@ -23,6 +24,7 @@ InstallComponentFramePrivate::InstallComponentFramePrivate(NCursesWindowBase *pa
       m_secondSubTiltleLabel(nullptr),
       m_basicenvironmentlist(nullptr),
       m_extrachoiceslist(nullptr),
+      m_selectallextra(nullptr),
       m_isshow(false)
 {
     initUI();
@@ -69,6 +71,8 @@ void InstallComponentFramePrivate::initUI()
     m_extrachoiceslist->setListType(NcursesCheckBoxList::EXTRACHOICES);
     m_extrachoiceslist->setSingleSelect(false);
     m_extrachoiceslist->setRealSelect(false);
+
+    m_selectallextra = new NcursesCheckBox(this, QObject::tr("select all"), 1, width() / 2 - 2, begy() + height() - 7,  begx() + width() / 2  + 1);
 }
 
 void InstallComponentFramePrivate::updateTs()
@@ -86,10 +90,12 @@ void InstallComponentFramePrivate::updateTs()
         m_tiltleLabel->resizew(1, testtiltle.length() * 2);
         m_firstSubTiltleLabel->resizew(1, testfirststr.length() * 2);
         m_secondSubTiltleLabel->resizew(1, testsecondstr.length() * 2);
+        m_selectallextra->setText("", QObject::tr("select all"), true);
     } else {
         m_tiltleLabel->resizew(1, testtiltle.length());
         m_firstSubTiltleLabel->resizew(1, testfirststr.length());
         m_secondSubTiltleLabel->resizew(1, testsecondstr.length());
+        m_selectallextra->setText("", QObject::tr("select all"), false);
     }
     m_tiltleLabel->setText(testtiltle.toUtf8().data());
     m_firstSubTiltleLabel->setText(testfirststr.toUtf8().data());
@@ -104,6 +110,7 @@ void InstallComponentFramePrivate::initConnection()
 {
     connect(m_basicenvironmentlist, SIGNAL(signal_KeyTriger(int, int)), this, SLOT(slot_KeyTriger(int, int)));
     connect(m_extrachoiceslist, SIGNAL(signal_KeyTriger(int, int)), this, SLOT(slot_KeyTriger(int, int)));
+    connect(m_selectallextra, SIGNAL(signal_SelectChange(bool)), this, SLOT(slot_SelectChange(bool)));
 }
 
 bool InstallComponentFramePrivate::validate()
@@ -152,22 +159,24 @@ void InstallComponentFramePrivate::initInfoList()
         }
     }
 
-    QString teststr = m_basicenvironmentinfolist.at(0).first;
-    m_extrachoicesinfolist.clear();
-    foreach(ComponentInfo testinfo, m_componentInfomap[teststr])
-    {
-        QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(testinfo.Id);
-        m_extrachoicesinfolist.push_back(tsPair);
-    }    
+    if (m_basicenvironmentinfolist.size() > 0) {
+        QString teststr = m_basicenvironmentinfolist.at(0).first;
+        m_extrachoicesinfolist.clear();
+        foreach(ComponentInfo testinfo, m_componentInfomap[teststr])
+        {
+            QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(testinfo.Id);
+            m_extrachoicesinfolist.push_back(tsPair);
+        }
 
-    bool testiswchar = false;
-    if(installer::ReadLocale() == "zh_CN") {
-        testiswchar = true;
-    } else {
-        testiswchar = false;
+        bool testiswchar = false;
+        if(installer::ReadLocale() == "zh_CN") {
+            testiswchar = true;
+        } else {
+            testiswchar = false;
+        }
+        m_basicenvironmentlist->setList(m_basicenvironmentinfolist, testiswchar);
+        m_extrachoiceslist->setList(m_extrachoicesinfolist, testiswchar);
     }
-    m_basicenvironmentlist->setList(m_basicenvironmentinfolist, testiswchar);
-    m_extrachoiceslist->setList(m_extrachoicesinfolist, testiswchar);
 }
 
 void InstallComponentFramePrivate::writeInfoList()
@@ -182,11 +191,14 @@ void InstallComponentFramePrivate::writeInfoList()
         QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(*it);
 
         if(!tsPair.first.compare(m_basicenvironmentlist->getCurrentTitle())) {
-            QList<QSharedPointer<ComponentInfo>> testextra = (*it)->extra();
+            //QList<QSharedPointer<ComponentInfo>> testextra = (*it)->extra();
             QStringList testselects = m_extrachoiceslist->getSelectItems();
-            foreach(QSharedPointer<ComponentInfo> testinfo, testextra) {
-                if(testselects.indexOf(testinfo->Id) != -1) {
-                    testinfo->Selected = true;
+            //foreach(QSharedPointer<ComponentInfo> testinfo, (*it)->extra()) {
+            for(int i = 0; i < (*it)->extra().size(); i++) {
+                QPair<QString, QString> tsPair_temp = ComponentInstallManager::Instance()->updateTs((*it)->extra().at(i)->Id);
+                if(testselects.indexOf(tsPair_temp.first) != -1) {
+                    //testinfo->Selected = true;
+                    (*it)->extra()[i]->Selected = true;
                 }
             }
 
@@ -260,6 +272,11 @@ void InstallComponentFramePrivate::slot_KeyTriger(int keycode, int listtype)
     default:
         break;
     }
+}
+
+void InstallComponentFramePrivate::slot_SelectChange(bool select)
+{
+    m_extrachoiceslist->selectAll(select);
 }
 
 

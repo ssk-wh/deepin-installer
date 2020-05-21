@@ -789,6 +789,11 @@ void WriteInstallSuccessed(bool successed)
     AppendToConfigFile("DI_INSTALL_SUCCESSED", successed);
 }
 
+void WriteSystemInfoSetupAfterReboot(bool after)
+{
+    AppendToConfigFile(kSystemInfoSetupAfterReboot, after);
+}
+
 SettingCustom *SettingCustom::Instance()
 {
     static SettingCustom settingCustom;

@@ -76,6 +76,8 @@ public:
     bool doFullDiskPartition();
     void onManualPartDone(bool ok, const DeviceList& devices);
 
+    void setShowEnable( bool isShow);
+
 public slots:
     void onDeviceRefreshed(const DeviceList& devices);
 
@@ -91,6 +93,7 @@ private:
     PartitionModel* m_partitionModel;
     PrepareInstallFrame* m_prepareInstallFrame;
     Q_DECLARE_PRIVATE_D(m_private, FullDiskFrame)
+    bool m_isShow = false;
 };
 
 

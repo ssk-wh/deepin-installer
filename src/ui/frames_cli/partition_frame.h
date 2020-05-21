@@ -79,7 +79,7 @@ private:
 
 private slots:
     void showChildSlot(int index);
-    void FullDiskPartitionComplete();
+    //void FullDiskPartitionComplete();
 
 protected:
     bool handle() override;

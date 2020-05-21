@@ -91,7 +91,7 @@ public:
     // Update error messages and validate states.
     void updateValidateStates();
 
-
+    void setShowEnable( bool isShow);
 public slots:
     void onDeviceRefreshed(const DeviceList& devices);
     void onNewPartition(const Partition::Ptr& partition);
@@ -112,7 +112,7 @@ private:
     LvmPartitionDelegate* m_lvmDelegate = nullptr;
     AdvancedPartitionDelegate* m_currentDelegate = nullptr;
     ValidateStates m_validateStates;
-
+    bool m_isShow = false;
 };
 
 

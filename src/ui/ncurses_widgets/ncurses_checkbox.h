@@ -32,6 +32,7 @@ public:
     int getStrHeight(){ return m_strheight; }
 
 signals:
+    void signal_SelectChange(bool select);
 
 private:
     NcursesTextBrower* m_titlebrower;

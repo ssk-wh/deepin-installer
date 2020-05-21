@@ -29,6 +29,7 @@ public:
     void onKeyPress(int keyCode) override;
     void show() override;
     void drawFoucs() override;
+    void selectAll(bool selectall);
 
 signals:
     void signal_KeyTriger(int keycode, int listtype);

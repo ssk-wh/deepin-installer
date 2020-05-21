@@ -146,8 +146,8 @@ void MainWindow::slot_languageChange()
         qApp->installTranslator(m_translator);
         qApp->installTranslator(m_translator_cli);
     } else {
-//        m_translator->load(GetLocalePath(locale));
-//        qApp->installTranslator(m_translator);
+        m_translator->load(GetLocalePath(locale));
+        qApp->installTranslator(m_translator);
     }
 
 
