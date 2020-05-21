@@ -51,11 +51,13 @@ signals:
     void enter();
     void esc();
 
+protected:
+    void addFoucsWindows(NCursesWindowBase* childWindows);
+    void removeFoucsWindows(NCursesWindowBase* childWindows);
+
 private:
     void clearFoucs();
     void updateFoucs(bool foucs);
-    void addFoucsWindows(NCursesWindowBase* childWindows);
-    void removeFoucsWindows(NCursesWindowBase* childWindows);
 
 protected:
     NCursesWindowBase* m_parent;
