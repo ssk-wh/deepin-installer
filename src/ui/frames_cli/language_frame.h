@@ -28,6 +28,9 @@ public:
     bool validate() override;
     void show() override;
     void hide() override;
+    bool canBack() override{
+        return false;
+    }
 
 
 signals:

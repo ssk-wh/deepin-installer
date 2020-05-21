@@ -47,24 +47,27 @@ public:
         m_pNextButton->setObjectName(strNext);
         m_pNextButton->setFocus(true);
         addChildWindows(m_pNextButton);
-
-        /*m_pBackButton = new NcursesButton(this, strBack, buttonHeight,
-                                          buttonWidth, begy() + height() - buttonHeight - 2, begx() + width() / 2 - buttonDistanceDelta - buttonWidth);*/
-        m_pBackButton = new NcursesButton(this, strBack, buttonHeight,
-                                                  buttonWidth, begy() + height() - buttonHeight - 2, begx() + 5);
-        m_pBackButton->drawShadow(true);
-        m_pBackButton->box();
-        m_pBackButton->setObjectName(strBack);
-
-        addChildWindows(m_pBackButton);
-
-
-        connect(m_pBackButton, &NcursesButton::clicked, this, &FrameInterfacePrivate::back);
         connect(m_pNextButton, &NcursesButton::clicked, this, [=] {
             if (validate()) {
                 emit next();
             }
         });
+
+        /*m_pBackButton = new NcursesButton(this, strBack, buttonHeight,
+                                          buttonWidth, begy() + height() - buttonHeight - 2, begx() + width() / 2 - buttonDistanceDelta - buttonWidth);*/
+
+        if (canBack()) {
+            m_pBackButton = new NcursesButton(this, strBack, buttonHeight,
+                                                      buttonWidth, begy() + height() - buttonHeight - 2, begx() + 5);
+            m_pBackButton->drawShadow(true);
+            m_pBackButton->box();
+            m_pBackButton->setObjectName(strBack);
+
+            addChildWindows(m_pBackButton);
+
+
+            connect(m_pBackButton, &NcursesButton::clicked, this, &FrameInterfacePrivate::back);
+        }
     }
 
     virtual void keyHandle() {
@@ -140,6 +143,13 @@ public:
 
     }
 
+    virtual bool canBack() {
+        return true;
+    }
+
+    virtual bool shouldDisplay() {
+        return true;
+    }
 
 signals:
     void next();
