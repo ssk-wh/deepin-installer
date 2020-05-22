@@ -28,6 +28,8 @@ deepin-installer-settings set \
 # Kill docker process.
 pkill -f dde-dock
 
+echo "******************************************************************"
+sleep 5
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 if [ x$(whoami) == 'xroot' ]; then
   /usr/bin/fbterm
