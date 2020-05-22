@@ -205,7 +205,7 @@ bool MainWindow::init()
         //m_virtualMachineFrame = new VirtualMachineFrame(this);
         //m_virtualMachineFrame->hide();
         //addChildFrame(m_virtualMachineFrame);
-/*
+
         m_languageFrame = new LanguageFrame(this);
         m_languageFrame->hide();
         connect(m_languageFrame, &LanguageFrame::languageChangeed, this, &MainWindow::slot_languageChange);
@@ -239,7 +239,7 @@ bool MainWindow::init()
         m_networkFrame = new NetwrokFrame(this);
         m_networkFrame->hide();
         addChildFrame(m_networkFrame);
-*/
+
         m_partitionFrame = new PartitionFrame(this);
         m_partitionFrame->hide();
         connect( static_cast<PartitionFramePrivate*>(m_partitionFrame->getPrivate()),
