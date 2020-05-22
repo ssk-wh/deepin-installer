@@ -13,27 +13,28 @@ bool SystemInfoFramePrivate::validate()
 {
     try {
         QString msg;
-        if (!validateHostname(msg)) {
-            goto ERROR;
-        }
+        do {
+            if (!validateHostname(msg)) {
+                break;
+            }
 
-        if (!validateUsername(msg)) {
-            goto ERROR;
-        }
+            if (!validateUsername(msg)) {
+                break;
+            }
 
-        if (!validatePassword(m_le_password, msg)) {
-            goto ERROR;
-        }
-        else if (!validatePassword2(m_le_password, m_le_password_confirm, msg)) {
-            goto ERROR;
-        }
-        m_label_error_info->setText("");
+            if (!validatePassword(m_le_password, msg)) {
+                break;
+            }
+            else if (!validatePassword2(m_le_password, m_le_password_confirm, msg)) {
+                break;
+            }
+            m_label_error_info->setText("");
 
-        writeConf();
+            writeConf();
 
-        return true;
+            return true;
+        } while (false);
 
-ERROR:
         m_label_error_info->setText(msg);
         if (msg.length() > width() - 2) {
             m_label_error_info->resize(msg.length() / (width() -2) + 1, width() -2);
@@ -227,6 +228,15 @@ bool SystemInfoFramePrivate::validatePassword2(NCursesLineEdit *passwordEdit, NC
      }
 }
 
+SystemInfoFramePrivate::SystemInfoFramePrivate(SystemInfoFrame *parent, int lines, int cols, int beginY, int beginX):
+    FrameInterfacePrivate(nullptr, lines, cols, beginY, beginX),
+    q_ptr(qobject_cast<SystemInfoFrame*>(parent))
+{
+    initUI();
+    initConnection();
+    updateTs();
+}
+
 void SystemInfoFramePrivate::initUI()
 {
     try {
@@ -268,6 +278,9 @@ void SystemInfoFramePrivate::initUI()
         m_le_password_confirm = new NCursesLineEdit(this, 1, width() - 4, begy(), begx());
         m_le_password_confirm->setBackground(NcursesUtil::getInstance()->edit_attr());
         m_le_password_confirm->setEchoMode(true);
+
+        m_NcursesCheckBox = new NcursesCheckBox(this, 1, (width() - 5) / 2, begy(), begx());
+        m_NcursesCheckBox->setIsUseTitle(false);
 
         m_label_error_info = new NcursesLabel(this, 1, width() - 4, begy(), begx());
         m_label_error_info->setFocusEnabled(false);
@@ -323,6 +336,9 @@ void SystemInfoFramePrivate::layout()
         m_le_password_confirm->mvwin(beginY, beginX);
         beginY += m_le_password_confirm->height() + 1;
 
+        m_NcursesCheckBox->mvwin(beginY, beginX);
+        beginY += m_NcursesCheckBox->height() + 1;
+
         m_label_error_info->mvwin(beginY, beginX);
 
     } catch (NCursesException& e) {
@@ -332,7 +348,17 @@ void SystemInfoFramePrivate::layout()
 
 void SystemInfoFramePrivate::initConnection()
 {
+    Q_Q(SystemInfoFrame);
 
+    connect(m_NcursesCheckBox, &NcursesCheckBox::signal_SelectChange, q, &SystemInfoFrame::createRoot);
+    connect(m_le_username, &NCursesLineEdit::textChanged, q, &SystemInfoFrame::userName);
+#ifdef QT_DEBUG
+    connect(m_NcursesCheckBox, &NcursesCheckBox::signal_SelectChange, this, [=]{qDebug() << "select change";});
+    connect(q, &SystemInfoFrame::createRoot, this, [=]{qDebug() << "create user:";});
+    connect(m_le_username, &NCursesLineEdit::textChanged, this, [=](const QString &name){
+        qDebug() << "user name: " << name;
+    });
+#endif // QT_DEBUG
 }
 
 void SystemInfoFramePrivate::updateTs()
@@ -350,6 +376,7 @@ void SystemInfoFramePrivate::updateTs()
     m_label_username->setText(tr("Username").append(" :"));
     m_label_password->setText(tr("Password").append(" :"));
     m_label_password_confirm->setText(tr("Repeat password").append(" :"));
+    m_NcursesCheckBox->setText("", tr("Whether to create the root user"));
 
     FrameInterfacePrivate::updateTs();
 }
@@ -362,7 +389,7 @@ SystemInfoFrame::SystemInfoFrame(FrameInterface* parent) :
     int w = COLS / 2;
     int beginY = (LINES - h - 2) / 2;
     int beginX = (COLS - w) / 2;
-    m_private = new SystemInfoFramePrivate (parent->getPrivate(), h, w, beginY, beginX);
+    m_private = new SystemInfoFramePrivate (this, h, w, beginY, beginX);
 }
 
 SystemInfoFrame::~SystemInfoFrame()

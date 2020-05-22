@@ -120,6 +120,15 @@ void MainWindow::setLogFile(const QString &log_file)
 
 }
 
+void MainWindow::initConnection()
+{
+    connect(m_systemInfoFrame, &SystemInfoFrame::createRoot, m_systemInfoRootPaswordFrame, &CreateRootUserFrame::setShoulDispaly);
+
+    connect(m_systemInfoFrame, &SystemInfoFrame::userName, m_systemInfoRootPaswordFrame, &CreateRootUserFrame::setUserName);
+
+    return FrameInterface::initConnection();
+}
+
 void MainWindow::scanDevicesAndTimezone()
 {
 
@@ -232,6 +241,10 @@ bool MainWindow::init()
         m_systemInfoFrame = new SystemInfoFrame(this);
         m_systemInfoFrame->hide();
         addChildFrame(m_systemInfoFrame);
+
+        m_systemInfoRootPaswordFrame = new CreateRootUserFrame(this);
+        m_systemInfoRootPaswordFrame->hide();
+        addChildFrame(m_systemInfoRootPaswordFrame);
 
         //m_diskSpaceInsufficientFrame = new DiskSpaceInsufficient(this);
         //addChildFrame(m_diskSpaceInsufficientFrame);

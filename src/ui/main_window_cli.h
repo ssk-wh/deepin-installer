@@ -16,6 +16,7 @@
 #include "ui/frames_cli/licence_frame.h"
 #include "ui/frames_cli/network_frame.h"
 #include "ui/frames_cli/keyboard_frame.h"
+#include "ui/frames_cli/inner/create_root_user_frame.h"
 
 #include <QThread>
 
@@ -45,6 +46,7 @@ public:
     void setEnableAutoInstall(bool auto_install);
     // Set filepath to which log file will be backup.
     void setLogFile(const QString& log_file);
+    void initConnection() override;
 
     // Notify background thread to scan disk devices if needed.
     // And read current timezone.
@@ -70,6 +72,7 @@ private:
     DiskSpaceInsufficient* m_diskSpaceInsufficientFrame = nullptr;
     VirtualMachineFrame* m_virtualMachineFrame = nullptr;
     SystemInfoFrame* m_systemInfoFrame = nullptr;
+    CreateRootUserFrame* m_systemInfoRootPaswordFrame = nullptr;
     TimeZoneFrame* m_timeZoneFrame = nullptr;
     PartitionFrame* m_partitionFrame = nullptr;
     NetwrokFrame* m_networkFrame = nullptr;

@@ -5,6 +5,7 @@
 #include "ui/interfaces_cli/frameinterface.h"
 #include "ui/ncurses_widgets/ncurses_label.h"
 #include "ui/ncurses_widgets/ncurses_line_edit.h"
+#include "ui/ncurses_widgets/ncurses_checkbox.h"
 
 namespace installer {
 
@@ -15,14 +16,7 @@ class SystemInfoFramePrivate : public FrameInterfacePrivate
     friend SystemInfoFrame;
     Q_OBJECT
 public:
-    SystemInfoFramePrivate(NCursesWindowBase* parent, int lines, int cols, int beginY, int beginX)
-        : FrameInterfacePrivate(parent, lines, cols, beginY, beginX)
-    {
-        initUI();
-        initConnection();
-        updateTs();
-    }
-
+    SystemInfoFramePrivate(SystemInfoFrame* parent, int lines, int cols, int beginY, int beginX);
     void initUI() override;
     void layout() override;
     void updateTs() override;
@@ -60,7 +54,11 @@ private:
     NCursesLineEdit* m_le_root_password = nullptr;
     NCursesLineEdit* m_le_root_password_confirm = nullptr;
     NcursesLabel*    m_label_error_info = nullptr;
+    NcursesCheckBox* m_NcursesCheckBox = nullptr;
     bool m_isshow = false;
+
+    SystemInfoFrame *q_ptr = nullptr;
+    Q_DECLARE_PUBLIC(SystemInfoFrame)
 };
 
 class SystemInfoFrame : public FrameInterface
@@ -74,6 +72,10 @@ public:
 public:
     bool init() override;
     QString getFrameName() override;
+
+signals:
+    void createRoot(bool isCreate);
+    void userName(const QString &);
 
 protected:
     bool handle() override;

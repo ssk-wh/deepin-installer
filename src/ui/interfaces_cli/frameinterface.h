@@ -37,6 +37,7 @@ public:
     virtual void showChild(int index);
     virtual void hideChild(int index);
     virtual void hideAllChild();
+    virtual bool shouldDisplay() const;
     virtual QString getFrameName() {
         return "";
     }
