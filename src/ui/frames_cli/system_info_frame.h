@@ -76,6 +76,7 @@ public:
 signals:
     void createRoot(bool isCreate);
     void userName(const QString &);
+    void userPassword(const QString &);
 
 protected:
     bool handle() override;

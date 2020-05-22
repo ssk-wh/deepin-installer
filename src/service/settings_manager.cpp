@@ -130,6 +130,7 @@ QDir GetOemDir() {
 OSType GetCurrentType() {
     QSettings settings("/etc/deepin-version", QSettings::IniFormat);
     settings.beginGroup("Release");
+
     const QString& type = settings.value("Type", "Desktop").toString();
 
     return QMap<QString, OSType>{

@@ -125,6 +125,7 @@ void MainWindow::initConnection()
     connect(m_systemInfoFrame, &SystemInfoFrame::createRoot, m_systemInfoRootPaswordFrame, &CreateRootUserFrame::setShoulDispaly);
 
     connect(m_systemInfoFrame, &SystemInfoFrame::userName, m_systemInfoRootPaswordFrame, &CreateRootUserFrame::setUserName);
+    connect(m_systemInfoFrame, &SystemInfoFrame::userPassword, m_systemInfoRootPaswordFrame, &CreateRootUserFrame::setUserPassword);
 
     return FrameInterface::initConnection();
 }

@@ -30,6 +30,7 @@ installer::CreateRootUserFramePrivate::CreateRootUserFramePrivate(CreateRootUser
     initUI();
     updateTs();
     layout();
+    initConnection();
 }
 
 bool installer::CreateRootUserFramePrivate::validate()
@@ -47,10 +48,7 @@ bool installer::CreateRootUserFramePrivate::validate()
 
     } while (false);
 
-    m_errorInfo->setText(msg);
-    m_errorInfo->adjustSizeByContext();
-    m_errorInfo->mvwin(m_errorInfo->begy(), begx() + (width() - m_errorInfo->width()) / 2);
-    m_errorInfo->show();
+    showError(msg);
 
     return false;
 }
@@ -127,8 +125,17 @@ bool installer::CreateRootUserFramePrivate::validatePassword2(NCursesLineEdit *p
      }
      else {
         return true;
-     }
+    }
 }
+
+void installer::CreateRootUserFramePrivate::showError(const QString &text)
+{
+    m_errorInfo->setText(text);
+    m_errorInfo->adjustSizeByContext();
+    m_errorInfo->mvwin(m_errorInfo->begy(), begx() + (width() - m_errorInfo->width()) / 2);
+    m_errorInfo->show();
+}
+
 
 void installer::CreateRootUserFramePrivate::initUI()
 {
@@ -144,12 +151,14 @@ void installer::CreateRootUserFramePrivate::initUI()
         m_rootPasswordLineEdit = new NCursesLineEdit(this, 1, width() - 4, begy(), begx());
         m_rootPasswordLineEdit->setBackground(NcursesUtil::getInstance()->edit_attr());
         m_rootPasswordLineEdit->setFocus(true);
+        m_rootPasswordLineEdit->setEchoMode(true);
 
         m_passwordConfirmLabel = new NcursesLabel(this, 1, width() - 4, begy(), begx());
         m_passwordConfirmLabel->setFocusEnabled(false);
 
         m_passwordConfirmLineEdit = new NCursesLineEdit(this, 1, width() - 4, begy(), begx());
         m_passwordConfirmLineEdit->setBackground(NcursesUtil::getInstance()->edit_attr());
+        m_passwordConfirmLineEdit->setEchoMode(true);
 
         m_errorInfo = new NcursesLabel(this, 1, 1, begy(), begx());
         m_errorInfo->setBackground(NcursesUtil::getInstance()->error_attr());
@@ -201,6 +210,25 @@ void installer::CreateRootUserFramePrivate::updateTs()
     return FrameInterfacePrivate::updateTs();
 }
 
+void installer::CreateRootUserFramePrivate::initConnection()
+{
+    auto creatErr = [=]{showError(QString());};
+    connect(m_rootPasswordLineEdit, &NCursesLineEdit::textChanged, this, creatErr, Qt::QueuedConnection);
+    connect(m_passwordConfirmLineEdit, &NCursesLineEdit::textChanged, this, creatErr, Qt::QueuedConnection);
+}
+
+void installer::CreateRootUserFramePrivate::readConf()
+{
+}
+
+void installer::CreateRootUserFramePrivate::writeConf()
+{
+    Q_Q(CreateRootUserFrame);
+    WriteRootPassword(GetSettingsBool(kSetRootPasswordFromUser) ?
+                          m_passwordConfirmLineEdit->text():
+                          q->m_userPassword);
+}
+
 installer::CreateRootUserFrame::CreateRootUserFrame(installer::FrameInterface *parent):
     FrameInterface(parent)
 {
@@ -225,6 +253,11 @@ void installer::CreateRootUserFrame::setShoulDispaly(bool dispaly)
 void installer::CreateRootUserFrame::setUserName(const QString &name)
 {
     m_userName = name;
+}
+
+void installer::CreateRootUserFrame::setUserPassword(const QString &password)
+{
+    m_userPassword = password;
 }
 
 bool installer::CreateRootUserFrame::handle()

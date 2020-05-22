@@ -43,10 +43,15 @@ protected:
     void initUI() override;
     void layout() override;
     void updateTs() override;
+    void initConnection();
+
+    void readConf();
+    void writeConf();
 
 private:
     bool validatePassword(NCursesLineEdit *passwordEdit, QString& msg);
     bool validatePassword2(NCursesLineEdit* passwordEdit, NCursesLineEdit* passwordCheckEdit, QString& msg);
+    void showError(const QString &text);
 
 private:
     NcursesLabel* m_labelTitle = nullptr;
@@ -74,12 +79,14 @@ public:
     bool shouldDisplay() const override;
     void setShoulDispaly(bool dispaly);
     void setUserName(const QString &name);
+    void setUserPassword(const QString &password);
 
 protected:
     bool handle() override;
 
     bool m_display = false;
     QString m_userName;
+    QString m_userPassword;
 };
 }
 

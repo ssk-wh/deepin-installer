@@ -19,9 +19,12 @@ void installer::NCursesLineEdit::setText(const QString &text)
     if (text.size() >0 && m_isNumber && !text.contains(QRegExp("^\\d+$"))) return;
 
     m_text = text;
+
     this->changedText();
 
-    NCursesWindowBase::show();
+    Q_EMIT textChanged(m_text);
+
+    this->refresh();
 }
 
 void installer::NCursesLineEdit::setEchoMode(bool isPassword)
@@ -53,11 +56,7 @@ void installer::NCursesLineEdit::onKeyPress(int keyCode)
         default:
         if (keyCode > 32 && keyCode <= 126 && text.length() < width()) {
             text += QChar(keyCode);
-        } else {
-            beep();
         }
-
-
     }
 
     this->setText(text);
@@ -67,11 +66,11 @@ void installer::NCursesLineEdit::onKeyPress(int keyCode)
 void installer::NCursesLineEdit::drawFoucs()
 {
     if (isOnFoucs()) {
-        //this->changedText();
         bkgd(NcursesUtil::getInstance()->button_key_active_attr());
+        this->changedText();
     } else {
-        //this->changedText();
         bkgd(this->background());
+        this->changedText();
     }
 }
 
@@ -86,8 +85,6 @@ void installer::NCursesLineEdit::changedText()
         if(m_text.compare(""))
             this->printw("%s", m_text.toUtf8().data());
     }
-
-    emit textChanged(m_text);
 }
 
 

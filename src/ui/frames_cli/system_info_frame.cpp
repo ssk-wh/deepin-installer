@@ -60,6 +60,10 @@ void SystemInfoFramePrivate::show()
         NCursesWindowBase::show();
         m_isshow = true;
     }
+
+    if (!GetSettingsBool(kSetRootPasswordFromUser)) {
+        m_NcursesCheckBox->hide();
+    }
 }
 
 void SystemInfoFramePrivate::hide()
@@ -352,11 +356,16 @@ void SystemInfoFramePrivate::initConnection()
 
     connect(m_NcursesCheckBox, &NcursesCheckBox::signal_SelectChange, q, &SystemInfoFrame::createRoot);
     connect(m_le_username, &NCursesLineEdit::textChanged, q, &SystemInfoFrame::userName);
+    connect(m_le_password, &NCursesLineEdit::textChanged, q, &SystemInfoFrame::userPassword);
+
 #ifdef QT_DEBUG
     connect(m_NcursesCheckBox, &NcursesCheckBox::signal_SelectChange, this, [=]{qDebug() << "select change";});
     connect(q, &SystemInfoFrame::createRoot, this, [=]{qDebug() << "create user:";});
     connect(m_le_username, &NCursesLineEdit::textChanged, this, [=](const QString &name){
         qDebug() << "user name: " << name;
+    });
+    connect(m_le_password, &NCursesLineEdit::textChanged, this, [=](const QString &name){
+        qDebug() << "user password: " << name;
     });
 #endif // QT_DEBUG
 }
