@@ -72,6 +72,27 @@ void SystemInfoFramePrivate::hide()
     m_isshow = false;
 }
 
+void SystemInfoFramePrivate::keyEventTriger(int key)
+{
+    switch (key) {
+       case KEY_TAB:
+           switchChildWindowsFoucs();
+           show();
+       break;
+       default:
+           foreach (NCursesWindowBase* childWindow, m_childWindows) {
+               if (childWindow->isOnFoucs()) {
+                   childWindow->onKeyPress(key);
+                   if (!m_isHostEdited && childWindow == m_le_username) {
+                       m_le_hostname->setText(QString("%1-PC").arg(m_le_username->text()));
+                   }
+               }
+
+           }
+           onKeyPress(key);
+    }
+}
+
 void SystemInfoFramePrivate::readConf()
 {
     m_le_username->setText(GetSettingsString(kSystemInfoDefaultUsername));
@@ -357,6 +378,7 @@ void SystemInfoFramePrivate::initConnection()
     connect(m_NcursesCheckBox, &NcursesCheckBox::signal_SelectChange, q, &SystemInfoFrame::createRoot);
     connect(m_le_username, &NCursesLineEdit::textChanged, q, &SystemInfoFrame::userName);
     connect(m_le_password, &NCursesLineEdit::textChanged, q, &SystemInfoFrame::userPassword);
+    connect(m_le_hostname, &NCursesLineEdit::editChanged, this, [=]{m_isHostEdited = true;});
 
 #ifdef QT_DEBUG
     connect(m_NcursesCheckBox, &NcursesCheckBox::signal_SelectChange, this, [=]{qDebug() << "select change";});

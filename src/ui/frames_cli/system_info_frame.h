@@ -24,6 +24,7 @@ public:
     bool validate() override;
     void show() override;
     void hide() override;
+    void keyEventTriger(int key) override;
 
 public:
     void readConf();
@@ -34,9 +35,6 @@ private:
     bool validateHostname(QString& msg);
     bool validatePassword(NCursesLineEdit *passwordEdit, QString& msg);
     bool validatePassword2(NCursesLineEdit* passwordEdit, NCursesLineEdit* passwordCheckEdit, QString& msg);
-
-
-private:
 
 private:
     NcursesLabel* m_label_title = nullptr;
@@ -56,6 +54,7 @@ private:
     NcursesLabel*    m_label_error_info = nullptr;
     NcursesCheckBox* m_NcursesCheckBox = nullptr;
     bool m_isshow = false;
+    bool m_isHostEdited = false;
 
     SystemInfoFrame *q_ptr = nullptr;
     Q_DECLARE_PUBLIC(SystemInfoFrame)

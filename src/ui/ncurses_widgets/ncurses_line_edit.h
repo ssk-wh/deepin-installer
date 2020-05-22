@@ -27,6 +27,7 @@ private:
 
 signals:
     void textChanged(const QString &);
+    void editChanged(const QString &);
 
 private:
     NcursesLabel * m_showlabel = nullptr;

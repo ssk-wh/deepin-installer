@@ -44,6 +44,7 @@ void installer::NCursesLineEdit::onKeyPress(int keyCode)
     if (!this->isOnFoucs()) {
         return;
     }
+
     QString text = m_text;
     switch (keyCode) {
         case KEY_ENTER_OTHER:
@@ -60,6 +61,7 @@ void installer::NCursesLineEdit::onKeyPress(int keyCode)
     }
 
     this->setText(text);
+    Q_EMIT editChanged(text);
     NCursesWindowBase::onKeyPress(keyCode);
 }
 
