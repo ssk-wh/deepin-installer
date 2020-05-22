@@ -1185,7 +1185,7 @@ install(PROGRAMS
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-auto-install
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-first-boot-pkexec
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-pkexec
-        ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-cli-pkexec
+        ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-both
         DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
         )
 

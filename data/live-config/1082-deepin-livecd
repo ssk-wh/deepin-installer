@@ -47,5 +47,7 @@ config_live_mode() {
   fi
 }
 
-parse_cmdline
-config_live_mode
+if [ "x$1" == "xtrue" ];then
+    parse_cmdline
+    config_live_mode
+fi

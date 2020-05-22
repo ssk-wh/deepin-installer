@@ -25,15 +25,11 @@ install(
                 WORLD_READ WORLD_EXECUTE
 )
 
-option(USE_SYSTEMD "bootup as a systemd service" FALSE)
-message("USE_SYSTEMD: ${USE_SYSTEMD}")
-if (USE_SYSTEMD)
     install(
         DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/systemd/
         DESTINATION /lib/systemd/system
         FILES_MATCHING PATTERN "*"
     )
-else()
     install(
         DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/live-config/
         DESTINATION /lib/live/config
@@ -42,4 +38,4 @@ else()
                     GROUP_READ GROUP_EXECUTE
                     WORLD_READ WORLD_EXECUTE
     )
-endif()
+   

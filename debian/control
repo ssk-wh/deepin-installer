@@ -72,6 +72,7 @@ Depends:
     deepin-clone,
     cryptsetup,
     lvm2,
+    fbterm,
     dde-account-faces,
     dde-qt5integration,
     deepin-repair-tools
