@@ -145,102 +145,82 @@ bool AdvancedPartitionDelegate::isPartitionTableMatch(
 }
 
 ValidateStates AdvancedPartitionDelegate::validate() const {
-  ValidateStates states;
-  bool found_lvm = false;
-  bool found_efi = false;
-  bool efi_large_enough = false;
-  Partition::Ptr rootPartition;
-  bool root_large_enough = false;
-  Partition::Ptr bootPartition;
-  bool boot_large_enough = false;
-  Partition::Ptr efiPartition;
+      ValidateStates states;
+      bool found_lvm = false;
+      bool found_efi = false;
+      bool efi_large_enough = false;
+      Partition::Ptr rootPartition;
+      bool root_large_enough = false;
+      Partition::Ptr bootPartition;
+      bool boot_large_enough = false;
+      Partition::Ptr efiPartition;
 
-  // Filesystem of /boot and /.
-  FsType boot_fs = FsType::Empty;
-  FsType root_fs = FsType::Empty;
+      // Filesystem of /boot and /.
+      FsType boot_fs = FsType::Empty;
+      FsType root_fs = FsType::Empty;
 
-  const int root_required = GetSettingsInt(kPartitionRootMiniSpace);
-  const int boot_recommended = GetSettingsInt(kPartitionDefaultBootSpace);
-  const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace);
-  const int efi_minimum = GetSettingsInt(kPartitionEFIMinimumSpace);
-  const int partition_min_size_by_gb = GetSettingsInt(kPartitionOthersMinimumSize);
-  const qint64 partition_min_size_bytes = partition_min_size_by_gb * kGibiByte;
+      const int root_required = GetSettingsInt(kPartitionRootMiniSpace);
+      const int boot_recommended = GetSettingsInt(kPartitionDefaultBootSpace);
+      const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace);
+      const int efi_minimum = GetSettingsInt(kPartitionEFIMinimumSpace);
+      const int partition_min_size_by_gb = GetSettingsInt(kPartitionOthersMinimumSize);
+      const qint64 partition_min_size_bytes = partition_min_size_by_gb * kGibiByte;
 
-  Device::Ptr root_device;
-  DeviceList pv_devices;
-
-  if (install_Lvm_Status != Install_Lvm_Status::Lvm_Install) {
-      mountPoints_AdvancedPartition.clear();
-      install_Lvm_Status = Install_Lvm_Status::Lvm_No_Need;
-  }
-
-  for (const Device::Ptr device : virtualDevices()) {
-    for (const Partition::Ptr partition : device->partitions) {
+      Device::Ptr root_device;
+      DeviceList pv_devices;
 
       if (install_Lvm_Status != Install_Lvm_Status::Lvm_Install) {
-        mountPoints_AdvancedPartition.append(partition->mount_point);
+          mountPoints_AdvancedPartition.clear();
+          install_Lvm_Status = Install_Lvm_Status::Lvm_No_Need;
       }
 
-      if (partition->mount_point == kMountPointRoot) {
-        // Check / partition->
-        root_device = device;
-        rootPartition = partition;
-        root_fs = partition->fs;
-        const qint64 root_real_bytes = partition->getByteLength() + kMebiByte;
-        const qint64 root_minimum_bytes = root_required * kGibiByte;
-        root_large_enough = (root_real_bytes >= root_minimum_bytes);
-
-      } else if (partition->mount_point == kMountPointBoot) {
-        // Check /boot partition->
-        bootPartition = partition;
-        boot_fs = partition->fs;
-        const qint64 boot_recommend_bytes = boot_recommended * kMebiByte;
-        // Add 1Mib to partition size.
-        const qint64 boot_real_bytes = partition->getByteLength() + kMebiByte;
-        boot_large_enough = (boot_real_bytes >= boot_recommend_bytes);
-
-      }
-      else if (partition->mount_point == kMountPointEFI) {
-          efiPartition = partition;
-      }
-
-      if (partition->fs == FsType::LVM2PV && partition->status != PartitionStatus::Real ) {
-          found_lvm = true;
-          if (pv_devices.indexOf(device) < 0) {
-              pv_devices.append(device);
-          }
-
-          if (install_Lvm_Status == Install_Lvm_Status::Lvm_No_Need) {
-              install_Lvm_Status = Install_Lvm_Status::Lvm_Format_Pv;
-          }
-      }
-
-    }
-  }
-
-  if (!root_device.isNull()) {
-      // Find esp partition on this device
-      for (Partition::Ptr partition : root_device->partitions) {
-         if (partition->fs == FsType::EFI) {
-             found_efi = true;
-             efiPartition = partition;
-             if (partition->status == PartitionStatus::Real) {
-               // For existing EFI partition->
-               const qint64 efi_minimum_bytes = efi_minimum * kMebiByte;
-               const qint64 efi_real_bytes = partition->getByteLength() + kMebiByte;
-               efi_large_enough = (efi_real_bytes >= efi_minimum_bytes);
-             } else {
-               // For newly created EFI partition->
-               const qint64 efi_recommended_bytes = efi_recommended * kMebiByte;
-               const qint64 efi_real_bytes = partition->getByteLength() + kMebiByte;
-               efi_large_enough = (efi_real_bytes >= efi_recommended_bytes);
-             }
-             break;
-          }
-      }
-  } else if(install_Lvm_Status == Install_Lvm_Status::Lvm_Format_Pv) {
-      for (const Device::Ptr device : pv_devices) {
+      for (const Device::Ptr device : virtualDevices()) {
         for (const Partition::Ptr partition : device->partitions) {
+
+          if (install_Lvm_Status != Install_Lvm_Status::Lvm_Install) {
+            mountPoints_AdvancedPartition.append(partition->mount_point);
+          }
+
+          if (partition->mount_point == kMountPointRoot) {
+            // Check / partition->
+            root_device = device;
+            rootPartition = partition;
+            root_fs = partition->fs;
+            const qint64 root_real_bytes = partition->getByteLength() + kMebiByte;
+            const qint64 root_minimum_bytes = root_required * kGibiByte;
+            root_large_enough = (root_real_bytes >= root_minimum_bytes);
+
+          } else if (partition->mount_point == kMountPointBoot) {
+            // Check /boot partition->
+            bootPartition = partition;
+            boot_fs = partition->fs;
+            const qint64 boot_recommend_bytes = boot_recommended * kMebiByte;
+            // Add 1Mib to partition size.
+            const qint64 boot_real_bytes = partition->getByteLength() + kMebiByte;
+            boot_large_enough = (boot_real_bytes >= boot_recommend_bytes);
+
+          }
+          else if (partition->mount_point == kMountPointEFI) {
+              efiPartition = partition;
+          }
+
+          if (partition->fs == FsType::LVM2PV && partition->status != PartitionStatus::Real ) {
+              found_lvm = true;
+              if (pv_devices.indexOf(device) < 0) {
+                  pv_devices.append(device);
+              }
+
+              if (install_Lvm_Status == Install_Lvm_Status::Lvm_No_Need) {
+                  install_Lvm_Status = Install_Lvm_Status::Lvm_Format_Pv;
+              }
+          }
+
+        }
+      }
+
+      if (!root_device.isNull()) {
+          // Find esp partition on this device
+          for (Partition::Ptr partition : root_device->partitions) {
              if (partition->fs == FsType::EFI) {
                  found_efi = true;
                  efiPartition = partition;
@@ -258,119 +238,139 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
                  break;
               }
           }
-      }
-  }
-
-  if (!rootPartition.isNull()) {
-    // Check root size only if root is set.
-    if (!root_large_enough) {
-      states.append(ValidateState::RootTooSmall);
-    }
-  } else if (install_Lvm_Status != Install_Lvm_Status::Lvm_Format_Pv) {
-      states.append(ValidateState::RootMissing);
-      for (QString mountPoint : mountPoints_AdvancedPartition) {
-          if (mountPoint == kMountPointRoot) {
-               states.pop_back();
-               break;
-          }
-      }
-  }
-
-  if (install_Lvm_Status == Install_Lvm_Status::Lvm_Install) {
-      return states;
-  }
-
-  // Check whether efi filesystem exists.
-  if (!this->isMBRPreferred()) {
-    // program looks for root dir, if root dir exists, then it looks for efi dir
-    // so, if found_efi is true, then found_root must be true
-    if (found_efi) {
-      if (!efi_large_enough) {
-        states.append(ValidateState::EfiTooSmall);
-      }
-    }
-    else {
-      if (!rootPartition.isNull() || install_Lvm_Status == Install_Lvm_Status::Lvm_Format_Pv){
-        states.append(ValidateState::EfiMissing);
-      }
-    }
-  }
-
-  if (!bootPartition.isNull() && !boot_large_enough) {
-    states.append(ValidateState::BootTooSmall);
-  } else if(bootPartition.isNull() && found_lvm) {
-    states.append(ValidateState::BootBeforeLvm);
-    return states;
-  }
-
-  // Check filesystem type is suitable for /boot folder.
-  if (!bootPartition.isNull() || !rootPartition.isNull()) {
-    const FsType boot_root_fs = !bootPartition.isNull() ? boot_fs : root_fs;
-    const FsTypeList boot_fs_list = this->getBootFsTypeList();
-    if (!boot_fs_list.contains(boot_root_fs)) {
-      states.append(ValidateState::BootFsInvalid);
-    }
-  }
-
-  // If /boot folder is required to be the first partition,
-  // validate whether /boot or / partition is the first partition.
-  if (GetSettingsBool(kPartitionBootOnFirstPartition)) {
-      for (const Device::Ptr device : virtualDevices()) {
-          PartitionList list;
-          for (const Partition::Ptr partition : device->partitions) {
-              if (partition->type != PartitionType::Unallocated){
-                  list << partition;
+      } else if(install_Lvm_Status == Install_Lvm_Status::Lvm_Format_Pv) {
+          for (const Device::Ptr device : pv_devices) {
+            for (const Partition::Ptr partition : device->partitions) {
+                 if (partition->fs == FsType::EFI) {
+                     found_efi = true;
+                     efiPartition = partition;
+                     if (partition->status == PartitionStatus::Real) {
+                       // For existing EFI partition->
+                       const qint64 efi_minimum_bytes = efi_minimum * kMebiByte;
+                       const qint64 efi_real_bytes = partition->getByteLength() + kMebiByte;
+                       efi_large_enough = (efi_real_bytes >= efi_minimum_bytes);
+                     } else {
+                       // For newly created EFI partition->
+                       const qint64 efi_recommended_bytes = efi_recommended * kMebiByte;
+                       const qint64 efi_real_bytes = partition->getByteLength() + kMebiByte;
+                       efi_large_enough = (efi_real_bytes >= efi_recommended_bytes);
+                     }
+                     break;
+                  }
               }
           }
+      }
 
-          if (list.isEmpty()){
-              continue;
+      if (!rootPartition.isNull()) {
+        // Check root size only if root is set.
+        if (!root_large_enough) {
+          states.append(ValidateState::RootTooSmall);
+        }
+      } else if (install_Lvm_Status != Install_Lvm_Status::Lvm_Format_Pv) {
+          states.append(ValidateState::RootMissing);
+          for (QString mountPoint : mountPoints_AdvancedPartition) {
+              if (mountPoint == kMountPointRoot) {
+                   states.pop_back();
+                   break;
+              }
           }
+      }
 
-          if (IsEfiEnabled()) {
-              int index = list.indexOf(efiPartition);
+      if (install_Lvm_Status == Install_Lvm_Status::Lvm_Install) {
+          return states;
+      }
+
+      // Check whether efi filesystem exists.
+      if (!this->isMBRPreferred()) {
+        // program looks for root dir, if root dir exists, then it looks for efi dir
+        // so, if found_efi is true, then found_root must be true
+        if (found_efi) {
+          if (!efi_large_enough) {
+            states.append(ValidateState::EfiTooSmall);
+          }
+        }
+        else {
+          if (!rootPartition.isNull() || install_Lvm_Status == Install_Lvm_Status::Lvm_Format_Pv){
+            states.append(ValidateState::EfiMissing);
+          }
+        }
+      }
+
+      if (!bootPartition.isNull() && !boot_large_enough) {
+        states.append(ValidateState::BootTooSmall);
+      } else if(bootPartition.isNull() && found_lvm) {
+        states.append(ValidateState::BootBeforeLvm);
+        return states;
+      }
+
+      // Check filesystem type is suitable for /boot folder.
+      if (!bootPartition.isNull() || !rootPartition.isNull()) {
+        const FsType boot_root_fs = !bootPartition.isNull() ? boot_fs : root_fs;
+        const FsTypeList boot_fs_list = this->getBootFsTypeList();
+        if (!boot_fs_list.contains(boot_root_fs)) {
+          states.append(ValidateState::BootFsInvalid);
+        }
+      }
+
+      // If /boot folder is required to be the first partition,
+      // validate whether /boot or / partition is the first partition.
+      if (GetSettingsBool(kPartitionBootOnFirstPartition)) {
+          for (const Device::Ptr device : virtualDevices()) {
+              PartitionList list;
+              for (const Partition::Ptr partition : device->partitions) {
+                  if (partition->type != PartitionType::Unallocated){
+                      list << partition;
+                  }
+              }
+
+              if (list.isEmpty()){
+                  continue;
+              }
+
+              if (IsEfiEnabled()) {
+                  int index = list.indexOf(efiPartition);
+                  if (index != -1 && index != 0) {
+                      states << ValidateState::BootPartNumberInvalid;
+                      break;
+                  }
+                  continue;
+              }
+
+              int index = list.indexOf(bootPartition);
+              // boot partition exists, but is not the first partition.
               if (index != -1 && index != 0) {
                   states << ValidateState::BootPartNumberInvalid;
                   break;
               }
+
+              index = list.indexOf(rootPartition);
+              // boot partition does not exist, root partition exists, but is not the first partition.
+              if (bootPartition.isNull() && index != -1 && index != 0) {
+                  states << ValidateState::BootPartNumberInvalid;
+                  break;
+              }
+          }
+      }
+
+      const QStringList known_mounts { kMountPointRoot, kMountPointBoot };
+      for (const Device::Ptr& device : virtualDevices()) {
+        for (const Partition::Ptr& partition : device->partitions) {
+          if (partition->fs == FsType::EFI) {
+                continue;
+          }
+          if (partition->mount_point.isEmpty()) {
               continue;
           }
-
-          int index = list.indexOf(bootPartition);
-          // boot partition exists, but is not the first partition.
-          if (index != -1 && index != 0) {
-              states << ValidateState::BootPartNumberInvalid;
-              break;
+          if (known_mounts.contains(partition->mount_point)) {
+              continue;
           }
-
-          index = list.indexOf(rootPartition);
-          // boot partition does not exist, root partition exists, but is not the first partition.
-          if (bootPartition.isNull() && index != -1 && index != 0) {
-              states << ValidateState::BootPartNumberInvalid;
-              break;
+          if (partition->getByteLength() < partition_min_size_bytes) {
+               states.append(ValidateState(ValidateState::PartitionTooSmall, partition));
           }
+        }
       }
-  }
 
-  const QStringList known_mounts { kMountPointRoot, kMountPointBoot };
-  for (const Device::Ptr& device : virtualDevices()) {
-    for (const Partition::Ptr& partition : device->partitions) {
-      if (partition->fs == FsType::EFI) {
-            continue;
-      }
-      if (partition->mount_point.isEmpty()) {
-          continue;
-      }
-      if (known_mounts.contains(partition->mount_point)) {
-          continue;
-      }
-      if (partition->getByteLength() < partition_min_size_bytes) {
-           states.append(ValidateState(ValidateState::PartitionTooSmall, partition));
-      }
-    }
-  }
-
-  return states;
+      return states;
 }
 
 void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {

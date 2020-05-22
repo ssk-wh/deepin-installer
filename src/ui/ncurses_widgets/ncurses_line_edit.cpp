@@ -16,7 +16,7 @@ void installer::NCursesLineEdit::setIsNumber(bool isnumber)
 
 void installer::NCursesLineEdit::setText(const QString &text)
 {
-    if (m_isNumber && !text.contains(QRegExp("^\\d+$"))) return;
+    if (text.size() >0 && m_isNumber && !text.contains(QRegExp("^\\d+$"))) return;
 
     m_text = text;
     this->changedText();

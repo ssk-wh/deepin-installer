@@ -70,6 +70,10 @@ void NewPartitionFrame::setPartition(const Partition::Ptr partition) {
   fs_box_->setList(fsStringList);
 
   QStringList mountPointStringList(delegate_->getMountPoints());
+  if (mountPointStringList.at(0) == "") {
+      mountPointStringList.removeFirst();
+      mountPointStringList.insert(0,tr("unused"));
+  }
   mount_point_box_->setList(mountPointStringList);
 
   const bool primary_ok = delegate_->canAddPrimary(partition);
@@ -119,7 +123,7 @@ void NewPartitionFrame::setPartition(const Partition::Ptr partition) {
   fs_box_->setCurrentIndex(default_fs_index);
 
   // Select empty mount-point.
-  const int mount_point_index = mount_point_box_->getList().indexOf("");
+  const int mount_point_index = mount_point_box_->getList().indexOf(tr("unused"));
   mount_point_box_->setCurrentIndex(mount_point_index);
 
   // Set value range of size_slider_
@@ -404,6 +408,9 @@ void NewPartitionFrame::onCreateButtonClicked() {
   if (IsMountPointSupported(fs_type)) {
     // Set mount_point only if mount_point_box_ is visible.
     mount_point = mount_point_box_->getCurrenItem();
+    if (mount_point == tr("unused")) {
+        mount_point = "";
+    }
   }
   // TODO(xushaohua): Calculate exact sectors
   const qint64 total_sectors = size_slider_->text().toUInt() * kMebiByte / partition_->sector_size;

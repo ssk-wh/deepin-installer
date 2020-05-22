@@ -447,7 +447,8 @@ void AdvancedPartitionFrame::doBackBtnClicked()
 {
     if (m_currentDelegate == m_lvmDelegate) {
         m_currentDelegate = m_delegate;
-        emit m_currentDelegate->deviceRefreshed(m_currentDelegate->realDevices());
+        AdvancedPartitionDelegate::install_Lvm_Status = Install_Lvm_Status::Lvm_No_Need;
+        emit m_currentDelegate->deviceRefreshed(m_delegate->realDevices());
     } else {
         Q_D(AdvancedPartitionFrame);
         emit d->backToPreviousPage();

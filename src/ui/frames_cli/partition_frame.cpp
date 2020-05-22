@@ -224,8 +224,12 @@ PartitionFrame::~PartitionFrame()
 
 bool PartitionFrame::init()
 {
-    if (m_currState == FRAME_STATE_NOT_START) {
+    static bool isFirst = true;
+    if (isFirst) {
         scanDevices();
+        isFirst = false;
+    }
+    if (m_currState == FRAME_STATE_NOT_START) {        
         //m_private->layout();
         m_currState = FRAME_STATE_RUNNING;
     }
