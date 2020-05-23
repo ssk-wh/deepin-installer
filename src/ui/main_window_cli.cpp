@@ -207,7 +207,6 @@ bool MainWindow::init()
     // Set language.
     if (m_currState == FRAME_STATE_NOT_START) {
         m_private->initUI();
-
         //m_privilegeErrrorFrame = new PrivilegeErrorFrame(this);
         //m_privilegeErrrorFrame->hide();
         //addChildFrame(m_privilegeErrrorFrame);
@@ -220,6 +219,10 @@ bool MainWindow::init()
         m_languageFrame->hide();
         connect(m_languageFrame, &LanguageFrame::languageChangeed, this, &MainWindow::slot_languageChange);
         addChildFrame(m_languageFrame);
+
+        m_networkFrame = new NetwrokFrame(this);
+        m_networkFrame->hide();
+        addChildFrame(m_networkFrame);
 
         m_licenceFrame = new LicenceFrame(this);
         m_licenceFrame->hide();
@@ -234,6 +237,11 @@ bool MainWindow::init()
         m_timeZoneFrame->hide();
         addChildFrame(m_timeZoneFrame);
 
+        m_partitionFrame = new PartitionFrame(this);
+        m_partitionFrame->hide();
+        connect( static_cast<PartitionFramePrivate*>(m_partitionFrame->getPrivate()),
+                 &PartitionFramePrivate::dostartInstall, this, &MainWindow::slot_dostartInstall);
+        addChildFrame(m_partitionFrame);
 
         m_componentFrame = new ComponentFrame(this);
         m_componentFrame->hide();
@@ -250,15 +258,6 @@ bool MainWindow::init()
         //m_diskSpaceInsufficientFrame = new DiskSpaceInsufficient(this);
         //addChildFrame(m_diskSpaceInsufficientFrame);
         
-        m_networkFrame = new NetwrokFrame(this);
-        m_networkFrame->hide();
-        addChildFrame(m_networkFrame);
-
-        m_partitionFrame = new PartitionFrame(this);
-        m_partitionFrame->hide();
-        connect( static_cast<PartitionFramePrivate*>(m_partitionFrame->getPrivate()),
-                 &PartitionFramePrivate::dostartInstall, this, &MainWindow::slot_dostartInstall);
-        addChildFrame(m_partitionFrame);
 
         m_installProcessFrame = new InstallProcessFrame(this);
         m_installProcessFrame->hide();
@@ -271,8 +270,6 @@ bool MainWindow::init()
         connect( static_cast<InstallSuccessFramePrivate*>(m_installSuccessFrame->getPrivate()),
                  &InstallSuccessFramePrivate::successFinished, this, &MainWindow::slot_successFinished);
         addChildFrame(m_installSuccessFrame);
-
-
 
         initConnection();
     }
