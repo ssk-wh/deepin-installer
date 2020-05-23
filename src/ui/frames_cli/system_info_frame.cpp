@@ -441,7 +441,7 @@ bool SystemInfoFrame::init()
 
 QString SystemInfoFrame::getFrameName()
 {
-    return "LanguageFrame";
+    return "System Info Frame";
 }
 
 bool SystemInfoFrame::handle()

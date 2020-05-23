@@ -260,6 +260,11 @@ void installer::CreateRootUserFrame::setUserPassword(const QString &password)
     m_userPassword = password;
 }
 
+QString installer::CreateRootUserFrame::getFrameName()
+{
+    return "Create Root";
+}
+
 bool installer::CreateRootUserFrame::handle()
 {
     return true;

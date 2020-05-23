@@ -81,6 +81,8 @@ public:
     void setUserName(const QString &name);
     void setUserPassword(const QString &password);
 
+    QString getFrameName() override;
+
 protected:
     bool handle() override;
 

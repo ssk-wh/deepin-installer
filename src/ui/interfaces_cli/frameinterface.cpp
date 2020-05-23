@@ -1,5 +1,6 @@
 #include "frameinterface.h"
 #include <QThread>
+#include <QTimer>
 
 namespace installer {
 
@@ -91,10 +92,10 @@ bool FrameInterface::init()
 }
 
 void FrameInterface::initConnection()
-{ 
+{
     auto itChildFrame = m_childFrame.begin();
        for ( ; itChildFrame != m_childFrame.end(); ++itChildFrame) {
-           connect((*itChildFrame)->getPrivate(), &FrameInterfacePrivate::next, [this](){
+           connect((*itChildFrame)->getPrivate(), &FrameInterfacePrivate::next, this, [=](){
                if ((m_currTask < m_childFrame.size()) && m_childFrame[m_currTask]->getFrameState() == FRAME_STATE_RUNNING) {
                    m_childFrame[m_currTask]->setFrameState(FRAME_STATE_FINISH);
                    //m_childFrame[m_currTask]->getPrivate()->hide();
@@ -109,8 +110,19 @@ void FrameInterface::initConnection()
                    if (m_childFrame[m_currTask]->shouldDisplay()) {
                         m_childFrame[m_currTask]->show();
                    } else {
-                        Q_EMIT m_childFrame[m_currTask]->getPrivate()->next();
+                       m_childFrame[m_currTask]->setFrameState(FRAME_STATE_FINISH);
+                       //m_childFrame[m_currTask]->getPrivate()->hide();
+                       m_childFrame[m_currTask]->hide();
+                       m_currTask++;
+                       if (m_currTask >= m_childFrame.size()) {
+                           return;
+                       }
+                       if (m_childFrame[m_currTask]->getFrameState() != FRAME_STATE_NOT_START) {
+                           m_childFrame[m_currTask]->setFrameState(FRAME_STATE_RUNNING);
+                       }
+                       m_childFrame[m_currTask]->show();
                    }
+                   qDebug() << "frame = " << m_childFrame[m_currTask]->getFrameName();
                    qDebug() << "m_currTask" << m_currTask;
                    qDebug() << "m_childFrame.size = " << m_childFrame.size();
                }
@@ -126,7 +138,12 @@ void FrameInterface::initConnection()
                    if (m_childFrame[m_currTask]->shouldDisplay()) {
                         m_childFrame[m_currTask]->show();
                    } else {
-                        Q_EMIT m_childFrame[m_currTask]->getPrivate()->back();
+                       m_childFrame[m_currTask]->setFrameState(FRAME_STATE_ABORT);
+                       //m_childFrame[m_currTask]->getPrivate()->hide();
+                       m_childFrame[m_currTask]->hide();
+                       m_currTask--;
+                       m_childFrame[m_currTask]->setFrameState(FRAME_STATE_RUNNING);
+                       m_childFrame[m_currTask]->show();
                    }
                    qDebug() << "m_currTask" << m_currTask;
                }else if (m_currTask == 0 && m_childFrame.size() > 0) {
