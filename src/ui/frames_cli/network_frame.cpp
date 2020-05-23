@@ -68,11 +68,13 @@ void NetwrokFramePrivate::initUI()
     NetwrokFrameItem operationchoicemanualset;
     operationchoicemanualset.m_NcursesLabel = new NcursesLabel(this, 1, width() /2, begy(), begx());
     operationchoicemanualset.m_NcursesLabel->setFocusEnabled(false);
+    operationchoicemanualset.m_NcursesLabel->setFocusStyle(NcursesUtil::getInstance()->list_view_item_select());
     Utils::addTransLate(m_trList, std::bind(&NcursesLabel::setText, operationchoicemanualset.m_NcursesLabel, std::placeholders::_1), QString(QObject::tr("Network manual set")));
 
     NetwrokFrameItem operationchoicenotset;
     operationchoicenotset.m_NcursesLabel = new NcursesLabel(this, 1, width() /2, begy(), begx());
     operationchoicenotset.m_NcursesLabel->setFocusEnabled(false);
+    operationchoicenotset.m_NcursesLabel->setFocusStyle(NcursesUtil::getInstance()->list_view_item_select());
     Utils::addTransLate(m_trList, std::bind(&NcursesLabel::setText, operationchoicenotset.m_NcursesLabel, std::placeholders::_1), QString(QObject::tr("Network not set now")));
 
 //    m_operationchoice.push_back(operationchoiceautoset);
@@ -144,10 +146,6 @@ void NetwrokFramePrivate::updateTs()
     box(ACS_VLINE,ACS_HLINE);
     printTitle(QObject::tr("Network Configuration"), width());
 
-    for (auto it = m_trList.begin(); it != m_trList.end(); ++it) {
-        it->first(it->second.toUtf8());
-    }
-
     m_titledes.clear();
 //    m_titledes.append(QObject::tr("  Do network set by auto, use dhcp to set network"));
     m_titledes.append(QObject::tr("  Do network set by manual, in this page you can set IP. Mask. Gateway. DNS"));
@@ -163,7 +161,7 @@ void NetwrokFramePrivate::updateTs()
     m_networkconfigtypelabel->setText(m_networkconfigtypestr);
     m_networkconfigtypelabel->show();
     if(m_currentchoicetype == 0) {
-        if(m_operationchoice.at(1).m_NcursesLabel->isOnFoucs()) {
+        if(m_operationchoice.at(0).m_NcursesLabel->isOnFoucs()) {
             m_childpagecounttext->setText(" [1/2] ");
         } else {
             m_childpagecounttext->setText("");
@@ -174,6 +172,10 @@ void NetwrokFramePrivate::updateTs()
 
     for(int i = 0; i < m_operationchoice.size(); i++) {
         m_operationchoice.at(i).m_NcursesLabel->erase();
+    }
+
+    for (auto it = m_trList.begin(); it != m_trList.end(); ++it) {
+        it->first(it->second.toUtf8());
     }
 
     for(int i = 0; i < m_ipconfigitems.size(); i++) {

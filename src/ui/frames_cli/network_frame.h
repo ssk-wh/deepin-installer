@@ -36,7 +36,7 @@ struct NetwrokFrameItem{
         m_ErrorinfoLabel  = nullptr;
         m_begy = 0;
         m_begx = 0;
-        m_IsOK = true;
+        m_IsOK = false;
         m_IsErrorTextChange = false;
     }
 

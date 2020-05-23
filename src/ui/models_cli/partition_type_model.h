@@ -15,8 +15,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef INSTALLER_UI_MODELS_PARTITION_TYPE_MODEL_H
-#define INSTALLER_UI_MODELS_PARTITION_TYPE_MODEL_H
+#ifndef INSTALLER_CLI_UI_MODELS_PARTITION_TYPE_MODEL_H
+#define INSTALLER_CLI_UI_MODELS_PARTITION_TYPE_MODEL_H
 
 #include <QAbstractListModel>
 
@@ -60,4 +60,4 @@ class PartitionTypeModel : public QObject {
 
 }  // namespace installer
 
-#endif  // INSTALLER_UI_MODELS_PARTITION_TYPE_MODEL_H
+#endif  // INSTALLER_CLI_UI_MODELS_PARTITION_TYPE_MODEL_H

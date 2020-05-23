@@ -220,10 +220,6 @@ bool MainWindow::init()
         connect(m_languageFrame, &LanguageFrame::languageChanged, this, &MainWindow::slot_languageChange);
         addChildFrame(m_languageFrame);
 
-        m_networkFrame = new NetwrokFrame(this);
-        m_networkFrame->hide();
-        addChildFrame(m_networkFrame);
-
         m_licenceFrame = new LicenceFrame(this);
         m_licenceFrame->hide();
         addChildFrame(m_licenceFrame);
@@ -235,12 +231,6 @@ bool MainWindow::init()
         m_timeZoneFrame = new TimeZoneFrame(this);
         m_timeZoneFrame->hide();
         addChildFrame(m_timeZoneFrame);
-
-        m_partitionFrame = new PartitionFrame(this);
-        m_partitionFrame->hide();
-        connect( static_cast<PartitionFramePrivate*>(m_partitionFrame->getPrivate()),
-                 &PartitionFramePrivate::dostartInstall, this, &MainWindow::slot_dostartInstall);
-        addChildFrame(m_partitionFrame);
 
         m_componentFrame = new ComponentFrame(this);
         m_componentFrame->hide();
