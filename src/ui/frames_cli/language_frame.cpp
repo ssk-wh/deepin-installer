@@ -64,8 +64,6 @@ void LanguageFramePrivate::show()
     if(!m_isshow) {
         NCursesWindowBase::show();
         m_isshow = true;
-        m_pBackButton->hide();
-        m_pBackButton->setFocusEnabled(false);
     }
 }
 
