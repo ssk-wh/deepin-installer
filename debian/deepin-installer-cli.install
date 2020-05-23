@@ -1,11 +1,2 @@
-etc/live/config.conf.d/deepin-installer.conf
-usr/share/xgreeters/
-lib/*
 usr/bin/deepin-installer-cli
-usr/share/deepin-installer/hooks/*
-usr/share/deepin-installer/check_hooks/*
-usr/share/deepin-installer/i18n/*
-usr/share/deepin-installer/resources/*
-usr/share/deepin-installer/tools/*
-usr/share/doc/*
-usr/share/polkit-1/actions/*
+

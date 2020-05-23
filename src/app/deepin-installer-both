@@ -37,6 +37,6 @@ if [ x"$cli_mode" = xtrue ]; then
     systemctl restart deepin-installer-cli.service
 else
     sh /usr/lib/live/config/1082-deepin-livecd true
-    systemctl restart ligthdm.service
+    systemctl restart lightdm.service
 fi 
 
