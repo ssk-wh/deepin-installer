@@ -31,7 +31,7 @@ parse_cmdline() {
 }
 
 
-
+sudo -s
 parse_cmdline
 if [ x"$cli_mode" = xtrue ]; then
     systemctl restart deepin-installer-cli.service
