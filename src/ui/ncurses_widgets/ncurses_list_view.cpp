@@ -88,22 +88,28 @@ void NcursesListView::onKeyPress(int keyCode)
 
     switch (keyCode) {
         case KEY_UP:
-            if (m_currLine <= 0) {
-                m_currLine = height();
-                if (m_index - height() >= 0) {
-                    m_index -= height();
-                }
+            if (m_index + m_currLine <= 0) {
+                break;
             } else {
-                m_currLine--;
+                if (m_currLine <= 0) {
+                    m_currLine = height();
+                    if (m_index - height() >= 0) {
+                        m_index -= height();
+                    }
+                } else {
+                    m_currLine--;
+                }
+                //erase();
+                show();
+                if (m_currLine >= 0 && m_index + m_currLine < m_childWindows.size()) {
+                    emit selectChanged(m_index + m_currLine);
+                }
             }
-            //erase();
-            show();
-            if (m_currLine >= 0 && m_index + m_currLine < m_childWindows.size()) {
-                emit selectChanged(m_index + m_currLine);
-            }
-
             break;
         case KEY_DOWN:
+            if (m_currLine + m_index >= m_childWindows.size() - 1) {
+                break;
+            }
             if (m_currLine <= height() && m_currLine + m_index < m_childWindows.size()) {
                 if (m_currLine == height()) {
                     m_currLine = 0;

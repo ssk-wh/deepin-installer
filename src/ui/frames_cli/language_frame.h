@@ -23,6 +23,7 @@ public:
 
 public:
     void initUI() override;
+    void layout() override;
     void updateTs() override;
     void initConnection();
     bool validate() override;
@@ -45,6 +46,7 @@ private:
     LanguageList m_languageList;
     NcursesListView* m_languageView = nullptr;
     NcursesLabel* m_instructions = nullptr;
+    NcursesLabel* m_titleLabel = nullptr;
     bool m_isshow;
 
 };

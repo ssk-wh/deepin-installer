@@ -13,19 +13,32 @@ namespace installer {
 void LanguageFramePrivate::initUI()
 {
     FrameInterfacePrivate::initUI();
-    setTitle(tr("select language"));
+    m_titleLabel = new NcursesLabel(this, 1, 25, begy(), begx());
+    m_titleLabel->setFocusEnabled(false);
 
     m_instructions = new NcursesLabel(this, 2, width() - 4, begy() + 1, begx() + 1);
-    m_instructions->setText(tr("    Choose the language to be used for the installation process. \
-The selected language will also be the default language for the installed system."));
     m_instructions->setFocusEnabled(false);
 
-    int languageViewH = height() - 10;
-    int languageViewW = 50;
-
-
-    m_languageView = new NcursesListView(this, languageViewH, languageViewW, begy() + m_instructions->height() + 2,  begx() + (width() - languageViewW) / 2);
+    m_languageView = new NcursesListView(this, height() - 10, 20, begy(), begx());
     m_languageView->setFocus(true);
+//    int languageViewH = height() - 10;
+//    m_languageView = new NcursesListView(this, 1, 1, begy() + m_instructions->height() + 2,  begx() + (width() - languageViewW) / 2);
+//    m_languageView->setFocus(true);
+}
+
+void LanguageFramePrivate::layout()
+{
+    try {
+        m_titleLabel->adjustSizeByContext();
+        m_titleLabel->mvwin(begy(), begx() + (width() - m_titleLabel->width()) / 2);
+        m_instructions->adjustSizeByContext();
+        m_instructions->mvwin(begy() + m_titleLabel->height(), begx() + 10);
+        m_languageView->adjustSizeByContext();
+        m_languageView->resize(height() - 10,  m_languageView->width());
+        m_languageView->mvwin(begy() + m_instructions->height() + 2,  begx() + (width() - m_languageView->width()) / 2);
+    } catch (NCursesException& e) {
+        qCritical() << QString(e.message);
+    }
 }
 
 void LanguageFramePrivate::updateTs()
@@ -144,6 +157,7 @@ bool LanguageFrame::init()
     Q_D(LanguageFrame);
     if (m_currState == FRAME_STATE_NOT_START) {
         d->readConf();
+        m_private->layout();
         m_currState = FRAME_STATE_RUNNING;
     }
     return true;
