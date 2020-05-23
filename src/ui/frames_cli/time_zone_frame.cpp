@@ -80,8 +80,9 @@ TimeZoneFrame::~TimeZoneFrame()
 
 bool TimeZoneFrame::init()
 {
+    readConf();
     if (m_currState == FRAME_STATE_NOT_START) {
-        readConf();
+
         connect(dynamic_cast<TimeZoneFramePrivate*>(m_private), &TimeZoneFramePrivate::continentChanged, this, [=]{
             updateTimezoneData();
             Q_D(TimeZoneFrame);
