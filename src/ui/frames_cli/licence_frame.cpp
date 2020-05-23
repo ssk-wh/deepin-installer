@@ -44,16 +44,43 @@ void LicenceFramePrivate::initUI()
 
     m_NcursesCheckBox = new NcursesCheckBox(this, 1, (width() - 5) / 2, begy(), begx());
     m_NcursesCheckBox->setIsUseTitle(false);
+
+    QString errorinfo = QObject::tr("Please allow the licence at first ");
+    m_errorInfoLabel = new NcursesLabel(this, errorinfo, 1, (width() - 5) / 2, begy(), begx());
+    m_errorInfoLabel->setFocusEnabled(false);
+    m_errorInfoLabel->setBackground(NcursesUtil::getInstance()->error_attr());
+    m_errorInfoLabel->hide();
 }
 
 bool LicenceFramePrivate::validate()
 {
-    return true;
+    if(m_NcursesCheckBox->isSelect()) {
+        m_errorInfoLabel->hide();
+        return true;
+    } else {
+        m_errorInfoLabel->show();
+        return false;
+    }
+}
+
+void LicenceFramePrivate::show()
+{
+    if (!m_isshow) {
+        NCursesWindowBase::show();
+        m_errorInfoLabel->hide();
+        m_isshow = true;
+    }
+}
+
+void LicenceFramePrivate::hide()
+{
+    NCursesWindowBase::hide();
+    m_isshow = false;
 }
 
 void LicenceFramePrivate::initConnection()
 {
-
+    connect(m_NcursesCheckBox, SIGNAL(signal_SelectChange(bool)), this, SLOT(checkboxSelectChange(bool)));
 }
 
 
@@ -61,6 +88,13 @@ void LicenceFramePrivate::onKeyPress(int keyCode)
 {
     qDebug()<< keyCode;
     NCursesWindowBase::onKeyPress(keyCode);
+}
+
+void LicenceFramePrivate::checkboxSelectChange(bool select)
+{
+    if (select) {
+        m_errorInfoLabel->hide();
+    }
 }
 
 void LicenceFramePrivate::updateTs()
@@ -78,6 +112,9 @@ void LicenceFramePrivate::updateTs()
         m_ncursesTextBrower->setText(testlicenceinfo, false);
     }
 
+    QString errorinfo = QObject::tr("Please allow the licence at first ");
+    m_errorInfoLabel->setText(errorinfo);
+
     FrameInterfacePrivate::updateTs();
 
     layout();
@@ -87,6 +124,8 @@ void LicenceFramePrivate::layout()
 {
     m_NcursesCheckBox->moveWindowTo(begy() + height() - 7, begx() + (width() - 5) / 2 - m_NcursesCheckBox->text().length() / 2);
     m_ncursesTextBrower->setFocus(true);
+    m_errorInfoLabel->adjustSizeByContext();
+    m_errorInfoLabel->mvwin(begy() + height() - 5, begx() + (width() - 5) / 2 - m_errorInfoLabel->text().length() / 2);
 }
 
 

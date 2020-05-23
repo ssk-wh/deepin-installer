@@ -42,14 +42,19 @@ public:
     void setDataDiskList(QStringList &info);
     NcursesListView* getDataDiskList(){ return m_datadisklist; }
     void showListView();
+    void setchildFoursEnabel(bool enabel);
+    void setCurrentchoicetype(int state) { m_currentchoicetype = state; }
 
 signals:
     void backToPreviousPage();
     void allIsFinished();
     void keyEventTrigerSignal(int keycode);
     void startInstall();
+    void doBackBtnClickedSignal();
+    void doNectBtnClickedSignal();
 private slots:
     void keyPresseEvent(int keycode);
+    void systemDisklistSelectChanged(int index);
 
 private:
     NcursesLabel* m_label_title       = nullptr;
@@ -60,6 +65,7 @@ private:
     bool m_isshow = false;
     //DeviceList m_devices;
     int m_currentchoicetype = -1;
+    QStringList m_deviceList;
 };
 
 class FullDiskFrame : public FrameInterface
@@ -80,7 +86,8 @@ public:
 
 public slots:
     void onDeviceRefreshed(const DeviceList& devices);
-
+    void doBackBtnClicked();
+    void doNextBtnClicked();
 private:
     void readConf();
     void writeConf();

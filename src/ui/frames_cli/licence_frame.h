@@ -9,6 +9,8 @@ namespace installer {
 class NcursesTextBrower;
 class NcursesCheckBox;
 class LicenceFrame;
+class NcursesLabel;
+
 class LicenceFramePrivate : public FrameInterfacePrivate
 {
     friend LicenceFrame;
@@ -24,11 +26,18 @@ public:
     void updateTs() override;
     void initConnection();
     bool validate() override;
+    void show() override;
+    void hide() override;
     virtual void onKeyPress(int keyCode);
+
+private slots:
+    void checkboxSelectChange(bool select);
 
 private:
     NcursesTextBrower* m_ncursesTextBrower;
     NcursesCheckBox*   m_NcursesCheckBox;
+    NcursesLabel*      m_errorInfoLabel;
+    bool               m_isshow;
 };
 
 class LicenceFrame : public FrameInterface

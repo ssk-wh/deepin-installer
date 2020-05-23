@@ -34,11 +34,20 @@ namespace {
 const qint64 kMinimumPartitionSizeCli = 100 * kMebiByte;
 }  // namespace
 
-PrepareInstallFrame::PrepareInstallFrame(NCursesWindowBase* parent, int lines, int cols, int beginY, int beginX, AdvancedPartitionDelegate* delegate)
+/*PrepareInstallFrame::PrepareInstallFrame(NCursesWindowBase* parent, int lines, int cols, int beginY, int beginX, AdvancedPartitionDelegate* delegate)
     : FrameInterfacePrivate(parent, lines, cols, beginY, beginX),
       delegate_(delegate),
       partition_()
       {
+    this->setObjectName("PrepareInstallFrame");
+    initUI();
+    initConnections();
+}*/
+
+PrepareInstallFrame::PrepareInstallFrame(NCursesWindowBase *parent, int lines, int cols, int beginY, int beginX, QStringList optdescriptions)
+    : FrameInterfacePrivate(parent, lines, cols, beginY, beginX),
+      m_optDescriptions(optdescriptions)
+{
     this->setObjectName("PrepareInstallFrame");
     initUI();
     initConnections();
@@ -69,6 +78,10 @@ void PrepareInstallFrame::initConnections() {
 
 void PrepareInstallFrame::initUI() {
 
+    setBackground(NcursesUtil::getInstance()->dialog_attr());
+    this->drawShadow(true);
+    this->box();
+
   m_titleLabel_ = new NcursesLabel(this, 1, 1, begy(), begx());
   m_titleLabel_->setFocusEnabled(false);
   m_titleLabel_->setText(tr("Ready to Install"));
@@ -78,12 +91,23 @@ void PrepareInstallFrame::initUI() {
   m_commentLabel->setText(tr("Make a backup of your important data and then continue"));
 
   operations_box_ = new NcursesListView(this, height() - 10, 80, begy(), begx());
-  QStringList opt(delegate_->getOptDescriptions());
-  operations_box_->setList(opt);
+  //QStringList opt(delegate_->getOptDescriptions());
+  operations_box_->setList(m_optDescriptions);
   operations_box_->setFocus(true);
 
-  cancel_button_ = new NcursesButton(this, tr("Back"), 2, 8, begy() + height() - 10 + 3, begx());
-  create_button_ = new NcursesButton(this, tr("Continue"), 2, 8, begy() + height() - 10 + 3, begx() + 12);
+  QString strBack = tr("Back");
+  QString strContinue = tr("Continue");
+  int buttonHeight = 3;
+  int buttonWidth = std::max(strBack.length(), strContinue.length()) + 4;
+  int buttonDistanceDelta = 2 * buttonWidth;
+
+  cancel_button_ = new NcursesButton(this, strBack, buttonHeight, 8, begy() + height() - buttonHeight - 2, begx() + 5);
+  create_button_ = new NcursesButton(this, strContinue, buttonHeight, 8, begy() + height() - buttonHeight - 2, begx() + width() - buttonWidth - 13);
+
+  cancel_button_->drawShadow(true);
+  create_button_->drawShadow(true);
+  cancel_button_->box();
+  create_button_->box();
 
   this->setFocus(true);
 
@@ -95,7 +119,6 @@ void PrepareInstallFrame::initUI() {
 
 void PrepareInstallFrame::updateTs()
 {
-
     cancel_button_->setText(tr("Back"));
     create_button_->setText(tr("Continue"));
     layout();
@@ -110,13 +133,13 @@ void PrepareInstallFrame::layout()
     m_commentLabel->mvwin(begy() + 2, begx() +40);
 
     operations_box_->adjustSizeByContext();
-    operations_box_->mvwin(begy() + 3, begx() + 40);
+    operations_box_->mvwin(begy() + 3, begx() + (width() - operations_box_->width()) / 2);
 
-    cancel_button_->adjustSizeByContext();
-    cancel_button_->mvwin(begy() + height() -3 , begx() + (width() - m_titleLabel_->width()) / 2 - 20);
+    //cancel_button_->adjustSizeByContext();
+    //cancel_button_->mvwin(begy() + height() -3 , begx() + (width() - m_titleLabel_->width()) / 2 - 20);
 
-    create_button_->adjustSizeByContext();
-    create_button_->mvwin(begy() + height() -3 , begx() + (width() - m_titleLabel_->width()) / 2 + 20);
+    //create_button_->adjustSizeByContext();
+    //create_button_->mvwin(begy() + height() -3 , begx() + (width() - m_titleLabel_->width()) / 2 + 20);
 
     NCursesWindowBase::show();
 }

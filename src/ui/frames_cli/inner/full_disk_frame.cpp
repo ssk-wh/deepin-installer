@@ -91,6 +91,7 @@ void FullDiskFramePrivate::initConnection()
 {
     connect(m_pBackButton, &NcursesButton::clicked, this, &FullDiskFramePrivate::doBackBtnClicked);
     connect(m_pNextButton, &NcursesButton::clicked, this, &FullDiskFramePrivate::doNextBtnClicked);
+    connect(m_systemdisklist, &NcursesListView::selectChanged, this, &FullDiskFramePrivate::systemDisklistSelectChanged);
 }
 
 bool FullDiskFramePrivate::validate()
@@ -114,18 +115,19 @@ void FullDiskFramePrivate::hide()
 
 void FullDiskFramePrivate::doBackBtnClicked()
 {
-    emit backToPreviousPage();
+    emit doBackBtnClickedSignal();
 }
 
 void FullDiskFramePrivate::doNextBtnClicked()
 {
-    emit allIsFinished();
+    emit doNectBtnClickedSignal();
 }
 
 void FullDiskFramePrivate::setSystemDiskList(QStringList &info)
 {
+    m_deviceList.clear();
+    m_deviceList = info;
     m_systemdisklist->setList(info);
-
 }
 
 void FullDiskFramePrivate::setDataDiskList(QStringList &info)
@@ -141,16 +143,45 @@ void FullDiskFramePrivate::showListView()
     }
 }
 
+void FullDiskFramePrivate::setchildFoursEnabel(bool enabel)
+{
+    m_pBackButton->setFocusEnabled(enabel);
+    m_pNextButton->setFocusEnabled(enabel);
+    m_systemdisklist->setFocusEnabled(enabel);
+    m_datadisklist->setFocusEnabled(enabel);
+}
+
 void FullDiskFramePrivate::keyPresseEvent(int keycode)
 {
     if(!m_isshow) {
+        if(m_currentchoicetype != -1){
+            emit keyEventTrigerSignal(keycode);
+        }
         return;
-    }
-    if(m_currentchoicetype != -1){
-        emit keyEventTrigerSignal(keycode);
     } else {
-        FrameInterfacePrivate::keyEventTriger(keycode);
-        emit keyEventTrigerSignal(keycode);
+        if(m_currentchoicetype != -1){
+            emit keyEventTrigerSignal(keycode);
+        } else {
+            FrameInterfacePrivate::keyEventTriger(keycode);
+            emit keyEventTrigerSignal(keycode);
+        }
+    }
+}
+
+void FullDiskFramePrivate::systemDisklistSelectChanged(int index)
+{
+    if (m_deviceList.size() > 0) {
+        QStringList datadisklist;
+        for (int i = 0; i < m_deviceList.size(); i++) {
+            if (i != index) {
+                datadisklist.append(m_deviceList.at(i));
+            }
+        }
+
+        if( datadisklist.size() > 0) {
+            m_datadisklist->setList(datadisklist);
+            m_datadisklist->show();
+        }
     }
 }
 
@@ -172,16 +203,25 @@ FullDiskFrame::FullDiskFrame(FrameInterface* parent, PartitionModel* model)
     connect(m_delegate, &FullDiskDelegate::deviceRefreshed, this, &FullDiskFrame::onDeviceRefreshed);
     connect(m_partitionModel, &PartitionModel::deviceRefreshed, m_delegate, &FullDiskDelegate::onDeviceRefreshed);
     connect(m_partitionModel, &PartitionModel::manualPartDone,this, &FullDiskFrame::onManualPartDone);
+    connect(d, &FullDiskFramePrivate::doBackBtnClickedSignal, this, &FullDiskFrame::doBackBtnClicked);
+    connect(d, &FullDiskFramePrivate::doNectBtnClickedSignal, this, &FullDiskFrame::doNextBtnClicked);
 
     connect(d, &FullDiskFramePrivate::backToPreviousPage, [parent](){
         parent->hideAllChild();
         parent->show();
     });
-    connect(d, &FullDiskFramePrivate::allIsFinished, [parent](){
+    /*connect(d, &FullDiskFramePrivate::allIsFinished, [parent](){
         parent->setFrameState(FRAME_STATE_RUNNING);
         emit parent->getPrivate()->next();
     });
-    connect(d, &FullDiskFramePrivate::allIsFinished, this, &FullDiskFrame::doFullDiskPartition);
+    connect(d, &FullDiskFramePrivate::allIsFinished, this, &FullDiskFrame::doFullDiskPartition);*/
+    connect(d, &FullDiskFramePrivate::allIsFinished, [parent, this](){
+        parent->setFrameState(FRAME_STATE_RUNNING);
+        emit parent->getPrivate()->next();
+        this->doFullDiskPartition();
+    });
+
+
 }
 
 FullDiskFrame::~FullDiskFrame()
@@ -215,8 +255,15 @@ bool FullDiskFrame::doFullDiskPartition()
             break;
         }
     }
-    //m_errorTip->hide();
-    //m_diskTooSmallTip->hide();
+
+    QString testname_datadisk = d->getDataDiskList()->getCurrenItem();
+    for (Device::Ptr device : m_DeviceList) {
+        if(!testname.compare(GetDeviceModelCapAndPath(device))) {
+            m_delegate->addDataDisk(device->path);
+            break;
+        }
+    }
+
     if (m_delegate->selectedDisks().isEmpty()) {
         //m_errorTip->show();
         return false;
@@ -232,13 +279,11 @@ bool FullDiskFrame::doFullDiskPartition()
     const qint64 root_required = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
     const qint64 root_required_bytes = kGibiByte * root_required;
     if (device->getByteLength() < root_required_bytes) {
-        //m_diskTooSmallTip->show();
         qWarning() << QString("MULTIDISK: disk too small:size:{%1}.").arg(device->getByteLength());
         return false;
     }
 
     if (!m_delegate->formatWholeDeviceMultipleDisk()) {
-        //m_diskTooSmallTip->show();
         qWarning() << "MULTIDISK: Failed to formatWholeDeviceMultipleDisk.";
         return false;
     }
@@ -248,12 +293,6 @@ bool FullDiskFrame::doFullDiskPartition()
 //      showDynamicDiskFrame();
 //      return;
 //    }
-
-    QStringList descriptions = m_delegate->getOptDescriptions();
-    qDebug() << "descriptions: " << descriptions;
-
-    //prepare_install_frame_->updateDescription(descriptions);
-    //main_layout_->setCurrentWidget(prepare_install_frame_);
 
     /*// First, update boot flag.
     bool found_boot;
@@ -276,8 +315,8 @@ bool FullDiskFrame::doFullDiskPartition()
 
     // full disk encrypt operations is empty.
     m_delegate->setBootFlag();
-    OperationList operations = m_delegate->operations();
-    m_partitionModel->manualPart(operations);
+    //OperationList operations = m_delegate->operations();
+    //m_partitionModel->manualPart(operations);
 
     return true;
 }
@@ -311,8 +350,41 @@ void FullDiskFrame::onDeviceRefreshed(const DeviceList& devices)
         listtestpath.append(GetDeviceModelCapAndPath(device));
     }
     d->setSystemDiskList(listtestpath);
-    d->setDataDiskList(listtestpath);
+    //d->setDataDiskList(listtestpath);
     d->showListView();
+}
+
+void FullDiskFrame::doBackBtnClicked()
+{
+    Q_D(FullDiskFrame);
+    emit d->backToPreviousPage();
+}
+
+void FullDiskFrame::doNextBtnClicked()
+{
+    doFullDiskPartition();
+    Q_D(FullDiskFrame);
+    PrepareInstallFrame * pPrepareInstallFrame = new PrepareInstallFrame(d, d->height(), d->width(), d->begy(), d->begx(), m_delegate->getOptDescriptions());
+    d->setCurrentchoicetype(1);
+    pPrepareInstallFrame->hide();
+    connect(d, &FullDiskFramePrivate::keyEventTrigerSignal, pPrepareInstallFrame, &PrepareInstallFrame::keyPresseEvent);
+    connect(pPrepareInstallFrame, &PrepareInstallFrame::finished, this, [=](bool isOk){
+        disconnect(d, &FullDiskFramePrivate::keyEventTrigerSignal, pPrepareInstallFrame, &PrepareInstallFrame::keyPresseEvent);
+        d->removeChildWindows(pPrepareInstallFrame);
+        show();
+        d->setchildFoursEnabel(true);
+        d->setCurrentchoicetype(-1);
+        if(isOk) {
+           emit d->allIsFinished();
+            OperationList operations = m_delegate->operations();
+            m_partitionModel->manualPart(operations);
+        }
+
+    });
+    pPrepareInstallFrame->updateTs();
+    d->setchildFoursEnabel(false);
+    hide();
+    pPrepareInstallFrame->show();
 }
 
 void FullDiskFrame::readConf()

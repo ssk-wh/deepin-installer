@@ -39,7 +39,8 @@ class PrepareInstallFrame : public FrameInterfacePrivate {
   Q_OBJECT
 
  public:
-  PrepareInstallFrame(NCursesWindowBase* parent, int lines, int cols, int beginY, int beginX, AdvancedPartitionDelegate* delegate);
+  //PrepareInstallFrame(NCursesWindowBase* parent, int lines, int cols, int beginY, int beginX, AdvancedPartitionDelegate* delegate);
+    PrepareInstallFrame(NCursesWindowBase* parent, int lines, int cols, int beginY, int beginX, QStringList optdescriptions);
 
   // Reset partition information at |partition_path|.
   void show() override;
@@ -66,10 +67,11 @@ public:
   NcursesButton* cancel_button_ = nullptr;
   NcursesButton* create_button_ = nullptr;
 
-  AdvancedPartitionDelegate* delegate_ = nullptr;  
+  //AdvancedPartitionDelegate* delegate_ = nullptr;
 
-  PartitionTypeModel* type_model_ = nullptr;
-  Partition::Ptr partition_;
+  //PartitionTypeModel* type_model_ = nullptr;
+  //Partition::Ptr partition_;
+  QStringList m_optDescriptions;
 
 
  private slots:

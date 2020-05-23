@@ -472,7 +472,7 @@ void AdvancedPartitionFrame::doNextBtnClicked()
     } else {
         Q_D(AdvancedPartitionFrame);
 
-        PrepareInstallFrame * pPrepareInstallFrame = new PrepareInstallFrame(d, d->height(), d->width(), d->begy(), d->begx(), m_currentDelegate);
+        PrepareInstallFrame * pPrepareInstallFrame = new PrepareInstallFrame(d, d->height(), d->width(), d->begy(), d->begx(), m_currentDelegate->getOptDescriptions());
         d->setCurrentchoicetype(1);
         pPrepareInstallFrame->hide();
         connect(d, &AdvancedPartitionFramePrivate::keyEventTrigerSignal, pPrepareInstallFrame, &PrepareInstallFrame::keyPresseEvent);
