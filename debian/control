@@ -33,6 +33,7 @@ Build-Depends:
     libdtkwidget-dev,
     libdtkgui-dev,
     libkf5networkmanagerqt-dev,
+    fbterm,
     libncurses-dev,
     libncursesw5-dev
 Standards-Version: 3.9.8
@@ -78,36 +79,6 @@ Depends:
     deepin-repair-tools
 Description: Release version of deepin installer
  New version of deepin-installer, rewritten with Qt5.
-
-Package: deepin-installer-cli
-Architecture: any
-Depends:
-    ${shlibs:Depends},
-    ${misc:Depends},
-    btrfs-progs [i386 amd64],
-    deepin-installer-timezones,
-    dosfstools,
-    imagemagick [i386 amd64],
-    imageworsener [!i386 !amd64],
-    jfsutils [i386 amd64],
-    mtools,
-    ntfs-3g,
-    os-prober [i386 amd64],
-    parted,
-    pciutils,
-    reiserfsprogs [i386 amd64],
-    squashfs-tools,
-    udev,
-    x11-xserver-utils,
-    xfsprogs [i386 amd64],
-    xinit,
-    xkb-data,
-    deepin-clone,
-    cryptsetup,
-    lvm2,
-    fbterm
-Description: Release version of deepin installer
- New version of deepin-installer-cli, rewritten with Qt5 and libncursesw5-dev
 
 Package: deepin-installer-oem
 Architecture: any

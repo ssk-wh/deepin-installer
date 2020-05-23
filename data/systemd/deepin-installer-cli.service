@@ -1,12 +1,12 @@
 [Unit]
 Description=Launch installer in normal mode
-After=getty@tty1.service
+After=getty@tty2.service
 
 [Service]
 Type=simple
 ExecStart=/usr/bin/deepin-installer-cli
 StandardInput=tty
-TTYPath=/dev/tty1
+TTYPath=/dev/tty2
 TTYReset=no
 TTYVHangup=yes
 Restart=always

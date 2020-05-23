@@ -25,17 +25,17 @@ install(
                 WORLD_READ WORLD_EXECUTE
 )
 
-    install(
-        DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/systemd/
-        DESTINATION /lib/systemd/system
-        FILES_MATCHING PATTERN "*"
-    )
-    install(
-        DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/live-config/
-        DESTINATION /lib/live/config
-        FILES_MATCHING PATTERN "*"
-        PERMISSIONS OWNER_READ OWNER_EXECUTE
-                    GROUP_READ GROUP_EXECUTE
-                    WORLD_READ WORLD_EXECUTE
-    )
+install(
+    DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/systemd/
+    DESTINATION /lib/systemd/system
+    FILES_MATCHING PATTERN "*"
+)
+install(
+    DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/live-config/
+    DESTINATION /lib/live/config
+    FILES_MATCHING PATTERN "*"
+    PERMISSIONS OWNER_READ OWNER_EXECUTE
+                GROUP_READ GROUP_EXECUTE
+                WORLD_READ WORLD_EXECUTE
+)
    
