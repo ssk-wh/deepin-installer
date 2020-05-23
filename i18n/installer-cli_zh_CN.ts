@@ -368,8 +368,8 @@
     <message>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="85"/>
         <source>Partition</source>
-        <translatorcomment>分区</translatorcomment>
-        <translation>分区</translation>
+        <translatorcomment>磁盘分区</translatorcomment>
+        <translation type="unfinished">磁盘分区</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="86"/>
