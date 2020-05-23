@@ -64,7 +64,7 @@ public:
     QString getFrameName() override;
 
 signals:
-    void languageChangeed();
+    void languageChanged();
 
 protected:
     bool handle() override;

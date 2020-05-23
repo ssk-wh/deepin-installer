@@ -59,7 +59,7 @@ void NcursesListView::setCurrentIndex(int index)
     if (index < m_list.size()) {
         m_index = index / height();
         m_currLine = index % height();
-        emit selectChanged(index);
+        //emit selectChanged(index);
     }
 
 }

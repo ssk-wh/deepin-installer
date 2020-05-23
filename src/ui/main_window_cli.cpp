@@ -217,7 +217,7 @@ bool MainWindow::init()
 
         m_languageFrame = new LanguageFrame(this);
         m_languageFrame->hide();
-        connect(m_languageFrame, &LanguageFrame::languageChangeed, this, &MainWindow::slot_languageChange);
+        connect(m_languageFrame, &LanguageFrame::languageChanged, this, &MainWindow::slot_languageChange);
         addChildFrame(m_languageFrame);
 
         m_networkFrame = new NetwrokFrame(this);

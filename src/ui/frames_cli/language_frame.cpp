@@ -54,13 +54,17 @@ void LanguageFramePrivate::initConnection()
 {
     connect(m_languageView, &NcursesListView::selectChanged, this, [=](int index){
         m_index = index;
+        writeConf();
+        emit languageChange();
+        updateTs();
+        m_isshow = false;
+        this->show();
     });
 
     connect(m_languageView, &NcursesListView::selectd, this, [=](int index){
         m_index = index;
         emit next();
     });
-
 }
 
 bool LanguageFramePrivate::validate()
@@ -141,7 +145,7 @@ LanguageFrame::LanguageFrame(FrameInterface* parent) :
     m_private = new LanguageFramePrivate (parent->getPrivate(), h, w, beginY, beginX);
 
     Q_D(LanguageFrame);
-    connect(d, &LanguageFramePrivate::languageChange, this, &LanguageFrame::languageChangeed);
+    connect(d, &LanguageFramePrivate::languageChange, this, &LanguageFrame::languageChanged);
 }
 
 LanguageFrame::~LanguageFrame()
