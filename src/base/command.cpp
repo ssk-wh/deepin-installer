@@ -66,7 +66,7 @@ bool SpawnCmd(const QString& cmd, const QStringList& args) {
   process.setProgram(cmd);
   process.setArguments(args);
   // Merge stdout and stderr of subprocess with main process.
-  process.setProcessChannelMode(QProcess::ForwardedChannels);
+  process.setProcessChannelMode(QProcess::MergedChannels);
   process.start();
   // Wait for process to finish without timeout.
   process.waitForFinished(-1);
