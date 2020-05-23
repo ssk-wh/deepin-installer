@@ -111,6 +111,13 @@ bool PartitionFramePrivate::validate()
 
 void PartitionFramePrivate::show()
 {
+    if(m_parMode == ePartitionMode::PAR_MOD_FULL_DISK){
+        m_partitionmodelist->setCurrentIndex(0);
+
+    } else if (m_parMode == ePartitionMode::PAR_MOD_MANUAL) {
+        m_partitionmodelist->setCurrentIndex(1);
+    }
+
     if(!m_isshow) {
         NCursesWindowBase::show();
         m_isshow = true;
