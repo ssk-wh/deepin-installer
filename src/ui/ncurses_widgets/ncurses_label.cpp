@@ -25,7 +25,7 @@ void NcursesLabel::setText(const QString &text)
 void NcursesLabel::setFocus(bool foucs)
 {
     if (foucs) {
-        attron(NcursesUtil::getInstance()->item_selected_attr());
+        attron(m_chtype_focus);
     } else {
         //attron(NcursesUtil::getInstance()->item_attr());
         setBackground(this->background());

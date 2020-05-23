@@ -13,17 +13,15 @@ namespace installer {
 void LanguageFramePrivate::initUI()
 {
     FrameInterfacePrivate::initUI();
-    m_titleLabel = new NcursesLabel(this, 1, 25, begy(), begx());
+    m_titleLabel = new NcursesLabel(this, 1, 1, begy(), begx());
     m_titleLabel->setFocusEnabled(false);
 
-    m_instructions = new NcursesLabel(this, 2, width() - 4, begy() + 1, begx() + 1);
+    m_instructions = new NcursesLabel(this, 3, 1, begy() + 1, begx() + 1);
     m_instructions->setFocusEnabled(false);
 
     m_languageView = new NcursesListView(this, height() - 10, 20, begy(), begx());
     m_languageView->setFocus(true);
-//    int languageViewH = height() - 10;
-//    m_languageView = new NcursesListView(this, 1, 1, begy() + m_instructions->height() + 2,  begx() + (width() - languageViewW) / 2);
-//    m_languageView->setFocus(true);
+    updateTs();
 }
 
 void LanguageFramePrivate::layout()
@@ -32,7 +30,7 @@ void LanguageFramePrivate::layout()
         m_titleLabel->adjustSizeByContext();
         m_titleLabel->mvwin(begy(), begx() + (width() - m_titleLabel->width()) / 2);
         m_instructions->adjustSizeByContext();
-        m_instructions->mvwin(begy() + m_titleLabel->height(), begx() + 10);
+        m_instructions->mvwin(begy() + m_titleLabel->height(), begx() + 2);
         m_languageView->adjustSizeByContext();
         m_languageView->resize(height() - 10,  m_languageView->width());
         m_languageView->mvwin(begy() + m_instructions->height() + 2,  begx() + (width() - m_languageView->width()) / 2);
@@ -44,12 +42,12 @@ void LanguageFramePrivate::layout()
 void LanguageFramePrivate::updateTs()
 {
     box(ACS_VLINE,ACS_HLINE);
-    setTitle(tr("select language"));
+    m_titleLabel->setText(tr("select language"));
     m_instructions->erase();
     m_instructions->setText(tr("    Choose the language to be used for the installation process. \
 The selected language will also be the default language for the installed system."));
-
     FrameInterfacePrivate::updateTs();
+    layout();
 }
 
 void LanguageFramePrivate::initConnection()

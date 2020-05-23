@@ -146,6 +146,9 @@ namespace installer {
 #define ERROR_GB                     COLOR_WHITE
 #define ERROR_HL                     TRUE
 
+#define LIST_VIEW_ITEM_SELECTD_FG    COLOR_BLUE
+#define LIST_VIEW_ITEM_SELECTD_GB    COLOR_GREEN
+#define LIST_VIEW_ITEM_SELECTD_HL    TRUE
 
 /* End of default color definitions */
 
@@ -154,7 +157,7 @@ namespace installer {
 #define COLOR_COUNT                  8
 
 
-#define ATTRIBUTE_COUNT               33
+#define ATTRIBUTE_COUNT               34
 
 
 class NcursesUtil
@@ -293,6 +296,10 @@ public:
 
     chtype error_attr() {
         return attributes[32];
+    }
+
+    chtype list_view_item_select() {
+        return attributes[33];
     }
 
 private:

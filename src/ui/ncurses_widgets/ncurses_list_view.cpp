@@ -45,6 +45,7 @@ void NcursesListView::setList(QStringList &list)
 
     foreach (QString text, m_list) {
         NcursesLabel* label = new NcursesLabel(this, text, 1, width() - 2 * m_reserveX, begy() + i % height(), begx() + m_reserveX);
+        label->setFocusStyle(NcursesUtil::getInstance()->list_view_item_select());
         //label->setAlignment(Qt::AlignCenter);
         label->setFocusEnabled(true);
         i += label->height();

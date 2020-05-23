@@ -24,7 +24,6 @@ signals:
 
 private:
     NcursesLabel() : NCursesWindowBase(nullptr, 0, 0, 0, 0){}
-
 private:
     QString m_text;
     Qt::Alignment m_alignment;

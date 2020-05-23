@@ -314,6 +314,11 @@ chtype NCursesWindowBase::background()
     return m_background;
 }
 
+void NCursesWindowBase::setFocusStyle(chtype type)
+{
+    m_chtype_focus = type;
+}
+
 void NCursesWindowBase::addFoucsWindows(NCursesWindowBase *childWindows)
 {
     if (childWindows == nullptr) {

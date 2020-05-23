@@ -45,7 +45,7 @@ public:
     void setAttr(chtype attr);
     chtype background();
     void setBold(bool bold);
-
+    void setFocusStyle(chtype type);
 signals:
     void selectionChanged();
     void enter();
@@ -76,6 +76,7 @@ protected:
 
     QString m_title;
     bool m_isBold = false;
+    chtype m_chtype_focus;
 };
 
 }

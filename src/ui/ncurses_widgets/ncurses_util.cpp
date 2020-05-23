@@ -68,6 +68,7 @@ void NcursesUtil::colorSetup()
         {COMMENT_FG, COMMENT_GB, COMMENT_HL},
         {WARNINT_FG, WARNINT_GB, WARNINT_HL},
         {ERROR_FG, ERROR_GB, ERROR_HL},
+        {LIST_VIEW_ITEM_SELECTD_FG, LIST_VIEW_ITEM_SELECTD_GB, LIST_VIEW_ITEM_SELECTD_HL},
     };	/* color_table */
 
     int i;
