@@ -16,14 +16,8 @@ class TimeZoneFramePrivate : public FrameInterfacePrivate
     Q_OBJECT
     friend TimeZoneFrame;
 public:
-    TimeZoneFramePrivate(NCursesWindowBase* parent, int lines, int cols, int beginY, int beginX)
-        : FrameInterfacePrivate(parent, lines, cols, beginY, beginX),
-          m_currentContinentIndex(0),
-          m_currentTimezoneIndex(0)
-    {
-        initUI();
-        initConnection();
-    }
+    TimeZoneFramePrivate(TimeZoneFrame* parent, int lines, int cols, int beginY, int beginX);
+
 signals:
     void continentChanged(int index);
     void timezoneChanged(int index);
@@ -40,6 +34,9 @@ private:
     NcursesListView* m_timeZoneView;
     int m_currentContinentIndex;
     int m_currentTimezoneIndex;
+
+    TimeZoneFrame *q_ptr = nullptr;
+    Q_DECLARE_PUBLIC(TimeZoneFrame)
 };
 
 class TimeZoneFrame : public FrameInterface

@@ -6,7 +6,15 @@
 
 namespace installer {
 
-
+TimeZoneFramePrivate::TimeZoneFramePrivate(TimeZoneFrame *parent, int lines, int cols, int beginY, int beginX)
+    : FrameInterfacePrivate(nullptr, lines, cols, beginY, beginX),
+      q_ptr(qobject_cast<TimeZoneFrame*>(parent)),
+      m_currentContinentIndex(0),
+      m_currentTimezoneIndex(0)
+{
+    initUI();
+    initConnection();
+}
 
 void TimeZoneFramePrivate::initUI()
 {
@@ -44,7 +52,11 @@ void TimeZoneFramePrivate::updateTs()
 
 bool TimeZoneFramePrivate::validate()
 {
-    return true;
+    Q_Q(TimeZoneFrame);
+
+    q->writeConf();
+
+    return FrameInterfacePrivate::validate();
 }
 
 void TimeZoneFramePrivate::initConnection()
@@ -69,7 +81,7 @@ TimeZoneFrame::TimeZoneFrame(FrameInterface* parent) :
     int w = COLS / 2;
     int beginY = (LINES - h - 2) / 2;
     int beginX = (COLS - w) / 2;
-    m_private = new TimeZoneFramePrivate (parent->getPrivate(), h, w, beginY, beginX);
+    m_private = new TimeZoneFramePrivate (this, h, w, beginY, beginX);
 }
 
 TimeZoneFrame::~TimeZoneFrame()
@@ -200,11 +212,8 @@ QString TimeZoneFrame::parseTimezoneAlias(const QString &timezone)
 {
     return m_alias_map.value(timezone, timezone);
 }
+
 bool TimeZoneFrame::handle()
 {
-
-    m_private->keyHandle();
-    writeConf();
     return true;}
-
 }
