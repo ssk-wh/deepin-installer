@@ -130,7 +130,7 @@ void PrepareInstallFrame::layout()
     m_titleLabel_->mvwin(begy(), begx() + (width() - m_titleLabel_->width()) / 2);
 
     m_commentLabel->adjustSizeByContext();
-    m_commentLabel->mvwin(begy() + 2, begx() +40);
+    m_commentLabel->mvwin(begy() + 2, begx() + (width() - m_commentLabel->width()) / 2);
 
     operations_box_->adjustSizeByContext();
     operations_box_->mvwin(begy() + 3, begx() + (width() - operations_box_->width()) / 2);

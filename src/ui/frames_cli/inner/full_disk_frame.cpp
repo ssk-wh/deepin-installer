@@ -248,21 +248,28 @@ bool FullDiskFrame::doFullDiskPartition()
     if (!m_isShow) return false;
 
     Q_D(FullDiskFrame);
-    QString testname = d->getSystemDiskList()->getCurrenItem();
-    for (Device::Ptr device : m_DeviceList) {
-        if(!testname.compare(GetDeviceModelCapAndPath(device))) {
-            m_delegate->addSystemDisk(device->path);
-            break;
+    if (d->getSystemDiskList()->size() > 0) {
+        QString testname = d->getSystemDiskList()->getCurrenItem();
+        for (Device::Ptr device : m_DeviceList) {
+            if(!testname.compare(GetDeviceModelCapAndPath(device))) {
+                m_delegate->addSystemDisk(device->path);
+                break;
+            }
+        }
+    } else {
+        return false;
+    }
+
+    if (d->getDataDiskList()->size() > 0) {
+        QString testname_datadisk = d->getDataDiskList()->getCurrenItem();
+        for (Device::Ptr device : m_DeviceList) {
+            if(!testname_datadisk.compare(GetDeviceModelCapAndPath(device))) {
+                m_delegate->addDataDisk(device->path);
+                break;
+            }
         }
     }
 
-    QString testname_datadisk = d->getDataDiskList()->getCurrenItem();
-    for (Device::Ptr device : m_DeviceList) {
-        if(!testname.compare(GetDeviceModelCapAndPath(device))) {
-            m_delegate->addDataDisk(device->path);
-            break;
-        }
-    }
 
     if (m_delegate->selectedDisks().isEmpty()) {
         //m_errorTip->show();
@@ -362,7 +369,10 @@ void FullDiskFrame::doBackBtnClicked()
 
 void FullDiskFrame::doNextBtnClicked()
 {
-    doFullDiskPartition();
+    if (!doFullDiskPartition()) {
+        return;
+    }
+
     Q_D(FullDiskFrame);
     PrepareInstallFrame * pPrepareInstallFrame = new PrepareInstallFrame(d, d->height(), d->width(), d->begy(), d->begx(), m_delegate->getOptDescriptions());
     d->setCurrentchoicetype(1);
