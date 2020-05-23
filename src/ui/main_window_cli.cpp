@@ -233,6 +233,10 @@ bool MainWindow::init()
         m_keyboardFrame->hide();
         addChildFrame(m_keyboardFrame);
 
+        m_networkFrame = new NetwrokFrame(this);
+        m_networkFrame->hide();
+        addChildFrame(m_networkFrame);
+
         m_timeZoneFrame = new TimeZoneFrame(this);
         m_timeZoneFrame->hide();
         addChildFrame(m_timeZoneFrame);
@@ -257,7 +261,12 @@ bool MainWindow::init()
 
         //m_diskSpaceInsufficientFrame = new DiskSpaceInsufficient(this);
         //addChildFrame(m_diskSpaceInsufficientFrame);
-        
+
+        m_partitionFrame = new PartitionFrame(this);
+        m_partitionFrame->hide();
+        connect( static_cast<PartitionFramePrivate*>(m_partitionFrame->getPrivate()),
+                 &PartitionFramePrivate::dostartInstall, this, &MainWindow::slot_dostartInstall);
+        addChildFrame(m_partitionFrame);
 
         m_installProcessFrame = new InstallProcessFrame(this);
         m_installProcessFrame->hide();

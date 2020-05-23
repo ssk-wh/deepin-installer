@@ -94,6 +94,7 @@ private:
     QVector<NetwrokFrameItem> m_ipconfigitems;
     NetworkManager::Device::Ptr m_ipv4Device;
     DHCPTYpe m_dhcpType;
+    std::list<std::pair<std::function<void (QString)>, QString>> m_trList;
 };
 
 

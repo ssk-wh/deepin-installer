@@ -1,6 +1,8 @@
 #pragma once
 
 #include <cmath>
+#include <functional>
+#include <QString>
 
 namespace Utils {
 
@@ -40,4 +42,10 @@ double scaleFactor(uint widthPx, uint heightPx, uint widthMm, uint heightMm)
 
     return toListedScaleFactor((lenPx / lenMm) / (lenPxStd / lenMmStd) + fix);
 };
+
+template <typename T>
+void addTransLate(T &t, std::function<void (QString)> function, const QString &tr) {
+    t.push_back(std::pair<std::function<void (QString)>, QString>(function, tr));
+}
+
 }  // namespace Utils

@@ -83,6 +83,10 @@ FrameInterface *FrameInterface::getCurrentChild()
 
 bool FrameInterface::init()
 {
+    if (m_currState == FRAME_STATE_NOT_START) {
+           m_currState = FRAME_STATE_RUNNING;
+    }
+
     return true;
 }
 

@@ -5,6 +5,7 @@
 #include "ui/ncurses_widgets/ncurses_line_edit.h"
 #include "ui/ncurses_widgets/ncurses_list_view.h"
 #include "ui/ncurses_widgets/ncurses_button.h"
+#include "base/utils.h"
 
 #include <QThread>
 #include <QNetworkInterface>
@@ -50,7 +51,7 @@ void NetwrokFramePrivate::initUI()
     m_networkconfigtypestr = QObject::tr("Network config type:");
 
     m_titledesbrower = new NcursesTextBrower(this, 3, width() - 2, begy() + 2, begx() + 1);
-    m_titledesbrower->setFocusEnabled(true);
+    m_titledesbrower->setFocusEnabled(false);
     m_titledesbrower->setText(m_titledes[0]);
 
     m_networkconfigtypelabel = new NcursesLabel(this, m_networkconfigtypestr, 1, m_networkconfigtypestr.length() + 2, begy() + 6, begx() + 1);
@@ -59,17 +60,22 @@ void NetwrokFramePrivate::initUI()
     m_childpagecounttext = new NcursesLabel(this, " [1/2] ", 1, width() - 2 - m_networkconfigtypelabel->width(), begy() + 6, begx() + 1 + m_networkconfigtypelabel->width());
     m_childpagecounttext->setFocusEnabled(false);
 
-    NetwrokFrameItem operationchoiceautoset;
-    operationchoiceautoset.m_NcursesLabel = new NcursesLabel(this, 1, width() /2, begy(), begx());
-    operationchoiceautoset.m_NcursesLabel->setFocusEnabled(false);
+//    NetwrokFrameItem operationchoiceautoset;
+//    operationchoiceautoset.m_NcursesLabel = new NcursesLabel(this, 1, width() /2, begy(), begx());
+//    operationchoiceautoset.m_NcursesLabel->setFocusEnabled(false);
+//    Utils::addTransLate(m_trList, std::bind(&NcursesLabel::setText, operationchoiceautoset.m_NcursesLabel, std::placeholders::_1), QString(QObject::tr("Network auto set")));
+
     NetwrokFrameItem operationchoicemanualset;
     operationchoicemanualset.m_NcursesLabel = new NcursesLabel(this, 1, width() /2, begy(), begx());
     operationchoicemanualset.m_NcursesLabel->setFocusEnabled(false);
+    Utils::addTransLate(m_trList, std::bind(&NcursesLabel::setText, operationchoicemanualset.m_NcursesLabel, std::placeholders::_1), QString(QObject::tr("Network manual set")));
+
     NetwrokFrameItem operationchoicenotset;
     operationchoicenotset.m_NcursesLabel = new NcursesLabel(this, 1, width() /2, begy(), begx());
     operationchoicenotset.m_NcursesLabel->setFocusEnabled(false);
+    Utils::addTransLate(m_trList, std::bind(&NcursesLabel::setText, operationchoicenotset.m_NcursesLabel, std::placeholders::_1), QString(QObject::tr("Network not set now")));
 
-    m_operationchoice.push_back(operationchoiceautoset);
+//    m_operationchoice.push_back(operationchoiceautoset);
     m_operationchoice.push_back(operationchoicemanualset);
     m_operationchoice.push_back(operationchoicenotset);
 
@@ -138,8 +144,12 @@ void NetwrokFramePrivate::updateTs()
     box(ACS_VLINE,ACS_HLINE);
     printTitle(QObject::tr("Network Configuration"), width());
 
+    for (auto it = m_trList.begin(); it != m_trList.end(); ++it) {
+        it->first(it->second.toUtf8());
+    }
+
     m_titledes.clear();
-    m_titledes.append(QObject::tr("  Do network set by auto, use dhcp to set network"));
+//    m_titledes.append(QObject::tr("  Do network set by auto, use dhcp to set network"));
     m_titledes.append(QObject::tr("  Do network set by manual, in this page you can set IP. Mask. Gateway. DNS"));
     m_titledes.append(QObject::tr("  Do not set network now, if you not want set the network now, you can do it with the installation complete"));
     if(installer::ReadLocale() == "zh_CN") {
@@ -165,10 +175,6 @@ void NetwrokFramePrivate::updateTs()
     for(int i = 0; i < m_operationchoice.size(); i++) {
         m_operationchoice.at(i).m_NcursesLabel->erase();
     }
-
-    m_operationchoice.at(0).m_NcursesLabel->setText(QObject::tr("Network auto set"));
-    m_operationchoice.at(1).m_NcursesLabel->setText(QObject::tr("Network manual set"));
-    m_operationchoice.at(2).m_NcursesLabel->setText(QObject::tr("Network not set now"));
 
     for(int i = 0; i < m_ipconfigitems.size(); i++) {
         m_ipconfigitems.at(i).m_NcursesLabel->erase();
@@ -388,8 +394,8 @@ void NetwrokFramePrivate::onKeyPress(int keyCode)
                         m_titledesbrower->show();
                         m_titledesbrower->refresh();
 
-                        if((i - 1) == 1) {
-                            m_childpagecounttext->setText(" [1/2] ");
+                        if((i - 1) == 0) {
+                            m_childpagecounttext->setText(" [1/1] ");
                             m_childpagecounttext->show();
                         } else {
                             m_childpagecounttext->setText("");
@@ -417,8 +423,8 @@ void NetwrokFramePrivate::onKeyPress(int keyCode)
                         m_titledesbrower->show();
                         m_titledesbrower->refresh();
 
-                        if((i + 1) == 1) {
-                            m_childpagecounttext->setText(" [1/2] ");
+                        if((i + 1) == 0) {
+                            m_childpagecounttext->setText(" [1/1] ");
                             m_childpagecounttext->show();
                         } else {
                             m_childpagecounttext->setText("");
@@ -481,18 +487,18 @@ void NetwrokFramePrivate::doNextBtnClicked()
             emit next();
         }
     } else if(m_currentchoicetype == 0) {
-        if(m_operationchoice.at(0).m_NcursesLabel->isOnFoucs()) {
+/*        if(m_operationchoice.at(0).m_NcursesLabel->isOnFoucs()) {
             m_dhcpType = DHCPTYpe::Auto;
             if(writeInfoList()) {
                 emit next();
             }
-        } else if(m_operationchoice.at(1).m_NcursesLabel->isOnFoucs()) {
+        } else */if(m_operationchoice.at(0).m_NcursesLabel->isOnFoucs()) {
             m_dhcpType = DHCPTYpe::Manual;
             m_childpagecounttext->setText(" [2/2] ");
             m_childpagecounttext->show();
             updateChoiceType(1);
             setFocusEnableType(1);
-        } else if(m_operationchoice.at(2).m_NcursesLabel->isOnFoucs()) {
+        } else if(m_operationchoice.at(1).m_NcursesLabel->isOnFoucs()) {
             emit next();
         }
     }
