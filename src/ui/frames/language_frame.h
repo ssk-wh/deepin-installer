@@ -47,12 +47,16 @@ public:
     bool shouldDisplay() const override;
     QString returnFrameName() const override;
 
+protected:
+    void changeEvent(QEvent* event);
+
 signals:
     // Emitted when new language item is selected.
     void timezoneUpdated(const QString& timezone);
 
 private:
     QScopedPointer<LanguageFramePrivate> m_private;
+    Q_DECLARE_PRIVATE_D(m_private, LanguageFrame)
 };
 
 }  // namespace installer

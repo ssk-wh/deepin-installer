@@ -161,7 +161,6 @@ void UserAgreementFrame::initConnect()
 
 void UserAgreementFrame::updateText()
 {
-    m_subTitle->setText(tr("End User License Agreement"));
     LanguageManager::translator(m_back, &QPushButton::setText, TranslatorType::BackButton);
 }
 
@@ -183,6 +182,11 @@ void UserAgreementFrame::updateLicenseText()
     if (m_nextFileIndex < m_fileNames.count() && m_fileNames.count() > 1) {
         m_nextFileIndex = (m_nextFileIndex + 1) % m_fileNames.count();
     }
+}
+
+void UserAgreementFrame::setTitle(const QString &text)
+{
+    m_subTitle->setText(text);
 }
 
 void UserAgreementFrame::setUserAgreement(const QString &primaryFileName, const QString &secondaryFileName)

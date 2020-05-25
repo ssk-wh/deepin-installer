@@ -26,6 +26,9 @@
 #include "ui/delegates/user_agreement_delegate.h"
 #include "service/settings_name.h"
 #include "ui/interfaces/frameinterfaceprivate.h"
+#include "ui/utils/widget_util.h"
+
+#include <QApplication>
 
 namespace installer {
 
@@ -36,6 +39,9 @@ const QString en_US_license{ ":/license/deepin-end-user-license-agreement_en_US.
 const QString zh_CN_license { ":/license/deepin-end-user-license-agreement_community_zh_CN.txt" };
 const QString en_US_license{ ":/license/deepin-end-user-license-agreement_community_en_US.txt" };
 #endif  // PROFESSIONAL
+
+const QString zh_CN_experience { ":/license/deepin-end-user-experience-agreement_zh_CN.txt" };
+const QString en_US_experience { ":/license/deepin-end-user-experience-agreement_en_US.txt" };
 
 class LanguageFramePrivate : public FrameInterfacePrivate
 {
@@ -48,6 +54,7 @@ public:
         , m_user_license_delegate(new UserAgreementDelegate())
         , m_select_language_frame(new SelectLanguageFrame(m_user_license_delegate))
         , m_user_license_frame(new UserAgreementFrame)
+        , m_user_experience_frame(new UserAgreementFrame)
     {}
 
     void initUI();
@@ -55,6 +62,7 @@ public:
     void showUserLicense();
     void showLanguage();
     void showOemUserLicense();
+    void showUserExperience();
 
     void onNextButtonClickHandle() const override {
         FrameInterfacePrivate::onNextButtonClickHandle();
@@ -72,7 +80,8 @@ public:
     UserAgreementDelegate* m_user_license_delegate = nullptr;
     SelectLanguageFrame* m_select_language_frame = nullptr;
     UserAgreementFrame*  m_user_license_frame    = nullptr;
-
+    UserAgreementFrame*  m_user_experience_frame = nullptr;
+    std::list<std::pair<std::function<void (QString)>, QString>> m_trList;
 };
 LanguageFrame::LanguageFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
     : FrameInterface(frameProxyInterface, parent)
@@ -94,6 +103,20 @@ QString LanguageFrame::returnFrameName() const
     return "Select language";
 }
 
+void LanguageFrame::changeEvent(QEvent *event)
+{
+    Q_D(LanguageFrame);
+
+    if (event->type() == QEvent::LanguageChange) {
+        for (auto it = d->m_trList.begin(); it != d->m_trList.end(); ++it) {
+            it->first(qApp->translate("installer::LanguageFramePrivate", it->second.toUtf8()));
+        }
+    }
+    else {
+        FrameInterface::changeEvent(event);
+    }
+}
+
 void LanguageFrame::init() {
     m_private->m_select_language_frame->readConf();
 }
@@ -105,10 +128,15 @@ void LanguageFrame::finished() {
 void LanguageFramePrivate::initUI() {
     m_frame_layout->setMargin(0);
     m_frame_layout->addWidget(m_select_language_frame);
+    m_frame_layout->addWidget(m_user_experience_frame);
     m_frame_layout->addWidget(m_user_license_frame);
+    m_user_experience_frame->setTitle(tr("The user experience program license agreement"));
+    addTransLate(m_trList, std::bind(&UserAgreementFrame::setTitle, m_user_experience_frame, std::placeholders::_1), QString(tr("The user experience program license agreement")));
+
+    m_user_license_frame->setTitle(tr("End User License Agreement"));
+    addTransLate(m_trList, std::bind(&UserAgreementFrame::setTitle, m_user_license_frame, std::placeholders::_1), QString(tr("End User License Agreement")));
 
     nextButton->setEnabled(false);
-
     centerLayout->addLayout(m_frame_layout);
 }
 
@@ -121,6 +149,10 @@ void LanguageFramePrivate::initConnect() {
     connect(m_select_language_frame, &SelectLanguageFrame::requestShowUserLicense, this,
             &LanguageFramePrivate::showUserLicense);
     connect(m_user_license_frame, &UserAgreementFrame::back, this,
+            &LanguageFramePrivate::showLanguage);
+    connect(m_select_language_frame, &SelectLanguageFrame::requestShowUserExperience, this,
+            &LanguageFramePrivate::showUserExperience);
+    connect(m_user_experience_frame, &UserAgreementFrame::back, this,
             &LanguageFramePrivate::showLanguage);
     if (m_user_license_delegate->licenseCount() > 0) {
         connect(m_select_language_frame, &SelectLanguageFrame::requestShowOemUserLicense, this,
@@ -155,6 +187,20 @@ void LanguageFramePrivate::showOemUserLicense() {
     primaryLicense = m_user_license_delegate->getPrimaryAdaptiveLicense(installer::ReadLocale());
     m_user_license_frame->setUserAgreement(primaryLicense.fileName());
     m_frame_layout->setCurrentWidget(m_user_license_frame);
+}
+
+void LanguageFramePrivate::showUserExperience()
+{
+    if (installer::ReadLocale() == "zh_CN") {
+        m_user_experience_frame->setUserAgreement(zh_CN_experience, en_US_license);
+        m_user_experience_frame->setCheckedButton(kChineseToggleButtonId);
+    } else {
+        m_user_experience_frame->setUserAgreement(en_US_license, zh_CN_license);
+        m_user_experience_frame->setCheckedButton(kEnglishToggleButtonId);
+    }
+    m_frame_layout->setCurrentWidget(m_user_experience_frame);
+
+    nextButton->hide();
 }
 
 }  // namespace installer

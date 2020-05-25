@@ -4,5 +4,7 @@
         <file>deepin-end-user-license-agreement_en_US.txt</file>
         <file>deepin-end-user-license-agreement_community_zh_CN.txt</file>
         <file>deepin-end-user-license-agreement_community_en_US.txt</file>
+        <file>deepin-end-user-experience-agreement_en_US.txt</file>
+        <file>deepin-end-user-experience-agreement_zh_CN.txt</file>
     </qresource>
 </RCC>

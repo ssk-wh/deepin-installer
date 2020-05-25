@@ -171,6 +171,9 @@ void WritePartitionInfo(const QString& root_disk,
 // Whether swap file is required. Swap file is created in before_chroot/.
 void WriteRequiringSwapFile(bool is_required);
 
+// The user experience configuration options
+void WriteUserExperience(bool checked);
+
 // Save current settings to /etc/deepin-installer.conf
 // Other settings will be updated later.
 void AddConfigFile();

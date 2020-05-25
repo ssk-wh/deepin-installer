@@ -64,6 +64,8 @@ class SelectLanguageFrame : public QFrame {
 
   void requestApplyLanguage();
 
+  void requestShowUserExperience();
+
  protected:
   // Update text of next_button_
   void changeEvent(QEvent* event) override;

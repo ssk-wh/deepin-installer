@@ -28,6 +28,7 @@ public:
     explicit UserAgreementFrame(QWidget *parent = nullptr);
     void setUserAgreement(const QString &primaryFileName, const QString &secondaryFileName = QString(""));
     void setCheckedButton(int buttonId);
+    void setTitle(const QString &text);
 
 signals:
     // Emitted when cancel

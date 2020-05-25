@@ -64,6 +64,8 @@ public:
     QTranslator*           current_translator_ = nullptr;
     QCheckBox*             accept_license_     = nullptr;
     QLabel*                license_label_      = nullptr;
+    QCheckBox*             accept_experience_     = nullptr;
+    QLabel*                experience_label_      = nullptr;
     QLabel*                oem_and_label_      = nullptr;
     QLabel*                oem_license_label_  = nullptr;
     QLabel*                sub_title_label_    = nullptr;
@@ -93,6 +95,7 @@ public:
 
     Q_DECLARE_PUBLIC(SelectLanguageFrame);
 };
+
 
 SelectLanguageFrame::SelectLanguageFrame(UserAgreementDelegate* delegate, QWidget* parent)
     : QFrame(parent)
@@ -143,6 +146,12 @@ void SelectLanguageFrame::readConf() {
 void SelectLanguageFrame::writeConf() {
   Q_D(SelectLanguageFrame);
     WriteLocale(d->lang_.locale);
+
+    if (d->accept_experience_->checkState() != Qt::Unchecked) {
+        WriteUserExperience(true);
+    } else {
+        WriteUserExperience(false);
+    }
 }
 
 bool SelectLanguageFrame::isChecked()
@@ -186,6 +195,15 @@ bool SelectLanguageFrame::eventFilter(QObject* obj, QEvent* event) {
     if (d->oem_license_label_ != nullptr && obj == d->oem_license_label_) {
         switch (event->type()) {
             case QEvent::MouseButtonRelease: emit requestShowOemUserLicense(); break;
+            case QEvent::Enter: setCursor(QCursor(Qt::PointingHandCursor)); break;
+            case QEvent::Leave: setCursor(QCursor(Qt::ArrowCursor)); break;
+            default: break;
+        }
+    }
+
+    if (obj == d->experience_label_) {
+        switch (event->type()) {
+            case QEvent::MouseButtonRelease: emit requestShowUserExperience(); break;
             case QEvent::Enter: setCursor(QCursor(Qt::PointingHandCursor)); break;
             case QEvent::Leave: setCursor(QCursor(Qt::ArrowCursor)); break;
             default: break;
@@ -334,6 +352,35 @@ void SelectLanguageFramePrivate::initUI() {
     licenseWidget->setLayout(license_layout);
     licenseWidget->setVisible(!GetSettingsBool(kSystemInfoDisableLicense));
 
+    accept_experience_ = new QCheckBox;
+    accept_experience_->setCheckable(true);
+    accept_experience_->setChecked(false);
+    accept_experience_->setFocusPolicy(Qt::NoFocus);
+
+    experience_label_ = new QLabel;
+    experience_label_->setObjectName("LicenseLabel");
+    experience_label_->installEventFilter(q);
+
+    QHBoxLayout* experience_layout = new QHBoxLayout;
+    experience_layout->setMargin(0);
+    experience_layout->setSpacing(5);
+    experience_layout->addStretch();
+    experience_layout->addWidget(accept_experience_);
+    experience_layout->addWidget(experience_label_);
+
+    experience_layout->addStretch();
+
+    QFrame* experienceWidget = new QFrame;
+    experienceWidget->setLayout(experience_layout);
+    experienceWidget->setVisible(!GetSettingsBool(kSystemInfoDisableExperience));
+
+    QVBoxLayout *user_layout = new QVBoxLayout;
+    user_layout->addWidget(experienceWidget, 0, Qt::AlignLeft);
+    user_layout->addSpacing(10);
+    user_layout->addWidget(licenseWidget, 0, Qt::AlignLeft);
+    QFrame* userFrame = new QFrame;
+    userFrame->setLayout(user_layout);
+
     next_button_ = new QPushButton;
     next_button_->setEnabled(GetSettingsBool(kSystemInfoDisableLicense));
 
@@ -346,8 +393,8 @@ void SelectLanguageFramePrivate::initUI() {
     layout->addWidget(sub_title_label_, 0, Qt::AlignCenter);
     layout->addSpacing(20);
     layout->addWidget(m_languageView, 0, Qt::AlignHCenter);
-    layout->addSpacing(20);
-    layout->addWidget(licenseWidget);
+    layout->addSpacing(10);
+    layout->addWidget(userFrame, 0, Qt::AlignHCenter);
 
     layout->addSpacing(20);
 
@@ -388,6 +435,9 @@ void SelectLanguageFramePrivate::updateTs()
             oem_license_label_->setText(license_item.basicName());
         }
     }
+
+    accept_experience_->setText(tr("Agreed to"));
+    experience_label_->setText(tr("The user experience program license agreement"));
 }
 
 void SelectLanguageFramePrivate::onLanguageListSelected(const QModelIndex& current)

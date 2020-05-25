@@ -129,7 +129,11 @@ QDir GetOemDir() {
 OSType GetCurrentType() {
     QSettings settings("/etc/deepin-version", QSettings::IniFormat);
     settings.beginGroup("Release");
+#ifdef QT_DEBUG
+    const QString& type = "Professional";
+#else
     const QString& type = settings.value("Type", "Desktop").toString();
+#endif // QT_DEBUG
 
     return QMap<QString, OSType>{
         { "Desktop", OSType::Community },
@@ -545,6 +549,18 @@ void WritePartitionInfo(const QString& root_disk,
 
 void WriteRequiringSwapFile(bool is_required) {
   AppendToConfigFile("DI_SWAP_FILE_REQUIRED", is_required);
+}
+
+void WriteUserExperience(bool enable) {
+    AppendToConfigFile("DI_USER_EXPERIENCE", enable);
+
+    if (enable) {
+        qInfo() << QString("The user agrees to '%1'")\
+                   .arg("The user experience The program license agreement");
+    } else {
+        qInfo() << QString("User cancelled '%1'")\
+                   .arg("The user experience The program license agreement");
+    }
 }
 
 void AddConfigFile() {
