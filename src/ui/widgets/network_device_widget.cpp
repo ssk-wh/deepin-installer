@@ -144,7 +144,7 @@ void NetworkDeviceWidget::readNetworkSettingInfo()
 
     networkSettingInfo.ip = address.ip().toString();
     networkSettingInfo.mask = address.netmask().toString();
-    networkSettingInfo.gateway = address.gateway().toString();
+    networkSettingInfo.gateway = ipConfig.gateway();
     if (!ipConfig.nameservers().isEmpty()) {
         networkSettingInfo.primaryDNS = ipConfig.nameservers().at(0).toString();
     }
