@@ -13,6 +13,7 @@
 DWIDGET_USE_NAMESPACE
 
 namespace installer {
+class AutoWrapLabel;
 
 class NetworkDeviceWidget : public DButtonBoxButton
 {
@@ -48,7 +49,7 @@ protected:
 private:
     QHBoxLayout* m_hLayout;
     QVBoxLayout* m_vLayout;
-    QLabel* m_deviceName;
+    AutoWrapLabel* m_deviceName;
     QLabel* m_descLabel;
     QLabel *m_checkedLabel;
     bool m_isflag;

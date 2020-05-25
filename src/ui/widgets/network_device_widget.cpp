@@ -1,5 +1,7 @@
 #include "network_device_widget.h"
 #include "ui/utils/widget_util.h"
+#include "ui/widgets/auto_wrap_label.h"
+
 #include <QStyleOption>
 #include <QPainter>
 #include <QEvent>
@@ -8,8 +10,8 @@ namespace installer {
 
 namespace {
     const int kNetworkDeviceWidgetWidth = 240;
-    const int kNetworkDeviceWidgetHeight = 64;
-    const int KQLabelWidth = 120;
+    const int kNetworkDeviceWidgetHeight = 90;
+    const int KQLabelWidth = 200;
     const int kTitleFont = 14; // 14pt
     const int kDescFont = 12; // 12pt
 }
@@ -20,9 +22,11 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     , m_deviceEnable(true)
     , m_dhcpType(DHCPTYpe::Auto)
 {
-    m_deviceName = new QLabel;
+    m_deviceName = new AutoWrapLabel;
     m_deviceName->setObjectName("titleLabel");
-    m_deviceName->setMinimumWidth(KQLabelWidth);
+    m_deviceName->setFixedWidth(KQLabelWidth);
+    m_deviceName->setWordWrap(true);
+    m_deviceName->adjustSize();
 
     QFont titleFont;
     titleFont.setPointSize(kTitleFont);
@@ -30,7 +34,7 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
 
     m_descLabel = new QLabel;
     m_descLabel->setObjectName("descLabel");
-    m_descLabel->setMinimumWidth(KQLabelWidth);
+    m_descLabel->setFixedWidth(KQLabelWidth);
     m_descLabel->setWordWrap(true);
     m_descLabel->adjustSize();
 
@@ -41,8 +45,10 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     m_vLayout = new QVBoxLayout;
     m_vLayout->setContentsMargins(0, 0, 0, 0);
     m_vLayout->setSpacing(0);
+    m_vLayout->addStretch();
     m_vLayout->addWidget(m_deviceName, 0, Qt::AlignLeft);
     m_vLayout->addWidget(m_descLabel, 0, Qt::AlignLeft);
+    m_vLayout->addStretch();
 
     m_checkedLabel = new QLabel;
     const QPixmap pixmap = installer::renderPixmap(":/images/select.svg");
@@ -56,10 +62,10 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     m_hLayout->setSpacing(0);
 
     m_hLayout->addLayout(m_vLayout);
-    m_hLayout->addStretch();
     m_hLayout->addWidget(m_checkedLabel, 0, Qt::AlignRight);
 
-    setFixedSize(kNetworkDeviceWidgetWidth, kNetworkDeviceWidgetHeight);
+    setFixedWidth(kNetworkDeviceWidgetWidth);
+    setMaximumHeight(kNetworkDeviceWidgetHeight);
     setObjectName("PartitionTableWarningWidget");
     setContentsMargins(0, 0, 0, 0);
     setLayout(m_hLayout);
@@ -191,7 +197,7 @@ void NetworkDeviceWidget::updateCheckedAppearance()
 
 void NetworkDeviceWidget::setDeviceInfo(Device::Ptr device) {
     // TODO: replace Ethernet use actual device type.
-    m_deviceName->setText(tr("Ethernet (%1)").arg(device->interfaceName()));
+    setTitle(tr("Ethernet (%1)").arg(device->interfaceName()));
     m_device = device;
     m_networkOperate = new NetworkOperate(device);
 
