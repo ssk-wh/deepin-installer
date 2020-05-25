@@ -11,4 +11,4 @@ TTYReset=no
 TTYVHangup=yes
 Restart=always
 [Install]
-WantedBy=WantedBy=multi-user.target
+WantedBy=multi-user.target
