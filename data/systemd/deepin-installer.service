@@ -2,7 +2,7 @@
 Description=Launch installer in normal mode
 
 [Service]
-Type=forking
+Type=sample
 ExecStart=/usr/bin/deepin-installer-both
 User=root
 [Install]

@@ -1,6 +1,6 @@
 [Unit]
 Description=Launch installer in normal mode
-Requires=getty@tty2.service
+After=getty@tty2.service
 
 [Service]
 Type=simple
