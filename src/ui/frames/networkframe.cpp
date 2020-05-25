@@ -276,6 +276,17 @@ public:
                 , this, &NetworkEditWidget::onDHCPChanged);
     }
 
+    void initWidgetState()
+    {
+        clearWidgetIpInfo();
+
+        m_dhcpTypeWidget->blockSignals(true);
+        m_dhcpTypeWidget->setCurrentIndex(0);
+        m_dhcpTypeWidget->blockSignals(false);
+
+        m_switchButton->setEnabled(false);
+    }
+
     void clearWidgetIpInfo()
     {
         m_ipv4Edit->setText("");
@@ -506,8 +517,6 @@ public:
     {
         m_deviceWidget = deviceWidget;
         setDevice(m_deviceWidget->getDevice());
-        setNetworkOperate(m_deviceWidget->networkOperate());
-        readIpConfig();
     }
 
     NetworkDeviceWidget* getNetworkDeviceWidget() const
@@ -517,7 +526,11 @@ public:
 
     void setDevice(NetworkManager::Device::Ptr device) {
         m_device = device;
+        //TODO: use NetworkOperate::getDeviceEnable value setEnabled.
         m_switchButton->setEnabled(true);
+
+        setNetworkOperate(m_deviceWidget->networkOperate());
+        readIpConfig();
     }
 
     NetworkManager::Device::Ptr getDevice() const {
@@ -767,6 +780,7 @@ bool NetworkFrame::shouldDisplay() const
 
 void NetworkFrame::showEvent(QShowEvent *event)
 {
+    m_currentNetworkEditWidget->initWidgetState();
     initDeviceWidgetList();
 }
 
@@ -817,6 +831,7 @@ void NetworkFrame::onButtonGroupToggled(QAbstractButton *button)
     NetworkDeviceWidget* deviceWidget = qobject_cast<NetworkDeviceWidget*>(button);
 
     // TODO: delete two.
+    m_currentNetworkEditWidget->initWidgetState();
     m_currentNetworkEditWidget->setNetworkDeviceWidget(deviceWidget);
     m_currentNetworkEditWidget->updateEditStateByDeviceToggle();
 }
