@@ -1,6 +1,6 @@
 [Unit]
 Description=Launch installer in normal mode
-After=getty@tty2.service
+Requires=getty@tty2.service
 
 [Service]
 Type=simple
@@ -11,4 +11,4 @@ TTYReset=no
 TTYVHangup=yes
 Restart=always
 [Install]
-WantedBy=default.target
+WantedBy=WantedBy=multi-user.target

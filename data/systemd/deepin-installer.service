@@ -11,4 +11,4 @@ TTYReset=no
 TTYVHangup=yes
 Restart=always
 [Install]
-WantedBy=default.target
+WantedBy=deepin-installer.target
