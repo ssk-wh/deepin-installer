@@ -63,7 +63,7 @@ namespace {
 class SystemDateFramePrivate : public QObject{
     Q_OBJECT
 public:
-    SystemDateFramePrivate(SystemDateFrame* qq) : m_ptr(qq) {}
+    SystemDateFramePrivate(SystemDateFrame* parent) : q_ptr(qobject_cast<SystemDateFrame*>(parent)) {}
 
     DCheckBox *m_setDateTimeCheckBox = new DCheckBox;
     TimeDateLineEdit* m_hourEdit = new TimeDateLineEdit;
@@ -80,7 +80,8 @@ public:
 
     int m_maxYear = 9999;
 
-    SystemDateFrame* m_ptr;
+    SystemDateFrame* q_ptr;
+    Q_DECLARE_PUBLIC(SystemDateFrame)
 
     void initUI();
     void initConnection();
@@ -457,7 +458,7 @@ void SystemDateFramePrivate::initUI()
     mainLayout->addWidget(m_minuteEdit);
     mainLayout->addSpacing(kDateTimeItemInnerSpacing);
     mainLayout->addWidget(m_minuteLabel);
-    m_ptr->setLayout(mainLayout);
+    q_ptr->setLayout(mainLayout);
 
     QFont font;
     font.setPointSize(kDateTimeFontSize);
@@ -474,12 +475,14 @@ void SystemDateFramePrivate::initUI()
     m_setDateTimeCheckBox->setFont(font);
 
     setObjectName("systemDateFramePrivate");
-    m_ptr->setMaximumWidth(kSystemDateTimeFrameWidth);
-    m_ptr->setMaximumHeight(40);
+    q_ptr->setMaximumWidth(kSystemDateTimeFrameWidth);
+    q_ptr->setMaximumHeight(40);
 }
 
 void SystemDateFramePrivate::initConnection()
 {
+    Q_Q(SystemDateFrame);
+
     connect(m_setDateTimeCheckBox, &DCheckBox::stateChanged, this, [=] {
         m_hourEdit->setEnabled(m_setDateTimeCheckBox->isChecked());
         m_minuteEdit->setEnabled(m_setDateTimeCheckBox->isChecked());
@@ -493,26 +496,31 @@ void SystemDateFramePrivate::initConnection()
             &SystemDateFramePrivate::onYearEditingFinished);
     connect(m_yearEdit, &TimeDateLineEdit::lostFocus, this,
             &SystemDateFramePrivate::onYearEditingFinished);
+    connect(m_yearEdit, &TimeDateLineEdit::selectionChanged, [this]{m_yearEdit->setFocus();});
 
     connect(m_monthEdit, &QLineEdit::editingFinished, this,
             &SystemDateFramePrivate::onMonthEditingFinished);
     connect(m_monthEdit, &TimeDateLineEdit::lostFocus, this,
             &SystemDateFramePrivate::onMonthEditingFinished);
+    connect(m_monthEdit, &TimeDateLineEdit::selectionChanged, [this]{m_monthEdit->setFocus();});
 
     connect(m_dayEdit, &QLineEdit::editingFinished, this,
             &SystemDateFramePrivate::onDayEditingFinished);
     connect(m_dayEdit, &TimeDateLineEdit::lostFocus, this,
             &SystemDateFramePrivate::onDayEditingFinished);
+    connect(m_dayEdit, &TimeDateLineEdit::selectionChanged, [this]{m_dayEdit->setFocus();});
 
     connect(m_hourEdit, &QLineEdit::editingFinished, this,
             &SystemDateFramePrivate::onHourEditingFinished);
     connect(m_hourEdit, &TimeDateLineEdit::lostFocus, this,
             &SystemDateFramePrivate::onHourEditingFinished);
+    connect(m_hourEdit, &TimeDateLineEdit::selectionChanged, [this]{m_hourEdit->setFocus();});
 
     connect(m_minuteEdit, &QLineEdit::editingFinished, this
             , &SystemDateFramePrivate::onMinuteEditingFinished);
     connect(m_minuteEdit, &TimeDateLineEdit::lostFocus, this
             , &SystemDateFramePrivate::onMinuteEditingFinished);
+    connect(m_minuteEdit, &TimeDateLineEdit::selectionChanged, [this]{m_minuteEdit->setFocus();});
 }
 
 void SystemDateFramePrivate::initDateTime()
