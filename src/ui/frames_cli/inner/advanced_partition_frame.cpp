@@ -9,6 +9,7 @@
 #include "ui/models/partition_model.h"
 #include "ui/delegates/advanced_partition_delegate.h"
 #include "ui/delegates/lvm_partition_delegate.h"
+#include "partition_table_warning_frame.h"
 
 namespace installer {
 
@@ -416,22 +417,35 @@ void AdvancedPartitionFrame::onDeviceRefreshed(const DeviceList& devices)
 
 void AdvancedPartitionFrame::onNewPartition(const Partition::Ptr& partition) {
     Q_D(AdvancedPartitionFrame);
+    const QString device_path = partition->device_path;
+    if (! m_currentDelegate->isPartitionTableMatch(device_path)) {
+      requestNewTable(device_path);
+      return;
+    }
 
-    NewPartitionFrame * pNewPartitionFrame = new NewPartitionFrame(d, d->height(), d->width(), d->begy(), d->begx(), m_currentDelegate);
-    pNewPartitionFrame->hide();   
-    connect(d, &AdvancedPartitionFramePrivate::keyEventTrigerSignal, pNewPartitionFrame, &NewPartitionFrame::keyPresseEvent);
-    connect(pNewPartitionFrame, &NewPartitionFrame::finished,this, [=](){
-        disconnect(d, &AdvancedPartitionFramePrivate::keyEventTrigerSignal, pNewPartitionFrame, &NewPartitionFrame::keyPresseEvent);
-        d->removeChildWindows(pNewPartitionFrame);
-        show();
-        d->setchildFoursEnabel(true);
-        d->setCurrentchoicetype(-1);
-    });
-    pNewPartitionFrame->setPartition(partition);
-    pNewPartitionFrame->updateTs();
-    d->setchildFoursEnabel(false);
-    hide();
-    pNewPartitionFrame->show();
+    if (m_currentDelegate->canAddPrimary(partition) ||
+        m_currentDelegate->canAddLogical(partition)) {
+      // Switch to NewPartitionFrame only if a new partition can be added.
+        NewPartitionFrame * pNewPartitionFrame = new NewPartitionFrame(d, d->height(), d->width(), d->begy(), d->begx(), m_currentDelegate);
+        pNewPartitionFrame->hide();
+        connect(d, &AdvancedPartitionFramePrivate::keyEventTrigerSignal, pNewPartitionFrame, &NewPartitionFrame::keyPresseEvent);
+        connect(pNewPartitionFrame, &NewPartitionFrame::finished,this, [=](){
+            disconnect(d, &AdvancedPartitionFramePrivate::keyEventTrigerSignal, pNewPartitionFrame, &NewPartitionFrame::keyPresseEvent);
+            d->removeChildWindows(pNewPartitionFrame);
+            show();
+            d->setchildFoursEnabel(true);
+            d->setCurrentchoicetype(-1);
+        });
+        pNewPartitionFrame->setPartition(partition);
+        pNewPartitionFrame->updateTs();
+        d->setchildFoursEnabel(false);
+        hide();
+        pNewPartitionFrame->show();
+    } else {
+      qWarning() << "Can not add new partition any more" << partition;
+      requestPartitionNumberLimitationFrame();
+    }
+
 }
 
 void AdvancedPartitionFrame::onDeletePartitionTriggered(
@@ -577,6 +591,29 @@ void AdvancedPartitionFrame::onManualPartDone(bool ok, const DeviceList& devices
 
 void AdvancedPartitionFrame::setShowEnable( bool isShow) {
     m_isShow = isShow;
+}
+
+void AdvancedPartitionFrame::requestNewTable(const QString& device_path) {
+    Q_D(AdvancedPartitionFrame);
+    PartitionTableWarningFrame * partitionTableWarningFrame = new PartitionTableWarningFrame(d, d->height(), d->width(), d->begy(), d->begx(), m_partitionModel);
+    partitionTableWarningFrame->hide();
+    connect(d, &AdvancedPartitionFramePrivate::keyEventTrigerSignal, partitionTableWarningFrame, &PartitionTableWarningFrame::keyPresseEvent);
+    connect(partitionTableWarningFrame, &PartitionTableWarningFrame::finished,this, [=](){
+        disconnect(d, &AdvancedPartitionFramePrivate::keyEventTrigerSignal, partitionTableWarningFrame, &PartitionTableWarningFrame::keyPresseEvent);
+        d->removeChildWindows(partitionTableWarningFrame);
+        show();
+        d->setchildFoursEnabel(true);
+        d->setCurrentchoicetype(-1);        
+    });
+    partitionTableWarningFrame->setDevicePath(device_path);
+    partitionTableWarningFrame->updateTs();
+    d->setchildFoursEnabel(false);
+    hide();
+    partitionTableWarningFrame->show();
+}
+
+void AdvancedPartitionFrame::requestPartitionNumberLimitationFrame() {
+
 }
 
 void AdvancedPartitionFrame::readConf()

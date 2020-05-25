@@ -92,6 +92,12 @@ public:
     void updateValidateStates();
 
     void setShowEnable( bool isShow);
+
+    // Emitted when partition table not appropriate at |device_path|.
+    void requestNewTable(const QString& device_path);
+
+    // Show PartitionNumberLimitationFrame.
+    void requestPartitionNumberLimitationFrame();
 public slots:
     void onDeviceRefreshed(const DeviceList& devices);
     void onNewPartition(const Partition::Ptr& partition);

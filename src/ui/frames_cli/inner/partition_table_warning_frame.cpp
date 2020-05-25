@@ -1,133 +1,223 @@
-#include "partition_table_warning_frame.h"
-#include "ui/ncurses_widgets/ncurses_list_view.h"
-#include "ui/ncurses_widgets/ncurses_label.h"
-#include "ui/ncurses_widgets/operator_widget.h"
+/*
+ * Copyright (C) 2017 ~ 2018 Deepin Technology Co., Ltd.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
-installer::PartitionTableWarningFrame::PartitionTableWarningFrame(installer::FrameInterface *parent):
-    FrameInterface(parent)
-{
-    int h = LINES / 2;
-    int w = COLS / 2;
-    int beginY = (LINES - h - 2) / 2;
-    int beginX = (COLS - w) / 2;
-    m_private = new PartitionTableWarningFramePrivate(this, h - 8, w - 2, beginY + 1, beginX + 1);
+#include "ui/frames_cli/inner/partition_table_warning_frame.h"
 
-#ifdef QT_DEBUG
-    connect(this, &PartitionTableWarningFrame::reboot, this, [=]{qInfo() << "test reboot";});
-    connect(this, &PartitionTableWarningFrame::cancel, this, [=]{qInfo() << "test cancel";});
-    connect(this, &PartitionTableWarningFrame::formatting, this, [=]{qInfo() << "test formatting";});
-#endif // QT_DEBUG
+
+
+#include "base/file_util.h"
+#include "service/settings_manager.h"
+#include "service/settings_name.h"
+#include "service/power_manager.h"
+#include "ui/frames/consts.h"
+#include "ui/delegates/advanced_partition_delegate.h"
+#include "ui/delegates/partition_util.h"
+#include "ui/models_cli/partition_type_model.h"
+#include "ui/models/partition_model.h"
+
+namespace installer {
+
+
+PartitionTableWarningFrame::PartitionTableWarningFrame(NCursesWindowBase* parent, int lines, int cols, int beginY, int beginX, PartitionModel* model)
+    : FrameInterfacePrivate(parent, lines, cols, beginY, beginX),
+      m_partitionModel(model) {
+  this->setObjectName("new_partition_frame");
 }
 
-bool installer::PartitionTableWarningFrame::handle()
-{
-    m_private->keyHandle();
-    return true;
+void PartitionTableWarningFrame::setDevicePath(const QString& device_path) {
+  m_devicePath = device_path;
+
+  this->initUI();
+  this->initConnections();
 }
 
-installer::PartitionTableWarningFramePrivate::PartitionTableWarningFramePrivate(FrameInterface *parent, int lines, int cols, int beginY, int beginX):
-    FrameInterfacePrivate(nullptr, lines, cols, beginY, beginX),
-    q_ptr(qobject_cast<PartitionTableWarningFrame*>(parent))
+void PartitionTableWarningFrame::show()
 {
-    initUI();
-    updateTs();
+    //if(!m_isshow){
+        NCursesWindowBase::show();
+        m_isshow = true;
+
+
+    //}
+}
+
+void PartitionTableWarningFrame::hide()
+{
+    NCursesWindowBase::hide();
+    m_isshow = true;
+}
+
+
+void PartitionTableWarningFrame::initConnections() {
+  connect(cancel_button_, &NcursesButton::clicked,
+          this, &PartitionTableWarningFrame::finished);
+  connect(create_button_, &NcursesButton::clicked,
+          this, &PartitionTableWarningFrame::onCreateButtonClicked);
+}
+
+void PartitionTableWarningFrame::initUI() {
+  title_label_ = new NcursesLabel(this, 1, 1, begy(), begx());
+  title_label_->setFocusEnabled(false);  
+  title_label_->setText(tr("Warning"));
+
+  m_commentLab = new NcursesLabel(this, 1, 40, begy(), begx());
+  m_commentLab->setFocusEnabled(false);
+  m_commentLab->setText(tr("You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. "
+                        "Please select one of the below solutions and continue."));
+  m_warningBox = new NcursesListView(this, height() - 10, 30, begy(), begx());
+  m_warningBox->setFocus(true);
+
+  QStringList waringList;
+  waringList.append(QString("1.Restart.%1. %2")
+                    .arg(tr("Restart the BIOS Settings, and close the UEFI startup"))
+                    .arg(tr("Quit the BIOS, back into the UOS installation")));
+  waringList.append(QString("2.Format the entire disk. %1")
+                    .arg(tr("Please backup all your data, in order to avoid data loss")));
+  waringList.append( QString("3.To select a disk. %1.")
+                     .arg(tr("Nothing to do")));
+
+  m_warningBox->setList(waringList);
+
+  cancel_button_ = new NcursesButton(this, tr("Cancel"), 2, 8, begy() + height() - 10 + 3, begx());
+  create_button_ = new NcursesButton(this, tr("Create"), 2, 8, begy() + height() - 10 + 3, begx() + 12);
+
+  this->setFocus(true);
+
+  m_showChild.push_back(m_warningBox);
+  m_showChild.push_back(cancel_button_);
+  m_showChild.push_back(create_button_);
+
+}
+
+void PartitionTableWarningFrame::updateTs()
+{
+    cancel_button_->setText(tr("Cancel"));
+    create_button_->setText(tr("Create"));
     layout();
 }
 
-void installer::PartitionTableWarningFramePrivate::initUI()
+void PartitionTableWarningFrame::layout()
 {
-    //FrameInterfacePrivate::initUI();
-    setBackground(NcursesUtil::getInstance()->dialog_attr());
+    title_label_->adjustSizeByContext();
+    title_label_->mvwin(begy(), begx() + (width() - title_label_->width()) / 2);
 
-    m_titleLab = new NcursesLabel(this, 1, 1, begy(), begx());
-    m_titleLab->setBackground(NcursesUtil::getInstance()->item_attr());
-    m_titleLab->setFocusEnabled(false);
 
-    m_commentLab = new NcursesLabel(this, 2, width() - 20, begy(), begx());
-    m_commentLab->setFocusEnabled(false);
+    m_commentLab->adjustSizeByContext();
+    m_commentLab->mvwin(begy() + 1, begx() + 1);
+    m_warningBox->adjustSizeByContext();
+    m_warningBox->mvwin(begy() + m_commentLab->height() + 1, begx() + 1);
 
-    m_warning1 = new OperatorWidget(this, 3, width() - 30, begy(), begx());
-    m_warning1->setFocus(true);
-    m_warning1->setFocusEnabled(false);
-    m_warning2 = new OperatorWidget(this, 3, width() - 30, begy(), begx());
-    m_warning2->setFocusEnabled(false);
-    m_warning3 = new OperatorWidget(this, 3, width() - 30, begy(), begx());
-    m_warning3->setFocusEnabled(false);
+
+
+    cancel_button_->adjustSizeByContext();
+    cancel_button_->mvwin(begy() + height() -3 , begx() + (width() - title_label_->width()) / 2 - 20);
+
+    create_button_->adjustSizeByContext();
+    create_button_->mvwin(begy() + height() -3 , begx() + (width() - title_label_->width()) / 2 + 20);
+
+    NCursesWindowBase::show();
 }
 
-void installer::PartitionTableWarningFramePrivate::layout()
+void PartitionTableWarningFrame::onKeyPress(int keycode)
 {
-    try {
-        int beginY = begy() + 1;
-        m_titleLab->adjustSizeByContext();
-        m_titleLab->mvwin(beginY, begx() + (width() - m_titleLab->width()) / 2);
-
-        beginY += m_titleLab->height();
-        m_commentLab->mvwin(beginY, begx() + (width() - m_commentLab->width()) / 2);
-
-        beginY += m_commentLab->height() + 1;
-        m_warning1->move(beginY, begx() + (width() - m_warning1->width()) / 2);
-        beginY += m_warning1->height() + 1;
-        m_warning2->move(beginY, begx() + (width() - m_warning2->width()) / 2);
-        beginY += m_warning2->height() + 1;
-        m_warning3->move(beginY, begx() + (width() - m_warning3->width()) / 2);
-
-    } catch (NCursesException& e) {
-         qCritical() << QString(e.message);
-    }
-}
-
-void installer::PartitionTableWarningFramePrivate::updateTs()
-{
-    m_titleLab->setText(tr("Warning"));
-    m_commentLab->setText(tr("You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. "
-                             "Please select one of the below solutions and continue."));
-    m_warning1->setTitle(QString("%1").arg(tr("Restart")));
-    m_warning1->setDesc(QString("1.%1.\n2.%3")
-                        .arg(tr("Restart the BIOS Settings, and close the UEFI startup"))
-                        .arg(tr("Quit the BIOS, back into the UOS installation")));
-    m_warning2->setTitle(QString("%1").arg(tr("Format the entire disk")));
-    m_warning2->setDesc(QString("1.%1.\n2.%3")
-                        .arg(tr("Please backup all your data, in order to avoid data loss"))
-                        .arg(tr("Please double check whether or not you backup the data, and then restart to this interface")));
-    m_warning3->setTitle(QString("%1").arg(tr("To select a disk")));
-    m_warning3->setDesc(QString("%1.")
-                        .arg(tr("Nothing to do")));
-}
-
-void installer::PartitionTableWarningFramePrivate::keyEventTriger(int key)
-{
-    Q_Q(PartitionTableWarningFrame);
-
-    switch (key) {
-        case KEY_UP:
-        if (m_warning3->isOnFoucs()) {
-            m_warning3->setFocus(false);
-            m_warning2->setFocus(true);
-        } else if (m_warning2->isOnFoucs()) {
-            m_warning2->setFocus(false);
-            m_warning1->setFocus(true);
+    switch (keycode) {
+        case KEY_TAB: break;
+        case KEY_RIGHT:
+        case KEY_LEFT:
+        QVector<NCursesWindowBase* > showChild;
+        for(NCursesWindowBase* child : m_showChild) {
+            if(!child->hidden()) {
+                showChild.append(child);
+            }
         }
-        break;
-        case KEY_DOWN:
-        if (m_warning1->isOnFoucs()) {
-            m_warning1->setFocus(false);
-            m_warning2->setFocus(true);
-        } else if (m_warning2->isOnFoucs()) {
-            m_warning2->setFocus(false);
-            m_warning3->setFocus(true);
-        }
-        break;
-        case KEY_ENTER_OTHER:
-        if (m_warning1->isOnFoucs()) {
-            Q_EMIT q->reboot();
-        } else if (m_warning2->isOnFoucs()) {
-            Q_EMIT q->formatting();
-        }else if (m_warning3->isOnFoucs()) {
-            Q_EMIT q->cancel();
+
+        for (NCursesWindowBase* child : showChild) {
+            if(child->isOnFoucs()) {
+                int size = showChild.size();
+                int index = showChild.indexOf(child);
+
+                int offset = 1;
+                if (keycode == KEY_LEFT) {
+                    if (index == 0) {
+                        offset = size -1;
+                    } else {
+                        offset = -1;
+                    }
+                }
+
+                int nextIndex = ( index + offset) % size;
+                NCursesWindowBase* nextchild = showChild.at(nextIndex);
+
+                if(nextchild != cancel_button_) {
+                    cancel_button_->setFocus(false);
+                }
+
+                if(nextchild != create_button_) {
+                    create_button_->setFocus(false);
+                }
+                nextchild->setFocus(true);
+                return ;
+            }
         }
         break;
     }
 }
 
+void PartitionTableWarningFrame::rebootSystem() {
 
+  if (!RebootSystemWithMagicKey()) {
+      qWarning() << "RebootSystemWithMagicKey() failed!";
+  }
+
+  if (!RebootSystem()) {
+      qWarning() << "RebootSystem() failed!";
+  }
+}
+
+void PartitionTableWarningFrame::keyPresseEvent(int keycode)
+{
+    if (keycode == KEY_TAB) return ;
+
+    if(!m_isshow) {
+        if(m_currentchoicetype != -1){
+            emit keyEventTrigerSignal(keycode);
+        }
+        return;
+    } else {
+        if(m_currentchoicetype != -1){
+            emit keyEventTrigerSignal(keycode);
+        } else {
+            FrameInterfacePrivate::keyEventTriger(keycode);
+            emit keyEventTrigerSignal(keycode);
+        }
+    }
+}
+
+
+
+void PartitionTableWarningFrame::onCreateButtonClicked() {
+    if (m_warningBox->getCurrentIndex() == 0) {
+        rebootSystem();
+    } else if (m_warningBox->getCurrentIndex() == 1) {
+        m_partitionModel->createPartitionTable(m_devicePath);
+    }
+
+  emit this->finished();
+}
+
+
+}  // namespace installer

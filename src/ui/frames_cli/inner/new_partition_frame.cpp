@@ -47,12 +47,6 @@ void NewPartitionFrame::setPartition(const Partition::Ptr partition) {
   // Update partition information.
   partition_ = partition;
   const QString device_path = partition->device_path;
-  // Check partition table type first.
-  if (! delegate_->isPartitionTableMatch(device_path)) {
-      m_isNew = true;
-  } else {
-      m_isNew = false;
-  }
   this->initUI();
   this->initConnections();
 
@@ -88,8 +82,14 @@ void NewPartitionFrame::setPartition(const Partition::Ptr partition) {
   }
 
   QStringList typeList;
-  typeList.append(tr("Primary Partition"));
-  typeList.append(tr("Logical Partition"));
+  if (primary_ok) {
+    typeList.append(tr("Primary Partition"));
+  }
+
+  if (logical_ok) {
+      typeList.append(tr("Logical Partition"));
+  }
+
   type_box_->setList(typeList);
 
   type_model_->setPrimaryVisible(primary_ok);

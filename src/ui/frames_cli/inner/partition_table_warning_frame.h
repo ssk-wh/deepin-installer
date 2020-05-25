@@ -18,55 +18,71 @@
 #ifndef PARTITION_TABLE_WARNING_FRAME_CLI_H
 #define PARTITION_TABLE_WARNING_FRAME_CLI_H
 
-#include <QScopedPointer>
+#include <QFrame>
+class QLabel;
+class QPushButton;
 
-#include "ui/interfaces_cli/frameinterfaceprivate.h"
+#include "partman/partition.h"
 #include "ui/interfaces_cli/frameinterface.h"
+#include "ui/ncurses_widgets/ncurses_label.h"
+#include "ui/ncurses_widgets/ncurses_list_view.h"
+#include "ui/ncurses_widgets/ncurses_line_edit.h"
 
 namespace installer {
 
-class NcursesLabel;
-class OperatorWidget;
-class PartitionTableWarningFrame;
+class CommentLabel;
+class MountPointModel;
+class AdvancedPartitionDelegate;
+class PartitionModel;
 
-class PartitionTableWarningFramePrivate : public FrameInterfacePrivate
-{
-    Q_OBJECT
+class PartitionTableWarningFrame : public FrameInterfacePrivate {
+  Q_OBJECT
+
+ public:
+  PartitionTableWarningFrame(NCursesWindowBase* parent, int lines, int cols, int beginY, int beginX, PartitionModel* model);
+  void setDevicePath(const QString& device_path);
+
+  void show() override;
+  void hide() override;
+  void updateTs();
+  void layout();
+  void onKeyPress(int keycode) override;
+
+  void rebootSystem();
+
+ signals:
+  void finished();
+  void keyEventTrigerSignal(int keycode);
+  void doBackBtnClickedSignal();
+  void doNectBtnClickedSignal();
 public:
-    PartitionTableWarningFramePrivate(FrameInterface* parent, int lines, int cols, int beginY, int beginX);
+    void keyPresseEvent(int keycode);
+    NcursesListView* m_warningBox = nullptr;
+ private:
+  void initConnections();
+  void initUI();
 
-protected:
-    void initUI() override;
-    void layout() override;
-    void updateTs() override;
-    void keyEventTriger(int key) override;
 
-private:
-    NcursesLabel* m_titleLab;
-    NcursesLabel* m_commentLab;
-    OperatorWidget* m_warning1;
-    OperatorWidget* m_warning2;
-    OperatorWidget* m_warning3;
+  NcursesLabel* title_label_ = nullptr;
+  NcursesLabel* m_commentLab = nullptr;
 
-    PartitionTableWarningFrame *q_ptr;
-    Q_DECLARE_PUBLIC(PartitionTableWarningFrame)
+
+  NcursesButton* cancel_button_ = nullptr;
+  NcursesButton* create_button_ = nullptr;
+
+
+ private slots:
+  // Append operations to |delegate| when create_button_ is clicked.
+  void onCreateButtonClicked();
+
+ protected:
+  QString m_devicePath;   
+  bool m_isshow = false;
+  int m_currentchoicetype = -1;
+  QVector<NCursesWindowBase* > m_showChild;
+  PartitionModel* m_partitionModel;
 };
 
-class PartitionTableWarningFrame  : public FrameInterface
-{
-    Q_OBJECT
-public:
-    PartitionTableWarningFrame(FrameInterface* parent);
+}  // namespace installer
 
-signals:
-    void reboot();
-    void cancel();
-    void formatting();
-
-protected:
-    bool handle() override;
-};
-
-}
-
-#endif // PARTITION_TABLE_WARNING_FRAME_H
+#endif  // INSTALLER_UI_FRAMES_INNER_NEW_PARTITION_FRAME_H
