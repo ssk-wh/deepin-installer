@@ -1,14 +1,9 @@
 [Unit]
 Description=Launch installer in normal mode
-After=getty@tty2.service
 
 [Service]
-Type=simple
+Type=forking
 ExecStart=/usr/bin/deepin-installer-both
-StandardInput=tty
-TTYPath=/dev/tty2
-TTYReset=no
-TTYVHangup=yes
-Restart=always
+User=root
 [Install]
-WantedBy=deepin-installer.target
+WantedBy=multi-user.target
