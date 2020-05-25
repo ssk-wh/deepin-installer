@@ -446,6 +446,8 @@ void AdvancedPartitionFrame::onDeletePartitionTriggered(
 void AdvancedPartitionFrame::doBackBtnClicked()
 {
     if (m_currentDelegate == m_lvmDelegate) {
+        m_delegate->resetOperations();
+        m_lvmDelegate->resetOperations();
         m_currentDelegate = m_delegate;
         AdvancedPartitionDelegate::install_Lvm_Status = Install_Lvm_Status::Lvm_No_Need;
         emit m_currentDelegate->deviceRefreshed(m_delegate->realDevices());
