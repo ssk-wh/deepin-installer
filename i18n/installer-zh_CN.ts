@@ -1291,6 +1291,7 @@
 <message><source>Virtualization Toolset</source><translation>虚拟化工具集</translation></message>
 <message><source>Toolset for virtualization enviroment (host and guest).</source><translation>虚拟化运行环境（宿主机和客户机）所需的集合软件包。</translation></message>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <message>
         <source>Select All</source>
         <translation>全选</translation>
@@ -2293,6 +2294,10 @@
         <source>Abort</source>
         <translation type="unfinished"/>
     </message>
+=======
+<message><source>PostgreSQL Database Server</source><translation>PostgreSQL数据库服务器</translation></message>
+<message><source>The PostgreSQL SQL database server, and associated packages.</source><translation>PostgreSQL数据库服务器的标准组件及关联软件包。</translation></message>
+>>>>>>> a37beece... feat: add component package postgresql-server
 </context>
 <context>
     <name>installer::ControlPlatformFrame</name>

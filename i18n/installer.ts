@@ -1559,6 +1559,8 @@
 <message><source>Email, chat, and video conferencing software.</source><translation type="vanished">Email, chat, and video conferencing software.</translation></message>
 <message><source>Virtualization Toolset</source><translation type="vanished">Virtualization Toolset</translation></message>
 <message><source>Toolset for virtualization enviroment (host and guest).</source><translation type="vanished">Toolset for virtualization enviroment (host and guest).</translation></message>
+<message><source>PostgreSQL Database Server</source><translation type="vanished">PostgreSQL Database Server</translation></message>
+<message><source>The PostgreSQL SQL database server, and associated packages.</source><translation type="vanished">The PostgreSQL SQL database server, and associated packages.</translation></message>
     <message>
 <<<<<<< HEAD
         <source>Select All</source>

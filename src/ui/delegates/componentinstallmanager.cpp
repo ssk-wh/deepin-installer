@@ -317,6 +317,7 @@ QPair<QString, QString> ComponentInstallManager::updateTs(const QString& id) con
     {"internet-applications", {tr("Internet Applications"), tr("Email, chat, and video conferencing software.")}},
     {"virtualization-tool-set", {tr("Virtualization Toolset"), tr("Toolset for virtualization enviroment (host and guest).")}},
     {"dde", {tr("Server Environment with GUI"), tr("Operates the services and applications on the graphical user interface.")}},
+    {"postgresql-server", {tr("PostgreSQL Database Server"), tr("The PostgreSQL SQL database server, and associated packages.")}},
     }[id];
 }
 
