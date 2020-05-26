@@ -101,8 +101,8 @@ void PrepareInstallFrame::initUI() {
   int buttonWidth = std::max(strBack.length(), strContinue.length()) + 4;
   int buttonDistanceDelta = 2 * buttonWidth;
 
-  cancel_button_ = new NcursesButton(this, strBack, buttonHeight, 8, begy() + height() - buttonHeight - 2, begx() + 5);
-  create_button_ = new NcursesButton(this, strContinue, buttonHeight, 8, begy() + height() - buttonHeight - 2, begx() + width() - buttonWidth - 13);
+  cancel_button_ = new NcursesButton(this, strBack, buttonHeight, 14, begy() + height() - buttonHeight - 2, begx() + 5);
+  create_button_ = new NcursesButton(this, strContinue, buttonHeight, 14, begy() + height() - buttonHeight - 2, begx() + width() - buttonWidth - 13);
 
   cancel_button_->drawShadow(true);
   create_button_->drawShadow(true);

@@ -92,8 +92,19 @@ void PartitionTableWarningFrame::initUI() {
 
   m_warningBox->setList(waringList);
 
-  cancel_button_ = new NcursesButton(this, tr("Cancel"), 2, 8, begy() + height() - 10 + 3, begx());
-  create_button_ = new NcursesButton(this, tr("Create"), 2, 8, begy() + height() - 10 + 3, begx() + 12);
+  QString strCancel = tr("Cancel");
+  QString strCreate = tr("Create");
+  int buttonHeight = 3;
+  int buttonWidth = std::max(strCancel.length(), strCreate.length()) + 4;
+
+  cancel_button_ = new NcursesButton(this, strCancel, buttonHeight, 14, begy() + height() - buttonHeight - 2, begx() + 5);
+  create_button_ = new NcursesButton(this, strCreate, buttonHeight, 14, begy() + height() - buttonHeight - 2, begx() + width() - buttonWidth - 13);
+
+  cancel_button_->drawShadow(true);
+  create_button_->drawShadow(true);
+
+  cancel_button_->box();
+  create_button_->box();
 
   this->setFocus(true);
 
@@ -123,11 +134,11 @@ void PartitionTableWarningFrame::layout()
 
 
 
-    cancel_button_->adjustSizeByContext();
-    cancel_button_->mvwin(begy() + height() -3 , begx() + (width() - title_label_->width()) / 2 - 20);
+    //cancel_button_->adjustSizeByContext();
+    //cancel_button_->mvwin(begy() + height() -3 , begx() + (width() - title_label_->width()) / 2 - 20);
 
-    create_button_->adjustSizeByContext();
-    create_button_->mvwin(begy() + height() -3 , begx() + (width() - title_label_->width()) / 2 + 20);
+    //create_button_->adjustSizeByContext();
+    //create_button_->mvwin(begy() + height() -3 , begx() + (width() - title_label_->width()) / 2 + 20);
 
     NCursesWindowBase::show();
 }
