@@ -33,7 +33,7 @@ public:
     void getKeyInputRun() {
         int testcount = 0;
         while (true) {
-            if(testcount < 3) {
+            if(testcount < 15) {
                 QThread::msleep(10);
                 testcount++;
                 continue;
