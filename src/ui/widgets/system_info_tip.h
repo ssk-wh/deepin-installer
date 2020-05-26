@@ -40,6 +40,8 @@ class SystemInfoTip : public QFrame {
   // Need prompt controls and SystemInfoTip please set is not under the same parent window
   void setRelativePosition(QPoint point);
 
+  void setLabelSize(const QSize& size);
+
  protected:
   void paintEvent(QPaintEvent* event) override;
 

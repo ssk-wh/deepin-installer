@@ -184,6 +184,7 @@ public:
             ipLayout->addWidget(ipName, 0, Qt::AlignLeft | Qt::AlignHCenter);
             ipLayout->addWidget(m_ipv4Edit, 0, Qt::AlignRight | Qt::AlignHCenter);
             m_ipWidget->setLayout(ipLayout);
+            m_ipWidget->setFixedHeight(kLineEditHeight);
 
             QHBoxLayout* maskLayout = new QHBoxLayout;
             maskLayout->setMargin(0);
@@ -194,6 +195,7 @@ public:
             maskLayout->addWidget(maskName, 0, Qt::AlignLeft | Qt::AlignHCenter);
             maskLayout->addWidget(m_maskEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
             m_maskWidget->setLayout(maskLayout);
+            m_maskWidget->setFixedHeight(kLineEditHeight);
 
             QHBoxLayout* gatewayLayout = new QHBoxLayout;
             gatewayLayout->setMargin(0);
@@ -204,6 +206,7 @@ public:
             gatewayLayout->addWidget(gatewayName, 0, Qt::AlignLeft | Qt::AlignHCenter);
             gatewayLayout->addWidget(m_gatewayEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
             m_gatewayWidget->setLayout(gatewayLayout);
+            m_gatewayWidget->setFixedHeight(kLineEditHeight);
 
             QHBoxLayout* dnsLayout = new QHBoxLayout;
             dnsLayout->setMargin(0);
@@ -214,6 +217,7 @@ public:
             dnsLayout->addWidget(dnsName, 0, Qt::AlignLeft | Qt::AlignHCenter);
             dnsLayout->addWidget(m_primaryDNSEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
             m_primaryDNSWidget->setLayout(dnsLayout);
+            m_primaryDNSWidget->setFixedHeight(kLineEditHeight);
         }
 
         QHBoxLayout* dhcpLayout = new QHBoxLayout;
@@ -231,7 +235,6 @@ public:
         m_dhcpTypeWidget->setFixedSize(kLineEditWidth, kLineEditHeight);
 
         m_connectTypeWidget->setLayout(dhcpLayout);
-
         QLabel* switchName = new QLabel(tr("Network Switch"));
         switchName->setFixedSize(130, 20);
         connect(m_switchButton, &DSwitchButton::checkedChanged, this, &NetworkEditWidget::onSwitchStateChanged);
@@ -268,7 +271,7 @@ public:
         connect(m_primaryDNSEdit, &DLineEdit::editingFinished, this,
                 &NetworkEditWidget::checkIPValidity);
         connect(m_maskEdit, &DLineEdit::editingFinished, this,
-                &NetworkEditWidget::checkMaskValidity);
+                &NetworkEditWidget::checkIPValidity);
 
         connect(m_editBtn, &QPushButton::clicked, this, &NetworkEditWidget::onEdit);
         connect(m_acceptBtn, &QPushButton::clicked, this, &NetworkEditWidget::onEditFinished);
@@ -408,7 +411,24 @@ public:
     {
         DLineEdit *edit = qobject_cast<DLineEdit *>(sender());
 
-        checkEditIPValidity(edit);
+        checkValidity(edit);
+    }
+
+    bool checkValidity(DLineEdit *edit)
+    {
+        if (!checkip(edit->text())) {
+            QWidget *parent = qobject_cast<QWidget *>(edit->parent());
+            m_errorTip->setText(tr("Illegal %1, please have a check.")
+                                .arg(edit->lineEdit()->placeholderText()));
+            m_errorTip->setLabelSize(QSize(kLineEditWidth, 60));
+            m_errorTip->setRelativePosition(parent->pos());
+            m_errorTip->showBottom(edit);
+            return false;
+        }
+        else {
+            m_errorTip->hide();
+            return true;
+        }
     }
 
     bool checkEditIPValidity(DLineEdit *edit)
@@ -416,7 +436,7 @@ public:
         if (!checkip(edit->text())) {
             QWidget *parent = qobject_cast<QWidget *>(edit->parent());
             m_errorTip->setText(tr("IP address error: illegal IP address, please have a check."));
-            m_errorTip->setRelativePosition(parent->pos());
+            m_errorTip->setRelativePosition(QPoint(0, parent->pos().y()));
             m_errorTip->showBottom(edit);
             return false;
         }
@@ -442,22 +462,22 @@ public:
 
     bool validate()
     {
-        if (!checkEditIPValidity(m_ipv4Edit)) {
+        if (!checkValidity(m_ipv4Edit)) {
             return false;
         }
 
-        if (!checkMaskValidity()) {
+        if (!checkValidity(m_maskEdit)) {
             return false;
         }
 
         if (!m_gatewayEdit->text().isEmpty()) {
-            if (!checkEditIPValidity(m_gatewayEdit)) {
+            if (!checkValidity(m_gatewayEdit)) {
                 return false;
             }
         }
 
         if (!m_primaryDNSEdit->text().isEmpty()) {
-            if (!checkEditIPValidity(m_primaryDNSEdit)) {
+            if (!checkValidity(m_primaryDNSEdit)) {
                 return false;
             }
         }

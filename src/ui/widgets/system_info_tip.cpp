@@ -100,6 +100,14 @@ void SystemInfoTip::setRelativePosition(QPoint point)
     m_relativePosition = point;
 }
 
+void SystemInfoTip::setLabelSize(const QSize &size)
+{
+    label_->setAlignment(Qt::AlignTop);
+    label_->setWordWrap(true);
+    label_->setFixedSize(size.width(), size.height());
+    setFixedSize(size);
+}
+
 void SystemInfoTip::paintEvent(QPaintEvent* event) {
   Q_UNUSED(event);
 
