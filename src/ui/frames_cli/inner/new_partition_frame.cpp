@@ -320,9 +320,8 @@ void NewPartitionFrame::onKeyPress(int keycode)
 
 void NewPartitionFrame::keyPresseEvent(int keycode)
 {
-    if (keycode == KEY_TAB) return ;
-
-    if(!m_isshow) {
+   if (KEY_TAB == keycode) return ;
+   if(!m_isshow) {
         if(m_currentchoicetype != -1){
             emit keyEventTrigerSignal(keycode);
         }

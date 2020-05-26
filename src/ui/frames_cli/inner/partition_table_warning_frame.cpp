@@ -135,9 +135,7 @@ void PartitionTableWarningFrame::layout()
 void PartitionTableWarningFrame::onKeyPress(int keycode)
 {
     switch (keycode) {
-        case KEY_TAB: break;
-        case KEY_RIGHT:
-        case KEY_LEFT:
+        case KEY_TAB:
         QVector<NCursesWindowBase* > showChild;
         for(NCursesWindowBase* child : m_showChild) {
             if(!child->hidden()) {
@@ -150,14 +148,7 @@ void PartitionTableWarningFrame::onKeyPress(int keycode)
                 int size = showChild.size();
                 int index = showChild.indexOf(child);
 
-                int offset = 1;
-                if (keycode == KEY_LEFT) {
-                    if (index == 0) {
-                        offset = size -1;
-                    } else {
-                        offset = -1;
-                    }
-                }
+                int offset = 1;                
 
                 int nextIndex = ( index + offset) % size;
                 NCursesWindowBase* nextchild = showChild.at(nextIndex);
@@ -190,9 +181,7 @@ void PartitionTableWarningFrame::rebootSystem() {
 
 void PartitionTableWarningFrame::keyPresseEvent(int keycode)
 {
-    if (keycode == KEY_TAB) return ;
-
-    if(!m_isshow) {
+   if(!m_isshow) {
         if(m_currentchoicetype != -1){
             emit keyEventTrigerSignal(keycode);
         }
