@@ -131,12 +131,10 @@ void AdvancedPartitionFramePrivate::onDeviceRefreshed(const DeviceList& devices)
             }
             QString name(QFileInfo(partition->path).fileName());
             QString freeflag(partition->busy?"busy":"free");
-            list.append( QString("|______%1(%2 %3)(%4%5/%6%7)(%8)")
+            list.append( QString("|______%1(%2 %3)(%4%5)(%6)")
                          .arg(GetFsTypeName(partition->fs))
                          .arg(freeflag)
                          .arg(partition->mount_point)
-                         .arg(free_gibi_size)
-                         .arg(freeDiskUnit)
                          .arg(gibi_size)
                          .arg(diskUnit)
                          .arg(name));
