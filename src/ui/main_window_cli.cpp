@@ -46,6 +46,7 @@ public:
             while(testcount < 5) {
                 QThread::msleep(10);
                 testcount++;
+                continue;
             }
         }
     }

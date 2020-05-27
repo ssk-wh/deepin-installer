@@ -21,11 +21,31 @@
 
 namespace installer {
 
+static uint coverMask(const QString &source)
+{
+    std::list<char>   mask;
+    const QStringList list = source.split(".");
+
+    for (auto it = list.constBegin(); it != list.constEnd(); ++it) {
+        const QString &num   = *it;
+        QByteArray     array = QString::number(num.toUInt(), 2).toUtf8();
+        for (char c : array) {
+            mask.push_back(c);
+        }
+    }
+
+    uint m = 0;
+    for (char c : mask) {
+        m += QString(c).toUInt();
+    }
+
+    return m;
+}
 
 NetwrokFramePrivate::NetwrokFramePrivate(NCursesWindowBase *parent, int lines, int cols, int beginY, int beginX)
     : FrameInterfacePrivate(parent, lines, cols, beginY, beginX),
       m_isshow(false),
-      m_currentchoicetype(-1),
+      m_currentchoicetype(0),
       m_currentlineeditindex(0),
       m_titledes(""),
       m_titledesbrower(nullptr),
@@ -82,35 +102,35 @@ void NetwrokFramePrivate::initUI()
     m_operationchoice.push_back(operationchoicenotset);
 
     NetwrokFrameItem ipconfigitemsipset;
-    ipconfigitemsipset.m_NcursesLabel = new NcursesLabel(this, 1, width() /2, begy(), begx());
+    ipconfigitemsipset.m_NcursesLabel = new NcursesLabel(this, 1, 15, begy(), begx());
     ipconfigitemsipset.m_NcursesLabel->setFocusEnabled(false);
     ipconfigitemsipset.m_NCursesLineEdit = new NCursesLineEdit(this, 1, 3, begy(), begx());
     ipconfigitemsipset.m_NCursesLineEdit->setBackground(NcursesUtil::getInstance()->edit_attr());
-    ipconfigitemsipset.m_ErrorinfoLabel = new NcursesLabel(this, 1, width() /2, begy(), begx());
+    ipconfigitemsipset.m_ErrorinfoLabel = new NcursesLabel(this, 1, 3, begy(), begx());
     ipconfigitemsipset.m_ErrorinfoLabel->setBackground(NcursesUtil::getInstance()->error_attr());
     ipconfigitemsipset.m_ErrorinfoLabel->setFocusEnabled(false);
     NetwrokFrameItem ipconfigitemsmaskset;
-    ipconfigitemsmaskset.m_NcursesLabel = new NcursesLabel(this, 1, width() /2, begy(), begx());
+    ipconfigitemsmaskset.m_NcursesLabel = new NcursesLabel(this, 1, 15, begy(), begx());
     ipconfigitemsmaskset.m_NcursesLabel->setFocusEnabled(false);
     ipconfigitemsmaskset.m_NCursesLineEdit = new NCursesLineEdit(this, 1, 3, begy(), begx());
     ipconfigitemsmaskset.m_NCursesLineEdit->setBackground(NcursesUtil::getInstance()->edit_attr());
-    ipconfigitemsmaskset.m_ErrorinfoLabel = new NcursesLabel(this, 1, width() /2, begy(), begx());
+    ipconfigitemsmaskset.m_ErrorinfoLabel = new NcursesLabel(this, 1, 3, begy(), begx());
     ipconfigitemsmaskset.m_ErrorinfoLabel->setBackground(NcursesUtil::getInstance()->error_attr());
     ipconfigitemsmaskset.m_ErrorinfoLabel->setFocusEnabled(false);
     NetwrokFrameItem ipconfigitemsgatewayset;
-    ipconfigitemsgatewayset.m_NcursesLabel = new NcursesLabel(this, 1, width() /2, begy(), begx());
+    ipconfigitemsgatewayset.m_NcursesLabel = new NcursesLabel(this, 1, 15, begy(), begx());
     ipconfigitemsgatewayset.m_NcursesLabel->setFocusEnabled(false);
     ipconfigitemsgatewayset.m_NCursesLineEdit = new NCursesLineEdit(this, 1, 3, begy(), begx());
     ipconfigitemsgatewayset.m_NCursesLineEdit->setBackground(NcursesUtil::getInstance()->edit_attr());
-    ipconfigitemsgatewayset.m_ErrorinfoLabel = new NcursesLabel(this, 1, width() /2, begy(), begx());
+    ipconfigitemsgatewayset.m_ErrorinfoLabel = new NcursesLabel(this, 1, 3, begy(), begx());
     ipconfigitemsgatewayset.m_ErrorinfoLabel->setBackground(NcursesUtil::getInstance()->error_attr());
     ipconfigitemsgatewayset.m_ErrorinfoLabel->setFocusEnabled(false);
     NetwrokFrameItem ipconfigitemsprimarydnsset;
-    ipconfigitemsprimarydnsset.m_NcursesLabel = new NcursesLabel(this, 1, width() /2, begy(), begx());
+    ipconfigitemsprimarydnsset.m_NcursesLabel = new NcursesLabel(this, 1, 15, begy(), begx());
     ipconfigitemsprimarydnsset.m_NcursesLabel->setFocusEnabled(false);
     ipconfigitemsprimarydnsset.m_NCursesLineEdit = new NCursesLineEdit(this, 1, 3, begy(), begx());
     ipconfigitemsprimarydnsset.m_NCursesLineEdit->setBackground(NcursesUtil::getInstance()->edit_attr());
-    ipconfigitemsprimarydnsset.m_ErrorinfoLabel = new NcursesLabel(this, 1, width() /2, begy(), begx());
+    ipconfigitemsprimarydnsset.m_ErrorinfoLabel = new NcursesLabel(this, 1, 3, begy(), begx());
     ipconfigitemsprimarydnsset.m_ErrorinfoLabel->setBackground(NcursesUtil::getInstance()->error_attr());
     ipconfigitemsprimarydnsset.m_ErrorinfoLabel->setFocusEnabled(false);
 
@@ -181,6 +201,8 @@ void NetwrokFramePrivate::updateTs()
     m_ipconfigitems.at(3).m_NcursesLabel->setText(QObject::tr("Primary DNS:"));
 
     FrameInterfacePrivate::updateTs();
+
+    layout();
 }
 
 void NetwrokFramePrivate::show()
@@ -202,7 +224,7 @@ void NetwrokFramePrivate::hide()
 
 bool NetwrokFramePrivate::validate()
 {
-    m_currentchoicetype = -1;
+    m_currentchoicetype = 0;
     m_currentlineeditindex = 0;
     return true;
 }
@@ -253,32 +275,74 @@ void NetwrokFramePrivate::initIPConfig()
 
 bool NetwrokFramePrivate::writeInfoList()
 {
-    bool isallinputok = true;
-    if(m_dhcpType == DHCPTYpe::Manual) {
+    if (m_currentchoicetype == 0) {
+        return true;
+    } else if (m_currentchoicetype == 1) {
+        bool isallinputok = true;
         for(int i = 0; i < m_ipconfigitems.size(); i++) {
             if(m_ipconfigitems.at(i).m_IsOK == false) {
                 isallinputok = false;
                 break;
             }
         }
+
+        if(isallinputok) {
+            NetworkSettingInfo networkSettingInfo;
+            networkSettingInfo.ip         = m_ipconfigitems.at(0).m_NCursesLineEdit->text();
+            networkSettingInfo.mask       = m_ipconfigitems.at(1).m_NCursesLineEdit->text();
+            networkSettingInfo.gateway    = m_ipconfigitems.at(2).m_NCursesLineEdit->text();
+            networkSettingInfo.primaryDNS = m_ipconfigitems.at(3).m_NCursesLineEdit->text();
+            networkSettingInfo.setIpMode  = m_dhcpType;
+
+            NetworkOperate testNetworkOperate(m_ipv4Device);
+            testNetworkOperate.setIpV4(networkSettingInfo);
+
+
+            const auto interfaces = QNetworkInterface::allInterfaces();
+            QNetworkInterface interface;
+            for (const QNetworkInterface i : interfaces) {
+                // FIXME: name == lo
+                if (i.name() != "lo") {
+                    interface = i;
+                    break;
+                }
+            }
+
+            qDebug() << QProcess::execute("nmcli", QStringList() << "con"
+                                          << "add"
+                                          << "type"
+                                          << "ethernet"
+                                          << "con-name"
+                                          << QString("\"%1-lab\"").arg(interface.name())
+                                          << "ifname"
+                                          << interface.name()
+                                          << "ip4"
+                                          << QString("%1/%2").arg(networkSettingInfo.ip).arg(coverMask(networkSettingInfo.mask))
+                                          << "gw4"
+                                          << networkSettingInfo.gateway
+                                          );
+
+            qDebug() << QProcess::execute("nmcli", QStringList() << "con"
+                                          << "mod"
+                                          << QString("\"%1-lab\"").arg(interface.name())
+                                          << "ipv4.dns"
+                                          << QString("%1 %2").arg(networkSettingInfo.primaryDNS, ""));
+
+            qDebug() << QProcess::execute("nmcli", QStringList() << "con"
+                                          << "up"
+                                          << QString("\"%1-lab\"").arg(interface.name())
+                                          << "ifname"
+                                          << interface.name());
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    /*if(m_dhcpType == DHCPTYpe::Manual) {
     } else if(m_dhcpType == DHCPTYpe::Auto) {
-        isallinputok = true;
-    }
-
-    if(isallinputok) {
-        NetworkSettingInfo networkSettingInfo;
-        networkSettingInfo.ip         = m_ipconfigitems.at(0).m_NCursesLineEdit->text();
-        networkSettingInfo.mask       = m_ipconfigitems.at(1).m_NCursesLineEdit->text();
-        networkSettingInfo.gateway    = m_ipconfigitems.at(2).m_NCursesLineEdit->text();
-        networkSettingInfo.primaryDNS = m_ipconfigitems.at(3).m_NCursesLineEdit->text();
-        networkSettingInfo.setIpMode  = m_dhcpType;
-
-        NetworkOperate testNetworkOperate(m_ipv4Device);
-        testNetworkOperate.setIpV4(networkSettingInfo);
-        return true;
-    } else {
-        return false;
-    }
+    }*/
 }
 
 void NetwrokFramePrivate::updateChoiceType(int type)
@@ -301,15 +365,15 @@ void NetwrokFramePrivate::updateChoiceType(int type)
             m_operationchoice.at(i).m_NcursesLabel->hide();
         }
 
-        int testcurrx = m_ipconfigitems.at(3).m_NcursesLabel->text().length();
+        int testcurrx = m_ipconfigitems.at(3).m_NcursesLabel->width();
         for(int i = 0; i < m_ipconfigitems.size(); i++) {
             m_ipconfigitems.at(i).m_NcursesLabel->mvwin(m_ipconfigitems.at(i).m_begy, m_ipconfigitems.at(i).m_begx);
             m_ipconfigitems.at(i).m_NcursesLabel->show();
             m_ipconfigitems.at(i).m_NcursesLabel->refresh();
-            m_ipconfigitems.at(i).m_NCursesLineEdit->mvwin(m_ipconfigitems.at(i).m_begy, m_ipconfigitems.at(i).m_begx + testcurrx + 2);
+            m_ipconfigitems.at(i).m_NCursesLineEdit->mvwin(m_ipconfigitems.at(i).m_begy, m_ipconfigitems.at(i).m_begx + testcurrx + 1);
             m_ipconfigitems.at(i).m_NCursesLineEdit->show();
             m_ipconfigitems.at(i).m_NCursesLineEdit->refresh();
-            m_ipconfigitems.at(i).m_ErrorinfoLabel->mvwin(m_ipconfigitems.at(i).m_begy + 1, m_ipconfigitems.at(i).m_begx + testcurrx + 2);
+            m_ipconfigitems.at(i).m_ErrorinfoLabel->mvwin(m_ipconfigitems.at(i).m_begy + 1, m_ipconfigitems.at(i).m_begx + testcurrx + 1);
             m_ipconfigitems.at(i).m_ErrorinfoLabel->show();
             m_ipconfigitems.at(i).m_ErrorinfoLabel->refresh();
         }
@@ -451,7 +515,7 @@ void NetwrokFramePrivate::onKeyPress(int keyCode)
 
 void NetwrokFramePrivate::resetValue()
 {
-    m_currentchoicetype = -1;
+    m_currentchoicetype = 0;
 }
 
 void NetwrokFramePrivate::manualConfigure()
@@ -627,7 +691,7 @@ void NetwrokFramePrivate::slot_EidtTextChange(const QString &text)
 
 void NetwrokFramePrivate::layout()
 {
-    updateTs();
+    //updateTs();
     int testcurry = begy() + m_titledesbrower->height() + 6;
     int testcurrx = width() / 2 - m_operationchoice.at(0).m_NcursesLabel->text().length() / 2;
 
@@ -637,16 +701,16 @@ void NetwrokFramePrivate::layout()
         m_operationchoice.at(i).m_NcursesLabel->mvwin(m_operationchoice.at(i).m_begy, m_operationchoice.at(i).m_begx);
     }
 
-    testcurrx = m_ipconfigitems.at(3).m_NcursesLabel->text().length();
-    int edittorisize = width() / 2 - m_ipconfigitems.at(3).m_NcursesLabel->text().length() - 2;
+    testcurrx = m_ipconfigitems.at(3).m_NcursesLabel->width();
+    int edittorisize = width() / 2 - testcurrx - 2;
     for(int i = 0; i < m_ipconfigitems.size(); i++) {
         m_ipconfigitems[i].m_begy = testcurry + i;
         m_ipconfigitems[i].m_begx = begx() + width() / 2 - (testcurrx + edittorisize) / 2;
         m_ipconfigitems.at(i).m_NcursesLabel->mvwin(m_ipconfigitems.at(i).m_begy, m_ipconfigitems.at(i).m_begx);
         m_ipconfigitems.at(i).m_NCursesLineEdit->wresize(1, edittorisize);
-        m_ipconfigitems.at(i).m_NCursesLineEdit->mvwin(m_ipconfigitems.at(i).m_begy, m_ipconfigitems.at(i).m_begx + testcurrx + 3);
+        m_ipconfigitems.at(i).m_NCursesLineEdit->mvwin(m_ipconfigitems.at(i).m_begy, m_ipconfigitems.at(i).m_begx + testcurrx + 1);
         m_ipconfigitems.at(i).m_ErrorinfoLabel->wresize(1, width() - testcurrx - 2 - width() / 2 + (testcurrx + edittorisize) / 2);
-        m_ipconfigitems.at(i).m_ErrorinfoLabel->mvwin(m_ipconfigitems.at(i).m_begy + 1, m_ipconfigitems.at(i).m_begx + testcurrx + 2);
+        m_ipconfigitems.at(i).m_ErrorinfoLabel->mvwin(m_ipconfigitems.at(i).m_begy + 1, m_ipconfigitems.at(i).m_begx + testcurrx + 1);
         testcurry++;
     }
 }

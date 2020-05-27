@@ -101,9 +101,11 @@ void InstallComponentFramePrivate::updateTs()
     m_firstSubTiltleLabel->setText(testfirststr.toUtf8().data());
     m_secondSubTiltleLabel->setText(testsecondstr.toUtf8().data());
 
+    initInfoList();
+
     FrameInterfacePrivate::updateTs();
 
-    initInfoList();
+    layout();
 }
 
 void InstallComponentFramePrivate::initConnection()
@@ -293,14 +295,15 @@ void InstallComponentFramePrivate::layout()
 {
     m_tiltleLabel->mvwin(begy() + 2,  begx() + (width() / 2) - (m_tiltleLabel->width() / 2));
     m_firstSubTiltleLabel->mvwin(begy() + 5, begx() + 2 + ((width() / 2 - 2) / 2) - m_firstSubTiltleLabel->width() / 2);
-    m_secondSubTiltleLabel->mvwin(begy() + 5, begx() + width() / 2 + (width() / 2 - 2) / 2 - m_secondSubTiltleLabel->width() / 2);
+    m_secondSubTiltleLabel->mvwin(begy() + 5, begx() + 2 + ((width() / 2 - 2) / 2) - m_secondSubTiltleLabel->width() / 2 + width() / 2);
 
-    /*m_basicenvironmentlist->show();
-    m_extrachoiceslist->show();
+    m_tiltleLabel->show();
+    m_firstSubTiltleLabel->show();
+    m_secondSubTiltleLabel->show();
 
-    m_basicenvironmentlist->refresh();
-    m_extrachoiceslist->refresh();
-    this->refresh();*/
+    m_tiltleLabel->refresh();
+    m_firstSubTiltleLabel->refresh();
+    m_secondSubTiltleLabel->refresh();
 }
 
 ComponentFrame::ComponentFrame(FrameInterface *parent)
