@@ -168,9 +168,8 @@ void NetwrokFramePrivate::updateTs()
         m_operationchoice.at(i).m_NcursesLabel->erase();
     }
 
-    for (auto it = m_trList.begin(); it != m_trList.end(); ++it) {
-        it->first(it->second.toUtf8());
-    }
+    m_operationchoice.at(0).m_NcursesLabel->setText(QObject::tr("Network manual set"));
+    m_operationchoice.at(1).m_NcursesLabel->setText(QObject::tr("Network not set now"));
 
     for(int i = 0; i < m_ipconfigitems.size(); i++) {
         m_ipconfigitems.at(i).m_NcursesLabel->erase();
