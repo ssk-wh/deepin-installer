@@ -136,6 +136,7 @@ void NCursesWindowBase::updateFoucs(bool foucs)
 
     if (old != m_foucs) {
         emit selectionChanged();
+        m_foucs ? Q_EMIT inFoucs() : Q_EMIT outFoucs();
     }
 }
 

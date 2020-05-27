@@ -14,11 +14,11 @@ bool SystemInfoFramePrivate::validate()
     try {
         QString msg;
         do {
-            if (!validateHostname(msg)) {
+            if (!validateUsername(msg)) {
                 break;
             }
 
-            if (!validateUsername(msg)) {
+            if (!validateHostname(msg)) {
                 break;
             }
 
@@ -28,22 +28,14 @@ bool SystemInfoFramePrivate::validate()
             else if (!validatePassword2(m_le_password, m_le_password_confirm, msg)) {
                 break;
             }
-            m_label_error_info->setText("");
+            showError(QString());
 
             writeConf();
 
             return true;
         } while (false);
 
-        m_label_error_info->setText(msg);
-        if (msg.length() > width() - 2) {
-            m_label_error_info->resize(msg.length() / (width() -2) + 1, width() -2);
-            m_label_error_info->mvwin(m_label_error_info->begy(), begx() + 1);
-        } else {
-            m_label_error_info->adjustSizeByContext();
-            m_label_error_info->mvwin(m_label_error_info->begy(), begx() + (width() - m_label_error_info->width()) / 2);
-        }
-        m_label_error_info->show();
+        showError(msg);
         return false;
 
 
@@ -250,7 +242,28 @@ bool SystemInfoFramePrivate::validatePassword2(NCursesLineEdit *passwordEdit, NC
      }
      else {
         return true;
-     }
+    }
+}
+
+bool SystemInfoFramePrivate::showError(const QString &msg)
+{
+    if (msg.isEmpty()) {
+        m_label_error_info->setText(msg);
+    }
+    if (m_label_error_info->text().isEmpty()) {
+        m_label_error_info->setText(msg);
+        if (msg.length() > width() - 2) {
+            m_label_error_info->resize(msg.length() / (width() -2) + 1, width() -2);
+            m_label_error_info->mvwin(m_label_error_info->begy(), begx() + 1);
+        } else {
+            m_label_error_info->adjustSizeByContext();
+            m_label_error_info->mvwin(m_label_error_info->begy(), begx() + (width() - m_label_error_info->width()) / 2);
+        }
+    } else {
+        m_label_error_info->setText(m_label_error_info->text());
+    }
+
+    m_label_error_info->show();
 }
 
 SystemInfoFramePrivate::SystemInfoFramePrivate(SystemInfoFrame *parent, int lines, int cols, int beginY, int beginX):
@@ -380,7 +393,44 @@ void SystemInfoFramePrivate::initConnection()
     connect(m_le_password, &NCursesLineEdit::textChanged, q, &SystemInfoFrame::userPassword);
     connect(m_le_hostname, &NCursesLineEdit::editChanged, this, [=]{m_isHostEdited = true;});
 
+    connect(m_le_username, &NCursesLineEdit::outFoucs, [this]{
+        QString msg;
+        if (!validateUsername(msg)){
+            showError(msg);
+        } else {
+            showError(QString());
+        }
+    });
+
+    connect(m_le_hostname, &NCursesLineEdit::outFoucs, [this]{
+        QString msg;
+        if (!validateHostname(msg)){
+            showError(msg);
+        } else {
+            showError(QString());
+        }
+    });
+
+    connect(m_le_password, &NCursesLineEdit::outFoucs, [this]{
+        QString msg;
+        if (!validatePassword(m_le_password, msg)){
+            showError(msg);
+        } else {
+            showError(QString());
+        }
+    });
+
+    connect(m_le_password_confirm, &NCursesLineEdit::outFoucs, [this]{
+        QString msg;
+        if (!validatePassword2(m_le_password, m_le_password_confirm, msg)){
+            showError(msg);
+        } else {
+            showError(QString());
+        }
+    });
+
 #ifdef QT_DEBUG
+    connect(m_le_username, &NCursesWindowBase::outFoucs, [this]{qDebug() << "outFoucs test";});
     connect(m_NcursesCheckBox, &NcursesCheckBox::signal_SelectChange, this, [=]{qDebug() << "select change";});
     connect(q, &SystemInfoFrame::createRoot, this, [=]{qDebug() << "create user:";});
     connect(m_le_username, &NCursesLineEdit::textChanged, this, [=](const QString &name){

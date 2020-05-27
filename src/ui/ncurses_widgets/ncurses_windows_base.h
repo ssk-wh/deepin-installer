@@ -50,6 +50,8 @@ signals:
     void selectionChanged();
     void enter();
     void esc();
+    void outFoucs();
+    void inFoucs();
 
 protected:
     void addFoucsWindows(NCursesWindowBase* childWindows);

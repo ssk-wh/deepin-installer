@@ -37,6 +37,18 @@ QString installer::NCursesLineEdit::text() const
     return m_text;
 }
 
+void installer::NCursesLineEdit::setFocus(bool foucs)
+{
+    if (foucs) {
+        m_isFinished = true;
+    }
+    if (m_isFinished && !foucs) {
+        Q_EMIT editingFinished();
+    }
+
+    return NCursesWindowBase::setFocus(foucs);
+}
+
 void installer::NCursesLineEdit::onKeyPress(int keyCode)
 {
     qDebug() << "keyCode = " << keyCode;
