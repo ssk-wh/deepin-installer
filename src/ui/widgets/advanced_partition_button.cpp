@@ -209,7 +209,7 @@ void AdvancedPartitionButton::paintEvent(QPaintEvent *event)
 
 void AdvancedPartitionButton::initConnections() {
   connect(control_button_, &QPushButton::clicked,
-          this, &AdvancedPartitionButton::onControlButtonClicked);
+          this, &AdvancedPartitionButton::onControlButtonClicked, Qt::QueuedConnection);
   connect(this, &QPushButton::toggled,
           this, &AdvancedPartitionButton::onToggled);
 }
