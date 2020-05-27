@@ -34,6 +34,7 @@ Build-Depends:
     libdtkgui-dev,
     libkf5networkmanagerqt-dev,
     fbterm,
+    kbd,
     libncurses-dev,
     libncursesw5-dev
 Standards-Version: 3.9.8
@@ -73,6 +74,7 @@ Depends:
     deepin-clone,
     cryptsetup,
     lvm2,
+    kbd,
     fbterm,
     dde-account-faces,
     dde-qt5integration,

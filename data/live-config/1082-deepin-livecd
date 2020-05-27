@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Copyright (C) 2017 ~ 2018 Deepin Technology Co., Ltd.
 #
@@ -31,7 +31,7 @@ EOF
 # Parse live config cmdline to check whether in live mode.
 parse_cmdline () {
   # Reading kernel command line
-  for _PARAMETER in ${LIVE_CONFIG_CMDLINE}; do
+  for _PARAMETER in $(cat /proc/cmdline); do
     case "${_PARAMETER}" in
       live-config.livecd-installer|livecd-installer)
         LIVE_MODE=true

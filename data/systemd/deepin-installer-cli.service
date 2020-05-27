@@ -1,13 +1,12 @@
 [Unit]
 Description=Launch installer in normal mode
-After=getty@tty2.service
 
 [Service]
 Type=simple
 ExecStart=/usr/bin/fbterm /usr/bin/deepin-installer-cli
-StandardInput=tty
+StandardInput=tty-force
 TTYPath=/dev/tty2
-TTYReset=no
+TTYReset=yes
 TTYVHangup=yes
-Restart=always
+
 

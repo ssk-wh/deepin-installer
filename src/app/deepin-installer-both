@@ -24,7 +24,7 @@ parse_cmdline() {
     case $x in
       install-mode-cli=true)
         echo $x
-        cli_mode=true   
+        cli_mode=true
         ;;
       esac
   done
@@ -33,9 +33,11 @@ parse_cmdline() {
 
 parse_cmdline
 if [ x"$cli_mode" = xtrue ]; then
-    systemctl restart deepin-installer-cli.service
+    systemctl stop lightdm
+    chvt 2
+    systemctl restart deepin-installer-cli
 else
-    sh /usr/lib/live/config/1082-deepin-livecd true
-    systemctl restart lightdm.service
+    /usr/lib/live/config/1082-deepin-livecd true
+    systemctl restart lightdm
 fi 
 
