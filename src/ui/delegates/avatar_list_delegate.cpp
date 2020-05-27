@@ -20,6 +20,7 @@
 #include <QDebug>
 #include <QPainter>
 #include <QStyle>
+#include <QPainterPath>
 
 namespace installer {
 

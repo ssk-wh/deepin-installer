@@ -19,8 +19,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <DSysInfo>
-
 #include "ui/frames/language_frame.h"
 #include "ui/frames/inner/select_language_frame.h"
 #include "ui/frames/inner/user_agreement_frame.h"
@@ -29,9 +27,15 @@
 #include "service/settings_name.h"
 #include "ui/interfaces/frameinterfaceprivate.h"
 
-DCORE_USE_NAMESPACE
-
 namespace installer {
+
+#ifdef PROFESSIONAL
+const QString zh_CN_license { ":/license/deepin-end-user-license-agreement_zh_CN.txt" };
+const QString en_US_license{ ":/license/deepin-end-user-license-agreement_en_US.txt" };
+#else
+const QString zh_CN_license { ":/license/deepin-end-user-license-agreement_community_zh_CN.txt" };
+const QString en_US_license{ ":/license/deepin-end-user-license-agreement_community_en_US.txt" };
+#endif  // PROFESSIONAL
 
 class LanguageFramePrivate : public FrameInterfacePrivate
 {

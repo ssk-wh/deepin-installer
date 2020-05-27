@@ -24,6 +24,7 @@
 #include <QPainter>
 #include <QStringListModel>
 #include <QHBoxLayout>
+#include <QPainterPath>
 
 #include "base/file_util.h"
 #include "ui/delegates/popup_menu_delegate.h"

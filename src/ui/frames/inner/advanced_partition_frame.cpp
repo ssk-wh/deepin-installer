@@ -26,6 +26,7 @@
 #include <QTimer>
 #include <DFrame>
 #include <DPalette>
+#include <QCheckBox>
 
 #include "base/file_util.h"
 #include "service/settings_manager.h"

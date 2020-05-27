@@ -96,13 +96,13 @@ public:
     }
 
     void initDateTime();
-    bool isLeapYear(uint year);
-    uint getDaysInMonth(uint year, uint month);
-    bool validateHour(const QString& str);
-    bool validateMinute(const QString& str);
-    bool validateYear(const QString& str);
-    bool validateMonth(const QString& str);
-    bool validateDay(const QString& str);
+    bool isLeapYear(uint year) const;
+    uint getDaysInMonth(uint year, uint month) const;
+    bool validateHour(const QString& str) const;
+    bool validateMinute(const QString& str) const;
+    bool validateYear(const QString& str) const;
+    bool validateMonth(const QString& str) const;
+    bool validateDay(const QString& str) const;
 
     void onYearEditingFinished();
     void onMonthEditingFinished();
@@ -149,9 +149,9 @@ bool SystemDateFrame::event(QEvent *event)
     return QWidget::event(event);
 }
 
-bool SystemDateFrame::validateTimeDate()
+bool SystemDateFrame::validateTimeDate() const
 {
-    Q_D(SystemDateFrame);
+    Q_D(const SystemDateFrame);
 
     if(!d->validateHour(d->m_hourEdit->text())){
         return false;
@@ -257,12 +257,12 @@ void SystemDateFramePrivate::autoAdjustDay()
     }
 }
 
-bool SystemDateFramePrivate::isLeapYear(uint year)
+bool SystemDateFramePrivate::isLeapYear(uint year) const
 {
     return (year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0));
 }
 
-uint SystemDateFramePrivate::getDaysInMonth(uint year, uint month)
+uint SystemDateFramePrivate::getDaysInMonth(uint year, uint month) const
 {
     Q_ASSERT(year >= 1970);
     Q_ASSERT((month >= 1) && (month <= 12));
@@ -286,7 +286,7 @@ uint SystemDateFramePrivate::getDaysInMonth(uint year, uint month)
     }
 }
 
-bool SystemDateFramePrivate::validateHour(const QString &str)
+bool SystemDateFramePrivate::validateHour(const QString &str) const
 {
     if(str.isEmpty()){
         return false;
@@ -299,7 +299,7 @@ bool SystemDateFramePrivate::validateHour(const QString &str)
     return true;
 }
 
-bool SystemDateFramePrivate::validateMinute(const QString &str)
+bool SystemDateFramePrivate::validateMinute(const QString &str) const
 {
     if(str.isEmpty()){
         return false;
@@ -312,7 +312,7 @@ bool SystemDateFramePrivate::validateMinute(const QString &str)
     return true;
 }
 
-bool SystemDateFramePrivate::validateYear(const QString& str)
+bool SystemDateFramePrivate::validateYear(const QString& str) const
 {
     if(str.isEmpty()){
         return false;
@@ -329,7 +329,7 @@ bool SystemDateFramePrivate::validateYear(const QString& str)
     return true;
 }
 
-bool SystemDateFramePrivate::validateMonth(const QString& str)
+bool SystemDateFramePrivate::validateMonth(const QString& str) const
 {
     if(str.isEmpty()){
         return false;
@@ -343,7 +343,7 @@ bool SystemDateFramePrivate::validateMonth(const QString& str)
     return true;
 }
 
-bool SystemDateFramePrivate::validateDay(const QString& str)
+bool SystemDateFramePrivate::validateDay(const QString& str) const
 {
     if(str.isEmpty()){
         return false;
@@ -377,7 +377,7 @@ void SystemDateFrame::timeDateSetFinished()
     WriteIsLocalTimeForce(true);
 #endif
 
-    emit m_ptr->finished();
+    emit finished();
 }
 
 void SystemDateFramePrivate::initUI()

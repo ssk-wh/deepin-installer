@@ -19,6 +19,7 @@
 #include <DVerticalLine>
 #include <QPainter>
 #include <QTimer>
+#include <QMouseEvent>
 
 namespace  {
     const int kBottomSpacing = 60;

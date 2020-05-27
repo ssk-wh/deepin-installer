@@ -26,6 +26,7 @@
 
 #include <QVBoxLayout>
 #include <QPainter>
+#include <QPainterPath>
 
 namespace installer {
 

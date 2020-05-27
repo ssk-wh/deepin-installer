@@ -29,6 +29,7 @@
 #include <QAbstractButton>
 #include <QProcess>
 #include <QScopedPointer>
+#include <DButtonBox>
 
 #include "partman/os_prober.h"
 #include "service/settings_manager.h"
@@ -198,7 +199,7 @@ void TimezoneFrame::finished() {
     m_private->timezone_ = kDefaultTimezone;
   }
 
-  WriteTimezone(timezone_);
+  WriteTimezone(m_private->timezone_);
   WriteIsLocalTime(true);
   WriteIsLocalTimeForce(true);
 
@@ -214,13 +215,13 @@ void TimezoneFrame::finished() {
   process->start("timedatectl", {"set-local-rtc", localRtc});
   process->waitForFinished();
 
-  process->start("timedatectl", {"set-timezone", timezone_});
+  process->start("timedatectl", {"set-timezone", m_private->timezone_});
   process->waitForFinished();
 
   process->start("timedatectl", {"set-ntp", "false"});
   process->waitForFinished();
 
-  process->start("timedatectl", {"set-time", m_systemDateFrame->timedate()});
+  process->start("timedatectl", {"set-time", m_private->m_systemDateFrame->timedate()});
   process->waitForFinished();
 }
 

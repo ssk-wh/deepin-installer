@@ -42,6 +42,7 @@
 #include <ddiskmanager.h>
 #include <dblockdevice.h>
 #include <ddiskdevice.h>
+#include <QPainterPath>
 
 using namespace installer;
 

@@ -33,6 +33,7 @@
 
 #include <DListView>
 #include <DStandardItem>
+#include <DSysInfo>
 
 #include "base/file_util.h"
 #include "base/translator.h"

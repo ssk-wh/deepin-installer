@@ -23,6 +23,7 @@
 #include <QLineEdit>
 #include <QSlider>
 #include <QPainter>
+#include <QPainterPath>
 
 #include "base/file_util.h"
 #include "partman/structs.h"

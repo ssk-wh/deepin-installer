@@ -48,6 +48,7 @@
 #include <DLineEdit>
 #include <DPasswordEdit>
 #include <QAction>
+#include <QDBusInterface>
 
 DWIDGET_USE_NAMESPACE
 
@@ -936,7 +937,7 @@ bool SystemInfoFormFramePrivate::searchDevice() {
 void SystemInfoFormFramePrivate::updateDevice() {
     if (searchDevice()) {
        tooltip_->setText(tr("Your PC supports fingerprint identification, so you can add fingerprint password in Control Center > Account, and then use the fingerprint to unlock and authenticate"));
-       tooltip_->showBottom(m_passwordEdit_);
+       tooltip_->showBottom(m_passwordEdit);
     }
 }
 

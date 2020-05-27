@@ -29,6 +29,8 @@
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QPainter>
+#include <DSysInfo>
+#include <QPainterPath>
 
 DCORE_USE_NAMESPACE
 

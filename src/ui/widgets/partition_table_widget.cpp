@@ -3,6 +3,7 @@
 #include <QStyleOption>
 #include <QPainter>
 #include <QEvent>
+#include <QPainterPath>
 
 namespace installer {
 

@@ -30,6 +30,8 @@
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QPainter>
+#include <DSysInfo>
+#include <QPainterPath>
 
 DCORE_USE_NAMESPACE
 
@@ -70,7 +72,7 @@ void VirtualMachineFrame::changeEvent(QEvent* event) {
     m_private->comment_label_->setText(
         tr("You are using a virtual machine which will affect system performance and user experience. "
            "To get a smoother experience, please install %1 in a real environment").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")));
-    next_button_->setText(tr("Continue"));
+    m_private->nextButton->setText(tr("Continue"));
   } else {
     FrameInterface::changeEvent(event);
   }

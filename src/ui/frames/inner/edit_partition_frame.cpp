@@ -24,6 +24,7 @@
 #include <QLabel>
 #include <QPainter>
 #include <DHorizontalLine>
+#include <QPainterPath>
 
 #include "base/file_util.h"
 #include "service/settings_manager.h"

@@ -19,6 +19,7 @@
 
 #include <QPainter>
 #include <QPaintEvent>
+#include <QPainterPath>
 
 #include "base/file_util.h"
 

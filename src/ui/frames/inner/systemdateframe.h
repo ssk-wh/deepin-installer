@@ -37,6 +37,9 @@ public:
 
     QString timedate() const;
 
+    bool validateTimeDate() const;
+    void timeDateSetFinished();
+
 signals:
     void finished();
     void cancel();

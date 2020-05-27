@@ -84,7 +84,7 @@ void ShowFullscreen(QWidget* widget) {
   // NOTE(xushaohua): If geometry of primary screen changes too fast, this
   // function may return false screen geometry.
   const QRect rect = qApp->desktop()->screenGeometry();
-  ShowFullscreen(widget, rect);
+  ShowFullscreen(widget, rect, widget->devicePixelRatioF());
 #ifdef QT_DEBUG_test
   widget->setFixedSize(800, 600);
 #else

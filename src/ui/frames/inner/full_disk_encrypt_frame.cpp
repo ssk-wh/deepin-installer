@@ -21,6 +21,7 @@
 #include <QEvent>
 #include <QPushButton>
 #include <QPainter>
+#include <QPainterPath>
 
 #define NEXTBTN_WIDTH 240
 #define NEXTBTN_HEIGHT 36

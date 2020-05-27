@@ -26,6 +26,7 @@
 #include <QPushButton>
 #include <QGraphicsDropShadowEffect>
 #include <QPainter>
+#include <QPainterPath>
 
 #include "base/file_util.h"
 #include "service/settings_manager.h"

@@ -26,6 +26,7 @@
 #include <QValidator>
 #include <QPainter>
 #include <QApplication>
+#include <QPainterPath>
 
 namespace installer {
 

@@ -20,6 +20,7 @@
 #include <QEvent>
 #include <QHBoxLayout>
 #include <QPainter>
+#include <QPainterPath>
 
 #include "ui/frames/consts.h"
 #include "ui/models/bootloader_list_model.h"

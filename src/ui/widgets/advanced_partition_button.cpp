@@ -22,6 +22,7 @@
 #include <QStyle>
 #include <QPainter>
 #include <QApplication>
+#include <QPainterPath>
 
 #include "base/file_util.h"
 #include "ui/delegates/partition_util.h"

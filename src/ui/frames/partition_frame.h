@@ -86,7 +86,6 @@ class PartitionFrame : public FrameInterface {
  public slots:
   // Notify delegate to scan devices.
   void scanDevices() const;
-  void onAutoInstallPrepareFinished(bool finished);
 
  protected:
   void changeEvent(QEvent* event) override;

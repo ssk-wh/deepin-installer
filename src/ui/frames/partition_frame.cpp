@@ -456,31 +456,6 @@ void PartitionFramePrivate::initUI() {
       partition_stacked_layout_->setCurrentWidget(advanced_partition_frame_);
   }
 
-  // NOTE(justforlxz): 0是简单分区，1是手动分区，2是全盘分区
-  switch (GetSettingsInt(kPartitionDefaultButton)) {
-      case 0:
-          if (GetSettingsBool(kPartitionSkipSimplePartitionPage)) {
-              simple_partition_frame_->show();
-              simple_frame_button_->show();
-          }
-          simple_frame_button_->setChecked(true);
-          partition_stacked_layout_->setCurrentWidget(simple_partition_frame_);
-          break;
-      case 1:
-          advanced_frame_button_->setChecked(true);
-          partition_stacked_layout_->setCurrentWidget(advanced_partition_frame_);
-          break;
-      case 2:
-          if (GetSettingsBool(kPartitionSkipFullDiskPartitionPage)) {
-              full_disk_partition_frame_->show();
-              full_disk_frame_button_->show();
-          }
-          full_disk_frame_button_->setChecked(true);
-          partition_stacked_layout_->setCurrentWidget(full_disk_partition_frame_);
-          break;
-      default: break;
-  }
-
   QHBoxLayout* partition_stacked_wrapper_layout = new QHBoxLayout();
   partition_stacked_wrapper_layout->setContentsMargins(0, 0, 0, 0);
   partition_stacked_wrapper_layout->setSpacing(0);
@@ -488,7 +463,7 @@ void PartitionFramePrivate::initUI() {
 
   // and advanced partition page.
   nextButton->setText(tr("Start installation"));
-  next_layout = new QHBoxLayout();  
+  next_layout = new QHBoxLayout();
   next_layout->setContentsMargins(0, 0, 0, 0);
   next_layout->addWidget(nextButton);
 
@@ -627,7 +602,7 @@ void PartitionFramePrivate::onNextButtonClicked() {
     dynamic_disk_warning_frame_->setDevice(device);
     showDynamicDiskFrame();
     return;
-  } 
+  }
 
     showPrepareInstallFrame();
 
@@ -651,12 +626,12 @@ void PartitionFramePrivate::onManualPartDone(bool ok, const DeviceList& devices)
       simple_partition_delegate_->onManualPartDone(devices);
     } else if (isFullDiskPartitionMode()) {
       full_disk_delegate_->onManualPartDone(devices);
-    } else if (Install_Lvm_Status::Lvm_Format_Pv == AdvancedPartitionDelegate::install_Lvm_Status) {        
+    } else if (Install_Lvm_Status::Lvm_Format_Pv == AdvancedPartitionDelegate::install_Lvm_Status) {
         lvm_delegate_->onLvmPartDone(ok,devices);
         m_buttonGroup->setVisible(false);
         partition_stacked_layout_->setCurrentWidget(lvm_partition_frame_);
         main_layout_->setCurrentWidget(main_frame_);
-        title_label_->setText(tr("Lvm configer"));        
+        title_label_->setText(tr("Lvm configer"));
         return ;
     } else if (Install_Lvm_Status::Lvm_Install == AdvancedPartitionDelegate::install_Lvm_Status) {
         lvm_delegate_->onManualPartDone(devices);

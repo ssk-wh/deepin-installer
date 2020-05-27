@@ -40,6 +40,7 @@
 #include <DFrame>
 
 DWIDGET_USE_NAMESPACE
+DCORE_USE_NAMESPACE
 
 namespace {
     const int kTitleCommentWidth = 384;
@@ -71,24 +72,20 @@ void PartitionTableWarningFrame::changeEvent(QEvent* event) {
     comment_label_->setText(
         tr("You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. "
            "Please select one of the below solutions and continue.").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")));
-    list_title1_->setText(QString("A.%1").arg(tr("Disable UEFI")));
-    list_item1_->setText(
-        QString("1.%1\n2.%2")
-            .arg(tr("Reboot, enter BIOS, and disable UEFI"))
-            .arg(tr("Exit BIOS, and install %1 again").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS"))));
-    list_title2_->setText(QString("B.%1").arg(tr("Format the disk")));
-    list_item2_->setText(
-        QString("1.%1\n2.%2")
-            .arg(tr("Make a backup of all your data to avoid data loss"))
-            .arg(tr("After the backup, reboot and enter this interface again")));
-    list_title3_->setText(tr("C.%1").arg(tr("Continue")));
-    list_item3_->setText(
-        QString("1.%1\n2.%2")
-            .arg(tr("Make sure you have backed up all data before proceeding"))
-            .arg(tr("Continuing installation will format your disk")));
-    reject_button_->setText(tr("Reboot"));
-    accept_button_->setText(tr("Continue"));
-    cancel_button_->setText(tr("Next"));
+    m_warningWidget1->setTitle(QString("%1").arg(tr("Disable UEFI")));
+    m_warningWidget1->setDesc(QString("1.%1\n2.%2")
+                              .arg(tr("Reboot, enter BIOS, and disable UEFI"))
+                              .arg(tr("Exit BIOS, and install UOS again")));
+    m_warningWidget2->setTitle(QString("%1").arg(tr("Continue")));
+    m_warningWidget2->setDesc(QString("1.%1\n2.%2")
+                              .arg(tr("Make sure you have backed up all data before proceeding"))
+                              .arg(tr("Continuing installation will format your disk")));
+    m_warningWidget3->setTitle(QString("%1").arg(tr("Cancel")));
+    m_warningWidget3->setDesc(QString("1.%1")
+                              .arg(tr("Nothing to do")));
+
+    next_button_->setText(tr("Next"));
+    m_buttonBox->hide();
   } else {
     QFrame::changeEvent(event);
   }
@@ -124,75 +121,23 @@ void PartitionTableWarningFrame::initUI() {
   title_layout->addStretch();
 
   comment_label_ = new CommentLabel(
-      tr("You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. "
-         "Please select one of the below solutions and continue.").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")));
-  QHBoxLayout* comment_layout = new QHBoxLayout();
-  comment_layout->setContentsMargins(0, 0, 0, 0);
-  comment_layout->setSpacing(0);
-  comment_layout->addWidget(comment_label_);
+      tr("You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. "
+         "Please select one of the below solutions and continue."));
+  comment_label_->setFixedWidth(kTitleCommentWidth);
+  comment_label_->setWordWrap(true);
+  comment_label_->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
-  QHBoxLayout* listTitleLayouA_ = new QHBoxLayout;
-  list_title1_ = new QLabel(QString("A.%1").arg(tr("Disable UEFI")), this);
-  list_title1_->setObjectName("list_title1");
-  listTitleLayouA_->addSpacing(15);
-  listTitleLayouA_->addWidget(list_title1_);
+  m_warningWidget1 = new PartitionTableWarningWidget;
+  m_warningWidget1->setTitle(QString("%1").arg(tr("Disable UEFI")));
+  m_warningWidget1->setDesc(QString("1.%1\n2.%2")
+                            .arg(tr("Reboot, enter BIOS, and disable UEFI"))
+                            .arg(tr("Exit BIOS, and install UOS again")));
 
-  list_item1_ = new QLabel(
-      QString("1.%1\n2.%2")
-          .arg(tr("Reboot, enter BIOS, and disable UEFI"))
-          .arg(tr("Exit BIOS, and install %1 again").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS"))),
-      this);
-  list_item1_->setObjectName("list_item1");
-  list_item1_->setWordWrap(true);
-
-  QHBoxLayout* listTitleLayouB_ = new QHBoxLayout;
-  list_title2_ = new QLabel(QString("B.%1").arg(tr("Format the disk")), this);
-  list_title2_->setObjectName("list_title2");
-  listTitleLayouB_->addSpacing(15);
-  listTitleLayouB_->addWidget(list_title2_);
-  list_item2_ = new QLabel(
-      QString("1.%1\n2.%2")
-          .arg(tr("Make a backup of all your data to avoid data loss"))
-          .arg(tr("After the backup, reboot and enter this interface again")),
-          this);
-  list_item2_->setObjectName("list_item2");
-  list_item2_->setWordWrap(true);
-  QVBoxLayout* left_frame_layout = new QVBoxLayout();
-  left_frame_layout->setContentsMargins(20, 20, 20, 20);
-  left_frame_layout->setSpacing(0);
-  left_frame_layout->addLayout(listTitleLayouA_);
-  left_frame_layout->addWidget(list_item1_);
-  left_frame_layout->addStretch();
-  left_frame_layout->addSpacing(20);
-  left_frame_layout->addLayout(listTitleLayouB_);
-  left_frame_layout->addWidget(list_item2_);
-  left_frame_layout->addStretch();
-  DFrame* left_frame = new DFrame();
-  left_frame->setObjectName("left_frame");
-  left_frame->setLayout(left_frame_layout);
-
-  QHBoxLayout* listTitleLayou3_ = new QHBoxLayout;
-  list_title3_ = new QLabel(tr("Continue"), this);
-  list_title3_->setObjectName("list_title3");
-  listTitleLayou3_->addSpacing(15);
-  listTitleLayou3_->addWidget(list_title3_);
-  list_item3_ = new QLabel(
-      QString("1.%1\n2.%2")
-          .arg(tr("Please make sure all data were made a backup, "
-                  "then continue"))
-          .arg(tr("Continuing installation will format your disk")),
-          this);
-  list_item3_->setObjectName("list_item3");
-  list_item3_->setWordWrap(true);
-  QVBoxLayout* right_frame_layout = new QVBoxLayout();
-  right_frame_layout->setContentsMargins(20, 20, 20, 20);
-  right_frame_layout->setSpacing(0);
-  right_frame_layout->addLayout(listTitleLayou3_);
-  right_frame_layout->addWidget(list_item3_);
-  right_frame_layout->addStretch();
-  DFrame* right_frame = new DFrame();
-  right_frame->setObjectName("right_frame");
-  right_frame->setLayout(right_frame_layout);
+  m_warningWidget2 = new PartitionTableWarningWidget;
+  m_warningWidget2->setTitle(QString("%1").arg(tr("Continue")));
+  m_warningWidget2->setDesc(QString("1.%1\n2.%2")
+                            .arg(tr("Make sure you have backed up all data before proceeding"))
+                            .arg(tr("Continuing installation will format your disk")));
 
   m_warningWidget3 = new PartitionTableWarningWidget;
   m_warningWidget3->setTitle(QString("%1").arg(tr("Cancel")));

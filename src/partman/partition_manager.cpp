@@ -215,7 +215,7 @@ void PartitionManager::doManualPart(const OperationList& operations) {
   qDebug() << Q_FUNC_INFO << "\n" << "operations:" << operations;
   bool ok = true;
   bool isLvm2Pv = false;
-  bool islvm = false; 
+  bool islvm = false;
   // Copy operation list, as partition path will be updated in applyToDisk().
   OperationList real_operations(operations);
   PartitionList lvmpv_PartitionList;
@@ -247,7 +247,7 @@ void PartitionManager::doManualPart(const OperationList& operations) {
   qDebug() << Q_FUNC_INFO << "\n" << "real operations:" << real_operations;
 
   DeviceList devices;
-  if (!islvm && isLvm2Pv) {     
+  if (!islvm && isLvm2Pv) {
       devices = ScanVgDevices(lvmpv_PartitionList);
       emit this->manualPartDone(ok, devices);
       return ;
@@ -267,7 +267,7 @@ void PartitionManager::doManualPart(const OperationList& operations) {
   }
 
   if (ok) {
-    devices = ScanDevices(false);    
+    devices = ScanDevices(false);
     if (islvm && !isLvm2Pv) {
         devices.append(real_operations.back()->device);
         VgDevice::p_installer_VgDevice->enableVG(true);
@@ -751,8 +751,4 @@ Device::Ptr constructDevice3(int deviceNum)
 
     return Device::Ptr(device);
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> aa0fefbe... feat: add device info for debug partition frame
 }  // namespace installer
