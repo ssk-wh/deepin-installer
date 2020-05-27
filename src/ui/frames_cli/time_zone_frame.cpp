@@ -6,6 +6,9 @@
 
 namespace installer {
 
+const char kCliContinentDefault[] = "Asia";
+const char kCliTimezoneDefault[] = "Shanghai";
+
 TimeZoneFramePrivate::TimeZoneFramePrivate(TimeZoneFrame *parent, int lines, int cols, int beginY, int beginX)
     : FrameInterfacePrivate(nullptr, lines, cols, beginY, beginX),
       q_ptr(qobject_cast<TimeZoneFrame*>(parent)),
@@ -42,6 +45,8 @@ void TimeZoneFramePrivate::initUI()
 
 void TimeZoneFramePrivate::updateTs()
 {
+    Q_Q(TimeZoneFrame);
+
     box(ACS_VLINE, ACS_HLINE);
     m_title = QObject::tr("select timezone");
     setTitle(m_title);
@@ -124,13 +129,27 @@ QString TimeZoneFrame::getFrameName()
 
 void TimeZoneFrame::readConf()
 {
+    Q_D(TimeZoneFrame);
 //    m_timezone = GetSettingsString(kTimezoneDefault);
 //    m_timezone = parseTimezoneAlias(m_timezone);
     m_allTimeZone = GetContinentZoneInfo();
 
     QString locale = ReadLocale();
     updateContinentData(locale);
+
+    d->m_currentContinentIndex = m_currentContinentList.indexOf(kCliContinentDefault);
+    if (d->m_currentContinentIndex == -1) {
+        d->m_currentContinentIndex = 0;
+    }
+    d->m_continentView->setCurrentIndex(d->m_currentContinentIndex);
+
     updateTimezoneData();
+
+    d->m_currentTimezoneIndex = m_currentTimeZoneList.indexOf(kCliTimezoneDefault);
+    if (d->m_currentTimezoneIndex == -1) {
+        d->m_currentTimezoneIndex = 0;
+    }
+    d->m_timeZoneView->setCurrentIndex(d->m_currentTimezoneIndex);
 }
 
 void TimeZoneFrame::writeConf()
