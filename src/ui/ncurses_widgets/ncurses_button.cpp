@@ -1,4 +1,5 @@
 #include "ncurses_button.h"
+#include "service/settings_manager.h"
 
 namespace installer {
 
@@ -21,7 +22,11 @@ void NcursesButton::show()
         //box('|', '-');
     }
 
-    move(height() / 2 , (width() - m_text.length()) / 2);
+    if (installer::ReadLocale() == "zh_CN") {
+        move(height() / 2 , (width() - m_text.length() * 2) / 2);
+    } else {
+        move(height() / 2 , (width() - m_text.length()) / 2);
+    }
     attron(m_foucs ? NcursesUtil::getInstance()->button_label_active_attr() : NcursesUtil::getInstance()->button_active_attr());
     addstr(m_text.toUtf8().data());
     NCursesWindowBase::show();

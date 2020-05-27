@@ -52,6 +52,8 @@ private:
     NcursesLabel* m_instructionsLabel = nullptr;
     NcursesListView* m_layoutView = nullptr;
     NcursesListView* m_variantView = nullptr;
+
+    QString m_localeString = "";
 };
 
 

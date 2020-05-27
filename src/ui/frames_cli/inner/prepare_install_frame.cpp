@@ -55,16 +55,17 @@ PrepareInstallFrame::PrepareInstallFrame(NCursesWindowBase *parent, int lines, i
 
 void PrepareInstallFrame::show()
 {
-    //if(!m_isshow){
+    if(!m_isshow){
         NCursesWindowBase::show();
         m_isshow = true;
-    //}
+        operations_box_->clearFoucs();
+    }
 }
 
 void PrepareInstallFrame::hide()
 {
     NCursesWindowBase::hide();
-    m_isshow = true;
+    m_isshow = false;
 }
 
 
@@ -93,16 +94,13 @@ void PrepareInstallFrame::initUI() {
   operations_box_ = new NcursesListView(this, height() - 10, 80, begy(), begx());
   //QStringList opt(delegate_->getOptDescriptions());
   operations_box_->setList(m_optDescriptions);
-  operations_box_->setFocus(true);
+  operations_box_->setFocusEnabled(false);
 
   QString strBack = tr("Back");
   QString strContinue = tr("Continue");
-  int buttonHeight = 3;
-  int buttonWidth = std::max(strBack.length(), strContinue.length()) + 4;
-  int buttonDistanceDelta = 2 * buttonWidth;
 
-  cancel_button_ = new NcursesButton(this, strBack, buttonHeight, 14, begy() + height() - buttonHeight - 2, begx() + 5);
-  create_button_ = new NcursesButton(this, strContinue, buttonHeight, 14, begy() + height() - buttonHeight - 2, begx() + width() - buttonWidth - 13);
+  cancel_button_ = new NcursesButton(this, strBack, 3, 14, begy() + height() - 5, begx() + 5);
+  create_button_ = new NcursesButton(this, strContinue, 3, 14, begy() + height() - 5, begx() + width() - 20);
 
   cancel_button_->drawShadow(true);
   create_button_->drawShadow(true);
@@ -141,13 +139,15 @@ void PrepareInstallFrame::layout()
     //create_button_->adjustSizeByContext();
     //create_button_->mvwin(begy() + height() -3 , begx() + (width() - m_titleLabel_->width()) / 2 + 20);
 
-    NCursesWindowBase::show();
+    //NCursesWindowBase::show();
 }
 
 void PrepareInstallFrame::onKeyPress(int keycode)
 {
-    switch (keycode) {
-        case KEY_TAB:
+    /*switch (keycode) {
+        case KEY_TAB: break;
+        case KEY_RIGHT:
+        case KEY_LEFT:
         QVector<NCursesWindowBase* > showChild;
         for(NCursesWindowBase* child : m_showChild) {
             if(!child->hidden()) {
@@ -178,7 +178,7 @@ void PrepareInstallFrame::onKeyPress(int keycode)
             }
         }
         break;
-    }
+    }*/
 }
 
 void PrepareInstallFrame::keyPresseEvent(int keycode)

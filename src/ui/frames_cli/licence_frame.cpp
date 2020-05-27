@@ -42,11 +42,12 @@ void LicenceFramePrivate::initUI()
 
     m_ncursesTextBrower = new NcursesTextBrower(this, height() - 11, width() - 5, begy() + 2, begx() + 1);
 
-    m_NcursesCheckBox = new NcursesCheckBox(this, 1, (width() - 5) / 2, begy(), begx());
+    QString checkboxtext = "I have read the licence and agree";
+    m_NcursesCheckBox = new NcursesCheckBox(this, 1, checkboxtext.length() + 5, begy() + height() - 7, begx() + (width() - checkboxtext.length()) / 2);
     m_NcursesCheckBox->setIsUseTitle(false);
 
-    QString errorinfo = QObject::tr("Please allow the licence at first ");
-    m_errorInfoLabel = new NcursesLabel(this, errorinfo, 1, (width() - 5) / 2, begy(), begx());
+    QString errorinfo = "Please allow the licence at first ";
+    m_errorInfoLabel = new NcursesLabel(this, errorinfo, 1, errorinfo.length(), begy() + height() - 5, begx() + (width() - errorinfo.length()) / 2);
     m_errorInfoLabel->setFocusEnabled(false);
     m_errorInfoLabel->setBackground(NcursesUtil::getInstance()->error_attr());
     m_errorInfoLabel->hide();
@@ -122,10 +123,7 @@ void LicenceFramePrivate::updateTs()
 
 void LicenceFramePrivate::layout()
 {
-    m_NcursesCheckBox->moveWindowTo(begy() + height() - 7, begx() + (width() - 5) / 2 - m_NcursesCheckBox->text().length() / 2);
     m_ncursesTextBrower->setFocus(true);
-    m_errorInfoLabel->adjustSizeByContext();
-    m_errorInfoLabel->mvwin(begy() + height() - 5, begx() + (width() - 5) / 2 - m_errorInfoLabel->text().length() / 2);
 }
 
 

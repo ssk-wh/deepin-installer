@@ -33,14 +33,9 @@ public:
         QString strNext = QObject::tr("next");
         QString strBack = QObject::tr("back");
 
-        int buttonHeight = 3;
-        int buttonWidth = std::max(strNext.length(), strBack.length()) + 4;
-        int buttonDistanceDelta = 2 * buttonWidth;
-
         /*m_pNextButton = new NcursesButton(this, strNext, buttonHeight,
                                         buttonWidth, begy() + height() - buttonHeight - 2, begx() + width() / 2 + buttonDistanceDelta);*/
-        m_pNextButton = new NcursesButton(this, strNext, buttonHeight,
-                                        buttonWidth, begy() + height() - buttonHeight - 2, begx() + width() - buttonWidth - 13);
+        m_pNextButton = new NcursesButton(this, strNext, 3, 14, begy() + height() - 5, begx() + width() - 20);
 
         m_pNextButton->drawShadow(true);
         m_pNextButton->box();
@@ -57,8 +52,7 @@ public:
                                           buttonWidth, begy() + height() - buttonHeight - 2, begx() + width() / 2 - buttonDistanceDelta - buttonWidth);*/
 
         if (canBack()) {
-            m_pBackButton = new NcursesButton(this, strBack, buttonHeight,
-                                                      buttonWidth, begy() + height() - buttonHeight - 2, begx() + 5);
+            m_pBackButton = new NcursesButton(this, strBack, 3, 14, begy() + height() - 5, begx() + 5);
             m_pBackButton->drawShadow(true);
             m_pBackButton->box();
             m_pBackButton->setObjectName(strBack);
@@ -121,7 +115,7 @@ public:
 
         if (m_pBackButton != nullptr) {
             m_pBackButton->erase();
-            m_pBackButton->resizew(buttonHeight, buttonWidth);
+            //m_pBackButton->resizew(buttonHeight, buttonWidth);
             m_pBackButton->resetBackground();
             m_pBackButton->box(ACS_VLINE,ACS_HLINE);
             m_pBackButton->setText(strBack);
@@ -130,7 +124,7 @@ public:
 
         if (m_pNextButton != nullptr) {
             m_pNextButton->erase();
-            m_pNextButton->resizew(buttonHeight, buttonWidth);
+            //m_pNextButton->resizew(buttonHeight, buttonWidth);
             m_pNextButton->resetBackground();
             m_pNextButton->box(ACS_VLINE,ACS_HLINE);
             m_pNextButton->setText(strNext);

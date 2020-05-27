@@ -12,12 +12,12 @@ InstallSuccessFramePrivate::InstallSuccessFramePrivate(NCursesWindowBase *parent
       m_installresultTextBrower(nullptr),
       m_isshow(false),
       m_installSuccessTitle(QObject::tr("Install sucess")),
-      m_installSuccessInfoTitle(QObject::tr("Successfully Installed")),
-      m_installSuccessInfoDes(QObject::tr("Please remove the installation media before reboot")),
-      m_installSuccessInfoTodo(QObject::tr("Reboot to complete the installation")),
+      m_installSuccessInfoTitle(QObject::tr("[Done]")),
+      m_installSuccessInfoDes(QObject::tr("[Successfully Installed]")),
+      m_installSuccessInfoTodo(QObject::tr("[Clik the button below and then remove the installation media immediately]")),
       m_installFailedTitle(QObject::tr("Install failed")),
-      m_installFailedInfoTitle(QObject::tr("Installation Failed")),
-      m_installFailedInfoDes(QObject::tr("Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue."))
+      m_installFailedInfoTitle(QObject::tr("[Installation Failed]")),
+      m_installFailedInfoDes(QObject::tr("[Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue]"))
 {
     initUI();
     initConnection();
@@ -41,7 +41,7 @@ void InstallSuccessFramePrivate::initUI()
     m_installresultTextBrower->setBackground(this->background());
 
     //QString strBack = QObject::tr("back");
-    QString strNext = QObject::tr("experience immediately");
+    QString strNext = QObject::tr("Reboot Now");
 
     int buttonHeight = 3;
     int buttonWidth = strNext.length() + 4;//std::max(strNext.length(), strBack.length()) + 4;
@@ -57,14 +57,14 @@ void InstallSuccessFramePrivate::updateTs()
 {
     box(ACS_VLINE, ACS_HLINE);
     m_installSuccessTitle     = QObject::tr("Install sucess");
-    m_installSuccessInfoTitle = QObject::tr("Successfully Installed");
-    m_installSuccessInfoDes   = QObject::tr("Please remove the installation media before reboot");
-    m_installSuccessInfoTodo  = QObject::tr("Reboot to complete the installation");
+    m_installSuccessInfoTitle = QObject::tr("[Done]");
+    m_installSuccessInfoDes   = QObject::tr("[Successfully Installed]");
+    m_installSuccessInfoTodo  = QObject::tr("[Clik the button below and then remove the installation media immediately]");
     m_installFailedTitle      = QObject::tr("Install failed");
-    m_installFailedInfoTitle  = QObject::tr("Installation Failed");
-    m_installFailedInfoDes    = QObject::tr("Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.");
+    m_installFailedInfoTitle  = QObject::tr("[Installation Failed]");
+    m_installFailedInfoDes    = QObject::tr("[Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue]");
 
-    bool testissuccess = GetSettingsBool("DI_INSTALL_SUCCESSED");
+    bool testissuccess = !GetSettingsBool("DI_INSTALL_SUCCESSED");
 
     if(testissuccess) {
        printTitle(m_installSuccessTitle, width());
@@ -73,23 +73,17 @@ void InstallSuccessFramePrivate::updateTs()
        m_installresultTextBrower->appendItemText(m_installSuccessInfoDes);
        m_installresultTextBrower->appendItemText(m_installSuccessInfoTodo);
 
-       QString strNext = QObject::tr("experience immediately");
-       int buttonWidth = strNext.length() + 4;//std::max(strNext.length(), strBack.length()) + 4;
-       m_pNextButton->setText(strNext);
-
     } else {
        m_installresultTextBrower->clearText();
        printTitle(m_installFailedTitle, width());
        m_installresultTextBrower->appendItemText(m_installFailedInfoTitle);
        m_installresultTextBrower->appendItemText(m_installFailedInfoDes);
-
-       QString strNext = QObject::tr("reboot now");
-       int buttonWidth = strNext.length() + 4;//std::max(strNext.length(), strBack.length()) + 4;
-       m_pNextButton->setText(strNext);
     }
 
+    QString strNext = QObject::tr("Reboot Now");
+    m_pNextButton->setText(strNext);
+
     layout();
-    //FrameInterfacePrivate::updateTs();
 }
 
 void InstallSuccessFramePrivate::initConnection()
@@ -144,7 +138,7 @@ void InstallSuccessFramePrivate::layout()
     m_pNextButton->resetBackground();
     m_pNextButton->box(ACS_VLINE,ACS_HLINE);
     m_pNextButton->setText(strNext);
-    m_pNextButton->mvwin(begy() + height() - buttonHeight - 2, begx() + (width() - buttonWidth) / 2);
+    //_pNextButton->mvwin(begy() + height() - buttonHeight - 2, begx() + (width() - buttonWidth) / 2);
     m_pNextButton->show();
 
     m_installresultTextBrower->show();

@@ -62,14 +62,19 @@ void NcursesCheckBox::setText(const QString &title, const QString &text, bool is
     }
     int testbrowerwidth = width() - testframestr.length();
 
+    int browerwidthtest = testbrowerwidth;
+    if(iswchar) {
+        browerwidthtest = browerwidthtest / 2;
+    }
+
     if(m_isusetitle) {
-        int testlines_1 = title.length() / testbrowerwidth;
-        if((title.length() % testbrowerwidth) > 0){
+        int testlines_1 = title.length() / browerwidthtest;
+        if((title.length() % browerwidthtest) > 0){
             testlines_1++;
         }
 
-        int testlines_2 = text.length() / testbrowerwidth;
-        if((text.length() % testbrowerwidth) > 0) {
+        int testlines_2 = text.length() / browerwidthtest;
+        if((text.length() % browerwidthtest) > 0) {
             testlines_2++;
         }
         m_strheight = testlines_1 + testlines_2;
@@ -88,7 +93,7 @@ void NcursesCheckBox::setText(const QString &title, const QString &text, bool is
     } else {
         int testlines = 0;
         testlines = text.length() / testbrowerwidth;
-        if((text.length() % testbrowerwidth) > 0) {
+        if((text.length() % browerwidthtest) > 0) {
             testlines++;
         }
         m_strheight = testlines;

@@ -220,21 +220,21 @@ bool MainWindow::init()
         connect(m_languageFrame, &LanguageFrame::languageChanged, this, &MainWindow::slot_languageChange);
         addChildFrame(m_languageFrame);
 
-        m_licenceFrame = new LicenceFrame(this);
-        m_licenceFrame->hide();
-        addChildFrame(m_licenceFrame);
+        //m_licenceFrame = new LicenceFrame(this);
+        //m_licenceFrame->hide();
+        //addChildFrame(m_licenceFrame);
 
-        m_keyboardFrame = new KeyboardFrame(this);
-        m_keyboardFrame->hide();
-        addChildFrame(m_keyboardFrame);
+        //m_keyboardFrame = new KeyboardFrame(this);
+        //m_keyboardFrame->hide();
+        //addChildFrame(m_keyboardFrame);
 
-        m_networkFrame = new NetwrokFrame(this);
-        m_networkFrame->hide();
-        addChildFrame(m_networkFrame);
+        //m_networkFrame = new NetwrokFrame(this);
+        //m_networkFrame->hide();
+        //addChildFrame(m_networkFrame);
 
-        m_timeZoneFrame = new TimeZoneFrame(this);
-        m_timeZoneFrame->hide();
-        addChildFrame(m_timeZoneFrame);
+        //m_timeZoneFrame = new TimeZoneFrame(this);
+        //m_timeZoneFrame->hide();
+        //addChildFrame(m_timeZoneFrame);
 
         m_componentFrame = new ComponentFrame(this);
         m_componentFrame->hide();

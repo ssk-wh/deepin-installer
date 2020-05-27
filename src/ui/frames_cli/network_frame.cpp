@@ -123,18 +123,12 @@ void NetwrokFramePrivate::initUI()
     QString strBack = QObject::tr("back");
     QString strNext = QObject::tr("next");
 
-    int buttonHeight = 3;
-    int buttonWidth = std::max(strNext.length(), strBack.length()) + 4;
-    int buttonDistanceDelta = 2 * buttonWidth;
-
-    m_pBackButton = new NcursesButton(this, strBack, buttonHeight,
-                                      buttonWidth, begy() + height() - buttonHeight - 2, begx() + 5);
+    m_pBackButton = new NcursesButton(this, strBack, 3, 14, begy() + height() - 5, begx() + 5);
     m_pBackButton->drawShadow(true);
     m_pBackButton->box();
     m_pBackButton->setObjectName(strBack);
 
-    m_pNextButton = new NcursesButton(this, strNext, buttonHeight,
-                                    buttonWidth, begy() + height() - buttonHeight - 2, begx() + width() - buttonWidth - 13);
+    m_pNextButton = new NcursesButton(this, strNext, 3, 14, begy() + height() - 5, begx() + width() - 20);
     m_pNextButton->drawShadow(true);
     m_pNextButton->box();
     m_pNextButton->setObjectName(strNext);
@@ -195,6 +189,7 @@ void NetwrokFramePrivate::show()
     if(!m_isshow){
         NCursesWindowBase::show();
         m_isshow = true;
+        m_pNextButton->setFocus(true);
     }
     m_titledesbrower->show();
     updateChoiceType(m_currentchoicetype);

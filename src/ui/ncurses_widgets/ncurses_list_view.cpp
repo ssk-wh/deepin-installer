@@ -207,5 +207,12 @@ int NcursesListView::size()
     return m_list.size();
 }
 
+void NcursesListView::clearFoucs()
+{
+    for (int i = 0; i < m_childWindows.size(); i++) {
+        m_childWindows[i]->setFocus(false);
+    }
+}
+
 
 }

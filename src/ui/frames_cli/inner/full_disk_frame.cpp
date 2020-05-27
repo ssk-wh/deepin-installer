@@ -29,26 +29,33 @@ void FullDiskFramePrivate::initUI()
         m_pBackButton->drawShadow(true);
         m_pBackButton->box();
         m_pBackButton->setObjectName(strBack);
+        m_pBackButton->hide();
 
         m_pNextButton = new NcursesButton(this, strNext, buttonHeight,
                                         buttonWidth, begy() + height() - buttonHeight - 2, begx() + width() - buttonWidth - 13);
         m_pNextButton->drawShadow(true);
         m_pNextButton->box();
         m_pNextButton->setObjectName(strNext);
+        m_pNextButton->hide();
 
 
         m_label_title = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_title->setFocusEnabled(false);
+        m_label_title->hide();
 
         m_label_systemdisk = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_systemdisk->setFocusEnabled(false);
+        m_label_systemdisk->hide();
 
         m_systemdisklist = new NcursesListView(this, (height() - 10) / 2, width() / 2, begy() + 2, begx() + width() / 4);
+        m_systemdisklist->hide();
 
         m_label_datadisk = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_datadisk->setFocusEnabled(false);
+        m_label_datadisk->hide();
 
         m_datadisklist = new NcursesListView(this, (height() - 10) / 2, width() / 2, begy() + 2, begx() + width() / 4);
+        m_datadisklist->hide();
 
     } catch (NCursesException& e) {
         qCritical() << QString(e.message);
@@ -104,6 +111,7 @@ void FullDiskFramePrivate::show()
     if(!m_isshow) {
         NCursesWindowBase::show();
         m_isshow = true;
+        m_pNextButton->setFocus(true);
     }
 }
 
@@ -128,6 +136,11 @@ void FullDiskFramePrivate::setSystemDiskList(QStringList &info)
     m_deviceList.clear();
     m_deviceList = info;
     m_systemdisklist->setList(info);
+    systemDisklistSelectChanged(0);
+
+    if (m_isshow) {
+        showListView();
+    }
 }
 
 void FullDiskFramePrivate::setDataDiskList(QStringList &info)
@@ -180,7 +193,10 @@ void FullDiskFramePrivate::systemDisklistSelectChanged(int index)
 
         if( datadisklist.size() > 0) {
             m_datadisklist->setList(datadisklist);
-            m_datadisklist->show();
+            if (m_isshow) {
+                m_datadisklist->show();
+            }
+
         }
     }
 }
@@ -210,11 +226,7 @@ FullDiskFrame::FullDiskFrame(FrameInterface* parent, PartitionModel* model)
         parent->hideAllChild();
         parent->show();
     });
-    /*connect(d, &FullDiskFramePrivate::allIsFinished, [parent](){
-        parent->setFrameState(FRAME_STATE_RUNNING);
-        emit parent->getPrivate()->next();
-    });
-    connect(d, &FullDiskFramePrivate::allIsFinished, this, &FullDiskFrame::doFullDiskPartition);*/
+
     connect(d, &FullDiskFramePrivate::allIsFinished, [parent, this](){
         parent->setFrameState(FRAME_STATE_RUNNING);
         emit parent->getPrivate()->next();
@@ -357,8 +369,6 @@ void FullDiskFrame::onDeviceRefreshed(const DeviceList& devices)
         listtestpath.append(GetDeviceModelCapAndPath(device));
     }
     d->setSystemDiskList(listtestpath);
-    //d->setDataDiskList(listtestpath);
-    d->showListView();
 }
 
 void FullDiskFrame::doBackBtnClicked()

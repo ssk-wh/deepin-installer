@@ -101,6 +101,7 @@ void AdvancedPartitionFramePrivate::show()
     if(!m_isshow) {
         NCursesWindowBase::show();
         m_isshow = true;
+        m_pNextButton->setFocus(true);
     }
 }
 

@@ -7,6 +7,10 @@ namespace installer {
 
 void KeyboardFramePrivate::updateTs()
 {
+    if (!m_localeString.compare(installer::ReadLocale())) {
+        return;
+    }
+    m_localeString = installer::ReadLocale();
     box(ACS_VLINE,ACS_HLINE);
     m_titleLabel->setText(tr("Select keyboard layout"));
     m_instructionsLabel->setText(tr("Select a proper keyboard layout:"));
