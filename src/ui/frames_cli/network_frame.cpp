@@ -57,7 +57,7 @@ void NetwrokFramePrivate::initUI()
     m_networkconfigtypelabel = new NcursesLabel(this, m_networkconfigtypestr, 1, m_networkconfigtypestr.length() + 2, begy() + 6, begx() + 1);
     m_networkconfigtypelabel->setFocusEnabled(false);
 
-    m_childpagecounttext = new NcursesLabel(this, " [1/2] ", 1, width() - 2 - m_networkconfigtypelabel->width(), begy() + 6, begx() + 1 + m_networkconfigtypelabel->width());
+    m_childpagecounttext = new NcursesLabel(this, " [1/1] ", 1, width() - 2 - m_networkconfigtypelabel->width(), begy() + 6, begx() + 1 + m_networkconfigtypelabel->width());
     m_childpagecounttext->setFocusEnabled(false);
 
 //    NetwrokFrameItem operationchoiceautoset;
@@ -156,12 +156,12 @@ void NetwrokFramePrivate::updateTs()
     m_networkconfigtypelabel->show();
     if(m_currentchoicetype == 0) {
         if(m_operationchoice.at(0).m_NcursesLabel->isOnFoucs()) {
-            m_childpagecounttext->setText(" [1/2] ");
+            m_childpagecounttext->setText(" [1/1] ");
         } else {
             m_childpagecounttext->setText("");
         }
     } else if(m_currentchoicetype == 1) {
-        m_childpagecounttext->setText(" [2/2] ");
+        m_childpagecounttext->setText(" [1/1] ");
     }
 
     for(int i = 0; i < m_operationchoice.size(); i++) {
@@ -468,7 +468,7 @@ void NetwrokFramePrivate::AutoConfigure()
 void NetwrokFramePrivate::doBackBtnClicked()
 {
     if(m_currentchoicetype == 1) {
-        m_childpagecounttext->setText(" [1/2] ");
+        m_childpagecounttext->setText(" [1/1] ");
         m_childpagecounttext->show();
         updateChoiceType(0);
         setFocusEnableType(0);
