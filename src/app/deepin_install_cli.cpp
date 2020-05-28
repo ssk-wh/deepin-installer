@@ -33,7 +33,7 @@ using namespace installer;
 
 int main(int argc, char* argv[])
 {
-    signal(SIGINT, SIG_IGN);
+    //signal(SIGINT, SIG_IGN);
     // Reset LC_ALL to en_US.UTF-8.
     // NOTE(xushaohua): "LANG" might not set in some live environment.
     qputenv("LC_ALL", installer::kDefaultLang);
