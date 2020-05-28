@@ -86,10 +86,7 @@ const char kSystemInfoDefaultKeyboardLayoutVariant[] =
 const char kSystemInfoDisableKeyboardPage[] =
     "system_info_disable_keyboard_page";
 const char kSystemInfoDisableLicense[] = "system_info_disable_license";
-<<<<<<< HEAD
 const char kSystemInfoDisableExperience[] = "system_info_disable_experience";
-=======
->>>>>>> meger form dev_guonafu
 
 // Timezone
 const char kTimezoneDefault[] = "timezone_default";

@@ -401,11 +401,7 @@ QString GetPartitionUsage(const Partition::Ptr partition) {
 }
 
 qreal GetPartitionUsageValue(const Partition::Ptr partition) {
-<<<<<<< HEAD
-    qreal ret = 0.0;
-=======
   qreal ret = 0.0;
->>>>>>> meger form dev_guonafu
   qreal total, used;
   if (partition->type != PartitionType::Unallocated && (partition->length > 0) && (partition->length >= partition->freespace)) {
     total = partition->length;

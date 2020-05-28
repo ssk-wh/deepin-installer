@@ -66,7 +66,6 @@ DiskSpaceInsufficientFrame::DiskSpaceInsufficientFrame(FrameProxyInterface* fram
   setObjectName("disk_space_insufficient_frame");
   setFrameType(FrameType::ExtFrame);
 
-<<<<<<< HEAD
   initUI();
   initConnections();
 }
