@@ -519,14 +519,10 @@ void SystemInfoFormFramePrivate::initUI()
     layout->addWidget(m_grubPasswordCheck_, 0, Qt::AlignHCenter);
 
     QFrame* content = new QFrame;
-    content->setAutoFillBackground(false);
-    content->setAttribute(Qt::WA_TranslucentBackground);
     content->setLayout(layout);
 
     QScrollArea* area = new QScrollArea(q);
     area->setWidget(content);
-    area->setAutoFillBackground(false);
-    area->viewport()->setAutoFillBackground(false);
     area->setWidgetResizable(true);
     area->setFrameStyle(QScrollArea::NoFrame);
     area->setFixedWidth(kMainWindowWidth);
