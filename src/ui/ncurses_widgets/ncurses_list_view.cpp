@@ -59,6 +59,7 @@ void NcursesListView::setCurrentIndex(int index)
     if (index < m_list.size()) {
         m_index = index / height();
         m_currLine = index % height();
+        m_currentIndex = index;
         //emit selectChanged(index);
     }
 
@@ -89,52 +90,22 @@ void NcursesListView::onKeyPress(int keyCode)
 
     switch (keyCode) {
         case KEY_UP:
-            if (m_index + m_currLine <= 0) {
-                break;
-            } else {
-                if (m_currLine <= 0) {
-                    m_currLine = height();
-                    if (m_index - height() >= 0) {
-                        m_index -= height();
-                    }
-                } else {
-                    m_currLine--;
-                }
-                //erase();
-                show();
-                if (m_currLine >= 0 && m_index + m_currLine < m_childWindows.size()) {
-                    emit selectChanged(m_index + m_currLine);
-                }
+            if (m_currentIndex > 0) {
+               m_currentIndex--;
+               show();
+               emit selectChanged(m_currentIndex);
             }
             break;
         case KEY_DOWN:
-            if (m_currLine + m_index >= m_childWindows.size() - 1) {
-                break;
-            }
-            if (m_currLine <= height() && m_currLine + m_index < m_childWindows.size()) {
-                if (m_currLine == height()) {
-                    m_currLine = 0;
-                    if (m_index < m_childWindows.size()) {
-                        int remainSize = m_childWindows.size() - m_index - 1;
-                        if (remainSize > height()) {
-                            m_index += height();
-                        } else {
-                            m_index += remainSize;
-                        }
-                    }
-                }
-                else {
-                     m_currLine++;
-                }
-            }
-            show();
-            if (m_index + m_currLine < m_childWindows.size()) {
-                emit selectChanged(m_index + m_currLine);
+            if (m_currentIndex < m_childWindows.size()-1) {
+               m_currentIndex++;
+               show();
+               emit selectChanged(m_currentIndex);
             }
 
             break;
         case KEY_ENTER_OTHER:
-            emit selectd(m_index + m_currLine);
+            emit selectd(m_currentIndex);
             break;
         default:
             break;
@@ -154,20 +125,12 @@ void NcursesListView::show()
         m_childWindows[i]->hide();
     }
 
-
-    int currY = 0;
-    for (int i = m_index; i < m_childWindows.size(); i++) {
-        if (currY > height()) {
-            break;
-        }
-
-        if (currY == m_currLine) {
-            m_childWindows[i]->setFocus(true);
-        }
-        m_childWindows[i]->adjustSizeByContext();
-        m_childWindows[i]->mvwin(begy() + currY, begx() + m_reserveX);
-        m_childWindows[i]->show();
-        currY++;
+    m_page = m_currentIndex / height();
+    for (int currY = 0; currY <= height() && currY + (m_page * height()) < m_childWindows.size(); currY++) {
+        m_childWindows[m_currentIndex]->setFocus(true);
+        m_childWindows[currY + (m_page * height())]->adjustSizeByContext();
+        m_childWindows[currY + (m_page * height())]->mvwin(begy() + currY, begx() + m_reserveX);
+        m_childWindows[currY + (m_page * height())]->show();
     }
 }
 

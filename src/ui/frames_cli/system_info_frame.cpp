@@ -245,7 +245,7 @@ bool SystemInfoFramePrivate::validatePassword2(NCursesLineEdit *passwordEdit, NC
     }
 }
 
-bool SystemInfoFramePrivate::showError(const QString &msg)
+void SystemInfoFramePrivate::showError(const QString &msg)
 {
     if (msg.isEmpty()) {
         m_label_error_info->setText(msg);

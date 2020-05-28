@@ -35,7 +35,7 @@ private:
     bool validateHostname(QString& msg);
     bool validatePassword(NCursesLineEdit *passwordEdit, QString& msg);
     bool validatePassword2(NCursesLineEdit* passwordEdit, NCursesLineEdit* passwordCheckEdit, QString& msg);
-    bool showError(const QString &msg);
+    void showError(const QString &msg);
 
 private:
     NcursesLabel* m_label_title = nullptr;

@@ -33,6 +33,8 @@ private:
     int m_currLine;
     int m_reserveX;
     int m_height;
+    int m_currentIndex = 0;
+    int m_page = 0;
 };
 
 
