@@ -44,6 +44,9 @@ bool installer::CreateRootUserFramePrivate::validate()
         if (!validatePassword2(m_rootPasswordLineEdit, m_passwordConfirmLineEdit, msg)) {
             break;
         }
+
+        writeConf();
+
         return true;
 
     } while (false);

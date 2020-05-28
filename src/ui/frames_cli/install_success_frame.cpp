@@ -64,7 +64,7 @@ void InstallSuccessFramePrivate::updateTs()
     m_installFailedInfoTitle  = QObject::tr("[Installation Failed]");
     m_installFailedInfoDes    = QObject::tr("[Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue]");
 
-    bool testissuccess = !GetSettingsBool("DI_INSTALL_SUCCESSED");
+    bool testissuccess = GetSettingsBool("DI_INSTALL_SUCCESSED");
 
     if(testissuccess) {
        printTitle(m_installSuccessTitle, width());
