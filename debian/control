@@ -39,6 +39,7 @@ Build-Depends:
     libncursesw5-dev
 Standards-Version: 3.9.8
 Homepage: http://www.deepin.org
+
 Package: deepin-installer-timezones
 Architecture: all
 Depends:
