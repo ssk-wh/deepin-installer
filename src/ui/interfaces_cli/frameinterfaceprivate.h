@@ -6,6 +6,7 @@
 #include "ui/ncurses_widgets/ncurses_button.h"
 #include "service/settings_manager.h"
 #include <QSharedPointer>
+#include <QTimer>
 
 namespace installer {
 
@@ -90,6 +91,18 @@ public:
                 switchChildWindowsFoucs();
                 show();
             break;
+            case KEY_ESC:
+               m_escCnt++;
+               QTimer::singleShot(100, this, [=]{
+                   if (m_escCnt == 1) {
+                       Q_EMIT back();
+                   } /*else if (m_escCnt == 2){
+                       exit(0);
+                   }*/
+
+                   m_escCnt = 0;
+               });
+            break;
             default:
                 foreach (NCursesWindowBase* childWindow, m_childWindows) {
                     if (childWindow->isOnFoucs()) {
@@ -153,6 +166,7 @@ signals:
 protected:
     NcursesButton* m_pNextButton = nullptr;
     NcursesButton* m_pBackButton = nullptr;
+    int m_escCnt = 0;
 };
 
 }
