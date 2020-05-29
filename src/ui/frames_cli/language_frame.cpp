@@ -65,6 +65,8 @@ void LanguageFramePrivate::initConnection()
         m_index = index;
         emit next();
     });
+
+    readConf();
 }
 
 bool LanguageFramePrivate::validate()
@@ -158,7 +160,6 @@ bool LanguageFrame::init()
 {
     Q_D(LanguageFrame);
     if (m_currState == FRAME_STATE_NOT_START) {
-        d->readConf();
         m_private->layout();
         m_currState = FRAME_STATE_RUNNING;
     }

@@ -33,6 +33,7 @@ public:
         return false;
     }
 
+    void update();
 
 signals:
     void languageChange();
@@ -62,6 +63,8 @@ public:
 public:
     bool init() override;
     QString getFrameName() override;
+
+    void update();
 
 signals:
     void languageChanged();

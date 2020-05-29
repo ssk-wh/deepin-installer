@@ -59,15 +59,18 @@ void NcursesListView::setCurrentIndex(int index)
     if (index < m_list.size()) {
         m_index = index / height();
         m_currLine = index % height();
-        m_currentIndex = index;
-        //emit selectChanged(index);
+
+        if (m_currentIndex != index) {
+            m_currentIndex = index;
+            emit selectChanged(index);
+        }
     }
 
 }
 
 int NcursesListView::getCurrentIndex()
 {
-    return m_index + m_currLine;
+    return m_currentIndex;
 }
 
 QString NcursesListView::getCurrenItem()
