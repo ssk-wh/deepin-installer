@@ -36,7 +36,7 @@ readonly GENFSTAB="${HOOKS_DIR}/after_chroot/genfstab"
 umount -v /target/media/cdrom
 "${GENFSTAB}" -p -U /target > /target/etc/fstab
 
-if [ x"$(installer_get DI_FULLDISK_MODE)" == xtrue ];then
+if [ -d /target/data/ ];then
   sed -i '$!N;/\n.*home/!P;D' /target/etc/fstab
   sed -i '/home/d' /target/etc/fstab
 
