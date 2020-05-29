@@ -67,11 +67,6 @@ int main(int argc, char *argv[])
   // Initialize log service.
   installer::RedirectLog(log_file);
 
-  DLogManager::registerConsoleAppender();
-  // Delete old settings file and generate a new one.
-  installer::DeleteConfigFile();
-  installer::AddConfigFile();
-
   QFont font(app.font());
   font.setFamily(installer::GetUIDefaultFont());
   app.setFont(font);
