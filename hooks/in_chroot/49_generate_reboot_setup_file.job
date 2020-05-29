@@ -56,10 +56,9 @@ if [ x$(installer_get "system_info_setup_after_reboot") = "xtrue" ]; then
 
   # See "setup_lightdm.job" for more info.
   if [ -f /lib/systemd/system/deepin-installer.target ]; then
-    systemctl set-default -f deepin-installer.target
-  else
-    prepare_lightdm_deepin_installer_mode
+    systemctl disable deepin-installer
   fi
+  prepare_lightdm_deepin_installer_mode
 fi
 
 return 0
