@@ -53,6 +53,9 @@ def generate_ts(ts_path, is_installer):
             "src/ui/models",
             "src/ui/views",
             "src/ui/widgets",
+            "src/ui/frames_cli",
+            "src/ui/models_cli",
+            "src/ui/ncurses_widgets",
             "src/base"
         )
     else:
@@ -66,18 +69,6 @@ def generate_ts(ts_path, is_installer):
         "-ts", ts_path,
         ))
     os.system(cmd)
-
-    lines = []
-    with open(ts_path) as fh:
-        for line in fh:
-            if "<name>" in line and \
-                    "installer:" not in line and \
-                    "QObject" not in line:
-                line = line.replace("<name>", "<name>installer::")
-            lines.append(line)
-    with open(ts_path, "w") as fh:
-        for line in lines:
-            fh.write(line)
 
 def main():
     # Make sure that PWD is root of source repo.
