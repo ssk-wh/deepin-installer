@@ -35,6 +35,8 @@ bool SpawnCmd(const QString& cmd, const QStringList& args);
 bool SpawnCmd(const QString& cmd, const QStringList& args, QString& output);
 bool SpawnCmd(const QString& cmd, const QStringList& args, QString& output,
               QString& err);
+bool SpawnCmd(const QString& cmd, const QStringList& args, QString& output,
+              QString& err, int tryCount);
 
 }  // namespace installer
 

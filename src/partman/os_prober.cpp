@@ -27,6 +27,7 @@ namespace {
 // Cache output of `os-prober` command.
 QString ReadOsProberOutput() {
   const QString cache_path("/tmp/deepin-installer-os-prober.conf");
+  QString errput;
   if (QFile::exists(cache_path)) {
     return ReadFile(cache_path);
   } else {
@@ -38,7 +39,7 @@ QString ReadOsProberOutput() {
     // run os-prober once before ignore_uefi is created, so windows
     // in the efi partition can be found.
     QString output;
-    if (!SpawnCmd("os-prober", {}, output)) {
+    if (!SpawnCmd("os-prober", {}, output, errput, 2)) {
       output.clear();
     }
 
@@ -51,7 +52,7 @@ QString ReadOsProberOutput() {
     // run os-prober again after ignore_uefi created, so windows installed
     // in legacy mode will be found.
     QString second_time_output;
-    if (SpawnCmd("os-prober", {}, second_time_output)) {
+    if (SpawnCmd("os-prober", {}, second_time_output, errput, 2)) {
       output.append(second_time_output);
     }
 
