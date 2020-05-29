@@ -95,7 +95,7 @@ void UserAgreementFrame::initUI()
     sourceLayout->setSpacing(0);
     sourceLayout->addWidget(m_sourceLbl, 0, Qt::AlignTop | Qt::AlignHCenter);
     sourceLayout->addStretch();
-    sourceLayout->setContentsMargins(10, 10, 5, 0);
+    sourceLayout->setContentsMargins(5, 5, 15, 0);
     sourceWidget->setLayout(sourceLayout);
 
     m_sourceScrollArea = new QScrollArea(this);
@@ -113,13 +113,13 @@ void UserAgreementFrame::initUI()
     m_sourceScrollArea->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
 
     QScroller::grabGesture(m_sourceScrollArea, QScroller::TouchGesture);
-    m_sourceScrollArea->setFixedWidth(468);
+    m_sourceScrollArea->setFixedWidth(540);
     QPalette pl3 = m_sourceScrollArea->palette();
     pl3.setBrush(QPalette::Base, QBrush(QColor(255, 0, 0, 0)));
     m_sourceScrollArea->setPalette(pl3);
 
     QHBoxLayout* descriptionLayout = new QHBoxLayout();
-    descriptionLayout->setContentsMargins(10, 10, 10, 10);
+    descriptionLayout->setContentsMargins(5, 5, 5, 5);
     descriptionLayout->setSpacing(0);
     descriptionLayout->addWidget(m_sourceScrollArea);
 
