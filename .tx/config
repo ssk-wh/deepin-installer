@@ -4,8 +4,8 @@ minimum_perc = 80
 mode = developer
 
 [deepin-installer.deepin-installer]
-file_filter = i18n/installer-<lang>.ts
-source_file = i18n/installer.ts
+file_filter = i18n/deepin-installer-<lang>.ts
+source_file = i18n/deepin-installer.ts
 source_lang = en
 type = QT
 
