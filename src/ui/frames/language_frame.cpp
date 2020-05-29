@@ -192,10 +192,10 @@ void LanguageFramePrivate::showOemUserLicense() {
 void LanguageFramePrivate::showUserExperience()
 {
     if (installer::ReadLocale() == "zh_CN") {
-        m_user_experience_frame->setUserAgreement(zh_CN_experience, en_US_license);
+        m_user_experience_frame->setUserAgreement(zh_CN_experience, en_US_experience);
         m_user_experience_frame->setCheckedButton(kChineseToggleButtonId);
     } else {
-        m_user_experience_frame->setUserAgreement(en_US_license, zh_CN_license);
+        m_user_experience_frame->setUserAgreement(en_US_experience, zh_CN_experience);
         m_user_experience_frame->setCheckedButton(kEnglishToggleButtonId);
     }
     m_frame_layout->setCurrentWidget(m_user_experience_frame);
