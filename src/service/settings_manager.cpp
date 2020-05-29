@@ -321,6 +321,7 @@ QByteArray GetFullDiskInstallPolicy() {
 
         QFile file(path);
         if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
+            qInfo() << "read file " << file.fileName();
             return file.readAll();
         }
     }
