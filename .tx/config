@@ -3,13 +3,13 @@ host = https://www.transifex.com
 minimum_perc = 80
 mode = developer
 
-[deepin-installer.deepin-installer]
+[deepin-installer-reborn.deepin-installer-reborn]
 file_filter = i18n/deepin-installer-<lang>.ts
 source_file = i18n/deepin-installer.ts
 source_lang = en
 type = QT
 
-[deepin-installer.deepin-installer-timezones]
+[deepin-installer-reborn.deepin-installer-timezones]
 file_filter = src/third_party/timezones/<lang>/deepin-installer-timezones.po
 source_file = src/third_party/timezones/system-config-date-timezones.pot
 source_lang = en
