@@ -127,7 +127,9 @@ setup_default_target() {
 }
 
 setup_bluetooth_service() {
-    systemctl restart bluetooth.service
+    if [ -f /lib/systemd/system/bluetooth.service ]; then
+        systemctl restart bluetooth.service
+    fi
 }
 
 main() {
