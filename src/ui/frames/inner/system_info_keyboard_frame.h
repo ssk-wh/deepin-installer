@@ -25,7 +25,6 @@ class QLabel;
 
 namespace installer {
 
-class FramelessListView;
 class KeyboardLayoutModel;
 class KeyboardLayoutVariantModel;
 class NavButton;

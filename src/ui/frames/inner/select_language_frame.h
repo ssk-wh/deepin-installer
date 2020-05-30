@@ -30,7 +30,6 @@ class QLabel;
 
 namespace installer {
 
-class FramelessListView;
 class LanguageListModel;
 class UserAgreementDelegate;
 class SelectLanguageFramePrivate;
