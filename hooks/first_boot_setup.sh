@@ -103,11 +103,11 @@ cleanup_first_boot() {
 
   if [ -f /lib/systemd/system/deepin-installer.target ]; then
     # Restore default target of systemd
-    systemctl set-default -f graphical.target
-  else
-    # See in_chroot/generate_reboot_setup_file.job for more info.
-    cleanup_lightdm_deepin_installer
+    systemctl set-default -f graphical.target 
   fi
+
+  # See in_chroot/generate_reboot_setup_file.job for more info.
+  cleanup_lightdm_deepin_installer
 }
 
 setup_default_target() {
