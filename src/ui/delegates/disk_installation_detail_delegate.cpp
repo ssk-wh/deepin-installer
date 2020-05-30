@@ -80,7 +80,7 @@ void DiskInstallationDetailDelegate::paint(QPainter* painter,
       painter->fillRect(rect, QBrush(getSelectedColor()));
 
       // Draw background image of selected item.
-      const QPixmap pixmap = installer::renderPixmap(":/images/select.svg");
+      const QPixmap pixmap = installer::renderPixmap(":/images/select_blue.svg");
       const qreal ratio = qApp->devicePixelRatio();
       const int x = rect.width() - static_cast<int>(pixmap.width() / ratio) - kSelectedRightMargin;
       const int y = rect.y() + static_cast<int>((rect.height() - pixmap.height() / ratio) / 2);
