@@ -167,6 +167,7 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
       const qint64 partition_min_size_bytes = partition_min_size_by_gb * kGibiByte;
 
       Device::Ptr root_device;
+      Device::Ptr boot_device;
       DeviceList pv_devices;
 
       if (install_Lvm_Status != Install_Lvm_Status::Lvm_Install) {
@@ -198,7 +199,7 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
             // Add 1Mib to partition size.
             const qint64 boot_real_bytes = partition->getByteLength() + kMebiByte;
             boot_large_enough = (boot_real_bytes >= boot_recommend_bytes);
-
+            boot_device = device;
           }
           else if (partition->mount_point == kMountPointEFI) {
               efiPartition = partition;
@@ -298,7 +299,9 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
       }
 
       // Check whether efi filesystem exists.
-      if (!this->isMBRPreferred()) {
+      if ((install_Lvm_Status == Install_Lvm_Status::Lvm_Format_Pv && !bootPartition.isNull() && boot_device->table == PartitionTableType::GPT)
+              ||(!root_device.isNull() && root_device->device_type == DeviceType::NormalDevice && root_device->table == PartitionTableType::GPT)
+              ||!this->isMBRPreferred()) {
         // program looks for root dir, if root dir exists, then it looks for efi dir
         // so, if found_efi is true, then found_root must be true
         if (found_efi) {
@@ -399,6 +402,7 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
     bool           found_swap = false;
     QString        esp_path;
     Device::Ptr    root_device;
+    Device::Ptr    boot_device;
     Partition::Ptr efi_partition;
     bool is_lvm = false;
     // Check use-specified partitions with mount point.
@@ -416,6 +420,7 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
 
                 if (partition->mount_point == kMountPointBoot && bootloader_path_ == "") {
                     bootloader_path_ = partition->device_path;
+                    boot_device = device;
                 }
             }
 
@@ -450,7 +455,9 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
         }
     }
 
-  if (!IsMBRPreferred(realDevices())) {
+  if ((!boot_device.isNull() && boot_device->device_type == DeviceType::NormalDevice && boot_device->table == PartitionTableType::GPT)
+          || (!root_device.isNull() && root_device->device_type == DeviceType::NormalDevice && root_device->table == PartitionTableType::GPT)
+          || !IsMBRPreferred(realDevices())) {
     // Enable EFI mode. First check newly created EFI partition-> If not found,
     // check existing EFI partition->
     settings_.uefi_required = true;
