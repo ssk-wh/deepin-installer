@@ -277,7 +277,24 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
       }
 
       if (install_Lvm_Status == Install_Lvm_Status::Lvm_Install) {
+          const DeviceList devices = virtualDevices();
+
+          if (devices.size() != 1) {
+              return states;
+          }
+
+          if (devices.at(0)->partitions.size() != 1) {
+              return states;
+          }
+
+          if (devices.at(0)->partitions.at(0)->partition_number != -1) {
+              return states;
+          }
+
+          states.append(ValidateState::InvalidId);
+
           return states;
+
       }
 
       // Check whether efi filesystem exists.
