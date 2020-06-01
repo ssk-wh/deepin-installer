@@ -183,7 +183,7 @@ bool PartitionFrame::shouldDisplay() const{
 
 QString PartitionFrame::returnFrameName() const
 {
-    return "Installation Location";
+    return "Create Partitions";
 }
 
 void PartitionFrame::autoPart() {
@@ -200,7 +200,7 @@ void PartitionFrame::changeEvent(QEvent* event) {
       if (m_private->partition_stacked_layout_->currentWidget() ==  m_private->lvm_partition_frame_) {
           m_private->title_label_->setText(tr("Lvm configer"));
       } else {
-          m_private->title_label_->setText(tr("Select Installation Location"));
+          m_private->title_label_->setText(tr("Create Partitions"));
       }
 
     m_private->comment_label_->setText(
@@ -397,7 +397,7 @@ void PartitionFramePrivate::initUI() {
 
   dynamic_disk_warning_frame_ = new DynamicDiskWarningFrame(q_ptr);
 
-  title_label_ = new TitleLabel(tr("Select Installation Location"));
+  title_label_ = new TitleLabel(tr("Create Partitions"));
   comment_label_ = new CommentLabel(
       tr("Make sure you have backed up important data, then select the disk to install"));
   QHBoxLayout* comment_layout = new QHBoxLayout();
@@ -711,7 +711,7 @@ void PartitionFramePrivate::showMainFrame() {
       advanced_delegate_->onDeviceRefreshed(advanced_delegate_->realDevices());
       partition_stacked_layout_->setCurrentWidget(advanced_partition_frame_);
       main_layout_->setCurrentWidget(main_frame_);
-      title_label_->setText(tr("Select Installation Location"));
+      title_label_->setText(tr("Create Partitions"));
   }
 
   main_layout_->setCurrentWidget(main_frame_);
