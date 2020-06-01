@@ -79,7 +79,6 @@ int main(int argc, char* argv[])
     auto currThreadId = QThread::currentThreadId();
 
     installer::MainWindow main_window;
-    main_window.setEnableAutoInstall(args_parser.isAutoInstallSet());
     main_window.setLogFile(args_parser.getLogFile());
     //QThread thread;
     //QObject::connect(&thread, &QThread::started, &main_window, &MainWindow::start);

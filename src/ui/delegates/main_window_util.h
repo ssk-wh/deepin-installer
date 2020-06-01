@@ -39,7 +39,7 @@ QString EncodeErrorMsg(const QString& msg);
 int GetVisiblePages();
 
 // Check whether disk space is large enough to install new system.
-bool IsDiskSpaceInsufficient(bool isautoinstall = false);
+bool IsDiskSpaceInsufficient();
 
 // Read log file content, stripped to tail, and encode with domain name of
 // feedback server.

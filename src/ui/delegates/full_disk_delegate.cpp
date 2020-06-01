@@ -674,10 +674,10 @@ void FullDiskDelegate::onDeviceRefreshed(const DeviceList &devices)
 
     for (Device::Ptr device : virtual_devices_) {
         qint64 currentTime = QDateTime::currentMSecsSinceEpoch();
-        SpawnCmd("dd", {QString("if=%1").arg(device->path), QString("of=%1").arg(device->path), "bs=8k", "count=64000", "iflag=direct,nonblock", "oflag=direct,nonblock"});
+        SpawnCmd("dd", {QString("if=%1").arg(device->path), QString("of=%1").arg(device->path), "bs=4k", "count=5120", "iflag=direct,nonblock", "oflag=direct,nonblock"});
         deviceSpeedMap[device] = QDateTime::currentMSecsSinceEpoch() - currentTime;
         deviceList << device;
-        qWarning() << Q_FUNC_INFO << "Device:"<< device->path <<" time use :" << deviceSpeedMap[device] << "data size 8k * 64000";
+        qWarning() << Q_FUNC_INFO << "Device:"<< device->path <<" time use :" << deviceSpeedMap[device] << "data size 4k * 5120";
     }
 
     if (deviceList.length() > 1) {

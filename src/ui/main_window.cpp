@@ -82,7 +82,7 @@ MainWindow::MainWindow(QWidget* parent)
       prev_page_(PageId::NullId),
       current_page_(PageId::NullId),
       log_file_(),
-      auto_install_(false),
+      //auto_install_(false),
       m_showPastFrame(false)
 {
     this->setObjectName("main_window");
@@ -126,7 +126,7 @@ MainWindow::MainWindow(QWidget* parent)
 }
 
 void MainWindow::fullscreen() {
-  if (auto_install_) {
+  if (GetSettingsBool(kPartitionDoAutoPart)) {
     // Read default locale from settings.ini and go to InstallProgressFrame.
     // 当配置了页面跳过和自动安装时，对于磁盘空间检测的异常需要有异常提示界面
     // current_page_ = PageId::PartitionId;
@@ -144,7 +144,7 @@ void MainWindow::fullscreen() {
 
   ShowFullscreen(this);
 
-  if (auto_install_) {
+  if (GetSettingsBool(kPartitionDoAutoPart)) {
     // In auto-install mode, partitioning is done in hook script.
     // So notify InstallProgressFrame to run hooks directly.
     partition_frame_->autoPart();
@@ -153,7 +153,7 @@ void MainWindow::fullscreen() {
 
 void MainWindow::scanDevicesAndTimezone() {
   // Do nothing in auto-install mode.
-  if (auto_install_) {
+  if (GetSettingsBool(kPartitionDoAutoPart)) {
     return;
   }
 
@@ -163,19 +163,19 @@ void MainWindow::scanDevicesAndTimezone() {
     timezone_frame_->init();
   }
 
-  if (!GetSettingsBool(kSkipPartitionPage) &&
-      !GetSettingsBool(kPartitionDoAutoPart)) {
+  //if (!GetSettingsBool(kSkipPartitionPage) &&
+  //    !GetSettingsBool(kPartitionDoAutoPart)) {
     // Notify background thread to scan device list.
     // When device is refreshed in partition_frame_, call fullscreen() method
     // to display main window.
     partition_frame_->scanDevices();
-  }
+  //}
 }
 
-void MainWindow::setEnableAutoInstall(bool auto_install) {
-  auto_install_ = auto_install;
-  disk_space_insufficient_frame_->setEnableAutoInstall(auto_install);
-}
+//void MainWindow::setEnableAutoInstall(bool auto_install) {
+//  auto_install_ = auto_install;
+//  disk_space_insufficient_frame_->setEnableAutoInstall(auto_install);
+//}
 
 void MainWindow::setLogFile(const QString& log_file) {
     log_file_ = log_file;

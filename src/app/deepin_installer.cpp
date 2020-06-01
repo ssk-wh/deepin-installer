@@ -96,7 +96,6 @@ int main(int argc, char* argv[]) {
   installer::ComponentInstallManager::Instance();
 
   installer::MainWindow main_window;
-  main_window.setEnableAutoInstall(args_parser.isAutoInstallSet());
   main_window.setLogFile(args_parser.getLogFile());
 
   main_window.setWindowIcon(":/images/deepin-installer-32px.svg");

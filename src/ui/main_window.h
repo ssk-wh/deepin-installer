@@ -87,7 +87,7 @@ class MainWindow : public DMainWindow, public FrameProxyInterface {
   void scanDevicesAndTimezone();
 
   // Enable auto-install mode.
-  void setEnableAutoInstall(bool auto_install);
+  //void setEnableAutoInstall(bool auto_install);
 
   // Set filepath to which log file will be backup.
   void setLogFile(const QString& log_file);
@@ -195,7 +195,7 @@ private:
   QShortcut* brithtness_decrease_shortcut_ = nullptr;
 
   QString log_file_;
-  bool auto_install_;
+  //bool auto_install_;
 
     QList<FrameInterface*> m_originalFrames;
     QList<FrameInterface*> m_frames;

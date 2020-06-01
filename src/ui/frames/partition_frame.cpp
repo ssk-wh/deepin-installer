@@ -187,12 +187,32 @@ QString PartitionFrame::returnFrameName() const
 }
 
 void PartitionFrame::autoPart() {
-    WriteFullDiskMode(true);
-    m_private->partition_model_->autoPart();
+    if (m_private->full_disk_partition_frame_->isEncrypt()) {
+        WriteFullDiskMode(true);
+        m_private->partition_model_->autoPart();
+    }
+    else {
+        m_private->full_disk_delegate_->setAutoInstall(true);
+        scanDevices();
+    }
 }
 
 void PartitionFrame::scanDevices()  const{
     m_private->partition_model_->scanDevices();
+}
+
+void PartitionFrame::onAutoInstallPrepareFinished(bool finished)
+{
+    if (!finished) {
+        qWarning() << Q_FUNC_INFO << "install failed!";
+        return;
+    }
+
+    qInfo() << Q_FUNC_INFO << "set BootFlag: " << m_private->full_disk_delegate_->setBootFlag();
+
+    OperationList list = m_private->full_disk_delegate_->operations();
+
+    m_private->partition_model_->manualPart(list);
 }
 
 void PartitionFrame::changeEvent(QEvent* event) {
@@ -371,6 +391,8 @@ void PartitionFramePrivate::initConnections() {
 
   connect(full_disk_partition_frame_, &FullDiskFrame::cryptoStateChanged,
           this, &PartitionFramePrivate::onFullDiskCryptoButtonClicked);
+
+  connect(full_disk_delegate_, &FullDiskDelegate::requestAutoInstallFinished, q_ptr, &PartitionFrame::onAutoInstallPrepareFinished);
 }
 
 void PartitionFramePrivate::initUI() {

@@ -41,7 +41,6 @@ public:
   void finished() override;
   bool shouldDisplay() const override;
   QString returnFrameName() const override;
-  void  setEnableAutoInstall(bool auto_install);
 
 signals:
   void abortInstall();
@@ -57,7 +56,6 @@ private:
   TitleLabel* title_label_ = nullptr;
   CommentLabel* comment_label_ = nullptr;
   QPushButton* abort_button_ = nullptr;
-  bool auto_install_ = false;
 };
 
 }  // namespace installer

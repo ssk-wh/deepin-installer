@@ -81,14 +81,14 @@ int GetVisiblePages() {
   return pages;
 }
 
-bool IsDiskSpaceInsufficient(bool isautoinstall) {
+bool IsDiskSpaceInsufficient() {
     int minimum = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
     if (minimum <= 0) {
         minimum = qMin(GetSettingsInt(kPartitionRootMiniSpace)
                        , GetSettingsInt(kPartitionFullDiskMiniSpace));
     }
 
-    if (isautoinstall) {
+    if (GetSettingsBool(kPartitionDoAutoPart)) {//如果是自动分区则检测，全盘分区最小磁盘容量要求
         minimum = GetSettingsInt(kPartitionFullDiskMiniSpace);
     }
 
