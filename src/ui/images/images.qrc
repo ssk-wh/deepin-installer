@@ -73,7 +73,6 @@
         <file>logo.svg</file>
         <file>select.svg</file>
         <file>keyboard_press.svg</file>
-        <file>map.svg</file>
         <file>down_arrow.svg</file>
         <file>username_12.svg</file>
         <file>hostname_12.svg</file>
@@ -126,5 +125,6 @@
         <file>password_show_normal.svg</file>
         <file>password_show_press.svg</file>
         <file>select_blue.svg</file>
+        <file>map.svg</file>
     </qresource>
 </RCC>

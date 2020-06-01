@@ -151,7 +151,7 @@ void TimezoneMap::initUI() {
   layout->setMargin(0);
   layout->setSpacing(0);
 
-  map_label_ = new QLabel;
+  map_label_ = new QLabel(this);
   map_label_->installEventFilter(this);
 
   Q_ASSERT(this->parentWidget());
