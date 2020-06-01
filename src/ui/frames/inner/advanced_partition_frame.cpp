@@ -99,7 +99,9 @@ void AdvancedPartitionFrame::setBootloaderPath(const QString& bootloader_path) {
 }
 
 void AdvancedPartitionFrame::installNvidiaStateChanged(bool install_nvidia) {
-    WriteEnableNvidiaDriver(install_nvidia);
+    if (!delegate_->m_islvm) {
+        WriteEnableNvidiaDriver(install_nvidia);
+    }
 }
 
 void AdvancedPartitionFrame::changeEvent(QEvent* event) {
@@ -251,8 +253,10 @@ void AdvancedPartitionFrame::initUI() {
   m_installNvidiaCheck->setText(tr("Install NVIDIA closed source driver"));
   main_layout->addWidget(m_installNvidiaCheck, 0 ,Qt::AlignHCenter);
 
-  m_installNvidiaCheck->setVisible(delegate_->scanNvidia());
-  WriteEnableNvidiaDriver(false);
+  m_installNvidiaCheck->setVisible(delegate_->scanNvidia() && !delegate_->m_islvm);
+  if (!delegate_->m_islvm) {
+      WriteEnableNvidiaDriver(false);
+  }
 
   this->setLayout(main_layout);
   this->setContentsMargins(0, 0, 0, 0);
