@@ -292,7 +292,7 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
               return states;
           }
 
-          states.append(ValidateState::InvalidId);
+          states.append(ValidateState::LvmPartNumberInvalid);
 
           return states;
 

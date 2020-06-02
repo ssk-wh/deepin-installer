@@ -573,6 +573,9 @@ QString AdvancedPartitionFrame::validateStateToText(ValidateState state) {
           .arg(partition_min_size_by_gb)
           .arg(GetPartitionName(state->partition()->path));
     }
+    case ValidateState::LvmPartNumberInvalid: {
+      return tr("No logical partition created, please create one and continue");
+    }
 
     default: {
       // We shall never reach here.

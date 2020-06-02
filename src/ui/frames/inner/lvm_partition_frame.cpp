@@ -58,6 +58,7 @@ void LvmPartitionFrame::onLastButtonClicked() {
         VgDevice::p_installer_VgDevice = nullptr;
     }
 
+    this->clearErrorMessages();
     AdvancedPartitionDelegate::install_Lvm_Status = Install_Lvm_Status::Lvm_No_Need;
     emit aborted();
 }

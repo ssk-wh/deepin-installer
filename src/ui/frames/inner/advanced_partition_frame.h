@@ -125,7 +125,7 @@ class AdvancedPartitionFrame : public QFrame {
   // To hold all error labels.
   QVector<AdvancedPartitionErrorLabel*> error_labels_;
 
- private slots:
+protected slots:
   // Clear error message list and hide message container.
   void clearErrorMessages();
 

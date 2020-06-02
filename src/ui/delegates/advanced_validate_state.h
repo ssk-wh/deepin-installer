@@ -66,6 +66,7 @@ public:
      RootTooSmall,
      PartitionTooSmall,
      MaxPrimPartErr,  // All primary partition numbers are used.
+     LvmPartNumberInvalid,
      Ok
     };
 };
