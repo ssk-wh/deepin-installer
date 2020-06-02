@@ -291,7 +291,7 @@ void SelectLanguageFramePrivate::initUI() {
     QLabel* logo_label = new QLabel();
     logo_label->setPixmap(installer::renderPixmap(GetVendorLogo()));
 
-    QLabel* title_label = new QLabel("Select system language");
+    QLabel* title_label = new QLabel("Select Language");
     title_label->setObjectName("title_label");
     title_label->setWordWrap(false);
     title_label->setAlignment(Qt::AlignHCenter);
@@ -437,7 +437,7 @@ void SelectLanguageFramePrivate::updateTs()
     }
 
     accept_experience_->setText(tr("Agreed to"));
-    experience_label_->setText(tr("The user experience program license agreement"));
+    experience_label_->setText(tr("User Experience Program License Agreement"));
 }
 
 void SelectLanguageFramePrivate::onLanguageListSelected(const QModelIndex& current)
