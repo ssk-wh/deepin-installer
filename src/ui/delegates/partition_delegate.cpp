@@ -14,8 +14,10 @@ Delegate::Delegate(QObject* parent) : QObject(parent) {}
 
 bool Delegate::scanNvidia()
 {
-   if (GetCurrentType() == OSType::Server)
+   if (GetCurrentType() == OSType::Server
+           || GetCurrentType() == OSType::Professional) {
        return false;
+   }
 
    QString cmd("lspci");
    QStringList args("-n");
