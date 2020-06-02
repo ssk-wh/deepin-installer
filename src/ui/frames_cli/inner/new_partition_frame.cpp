@@ -83,11 +83,11 @@ void NewPartitionFrame::setPartition(const Partition::Ptr partition) {
 
   QStringList typeList;
   if (primary_ok) {
-    typeList.append(tr("Primary Partition"));
+    typeList.append(tr("Primary partition"));
   }
 
   if (logical_ok) {
-      typeList.append(tr("Logical Partition"));
+      typeList.append(tr("Logical partition"));
   }
 
   type_box_->setList(typeList);

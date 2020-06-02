@@ -198,7 +198,7 @@ void PartitionFrame::scanDevices()  const{
 void PartitionFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
       if (m_private->partition_stacked_layout_->currentWidget() ==  m_private->lvm_partition_frame_) {
-          m_private->title_label_->setText(tr("Lvm configer"));
+          m_private->title_label_->setText(tr("Edit LVM Disk"));
       } else {
           m_private->title_label_->setText(tr("Create Partitions"));
       }
@@ -631,7 +631,7 @@ void PartitionFramePrivate::onManualPartDone(bool ok, const DeviceList& devices)
         m_buttonGroup->setVisible(false);
         partition_stacked_layout_->setCurrentWidget(lvm_partition_frame_);
         main_layout_->setCurrentWidget(main_frame_);
-        title_label_->setText(tr("Lvm configer"));
+        title_label_->setText(tr("Edit LVM Disk"));
         return ;
     } else if (Install_Lvm_Status::Lvm_Install == AdvancedPartitionDelegate::install_Lvm_Status) {
         lvm_delegate_->onManualPartDone(devices);

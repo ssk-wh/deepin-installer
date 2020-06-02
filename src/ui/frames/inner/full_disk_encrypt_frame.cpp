@@ -251,8 +251,7 @@ void Full_Disk_Encrypt_frame::updateText()
     m_encryptCheckLbl->setText(tr("Repeat Password").append(" :"));
     m_cancelBtn->setText(tr("Cancel"));
     m_confirmBtn->setText(tr("Confirm"));
-    m_tilabel->setText(tr("Please take good care of your security secret key,"
-                         " once the secret key is lost, all your data will be lost!!"));
+    m_tilabel->setText(tr("Take care of your password, otherwise, all your data will be lost"));
 }
 
 void Full_Disk_Encrypt_frame::updateEditCapsLockState(bool on) {

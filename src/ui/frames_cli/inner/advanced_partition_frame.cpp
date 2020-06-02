@@ -327,7 +327,7 @@ QString AdvancedPartitionFrame::validateStateToText(ValidateState state) {
     }
     case ValidateState::BootTooSmall: {
       const int boot_recommended = GetSettingsInt(kPartitionDefaultBootSpace);
-      return tr("At least %1 MB is required for /boot partition")
+      return tr("/boot partition requires at least %1 MB")
           .arg( boot_recommended);
     }
     case ValidateState::BootBeforeLvm: {
@@ -338,21 +338,21 @@ QString AdvancedPartitionFrame::validateStateToText(ValidateState state) {
     }
     case ValidateState::EfiTooSmall: {
       const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace);
-      return tr("At least %1 MB is required for EFI partition")
+      return tr("/efi partition requires at least %1 MB")
           .arg(efi_recommended);
     }
     case ValidateState::RootMissing: {
-      return tr("Add a Root partition to continue");
+      return tr("Add a root partition to continue");
     }
     case ValidateState::RootTooSmall: {
       const int root_required =
           GetSettingsInt(kPartitionRootMiniSpace);
-      return tr("At least %1 GB is required for Root partition")
+      return tr("/root partition requires at least %1 GB")
           .arg(root_required);
     }
     case ValidateState::PartitionTooSmall: {
       const int partition_min_size_by_gb = GetSettingsInt(kPartitionOthersMinimumSize);
-      return tr("At least %1 GB is required for partition %2")
+      return tr("%2 partition requires at least %1 GB")
           .arg(partition_min_size_by_gb)
           .arg(GetPartitionName(state->partition()->path));
     }
