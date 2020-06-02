@@ -5,6 +5,8 @@
 #include "ui/widgets/system_info_tip.h"
 #include "ui/widgets/network_device_widget.h"
 #include "ui/delegates/network_operate.h"
+#include "ui/widgets/comment_label.h"
+#include "ui/widgets/title_label.h"
 
 #include <QDebug>
 #include <QDir>
@@ -135,10 +137,10 @@ public:
         m_primaryDNSEdit->setFixedSize(kLineEditWidth, kLineEditHeight);
         m_primaryDNSEdit->lineEdit()->setFont(font);
 
-        m_ipv4Edit->lineEdit()->setPlaceholderText(tr("IP Address"));
-        m_maskEdit->lineEdit()->setPlaceholderText(tr("Netmask"));
-        m_gatewayEdit->lineEdit()->setPlaceholderText(tr("Gateway"));
-        m_primaryDNSEdit->lineEdit()->setPlaceholderText(tr("Primary DNS"));
+        m_ipv4Edit->lineEdit()->setPlaceholderText(tr("IP Address:"));
+        m_maskEdit->lineEdit()->setPlaceholderText(tr("Netmask:"));
+        m_gatewayEdit->lineEdit()->setPlaceholderText(tr("Gateway:"));
+        m_primaryDNSEdit->lineEdit()->setPlaceholderText(tr("Primary DNS:"));
 
         m_errorTip = new SystemInfoTip(this);
         m_errorTip->hide();
@@ -146,13 +148,6 @@ public:
         QVBoxLayout* mainLayout = new QVBoxLayout;
         mainLayout->setMargin(0);
         mainLayout->setSpacing(20);
-
-        QMap<QWidget*, QString> tmpM {
-            {m_ipWidget, tr("Ip:")},
-            {m_maskWidget, tr("Mask:")},
-            {m_gatewayWidget, tr("Gateway:")},
-            {m_primaryDNSWidget, tr("Primary DNS:")},
-        };
 
         m_widgetList = {
             {m_ipWidget, m_ipv4Edit},
@@ -178,7 +173,7 @@ public:
             QHBoxLayout* ipLayout = new QHBoxLayout;
             ipLayout->setMargin(0);
             ipLayout->setSpacing(0);
-            QLabel* ipName = new QLabel(tr("Ip:"));
+            QLabel* ipName = new QLabel(tr("IP Address:"));
             ipName->setFixedSize(100, 20);
 
             ipLayout->addWidget(ipName, 0, Qt::AlignLeft | Qt::AlignHCenter);
@@ -189,7 +184,7 @@ public:
             QHBoxLayout* maskLayout = new QHBoxLayout;
             maskLayout->setMargin(0);
             maskLayout->setSpacing(0);
-            QLabel* maskName = new QLabel(tr("Mask:"));
+            QLabel* maskName = new QLabel(tr("Netmask:"));
             maskName->setFixedSize(100, 20);
 
             maskLayout->addWidget(maskName, 0, Qt::AlignLeft | Qt::AlignHCenter);
@@ -224,7 +219,7 @@ public:
         dhcpLayout->setMargin(0);
         dhcpLayout->setSpacing(0);
 
-        QLabel* dhcpName = new QLabel(tr("DHCP"));
+        QLabel* dhcpName = new QLabel(tr("DHCP:"));
         dhcpName->setFixedSize(53, 20);
         dhcpLayout->addWidget(dhcpName, 0, Qt::AlignLeft | Qt::AlignHCenter);
         dhcpLayout->addWidget(m_dhcpTypeWidget, 0, Qt::AlignRight | Qt::AlignHCenter);
@@ -277,6 +272,16 @@ public:
         connect(m_acceptBtn, &QPushButton::clicked, this, &NetworkEditWidget::onEditFinished);
         connect(m_dhcpTypeWidget, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged)
                 , this, &NetworkEditWidget::onDHCPChanged);
+
+        updateTs();
+    }
+
+    void updateTs()
+    {
+        m_ipv4Edit->lineEdit()->setPlaceholderText(tr("IP Address:"));
+        m_maskEdit->lineEdit()->setPlaceholderText(tr("Netmask:"));
+        m_gatewayEdit->lineEdit()->setPlaceholderText(tr("Gateway:"));
+        m_primaryDNSEdit->lineEdit()->setPlaceholderText(tr("Primary DNS:"));
     }
 
     void initWidgetState()
@@ -655,13 +660,11 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     layout->setMargin(0);
     layout->setSpacing(10);
 
-    QLabel *logo_label = new QLabel;
-    logo_label->setPixmap(installer::renderPixmap(GetVendorLogo()));
+    title_label_ = new TitleLabel(tr("Configure Network"));
+    comment_label_ = new CommentLabel(tr("IP address has been auto-configured, but you can configure the network as well"));
 
-    layout->addWidget(logo_label, 0, Qt::AlignHCenter);
-
-    m_subTitle = new QLabel(tr("Configure Network"));
-    layout->addWidget(m_subTitle, 0, Qt::AlignHCenter);
+    layout->addWidget(title_label_, 0, Qt::AlignHCenter);
+    layout->addWidget(comment_label_, 0, Qt::AlignHCenter);
 
     // 左侧布局
     m_leftLayout = new QVBoxLayout;
@@ -716,6 +719,8 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
 
     m_buttonBox = new DButtonBox;
     initDeviceWidgetList();
+
+    updateTs();
 }
 
 void NetworkFrame::initDeviceWidgetList()
@@ -776,8 +781,7 @@ QString NetworkFrame::returnFrameName() const
 bool NetworkFrame::event(QEvent *event)
 {
     if (event->type() == QEvent::LanguageChange) {
-        m_subTitle->setText(tr("Configure Network"));
-        m_nextButton->setText(tr("Next"));
+        updateTs();
     }
 
     return QWidget::event(event);
@@ -840,6 +844,14 @@ void NetworkFrame::saveConf()
     }
 
     m_proxy->nextFrame();
+}
+
+void NetworkFrame::updateTs()
+{
+    m_currentNetworkEditWidget->updateTs();
+    title_label_->setText(tr("Configure Network"));
+    comment_label_->setText(tr("IP address has been auto-configured, but you can configure the network as well"));
+    m_nextButton->setText(tr("Next"));
 }
 
 void NetworkFrame::onButtonGroupToggled(QAbstractButton *button)

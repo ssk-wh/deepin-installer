@@ -15,6 +15,8 @@ class QVBoxLayout;
 
 namespace installer {
 class NetworkEditWidget;
+class CommentLabel;
+class TitleLabel;
 
 class NetworkFrame : public FrameInterface {
     Q_OBJECT
@@ -33,8 +35,9 @@ protected:
     void showEvent(QShowEvent* event) override;
 
 private:
+    TitleLabel* title_label_ = nullptr;
+    CommentLabel* comment_label_ = nullptr;
     QVBoxLayout*                                m_leftLayout;
-    QLabel*                                     m_subTitle;
     QPushButton*                                m_nextButton;
     NetworkEditWidget*                          m_currentNetworkEditWidget;
     DButtonBox*                                 m_buttonBox = nullptr;
@@ -46,6 +49,7 @@ private:
     bool shouldDisplay() const override;
 
     void saveConf();
+    void updateTs();
     void onButtonGroupToggled(QAbstractButton *button);
 };
 }  // namespace installer
