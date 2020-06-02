@@ -125,6 +125,7 @@ public:
 void TimezoneFramePrivate::updateTs()
 {
     title_label_->setText(tr("Select Timezone"));
+    comment_label_->setText(tr("Is it the right timezone? You can change it as well"));
     m_timezoneMapButton->setText(tr("Map"));
     m_timezoneListButton->setText(tr("List"));
 }
@@ -229,12 +230,7 @@ void TimezoneFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     m_private->updateTs();
 
-    if(m_private->m_mapOrListStackedLayout->currentWidget() == m_private->timezone_map_){
-        m_private->comment_label_->setText(tr("Click your zone on the map"));
-    }
-    else {
-        m_private->comment_label_->setText(tr("Select your timezone from the list"));
-    }
+    m_private->comment_label_->setText(tr("Is it the right timezone? You can change it as well"));
 
     // Also update timezone.
     if (!m_private->timezone_.isEmpty()) {
@@ -304,7 +300,7 @@ void TimezoneFramePrivate::initConnections() {
 
 void TimezoneFramePrivate::initUI() {
   title_label_ = new TitleLabel("");
-  comment_label_ = new CommentLabel(tr("Click your zone on the map"));
+  comment_label_ = new CommentLabel(tr("Is it the right timezone? You can change it as well"));
   timezone_map_ = new TimezoneMap(q_ptr);
 
   m_mapListButtonGroup = new DButtonBox;
@@ -400,13 +396,11 @@ void TimezoneFramePrivate::onTimezoneMapUpdated(const QString& timezone) {
 
 void TimezoneFramePrivate::onMapListButtonGroupToggled(QAbstractButton *button)
 {
-    if (button == m_timezoneMapButton){
-        comment_label_->setText(tr("Click your zone on the map"));
+    if (button == m_timezoneMapButton){        
         m_mapOrListStackedLayout->setCurrentWidget(timezone_map_);
         timezone_map_->showMark();
     }
-    else{
-        comment_label_->setText(tr("Select your timezone from the list"));
+    else{        
         m_mapOrListStackedLayout->setCurrentWidget(m_selectTimeZoneFrame);
         timezone_map_->hideMark();
     }

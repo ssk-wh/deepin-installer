@@ -87,12 +87,12 @@ public:
     void initConnection();
 
     void updateTs() {
-        m_setDateTimeCheckBox->setText(tr("Time settings"));
-        m_hourLabel->setText(tr("Hour"));
-        m_minuteLabel->setText(tr("Minute"));
-        m_yearLabel->setText(tr("Year"));
-        m_monthLabel->setText(tr("Month"));
-        m_dayLabel->setText(tr("Day"));
+        m_setDateTimeCheckBox->setText(tr("Change time"));
+        m_hourLabel->setText(tr("hr"));
+        m_minuteLabel->setText(tr("min"));
+        m_yearLabel->setText(tr("Y"));
+        m_monthLabel->setText(tr("M"));
+        m_dayLabel->setText(tr("D"));
     }
 
     void initDateTime();
