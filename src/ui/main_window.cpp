@@ -308,7 +308,8 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     shadow_widget->setFixedSize(event->size());
 
     if (close_button_) {
-      close_button_->move(width() - close_button_->width(), 0);
+      const int marginSize = this->layout()->margin();
+      close_button_->move(width() - close_button_->width() - marginSize, marginSize);
       close_button_->raise();
     }
 
