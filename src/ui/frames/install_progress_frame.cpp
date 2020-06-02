@@ -165,7 +165,7 @@ bool InstallProgressFrame::shouldDisplay() const
 
 QString InstallProgressFrame::returnFrameName() const
 {
-    return "Installing";
+    return "Install";
 }
 
 bool InstallProgressFrame::allowPrevious() const
@@ -209,9 +209,7 @@ void InstallProgressFrame::changeEvent(QEvent* event) {
     Q_D(InstallProgressFrame);
 
     if (event->type() == QEvent::LanguageChange) {
-        d->title_label_->setText(tr("Installing"));
-        d->comment_label_->setText(
-                    tr("Here are a few cool things to look out for..."));
+        d->title_label_->setText(tr("Installing"));       
         for (auto it = d->m_trList.begin(); it != d->m_trList.end(); ++it) {
             it->first(qApp->translate("installer::InstallProgressFramePrivate", it->second.toUtf8()));
         }
@@ -265,9 +263,7 @@ void InstallProgressFramePrivate::initConnections() {
 }
 
 void InstallProgressFramePrivate::initUI() {
-    title_label_ = new TitleLabel(tr("Installing"));
-    comment_label_ = new CommentLabel(
-                tr("Here are a few cool things to look out for..."));
+    title_label_ = new TitleLabel(tr("Installing"));    
 
     slide_frame_ = new InstallProgressSlideFrame();
     m_installerLog = new InstallLogFrame();
@@ -309,8 +305,7 @@ void InstallProgressFramePrivate::initUI() {
 
     //add main layout
     centerLayout->addWidget(title_label_, 0, Qt::AlignHCenter);
-    centerLayout->addSpacing(kMainLayoutSpacing);
-    centerLayout->addWidget(comment_label_, 0, Qt::AlignHCenter | Qt::AlignTop);
+    centerLayout->addSpacing(kMainLayoutSpacing);    
     centerLayout->addLayout(m_progressAndLogLayout);
     centerLayout->addWidget(m_installerLogShowButton, 0, Qt::AlignHCenter);
     centerLayout->addSpacing(5);
