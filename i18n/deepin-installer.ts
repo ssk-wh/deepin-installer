@@ -17,98 +17,103 @@
 <context>
     <name>AdvancedPartitionFrame</name>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="107"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="195"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="109"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="197"/>
         <source>Change boot loader</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="109"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="609"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="111"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="616"/>
         <source>Done</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="111"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="202"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="611"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="113"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="204"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="618"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="113"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="251"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="115"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="253"/>
         <source>Install NVIDIA closed source driver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="473"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="477"/>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="477"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="481"/>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="483"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="487"/>
         <source>%1 error found, continue to install after fixed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="487"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="491"/>
         <source>%1 errors found, continue to install after fixed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="534"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="538"/>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="538"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="542"/>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="542"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="546"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="547"/>
-        <source>At least %1 MB is required for /boot partition</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="551"/>
-        <source>Before Lvm is required for /boot partition</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="554"/>
-        <source>Add an EFI partition to continue</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="558"/>
-        <source>At least %1 MB is required for EFI partition</source>
+        <source>/boot partition requires at least %1 MB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="562"/>
-        <source>Add a Root partition to continue</source>
+        <source>/efi partition requires at least %1 MB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="567"/>
-        <source>At least %1 GB is required for Root partition</source>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="566"/>
+        <source>Add a root partition to continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="572"/>
-        <source>At least %1 GB is required for partition %2</source>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="571"/>
+        <source>/root partition requires at least %1 GB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="576"/>
+        <source>%2 partition requires at least %1 GB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="581"/>
+        <source>No logical partition created, please create one and continue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="555"/>
+        <source>Before Lvm is required for /boot partition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="558"/>
+        <source>Add an EFI partition to continue</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -273,11 +278,6 @@
         <source>Installing</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="214"/>
-        <source>Here are a few cool things to look out for...</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>MultipleDiskInstallationWidget</name>
@@ -384,12 +384,12 @@
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="86"/>
-        <source>Primary Partition</source>
+        <source>Primary partition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="90"/>
-        <source>Logical Partition</source>
+        <source>Logical partition</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -433,12 +433,12 @@
     <name>PartitionFrame</name>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="201"/>
-        <source>Lvm configer</source>
+        <source>Edit LVM Disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="203"/>
-        <source>Select Installation Location</source>
+        <source>Create Partitions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1040,12 +1040,7 @@
     <name>TimezoneFrame</name>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="233"/>
-        <source>Click your zone on the map</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="236"/>
-        <source>Select your timezone from the list</source>
+        <source>Is it the right timezone? You can change it as well</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1090,11 +1085,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="330"/>
-        <source>At least %1 MB is required for /boot partition</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="334"/>
         <source>Before Lvm is required for /boot partition</source>
         <translation type="unfinished"></translation>
@@ -1105,23 +1095,28 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="330"/>
+        <source>/boot partition requires at least %1 MB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="341"/>
-        <source>At least %1 MB is required for EFI partition</source>
+        <source>/efi partition requires at least %1 MB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="345"/>
-        <source>Add a Root partition to continue</source>
+        <source>Add a root partition to continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="350"/>
-        <source>At least %1 GB is required for Root partition</source>
+        <source>/root partition requires at least %1 GB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="355"/>
-        <source>At least %1 GB is required for partition %2</source>
+        <source>%2 partition requires at least %1 GB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1648,7 +1643,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="254"/>
-        <source>Please take good care of your security secret key, once the secret key is lost, all your data will be lost!!</source>
+        <source>Take care of your password, otherwise, all your data will be lost</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1678,23 +1673,18 @@
 <context>
     <name>installer::InstallProgressFramePrivate</name>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="268"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="266"/>
         <source>Installing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="270"/>
-        <source>Here are a few cool things to look out for...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="293"/>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="404"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="289"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="399"/>
         <source>Show log</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="401"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="396"/>
         <source>Hide log</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1715,15 +1705,27 @@
 <context>
     <name>installer::LanguageFramePrivate</name>
     <message>
-        <location filename="../src/ui/frames/language_frame.cpp" line="133"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="134"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="137"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="138"/>
         <source>The user experience program license agreement</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/language_frame.cpp" line="136"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="137"/>
-        <source>End User License Agreement</source>
+        <location filename="../src/ui/frames/language_frame.cpp" line="140"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="141"/>
+        <source>%1 Software End User License Agreement</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/language_frame.cpp" line="140"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="141"/>
+        <source>Deepin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/language_frame.cpp" line="140"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="141"/>
+        <source>UOS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1869,7 +1871,7 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="400"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="714"/>
-        <source>Select Installation Location</source>
+        <source>Create Partitions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1921,7 +1923,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="634"/>
-        <source>Lvm configer</source>
+        <source>Edit LVM Disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2039,6 +2041,14 @@
 <context>
     <name>installer::RepairSystemFrame</name>
     <message>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="160"/>
+        <source>System Repair</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>installer::RepairSystemPrivate</name>
+    <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="71"/>
         <source>Operation Choice</source>
         <translation type="unfinished"></translation>
@@ -2059,12 +2069,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="86"/>
         <source>Repair System</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="87"/>
         <source>Choose to repair the system, will enter the live system to repair the original UOS system.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2111,12 +2121,12 @@
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="167"/>
-        <source>Select the component according to your needs</source>
+        <source>Select the components according to your needs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="168"/>
-        <source>Add-Ons for Selected Environment</source>
+        <source>Add-Ons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2149,7 +2159,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="225"/>
-        <source>Add-Ons for Selected Environment</source>
+        <source>Add-Ons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2162,7 +2172,7 @@
     <name>installer::SelectLanguageFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="426"/>
-        <source>I have read and agree to</source>
+        <source>I have read and agree to the</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2187,12 +2197,12 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="439"/>
-        <source>Agreed to</source>
+        <source>Agree to the</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="440"/>
-        <source>The user experience program license agreement</source>
+        <source>User Experience Program License Agreement</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2200,32 +2210,32 @@
     <name>installer::SystemDateFramePrivate</name>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="90"/>
-        <source>Time settings</source>
+        <source>Change time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="91"/>
-        <source>Hour</source>
+        <source>hr</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="92"/>
-        <source>Minute</source>
+        <source>min</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="93"/>
-        <source>Year</source>
+        <source>Y</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
-        <source>Month</source>
+        <source>M</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
-        <source>Day</source>
+        <source>D</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2272,11 +2282,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="570"/>
-        <source>Create User Account</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="571"/>
         <source>Fill in the username, computer name and your password</source>
         <translation type="unfinished"></translation>
@@ -2287,8 +2292,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="570"/>
+        <source>Create Account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="573"/>
-        <source>Set root password</source>
+        <source>Set as root password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2354,7 +2364,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="936"/>
-        <source>Your PC supports fingerprint identification, so you can add fingerprint password in Control Center &gt; Account, and then use the fingerprint to unlock and authenticate</source>
+        <source>Add fingerprint password in Control Center &gt; Accounts to unlock and authenticate</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2503,23 +2513,18 @@
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="128"/>
-        <source>Map</source>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="303"/>
+        <source>Is it the right timezone? You can change it as well</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="129"/>
+        <source>Map</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="130"/>
         <source>List</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="307"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="404"/>
-        <source>Click your zone on the map</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="409"/>
-        <source>Select your timezone from the list</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

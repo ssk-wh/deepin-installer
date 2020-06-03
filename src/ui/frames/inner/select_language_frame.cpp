@@ -423,7 +423,7 @@ void SelectLanguageFramePrivate::updateTranslator(const QString& locale) {
 
 void SelectLanguageFramePrivate::updateTs()
 {
-    accept_license_->setText(tr("I have read and agree to"));
+    accept_license_->setText(tr("I have read and agree to the"));
     license_label_->setText(tr("%1 Software End User License Agreement").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")));
 
     if (oem_license_label_ != nullptr) {
@@ -436,7 +436,7 @@ void SelectLanguageFramePrivate::updateTs()
         }
     }
 
-    accept_experience_->setText(tr("Agreed to"));
+    accept_experience_->setText(tr("Agree to the"));
     experience_label_->setText(tr("User Experience Program License Agreement"));
 }
 

@@ -29,6 +29,9 @@
 #include "ui/utils/widget_util.h"
 
 #include <QApplication>
+#include <DSysInfo>
+
+DCORE_USE_NAMESPACE
 
 namespace installer {
 
@@ -130,11 +133,12 @@ void LanguageFramePrivate::initUI() {
     m_frame_layout->addWidget(m_select_language_frame);
     m_frame_layout->addWidget(m_user_experience_frame);
     m_frame_layout->addWidget(m_user_license_frame);
-    m_user_experience_frame->setTitle(tr("The user experience program license agreement"));
-    addTransLate(m_trList, std::bind(&UserAgreementFrame::setTitle, m_user_experience_frame, std::placeholders::_1), QString(tr("The user experience program license agreement")));
 
-    m_user_license_frame->setTitle(tr("End User License Agreement"));
-    addTransLate(m_trList, std::bind(&UserAgreementFrame::setTitle, m_user_license_frame, std::placeholders::_1), QString(tr("End User License Agreement")));
+    m_user_experience_frame->setTitle(tr("User Experience Program License Agreement"));
+    addTransLate(m_trList, std::bind(&UserAgreementFrame::setTitle, m_user_experience_frame, std::placeholders::_1), QString(tr("User Experience Program License Agreement")));
+
+    m_user_license_frame->setTitle(tr("%1 Software End User License Agreement").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")));
+    addTransLate(m_trList, std::bind(&UserAgreementFrame::setTitle, m_user_license_frame, std::placeholders::_1), QString(tr("%1 Software End User License Agreement").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS"))));
 
     nextButton->setEnabled(false);
     centerLayout->addLayout(m_frame_layout);

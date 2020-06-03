@@ -164,8 +164,8 @@ bool SelectInstallComponentFrame::event(QEvent* event) {
         // update all widget ts
         m_private->m_selectPageLabel->setText(tr("Select Software"));
         m_private->m_serverTypeLabel->setText(tr("Basic Environment"));
-        m_private->m_selectPromptLabel->setText(tr("Select the component according to your needs"));
-        m_private->m_componentLabel->setText(tr("Add-Ons for Selected Environment"));
+        m_private->m_selectPromptLabel->setText(tr("Select the components according to your needs"));
+        m_private->m_componentLabel->setText(tr("Add-Ons"));
         m_private->nextButton->setText(tr("Next"));
         m_private->m_selectAllCheckBox->setText(tr("Select All"));
 
@@ -222,7 +222,7 @@ void SelectInstallComponentFramePrivate::initUI()
     m_serverTypeLabel->setWordWrap(false);
     m_serverTypeLabel->setAlignment(Qt::AlignHCenter);
 
-    m_componentLabel = new QLabel(tr("Add-Ons for Selected Environment"), q_ptr);
+    m_componentLabel = new QLabel(tr("Add-Ons"), q_ptr);
     m_componentLabel->setObjectName("componentLabel");
     m_componentLabel->setWordWrap(false);
     m_componentLabel->setAlignment(Qt::AlignHCenter);

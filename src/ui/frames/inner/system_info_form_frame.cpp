@@ -567,10 +567,10 @@ void SystemInfoFormFramePrivate::updateTex()
     m_rootPasswordLabel->setText(tr("Root password").append(" :"));
     m_rootPasswordCheckLabel->setText(tr("Repeat root password").append(" :"));
 
-    m_titleLabel_->setText(tr("Create User Account"));
+    m_titleLabel_->setText(tr("Create Account"));
     m_commentLabel_->setText(tr("Fill in the username, computer name and your password"));
     m_grubPasswordCheck_->setText(tr("Use that password to edit boot menu"));
-    m_setRootPasswordCheck->setText(tr("Set root password"));
+    m_setRootPasswordCheck->setText(tr("Set as root password"));
     tooltip_->setText("");
 }
 
@@ -933,7 +933,7 @@ bool SystemInfoFormFramePrivate::searchDevice() {
 
 void SystemInfoFormFramePrivate::updateDevice() {
     if (searchDevice()) {
-       tooltip_->setText(tr("Your PC supports fingerprint identification, so you can add fingerprint password in Control Center > Account, and then use the fingerprint to unlock and authenticate"));
+       tooltip_->setText(tr("Add fingerprint password in Control Center > Accounts to unlock and authenticate"));
        tooltip_->showBottom(m_passwordEdit);
     }
 }
