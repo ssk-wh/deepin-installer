@@ -199,9 +199,19 @@ void NetworkDeviceWidget::updateCheckedAppearance()
     m_checkedLabel->setVisible(isChecked());
 }
 
-void NetworkDeviceWidget::setDeviceInfo(Device::Ptr device) {
-    // TODO: replace Ethernet use actual device type.
-    setTitle(tr("Ethernet (%1)").arg(device->interfaceName()));
+void NetworkDeviceWidget::setDeviceInfo(NetworkManager::Device::Ptr device) {
+    qDebug() << "Device type: " << device->type();
+
+    if (device->type() == NetworkManager::Device::Type::Ethernet) {
+        setTitle(tr("Ethernet (%1)").arg(device->interfaceName()));
+    }
+    else if (device->type() == NetworkManager::Device::Type::Wifi) {
+        setTitle(tr("Wifi (%1)").arg(device->interfaceName()));
+    }
+    else {
+        setTitle(tr("UnknownDevice (%1)").arg(device->interfaceName()));
+    }
+
     m_device = device;
     m_networkOperate = new NetworkOperate(device);
 
@@ -215,6 +225,30 @@ NetworkManager::Device::Ptr NetworkDeviceWidget::getDevice() const {
 NetworkOperate *NetworkDeviceWidget::networkOperate() const
 {
     return m_networkOperate;
+}
+
+QString NetworkDeviceWidget::getDeviceType() const
+{
+    if (m_device.isNull()) {
+        qWarning() << "getDeviceType() member device ptr is null";
+        return "";
+    }
+
+    QString deviceTypeName;
+
+    qDebug() << "Device type: " << m_device->type();
+
+    if (m_device->type() == NetworkManager::Device::Type::Ethernet) {
+        deviceTypeName = "Ethernet";
+    }
+    else if (m_device->type() == NetworkManager::Device::Type::Wifi) {
+        deviceTypeName = "Wifi";
+    }
+    else {
+        deviceTypeName = "UnknownType";
+    }
+
+    return deviceTypeName;
 }
 
 }

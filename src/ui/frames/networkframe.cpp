@@ -256,14 +256,15 @@ public:
         m_dhcpTypeWidget->setFixedSize(kLineEditWidth, kLineEditHeight);
 
         m_connectTypeWidget->setLayout(dhcpLayout);
-        QLabel* switchName = new QLabel(tr("Network Switch"));
-        switchName->setFixedSize(130, 20);
+        // If has not any devices, label must have default name.
+        m_switchName = new QLabel(tr("Network Switch"));
+        m_switchName->setFixedSize(130, 20);
         connect(m_switchButton, &DSwitchButton::checkedChanged, this, &NetworkEditWidget::onSwitchStateChanged);
 
         QHBoxLayout* switchLayout = new QHBoxLayout;
         switchLayout->setMargin(0);
         switchLayout->setSpacing(0);
-        switchLayout->addWidget(switchName, 0, Qt::AlignLeft | Qt::AlignHCenter);
+        switchLayout->addWidget(m_switchName, 0, Qt::AlignLeft | Qt::AlignHCenter);
         switchLayout->addWidget(m_switchButton, 0, Qt::AlignRight | Qt::AlignHCenter);
         m_switch->setLayout(switchLayout);
 
@@ -441,6 +442,8 @@ public:
         m_switchButton->blockSignals(true);
         m_switchButton->setChecked(m_deviceWidget->deviceEnable());
         m_switchButton->blockSignals(false);
+
+        m_switchName->setText(m_deviceWidget->getDeviceType());
 
         onSwitchStateChanged(m_deviceWidget->deviceEnable());
     }
@@ -672,6 +675,7 @@ public:
 
 private:
     QWidget* m_switch;
+    QLabel* m_switchName;
     DSwitchButton* m_switchButton;
     bool m_deviceEnable = false;
     QWidget* m_connectTypeWidget;
@@ -890,7 +894,9 @@ void NetworkFrame::saveConf()
         }
     }
 
+#ifndef QT_DEBUG
     m_proxy->nextFrame();
+#endif
 }
 
 void NetworkFrame::updateTs()

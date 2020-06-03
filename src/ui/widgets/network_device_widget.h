@@ -41,6 +41,8 @@ public:
     NetworkManager::Device::Ptr getDevice() const;
     NetworkOperate* networkOperate() const;
 
+    QString getDeviceType() const;
+
 protected:
     void paintEvent(QPaintEvent* event) override;
     void enterEvent(QEvent* event) override;
