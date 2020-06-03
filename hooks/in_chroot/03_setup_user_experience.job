@@ -17,14 +17,13 @@
 #
 
 DI_USER_EXPERIENCE=$(installer_get "DI_USER_EXPERIENCE")
-DI_USER_EXPERIENCE=${DI_USER_EXPERIENCE:-false}
-
-if [ x${DI_USER_EXPERIENCE} = xfalse ];then
-  return 0
-fi
+#DI_USER_EXPERIENCE=${DI_USER_EXPERIENCE:-false}
+if [[ -z $DI_USER_EXPERIENCE ]];then
+    return 0;
+fi 
 
 # add /etc/deepin/deepin-user-experience
 cat > /etc/deepin/deepin-user-experience << EOF
 [ExperiencePlan]
-ExperienceState=true
+ExperienceState=$DI_USER_EXPERIENCE
 EOF
