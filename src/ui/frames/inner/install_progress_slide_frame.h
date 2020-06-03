@@ -72,6 +72,7 @@ class InstallProgressSlideFrame : public QFrame {
 
 protected:
   void resizeEvent(QResizeEvent* event) override;
+  void showEvent(QShowEvent *event) override;
 
  private slots:
   // Update slide image while switching to next animation loop

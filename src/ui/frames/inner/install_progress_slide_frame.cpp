@@ -174,6 +174,15 @@ void InstallProgressSlideFrame::resizeEvent(QResizeEvent *event)
     return QFrame::resizeEvent(event);
 }
 
+void InstallProgressSlideFrame::showEvent(QShowEvent *event)
+{
+    setFocusPolicy(Qt::NoFocus);
+    m_backButton->setCheckable(false);
+    m_nextButton->setCheckable(false);
+    m_animationContainer->setFocus();
+    return QFrame::showEvent(event);
+}
+
 void InstallProgressSlideFrame::onAnimationCurrentLoopChanged() {
     updateSlideImage();
 }
