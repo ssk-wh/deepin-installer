@@ -46,6 +46,9 @@ class SystemInfoAvatarFrame : public QFrame {
   // Validate avatar path and write to conf file.
   void writeConf();
 
+protected:
+  void showEvent(QShowEvent *event) override;
+
  private:
   QScopedPointer<SystemInfoAvatarFramePrivate> d_private;
   Q_DECLARE_PRIVATE_D(d_private, SystemInfoAvatarFrame)

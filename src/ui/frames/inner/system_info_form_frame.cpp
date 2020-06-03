@@ -214,6 +214,7 @@ void SystemInfoFormFrame::updateAvatar(const QString& avatar)
 void SystemInfoFormFrame::readConf() {
     Q_D(SystemInfoFormFrame);
 
+    d->m_avatarButton_->readConf();
     d->m_currentAvatarButton->updateIcon(GetSettingsString(kSystemInfoDefaultAvator));
     d->m_usernameEdit->setText(GetSettingsString(kSystemInfoDefaultUsername));
     d->m_hostnameEdit->setText(GetSettingsString(kSystemInfoDefaultHostname));

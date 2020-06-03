@@ -66,6 +66,7 @@ private:
     SystemInfoAvatarFrame* q_ptr = nullptr;
 
     QListView* list_view_ = nullptr;
+    int        m_currentIndex = 0;
 };
 
 SystemInfoAvatarFrame::SystemInfoAvatarFrame(QWidget* parent)
@@ -81,8 +82,9 @@ SystemInfoAvatarFrame::~SystemInfoAvatarFrame()
 
 void SystemInfoAvatarFrame::readConf() {
   Q_D(SystemInfoAvatarFrame);
-  // const QString avatar = d->current_avatar_button_->avatar();
-  // emit this->avatarUpdated(avatar);
+  const QStringList avatars = GetAvatars();
+  const QString default_avatar = GetSettingsString(kSystemInfoDefaultAvator);
+  d->m_currentIndex = avatars.indexOf(default_avatar) != -1 ? avatars.indexOf(default_avatar) : 0;
 }
 
 void SystemInfoAvatarFrame::writeConf() {
@@ -92,7 +94,16 @@ void SystemInfoAvatarFrame::writeConf() {
   //   WriteAvatar(avatar);
   // } else {
   //   qWarning() << "Invalid avatar: " << avatar;
-  // }
+    // }
+}
+
+void SystemInfoAvatarFrame::showEvent(QShowEvent *event)
+{
+    Q_D(SystemInfoAvatarFrame);
+    QModelIndex index = d->list_view_->model()->index(d->m_currentIndex / d->list_view_->model()->columnCount(), d->m_currentIndex %  d->list_view_->model()->columnCount());
+    Q_EMIT d->list_view_->pressed(index);
+
+    return QFrame::showEvent(event);
 }
 
 SystemInfoAvatarFramePrivate::SystemInfoAvatarFramePrivate(SystemInfoAvatarFrame *parent)
@@ -150,6 +161,7 @@ void SystemInfoAvatarFramePrivate::initConnections() {
 }
 
 void SystemInfoAvatarFramePrivate::onListViewPressed(const QModelIndex& index) {
+  list_view_->setCurrentIndex(index);
   const QString avatar = index.model()->data(index).toString();
   Q_Q(SystemInfoAvatarFrame);
 
