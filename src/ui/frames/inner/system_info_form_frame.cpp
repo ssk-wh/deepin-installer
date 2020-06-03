@@ -595,16 +595,19 @@ bool SystemInfoFormFramePrivate::validateUsername(QString& msg)
     switch (state) {
     case ValidateUsernameState::ReservedError: {
         msg = tr("This username already exists");
+        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateUsernameState::FirstCharError: {
         msg = tr("The first letter must be in lowercase");
+        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateUsernameState::EmptyError:  // fall through
     case ValidateUsernameState::InvalidCharError: {
         msg = tr("Username must contain English letters (lowercase), "
                    "numbers or special symbols (_-)");
+        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateUsernameState::TooLongError:  // fall through
@@ -613,6 +616,7 @@ bool SystemInfoFormFramePrivate::validateUsername(QString& msg)
                  "shorter than %2 characters")
                 .arg(min_len)
                 .arg(max_len);
+        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateUsernameState::Ok: {
@@ -620,6 +624,7 @@ bool SystemInfoFormFramePrivate::validateUsername(QString& msg)
         break;
     }
     }
+    emit q_ptr->requestNextButtonEnable(true);
     return true;
 }
 
@@ -632,14 +637,17 @@ bool SystemInfoFormFramePrivate::validateHostname(QString& msg)
     switch (state) {
     case ValidateHostnameState::EmptyError: {
         msg = tr("Please input computer name");
+        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateHostnameState::InvalidChar: {
         msg = tr("Computer name is invalid");
+        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateHostnameState::ReservedError: {
         msg = tr("Computer name already exists, please input another one");
+        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateHostnameState::TooLongError:  // fall through
@@ -648,6 +656,7 @@ bool SystemInfoFormFramePrivate::validateHostname(QString& msg)
                  "shorter than %2 characters")
                 .arg(kHostnameMinLen)
                 .arg(kHostnameMaxLen);
+        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateHostnameState::Ok: {
@@ -655,6 +664,7 @@ bool SystemInfoFormFramePrivate::validateHostname(QString& msg)
         break;
     }
     }
+    emit q_ptr->requestNextButtonEnable(true);
     return true;
 }
 
@@ -672,6 +682,7 @@ bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, Q
     if (strong_pwd_check) {
         if (passwordEdit->text().toLower() == m_usernameEdit->text().toLower()) {
             msg = tr("The password should be different from the username");
+            emit q_ptr->requestNextButtonEnable(false);
             return false;
         }
         min_len = GetSettingsInt(kSystemInfoPasswordMinLen);
@@ -689,10 +700,12 @@ bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, Q
                  "shorter than %2 characters")
                 .arg(min_len)
                 .arg(max_len);
+        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidatePasswordState::StrongError: {  // fall through
         msg = tr("The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)");
+        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidatePasswordState::TooShortError:  // fall through
@@ -701,6 +714,7 @@ bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, Q
                  "shorter than %2 characters")
                 .arg(min_len)
                 .arg(max_len);
+        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidatePasswordState::Ok: {
@@ -711,6 +725,7 @@ bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, Q
         break;
     }
 
+    emit q_ptr->requestNextButtonEnable(true);
     return true;
 }
 
@@ -731,9 +746,11 @@ bool SystemInfoFormFramePrivate::validatePassword2(DPasswordEdit *passwordEdit, 
 {
     if (passwordEdit->text() != passwordCheckEdit->text()) {
         msg = tr("Passwords do not match");
+        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     else {
+        emit q_ptr->requestNextButtonEnable(true);
         return true;
     }
 }

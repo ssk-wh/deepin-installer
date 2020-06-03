@@ -44,6 +44,8 @@ signals:
     // Emitted when user input finished.
     void systemInfoFormDone();
 
+    void requestNextButtonEnable(bool enable);
+
 public slots:
     // Update user avatar image.
     void updateAvatar(const QString& avatar);

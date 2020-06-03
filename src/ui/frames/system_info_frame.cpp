@@ -152,6 +152,8 @@ void SystemInfoFramePrivate::initConnections() {
 
   connect(keyboard_button_, &QPushButton::clicked,
           this, &SystemInfoFramePrivate::showKeyboardPage);
+
+  connect(form_frame_, &SystemInfoFormFrame::requestNextButtonEnable, nextButton, &QPushButton::setEnabled);
 }
 
 void SystemInfoFramePrivate::initUI() {
