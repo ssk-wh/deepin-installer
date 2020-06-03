@@ -13,6 +13,18 @@ fi
 /tmp/installer/hook_manager.sh /tmp/installer/before_chroot/11_mount_target.job
 /tmp/installer/hook_manager.sh /tmp/installer/before_chroot/41_setup_mount_points.job
 
+mount ${DI_ROOT_PARTITION} /mnt
+rm -rf /mnt/var
+rm -rf /mnt/opt
+
+# copy /data/var => /var
+cp -a /target/data/var /mnt/
+
+# copy /data/opt => /opt
+cp -a /target/data/opt /mnt/
+
+umount /mnt
+
 chroot /target deepin-installer-settings set "/etc/deepin-installer.conf" "system_check_mode" "false"
 
 CONF_FILE=/target/etc/lightdm/lightdm.conf
