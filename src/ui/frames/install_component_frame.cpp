@@ -349,6 +349,8 @@ void SelectInstallComponentFramePrivate::initUI()
     centerLayout->addSpacing(55);
     centerLayout->addWidget(frame, 0, Qt::AlignCenter);
     centerLayout->addSpacing(20);
+
+    emit serverWidgetList.first()->clicked();//用于默认选中第一个服务和显示第一个服务对应的的附加选项
 }
 
 void SelectInstallComponentFramePrivate::onServerTypeClicked()
