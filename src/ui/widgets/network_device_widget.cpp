@@ -154,6 +154,9 @@ void NetworkDeviceWidget::readNetworkSettingInfo()
     networkSettingInfo.gateway = ipConfig.gateway();
     if (!ipConfig.nameservers().isEmpty()) {
         networkSettingInfo.primaryDNS = ipConfig.nameservers().at(0).toString();
+        if (ipConfig.nameservers().count() > 1) {
+            networkSettingInfo.secondaryDNS = ipConfig.nameservers().at(1).toString();
+        }
     }
 
     m_networkSettingInfo[networkSettingInfo.setIpMode] = networkSettingInfo;

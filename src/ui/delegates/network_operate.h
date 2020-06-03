@@ -26,6 +26,7 @@ typedef struct tagNetworkSettingInfo {
     QString mask;
     QString gateway;
     QString primaryDNS;
+    QString secondaryDNS;
     DHCPTYpe setIpMode = DHCPTYpe::Auto;
 } NetworkSettingInfo;
 

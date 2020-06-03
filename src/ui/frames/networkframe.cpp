@@ -111,6 +111,7 @@ public:
         m_maskWidget = new QWidget;
         m_gatewayWidget = new QWidget;
         m_primaryDNSWidget = new QWidget;
+        m_secondaryDNSWidget = new QWidget;
 
         m_device = nullptr;
         m_networkOperate = nullptr;
@@ -136,24 +137,37 @@ public:
         m_primaryDNSEdit = new DLineEdit;
         m_primaryDNSEdit->setFixedSize(kLineEditWidth, kLineEditHeight);
         m_primaryDNSEdit->lineEdit()->setFont(font);
+        m_secondaryDNSEdit = new DLineEdit;
+        m_secondaryDNSEdit->setFixedSize(kLineEditWidth, kLineEditHeight);
+        m_secondaryDNSEdit->lineEdit()->setFont(font);
 
-        m_ipv4Edit->lineEdit()->setPlaceholderText(tr("IP Address:"));
-        m_maskEdit->lineEdit()->setPlaceholderText(tr("Netmask:"));
-        m_gatewayEdit->lineEdit()->setPlaceholderText(tr("Gateway:"));
-        m_primaryDNSEdit->lineEdit()->setPlaceholderText(tr("Primary DNS:"));
+        m_ipv4Edit->lineEdit()->setPlaceholderText(tr("IP Address"));
+        m_maskEdit->lineEdit()->setPlaceholderText(tr("Netmask"));
+        m_gatewayEdit->lineEdit()->setPlaceholderText(tr("Gateway"));
+        m_primaryDNSEdit->lineEdit()->setPlaceholderText(tr("Primary DNS"));
+        m_secondaryDNSEdit->lineEdit()->setPlaceholderText(tr("Secondary DNS"));
 
         m_errorTip = new SystemInfoTip(this);
         m_errorTip->hide();
 
         QVBoxLayout* mainLayout = new QVBoxLayout;
         mainLayout->setMargin(0);
-        mainLayout->setSpacing(20);
+        mainLayout->setSpacing(10);
+
+        QMap<QWidget*, QString> tmpM {
+            {m_ipWidget, tr("Ip:")},
+            {m_maskWidget, tr("Mask:")},
+            {m_gatewayWidget, tr("Gateway:")},
+            {m_primaryDNSWidget, tr("Primary DNS:")},
+            {m_secondaryDNSWidget, tr("Secondary DNS:")},
+        };
 
         m_widgetList = {
             {m_ipWidget, m_ipv4Edit},
             {m_maskWidget, m_maskEdit},
             {m_gatewayWidget, m_gatewayEdit},
             {m_primaryDNSWidget, m_primaryDNSEdit},
+            {m_secondaryDNSWidget, m_secondaryDNSEdit},
         };
 
         m_editList = {
@@ -161,6 +175,7 @@ public:
             m_maskEdit,
             m_gatewayEdit,
             m_primaryDNSEdit,
+            m_secondaryDNSEdit,
         };
 
         for (auto it = m_editList.begin(); it != m_editList.end(); ++it) {
@@ -213,6 +228,17 @@ public:
             dnsLayout->addWidget(m_primaryDNSEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
             m_primaryDNSWidget->setLayout(dnsLayout);
             m_primaryDNSWidget->setFixedHeight(kLineEditHeight);
+
+            QHBoxLayout* secondaryDnsLayout = new QHBoxLayout;
+            secondaryDnsLayout->setMargin(0);
+            secondaryDnsLayout->setSpacing(0);
+            QLabel* secondaryDnsName = new QLabel(tr("Secondary DNS:"));
+            secondaryDnsName->setFixedSize(100, 20);
+
+            secondaryDnsLayout->addWidget(secondaryDnsName, 0, Qt::AlignLeft | Qt::AlignHCenter);
+            secondaryDnsLayout->addWidget(m_secondaryDNSEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
+            m_secondaryDNSWidget->setLayout(secondaryDnsLayout);
+            m_secondaryDNSWidget->setFixedHeight(kLineEditHeight);
         }
 
         QHBoxLayout* dhcpLayout = new QHBoxLayout;
@@ -247,6 +273,7 @@ public:
         mainLayout->addWidget(m_maskWidget);
         mainLayout->addWidget(m_gatewayWidget);
         mainLayout->addWidget(m_primaryDNSWidget);
+        mainLayout->addWidget(m_secondaryDNSWidget);
 
         m_validityCheck = std::unique_ptr<
             QRegularExpressionValidator>(new QRegularExpressionValidator(QRegularExpression(
@@ -264,6 +291,8 @@ public:
         connect(m_gatewayEdit, &DLineEdit::editingFinished, this,
                 &NetworkEditWidget::checkIPValidity);
         connect(m_primaryDNSEdit, &DLineEdit::editingFinished, this,
+                &NetworkEditWidget::checkIPValidity);
+        connect(m_secondaryDNSEdit, &DLineEdit::editingFinished, this,
                 &NetworkEditWidget::checkIPValidity);
         connect(m_maskEdit, &DLineEdit::editingFinished, this,
                 &NetworkEditWidget::checkIPValidity);
@@ -301,6 +330,7 @@ public:
         m_maskEdit->setText("");
         m_gatewayEdit->setText("");
         m_primaryDNSEdit->setText("");
+        m_secondaryDNSEdit->setText("");
     }
 
     void setIpLineEditConfig(const DHCPTYpe dhcp)
@@ -311,6 +341,7 @@ public:
             m_maskEdit->setText(info[dhcp].mask);
             m_gatewayEdit->setText(info[dhcp].gateway);
             m_primaryDNSEdit->setText(info[dhcp].primaryDNS);
+            m_secondaryDNSEdit->setText(info[dhcp].secondaryDNS);
         }
         else {
             clearWidgetIpInfo();
@@ -332,6 +363,7 @@ public:
             m_maskEdit->setText(info[m_dhcpType].mask);
             m_gatewayEdit->setText(info[m_dhcpType].gateway);
             m_primaryDNSEdit->setText(info[m_dhcpType].primaryDNS);
+            m_secondaryDNSEdit->setText(info[m_dhcpType].secondaryDNS);
         }
         else {
             clearWidgetIpInfo();
@@ -376,6 +408,7 @@ public:
             networkSettingInfo.mask = mask();
             networkSettingInfo.gateway = gateway();
             networkSettingInfo.primaryDNS = primaryDNS();
+            networkSettingInfo.secondaryDNS = secondaryDNS();
 
             info[networkSettingInfo.setIpMode] = networkSettingInfo;
 
@@ -487,6 +520,13 @@ public:
             }
         }
 
+        // If the first DNS is valid, then check the second DNS.
+        if (!m_secondaryDNSEdit->text().isEmpty()) {
+            if (!checkValidity(m_secondaryDNSEdit)) {
+                return false;
+            }
+        }
+
         return true;
     }
 
@@ -532,6 +572,7 @@ public:
             m_maskEdit->lineEdit()->setPlaceholderText(tr("Netmask"));
             m_gatewayEdit->lineEdit()->setPlaceholderText(tr("Gateway"));
             m_primaryDNSEdit->lineEdit()->setPlaceholderText(tr("Primary DNS"));
+            m_secondaryDNSEdit->lineEdit()->setPlaceholderText(tr("Secondary DNS"));
             m_errorTip->hide();
         }
 
@@ -588,6 +629,10 @@ public:
         return m_primaryDNSEdit->text();
     }
 
+    QString secondaryDNS() const {
+        return m_secondaryDNSEdit->text();
+    }
+
     DHCPTYpe connectType() const {
         return m_dhcpType;
     }
@@ -634,6 +679,7 @@ private:
     QWidget* m_maskWidget;
     QWidget* m_gatewayWidget;
     QWidget* m_primaryDNSWidget;
+    QWidget* m_secondaryDNSWidget;
     QList<QPair<QWidget*, DLineEdit*>> m_widgetList;
     QList<DLineEdit *> m_editList;
     QPushButton* m_editBtn;
@@ -642,6 +688,7 @@ private:
     DLineEdit* m_maskEdit;
     DLineEdit* m_gatewayEdit;
     DLineEdit* m_primaryDNSEdit;
+    DLineEdit* m_secondaryDNSEdit;
     DHCPTYpe m_dhcpType;
     std::unique_ptr<QRegularExpressionValidator> m_validityCheck;
     SystemInfoTip*                               m_errorTip;

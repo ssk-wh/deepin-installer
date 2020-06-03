@@ -124,7 +124,8 @@ bool NetworkOperate::setIpV4(NetworkSettingInfo info)
     if (info.setIpMode == DHCPTYpe::Manual){
         ipv4Setting->setMethod(NetworkManager::Ipv4Setting::Manual);
         ipv4Setting->setAddresses(QList<NetworkManager::IpAddress>() << ipAddress);
-        ipv4Setting->setDns(QList<QHostAddress>() << QHostAddress(info.primaryDNS));
+        ipv4Setting->setDns(QList<QHostAddress>() << QHostAddress(info.primaryDNS)
+                                                  << QHostAddress(info.secondaryDNS));
     }
     else {
         ipv4Setting->setMethod(NetworkManager::Ipv4Setting::Automatic);
@@ -266,10 +267,9 @@ void NetworkOperate::readIpInfo(NetworkSettingInfo& networkSettingInfo)
         if (i == 0) {
             networkSettingInfo.primaryDNS = dns.at(i).toString();
         }
-        // TODO: for second dns.
-        //        if (i == 1) {
-        //            m_dnsSecond->setText(dns.at(i).toString());
-        //        }
+        if (i == 1) {
+            networkSettingInfo.secondaryDNS = dns.at(i).toString();
+        }
     }
 }
 
