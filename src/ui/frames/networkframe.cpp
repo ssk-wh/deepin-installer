@@ -399,6 +399,8 @@ public:
 
         setLineEditEnable(true);
         m_errorTip->hide();
+
+        m_switchButton->setEnabled(false);
     }
 
     void saveConfigInfo()
@@ -440,6 +442,8 @@ public:
         m_errorTip->hide();
 
         saveConfigInfo();
+
+        m_switchButton->setEnabled(true);
     }
 
     void updateEditStateByDeviceToggle()
