@@ -58,7 +58,7 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     m_checkedLabel->setVisible(isChecked());
 
     m_hLayout = new QHBoxLayout;
-    m_hLayout->setContentsMargins(10, 10, 10, 10);
+    m_hLayout->setContentsMargins(5, 5, 5, 5);
     m_hLayout->setSpacing(0);
 
     m_hLayout->addLayout(m_vLayout);

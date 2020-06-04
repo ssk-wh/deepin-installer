@@ -40,7 +40,8 @@ DWIDGET_USE_NAMESPACE
 using namespace installer;
 
 namespace {
-    const int kViewWidth = 260;
+    const int kLeftViewWidth = 260;
+    const int kRightWidth = 295;
     const int kViewHeight = 370;
 
     const int kNextButtonWidth = 340;
@@ -49,7 +50,7 @@ namespace {
     const int kEditSaveButtonWidth = 140;
     const int kEditSaveButtonHeight = 36;
 
-    const int kLineEditWidth = 140;
+    const int kLineEditWidth = 168;
     const int kLineEditHeight = 36;
 
     const int kFontSize = 10;
@@ -127,18 +128,23 @@ public:
         QFont font;
         font.setPixelSize(kFontSize);
         m_ipv4Edit = new DLineEdit;
+        m_ipv4Edit->setObjectName("IP Address");
         m_ipv4Edit->setFixedSize(kLineEditWidth, kLineEditHeight);
         m_ipv4Edit->lineEdit()->setFont(font);
         m_maskEdit = new DLineEdit;
+        m_maskEdit->setObjectName("Netmask");
         m_maskEdit->setFixedSize(kLineEditWidth, kLineEditHeight);
         m_maskEdit->lineEdit()->setFont(font);
         m_gatewayEdit = new DLineEdit;
+        m_gatewayEdit->setObjectName("Gateway");
         m_gatewayEdit->setFixedSize(kLineEditWidth, kLineEditHeight);
         m_gatewayEdit->lineEdit()->setFont(font);
         m_primaryDNSEdit = new DLineEdit;
+        m_primaryDNSEdit->setObjectName("Primary DNS");
         m_primaryDNSEdit->setFixedSize(kLineEditWidth, kLineEditHeight);
         m_primaryDNSEdit->lineEdit()->setFont(font);
         m_secondaryDNSEdit = new DLineEdit;
+        m_secondaryDNSEdit->setObjectName("Secondary DNS");
         m_secondaryDNSEdit->setFixedSize(kLineEditWidth, kLineEditHeight);
         m_secondaryDNSEdit->lineEdit()->setFont(font);
 
@@ -189,8 +195,9 @@ public:
             QHBoxLayout* ipLayout = new QHBoxLayout;
             ipLayout->setMargin(0);
             ipLayout->setSpacing(0);
+
             QLabel* ipName = new QLabel(::QObject::tr("IP Address:"));
-            ipName->setFixedSize(100, 20);
+            ipName->setFixedSize(105, 20);
 
             ipLayout->addWidget(ipName, 0, Qt::AlignLeft | Qt::AlignHCenter);
             ipLayout->addWidget(m_ipv4Edit, 0, Qt::AlignRight | Qt::AlignHCenter);
@@ -200,8 +207,9 @@ public:
             QHBoxLayout* maskLayout = new QHBoxLayout;
             maskLayout->setMargin(0);
             maskLayout->setSpacing(0);
+
             QLabel* maskName = new QLabel(::QObject::tr("Netmask:"));
-            maskName->setFixedSize(100, 20);
+            maskName->setFixedSize(105, 20);
 
             maskLayout->addWidget(maskName, 0, Qt::AlignLeft | Qt::AlignHCenter);
             maskLayout->addWidget(m_maskEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
@@ -211,8 +219,9 @@ public:
             QHBoxLayout* gatewayLayout = new QHBoxLayout;
             gatewayLayout->setMargin(0);
             gatewayLayout->setSpacing(0);
+
             QLabel* gatewayName = new QLabel(::QObject::tr("Gateway:"));
-            gatewayName->setFixedSize(100, 20);
+            gatewayName->setFixedSize(105, 20);
 
             gatewayLayout->addWidget(gatewayName, 0, Qt::AlignLeft | Qt::AlignHCenter);
             gatewayLayout->addWidget(m_gatewayEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
@@ -222,8 +231,9 @@ public:
             QHBoxLayout* dnsLayout = new QHBoxLayout;
             dnsLayout->setMargin(0);
             dnsLayout->setSpacing(0);
+
             QLabel* dnsName = new QLabel(::QObject::tr("Primary DNS:"));
-            dnsName->setFixedSize(100, 20);
+            dnsName->setFixedSize(105, 20);
 
             dnsLayout->addWidget(dnsName, 0, Qt::AlignLeft | Qt::AlignHCenter);
             dnsLayout->addWidget(m_primaryDNSEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
@@ -233,8 +243,8 @@ public:
             QHBoxLayout* secondaryDnsLayout = new QHBoxLayout;
             secondaryDnsLayout->setMargin(0);
             secondaryDnsLayout->setSpacing(0);
-            QLabel* secondaryDnsName = new QLabel(::QObject::tr("Secondary DNS:"));
-            secondaryDnsName->setFixedSize(100, 20);
+            QLabel* secondaryDnsName = new QLabel(tr("Secondary DNS:"));
+            secondaryDnsName->setFixedSize(105, 20);
 
             secondaryDnsLayout->addWidget(secondaryDnsName, 0, Qt::AlignLeft | Qt::AlignHCenter);
             secondaryDnsLayout->addWidget(m_secondaryDNSEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
@@ -290,16 +300,6 @@ public:
 
         m_acceptBtn->hide();
 
-        connect(m_ipv4Edit, &DLineEdit::editingFinished, this, &NetworkEditWidget::checkIPValidity);
-        connect(m_gatewayEdit, &DLineEdit::editingFinished, this,
-                &NetworkEditWidget::checkIPValidity);
-        connect(m_primaryDNSEdit, &DLineEdit::editingFinished, this,
-                &NetworkEditWidget::checkIPValidity);
-        connect(m_secondaryDNSEdit, &DLineEdit::editingFinished, this,
-                &NetworkEditWidget::checkIPValidity);
-        connect(m_maskEdit, &DLineEdit::editingFinished, this,
-                &NetworkEditWidget::checkIPValidity);
-
         connect(m_editBtn, &QPushButton::clicked, this, &NetworkEditWidget::onEdit);
         connect(m_acceptBtn, &QPushButton::clicked, this, &NetworkEditWidget::onEditFinished);
         connect(m_dhcpTypeWidget, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged)
@@ -314,6 +314,7 @@ public:
         m_maskEdit->lineEdit()->setPlaceholderText(::QObject::tr("Netmask:"));
         m_gatewayEdit->lineEdit()->setPlaceholderText(::QObject::tr("Gateway:"));
         m_primaryDNSEdit->lineEdit()->setPlaceholderText(::QObject::tr("Primary DNS:"));
+        m_secondaryDNSEdit->lineEdit()->setPlaceholderText(::QObject::tr("Secondary DNS:"));
     }
 
     void initWidgetState()
@@ -466,7 +467,7 @@ public:
         if (!checkip(edit->text())) {
             QWidget *parent = qobject_cast<QWidget *>(edit->parent());
             m_errorTip->setText(::QObject::tr("Illegal %1, please have a check.")
-                                .arg(edit->lineEdit()->placeholderText()));
+                                .arg(edit->objectName()));
             m_errorTip->setLabelSize(QSize(kLineEditWidth, 60));
             m_errorTip->setRelativePosition(parent->pos());
             m_errorTip->showBottom(edit);
@@ -727,7 +728,7 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     m_leftLayout->setSpacing(10);
     QFrame *leftWidget = new QFrame;
     leftWidget->setContentsMargins(0, 0, 0, 0);
-    leftWidget->setFixedSize(kViewWidth, kViewHeight);
+    leftWidget->setFixedSize(kLeftViewWidth, kViewHeight);
     leftWidget->setLayout(m_leftLayout);
 
     // 右侧布局
@@ -741,7 +742,7 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
 
     QFrame *rightWidget = new QFrame;
     rightWidget->setContentsMargins(0, 0, 0, 0);
-    rightWidget->setFixedSize(kViewWidth, kViewHeight);
+    rightWidget->setFixedSize(kRightWidth, kViewHeight);
     rightWidget->setLayout(rightLayout);
 
     DVerticalLine* dVerticalLine = new DVerticalLine;

@@ -85,7 +85,7 @@ void ShowFullscreen(QWidget* widget) {
   // function may return false screen geometry.
   const QRect rect = qApp->desktop()->screenGeometry();
   ShowFullscreen(widget, rect);
-#ifdef QT_DEBUG_test
+#ifdef QT_DEBUG
   widget->setFixedSize(800, 600);
 #else
   widget->showFullScreen();

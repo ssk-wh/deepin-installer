@@ -105,7 +105,7 @@ void SystemInfoTip::setLabelSize(const QSize &size)
 {
     label_->setAlignment(Qt::AlignTop);
     label_->setWordWrap(true);
-    label_->setFixedSize(size.width(), size.height());
+    label_->setFixedSize(size.width() - kWindowMarginLeft - kWindowMarginRight, size.height());
     setFixedSize(size);
 }
 
