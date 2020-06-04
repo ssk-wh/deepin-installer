@@ -7,6 +7,7 @@
 #include "ui/delegates/network_operate.h"
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/title_label.h"
+#include "base/command.h"
 
 #include <QDebug>
 #include <QDir>
@@ -921,6 +922,49 @@ void NetworkFrame::onButtonGroupToggled(QAbstractButton *button)
     m_currentNetworkEditWidget->initWidgetState();
     m_currentNetworkEditWidget->setNetworkDeviceWidget(deviceWidget);
     m_currentNetworkEditWidget->updateEditStateByDeviceToggle();
+}
+
+QStringList NetworkFrame::getAllConnectionUuids()
+{
+    QString nmcliResult;
+    qDebug() << SpawnCmd("nmcli", { "connection", "show" }, nmcliResult);
+
+    QTextStream stream(&nmcliResult);
+    QString line;
+    QStringList uuidList;
+    while (stream.readLineInto(&line)) {
+        if (line.trimmed().length() == 0) {
+            continue;
+        }
+
+        if (line.contains("NAME")) {
+            continue;
+        }
+
+        const QStringList list {
+            line.simplified().split(" ")
+        };
+
+        const QRegExp reg("[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}", Qt::CaseInsensitive);
+        for (QString str : list) {
+            if (reg.exactMatch(str.trimmed())) {
+                uuidList << str;
+                break;
+            }
+        }
+    }
+
+    return uuidList;
+}
+
+void NetworkFrame::deleteAllConnections()
+{
+    QStringList uuidList = getAllConnectionUuids();
+    QString nmcliResult;
+
+    for (QString uuid : uuidList) {
+        qDebug() << SpawnCmd("nmcli", { "connection", "delete", uuid }, nmcliResult);
+    }
 }
 
 #include "networkframe.moc"

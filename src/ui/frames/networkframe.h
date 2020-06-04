@@ -51,6 +51,8 @@ private:
     void saveConf();
     void updateTs();
     void onButtonGroupToggled(QAbstractButton *button);
+    QStringList getAllConnectionUuids();
+    void deleteAllConnections();
 };
 }  // namespace installer
 
