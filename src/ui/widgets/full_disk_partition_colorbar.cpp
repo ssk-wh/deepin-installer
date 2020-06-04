@@ -10,10 +10,11 @@
 
 namespace installer {
 
-const int kColorBarWidth = 525;
-const int kPartitionLabelSpace = 5;
+const int kColorBarWidth = 543;
+const int kPartitionLabelSpace = 10;
 
-const int kPartitionNameFont = 10;
+const int kPartitionNameFont = 14;
+const int kPartitionMounLabFont = 12;
 
 static const QMap<QString, QString> PART_NAME_COLOR_NAME_MAP{
     { QString("/boot"), QString("#C100AB") },
@@ -99,7 +100,7 @@ FullDiskPartitionWidget::FullDiskPartitionWidget(QWidget* parent)
     m_labelLayout = new DFlowLayout(this);
     m_labelLayout->setFlow(DFlowLayout::Flow::LeftToRight);
     m_labelLayout->setContentsMargins(0, 0, 0, 0);
-    m_labelLayout->setHorizontalSpacing(kPartitionLabelSpace);
+    //m_labelLayout->setHorizontalSpacing(kPartitionLabelSpace);
 
     m_mainLayout = new QVBoxLayout;
     m_mainLayout->addWidget(m_fullDiskPartitionColorBar, 0, Qt::AlignHCenter);
@@ -165,7 +166,12 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
     int widgetIndex = 0;
 
     QFont font;
-    font.setPointSize(kPartitionNameFont);
+    font.setPixelSize(kPartitionNameFont);
+
+    QFont mountfont;
+    mountfont.setPixelSize(kPartitionMounLabFont);
+
+    int indexNum(0);
 
     for (Partition::Ptr partition : partitions) {
         QHBoxLayout *layout = new QHBoxLayout;
@@ -175,33 +181,59 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
         PartitionColorLabel *colorLable = new PartitionColorLabel(GetPartitionColor(partition));
         layout->addWidget(colorLable);
 
+        QString tooltipString;
+
         QLabel *partNameLable = new QLabel();
         partNameLable->setFont(font);
-        partNameLable->setFixedWidth(65);
+        partNameLable->setFixedWidth(75);
         partNameLable->setAlignment(Qt::AlignmentFlag::AlignLeft);
         partNameLable->setText(GetPartitionDisplayText(partition));
+        partNameLable->setStyleSheet("QLabel{color:#363636} ");
+        tooltipString.append(partNameLable->text());
         layout->addSpacing(2);
         layout->addWidget(partNameLable);
 
         QLabel *partSize = new QLabel();
-        partSize->setFont(font);
-        partSize->setFixedWidth(45);
+        partSize->setFont(mountfont);
+        partSize->setFixedWidth(42);
         partSize->setAlignment(Qt::AlignmentFlag::AlignRight);
         QString tmp = GetPartitionUsage(partition);
         int index = tmp.lastIndexOf('/');
         partSize->setText(index < 0 ? tmp : tmp.mid(index + 1));
+        tooltipString.append(" " + partSize->text());
+        partSize->setStyleSheet("QLabel{color:#526A7F} ");
         layout->addWidget(partSize);
 
         QLabel *fileSysType = new QLabel();
-        fileSysType->setFont(font);
-        fileSysType->setFixedWidth(75);
-        fileSysType->setAlignment(Qt::AlignmentFlag::AlignLeft);
+        fileSysType->setFont(mountfont);
+        fileSysType->setFixedWidth(42);
+        fileSysType->setAlignment(Qt::AlignmentFlag::AlignRight);
+
         fileSysType->setText(GetFsTypeName(partition->fs));
-        layout->addSpacing(2);
+        tooltipString.append(" " + fileSysType->text());
+        fileSysType->setStyleSheet("QLabel{color:#526A7F} ");        
         layout->addWidget(fileSysType);
 
+        partNameLable->setToolTip(tooltipString);
+        partSize->setToolTip(tooltipString);
+        fileSysType->setToolTip(tooltipString);
+
+        int dis = fileSysType->width() - fileSysType->text().size() * 7;
+        if (dis< 0) {
+            int num = fileSysType->width() / 7 - 3;
+            if (num > 0) {
+                fileSysType->setText(fileSysType->text().left(num+1) + "...");
+            }
+        }
+
+        if (indexNum % 3 != 2 ) {
+            layout->addSpacing(25);
+        }
+
+        indexNum++;
+
         QWidget *labelsWrapWidget = new QWidget;
-        labelsWrapWidget->setFixedSize(165, 25);
+        labelsWrapWidget->setFixedSize(180, 22);
         labelsWrapWidget->setLayout(layout);
         m_labelLayoutWidgets << labelsWrapWidget;
         m_labelLayout->insertWidget(widgetIndex, labelsWrapWidget);
