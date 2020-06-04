@@ -201,20 +201,21 @@ void TimezoneFrame::finished() {
   }
 
   WriteTimezone(m_private->timezone_);
-  WriteIsLocalTime(true);
-  WriteIsLocalTimeForce(true);
 
   QScopedPointer<QProcess> process(new QProcess);
 
   const QString localRtc = [=]() -> QString {
-    const bool forceUse = GetSettingsBool(kTimezoneUseLocalTime);
-    const bool DI_IS_LOCALE_TIME = GetSettingsBool("DI_IS_LOCAL_TIME");
-
-    return forceUse || DI_IS_LOCALE_TIME ? "true" : "false";
+      return GetSettingsBool(kTimezoneUseLocalTime) ? "true" : "false";
   }();
 
   process->start("timedatectl", {"set-local-rtc", localRtc});
   process->waitForFinished();
+
+  if (m_private->m_systemDateFrame->isEnabled()) {
+      return;
+  }
+
+  WriteIsLocalTime(true);
 
   process->start("timedatectl", {"set-timezone", m_private->timezone_});
   process->waitForFinished();
@@ -397,11 +398,11 @@ void TimezoneFramePrivate::onTimezoneMapUpdated(const QString& timezone) {
 
 void TimezoneFramePrivate::onMapListButtonGroupToggled(QAbstractButton *button)
 {
-    if (button == m_timezoneMapButton){        
+    if (button == m_timezoneMapButton){
         m_mapOrListStackedLayout->setCurrentWidget(timezone_map_);
         timezone_map_->showMark();
     }
-    else{        
+    else{
         m_mapOrListStackedLayout->setCurrentWidget(m_selectTimeZoneFrame);
         timezone_map_->hideMark();
     }

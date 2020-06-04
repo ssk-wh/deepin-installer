@@ -138,6 +138,12 @@ QString SystemDateFrame::timedate() const {
       .arg("0", 2, '0');
 }
 
+bool SystemDateFrame::isEnabled() const {
+    Q_D(const SystemDateFrame);
+
+    return d->m_setDateTimeCheckBox->isChecked();
+}
+
 bool SystemDateFrame::event(QEvent *event)
 {
     Q_D(SystemDateFrame);

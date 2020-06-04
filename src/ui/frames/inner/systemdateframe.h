@@ -36,6 +36,7 @@ public:
     ~SystemDateFrame() override;
 
     QString timedate() const;
+    bool isEnabled() const;
 
     bool validateTimeDate() const;
     void timeDateSetFinished();
