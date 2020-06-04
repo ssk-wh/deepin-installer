@@ -12,7 +12,8 @@ NcursesCheckBox::NcursesCheckBox(NCursesWindowBase *parent, const QString &text,
       m_titlebrower(nullptr),
       m_contentbrower(nullptr),
       m_selectshowpos(0),
-      m_strheight(0)
+      m_strheight(0),
+      m_isshow(false)
 {
     if(parent != nullptr) {
         this->setBackground(parent->background());
@@ -29,7 +30,8 @@ NcursesCheckBox::NcursesCheckBox(NCursesWindowBase* parent, int lines, int cols,
       m_titlebrower(nullptr),
       m_contentbrower(nullptr),
       m_selectshowpos(0),
-      m_strheight(0)
+      m_strheight(0),
+      m_isshow(false)
 {
     if(parent != nullptr) {
         this->setBackground(parent->background());
@@ -43,7 +45,16 @@ NcursesCheckBox::~NcursesCheckBox()
 
 void NcursesCheckBox::show()
 {
-    NCursesWindowBase::show();
+    if (!m_isshow) {
+        NCursesWindowBase::show();
+        m_isshow = true;
+    }
+}
+
+void NcursesCheckBox::hide()
+{
+    NCursesWindowBase::hide();
+    m_isshow = false;
 }
 
 void NcursesCheckBox::setText(const QString &title, const QString &text, bool iswchar)

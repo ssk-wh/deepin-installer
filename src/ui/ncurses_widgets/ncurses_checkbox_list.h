@@ -25,6 +25,7 @@ public:
     QString getCurrentTitle();
     QString getCurrentText();
     void clearList();
+    void setSelectItems(QStringList& selectitems){ m_selectitems.clear(); m_selectitems = selectitems; }
     QStringList& getSelectItems(){ return m_selectitems; }
     void onKeyPress(int keyCode) override;
     void show() override;

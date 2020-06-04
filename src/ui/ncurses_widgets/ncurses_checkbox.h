@@ -17,6 +17,7 @@ public:
     NcursesCheckBox(NCursesWindowBase* parent, int lines, int cols, int beginY, int beginX);
     virtual ~NcursesCheckBox();
     virtual void show() override;
+    virtual void hide() override;
     virtual void setFocus(bool foucs) override;
     void setText(const QString &title = "", const QString& text = "", bool iswchar = false);
     void setSelect(bool select);
@@ -44,6 +45,7 @@ private:
     bool m_isusetitle;
     int m_selectshowpos;
     int m_strheight;
+    bool m_isshow;
 };
 
 }

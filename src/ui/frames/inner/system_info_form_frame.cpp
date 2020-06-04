@@ -447,7 +447,6 @@ void SystemInfoFormFramePrivate::initUI()
     m_setRootPasswordCheck->setChecked(false);
     m_setRootPasswordCheck->setObjectName("RootPasswordCheckBox");
     m_setRootPasswordCheck->setVisible(GetSettingsBool(kSetRootPasswordFromUser));
-    m_setRootPasswordCheck->setVisible(true);
 
     m_rootPasswordLabel = new QLabel;
     m_rootPasswordLabel->setAlignment(Qt::AlignLeft);

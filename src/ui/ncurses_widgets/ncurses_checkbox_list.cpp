@@ -36,7 +36,7 @@ void NcursesCheckBoxList::setList(QVector<QPair<QString, QString>>& list,  bool 
         testcheckbox->setBackground(this->background());
         testcheckbox->hide();
 
-        if(m_selectitems.indexOf(text.second) != -1) {
+        if(m_selectitems.indexOf(text.first) != -1) {
             testcheckbox->setSelect(true);
         }
         m_ncursesCheckBoxs_vector.push_back(testcheckbox);
@@ -49,32 +49,31 @@ void NcursesCheckBoxList::setList(QVector<QPair<QString, QString>>& list,  bool 
 
 QString NcursesCheckBoxList::getCurrentTitle()
 {
-    return m_ncursesCheckBoxs_vector.at(m_index)->title();
+    if (m_ncursesCheckBoxs_vector.size() > 0) {
+        return m_ncursesCheckBoxs_vector.at(m_index)->title();
+    } else {
+        return "";
+    }
 }
 
 QString NcursesCheckBoxList::getCurrentText()
 {
-    return m_ncursesCheckBoxs_vector.at(m_index)->text();
+    if (m_ncursesCheckBoxs_vector.size() > 0) {
+        return m_ncursesCheckBoxs_vector.at(m_index)->text();
+    } else {
+        return "";
+    }
 }
 
 
 void NcursesCheckBoxList::clearList()
 {
-    foreach(NcursesCheckBox* testitem, m_ncursesCheckBoxs_vector) {
-        if(testitem->isSelect()) {
-            if(m_selectitems.indexOf(testitem->text()) == -1) {
-                m_selectitems.append(testitem->text());
-            }
-        } else {
-            if(m_selectitems.indexOf(testitem->text()) != -1) {
-                m_selectitems.removeOne(testitem->text());
-            }
+    foreach (NCursesWindowBase* child, m_childWindows) {
+        if (child) {
+            delete child;
+            child = nullptr;
         }
-
-        delete testitem;
-        testitem = nullptr;
     }
-
     m_childWindows.clear();
     m_foucsWindows.clear();
     m_ncursesCheckBoxs_vector.clear();
@@ -89,6 +88,8 @@ void NcursesCheckBoxList::onKeyPress(int keyCode)
         if(m_index < 0){
             m_index = 0;
             m_heightpos = m_ncursesCheckBoxs_vector.at(m_index)->getStrHeight();
+            m_ncursesCheckBoxs_vector.at(m_index)->setFocus(true);
+            break;
         } else {
             m_heightpos -= m_ncursesCheckBoxs_vector.at(m_index+1)->getStrHeight();
         }
@@ -125,6 +126,8 @@ void NcursesCheckBoxList::onKeyPress(int keyCode)
         m_index++;
         if(m_index >= m_ncursesCheckBoxs_vector.size()){
             m_index = m_ncursesCheckBoxs_vector.size() - 1;
+            m_ncursesCheckBoxs_vector.at(m_index)->setFocus(true);
+            break;
         } else {
             m_heightpos += m_ncursesCheckBoxs_vector.at(m_index)->getStrHeight();
         }

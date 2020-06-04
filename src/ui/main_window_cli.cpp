@@ -48,6 +48,7 @@ public:
                 testcount++;
                 continue;
             }
+            testcount = 0;
         }
     }
     void setFrameInterface(FrameInterface* object){ m_FrameInterface = object; }

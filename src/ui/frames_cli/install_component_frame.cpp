@@ -25,7 +25,8 @@ InstallComponentFramePrivate::InstallComponentFramePrivate(NCursesWindowBase *pa
       m_basicenvironmentlist(nullptr),
       m_extrachoiceslist(nullptr),
       m_selectallextra(nullptr),
-      m_isshow(false)
+      m_isshow(false),
+      m_localeString("")
 {
     initUI();
     initConnection();
@@ -61,13 +62,13 @@ void InstallComponentFramePrivate::initUI()
     m_secondSubTiltleLabel->setFocusEnabled(false);
 
     m_basicenvironmentlist = new NcursesCheckBoxList(this, height() - 15, width() / 2 - 2, begy() + 7,  begx() + 2);
-    m_basicenvironmentlist->setFocus(true);
+    //m_basicenvironmentlist->setFocus(true);
     m_basicenvironmentlist->setListType(NcursesCheckBoxList::BASICENVIRONMENT);
     m_basicenvironmentlist->setSingleSelect(true);
     m_basicenvironmentlist->setRealSelect(true);
 
     m_extrachoiceslist = new NcursesCheckBoxList(this, height() - 15, width() / 2 - 2, begy() + 7,  begx() + width() / 2);
-    m_extrachoiceslist->setFocus(true);
+    //m_extrachoiceslist->setFocus(true);
     m_extrachoiceslist->setListType(NcursesCheckBoxList::EXTRACHOICES);
     m_extrachoiceslist->setSingleSelect(false);
     m_extrachoiceslist->setRealSelect(false);
@@ -101,7 +102,9 @@ void InstallComponentFramePrivate::updateTs()
     m_firstSubTiltleLabel->setText(testfirststr.toUtf8().data());
     m_secondSubTiltleLabel->setText(testsecondstr.toUtf8().data());
 
-    initInfoList();
+    if(m_localeString.compare("") && m_localeString.compare(installer::ReadLocale())) {
+        initInfoList();
+    }
 
     FrameInterfacePrivate::updateTs();
 
@@ -137,43 +140,24 @@ void InstallComponentFramePrivate::hide()
 
 void InstallComponentFramePrivate::initInfoList()
 {
-    QStringList testselects = m_extrachoiceslist->getSelectItems();
-    if(testselects.size() > 0) {
-        //如果之前有过选择，则保留选择状态，不做清空
-        return;
-    }
-
     ComponentInstallManager* manager = ComponentInstallManager::Instance();
-    QList<QSharedPointer<ComponentStruct>> serverList = manager->list();
 
-    m_basicenvironmentinfolist.clear();
-    for (auto it = serverList.cbegin(); it != serverList.cend(); ++it) {
+    m_serverList = manager->list();
+
+    QVector<QPair<QString, QString>> basicenvironmentinfolist;
+    for (auto it = m_serverList.cbegin(); it != m_serverList.cend(); ++it) {
         QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(*it);
         if(tsPair.first.compare("")) {
-            m_basicenvironmentinfolist.push_back(tsPair);
-        }
-
-        QVector<ComponentInfo> testcomponentinfovector;
-        QList<QSharedPointer<ComponentInfo>> testextra = (*it)->extra();
-        foreach(QSharedPointer<ComponentInfo> testinfo, testextra) {
-            ComponentInfo testcomponentinfo;
-            testcomponentinfo.Selected    = testinfo->Selected;
-            testcomponentinfo.Id          = testinfo->Id;
-            testcomponentinfo.PackageList = testinfo->PackageList;
-            testcomponentinfovector.push_back(testcomponentinfo);
-        }
-        if(testcomponentinfovector.size() > 0) {
-            m_componentInfomap.insert(tsPair.first, testcomponentinfovector);
+            basicenvironmentinfolist.push_back(tsPair);
         }
     }
 
-    if (m_basicenvironmentinfolist.size() > 0) {
-        QString teststr = m_basicenvironmentinfolist.at(0).first;
-        m_extrachoicesinfolist.clear();
-        foreach(ComponentInfo testinfo, m_componentInfomap[teststr])
+    if (basicenvironmentinfolist.size() > 0) {
+        QVector<QPair<QString, QString>> extrachoicesinfolist;
+        foreach(QSharedPointer<ComponentInfo> testinfo, m_serverList.first()->extra())
         {
-            QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(testinfo.Id);
-            m_extrachoicesinfolist.push_back(tsPair);
+            QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(testinfo->Id);
+            extrachoicesinfolist.push_back(tsPair);
         }
 
         bool testiswchar = false;
@@ -182,8 +166,12 @@ void InstallComponentFramePrivate::initInfoList()
         } else {
             testiswchar = false;
         }
-        m_basicenvironmentlist->setList(m_basicenvironmentinfolist, testiswchar);
-        m_extrachoiceslist->setList(m_extrachoicesinfolist, testiswchar);
+
+        QStringList testitems;
+        m_basicenvironmentlist->setSelectItems(testitems);
+        m_extrachoiceslist->setSelectItems(testitems);
+        m_basicenvironmentlist->setList(basicenvironmentinfolist, testiswchar);
+        m_extrachoiceslist->setList(extrachoicesinfolist, testiswchar);
     }
 }
 
@@ -193,26 +181,11 @@ void InstallComponentFramePrivate::writeInfoList()
     WriteComponentUninstallPackages("");
 
     ComponentInstallManager* manager = ComponentInstallManager::Instance();
-    QList<QSharedPointer<ComponentStruct>> serverList = manager->list();
 
-    for (auto it = serverList.cbegin(); it != serverList.cend(); ++it) {
+    for (auto it = m_serverList.cbegin(); it != m_serverList.cend(); ++it) {
         QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(*it);
 
         if(!tsPair.first.compare(m_basicenvironmentlist->getCurrentTitle())) {
-            for (int i = 0; i< (*it)->defaultValue().size(); i++) {
-                (*it)->defaultValue()[i]->Selected = true;
-            }
-            //QList<QSharedPointer<ComponentInfo>> testextra = (*it)->extra();
-            QStringList testselects = m_extrachoiceslist->getSelectItems();
-            //foreach(QSharedPointer<ComponentInfo> testinfo, (*it)->extra()) {
-            for(int i = 0; i < (*it)->extra().size(); i++) {
-                QPair<QString, QString> tsPair_temp = ComponentInstallManager::Instance()->updateTs((*it)->extra().at(i)->Id);
-                if(testselects.indexOf(tsPair_temp.first) != -1) {
-                    //testinfo->Selected = true;
-                    (*it)->extra()[i]->Selected = true;
-                }
-            }
-
             const QStringList installPackages = manager->packageListByComponentStruct(*it);
             if (!installPackages.isEmpty()) {
                 WriteComponentPackages(installPackages.join(" "));
@@ -239,45 +212,63 @@ void InstallComponentFramePrivate::slot_KeyTriger(int keycode, int listtype)
 {
     switch (keycode) {
     case KEY_UP:
-        if(listtype == NcursesCheckBoxList::BASICENVIRONMENT) {
-            QVector<QPair<QString, QString>> testinfolist;
-            QString teststr = m_basicenvironmentlist->getCurrentTitle();
-            foreach(ComponentInfo testinfo, m_componentInfomap[teststr])
-            {
-                QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(testinfo.Id);
-                testinfolist.push_back(tsPair);
-                //testinfolist.append(testinfo.Id);
-            }
-            m_extrachoiceslist->setList(testinfolist);
-            m_extrachoiceslist->show();
-
-            m_basicenvironmentlist->refresh();
-            m_extrachoiceslist->refresh();
-            refresh();
-        }
-        break;
     case KEY_DOWN:
         if(listtype == NcursesCheckBoxList::BASICENVIRONMENT) {
             QVector<QPair<QString, QString>> testinfolist;
-            QString teststr = m_basicenvironmentlist->getCurrentTitle();
-            foreach(ComponentInfo testinfo, m_componentInfomap[teststr])
-            {
-                QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(testinfo.Id);
-                testinfolist.push_back(tsPair);
-                //testinfolist.append(testinfo.Id);
+            QStringList testselcetitems;
+            for (auto it = m_serverList.cbegin(); it != m_serverList.cend(); ++it) {
+                QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(*it);
+
+                if(!tsPair.first.compare(m_basicenvironmentlist->getCurrentTitle())) {
+                    for (int i = 0; i< (*it)->defaultValue().size(); i++) {
+                        (*it)->defaultValue()[i]->Selected = true;
+                    }
+
+                    bool testisallselext = true;
+                    foreach(QSharedPointer<ComponentInfo> testinfo, (*it)->extra())
+                    {
+                        QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(testinfo->Id);
+                        if(testinfo->Selected){
+                            testselcetitems.append(tsPair.first);
+                        } else {
+                            testisallselext = false;
+                        }
+
+                        testinfolist.push_back(tsPair);
+                    }
+                    m_selectallextra->setSelect(testisallselext);
+
+                } else {
+                    for (int i = 0; i< (*it)->defaultValue().size(); i++) {
+                        (*it)->defaultValue()[i]->Selected = false;
+                    }
+                }
             }
+            m_extrachoiceslist->setSelectItems(testselcetitems);
             m_extrachoiceslist->setList(testinfolist);
             m_extrachoiceslist->show();
-
-            m_basicenvironmentlist->refresh();
-            m_extrachoiceslist->refresh();
             refresh();
         }
         break;
-
     case 32:
         if(listtype == NcursesCheckBoxList::EXTRACHOICES) {
-
+            for (auto it = m_serverList.cbegin(); it != m_serverList.cend(); ++it) {
+                QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(*it);
+                if(!tsPair.first.compare(m_basicenvironmentlist->getCurrentTitle())) {
+                    QStringList testselects = m_extrachoiceslist->getSelectItems();
+                    bool testisallselext = true;
+                    for(int i = 0; i < (*it)->extra().size(); i++) {
+                        QPair<QString, QString> tsPair_temp = ComponentInstallManager::Instance()->updateTs((*it)->extra().at(i)->Id);
+                        if(testselects.indexOf(tsPair_temp.first) != -1) {
+                            (*it)->extra()[i]->Selected = true;
+                        } else {
+                            (*it)->extra()[i]->Selected = false;
+                            testisallselext = false;
+                        }
+                    }
+                    m_selectallextra->setSelect(testisallselext);
+                }
+            }
         }
         break;
     default:
@@ -287,6 +278,16 @@ void InstallComponentFramePrivate::slot_KeyTriger(int keycode, int listtype)
 
 void InstallComponentFramePrivate::slot_SelectChange(bool select)
 {
+    for (auto it = m_serverList.cbegin(); it != m_serverList.cend(); ++it) {
+        QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(*it);
+        if(!tsPair.first.compare(m_basicenvironmentlist->getCurrentTitle())) {
+            QStringList testselects = m_extrachoiceslist->getSelectItems();
+            for(int i = 0; i < (*it)->extra().size(); i++) {
+                QPair<QString, QString> tsPair_temp = ComponentInstallManager::Instance()->updateTs((*it)->extra().at(i)->Id);
+                (*it)->extra()[i]->Selected = select;
+            }
+        }
+    }
     m_extrachoiceslist->selectAll(select);
 }
 

@@ -42,12 +42,11 @@ private:
     NcursesLabel* m_tiltleLabel;
     NcursesLabel* m_firstSubTiltleLabel;
     NcursesLabel* m_secondSubTiltleLabel;
-    QVector<QPair<QString, QString>> m_basicenvironmentinfolist;
-    QVector<QPair<QString, QString>> m_extrachoicesinfolist;
-    QMap<QString, QVector<ComponentInfo>> m_componentInfomap;
     NcursesCheckBoxList* m_basicenvironmentlist;
     NcursesCheckBoxList* m_extrachoiceslist;
     NcursesCheckBox* m_selectallextra;
+    QList<QSharedPointer<ComponentStruct>> m_serverList;
+    QString m_localeString;
     bool m_isshow;
 };
 
