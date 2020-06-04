@@ -42,7 +42,7 @@ static const int kZonePinHeight = 30;
 static const int kZonePinMinimumWidth = 60;
 
 static const double kDistanceThreshold = 50.0;
-static const QString kDotFile = ":/images/indicator_active.svg";
+static const QString kDotFile = ":/images/position.svg";
 static const QString kTimezoneMapFile = ":/images/map.svg";
 
 // At absolute position of |zone| on a map with size (map_width, map_height).
