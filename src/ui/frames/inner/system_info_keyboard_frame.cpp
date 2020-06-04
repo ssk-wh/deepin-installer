@@ -22,6 +22,7 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 #include <QScrollBar>
+#include <QScrollArea>
 #include <QStandardItemModel>
 #include <QCollator>
 #include <algorithm>
@@ -375,12 +376,15 @@ void SystemInfoKeyboardFramePrivate::initConnections() {
 }
 
 void SystemInfoKeyboardFramePrivate::initUI() {
+
+
     m_layoutView->setObjectName("layout_view");
     m_layoutModel = new QStandardItemModel(m_layoutView);
     m_layoutView->setModel(m_layoutModel);
     m_layoutView->setFixedWidth(kLeftViewWidth);
     m_layoutView->setItemSize(QSize(kLeftViewWidth, 40));
-    m_layoutView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_layoutView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_layoutView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_layoutView->setContextMenuPolicy(Qt::NoContextMenu);
     m_layoutView->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     m_layoutView->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
@@ -397,7 +401,8 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     m_variantModel = new QStandardItemModel(m_variantView);
     m_variantView->setModel(m_variantModel);
     m_variantView->setItemSize(QSize(kRightViewWidth, 40));
-    m_variantView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_variantView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_variantView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_variantView->setContextMenuPolicy(Qt::NoContextMenu);
     m_variantView->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     m_variantView->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
@@ -410,20 +415,44 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     m_variantView->setFrameShape(QFrame::NoFrame);
 
     QVBoxLayout *leftLayout = new QVBoxLayout;
-    leftLayout->setContentsMargins(10, 10, 10, 0);
+    leftLayout->setContentsMargins(5, 5, 15, 0);
     leftLayout->setSpacing(0);
     leftLayout->addWidget(m_layoutView);
     QFrame *leftListViewWrap = new QFrame;
-    leftListViewWrap->setContentsMargins(0, 0, 0, 0);
     leftListViewWrap->setLayout(leftLayout);
 
+    QScrollArea *leftSourceScrollArea = new QScrollArea;
+    leftSourceScrollArea->setWidgetResizable(true);
+    leftSourceScrollArea->setFocusPolicy(Qt::NoFocus);
+    leftSourceScrollArea->setFrameStyle(QFrame::NoFrame);
+    leftSourceScrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+    leftSourceScrollArea->setContentsMargins(0, 0, 0, 0);
+    leftSourceScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    leftSourceScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    leftSourceScrollArea->setContextMenuPolicy(Qt::NoContextMenu);
+    leftSourceScrollArea->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    leftSourceScrollArea->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    leftSourceScrollArea->setWidget(leftListViewWrap);
+
     QVBoxLayout *rightLayout = new QVBoxLayout;
-    rightLayout->setContentsMargins(10, 10, 10, 0);
+    rightLayout->setContentsMargins(5, 5, 15, 0);
     rightLayout->setSpacing(0);
     rightLayout->addWidget(m_variantView);
     QFrame *rightListViewWrap =  new QFrame;
-    rightListViewWrap->setContentsMargins(0, 0, 0, 0);
     rightListViewWrap->setLayout(rightLayout);
+
+    QScrollArea *rightSourceScrollArea = new QScrollArea;
+    rightSourceScrollArea->setWidgetResizable(true);
+    rightSourceScrollArea->setFocusPolicy(Qt::NoFocus);
+    rightSourceScrollArea->setFrameStyle(QFrame::NoFrame);
+    rightSourceScrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+    rightSourceScrollArea->setContentsMargins(0, 0, 0, 0);
+    rightSourceScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    rightSourceScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    rightSourceScrollArea->setContextMenuPolicy(Qt::NoContextMenu);
+    rightSourceScrollArea->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    rightSourceScrollArea->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    rightSourceScrollArea->setWidget(rightListViewWrap);
 
     DVerticalLine* dVerticalLine = new DVerticalLine;
 
@@ -431,9 +460,9 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     keyboard_layout->setContentsMargins(0, 0, 0, 0);
     keyboard_layout->setSpacing(0);
     keyboard_layout->addStretch();
-    keyboard_layout->addWidget(leftListViewWrap, 0, Qt::AlignRight);
+    keyboard_layout->addWidget(leftSourceScrollArea, 0, Qt::AlignRight);
     keyboard_layout->addWidget(dVerticalLine);
-    keyboard_layout->addWidget(rightListViewWrap, 0, Qt::AlignLeft);
+    keyboard_layout->addWidget(rightSourceScrollArea, 0, Qt::AlignLeft);
     keyboard_layout->addStretch();
 
     DFrame* keyboard_wrapper = new DFrame;
