@@ -229,6 +229,7 @@ void PartitionFrame::changeEvent(QEvent* event) {
     m_private->advanced_frame_button_->setText(tr("Advanced"));
     m_private->full_disk_frame_button_->setText(tr("Full Disk"));
     m_private->nextButton->setText(tr("Next"));
+    m_private->m_buttonGroup->checkedButton()->setFocus();
   } else {
       FrameInterface::changeEvent(event);
   }
@@ -428,7 +429,7 @@ void PartitionFramePrivate::initUI() {
   comment_layout->addWidget(comment_label_);
 
   m_buttonGroup = new DButtonBox(q_ptr);
-  m_buttonGroup->setFocusPolicy(Qt::NoFocus);
+  m_buttonGroup->setFocusPolicy(Qt::ClickFocus);
   simple_frame_button_ = new DButtonBoxButton(tr("Simple"), q_ptr);
   simple_frame_button_->setMinimumWidth(86);
   advanced_frame_button_ = new DButtonBoxButton(tr("Advanced"), q_ptr);
@@ -461,9 +462,11 @@ void PartitionFramePrivate::initUI() {
       simple_partition_frame_->hide();
       full_disk_frame_button_->setChecked(true);
       partition_stacked_layout_->setCurrentWidget(full_disk_partition_frame_);
+      full_disk_frame_button_->setFocus();
   }
   else {
       simple_frame_button_->setChecked(true);
+      simple_frame_button_->setFocus();
   }
 
   if (GetSettingsBool(kPartitionSkipFullDiskPartitionPage)) {
@@ -566,6 +569,8 @@ bool PartitionFramePrivate::isRawDevice(const QList<Device::Ptr> list) {
 
 void PartitionFramePrivate::onButtonGroupToggled(QAbstractButton *button)
 {
+    button->setFocus();
+
     if (button == full_disk_frame_button_){
         qDebug() << "on fulldisk button toggled";
         partition_stacked_layout_->setCurrentWidget(full_disk_partition_frame_);

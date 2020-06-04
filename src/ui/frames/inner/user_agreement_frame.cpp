@@ -48,7 +48,7 @@ void UserAgreementFrame::initUI()
     m_subTitle->setObjectName("user_agreement_subtitle");
 
     m_buttonBox = new DButtonBox;
-    m_buttonBox->setFocusPolicy(Qt::NoFocus);
+    m_buttonBox->setFocusPolicy(Qt::ClickFocus);
     m_chineseButton = new DButtonBoxButton("中文");
     m_chineseButton->setObjectName("chineseButton");
     m_chineseButton->setCheckable(true);
@@ -171,6 +171,7 @@ void UserAgreementFrame::toggleLicense(QAbstractButton* button)
     }
 
     m_currentButton = button;
+    m_currentButton->setFocus();
 
     updateLicenseText();
 }
@@ -206,4 +207,5 @@ void UserAgreementFrame::setCheckedButton(int buttonId)
 {
     m_buttonBox->button(buttonId)->setChecked(true);
     m_currentButton = m_buttonBox->button(buttonId);
+    m_currentButton->setFocus();
 }
