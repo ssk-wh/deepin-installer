@@ -26,6 +26,9 @@ namespace  {
     const int kItemSpacing = 10;
 
     const int kListViewWidth = 270;
+
+    const char kMinimalGraphicsSystem = "Server-Environment-with-GUI";
+    const char kMinimalCharacterSystem = "Custom-Installation";
 }
 
 DWIDGET_USE_NAMESPACE
@@ -141,6 +144,19 @@ void SelectInstallComponentFrame::finished()
             current, m_private->isMinimalGraphicInstall());
     if (!uninstallPackages.isEmpty()) {
         WriteComponentUninstallPackages(uninstallPackages.join(" "));
+    }
+
+    const QString selectedInstallType = m_private->m_componentStructMap[m_private->m_currentComponentWidget]->id();
+    if (m_private->isMinimalGraphicInstall()) {
+        if (selectedInstallType == kMinimalGraphicsSystem) {
+            WriteIsMinimalGraphicsSystem(true);
+        }
+        else if (selectedInstallType == kMinimalCharacterSystem) {
+            WriteIsMinimalCharacterSystem(true);
+        }
+        else {
+            qInfo() << "Select component install type: " << selectedInstallType;
+        }
     }
 }
 

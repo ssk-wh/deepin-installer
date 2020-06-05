@@ -713,6 +713,16 @@ void WriteComponentLanguage(const QString& packages) {
     qInfo() << "language packages list: " << packages;
 }
 
+void WriteIsMinimalGraphicsSystem(const bool isMinimalGraphicsSystem)
+{
+    AppendToConfigFile("DI_IS_MINIMAL_GRAPHICS_SYSTEM", isMinimalGraphicsSystem);
+}
+
+void WriteIsMinimalCharacterSystem(const bool isMinimalCharacterSystem)
+{
+    AppendToConfigFile("DI_IS_MINIMAL_CHARACTER_SYSTEM", isMinimalCharacterSystem);
+}
+
 void WriteIsLocalTime(bool isLocalTime)
 {
     AppendToConfigFile("DI_IS_LOCAL_TIME", isLocalTime);

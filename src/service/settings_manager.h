@@ -155,6 +155,8 @@ void WriteSelectedInstallType(const QString& installType);
 void WriteComponentPackages(const QString& packages);
 void WriteComponentUninstallPackages(const QString& packages);
 void WriteComponentLanguage(const QString& packages);
+void WriteIsMinimalGraphicsSystem(const bool isMinimalGraphicsSystem);
+void WriteIsMinimalCharacterSystem(const bool isMinimalCharacterSystem);
 void WriteInstallSuccessed(bool successed);
 void WriteSystemInfoSetupAfterReboot(bool after);
 // Write disk info.
