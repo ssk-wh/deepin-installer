@@ -322,7 +322,10 @@ public:
         m_dhcpTypeWidget->setCurrentIndex(0);
         m_dhcpTypeWidget->blockSignals(false);
 
+        m_switchButton->blockSignals(true);
         m_switchButton->setEnabled(false);
+        m_switchButton->setChecked(false);
+        m_switchButton->blockSignals(false);
     }
 
     void clearWidgetIpInfo()
@@ -440,6 +443,7 @@ public:
     {
         // Will toggle other widget state change.
         m_switchButton->blockSignals(true);
+        m_switchButton->setEnabled(true);
         m_switchButton->setChecked(m_deviceWidget->deviceEnable());
         m_switchButton->blockSignals(false);
 
@@ -595,8 +599,6 @@ public:
 
     void setDevice(NetworkManager::Device::Ptr device) {
         m_device = device;
-        //TODO: use NetworkOperate::getDeviceEnable value setEnabled.
-        m_switchButton->setEnabled(true);
 
         setNetworkOperate(m_deviceWidget->networkOperate());
         readIpConfig();
@@ -894,9 +896,9 @@ void NetworkFrame::saveConf()
         }
     }
 
-#ifndef QT_DEBUG
+//#ifndef QT_DEBUG
     m_proxy->nextFrame();
-#endif
+//#endif
 }
 
 void NetworkFrame::updateTs()
