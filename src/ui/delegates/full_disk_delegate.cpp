@@ -680,28 +680,55 @@ void FullDiskDelegate::onDeviceRefreshed(const DeviceList &devices)
         qWarning() << Q_FUNC_INFO << "Device:"<< device->path <<" time use :" << deviceSpeedMap[device] << "data size 4k * 5120";
     }
 
+    //排序
     if (deviceList.length() > 1) {
         std::sort(deviceList.begin(), deviceList.end(), [=](Device::Ptr p1, Device::Ptr p2) {
             return deviceSpeedMap[p1] < deviceSpeedMap[p2];
         });
     }
 
+    //获取所有符合条件的硬盘
     for (auto it = deviceList.begin(); it != deviceList.end();) {
         Device::Ptr device = *it;
         if (device->getByteLength() >= root_required_bytes) {
-            addSystemDisk(device->path);
-            it = deviceList.erase(it);
-            qDebug()<<"add system disk path :"<< device->path;
-            break;//将找到的第一块读写速度快且大小符合条件的硬盘作为系统盘，跳出循环
+            ++it;
         }
         else {
-            ++it;
+            it = deviceList.erase(it);
         }
     }
 
-    if (deviceList.length() == deviceSpeedMap.keys().length()) {
+    if (deviceList.size() == 0) {
         qWarning() << Q_FUNC_INFO << "not found system disk, please check!";
         return;//这里的return不知是否会导致安装进度暂停，
+    } else if(deviceList.size() == 1) {
+        addSystemDisk(deviceList.first()->path);
+        deviceList.erase(deviceList.begin());
+        qDebug()<<"add system disk path :"<< deviceList.first()->path;
+    } else {
+        bool isfindsda = false;
+        for (auto it = deviceList.begin(); it != deviceList.end();) {
+            Device::Ptr device = *it;
+            if(device->path.contains("sda")) {
+                qint64 testspeedsub = abs(deviceSpeedMap[device] - deviceSpeedMap[deviceList.first()]);
+                if (testspeedsub < 5000) {
+                    addSystemDisk(device->path);
+                    deviceList.erase(it);
+                    qDebug()<<"add system disk path :"<< device->path;
+                    isfindsda = true;
+                } else {
+                    isfindsda = false;
+                }
+            } else {
+                ++it;
+            }
+        }
+
+        if (!isfindsda) {
+            addSystemDisk(deviceList.first()->path);
+            deviceList.erase(deviceList.begin());
+            qDebug()<<"add system disk path :"<< deviceList.first()->path;
+        }
     }
 
     for (auto it = deviceList.begin(); it != deviceList.end();) {
