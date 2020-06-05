@@ -27,8 +27,8 @@ namespace  {
 
     const int kListViewWidth = 270;
 
-    const char kMinimalGraphicsSystem = "Server-Environment-with-GUI";
-    const char kMinimalCharacterSystem = "Custom-Installation";
+    const char kMinimalGraphicsSystem[] = "Server-Environment-with-GUI";
+    const char kMinimalCharacterSystem[] = "Custom-Installation";
 }
 
 DWIDGET_USE_NAMESPACE
