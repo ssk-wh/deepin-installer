@@ -800,7 +800,8 @@ void NetworkFrame::initDeviceWidgetList()
         NetworkDeviceWidget* deviceWidget = new NetworkDeviceWidget(this);
         deviceWidget->setCheckable(true);
         deviceWidget->setDeviceInfo(dev);
-        bool enable = deviceWidget->networkOperate()->getDeviceEnable(dev->uni());
+        // TODO: temporary processing, later debugging ARM machine.
+        bool enable = true; // deviceWidget->networkOperate()->getDeviceEnable(dev->uni());
         deviceWidget->setDeviceEnable(enable);
         m_buttonList << deviceWidget;
 
@@ -896,9 +897,7 @@ void NetworkFrame::saveConf()
         }
     }
 
-//#ifndef QT_DEBUG
     m_proxy->nextFrame();
-//#endif
 }
 
 void NetworkFrame::updateTs()
