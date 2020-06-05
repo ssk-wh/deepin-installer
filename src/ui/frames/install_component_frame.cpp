@@ -150,13 +150,21 @@ void SelectInstallComponentFrame::finished()
     if (m_private->isMinimalGraphicInstall()) {
         if (selectedInstallType == kMinimalGraphicsSystem) {
             WriteIsMinimalGraphicsSystem(true);
+            WriteIsMinimalCharacterSystem(false);
         }
         else if (selectedInstallType == kMinimalCharacterSystem) {
+            WriteIsMinimalGraphicsSystem(false);
             WriteIsMinimalCharacterSystem(true);
         }
         else {
             qInfo() << "Select component install type: " << selectedInstallType;
+            WriteIsMinimalCharacterSystem(false);
+            WriteIsMinimalGraphicsSystem(false);
         }
+    }
+    else {
+        WriteIsMinimalCharacterSystem(false);
+        WriteIsMinimalGraphicsSystem(false);
     }
 }
 
