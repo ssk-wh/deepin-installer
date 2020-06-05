@@ -1,6 +1,7 @@
 #include "network_device_widget.h"
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/auto_wrap_label.h"
+#include "ui/widgets/ticker_label.h"
 
 #include <QStyleOption>
 #include <QPainter>
@@ -12,7 +13,7 @@ namespace installer {
 namespace {
     const int kNetworkDeviceWidgetWidth = 240;
     const int kNetworkDeviceWidgetHeight = 90;
-    const int KQLabelWidth = 200;
+    const int KQLabelWidth = 180;
     const int kTitleFont = 14; // 14pt
     const int kDescFont = 12; // 12pt
 }
@@ -23,14 +24,12 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     , m_deviceEnable(true)
     , m_dhcpType(DHCPTYpe::Auto)
 {
-    m_deviceName = new AutoWrapLabel;
-    m_deviceName->setObjectName("titleLabel");
-    m_deviceName->setFixedWidth(KQLabelWidth);
-    m_deviceName->setWordWrap(true);
-    m_deviceName->adjustSize();
-
     QFont titleFont;
     titleFont.setPointSize(kTitleFont);
+
+    m_deviceName = new TickerLabel;
+    m_deviceName->setObjectName("titleLabel");
+    m_deviceName->setFixedWidth(KQLabelWidth);
     m_deviceName->setFont(titleFont);
 
     m_descLabel = new QLabel;
@@ -96,6 +95,8 @@ void NetworkDeviceWidget::enterEvent(QEvent* event)
 
     update();
 
+    m_deviceName->start();
+
     QWidget::leaveEvent(event);
 }
 
@@ -104,6 +105,8 @@ void NetworkDeviceWidget::leaveEvent(QEvent* event)
     m_isflag = false;
 
     update();
+
+    m_deviceName->stop();
 
     QWidget::leaveEvent(event);
 }
@@ -202,6 +205,9 @@ void NetworkDeviceWidget::updateCheckedAppearance()
 void NetworkDeviceWidget::setDeviceInfo(NetworkManager::Device::Ptr device) {
     qDebug() << "Device type: " << device->type();
 
+#ifdef QT_DEBUG_test
+    setTitle(tr("Ethernet (%1)").arg("nsp21111111110"));
+#else
     if (device->type() == NetworkManager::Device::Type::Ethernet) {
         setTitle(tr("Ethernet (%1)").arg(device->interfaceName()));
     }
@@ -211,6 +217,7 @@ void NetworkDeviceWidget::setDeviceInfo(NetworkManager::Device::Ptr device) {
     else {
         setTitle(tr("UnknownDevice (%1)").arg(device->interfaceName()));
     }
+#endif // QT_DEBUG
 
     m_device = device;
     m_networkOperate = new NetworkOperate(device);

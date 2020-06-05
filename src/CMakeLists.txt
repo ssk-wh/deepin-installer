@@ -515,6 +515,8 @@ set(UI_FILES
     ui/widgets/link_button.cpp
     ui/widgets/operator_widget.h
     ui/widgets/operator_widget.cpp
+    ui/widgets/ticker_label.cpp
+    ui/widgets/ticker_label.h
 
     ui/xrandr/multi_head_manager.cpp
     ui/xrandr/multi_head_manager.h
