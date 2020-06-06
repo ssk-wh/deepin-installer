@@ -186,6 +186,11 @@ bool RedirectLogWithOutStd(const QString& log_file) {
       qCritical() << "Failed to create log file:" << log_file;
       return false;
     }
+
+    if (dup2(log_fd, STDERR_FILENO) == -1) {
+      qCritical() << "Failed to redirect stderr";
+    }
+
     return true;
 }
 
