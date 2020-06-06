@@ -51,7 +51,7 @@ signals:
     void keyEventTrigerSignal(int keycode);
     void dostartInstall();
 private:
-    NcursesLabel* m_label_title = nullptr;
+    //NcursesLabel* m_label_title = nullptr;
     NcursesLabel* m_label_comment1 = nullptr;
     NcursesLabel* m_label_comment2 = nullptr;
     NcursesListView* m_partitionmodelist = nullptr;

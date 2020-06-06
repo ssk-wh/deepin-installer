@@ -152,6 +152,29 @@ void NcursesCheckBox::setFocus(bool foucs) {
     NCursesWindowBase::setFocus(foucs);
 }
 
+void NcursesCheckBox::resizew(int newLines, int newColumns)
+{
+    QString testframestr = "";
+    if(m_select) {
+        testframestr = "[*] ";
+    } else {
+        testframestr = "[ ] ";
+    }
+    int testbrowerwidth = newColumns + testframestr.length();
+
+    if(m_titlebrower != nullptr) {
+        m_titlebrower->resize(m_titlebrower->height(), testbrowerwidth);
+        if(m_contentbrower != nullptr) {
+            m_contentbrower->resize(m_contentbrower->height(), testbrowerwidth);
+        }
+    } else if(m_contentbrower != nullptr) {
+        m_contentbrower->resize(m_contentbrower->height(), testbrowerwidth);
+    }
+
+    NCursesWindowBase::resizew(this->height(), testbrowerwidth);
+    NCursesWindowBase::show();
+}
+
 void NcursesCheckBox::setEnable(bool enable)
 {
 

@@ -41,6 +41,9 @@ void AdvancedPartitionFramePrivate::initUI()
         m_label_title = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_title->setFocusEnabled(false);
 
+        m_label_tips = new NcursesLabel(this, 1, 1, begy(), begx());
+        m_label_tips->setFocusEnabled(false);
+
         m_listViewPartitionMode = new NcursesListView(this, height() / 2 , width() / 2, begy(), begx() + width() / 4);
         m_listViewPartitionMode->setFocus(true);
 
@@ -60,13 +63,16 @@ void AdvancedPartitionFramePrivate::layout()
     try {
         int beginY = begy();
         m_label_title->adjustSizeByContext();
-        m_label_title->mvwin(beginY, begx() + (width() - m_label_title->width()) / 2);
+        m_label_title->mvwin(beginY + 2, begx() + 1);
+
+        m_label_tips->adjustSizeByContext();
+        m_label_tips->mvwin(beginY + 3, begx() + 1);
 
         m_msgHeadLabel->adjustSizeByContext();
-        m_msgHeadLabel->mvwin(beginY + 1, begx() + (width() - m_msgHeadLabel->width()) / 2);
+        m_msgHeadLabel->mvwin(beginY + 4, begx() + (width() - m_msgHeadLabel->width()) / 2);
 
         m_errorLabel->adjustSizeByContext();
-        m_errorLabel->mvwin(beginY + 2, begx() + (width() - m_errorLabel->width()) / 2);
+        m_errorLabel->mvwin(beginY + 5, begx() + (width() - m_errorLabel->width()) / 2);
 
         m_listViewPartitionMode->adjustSizeByContext();
         m_listViewPartitionMode->mvwin(beginY + 6, begx() + (width() - m_listViewPartitionMode->width()) / 2);
@@ -78,7 +84,9 @@ void AdvancedPartitionFramePrivate::layout()
 
 void AdvancedPartitionFramePrivate::updateTs()
 {
-    m_label_title->setText(tr("advance") + tr("Insert key : new or edit partition. Delete key: delete partition."));
+    printTitle(QObject::tr("Advanced"), width());
+    m_label_title->setText(tr("    Make sure you have backed up important data, then select the disk to install."));
+    m_label_tips->setText(tr("    Insert key : new or edit partition. Delete key: delete partition."));
     FrameInterfacePrivate::updateTs();
     layout();
 }

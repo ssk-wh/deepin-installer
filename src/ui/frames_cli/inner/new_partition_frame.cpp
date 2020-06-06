@@ -193,7 +193,7 @@ void NewPartitionFrame::initUI() {
   size_slider_ = new NCursesLineEdit(this, 1, 20, begy(), begx());
   size_slider_->setIsNumber(true);
 
-  QString strCancel = tr("Cancel");
+  QString strCancel = tr("Back");
   QString strCreate = tr("Create");
   int buttonHeight = 3;
   int buttonWidth = std::max(strCancel.length(), strCreate.length()) + 4;
@@ -227,7 +227,7 @@ void NewPartitionFrame::updateTs()
     fs_label_->setText(tr("File system"));
     mount_point_label_->setText(tr("Mount point"));
     size_label_->setText(tr("Size") + "(MB)");
-    cancel_button_->setText(tr("Cancel"));
+    cancel_button_->setText(tr("Back"));
     create_button_->setText(tr("Create"));
     layout();
 }

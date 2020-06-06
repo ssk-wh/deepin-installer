@@ -451,13 +451,14 @@ void SystemInfoFramePrivate::updateTs()
     m_label_password->erase();
     m_label_password_confirm->erase();
 
-    m_label_title->setText(tr("Create User Account"));
+    m_label_title->setText(tr("Create Accounts"));
+    //printTitle(QObject::tr("Create Accounts"), width());
     m_label_instructions->setText(tr("Fill in the username, computer name and your password"));
     m_label_hostname->setText(tr("Computer name").append(" :"));
     m_label_username->setText(tr("Username").append(" :"));
     m_label_password->setText(tr("Password").append(" :"));
     m_label_password_confirm->setText(tr("Repeat password").append(" :"));
-    m_NcursesCheckBox->setText("", tr("Whether to create the root user"));
+    m_NcursesCheckBox->setText("", tr("Set Root Password"));
 
     FrameInterfacePrivate::updateTs();
 }

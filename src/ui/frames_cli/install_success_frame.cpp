@@ -56,11 +56,11 @@ void InstallSuccessFramePrivate::initUI()
 void InstallSuccessFramePrivate::updateTs()
 {
     box(ACS_VLINE, ACS_HLINE);
-    m_installSuccessTitle     = QObject::tr("Install sucess");
+    m_installSuccessTitle     = QObject::tr("Successfully Installed");
     m_installSuccessInfoTitle = QObject::tr("[Done]");
     m_installSuccessInfoDes   = QObject::tr("[Successfully Installed]");
     m_installSuccessInfoTodo  = QObject::tr("[Clik the button below and then remove the installation media immediately]");
-    m_installFailedTitle      = QObject::tr("Install failed");
+    m_installFailedTitle      = QObject::tr("Installation Failed");
     m_installFailedInfoTitle  = QObject::tr("[Installation Failed]");
     m_installFailedInfoDes    = QObject::tr("[Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue]");
 
@@ -72,16 +72,16 @@ void InstallSuccessFramePrivate::updateTs()
        m_installresultTextBrower->appendItemText(m_installSuccessInfoTitle);
        m_installresultTextBrower->appendItemText(m_installSuccessInfoDes);
        m_installresultTextBrower->appendItemText(m_installSuccessInfoTodo);
-
+       QString strNext = QObject::tr("Reboot Now");
+       m_pNextButton->setText(strNext);
     } else {
        m_installresultTextBrower->clearText();
        printTitle(m_installFailedTitle, width());
        m_installresultTextBrower->appendItemText(m_installFailedInfoTitle);
        m_installresultTextBrower->appendItemText(m_installFailedInfoDes);
+       QString strNext = QObject::tr("Shut down");
+       m_pNextButton->setText(strNext);
     }
-
-    QString strNext = QObject::tr("Reboot Now");
-    m_pNextButton->setText(strNext);
 
     layout();
 }
@@ -118,7 +118,12 @@ void InstallSuccessFramePrivate::doBackBtnClicked()
 
 void InstallSuccessFramePrivate::doNextBtnClicked()
 {
-    emit successFinished();
+    bool testissuccess = GetSettingsBool("DI_INSTALL_SUCCESSED");
+    if (testissuccess) {
+        emit successFinished();
+    } else {
+        emit failFinished();
+    }
 }
 
 void InstallSuccessFramePrivate::layout()

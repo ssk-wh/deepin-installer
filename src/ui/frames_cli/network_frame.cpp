@@ -51,6 +51,7 @@ NetwrokFramePrivate::NetwrokFramePrivate(NCursesWindowBase *parent, int lines, i
       m_titledesbrower(nullptr),
       m_networkconfigtypelabel(nullptr),
       m_childpagecounttext(nullptr),
+      m_networkconnecterrorlabel(nullptr),
       m_dhcpType(DHCPTYpe::Auto)
 {
     initUI();
@@ -64,11 +65,14 @@ void NetwrokFramePrivate::initUI()
     this->drawShadow(true);
     this->box();
 
-    m_titledes.append(QObject::tr("  Do network set by auto, use dhcp to set network"));
-    m_titledes.append(QObject::tr("  Do network set by manual, in this page you can set IP. Mask. Gateway. DNS"));
-    m_titledes.append(QObject::tr("  Do not set network now, if you not want set the network now, you can do it with the installation complete"));
+    //m_titledes.append(QObject::tr("  Do network set by auto, use dhcp to set network"));
+    //m_titledes.append(QObject::tr("  Do network set by manual, in this page you can set IP. Mask. Gateway. DNS"));
+    //m_titledes.append(QObject::tr("  Do not set network now, if you not want set the network now, you can do it with the installation complete"));
+    m_titledes.append(QObject::tr("  Configure Ethernet according to your needs, but you can skip it as well."));
+    m_titledes.append(QObject::tr("  Set the IP address, gateway, netmask, DNS please."));
 
     m_networkconfigtypestr = QObject::tr("Network config type:");
+    m_networkconnecterrorstr = QObject::tr("Network connection error, check the configuration please");
 
     m_titledesbrower = new NcursesTextBrower(this, 3, width() - 2, begy() + 2, begx() + 1);
     m_titledesbrower->setFocusEnabled(false);
@@ -153,17 +157,28 @@ void NetwrokFramePrivate::initUI()
     m_pNextButton->box();
     m_pNextButton->setObjectName(strNext);
 
+    m_networkconnecterrorlabel = new NcursesLabel(this, m_networkconnecterrorstr,
+                                                  1,
+                                                  m_networkconnecterrorstr.length() + 2,
+                                                  begy() + height() - 7,
+                                                  begx() + (width() - m_networkconnecterrorstr.length()) / 2);
+    m_networkconnecterrorlabel->setBackground(NcursesUtil::getInstance()->error_attr());
+    m_networkconnecterrorlabel->setFocusEnabled(false);
+
+
 }
 
 void NetwrokFramePrivate::updateTs()
 {
     box(ACS_VLINE,ACS_HLINE);
-    printTitle(QObject::tr("Network Configuration"), width());
+    printTitle(QObject::tr("Configure Network"), width());
 
     m_titledes.clear();
 //    m_titledes.append(QObject::tr("  Do network set by auto, use dhcp to set network"));
-    m_titledes.append(QObject::tr("  Do network set by manual, in this page you can set IP. Mask. Gateway. DNS"));
-    m_titledes.append(QObject::tr("  Do not set network now, if you not want set the network now, you can do it with the installation complete"));
+    //m_titledes.append(QObject::tr("  Do network set by manual, in this page you can set IP. Mask. Gateway. DNS"));
+    //m_titledes.append(QObject::tr("  Do not set network now, if you not want set the network now, you can do it with the installation complete"));
+    m_titledes.append(QObject::tr("  Configure Ethernet according to your needs, but you can skip it as well."));
+    m_titledes.append(QObject::tr("  Set the IP address, gateway, netmask, DNS please."));
     if(installer::ReadLocale() == "zh_CN") {
         m_titledesbrower->setText(m_titledes[0], true);
     } else {
@@ -188,8 +203,8 @@ void NetwrokFramePrivate::updateTs()
         m_operationchoice.at(i).m_NcursesLabel->erase();
     }
 
-    m_operationchoice.at(0).m_NcursesLabel->setText(QObject::tr("Network manual set"));
-    m_operationchoice.at(1).m_NcursesLabel->setText(QObject::tr("Network not set now"));
+    m_operationchoice.at(0).m_NcursesLabel->setText(QObject::tr("Configure Now"));
+    m_operationchoice.at(1).m_NcursesLabel->setText(QObject::tr("Skip"));
 
     for(int i = 0; i < m_ipconfigitems.size(); i++) {
         m_ipconfigitems.at(i).m_NcursesLabel->erase();
@@ -211,6 +226,7 @@ void NetwrokFramePrivate::show()
         NCursesWindowBase::show();
         m_isshow = true;
         m_pNextButton->setFocus(true);
+        m_networkconnecterrorlabel->hide();
     }
     m_titledesbrower->show();
     updateChoiceType(m_currentchoicetype);
@@ -282,6 +298,7 @@ bool NetwrokFramePrivate::writeInfoList()
         for(int i = 0; i < m_ipconfigitems.size(); i++) {
             if(m_ipconfigitems.at(i).m_IsOK == false) {
                 isallinputok = false;
+                m_networkconnecterrorlabel->show();
                 break;
             }
         }
@@ -308,7 +325,7 @@ bool NetwrokFramePrivate::writeInfoList()
                 }
             }
 
-            qDebug() << QProcess::execute("nmcli", QStringList() << "con"
+            int setipv4result = QProcess::execute("nmcli", QStringList() << "con"
                                           << "add"
                                           << "type"
                                           << "ethernet"
@@ -322,18 +339,24 @@ bool NetwrokFramePrivate::writeInfoList()
                                           << networkSettingInfo.gateway
                                           );
 
-            qDebug() << QProcess::execute("nmcli", QStringList() << "con"
+            int setipv4dnsresult = QProcess::execute("nmcli", QStringList() << "con"
                                           << "mod"
                                           << QString("\"%1-lab\"").arg(interface.name())
                                           << "ipv4.dns"
                                           << QString("%1 %2").arg(networkSettingInfo.primaryDNS, ""));
 
-            qDebug() << QProcess::execute("nmcli", QStringList() << "con"
+            int setifnameresult = QProcess::execute("nmcli", QStringList() << "con"
                                           << "up"
                                           << QString("\"%1-lab\"").arg(interface.name())
                                           << "ifname"
                                           << interface.name());
-            return true;
+
+            if ((setipv4result == 0) && (setipv4dnsresult == 0) && (setifnameresult == 0)) {
+                return true;
+            } else {
+                m_networkconnecterrorlabel->show();
+                return false;
+            }
         } else {
             return false;
         }

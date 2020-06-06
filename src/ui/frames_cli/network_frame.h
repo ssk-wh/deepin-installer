@@ -87,9 +87,11 @@ private:
     int m_currentlineeditindex;
     QStringList m_titledes;
     QString m_networkconfigtypestr;
+    QString m_networkconnecterrorstr;
     NcursesTextBrower* m_titledesbrower;
     NcursesLabel* m_networkconfigtypelabel;
     NcursesLabel* m_childpagecounttext;
+    NcursesLabel* m_networkconnecterrorlabel;
     QVector<NetwrokFrameItem> m_operationchoice;
     QVector<NetwrokFrameItem> m_ipconfigitems;
     NetworkManager::Device::Ptr m_ipv4Device;

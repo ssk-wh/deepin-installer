@@ -59,6 +59,7 @@ private slots:
 
 private:
     NcursesLabel* m_label_title = nullptr;
+    NcursesLabel* m_label_tips = nullptr;
     NcursesListView* m_listViewPartitionMode = nullptr;
     NcursesListView* m_errorLabel = nullptr;
     NcursesLabel* m_msgHeadLabel = nullptr;

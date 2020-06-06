@@ -47,7 +47,7 @@ private:
     LanguageList m_languageList;
     NcursesListView* m_languageView = nullptr;
     NcursesLabel* m_instructions = nullptr;
-    NcursesLabel* m_titleLabel = nullptr;
+    //NcursesLabel* m_titleLabel = nullptr;
     bool m_isshow;
 
 };

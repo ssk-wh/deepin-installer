@@ -50,9 +50,9 @@ void InstallComponentFramePrivate::initUI()
     setBackground(NcursesUtil::getInstance()->dialog_attr());
     FrameInterfacePrivate::initUI();
 
-    QString testtiltle     = QObject::tr("Please chose the module you need");
+    QString testtiltle     = QObject::tr("Select the components according to your needs.");
     QString testfirststr   = QObject::tr("Basic Environment");
-    QString testsecondstr  = QObject::tr("Add-Ons for Selected Environment");
+    QString testsecondstr  = QObject::tr("Add-Ons");
     m_tiltleLabel          = new NcursesLabel(this, testtiltle.toUtf8().data(), 1, testtiltle.length(), begy() + 2,  begx() + (width() / 2) - (testtiltle.length() / 2));
     m_firstSubTiltleLabel  = new NcursesLabel(this, testfirststr.toUtf8().data(), 1, testfirststr.length(), begy() + 5, begx() + 2 + ((width() / 2 - 2) / 2) - (testfirststr.length() / 2));
     m_secondSubTiltleLabel = new NcursesLabel(this, testsecondstr.toUtf8().data(), 1, testsecondstr.length(), begy() + 5, begx() + width() / 2 + (width() / 2 - 2) / 2 - testsecondstr.length() / 2);
@@ -79,11 +79,11 @@ void InstallComponentFramePrivate::initUI()
 void InstallComponentFramePrivate::updateTs()
 {
     box(ACS_VLINE,ACS_HLINE);
-    printTitle(QObject::tr("Select Software"), width());
+    printTitle(QObject::tr("Select Components"), width());
 
-    QString testtiltle     = QObject::tr("Please chose the module you need");
+    QString testtiltle     = QObject::tr("Select the components according to your needs.");
     QString testfirststr   = QObject::tr("Basic Environment");
-    QString testsecondstr  = QObject::tr("Add-Ons for Selected Environment");
+    QString testsecondstr  = QObject::tr("Add-Ons");
     m_tiltleLabel->erase();
     m_firstSubTiltleLabel->erase();
     m_secondSubTiltleLabel->erase();

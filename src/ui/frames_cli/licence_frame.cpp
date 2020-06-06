@@ -42,8 +42,16 @@ void LicenceFramePrivate::initUI()
 
     m_ncursesTextBrower = new NcursesTextBrower(this, height() - 11, width() - 5, begy() + 2, begx() + 1);
 
-    QString checkboxtext = "I have read the licence and agree";
-    m_NcursesCheckBox = new NcursesCheckBox(this, 1, checkboxtext.length() + 5, begy() + height() - 7, begx() + (width() - checkboxtext.length()) / 2);
+    QString checkboxtext = "I have read and agree to the UOS Software End User License Agreement";
+    int textlength = checkboxtext.length();
+    if (installer::ReadLocale() == "zh_CN") {
+        if((textlength * 2) > (width() - 2)){
+            textlength = width() - 2;
+        }
+    } else {
+        textlength += 5;
+    }
+    m_NcursesCheckBox = new NcursesCheckBox(this, 1, textlength, begy() + height() - 7, begx() + (width() - checkboxtext.length()) / 2);
     m_NcursesCheckBox->setIsUseTitle(false);
 
     QString errorinfo = "Please allow the licence at first ";
@@ -101,8 +109,8 @@ void LicenceFramePrivate::checkboxSelectChange(bool select)
 void LicenceFramePrivate::updateTs()
 {
     box(ACS_VLINE,ACS_HLINE);
-    printTitle(QObject::tr("licence"), width());
-    QString teststr = QObject::tr("I have read the licence and agree");
+    printTitle(QObject::tr("UOS Software End User License Agreement"), width());
+    QString teststr = QObject::tr("I have read and agree to the UOS Software End User License Agreement");
     if (installer::ReadLocale() == "zh_CN") {
         QString testlicenceinfo = installer::ReadFile(zh_CN_license);
         m_NcursesCheckBox->setText("", teststr, true);
@@ -124,6 +132,17 @@ void LicenceFramePrivate::updateTs()
 void LicenceFramePrivate::layout()
 {
     m_ncursesTextBrower->setFocus(true);
+    QString checkboxtext = "I have read and agree to the UOS Software End User License Agreement";
+    int textlength = checkboxtext.length();
+    if (installer::ReadLocale() == "zh_CN") {
+        if((textlength * 2) > (width() - 2)){
+            textlength = (width() + checkboxtext.length()) / 2 - 10;
+        }
+    } else {
+        textlength += 5;
+    }
+    m_NcursesCheckBox->resizew(m_NcursesCheckBox->height(), textlength);
+    m_NcursesCheckBox->moveWindowTo(begy() + height() - 7, begx() + (width() - checkboxtext.length()) / 2);
 }
 
 

@@ -65,17 +65,17 @@ void FullDiskFramePrivate::layout()
     try {
         int beginY = begy();
         m_label_title->adjustSizeByContext();
-        m_label_title->mvwin(beginY, begx() + (width() - m_label_title->width()) / 2);
+        m_label_title->mvwin(beginY + 2, begx() + 1);
 
         m_label_systemdisk->adjustSizeByContext();
-        m_label_systemdisk->mvwin(begy() + 2, begx() + width() / 4);
+        m_label_systemdisk->mvwin(begy() + 4, begx() + width() / 4);
         m_systemdisklist->adjustSizeByContext();
-        m_systemdisklist->mvwin(begy() + 3, begx() + width() / 4);
+        m_systemdisklist->mvwin(begy() + 5, begx() + width() / 4);
 
         m_label_datadisk->adjustSizeByContext();
-        m_label_datadisk->mvwin(begy() + m_systemdisklist->height() + 5, begx() + width() / 4);
+        m_label_datadisk->mvwin(begy() + m_systemdisklist->height() + 7, begx() + width() / 4);
         m_datadisklist->adjustSizeByContext();
-        m_datadisklist->mvwin(begy() + m_systemdisklist->height() + 6, begx() + width() / 4);
+        m_datadisklist->mvwin(begy() + m_systemdisklist->height() + 8, begx() + width() / 4);
 
     } catch (NCursesException& e) {
          qCritical() << QString(e.message);
@@ -85,9 +85,10 @@ void FullDiskFramePrivate::layout()
 
 void FullDiskFramePrivate::updateTs()
 {
-    m_label_title->setText(tr("full disk"));
-    m_label_systemdisk->setText(tr("system disk:"));
-    m_label_datadisk->setText(tr("data disk:"));
+    printTitle(QObject::tr("Full Disk"), width());
+    m_label_title->setText(tr("    Make sure you have backed up important data, then select the disk to install."));
+    m_label_systemdisk->setText(tr("System Disk:"));
+    m_label_datadisk->setText(tr("Data Disk:"));
     FrameInterfacePrivate::updateTs();
     layout();
 }

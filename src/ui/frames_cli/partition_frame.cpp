@@ -35,8 +35,8 @@ void PartitionFramePrivate::initUI()
         m_pNextButton->setObjectName(strNext);
 
         //界面控件
-        m_label_title = new NcursesLabel(this, 1, 1, begy(), begx());
-        m_label_title->setFocusEnabled(false);
+        //m_label_title = new NcursesLabel(this, 1, 1, begy(), begx());
+        //m_label_title->setFocusEnabled(false);
 
         m_label_comment1 = new NcursesLabel(this, 3, 2, begy(), begx());
         m_label_comment1->setFocusEnabled(false);
@@ -58,10 +58,11 @@ void PartitionFramePrivate::layout()
 {
     try {
         int beginY = begy();
-        m_label_title->adjustSizeByContext();
-        m_label_title->mvwin(beginY, begx() + (width() - m_label_title->width()) / 2);
-        beginY += m_label_title->height() + 1;
+        //m_label_title->adjustSizeByContext();
+        //m_label_title->mvwin(beginY, begx() + (width() - m_label_title->width()) / 2);
+        //beginY += m_label_title->height() + 1;
 
+        beginY = beginY + 2;
         m_label_comment1->adjustSizeByContext();
         m_label_comment1->mvwin(beginY, begx() + 1);
         beginY += m_label_comment1->height();
@@ -82,10 +83,12 @@ void PartitionFramePrivate::layout()
 void PartitionFramePrivate::updateTs()
 {
     box(ACS_VLINE,ACS_HLINE);
-    m_label_title->setText(tr("Partition"));
-    m_label_comment1->setText(tr("   The setup program can guide you to use various standard schemes "
-     "for disk partition. If you like, you can do it manually. If you choose the Partition Wizard,"
-     "you will have the opportunity to check and modify the partition settings later."));
+    //m_label_title->setText(tr("Create Partitions"));
+    printTitle(QObject::tr("Create Partitions"), width());
+    //m_label_comment1->setText(tr("   The setup program can guide you to use various standard schemes "
+    // "for disk partition. If you like, you can do it manually. If you choose the Partition Wizard,"
+    // "you will have the opportunity to check and modify the partition settings later."));
+    m_label_comment1->setText(tr("    Make sure you have backed up important data, then select the partition mode."));
 
     m_label_comment2->setText(QString(tr("Partition mode")).append(" :"));
 
@@ -168,16 +171,16 @@ void PartitionFramePrivate::doNextBtnClicked()
 
         if(m_currentchoicetype == -1)
             return;
-        m_label_title->hide();
+        //m_label_title->hide();
         m_label_comment1->hide();
         m_label_comment2->hide();
         m_pBackButton->setFocus(false);
         m_pNextButton->setFocus(false);
-        m_label_title->setFocus(false);
+        //m_label_title->setFocus(false);
         m_partitionmodelist->setFocus(false);
         m_pBackButton->setFocusEnabled(false);
         m_pNextButton->setFocusEnabled(false);
-        m_label_title->setFocusEnabled(false);
+        //m_label_title->setFocusEnabled(false);
         m_partitionmodelist->setFocusEnabled(false);
         m_partitionmodelist->hide();
 

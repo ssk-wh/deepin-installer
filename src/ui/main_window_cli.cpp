@@ -179,7 +179,15 @@ void MainWindow::slot_dostartInstall()
 
 void MainWindow::slot_failFinished()
 {
+    //this->saveLogFile();
 
+    if (!ShutdownSystemWithMagicKey()) {
+        qWarning() << "ShutdownSystemWithMagicKey() failed!";
+    }
+
+    if (!ShutdownSystem()) {
+        qWarning() << "ShutdownSystem() failed!";
+    }
 }
 
 void MainWindow::slot_successFinished()

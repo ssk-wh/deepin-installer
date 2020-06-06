@@ -48,7 +48,7 @@ private:
     int m_layoutIndex = -1;
     int m_variantIndex = -1;
 
-    NcursesLabel* m_titleLabel = nullptr;
+    //NcursesLabel* m_titleLabel = nullptr;
     NcursesLabel* m_instructionsLabel = nullptr;
     NcursesListView* m_layoutView = nullptr;
     NcursesListView* m_variantView = nullptr;

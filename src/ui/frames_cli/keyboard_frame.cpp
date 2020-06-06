@@ -12,7 +12,8 @@ void KeyboardFramePrivate::updateTs()
     }
     m_localeString = installer::ReadLocale();
     box(ACS_VLINE,ACS_HLINE);
-    m_titleLabel->setText(tr("Select keyboard layout"));
+    //m_titleLabel->setText(tr("Select keyboard layout"));
+    printTitle(QObject::tr("Select keyboard layout"), width());
     m_instructionsLabel->setText(tr("Select a proper keyboard layout:"));
     readConf();
     FrameInterfacePrivate::updateTs();
@@ -22,10 +23,10 @@ void KeyboardFramePrivate::updateTs()
 void KeyboardFramePrivate::layout()
 {
     try {
-        m_titleLabel->adjustSizeByContext();
-        m_titleLabel->mvwin(begy(), begx() + (width() - m_titleLabel->width()) / 2);
+        //m_titleLabel->adjustSizeByContext();
+        //m_titleLabel->mvwin(begy(), begx() + (width() - m_titleLabel->width()) / 2);
         m_instructionsLabel->adjustSizeByContext();
-        m_instructionsLabel->mvwin(begy() + m_titleLabel->height(), begx() + 10);
+        m_instructionsLabel->mvwin(begy() + 1, begx() + 10);
         m_layoutView->adjustSizeByContext();
         m_variantView->adjustSizeByContext();
         m_layoutView->mvwin(begy() + 3, begx() + (width() - (m_layoutView->width() + m_variantView->width() + 2)) / 2);
@@ -47,8 +48,8 @@ void KeyboardFramePrivate::initUI()
 {
     try {
         FrameInterfacePrivate::initUI();
-        m_titleLabel = new NcursesLabel(this, 1, 25, begy(), begx());
-        m_titleLabel->setFocusEnabled(false);
+        //m_titleLabel = new NcursesLabel(this, 1, 25, begy(), begx());
+        //m_titleLabel->setFocusEnabled(false);
         m_instructionsLabel = new NcursesLabel(this, 1, 35, begy(), begx());
         m_instructionsLabel->setFocusEnabled(false);
         m_layoutView = new NcursesListView(this, height() - 10, 20, begy(), begx());
