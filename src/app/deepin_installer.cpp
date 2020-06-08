@@ -25,14 +25,27 @@
 #include "ui/delegates/componentinstallmanager.h"
 #include "base/consts.h"
 #include "service/log_manager.h"
+#include "service/settings_name.h"
 #include "service/settings_manager.h"
 #include "sysinfo/users.h"
 #include "ui/delegates/installer_args_parser.h"
 #include "ui/main_window.h"
 #include "base/auto_screen_scale.h"
 #include "ui/utils/keyboardmonitor.h"
+#include "base/command.h"
 
 DCORE_USE_NAMESPACE
+
+void xrandr() {
+
+    QString msg;
+    bool exitCode = installer::SpawnCmd(BUILTIN_HOOKS_DIR"/00_setup_installer_xrandr.job", QStringList(), msg);
+    if (exitCode) {
+        qCritical() << "xrandr exec failed. err: " + msg;
+    } else {
+        qCritical() << "xrandr start failed.";
+    }
+}
 
 int main(int argc, char* argv[]) {
   // Reset LC_ALL to en_US.UTF-8.
@@ -94,6 +107,7 @@ int main(int argc, char* argv[]) {
   }
 
   installer::ComponentInstallManager::Instance();
+  xrandr();
 
   installer::MainWindow main_window;
   main_window.setLogFile(args_parser.getLogFile());
