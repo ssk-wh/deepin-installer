@@ -70,7 +70,6 @@
         <file>code_hover.svg</file>
         <file>install_icon.svg</file>
         <file>checkbox_unchecked_pressed.svg</file>
-        <file>logo.svg</file>
         <file>select.svg</file>
         <file>keyboard_press.svg</file>
         <file>down_arrow.svg</file>
@@ -126,5 +125,6 @@
         <file>password_show_press.svg</file>
         <file>select_blue.svg</file>
         <file>map.svg</file>
+        <file>logo.svg</file>
     </qresource>
 </RCC>
