@@ -31,12 +31,7 @@ void AdvancedPartitionFramePrivate::initUI()
         m_pBackButton->drawShadow(true);
         m_pBackButton->box();
         m_pBackButton->setObjectName(strBack);
-
-        m_pNextButton = new NcursesButton(this, strNext, 3, 14, begy() + height() - 5, begx() + width() - 20);
-        m_pNextButton->drawShadow(true);
-        m_pNextButton->box();
-        m_pNextButton->setObjectName(strNext);
-
+        m_pBackButton->setFocus(false);
 
         m_label_title = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_title->setFocusEnabled(false);
@@ -52,6 +47,12 @@ void AdvancedPartitionFramePrivate::initUI()
 
         m_errorLabel = new NcursesListView(this, 4, width() / 2, begy(), begx() + width() / 4);
         m_errorLabel->setFocusEnabled(false);
+
+        m_pNextButton = new NcursesButton(this, strNext, 3, 14, begy() + height() - 5, begx() + width() - 20);
+        m_pNextButton->drawShadow(true);
+        m_pNextButton->box();
+        m_pNextButton->setObjectName(strNext);
+        m_pNextButton->setFocus(false);
 
     } catch (NCursesException& e) {
         qCritical() << QString(e.message);
@@ -107,7 +108,6 @@ void AdvancedPartitionFramePrivate::show()
     if(!m_isshow) {
         NCursesWindowBase::show();
         m_isshow = true;
-        m_pNextButton->setFocus(true);
     }
 }
 

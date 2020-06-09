@@ -30,13 +30,6 @@ void FullDiskFramePrivate::initUI()
         m_pBackButton->setObjectName(strBack);
         m_pBackButton->hide();
 
-        m_pNextButton = new NcursesButton(this, strNext, 3, 14, begy() + height() - 5, begx() + width() - 20);
-        m_pNextButton->drawShadow(true);
-        m_pNextButton->box();
-        m_pNextButton->setObjectName(strNext);
-        m_pNextButton->hide();
-
-
         m_label_title = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_title->setFocusEnabled(false);
         m_label_title->hide();
@@ -54,6 +47,13 @@ void FullDiskFramePrivate::initUI()
 
         m_datadisklist = new NcursesListView(this, (height() - 10) / 2, width() / 2, begy() + 2, begx() + width() / 4);
         m_datadisklist->hide();
+
+        m_pNextButton = new NcursesButton(this, strNext, 3, 14, begy() + height() - 5, begx() + width() - 20);
+        m_pNextButton->drawShadow(true);
+        m_pNextButton->box();
+        m_pNextButton->setObjectName(strNext);
+        m_pNextButton->setFocus(false);
+
 
     } catch (NCursesException& e) {
         qCritical() << QString(e.message);

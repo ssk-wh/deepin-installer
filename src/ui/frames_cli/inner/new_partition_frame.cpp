@@ -161,6 +161,12 @@ void NewPartitionFrame::initConnections() {
 }
 
 void NewPartitionFrame::initUI() {
+  QString strCreate = ::QObject::tr("Create");
+  QString strCancel = ::QObject::tr("Back");
+  int buttonHeight = 3;
+  int buttonWidth = std::max(strCancel.length(), strCreate.length()) + 4;
+  cancel_button_ = new NcursesButton(this, strCancel, buttonHeight, 14, begy() + height() - buttonHeight - 2, begx() + 5);
+
   title_label_ = new NcursesLabel(this, 1, 1, begy(), begx());
   title_label_->setFocusEnabled(false);
   title_label_->setText(::QObject::tr("Create New Partition"));
@@ -193,12 +199,6 @@ void NewPartitionFrame::initUI() {
   size_slider_ = new NCursesLineEdit(this, 1, 20, begy(), begx());
   size_slider_->setIsNumber(true);
 
-  QString strCancel = ::QObject::tr("Back");
-  QString strCreate = ::QObject::tr("Create");
-  int buttonHeight = 3;
-  int buttonWidth = std::max(strCancel.length(), strCreate.length()) + 4;
-
-  cancel_button_ = new NcursesButton(this, strCancel, buttonHeight, 14, begy() + height() - buttonHeight - 2, begx() + 5);
   create_button_ = new NcursesButton(this, strCreate, buttonHeight, 14, begy() + height() - buttonHeight - 2, begx() + width() - buttonWidth - 13);
 
   cancel_button_->drawShadow(true);

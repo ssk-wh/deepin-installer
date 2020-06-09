@@ -28,11 +28,7 @@ void PartitionFramePrivate::initUI()
         m_pBackButton->drawShadow(true);
         m_pBackButton->box();
         m_pBackButton->setObjectName(strBack);
-
-        m_pNextButton = new NcursesButton(this, strNext, 3, 14, begy() + height() - 5, begx() + width() - 20);
-        m_pNextButton->drawShadow(true);
-        m_pNextButton->box();
-        m_pNextButton->setObjectName(strNext);
+        m_pBackButton->setFocus(false);
 
         //界面控件
         //m_label_title = new NcursesLabel(this, 1, 1, begy(), begx());
@@ -48,6 +44,12 @@ void PartitionFramePrivate::initUI()
 
         m_partitionmodelist = new NcursesListView(this, 2, width() / 2, begy(), begx());
         m_partitionmodelist->setFocus(true);
+
+        m_pNextButton = new NcursesButton(this, strNext, 3, 14, begy() + height() - 5, begx() + width() - 20);
+        m_pNextButton->drawShadow(true);
+        m_pNextButton->box();
+        m_pNextButton->setObjectName(strNext);
+        m_pNextButton->setFocus(false);
 
     } catch (NCursesException& e) {
         qCritical() << QString(e.message);
