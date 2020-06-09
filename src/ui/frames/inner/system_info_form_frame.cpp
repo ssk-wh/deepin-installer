@@ -348,9 +348,9 @@ void SystemInfoFormFramePrivate::initUI()
     m_usernameLabel->setAlignment(Qt::AlignLeft);
     m_usernameEdit = new DLineEdit;
     m_usernameEdit->lineEdit()->setReadOnly(GetSettingsBool(kSystemInfoLockUsername));
-    m_usernameEdit->setSpeechToTextEnabled(false);
-    m_usernameEdit->setTextToSpeechEnabled(false);
-    m_usernameEdit->setTextToTranslateEnabled(false);
+//    m_usernameEdit->setSpeechToTextEnabled(false);
+//    m_usernameEdit->setTextToSpeechEnabled(false);
+//    m_usernameEdit->setTextToTranslateEnabled(false);
     m_usernameEdit->setContextMenuPolicy(Qt::NoContextMenu);
 
     QString str = GetSettingsString(kSystemInfoDefaultUsername);
@@ -376,9 +376,9 @@ void SystemInfoFormFramePrivate::initUI()
     m_hostnameLabel->setAlignment(Qt::AlignLeft);
     m_hostnameEdit = new DLineEdit;
     m_hostnameEdit->lineEdit()->setReadOnly(GetSettingsBool(kSystemInfoLockHostname));
-    m_hostnameEdit->setSpeechToTextEnabled(false);
-    m_hostnameEdit->setTextToSpeechEnabled(false);
-    m_hostnameEdit->setTextToTranslateEnabled(false);
+//    m_hostnameEdit->setSpeechToTextEnabled(false);
+//    m_hostnameEdit->setTextToSpeechEnabled(false);
+//    m_hostnameEdit->setTextToTranslateEnabled(false);
     m_hostnameEdit->setContextMenuPolicy(Qt::NoContextMenu);
 
     str = GetSettingsString(kSystemInfoDefaultHostname);
