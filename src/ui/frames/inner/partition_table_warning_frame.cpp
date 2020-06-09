@@ -32,6 +32,7 @@
 #include "ui/widgets/title_label.h"
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/partition_table_widget.h"
+#include "ui/widgets/operator_widget.h"
 
 #include <QDebug>
 #include <QEvent>
@@ -45,6 +46,8 @@ DCORE_USE_NAMESPACE
 namespace {
     const int kTitleCommentWidth = 384;
     const int kWarningLabelSize = 30;
+    const int kWarnItemWidth = 660;
+    const int kWarnItemHeight = 100;
 }
 
 namespace installer {
@@ -73,15 +76,15 @@ void PartitionTableWarningFrame::changeEvent(QEvent* event) {
         ::QObject::tr("You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. "
            "Please select one of the below solutions and continue.").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS")));
     m_warningWidget1->setTitle(QString("%1").arg(::QObject::tr("Disable UEFI")));
-    m_warningWidget1->setDesc(QString("1.%1\n2.%2")
+    m_warningWidget1->setBody(QString("1.%1\n2.%2")
                               .arg(::QObject::tr("Reboot, enter BIOS, and disable UEFI"))
                               .arg(::QObject::tr("Exit BIOS, and install UOS again")));
     m_warningWidget2->setTitle(QString("%1").arg(::QObject::tr("Continue")));
-    m_warningWidget2->setDesc(QString("1.%1\n2.%2")
+    m_warningWidget2->setBody(QString("1.%1\n2.%2")
                               .arg(::QObject::tr("Make sure you have backed up all data before proceeding"))
                               .arg(::QObject::tr("Continuing installation will format your disk")));
     m_warningWidget3->setTitle(QString("%1").arg(::QObject::tr("Cancel")));
-    m_warningWidget3->setDesc(QString("1.%1")
+    m_warningWidget3->setBody(QString("1.%1")
                               .arg(::QObject::tr("Nothing to do")));
 
     next_button_->setText(::QObject::tr("Next"));
@@ -127,27 +130,32 @@ void PartitionTableWarningFrame::initUI() {
   comment_label_->setWordWrap(true);
   comment_label_->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
-  m_warningWidget1 = new PartitionTableWarningWidget;
+  m_warningWidget1 = new OperatorWidget;
+  m_warningWidget1->setFixedSize(kWarnItemWidth, kWarnItemHeight);
+  m_warningWidget1->setSelectIcon(":/images/select_blue.svg");
   m_warningWidget1->setTitle(QString("%1").arg(::QObject::tr("Disable UEFI")));
-  m_warningWidget1->setDesc(QString("1.%1\n2.%2")
+  m_warningWidget1->setBody(QString("1.%1\n2.%2")
                             .arg(::QObject::tr("Reboot, enter BIOS, and disable UEFI"))
                             .arg(::QObject::tr("Exit BIOS, and install UOS again")));
 
-  m_warningWidget2 = new PartitionTableWarningWidget;
+  m_warningWidget2 = new OperatorWidget;
+  m_warningWidget2->setFixedSize(kWarnItemWidth, kWarnItemHeight);
+  m_warningWidget2->setSelectIcon(":/images/select_blue.svg");
   m_warningWidget2->setTitle(QString("%1").arg(::QObject::tr("Continue")));
-  m_warningWidget2->setDesc(QString("1.%1\n2.%2")
+  m_warningWidget2->setBody(QString("1.%1\n2.%2")
                             .arg(::QObject::tr("Make sure you have backed up all data before proceeding"))
                             .arg(::QObject::tr("Continuing installation will format your disk")));
 
-  m_warningWidget3 = new PartitionTableWarningWidget;
+  m_warningWidget3 = new OperatorWidget;
+  m_warningWidget3->setFixedSize(kWarnItemWidth, kWarnItemHeight);
+  m_warningWidget3->setSelectIcon(":/images/select_blue.svg");
   m_warningWidget3->setTitle(QString("%1").arg(::QObject::tr("Cancel")));
-  m_warningWidget3->setDesc(QString("1.%1")
+  m_warningWidget3->setBody(QString("1.%1")
                             .arg(::QObject::tr("Nothing to do")));
 
   m_buttonBox = new DButtonBox(this);
   m_buttonBox->setButtonList({m_warningWidget1, m_warningWidget2, m_warningWidget3}, true);
   m_warningWidget1->setChecked(true);
-  m_warningWidget1->updateCheckedAppearance();
   // default setting
   m_currentButton = m_warningWidget1;
 
@@ -184,10 +192,19 @@ void PartitionTableWarningFrame::onConfirmButtonClicked() {
 
 void PartitionTableWarningFrame::onButtonGroupToggled(QAbstractButton *button)
 {
-    m_warningWidget1->updateCheckedAppearance();
-    m_warningWidget2->updateCheckedAppearance();
-    m_warningWidget3->updateCheckedAppearance();
     m_currentButton = button;
+    if (m_currentButton == m_warningWidget1) {
+        m_warningWidget2->setSelect(false);
+        m_warningWidget3->setSelect(false);
+    }
+    else if (m_currentButton == m_warningWidget2) {
+        m_warningWidget1->setSelect(false);
+        m_warningWidget3->setSelect(false);
+    }
+    else {
+        m_warningWidget1->setSelect(false);
+        m_warningWidget2->setSelect(false);
+    }
 }
 
 void PartitionTableWarningFrame::onNextButtonClicked()

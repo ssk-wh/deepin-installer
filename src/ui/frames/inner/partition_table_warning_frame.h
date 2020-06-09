@@ -33,7 +33,7 @@ namespace installer {
 class CommentLabel;
 class NavButton;
 class TitleLabel;
-class PartitionTableWarningWidget;
+class OperatorWidget;
 
 // Displayed when partition table type and system boot method does not match.
 class PartitionTableWarningFrame : public QFrame {
@@ -69,9 +69,9 @@ class PartitionTableWarningFrame : public QFrame {
 
   DButtonBox* m_buttonBox = nullptr;
   QAbstractButton* m_currentButton = nullptr;
-  PartitionTableWarningWidget *m_warningWidget1 = nullptr;
-  PartitionTableWarningWidget *m_warningWidget2 = nullptr;
-  PartitionTableWarningWidget *m_warningWidget3 = nullptr;
+  OperatorWidget *m_warningWidget1 = nullptr;
+  OperatorWidget *m_warningWidget2 = nullptr;
+  OperatorWidget *m_warningWidget3 = nullptr;
 
   QPushButton* next_button_ = nullptr;
 
