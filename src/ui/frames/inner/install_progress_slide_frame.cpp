@@ -101,8 +101,10 @@ void InstallProgressSlideFrame::initUI() {
 
   m_backButton = new DIconButton(this);
   m_backButton->setIcon(QIcon(":/images/backPicture.svg"));
+  m_backButton->setIconSize(QSize(50, 50));
   m_nextButton = new DIconButton(this);
   m_nextButton->setIcon(QIcon(":/images/nextPicture.svg"));
+  m_nextButton->setIconSize(QSize(50, 50));
 
   QHBoxLayout* layout = new QHBoxLayout;
   layout->setContentsMargins(0, 0, 0, 0);
