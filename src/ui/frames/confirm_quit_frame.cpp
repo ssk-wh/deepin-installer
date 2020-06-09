@@ -40,6 +40,8 @@ ConfirmQuitFrame::ConfirmQuitFrame(QWidget* parent)
 {
     setObjectName("confirm_quit_frame");
 
+    setWindowFlags(windowFlags() & ~Qt::WindowCloseButtonHint);
+
     initUI();
     initConnections();
 }
@@ -56,6 +58,13 @@ void ConfirmQuitFrame::changeEvent(QEvent* event) {
         ::QObject::tr("Relevant operations you made in the installation process will not take effect, abort or continue installation?"));
     continue_button_->setText(::QObject::tr("Continue"));
     abort_button_->setText(::QObject::tr("Abort"));
+
+    if (m_close_button) {
+        const int marginSize = this->layout()->margin();
+        m_close_button->move(width() - m_close_button->width() - marginSize, marginSize);
+        m_close_button->raise();
+        m_close_button->show();
+    }
   } else {
     QWidget::changeEvent(event);
   }
@@ -66,6 +75,9 @@ void ConfirmQuitFrame::initConnections() {
           this, &ConfirmQuitFrame::quitCancelled);
   connect(abort_button_, &QPushButton::clicked,
           this, &ConfirmQuitFrame::quitConfirmed);
+
+  connect(m_close_button, &DImageButton::clicked,
+          this, &ConfirmQuitFrame::quitCancelled);
 }
 
 void ConfirmQuitFrame::initUI() {
@@ -96,6 +108,19 @@ void ConfirmQuitFrame::initUI() {
 
   setContentsMargins(0, 0, 0, 0);
   setFixedSize(kCloseDialogWidth, kCloseDialogHeight);
+
+  setupCloseButton();
+}
+
+void ConfirmQuitFrame::setupCloseButton()
+{
+    // TODO: use titleBar implement.
+    m_close_button = new DImageButton(this);
+    m_close_button->setFocusPolicy(Qt::TabFocus);
+    m_close_button->setFixedSize(40, 40);
+    m_close_button->setNormalPic(":/images/close_normal.svg");
+    m_close_button->setHoverPic(":/images/close_normal.svg");
+    m_close_button->setPressPic(":/images/close_normal.svg");
 }
 
 }  // namespace installer

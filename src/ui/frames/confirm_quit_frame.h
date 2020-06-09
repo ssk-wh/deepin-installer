@@ -20,6 +20,7 @@
 
 #include <QPushButton>
 #include <DDialog>
+#include <DImageButton>
 
 DWIDGET_USE_NAMESPACE
 
@@ -48,10 +49,13 @@ class ConfirmQuitFrame : public DDialog {
  private:
   void initConnections();
   void initUI();
+  void setupCloseButton();
 
   CommentLabel *comment_label_ = nullptr;
   QPushButton* continue_button_ = nullptr;
   QPushButton* abort_button_ = nullptr;
+
+  DImageButton *m_close_button = nullptr;
 };
 
 }  // namespace installer
