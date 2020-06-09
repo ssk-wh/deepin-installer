@@ -703,8 +703,8 @@ void FullDiskDelegate::onDeviceRefreshed(const DeviceList &devices)
         return;//这里的return不知是否会导致安装进度暂停，
     } else if(deviceList.size() == 1) {
         addSystemDisk(deviceList.first()->path);
-        deviceList.erase(deviceList.begin());
         qDebug()<<"add system disk path :"<< deviceList.first()->path;
+        deviceList.erase(deviceList.begin());
     } else {
         bool isfindsda = false;
         for (auto it = deviceList.begin(); it != deviceList.end();) {
@@ -713,12 +713,13 @@ void FullDiskDelegate::onDeviceRefreshed(const DeviceList &devices)
                 qint64 testspeedsub = abs(deviceSpeedMap[device] - deviceSpeedMap[deviceList.first()]);
                 if (testspeedsub < 5000) {
                     addSystemDisk(device->path);
-                    deviceList.erase(it);
                     qDebug()<<"add system disk path :"<< device->path;
+                    deviceList.erase(it);                    
                     isfindsda = true;
                 } else {
                     isfindsda = false;
                 }
+                break;
             } else {
                 ++it;
             }
@@ -726,8 +727,8 @@ void FullDiskDelegate::onDeviceRefreshed(const DeviceList &devices)
 
         if (!isfindsda) {
             addSystemDisk(deviceList.first()->path);
-            deviceList.erase(deviceList.begin());
             qDebug()<<"add system disk path :"<< deviceList.first()->path;
+            deviceList.erase(deviceList.begin());
         }
     }
 
