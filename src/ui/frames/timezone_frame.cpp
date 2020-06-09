@@ -211,7 +211,7 @@ void TimezoneFrame::finished() {
   process->start("timedatectl", {"set-local-rtc", localRtc});
   process->waitForFinished();
 
-  if (m_private->m_systemDateFrame->isEnabled()) {
+  if (!m_private->m_systemDateFrame->isEnabled()) {
       return;
   }
 
