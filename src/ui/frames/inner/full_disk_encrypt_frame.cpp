@@ -33,6 +33,7 @@ namespace {
     const int kMainFrameHeight = 500;
 
     const int kContentWidth = 500;
+    const int kFullDiskEncryptTitelFont=24;
 }
 
 Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxyInterface
@@ -58,31 +59,27 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     setObjectName("FullDiskEncryptFrame");
     m_layout->addStretch();
 
-    m_frameSubLbl->setWordWrap(true);
-    m_frameSubLbl->setFixedWidth(kContentWidth);
-    m_frameSubLbl->setAlignment(Qt::AlignCenter);
-
     // add encrypt label
+    QFont font;
+    font.setPixelSize(kFullDiskEncryptTitelFont);
+    m_frameLbl->setFont(font);
     m_layout->addWidget(m_frameLbl, 0, Qt::AlignHCenter);
-    m_layout->addWidget(m_frameSubLbl, 0, Qt::AlignHCenter);
 
     QHBoxLayout * hboxlayout = new QHBoxLayout();
     hboxlayout->addStretch();
     for(int i = 0; i < FULL_DISK_DISK_MAX_COUNT; i++) {
         QLabel *diskLbl = new QLabel;
-        diskLbl->setPixmap(installer::renderPixmap(":/images/driver_128.svg"));
+        diskLbl->setFixedSize(QSize(50, 50));
+        diskLbl->setPixmap(installer::renderPixmap(":/images/driver_128.svg").scaledToHeight(50));
         m_diskinfo[i].m_diskLbl = diskLbl;
         m_diskinfo[i].m_devicePathLbl = new QLabel();
         m_diskinfo[i].m_deviceSizeLbl = new QLabel();
-        m_diskinfo[i].m_deviceModelLbl = new QLabel();
         QVBoxLayout *diskInfoLayout = new QVBoxLayout;
         diskInfoLayout->setMargin(0);
         diskInfoLayout->setSpacing(0);
         diskInfoLayout->addWidget(m_diskinfo[i].m_diskLbl, 0, Qt::AlignHCenter);
         diskInfoLayout->addSpacing(6);
         diskInfoLayout->addWidget(m_diskinfo[i].m_devicePathLbl, 0, Qt::AlignHCenter);
-        diskInfoLayout->addSpacing(6);
-        diskInfoLayout->addWidget(m_diskinfo[i].m_deviceModelLbl, 0, Qt::AlignHCenter);
         diskInfoLayout->addSpacing(6);
         diskInfoLayout->addWidget(m_diskinfo[i].m_deviceSizeLbl, 0, Qt::AlignHCenter);
         hboxlayout->addLayout(diskInfoLayout);
@@ -246,7 +243,6 @@ void Full_Disk_Encrypt_frame::onEncryptUpdated(bool checked)
 void Full_Disk_Encrypt_frame::updateText()
 {
     m_frameLbl->setText(tr("Encrypt This Disk"));
-    m_frameSubLbl->setText(tr("Make sure you have backed up important data, then select the disk to install"));
     m_encryptLbl->setText(tr("Password").append(" :"));
     m_encryptCheckLbl->setText(tr("Repeat Password").append(" :"));
     m_cancelBtn->setText(tr("Cancel"));
@@ -264,11 +260,9 @@ void Full_Disk_Encrypt_frame::updateDiskInfo(int index)
 {
     Device::Ptr device(m_diskinfo[index].m_device);
     m_diskinfo[index].m_devicePathLbl->setText(device->path);
-    m_diskinfo[index].m_deviceModelLbl->setText(device->model);
     m_diskinfo[index].m_deviceSizeLbl->setText(QString("%1 GB").arg(ToGigByte(device->getByteLength())));
     m_diskinfo[index].m_diskLbl->show();
     m_diskinfo[index].m_devicePathLbl->show();
-    m_diskinfo[index].m_deviceModelLbl->show();
     m_diskinfo[index].m_deviceSizeLbl->show();
 }
 
@@ -288,8 +282,7 @@ void Full_Disk_Encrypt_frame::updateDiskInfo()
     }
     while (i < FULL_DISK_DISK_MAX_COUNT) {
         m_diskinfo[i].m_diskLbl->hide();
-        m_diskinfo[i].m_devicePathLbl->hide();
-        m_diskinfo[i].m_deviceModelLbl->hide();
+        m_diskinfo[i].m_devicePathLbl->hide();        
         m_diskinfo[i].m_deviceSizeLbl->hide();
         i++;
     }
