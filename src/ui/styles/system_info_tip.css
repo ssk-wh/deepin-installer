@@ -1,7 +1,7 @@
 /** Used in SystemInfoTip class **/
 
 QLabel#tooltip_label {
-  background: transparent;
+  background-color:rgba(244,244,244,1);
   color: #f9704f;
   font-size: 13px;
 }

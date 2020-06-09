@@ -970,7 +970,7 @@ bool SystemInfoFormFramePrivate::searchDevice() {
 void SystemInfoFormFramePrivate::updateDevice() {
     if (searchDevice()) {
        tooltip_->setText(::QObject::tr("Add fingerprint password in Control Center > Accounts to unlock and authenticate"));
-       tooltip_->showBottom(m_passwordEdit);
+       tooltip_->showBottom(m_passwordEdit);      
     }
 }
 
