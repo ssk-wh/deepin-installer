@@ -516,13 +516,20 @@ void SystemInfoFormFramePrivate::initUI()
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(kMainLayoutSpacing);
     layout->addWidget(usernameFrame, 0, Qt::AlignHCenter);
+    layout->addSpacing(kSetRootPasswordCheckBoxHeight);
     layout->addWidget(hostnameFrame, 0, Qt::AlignHCenter);
+    layout->addSpacing(kSetRootPasswordCheckBoxHeight);
     layout->addWidget(passwordFrame, 0, Qt::AlignHCenter);
+    layout->addSpacing(kSetRootPasswordCheckBoxHeight);
     layout->addWidget(passwordCheckFrame, 0, Qt::AlignHCenter);
+    layout->addSpacing(kSetRootPasswordCheckBoxHeight);
     m_setRootPasswordCheck->setFixedSize(kSetRootPasswordCheckBoxWidth, kSetRootPasswordCheckBoxHeight);
     layout->addWidget(m_setRootPasswordCheck, 0, Qt::AlignHCenter);
+    layout->addSpacing(kSetRootPasswordCheckBoxHeight);
     layout->addWidget(m_rootPasswordFrame, 0, Qt::AlignHCenter);
+    layout->addSpacing(kSetRootPasswordCheckBoxHeight);
     layout->addWidget(m_rootPasswordCheckFrame, 0, Qt::AlignHCenter);
+    layout->addSpacing(kSetRootPasswordCheckBoxHeight);
     layout->addWidget(m_grubPasswordCheck_, 0, Qt::AlignHCenter);
 
     QFrame* content = new QFrame;
