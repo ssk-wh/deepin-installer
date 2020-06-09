@@ -91,11 +91,11 @@ bool PrivilegeErrorFrame::shouldDisplay() const
 
 QString PrivilegeErrorFrame::returnFrameName() const
 {
-    return ::QObject::tr("Privilege Error");
+    return "Privilege Error";
 }
 
 void PrivilegeErrorFramePrivate::initUI() {
-  TitleLabel* title_label = new TitleLabel(::QObject::tr("Privilege Error"));
+  TitleLabel* title_label = new TitleLabel("Privilege Error");
   CommentLabel* comment_label = new CommentLabel(
       "Please execute with root account");
 

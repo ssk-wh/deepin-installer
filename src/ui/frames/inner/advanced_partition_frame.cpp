@@ -552,7 +552,7 @@ QString AdvancedPartitionFrame::validateStateToText(ValidateState state) {
           .arg( boot_recommended);
     }
     case ValidateState::BootBeforeLvm: {
-      return ::QObject::tr("Before Lvm is required for /boot partition");
+      return ::QObject::tr("To create lvm, /boot partition is required");
     }
     case ValidateState::EfiMissing: {
       return ::QObject::tr("Add an EFI partition to continue");

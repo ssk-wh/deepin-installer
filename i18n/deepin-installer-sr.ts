@@ -431,6 +431,8 @@
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="59"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="79"/>
+        <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="43"/>
+        <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="61"/>
         <source>Abort</source>
         <translation>Прекини</translation>
     </message>
@@ -533,7 +535,7 @@
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="127"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="278"/>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="252"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="249"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="148"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="276"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="65"/>
@@ -569,7 +571,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="616"/>
         <location filename="../src/ui/frames/install_results_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="15"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="60"/>
         <source>Done</source>
         <translation>Готово</translation>
     </message>
@@ -633,8 +635,8 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="555"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="342"/>
-        <source>Before Lvm is required for /boot partition</source>
-        <translation>Пре него што је потребан Lvm за /boot партицију</translation>
+        <source>To create lvm, /boot partition is required</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="558"/>
@@ -709,7 +711,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="280"/>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="253"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="250"/>
         <location filename="../src/ui/main_window_cli.cpp" line="66"/>
         <location filename="../src/ui/main_window_cli.cpp" line="79"/>
         <location filename="../src/ui/main_window_cli.cpp" line="91"/>
@@ -717,12 +719,12 @@
         <translation>Потвриди</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="208"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
         <source>Please input password</source>
         <translation>Молимо унесите лозинку</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="215"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="212"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="754"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="126"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="240"/>
@@ -730,19 +732,19 @@
         <translation>Лозинке се не подударају</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="248"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="245"/>
         <source>Encrypt This Disk</source>
         <translation>Шифруј овај диск</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="249"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="246"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="227"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="425"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Уверите се да је направљена резерва важних података, затим изаберите диск за инсталацију</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="250"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="247"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="431"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="559"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="566"/>
@@ -751,12 +753,12 @@
         <translation>Лозинка</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="251"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="248"/>
         <source>Repeat Password</source>
         <translation>Понови лозинку</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="254"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="251"/>
         <source>Take care of your password, otherwise, all your data will be lost</source>
         <translation>Добро чувајте вашу лозинку у супротном можете изгубити све ваше податке</translation>
     </message>
@@ -928,12 +930,14 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="133"/>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="86"/>
         <source>Reboot, enter BIOS, and disable UEFI</source>
         <translation>Поново покрените, уђите у BIOS и онемогућите UEFI</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="78"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="134"/>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="87"/>
         <source>Exit BIOS, and install UOS again</source>
         <translation>Напустите BIOS и поново инсталирајте УОС</translation>
     </message>
@@ -1278,15 +1282,16 @@
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="82"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="19"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="65"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="18"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="63"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="64"/>
         <source>Installation Failed</source>
         <translation>Инсталација неуспешна</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="84"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="20"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="66"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="19"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="65"/>
         <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
         <translation>Извините због непријатности. Усликајте или очитајте QR код да пошаљете записник грешака или сачувајте записник на спољни диск. Потрудићемо се да решимо проблем.</translation>
     </message>
@@ -1298,13 +1303,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="168"/>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="79"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="91"/>
         <source>Install</source>
         <translation>Инсталирај</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="212"/>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="266"/>
+        <location filename="../src/ui/frames_cli/install_process_frame.cpp" line="68"/>
         <source>Installing</source>
         <translation>Инсталирање</translation>
     </message>
@@ -1321,20 +1327,23 @@
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="44"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="43"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="75"/>
         <source>Reboot Now</source>
         <translation>Поново покрени</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="14"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="16"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="62"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="59"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="61"/>
         <source>Successfully Installed</source>
         <translation>Инсталација је успешна</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="17"/>
         <source>Click the button below and then remove the installation media immediately</source>
         <translation>Кликните на дугме испод, затим одмах уклоните инсталациони медиј</translation>
     </message>
@@ -1441,11 +1450,6 @@
         <translation>Ручно</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="261"/>
-        <source>Network Switch</source>
-        <translation>Мрежна скретница</translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="467"/>
         <source>Illegal %1, please have a check.</source>
         <translation>Неовлашћено %1, извршите проверу.</translation>
@@ -1528,39 +1532,33 @@
         <translation>Одредишни диск је динамички и биће форматиран ако наставите. Молимо прво направите резерву важних датотека.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/privilege_error_frame.cpp" line="94"/>
-        <location filename="../src/ui/frames/privilege_error_frame.cpp" line="98"/>
-        <source>Privilege Error</source>
-        <translation>Грешка привилегија</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="71"/>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="160"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="83"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="179"/>
         <source>System Setup</source>
         <translation>Подешавање система</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="72"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="84"/>
         <source>Choose an option for your system</source>
         <translation>Изабери опцију за систем</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="80"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="92"/>
         <source>Install the system in your installation media.</source>
         <translation>Инсталирај систем на инсталациони медиј</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="98"/>
         <source>Repair</source>
         <translation>Поправка</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="87"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="99"/>
         <source>Use recovery tools to fix system issues.</source>
         <translation>Употреби алате за опоравак да решиш проблеме са системом.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="89"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="101"/>
         <source>Enter the</source>
         <translation type="unfinished"/>
     </message>
@@ -1669,12 +1667,6 @@
         <translation>Непознати уређај</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="43"/>
-        <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="61"/>
-        <source>quit</source>
-        <translation>напусти</translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="88"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="89"/>
         <source>Make sure you have backed up important data, then select the disk to install.</source>
@@ -1682,7 +1674,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="89"/>
-        <source>Insert key : new or edit partition. Delete key: delete partition.</source>
+        <source>Insert key: create or edit partition. Delete key: delete partition.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1726,13 +1718,6 @@
         <translation>Складиште:</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="69"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="126"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="420"/>
-        <source>unused</source>
-        <translation>слободно</translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="86"/>
         <source>Primary partition</source>
         <translation>Примарна партиција</translation>
@@ -1743,23 +1728,8 @@
         <translation>Логичка партиција</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/partition_log_frame.cpp" line="34"/>
-        <source>Partiton operate log</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="86"/>
-        <source>Restart the BIOS Settings, and close the UEFI startup</source>
-        <translation>Поново покрени БИОС подешавања и затвори UEFI покретање</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="87"/>
-        <source>Quit the BIOS, back into the UOS installation</source>
-        <translation>Изађи из БИОС-а назад на УОС инсталацију</translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="89"/>
-        <source>Please backup all your data, in order to avoid data loss</source>
+        <source>Make a backup of all your data to avoid data loss</source>
         <translation>Направите резерву свих ваших података како бисте избегли губитак истих</translation>
     </message>
     <message>
@@ -1769,46 +1739,14 @@
         <translation>Изабери компоненте према потребама</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/install_process_frame.cpp" line="68"/>
-        <source>Install Process</source>
-        <translation>Инсталациони процес</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/install_scuess_frame.cpp" line="25"/>
-        <source>language select</source>
-        <translation>избор језика</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="14"/>
-        <source>Install Sucess</source>
-        <translation>Инсталација је успешна</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="17"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="63"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="62"/>
         <source>Clik the button below and then remove the installation media immediately</source>
         <translation>Кликните на дугме испод, затим одмах уклоните инсталациони медиј</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="18"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="64"/>
-        <source>Install failed</source>
-        <translation>Инсталација неуспешна</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="60"/>
-        <source>Install sucess</source>
-        <translation>Инсталација је успешна</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="83"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="82"/>
         <source>Shut Down</source>
         <translation>Искључи</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="183"/>
-        <source>InstallSuccessFrame</source>
-        <translation>Оквир успешне инсталације</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/language_frame.cpp" line="48"/>
@@ -1830,11 +1768,6 @@
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="113"/>
         <source>I have read and agree to the UOS Software End User License Agreement</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/licence_frame.cpp" line="175"/>
-        <source>LicenceFrame</source>
-        <translation>Оквир лиценце</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="71"/>
@@ -1892,12 +1825,6 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/privilege_error_frame.cpp" line="18"/>
-        <location filename="../src/ui/frames_cli/privilege_error_frame.cpp" line="24"/>
-        <source>privilege error</source>
-        <translation>грешка привилегија</translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="461"/>
         <source>Set Root Password</source>
         <translation>Постави root лозинку</translation>
@@ -1917,12 +1844,6 @@
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="53"/>
         <source>Is it the right timezone? You can change it as well.</source>
         <translation>Да ли је то исправна веременска зона? Можете је променити.</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/virtual_machine_frame.cpp" line="15"/>
-        <location filename="../src/ui/frames_cli/virtual_machine_frame.cpp" line="21"/>
-        <source>Virtual Machine</source>
-        <translation>Виртуелна машина</translation>
     </message>
     <message>
         <location filename="../src/base/translator.h" line="18"/>

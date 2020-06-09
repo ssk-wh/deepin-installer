@@ -12,13 +12,13 @@ VirtualMachineFramePrivate::VirtualMachineFramePrivate(NCursesWindowBase *parent
 void VirtualMachineFramePrivate::initUI()
 {
     FrameInterfacePrivate::initUI();
-    printTitle(::QObject::tr("Virtual Machine"), width());
+    printTitle("Virtual Machine", width());
 }
 
 void VirtualMachineFramePrivate::updateTs()
 {
     box(ACS_VLINE, ACS_HLINE);
-    printTitle(::QObject::tr("Virtual Machine"), width());
+    printTitle("Virtual Machine", width());
     FrameInterfacePrivate::updateTs();
 }
 

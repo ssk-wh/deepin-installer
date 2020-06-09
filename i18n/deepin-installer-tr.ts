@@ -431,6 +431,8 @@
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="59"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="79"/>
+        <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="43"/>
+        <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="61"/>
         <source>Abort</source>
         <translation>İptal</translation>
     </message>
@@ -533,7 +535,7 @@
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="127"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="278"/>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="252"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="249"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="148"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="276"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="65"/>
@@ -569,7 +571,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="616"/>
         <location filename="../src/ui/frames/install_results_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="15"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="60"/>
         <source>Done</source>
         <translation>Tamamlandı</translation>
     </message>
@@ -633,8 +635,8 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="555"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="342"/>
-        <source>Before Lvm is required for /boot partition</source>
-        <translation>/boot bölümü için Lvm gerekmeden önce</translation>
+        <source>To create lvm, /boot partition is required</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="558"/>
@@ -709,7 +711,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="280"/>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="253"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="250"/>
         <location filename="../src/ui/main_window_cli.cpp" line="66"/>
         <location filename="../src/ui/main_window_cli.cpp" line="79"/>
         <location filename="../src/ui/main_window_cli.cpp" line="91"/>
@@ -717,12 +719,12 @@
         <translation>Onayla</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="208"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
         <source>Please input password</source>
         <translation>Lütfen parolayı yazın</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="215"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="212"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="754"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="126"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="240"/>
@@ -730,19 +732,19 @@
         <translation>Parola ile onayı aynı değil</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="248"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="245"/>
         <source>Encrypt This Disk</source>
         <translation>Bu Diski Şifrele</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="249"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="246"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="227"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="425"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Önemli verileri yedeklediğinizden emin olduktan sonra kurulum yapılacak diski seçin</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="250"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="247"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="431"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="559"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="566"/>
@@ -751,12 +753,12 @@
         <translation>Parola</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="251"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="248"/>
         <source>Repeat Password</source>
         <translation>Parola Onayı</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="254"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="251"/>
         <source>Take care of your password, otherwise, all your data will be lost</source>
         <translation>Parolanıza dikkat edin, aksi takdirde tüm verileriniz kaybolacaktır</translation>
     </message>
@@ -928,12 +930,14 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="133"/>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="86"/>
         <source>Reboot, enter BIOS, and disable UEFI</source>
         <translation>Yeniden başlatıp BIOS ayarlarına girin ve UEFI özelliğini devre dışı bırakın</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="78"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="134"/>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="87"/>
         <source>Exit BIOS, and install UOS again</source>
         <translation>BIOS&apos;tan çıkın ve tekrar UOS kurun</translation>
     </message>
@@ -1278,15 +1282,16 @@
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="82"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="19"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="65"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="18"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="63"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="64"/>
         <source>Installation Failed</source>
         <translation>Kurulum Başarısız</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="84"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="20"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="66"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="19"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="65"/>
         <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
         <translation>Üzgünüz, lütfen bize hata bildirmek için QR kodunu fotoğraflayın veya tarayın veya günlüğü harici bir diske kaydedin. Sorunun çözülmesine yardımcı olacağız.</translation>
     </message>
@@ -1298,13 +1303,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="168"/>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="79"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="91"/>
         <source>Install</source>
         <translation>Kur</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="212"/>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="266"/>
+        <location filename="../src/ui/frames_cli/install_process_frame.cpp" line="68"/>
         <source>Installing</source>
         <translation>Kuruluyor</translation>
     </message>
@@ -1321,20 +1327,23 @@
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="44"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="43"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="75"/>
         <source>Reboot Now</source>
         <translation>Şimdi Yeniden Başlat</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="14"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="16"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="62"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="59"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="61"/>
         <source>Successfully Installed</source>
         <translation>Başarıyla Kuruldu</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="17"/>
         <source>Click the button below and then remove the installation media immediately</source>
         <translation>Aşağıdaki düğmeyi tıklayın ve ardından kurulum medyasını hemen çıkarın</translation>
     </message>
@@ -1441,11 +1450,6 @@
         <translation>Elle</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="261"/>
-        <source>Network Switch</source>
-        <translation>Ağ Anahtarı</translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="467"/>
         <source>Illegal %1, please have a check.</source>
         <translation>Geçersiz %1, lütfen kontrol edin.</translation>
@@ -1528,39 +1532,33 @@
         <translation>Hedef disk dinamiktir ve ilerlerken biçimlendirilir. Lütfen önce önemli dosyalarınızın yedeğini alın.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/privilege_error_frame.cpp" line="94"/>
-        <location filename="../src/ui/frames/privilege_error_frame.cpp" line="98"/>
-        <source>Privilege Error</source>
-        <translation>Ayrıcalık Hatası</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="71"/>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="160"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="83"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="179"/>
         <source>System Setup</source>
         <translation>Sistem Kurulumu</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="72"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="84"/>
         <source>Choose an option for your system</source>
         <translation>Sisteminiz için bir seçenek belirleyin</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="80"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="92"/>
         <source>Install the system in your installation media.</source>
         <translation>Sistemi kurulum ortamınıza yükleyin.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="98"/>
         <source>Repair</source>
         <translation>Onar</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="87"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="99"/>
         <source>Use recovery tools to fix system issues.</source>
         <translation>Sistem sorunlarını gidermek için kurtarma araçlarını kullanın.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="89"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="101"/>
         <source>Enter the</source>
         <translation>Giriş</translation>
     </message>
@@ -1669,12 +1667,6 @@
         <translation>Bilinmeyen aygıt</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="43"/>
-        <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="61"/>
-        <source>quit</source>
-        <translation>çık</translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="88"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="89"/>
         <source>Make sure you have backed up important data, then select the disk to install.</source>
@@ -1682,8 +1674,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="89"/>
-        <source>Insert key : new or edit partition. Delete key: delete partition.</source>
-        <translation>İnsert tuşu: yeni bölüm oluşturur veya düzenler. Delete tuşu: bölümü siler.</translation>
+        <source>Insert key: create or edit partition. Delete key: delete partition.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="401"/>
@@ -1726,13 +1718,6 @@
         <translation>Veri Diski:</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="69"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="126"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="420"/>
-        <source>unused</source>
-        <translation>kullanılmamış</translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="86"/>
         <source>Primary partition</source>
         <translation>Birincil bölüm</translation>
@@ -1743,24 +1728,9 @@
         <translation>Mantıksal bölüm</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/partition_log_frame.cpp" line="34"/>
-        <source>Partiton operate log</source>
-        <translation>Bölüm çalışma günlüğü</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="86"/>
-        <source>Restart the BIOS Settings, and close the UEFI startup</source>
-        <translation>BIOS Ayarlarını yeniden başlat ve UEFI başlangıcını kapat</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="87"/>
-        <source>Quit the BIOS, back into the UOS installation</source>
-        <translation>BIOS&apos;tan çıkıp, UOS kurulumuna geri dön</translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="89"/>
-        <source>Please backup all your data, in order to avoid data loss</source>
-        <translation>Veri kaybını önlemek için lütfen tüm verilerinizi yedekleyin</translation>
+        <source>Make a backup of all your data to avoid data loss</source>
+        <translation>Veri kaybını önlemek için tüm verilerinizi yedekleyin</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="53"/>
@@ -1769,46 +1739,14 @@
         <translation>Bileşenleri ihtiyaçlarınıza göre seçin.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/install_process_frame.cpp" line="68"/>
-        <source>Install Process</source>
-        <translation>Kurulum Süreci</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/install_scuess_frame.cpp" line="25"/>
-        <source>language select</source>
-        <translation>dil seçimi</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="14"/>
-        <source>Install Sucess</source>
-        <translation>Kurulum Başarılı</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="17"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="63"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="62"/>
         <source>Clik the button below and then remove the installation media immediately</source>
         <translation>Aşağıdaki düğmeyi tıklayın ve ardından yükleme medyasını hemen çıkarın</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="18"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="64"/>
-        <source>Install failed</source>
-        <translation>Kurulum başarısız</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="60"/>
-        <source>Install sucess</source>
-        <translation>Kurulum başarılı</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="83"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="82"/>
         <source>Shut Down</source>
         <translation>Kapat</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="183"/>
-        <source>InstallSuccessFrame</source>
-        <translation>ÇerçeveBaşarıylaKuruldu</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/language_frame.cpp" line="48"/>
@@ -1830,11 +1768,6 @@
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="113"/>
         <source>I have read and agree to the UOS Software End User License Agreement</source>
         <translation>UOS Yazılım Son Kullanıcı Lisans Anlaşmasını okudum ve kabul ediyorum</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/licence_frame.cpp" line="175"/>
-        <source>LicenceFrame</source>
-        <translation>LisansÇerçevesi</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="71"/>
@@ -1892,12 +1825,6 @@
         <translation>Bölüm kipi</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/privilege_error_frame.cpp" line="18"/>
-        <location filename="../src/ui/frames_cli/privilege_error_frame.cpp" line="24"/>
-        <source>privilege error</source>
-        <translation>ayrıcalık hatası</translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="461"/>
         <source>Set Root Password</source>
         <translation>Kök Parolasını Ayarla</translation>
@@ -1917,12 +1844,6 @@
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="53"/>
         <source>Is it the right timezone? You can change it as well.</source>
         <translation>Doğru saat dilimi mi? Siz de değiştirebilirsiniz.</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/virtual_machine_frame.cpp" line="15"/>
-        <location filename="../src/ui/frames_cli/virtual_machine_frame.cpp" line="21"/>
-        <source>Virtual Machine</source>
-        <translation>Sanal Makine</translation>
     </message>
     <message>
         <location filename="../src/base/translator.h" line="18"/>

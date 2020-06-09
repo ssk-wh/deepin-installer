@@ -15,13 +15,13 @@ void PrivilegeErrorFramePrivate::initUI()
 {
     bkgd(NcursesUtil::getInstance()->dialog_attr());
     FrameInterfacePrivate::initUI();
-    setTitle(::QObject::tr("privilege error"));
+    setTitle("Privilege Error");
 }
 
 void PrivilegeErrorFramePrivate::updateTs()
 {
     box(ACS_VLINE,ACS_HLINE);
-    setTitle(::QObject::tr("privilege error"));
+    setTitle("Privilege Error");
     FrameInterfacePrivate::updateTs();
 }
 

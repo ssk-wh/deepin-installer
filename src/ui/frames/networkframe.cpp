@@ -259,7 +259,7 @@ public:
 
         m_connectTypeWidget->setLayout(dhcpLayout);
         // If has not any devices, label must have default name.
-        m_switchName = new QLabel(::QObject::tr("Network Switch"));
+        m_switchName = new QLabel("Network Switch");
         m_switchName->setFixedSize(130, 20);
         connect(m_switchButton, &DSwitchButton::checkedChanged, this, &NetworkEditWidget::onSwitchStateChanged);
 

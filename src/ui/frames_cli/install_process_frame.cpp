@@ -65,7 +65,7 @@ void InstallProcessFramePrivate::layout()
 void InstallProcessFramePrivate::updateTs()
 {
     box(ACS_VLINE,ACS_HLINE);
-    printTitle(::QObject::tr("Install Process"), width());
+    printTitle(::QObject::tr("Installing"), width());
     FrameInterfacePrivate::updateTs();
 }
 

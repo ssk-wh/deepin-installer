@@ -83,10 +83,10 @@ void PartitionTableWarningFrame::initUI() {
 
   QStringList waringList;
   waringList.append(QString("1.Restart.%1. %2")
-                    .arg(::QObject::tr("Restart the BIOS Settings, and close the UEFI startup"))
-                    .arg(::QObject::tr("Quit the BIOS, back into the UOS installation")));
+                    .arg(::QObject::tr("Reboot, enter BIOS, and disable UEFI"))
+                    .arg(::QObject::tr("Exit BIOS, and install UOS again")));
   waringList.append(QString("2.Format the entire disk. %1")
-                    .arg(::QObject::tr("Please backup all your data, in order to avoid data loss")));
+                    .arg(::QObject::tr("Make a backup of all your data to avoid data loss")));
   waringList.append( QString("3.To select a disk. %1.")
                      .arg(::QObject::tr("Nothing to do")));
 

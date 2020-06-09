@@ -172,7 +172,7 @@ bool LicenceFrame::init()
 
 QString LicenceFrame::getFrameName()
 {
-    return ::QObject::tr("LicenceFrame");
+    return "LicenceFrame";
 }
 
 

@@ -86,7 +86,7 @@ void AdvancedPartitionFramePrivate::updateTs()
 {
     printTitle(::QObject::tr("Advanced"), width());
     m_label_title->setText("    " + ::QObject::tr("Make sure you have backed up important data, then select the disk to install."));
-    m_label_tips->setText("    " + ::QObject::tr("Insert key : new or edit partition. Delete key: delete partition."));
+    m_label_tips->setText("    " + ::QObject::tr("Insert key: create or edit partition. Delete key: delete partition."));
     FrameInterfacePrivate::updateTs();
     layout();
 }
@@ -339,7 +339,7 @@ QString AdvancedPartitionFrame::validateStateToText(ValidateState state) {
           .arg( boot_recommended);
     }
     case ValidateState::BootBeforeLvm: {
-      return ::QObject::tr("Before Lvm is required for /boot partition");
+      return ::QObject::tr("To create lvm, /boot partition is required");
     }
     case ValidateState::EfiMissing: {
       return ::QObject::tr("Add an EFI partition to continue");

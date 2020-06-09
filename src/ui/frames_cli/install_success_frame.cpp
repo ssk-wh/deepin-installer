@@ -11,11 +11,10 @@ InstallSuccessFramePrivate::InstallSuccessFramePrivate(NCursesWindowBase *parent
     : FrameInterfacePrivate(parent, lines, cols, beginY, beginX),
       m_installresultTextBrower(nullptr),
       m_isshow(false),
-      m_installSuccessTitle(::QObject::tr("Install Sucess")),
+      m_installSuccessTitle(::QObject::tr("Successfully Installed")),
       m_installSuccessInfoTitle(::QObject::tr("Done")),
       m_installSuccessInfoDes(::QObject::tr("Successfully Installed")),
-      m_installSuccessInfoTodo(::QObject::tr("Clik the button below and then remove the installation media immediately")),
-      m_installFailedTitle(::QObject::tr("Install failed")),
+      m_installSuccessInfoTodo(::QObject::tr("Click the button below and then remove the installation media immediately")),
       m_installFailedInfoTitle(::QObject::tr("Installation Failed")),
       m_installFailedInfoDes(::QObject::tr("Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue."))
 {
@@ -57,11 +56,11 @@ void InstallSuccessFramePrivate::updateTs()
 {
     box(ACS_VLINE, ACS_HLINE);
 
-    m_installSuccessTitle     = ::QObject::tr("Install sucess");
+    m_installSuccessTitle     = ::QObject::tr("Successfully Installed");
     m_installSuccessInfoTitle = ::QObject::tr("Done");
     m_installSuccessInfoDes   = ::QObject::tr("Successfully Installed");
     m_installSuccessInfoTodo  = ::QObject::tr("Clik the button below and then remove the installation media immediately");
-    m_installFailedTitle      = ::QObject::tr("Install failed");
+    m_installFailedTitle      = ::QObject::tr("Installation Failed");
     m_installFailedInfoTitle  = ::QObject::tr("Installation Failed");
     m_installFailedInfoDes    = ::QObject::tr("Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.");
 
@@ -180,7 +179,7 @@ bool InstallSuccessFrame::init()
 
 QString InstallSuccessFrame::getFrameName()
 {
-    return ::QObject::tr("InstallSuccessFrame");
+    return "InstallSuccessFrame";
 }
 
 bool InstallSuccessFrame::handle()
