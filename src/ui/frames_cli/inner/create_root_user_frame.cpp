@@ -77,7 +77,7 @@ bool installer::CreateRootUserFramePrivate::validatePassword(NCursesLineEdit *pa
 
     if (strong_pwd_check) {
         if (passwordEdit->text().toLower() == q->m_userName.toLower()) {
-            msg = tr("The password should be different from the username");
+            msg = ::QObject::tr("The password should be different from the username");
             return false;
         }
         min_len = GetSettingsInt(kSystemInfoPasswordMinLen);
@@ -91,19 +91,19 @@ bool installer::CreateRootUserFramePrivate::validatePassword(NCursesLineEdit *pa
 
     switch (state) {
     case ValidatePasswordState::EmptyError: {
-        msg = tr("Please input password longer than %1 characters and "
+        msg = ::QObject::tr("Please input password longer than %1 characters and "
                  "shorter than %2 characters")
                 .arg(min_len)
                 .arg(max_len);
         return false;
     }
     case ValidatePasswordState::StrongError: {  // fall through
-        msg = tr("The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)");
+        msg = ::QObject::tr("The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)");
         return false;
     }
     case ValidatePasswordState::TooShortError:  // fall through
     case ValidatePasswordState::TooLongError: {
-        msg = tr("Please input password longer than %1 characters and "
+        msg = ::QObject::tr("Please input password longer than %1 characters and "
                  "shorter than %2 characters")
                 .arg(min_len)
                 .arg(max_len);
@@ -123,7 +123,7 @@ bool installer::CreateRootUserFramePrivate::validatePassword(NCursesLineEdit *pa
 bool installer::CreateRootUserFramePrivate::validatePassword2(NCursesLineEdit *passwordEdit, NCursesLineEdit *passwordCheckEdit, QString &msg)
 {
     if (passwordEdit->text() != passwordCheckEdit->text()) {
-        msg = tr("Passwords do not match");
+        msg = ::QObject::tr("Passwords do not match");
         return false;
      }
      else {
@@ -201,13 +201,13 @@ void installer::CreateRootUserFramePrivate::layout()
 
 void installer::CreateRootUserFramePrivate::updateTs()
 {
-    m_labelTitle->setText(tr("Create Root Account"));
+    m_labelTitle->setText(::QObject::tr("Create Root Account"));
     m_labelTitle->adjustSizeByContext();
 
-    m_rootPasswordLabel->setText(tr("Password:"));
+    m_rootPasswordLabel->setText(::QObject::tr("Password:"));
     m_rootPasswordLabel->adjustSizeByContext();
 
-    m_passwordConfirmLabel->setText(tr("Password Confirm:"));
+    m_passwordConfirmLabel->setText(::QObject::tr("Repeat password") + ":");
     m_passwordConfirmLabel->adjustSizeByContext();
 
     return FrameInterfacePrivate::updateTs();

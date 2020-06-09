@@ -12,9 +12,9 @@ void KeyboardFramePrivate::updateTs()
     }
     m_localeString = installer::ReadLocale();
     box(ACS_VLINE,ACS_HLINE);
-    //m_titleLabel->setText(tr("Select keyboard layout"));
-    printTitle(QObject::tr("Select keyboard layout"), width());
-    m_instructionsLabel->setText(tr("Select a proper keyboard layout:"));
+    //m_titleLabel->setText(::QObject::tr("Select Keyboard Layout"));
+    printTitle(::QObject::tr("Select Keyboard Layout"), width());
+    m_instructionsLabel->setText(::QObject::tr("Select Keyboard Layout") + ":");
     readConf();
     FrameInterfacePrivate::updateTs();
     layout();

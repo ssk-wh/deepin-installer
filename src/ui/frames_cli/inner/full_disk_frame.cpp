@@ -18,8 +18,8 @@ void FullDiskFramePrivate::initUI()
         this->drawShadow(true);
         this->box();
 
-        QString strBack = QObject::tr("back");
-        QString strNext = QObject::tr("next");
+        QString strBack = ::QObject::tr("Back");
+        QString strNext = ::QObject::tr("Next");
 
         int buttonHeight = 3;
         int buttonWidth = std::max(strNext.length(), strBack.length()) + 4;
@@ -85,10 +85,10 @@ void FullDiskFramePrivate::layout()
 
 void FullDiskFramePrivate::updateTs()
 {
-    printTitle(QObject::tr("Full Disk"), width());
-    m_label_title->setText(tr("    Make sure you have backed up important data, then select the disk to install."));
-    m_label_systemdisk->setText(tr("System Disk:"));
-    m_label_datadisk->setText(tr("Data Disk:"));
+    printTitle(::QObject::tr("Full Disk"), width());
+    m_label_title->setText("    " + ::QObject::tr("Make sure you have backed up important data, then select the disk to install."));
+    m_label_systemdisk->setText(::QObject::tr("System Disk:"));
+    m_label_datadisk->setText(::QObject::tr("Data Disk:"));
     FrameInterfacePrivate::updateTs();
     layout();
 }

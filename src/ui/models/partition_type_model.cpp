@@ -38,13 +38,13 @@ QVariant PartitionTypeModel::data(const QModelIndex& index, int role) const {
   const int row = index.row();
   if (row == 1) {
     if (is_primary_visible_ && is_logical_visible_) {
-      return tr("Logical Partition");
+      return ::QObject::tr("Logical Partition");
     }
   } else if (row == 0) {
     if (is_primary_visible_) {
-      return tr("Primary Partition");
+      return ::QObject::tr("Primary Partition");
     } else if (is_logical_visible_) {
-      return tr("Logical Partition");
+      return ::QObject::tr("Logical Partition");
     }
   }
   return QVariant();

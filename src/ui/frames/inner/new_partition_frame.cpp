@@ -137,16 +137,16 @@ void NewPartitionFrame::setPartition(const Partition::Ptr partition) {
 
 void NewPartitionFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    title_label_->setText(tr("Create New Partition"));
-    type_label_->setText(tr("Type"));
-    alignment_label_->setText(tr("Location"));
-    fs_label_->setText(tr("File system"));
-    mount_point_label_->setText(tr("Mount point"));
-    size_label_->setText(tr("Size"));
+    title_label_->setText(::QObject::tr("Create New Partition"));
+    type_label_->setText(::QObject::tr("Type"));
+    alignment_label_->setText(::QObject::tr("Location"));
+    fs_label_->setText(::QObject::tr("File system"));
+    mount_point_label_->setText(::QObject::tr("Mount point"));
+    size_label_->setText(::QObject::tr("Size"));
     alignment_box_->clear();
-    alignment_box_->addItems({tr("Start"), tr("End")});
-    cancel_button_->setText(tr("Cancel"));
-    create_button_->setText(tr("OK"));
+    alignment_box_->addItems({::QObject::tr("Start"), ::QObject::tr("End")});
+    cancel_button_->setText(::QObject::tr("Cancel"));
+    create_button_->setText(::QObject::tr("OK"));
   } else {
     QWidget::changeEvent(event);
   }
@@ -182,9 +182,9 @@ void NewPartitionFrame::initConnections() {
 }
 
 void NewPartitionFrame::initUI() {
-  title_label_ = new TitleLabel(tr("Create New Partition"));
+  title_label_ = new TitleLabel(::QObject::tr("Create New Partition"));
 
-  type_label_ = new QLabel(tr("Type"));
+  type_label_ = new QLabel(::QObject::tr("Type"));
   type_label_->setObjectName("type_label");
   type_box_ = new TableComboBox();
   type_model_ = new PartitionTypeModel(type_box_);
@@ -199,10 +199,10 @@ void NewPartitionFrame::initUI() {
   type_layout->addWidget(type_box_, 0, Qt::AlignRight);
   type_layout->addStretch();
 
-  alignment_label_ = new QLabel(tr("Location"));
+  alignment_label_ = new QLabel(::QObject::tr("Location"));
   alignment_label_->setObjectName("alignment_label");
   alignment_box_ = new TableComboBox();
-  alignment_box_->addItems({tr("Start"), tr("End")});
+  alignment_box_->addItems({::QObject::tr("Start"), ::QObject::tr("End")});
   alignment_label_->setFixedWidth(kHintLabelWidth);
   alignment_box_->setFixedWidth(kInputWidgetWidth);
 
@@ -213,7 +213,7 @@ void NewPartitionFrame::initUI() {
   alignment_layout->addWidget(alignment_box_, 0, Qt::AlignRight);
   alignment_layout->addStretch();
 
-  fs_label_ = new QLabel(tr("File system"));
+  fs_label_ = new QLabel(::QObject::tr("File system"));
   fs_label_->setObjectName("fs_label");
   fs_label_->setFixedWidth(kHintLabelWidth);
   fs_model_ = new FsModel(delegate_->getFsTypeList(), this);
@@ -228,7 +228,7 @@ void NewPartitionFrame::initUI() {
   fs_layout->addWidget(fs_box_, 0, Qt::AlignRight);
   fs_layout->addStretch();
 
-  mount_point_label_ = new QLabel(tr("Mount point"));
+  mount_point_label_ = new QLabel(::QObject::tr("Mount point"));
   mount_point_label_->setObjectName("mount_point_label");
   mount_point_box_ = new TableComboBox();
   mount_point_model_ = new MountPointModel(delegate_->getMountPoints(),
@@ -244,7 +244,7 @@ void NewPartitionFrame::initUI() {
   mount_layout->addWidget(mount_point_box_, 0, Qt::AlignRight);
   mount_layout->addStretch();
 
-  size_label_ = new QLabel(tr("Size"));
+  size_label_ = new QLabel(::QObject::tr("Size"));
   size_label_->setObjectName("size_label");
   size_label_->setFrameShape(QFrame::NoFrame);
   size_slider_ = new PartitionSizeSlider();
@@ -273,9 +273,9 @@ void NewPartitionFrame::initUI() {
   content_frame->setObjectName("content_frame");
   content_frame->setLayout(content_layout);
 
-  cancel_button_ = new QPushButton(tr("Cancel"));
+  cancel_button_ = new QPushButton(::QObject::tr("Cancel"));
   cancel_button_->setFixedWidth(kButtonwidth);
-  create_button_ = new QPushButton(tr("Create"));
+  create_button_ = new QPushButton(::QObject::tr("Create"));
   create_button_->setFixedWidth(kButtonwidth);
   create_button_->setFocus();
 

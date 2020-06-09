@@ -78,23 +78,23 @@ void OemSettingsItemView::initConnections() {
 }
 
 void OemSettingsItemView::initUI() {
-  QLabel* title_label = new QLabel(tr("Title"));
+  QLabel* title_label = new QLabel(::QObject::tr("Title"));
   title_ = new QLabel();
-  QLabel* name_label = new QLabel(tr("Name"));
+  QLabel* name_label = new QLabel(::QObject::tr("Name"));
   name_ = new QLabel();
-  QLabel* desc_label = new QLabel(tr("Description"));
+  QLabel* desc_label = new QLabel(::QObject::tr("Description"));
   desc_ = new QLabel();
   desc_->setWordWrap(true);
-  QLabel* type_label = new QLabel(tr("Type"));
+  QLabel* type_label = new QLabel(::QObject::tr("Type"));
   type_ = new QLabel();
-  QLabel* default_value_label = new QLabel(tr("Default value"));
+  QLabel* default_value_label = new QLabel(::QObject::tr("Default value"));
   default_value_ = new QLabel();
-  QLabel* value_label = new QLabel(tr("Current value"));
+  QLabel* value_label = new QLabel(::QObject::tr("Current value"));
   value_ = new QLabel();
-  QLabel* use_default_value_label = new QLabel(tr("Use default value"));
+  QLabel* use_default_value_label = new QLabel(::QObject::tr("Use default value"));
   use_default_value_btn_ = new QPushButton();
   use_default_value_btn_->setCheckable(true);
-  QLabel* custom_value_label = new QLabel(tr("Custom value"));
+  QLabel* custom_value_label = new QLabel(::QObject::tr("Custom value"));
   custom_bool_ = new QPushButton();
   custom_bool_->setCheckable(true);
   custom_combo_ = new QComboBox();
@@ -226,7 +226,7 @@ void OemSettingsItemView::updateCurrentValue() {
   const QString default_value = item_.default_value().toString();
   const QString value = item_.value().toString();
   if (default_value == value) {
-    value_->setText(tr("Default value"));
+    value_->setText(::QObject::tr("Default value"));
   } else {
     if (item_.value_type() == OemSettingsType::Base64String) {
       // Read decoded string.

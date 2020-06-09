@@ -21,8 +21,8 @@ void AdvancedPartitionFramePrivate::initUI()
         this->drawShadow(true);
         this->box();
 
-        QString strBack = QObject::tr("back");
-        QString strNext = QObject::tr("next");
+        QString strBack = ::QObject::tr("Back");
+        QString strNext = ::QObject::tr("Next");
 
         //int buttonHeight = 3;
         //int buttonWidth = std::max(strNext.length(), strBack.length()) + 4;
@@ -84,9 +84,9 @@ void AdvancedPartitionFramePrivate::layout()
 
 void AdvancedPartitionFramePrivate::updateTs()
 {
-    printTitle(QObject::tr("Advanced"), width());
-    m_label_title->setText(tr("    Make sure you have backed up important data, then select the disk to install."));
-    m_label_tips->setText(tr("    Insert key : new or edit partition. Delete key: delete partition."));
+    printTitle(::QObject::tr("Advanced"), width());
+    m_label_title->setText("    " + ::QObject::tr("Make sure you have backed up important data, then select the disk to install."));
+    m_label_tips->setText("    " + ::QObject::tr("Insert key : new or edit partition. Delete key: delete partition."));
     FrameInterfacePrivate::updateTs();
     layout();
 }
@@ -326,41 +326,41 @@ QString AdvancedPartitionFrame::validateStateToText(ValidateState state) {
         fs_name_list.append(GetFsTypeName(fs_type));
       }
       const QString fs_name(fs_name_list.join("/"));
-      return tr("The partition filesystem type of /boot directory "
+      return ::QObject::tr("The partition filesystem type of /boot directory "
                 "can only be %1 ").arg(fs_name);
     }
     case ValidateState::BootPartNumberInvalid: {
-      return tr("The partition of /boot directory should be "
+      return ::QObject::tr("The partition of /boot directory should be "
                 "the first partition on hard disk");
     }
     case ValidateState::BootTooSmall: {
       const int boot_recommended = GetSettingsInt(kPartitionDefaultBootSpace);
-      return tr("/boot partition requires at least %1 MB")
+      return ::QObject::tr("/boot partition requires at least %1 GB")
           .arg( boot_recommended);
     }
     case ValidateState::BootBeforeLvm: {
-      return tr("Before Lvm is required for /boot partition");
+      return ::QObject::tr("Before Lvm is required for /boot partition");
     }
     case ValidateState::EfiMissing: {
-      return tr("Add an EFI partition to continue");
+      return ::QObject::tr("Add an EFI partition to continue");
     }
     case ValidateState::EfiTooSmall: {
       const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace);
-      return tr("/efi partition requires at least %1 MB")
+      return ::QObject::tr("/efi partition requires at least %1 MB")
           .arg(efi_recommended);
     }
     case ValidateState::RootMissing: {
-      return tr("Add a root partition to continue");
+      return ::QObject::tr("Add a root partition to continue");
     }
     case ValidateState::RootTooSmall: {
       const int root_required =
           GetSettingsInt(kPartitionRootMiniSpace);
-      return tr("/root partition requires at least %1 GB")
+      return ::QObject::tr("/root partition requires at least %1 GB")
           .arg(root_required);
     }
     case ValidateState::PartitionTooSmall: {
       const int partition_min_size_by_gb = GetSettingsInt(kPartitionOthersMinimumSize);
-      return tr("%2 partition requires at least %1 GB")
+      return ::QObject::tr("%2 partition requires at least %1 GB")
           .arg(partition_min_size_by_gb)
           .arg(GetPartitionName(state->partition()->path));
     }
@@ -390,18 +390,18 @@ void AdvancedPartitionFrame::updateErrorMessageHeader() {
   // NOTE(xushaohua): Transifex does not ts plural format.
   if (!GetSettingsBool(kPartitionSkipSimplePartitionPage)) {
     if (err_count <= 1) {
-      errMsg = tr("%1 error found, fix to continue installation or "
+      errMsg = ::QObject::tr("%1 error found, fix to continue installation or "
              "switch to simple mode").arg(err_count);
     } else {
-      errMsg = tr("%1 errors found, fix to continue installation or "
+      errMsg = ::QObject::tr("%1 errors found, fix to continue installation or "
              "switch to simple mode").arg(err_count);
     }
   } else {
     if (err_count <= 1) {
-      errMsg = tr("%1 error found, continue to install after fixed")
+      errMsg = ::QObject::tr("%1 error found, fix to continue installation")
               .arg(err_count);
     } else {
-      errMsg = tr("%1 errors found, continue to install after fixed")
+      errMsg = ::QObject::tr("%1 error found, fix to continue installation")
               .arg(err_count);
     }
   }
@@ -516,7 +516,7 @@ void AdvancedPartitionFrame::doNextBtnClicked()
     }
 
     /*
-    dynamic_disk_warning_frame_->setWarningTip(tr("The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first."));
+    dynamic_disk_warning_frame_->setWarningTip(::QObject::tr("The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first."));
 
 
     if (!device.isEmpty() && isRawDevice(device)) {

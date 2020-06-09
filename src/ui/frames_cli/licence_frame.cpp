@@ -54,7 +54,7 @@ void LicenceFramePrivate::initUI()
     m_NcursesCheckBox = new NcursesCheckBox(this, 1, textlength, begy() + height() - 7, begx() + (width() - checkboxtext.length()) / 2);
     m_NcursesCheckBox->setIsUseTitle(false);
 
-    QString errorinfo = "Please allow the licence at first ";
+    QString errorinfo = ::QObject::tr("Please agree to the license");
     m_errorInfoLabel = new NcursesLabel(this, errorinfo, 1, errorinfo.length(), begy() + height() - 5, begx() + (width() - errorinfo.length()) / 2);
     m_errorInfoLabel->setFocusEnabled(false);
     m_errorInfoLabel->setBackground(NcursesUtil::getInstance()->error_attr());
@@ -109,8 +109,8 @@ void LicenceFramePrivate::checkboxSelectChange(bool select)
 void LicenceFramePrivate::updateTs()
 {
     box(ACS_VLINE,ACS_HLINE);
-    printTitle(QObject::tr("UOS Software End User License Agreement"), width());
-    QString teststr = QObject::tr("I have read and agree to the UOS Software End User License Agreement");
+    printTitle(::QObject::tr("UOS Software End User License Agreement"), width());
+    QString teststr = ::QObject::tr("I have read and agree to the UOS Software End User License Agreement");
     if (installer::ReadLocale() == "zh_CN") {
         QString testlicenceinfo = installer::ReadFile(zh_CN_license);
         m_NcursesCheckBox->setText("", teststr, true);
@@ -121,7 +121,7 @@ void LicenceFramePrivate::updateTs()
         m_ncursesTextBrower->setText(testlicenceinfo, false);
     }
 
-    QString errorinfo = QObject::tr("Please allow the licence at first ");
+    QString errorinfo = ::QObject::tr("Please agree to the license");
     m_errorInfoLabel->setText(errorinfo);
 
     FrameInterfacePrivate::updateTs();
@@ -172,7 +172,7 @@ bool LicenceFrame::init()
 
 QString LicenceFrame::getFrameName()
 {
-    return QObject::tr("LicenceFrame");
+    return ::QObject::tr("LicenceFrame");
 }
 
 

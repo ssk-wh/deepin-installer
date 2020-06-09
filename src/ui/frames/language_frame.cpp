@@ -103,7 +103,7 @@ bool LanguageFrame::shouldDisplay() const
 
 QString LanguageFrame::returnFrameName() const
 {
-    return "Select language";
+    return ::QObject::tr("Select Language");
 }
 
 void LanguageFrame::changeEvent(QEvent *event)
@@ -112,7 +112,7 @@ void LanguageFrame::changeEvent(QEvent *event)
 
     if (event->type() == QEvent::LanguageChange) {
         for (auto it = d->m_trList.begin(); it != d->m_trList.end(); ++it) {
-            it->first(qApp->translate("installer::LanguageFramePrivate", it->second.toUtf8()));
+            it->first(qApp->translate("QObject", it->second.toUtf8()));
         }
     }
     else {
@@ -134,11 +134,11 @@ void LanguageFramePrivate::initUI() {
     m_frame_layout->addWidget(m_user_experience_frame);
     m_frame_layout->addWidget(m_user_license_frame);
 
-    m_user_experience_frame->setTitle(tr("User Experience Program License Agreement"));
-    addTransLate(m_trList, std::bind(&UserAgreementFrame::setTitle, m_user_experience_frame, std::placeholders::_1), QString(tr("User Experience Program License Agreement")));
+    m_user_experience_frame->setTitle(::QObject::tr("User Experience Program License Agreement"));
+    addTransLate(m_trList, std::bind(&UserAgreementFrame::setTitle, m_user_experience_frame, std::placeholders::_1), QString(::QObject::tr("User Experience Program License Agreement")));
 
-    m_user_license_frame->setTitle(tr("%1 Software End User License Agreement").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")));
-    addTransLate(m_trList, std::bind(&UserAgreementFrame::setTitle, m_user_license_frame, std::placeholders::_1), QString(tr("%1 Software End User License Agreement").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS"))));
+    m_user_license_frame->setTitle(::QObject::tr("%1 Software End User License Agreement").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS")));
+    addTransLate(m_trList, std::bind(&UserAgreementFrame::setTitle, m_user_license_frame, std::placeholders::_1), QString(::QObject::tr("%1 Software End User License Agreement").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS"))));
 
     nextButton->setEnabled(false);
     centerLayout->addLayout(m_frame_layout);

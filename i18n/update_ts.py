@@ -56,7 +56,9 @@ def generate_ts(ts_path, is_installer):
             "src/ui/frames_cli",
             "src/ui/models_cli",
             "src/ui/ncurses_widgets",
-            "src/base"
+            "src/base",
+            "src/ui/main_window_cli.cpp",
+            "src/ui/main_window_cli.h"
         )
     else:
         # Only include oem folder.

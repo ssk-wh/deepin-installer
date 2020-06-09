@@ -22,11 +22,11 @@ TimeZoneFramePrivate::TimeZoneFramePrivate(TimeZoneFrame *parent, int lines, int
 void TimeZoneFramePrivate::initUI()
 {
     FrameInterfacePrivate::initUI();
-    m_title = QObject::tr("Select Timezone");
+    m_title = ::QObject::tr("Select Timezone");
     setTitle(m_title);
 
     m_instructions = new NcursesLabel(this, 1, width() - 4, begy() + 1, begx() + 1);
-    m_instructions->setText(tr("Is it the right timezone? You can change it as well."));
+    m_instructions->setText(::QObject::tr("Is it the right timezone? You can change it as well."));
     m_instructions->setFocusEnabled(false);
     m_instructions->setAlignment(Qt::AlignCenter);
 
@@ -48,9 +48,9 @@ void TimeZoneFramePrivate::updateTs()
     Q_Q(TimeZoneFrame);
 
     box(ACS_VLINE, ACS_HLINE);
-    m_title = QObject::tr("Select Timezone");
+    m_title = ::QObject::tr("Select Timezone");
     setTitle(m_title);
-    m_instructions->setText(tr("Is it the right timezone? You can change it as well."));
+    m_instructions->setText(::QObject::tr("Is it the right timezone? You can change it as well."));
 
     FrameInterfacePrivate::updateTs();
 }

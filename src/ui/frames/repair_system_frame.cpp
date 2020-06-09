@@ -35,7 +35,7 @@ DWIDGET_USE_NAMESPACE
 namespace  {
     const int kItemWidth = 660;
     const int kItemHeight = 100;
-    const char kLanguageFileTpl[] = I18N_DIR "/repair-zh_CN.qm";
+    const char kLanguageFileTpl[] = I18N_DIR "/deepin-installer-zh_CN.qm";
 }
 
 namespace installer {
@@ -52,10 +52,15 @@ public:
         this->initConnection();
     }
 
+protected:
+    // Verify that jumping to the next frame is allowed.
+    bool validate() const;
+
 private:
     void initUi();
     void initConnection();
     void updateTs();
+    void removeTs() const;
 
 private:
     RepairSystemFrame* q_ptr = nullptr;
@@ -63,30 +68,37 @@ private:
 
     OperatorWidget* m_installerWidget = nullptr;
     OperatorWidget* m_repairWidget = nullptr;
+    QTranslator*    m_trans = nullptr;
 };
 
 }
 
+bool installer::RepairSystemPrivate::validate() const
+{
+    this->removeTs();
+    return true;
+}
+
 void installer::RepairSystemPrivate::initUi() {
-    QString tsTitle = tr("Operation Choice");
-    QString tsComment = tr("Please select your will to the operation of the system");
+    QString tsTitle = ::QObject::tr("System Setup");
+    QString tsComment = ::QObject::tr("Choose an option for your system");
     TitleLabel* titleLabel = new TitleLabel(tsTitle);
     CommentLabel* commentLabel = new CommentLabel(tsComment);
 
     m_installerWidget = new OperatorWidget;
     m_installerWidget->setFixedSize(kItemWidth, kItemHeight);
     m_installerWidget->setSelectIcon(":/images/select_blue.svg");
-    m_installerWidget->setTitle(tr("Install System"));
-    m_installerWidget->setBody(tr("Choose to install system, will be installed on the system in the storage medium."));
+    m_installerWidget->setTitle(::QObject::tr("Install"));
+    m_installerWidget->setBody(::QObject::tr("Install the system in your installation media."));
 
     m_repairWidget = new OperatorWidget;
     m_repairWidget->setSelect(true);
     m_repairWidget->setFixedSize(kItemWidth, kItemHeight);
     m_repairWidget->setSelectIcon(":/images/select_blue.svg");
-    m_repairWidget->setTitle(tr("Repair System"));
-    m_repairWidget->setBody(tr("Choose to repair the system, will enter the live system to repair the original UOS system."));
+    m_repairWidget->setTitle(::QObject::tr("Repair"));
+    m_repairWidget->setBody(::QObject::tr("Use recovery tools to fix system issues."));
 
-    nextButton->setText(tr("Enter the"));
+    nextButton->setText(::QObject::tr("Enter the"));
     nextButton->setEnabled(false);
 
     centerLayout->addWidget(titleLabel, 0, Qt::AlignHCenter);
@@ -123,9 +135,16 @@ void installer::RepairSystemPrivate::initConnection() {
 
 void installer::RepairSystemPrivate::updateTs()
 {
-    QTranslator* trans = new QTranslator(this);
-    trans->load(kLanguageFileTpl);
-    qApp->installTranslator(trans);
+    m_trans = new QTranslator(this);
+    m_trans->load(kLanguageFileTpl);
+    qApp->installTranslator(m_trans);
+}
+
+void installer::RepairSystemPrivate::removeTs() const
+{
+    if (m_trans != nullptr) {
+        qApp->removeTranslator(m_trans);
+    }
 }
 
 installer::RepairSystemFrame::RepairSystemFrame(installer::FrameProxyInterface *frameProxyInterface, QWidget *parent):
@@ -157,7 +176,7 @@ bool installer::RepairSystemFrame::shouldDisplay() const
 
 QString installer::RepairSystemFrame::returnFrameName() const
 {
-    return tr("System Repair");
+    return ::QObject::tr("System Setup");
 }
 
 void installer::RepairSystemFrame::repairSystem() const

@@ -36,8 +36,8 @@ class ControlPlatformFramePrivate : public FrameInterfacePrivate
 public:
     explicit ControlPlatformFramePrivate(FrameInterface* parent)
         : FrameInterfacePrivate (parent)
-        , m_titleLbl(new TitleLabel(tr("Set Control Region")))
-        , m_subTitleLbl(new CommentLabel(tr("Set the region for UOS EndPoint Management Platform")))
+        , m_titleLbl(new TitleLabel(::QObject::tr("Set Control Region")))
+        , m_subTitleLbl(new CommentLabel(::QObject::tr("Set the region for UOS EndPoint Management Platform")))
         , m_serverLineEdit(new LineEdit(QString(":/images/hostname_12.svg")))
         , m_regionBox(new TableComboBox)
         , m_regionModel(new ControlPlatformRegionModel(this))
@@ -190,16 +190,16 @@ bool ControlPlatformFrame::shouldDisplay() const
 
 QString ControlPlatformFrame::returnFrameName() const
 {
-    return "Control Platform";
+    return ::QObject::tr("Control Platform");
 }
 
 bool ControlPlatformFrame::event(QEvent* event)
 {
     if (event->type() == QEvent::LanguageChange) {
-        m_private->nextButton->setText(tr("Next"));
-        m_private->m_serverLineEdit->setPlaceholderText(tr("Server Address"));
-        m_private->m_titleLbl->setText(tr("Set Control Region"));
-        m_private->m_subTitleLbl->setText(tr("Set the region for UOS EndPoint Management Platform"));
+        m_private->nextButton->setText(::QObject::tr("Next"));
+        m_private->m_serverLineEdit->setPlaceholderText(::QObject::tr("Server Address"));
+        m_private->m_titleLbl->setText(::QObject::tr("Set Control Region"));
+        m_private->m_subTitleLbl->setText(::QObject::tr("Set the region for UOS EndPoint Management Platform"));
     }
 
     return QWidget::event(event);

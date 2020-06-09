@@ -124,10 +124,10 @@ public:
 
 void TimezoneFramePrivate::updateTs()
 {
-    title_label_->setText(tr("Select Timezone"));
-    comment_label_->setText(tr("Is it the right timezone? You can change it as well"));
-    m_timezoneMapButton->setText(tr("Map"));
-    m_timezoneListButton->setText(tr("List"));
+    title_label_->setText(::QObject::tr("Select Timezone"));
+    comment_label_->setText(::QObject::tr("Is it the right timezone? You can change it as well"));
+    m_timezoneMapButton->setText(::QObject::tr("Map"));
+    m_timezoneListButton->setText(::QObject::tr("List"));
 }
 
 TimezoneFrame::TimezoneFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
@@ -152,7 +152,7 @@ bool TimezoneFrame::shouldDisplay() const
 
 QString TimezoneFrame::returnFrameName() const
 {
-    return "Select Timezone";
+    return ::QObject::tr("Select Timezone");
 }
 
 void TimezoneFrame::init() {
@@ -231,7 +231,7 @@ void TimezoneFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     m_private->updateTs();
 
-    m_private->comment_label_->setText(tr("Is it the right timezone? You can change it as well"));
+    m_private->comment_label_->setText(::QObject::tr("Is it the right timezone? You can change it as well"));
 
     // Also update timezone.
     if (!m_private->timezone_.isEmpty()) {
@@ -301,7 +301,7 @@ void TimezoneFramePrivate::initConnections() {
 
 void TimezoneFramePrivate::initUI() {
   title_label_ = new TitleLabel("");
-  comment_label_ = new CommentLabel(tr("Is it the right timezone? You can change it as well"));
+  comment_label_ = new CommentLabel(::QObject::tr("Is it the right timezone? You can change it as well"));
   timezone_map_ = new TimezoneMap(q_ptr);
 
   m_mapListButtonGroup = new DButtonBox;

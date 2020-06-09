@@ -68,11 +68,10 @@ VirtualMachineFrame::VirtualMachineFrame(FrameProxyInterface* frameProxyInterfac
 
 void VirtualMachineFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    m_private->title_label_->setText(tr("Friendly Reminder"));
+    m_private->title_label_->setText(::QObject::tr("Friendly Note"));
     m_private->comment_label_->setText(
-        tr("You are using a virtual machine which will affect system performance and user experience. "
-           "To get a smoother experience, please install %1 in a real environment").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")));
-    m_private->nextButton->setText(tr("Continue"));
+        ::QObject::tr("You are installing %1 on a virtual machine which may result in sub-optimal performance. For the best experience, please install %1 on a real machine.").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS")));
+    m_private->nextButton->setText(::QObject::tr("Continue"));
   } else {
     FrameInterface::changeEvent(event);
   }
@@ -112,22 +111,19 @@ bool VirtualMachineFrame::shouldDisplay() const
 
 QString VirtualMachineFrame::returnFrameName() const
 {
-    return "Friendly Reminder";
+    return ::QObject::tr("Friendly Note");
 }
 
 void VirtualMachineFramePrivate::initUI() {
-  title_label_ = new TitleLabel(tr("Friendly Reminder"));
+  title_label_ = new TitleLabel(::QObject::tr("Friendly Note"));
   comment_label_ = new CommentLabel(
-      tr("System has detected that you are using a virtual machine, "
-         "which will affect the system performance and operation experience, "
-         "for a smooth experience, it is recommended to install %1 "
-         "in real-machine environment").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")));
+      ::QObject::tr("You are installing %1 on a virtual machine which may result in sub-optimal performance. For the best experience, please install %1 on a real machine.").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS")));
   QHBoxLayout* comment_layout = new QHBoxLayout();
   comment_layout->setContentsMargins(0, 0, 0, 0);
   comment_layout->setSpacing(0);
   comment_layout->addWidget(comment_label_);
 
-  nextButton->setText(tr("Continue"));
+  nextButton->setText(::QObject::tr("Continue"));
 
   centerLayout->setContentsMargins(0, 0, 0, 0);
   centerLayout->setSpacing(kMainLayoutSpacing);

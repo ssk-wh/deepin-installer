@@ -206,16 +206,16 @@ void NetworkDeviceWidget::setDeviceInfo(NetworkManager::Device::Ptr device) {
     qDebug() << "Device type: " << device->type();
 
 #ifdef QT_DEBUG_test
-    setTitle(tr("Ethernet (%1)").arg("nsp21111111110"));
+    setTitle(::QObject::tr("Ethernet (%1)").arg("nsp21111111110"));
 #else
     if (device->type() == NetworkManager::Device::Type::Ethernet) {
-        setTitle(tr("Ethernet (%1)").arg(device->interfaceName()));
+        setTitle(::QObject::tr("Ethernet") + QString(" (%1)").arg(device->interfaceName()));
     }
     else if (device->type() == NetworkManager::Device::Type::Wifi) {
-        setTitle(tr("Wifi (%1)").arg(device->interfaceName()));
+        setTitle(::QObject::tr("WLAN") + QString(" (%1)").arg(device->interfaceName()));
     }
     else {
-        setTitle(tr("UnknownDevice (%1)").arg(device->interfaceName()));
+        setTitle(::QObject::tr("Unknown device") + QString(" (%1)").arg(device->interfaceName()));
     }
 #endif // QT_DEBUG
 

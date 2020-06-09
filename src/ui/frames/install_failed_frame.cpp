@@ -79,12 +79,12 @@ public:
     void initUI();
     void updatetx()
     {
-        title_label_->setText(tr("Installation Failed"));
+        title_label_->setText(::QObject::tr("Installation Failed"));
         comment_label_->setText(
-            tr("Sorry for the trouble. Please photo or scan the QR code to send us the error log, "
+            ::QObject::tr("Sorry for the trouble. Please photo or scan the QR code to send us the error log, "
                "or save the log to an external disk. We will help solve the issue."));
-        reboot_button_->setText(tr("Exit"));
-        saveLogButton->setText(tr("Save Log"));
+        reboot_button_->setText(::QObject::tr("Exit"));
+        saveLogButton->setText(::QObject::tr("Save Log"));
     }
 
     void onControlButtonClicked();

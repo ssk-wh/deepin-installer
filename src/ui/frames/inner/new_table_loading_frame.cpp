@@ -32,7 +32,7 @@ NewTableLoadingFrame::NewTableLoadingFrame(QWidget* parent) : QFrame(parent) {
 
 void NewTableLoadingFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    comment_label_->setText(tr("Formatting..."));
+    comment_label_->setText(::QObject::tr("Formatting..."));
   } else {
     QFrame::changeEvent(event);
   }
@@ -49,7 +49,7 @@ void NewTableLoadingFrame::showEvent(QShowEvent* event) {
 }
 
 void NewTableLoadingFrame::initUI() {
-  comment_label_ = new CommentLabel(tr("Formatting..."));
+  comment_label_ = new CommentLabel(::QObject::tr("Formatting..."));
   comment_label_->setAlignment(Qt::AlignHCenter);
 
   m_waterProgress = new Dtk::Widget::DWaterProgress;

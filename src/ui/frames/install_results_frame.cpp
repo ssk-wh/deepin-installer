@@ -94,7 +94,7 @@ bool InstallResultsFrame::shouldDisplay() const
 
 QString InstallResultsFrame::returnFrameName() const
 {
-    return "Done";
+    return ::QObject::tr("Done");
 }
 
 bool InstallResultsFrame::allowPrevious() const

@@ -355,7 +355,7 @@ void SystemInfoFormFramePrivate::initUI()
         m_usernameEdit->setText(str);
     }
     else {
-        m_usernameEdit->lineEdit()->setPlaceholderText(tr("Username"));
+        m_usernameEdit->lineEdit()->setPlaceholderText(::QObject::tr("Username"));
     }
 
     QHBoxLayout *usernameLayout = new QHBoxLayout;
@@ -380,7 +380,7 @@ void SystemInfoFormFramePrivate::initUI()
         m_hostnameEdit->setText(str);
     }
     else {
-        m_hostnameEdit->lineEdit()->setPlaceholderText(tr("Computer name"));
+        m_hostnameEdit->lineEdit()->setPlaceholderText(::QObject::tr("Computer name"));
     }
 
     m_capsLock = new QAction();
@@ -428,8 +428,8 @@ void SystemInfoFormFramePrivate::initUI()
         m_passwordCheckEdit->setText(str);
     }
     else {
-        m_passwordEdit->lineEdit()->setPlaceholderText(tr("Password"));
-        m_passwordCheckEdit->lineEdit()->setPlaceholderText(tr("Repeat password"));
+        m_passwordEdit->lineEdit()->setPlaceholderText(::QObject::tr("Password"));
+        m_passwordCheckEdit->lineEdit()->setPlaceholderText(::QObject::tr("Repeat password"));
     }
 
     QHBoxLayout *passwordCheckLayout = new QHBoxLayout;
@@ -554,24 +554,24 @@ void SystemInfoFormFramePrivate::initUI()
 
 void SystemInfoFormFramePrivate::updateTex()
 {
-    m_usernameEdit->lineEdit()->setPlaceholderText(tr("Username"));
-    m_hostnameEdit->lineEdit()->setPlaceholderText(tr("Computer name"));
-    m_passwordEdit->lineEdit()->setPlaceholderText(tr("Password"));
-    m_passwordCheckEdit->lineEdit()->setPlaceholderText(tr("Repeat password"));
-    m_rootPasswordEdit->lineEdit()->setPlaceholderText(tr("Root password"));
-    m_rootPasswordCheckEdit->lineEdit()->setPlaceholderText(tr("Repeat root password"));
+    m_usernameEdit->lineEdit()->setPlaceholderText(::QObject::tr("Username"));
+    m_hostnameEdit->lineEdit()->setPlaceholderText(::QObject::tr("Computer name"));
+    m_passwordEdit->lineEdit()->setPlaceholderText(::QObject::tr("Password"));
+    m_passwordCheckEdit->lineEdit()->setPlaceholderText(::QObject::tr("Repeat password"));
+    m_rootPasswordEdit->lineEdit()->setPlaceholderText(::QObject::tr("Root password"));
+    m_rootPasswordCheckEdit->lineEdit()->setPlaceholderText(::QObject::tr("Repeat root password"));
 
-    m_usernameLabel->setText(tr("Username").append(" :"));
-    m_hostnameLabel->setText(tr("Computer name").append(" :"));
-    m_passwordLabel->setText(tr("Password").append(" :"));
-    m_passwordCheckLabel->setText(tr("Repeat password").append(" :"));
-    m_rootPasswordLabel->setText(tr("Root password").append(" :"));
-    m_rootPasswordCheckLabel->setText(tr("Repeat root password").append(" :"));
+    m_usernameLabel->setText(::QObject::tr("Username").append(" :"));
+    m_hostnameLabel->setText(::QObject::tr("Computer name").append(" :"));
+    m_passwordLabel->setText(::QObject::tr("Password").append(" :"));
+    m_passwordCheckLabel->setText(::QObject::tr("Repeat password").append(" :"));
+    m_rootPasswordLabel->setText(::QObject::tr("Root password").append(" :"));
+    m_rootPasswordCheckLabel->setText(::QObject::tr("Repeat root password").append(" :"));
 
-    m_titleLabel_->setText(tr("Create Account"));
-    m_commentLabel_->setText(tr("Fill in the username, computer name and your password"));
-    m_grubPasswordCheck_->setText(tr("Use that password to edit boot menu"));
-    m_setRootPasswordCheck->setText(tr("Set as root password"));
+    m_titleLabel_->setText(::QObject::tr("Create Accounts"));
+    m_commentLabel_->setText(::QObject::tr("Fill in the username, computer name and your password"));
+    m_grubPasswordCheck_->setText(::QObject::tr("Use that password to edit boot menu"));
+    m_setRootPasswordCheck->setText(::QObject::tr("Set as root password"));
     tooltip_->setText("");
 }
 
@@ -595,25 +595,25 @@ bool SystemInfoFormFramePrivate::validateUsername(QString& msg)
                                                          , reserved_username_file, min_len, max_len);
     switch (state) {
     case ValidateUsernameState::ReservedError: {
-        msg = tr("This username already exists");
+        msg = ::QObject::tr("This username already exists");
         emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateUsernameState::FirstCharError: {
-        msg = tr("The first letter must be in lowercase");
+        msg = ::QObject::tr("The first letter must be in lowercase");
         emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateUsernameState::EmptyError:  // fall through
     case ValidateUsernameState::InvalidCharError: {
-        msg = tr("Username must contain English letters (lowercase), "
+        msg = ::QObject::tr("Username must contain English letters (lowercase), "
                    "numbers or special symbols (_-)");
         emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateUsernameState::TooLongError:  // fall through
     case ValidateUsernameState::TooShortError: {
-        msg = tr("Please input username longer than %1 characters and "
+        msg = ::QObject::tr("Please input username longer than %1 characters and "
                  "shorter than %2 characters")
                 .arg(min_len)
                 .arg(max_len);
@@ -637,23 +637,23 @@ bool SystemInfoFormFramePrivate::validateHostname(QString& msg)
             ValidateHostname(m_hostnameEdit->text(), reserved);
     switch (state) {
     case ValidateHostnameState::EmptyError: {
-        msg = tr("Please input computer name");
+        msg = ::QObject::tr("Please input computer name");
         emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateHostnameState::InvalidChar: {
-        msg = tr("Computer name is invalid");
+        msg = ::QObject::tr("Computer name is invalid");
         emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateHostnameState::ReservedError: {
-        msg = tr("Computer name already exists, please input another one");
+        msg = ::QObject::tr("Computer name already exists, please input another one");
         emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateHostnameState::TooLongError:  // fall through
     case ValidateHostnameState::TooShortError: {
-        msg = tr("Please input computer name longer than %1 characters and "
+        msg = ::QObject::tr("Please input computer name longer than %1 characters and "
                  "shorter than %2 characters")
                 .arg(kHostnameMinLen)
                 .arg(kHostnameMaxLen);
@@ -682,7 +682,7 @@ bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, Q
 
     if (strong_pwd_check) {
         if (passwordEdit->text().toLower() == m_usernameEdit->text().toLower()) {
-            msg = tr("The password should be different from the username");
+            msg = ::QObject::tr("The password should be different from the username");
             emit q_ptr->requestNextButtonEnable(false);
             return false;
         }
@@ -697,24 +697,18 @@ bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, Q
 
     switch (state) {
     case ValidatePasswordState::EmptyError: {
-        msg = tr("Please input password longer than %1 characters and "
-                 "shorter than %2 characters")
-                .arg(min_len)
-                .arg(max_len);
+        msg = ::QObject::tr("The password cannot be empty​");
         emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidatePasswordState::StrongError: {  // fall through
-        msg = tr("The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)");
+        msg = ::QObject::tr("Password must contain letters, numbers and symbols");
         emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidatePasswordState::TooShortError:  // fall through
     case ValidatePasswordState::TooLongError: {
-        msg = tr("Please input password longer than %1 characters and "
-                 "shorter than %2 characters")
-                .arg(min_len)
-                .arg(max_len);
+        msg = ::QObject::tr("Password must have at least 8 characters");
         emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
@@ -728,13 +722,13 @@ bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, Q
 
     QString dict = PwqualityManager::instance()->dictChecked(passwordEdit->text());
     if (!dict.isEmpty()) {
-        msg = tr("Contains a dictionary of string: %1").arg(dict);
+        msg = ::QObject::tr("Password must not contain common words and combinations").arg(dict);
         return false;
     }
 
     QString palingrome = PwqualityManager::instance()->palindromeChecked(passwordEdit->text());
     if (!palingrome.isEmpty()) {
-        msg = tr("String contains a palindrome: %1").arg(palingrome);
+        msg = ::QObject::tr("Password must not contain more than 4 palindrome characters").arg(palingrome);
         return false;
     }
 
@@ -757,7 +751,7 @@ void SystemInfoFormFramePrivate::updateCapsLockState(bool capsLock)
 bool SystemInfoFormFramePrivate::validatePassword2(DPasswordEdit *passwordEdit, DPasswordEdit *passwordCheckEdit, QString& msg)
 {
     if (passwordEdit->text() != passwordCheckEdit->text()) {
-        msg = tr("Passwords do not match");
+        msg = ::QObject::tr("Passwords do not match");
         emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
@@ -962,7 +956,7 @@ bool SystemInfoFormFramePrivate::searchDevice() {
 
 void SystemInfoFormFramePrivate::updateDevice() {
     if (searchDevice()) {
-       tooltip_->setText(tr("Add fingerprint password in Control Center > Accounts to unlock and authenticate"));
+       tooltip_->setText(::QObject::tr("Add fingerprint password in Control Center > Accounts to unlock and authenticate"));
        tooltip_->showBottom(m_passwordEdit);
     }
 }

@@ -52,10 +52,10 @@ QString GetCommentLabel() {
   }
 
   const int recommended = GetSettingsInt(kPartitionRecommendedDiskSpace);
-  return QObject::tr("You need at least %1 GB disk space to install %2. "
+  return ::QObject::tr("You need at least %1 GB disk space to install %2. "
                      "To get better performance, %3 GB or more is recommended")
       .arg(minimum)
-      .arg(DSysInfo::productType() == DSysInfo::Deepin ? QObject::tr("Deepin") : QObject::tr("UOS"))
+      .arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS"))
       .arg(recommended);
 }
 
@@ -88,14 +88,14 @@ bool DiskSpaceInsufficientFrame::shouldDisplay() const
 
 QString DiskSpaceInsufficientFrame::returnFrameName() const
 {
-    return "Insufficient Space";
+    return ::QObject::tr("Insufficient Disk Space");
 }
 
 void DiskSpaceInsufficientFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    title_label_->setText(tr("Insufficient Disk Space"));
+    title_label_->setText(::QObject::tr("Insufficient Disk Space"));
     comment_label_->setText(GetCommentLabel());
-    abort_button_->setText(tr("Exit"));
+    abort_button_->setText(::QObject::tr("Exit"));
   } else {
     FrameInterface::changeEvent(event);
   }
@@ -120,14 +120,14 @@ void DiskSpaceInsufficientFrame::initConnections() {
 }
 
 void DiskSpaceInsufficientFrame::initUI() {
-  title_label_ = new TitleLabel(tr("Insufficient Disk Space"));
+  title_label_ = new TitleLabel(::QObject::tr("Insufficient Disk Space"));
   comment_label_ = new CommentLabel(GetCommentLabel());
   QHBoxLayout* comment_layout = new QHBoxLayout();
   comment_layout->setContentsMargins(0, 0, 0, 0);
   comment_layout->addSpacing(0);
   comment_layout->addWidget(comment_label_);
 
-  abort_button_ = new QPushButton(tr("Exit"));
+  abort_button_ = new QPushButton(::QObject::tr("Exit"));
   abort_button_->setFixedSize(310, 36);
 
   QVBoxLayout* layout = new QVBoxLayout();

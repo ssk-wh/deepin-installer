@@ -58,12 +58,12 @@ void NewTableWarningFrame::setDevicePath(const QString& device_path,
 
 void NewTableWarningFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    title_label_->setText(tr("Format Warning"));
+    title_label_->setText(::QObject::tr("Format Warning"));
     comment_label_->setText(
-        tr("Continuing installation will format the whole disk, "
+        ::QObject::tr("Continuing installation will format the whole disk, "
            "please make a backup of all your data. If you do not know what you are doing, please do not continue"));
-    cancel_button_->setText(tr("Cancel"));
-    confirm_button_->setText(tr("Continue"));
+    cancel_button_->setText(::QObject::tr("Cancel"));
+    confirm_button_->setText(::QObject::tr("Continue"));
   } else {
     QFrame::changeEvent(event);
   }
@@ -77,7 +77,7 @@ void NewTableWarningFrame::initConnections() {
 }
 
 void NewTableWarningFrame::initUI() {
-  title_label_ = new TitleLabel(tr("Format Warning"));
+  title_label_ = new TitleLabel(::QObject::tr("Format Warning"));
   title_label_->setObjectName("title_label");
 
   QLabel* disk_label = new QLabel();
@@ -86,13 +86,13 @@ void NewTableWarningFrame::initUI() {
   disk_name_label_->setObjectName("disk_name_label");
 
   comment_label_ = new CommentLabel(
-    tr("Continuing installation will format the whole disk, "
+    ::QObject::tr("Continuing installation will format the whole disk, "
        "please make a backup of all your data. If you do not know what you are doing, please do not continue"));
   comment_label_->setFixedWidth(kCommentLabelWidth);
 
-  cancel_button_ = new QPushButton(tr("Cancel"));
+  cancel_button_ = new QPushButton(::QObject::tr("Cancel"));
   cancel_button_->setFixedSize(kButtonWidth, kButtonHeight);
-  confirm_button_ = new QPushButton(tr("Continue"));
+  confirm_button_ = new QPushButton(::QObject::tr("Continue"));
   confirm_button_->setFixedSize(kButtonWidth, kButtonHeight);
 
   QHBoxLayout *buttonLayout = new QHBoxLayout;

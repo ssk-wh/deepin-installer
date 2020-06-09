@@ -217,7 +217,7 @@ void MultipleDiskInstallationWidget::changeEvent(QEvent* event)
 
 const QStringList MultipleDiskInstallationWidget::getDiskTypes()
 {
-    return  QStringList { tr("System Disk"), tr("Data Disk") };
+    return  QStringList { ::QObject::tr("System Disk"), ::QObject::tr("Data Disk") };
 }
 
 }

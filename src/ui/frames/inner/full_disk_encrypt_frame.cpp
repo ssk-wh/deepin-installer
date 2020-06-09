@@ -202,14 +202,14 @@ void Full_Disk_Encrypt_frame::initConnections()
 void Full_Disk_Encrypt_frame::onNextBtnClicked()
 {
     if (m_encryptEdit->text().isEmpty()) {
-        m_errTip->setText(tr("Please input password"));
+        m_errTip->setText(::QObject::tr("Please input password"));
         m_errTip->setRelativePosition(m_encryptFrame->pos());
         m_errTip->showBottom(m_encryptEdit);
         return;
     }
 
     if (m_encryptEdit->text() != m_encryptRepeatEdit->text()) {
-        m_errTip->setText(tr("Passwords do not match"));
+        m_errTip->setText(::QObject::tr("Passwords do not match"));
         m_errTip->setRelativePosition(m_encryptCheckFrame->pos());
         m_errTip->showBottom(m_encryptRepeatEdit);
         return;
@@ -242,12 +242,13 @@ void Full_Disk_Encrypt_frame::onEncryptUpdated(bool checked)
 
 void Full_Disk_Encrypt_frame::updateText()
 {
-    m_frameLbl->setText(tr("Encrypt This Disk"));
-    m_encryptLbl->setText(tr("Password").append(" :"));
-    m_encryptCheckLbl->setText(tr("Repeat Password").append(" :"));
-    m_cancelBtn->setText(tr("Cancel"));
-    m_confirmBtn->setText(tr("Confirm"));
-    m_tilabel->setText(tr("Take care of your password, otherwise, all your data will be lost"));
+    m_frameLbl->setText(::QObject::tr("Encrypt This Disk"));
+    m_frameSubLbl->setText(::QObject::tr("Make sure you have backed up important data, then select the disk to install"));
+    m_encryptLbl->setText(::QObject::tr("Password").append(" :"));
+    m_encryptCheckLbl->setText(::QObject::tr("Repeat Password").append(" :"));
+    m_cancelBtn->setText(::QObject::tr("Cancel"));
+    m_confirmBtn->setText(::QObject::tr("Confirm"));
+    m_tilabel->setText(::QObject::tr("Take care of your password, otherwise, all your data will be lost"));
 }
 
 void Full_Disk_Encrypt_frame::updateEditCapsLockState(bool on) {

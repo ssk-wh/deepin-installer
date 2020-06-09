@@ -113,20 +113,20 @@ bool SystemInfoFramePrivate::validateHostname(QString &msg)
                 ValidateHostname(m_le_hostname->text(), reserved);
         switch (state) {
         case ValidateHostnameState::EmptyError: {
-            msg = tr("Please input computer name");
+            msg = ::QObject::tr("Please input computer name");
             return false;
         }
         case ValidateHostnameState::InvalidChar: {
-            msg = tr("Computer name is invalid");
+            msg = ::QObject::tr("Computer name is invalid");
             return false;
         }
         case ValidateHostnameState::ReservedError: {
-            msg = tr("Computer name already exists, please input another one");
+            msg = ::QObject::tr("Computer name already exists, please input another one");
             return false;
         }
         case ValidateHostnameState::TooLongError:  // fall through
         case ValidateHostnameState::TooShortError: {
-            msg = tr("Please input computer name longer than %1 characters and "
+            msg = ::QObject::tr("Please input computer name longer than %1 characters and "
                      "shorter than %2 characters")
                     .arg(kHostnameMinLen)
                     .arg(kHostnameMaxLen);
@@ -149,22 +149,22 @@ bool SystemInfoFramePrivate::validateUsername(QString &msg)
                                                              , reserved_username_file, min_len, max_len);
         switch (state) {
         case ValidateUsernameState::ReservedError: {
-            msg = tr("This username already exists");
+            msg = ::QObject::tr("This username already exists");
             return false;
         }
         case ValidateUsernameState::FirstCharError: {
-            msg = tr("The first letter must be in lowercase");
+            msg = ::QObject::tr("The first letter must be in lowercase");
             return false;
         }
         case ValidateUsernameState::EmptyError:  // fall through
         case ValidateUsernameState::InvalidCharError: {
-            msg = tr("Username must contain English letters (lowercase), "
+            msg = ::QObject::tr("Username must contain English letters (lowercase), "
                        "numbers or special symbols (_-)");
             return false;
         }
         case ValidateUsernameState::TooLongError:  // fall through
         case ValidateUsernameState::TooShortError: {
-            msg = tr("Please input username longer than %1 characters and "
+            msg = ::QObject::tr("Please input username longer than %1 characters and "
                      "shorter than %2 characters")
                     .arg(min_len)
                     .arg(max_len);
@@ -191,7 +191,7 @@ bool SystemInfoFramePrivate::validatePassword(NCursesLineEdit *passwordEdit, QSt
 
     if (strong_pwd_check) {
         if (passwordEdit->text().toLower() == m_le_username->text().toLower()) {
-            msg = tr("The password should be different from the username");
+            msg = ::QObject::tr("The password should be different from the username");
             return false;
         }
         min_len = GetSettingsInt(kSystemInfoPasswordMinLen);
@@ -205,19 +205,19 @@ bool SystemInfoFramePrivate::validatePassword(NCursesLineEdit *passwordEdit, QSt
 
     switch (state) {
     case ValidatePasswordState::EmptyError: {
-        msg = tr("Please input password longer than %1 characters and "
+        msg = ::QObject::tr("Please input password longer than %1 characters and "
                  "shorter than %2 characters")
                 .arg(min_len)
                 .arg(max_len);
         return false;
     }
     case ValidatePasswordState::StrongError: {  // fall through
-        msg = tr("The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)");
+        msg = ::QObject::tr("The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)");
         return false;
     }
     case ValidatePasswordState::TooShortError:  // fall through
     case ValidatePasswordState::TooLongError: {
-        msg = tr("Please input password longer than %1 characters and "
+        msg = ::QObject::tr("Please input password longer than %1 characters and "
                  "shorter than %2 characters")
                 .arg(min_len)
                 .arg(max_len);
@@ -237,7 +237,7 @@ bool SystemInfoFramePrivate::validatePassword(NCursesLineEdit *passwordEdit, QSt
 bool SystemInfoFramePrivate::validatePassword2(NCursesLineEdit *passwordEdit, NCursesLineEdit *passwordCheckEdit, QString &msg)
 {
     if (passwordEdit->text() != passwordCheckEdit->text()) {
-        msg = tr("Passwords do not match");
+        msg = ::QObject::tr("Passwords do not match");
         return false;
      }
      else {
@@ -451,14 +451,17 @@ void SystemInfoFramePrivate::updateTs()
     m_label_password->erase();
     m_label_password_confirm->erase();
 
-    m_label_title->setText(tr("Create Accounts"));
-    //printTitle(QObject::tr("Create Accounts"), width());
-    m_label_instructions->setText(tr("Fill in the username, computer name and your password"));
-    m_label_hostname->setText(tr("Computer name").append(" :"));
-    m_label_username->setText(tr("Username").append(" :"));
-    m_label_password->setText(tr("Password").append(" :"));
-    m_label_password_confirm->setText(tr("Repeat password").append(" :"));
-    m_NcursesCheckBox->setText("", tr("Set Root Password"));
+    m_label_title->setText(::QObject::tr("Create Accounts"));
+    //printTitle(::QObject::tr("Create Accounts"), width());
+    m_label_instructions->setText(::QObject::tr("Fill in the username, computer name and your password"));
+    m_label_hostname->setText(::QObject::tr("Computer name").append(" :"));
+    m_label_username->setText(::QObject::tr("Username").append(" :"));
+    m_label_password->setText(::QObject::tr("Password").append(" :"));
+    m_label_password_confirm->setText(::QObject::tr("Repeat password").append(" :"));
+    m_NcursesCheckBox->setText("", ::QObject::tr("Set Root Password"));
+
+    ::QObject::tr("If you check \"Set as root password\", the root password is the same as the password, otherwise, you need to set it separately.");
+    ::QObject::tr("Your root password should be different from the user password, please take care of them.");
 
     FrameInterfacePrivate::updateTs();
 }

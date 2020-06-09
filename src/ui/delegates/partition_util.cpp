@@ -259,7 +259,7 @@ QString GetLocalFsTypeName(FsType fs_type) {
   switch (fs_type) {
     case FsType::Btrfs: return "btrfs";
     case FsType::EFI: return "efi";
-    case FsType::Empty: return QObject::tr("Do not use this partition");
+    case FsType::Empty: return ::QObject::tr("Do not use this partition");
     case FsType::Ext2: return "ext2";
     case FsType::Ext3: return "ext3";
     case FsType::Ext4: return "ext4";
@@ -272,11 +272,11 @@ QString GetLocalFsTypeName(FsType fs_type) {
     case FsType::NTFS: return "ntfs";
     case FsType::Reiser4: return "reiser4";
     case FsType::Reiserfs: return "reiserfs";
-    case FsType::LinuxSwap: return QObject::tr("Swap partition");
+    case FsType::LinuxSwap: return ::QObject::tr("Swap partition");
     case FsType::Xfs: return "xfs";
     case FsType::Recovery: return "recovery";
     case FsType::LVM2PV: return "lvm2 pv";
-    default: return QObject::tr("Unknown");
+    default: return ::QObject::tr("Unknown");
   }
 }
 
@@ -317,7 +317,7 @@ QString GetOsTypeLargeIcon(OsType os_type) {
 QString GetPartitionLabel(const Partition::Ptr partition) {
   switch (partition->type) {
     case PartitionType::Unallocated: {
-      return QObject::tr("Freespace");
+      return ::QObject::tr("Freespace");
     }
     case PartitionType::Normal:  // pass through
     case PartitionType::Logical: {
@@ -348,7 +348,7 @@ QString GetPartitionLabel(const Partition::Ptr partition) {
 QString GetPartitionLabelAndPath(const Partition::Ptr partition) {
   switch (partition->type) {
     case PartitionType::Unallocated: {
-      return QObject::tr("Freespace");
+      return ::QObject::tr("Freespace");
     }
     case PartitionType::Normal:  // pass through
     case PartitionType::Logical: {

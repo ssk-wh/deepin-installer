@@ -130,7 +130,7 @@ bool SystemInfoFrame::shouldDisplay() const
 
 QString SystemInfoFrame::returnFrameName() const
 {
-    return "Create Account";
+    return ::QObject::tr("Create Accounts");
 }
 
 void SystemInfoFramePrivate::initConnections() {
@@ -181,7 +181,7 @@ void SystemInfoFramePrivate::initUI() {
   centerLayout->addLayout(stacked_layout_);
   centerLayout->addLayout(bottom_layout_);
 
-  nextButton->setText(tr("Next"));
+  nextButton->setText(::QObject::tr("Next"));
 
   q_ptr->setContentsMargins(0, 0, 0, 0);
 }

@@ -65,14 +65,14 @@ void NetwrokFramePrivate::initUI()
     this->drawShadow(true);
     this->box();
 
-    //m_titledes.append(QObject::tr("  Do network set by auto, use dhcp to set network"));
-    //m_titledes.append(QObject::tr("  Do network set by manual, in this page you can set IP. Mask. Gateway. DNS"));
-    //m_titledes.append(QObject::tr("  Do not set network now, if you not want set the network now, you can do it with the installation complete"));
-    m_titledes.append(QObject::tr("  Configure Ethernet according to your needs, but you can skip it as well."));
-    m_titledes.append(QObject::tr("  Set the IP address, gateway, netmask, DNS please."));
+    //m_titledes.append(::QObject::tr("  Do network set by auto, use dhcp to set network"));
+    //m_titledes.append(::QObject::tr("  Do network set by manual, in this page you can set IP. Mask. Gateway. DNS"));
+    //m_titledes.append(::QObject::tr("  Do not set network now, if you not want set the network now, you can do it with the installation complete"));
+    m_titledes.append("    " + ::QObject::tr("Configure Ethernet according to your needs, but you can skip it as well."));
+    m_titledes.append("    " + ::QObject::tr("Set the IP address, gateway, netmask, DNS please."));
 
-    m_networkconfigtypestr = QObject::tr("Network config type:");
-    m_networkconnecterrorstr = QObject::tr("Network connection error, check the configuration please");
+//    m_networkconfigtypestr = ::QObject::tr("Configuration type") + ":";
+    m_networkconnecterrorstr = ::QObject::tr("Network connection error, check the configuration please");
 
     m_titledesbrower = new NcursesTextBrower(this, 3, width() - 2, begy() + 2, begx() + 1);
     m_titledesbrower->setFocusEnabled(false);
@@ -87,19 +87,17 @@ void NetwrokFramePrivate::initUI()
 //    NetwrokFrameItem operationchoiceautoset;
 //    operationchoiceautoset.m_NcursesLabel = new NcursesLabel(this, 1, width() /2, begy(), begx());
 //    operationchoiceautoset.m_NcursesLabel->setFocusEnabled(false);
-//    Utils::addTransLate(m_trList, std::bind(&NcursesLabel::setText, operationchoiceautoset.m_NcursesLabel, std::placeholders::_1), QString(QObject::tr("Network auto set")));
+//    Utils::addTransLate(m_trList, std::bind(&NcursesLabel::setText, operationchoiceautoset.m_NcursesLabel, std::placeholders::_1), QString(::QObject::tr("Network auto set")));
 
     NetwrokFrameItem operationchoicemanualset;
     operationchoicemanualset.m_NcursesLabel = new NcursesLabel(this, 1, width() /2, begy(), begx());
     operationchoicemanualset.m_NcursesLabel->setFocusEnabled(false);
     operationchoicemanualset.m_NcursesLabel->setFocusStyle(NcursesUtil::getInstance()->list_view_item_select());
-    Utils::addTransLate(m_trList, std::bind(&NcursesLabel::setText, operationchoicemanualset.m_NcursesLabel, std::placeholders::_1), QString(QObject::tr("Network manual set")));
 
     NetwrokFrameItem operationchoicenotset;
     operationchoicenotset.m_NcursesLabel = new NcursesLabel(this, 1, width() /2, begy(), begx());
     operationchoicenotset.m_NcursesLabel->setFocusEnabled(false);
     operationchoicenotset.m_NcursesLabel->setFocusStyle(NcursesUtil::getInstance()->list_view_item_select());
-    Utils::addTransLate(m_trList, std::bind(&NcursesLabel::setText, operationchoicenotset.m_NcursesLabel, std::placeholders::_1), QString(QObject::tr("Network not set now")));
 
 //    m_operationchoice.push_back(operationchoiceautoset);
     m_operationchoice.push_back(operationchoicemanualset);
@@ -144,8 +142,8 @@ void NetwrokFramePrivate::initUI()
     m_ipconfigitems.push_back(ipconfigitemsprimarydnsset);
 
 
-    QString strBack = QObject::tr("back");
-    QString strNext = QObject::tr("next");
+    QString strBack = ::QObject::tr("Back");
+    QString strNext = ::QObject::tr("Next");
 
     m_pBackButton = new NcursesButton(this, strBack, 3, 14, begy() + height() - 5, begx() + 5);
     m_pBackButton->drawShadow(true);
@@ -171,21 +169,21 @@ void NetwrokFramePrivate::initUI()
 void NetwrokFramePrivate::updateTs()
 {
     box(ACS_VLINE,ACS_HLINE);
-    printTitle(QObject::tr("Configure Network"), width());
+    printTitle(::QObject::tr("Configure Network"), width());
 
     m_titledes.clear();
-//    m_titledes.append(QObject::tr("  Do network set by auto, use dhcp to set network"));
-    //m_titledes.append(QObject::tr("  Do network set by manual, in this page you can set IP. Mask. Gateway. DNS"));
-    //m_titledes.append(QObject::tr("  Do not set network now, if you not want set the network now, you can do it with the installation complete"));
-    m_titledes.append(QObject::tr("  Configure Ethernet according to your needs, but you can skip it as well."));
-    m_titledes.append(QObject::tr("  Set the IP address, gateway, netmask, DNS please."));
+//    m_titledes.append("  " + ::QObject::tr("Do network set by auto, use dhcp to set network"));
+    //m_titledes.append("  " + ::QObject::tr("Do network set by manual, in this page you can set IP. Mask. Gateway. DNS"));
+    //m_titledes.append("  " + ::QObject::tr("Do not set network now, if you not want set the network now, you can do it with the installation complete"));
+    m_titledes.append("  " + ::QObject::tr("Configure Ethernet according to your needs, but you can skip it as well."));
+    m_titledes.append("  " + ::QObject::tr("Set the IP address, gateway, netmask, DNS please."));
     if(installer::ReadLocale() == "zh_CN") {
         m_titledesbrower->setText(m_titledes[0], true);
     } else {
         m_titledesbrower->setText(m_titledes[0]);
     }
 
-    m_networkconfigtypestr = QObject::tr("Network config type:");
+//    m_networkconfigtypestr = ::QObject::tr("Configuration type") + ":";
     m_networkconfigtypelabel->erase();
     m_networkconfigtypelabel->setText(m_networkconfigtypestr);
     m_networkconfigtypelabel->show();
@@ -203,17 +201,17 @@ void NetwrokFramePrivate::updateTs()
         m_operationchoice.at(i).m_NcursesLabel->erase();
     }
 
-    m_operationchoice.at(0).m_NcursesLabel->setText(QObject::tr("Configure Now"));
-    m_operationchoice.at(1).m_NcursesLabel->setText(QObject::tr("Skip"));
+    m_operationchoice.at(0).m_NcursesLabel->setText(::QObject::tr("Configure Now"));
+    m_operationchoice.at(1).m_NcursesLabel->setText(::QObject::tr("Skip"));
 
     for(int i = 0; i < m_ipconfigitems.size(); i++) {
         m_ipconfigitems.at(i).m_NcursesLabel->erase();
     }
 
-    m_ipconfigitems.at(0).m_NcursesLabel->setText(QObject::tr("IP:"));
-    m_ipconfigitems.at(1).m_NcursesLabel->setText(QObject::tr("Mask:"));
-    m_ipconfigitems.at(2).m_NcursesLabel->setText(QObject::tr("Gateway:"));
-    m_ipconfigitems.at(3).m_NcursesLabel->setText(QObject::tr("Primary DNS:"));
+    m_ipconfigitems.at(0).m_NcursesLabel->setText(::QObject::tr("IP:"));
+    m_ipconfigitems.at(1).m_NcursesLabel->setText(::QObject::tr("Netmask:"));
+    m_ipconfigitems.at(2).m_NcursesLabel->setText(::QObject::tr("Gateway:"));
+    m_ipconfigitems.at(3).m_NcursesLabel->setText(::QObject::tr("Primary DNS:"));
 
     FrameInterfacePrivate::updateTs();
 
@@ -600,20 +598,20 @@ void NetwrokFramePrivate::editTextCheck(int index, const QString &text)
 
     if(!text.compare("")) {
         if(index == 1) {
-            if(!m_ipconfigitems.at(index).m_ErrorinfoLabel->text().compare(QObject::tr("nonstandard input, please use format like \"255.255.255.0\""))) {
+            if(!m_ipconfigitems.at(index).m_ErrorinfoLabel->text().compare(::QObject::tr("e.g., 255.255.255.0"))) {
                 m_ipconfigitems[index].m_IsErrorTextChange = false;
             } else {
                 m_ipconfigitems[index].m_IsErrorTextChange = true;
             }
-            m_ipconfigitems.at(index).m_ErrorinfoLabel->setText(QObject::tr("nonstandard input, please use format like \"255.255.255.0\""));
+            m_ipconfigitems.at(index).m_ErrorinfoLabel->setText(::QObject::tr("e.g., 255.255.255.0"));
             m_ipconfigitems[index].m_IsOK = false;
         } else {
-            if(!m_ipconfigitems.at(index).m_ErrorinfoLabel->text().compare(QObject::tr("nonstandard input, please use format like \"192.168.30.30\""))) {
+            if(!m_ipconfigitems.at(index).m_ErrorinfoLabel->text().compare(::QObject::tr("e.g., 192.168.30.30"))) {
                 m_ipconfigitems[index].m_IsErrorTextChange = false;
             } else {
                 m_ipconfigitems[index].m_IsErrorTextChange = true;
             }
-            m_ipconfigitems.at(index).m_ErrorinfoLabel->setText(QObject::tr("nonstandard input, please use format like \"192.168.30.30\""));
+            m_ipconfigitems.at(index).m_ErrorinfoLabel->setText(::QObject::tr("e.g., 192.168.30.30"));
             m_ipconfigitems[index].m_IsOK = false;
         }
     } else {
@@ -625,15 +623,15 @@ void NetwrokFramePrivate::editTextCheck(int index, const QString &text)
                     } else {
                         m_ipconfigitems[index].m_IsErrorTextChange = true;
                     }
-                    m_ipconfigitems.at(index).m_ErrorinfoLabel->setText(QObject::tr(""));
+                    m_ipconfigitems.at(index).m_ErrorinfoLabel->setText(::QObject::tr(""));
                     m_ipconfigitems[index].m_IsOK = true;
                 } else {
-                    if(!m_ipconfigitems.at(index).m_ErrorinfoLabel->text().compare(QObject::tr("nonstandard input, please use format like \"255.255.255.0\""))) {
+                    if(!m_ipconfigitems.at(index).m_ErrorinfoLabel->text().compare(::QObject::tr("e.g., 255.255.255.0"))) {
                         m_ipconfigitems[index].m_IsErrorTextChange = false;
                     } else {
                         m_ipconfigitems[index].m_IsErrorTextChange = true;
                     }
-                    m_ipconfigitems.at(index).m_ErrorinfoLabel->setText(QObject::tr("nonstandard input, please use format like \"255.255.255.0\""));
+                    m_ipconfigitems.at(index).m_ErrorinfoLabel->setText(::QObject::tr("e.g., 255.255.255.0"));
                     m_ipconfigitems[index].m_IsOK = false;
                 }
             } else {
@@ -646,22 +644,22 @@ void NetwrokFramePrivate::editTextCheck(int index, const QString &text)
                     m_ipconfigitems.at(index).m_ErrorinfoLabel->setText("");
                     m_ipconfigitems[index].m_IsOK = true;
                 } else {
-                    if(!m_ipconfigitems.at(index).m_ErrorinfoLabel->text().compare(QObject::tr("nonstandard input, please use format like \"192.168.30.30\""))) {
+                    if(!m_ipconfigitems.at(index).m_ErrorinfoLabel->text().compare(::QObject::tr("e.g., 192.168.30.30"))) {
                         m_ipconfigitems[index].m_IsErrorTextChange = false;
                     } else {
                         m_ipconfigitems[index].m_IsErrorTextChange = true;
                     }
-                    m_ipconfigitems.at(index).m_ErrorinfoLabel->setText(QObject::tr("nonstandard input, please use format like \"192.168.30.30\""));
+                    m_ipconfigitems.at(index).m_ErrorinfoLabel->setText(::QObject::tr("e.g., 192.168.30.30"));
                     m_ipconfigitems[index].m_IsOK = false;
                 }
             }
         } else {
-            if(!m_ipconfigitems.at(index).m_ErrorinfoLabel->text().compare(QObject::tr("unsupported input, please use format like \"192.168.30.30\""))) {
+            if(!m_ipconfigitems.at(index).m_ErrorinfoLabel->text().compare(::QObject::tr("e.g., 192.168.30.30"))) {
                 m_ipconfigitems[index].m_IsErrorTextChange = false;
             } else {
                 m_ipconfigitems[index].m_IsErrorTextChange = true;
             }
-            m_ipconfigitems.at(index).m_ErrorinfoLabel->setText(QObject::tr("unsupported input, please use format like \"192.168.30.30\""));
+            m_ipconfigitems.at(index).m_ErrorinfoLabel->setText(::QObject::tr("e.g., 192.168.30.30"));
             m_ipconfigitems[index].m_IsOK = false;
         }
     }

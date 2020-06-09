@@ -279,10 +279,10 @@ QString SystemInfoKeyboardFramePrivate::getVariantDescription(
 }
 
 void SystemInfoKeyboardFramePrivate::updateTs() {
-    m_titleLabel->setText(tr("Select keyboard layout"));
-    m_testEdit->setPlaceholderText(tr("Test here"));
-    m_backButton->setText(tr("Back"));
-    m_guideLabel->setText(tr("Select a proper keyboard layout"));
+    m_titleLabel->setText(::QObject::tr("Select Keyboard Layout"));
+    m_testEdit->setPlaceholderText(::QObject::tr("Test here"));
+    m_backButton->setText(::QObject::tr("Back"));
+    m_guideLabel->setText(::QObject::tr("Select a proper keyboard layout"));
 }
 
 void SystemInfoKeyboardFrame::readConf() {

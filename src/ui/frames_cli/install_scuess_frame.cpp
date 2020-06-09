@@ -22,7 +22,7 @@ public:
 void InstallSuccessFramePrivate::initUI()
 {
     InstallSuccessFramePrivate::initUI();
-    printTitle(QObject::tr("language select"), width());
+    printTitle(::QObject::tr("language select"), width());
 }
 
 

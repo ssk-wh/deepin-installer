@@ -171,10 +171,10 @@ void AdvancedPartitionButton::paintEvent(QPaintEvent *event)
 
     // Draw tip.
     if (partition_->mount_point == kMountPointRoot) {
-        text = tr("Install here");
+        text = ::QObject::tr("Install here");
     } else if (partition_->status == PartitionStatus::Format ||
                partition_->status == PartitionStatus::New) {
-        text = tr("To be formatted");
+        text = ::QObject::tr("To be formatted");
     }
     else {
         text.clear();

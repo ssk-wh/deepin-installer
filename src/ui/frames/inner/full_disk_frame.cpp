@@ -59,14 +59,6 @@ enum class DiskCountType : int
 
 }  // namespace
 
-#if 0
-QT_TRANSLATE_NOOP("FullDiskFrame", "Install here")
-QT_TRANSLATE_NOOP("FullDiskFrame", "Encrypt this disk")
-QT_TRANSLATE_NOOP("FullDiskFrame", "Encrypt This Disk")
-QT_TRANSLATE_NOOP("FullDiskFrame", "Please select a disk to start installation")
-QT_TRANSLATE_NOOP("FullDiskFrame", "You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended")
-#endif
-
 FullDiskFrame::FullDiskFrame(FullDiskDelegate* delegate, QWidget* parent)
     : QFrame(parent)
     , m_delegate(delegate)
@@ -132,9 +124,9 @@ bool FullDiskFrame::isInstallNvidia() const
 void FullDiskFrame::changeEvent(QEvent* event) {
     if (event->type() == QEvent::LanguageChange) {
         for (auto it = m_trList.begin(); it != m_trList.end(); ++it) {
-            it->first(qApp->translate("installer::FullDiskFrame", it->second.toUtf8()));
+            it->first(qApp->translate("QObject", it->second.toUtf8()));
         }
-        m_installNvidiaCheck->setText(tr("Install NVIDIA closed source driver"));
+        m_installNvidiaCheck->setText(::QObject::tr("Install NVIDIA closed source driver"));
     }
     else {
         QFrame::changeEvent(event);
@@ -162,29 +154,29 @@ void FullDiskFrame::initUI() {
 
   QLabel* tip_icon = new QLabel();
   tip_icon->setPixmap(installer::renderPixmap(":/images/install_icon.svg"));
-  m_tip_label = new QLabel(tr("Install here"));
+  m_tip_label = new QLabel(::QObject::tr("Install here"));
   m_tip_label->setObjectName("tip_label");
   m_tip_label->setFixedHeight(18);
-  addTransLate(m_trList, std::bind(&QLabel::setText, m_tip_label, std::placeholders::_1), QString("Install here"));
+  addTransLate(m_trList, std::bind(&QLabel::setText, m_tip_label, std::placeholders::_1), ::QObject::tr("Install here"));
 
   m_encryptCheck = new QCheckBox;
   m_encryptCheck->setObjectName("check_box");
   m_encryptCheck->setCheckable(true);
   m_encryptCheck->setChecked(false);
   m_encryptCheck->setFocusPolicy(Qt::NoFocus);
-  addTransLate(m_trList, std::bind(&QCheckBox::setText, m_encryptCheck, std::placeholders::_1), QString("Encrypt this disk"));
+  addTransLate(m_trList, std::bind(&QCheckBox::setText, m_encryptCheck, std::placeholders::_1), ::QObject::tr("Encrypt this disk"));
 
   m_installNvidiaCheck = new QCheckBox;
   m_installNvidiaCheck->setObjectName("check_box");
   m_installNvidiaCheck->setCheckable(true);
   m_installNvidiaCheck->setChecked(false);
   m_installNvidiaCheck->setFocusPolicy(Qt::NoFocus);
-  m_installNvidiaCheck->setText(tr("Install NVIDIA closed source driver"));
+  m_installNvidiaCheck->setText(::QObject::tr("Install NVIDIA closed source driver"));
 
   m_errorTip = new QLabel;
   m_errorTip->setObjectName("msg_label");
   m_errorTip->hide();
-  addTransLate(m_trList, std::bind(&QLabel::setText, m_errorTip, std::placeholders::_1), QString("Please select a disk to start installation"));
+  addTransLate(m_trList, std::bind(&QLabel::setText, m_errorTip, std::placeholders::_1), ::QObject::tr("Please select a disk to start installation"));
 
   m_diskTooSmallTip = new QLabel;
   m_diskTooSmallTip->setObjectName("msg_label");
@@ -195,8 +187,8 @@ void FullDiskFrame::initUI() {
   addTransLate(m_trList, [ = ] (const QString& msg) {
       int min_size = GetSettingsInt(kPartitionFullDiskMiniSpace);
       int recommend_size = GetSettingsInt(kPartitionRecommendedDiskSpace);
-      m_diskTooSmallTip->setText(msg.arg(min_size).arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")).arg(recommend_size));
-  }, QString("You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended"));
+      m_diskTooSmallTip->setText(msg.arg(min_size).arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS")).arg(recommend_size));
+  }, ::QObject::tr("You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended"));
 
   QHBoxLayout* tip_layout = new QHBoxLayout();
   tip_layout->setContentsMargins(0, 0, 0, 0);
@@ -278,7 +270,7 @@ void FullDiskFrame::initUI() {
   this->setContentsMargins(0, 0, 0, 0);
 
   for (auto it = m_trList.begin(); it != m_trList.end(); ++it) {
-      it->first(qApp->translate("installer::FullDiskFrame", it->second.toUtf8()));
+      it->first(qApp->translate("QObject", it->second.toUtf8()));
   }
 }
 

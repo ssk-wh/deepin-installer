@@ -66,7 +66,7 @@ void NewPartitionFrame::setPartition(const Partition::Ptr partition) {
   QStringList mountPointStringList(delegate_->getMountPoints());
   if (mountPointStringList.at(0) == "") {
       mountPointStringList.removeFirst();
-      mountPointStringList.insert(0,tr("unused"));
+      mountPointStringList.insert(0, "unused");
   }
   mount_point_box_->setList(mountPointStringList);
 
@@ -83,11 +83,11 @@ void NewPartitionFrame::setPartition(const Partition::Ptr partition) {
 
   QStringList typeList;
   if (primary_ok) {
-    typeList.append(tr("Primary partition"));
+    typeList.append(::QObject::tr("Primary partition"));
   }
 
   if (logical_ok) {
-      typeList.append(tr("Logical partition"));
+      typeList.append(::QObject::tr("Logical partition"));
   }
 
   type_box_->setList(typeList);
@@ -112,8 +112,8 @@ void NewPartitionFrame::setPartition(const Partition::Ptr partition) {
 
   // Select align-start.
   QStringList alignmentList;
-  alignmentList.append(tr("Start"));
-  alignmentList.append(tr("End"));
+  alignmentList.append(::QObject::tr("Start"));
+  alignmentList.append(::QObject::tr("End"));
   alignment_box_->setList(alignmentList);
   alignment_box_->setCurrentIndex(0);
 
@@ -123,7 +123,7 @@ void NewPartitionFrame::setPartition(const Partition::Ptr partition) {
   fs_box_->setCurrentIndex(default_fs_index);
 
   // Select empty mount-point.
-  const int mount_point_index = mount_point_box_->getList().indexOf(tr("unused"));
+  const int mount_point_index = mount_point_box_->getList().indexOf("unused");
   mount_point_box_->setCurrentIndex(mount_point_index);
 
   // Set value range of size_slider_
@@ -163,38 +163,38 @@ void NewPartitionFrame::initConnections() {
 void NewPartitionFrame::initUI() {
   title_label_ = new NcursesLabel(this, 1, 1, begy(), begx());
   title_label_->setFocusEnabled(false);
-  title_label_->setText(tr("Create New Partition"));
+  title_label_->setText(::QObject::tr("Create New Partition"));
 
   type_label_ = new NcursesLabel(this, 1, 20, begy(), begx());
   type_label_->setFocusEnabled(false);
-  type_label_->setText(tr("Type"));
+  type_label_->setText(::QObject::tr("Type"));
   type_box_ = new NcursesListView(this, height() - 10, 20, begy(), begx());
   type_model_ = new PartitionTypeModel(type_box_);
 
   alignment_label_ = new NcursesLabel(this, 1, 20, begy(), begx());
   alignment_label_->setFocusEnabled(false);
-  alignment_label_->setText(tr("Location"));
+  alignment_label_->setText(::QObject::tr("Location"));
   alignment_box_ = new NcursesListView(this, height() - 10, 20, begy(), begx());
 
   fs_label_ = new NcursesLabel(this, 1, 2, begy(), begx());
   fs_label_->setFocusEnabled(false);
-  fs_label_->setText(tr("File system"));
+  fs_label_->setText(::QObject::tr("File system"));
   fs_box_ = new NcursesListView(this, height() - 10, 20, begy(), begx());
   fs_box_->setFocus(true);
 
   mount_point_label_ = new NcursesLabel(this, 1, 20, begy(), begx());
   mount_point_label_->setFocusEnabled(false);
-  mount_point_label_->setText(tr("Mount point"));
+  mount_point_label_->setText(::QObject::tr("Mount point"));
   mount_point_box_ = new NcursesListView(this, height() - 10, 20, begy(), begx());
 
   size_label_ = new NcursesLabel(this, 1, 20, begy(), begx());
   size_label_->setFocusEnabled(false);
-  size_label_->setText(tr("Size"));
+  size_label_->setText(::QObject::tr("Size"));
   size_slider_ = new NCursesLineEdit(this, 1, 20, begy(), begx());
   size_slider_->setIsNumber(true);
 
-  QString strCancel = tr("Back");
-  QString strCreate = tr("Create");
+  QString strCancel = ::QObject::tr("Back");
+  QString strCreate = ::QObject::tr("Create");
   int buttonHeight = 3;
   int buttonWidth = std::max(strCancel.length(), strCreate.length()) + 4;
 
@@ -222,13 +222,13 @@ void NewPartitionFrame::initUI() {
 
 void NewPartitionFrame::updateTs()
 {
-    type_label_->setText(tr("Type"));
-    alignment_label_->setText(tr("Location"));
-    fs_label_->setText(tr("File system"));
-    mount_point_label_->setText(tr("Mount point"));
-    size_label_->setText(tr("Size") + "(MB)");
-    cancel_button_->setText(tr("Back"));
-    create_button_->setText(tr("Create"));
+    type_label_->setText(::QObject::tr("Type"));
+    alignment_label_->setText(::QObject::tr("Location"));
+    fs_label_->setText(::QObject::tr("File system"));
+    mount_point_label_->setText(::QObject::tr("Mount point"));
+    size_label_->setText(::QObject::tr("Size") + "(MB)");
+    cancel_button_->setText(::QObject::tr("Back"));
+    create_button_->setText(::QObject::tr("Create"));
     layout();
 }
 
@@ -417,7 +417,7 @@ void NewPartitionFrame::onCreateButtonClicked() {
   if (IsMountPointSupported(fs_type)) {
     // Set mount_point only if mount_point_box_ is visible.
     mount_point = mount_point_box_->getCurrenItem();
-    if (mount_point == tr("unused")) {
+    if (mount_point == "unused") {
         mount_point = "";
     }
   }

@@ -40,7 +40,7 @@ void DiskSpaceInsufficientPrivate::initUI()
     title->setAttr(NcursesUtil::getInstance()->dialog_attr());
     title->setText("Disk space is insufficient, need at least 64GB of space");
 
-    QString quitStr = QObject::tr("quit");
+    QString quitStr = ::QObject::tr("quit");
     int buttonHeight = 3;
     int buttonWidth = std::max(quitStr.length(), quitStr.length()) + 4;
     int bntBeginY = (LINES - buttonHeight - 2) / 2 + buttonHeight;
@@ -58,7 +58,7 @@ void DiskSpaceInsufficientPrivate::updateTs()
     FrameInterfacePrivate::updateTs();
     if(m_quitBtn != nullptr) {
         m_quitBtn->erase();        
-        QString quitStr = QObject::tr("quit");
+        QString quitStr = ::QObject::tr("quit");
         if (installer::ReadLocale() == "zh_CN") {
             m_quitBtn->resizew(3, quitStr.length() * 2 + 4 * 2);
         } else {

@@ -291,7 +291,7 @@ void SelectLanguageFramePrivate::initUI() {
     QLabel* logo_label = new QLabel();
     logo_label->setPixmap(installer::renderPixmap(GetVendorLogo()));
 
-    QLabel* title_label = new QLabel("Select Language");
+    QLabel* title_label = new QLabel(::QObject::tr("Select Language"));
     title_label->setObjectName("title_label");
     title_label->setWordWrap(false);
     title_label->setAlignment(Qt::AlignHCenter);
@@ -423,11 +423,11 @@ void SelectLanguageFramePrivate::updateTranslator(const QString& locale) {
 
 void SelectLanguageFramePrivate::updateTs()
 {
-    accept_license_->setText(tr("I have read and agree to the"));
-    license_label_->setText(tr("%1 Software End User License Agreement").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")));
+    accept_license_->setText(::QObject::tr("I have read and agree to the"));
+    license_label_->setText(::QObject::tr("%1 Software End User License Agreement").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS")));
 
     if (oem_license_label_ != nullptr) {
-        oem_and_label_->setText(tr("and"));
+        oem_and_label_->setText(::QObject::tr("and"));
         QString     localeName{ installer::ReadLocale() };
         LicenseItem license_item =
             user_license_delegate_->getPrimaryAdaptiveLicense(localeName);
@@ -436,8 +436,8 @@ void SelectLanguageFramePrivate::updateTs()
         }
     }
 
-    accept_experience_->setText(tr("Agree to the"));
-    experience_label_->setText(tr("User Experience Program License Agreement"));
+    accept_experience_->setText(::QObject::tr("Agree to the"));
+    experience_label_->setText(::QObject::tr("User Experience Program License Agreement"));
 }
 
 void SelectLanguageFramePrivate::onLanguageListSelected(const QModelIndex& current)

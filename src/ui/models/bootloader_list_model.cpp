@@ -39,7 +39,7 @@ QVariant BootloaderListModel::data(const QModelIndex& index, int role) const {
   const PartitionItem& item = bootloader_list_.at(index.row());
   if (item.recommended) {
     // Add "recommended" text.
-    return tr("%1 %2 (recommended)").arg(item.path).arg(item.label);
+    return ::QObject::tr("%1 %2 (recommended)").arg(item.path).arg(item.label);
   } else {
     return QString("%1 %2").arg(item.path).arg(item.label);
   }

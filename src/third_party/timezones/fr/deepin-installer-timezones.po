@@ -5,7 +5,7 @@
 # 
 # Translators:
 # lexross <mais@techie.com>, 2017
-# clement leclerc <inactive+lockiehte1st@transifex.com>, 2017
+# 66ada94cf86a03c2c3f9f194dbecd078_17bc4ce <7656a543ffb124c2d89ced497eaf8ae9_468705>, 2017
 # Sami G.-D., 2017
 # Charles Monzat <c.monzat@laposte.net>, 2017
 # Rox fr <roxfr@outlook.fr>, 2020

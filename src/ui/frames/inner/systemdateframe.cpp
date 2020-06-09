@@ -87,12 +87,12 @@ public:
     void initConnection();
 
     void updateTs() {
-        m_setDateTimeCheckBox->setText(tr("Change time"));
-        m_hourLabel->setText(tr("hr"));
-        m_minuteLabel->setText(tr("min"));
-        m_yearLabel->setText(tr("Y"));
-        m_monthLabel->setText(tr("M"));
-        m_dayLabel->setText(tr("D"));
+        m_setDateTimeCheckBox->setText(::QObject::tr("Change time"));
+        m_hourLabel->setText(::QObject::tr("hr"));
+        m_minuteLabel->setText(::QObject::tr("min"));
+        m_yearLabel->setText(::QObject::tr("Y"));
+        m_monthLabel->setText(::QObject::tr("M"));
+        m_dayLabel->setText(::QObject::tr("D"));
     }
 
     void initDateTime();

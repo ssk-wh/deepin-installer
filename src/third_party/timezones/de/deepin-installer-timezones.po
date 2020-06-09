@@ -9,7 +9,7 @@
 # Joachim Namyslo, 2017
 # Timo Kröning, 2017
 # Marcel Pa <marcelpaluch@me.com>, 2019
-# Dieter S <ptpsmail@web.de>, 2020
+# 21db53640bd6018c4a99700a4cf2ee28_f478df7 <98034cbca98620f1cf39d6ebdfa44311_785827>, 2020
 # 
 #, fuzzy
 msgid ""
@@ -18,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-02 17:33+0800\n"
 "PO-Revision-Date: 2017-02-06 02:09+0000\n"
-"Last-Translator: Dieter S <ptpsmail@web.de>, 2020\n"
+"Last-Translator: 21db53640bd6018c4a99700a4cf2ee28_f478df7 <98034cbca98620f1cf39d6ebdfa44311_785827>, 2020\n"
 "Language-Team: German (https://www.transifex.com/linuxdeepin/teams/3976/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"

@@ -65,7 +65,7 @@ void InstallProcessFramePrivate::layout()
 void InstallProcessFramePrivate::updateTs()
 {
     box(ACS_VLINE,ACS_HLINE);
-    printTitle(QObject::tr("Install process"), width());
+    printTitle(::QObject::tr("Install Process"), width());
     FrameInterfacePrivate::updateTs();
 }
 
@@ -207,7 +207,7 @@ bool InstallProcessFrame::init()
 
 QString InstallProcessFrame::getFrameName()
 {
-    return QObject::tr("InstallProcessFrame");
+    return "InstallProcessFrame";
 }
 
 void InstallProcessFrame::startInstall()

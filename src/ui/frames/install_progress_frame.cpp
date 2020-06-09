@@ -165,7 +165,7 @@ bool InstallProgressFrame::shouldDisplay() const
 
 QString InstallProgressFrame::returnFrameName() const
 {
-    return "Install";
+    return ::QObject::tr("Install");
 }
 
 bool InstallProgressFrame::allowPrevious() const
@@ -209,9 +209,9 @@ void InstallProgressFrame::changeEvent(QEvent* event) {
     Q_D(InstallProgressFrame);
 
     if (event->type() == QEvent::LanguageChange) {
-        d->title_label_->setText(tr("Installing"));       
+        d->title_label_->setText(::QObject::tr("Installing"));
         for (auto it = d->m_trList.begin(); it != d->m_trList.end(); ++it) {
-            it->first(qApp->translate("installer::InstallProgressFramePrivate", it->second.toUtf8()));
+            it->first(qApp->translate("QObject", it->second.toUtf8()));
         }
     } else {
         FrameInterface::changeEvent(event);
@@ -263,7 +263,7 @@ void InstallProgressFramePrivate::initConnections() {
 }
 
 void InstallProgressFramePrivate::initUI() {
-    title_label_ = new TitleLabel(tr("Installing"));    
+    title_label_ = new TitleLabel(::QObject::tr("Installing"));
 
     slide_frame_ = new InstallProgressSlideFrame();
     m_installerLog = new InstallLogFrame();
@@ -286,7 +286,7 @@ void InstallProgressFramePrivate::initUI() {
     tooltip_label_->move(kTooltipLabelMargin, tooltip_label_->y());
 
     m_installerLogShowButton = new LinkButton;
-    m_installerLogShowButton->setText(tr("Show log"));
+    m_installerLogShowButton->setText(::QObject::tr("Show log"));
     m_installerLogShowButton->setIconList(QStringList() << ":/images/arrows_up.svg" << ":/images/arrows_down.svg");
     addTransLate(m_trList, std::bind(&LinkButton::setText, m_installerLogShowButton, std::placeholders::_1), QString("Show log"));
 
@@ -393,10 +393,10 @@ void InstallProgressFramePrivate::onSimulationTimerTimeout() {
 void InstallProgressFramePrivate::toggleInstallerLog(bool toggle)
 {
     if (toggle) {
-        m_installerLogShowButton->setText(tr("Hide log"));
+        m_installerLogShowButton->setText(::QObject::tr("Hide log"));
         m_progressAndLogLayout->setCurrentWidget(m_installerLog);
     } else {
-        m_installerLogShowButton->setText(tr("Show log"));
+        m_installerLogShowButton->setText(::QObject::tr("Show log"));
         m_progressAndLogLayout->setCurrentWidget(slide_frame_);
     }
 }

@@ -179,19 +179,19 @@ bool SelectInstallComponentFrame::shouldDisplay() const
 
 QString SelectInstallComponentFrame::returnFrameName() const
 {
-    return "Select Software";
+    return ::QObject::tr("Select Components");
 }
 
 bool SelectInstallComponentFrame::event(QEvent* event) {
 
     if (event->type() == QEvent::LanguageChange) {
         // update all widget ts
-        m_private->m_selectPageLabel->setText(tr("Select Software"));
-        m_private->m_serverTypeLabel->setText(tr("Basic Environment"));
-        m_private->m_selectPromptLabel->setText(tr("Select the components according to your needs"));
-        m_private->m_componentLabel->setText(tr("Add-Ons"));
-        m_private->nextButton->setText(tr("Next"));
-        m_private->m_selectAllCheckBox->setText(tr("Select All"));
+        m_private->m_selectPageLabel->setText(::QObject::tr("Select Components"));
+        m_private->m_serverTypeLabel->setText(::QObject::tr("Basic Environment"));
+        m_private->m_selectPromptLabel->setText(::QObject::tr("Select the components according to your needs"));
+        m_private->m_componentLabel->setText(::QObject::tr("Add-Ons"));
+        m_private->nextButton->setText(::QObject::tr("Next"));
+        m_private->m_selectAllCheckBox->setText(::QObject::tr("Select All"));
 
         for (auto it = m_private->m_componentStructMap.cbegin(); it != m_private->m_componentStructMap.cend(); ++it) {
             QPair<QString, QString> ts = ComponentInstallManager::Instance()->updateTs(it.value());
@@ -235,18 +235,18 @@ void SelectInstallComponentFrame::resizeEvent(QResizeEvent *event)
 
 void SelectInstallComponentFramePrivate::initUI()
 {
-    m_selectPageLabel = new TitleLabel(tr("Select Software"));
+    m_selectPageLabel = new TitleLabel(::QObject::tr("Select Components"));
     m_selectPageLabel->setObjectName("selectPageLabel");
 
-    m_selectPromptLabel = new QLabel(tr("Select the component according to your needs"));
+    m_selectPromptLabel = new QLabel(::QObject::tr("Select the components according to your needs"));
     m_selectPromptLabel->setObjectName("m_selectPromptLabel");
 
-    m_serverTypeLabel = new QLabel(tr("Basic Environment"), q_ptr);
+    m_serverTypeLabel = new QLabel(::QObject::tr("Basic Environment"), q_ptr);
     m_serverTypeLabel->setObjectName("serverTypeLabel");
     m_serverTypeLabel->setWordWrap(false);
     m_serverTypeLabel->setAlignment(Qt::AlignHCenter);
 
-    m_componentLabel = new QLabel(tr("Add-Ons"), q_ptr);
+    m_componentLabel = new QLabel(::QObject::tr("Add-Ons"), q_ptr);
     m_componentLabel->setObjectName("componentLabel");
     m_componentLabel->setWordWrap(false);
     m_componentLabel->setAlignment(Qt::AlignHCenter);
@@ -316,7 +316,7 @@ void SelectInstallComponentFramePrivate::initUI()
     m_selectAllCheckBox->setObjectName("selectAllCheckBox");
     m_selectAllCheckBox->setCheckable(true);
     m_selectAllCheckBox->setChecked(false);
-    m_selectAllCheckBox->setText(tr("Select All"));
+    m_selectAllCheckBox->setText(::QObject::tr("Select All"));
     m_selectAllCheckBox->setFocusPolicy(Qt::NoFocus);
 
     connect(m_selectAllCheckBox, &QCheckBox::clicked, this, [&] {

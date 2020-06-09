@@ -329,7 +329,7 @@ void MainWindow::changeEvent(QEvent *event)
             QStandardItem* item = m_frameLabelsModel->item(i);
             FrameInterface* frame = getFrameInterface(item);
             if (frame) {
-                item->setText(tr(frame->returnFrameName().toLatin1().data()));
+                item->setText(frame->returnFrameName());
             }
         }
     }

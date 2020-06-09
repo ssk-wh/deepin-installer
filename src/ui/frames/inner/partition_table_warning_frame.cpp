@@ -68,23 +68,23 @@ void PartitionTableWarningFrame::setDevicePath(const QString& device_path) {
 
 void PartitionTableWarningFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    title_label_->setText(tr("Warning"));
+    title_label_->setText(::QObject::tr("Warning"));
     comment_label_->setText(
-        tr("You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. "
-           "Please select one of the below solutions and continue.").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")));
-    m_warningWidget1->setTitle(QString("%1").arg(tr("Disable UEFI")));
+        ::QObject::tr("You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. "
+           "Please select one of the below solutions and continue.").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS")));
+    m_warningWidget1->setTitle(QString("%1").arg(::QObject::tr("Disable UEFI")));
     m_warningWidget1->setDesc(QString("1.%1\n2.%2")
-                              .arg(tr("Reboot, enter BIOS, and disable UEFI"))
-                              .arg(tr("Exit BIOS, and install UOS again")));
-    m_warningWidget2->setTitle(QString("%1").arg(tr("Continue")));
+                              .arg(::QObject::tr("Reboot, enter BIOS, and disable UEFI"))
+                              .arg(::QObject::tr("Exit BIOS, and install UOS again")));
+    m_warningWidget2->setTitle(QString("%1").arg(::QObject::tr("Continue")));
     m_warningWidget2->setDesc(QString("1.%1\n2.%2")
-                              .arg(tr("Make sure you have backed up all data before proceeding"))
-                              .arg(tr("Continuing installation will format your disk")));
-    m_warningWidget3->setTitle(QString("%1").arg(tr("Cancel")));
+                              .arg(::QObject::tr("Make sure you have backed up all data before proceeding"))
+                              .arg(::QObject::tr("Continuing installation will format your disk")));
+    m_warningWidget3->setTitle(QString("%1").arg(::QObject::tr("Cancel")));
     m_warningWidget3->setDesc(QString("1.%1")
-                              .arg(tr("Nothing to do")));
+                              .arg(::QObject::tr("Nothing to do")));
 
-    next_button_->setText(tr("Next"));
+    next_button_->setText(::QObject::tr("Next"));
     m_buttonBox->hide();
   } else {
     QFrame::changeEvent(event);
@@ -107,7 +107,7 @@ void PartitionTableWarningFrame::initUI() {
                          , Qt::SmoothTransformation);
   warning_label->setPixmap(pixmap);
 
-  title_label_ = new TitleLabel(tr("Warning"));
+  title_label_ = new TitleLabel(::QObject::tr("Warning"));
   title_label_->setContentsMargins(0, 0, 0, 0);
   title_label_->adjustSize();
 
@@ -121,28 +121,28 @@ void PartitionTableWarningFrame::initUI() {
   title_layout->addStretch();
 
   comment_label_ = new CommentLabel(
-      tr("You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. "
+      ::QObject::tr("You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. "
          "Please select one of the below solutions and continue."));
   comment_label_->setFixedWidth(kTitleCommentWidth);
   comment_label_->setWordWrap(true);
   comment_label_->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
   m_warningWidget1 = new PartitionTableWarningWidget;
-  m_warningWidget1->setTitle(QString("%1").arg(tr("Disable UEFI")));
+  m_warningWidget1->setTitle(QString("%1").arg(::QObject::tr("Disable UEFI")));
   m_warningWidget1->setDesc(QString("1.%1\n2.%2")
-                            .arg(tr("Reboot, enter BIOS, and disable UEFI"))
-                            .arg(tr("Exit BIOS, and install UOS again")));
+                            .arg(::QObject::tr("Reboot, enter BIOS, and disable UEFI"))
+                            .arg(::QObject::tr("Exit BIOS, and install UOS again")));
 
   m_warningWidget2 = new PartitionTableWarningWidget;
-  m_warningWidget2->setTitle(QString("%1").arg(tr("Continue")));
+  m_warningWidget2->setTitle(QString("%1").arg(::QObject::tr("Continue")));
   m_warningWidget2->setDesc(QString("1.%1\n2.%2")
-                            .arg(tr("Make sure you have backed up all data before proceeding"))
-                            .arg(tr("Continuing installation will format your disk")));
+                            .arg(::QObject::tr("Make sure you have backed up all data before proceeding"))
+                            .arg(::QObject::tr("Continuing installation will format your disk")));
 
   m_warningWidget3 = new PartitionTableWarningWidget;
-  m_warningWidget3->setTitle(QString("%1").arg(tr("Cancel")));
+  m_warningWidget3->setTitle(QString("%1").arg(::QObject::tr("Cancel")));
   m_warningWidget3->setDesc(QString("1.%1")
-                            .arg(tr("Nothing to do")));
+                            .arg(::QObject::tr("Nothing to do")));
 
   m_buttonBox = new DButtonBox(this);
   m_buttonBox->setButtonList({m_warningWidget1, m_warningWidget2, m_warningWidget3}, true);
@@ -151,7 +151,7 @@ void PartitionTableWarningFrame::initUI() {
   // default setting
   m_currentButton = m_warningWidget1;
 
-  next_button_ = new QPushButton(tr("Next"));
+  next_button_ = new QPushButton(::QObject::tr("Next"));
   next_button_->setFixedSize(QSize(310, 36));
 
   QVBoxLayout* layout = new QVBoxLayout();

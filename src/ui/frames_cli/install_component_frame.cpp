@@ -50,9 +50,9 @@ void InstallComponentFramePrivate::initUI()
     setBackground(NcursesUtil::getInstance()->dialog_attr());
     FrameInterfacePrivate::initUI();
 
-    QString testtiltle     = QObject::tr("Select the components according to your needs.");
-    QString testfirststr   = QObject::tr("Basic Environment");
-    QString testsecondstr  = QObject::tr("Add-Ons");
+    QString testtiltle     = ::QObject::tr("Select the components according to your needs.");
+    QString testfirststr   = ::QObject::tr("Basic Environment");
+    QString testsecondstr  = ::QObject::tr("Add-Ons");
     m_tiltleLabel          = new NcursesLabel(this, testtiltle.toUtf8().data(), 1, testtiltle.length(), begy() + 2,  begx() + (width() / 2) - (testtiltle.length() / 2));
     m_firstSubTiltleLabel  = new NcursesLabel(this, testfirststr.toUtf8().data(), 1, testfirststr.length(), begy() + 5, begx() + 2 + ((width() / 2 - 2) / 2) - (testfirststr.length() / 2));
     m_secondSubTiltleLabel = new NcursesLabel(this, testsecondstr.toUtf8().data(), 1, testsecondstr.length(), begy() + 5, begx() + width() / 2 + (width() / 2 - 2) / 2 - testsecondstr.length() / 2);
@@ -73,17 +73,17 @@ void InstallComponentFramePrivate::initUI()
     m_extrachoiceslist->setSingleSelect(false);
     m_extrachoiceslist->setRealSelect(false);
 
-    m_selectallextra = new NcursesCheckBox(this, QObject::tr("select all"), 1, width() / 2 - 2, begy() + height() - 7,  begx() + width() / 2  + 1);
+    m_selectallextra = new NcursesCheckBox(this, ::QObject::tr("Select All"), 1, width() / 2 - 2, begy() + height() - 7,  begx() + width() / 2  + 1);
 }
 
 void InstallComponentFramePrivate::updateTs()
 {
     box(ACS_VLINE,ACS_HLINE);
-    printTitle(QObject::tr("Select Components"), width());
+    printTitle(::QObject::tr("Select Components"), width());
 
-    QString testtiltle     = QObject::tr("Select the components according to your needs.");
-    QString testfirststr   = QObject::tr("Basic Environment");
-    QString testsecondstr  = QObject::tr("Add-Ons");
+    QString testtiltle     = ::QObject::tr("Select the components according to your needs.");
+    QString testfirststr   = ::QObject::tr("Basic Environment");
+    QString testsecondstr  = ::QObject::tr("Add-Ons");
     m_tiltleLabel->erase();
     m_firstSubTiltleLabel->erase();
     m_secondSubTiltleLabel->erase();
@@ -91,12 +91,12 @@ void InstallComponentFramePrivate::updateTs()
         m_tiltleLabel->resizew(1, testtiltle.length() * 2);
         m_firstSubTiltleLabel->resizew(1, testfirststr.length() * 2);
         m_secondSubTiltleLabel->resizew(1, testsecondstr.length() * 2);
-        m_selectallextra->setText("", QObject::tr("select all"), true);
+        m_selectallextra->setText("", ::QObject::tr("Select All"), true);
     } else {
         m_tiltleLabel->resizew(1, testtiltle.length());
         m_firstSubTiltleLabel->resizew(1, testfirststr.length());
         m_secondSubTiltleLabel->resizew(1, testsecondstr.length());
-        m_selectallextra->setText("", QObject::tr("select all"), false);
+        m_selectallextra->setText("", ::QObject::tr("Select All"), false);
     }
     m_tiltleLabel->setText(testtiltle.toUtf8().data());
     m_firstSubTiltleLabel->setText(testfirststr.toUtf8().data());
@@ -334,7 +334,7 @@ bool ComponentFrame::init()
 
 QString ComponentFrame::getFrameName()
 {
-    return QObject::tr("SelectSoftwareFrame");
+    return "SelectSoftwareFrame";
 }
 
 bool ComponentFrame::handle()

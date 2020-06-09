@@ -183,7 +183,7 @@ bool PartitionFrame::shouldDisplay() const{
 
 QString PartitionFrame::returnFrameName() const
 {
-    return "Create Partitions";
+    return ::QObject::tr("Create Partitions");
 }
 
 void PartitionFrame::autoPart() {
@@ -218,17 +218,17 @@ void PartitionFrame::onAutoInstallPrepareFinished(bool finished)
 void PartitionFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
       if (m_private->partition_stacked_layout_->currentWidget() ==  m_private->lvm_partition_frame_) {
-          m_private->title_label_->setText(tr("Edit LVM Disk"));
+          m_private->title_label_->setText(::QObject::tr("Edit LVM Disk"));
       } else {
-          m_private->title_label_->setText(tr("Create Partitions"));
+          m_private->title_label_->setText(::QObject::tr("Create Partitions"));
       }
 
     m_private->comment_label_->setText(
-        tr("Make sure you have backed up important data, then select the disk to install"));
-    m_private->simple_frame_button_->setText(tr("Simple"));
-    m_private->advanced_frame_button_->setText(tr("Advanced"));
-    m_private->full_disk_frame_button_->setText(tr("Full Disk"));
-    m_private->nextButton->setText(tr("Next"));
+        ::QObject::tr("Make sure you have backed up important data, then select the disk to install"));
+    m_private->simple_frame_button_->setText(::QObject::tr("Simple"));
+    m_private->advanced_frame_button_->setText(::QObject::tr("Advanced"));
+    m_private->full_disk_frame_button_->setText(::QObject::tr("Full Disk"));
+    m_private->nextButton->setText(::QObject::tr("Next"));
     m_private->m_buttonGroup->checkedButton()->setFocus();
   } else {
       FrameInterface::changeEvent(event);
@@ -420,9 +420,9 @@ void PartitionFramePrivate::initUI() {
 
   dynamic_disk_warning_frame_ = new DynamicDiskWarningFrame(q_ptr);
 
-  title_label_ = new TitleLabel(tr("Create Partitions"));
+  title_label_ = new TitleLabel(::QObject::tr("Create Partitions"));
   comment_label_ = new CommentLabel(
-      tr("Make sure you have backed up important data, then select the disk to install"));
+      ::QObject::tr("Make sure you have backed up important data, then select the disk to install"));
   QHBoxLayout* comment_layout = new QHBoxLayout();
   comment_layout->setContentsMargins(0, 0, 0, 0);
   comment_layout->setSpacing(0);
@@ -430,11 +430,11 @@ void PartitionFramePrivate::initUI() {
 
   m_buttonGroup = new DButtonBox(q_ptr);
   m_buttonGroup->setFocusPolicy(Qt::ClickFocus);
-  simple_frame_button_ = new DButtonBoxButton(tr("Simple"), q_ptr);
+  simple_frame_button_ = new DButtonBoxButton(::QObject::tr("Simple"), q_ptr);
   simple_frame_button_->setMinimumWidth(86);
-  advanced_frame_button_ = new DButtonBoxButton(tr("Advanced"), q_ptr);
+  advanced_frame_button_ = new DButtonBoxButton(::QObject::tr("Advanced"), q_ptr);
   advanced_frame_button_->setMinimumWidth(86);
-  full_disk_frame_button_ = new DButtonBoxButton(tr("Full Disk"), q_ptr);
+  full_disk_frame_button_ = new DButtonBoxButton(::QObject::tr("Full Disk"), q_ptr);
   full_disk_frame_button_->setMinimumWidth(86);
 
   m_buttonGroup->setButtonList({advanced_frame_button_, full_disk_frame_button_}, true);
@@ -487,7 +487,7 @@ void PartitionFramePrivate::initUI() {
   partition_stacked_wrapper_layout->addLayout(partition_stacked_layout_);
 
   // and advanced partition page.
-  nextButton->setText(tr("Start installation"));
+  nextButton->setText(::QObject::tr("Start installation"));
   next_layout = new QHBoxLayout();
   next_layout->setContentsMargins(0, 0, 0, 0);
   next_layout->addWidget(nextButton);
@@ -618,11 +618,11 @@ void PartitionFramePrivate::onNextButtonClicked() {
   QList<Device::Ptr> device;
   if (isSimplePartitionMode()) {
      device << simple_partition_frame_->selectedDevice();
-     dynamic_disk_warning_frame_->setWarningTip(tr("The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first."));
+     dynamic_disk_warning_frame_->setWarningTip(::QObject::tr("The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first."));
   }
   else if (!isFullDiskPartitionMode()) {
     device = advanced_partition_frame_->getAllUsedDevice();
-    dynamic_disk_warning_frame_->setWarningTip(tr("The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first."));
+    dynamic_disk_warning_frame_->setWarningTip(::QObject::tr("The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first."));
   }
 
   if (!device.isEmpty() && isRawDevice(device)) {
@@ -635,14 +635,15 @@ void PartitionFramePrivate::onNextButtonClicked() {
 
     if (AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_Format_Pv) {
        emit prepare_install_frame_->finished();
-       lvm_partition_frame_->updateLayout(next_layout, tr("Back"));
+       lvm_partition_frame_->updateLayout(next_layout, ::QObject::tr("Back"));
        emit q_ptr->disCoverMainWindowFrameLabelsView();
     }
 }
 
 void PartitionFramePrivate::onFullDiskCryptoButtonClicked(bool encrypto)
 {
-    nextButton->setText(encrypto ? tr("Next") : tr("Start installation"));
+    nextButton->setText(encrypto ? ::QObject::tr("Next") :
+                                   ::QObject::tr("Start installation"));
 }
 
 void PartitionFramePrivate::onManualPartDone(bool ok, const DeviceList& devices) {
@@ -658,7 +659,7 @@ void PartitionFramePrivate::onManualPartDone(bool ok, const DeviceList& devices)
         m_buttonGroup->setVisible(false);
         partition_stacked_layout_->setCurrentWidget(lvm_partition_frame_);
         main_layout_->setCurrentWidget(main_frame_);
-        title_label_->setText(tr("Edit LVM Disk"));
+        title_label_->setText(::QObject::tr("Edit LVM Disk"));
         return ;
     } else if (Install_Lvm_Status::Lvm_Install == AdvancedPartitionDelegate::install_Lvm_Status) {
         lvm_delegate_->onManualPartDone(devices);
@@ -738,7 +739,7 @@ void PartitionFramePrivate::showMainFrame() {
       advanced_delegate_->onDeviceRefreshed(advanced_delegate_->realDevices());
       partition_stacked_layout_->setCurrentWidget(advanced_partition_frame_);
       main_layout_->setCurrentWidget(main_frame_);
-      title_label_->setText(tr("Create Partitions"));
+      title_label_->setText(::QObject::tr("Create Partitions"));
   }
 
   main_layout_->setCurrentWidget(main_frame_);

@@ -24,8 +24,8 @@ namespace installer {
 
 namespace {
 
-const char kDefaultLanguageFile[] = I18N_DIR "/installer-en_US.qm";
-const char kLanguageFileTpl[] = I18N_DIR "/installer-%1.qm";
+const char kDefaultLanguageFile[] = I18N_DIR "/deepin-installer.qm";
+const char kLanguageFileTpl[] = I18N_DIR "/deepin-installer-%1.qm";
 
 }  // namespace
 

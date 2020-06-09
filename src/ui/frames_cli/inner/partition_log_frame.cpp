@@ -31,7 +31,7 @@ void PartitionLogFramePrivate::layout()
 
 void PartitionLogFramePrivate::updateTs()
 {
-    m_label_title->setText(tr("Partiton operate log"));
+    m_label_title->setText("Partiton operate log");
 
 }
 

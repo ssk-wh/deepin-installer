@@ -59,11 +59,12 @@ public:
 void MainWindowPrivate::initUI()
 {
     setBackground(NcursesUtil::getInstance()->screen_attr());
-    addstr(0, 1, QString(QObject::tr("Welcome to install UOS")).toUtf8().data());
-    QString keyManual = QString("<Tab> %1   |   <Space> %2  |   <Enter> %3")
-            .arg(QObject::tr("between elements"))
-            .arg(QObject::tr("selects"))
-            .arg(QObject::tr("confirm"));
+    addstr(0, 1, QString(::QObject::tr("Welcome to install UOS")).toUtf8().data());
+    QString keyManual = QString("<↑ ↓ ← →>移动  | <Tab>切换 |<Enter> 确定 |<Space>选中")
+            .arg(::QObject::tr("Select Item"))
+            .arg(::QObject::tr("Change Field"))
+            .arg(::QObject::tr("Confirm"))
+            .arg(::QObject::tr("Select"));
     addstr(begy() + lines() - 1,  (width() - std::min(width() - 2, keyManual.length())) / 2, keyManual.toUtf8().data());
     refresh();
 }
@@ -71,22 +72,24 @@ void MainWindowPrivate::initUI()
 void MainWindowPrivate::updateTs()
 {
     erase();
-    addstr(0, 1, QString(QObject::tr("Welcome to install UOS")).toUtf8().data());
-    QString keyManual = QString("<Tab> %1   |   <Space> %2  |   <Enter> %3")
-            .arg(QObject::tr("between elements"))
-            .arg(QObject::tr("selects"))
-            .arg(QObject::tr("confirm"));
+    addstr(0, 1, QString(::QObject::tr("Welcome to install UOS")).toUtf8().data());
+    QString keyManual = QString("<↑ ↓ ← →>移动  | <Tab>切换 |<Enter> 确定 |<Space>选中")
+            .arg(::QObject::tr("Select Item"))
+            .arg(::QObject::tr("Change Field"))
+            .arg(::QObject::tr("Confirm"))
+            .arg(::QObject::tr("Select"));
     addstr(begy() + lines() - 1,  (width() - std::min(width() - 2, keyManual.length())) / 2, keyManual.toUtf8().data());
 }
 
 void MainWindowPrivate::show()
 {
     erase();
-    addstr(0, 1, QString(QObject::tr("Welcome to install UOS")).toUtf8().data());
-    QString keyManual = QString("<Tab> %1   |   <Space> %2  |   <Enter> %3")
-            .arg(QObject::tr("between elements"))
-            .arg(QObject::tr("selects"))
-            .arg(QObject::tr("confirm"));
+    addstr(0, 1, QString(::QObject::tr("Welcome to install UOS")).toUtf8().data());
+    QString keyManual = QString("<↑ ↓ ← →>移动  | <Tab>切换 |<Enter> 确定 |<Space>选中")
+            .arg(::QObject::tr("Select Item"))
+            .arg(::QObject::tr("Change Field"))
+            .arg(::QObject::tr("Confirm"))
+            .arg(::QObject::tr("Select"));
     addstr(begy() + lines() - 1,  (width() - std::min(width() - 2, keyManual.length())) / 2, keyManual.toUtf8().data());
 }
 

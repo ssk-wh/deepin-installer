@@ -297,15 +297,15 @@ QString Operation::description() const {
   switch (type) {
     case OperationType::Create: {
       if (new_partition->type == PartitionType::Extended) {
-        desc = QObject::tr("Create extended partition %1")
+        desc = ::QObject::tr("Create extended partition %1")
             .arg(new_partition->path);
       }
       else if (new_partition->mount_point.isEmpty()) {
-        desc = QObject::tr("Create new partition %1, type: %2")
+        desc = ::QObject::tr("Create new partition %1, type: %2")
             .arg(new_partition->path)
             .arg(GetFsTypeName(new_partition->fs));
       } else {
-        desc = QObject::tr("Create new partition %1 as %2 (mountpoint), "
+        desc = ::QObject::tr("Create new partition %1 as %2 (mountpoint), "
                            "type: %3")
             .arg(new_partition->path)
             .arg(new_partition->mount_point)
@@ -314,16 +314,16 @@ QString Operation::description() const {
       break;
     }
     case OperationType::Delete: {
-      desc = QObject::tr("Delete %1 partition").arg(orig_partition->path);
+      desc = ::QObject::tr("Delete %1 partition").arg(orig_partition->path);
       break;
     }
     case OperationType::Format: {
       if (new_partition->mount_point.isEmpty()) {
-        desc = QObject::tr("Format %1 partition, type: %2")
+        desc = ::QObject::tr("Format %1 partition, type: %2")
             .arg(new_partition->path)
             .arg(GetFsTypeName(new_partition->fs));
       } else {
-        desc = QObject::tr("Format %1 partition as %2 (mountpoint), type: %3")
+        desc = ::QObject::tr("Format %1 partition as %2 (mountpoint), type: %3")
             .arg(new_partition->path)
             .arg(new_partition->mount_point)
             .arg( GetFsTypeName(new_partition->fs));
@@ -331,19 +331,19 @@ QString Operation::description() const {
       break;
     }
     case OperationType::MountPoint: {
-      desc = QObject::tr("Use %1 partition as %2 (mountpoint)")
+      desc = ::QObject::tr("Use %1 partition as %2 (mountpoint)")
           .arg(new_partition->path)
           .arg(new_partition->mount_point);
       break;
     }
     case OperationType::NewPartTable: {
-      desc = QObject::tr("Format %1 and create %2 new partition table")
+      desc = ::QObject::tr("Format %1 and create %2 new partition table")
           .arg(device->path)
           .arg(GetPartTableName(device->table));
       break;
     }
     case OperationType::Resize: {
-      desc = QObject::tr("Adjust the size of %1 partition")
+      desc = ::QObject::tr("Adjust the size of %1 partition")
           .arg(new_partition->path);
       break;
     }

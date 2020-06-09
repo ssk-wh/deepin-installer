@@ -42,7 +42,7 @@ bool OemWindow::init() {
   if (!model_->createOemFolders()) {
     // Show warning dialog.
     QMessageBox box;
-    box.setText(tr("Failed to create $HOME/oem folder or sub-folders"));
+    box.setText(::QObject::tr("Failed to create $HOME/oem folder or sub-folders"));
     box.exec();
     return false;
   }
@@ -50,7 +50,7 @@ bool OemWindow::init() {
   if (!model_->load()) {
     // Show warning dialog.
     QMessageBox box;
-    box.setText(tr("Failed to load model data"));
+    box.setText(::QObject::tr("Failed to load model data"));
     box.exec();
     return false;
   }

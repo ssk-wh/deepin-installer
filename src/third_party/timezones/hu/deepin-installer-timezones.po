@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
 # ddabrahim <ddabrahim@googlemail.com>, 2017
-# Laszlo Espadas, 2017
+# c5c74d5c0e928622070863d16011fda8_265b1fe, 2017
 # e7b367b198a92ab3e6fd7f551a36a082, 2019
 # Kiss Zoltan <atari@freemail.hu>, 2020
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -17,7 +17,6 @@ msgstr ""
 "POT-Creation-Date: 2020-01-02 17:33+0800\n"
 "PO-Revision-Date: 2017-02-06 02:09+0000\n"
 "Last-Translator: Kiss Zoltan <atari@freemail.hu>, 2020\n"
-"Last-Translator: e7b367b198a92ab3e6fd7f551a36a082, 2019\n"
 "Language-Team: Hungarian (https://www.transifex.com/linuxdeepin/teams/3976/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"

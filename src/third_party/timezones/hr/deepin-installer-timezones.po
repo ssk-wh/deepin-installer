@@ -919,7 +919,7 @@ msgstr "Azija/Barnaul"
 
 #: system-config-date-timezones.h:225
 msgid "Asia/Beijing"
-msgstr ""
+msgstr "Azija/Peking"
 
 #: system-config-date-timezones.h:226
 msgid "Asia/Beirut"
@@ -935,7 +935,7 @@ msgstr "Azija/Brunei"
 
 #: system-config-date-timezones.h:229
 msgid "Asia/Chengdu"
-msgstr ""
+msgstr "Azija/Chengdu"
 
 #: system-config-date-timezones.h:230
 msgid "Asia/Chita"
@@ -1075,7 +1075,7 @@ msgstr "Azija/Muscat"
 
 #: system-config-date-timezones.h:264
 msgid "Asia/Nanjing"
-msgstr ""
+msgstr "Azija/Nanjing"
 
 #: system-config-date-timezones.h:265
 msgid "Asia/Nicosia"
@@ -1115,7 +1115,7 @@ msgstr "Azija/Katar"
 
 #: system-config-date-timezones.h:274
 msgid "Asia/Qostanay"
-msgstr ""
+msgstr "Azija/Qostanay"
 
 #: system-config-date-timezones.h:275
 msgid "Asia/Qyzylorda"
@@ -1199,11 +1199,11 @@ msgstr "Azija/Vladivostok"
 
 #: system-config-date-timezones.h:295
 msgid "Asia/Wuhan"
-msgstr ""
+msgstr "Azija/Wuhan"
 
 #: system-config-date-timezones.h:296
 msgid "Asia/Xian"
-msgstr ""
+msgstr "Azija/Xian"
 
 #: system-config-date-timezones.h:297
 msgid "Asia/Yakutsk"

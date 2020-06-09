@@ -33,22 +33,19 @@ Build-Depends:
     libdtkwidget-dev,
     libdtkgui-dev,
     libkf5networkmanagerqt-dev,
-<<<<<<< HEAD
     fbterm,
     kbd,
     libncurses-dev,
-    libncursesw5-dev
-=======
-    libcrack2
-    libcrack2-dev
-    libpam-cracklib
-    libpam-pwquality
-    libpwquality-tools
-    python-pwquality
-    libpwquality-dev
-    libpwquality1
+    libncursesw5-dev,
+    libcrack2,
+    libcrack2-dev,
+    libpam-cracklib,
+    libpam-pwquality,
+    libpwquality-tools,
+    python-pwquality,
+    libpwquality-dev,
+    libpwquality1,
     libpwquality-common 
->>>>>>> 37937559... task：The server version installation process for setting up the login password strength requirements
 Standards-Version: 3.9.8
 Homepage: http://www.deepin.org
 

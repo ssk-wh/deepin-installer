@@ -42,11 +42,10 @@ void LanguageFramePrivate::layout()
 void LanguageFramePrivate::updateTs()
 {
     box(ACS_VLINE,ACS_HLINE);
-    //m_titleLabel->setText(tr("Select Language"));
-    printTitle(QObject::tr("Select Language"), width());
+    //m_titleLabel->setText(::QObject::tr("Select Language"));
+    printTitle(::QObject::tr("Select Language"), width());
     m_instructions->erase();
-    m_instructions->setText(tr("    Choose a language used in the installation process, \
-which will also be the default system language."));
+    m_instructions->setText("  " + ::QObject::tr("Choose a language used in the installation process, which will also be the default system language."));
     FrameInterfacePrivate::updateTs();
     layout();
 }

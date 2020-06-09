@@ -85,19 +85,19 @@ void PrepareInstallFrame::initUI() {
 
   m_titleLabel_ = new NcursesLabel(this, 1, 1, begy(), begx());
   m_titleLabel_->setFocusEnabled(false);
-  m_titleLabel_->setText(tr("Ready to Install"));
+  m_titleLabel_->setText(::QObject::tr("Ready to Install"));
 
   m_commentLabel = new NcursesLabel(this, 1, 1, begy() , begx());
   m_commentLabel->setFocusEnabled(false);
-  m_commentLabel->setText(tr("Make a backup of your important data and then continue"));
+  m_commentLabel->setText(::QObject::tr("Make a backup of your important data and then continue"));
 
   operations_box_ = new NcursesListView(this, height() - 10, 80, begy(), begx());
   //QStringList opt(delegate_->getOptDescriptions());
   operations_box_->setList(m_optDescriptions);
   operations_box_->setFocusEnabled(false);
 
-  QString strBack = tr("Back");
-  QString strContinue = tr("Continue");
+  QString strBack = ::QObject::tr("Back");
+  QString strContinue = ::QObject::tr("Continue");
 
   cancel_button_ = new NcursesButton(this, strBack, 3, 14, begy() + height() - 5, begx() + 5);
   create_button_ = new NcursesButton(this, strContinue, 3, 14, begy() + height() - 5, begx() + width() - 20);
@@ -117,8 +117,8 @@ void PrepareInstallFrame::initUI() {
 
 void PrepareInstallFrame::updateTs()
 {
-    cancel_button_->setText(tr("Back"));
-    create_button_->setText(tr("Continue"));
+    cancel_button_->setText(::QObject::tr("Back"));
+    create_button_->setText(::QObject::tr("Continue"));
     layout();
 }
 

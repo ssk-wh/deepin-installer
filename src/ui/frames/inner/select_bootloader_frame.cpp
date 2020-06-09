@@ -41,10 +41,10 @@ SelectBootloaderFrame::SelectBootloaderFrame(FrameProxyInterface *frameProxyInte
 
 void SelectBootloaderFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    title_label_->setText(tr("Select location for boot loader"));
+    title_label_->setText(::QObject::tr("Select location for boot loader"));
     comment_label_->setText(
-        tr("If you do not understand the settings, please select the recommended one"));
-    back_button_->setText(tr("Back"));
+        ::QObject::tr("If you do not understand the settings, please select the recommended one"));
+    back_button_->setText(::QObject::tr("Back"));
   } else {
     QWidget::changeEvent(event);
   }
@@ -75,9 +75,9 @@ void SelectBootloaderFrame::initConnections() {
 }
 
 void SelectBootloaderFrame::initUI() {
-  title_label_ = new TitleLabel(tr("Select location for boot loader"));
+  title_label_ = new TitleLabel(::QObject::tr("Select location for boot loader"));
   comment_label_ = new CommentLabel(
-      tr("If you do not understand the settings, please select the recommended one"));
+      ::QObject::tr("If you do not understand the settings, please select the recommended one"));
   QHBoxLayout* comment_layout = new QHBoxLayout();
   comment_layout->setContentsMargins(0, 0, 0, 0);
   comment_layout->setSpacing(0);
@@ -88,7 +88,7 @@ void SelectBootloaderFrame::initUI() {
   list_model_ = new BootloaderListModel(this);
   list_view_->setModel(list_model_);
 
-  back_button_ = new QPushButton(tr("Back"));
+  back_button_ = new QPushButton(::QObject::tr("Back"));
   back_button_->setFixedSize(310, 36);
 
   QHBoxLayout *buttonLayout = new QHBoxLayout;

@@ -51,7 +51,7 @@ bool FirstBootLoadingFrame::shouldDisplay() const
 
 QString FirstBootLoadingFrame::returnFrameName() const
 {
-    return "Tuning system";
+    return ::QObject::tr("Tuning system");
 }
 
 bool FirstBootLoadingFrame::allowPrevious() const
@@ -61,9 +61,9 @@ bool FirstBootLoadingFrame::allowPrevious() const
 
 void FirstBootLoadingFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    title_label_->setText(tr("Tuning system"));
+    title_label_->setText(::QObject::tr("Tuning system"));
     comment_label_->setText(
-        tr("Applying changes to your system, please wait..."));
+        ::QObject::tr("Applying changes to your system, please wait..."));
   } else {
     QWidget::changeEvent(event);
   }
@@ -84,9 +84,9 @@ void FirstBootLoadingFrame::initConnections() {
 }
 
 void FirstBootLoadingFrame::initUI() {
-  title_label_ = new TitleLabel(tr("Tuning system"));
+  title_label_ = new TitleLabel(::QObject::tr("Tuning system"));
   comment_label_ = new CommentLabel(
-      tr("Applying changes to your system, please wait..."));
+      ::QObject::tr("Applying changes to your system, please wait..."));
   spinner_label_ = new SpinnerLabel();
 
   QVBoxLayout* layout = new QVBoxLayout();

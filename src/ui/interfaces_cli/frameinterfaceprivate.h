@@ -31,8 +31,8 @@ public:
         this->drawShadow(true);
         this->box();
 
-        QString strNext = QObject::tr("next");
-        QString strBack = QObject::tr("back");
+        QString strNext = ::QObject::tr("Next");
+        QString strBack = ::QObject::tr("Back");
 
         /*m_pNextButton = new NcursesButton(this, strNext, buttonHeight,
                                         buttonWidth, begy() + height() - buttonHeight - 2, begx() + width() / 2 + buttonDistanceDelta);*/
@@ -116,8 +116,8 @@ public:
 
     virtual void updateTs()
     {
-        QString strBack  = QObject::tr("back");
-        QString strNext  = QObject::tr("next");
+        QString strBack  = ::QObject::tr("Back");
+        QString strNext  = ::QObject::tr("Next");
         int buttonHeight = 3;
         int buttonWidth  = 2;
         if (installer::ReadLocale() == "zh_CN") {

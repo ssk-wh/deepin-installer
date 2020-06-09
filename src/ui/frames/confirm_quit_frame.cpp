@@ -51,12 +51,12 @@ void ConfirmQuitFrame::display()
 
 void ConfirmQuitFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    setTitle(tr("Abort Installation"));
+    setTitle(::QObject::tr("Abort Installation"));
     comment_label_->setText(
-        tr("Relevant operations you made in the installation "
+        ::QObject::tr("Relevant operations you made in the installation "
            "process will not take effect, abort or continue installation?"));
-    continue_button_->setText(tr("Continue"));
-    abort_button_->setText(tr("Abort"));
+    continue_button_->setText(::QObject::tr("Continue"));
+    abort_button_->setText(::QObject::tr("Abort"));
   } else {
     QWidget::changeEvent(event);
   }
@@ -71,12 +71,12 @@ void ConfirmQuitFrame::initConnections() {
 
 void ConfirmQuitFrame::initUI() {
   comment_label_ = new CommentLabel(
-      tr("Relevant operations you made in the installation "
+      ::QObject::tr("Relevant operations you made in the installation "
          "process will not take effect, abort or continue installation?"));
 
-  continue_button_ = new QPushButton(tr("Continue"));
+  continue_button_ = new QPushButton(::QObject::tr("Continue"));
   continue_button_->setFixedSize(170, 36);
-  abort_button_ = new QPushButton(tr("Abort"));
+  abort_button_ = new QPushButton(::QObject::tr("Abort"));
   abort_button_->setFixedSize(170, 36);
 
   QPixmap pixmap = installer::renderPixmap(":/images/interaction_warning.svg");
@@ -84,9 +84,9 @@ void ConfirmQuitFrame::initUI() {
   pixmap = pixmap.scaled(48 * ratio, 48 * ratio, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
   setIconPixmap(pixmap);
 
-  setTitle(tr("Abort Installation"));
+  setTitle(::QObject::tr("Abort Installation"));
   QLabel *commentLabel = new QLabel(
-      tr("Relevant operations you made in the installation "
+      ::QObject::tr("Relevant operations you made in the installation "
          "process will not take effect, abort or continue installation?"));
   commentLabel->setWordWrap(true);
   commentLabel->setAlignment(Qt::AlignCenter);

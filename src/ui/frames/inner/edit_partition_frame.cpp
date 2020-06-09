@@ -120,12 +120,12 @@ void EditPartitionFrame::setPartition(const Partition::Ptr partition) {
 
 void EditPartitionFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    title_label_->setText(tr("Edit Disk"));
-    fs_label_->setText(tr("File system"));
-    mount_point_label_->setText(tr("Mount point"));
-    format_check_box_->setText(tr("Format the partition"));
-    cancel_button_->setText(tr("Cancel"));
-    ok_button_->setText(tr("Create"));
+    title_label_->setText(::QObject::tr("Edit Disk"));
+    fs_label_->setText(::QObject::tr("File system"));
+    mount_point_label_->setText(::QObject::tr("Mount point"));
+    format_check_box_->setText(::QObject::tr("Format the partition"));
+    cancel_button_->setText(::QObject::tr("Cancel"));
+    ok_button_->setText(::QObject::tr("Create"));
   } else {
     QWidget::changeEvent(event);
   }
@@ -198,7 +198,7 @@ void EditPartitionFrame::initConnections() {
 }
 
 void EditPartitionFrame::initUI() {
-  title_label_ = new TitleLabel(tr("Edit Disk"));
+  title_label_ = new TitleLabel(::QObject::tr("Edit Disk"));
   os_label_ = new QLabel();
   os_label_->setObjectName("os_label");
   name_label_ = new QLabel();
@@ -239,11 +239,11 @@ void EditPartitionFrame::initUI() {
   line_layout->addWidget(dHerticalLine);
   line_layout->addSpacing(30);
 
-  mount_point_label_ = new QLabel(tr("Mount point"));
+  mount_point_label_ = new QLabel(::QObject::tr("Mount point"));
   mount_point_label_->setObjectName("mount_point_label");
   mount_point_label_->setFixedWidth(KLableWidth);
 
-  fs_label_ = new QLabel(tr("File system"));
+  fs_label_ = new QLabel(::QObject::tr("File system"));
   fs_label_->setObjectName("fs_label");
   fs_label_->setFixedWidth(KLableWidth);
   fs_model_ = new FsModel(delegate_->getFsTypeList(), this);
@@ -259,7 +259,7 @@ void EditPartitionFrame::initUI() {
 
   format_check_box_ = new QCheckBox();
   format_check_box_->setObjectName("format_check_box");
-  format_check_box_->setText(tr("Format the partition"));
+  format_check_box_->setText(::QObject::tr("Format the partition"));
 
   QHBoxLayout* fs_layout =  new QHBoxLayout;
   fs_layout->addStretch();
@@ -275,9 +275,9 @@ void EditPartitionFrame::initUI() {
   mount_layout->addWidget(mount_point_box_);
   mount_layout->addStretch();
 
-  cancel_button_ = new QPushButton(tr("Cancel"));
+  cancel_button_ = new QPushButton(::QObject::tr("Cancel"));
   cancel_button_->setFixedSize(QSize(kButtonWidth, kButtonHeight));
-  ok_button_ = new QPushButton(tr("Confirm"));
+  ok_button_ = new QPushButton(::QObject::tr("Confirm"));
   ok_button_->setFixedSize(QSize(kButtonWidth, kButtonHeight));
 
   QHBoxLayout *buttonLayout = new QHBoxLayout;

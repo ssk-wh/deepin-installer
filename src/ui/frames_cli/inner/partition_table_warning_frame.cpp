@@ -72,28 +72,28 @@ void PartitionTableWarningFrame::initConnections() {
 void PartitionTableWarningFrame::initUI() {
   title_label_ = new NcursesLabel(this, 1, 1, begy(), begx());
   title_label_->setFocusEnabled(false);  
-  title_label_->setText(tr("Warning"));
+  title_label_->setText(::QObject::tr("Warning"));
 
   m_commentLab = new NcursesLabel(this, 1, 40, begy(), begx());
   m_commentLab->setFocusEnabled(false);
-  m_commentLab->setText(tr("You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. "
+  m_commentLab->setText(::QObject::tr("You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. "
                         "Please select one of the below solutions and continue."));
   m_warningBox = new NcursesListView(this, height() - 10, 30, begy(), begx());
   m_warningBox->setFocus(true);
 
   QStringList waringList;
   waringList.append(QString("1.Restart.%1. %2")
-                    .arg(tr("Restart the BIOS Settings, and close the UEFI startup"))
-                    .arg(tr("Quit the BIOS, back into the UOS installation")));
+                    .arg(::QObject::tr("Restart the BIOS Settings, and close the UEFI startup"))
+                    .arg(::QObject::tr("Quit the BIOS, back into the UOS installation")));
   waringList.append(QString("2.Format the entire disk. %1")
-                    .arg(tr("Please backup all your data, in order to avoid data loss")));
+                    .arg(::QObject::tr("Please backup all your data, in order to avoid data loss")));
   waringList.append( QString("3.To select a disk. %1.")
-                     .arg(tr("Nothing to do")));
+                     .arg(::QObject::tr("Nothing to do")));
 
   m_warningBox->setList(waringList);
 
-  QString strCancel = tr("Cancel");
-  QString strCreate = tr("Create");
+  QString strCancel = ::QObject::tr("Cancel");
+  QString strCreate = ::QObject::tr("Create");
   int buttonHeight = 3;
   int buttonWidth = std::max(strCancel.length(), strCreate.length()) + 4;
 
@@ -116,8 +116,8 @@ void PartitionTableWarningFrame::initUI() {
 
 void PartitionTableWarningFrame::updateTs()
 {
-    cancel_button_->setText(tr("Cancel"));
-    create_button_->setText(tr("Create"));
+    cancel_button_->setText(::QObject::tr("Cancel"));
+    create_button_->setText(::QObject::tr("Create"));
     layout();
 }
 

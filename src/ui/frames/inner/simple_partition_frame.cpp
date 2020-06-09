@@ -72,21 +72,21 @@ bool SimplePartitionFrame::validate() {
         case ValidateState::MaxPrimPartErr: {
             qDebug() << "partition size error!";
             msg_label_->setText(
-                        tr("Unable to create new partition, please "
+                        ::QObject::tr("Unable to create new partition, please "
                            "select one of the existing partitions!"));
             return false;
         }
         case ValidateState::RootMissing: {
             qDebug() << "not have root partition!";
             msg_label_->setText(
-                        tr("Please select one of the partitions to install!"));
+                        ::QObject::tr("Please select one of the partitions to install!"));
             return false;
         }
         case ValidateState::RootTooSmall: {
             qDebug() << "root partition is too small!";
             const int root_required =
                     GetSettingsInt(kPartitionRootMiniSpace);
-            msg_label_->setText(tr("At least %1 GB is required for root partition")
+            msg_label_->setText(::QObject::tr("/root partition requires at least %1 GB")
                                 .arg(root_required));
             return false;
         }
@@ -115,7 +115,7 @@ Device::Ptr SimplePartitionFrame::selectedDevice() const
 
 void SimplePartitionFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    tip_label_->setText(tr("Install here"));
+    tip_label_->setText(::QObject::tr("Install here"));
   } else {
     QFrame::changeEvent(event);
   }
@@ -234,7 +234,7 @@ void SimplePartitionFrame::initUI() {
   QLabel* tip_icon = new QLabel();
   tip_icon->setPixmap(installer::renderPixmap(":/images/install_icon.svg"));
 
-  tip_label_ = new QLabel(tr("Install here"));
+  tip_label_ = new QLabel(::QObject::tr("Install here"));
   tip_label_->setObjectName("tip_label");
   tip_label_->setFixedHeight(18);
 
@@ -411,8 +411,8 @@ void SimplePartitionFrame::onPartitionButtonClicked() {
 
     // If selected partitions contains windows system, show another message.
     if (button->partition()->os == OsType::Windows) {
-      msg_label_->setText(tr("Windows will not boot if you install %1 on "
-                             "Windows disk, please confirm to continue").arg(DSysInfo::productType() == DSysInfo::Deepin ? tr("Deepin") : tr("UOS")));
+      msg_label_->setText(::QObject::tr("Windows will not boot if you install %1 on "
+                             "Windows disk, please confirm to continue").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS")));
     }
 
     this->appendOperations();

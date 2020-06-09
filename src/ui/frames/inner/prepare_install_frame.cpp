@@ -67,11 +67,11 @@ void PrepareInstallFrame::updateDescription(const QStringList& descriptions) {
 
 void PrepareInstallFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    title_label_->setText(tr("Ready to Install"));
+    title_label_->setText(::QObject::tr("Ready to Install"));
     comment_label_->setText(
-        tr("Make a backup of your important data and then continue"));
-    abort_button_->setText(tr("Back"));
-    continue_button_->setText(tr("Continue"));
+        ::QObject::tr("Make a backup of your important data and then continue"));
+    abort_button_->setText(::QObject::tr("Back"));
+    continue_button_->setText(::QObject::tr("Continue"));
   } else {
     QFrame::changeEvent(event);
   }
@@ -85,9 +85,9 @@ void PrepareInstallFrame::initConnections() {
 }
 
 void PrepareInstallFrame::initUI() {
-  title_label_ = new TitleLabel(tr("Ready to Install"));
+  title_label_ = new TitleLabel(::QObject::tr("Ready to Install"));
   comment_label_ = new CommentLabel(
-      tr("Make a backup of your important data and then continue"));
+      ::QObject::tr("Make a backup of your important data and then continue"));
 
   description_edit_ = new QTextEdit();
   description_edit_->setFixedWidth(kDescriptionWidth - 20);
@@ -118,9 +118,9 @@ void PrepareInstallFrame::initUI() {
   m_bgGroup->setLayout(descriptionLayout);
   m_bgGroup->setFixedSize(QSize(kDescriptionWidth, kDescriptionHeight));
 
-  abort_button_ = new QPushButton(tr("Back"));
+  abort_button_ = new QPushButton(::QObject::tr("Back"));
   abort_button_->setFixedSize(kButtonWidth, kButtonHeight);
-  continue_button_ = new QPushButton(tr("Continue"));
+  continue_button_ = new QPushButton(::QObject::tr("Continue"));
   continue_button_->setFixedSize(kButtonWidth, kButtonHeight);
 
   QHBoxLayout *buttonLayout = new QHBoxLayout;

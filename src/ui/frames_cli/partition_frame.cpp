@@ -21,8 +21,8 @@ void PartitionFramePrivate::initUI()
         this->box();
 
         //重构建下一步和返回按钮，用于控制子界面的显示
-        QString strBack = QObject::tr("back");
-        QString strNext = QObject::tr("next");
+        QString strBack = ::QObject::tr("Back");
+        QString strNext = ::QObject::tr("Next");
 
         m_pBackButton = new NcursesButton(this, strBack, 3, 14, begy() + height() - 5, begx() + 5);
         m_pBackButton->drawShadow(true);
@@ -83,18 +83,18 @@ void PartitionFramePrivate::layout()
 void PartitionFramePrivate::updateTs()
 {
     box(ACS_VLINE,ACS_HLINE);
-    //m_label_title->setText(tr("Create Partitions"));
-    printTitle(QObject::tr("Create Partitions"), width());
-    //m_label_comment1->setText(tr("   The setup program can guide you to use various standard schemes "
+    //m_label_title->setText(::QObject::tr("Create Partitions"));
+    printTitle(::QObject::tr("Create Partitions"), width());
+    //m_label_comment1->setText(::QObject::tr("   The setup program can guide you to use various standard schemes "
     // "for disk partition. If you like, you can do it manually. If you choose the Partition Wizard,"
     // "you will have the opportunity to check and modify the partition settings later."));
-    m_label_comment1->setText(tr("    Make sure you have backed up important data, then select the partition mode."));
+    m_label_comment1->setText("  " + ::QObject::tr("Make sure you have backed up important data, then select the partition mode."));
 
-    m_label_comment2->setText(QString(tr("Partition mode")).append(" :"));
+    m_label_comment2->setText(QString(::QObject::tr("Partition mode")).append(" :"));
 
     QStringList strList;
-    strList << tr("Full disk");
-    strList << tr("Advanced");
+    strList << ::QObject::tr("Full Disk");
+    strList << ::QObject::tr("Advanced");
 
     m_partitionmodelist->setList(strList);
 

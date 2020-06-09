@@ -34,16 +34,16 @@ PartitionLoadingFrame::PartitionLoadingFrame(QWidget* parent) : QFrame(parent) {
 
 void PartitionLoadingFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    title_label_->setText(tr("Scan disks"));
-    comment_label_->setText(tr("Scanning disks, please wait..."));
+    title_label_->setText(::QObject::tr("Scan disks"));
+    comment_label_->setText(::QObject::tr("Scanning disks, please wait..."));
   } else {
     QFrame::changeEvent(event);
   }
 }
 
 void PartitionLoadingFrame::initUI() {
-  title_label_ = new TitleLabel(tr("Scan disks"));
-  comment_label_ = new CommentLabel(tr("Scanning disks, please wait..."));
+  title_label_ = new TitleLabel(::QObject::tr("Scan disks"));
+  comment_label_ = new CommentLabel(::QObject::tr("Scanning disks, please wait..."));
   comment_label_->setAlignment(Qt::AlignCenter);
 
   QVBoxLayout* layout = new QVBoxLayout();

@@ -2,7 +2,17 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
-    <name>OemSettingsItemView</name>
+    <name>QObject</name>
+    <message>
+        <location filename="../src/oem/oem_window.cpp" line="45"/>
+        <source>Failed to create $HOME/oem folder or sub-folders</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/oem/oem_window.cpp" line="53"/>
+        <source>Failed to load model data</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <location filename="../src/oem/views/oem_settings_item_view.cpp" line="81"/>
         <source>Title</source>
@@ -42,19 +52,6 @@
     <message>
         <location filename="../src/oem/views/oem_settings_item_view.cpp" line="97"/>
         <source>Custom value</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>OemWindow</name>
-    <message>
-        <location filename="../src/oem/oem_window.cpp" line="45"/>
-        <source>Failed to create $HOME/oem folder or sub-folders</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/oem/oem_window.cpp" line="53"/>
-        <source>Failed to load model data</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

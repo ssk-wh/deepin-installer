@@ -113,7 +113,7 @@ bool DynamicDiskWarningFrame::event(QEvent* event)
 
 void DynamicDiskWarningFrame::refreshTs()
 {
-    m_warning->setText(tr("Warning"));
-    m_cancelBtn->setText(tr("Cancel"));
-    m_acceptBtn->setText(tr("Next"));
+    m_warning->setText(::QObject::tr("Warning"));
+    m_cancelBtn->setText(::QObject::tr("Cancel"));
+    m_acceptBtn->setText(::QObject::tr("Next"));
 }
