@@ -492,7 +492,7 @@ void MainWindow::constructLabelView()
 
         DStandardItem* item = new DStandardItem;
         QString pixPathTemplate(":/images/NO_inactive%1.svg");
-        item->setIcon(QIcon(installer::renderPixmap(pixPathTemplate.arg(i))));
+        item->setIcon(QIcon(pixPathTemplate.arg(i)));
         ++i;
 
         item->setText(tr(frame->returnFrameName().toLatin1().data()));
@@ -501,7 +501,7 @@ void MainWindow::constructLabelView()
         item->setFlags(Qt::ItemFlag::NoItemFlags);
 
         DViewItemAction* action = new DViewItemAction(Qt::AlignmentFlag::AlignVCenter);
-        action->setIcon(QIcon(installer::renderPixmap(":/images/done_inactive.svg")));
+        action->setIcon(QIcon(":/images/done_inactive.svg"));
         action->setVisible(false);
         item->setActionList(Qt::Edge::RightEdge, {action});
 
