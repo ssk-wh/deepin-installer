@@ -291,7 +291,7 @@ void SelectLanguageFramePrivate::initUI() {
     QLabel* logo_label = new QLabel();
     logo_label->setPixmap(installer::renderPixmap(GetVendorLogo()));
 
-    QLabel* title_label = new QLabel(::QObject::tr("Select Language"));
+    QLabel* title_label = new QLabel("Select Language");
     title_label->setObjectName("title_label");
     title_label->setWordWrap(false);
     title_label->setAlignment(Qt::AlignHCenter);

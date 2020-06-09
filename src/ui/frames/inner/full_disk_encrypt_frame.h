@@ -7,6 +7,7 @@
 #include <QWidget>
 #include <DLineEdit>
 #include <DPasswordEdit>
+#include <DImageButton>
 
 DWIDGET_USE_NAMESPACE
 
@@ -57,6 +58,7 @@ private:
     void updateEditCapsLockState(bool on);
     void updateDiskInfo(int index);
     void updateDiskInfo();
+    void setupCloseButton();
 
 private:
     QVBoxLayout *m_layout;
@@ -76,6 +78,7 @@ private:
     QList<DLineEdit*> m_editList;
     FullDiskPartitionWidget *m_diskPartitionWidget;
     FullDiskDelegate *m_diskPartitionDelegate;
+    DImageButton* m_close_button = nullptr;
 
 };
 }

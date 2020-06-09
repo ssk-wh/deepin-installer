@@ -22,6 +22,7 @@
 #include <QPushButton>
 #include <QPainter>
 #include <QPainterPath>
+#include <QDebug>
 
 #define NEXTBTN_WIDTH 240
 #define NEXTBTN_HEIGHT 36
@@ -53,6 +54,9 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     , m_diskPartitionWidget(new FullDiskPartitionWidget)
     , m_diskPartitionDelegate(delegate)
 {
+    // add close button
+    setupCloseButton();
+
     m_layout->setContentsMargins(0, 0, 0, 0);
     m_layout->setSpacing(10);
     m_errTip->hide();
@@ -173,6 +177,13 @@ void Full_Disk_Encrypt_frame::changeEvent(QEvent *event)
 {
     if (event->type() == QEvent::LanguageChange) {
         updateText();
+
+        if (m_close_button) {
+            const int marginSize = this->layout()->margin();
+            m_close_button->move(width() - m_close_button->width() - marginSize, marginSize);
+            m_close_button->raise();
+            m_close_button->show();
+        }
     }
 
     return QWidget::changeEvent(event);
@@ -197,6 +208,12 @@ void Full_Disk_Encrypt_frame::initConnections()
     connect(m_encryptEdit, &DLineEdit::textChanged, m_errTip, &SystemInfoTip::hide);
     connect(m_encryptRepeatEdit, &DLineEdit::textChanged, m_errTip, &SystemInfoTip::hide);
     connect(KeyboardMonitor::instance(), &KeyboardMonitor::capslockStatusChanged, this, &Full_Disk_Encrypt_frame::updateEditCapsLockState);
+
+    connect(m_close_button, &DImageButton::clicked, this, &Full_Disk_Encrypt_frame::cancel);
+#ifdef QT_DEBUG
+    connect(m_close_button, &DImageButton::clicked, this, []{qDebug() << "close button!";});
+#endif // QT_DEBUG
+
 }
 
 void Full_Disk_Encrypt_frame::onNextBtnClicked()
@@ -287,4 +304,15 @@ void Full_Disk_Encrypt_frame::updateDiskInfo()
         m_diskinfo[i].m_deviceSizeLbl->hide();
         i++;
     }
+}
+
+void Full_Disk_Encrypt_frame::setupCloseButton()
+{
+    // TODO: use titleBar implement.
+    m_close_button = new DImageButton(this);
+    m_close_button->setFocusPolicy(Qt::TabFocus);
+    m_close_button->setFixedSize(40, 40);
+    m_close_button->setNormalPic(":/images/close_normal.svg");
+    m_close_button->setHoverPic(":/images/close_normal.svg");
+    m_close_button->setPressPic(":/images/close_normal.svg");
 }
