@@ -35,16 +35,16 @@ void installer::PwqualityManager::init()
 
 void installer::PwqualityManager::setup()
 {
-//    m_dictChecked = GetSettingsBool(kSystemInfoPasswordDistCheck);
-//    if (m_dictChecked) {
-//        pwquality_set_int_value(m_pwqualitySetting.get(), PWQ_SETTING_DICT_CHECK, 1);
-//    } else {
-//        pwquality_set_int_value(m_pwqualitySetting.get(), PWQ_SETTING_DICT_CHECK, 0);
-//    }
-//    m_dictPath = GetSettingsBool(kSystemInfoPasswordDistPath);
-//    if (!m_dictPath.isEmpty()) {
-//        pwquality_set_str_value(m_pwqualitySetting.get(), PWQ_SETTING_DICT_PATH, m_dictPath.toStdString().c_str());
-//    }
+    m_dictChecked = GetSettingsBool(kSystemInfoPasswordDistCheck);
+    if (m_dictChecked) {
+        pwquality_set_int_value(m_pwqualitySetting.get(), PWQ_SETTING_DICT_CHECK, 1);
+    } else {
+        pwquality_set_int_value(m_pwqualitySetting.get(), PWQ_SETTING_DICT_CHECK, 0);
+    }
+    m_dictPath = GetSettingsBool(kSystemInfoPasswordDistPath);
+    if (!m_dictPath.isEmpty()) {
+        pwquality_set_str_value(m_pwqualitySetting.get(), PWQ_SETTING_DICT_PATH, m_dictPath.toStdString().c_str());
+    }
 
     m_palindromeChecked = GetSettingsBool(kSystemInfoPasswordPalindromeCheck);
     m_palindromeLength = GetSettingsInt(kSystemInfoPasswordPalindromeLength);
@@ -87,13 +87,10 @@ QString installer::PwqualityManager::palindromeChecked(const QString &text)
 
 QString installer::PwqualityManager::dictChecked(const QString &text)
 {
-    pwquality_set_int_value(m_pwqualitySetting.get(), PWQ_SETTING_DICT_CHECK, 1);
     int code = pwquality_check(m_pwqualitySetting.get(),
                                text.toStdString().c_str(),
                                NULL, NULL, NULL);
 
-
-    qInfo() << "code = " << code;
     if (code == PWQ_ERROR_CRACKLIB_CHECK) {
         return text;
     }
