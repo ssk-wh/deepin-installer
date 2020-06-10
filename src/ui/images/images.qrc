@@ -123,8 +123,8 @@
         <file>password_show_hover.svg</file>
         <file>password_show_normal.svg</file>
         <file>password_show_press.svg</file>
-        <file>select_blue.svg</file>
         <file>map.svg</file>
         <file>logo.svg</file>
+        <file>select_blue.svg</file>
     </qresource>
 </RCC>
