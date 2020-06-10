@@ -423,8 +423,12 @@ void SelectLanguageFramePrivate::updateTranslator(const QString& locale) {
 
 void SelectLanguageFramePrivate::updateTs()
 {
+    QPalette palette;
+    palette.setColor(QPalette::Text, QColor(66, 154, 216));
+
     accept_license_->setText(::QObject::tr("I have read and agree to the"));
     license_label_->setText(::QObject::tr("%1 Software End User License Agreement").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS")));
+    license_label_->setPalette(palette);
 
     if (oem_license_label_ != nullptr) {
         oem_and_label_->setText(::QObject::tr("and"));
@@ -438,6 +442,7 @@ void SelectLanguageFramePrivate::updateTs()
 
     accept_experience_->setText(::QObject::tr("Agree to the"));
     experience_label_->setText(::QObject::tr("User Experience Program License Agreement"));
+    experience_label_->setPalette(palette);
 }
 
 void SelectLanguageFramePrivate::onLanguageListSelected(const QModelIndex& current)

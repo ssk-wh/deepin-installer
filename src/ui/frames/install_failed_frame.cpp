@@ -117,9 +117,12 @@ void InstallFailedFrame::updateMessage()
         encoded_msg = EncodeErrorMsg(msg);
     }
 
+    QPalette palette;
+    palette.setColor(QPalette::Text, QColor(66, 154, 216));
     d->m_plainTextEdit->setPlainText(msg);
     d->m_plainTextEdit->moveCursor(QTextCursor::End);
     d->m_plainTextEdit->ensureCursorVisible();
+    d->m_plainTextEdit->setPalette(palette);
 
     if (encoded_msg.isEmpty()) {
         // If encoded_msg if empty, qr_widget will generate a rectangle filled with

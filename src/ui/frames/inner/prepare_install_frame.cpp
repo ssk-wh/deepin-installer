@@ -96,9 +96,10 @@ void PrepareInstallFrame::initUI() {
   description_edit_->setLineWrapMode(QTextEdit::WidgetWidth);
 
   description_edit_->setFrameShape(QFrame::Shape::NoFrame);
-  QPalette pl = description_edit_->palette();
-  pl.setBrush(QPalette::Base, QBrush(QColor(255, 0, 0, 0)));
-  description_edit_->setPalette(pl);
+
+  QPalette palette;
+  palette.setColor(QPalette::Text, QColor(66, 154, 216));
+  description_edit_->setPalette(palette);
 
   description_edit_->setObjectName("description_edit");
   description_edit_->setContentsMargins(0, 0, 0, 0);
