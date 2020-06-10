@@ -53,8 +53,7 @@ void ConfirmQuitFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     setTitle(::QObject::tr("Abort Installation"));
     comment_label_->setText(
-        ::QObject::tr("Relevant operations you made in the installation "
-           "process will not take effect, abort or continue installation?"));
+        ::QObject::tr("Relevant operations you made in the installation process will not take effect, abort or continue installation?"));
     continue_button_->setText(::QObject::tr("Continue"));
     abort_button_->setText(::QObject::tr("Abort"));
   } else {
@@ -71,8 +70,10 @@ void ConfirmQuitFrame::initConnections() {
 
 void ConfirmQuitFrame::initUI() {
   comment_label_ = new CommentLabel(
-      ::QObject::tr("Relevant operations you made in the installation "
-         "process will not take effect, abort or continue installation?"));
+              ::QObject::tr("Relevant operations you made in the installation process will not take effect, abort or continue installation?"));
+  comment_label_->setFixedWidth(380);
+  comment_label_->setWordWrap(true);
+  comment_label_->setAlignment(Qt::AlignCenter);
 
   continue_button_ = new QPushButton(::QObject::tr("Continue"));
   continue_button_->setFixedSize(170, 36);
@@ -85,13 +86,8 @@ void ConfirmQuitFrame::initUI() {
   setIconPixmap(pixmap);
 
   setTitle(::QObject::tr("Abort Installation"));
-  QLabel *commentLabel = new QLabel(
-      ::QObject::tr("Relevant operations you made in the installation "
-         "process will not take effect, abort or continue installation?"));
-  commentLabel->setWordWrap(true);
-  commentLabel->setAlignment(Qt::AlignCenter);
 
-  addContent(commentLabel, Qt::AlignTop | Qt::AlignHCenter);
+  addContent(comment_label_, Qt::AlignTop | Qt::AlignHCenter);
 
   int index = 1;
   insertButton(index, continue_button_, true);
