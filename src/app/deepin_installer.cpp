@@ -36,18 +36,10 @@
 
 DCORE_USE_NAMESPACE
 
-void xrandr() {
 
-    QString msg;
-    bool exitCode = installer::SpawnCmd(BUILTIN_HOOKS_DIR"/00_setup_installer_xrandr.job", QStringList(), msg);
-    if (exitCode) {
-        qCritical() << "xrandr exec failed. err: " + msg;
-    } else {
-        qCritical() << "xrandr start failed.";
-    }
-}
 
 int main(int argc, char* argv[]) {
+  Utils::xrandr();
   // Reset LC_ALL to en_US.UTF-8.
   // NOTE(xushaohua): "LANG" might not set in some live environment.
   qputenv("LC_ALL", installer::kDefaultLang);
@@ -107,7 +99,6 @@ int main(int argc, char* argv[]) {
   }
 
   installer::ComponentInstallManager::Instance();
-  xrandr();
 
   installer::MainWindow main_window;
   main_window.setLogFile(args_parser.getLogFile());

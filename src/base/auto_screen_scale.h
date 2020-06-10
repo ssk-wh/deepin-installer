@@ -1,5 +1,6 @@
 #include "base/utils.h"
 #include "base/file_util.h"
+#include "base/command.h"
 
 #include <X11/Xlib.h>
 #include <X11/extensions/Xrandr.h>
@@ -9,6 +10,17 @@
 
 namespace Utils
 {
+void xrandr() {
+
+    QString msg;
+    bool exitCode = installer::SpawnCmd(BUILTIN_HOOKS_DIR"/00_setup_installer_xrandr.job", QStringList(), msg);
+    if (exitCode) {
+        qCritical() << "xrandr exec failed. err: " + msg;
+    } else {
+        qCritical() << "xrandr start failed.";
+    }
+}
+
 void AutoScreenScale()
 {
     const QString& result = installer::ReadFile("/proc/cmdline");

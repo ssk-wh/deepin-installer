@@ -39,6 +39,7 @@ DCORE_USE_NAMESPACE
 
 int main(int argc, char *argv[])
 {
+  Utils::xrandr();
   qputenv("LC_ALL", installer::kDefaultLang);
   qputenv("LANG", installer::kDefaultLang);
 
