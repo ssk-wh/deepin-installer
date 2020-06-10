@@ -25,6 +25,8 @@
 #include <QPushButton>
 #include <DFrame>
 #include <DPalette>
+#include <QScrollArea>
+#include <QScrollBar>
 
 #include "base/file_util.h"
 #include "ui/frames/consts.h"
@@ -118,6 +120,19 @@ void PrepareInstallFrame::initUI() {
   m_bgGroup->setLayout(descriptionLayout);
   m_bgGroup->setFixedSize(QSize(kDescriptionWidth, kDescriptionHeight));
 
+  QScrollArea* scroll = new QScrollArea(this);
+  scroll->setWidgetResizable(true);
+  scroll->setFocusPolicy(Qt::NoFocus);
+  scroll->setFrameStyle(QFrame::NoFrame);
+  scroll->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+  scroll->setContentsMargins(0, 0, 15, 0);
+  scroll->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+  scroll->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+  scroll->setContextMenuPolicy(Qt::NoContextMenu);
+  scroll->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+  scroll->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+  scroll->setWidget(m_bgGroup);
+
   abort_button_ = new QPushButton(::QObject::tr("Back"));
   abort_button_->setFixedSize(kButtonWidth, kButtonHeight);
   continue_button_ = new QPushButton(::QObject::tr("Continue"));
@@ -139,7 +154,7 @@ void PrepareInstallFrame::initUI() {
   layout->addWidget(title_label_, 0, Qt::AlignHCenter);
   layout->addWidget(comment_label_, 0, Qt::AlignHCenter);
   layout->addStretch();
-  layout->addWidget(m_bgGroup, 0, Qt::AlignHCenter);
+  layout->addWidget(scroll, 0, Qt::AlignHCenter);
   layout->addStretch();
   layout->addWidget(buttonWrapWidget, 0, Qt::AlignHCenter);
 
