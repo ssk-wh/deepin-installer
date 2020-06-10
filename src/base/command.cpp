@@ -114,4 +114,16 @@ bool SpawnCmd(const QString& cmd, const QStringList& args,
 
     return false;
 }
+
+void xrandr() {
+
+    QString msg;
+    bool exitCode = installer::SpawnCmd(BUILTIN_HOOKS_DIR"/00_setup_installer_xrandr.job", QStringList(), msg);
+    if (exitCode) {
+        if (!msg.isEmpty()) qCritical() << "xrandr exec failed. err: " + msg;
+    } else {
+        qCritical() << "xrandr start failed.";
+    }
+}
+
 }  // namespace installer

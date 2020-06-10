@@ -33,13 +33,14 @@
 #include <cstdlib>
 #include <DApplication>
 #include "base/auto_screen_scale.h"
+#include "base/command.h"
 
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
 int main(int argc, char *argv[])
 {
-  Utils::xrandr();
+  installer::xrandr();
   qputenv("LC_ALL", installer::kDefaultLang);
   qputenv("LANG", installer::kDefaultLang);
 

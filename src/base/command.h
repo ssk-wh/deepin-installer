@@ -38,6 +38,8 @@ bool SpawnCmd(const QString& cmd, const QStringList& args, QString& output,
 bool SpawnCmd(const QString& cmd, const QStringList& args, QString& output,
               QString& err, int tryCount);
 
+void xrandr();
+
 }  // namespace installer
 
 #endif  // INSTALLER_BASE_COMMAND_H

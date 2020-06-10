@@ -22,12 +22,17 @@
 
 #include "ui/delegates/componentinstallmanager.h"
 #include "base/consts.h"
+#include "base/command.h"
 #include "service/log_manager.h"
 #include "service/settings_manager.h"
 #include "sysinfo/users.h"
 #include "ui/delegates/installer_args_parser.h"
 #include "ui/main_window_cli.h"
 #include <QCoreApplication>
+#include <ncurses.h>
+#include <string.h>
+#include <signal.h>
+#include <sys/ioctl.h>
 
 using namespace installer;
 
@@ -38,7 +43,6 @@ int main(int argc, char* argv[])
     // NOTE(xushaohua): "LANG" might not set in some live environment.
     qputenv("LC_ALL", installer::kDefaultLang);
     qputenv("LANG", installer::kDefaultLang);
-
 
     QCoreApplication app(argc, argv);
 
