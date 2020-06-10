@@ -34,6 +34,7 @@ void NcursesListView::setList(QStringList &list)
     m_foucsWindows.clear();
     m_index = 0;
     m_currLine = 0;
+    m_currentIndex = 0;
     m_list = list;
     int i = 0;
 

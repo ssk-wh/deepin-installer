@@ -468,6 +468,10 @@ void AdvancedPartitionFrame::doBackBtnClicked()
         m_delegate->resetOperations();
         m_lvmDelegate->resetOperations();
         m_currentDelegate = m_delegate;
+        if (VgDevice::p_installer_VgDevice) {
+            //由于智能指针会自动释放，此处不需要手动删除
+            VgDevice::p_installer_VgDevice = nullptr;
+        }
         AdvancedPartitionDelegate::install_Lvm_Status = Install_Lvm_Status::Lvm_No_Need;
         emit m_currentDelegate->deviceRefreshed(m_delegate->realDevices());
     } else {
