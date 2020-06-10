@@ -182,6 +182,9 @@ QString installer::RepairSystemFrame::returnFrameName() const
 void installer::RepairSystemFrame::repairSystem() const
 {
     QString repairScript = GetSettingsString(kRepairScriptPoints);
+    if (!QFileInfo::exists(repairScript)) {
+        repairScript = DATAS_DIR + repairScript;
+    }
 
     QProcess process;
     process.setProgram(repairScript);
