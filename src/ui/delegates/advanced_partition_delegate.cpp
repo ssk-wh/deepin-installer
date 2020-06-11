@@ -347,11 +347,12 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
                   continue;
               }
 
-              if (IsEfiEnabled()) {
+              if (device->table == PartitionTableType::GPT) {
                   int index = list.indexOf(efiPartition);
                   if (index != -1 && index != 0) {
-                      states << ValidateState::BootPartNumberInvalid;
-                      break;
+                      states.clear();
+                      states << ValidateState::EfiPartNumberinvalid;
+                      return states;
                   }
                   continue;
               }
@@ -359,15 +360,17 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
               int index = list.indexOf(bootPartition);
               // boot partition exists, but is not the first partition.
               if (index != -1 && index != 0) {
+                  states.clear();
                   states << ValidateState::BootPartNumberInvalid;
-                  break;
+                  return states;
               }
 
               index = list.indexOf(rootPartition);
               // boot partition does not exist, root partition exists, but is not the first partition.
               if (bootPartition.isNull() && index != -1 && index != 0) {
+                  states.clear();
                   states << ValidateState::BootPartNumberInvalid;
-                  break;
+                  return states;
               }
           }
       }
