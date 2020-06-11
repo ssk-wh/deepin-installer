@@ -32,7 +32,7 @@ namespace {
     const int kButtonWidth = 200;
     const int kButtonHeight = 36;
 
-    const int kCommentLabelWidth = 398;
+    const int kCommentLabelWidth = 798;
 }
 
 namespace installer {
