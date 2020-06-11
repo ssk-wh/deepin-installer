@@ -65,6 +65,7 @@ if (CMAKE_BUILD_TYPE MATCHES Debug)
   add_definitions("-DRESOURCES_DIR=\"${CMAKE_SOURCE_DIR}/resources\"")
   add_definitions("-DTOOLS_DIR=\"${CMAKE_SOURCE_DIR}/tools\"")
   add_definitions("-DDATAS_DIR=\"${CMAKE_SOURCE_DIR}/data\"")
+  add_definitions("-DXRANDR_DIR=\"${CMAKE_SOURCE_DIR}/src/app\"")
 else()
   add_definitions("-DN_DEBUG")
   add_definitions("-DBUILTIN_HOOKS_DIR=\"${INSTALLER_SHARE_DIR}/hooks\"")
@@ -73,6 +74,7 @@ else()
   add_definitions("-DRESOURCES_DIR=\"${INSTALLER_SHARE_DIR}/resources\"")
   add_definitions("-DTOOLS_DIR=\"${INSTALLER_SHARE_DIR}/tools\"")
   add_definitions("-DDATAS_DIR=\"/usr/bin/\"")
+  add_definitions("-DXRANDR_DIR=\"/usr/bin\"")
 endif()
 
 find_package(PkgConfig REQUIRED)
@@ -1207,6 +1209,7 @@ install(PROGRAMS
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-first-boot-pkexec
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-pkexec
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-both
+        ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-xrandr
         DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
         )
 

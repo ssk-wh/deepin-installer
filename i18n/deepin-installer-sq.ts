@@ -400,27 +400,26 @@
         <translation>Hapësirë e lirë</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="54"/>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="87"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="56"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="100"/>
         <source>Abort Installation</source>
         <translation>Ndërprite Instalimin</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="56"/>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="74"/>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="89"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="58"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="85"/>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
         <translation>Veprimet përkatëse që bëtë te procesi i instalimit s’do të kenë efekt, të ndërpritet apo të vazhdohet instalimi?</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="77"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="59"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="90"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="95"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="79"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="137"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="74"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="123"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="82"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="139"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="74"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="126"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="100"/>
@@ -429,8 +428,8 @@
         <translation>Vazhdo</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="59"/>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="79"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="60"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="92"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="43"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="61"/>
         <source>Abort</source>
@@ -456,11 +455,11 @@
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="199"/>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="118"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="87"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="154"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="90"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="162"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="193"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="711"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="909"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="717"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="915"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="231"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="645"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="184"/>
@@ -486,8 +485,8 @@
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="190"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="427"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="430"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="415"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="140"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="141"/>
@@ -499,8 +498,8 @@
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="190"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="427"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="430"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="415"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="140"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="141"/>
@@ -525,8 +524,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="116"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="71"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="110"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="113"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="75"/>
         <source>Warning</source>
         <translation>Sinjalizim</translation>
@@ -535,13 +534,13 @@
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="127"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="278"/>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="249"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="266"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="148"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="276"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="83"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="143"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="152"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="95"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="119"/>
         <source>Cancel</source>
@@ -636,7 +635,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="555"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="342"/>
         <source>To create lvm, /boot partition is required</source>
-        <translation type="unfinished"/>
+        <translation>Për të krijuar lvm, pjesa /boot është e domosdoshme</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="558"/>
@@ -678,7 +677,7 @@
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="246"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="143"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="216"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="181"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="187"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="227"/>
         <source>File system</source>
         <translation>Sistem kartelash</translation>
@@ -688,7 +687,7 @@
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="242"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="231"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="187"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="193"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="228"/>
         <source>Mount point</source>
         <translation>Pikë montimi</translation>
@@ -702,7 +701,7 @@
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="128"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="278"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="197"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="164"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="231"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="96"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="120"/>
@@ -711,7 +710,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="280"/>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="250"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="267"/>
         <location filename="../src/ui/main_window_cli.cpp" line="66"/>
         <location filename="../src/ui/main_window_cli.cpp" line="79"/>
         <location filename="../src/ui/main_window_cli.cpp" line="91"/>
@@ -719,46 +718,46 @@
         <translation>Ripohojeni</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="205"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="222"/>
         <source>Please input password</source>
         <translation>Ju lutemi, jepni fjalëkalimin</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="212"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="754"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="229"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="767"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="126"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="240"/>
         <source>Passwords do not match</source>
         <translation>Fjalëkalimet nuk përputhen</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="245"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="262"/>
         <source>Encrypt This Disk</source>
         <translation>Fshehtëzoje Këtë Disk</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="246"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="263"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="227"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="425"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Sigurohuni se keni kopjeruajtur të dhëna të rëndësishme, mandej përzgjidhni diskun për instalim</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="247"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="431"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="559"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="566"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="437"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="572"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="579"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="459"/>
         <source>Password</source>
         <translation>Fjalëkalim</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="248"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="265"/>
         <source>Repeat Password</source>
         <translation>Ripërsëritni Fjalëkalimin</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="251"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="268"/>
         <source>Take care of your password, otherwise, all your data will be lost</source>
         <translation>Mos e humbni fjalëkalimin tuaj, përndryshe, krejt të dhënat tuaja do të humbin</translation>
     </message>
@@ -784,14 +783,14 @@
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="140"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="185"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="166"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="172"/>
         <source>Create New Partition</source>
         <translation>Krijoni Pjesë të Re</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="141"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="187"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="170"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="176"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="225"/>
         <source>Type</source>
         <translation>Lloj</translation>
@@ -799,7 +798,7 @@
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="142"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="202"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="176"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="182"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="226"/>
         <source>Location</source>
         <translation>Vendndodhje</translation>
@@ -807,7 +806,7 @@
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="145"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="247"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="192"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="198"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="229"/>
         <source>Size</source>
         <translation>Madhësi</translation>
@@ -897,8 +896,8 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="67"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="114"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="73"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="121"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="75"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="137"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="47"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="91"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="284"/>
@@ -906,7 +905,7 @@
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="183"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="24"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="21"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="196"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="165"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="230"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="99"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="120"/>
@@ -917,65 +916,65 @@
         <translation>Mbrapsht</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="73"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="76"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. Please select one of the below solutions and continue.</source>
         <translation>Keni një ngarkues nisjesh EFI, por një disk MBR ama, ndaj s’mund të instaloni drejtpërsëdrejti %1-in. Ju lutemi, përzgjidhni një nga zgjidhjet më poshtë dhe vazhdoni.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="75"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="131"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="78"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="136"/>
         <source>Disable UEFI</source>
         <translation>Çaktivizo UEFI</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="133"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="80"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="138"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="86"/>
         <source>Reboot, enter BIOS, and disable UEFI</source>
         <translation>Riniseni, hyni në BIOS, dhe çaktivizoni UEFI-n</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="78"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="134"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="81"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="139"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="87"/>
         <source>Exit BIOS, and install UOS again</source>
         <translation>Dilni nga BIOS-i, dhe riinstaloni UOS-in</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="81"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="139"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="146"/>
         <source>Make sure you have backed up all data before proceeding</source>
         <translation>Përpara se të vazhdoni, sigurohuni se keni kopjeruajtur krejt të dhënat tuaja</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="82"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="140"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="147"/>
         <source>Continuing installation will format your disk</source>
         <translation>Vazhdimi i instalimit do të formatojë diskun tuaj</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="85"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="145"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="88"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="154"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="91"/>
         <source>Nothing to do</source>
         <translation>S’ka ç’bëhet</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="127"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="79"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
         <translation>Keni një ngarkues nisjesh EFI, por një disk MBR ama, ndaj s’mund të instaloni drejtpërsëdrejti UOS-in. Ju lutemi, përzgjidhni një nga zgjidhjet më poshtë dhe vazhdoni.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="70"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="88"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="72"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="90"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="88"/>
         <source>Ready to Install</source>
         <translation>Gati për Instalim</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="72"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="90"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="92"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="92"/>
         <source>Make a backup of your important data and then continue</source>
         <translation>Është e rëndësishme gjithashtu që të bë</translation>
@@ -993,36 +992,29 @@
         <translation>Nëse s’i kuptoni rregullimet, ju lutemi, përzgjidhni atë të rekomanduarin</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="294"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="106"/>
-        <location filename="../src/ui/frames_cli/language_frame.cpp" line="46"/>
-        <source>Select Language</source>
-        <translation>Përzgjidhni Gjuhë</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="426"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="429"/>
         <source>I have read and agree to the</source>
         <translation>I kam lexuar dhe pajtohem me</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="427"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="430"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="140"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="141"/>
         <source>%1 Software End User License Agreement</source>
         <translation>Marrëveshje Licence Përdoruesi të Thjeshtë %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="430"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="434"/>
         <source>and</source>
         <translation>dhe</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="439"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="443"/>
         <source>Agree to the</source>
         <translation>Pajtohem me</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="440"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="444"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="137"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="138"/>
         <source>User Experience Program License Agreement</source>
@@ -1050,147 +1042,147 @@
         <translation>Windows nuk do të niset, nëse instaloni %1 në një disk Windows, që të vazhdohet, ju lutemi, ripohojeni</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="358"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="557"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="564"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="361"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="570"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="577"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="458"/>
         <source>Username</source>
         <translation>Emër përdoruesi</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="383"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="558"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="565"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="389"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="571"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="578"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="457"/>
         <source>Computer name</source>
         <translation>Emër kompjuteri</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="432"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="560"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="567"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="438"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="573"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="580"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="210"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="460"/>
         <source>Repeat password</source>
         <translation>Përsëritni fjalëkalimin</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="561"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="568"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="574"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="581"/>
         <source>Root password</source>
         <translation>Fjalëkalim rrënjë</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="562"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="569"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="575"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="582"/>
         <source>Repeat root password</source>
         <translation>Përsëritni fjalëkalimin rrënjë</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="571"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="584"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="133"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="454"/>
         <source>Create Accounts</source>
         <translation>Krijoni Llogari</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="572"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="585"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="456"/>
         <source>Fill in the username, computer name and your password</source>
         <translation>Plotësoni emrin e përdoruesit, emrin e kompjuterit dhe fjalëkalimin tuaj</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="573"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="586"/>
         <source>Use that password to edit boot menu</source>
         <translation>Përdore këtë fjalëkalim për përpunim të menusë së nisjes</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="574"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="587"/>
         <source>Set as root password</source>
         <translation>Caktoje si fjalëkalim rrënje</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="598"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="611"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="152"/>
         <source>This username already exists</source>
         <translation>Ky emër përdoruesi ekziston tashmë</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="603"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="616"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="156"/>
         <source>The first letter must be in lowercase</source>
         <translation>Shkronja e parë duhet të jetë shkronjë me të vogël</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="609"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="622"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="161"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
         <translation>Emri i përdoruesit duhet të përmbajë shkronja anglishteje (me të vogla), numra ose simbole specialë (_-)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="616"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="629"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="167"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
         <translation>Ju lutemi, jepni një emër përdorues më të gjatë se %1 shenja dhe më të shkurtër se %2 shenja</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="640"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="653"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="116"/>
         <source>Please input computer name</source>
         <translation>Ju lutemi, jepni emër kompjuteri</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="645"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="658"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="120"/>
         <source>Computer name is invalid</source>
         <translation>Emri i kompjuterit është i pavlefshëm</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="650"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="663"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="124"/>
         <source>Computer name already exists, please input another one</source>
         <translation>Emri i kompjuterit ekziston tashmë, ju lutemi, jepni një tjetër</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="656"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="669"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="129"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
         <translation>Ju lutemi, jepni një emër kompjuteri më të gjatë se %1 shenja dhe më të shkurtër se %2 shenja</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="685"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="698"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="80"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="194"/>
         <source>The password should be different from the username</source>
         <translation>Fjalëkalimi duhet të jetë i ndryshëm nga emri i përdoruesit</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="700"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="713"/>
         <source>The password cannot be empty​</source>
         <translation>Fjalëkalimi s’mund të jetë i zbrazët</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="705"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="718"/>
         <source>Password must contain letters, numbers and symbols</source>
         <translation>Fjalëkalimi duhet të përmbajë shkronja, numra dhe simbole</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="711"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="724"/>
         <source>Password must have at least 8 characters</source>
         <translation>Fjalëkalimi duhet të ketë të paktën 8 shenja</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="725"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="738"/>
         <source>Password must not contain common words and combinations</source>
         <translation>Fjalëkalimi s’duhet të përmbajë fjalë të rëndomta dhe kombinime</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="731"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="744"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Fjalëkalimi s’duhet të përmbajë më tepër se 4 shenja palindromike</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="959"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="972"/>
         <source>Add fingerprint password in Control Center &gt; Accounts to unlock and authenticate</source>
         <translation>Për shkyçje dhe mirëfilltësim, shtoni fjalëkalim shenja gishti te Qendër Kontrolli &gt; Llogari</translation>
     </message>
@@ -1303,7 +1295,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="168"/>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="141"/>
         <source>Install</source>
         <translation>Instaloje</translation>
     </message>
@@ -1353,128 +1345,134 @@
         <translation>Që të plotësohet instalimi riniseni</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="119"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="106"/>
+        <location filename="../src/ui/frames_cli/language_frame.cpp" line="46"/>
+        <source>Select Language</source>
+        <translation>Përzgjidhni Gjuhë</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="121"/>
         <source>Edit</source>
         <translation>Përpunoni</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="122"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="124"/>
         <source>Accept</source>
         <translation>Pranoje</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="144"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="579"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="151"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="585"/>
         <source>IP Address</source>
         <translation>Adresë IP</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="145"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="159"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="580"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="152"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="166"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="586"/>
         <source>Netmask</source>
         <translation>NetMask-ë</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="146"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="581"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="153"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="587"/>
         <source>Gateway</source>
         <translation>Kanal</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="147"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="582"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="154"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="588"/>
         <source>Primary DNS</source>
         <translation>DNS Parësore</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="148"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="583"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="155"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="589"/>
         <source>Secondary DNS</source>
         <translation>DNS Dytësore</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="158"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="165"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="211"/>
         <source>IP:</source>
         <translation>IP:</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="160"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="213"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="314"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="167"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="223"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="315"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="213"/>
         <source>Gateway:</source>
         <translation>Kanal:</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="161"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="224"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="315"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="168"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="235"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="316"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="214"/>
         <source>Primary DNS:</source>
         <translation>DNS Parësore:</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="162"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="235"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="169"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="317"/>
         <source>Secondary DNS:</source>
         <translation>DNS Dytësore:</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="191"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="312"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="199"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="313"/>
         <source>IP Address:</source>
         <translation>Adresë IP:</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="202"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="313"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="211"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="314"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="212"/>
         <source>Netmask:</source>
         <translation>NetMask-ë:</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="248"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="259"/>
         <source>DHCP:</source>
         <translation>DHCP:</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="254"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="265"/>
         <source>Auto</source>
         <translation>Auto</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="255"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="266"/>
         <source>Manual</source>
         <translation>Dorazi</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="467"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="473"/>
         <source>Illegal %1, please have a check.</source>
         <translation>%1 e paligjshme, ju lutemi, kontrollojeni.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="484"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="490"/>
         <source>IP address error: illegal IP address, please have a check.</source>
         <translation>Gabim adrese IP: adresë IP e paligjshme, ju lutemi, kontrollojeni.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="498"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="504"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
         <translation>Gabim netmask-e: netmask-ë e paligjshme, ju lutemi, kontrollojeni.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="717"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="833"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="907"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="723"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="839"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="913"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="172"/>
         <source>Configure Network</source>
         <translation>Formësoni Rrjetin</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="718"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="908"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="724"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="914"/>
         <source>IP address has been auto-configured, but you can configure the network as well</source>
         <translation>Adresa IP është formësuar automatikisht, por mund të formësoni edhe rrjetin</translation>
     </message>
@@ -1483,7 +1481,7 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="223"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="423"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="742"/>
-        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="87"/>
+        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="89"/>
         <source>Create Partitions</source>
         <translation>Krijoni Pjesë</translation>
     </message>
@@ -1502,8 +1500,8 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="229"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="435"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="87"/>
-        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="97"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="88"/>
+        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="99"/>
         <source>Advanced</source>
         <translation>I thelluar</translation>
     </message>
@@ -1511,7 +1509,7 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="230"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="437"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="88"/>
-        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="96"/>
+        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="98"/>
         <source>Full Disk</source>
         <translation>Tërë Diskun</translation>
     </message>
@@ -1532,33 +1530,33 @@
         <translation>Disku i synuar është dinamik dhe, nëse vazhdoni, do të formatohet. Ju lutemi, së pari bëni një kopjeruajtje të kartelave tuaja të rëndësishme.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="83"/>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="179"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="138"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="193"/>
         <source>System Setup</source>
         <translation>Ujdisje Sistemi</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="139"/>
         <source>Choose an option for your system</source>
         <translation>Zgjidhni një mundësi për sistemin tuaj</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="92"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="142"/>
         <source>Install the system in your installation media.</source>
         <translation>Instalojeni sistemin te media juaj e instalimit</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="98"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="144"/>
         <source>Repair</source>
         <translation>Riparim</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="145"/>
         <source>Use recovery tools to fix system issues.</source>
         <translation>Përdorni mjete rikthimi për të ndrequr probleme sistemi.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="101"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="147"/>
         <source>Enter the</source>
         <translation>Jepni</translation>
     </message>
@@ -1667,15 +1665,15 @@
         <translation>Pajisje e panjohur</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="88"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="89"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="89"/>
         <source>Make sure you have backed up important data, then select the disk to install.</source>
         <translation>Sigurohuni se keni kopjeruajtur të dhëna të rëndësishme, mandej përzgjidhni diskun për instalim.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="89"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="90"/>
         <source>Insert key: create or edit partition. Delete key: delete partition.</source>
-        <translation type="unfinished"/>
+        <translation>Tasti Insert : krijoni ose përpunoni pjesë. Tasti Delete: fshirje pjese.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="401"/>
@@ -1815,12 +1813,12 @@
         <translation>p.sh., 192.168.30.30</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="93"/>
         <source>Make sure you have backed up important data, then select the partition mode.</source>
         <translation>Sigurohuni se keni kopjeruajtur të dhëna të rëndësishme, mandej përzgjidhni mënyrën e pjesëtimit.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="93"/>
+        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="95"/>
         <source>Partition mode</source>
         <translation>Mënyrë pjesëtimi</translation>
     </message>
@@ -1877,6 +1875,14 @@
         <location filename="../src/ui/main_window_cli.cpp" line="92"/>
         <source>Select</source>
         <translation>Përzgjidhni</translation>
+    </message>
+</context>
+<context>
+    <name>installer::NetworkEditWidget</name>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="246"/>
+        <source>Secondary DNS:</source>
+        <translation>DNS Dytësore:</translation>
     </message>
 </context>
 </TS>

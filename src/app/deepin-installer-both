@@ -35,6 +35,7 @@ parse_cmdline
 if [ x"$cli_mode" = xtrue ]; then
     systemctl stop lightdm
     chvt 2
+	/usr/bin/deepin-installer-xrandr
     systemctl restart deepin-installer-cli
 else
     /usr/lib/live/config/1082-deepin-livecd true

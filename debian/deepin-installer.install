@@ -8,6 +8,7 @@ usr/bin/deepin-installer-first-boot
 usr/bin/deepin-installer-first-boot-pkexec
 usr/bin/deepin-installer-pkexec
 usr/bin/deepin-installer-both
+usr/bin/deepin-installer-xrandr
 usr/bin/deepin-installer-settings
 usr/bin/deepin-installer-simpleini
 usr/bin/deepin-installer-unsquashfs

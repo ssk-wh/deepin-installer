@@ -118,11 +118,12 @@ bool SpawnCmd(const QString& cmd, const QStringList& args,
 void xrandr() {
 
     QString msg;
-    bool exitCode = installer::SpawnCmd(BUILTIN_HOOKS_DIR"/00_setup_installer_xrandr.job", QStringList(), msg);
+    QString file = XRANDR_DIR"/deepin-installer-xrandr";
+    bool exitCode = installer::SpawnCmd(file, QStringList(), msg);
     if (exitCode) {
-        if (!msg.isEmpty()) qCritical() << "xrandr exec failed. err: " + msg;
+        if (!msg.isEmpty()) qCritical() << QString("xrandr exec failed. file:<%1> err: <%2>").arg(file, msg);
     } else {
-        qCritical() << "xrandr start failed.";
+        qCritical() << QString("xrandr start failed. file: <%1>").arg(file);
     }
 }
 

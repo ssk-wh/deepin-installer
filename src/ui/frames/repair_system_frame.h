@@ -24,7 +24,7 @@
 
 namespace installer {
 
-class RepairSystemPrivate;
+class RepairSystemFramePrivate;
 
 class RepairSystemFrame : public FrameInterface
 {
@@ -48,12 +48,14 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *event) override;
+    void changeEvent(QEvent* event) override;
 
 private:
     bool isRepair() const;
 
 private:
-    QScopedPointer<RepairSystemPrivate> m_private;
+    QScopedPointer<RepairSystemFramePrivate> m_private;
+    Q_DECLARE_PRIVATE_D(m_private, RepairSystemFrame)
 };
 
 }

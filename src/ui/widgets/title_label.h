@@ -27,6 +27,7 @@ class TitleLabel : public QLabel {
   Q_OBJECT
 
  public:
+  TitleLabel(QWidget* parent = nullptr);
   TitleLabel(const QString& text, QWidget* parent = nullptr);
 };
 

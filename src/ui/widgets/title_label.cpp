@@ -20,6 +20,13 @@
 
 namespace installer {
 
+TitleLabel::TitleLabel(QWidget *parent)
+    : QLabel(parent) {
+    this->setAlignment(Qt::AlignHCenter);
+    this->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    this->setStyleSheet(ReadFile(":/styles/title_label.css"));
+}
+
 TitleLabel::TitleLabel(const QString& text, QWidget* parent)
   : QLabel(text, parent) {
   this->setAlignment(Qt::AlignHCenter);
