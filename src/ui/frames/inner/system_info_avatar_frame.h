@@ -48,6 +48,7 @@ class SystemInfoAvatarFrame : public QFrame {
 
 protected:
   void showEvent(QShowEvent *event) override;
+  void resizeEvent(QResizeEvent *event) override;
 
  private:
   QScopedPointer<SystemInfoAvatarFramePrivate> d_private;

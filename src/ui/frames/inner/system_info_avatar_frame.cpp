@@ -23,6 +23,7 @@
 #include <QHBoxLayout>
 #include <QStringListModel>
 #include <QVBoxLayout>
+#include <QScrollArea>
 
 #include "base/file_util.h"
 #include "service/settings_manager.h"
@@ -38,6 +39,9 @@
 namespace installer {
 
 namespace {
+
+const int kIconWidth = 48;
+const int kListViewSpacing = 8;
 
 // Check whether |avatar| is valid.
 bool IsValidAvatar(const QString& avatar) {
@@ -65,6 +69,7 @@ private:
     Q_DECLARE_PUBLIC(SystemInfoAvatarFrame)
     SystemInfoAvatarFrame* q_ptr = nullptr;
 
+    QScrollArea * m_scroll = nullptr;
     QListView* list_view_ = nullptr;
     int        m_currentIndex = 0;
 };
@@ -106,6 +111,25 @@ void SystemInfoAvatarFrame::showEvent(QShowEvent *event)
     return QFrame::showEvent(event);
 }
 
+void SystemInfoAvatarFrame::resizeEvent(QResizeEvent *event)
+{
+    Q_D(SystemInfoAvatarFrame);
+
+    // The total width if you fold avatars in half
+    int width1 = ((GetAvatars().count() + 1) / 2) * (kIconWidth + 2 * kListViewSpacing) + 2 * kListViewSpacing;
+
+    // The total width if each row is limited to a maximum of 8 rows.
+    int width2 = 8 * (kIconWidth + 2 * kListViewSpacing) + 2 * kListViewSpacing;
+
+    int listViewWidth = qMin(width(), width1);
+    listViewWidth = qMin(listViewWidth, width2);
+
+    d->list_view_->setFixedWidth(listViewWidth);
+    d->m_scroll->setFixedWidth(listViewWidth);
+
+    QWidget::resizeEvent(event);
+}
+
 SystemInfoAvatarFramePrivate::SystemInfoAvatarFramePrivate(SystemInfoAvatarFrame *parent)
     : q_ptr(parent)
 {
@@ -125,10 +149,9 @@ void SystemInfoAvatarFramePrivate::initUI() {
   AvatarListDelegate* list_delegate = new AvatarListDelegate(list_view_);
   list_view_->setItemDelegate(list_delegate);
   QSizePolicy list_policy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-  // list_policy.setVerticalStretch(100);
   list_view_->setSizePolicy(list_policy);
   list_view_->setContentsMargins(0, 0, 0, 0);
-  list_view_->setSpacing(8);
+  list_view_->setSpacing(kListViewSpacing);
   list_view_->setAcceptDrops(false);
   list_view_->setWrapping(true);
   list_view_->setUniformItemSizes(true);
@@ -137,14 +160,20 @@ void SystemInfoAvatarFramePrivate::initUI() {
   list_view_->setFrameShape(QListView::NoFrame);
   list_view_->setFixedWidth(600);
   list_view_->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-  list_view_->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+  list_view_->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   list_view_->setDragEnabled(false);
   list_view_->setSelectionMode (QAbstractItemView::SingleSelection);
   list_view_->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
+  m_scroll = new QScrollArea(q_ptr);
+  m_scroll->setWidget(list_view_);
+  m_scroll->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+  m_scroll->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+  m_scroll->setFrameShape(QListView::NoFrame);
+
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
-  layout->addWidget(list_view_, 0, Qt::AlignHCenter);
+  layout->addWidget(m_scroll, 0, Qt::AlignHCenter);
 
   Q_Q(SystemInfoAvatarFrame);
   q->setLayout(layout);
