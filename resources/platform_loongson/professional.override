@@ -15,4 +15,6 @@ partition_full_disk_small_legacy_label = "Boot;Swap;Root"
 partition_full_disk_large_legacy_label = "Boot;Swap;Root;_dde_data"
 system_info_disable_experience = false
 skip_repair_system_page = false
+skip_select_component_page = true
+select_component_default_install_type = ""
 
