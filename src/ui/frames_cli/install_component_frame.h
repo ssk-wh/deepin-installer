@@ -35,7 +35,7 @@ public:
     virtual void onKeyPress(int keyCode);
 
 private slots:
-    void slot_KeyTriger(int keycode, int listtype);
+    void slot_KeyTriger(int keycode, int listtype, int index);
     void slot_SelectChange(bool select);
 
 private:

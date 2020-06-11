@@ -1,5 +1,5 @@
 #include "full_disk_frame.h"
-#include "ui/ncurses_widgets/ncurses_list_view.h"
+#include "ui/ncurses_widgets/ncurses_checkbox_list.h"
 #include "ui/ncurses_widgets/ncurses_label.h"
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
@@ -21,9 +21,6 @@ void FullDiskFramePrivate::initUI()
         QString strBack = ::QObject::tr("Back");
         QString strNext = ::QObject::tr("Next");
 
-        int buttonHeight = 3;
-        int buttonWidth = std::max(strNext.length(), strBack.length()) + 4;
-
         m_pBackButton = new NcursesButton(this, strBack, 3, 14, begy() + height() - 5, begx() + 5);
         m_pBackButton->drawShadow(true);
         m_pBackButton->box();
@@ -38,14 +35,20 @@ void FullDiskFramePrivate::initUI()
         m_label_systemdisk->setFocusEnabled(false);
         m_label_systemdisk->hide();
 
-        m_systemdisklist = new NcursesListView(this, (height() - 10) / 2, width() / 2, begy() + 2, begx() + width() / 4);
+        m_systemdisklist = new NcursesCheckBoxList(this, (height() - 10) / 2, width() / 2, begy() + 2, begx() + width() / 4);
+        m_systemdisklist->setListType(NcursesCheckBoxList::BASICENVIRONMENT);
+        m_systemdisklist->setSingleSelect(true);
+        m_systemdisklist->setRealSelect(true);
+        m_systemdisklist->setSingleSelect(true);
         m_systemdisklist->hide();
 
         m_label_datadisk = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_datadisk->setFocusEnabled(false);
         m_label_datadisk->hide();
 
-        m_datadisklist = new NcursesListView(this, (height() - 10) / 2, width() / 2, begy() + 2, begx() + width() / 4);
+        m_datadisklist = new NcursesCheckBoxList(this, (height() - 10) / 2, width() / 2, begy() + 2, begx() + width() / 4);
+        m_datadisklist->setListType(NcursesCheckBoxList::OTHER);
+        m_datadisklist->setSingleSelect(true);
         m_datadisklist->hide();
 
         m_pNextButton = new NcursesButton(this, strNext, 3, 14, begy() + height() - 5, begx() + width() - 20);
@@ -97,7 +100,7 @@ void FullDiskFramePrivate::initConnection()
 {
     connect(m_pBackButton, &NcursesButton::clicked, this, &FullDiskFramePrivate::doBackBtnClicked);
     connect(m_pNextButton, &NcursesButton::clicked, this, &FullDiskFramePrivate::doNextBtnClicked);
-    connect(m_systemdisklist, &NcursesListView::selectChanged, this, &FullDiskFramePrivate::systemDisklistSelectChanged);
+    connect(m_systemdisklist, &NcursesCheckBoxList::signal_KeyTriger, this, &FullDiskFramePrivate::systemDisklistKeyTriger);
 }
 
 bool FullDiskFramePrivate::validate()
@@ -134,8 +137,19 @@ void FullDiskFramePrivate::setSystemDiskList(QStringList &info)
 {
     m_deviceList.clear();
     m_deviceList = info;
-    m_systemdisklist->setList(info);
-    systemDisklistSelectChanged(0);
+
+    QVector<QPair<QString, QString>> testinfo;
+    foreach (QString teststr, m_deviceList) {
+        QPair<QString, QString> infoitem;
+        infoitem.first = teststr;
+        infoitem.second = teststr;
+        testinfo.push_back(infoitem);
+    }
+
+    if (testinfo.size() > 0) {
+        m_systemdisklist->setList(testinfo, false, false);
+        systemDisklistKeyTriger(0, 0, 0);
+    }
 
     if (m_isshow) {
         showListView();
@@ -144,7 +158,17 @@ void FullDiskFramePrivate::setSystemDiskList(QStringList &info)
 
 void FullDiskFramePrivate::setDataDiskList(QStringList &info)
 {
-    m_datadisklist->setList(info);
+    QVector<QPair<QString, QString>> testinfo;
+    foreach (QString teststr, info) {
+        QPair<QString, QString> infoitem;
+        infoitem.first = teststr;
+        infoitem.second = teststr;
+        testinfo.push_back(infoitem);
+    }
+
+    if (testinfo.size() > 0) {
+        m_datadisklist->setList(testinfo, false, false);
+    }
 }
 
 void FullDiskFramePrivate::showListView()
@@ -180,18 +204,22 @@ void FullDiskFramePrivate::keyPresseEvent(int keycode)
     }
 }
 
-void FullDiskFramePrivate::systemDisklistSelectChanged(int index)
+void FullDiskFramePrivate::systemDisklistKeyTriger(int keycode, int listtype, int index)
 {
     if (m_deviceList.size() > 0) {
-        QStringList datadisklist;
+        QVector<QPair<QString, QString>> testinfo;
         for (int i = 0; i < m_deviceList.size(); i++) {
             if (i != index) {
-                datadisklist.append(m_deviceList.at(i));
+                QPair<QString, QString> infoitem;
+                infoitem.first = m_deviceList.at(i);
+                infoitem.second = m_deviceList.at(i);
+                testinfo.push_back(infoitem);
             }
         }
 
-        if( datadisklist.size() > 0) {
-            m_datadisklist->setList(datadisklist);
+        if( testinfo.size() > 0) {
+            m_datadisklist->getSelectItems();
+            m_datadisklist->setList(testinfo, false, false);
             if (m_isshow) {
                 m_datadisklist->show();
             }
@@ -260,7 +288,7 @@ bool FullDiskFrame::doFullDiskPartition()
 
     Q_D(FullDiskFrame);
     if (d->getSystemDiskList()->size() > 0) {
-        QString testname = d->getSystemDiskList()->getCurrenItem();
+        QString testname = d->getSystemDiskList()->getCurrentSingleSelectText();
         for (Device::Ptr device : m_DeviceList) {
             if(!testname.compare(GetDeviceModelCapAndPath(device))) {
                 m_delegate->addSystemDisk(device->path);
@@ -272,7 +300,7 @@ bool FullDiskFrame::doFullDiskPartition()
     }
 
     if (d->getDataDiskList()->size() > 0) {
-        QString testname_datadisk = d->getDataDiskList()->getCurrenItem();
+        QString testname_datadisk = d->getDataDiskList()->getCurrentSingleSelectText();
         for (Device::Ptr device : m_DeviceList) {
             if(!testname_datadisk.compare(GetDeviceModelCapAndPath(device))) {
                 m_delegate->addDataDisk(device->path);

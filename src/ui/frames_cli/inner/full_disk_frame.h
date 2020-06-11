@@ -6,7 +6,7 @@
 
 namespace installer {
 
-class NcursesListView;
+class NcursesCheckBoxList;
 class NcursesLabel;
 //class FullDiskFrame;
 class PartitionModel;
@@ -38,9 +38,9 @@ public:
     void doBackBtnClicked();
     void doNextBtnClicked();
     void setSystemDiskList(QStringList &info);
-    NcursesListView* getSystemDiskList(){ return m_systemdisklist; }
+    NcursesCheckBoxList* getSystemDiskList(){ return m_systemdisklist; }
     void setDataDiskList(QStringList &info);
-    NcursesListView* getDataDiskList(){ return m_datadisklist; }
+    NcursesCheckBoxList* getDataDiskList(){ return m_datadisklist; }
     void showListView();
     void setchildFoursEnabel(bool enabel);
     void setCurrentchoicetype(int state) { m_currentchoicetype = state; }
@@ -54,14 +54,14 @@ signals:
     void doNectBtnClickedSignal();
 private slots:
     void keyPresseEvent(int keycode);
-    void systemDisklistSelectChanged(int index);
+    void systemDisklistKeyTriger(int keycode, int listtype, int index);
 
 private:
     NcursesLabel* m_label_title       = nullptr;
     NcursesLabel* m_label_systemdisk  = nullptr;
-    NcursesListView* m_systemdisklist = nullptr;
+    NcursesCheckBoxList* m_systemdisklist = nullptr;
     NcursesLabel* m_label_datadisk    = nullptr;
-    NcursesListView* m_datadisklist   = nullptr;
+    NcursesCheckBoxList* m_datadisklist   = nullptr;
     bool m_isshow = false;
     //DeviceList m_devices;
     int m_currentchoicetype = -1;

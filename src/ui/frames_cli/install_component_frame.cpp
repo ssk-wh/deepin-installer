@@ -113,8 +113,8 @@ void InstallComponentFramePrivate::updateTs()
 
 void InstallComponentFramePrivate::initConnection()
 {
-    connect(m_basicenvironmentlist, SIGNAL(signal_KeyTriger(int, int)), this, SLOT(slot_KeyTriger(int, int)));
-    connect(m_extrachoiceslist, SIGNAL(signal_KeyTriger(int, int)), this, SLOT(slot_KeyTriger(int, int)));
+    connect(m_basicenvironmentlist, SIGNAL(signal_KeyTriger(int, int, int)), this, SLOT(slot_KeyTriger(int, int, int)));
+    connect(m_extrachoiceslist, SIGNAL(signal_KeyTriger(int, int, int)), this, SLOT(slot_KeyTriger(int, int, int)));
     connect(m_selectallextra, SIGNAL(signal_SelectChange(bool)), this, SLOT(slot_SelectChange(bool)));
 }
 
@@ -208,7 +208,7 @@ void InstallComponentFramePrivate::onKeyPress(int keyCode)
 }
 
 
-void InstallComponentFramePrivate::slot_KeyTriger(int keycode, int listtype)
+void InstallComponentFramePrivate::slot_KeyTriger(int keycode, int listtype, int index)
 {
     switch (keycode) {
     case KEY_UP:
