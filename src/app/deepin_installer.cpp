@@ -39,13 +39,13 @@ DCORE_USE_NAMESPACE
 
 
 int main(int argc, char* argv[]) {
-  installer::xrandr();
   // Reset LC_ALL to en_US.UTF-8.
   // NOTE(xushaohua): "LANG" might not set in some live environment.
   qputenv("LC_ALL", installer::kDefaultLang);
   qputenv("LANG", installer::kDefaultLang);
 
   Utils::AutoScreenScale();
+  installer::xrandr();
 
   DApplication::loadDXcbPlugin();
   DApplication app(argc, argv);

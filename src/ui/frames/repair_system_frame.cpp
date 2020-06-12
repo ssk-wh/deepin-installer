@@ -241,12 +241,13 @@ bool installer::RepairSystemFrame::isRepair() const
             qDebug() << "OsType::Linux";
             qDebug() << "distro_name: " << os.distro_name;
             qDebug() << "description: " << os.description;
-            if (os.description.toLower().contains("debian")
-                    || os.distro_name.toLower().contains("debian")
-                    || os.description.toLower().contains("uos")
-                    || os.distro_name.toLower().contains("uos")) {
-                return true;
-            }
+//            if (os.description.toLower().contains("debian")
+//                    || os.distro_name.toLower().contains("debian")
+//                    || os.description.toLower().contains("uos")
+//                    || os.distro_name.toLower().contains("uos")) {
+//                return true;
+//            }
+            return true;
         } else {
             qDebug() << "Non OsType::Linux: " << os.type;
             qDebug() << "distro_name: " << os.distro_name;

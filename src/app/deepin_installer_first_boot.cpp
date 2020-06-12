@@ -40,11 +40,12 @@ DCORE_USE_NAMESPACE
 
 int main(int argc, char *argv[])
 {
-  installer::xrandr();
   qputenv("LC_ALL", installer::kDefaultLang);
   qputenv("LANG", installer::kDefaultLang);
 
   Utils::AutoScreenScale();
+  installer::xrandr();
+
   DApplication::loadDXcbPlugin();
   DApplication app(argc, argv);
   app.setAttribute(Qt::AA_UseHighDpiPixmaps);

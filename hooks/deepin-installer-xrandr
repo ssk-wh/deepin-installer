@@ -1,0 +1,11 @@
+#!/bin/bash
+
+MAX=$(xrandr | grep "1920x1080 "  | awk '{print $1}')
+# MAX=$(xrandr | grep "800x600 "  | awk '{print $1}')
+# MAX=${MAX:-800x600}
+if [[ -z $MAX ]] ;then
+#	MAX=$(xrandr | awk '{print $1}' | sed -n "3p")
+	return 0
+fi
+
+xrandr -s $MAX
