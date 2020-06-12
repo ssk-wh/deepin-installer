@@ -257,6 +257,7 @@ void SystemInfoFormFrame::showEvent(QShowEvent* event)
     QFrame::showEvent(event);
     d->m_usernameEdit->setFocus();
     d->tooltip_->hide();
+    d->updateDevice();
 
     d_private->updateCapsLockState(KeyboardMonitor::instance()->isCapslockOn());
 }
