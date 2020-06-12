@@ -802,9 +802,8 @@ void NetworkFrame::initDeviceWidgetList()
         qDebug() << "interface name: " << dev->interfaceName();
 
         // FIXME: what about !dev->managed()
-        if (dev->interfaceName() == "lo"
-            || dev->interfaceName().contains("vmnet")
-            || dev->type() == NetworkManager::Device::Type::Wifi) {
+        if (dev->type() != NetworkManager::Device::Type::Ethernet
+            || dev->interfaceName().contains("vmnet")) {
             continue;
         }
 
