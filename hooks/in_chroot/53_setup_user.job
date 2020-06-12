@@ -22,6 +22,17 @@ if [ x${DI_SKIP_CREATE_USER} = "xtrue" ];then
   return 0
 fi
 
+parse_cmdline() {
+  for x in $(cat /proc/cmdline); do
+    case $x in
+      install-mode-cli=true)
+        echo $x
+        cli_mode=true
+        ;;
+      esac
+  done
+}
+
 # Add user to group which is found in /etc/group
 add_user_to_existed_group() {
   local USER=$1
@@ -119,7 +130,8 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 EOF
 
-if [ x$(installer_get "system_info_setup_after_reboot") == "xtrue" ]; then
+parse_cmdline
+if [ x"$cli_mode" != xtrue ]; then
     hostnamectl set-hostname ${DI_HOSTNAME}
 fi
 }
@@ -150,5 +162,10 @@ EOF
 if [ x$(installer_get "system_info_setup_after_reboot") != "xtrue" ]; then
   setup_username_password_hostname
 else
-  setup_first_boot_hostname
+  parse_cmdline
+  if [ x"$cli_mode" = xtrue ]; then
+    setup_username_password_hostname
+  else
+    setup_first_boot_hostname
+  fi
 fi

@@ -98,7 +98,7 @@ void SystemInfoFramePrivate::writeConf()
     WriteUsername(m_le_username->text());
     WriteHostname(m_le_hostname->text());
     WritePassword(m_le_password->text());
-    WriteSystemInfoSetupAfterReboot(false);
+    CustomSetSettingsBool(kSystemInfoSetupAfterReboot, true);
 
 //    WriteRootPassword(GetSettingsBool(kSetRootPasswordFromUser)
 //                     ? d->m_rootPasswordEdit->text()

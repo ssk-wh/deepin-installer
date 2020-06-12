@@ -805,9 +805,9 @@ void WriteInstallSuccessed(bool successed)
     AppendToConfigFile("DI_INSTALL_SUCCESSED", successed);
 }
 
-void WriteSystemInfoSetupAfterReboot(bool after)
+void CustomSetSettingsBool(const char* key, bool boolvalue)
 {
-    AppendToConfigFile(kSystemInfoSetupAfterReboot, after);
+    AppendToConfigFile(key, boolvalue);//AppendToConfigFile(kSystemInfoSetupAfterReboot, after);
 }
 
 SettingCustom *SettingCustom::Instance()

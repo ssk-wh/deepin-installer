@@ -168,7 +168,15 @@ void InstallComponentFramePrivate::initInfoList()
         }
 
         QStringList testitems;
+        if (m_serverList.size() > 0) {
+            for (int i = 0; i< m_serverList.first()->defaultValue().size(); i++) {
+                m_serverList.first()->defaultValue()[i]->Selected = true;
+            }
+            QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(m_serverList.first());
+            testitems.append(tsPair.first);
+        }
         m_basicenvironmentlist->setSelectItems(testitems);
+        testitems.clear();
         m_extrachoiceslist->setSelectItems(testitems);
         m_basicenvironmentlist->setList(basicenvironmentinfolist, testiswchar);
         m_extrachoiceslist->setList(extrachoicesinfolist, testiswchar);
@@ -182,6 +190,15 @@ void InstallComponentFramePrivate::writeInfoList()
 
     ComponentInstallManager* manager = ComponentInstallManager::Instance();
 
+    // Write about language
+    const QStringList packages =
+        ComponentInstallManager::Instance()->loadStructForLanguage(
+            installer::ReadLocale());
+
+    if (!packages.isEmpty()) {
+        WriteComponentLanguage(packages.join(" "));
+    }
+
     for (auto it = m_serverList.cbegin(); it != m_serverList.cend(); ++it) {
         QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(*it);
 
@@ -191,7 +208,16 @@ void InstallComponentFramePrivate::writeInfoList()
                 WriteComponentPackages(installPackages.join(" "));
             }
 
-            const QStringList uninstallPackages = manager->uninstallPackageListByComponentStruct(*it, false);
+            bool isMinimalGraphicInstall = true;
+            foreach(QSharedPointer<ComponentInfo> testinfo, (*it)->extra())
+            {
+                if (testinfo->Selected) {
+                    isMinimalGraphicInstall = false;
+                    break;
+                }
+            }
+
+            const QStringList uninstallPackages = manager->uninstallPackageListByComponentStruct(*it, isMinimalGraphicInstall);
             if (!uninstallPackages.isEmpty()) {
                 WriteComponentUninstallPackages(uninstallPackages.join(" "));
             }
