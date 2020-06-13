@@ -147,24 +147,19 @@ void SelectInstallComponentFrame::finished()
     }
 
     const QString selectedInstallType = m_private->m_componentStructMap[m_private->m_currentComponentWidget]->id();
+    qInfo() << "Select component install type: " << selectedInstallType;
+
+    WriteIsMinimalCharacterSystem(false);
+    WriteIsMinimalGraphicsSystem(false);
+
     if (m_private->isMinimalGraphicInstall()) {
         if (selectedInstallType == kMinimalGraphicsSystem) {
             WriteIsMinimalGraphicsSystem(true);
-            WriteIsMinimalCharacterSystem(false);
         }
-        else if (selectedInstallType == kMinimalCharacterSystem) {
-            WriteIsMinimalGraphicsSystem(false);
+
+        if (selectedInstallType == kMinimalCharacterSystem) {
             WriteIsMinimalCharacterSystem(true);
         }
-        else {
-            qInfo() << "Select component install type: " << selectedInstallType;
-            WriteIsMinimalCharacterSystem(false);
-            WriteIsMinimalGraphicsSystem(false);
-        }
-    }
-    else {
-        WriteIsMinimalCharacterSystem(false);
-        WriteIsMinimalGraphicsSystem(false);
     }
 }
 
