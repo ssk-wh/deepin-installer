@@ -87,9 +87,9 @@ QString NcursesCheckBoxList::getCurrentSingleSelectText()
                 return m_ncursesCheckBoxs_vector.at(i)->text();
             }
         }
-    } else {
-        return "";
     }
+
+    return "";
 }
 
 
