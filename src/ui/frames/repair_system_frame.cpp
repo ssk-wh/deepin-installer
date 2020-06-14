@@ -26,7 +26,6 @@
 #include "ui/widgets/operator_widget.h"
 #include "ui/utils/widget_util.h"
 
-
 #include <QProcess>
 #include <QDebug>
 #include <QTranslator>
@@ -35,7 +34,7 @@
 DWIDGET_USE_NAMESPACE
 
 namespace  {
-    const int kItemWidth = 660;
+    const int kItemWidth = 560;
     const int kItemHeight = 100;
     const char kLanguageFileTpl[] = I18N_DIR "/deepin-installer-zh_CN.qm";
 }
@@ -149,9 +148,12 @@ void installer::RepairSystemFramePrivate::setupTs()
 
 void installer::RepairSystemFramePrivate::updateTs()
 {
-    m_trans = new QTranslator(this);
-    m_trans->load(kLanguageFileTpl);
-    qApp->installTranslator(m_trans);
+    if (m_trans == nullptr) {
+        m_trans = new QTranslator(this);
+        m_trans->load(kLanguageFileTpl);
+        qApp->installTranslator(m_trans);
+    }
+
 }
 
 void installer::RepairSystemFramePrivate::removeTs() const
@@ -232,7 +234,7 @@ void installer::RepairSystemFrame::changeEvent(QEvent *event)
 
 bool installer::RepairSystemFrame::isRepair() const
 {
-#ifdef QT_DEBUG_test
+#ifdef QT_DEBUG
     return true;
 #endif // QT_DEBUG
     OsProberItems items = OsProberItems();

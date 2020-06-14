@@ -71,6 +71,9 @@ class FirstBootSetupWindow : public DMainWindow, public FrameProxyInterface {
   // Set the icon in the upper left corner of the window. The size of the icon is recommended: 32px.
   void setWindowIcon(const QString &path);
 
+protected:
+  void changeEvent(QEvent *event) override;
+
  private:
   void initConnections();
   void initUI();
@@ -118,6 +121,8 @@ class FirstBootSetupWindow : public DMainWindow, public FrameProxyInterface {
   void onHookFinished(bool ok);
 
   void onPrimaryScreenChanged(const QRect& geometry);
+
+  FrameInterface *getFrameInterface(QStandardItem *item) const;
 
   void onLanguageSelected();
   void onSystemInfoFinished();

@@ -246,13 +246,13 @@ QString NetworkDeviceWidget::getDeviceType() const
     qDebug() << "Device type: " << m_device->type();
 
     if (m_device->type() == NetworkManager::Device::Type::Ethernet) {
-        deviceTypeName = "Ethernet";
+        deviceTypeName = ::QObject::tr("Ethernet");
     }
     else if (m_device->type() == NetworkManager::Device::Type::Wifi) {
-        deviceTypeName = "Wifi";
+        deviceTypeName = ::QObject::tr("WLAN");
     }
     else {
-        deviceTypeName = "UnknownType";
+        deviceTypeName = ::QObject::tr("Unknown device");
     }
 
     return deviceTypeName;

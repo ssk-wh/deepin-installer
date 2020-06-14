@@ -290,6 +290,34 @@ void FirstBootSetupWindow::initPages()
     constructLabelView();
 }
 
+
+FrameInterface *FirstBootSetupWindow::getFrameInterface(QStandardItem *item) const
+{
+    for (auto it = m_frameModelItemMap.begin(); it != m_frameModelItemMap.end(); ++it) {
+        if (it.value() == item) {
+            return it.key();
+        }
+    }
+
+    return nullptr;
+}
+
+void FirstBootSetupWindow::changeEvent(QEvent *event)
+{
+    if (event->type() == QEvent::LanguageChange) {
+        for (int i = 0; i < m_frameLabelsModel->rowCount(); ++i) {
+            QStandardItem* item = m_frameLabelsModel->item(i);
+            FrameInterface* frame = getFrameInterface(item);
+            if (frame) {
+                item->setText(frame->returnFrameName());
+            }
+        }
+    }
+    else {
+        QWidget::changeEvent(event);
+    }
+}
+
 void FirstBootSetupWindow::constructLabelView()
 {
     m_frameLabelsModel->clear();

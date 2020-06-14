@@ -9,3 +9,11 @@ if [[ -z $MAX ]] ;then
 fi
 
 xrandr -s $MAX
+
+#CURRENT=$(xrandr | grep "*"  | awk '{print $1}')
+#CURRENT=${CURRENT:-800x600}
+#if [[ $MAX != $CURRENT ]] ;then
+#	MAX=$CURRENT
+#fi
+
+#xrandr -s $MAX

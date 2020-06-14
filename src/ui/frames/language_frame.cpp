@@ -179,6 +179,7 @@ void LanguageFramePrivate::showUserLicense() {
 
 void LanguageFramePrivate::showLanguage() {
     m_frame_layout->setCurrentWidget(m_select_language_frame);
+    nextButton->show();
 }
 
 void LanguageFramePrivate::showOemUserLicense() {

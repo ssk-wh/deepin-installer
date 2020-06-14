@@ -43,8 +43,8 @@ int main(int argc, char *argv[])
   qputenv("LC_ALL", installer::kDefaultLang);
   qputenv("LANG", installer::kDefaultLang);
 
+//  installer::xrandr();
   Utils::AutoScreenScale();
-  installer::xrandr();
 
   DApplication::loadDXcbPlugin();
   DApplication app(argc, argv);

@@ -191,66 +191,64 @@ public:
             (*it)->lineEdit()->setAlignment(Qt::AlignCenter);
         }
 
-        {
-            QHBoxLayout* ipLayout = new QHBoxLayout;
-            ipLayout->setMargin(0);
-            ipLayout->setSpacing(0);
+        QHBoxLayout* ipLayout = new QHBoxLayout;
+        ipLayout->setMargin(0);
+        ipLayout->setSpacing(0);
 
-            QLabel* ipName = new QLabel(::QObject::tr("IP Address:"));
-            ipName->setFixedSize(105, 20);
+        m_ipLabel = new QLabel(::QObject::tr("IP Address:"));
+        m_ipLabel->setFixedSize(105, 20);
 
-            ipLayout->addWidget(ipName, 0, Qt::AlignLeft | Qt::AlignHCenter);
-            ipLayout->addWidget(m_ipv4Edit, 0, Qt::AlignRight | Qt::AlignHCenter);
-            m_ipWidget->setLayout(ipLayout);
-            m_ipWidget->setFixedHeight(kLineEditHeight);
+        ipLayout->addWidget(m_ipLabel, 0, Qt::AlignLeft | Qt::AlignHCenter);
+        ipLayout->addWidget(m_ipv4Edit, 0, Qt::AlignRight | Qt::AlignHCenter);
+        m_ipWidget->setLayout(ipLayout);
+        m_ipWidget->setFixedHeight(kLineEditHeight);
 
-            QHBoxLayout* maskLayout = new QHBoxLayout;
-            maskLayout->setMargin(0);
-            maskLayout->setSpacing(0);
+        QHBoxLayout* maskLayout = new QHBoxLayout;
+        maskLayout->setMargin(0);
+        maskLayout->setSpacing(0);
 
-            QLabel* maskName = new QLabel(::QObject::tr("Netmask:"));
-            maskName->setFixedSize(105, 20);
+        m_maskLabel = new QLabel(::QObject::tr("Netmask:"));
+        m_maskLabel->setFixedSize(105, 20);
 
-            maskLayout->addWidget(maskName, 0, Qt::AlignLeft | Qt::AlignHCenter);
-            maskLayout->addWidget(m_maskEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
-            m_maskWidget->setLayout(maskLayout);
-            m_maskWidget->setFixedHeight(kLineEditHeight);
+        maskLayout->addWidget(m_maskLabel, 0, Qt::AlignLeft | Qt::AlignHCenter);
+        maskLayout->addWidget(m_maskEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
+        m_maskWidget->setLayout(maskLayout);
+        m_maskWidget->setFixedHeight(kLineEditHeight);
 
-            QHBoxLayout* gatewayLayout = new QHBoxLayout;
-            gatewayLayout->setMargin(0);
-            gatewayLayout->setSpacing(0);
+        QHBoxLayout* gatewayLayout = new QHBoxLayout;
+        gatewayLayout->setMargin(0);
+        gatewayLayout->setSpacing(0);
 
-            QLabel* gatewayName = new QLabel(::QObject::tr("Gateway:"));
-            gatewayName->setFixedSize(105, 20);
+        m_gatewayLable = new QLabel(::QObject::tr("Gateway:"));
+        m_gatewayLable->setFixedSize(105, 20);
 
-            gatewayLayout->addWidget(gatewayName, 0, Qt::AlignLeft | Qt::AlignHCenter);
-            gatewayLayout->addWidget(m_gatewayEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
-            m_gatewayWidget->setLayout(gatewayLayout);
-            m_gatewayWidget->setFixedHeight(kLineEditHeight);
+        gatewayLayout->addWidget(m_gatewayLable, 0, Qt::AlignLeft | Qt::AlignHCenter);
+        gatewayLayout->addWidget(m_gatewayEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
+        m_gatewayWidget->setLayout(gatewayLayout);
+        m_gatewayWidget->setFixedHeight(kLineEditHeight);
 
-            QHBoxLayout* dnsLayout = new QHBoxLayout;
-            dnsLayout->setMargin(0);
-            dnsLayout->setSpacing(0);
+        QHBoxLayout* dnsLayout = new QHBoxLayout;
+        dnsLayout->setMargin(0);
+        dnsLayout->setSpacing(0);
 
-            QLabel* dnsName = new QLabel(::QObject::tr("Primary DNS:"));
-            dnsName->setFixedSize(105, 20);
+        m_primaryDNSLabel = new QLabel(::QObject::tr("Primary DNS:"));
+        m_primaryDNSLabel->setFixedSize(105, 20);
 
-            dnsLayout->addWidget(dnsName, 0, Qt::AlignLeft | Qt::AlignHCenter);
-            dnsLayout->addWidget(m_primaryDNSEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
-            m_primaryDNSWidget->setLayout(dnsLayout);
-            m_primaryDNSWidget->setFixedHeight(kLineEditHeight);
+        dnsLayout->addWidget(m_primaryDNSLabel, 0, Qt::AlignLeft | Qt::AlignHCenter);
+        dnsLayout->addWidget(m_primaryDNSEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
+        m_primaryDNSWidget->setLayout(dnsLayout);
+        m_primaryDNSWidget->setFixedHeight(kLineEditHeight);
 
-            QHBoxLayout* secondaryDnsLayout = new QHBoxLayout;
-            secondaryDnsLayout->setMargin(0);
-            secondaryDnsLayout->setSpacing(0);
-            QLabel* secondaryDnsName = new QLabel(tr("Secondary DNS:"));
-            secondaryDnsName->setFixedSize(105, 20);
+        QHBoxLayout* secondaryDnsLayout = new QHBoxLayout;
+        secondaryDnsLayout->setMargin(0);
+        secondaryDnsLayout->setSpacing(0);
+        m_secondaryDNSLabel = new QLabel(tr("Secondary DNS:"));
+        m_secondaryDNSLabel->setFixedSize(105, 20);
 
-            secondaryDnsLayout->addWidget(secondaryDnsName, 0, Qt::AlignLeft | Qt::AlignHCenter);
-            secondaryDnsLayout->addWidget(m_secondaryDNSEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
-            m_secondaryDNSWidget->setLayout(secondaryDnsLayout);
-            m_secondaryDNSWidget->setFixedHeight(kLineEditHeight);
-        }
+        secondaryDnsLayout->addWidget(m_secondaryDNSLabel, 0, Qt::AlignLeft | Qt::AlignHCenter);
+        secondaryDnsLayout->addWidget(m_secondaryDNSEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
+        m_secondaryDNSWidget->setLayout(secondaryDnsLayout);
+        m_secondaryDNSWidget->setFixedHeight(kLineEditHeight);
 
         QHBoxLayout* dhcpLayout = new QHBoxLayout;
         dhcpLayout->setMargin(0);
@@ -261,10 +259,10 @@ public:
         dhcpLayout->addWidget(dhcpName, 0, Qt::AlignLeft | Qt::AlignHCenter);
         dhcpLayout->addWidget(m_dhcpTypeWidget, 0, Qt::AlignRight | Qt::AlignHCenter);
 
-        QStringListModel* dhcpTypeModel = new QStringListModel(m_dhcpTypeWidget);
-        dhcpTypeModel->setStringList({::QObject::tr("Auto"),
+        m_dhcpTypeModel = new QStringListModel(m_dhcpTypeWidget);
+        m_dhcpTypeModel->setStringList({::QObject::tr("Auto"),
                                       ::QObject::tr("Manual")});
-        m_dhcpTypeWidget->setModel(dhcpTypeModel);
+        m_dhcpTypeWidget->setModel(m_dhcpTypeModel);
         m_dhcpTypeWidget->setFixedSize(kLineEditWidth, kLineEditHeight);
 
         m_connectTypeWidget->setLayout(dhcpLayout);
@@ -304,17 +302,17 @@ public:
         connect(m_acceptBtn, &QPushButton::clicked, this, &NetworkEditWidget::onEditFinished);
         connect(m_dhcpTypeWidget, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged)
                 , this, &NetworkEditWidget::onDHCPChanged);
-
-        updateTs();
     }
 
     void updateTs()
     {
-        m_ipv4Edit->lineEdit()->setPlaceholderText(::QObject::tr("IP Address:"));
-        m_maskEdit->lineEdit()->setPlaceholderText(::QObject::tr("Netmask:"));
-        m_gatewayEdit->lineEdit()->setPlaceholderText(::QObject::tr("Gateway:"));
-        m_primaryDNSEdit->lineEdit()->setPlaceholderText(::QObject::tr("Primary DNS:"));
-        m_secondaryDNSEdit->lineEdit()->setPlaceholderText(::QObject::tr("Secondary DNS:"));
+        m_ipLabel->setText(::QObject::tr("IP Address"));
+        m_maskLabel->setText(::QObject::tr("IP Address:"));
+        m_gatewayLable->setText(::QObject::tr("Netmask:"));
+        m_primaryDNSLabel->setText(::QObject::tr("Gateway:"));
+        m_secondaryDNSLabel->setText(::QObject::tr("Primary DNS:"));
+        m_dhcpTypeModel->setStringList({::QObject::tr("Auto"),
+                                        ::QObject::tr("Manual")});
     }
 
     void initWidgetState()
@@ -702,6 +700,14 @@ private:
     DLineEdit* m_gatewayEdit;
     DLineEdit* m_primaryDNSEdit;
     DLineEdit* m_secondaryDNSEdit;
+
+    QLabel* m_ipLabel;
+    QLabel* m_maskLabel;
+    QLabel* m_gatewayLable;
+    QLabel* m_primaryDNSLabel;
+    QLabel* m_secondaryDNSLabel;
+    QStringListModel* m_dhcpTypeModel;
+
     DHCPTYpe m_dhcpType;
     std::unique_ptr<QRegularExpressionValidator> m_validityCheck;
     SystemInfoTip*                               m_errorTip;
@@ -779,8 +785,6 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
 
     m_buttonBox = new DButtonBox;
     initDeviceWidgetList();
-
-    updateTs();
 }
 
 void NetworkFrame::initDeviceWidgetList()

@@ -128,6 +128,7 @@ void TimezoneFramePrivate::updateTs()
     comment_label_->setText(::QObject::tr("Is it the right timezone? You can change it as well"));
     m_timezoneMapButton->setText(::QObject::tr("Map"));
     m_timezoneListButton->setText(::QObject::tr("List"));
+    nextButton->setText(::QObject::tr("Next"));
 }
 
 TimezoneFrame::TimezoneFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)

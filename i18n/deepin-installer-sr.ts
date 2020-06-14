@@ -458,9 +458,8 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="90"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="162"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="193"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="207"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="717"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="915"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="208"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="919"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="231"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="645"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="184"/>
@@ -479,17 +478,17 @@
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="55"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="191"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="193"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
         <translation>Потребно је најмање %1GB простора на диску за инсталацију %2. За бољи учинак препоручљиво је %3 GB и више</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="190"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="192"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="429"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="415"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="209"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="210"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="73"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="120"/>
         <source>Deepin</source>
@@ -497,11 +496,11 @@
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="190"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="192"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="429"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="415"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="209"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="210"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="73"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="120"/>
         <source>UOS</source>
@@ -584,7 +583,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="115"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="253"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="129"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="174"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="176"/>
         <source>Install NVIDIA closed source driver</source>
         <translation>Инсталирај NVIDIA власнички управљач</translation>
     </message>
@@ -723,7 +722,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="229"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="767"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="768"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="126"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="240"/>
         <source>Passwords do not match</source>
@@ -731,7 +730,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="262"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="167"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="130"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="169"/>
         <source>Encrypt This Disk</source>
         <translation>Шифруј овај диск</translation>
     </message>
@@ -744,9 +744,9 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="264"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="437"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="572"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="579"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="438"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="573"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="580"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="459"/>
         <source>Password</source>
         <translation>Лозинка</translation>
@@ -762,8 +762,8 @@
         <translation>Добро чувајте вашу лозинку у супротном можете изгубити све ваше податке</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="157"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="160"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="159"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="162"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="237"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="174"/>
@@ -771,7 +771,8 @@
         <translation>Инсталирај овде</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="179"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="131"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="181"/>
         <source>Please select a disk to start installation</source>
         <translation>Молимо изаберите диск да започнете инсталацију</translation>
     </message>
@@ -993,7 +994,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="429"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="209"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="210"/>
         <source>%1 Software End User License Agreement</source>
         <translation>Лиценцни уговор са корисником за %1 софтвер</translation>
     </message>
@@ -1009,7 +1010,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="443"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="208"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="209"/>
         <source>User Experience Program License Agreement</source>
         <translation>Лиценцни уговор за програм корисничког искуства</translation>
     </message>
@@ -1042,147 +1043,147 @@
         <translation>Windows се неће покренути ако инсталирате %1 на Windows диск, потврдите за наставак</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="361"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="570"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="577"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="362"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="571"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="578"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="458"/>
         <source>Username</source>
         <translation>Корисничко име</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="389"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="571"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="578"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="390"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="572"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="579"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="457"/>
         <source>Computer name</source>
         <translation>Име рачунара</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="438"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="573"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="580"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="439"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="574"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="581"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="210"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="460"/>
         <source>Repeat password</source>
         <translation>Понови лозинку</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="574"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="581"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="575"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="582"/>
         <source>Root password</source>
         <translation>Root лозинка</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="575"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="582"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="576"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="583"/>
         <source>Repeat root password</source>
         <translation>Понови root  лозинку</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="584"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="585"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="133"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="454"/>
         <source>Create Accounts</source>
         <translation>Нправи налоге</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="585"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="586"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="456"/>
         <source>Fill in the username, computer name and your password</source>
         <translation>Попуни корисничко име, име рачунара и лозинку</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="586"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="587"/>
         <source>Use that password to edit boot menu</source>
         <translation>Користите ову лозинку за уређивање покретача</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="587"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="588"/>
         <source>Set as root password</source>
         <translation>Постави root лозинку</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="611"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="612"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="152"/>
         <source>This username already exists</source>
         <translation>Ово корисничко име већ постоји</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="616"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="617"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="156"/>
         <source>The first letter must be in lowercase</source>
         <translation>Прво слово мора бити мало</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="622"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="623"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="161"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
         <translation>Корисничко име може садржати енглеска слова (мала), бројеве или специјалне симболе (_-)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="629"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="630"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="167"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
         <translation>Молимо унесите корисничко име дуже од %1 карактера и краће од %2 карактера</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="653"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="654"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="116"/>
         <source>Please input computer name</source>
         <translation>Унеси име рачунара</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="658"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="659"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="120"/>
         <source>Computer name is invalid</source>
         <translation>Неважеће име рачунара</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="663"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="664"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="124"/>
         <source>Computer name already exists, please input another one</source>
         <translation>Име рачунара већ постоји, молимо унесите друго</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="669"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="670"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="129"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
         <translation>Молимо унесите име рачунара дуже од %1 карактера и краће од %2 карактера</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="698"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="699"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="80"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="194"/>
         <source>The password should be different from the username</source>
         <translation>Лозинка треба да се разликује од корисничког имена</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="713"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="714"/>
         <source>The password cannot be empty​</source>
         <translation>Лозинка не може бити празна</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="718"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="719"/>
         <source>Password must contain letters, numbers and symbols</source>
         <translation>Лозинка може садржати слова, бројеве и симболе</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="724"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="725"/>
         <source>Password must have at least 8 characters</source>
         <translation>Лозинка мора садржати најмање 8 карактера</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="738"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="739"/>
         <source>Password must not contain common words and combinations</source>
         <translation>Лозинка се не сме састојати од уобичајених речи и комбинација</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="744"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="745"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Лозинка не сме садржати више од 4 палиндромна карактера</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="972"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="973"/>
         <source>Add fingerprint password in Control Center &gt; Accounts to unlock and authenticate</source>
         <translation>Додај отисак лозинку у Контролни Центар &gt; Налози, за откључавање и идентификацију</translation>
     </message>
@@ -1295,7 +1296,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="168"/>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="141"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="140"/>
         <source>Install</source>
         <translation>Инсталирај</translation>
     </message>
@@ -1356,32 +1357,33 @@
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="151"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="585"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="309"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="583"/>
         <source>IP Address</source>
         <translation>ИП Адреса</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="152"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="166"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="586"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="584"/>
         <source>Netmask</source>
         <translation>Мрежна маска</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="153"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="587"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="585"/>
         <source>Gateway</source>
         <translation>Мрежни пролаз</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="154"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="588"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="586"/>
         <source>Primary DNS</source>
         <translation>Примарни ДНС</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="155"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="589"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="587"/>
         <source>Secondary DNS</source>
         <translation>Секундарни ДНС</translation>
     </message>
@@ -1393,80 +1395,81 @@
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="167"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="223"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="315"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="222"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="312"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="213"/>
         <source>Gateway:</source>
         <translation>Мрежни пролаз:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="168"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="235"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="316"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="234"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="313"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="214"/>
         <source>Primary DNS:</source>
         <translation>Примарни ДНС:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="169"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="317"/>
         <source>Secondary DNS:</source>
         <translation>Секундарни ДНС</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="199"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="313"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="198"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="310"/>
         <source>IP Address:</source>
         <translation>ИП Адреса:</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="211"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="314"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="210"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="311"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="212"/>
         <source>Netmask:</source>
         <translation>Мрежна маска:</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="259"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="257"/>
         <source>DHCP:</source>
         <translation>DHCP:</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="265"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="263"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="314"/>
         <source>Auto</source>
         <translation>Аутоматски</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="266"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="264"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="315"/>
         <source>Manual</source>
         <translation>Ручно</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="473"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="471"/>
         <source>Illegal %1, please have a check.</source>
         <translation>Неовлашћено %1, извршите проверу.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="490"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="488"/>
         <source>IP address error: illegal IP address, please have a check.</source>
         <translation>Грешка ИП адресе: неовлашћена ИП адреса, извршите проверу.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="504"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="502"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
         <translation>Грешка мрежне маске: неовлашћена мрежна маска, извршите проверу.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="723"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="839"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="913"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="729"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="843"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="917"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="172"/>
         <source>Configure Network</source>
         <translation>Подеси мрежу</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="724"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="914"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="730"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="918"/>
         <source>IP address has been auto-configured, but you can configure the network as well</source>
         <translation>ИП адреса је аутоматски подешена, али можете и сами да подесите мтрежу</translation>
     </message>
@@ -1524,33 +1527,33 @@
         <translation>Одредишни диск је динамички и биће форматиран ако наставите. Молимо прво направите резерву важних датотека.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="138"/>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="193"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="137"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="195"/>
         <source>System Setup</source>
         <translation>Подешавање система</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="139"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="138"/>
         <source>Choose an option for your system</source>
         <translation>Изабери опцију за систем</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="142"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="141"/>
         <source>Install the system in your installation media.</source>
         <translation>Инсталирај систем на инсталациони медиј</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="144"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="143"/>
         <source>Repair</source>
         <translation>Поправка</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="145"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="144"/>
         <source>Use recovery tools to fix system issues.</source>
         <translation>Употреби алате за опоравак да решиш проблеме са системом.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="147"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="146"/>
         <source>Enter the</source>
         <translation>Уђи у</translation>
     </message>
@@ -1645,16 +1648,19 @@
     </message>
     <message>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="212"/>
+        <location filename="../src/ui/widgets/network_device_widget.cpp" line="249"/>
         <source>Ethernet</source>
         <translation>Етернет</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="215"/>
+        <location filename="../src/ui/widgets/network_device_widget.cpp" line="252"/>
         <source>WLAN</source>
         <translation>ВЛАН</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="218"/>
+        <location filename="../src/ui/widgets/network_device_widget.cpp" line="255"/>
         <source>Unknown device</source>
         <translation>Непознати уређај</translation>
     </message>
@@ -1874,9 +1880,17 @@
 <context>
     <name>installer::NetworkEditWidget</name>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="246"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="245"/>
         <source>Secondary DNS:</source>
         <translation>Секундарни ДНС</translation>
+    </message>
+</context>
+<context>
+    <name>installer::NetworkFrame</name>
+    <message>
+        <location filename="../src/ui/frames/networkframe.cpp" line="723"/>
+        <source>Next</source>
+        <translation>Следеће</translation>
     </message>
 </context>
 </TS>

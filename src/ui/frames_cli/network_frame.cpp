@@ -162,8 +162,6 @@ void NetwrokFramePrivate::initUI()
                                                   begx() + (width() - m_networkconnecterrorstr.length()) / 2);
     m_networkconnecterrorlabel->setBackground(NcursesUtil::getInstance()->error_attr());
     m_networkconnecterrorlabel->setFocusEnabled(false);
-
-
 }
 
 void NetwrokFramePrivate::updateTs()
@@ -212,6 +210,9 @@ void NetwrokFramePrivate::updateTs()
     m_ipconfigitems.at(1).m_NcursesLabel->setText(::QObject::tr("Netmask:"));
     m_ipconfigitems.at(2).m_NcursesLabel->setText(::QObject::tr("Gateway:"));
     m_ipconfigitems.at(3).m_NcursesLabel->setText(::QObject::tr("Primary DNS:"));
+
+    m_networkconnecterrorstr = ::QObject::tr("Network connection error, check the configuration please");
+    m_networkconnecterrorlabel->setText(m_networkconnecterrorstr);
 
     FrameInterfacePrivate::updateTs();
 

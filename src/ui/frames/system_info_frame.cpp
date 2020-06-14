@@ -181,8 +181,6 @@ void SystemInfoFramePrivate::initUI() {
   centerLayout->addLayout(stacked_layout_);
   centerLayout->addLayout(bottom_layout_);
 
-  nextButton->setText(::QObject::tr("Next"));
-
   q_ptr->setContentsMargins(0, 0, 0, 0);
 }
 
@@ -233,6 +231,7 @@ void SystemInfoFramePrivate::showKeyboardPage() {
 
 void SystemInfoFramePrivate::updateLayout(const QString& layout) {
   keyboard_button_->setText(layout);
+  nextButton->setText(::QObject::tr("Next"));
 }
 
 bool SystemInfoFramePrivate::validate() const
