@@ -34,6 +34,7 @@ class QThread;
 class QVBoxLayout;
 
 class GlobalShortcut;
+class QShortcut;
 
 namespace installer {
 
@@ -53,6 +54,7 @@ class LanguageFrame;
 class NetworkFrame;
 class ControlPlatformFrame;
 class SystemInfoKeyboardFrame;
+class ControlPanelFrame;
 
 // Main window of deepin_installer_first_boot.
 class FirstBootSetupWindow : public DMainWindow, public FrameProxyInterface {
@@ -115,6 +117,11 @@ protected:
   QWidget* m_frameLabelsViewCoverWidget = nullptr;
   QStandardItemModel* m_frameLabelsModel = nullptr;
   QMap<FrameInterface*, DStandardItem*> m_frameModelItemMap;
+
+  // Shortcut used to toggle visibility of log-viewer.
+  QShortcut* control_panel_shortcut_ = nullptr;
+
+  ControlPanelFrame* control_panel_frame_ = nullptr;
 
   static const int FramePointerRole = Dtk::UserRole + 1;
 

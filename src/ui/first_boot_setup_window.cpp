@@ -24,6 +24,7 @@
 #include <QStackedLayout>
 #include <QThread>
 #include <QMap>
+#include <QShortcut>
 #include <DBackgroundGroup>
 #include <DTitlebar>
 #include <linux/vt.h>
@@ -52,6 +53,7 @@
 #include "ui/frames/networkframe.h"
 #include "ui/frames/control_platform_frame.h"
 #include "ui/frames/inner/system_info_keyboard_frame.h"
+#include "ui/frames/control_panel_frame.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -200,6 +202,9 @@ void FirstBootSetupWindow::initConnections() {
     connect(stacked_layout_, &QStackedLayout::currentChanged, back_button_, &DImageButton::raise);
 
     connect(m_frameLabelsView, &DListView::clicked, this, &FirstBootSetupWindow::onFrameLabelsViewClicked);
+
+    connect(control_panel_shortcut_, &QShortcut::activated,
+            control_panel_frame_, &ControlPanelFrame::toggleVisible);
 }
 
 void FirstBootSetupWindow::initUI() {
@@ -254,6 +259,9 @@ void FirstBootSetupWindow::initUI() {
 
     setContentsMargins(0, 0, 0, 0);
     setCentralWidget(bgGroup);
+
+    control_panel_frame_ = new ControlPanelFrame(this);
+    control_panel_frame_->hide();
 }
 
 void FirstBootSetupWindow::initPages()
@@ -352,6 +360,9 @@ void FirstBootSetupWindow::constructLabelView()
 }
 
 void FirstBootSetupWindow::registerShortcut() {
+    control_panel_shortcut_ = new QShortcut(QKeySequence("Ctrl+Alt+Z"), this);
+    control_panel_shortcut_->setContext(Qt::ApplicationShortcut);
+
   // Note(xushaohua): Super key is named Meta key in Qt namespace.
   monitor_mode_shortcut_ = new GlobalShortcut(QKeySequence("Meta+P"), this);
   if (!monitor_mode_shortcut_->registerNow()) {
