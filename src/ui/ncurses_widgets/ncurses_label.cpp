@@ -41,18 +41,18 @@ void NcursesLabel::show()
     }
     switch (m_alignment) {
     case Qt::AlignLeft:
-        printw("%s", m_text.toUtf8().data());
+        addstr(m_text.toUtf8().data());
         break;
     case Qt::AlignCenter:
         if (width() > m_text.length()) {
-            printw(0,  (width() - m_text.length()) / 2 , "%s",m_text.toUtf8().data());
+            addstr(0, (width() - m_text.length()) / 2, m_text.toUtf8().data());
 
         } else {
-            printw("%s", m_text.toUtf8().data());
+            addstr(m_text.toUtf8().data());
         }
         break;
     default:
-        printw("%s", m_text.toUtf8().data());
+        addstr(m_text.toUtf8().data());
     }
     if (m_isBold) {
         attroff(A_UNDERLINE);

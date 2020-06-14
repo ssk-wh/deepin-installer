@@ -93,11 +93,11 @@ void installer::NCursesLineEdit::changedText()
     this->erase();
     if (m_is_passowrd) {
         for (int i = 0; i < m_text.size(); i++) {
-            this->printw("*");
+            addstr("*");
         }
     } else {
         if(m_text.compare(""))
-            this->printw("%s", m_text.toUtf8().data());
+            addstr(m_text.toUtf8().data());
     }
 }
 
