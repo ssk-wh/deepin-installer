@@ -458,6 +458,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="90"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="162"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="193"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="207"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="717"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="915"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="231"/>
@@ -486,10 +487,9 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="190"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="430"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="429"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="415"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="140"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="141"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="209"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="73"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="120"/>
         <source>Deepin</source>
@@ -499,10 +499,9 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="190"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="430"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="429"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="415"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="140"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="141"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="209"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="73"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="120"/>
         <source>UOS</source>
@@ -732,6 +731,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="262"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="167"/>
         <source>Encrypt This Disk</source>
         <translation>全盤加密</translation>
     </message>
@@ -769,11 +769,6 @@
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="174"/>
         <source>Install here</source>
         <translation>安裝到此</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="167"/>
-        <source>Encrypt this disk</source>
-        <translation>全盤加密</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="179"/>
@@ -992,33 +987,38 @@
         <translation>若不了解詳細設置，請使用默認推薦</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="429"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="428"/>
         <source>I have read and agree to the</source>
         <translation>我已仔細閱讀並同意</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="430"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="140"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="141"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="429"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="209"/>
         <source>%1 Software End User License Agreement</source>
         <translation>《%1操作系統最終用戶許可協議》</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="434"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="433"/>
         <source>and</source>
         <translation>和</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="443"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="442"/>
         <source>Agree to the</source>
         <translation>同意</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="444"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="137"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="138"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="443"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="208"/>
         <source>User Experience Program License Agreement</source>
         <translation>《用戶體驗計劃許可協議》</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="445"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="108"/>
+        <location filename="../src/ui/frames_cli/language_frame.cpp" line="46"/>
+        <source>Select Language</source>
+        <translation>請選擇語言</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="75"/>
@@ -1345,12 +1345,6 @@
         <translation>重啟即可享受該系統給您帶來的新體驗，祝您使用愉快！</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/language_frame.cpp" line="106"/>
-        <location filename="../src/ui/frames_cli/language_frame.cpp" line="46"/>
-        <source>Select Language</source>
-        <translation>請選擇語言</translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="121"/>
         <source>Edit</source>
         <translation>編輯</translation>
@@ -1508,7 +1502,7 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="230"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="437"/>
-        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="88"/>
+        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="91"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="98"/>
         <source>Full Disk</source>
         <translation>全盤安裝</translation>
@@ -1580,8 +1574,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="128"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="234"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="304"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="245"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="315"/>
         <source>Is it the right timezone? You can change it as well</source>
         <translation>已為您自動獲取了時區，但您可以手動修改</translation>
     </message>
@@ -1666,7 +1660,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="89"/>
-        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="89"/>
+        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="92"/>
         <source>Make sure you have backed up important data, then select the disk to install.</source>
         <translation>請確定您已備份好重要數據，然後選擇要安裝的磁盤。</translation>
     </message>
@@ -1706,12 +1700,12 @@
         <translation>密碼：</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="90"/>
+        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="93"/>
         <source>System Disk:</source>
         <translation>系統盤：</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
         <source>Data Disk:</source>
         <translation>數據盤：</translation>
     </message>
