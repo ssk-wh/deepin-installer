@@ -33,12 +33,22 @@ parse_cmdline
 if [ -f "${CONF_FILE}" ]; then
 
     if [ x"$cli_mode" = xtrue ]; then
+        installer_set "skip_select_language_page" "true"
         installer_set "skip_select_language_page_on_first_boot" "true"
         installer_set "skip_system_info_page" "true"
         installer_set "skip_network_page" "true"
         installer_set "skip_auto_sync_time_page" "false"
         installer_set "skip_timezone_page" "true"
         installer_set "skip_control_platform_page" "true"
+    else
+        DI_SKIP_SELECT_LANGUAGE=$(installer_get "skip_select_language_page")
+        if [ x${DI_SKIP_SELECT_LANGUAGE=} = "xtrue" ];then
+	    installer_set "skip_select_language_page" "false"
+            installer_set "skip_select_language_page_on_first_boot" "false"
+        else
+            installer_set "skip_select_language_page" "true"
+            installer_set "skip_select_language_page_on_first_boot" "true"
+        fi
     fi
 
   install -v -m644 "${CONF_FILE}"  "/target/${CONF_FILE}" || \
