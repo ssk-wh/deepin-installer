@@ -437,7 +437,12 @@ void PartitionFramePrivate::initUI() {
   full_disk_frame_button_ = new DButtonBoxButton(::QObject::tr("Full Disk"), q_ptr);
   full_disk_frame_button_->setMinimumWidth(86);
 
-  m_buttonGroup->setButtonList({advanced_frame_button_, full_disk_frame_button_}, true);
+  if (GetSettingsBool(kPartitionSkipFullDiskPartitionPage)) {
+      m_buttonGroup->setButtonList({advanced_frame_button_}, true);
+  } else {
+      m_buttonGroup->setButtonList({advanced_frame_button_, full_disk_frame_button_}, true);
+  }
+
   m_buttonGroup->setVisible(true);
 
   QHBoxLayout* button_layout = new QHBoxLayout();
@@ -499,12 +504,7 @@ void PartitionFramePrivate::initUI() {
   layout->addSpacing(kMainLayoutSpacing);
   layout->addLayout(comment_layout);
   layout->addSpacing(kMainLayoutSpacing);
-  if ((!GetSettingsBool(kPartitionSkipSimplePartitionPage) ||
-       !GetSettingsBool(kPartitionSkipFullDiskPartitionPage))) {
-    // Add control button groups only if both simple mode and advanced mode
-    // are enabled.
-    layout->addLayout(button_layout);
-  }
+  layout->addLayout(button_layout);
   layout->addSpacing(20 + kMainLayoutSpacing);
   layout->addLayout(partition_stacked_wrapper_layout);
   layout->addLayout(next_layout);
