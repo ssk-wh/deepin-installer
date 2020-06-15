@@ -16,6 +16,8 @@
  */
 
 #include "ui/delegates/avatar_list_delegate.h"
+#include "service/settings_manager.h"
+#include "service/settings_name.h"
 
 #include <QDebug>
 #include <QPainter>
@@ -51,16 +53,41 @@ AvatarListDelegate::paint(QPainter* painter,
       painter->setRenderHint(QPainter::SmoothPixmapTransform);
 
       const int iconMargin = kIconMargin / 2;
+      static QModelIndex first_index = index;
       if (option.state & QStyle::State_Selected) {
           const int apertureMargin = iconMargin / 2;
           const QRect ellipse_round(
               rect.topLeft() + QPoint(apertureMargin, apertureMargin),
               QSize(kIconSize + iconMargin, kIconSize + iconMargin));
 
-          QPen pen(QColor("#209cee"));
-          pen.setWidth(apertureMargin);
-          painter->setPen(pen);
-          painter->drawEllipse(ellipse_round);
+          if (GetSettingsBool(kSystemInfoDisableAvatorPage)) {
+              if (first_index == index) {
+                  QPen pen(QColor("#209cee"));
+                  pen.setWidth(apertureMargin);
+                  painter->setPen(pen);
+                  painter->drawEllipse(ellipse_round);
+              }
+          } else {
+              QPen pen(QColor("#209cee"));
+              pen.setWidth(apertureMargin);
+              painter->setPen(pen);
+              painter->drawEllipse(ellipse_round);
+          }
+
+      }
+
+      if (GetSettingsBool(kSystemInfoDisableAvatorPage)) {
+          if (first_index == index) {
+              const int apertureMargin = iconMargin / 2;
+              const QRect ellipse_round(
+                  rect.topLeft() + QPoint(apertureMargin, apertureMargin),
+                  QSize(kIconSize + iconMargin, kIconSize + iconMargin));
+
+                  QPen pen(QColor("#209cee"));
+                  pen.setWidth(apertureMargin);
+                  painter->setPen(pen);
+                  painter->drawEllipse(ellipse_round);
+          }
       }
 
       const QRect ellipse_rect(rect.topLeft() + QPoint(iconMargin, iconMargin ),
