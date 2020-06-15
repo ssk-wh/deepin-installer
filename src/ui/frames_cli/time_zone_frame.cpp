@@ -80,7 +80,8 @@ void TimeZoneFramePrivate::initConnection()
 
 TimeZoneFrame::TimeZoneFrame(FrameInterface* parent) :
     FrameInterface (parent),
-    m_alias_map(GetTimezoneAliasMap())
+    m_alias_map(GetTimezoneAliasMap()),
+    m_localeString("")
 {
     int h = LINES / 2;
     int w = COLS / 2;
@@ -97,7 +98,11 @@ TimeZoneFrame::~TimeZoneFrame()
 
 bool TimeZoneFrame::init()
 {
-    readConf();
+    if (m_localeString.compare(installer::ReadLocale())) {
+        readConf();
+        m_localeString = installer::ReadLocale();
+    }
+
     if (m_currState == FRAME_STATE_NOT_START) {
 
         connect(dynamic_cast<TimeZoneFramePrivate*>(m_private), &TimeZoneFramePrivate::continentChanged, this, [=]{

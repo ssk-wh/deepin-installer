@@ -65,6 +65,7 @@ private:
     QStringList m_currentContinentList;
     QStringList m_currentTimeZoneList;
     TimezoneAliasMap m_alias_map;
+    QString m_localeString;
     Q_DECLARE_PRIVATE_D(m_private, TimeZoneFrame)
 };
 
