@@ -7,5 +7,4 @@ select_component_default_install_type = ""
 partition_skip_simple_partition_page = true
 enable_install_nvidia_driver = true
 system_info_disable_experience = false
-skip_repair_system_page = false
 

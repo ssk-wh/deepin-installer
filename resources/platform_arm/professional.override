@@ -4,7 +4,6 @@ timezone_default = Asia/Shanghai
 partition_skip_simple_partition_page = true
 partition_skip_partition_crypt_page = true
 system_info_disable_experience = false
-skip_repair_system_page = false
 skip_select_component_page = true
 select_component_default_install_type = ""
 

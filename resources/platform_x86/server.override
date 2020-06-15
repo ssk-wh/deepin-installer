@@ -11,5 +11,4 @@ system_info_password_validate_required = 3
 system_info_password_dist_check = false
 system_info_password_palingrome_check = true
 system_info_password_palingrome_length = 4
-skip_repair_system_page = false
 
