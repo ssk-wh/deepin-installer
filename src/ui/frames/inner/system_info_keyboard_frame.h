@@ -20,6 +20,10 @@
 
 #include <QFrame>
 #include <QScopedPointer>
+
+#include "ui/interfaces/frameinterface.h"
+#include "ui/interfaces/frameproxyinterface.h"
+
 class QLineEdit;
 class QLabel;
 
@@ -32,26 +36,23 @@ class TitleLabel;
 
 class SystemInfoKeyboardFramePrivate;
 // Keyboard layout setup page.
-class SystemInfoKeyboardFrame : public QFrame {
+class SystemInfoKeyboardFrame : public FrameInterface {
     Q_OBJECT
 
 public:
-    explicit SystemInfoKeyboardFrame(QWidget* parent = nullptr);
+    explicit SystemInfoKeyboardFrame(FrameProxyInterface* parent = nullptr);
     ~SystemInfoKeyboardFrame() override;
 
-    // Set keyboard layout to default value.
-    void readConf();
+    void init() override;
 
-signals:
-    // Emitted when back_button_ is clicked.
-    void finished();
+    // 写入配置文件
+    void finished() override;
 
-    // Emitted when new keyboard layout is selected.
-    void layoutUpdated(const QString& layout);
+    bool shouldDisplay() const override;
 
-public slots:
-    // Save current keyboard layout to settings file.
-    void writeConf();
+    QString returnFrameName() const override{
+        return ::QObject::tr("Keyboard Layout");
+    }
 
 protected:
     void changeEvent(QEvent* event) override;

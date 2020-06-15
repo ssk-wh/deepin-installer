@@ -56,6 +56,7 @@
 #include "ui/frames/repair_system_frame.h"
 #include "ui/widgets/shadow_widget.h"
 #include "ui/frames/repair_system_frame.h"
+#include "ui/frames/inner/system_info_keyboard_frame.h"
 
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/pointer_button.h"

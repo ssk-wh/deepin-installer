@@ -25,6 +25,7 @@
 #include "ui/widgets/component_widget.h"
 #include "ui/widgets/operator_widget.h"
 #include "ui/utils/widget_util.h"
+#include "sysinfo/virtual_machine.h"
 
 #include <QProcess>
 #include <QDebug>
@@ -187,7 +188,7 @@ void installer::RepairSystemFrame::finished()
 
 bool installer::RepairSystemFrame::shouldDisplay() const
 {
-    return isRepair() && !GetSettingsBool(kSkipRepairSystemPage);
+    return isRepair() && !GetSettingsBool(kSkipRepairSystemPage) && !IsVirtualMachine();
 }
 
 QString installer::RepairSystemFrame::returnFrameName() const
@@ -234,21 +235,21 @@ void installer::RepairSystemFrame::changeEvent(QEvent *event)
 
 bool installer::RepairSystemFrame::isRepair() const
 {
-#ifdef QT_DEBUG
+#ifdef QT_DEBUG_test
     return true;
 #endif // QT_DEBUG
-    OsProberItems items = OsProberItems();
+    OsProberItems items = GetOsProberItems();
     for (OsProberItem os : items) {
         if (os.type == OsType::Linux) {
             qDebug() << "OsType::Linux";
             qDebug() << "distro_name: " << os.distro_name;
             qDebug() << "description: " << os.description;
-//            if (os.description.toLower().contains("debian")
-//                    || os.distro_name.toLower().contains("debian")
-//                    || os.description.toLower().contains("uos")
-//                    || os.distro_name.toLower().contains("uos")) {
-//                return true;
-//            }
+            if (os.description.toLower().contains("debian")
+                    || os.distro_name.toLower().contains("debian")
+                    || os.description.toLower().contains("uos")
+                    || os.distro_name.toLower().contains("uos")) {
+                return true;
+            }
             return true;
         } else {
             qDebug() << "Non OsType::Linux: " << os.type;

@@ -46,7 +46,7 @@ const int kSelectedRightMargin = 2;
 // Size of bottom border.
 const int kBorderBottom = 10;
 const int kItemRightMargin = 10;
-const QString kDriverIcon = ":/images/driver_128.svg";
+const QString kDriverIcon = ":/images/driver_64.svg";
 const QString kDriverInstallIcon = ":/images/driver_install_128.svg";
 
 }  // namespace

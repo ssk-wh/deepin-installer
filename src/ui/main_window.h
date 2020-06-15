@@ -65,6 +65,7 @@ class SelectInstallComponentFrame;
 class InstallResultsFrame;
 class ShadowWidget;
 class RepairSystemFrame;
+class SystemInfoKeyboardFrame;
 
 // MainWindow is a fullscreen window of deepin-installer.
 // All of ui frames are placed in MainWindow.
@@ -175,6 +176,7 @@ private:
   SelectInstallComponentFrame* m_selectComponentFrame = nullptr;
   InstallResultsFrame* m_installResultsFrame = nullptr;
   ShadowWidget* shadow_widget = nullptr;
+  SystemInfoKeyboardFrame *m_keyboarFrame = nullptr;
 
   // To store frame pages, page_name => page_id.
   QHash<PageId, int> pages_;

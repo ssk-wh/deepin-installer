@@ -236,25 +236,31 @@ void SelectInstallComponentFramePrivate::initUI()
     m_selectPromptLabel = new QLabel(::QObject::tr("Select the components according to your needs"));
     m_selectPromptLabel->setObjectName("m_selectPromptLabel");
 
+    QFont font;
+    font.setWeight(QFont::DemiBold);
     m_serverTypeLabel = new QLabel(::QObject::tr("Basic Environment"), q_ptr);
     m_serverTypeLabel->setObjectName("serverTypeLabel");
     m_serverTypeLabel->setWordWrap(false);
     m_serverTypeLabel->setAlignment(Qt::AlignHCenter);
+    m_serverTypeLabel->setFont(font);
 
     m_componentLabel = new QLabel(::QObject::tr("Add-Ons"), q_ptr);
     m_componentLabel->setObjectName("componentLabel");
     m_componentLabel->setWordWrap(false);
     m_componentLabel->setAlignment(Qt::AlignHCenter);
+    m_componentLabel->setFont(font);
 
     QVBoxLayout* serverLayout = new QVBoxLayout;
+    serverLayout->setContentsMargins(0, 0, 12, 0);
     serverLayout->setSpacing(kItemSpacing);
-    serverLayout->setMargin(0);
 
     ComponentInstallManager* manager = ComponentInstallManager::Instance();
     QList<QSharedPointer<ComponentStruct>> serverList = manager->list();
     QList<ComponentWidget*> serverWidgetList;
     for (auto it = serverList.cbegin(); it != serverList.cend(); ++it) {
         ComponentWidget* compWdg = new ComponentWidget(true);
+        compWdg->setIsHead(true);
+        compWdg->setIsTail(true);
 
         serverLayout->addWidget(compWdg);
 
@@ -283,8 +289,8 @@ void SelectInstallComponentFramePrivate::initUI()
     m_serverScrollArea->setWidget(m_baseComponentListWidget);
 
     m_componentLayout = new QVBoxLayout;
+    m_componentLayout->setContentsMargins(0, 0, 12, 0);
     m_componentLayout->setSpacing(kItemSpacing);
-    m_componentLayout->setMargin(0);
 
     m_extraComponentListWidget = new QWidget;
     m_extraComponentListWidget->setLayout(m_componentLayout);

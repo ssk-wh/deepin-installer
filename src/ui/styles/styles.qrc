@@ -42,5 +42,6 @@
         <file>timezone_frame.css</file>
         <file>di_scrollarea.css</file>
         <file>operator_widget.css</file>
+        <file>select_button.css</file>
     </qresource>
 </RCC>

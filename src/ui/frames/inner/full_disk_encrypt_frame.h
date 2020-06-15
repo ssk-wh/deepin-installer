@@ -8,6 +8,7 @@
 #include <DLineEdit>
 #include <DPasswordEdit>
 #include <DImageButton>
+#include <DSuggestButton>
 
 DWIDGET_USE_NAMESPACE
 
@@ -22,6 +23,7 @@ class TitleLabel;
 class SystemInfoTip;
 class FullDiskPartitionWidget;
 class FullDiskDelegate;
+class SelectButton;
 
 #define  FULL_DISK_DISK_MAX_COUNT (2)
 
@@ -72,8 +74,8 @@ private:
     QFrame *m_encryptCheckFrame;
     DPasswordEdit *m_encryptEdit;
     DPasswordEdit *m_encryptRepeatEdit;
-    QPushButton *m_cancelBtn;
-    QPushButton *m_confirmBtn;
+    SelectButton *m_cancelBtn;
+    DSuggestButton *m_confirmBtn;
     SystemInfoTip *m_errTip;
     QList<DLineEdit*> m_editList;
     FullDiskPartitionWidget *m_diskPartitionWidget;

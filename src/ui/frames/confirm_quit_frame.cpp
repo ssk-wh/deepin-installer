@@ -20,6 +20,7 @@
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/title_label.h"
 #include "ui/utils/widget_util.h"
+#include "ui/widgets/select_button.h"
 
 #include <QEvent>
 #include <QHBoxLayout>
@@ -87,9 +88,9 @@ void ConfirmQuitFrame::initUI() {
   comment_label_->setWordWrap(true);
   comment_label_->setAlignment(Qt::AlignCenter);
 
-  continue_button_ = new QPushButton(::QObject::tr("Continue"));
+  continue_button_ = new SelectButton();
   continue_button_->setFixedSize(170, 36);
-  abort_button_ = new QPushButton(::QObject::tr("Abort"));
+  abort_button_ = new DSuggestButton();
   abort_button_->setFixedSize(170, 36);
 
   QPixmap pixmap = installer::renderPixmap(":/images/interaction_warning.svg");

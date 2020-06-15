@@ -104,11 +104,11 @@ void TimezoneMap::showMark()
     updateMap();
 }
 
-void TimezoneMap::resizeEvent(QResizeEvent* event) {
-  QTimer::singleShot(0, this, &TimezoneMap::updateMap);
+//void TimezoneMap::resizeEvent(QResizeEvent* event) {
+//  QTimer::singleShot(0, this, &TimezoneMap::updateMap);
 
-  QWidget::resizeEvent(event);
-}
+//  QWidget::resizeEvent(event);
+//}
 
 bool TimezoneMap::eventFilter(QObject* watched, QEvent* event) {
     if (watched == map_label_) {
@@ -176,6 +176,8 @@ void TimezoneMap::initUI() {
 
   layout->addWidget(map_label_, 0, Qt::AlignCenter);
   setLayout(layout);
+
+  updateMap();
 }
 
 void TimezoneMap::popupZoneWindow(const QPoint& pos) {

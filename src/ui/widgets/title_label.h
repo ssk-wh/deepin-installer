@@ -29,6 +29,9 @@ class TitleLabel : public QLabel {
  public:
   TitleLabel(QWidget* parent = nullptr);
   TitleLabel(const QString& text, QWidget* parent = nullptr);
+
+private:
+  void initStyle();
 };
 
 }  // namespace installer

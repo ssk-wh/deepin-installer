@@ -37,6 +37,7 @@ const char kSkipSelectComponentPage[] = "skip_select_component_page";
 const char kSkipAutoSyncTimePage[] = "skip_auto_sync_time_page";
 const char kSkipRepairSystemPage[] = "skip_repair_system_page";
 const char kSkipPxeInstallerSystem[] = "skip_pxe_installer_system";
+const char kSkipSystemKeyboardPage[] = "skip_system_keyboard_page";
 
 // System Language List
 const char kSelectLanguageDefaultLocale[] = "select_language_default_locale";

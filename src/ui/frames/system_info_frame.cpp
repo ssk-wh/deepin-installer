@@ -22,7 +22,6 @@
 #include "service/settings_name.h"
 #include "ui/frames/inner/system_info_avatar_frame.h"
 #include "ui/frames/inner/system_info_form_frame.h"
-#include "ui/frames/inner/system_info_keyboard_frame.h"
 #include "timezone_frame.h"
 #include "ui/widgets/pointer_button.h"
 #include "ui/interfaces/frameinterfaceprivate.h"
@@ -63,12 +62,10 @@ public:
     // Update visibility of buttons in header bar based on current page.
     void updateHeadBar();
 
-    QPushButton* keyboard_button_ = nullptr;
     QHBoxLayout* bottom_layout_ = nullptr;
     QStackedLayout* stacked_layout_ = nullptr;
     SystemInfoAvatarFrame* avatar_frame_ = nullptr;
     SystemInfoFormFrame* form_frame_ = nullptr;
-    SystemInfoKeyboardFrame* keyboard_frame_ = nullptr;
 
     // To mark current page before switching to timezone page.
     int last_page_;
@@ -111,16 +108,12 @@ void SystemInfoFrame::init() {
   m_private->avatar_frame_->readConf();
 
   m_private->form_frame_->readConf();
-
-  // Read default keyboard layout.
-  m_private->keyboard_frame_->readConf();
 }
 
 void SystemInfoFrame::finished() {
   // Notify sub-pages to save settings.
   m_private->avatar_frame_->writeConf();
   m_private->form_frame_->writeConf();
-  m_private->keyboard_frame_->writeConf();
 }
 
 bool SystemInfoFrame::shouldDisplay() const
@@ -145,41 +138,21 @@ void SystemInfoFramePrivate::initConnections() {
   // Save settings when finished signal is emitted.
   connect(form_frame_, &SystemInfoFormFrame::avatarClicked,
           this, &SystemInfoFramePrivate::showAvatarPage);
-  connect(keyboard_frame_, &SystemInfoKeyboardFrame::finished,
-          this, &SystemInfoFramePrivate::restoreLastPage);
-  connect(keyboard_frame_, &SystemInfoKeyboardFrame::layoutUpdated,
-          this, &SystemInfoFramePrivate::updateLayout);
-
-  connect(keyboard_button_, &QPushButton::clicked,
-          this, &SystemInfoFramePrivate::showKeyboardPage);
 
   connect(form_frame_, &SystemInfoFormFrame::requestNextButtonEnable, nextButton, &QPushButton::setEnabled);
 }
 
 void SystemInfoFramePrivate::initUI() {
-  keyboard_button_ = new QPushButton();
-  keyboard_button_->setFixedWidth(250);
-  keyboard_button_->setFixedHeight(30);
-
-  bottom_layout_ = new QHBoxLayout();
-  bottom_layout_->setContentsMargins(30, 0, 0, 0);
-  bottom_layout_->setSpacing(30);
-  bottom_layout_->addWidget(keyboard_button_);
-  bottom_layout_->addStretch();
-
   avatar_frame_ = new SystemInfoAvatarFrame();
   form_frame_ = new SystemInfoFormFrame();
-  keyboard_frame_ = new SystemInfoKeyboardFrame();
 
   stacked_layout_ = new QStackedLayout();
   stacked_layout_->setContentsMargins(0, 0, 0, 0);
   stacked_layout_->setSpacing(0);
   stacked_layout_->addWidget(avatar_frame_);
   stacked_layout_->addWidget(form_frame_);
-  stacked_layout_->addWidget(keyboard_frame_);
 
   centerLayout->addLayout(stacked_layout_);
-  centerLayout->addLayout(bottom_layout_);
 
   q_ptr->setContentsMargins(0, 0, 0, 0);
 }
@@ -187,13 +160,6 @@ void SystemInfoFramePrivate::initUI() {
 void SystemInfoFramePrivate::updateHeadBar() {
   const QString name = stacked_layout_->currentWidget()->objectName();
   const int page = stacked_layout_->currentIndex();
-
-  // Only show header bar in avatar page and form page.
-  if (page == kAvatarPageId || page == kFormPageId) {
-    keyboard_button_->setVisible(!disable_keyboard_);
-  } else {
-    keyboard_button_->hide();
-  }
 }
 
 void SystemInfoFramePrivate::restoreLastPage() {
@@ -223,14 +189,12 @@ void SystemInfoFramePrivate::showFormPage() {
 void SystemInfoFramePrivate::showKeyboardPage() {
   if (!disable_keyboard_) {
     last_page_ = stacked_layout_->currentIndex();
-    stacked_layout_->setCurrentWidget(keyboard_frame_);
     nextButton->hide();
     updateHeadBar();
   }
 }
 
 void SystemInfoFramePrivate::updateLayout(const QString& layout) {
-  keyboard_button_->setText(layout);
   nextButton->setText(::QObject::tr("Next"));
 }
 

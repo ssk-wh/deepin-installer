@@ -1,34 +1,47 @@
 /** Used in ComponentWidget class **/
 
 QFrame#ComponentWidget {
-  color: #ffffff;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 500;
-  border: none;
-  outline: none;
-
-  background-color: rgba(255, 255, 255, 0.1);
+    width:250px;
+    height:48px;
+    background:rgba(0,0,0,0.03);
+    border-radius:8px;
 }
 
 QFrame#ComponentWidget::hover {
-  background-color: rgba(255, 255, 255, 0.3);
+    width:250px;
+    height:48px;
+    background:rgba(255,255,255,1) rgba(0,0,0,0.1);
+    border-radius:8px;
 }
 
 QFrame#ComponentWidget::pressed {
-  color: #2ca7f8;
-  background-color: rgba(255, 255, 255, 0.1);
+    width:250px;
+    height:48px;
+    background:rgba(255,255,255,1) rgba(0,0,0,0.1);
+    border-radius:8px;
 }
 
 QFrame#ComponentWidget::disabled {
-    color: rgba(255, 90, 90, 0.4);
-    background-color: rgba(255, 255, 255, 0.1);
+    width:250px;
+    height:48px;
+    background:rgba(255,255,255,1) rgba(0,0,0,0.1);
+    border-radius:8px;
 }
 QFrame#ComponentWidget[isHead=true] {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    width:95px;
+    height:20px;
+    font-size:14px;
+/*    font-family:SourceHanSansSC-Medium,SourceHanSansSC;*/
+    font-weight:500;
+    color:rgba(65,77,104,1);
+    line-height:20px;
 }
 QFrame#ComponentWidget[isTail=true] {
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    width:186px;
+    height:18px;
+    font-size:12px;
+/*    font-family:SourceHanSansSC-Normal,SourceHanSansSC;*/
+    font-weight:400;
+    color:rgba(82,106,127,1);
+    line-height:18px;
 }

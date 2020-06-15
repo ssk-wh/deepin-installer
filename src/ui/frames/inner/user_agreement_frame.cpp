@@ -34,6 +34,7 @@ void UserAgreementFrame::changeEvent(QEvent *event)
         QLocale locale;
         m_language = locale.language();
         updateText();
+        setFocus();
     }
 
     QFrame::changeEvent(event);
@@ -41,6 +42,7 @@ void UserAgreementFrame::changeEvent(QEvent *event)
 
 void UserAgreementFrame::initUI()
 {
+
     m_logoLbl = new QLabel();
     m_logoLbl->setPixmap(QPixmap(installer::GetVendorLogo()));
 
@@ -119,7 +121,7 @@ void UserAgreementFrame::initUI()
     m_sourceScrollArea->setPalette(pl3);
 
     QHBoxLayout* descriptionLayout = new QHBoxLayout();
-    descriptionLayout->setContentsMargins(5, 5, 5, 5);
+    descriptionLayout->setContentsMargins(5, 5, 0, 5);
     descriptionLayout->setSpacing(0);
     descriptionLayout->addWidget(m_sourceScrollArea);
 
@@ -171,7 +173,6 @@ void UserAgreementFrame::toggleLicense(QAbstractButton* button)
     }
 
     m_currentButton = button;
-    m_currentButton->setFocus();
 
     updateLicenseText();
 }
@@ -207,5 +208,4 @@ void UserAgreementFrame::setCheckedButton(int buttonId)
 {
     m_buttonBox->button(buttonId)->setChecked(true);
     m_currentButton = m_buttonBox->button(buttonId);
-    m_currentButton->setFocus();
 }

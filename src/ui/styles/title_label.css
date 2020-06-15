@@ -1,6 +1,11 @@
 /** Used by TitleLabel class **/
 
-QLabel {
-  font-size: 40px;
-  text-align: center;
+QLabel[title=true] {
+  width:96px;
+  height:36px;
+  font-size:24px;
+/*  font-family:SourceHanSansSC-Bold,SourceHanSansSC;*/
+  font-weight:bold;
+  color:rgba(0,26,46,1);
+  line-height:36px;
 }

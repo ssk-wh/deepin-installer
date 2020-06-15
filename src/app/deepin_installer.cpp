@@ -44,7 +44,7 @@ int main(int argc, char* argv[]) {
   qputenv("LC_ALL", installer::kDefaultLang);
   qputenv("LANG", installer::kDefaultLang);
 
-//  installer::xrandr();
+
 
   Utils::AutoScreenScale();
 
@@ -100,7 +100,6 @@ int main(int argc, char* argv[]) {
   }
 
   installer::ComponentInstallManager::Instance();
-
   installer::MainWindow main_window;
   main_window.setLogFile(args_parser.getLogFile());
 

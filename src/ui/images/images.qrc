@@ -126,5 +126,6 @@
         <file>map.svg</file>
         <file>logo.svg</file>
         <file>select_blue.svg</file>
+        <file>driver_64.svg</file>
     </qresource>
 </RCC>

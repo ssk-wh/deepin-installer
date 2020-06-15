@@ -51,6 +51,7 @@
 #include "ui/frames/language_frame.h"
 #include "ui/frames/networkframe.h"
 #include "ui/frames/control_platform_frame.h"
+#include "ui/frames/inner/system_info_keyboard_frame.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -258,6 +259,7 @@ void FirstBootSetupWindow::initUI() {
 void FirstBootSetupWindow::initPages()
 {
     language_frame_ = new LanguageFrame(this);
+    m_keyboardFrame = new SystemInfoKeyboardFrame(this);
     system_info_frame_ = new SystemInfoFrame(this);
     network_frame_ = new NetworkFrame(this);
     timezone_frame_ = new TimezoneFrame(this);
@@ -266,6 +268,7 @@ void FirstBootSetupWindow::initPages()
 
     m_originalFrames = {
         language_frame_,
+        m_keyboardFrame,
         timezone_frame_,
         system_info_frame_,
         network_frame_,

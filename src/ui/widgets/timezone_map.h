@@ -55,7 +55,7 @@ class TimezoneMap : public QFrame {
 
  protected:
   // Hide tooltips when window is resized.
-  void resizeEvent(QResizeEvent* event) override;
+//  void resizeEvent(QResizeEvent* event) override;
 
   bool eventFilter(QObject* watched, QEvent* event) override;
 

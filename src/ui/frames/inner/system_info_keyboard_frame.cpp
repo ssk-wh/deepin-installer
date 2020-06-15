@@ -43,6 +43,7 @@
 #include "ui/views/frameless_list_view.h"
 #include "ui/widgets/title_label.h"
 #include "ui/widgets/comment_label.h"
+#include "ui/interfaces/frameinterfaceprivate.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -56,12 +57,13 @@ const int kRightViewWidth = kLayoutWidth - 190 - 1 - 20 - 1;
 
 }  // namespace
 
-class SystemInfoKeyboardFramePrivate : public QObject
+class SystemInfoKeyboardFramePrivate : public FrameInterfacePrivate
 {
     Q_OBJECT
 public:
-    SystemInfoKeyboardFramePrivate(SystemInfoKeyboardFrame *ptr)
-        : q_ptr(ptr)
+    SystemInfoKeyboardFramePrivate(SystemInfoKeyboardFrame *pattern):
+        FrameInterfacePrivate(pattern),
+        q_ptr(qobject_cast<SystemInfoKeyboardFrame*>(pattern))
     {}
 
     SystemInfoKeyboardFrame *q_ptr;
@@ -71,6 +73,9 @@ private:
     void initConnections();
     void initUI();
     void updateTs();
+
+    void readConf();
+    void writeConf();
 
     // Update variant list when new keyboard layout is selected.
     // Update system keyboard layout.
@@ -116,9 +121,7 @@ private:
     QLabel* m_guideLabel = new CommentLabel;
     QStandardItemModel* m_layoutModel = nullptr;
     QStandardItemModel* m_variantModel = nullptr;
-    QLineEdit* m_testEdit = new QLineEdit;
     QString m_currentLocale;
-    QPushButton* m_backButton = new QPushButton;
     XkbConfig xkb_config_;
 
     DListView* m_layoutView = new DListView;
@@ -132,8 +135,8 @@ private:
     XkbModelList model_list;
 };
 
-SystemInfoKeyboardFrame::SystemInfoKeyboardFrame(QWidget* parent)
-    : QFrame(parent)
+SystemInfoKeyboardFrame::SystemInfoKeyboardFrame(FrameProxyInterface *parent)
+    : FrameInterface(parent)
     , d_private(new SystemInfoKeyboardFramePrivate(this))
 {
     this->setObjectName("system_info_keyboard_frame");
@@ -147,6 +150,20 @@ SystemInfoKeyboardFrame::SystemInfoKeyboardFrame(QWidget* parent)
 SystemInfoKeyboardFrame::~SystemInfoKeyboardFrame()
 {
 
+}
+
+void SystemInfoKeyboardFrame::init()
+{
+    d_private->readConf();
+}
+
+void SystemInfoKeyboardFrame::finished()
+{
+    d_private->writeConf();
+}
+
+bool SystemInfoKeyboardFrame::shouldDisplay() const {
+    return !GetSettingsBool(kSkipSystemKeyboardPage);
 }
 
 QModelIndex SystemInfoKeyboardFramePrivate::getLayoutByName(const QString& name) {
@@ -279,18 +296,14 @@ QString SystemInfoKeyboardFramePrivate::getVariantDescription(
 }
 
 void SystemInfoKeyboardFramePrivate::updateTs() {
-    m_titleLabel->setText(::QObject::tr("Select Keyboard Layout"));
-    m_testEdit->setPlaceholderText(::QObject::tr("Test here"));
-    m_backButton->setText(::QObject::tr("Back"));
+    m_titleLabel->setText(::QObject::tr("Set Keyboard Layout"));
     m_guideLabel->setText(::QObject::tr("Select a proper keyboard layout"));
 }
 
-void SystemInfoKeyboardFrame::readConf() {
-    Q_D(SystemInfoKeyboardFrame);
-
+void SystemInfoKeyboardFramePrivate::readConf() {
     // Load xkb config first.
-    d->m_currentLocale = ReadLocale();
-    d->initLayout(d->m_currentLocale);
+    m_currentLocale = ReadLocale();
+    initLayout(m_currentLocale);
 
     const QString kb_layout = GetSettingsString("DI_LAYOUT");
     const QString kb_variant = GetSettingsString("DI_LAYOUT_VARIANT");
@@ -304,17 +317,17 @@ void SystemInfoKeyboardFrame::readConf() {
         return;
     }
 
-    const QModelIndex index = d->getLayoutByName(layout);
+    const QModelIndex index = getLayoutByName(layout);
     if (index.isValid()) {
         // Select default layout.l
-        d->m_layoutView->setCurrentIndex(index);
-        const QModelIndex variant_index = d->getVariantIndexByName(variant);
+        m_layoutView->setCurrentIndex(index);
+        const QModelIndex variant_index = getVariantIndexByName(variant);
         if (variant_index.isValid()) {
-            d->m_variantView->setCurrentIndex(variant_index);
+            m_variantView->setCurrentIndex(variant_index);
         }
         else {
             qWarning() << "Invalid default keyboard variant:" << variant;
-            d->m_variantView->setCurrentIndex(d->m_variantModel->index(0, 0));
+            m_variantView->setCurrentIndex(m_variantModel->index(0, 0));
         }
     } else {
         qWarning() << "Invalid default keyboard layout:" << layout;
@@ -322,13 +335,12 @@ void SystemInfoKeyboardFrame::readConf() {
 
 }
 
-void SystemInfoKeyboardFrame::writeConf() {
-    Q_D(SystemInfoKeyboardFrame);
+void SystemInfoKeyboardFramePrivate::writeConf() {
 
-    const QModelIndex layout_index = d->m_layoutView->currentIndex();
-    const QString layout = d->getLayoutName(layout_index);
-    const QModelIndex variant_index = d->m_variantView->currentIndex();
-    const QString variant = d->getVariantName(variant_index);
+    const QModelIndex layout_index = m_layoutView->currentIndex();
+    const QString layout = getLayoutName(layout_index);
+    const QModelIndex variant_index = m_variantView->currentIndex();
+    const QString variant = getVariantName(variant_index);
 
     // Model name of keyboard is empty. Variant name might be empty.
     // The first row in variant list is the default layout.
@@ -359,7 +371,7 @@ void SystemInfoKeyboardFrame::changeEvent(QEvent* event) {
             qWarning() << "invalid locale:" << locale;
         }
     } else {
-        QFrame::changeEvent(event);
+        FrameInterface::changeEvent(event);
     }
 }
 
@@ -370,14 +382,9 @@ void SystemInfoKeyboardFramePrivate::initConnections() {
             this, &SystemInfoKeyboardFramePrivate::onLayoutViewSelectionChanged);
     connect(m_variantView->selectionModel(), &QItemSelectionModel::currentChanged,
             this, &SystemInfoKeyboardFramePrivate::onVariantViewSelected);
-
-    connect(m_backButton, &QPushButton::clicked,
-            q_ptr, &SystemInfoKeyboardFrame::finished);
 }
 
 void SystemInfoKeyboardFramePrivate::initUI() {
-
-
     m_layoutView->setObjectName("layout_view");
     m_layoutModel = new QStandardItemModel(m_layoutView);
     m_layoutView->setModel(m_layoutModel);
@@ -475,37 +482,22 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     keyboard_size_policy.setVerticalStretch(1);
     keyboard_wrapper->setSizePolicy(keyboard_size_policy);
 
-    m_testEdit->setObjectName("test_edit");
-    m_testEdit->setFixedSize(kLayoutWidth, 36);
-    // Disable context menu.
-    m_testEdit->setContextMenuPolicy(Qt::NoContextMenu);
-
-    m_backButton->setFixedSize(310, 36);
-
-    QVBoxLayout* layout = new QVBoxLayout();
-    layout->setContentsMargins(0, 0, 0, 0);
-    layout->setSpacing(0);
-    layout->addSpacing(30);
-    layout->addWidget(m_titleLabel, 0, Qt::AlignCenter);
-    layout->addSpacing(20);
-    layout->addWidget(m_guideLabel, 0, Qt::AlignCenter);
-    layout->addSpacing(15);
-    layout->addWidget(keyboard_wrapper, 0, Qt::AlignHCenter);
-    layout->addSpacing(10);
-    layout->addWidget(m_testEdit, 0, Qt::AlignHCenter);
-    layout->addStretch();
-    layout->addSpacing(15);
-    layout->addWidget(m_backButton, 0, Qt::AlignHCenter);
-
-    q_ptr->setLayout(layout);
-    q_ptr->setContentsMargins(0, 0, 0, 0);
+    centerLayout->setContentsMargins(0, 0, 0, 0);
+    centerLayout->setSpacing(0);
+    centerLayout->addSpacing(30);
+    centerLayout->addWidget(m_titleLabel, 0, Qt::AlignCenter);
+    centerLayout->addSpacing(20);
+    centerLayout->addWidget(m_guideLabel, 0, Qt::AlignCenter);
+    centerLayout->addSpacing(15);
+    centerLayout->addWidget(keyboard_wrapper, 0, Qt::AlignHCenter);
+    centerLayout->addStretch();
+    centerLayout->addSpacing(15);
 }
 
 void SystemInfoKeyboardFramePrivate::onLayoutViewSelectionChanged(
         const QModelIndex& current, const QModelIndex& previous) {
     Q_UNUSED(previous);
 
-    m_testEdit->clear();
     m_variantModel->clear();
     m_lastItemVar = nullptr;
 
@@ -535,9 +527,6 @@ void SystemInfoKeyboardFramePrivate::onVariantViewSelected(
 
     Q_UNUSED(previous);
 
-    // Clear content of m_testEdit when new layout variant is selected.
-    m_testEdit->clear();
-
     DStandardItem* item = dynamic_cast<DStandardItem* >(m_variantModel->item(current.row()));
     item->setCheckState(Qt::Checked);
 
@@ -564,9 +553,6 @@ void SystemInfoKeyboardFramePrivate::onVariantViewSelected(
             qWarning() << "SetXkbLayout() failed!" << layout << variant;
         }
     }
-    emit q->layoutUpdated(description);
-
-    q->writeConf();
 }
 
 }  // namespace installer

@@ -27,6 +27,7 @@
 #include <QGraphicsDropShadowEffect>
 #include <QPainter>
 #include <QPainterPath>
+#include <DPushButton>
 
 #include "base/file_util.h"
 #include "service/settings_manager.h"
@@ -43,6 +44,9 @@
 #include "ui/widgets/table_combo_box.h"
 #include "ui/widgets/title_label.h"
 #include "ui/widgets/di_scrollarea.h"
+#include "ui/widgets/select_button.h"
+
+DWIDGET_USE_NAMESPACE
 
 namespace installer {
 
@@ -147,6 +151,13 @@ void NewPartitionFrame::changeEvent(QEvent* event) {
     alignment_box_->addItems({::QObject::tr("Start"), ::QObject::tr("End")});
     cancel_button_->setText(::QObject::tr("Cancel"));
     create_button_->setText(::QObject::tr("OK"));
+
+    if (m_close_button) {
+        const int marginSize = this->layout()->margin();
+        m_close_button->move(width() - m_close_button->width() - marginSize, marginSize);
+        m_close_button->raise();
+        m_close_button->show();
+    }
   } else {
     QWidget::changeEvent(event);
   }
@@ -179,6 +190,11 @@ void NewPartitionFrame::initConnections() {
           this, &NewPartitionFrame::finished);
   connect(create_button_, &QPushButton::clicked,
           this, &NewPartitionFrame::onCreateButtonClicked);
+
+  connect(m_close_button, &DImageButton::clicked, [this]{Q_EMIT cancel_button_->click();});
+#ifdef QT_DEBUG
+  connect(m_close_button, &DImageButton::clicked, [this]{qDebug() << "close button!";});
+#endif // QT_DEBUG
 }
 
 void NewPartitionFrame::initUI() {
@@ -273,11 +289,10 @@ void NewPartitionFrame::initUI() {
   content_frame->setObjectName("content_frame");
   content_frame->setLayout(content_layout);
 
-  cancel_button_ = new QPushButton(::QObject::tr("Cancel"));
+  cancel_button_ = new SelectButton();
   cancel_button_->setFixedWidth(kButtonwidth);
-  create_button_ = new QPushButton(::QObject::tr("Create"));
+  create_button_ = new DSuggestButton();
   create_button_->setFixedWidth(kButtonwidth);
-  create_button_->setFocus();
 
   QHBoxLayout* bt_layout = new QHBoxLayout;
   bt_layout->addStretch();
@@ -301,6 +316,8 @@ void NewPartitionFrame::initUI() {
   this->setLayout(layout);
   this->setContentsMargins(0, 0, 0, 0);
   setFixedSize(QSize(kMainFrameWidth, kMainFrameHeight));
+
+  setupCloseButton();
 }
 
 void NewPartitionFrame::updateSlideSize() {
@@ -401,5 +418,17 @@ void NewPartitionFrame::onSizeSliderValueChanged(qint64 size) {
   // Memorize new value setup by user.
   last_slider_value_ = size;
 }
+
+void NewPartitionFrame::setupCloseButton()
+{
+    // TODO: use titleBar implement.
+    m_close_button = new DImageButton(this);
+    m_close_button->setFocusPolicy(Qt::TabFocus);
+    m_close_button->setFixedSize(40, 40);
+    m_close_button->setNormalPic(":/images/close_normal.svg");
+    m_close_button->setHoverPic(":/images/close_normal.svg");
+    m_close_button->setPressPic(":/images/close_normal.svg");
+}
+
 
 }  // namespace installer

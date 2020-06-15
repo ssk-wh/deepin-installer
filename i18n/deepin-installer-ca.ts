@@ -400,26 +400,24 @@
         <translation>Espai lliure</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="56"/>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="100"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="57"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="101"/>
         <source>Abort Installation</source>
         <translation>Avorta la instal·lació</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="59"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="86"/>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
         <translation>Les operacions rellevants que heu fet durant el procés d&apos;instal·lació no tindran efecte. Voleu avortar o continuar la instal·lació?</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="59"/>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="90"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="95"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="82"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="76"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="139"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="77"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="74"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="126"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="100"/>
@@ -428,8 +426,7 @@
         <translation>Continua</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="60"/>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="92"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="61"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="43"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="61"/>
         <source>Abort</source>
@@ -462,8 +459,8 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="723"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="918"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="231"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="645"/>
-        <location filename="../src/ui/frames/system_info_frame.cpp" line="234"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="647"/>
+        <location filename="../src/ui/frames/system_info_frame.cpp" line="198"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="131"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="25"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="22"/>
@@ -488,7 +485,7 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="192"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="429"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="433"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="415"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="210"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="73"/>
@@ -500,7 +497,7 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="192"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="429"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="433"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="415"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="210"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="73"/>
@@ -532,11 +529,9 @@
     </message>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="127"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="278"/>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="266"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="148"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="276"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="128"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="267"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="152"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="93"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="86"/>
@@ -673,40 +668,39 @@
         <translation>Afegiu-hi una partició lògica per continuar.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="123"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="201"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="214"/>
         <source>Edit Disk</source>
         <translation>Edita el disc</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="124"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="246"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="143"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="216"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="125"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="259"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="147"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="232"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="187"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="227"/>
         <source>File system</source>
         <translation>Sistema de fitxers</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="125"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="242"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="144"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="231"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="126"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="255"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="148"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="247"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="193"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="228"/>
         <source>Mount point</source>
         <translation>Punt de muntatge</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="126"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="262"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="127"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="275"/>
         <source>Format the partition</source>
         <translation>Formata la partició</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="128"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="278"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="129"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="164"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="231"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="96"/>
@@ -715,21 +709,12 @@
         <translation>Crea</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="280"/>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="267"/>
-        <location filename="../src/ui/main_window_cli.cpp" line="66"/>
-        <location filename="../src/ui/main_window_cli.cpp" line="79"/>
-        <location filename="../src/ui/main_window_cli.cpp" line="91"/>
-        <source>Confirm</source>
-        <translation>Confirma</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="222"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="223"/>
         <source>Please input password</source>
         <translation>Si us plau, introduïu la contrasenya.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="229"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="230"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="768"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="126"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="240"/>
@@ -737,21 +722,21 @@
         <translation>Les contrasenyes no coincideixen</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="262"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="263"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="130"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="169"/>
         <source>Encrypt This Disk</source>
         <translation>Encripta aquest disc</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="263"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="264"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="227"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="425"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="426"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Assegureu-vos que heu fet còpia de seguretat de les dades importants i, a continuació, seleccioneu el disc per a instal·lar</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="265"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="438"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="573"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="580"/>
@@ -760,12 +745,20 @@
         <translation>Contrasenya</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="265"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="266"/>
         <source>Repeat Password</source>
         <translation>Repetiu la contrasenya.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="268"/>
+        <location filename="../src/ui/main_window_cli.cpp" line="66"/>
+        <location filename="../src/ui/main_window_cli.cpp" line="79"/>
+        <location filename="../src/ui/main_window_cli.cpp" line="91"/>
+        <source>Confirm</source>
+        <translation>Confirma</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="269"/>
         <source>Take care of your password, otherwise, all your data will be lost</source>
         <translation>Tingueu cura de la contrasenya. Si no, es perdran totes les vostres dades!</translation>
     </message>
@@ -785,52 +778,52 @@
         <translation>Instal·la&apos;l aquí</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="140"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="185"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="144"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="201"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="172"/>
         <source>Create New Partition</source>
         <translation>Crea una partició nova</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="141"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="187"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="145"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="203"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="176"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="225"/>
         <source>Type</source>
         <translation>Tipus</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="142"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="202"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="146"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="218"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="182"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="226"/>
         <source>Location</source>
         <translation>Ubicació</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="145"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="247"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="149"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="263"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="198"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="229"/>
         <source>Size</source>
         <translation>Mida</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="147"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="205"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="151"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="221"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="115"/>
         <source>Start</source>
         <translation>Inicia</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="147"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="205"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="151"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="221"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="116"/>
         <source>End</source>
         <translation>Acaba</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="149"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="153"/>
         <source>OK</source>
         <translation>D&apos;acord</translation>
     </message>
@@ -900,12 +893,10 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="67"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="114"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="75"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="137"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="76"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="47"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="284"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="638"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="640"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="183"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="24"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="21"/>
@@ -970,15 +961,15 @@
         <translation>Teniu un carregador d’arrencada EFI però un disc MBR. Així no podeu instal·lar directament l&apos;UOS. Si us plau, seleccioneu una de les solucions següents i continueu.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="72"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="90"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="73"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="91"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="88"/>
         <source>Ready to Install</source>
         <translation>Llest per instal·lar</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="74"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="92"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="75"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="93"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="92"/>
         <source>Make a backup of your important data and then continue</source>
         <translation>Feu una còpia de seguretat de les dades importants i continueu</translation>
@@ -996,34 +987,34 @@
         <translation>Si no enteneu els paràmetres, si us plau, seleccioneu els valors recomanats.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="428"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="432"/>
         <source>I have read and agree to the</source>
         <translation>Ho he llegit i acceptat:</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="429"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="433"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="210"/>
         <source>%1 Software End User License Agreement</source>
         <translation>Acord de llicència d&apos;usuari final del programari per a %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="433"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="437"/>
         <source>and</source>
         <translation>i</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="442"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="446"/>
         <source>Agree to the</source>
         <translation>Acceptació:</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="443"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="447"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="209"/>
         <source>User Experience Program License Agreement</source>
         <translation>Acord de llicència del programa d’experiència d’usuari</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="445"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="449"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="108"/>
         <location filename="../src/ui/frames_cli/language_frame.cpp" line="46"/>
         <source>Select Language</source>
@@ -1083,7 +1074,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="585"/>
-        <location filename="../src/ui/frames/system_info_frame.cpp" line="133"/>
+        <location filename="../src/ui/frames/system_info_frame.cpp" line="126"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="454"/>
         <source>Create Accounts</source>
         <translation>Crea comptes</translation>
@@ -1190,21 +1181,19 @@
         <translation>Afegiu una contrasenya d’empremta al Centre de control &gt; Comptes per al desbloqueig i l&apos;autenticació.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="282"/>
-        <location filename="../src/ui/frames_cli/keyboard_frame.cpp" line="16"/>
-        <location filename="../src/ui/frames_cli/keyboard_frame.cpp" line="17"/>
-        <source>Select Keyboard Layout</source>
-        <translation>Seleccioneu la disposició del teclat.</translation>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="299"/>
+        <source>Set Keyboard Layout</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="283"/>
-        <source>Test here</source>
-        <translation>Proveu-ho aquí.</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="285"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="300"/>
         <source>Select a proper keyboard layout</source>
         <translation>Seleccioneu una disposició de teclat adequada.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.h" line="54"/>
+        <source>Keyboard Layout</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="90"/>
@@ -1246,7 +1235,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="185"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="239"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="241"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="54"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="85"/>
         <source>Basic Environment</source>
@@ -1260,7 +1249,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="187"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="244"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="247"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="55"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="86"/>
         <source>Add-Ons</source>
@@ -1268,7 +1257,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="189"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="314"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="320"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="76"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="99"/>
@@ -1298,7 +1287,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="168"/>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="140"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="141"/>
         <source>Install</source>
         <translation>Instal·la</translation>
     </message>
@@ -1398,7 +1387,7 @@
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="167"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="222"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="312"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="311"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="211"/>
         <source>Gateway:</source>
         <translation>Passarel·la:</translation>
@@ -1406,25 +1395,25 @@
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="168"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="234"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="313"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="312"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="212"/>
         <source>Primary DNS:</source>
         <translation>DNS primari:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="169"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="313"/>
         <source>Secondary DNS:</source>
         <translation>DNS secundari:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="198"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="310"/>
         <source>IP Address:</source>
         <translation>Adreça IP</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="210"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="311"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="310"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="210"/>
         <source>Netmask:</source>
         <translation>Màscara de xarxa:</translation>
@@ -1478,15 +1467,15 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="186"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="223"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="423"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="742"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="424"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="744"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="89"/>
         <source>Create Partitions</source>
         <translation>Crea particions</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="221"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="662"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="664"/>
         <source>Edit LVM Disk</source>
         <translation>Edita el disc d&apos;LVM</translation>
     </message>
@@ -1513,49 +1502,49 @@
         <translation>Tot el disc</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="495"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="646"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="493"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="648"/>
         <source>Start installation</source>
         <translation>Inicia la instal·lació</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="621"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="623"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
         <translation>El disc de destinació és dinàmic i se&apos;n poden perdre les dades si continueu. Si us plau, feu una còpia de seguretat dels fitxers importants qui hi tingueu.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="625"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="627"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
         <translation>El disc de destinació és dinàmic i es formatarà si continueu. Si us plau, feu una còpia de seguretat dels fitxers importants qui hi tingueu.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="137"/>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="195"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="138"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="196"/>
         <source>System Setup</source>
         <translation>Configuració del sistema</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="138"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="139"/>
         <source>Choose an option for your system</source>
         <translation>Trieu una opció per al sistema.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="141"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="142"/>
         <source>Install the system in your installation media.</source>
         <translation>Instal·la el sistema al mitjà d&apos;instal·lació.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="143"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="144"/>
         <source>Repair</source>
         <translation>Repara</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="144"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="145"/>
         <source>Use recovery tools to fix system issues.</source>
         <translation>Useu eines de recuperació per corregir problemes del sistema.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="146"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="147"/>
         <source>Enter the</source>
         <translation>Introduïu el següent: </translation>
     </message>
@@ -1579,8 +1568,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="128"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="246"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="316"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="249"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="319"/>
         <source>Is it the right timezone? You can change it as well</source>
         <translation>La zona horària és correcta? També la podeu canviar.</translation>
     </message>
@@ -1747,6 +1736,12 @@
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="82"/>
         <source>Shut Down</source>
         <translation>Atura</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames_cli/keyboard_frame.cpp" line="16"/>
+        <location filename="../src/ui/frames_cli/keyboard_frame.cpp" line="17"/>
+        <source>Select Keyboard Layout</source>
+        <translation>Seleccioneu la disposició del teclat.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/language_frame.cpp" line="48"/>

@@ -71,7 +71,6 @@ class InstallProgressSlideFrame : public QFrame {
   QStringList slide_files_;
 
 protected:
-  void resizeEvent(QResizeEvent* event) override;
   void showEvent(QShowEvent *event) override;
 
  private slots:

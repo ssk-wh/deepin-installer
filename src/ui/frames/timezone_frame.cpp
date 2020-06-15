@@ -220,23 +220,26 @@ void TimezoneFrame::finished() {
   }
 
   if (!m_private->m_systemDateFrame->isEnabled()) {
-      return;
+      qInfo() << "set ntp start...";
+      process->start("timedatectl", {"set-ntp", "true"});
+      if (!process->waitForFinished()) {
+           qCritical() << "set ntp failed! " << process->readAllStandardOutput();
+      }
+  } else {
+      qInfo() << "set time start...";
+
+      process->start("timedatectl", {"set-ntp", "false"});
+      if (!process->waitForFinished()) {
+           qCritical() << "set ntp failed! " << process->readAllStandardOutput();
+      }
+
+      WriteIsLocalTime(true);
+
+      process->start("timedatectl", {"set-time", m_private->m_systemDateFrame->timedate()});
+      if (!process->waitForFinished()) {
+           qCritical() << "set time failed! " << process->readAllStandardOutput();
+      }
   }
-
-  qInfo() << "set time start...";
-
-  process->start("timedatectl", {"set-ntp", "false"});
-  if (!process->waitForFinished()) {
-       qCritical() << "set ntp failed! " << process->readAllStandardOutput();
-  }
-
-  WriteIsLocalTime(true);
-
-  process->start("timedatectl", {"set-time", m_private->m_systemDateFrame->timedate()});
-  if (!process->waitForFinished()) {
-       qCritical() << "set time failed! " << process->readAllStandardOutput();
-  }
-
 }
 
 void TimezoneFrame::changeEvent(QEvent* event) {
@@ -246,9 +249,9 @@ void TimezoneFrame::changeEvent(QEvent* event) {
     m_private->comment_label_->setText(::QObject::tr("Is it the right timezone? You can change it as well"));
 
     // Also update timezone.
-    if (!m_private->timezone_.isEmpty()) {
-      emit timezoneUpdated(m_private->timezone_);
-    }
+//    if (!m_private->timezone_.isEmpty()) {
+//      emit timezoneUpdated(m_private->timezone_);
+//    }
   } else {
     FrameInterface::changeEvent(event);
   }
@@ -257,22 +260,22 @@ void TimezoneFrame::changeEvent(QEvent* event) {
 void TimezoneFrame::showEvent(QShowEvent* event) {
   FrameInterface::showEvent(event);
 
-  qApp->installEventFilter(this);
+//  qApp->installEventFilter(this);
 
-  // NOTE(xushaohua): Add a delay to wait for paint event of timezone map.
-  QTimer::singleShot(0, [&]() {
-      if(m_private->m_mapOrListStackedLayout->currentWidget() == m_private->timezone_map_){
-          m_private->timezone_map_->showMark();
-      }
-      else {
-          m_private->timezone_map_->hideMark();
-      }
-  });
+//  // NOTE(xushaohua): Add a delay to wait for paint event of timezone map.
+//  QTimer::singleShot(0, [&]() {
+//      if(m_private->m_mapOrListStackedLayout->currentWidget() == m_private->timezone_map_){
+//          m_private->timezone_map_->showMark();
+//      }
+//      else {
+//          m_private->timezone_map_->hideMark();
+//      }
+//  });
 }
 
 void TimezoneFrame::hideEvent(QHideEvent *event)
 {
-    qApp->removeEventFilter(this);
+//    qApp->removeEventFilter(this);
 
     QWidget::hideEvent(event);
 }

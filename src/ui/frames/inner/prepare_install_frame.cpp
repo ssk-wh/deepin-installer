@@ -32,6 +32,7 @@
 #include "ui/frames/consts.h"
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/title_label.h"
+#include "ui/widgets/select_button.h"
 
 DWIDGET_USE_NAMESPACE
 DGUI_USE_NAMESPACE
@@ -108,9 +109,10 @@ void PrepareInstallFrame::initUI() {
   description_edit_->setContextMenuPolicy(Qt::NoContextMenu);
   description_edit_->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   description_edit_->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+  description_edit_->setFrameStyle(QFrame::NoFrame);
 
   QHBoxLayout* descriptionLayout = new QHBoxLayout();
-  descriptionLayout->setContentsMargins(10, 10, 10, 10);
+  descriptionLayout->setContentsMargins(0, 0, 12, 0);
   descriptionLayout->setSpacing(0);
   descriptionLayout->addWidget(description_edit_);
 
@@ -126,17 +128,17 @@ void PrepareInstallFrame::initUI() {
   scroll->setFocusPolicy(Qt::NoFocus);
   scroll->setFrameStyle(QFrame::NoFrame);
   scroll->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-  scroll->setContentsMargins(0, 0, 15, 0);
+  scroll->setContentsMargins(0, 0, 0, 0);
   scroll->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-  scroll->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+  scroll->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   scroll->setContextMenuPolicy(Qt::NoContextMenu);
   scroll->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
   scroll->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
   scroll->setWidget(m_bgGroup);
 
-  abort_button_ = new QPushButton(::QObject::tr("Back"));
+  abort_button_ = new SelectButton();
   abort_button_->setFixedSize(kButtonWidth, kButtonHeight);
-  continue_button_ = new QPushButton(::QObject::tr("Continue"));
+  continue_button_ = new DSuggestButton();
   continue_button_->setFixedSize(kButtonWidth, kButtonHeight);
 
   QHBoxLayout *buttonLayout = new QHBoxLayout;

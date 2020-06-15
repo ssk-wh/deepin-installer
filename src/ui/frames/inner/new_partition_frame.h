@@ -19,11 +19,16 @@
 #define INSTALLER_UI_FRAMES_INNER_NEW_PARTITION_FRAME_H
 
 #include <QFrame>
+#include <DImageButton>
+#include <DSuggestButton>
+
 class QLabel;
 class QPushButton;
 
 #include "partman/partition.h"
 #include "ui/interfaces/frameinterface.h"
+
+DWIDGET_USE_NAMESPACE
 
 namespace installer {
 
@@ -35,6 +40,7 @@ class PartitionTypeModel;
 class PartitionSizeSlider;
 class TableComboBox;
 class TitleLabel;
+class SelectButton;
 
 class NewPartitionFrame : public ChildFrameInterface {
   Q_OBJECT
@@ -60,6 +66,8 @@ class NewPartitionFrame : public ChildFrameInterface {
   // Update current slider size based on mount point and filesystem type.
   void updateSlideSize();
 
+  void setupCloseButton();
+
   TitleLabel* title_label_ = nullptr;
   CommentLabel* comment_label_ = nullptr;
   QLabel* type_label_ = nullptr;
@@ -73,14 +81,15 @@ class NewPartitionFrame : public ChildFrameInterface {
   QLabel* size_label_ = nullptr;
   PartitionSizeSlider* size_slider_ = nullptr;
 
-  QPushButton* cancel_button_ = nullptr;
-  QPushButton* create_button_ = nullptr;
+  SelectButton* cancel_button_ = nullptr;
+  DSuggestButton* create_button_ = nullptr;
 
   AdvancedPartitionDelegate* delegate_ = nullptr;
   FsModel* fs_model_ = nullptr;
   MountPointModel* mount_point_model_ = nullptr;
   PartitionTypeModel* type_model_ = nullptr;
   Partition::Ptr partition_;
+  DImageButton* m_close_button = nullptr;
 
   // To memorize slider value.
   qint64 last_slider_value_;

@@ -52,6 +52,7 @@ class TimezoneFrame;
 class LanguageFrame;
 class NetworkFrame;
 class ControlPlatformFrame;
+class SystemInfoKeyboardFrame;
 
 // Main window of deepin_installer_first_boot.
 class FirstBootSetupWindow : public DMainWindow, public FrameProxyInterface {
@@ -91,6 +92,7 @@ protected:
   NetworkFrame*          network_frame_       = nullptr;
   ControlPlatformFrame*  control_platform_frame_ = nullptr;
   QStackedLayout*        stacked_layout_      = nullptr;
+  SystemInfoKeyboardFrame* m_keyboardFrame    = nullptr;
 
   QThread*             hook_worker_thread_ = nullptr;
   FirstBootHookWorker* hook_worker_        = nullptr;

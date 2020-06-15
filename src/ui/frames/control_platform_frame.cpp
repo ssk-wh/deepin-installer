@@ -83,7 +83,7 @@ void ControlPlatformFramePrivate::initUI()
     m_regionBox->setModel(m_regionModel);
 
     QLabel *logo_label = new QLabel;
-    logo_label->setPixmap(installer::renderPixmap(GetVendorLogo()));
+    logo_label->setPixmap(QPixmap(installer::GetVendorLogo()));
 
     layout->addWidget(logo_label, 0, Qt::AlignHCenter);
     layout->addWidget(m_titleLbl, 0, Qt::AlignHCenter);

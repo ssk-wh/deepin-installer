@@ -1,0 +1,12 @@
+/** Used in SelectButton class */
+
+QPushButton {
+    width:32px;
+    height:20px;
+    font-size:14px;
+    font-family:SourceHanSansSC-Medium,SourceHanSansSC;
+    font-weight:500;
+    color:rgba(255,255,255,1);
+    line-height:20px;
+    background:#25B7FF;
+}

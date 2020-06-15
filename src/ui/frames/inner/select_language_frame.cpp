@@ -34,12 +34,14 @@
 #include <DListView>
 #include <DStandardItem>
 #include <DSysInfo>
+#include <QScrollArea>
 
 #include "base/file_util.h"
 #include "base/translator.h"
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
 #include "ui/delegates/language_delegate.h"
+#include "ui/delegates/style_delegate.h"
 #include "ui/frames/consts.h"
 #include "ui/models/language_list_model.h"
 #include "ui/views/frameless_list_view.h"
@@ -289,7 +291,7 @@ void SelectLanguageFramePrivate::initUI() {
     Q_Q(SelectLanguageFrame);
 
     QLabel* logo_label = new QLabel();
-    logo_label->setPixmap(installer::renderPixmap(GetVendorLogo()));
+    logo_label->setPixmap(QPixmap(installer::GetVendorLogo()));
 
     QLabel* title_label = new QLabel("Select Language");
     title_label->setObjectName("title_label");
@@ -307,14 +309,16 @@ void SelectLanguageFramePrivate::initUI() {
     m_languageView->setMovement(QListView::Static);
     m_languageView->setSelectionMode(QListView::NoSelection);
     m_languageView->setFrameShape(QFrame::NoFrame);
-    m_languageView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_languageView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_languageView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_languageView->setContextMenuPolicy(Qt::NoContextMenu);
     m_languageView->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     m_languageView->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     m_languageModel=new QStandardItemModel(m_languageView);
     m_languageView->setModel(m_languageModel);
-    m_languageView->setFixedWidth(470);
     m_languageView->installEventFilter(q);
+
+    QScrollArea* languageArea = StyleDelegate::area(m_languageView);
 
     accept_license_ = new QCheckBox;
     accept_license_->setCheckable(true);
@@ -391,7 +395,7 @@ void SelectLanguageFramePrivate::initUI() {
     layout->addWidget(title_label, 0, Qt::AlignCenter);
     layout->addWidget(sub_title_label_, 0, Qt::AlignCenter);
     layout->addSpacing(20);
-    layout->addWidget(m_languageView, 0, Qt::AlignHCenter);
+    layout->addWidget(languageArea, 0, Qt::AlignHCenter);
     layout->addSpacing(10);
     layout->addWidget(userFrame, 0, Qt::AlignHCenter);
 

@@ -22,18 +22,19 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
     , m_isflag(false)
 {
     QFont font;
-    font.setBold(true);
+    font.setWeight(QFont::DemiBold);
+
     m_titleLabel = new QLabel;
-    m_titleLabel->setObjectName("titleLabel");
     m_titleLabel->setFixedWidth(KQLabelWidth);
     m_titleLabel->setWordWrap(true);
     m_titleLabel->adjustSize();
     m_titleLabel->setFont(font);
+
     m_descLabel = new QLabel;
-    m_descLabel->setObjectName("descLabel");
     m_descLabel->setFixedWidth(KQLabelWidth);
     m_descLabel->setWordWrap(true);
     m_descLabel->adjustSize();
+
     m_hLayout = new QHBoxLayout;
     m_hLayout->addSpacing(0);
     m_vLayout = new QVBoxLayout;
@@ -42,7 +43,6 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
     m_vLayout->addWidget(m_descLabel, 0, Qt::AlignLeft);
     if(singleSelected){
         m_radioBotton = new QRadioButton;
-        m_radioBotton->setObjectName("radioBotton");
         m_radioBotton->setCheckable(true);
         m_radioBotton->setChecked(false);
         m_radioBotton->installEventFilter(this);
@@ -54,7 +54,6 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
     }
     else {
         m_checkBox = new QCheckBox;
-        m_checkBox->setObjectName("checkBox");
         m_checkBox->setCheckable(true);
         m_checkBox->setChecked(false);
         m_checkBox->installEventFilter(this);
@@ -72,6 +71,8 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
     setMinimumHeight(kComponentWidgetMinHeight);
     setObjectName("ComponentWidget");
     setLayout(m_hLayout);
+
+    this->setStyleSheet(ReadFile(":/styles/component_widget.css"));
 }
 
 void ComponentWidget::setSelected(bool selected)
@@ -82,24 +83,6 @@ void ComponentWidget::setSelected(bool selected)
     else {
         m_checkBox->setChecked(selected);
     }
-}
-
-void ComponentWidget::paintEvent(QPaintEvent* event)
-{
-    QPainter painter(this);
-    painter.setRenderHint(QPainter::Antialiasing);
-
-    QPainterPath PaintPath;
-    QColor color(0, 0, 0, 15);
-
-    if (m_isflag) {
-        color = QColor(0, 0, 0, 55);
-    }
-
-    PaintPath.addRoundedRect(rect(), 10, 10);
-    painter.fillPath(PaintPath, color);
-
-    QWidget::paintEvent(event);
 }
 
 void ComponentWidget::enterEvent(QEvent* event)

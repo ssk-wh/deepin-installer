@@ -19,6 +19,10 @@
 #define INSTALLER_UI_FRAMES_INNER_PREPARE_INSTALL_FRAME_H
 
 #include <QFrame>
+#include <DSuggestButton>
+
+DWIDGET_USE_NAMESPACE
+
 class QLabel;
 class QTextEdit;
 class QPushButton;
@@ -27,6 +31,7 @@ namespace installer {
 
 class CommentLabel;
 class TitleLabel;
+class SelectButton;
 
 class PrepareInstallFrame : public QFrame {
   Q_OBJECT
@@ -53,8 +58,8 @@ class PrepareInstallFrame : public QFrame {
 
   TitleLabel* title_label_ = nullptr;
   CommentLabel* comment_label_ = nullptr;
-  QPushButton* abort_button_ = nullptr;
-  QPushButton* continue_button_ = nullptr;
+  SelectButton* abort_button_ = nullptr;
+  DSuggestButton* continue_button_ = nullptr;
   QTextEdit* description_edit_ = nullptr;
 };
 

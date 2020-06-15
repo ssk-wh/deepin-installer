@@ -39,6 +39,7 @@
 #include "ui/widgets/rounded_progress_bar.h"
 #include "ui/widgets/table_combo_box.h"
 #include "ui/widgets/title_label.h"
+#include "ui/widgets/select_button.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -126,6 +127,13 @@ void EditPartitionFrame::changeEvent(QEvent* event) {
     format_check_box_->setText(::QObject::tr("Format the partition"));
     cancel_button_->setText(::QObject::tr("Cancel"));
     ok_button_->setText(::QObject::tr("Create"));
+
+    if (m_close_button) {
+        const int marginSize = this->layout()->margin();
+        m_close_button->move(width() - m_close_button->width() - marginSize, marginSize);
+        m_close_button->raise();
+        m_close_button->show();
+    }
   } else {
     QWidget::changeEvent(event);
   }
@@ -195,6 +203,11 @@ void EditPartitionFrame::initConnections() {
           this, &EditPartitionFrame::finished);
   connect(ok_button_, &QPushButton::clicked,
           this, &EditPartitionFrame::onOkButtonClicked);
+
+  connect(m_close_button, &DImageButton::clicked, [this]{Q_EMIT cancel_button_->click();});
+#ifdef QT_DEBUG
+  connect(m_close_button, &DImageButton::clicked, [this]{qDebug() << "close button!";});
+#endif // QT_DEBUG
 }
 
 void EditPartitionFrame::initUI() {
@@ -275,9 +288,9 @@ void EditPartitionFrame::initUI() {
   mount_layout->addWidget(mount_point_box_);
   mount_layout->addStretch();
 
-  cancel_button_ = new QPushButton(::QObject::tr("Cancel"));
+  cancel_button_ = new SelectButton();
   cancel_button_->setFixedSize(QSize(kButtonWidth, kButtonHeight));
-  ok_button_ = new QPushButton(::QObject::tr("Confirm"));
+  ok_button_ = new DSuggestButton();
   ok_button_->setFixedSize(QSize(kButtonWidth, kButtonHeight));
 
   QHBoxLayout *buttonLayout = new QHBoxLayout;
@@ -296,9 +309,11 @@ void EditPartitionFrame::initUI() {
   layout->addSpacing(kMainLayoutSpacing);
   layout->addWidget(title_label_, 0, Qt::AlignHCenter);
   layout->addWidget(os_label_, 0, Qt::AlignHCenter);
-  layout->addSpacing(10);
+  layout->addSpacing(20);
   layout->addWidget(bar_frame, 0, Qt::AlignHCenter);
+  layout->addSpacing(10);
   layout->addLayout(line_layout);
+  layout->addSpacing(10);
   layout->addLayout(fs_layout);
   layout->addSpacing(kMainLayoutSpacing);
   layout->addLayout(mount_layout);
@@ -311,6 +326,8 @@ void EditPartitionFrame::initUI() {
   setFixedSize(QSize(kMainFrameWidth, kMainFrameHeight));
   setLayout(layout);
   setContentsMargins(0, 0, 0, 0);
+
+  setupCloseButton();
 }
 
 void EditPartitionFrame::onFsChanged(int index) {
@@ -375,6 +392,17 @@ void EditPartitionFrame::onOkButtonClicked() {
   removeOsProberDataByPath(partition_->path);
 
   emit this->finished();
+}
+
+void EditPartitionFrame::setupCloseButton()
+{
+    // TODO: use titleBar implement.
+    m_close_button = new DImageButton(this);
+    m_close_button->setFocusPolicy(Qt::TabFocus);
+    m_close_button->setFixedSize(40, 40);
+    m_close_button->setNormalPic(":/images/close_normal.svg");
+    m_close_button->setHoverPic(":/images/close_normal.svg");
+    m_close_button->setPressPic(":/images/close_normal.svg");
 }
 
 }  // namespace installer

@@ -18,7 +18,7 @@
 #ifndef INSTALLER_UI_FRAMES_CONFIRM_QUIT_FRAME_H
 #define INSTALLER_UI_FRAMES_CONFIRM_QUIT_FRAME_H
 
-#include <QPushButton>
+#include <DSuggestButton>
 #include <DDialog>
 #include <DImageButton>
 
@@ -27,6 +27,7 @@ DWIDGET_USE_NAMESPACE
 namespace installer {
 
 class CommentLabel;
+class SelectButton;
 
 // This frame is displayed when close-button is clicked.
 class ConfirmQuitFrame : public DDialog {
@@ -52,8 +53,8 @@ class ConfirmQuitFrame : public DDialog {
   void setupCloseButton();
 
   CommentLabel *comment_label_ = nullptr;
-  QPushButton* continue_button_ = nullptr;
-  QPushButton* abort_button_ = nullptr;
+  SelectButton* continue_button_ = nullptr;
+  DSuggestButton* abort_button_ = nullptr;
 
   DImageButton *m_close_button = nullptr;
 };

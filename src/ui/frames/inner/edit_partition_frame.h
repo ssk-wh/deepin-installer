@@ -19,6 +19,9 @@
 #define INSTALLER_UI_FRAMES_INNER_EDIT_PARTITION_FRAME_H
 
 #include <QFrame>
+#include <DImageButton>
+#include <DSuggestButton>
+
 class QCheckBox;
 class QLabel;
 class QProgressBar;
@@ -26,6 +29,8 @@ class QPushButton;
 
 #include "partman/partition.h"
 #include "ui/interfaces/frameinterface.h"
+
+DWIDGET_USE_NAMESPACE
 
 namespace installer {
 
@@ -35,6 +40,7 @@ class FsModel;
 class MountPointModel;
 class TableComboBox;
 class TitleLabel;
+class SelectButton;
 
 class EditPartitionFrame : public ChildFrameInterface {
   Q_OBJECT
@@ -62,6 +68,7 @@ class EditPartitionFrame : public ChildFrameInterface {
 
   void initConnections();
   void initUI();
+  void setupCloseButton();
 
   TitleLabel* title_label_ = nullptr;
   QLabel* os_label_ = nullptr;
@@ -73,13 +80,14 @@ class EditPartitionFrame : public ChildFrameInterface {
   TableComboBox* mount_point_box_ = nullptr;
   QLabel* mount_point_label_ = nullptr;
   QCheckBox* format_check_box_ = nullptr;
-  QPushButton* cancel_button_ = nullptr;
-  QPushButton* ok_button_ = nullptr;
+  SelectButton* cancel_button_ = nullptr;
+  DSuggestButton* ok_button_ = nullptr;
 
   AdvancedPartitionDelegate* delegate_ = nullptr;
   FsModel* fs_model_ = nullptr;
   MountPointModel* mount_point_model_ = nullptr;
   Partition::Ptr partition_;
+  DImageButton* m_close_button = nullptr;
 
  private slots:
   // Hide mount_point_box_ when specific fs is selected

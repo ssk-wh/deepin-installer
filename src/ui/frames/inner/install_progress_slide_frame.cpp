@@ -99,6 +99,11 @@ void InstallProgressSlideFrame::initUI() {
   m_animationContainer->setMinimumSize(QSize(kAnimationWidth, kAnimationHeight));
   container_label_ = new QLabel(m_animationContainer);
 
+  if (!GetSlideFiles(ReadLocale()).isEmpty()) {
+     m_animationContainer->setFixedSize(QPixmap(GetSlideFiles(ReadLocale()).at(0)).size());
+     container_label_->setFixedSize(QPixmap(GetSlideFiles(ReadLocale()).at(0)).size());
+  }
+
   m_backButton = new DIconButton(this);
   m_backButton->setIcon(QIcon(":/images/backPicture.svg"));
   m_backButton->setIconSize(QSize(20, 20));
@@ -111,9 +116,9 @@ void InstallProgressSlideFrame::initUI() {
   layout->setSpacing(0);
   layout->addStretch();
   layout->addWidget(m_backButton, 0, Qt::AlignRight | Qt::AlignVCenter);
-  layout->addSpacing(10);
-  layout->addWidget(m_animationContainer);
-  layout->addSpacing(10);
+  layout->addSpacing(0);
+  layout->addWidget(m_animationContainer, 0, Qt::AlignCenter);
+  layout->addSpacing(0);
   layout->addWidget(m_nextButton, 0, Qt::AlignLeft | Qt::AlignVCenter);
   layout->addStretch();
 
@@ -163,21 +168,12 @@ void InstallProgressSlideFrame::updateSlidePixmap()
     constexpr int buttonSpacing = 20;
     const int width = this->width() - (buttonWidth + buttonSpacing) * 2;
 
-    m_animationContainer->setFixedSize(m_cachePixmap.size());
-    container_label_->resize(m_animationContainer->size());
     container_label_->setPixmap(m_cachePixmap);
-}
-
-void InstallProgressSlideFrame::resizeEvent(QResizeEvent *event)
-{
-    QTimer::singleShot(0, this, &InstallProgressSlideFrame::updateSlidePixmap);
-
-    return QFrame::resizeEvent(event);
 }
 
 void InstallProgressSlideFrame::showEvent(QShowEvent *event)
 {
-    setFocusPolicy(Qt::NoFocus);
+    setFocusPolicy(Qt::ClickFocus);
     m_backButton->setCheckable(false);
     m_nextButton->setCheckable(false);
     m_animationContainer->setFocus();

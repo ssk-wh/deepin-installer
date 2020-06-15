@@ -303,6 +303,8 @@ set(UI_FILES
     ui/delegates/main_window_util.h
     ui/delegates/partition_util.cpp
     ui/delegates/partition_util.h
+    ui/delegates/style_delegate.h
+    ui/delegates/style_delegate.cpp
 
     ui/delegates/popup_menu_delegate.cpp
     ui/delegates/popup_menu_delegate.h
@@ -529,6 +531,8 @@ set(UI_FILES
     ui/widgets/operator_widget.cpp
     ui/widgets/ticker_label.cpp
     ui/widgets/ticker_label.h
+    ui/widgets/select_button.cpp
+    ui/widgets/select_button.h
 
     ui/xrandr/multi_head_manager.cpp
     ui/xrandr/multi_head_manager.h

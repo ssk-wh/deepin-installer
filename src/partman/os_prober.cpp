@@ -43,6 +43,8 @@ QString ReadOsProberOutput() {
       output.clear();
     }
 
+    qDebug() << "os-prober = " << output;
+
     const QString partman_flag = "/var/lib/partman/ignore_uefi";
     if (!CreateParentDirs(partman_flag)) {
       qWarning() << "Failed to create parent folder of: " << partman_flag;
@@ -131,5 +133,6 @@ OsProberItems GetOsProberItems() {
 
   return result;
 }
+
 
 }  // namespace installer

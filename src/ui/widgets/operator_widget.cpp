@@ -102,7 +102,7 @@ void installer::OperatorWidget::initUi()
     setContentsMargins(kMargin, kMargin, kMargin, kMargin);
 
     QFont font;
-    font.setBold(true);
+    font.setWeight(QFont::DemiBold);
     m_titleLabel= new QLabel;
     m_titleLabel->setFont(font);
     m_titleLabel->adjustSize();

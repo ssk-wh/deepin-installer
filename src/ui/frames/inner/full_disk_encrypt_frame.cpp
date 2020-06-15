@@ -13,6 +13,7 @@
 #include "ui/utils/keyboardmonitor.h"
 #include "../../widgets/full_disk_partition_colorbar.h"
 #include "ui/delegates/full_disk_delegate.h"
+#include "ui/widgets/select_button.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -48,8 +49,8 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     , m_encryptCheckLbl(new QLabel)
     , m_encryptEdit(new DPasswordEdit)
     , m_encryptRepeatEdit(new DPasswordEdit)
-    , m_cancelBtn(new QPushButton)
-    , m_confirmBtn(new QPushButton)
+    , m_cancelBtn(new SelectButton)
+    , m_confirmBtn(new DSuggestButton)
     , m_errTip(new SystemInfoTip(this))
     , m_diskPartitionWidget(new FullDiskPartitionWidget)
     , m_diskPartitionDelegate(delegate)
@@ -74,7 +75,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     for(int i = 0; i < FULL_DISK_DISK_MAX_COUNT; i++) {
         QLabel *diskLbl = new QLabel;
         diskLbl->setFixedSize(QSize(50, 50));
-        diskLbl->setPixmap(installer::renderPixmap(":/images/driver_128.svg").scaledToHeight(50));
+        diskLbl->setPixmap(installer::renderPixmap(":/images/driver_64.svg").scaledToHeight(50));
         m_diskinfo[i].m_diskLbl = diskLbl;
         m_diskinfo[i].m_devicePathLbl = new QLabel();
         m_diskinfo[i].m_deviceSizeLbl = new QLabel();

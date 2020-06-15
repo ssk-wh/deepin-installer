@@ -309,7 +309,7 @@ QString GetOsTypeLargeIcon(OsType os_type) {
       return ":/images/driver_windows_128.svg";
     }
     default: {
-      return ":/images/driver_128.svg";
+      return ":/images/driver_64.svg";
     }
   }
 }

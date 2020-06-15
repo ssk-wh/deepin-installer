@@ -8,3 +8,5 @@ partition_skip_simple_partition_page = true
 enable_install_nvidia_driver = true
 system_info_disable_experience = false
 
+
+

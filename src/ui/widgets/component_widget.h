@@ -34,7 +34,6 @@ signals:
 protected:
     void mousePressEvent(QMouseEvent* event) override;
     bool eventFilter(QObject *watched, QEvent *event) override;
-    void paintEvent(QPaintEvent* event) override;
     void enterEvent(QEvent* event) override;
     void leaveEvent(QEvent* event) override;
 
