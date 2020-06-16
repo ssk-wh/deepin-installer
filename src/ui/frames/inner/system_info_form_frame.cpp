@@ -73,6 +73,7 @@ public:
     Q_DECLARE_PUBLIC(SystemInfoFormFrame)
 
     void updateDevice();
+
 private:
     void initConnections();
     void initUI();
@@ -167,6 +168,7 @@ SystemInfoFormFrame::~SystemInfoFormFrame()
 bool SystemInfoFormFrame::validateUserInfo()
 {
     Q_D(SystemInfoFormFrame);
+    d->tooltip_->hide();
 
     QString msg;
     if (!d->validateUsername(msg)) {
@@ -203,6 +205,29 @@ bool SystemInfoFormFrame::validateUserInfo()
     }
 
     return false;
+}
+
+void SystemInfoFormFrame::checkNextButtonEnable()
+{
+    Q_D(SystemInfoFormFrame);
+
+    if (d->m_usernameEdit->text().isEmpty()
+        || d->m_hostnameEdit->text().isEmpty()
+        || d->m_passwordEdit->text().isEmpty()
+        || d->m_passwordCheckEdit->text().isEmpty()) {
+        emit requestNextButtonEnable(false);
+        return;
+    }
+
+    if (d->m_setRootPasswordCheck->isChecked()) {
+        if (d->m_rootPasswordEdit->text().isEmpty()
+            || d->m_rootPasswordCheckEdit->text().isEmpty()) {
+            emit requestNextButtonEnable(false);
+            return;
+        }
+    }
+
+    emit requestNextButtonEnable(true);
 }
 
 void SystemInfoFormFrame::updateAvatar(const QString& avatar)
@@ -610,19 +635,16 @@ bool SystemInfoFormFramePrivate::validateUsername(QString& msg)
     switch (state) {
     case ValidateUsernameState::ReservedError: {
         msg = ::QObject::tr("This username already exists");
-        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateUsernameState::FirstCharError: {
         msg = ::QObject::tr("The first letter must be in lowercase");
-        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateUsernameState::EmptyError:  // fall through
     case ValidateUsernameState::InvalidCharError: {
         msg = ::QObject::tr("Username must contain English letters (lowercase), "
                    "numbers or special symbols (_-)");
-        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateUsernameState::TooLongError:  // fall through
@@ -631,7 +653,6 @@ bool SystemInfoFormFramePrivate::validateUsername(QString& msg)
                  "shorter than %2 characters")
                 .arg(min_len)
                 .arg(max_len);
-        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateUsernameState::Ok: {
@@ -639,7 +660,7 @@ bool SystemInfoFormFramePrivate::validateUsername(QString& msg)
         break;
     }
     }
-    emit q_ptr->requestNextButtonEnable(true);
+
     return true;
 }
 
@@ -652,17 +673,14 @@ bool SystemInfoFormFramePrivate::validateHostname(QString& msg)
     switch (state) {
     case ValidateHostnameState::EmptyError: {
         msg = ::QObject::tr("Please input computer name");
-        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateHostnameState::InvalidChar: {
         msg = ::QObject::tr("Computer name is invalid");
-        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateHostnameState::ReservedError: {
         msg = ::QObject::tr("Computer name already exists, please input another one");
-        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateHostnameState::TooLongError:  // fall through
@@ -671,7 +689,6 @@ bool SystemInfoFormFramePrivate::validateHostname(QString& msg)
                  "shorter than %2 characters")
                 .arg(kHostnameMinLen)
                 .arg(kHostnameMaxLen);
-        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidateHostnameState::Ok: {
@@ -679,7 +696,7 @@ bool SystemInfoFormFramePrivate::validateHostname(QString& msg)
         break;
     }
     }
-    emit q_ptr->requestNextButtonEnable(true);
+
     return true;
 }
 
@@ -697,7 +714,6 @@ bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, Q
     if (strong_pwd_check) {
         if (passwordEdit->text().toLower() == m_usernameEdit->text().toLower()) {
             msg = ::QObject::tr("The password should be different from the username");
-            emit q_ptr->requestNextButtonEnable(false);
             return false;
         }
         min_len = GetSettingsInt(kSystemInfoPasswordMinLen);
@@ -712,18 +728,15 @@ bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, Q
     switch (state) {
     case ValidatePasswordState::EmptyError: {
         msg = ::QObject::tr("The password cannot be empty​");
-        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidatePasswordState::StrongError: {  // fall through
         msg = ::QObject::tr("Password must contain letters, numbers and symbols");
-        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidatePasswordState::TooShortError:  // fall through
     case ValidatePasswordState::TooLongError: {
         msg = ::QObject::tr("Password must have at least 8 characters");
-        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     case ValidatePasswordState::Ok: {
@@ -766,11 +779,9 @@ bool SystemInfoFormFramePrivate::validatePassword2(DPasswordEdit *passwordEdit, 
 {
     if (passwordEdit->text() != passwordCheckEdit->text()) {
         msg = ::QObject::tr("Passwords do not match");
-        emit q_ptr->requestNextButtonEnable(false);
         return false;
     }
     else {
-        emit q_ptr->requestNextButtonEnable(true);
         return true;
     }
 }
@@ -811,6 +822,9 @@ void SystemInfoFormFramePrivate::onEditingLineEdit()
     if (tooltip_->isVisible()) {
         tooltip_->hide();
     }
+
+    Q_Q(SystemInfoFormFrame);
+    q->checkNextButtonEnable();
 }
 
 void SystemInfoFormFramePrivate::onUsernameEdited()
@@ -954,6 +968,9 @@ void SystemInfoFormFramePrivate::onSetRootPasswordCheckChanged(bool enable)
             tooltip_->hide();
         }
     }
+
+    Q_Q(SystemInfoFormFrame);
+    q->checkNextButtonEnable();
 }
 
 bool SystemInfoFormFramePrivate::searchDevice() {

@@ -37,6 +37,8 @@ public:
     // Validate form content.
     bool validateUserInfo();
 
+    void checkNextButtonEnable();
+
 signals:
     // Emitted when the avatar button is clicked.
     void avatarClicked();

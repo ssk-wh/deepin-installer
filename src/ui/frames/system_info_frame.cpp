@@ -47,6 +47,8 @@ const int kFormPageId = 1;
 class SystemInfoFramePrivate : public FrameInterfacePrivate
 {
     Q_OBJECT
+
+    friend SystemInfoFrame;
 public:
     explicit SystemInfoFramePrivate(FrameInterface* parent)
         : FrameInterfacePrivate(parent)
@@ -83,7 +85,9 @@ public:
     // Update text in keyboard button.
     void updateLayout(const QString& layout);
 
-    bool validate() const;
+    bool validate() const override;
+
+    void updateNextButton() const override;
 };
 
 SystemInfoFrame::SystemInfoFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
@@ -201,6 +205,11 @@ void SystemInfoFramePrivate::updateLayout(const QString& layout) {
 bool SystemInfoFramePrivate::validate() const
 {
     return form_frame_->validateUserInfo();
+}
+
+void SystemInfoFramePrivate::updateNextButton() const
+{
+    form_frame_->checkNextButtonEnable();
 }
 
 }  // namespace installer
