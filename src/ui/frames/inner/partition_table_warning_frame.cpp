@@ -155,7 +155,8 @@ void PartitionTableWarningFrame::initUI() {
 
   m_buttonBox = new DButtonBox(this);
   m_buttonBox->setButtonList({m_warningWidget1, m_warningWidget2, m_warningWidget3}, true);
-  m_warningWidget1->setChecked(true);
+  // Checked warning widget 1.
+  emit m_warningWidget1->clicked(true);
   // default setting
   m_currentButton = m_warningWidget1;
 
