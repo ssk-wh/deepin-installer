@@ -56,6 +56,7 @@ public:
     void setWidgetLayout(QWidget* subWidget, FrameInterface* obj, QWidget* parentWiget);
     void setSubTitleLayout();
     bool isMinimalGraphicInstall();
+    void updateNextButton() const override;
 
     TitleLabel* m_selectPageLabel = nullptr;
     QLabel* m_selectPromptLabel = nullptr;
@@ -217,6 +218,11 @@ bool SelectInstallComponentFrame::eventFilter(QObject *watched, QEvent *event)
     }
 
     return QWidget::eventFilter(watched, event);
+}
+
+void SelectInstallComponentFrame::showEvent(QShowEvent *event)
+{
+    FrameInterface::showEvent(event);
 }
 
 void SelectInstallComponentFrame::resizeEvent(QResizeEvent *event)
@@ -517,6 +523,16 @@ bool SelectInstallComponentFramePrivate::isMinimalGraphicInstall()
     }
 
     return true;
+}
+
+void SelectInstallComponentFramePrivate::updateNextButton() const
+{
+    if (nullptr == m_currentComponentWidget) {
+        nextButton->setEnabled(false);
+        return;
+    }
+
+    nextButton->setEnabled(m_currentComponentWidget->isSelected());
 }
 
 }// namespace installer
