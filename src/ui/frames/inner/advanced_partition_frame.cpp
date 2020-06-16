@@ -568,7 +568,7 @@ QString AdvancedPartitionFrame::validateStateToText(ValidateState state) {
     case ValidateState::RootTooSmall: {
       const int root_required =
           GetSettingsInt(kPartitionRootMiniSpace);
-      return ::QObject::tr("/boot partition requires at least %1 GB")
+      return ::QObject::tr("/root partition requires at least %1 GB")
           .arg(root_required);
     }
     case ValidateState::PartitionTooSmall: {

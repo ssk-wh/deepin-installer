@@ -457,12 +457,14 @@
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="90"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="162"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="193"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="188"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="208"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="919"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="723"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="918"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="231"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="645"/>
-        <location filename="../src/ui/frames/system_info_frame.cpp" line="184"/>
+        <location filename="../src/ui/frames/system_info_frame.cpp" line="234"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="131"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="25"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="22"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="146"/>
@@ -624,7 +626,6 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="551"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="571"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="338"/>
         <source>/boot partition requires at least %1 GB</source>
         <translation>/boot парицији је потребно најмање %1 GB</translation>
@@ -652,6 +653,13 @@
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="353"/>
         <source>Add a root partition to continue</source>
         <translation>Додај root партицију за наставак</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="571"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="89"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="358"/>
+        <source>/root partition requires at least %1 GB</source>
+        <translation>/root парицији је потребно најмање %1 GB</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="576"/>
@@ -762,6 +770,12 @@
         <translation>Добро чувајте вашу лозинку у супротном можете изгубити све ваше податке</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="131"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="181"/>
+        <source>Please select a disk to start installation</source>
+        <translation>Молимо изаберите диск да започнете инсталацију</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="159"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="162"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="118"/>
@@ -769,12 +783,6 @@
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="174"/>
         <source>Install here</source>
         <translation>Инсталирај овде</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="131"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="181"/>
-        <source>Please select a disk to start installation</source>
-        <translation>Молимо изаберите диск да започнете инсталацију</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="140"/>
@@ -1032,12 +1040,6 @@
         <translation>Молимо изаберите једну од партиција за инсталацију!</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="89"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="358"/>
-        <source>/root partition requires at least %1 GB</source>
-        <translation>/root парицији је потребно најмање %1 GB</translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="414"/>
         <source>Windows will not boot if you install %1 on Windows disk, please confirm to continue</source>
         <translation>Windows се неће покренути ако инсталирате %1 на Windows диск, потврдите за наставак</translation>
@@ -1235,38 +1237,38 @@
         <translation>Д</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="182"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="189"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="238"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="177"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="184"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="233"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="82"/>
         <source>Select Components</source>
         <translation>Изабери компоненте</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="190"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="244"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="185"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="239"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="54"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="85"/>
         <source>Basic Environment</source>
         <translation>Основно окружење</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="191"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="241"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="186"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="236"/>
         <source>Select the components according to your needs</source>
         <translation>Изабери компоненте према потребама</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="192"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="249"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="187"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="244"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="55"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="86"/>
         <source>Add-Ons</source>
         <translation>Додаци</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="194"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="319"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="189"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="314"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="76"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="99"/>
@@ -1389,7 +1391,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="165"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="211"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="209"/>
         <source>IP:</source>
         <translation>ИП:</translation>
     </message>
@@ -1397,7 +1399,7 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="167"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="222"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="312"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="213"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="211"/>
         <source>Gateway:</source>
         <translation>Мрежни пролаз:</translation>
     </message>
@@ -1405,7 +1407,7 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="168"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="234"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="313"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="214"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="212"/>
         <source>Primary DNS:</source>
         <translation>Примарни ДНС:</translation>
     </message>
@@ -1423,7 +1425,7 @@
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="210"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="311"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="212"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="210"/>
         <source>Netmask:</source>
         <translation>Мрежна маска:</translation>
     </message>
@@ -1461,15 +1463,15 @@
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="729"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="843"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="917"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="172"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="842"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="916"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="170"/>
         <source>Configure Network</source>
         <translation>Подеси мрежу</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="730"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="918"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="917"/>
         <source>IP address has been auto-configured, but you can configure the network as well</source>
         <translation>ИП адреса је аутоматски подешена, али можете и сами да подесите мтрежу</translation>
     </message>
@@ -1511,7 +1513,7 @@
         <translation>Цео диск</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="490"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="495"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="646"/>
         <source>Start installation</source>
         <translation>Започни инсталацију</translation>
@@ -1569,7 +1571,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="127"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="155"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="156"/>
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="25"/>
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="51"/>
         <source>Select Timezone</source>
@@ -1577,8 +1579,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="128"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="245"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="315"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="246"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="316"/>
         <source>Is it the right timezone? You can change it as well</source>
         <translation>Да ли је то исправна веременска зона? Можете је променити</translation>
     </message>
@@ -1769,46 +1771,47 @@
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="71"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="178"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="176"/>
         <source>Configure Ethernet according to your needs, but you can skip it as well.</source>
         <translation>Подесите Етернет према вашим потребама. Ово можете прескочити.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="72"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="179"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="177"/>
         <source>Set the IP address, gateway, netmask, DNS please.</source>
         <translation>Подесите ИП адресу, мрежни пролаз и DNS.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="75"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="214"/>
         <source>Network connection error, check the configuration please</source>
         <translation>Грешка мрежне везе, проверите подешавања</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="204"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="202"/>
         <source>Configure Now</source>
         <translation>Подеси сад</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="205"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="203"/>
         <source>Skip</source>
         <translation>Прескочи</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="601"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="606"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="629"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="634"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="602"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="607"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="630"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="635"/>
         <source>e.g., 255.255.255.0</source>
         <translation>e.g., 255.255.255.0</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="609"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="614"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="647"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="652"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="657"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="662"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="610"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="615"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="648"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="653"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="658"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="663"/>
         <source>e.g., 192.168.30.30</source>
         <translation>e.g., 192.168.30.30</translation>
     </message>
@@ -1883,14 +1886,6 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="245"/>
         <source>Secondary DNS:</source>
         <translation>Секундарни ДНС</translation>
-    </message>
-</context>
-<context>
-    <name>installer::NetworkFrame</name>
-    <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="723"/>
-        <source>Next</source>
-        <translation>Следеће</translation>
     </message>
 </context>
 </TS>
