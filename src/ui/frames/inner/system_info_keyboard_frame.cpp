@@ -298,6 +298,7 @@ QString SystemInfoKeyboardFramePrivate::getVariantDescription(
 void SystemInfoKeyboardFramePrivate::updateTs() {
     m_titleLabel->setText(::QObject::tr("Set Keyboard Layout"));
     m_guideLabel->setText(::QObject::tr("Select a proper keyboard layout"));
+    nextButton->setText(::QObject::tr("Next"));
 }
 
 void SystemInfoKeyboardFramePrivate::readConf() {

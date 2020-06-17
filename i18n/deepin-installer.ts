@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="en">
 <context>
     <name>QObject</name>
     <message>
@@ -454,6 +456,7 @@
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="90"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="162"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="301"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="188"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="208"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="723"/>

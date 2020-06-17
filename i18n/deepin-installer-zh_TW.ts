@@ -1183,7 +1183,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="299"/>
         <source>Set Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>選擇鍵盤配置</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="300"/>
@@ -1193,7 +1193,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.h" line="54"/>
         <source>Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>鍵盤配置</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="90"/>
