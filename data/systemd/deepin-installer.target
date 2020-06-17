@@ -15,4 +15,5 @@ Wants=getty.target
 Wants=systemd-logind.service
 Wants=systemd-user-sessions.service
 Wants=NetworkManager.service
+Wants=networking.service
 AllowIsolate=yes
