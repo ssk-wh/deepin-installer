@@ -46,7 +46,7 @@ DCORE_USE_NAMESPACE
 namespace {
     const int kTitleCommentWidth = 384;
     const int kWarningLabelSize = 30;
-    const int kWarnItemWidth = 660;
+    const int kWarnItemWidth = 558;
     const int kWarnItemHeight = 100;
 }
 
