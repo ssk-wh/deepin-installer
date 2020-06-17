@@ -42,8 +42,8 @@ detect_solid() {
 }
 
 update_plymouth() {
-  if [ -e /usr/share/plymouth/themes/deepin-ssd-logo ] && detect_solid; then
-  	plymouth-set-default-theme deepin-ssd-logo
+  if [ -e /usr/share/plymouth/themes/uos-ssd-logo ] && detect_solid; then
+  	plymouth-set-default-theme uos-ssd-logo
   fi
 }
 
