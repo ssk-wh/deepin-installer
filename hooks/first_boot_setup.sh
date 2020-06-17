@@ -132,6 +132,22 @@ setup_bluetooth_service() {
     fi
 }
 
+setup_grub_passwd(){
+# grub edit password
+GRUB_PASSWORD=$(installer_get "DI_GRUB_PASSWORD")
+USERNAME=$(installer_get "DI_USERNAME")
+if [ -n "$GRUB_PASSWORD" ];then
+cat >> /etc/grub.d/00_header <<EOF
+cat << P_EOF
+set superusers="${USERNAME}"
+password_pbkdf2 ${USERNAME} ${GRUB_PASSWORD}
+P_EOF
+EOF
+fi
+
+update-grub
+}
+
 main() {
   [ -f "${CONF_FILE}" ] || error "deepin-installer.conf not found"
   cat "${CONF_FILE}"
@@ -153,6 +169,9 @@ main() {
 
   # 解决蓝牙主机名问题
   setup_bluetooth_service
+
+  #设置grub密码
+  setup_grub_passwd
 
   sync
   cleanup_oem_license
