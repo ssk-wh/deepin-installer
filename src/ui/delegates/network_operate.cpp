@@ -177,17 +177,18 @@ bool NetworkOperate::setIpV4(NetworkSettingInfo info)
 
 void NetworkOperate::setDeviceEnable(const QString &devPath, const bool enable)
 {
-    QDBusInterface deviceManager("com.deepin.daemon.Network",
-              "/com/deepin/daemon/Network",
-              "com.deepin.daemon.Network",
-              QDBusConnection::sessionBus());
+    QDBusInterface deviceManager("org.freedesktop.NetworkManager",
+                                 devPath,
+                                 "org.freedesktop.NetworkManager.Device",
+                                 QDBusConnection::systemBus());
 
     QList<QVariant> arg;
-    arg << QVariant::fromValue(QDBusObjectPath(devPath)) << QVariant::fromValue(enable);
 
-    deviceManager.callWithArgumentList(QDBus::Block, "EnableDevice", arg);
-
-    if (enable) {
+    if (!enable) {
+        QDBusPendingReply<> reply = deviceManager.asyncCallWithArgumentList(QStringLiteral("Disconnect"), arg);
+        reply.waitForFinished();
+    }
+    else {
         if (m_connection) {
             if (!activateConn()) {
                 qCritical() << "setDeviceEnable() active connection failed";
