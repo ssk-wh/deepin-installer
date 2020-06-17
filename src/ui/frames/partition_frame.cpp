@@ -229,10 +229,15 @@ void PartitionFrame::changeEvent(QEvent* event) {
     m_private->advanced_frame_button_->setText(::QObject::tr("Advanced"));
     m_private->full_disk_frame_button_->setText(::QObject::tr("Full Disk"));
     m_private->nextButton->setText(::QObject::tr("Next"));
-    setFocus();
   } else {
       FrameInterface::changeEvent(event);
   }
+}
+
+void PartitionFrame::showEvent(QShowEvent *event)
+{
+    setFocus();
+    return FrameInterface::showEvent(event);
 }
 
 PartitionFramePrivate::~PartitionFramePrivate()
@@ -569,7 +574,7 @@ bool PartitionFramePrivate::isRawDevice(const QList<Device::Ptr> list) {
 
 void PartitionFramePrivate::onButtonGroupToggled(QAbstractButton *button)
 {
-#ifdef QT_DEBUG
+#ifdef QT_DEBUG_test
   showPartitionNumberLimitationFrame();
 #else
     if (button == full_disk_frame_button_){

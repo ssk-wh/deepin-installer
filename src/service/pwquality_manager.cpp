@@ -21,6 +21,7 @@
 #include "service/settings_name.h"
 
 #include <QDebug>
+#include <QRegExp>
 
 installer::PwqualityManager::PwqualityManager()
 {
@@ -101,6 +102,59 @@ bool installer::PwqualityManager::lengthChecked(const QString &text)
 {
     pwquality_set_int_value(m_pwqualitySetting.get(), PWQ_SETTING_MIN_LENGTH, 6);
     // ...
+
+    return true;
+}
+
+bool installer::PwqualityManager::oem_lower_case(const QString &text)
+{
+    if (GetSettingsBool(kSystemInfoPasswordStrongCheck)
+            && GetSettingsBool(kSystemInfoPasswordRequireLowerCase)) {
+
+        return text.contains(QRegExp("[abcdefghijklmnopqrstuvwxyz]"));
+    }
+
+    return true;
+}
+
+bool installer::PwqualityManager::oem_require_number(const QString &text)
+{
+    if (GetSettingsBool(kSystemInfoPasswordStrongCheck)
+            && GetSettingsBool(kSystemInfoPasswordRequireNumber)) {
+
+        return text.contains(QRegExp("[1234567890]"));
+    }
+
+    return true;
+}
+
+bool installer::PwqualityManager::oem_upper_case(const QString &text)
+{
+    if (GetSettingsBool(kSystemInfoPasswordStrongCheck)
+            && GetSettingsBool(kSystemInfoPasswordRequireUpperCase)) {
+
+        return text.contains(QRegExp("[ABCDEFGHIJKLMNOPQRSTUVWXYZ]"));
+    }
+
+    return true;
+}
+
+bool installer::PwqualityManager::oem_special_char(const QString &text)
+{
+    qDebug() << "text = " << text;
+    if (GetSettingsBool(kSystemInfoPasswordStrongCheck)
+            && GetSettingsBool(kSystemInfoPasswordRequireSpecialChar)) {
+
+        qDebug() << "text1 = " << text;
+        const QString validatePolicy = "~!@#$%^&*()[]{}\\|/?,.<>";
+        for (QChar ch : text) {
+            if (validatePolicy.contains(ch)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 
     return true;
 }

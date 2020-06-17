@@ -90,6 +90,7 @@ class PartitionFrame : public FrameInterface {
 
  protected:
   void changeEvent(QEvent* event) override;
+  void showEvent(QShowEvent *event) override;
 
   QScopedPointer<PartitionFramePrivate> m_private;
 };

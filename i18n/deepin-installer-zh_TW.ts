@@ -454,12 +454,13 @@
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="90"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="162"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="301"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="188"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="208"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="723"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="918"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="231"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="647"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="652"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="198"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="131"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="25"/>
@@ -477,13 +478,13 @@
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="55"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="193"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="194"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
         <translation>安裝 %2 至少要 %1 GB 的磁碟機空間，建議 %3 GB 以上效果更好</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="192"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="193"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="433"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="415"/>
@@ -495,7 +496,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="192"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="193"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="433"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="415"/>
@@ -580,7 +581,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="115"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="253"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="129"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="176"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="177"/>
         <source>Install NVIDIA closed source driver</source>
         <translation>整合NVIDIA閉源驅動</translation>
     </message>
@@ -715,7 +716,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="230"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="768"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="788"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="126"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="240"/>
         <source>Passwords do not match</source>
@@ -724,14 +725,14 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="263"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="130"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="169"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="170"/>
         <source>Encrypt This Disk</source>
         <translation>全盤加密</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="264"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="227"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="426"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="431"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>確保您已備份重要資料，之後選擇磁碟安裝</translation>
     </message>
@@ -764,13 +765,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="131"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="181"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="182"/>
         <source>Please select a disk to start installation</source>
         <translation>請選擇一塊用於安裝的硬碟來開始安裝程序</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="159"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="162"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="132"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="160"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="163"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="237"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="174"/>
@@ -896,7 +898,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="76"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="47"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="640"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="645"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="183"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="24"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="21"/>
@@ -1176,7 +1178,27 @@
         <translation>密碼不得含有連續4個以上的回文字元</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="973"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="750"/>
+        <source>Password must contain lowercase letters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="755"/>
+        <source>Password must contain capital letters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="760"/>
+        <source>Password must contain special characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="765"/>
+        <source>Passwords must contain Numbers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="993"/>
         <source>Add fingerprint password in Control Center &gt; Accounts to unlock and authenticate</source>
         <translation>本機支援指紋識別，您可以在“控制中心 &gt;帳戶”中添加指紋密碼</translation>
     </message>
@@ -1467,27 +1489,27 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="186"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="223"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="424"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="744"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="429"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="749"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="89"/>
         <source>Create Partitions</source>
         <translation>硬碟分區</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="221"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="664"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="669"/>
         <source>Edit LVM Disk</source>
         <translation>配置邏輯卷</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="228"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="433"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="438"/>
         <source>Simple</source>
         <translation>簡易</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="229"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="435"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="440"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="88"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="99"/>
         <source>Advanced</source>
@@ -1495,25 +1517,25 @@
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="230"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="437"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="442"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="91"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="98"/>
         <source>Full Disk</source>
         <translation>全硬碟</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="493"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="648"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="498"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="653"/>
         <source>Start installation</source>
         <translation>開始安裝</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="623"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="628"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
         <translation>目標磁碟為動態磁碟。如果繼續，您的資料可能會遺失。請先備份您的重要資料。</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="627"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="632"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
         <translation>目標磁碟為動態磁碟。如果繼續，該磁碟將被格式化。請先備份您的重要資料。</translation>
     </message>

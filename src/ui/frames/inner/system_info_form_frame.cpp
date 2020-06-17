@@ -759,6 +759,26 @@ bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, Q
         return false;
     }
 
+    if (!PwqualityManager::instance()->oem_lower_case(passwordEdit->text())) {
+        msg = ::QObject::tr("Password must contain lowercase letters").arg(palingrome);
+        return false;
+    }
+
+    if (!PwqualityManager::instance()->oem_upper_case(passwordEdit->text())) {
+        msg = ::QObject::tr("Password must contain capital letters").arg(palingrome);
+        return false;
+    }
+
+    if (!PwqualityManager::instance()->oem_special_char(passwordEdit->text())) {
+        msg = ::QObject::tr("Password must contain special characters").arg(palingrome);
+        return false;
+    }
+
+    if (!PwqualityManager::instance()->oem_require_number(passwordEdit->text())) {
+        msg = ::QObject::tr("Passwords must contain Numbers").arg(palingrome);
+        return false;
+    }
+
     return true;
 }
 

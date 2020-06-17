@@ -48,6 +48,11 @@ public:
     QString dictChecked(const QString &text);
     bool lengthChecked(const QString &text);
 
+    bool oem_lower_case(const QString &text);
+    bool oem_require_number(const QString &text);
+    bool oem_upper_case(const QString &text);
+    bool oem_special_char(const QString &text);
+
 private:
     PwqualityManager();
     PwqualityManager(const PwqualityManager&) = delete;
