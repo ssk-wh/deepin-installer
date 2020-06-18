@@ -661,6 +661,7 @@ void Delegate::deletePartition(const Partition::Ptr partition)
 #endif
         Operation::Ptr operation(newOperation(OperationType::Delete, partition, new_partition));
         operations_.append(operation);
+        operation->device = device;
         operation->applyToVisual(device);
         qDebug() << "add delete operation" << *new_partition.data();
 #ifdef sadhu
