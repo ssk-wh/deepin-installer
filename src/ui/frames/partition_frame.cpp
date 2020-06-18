@@ -579,7 +579,9 @@ void PartitionFramePrivate::onButtonGroupToggled(QAbstractButton *button)
 #else
     if (button == full_disk_frame_button_){
         qDebug() << "on fulldisk button toggled";
-        partition_stacked_layout_->setCurrentWidget(full_disk_partition_frame_);
+        if (!GetSettingsBool(kPartitionSkipFullDiskPartitionPage)) {
+            partition_stacked_layout_->setCurrentWidget(full_disk_partition_frame_);
+        }
     }
     else if (button == simple_frame_button_){
         qDebug() << "on simple button toggled";
