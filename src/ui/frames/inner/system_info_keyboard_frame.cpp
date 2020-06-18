@@ -436,7 +436,7 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     leftSourceScrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     leftSourceScrollArea->setContentsMargins(0, 0, 0, 0);
     leftSourceScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    leftSourceScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    leftSourceScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     leftSourceScrollArea->setContextMenuPolicy(Qt::NoContextMenu);
     leftSourceScrollArea->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     leftSourceScrollArea->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
@@ -456,7 +456,7 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     rightSourceScrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     rightSourceScrollArea->setContentsMargins(0, 0, 0, 0);
     rightSourceScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    rightSourceScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    rightSourceScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     rightSourceScrollArea->setContextMenuPolicy(Qt::NoContextMenu);
     rightSourceScrollArea->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     rightSourceScrollArea->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
