@@ -190,7 +190,7 @@ bool ControlPlatformFrame::shouldDisplay() const
 
 QString ControlPlatformFrame::returnFrameName() const
 {
-    return ::QObject::tr("Control Platform");
+    return ("Control Platform");
 }
 
 bool ControlPlatformFrame::event(QEvent* event)

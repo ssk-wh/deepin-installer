@@ -97,6 +97,19 @@ void installer::OperatorWidget::resizeEvent(QResizeEvent *event)
     return DButtonBoxButton::resizeEvent(event);
 }
 
+void installer::OperatorWidget::showEvent(QShowEvent *event)
+{
+    if (m_titleLabel->text().isEmpty()) {
+        m_titleLabel->hide();
+    }
+    if (m_bodyLabel->text().isEmpty()) {
+        m_bodyLabel->hide();
+    }
+    return DButtonBoxButton::showEvent(event);
+}
+
+
+
 void installer::OperatorWidget::initUi()
 {
     setContentsMargins(kMargin, kMargin, kMargin, kMargin);

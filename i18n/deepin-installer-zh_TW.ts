@@ -255,8 +255,12 @@
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+        <source>Provides Java servlets and Web common service components.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Provides Java servelets and Web common service components.</source>
-        <translation>提供Web伺服器引擎及Web常用服務元件。</translation>
+        <translation type="vanished">提供Web伺服器引擎及Web常用服務元件。</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
@@ -453,15 +457,15 @@
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="199"/>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="90"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="162"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="163"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="301"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="188"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="189"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="208"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="723"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="918"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="231"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="652"/>
-        <location filename="../src/ui/frames/system_info_frame.cpp" line="198"/>
+        <location filename="../src/ui/frames/system_info_frame.cpp" line="202"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="131"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="25"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="22"/>
@@ -716,7 +720,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="230"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="788"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="801"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="126"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="240"/>
         <source>Passwords do not match</source>
@@ -738,9 +742,9 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="265"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="438"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="573"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="580"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="463"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="598"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="605"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="459"/>
         <source>Password</source>
         <translation>密碼</translation>
@@ -1038,167 +1042,167 @@
         <translation>如將 %1 安裝到 Windows 磁碟機，後者會無法啟動，請確定再繼續</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="362"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="571"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="578"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="387"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="596"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="603"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="458"/>
         <source>Username</source>
         <translation>使用者名稱</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="390"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="572"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="579"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="415"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="597"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="604"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="457"/>
         <source>Computer name</source>
         <translation>電腦名稱</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="439"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="574"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="581"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="464"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="599"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="606"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="210"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="460"/>
         <source>Repeat password</source>
         <translation>再輸入一次密碼</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="575"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="582"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="600"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="607"/>
         <source>Root password</source>
         <translation>root 密碼</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="576"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="583"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="601"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="608"/>
         <source>Repeat root password</source>
         <translation>再輸入一次 root 密碼</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="585"/>
-        <location filename="../src/ui/frames/system_info_frame.cpp" line="126"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="610"/>
+        <location filename="../src/ui/frames/system_info_frame.cpp" line="130"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="454"/>
         <source>Create Accounts</source>
         <translation>建立帳戶</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="586"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="611"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="456"/>
         <source>Fill in the username, computer name and your password</source>
         <translation>請填寫使用者名稱、電腦名稱與您的密碼</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="587"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="612"/>
         <source>Use that password to edit boot menu</source>
         <translation>使用該密碼編輯開機選單</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="588"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="613"/>
         <source>Set as root password</source>
         <translation>設定為root密碼</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="612"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="637"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="152"/>
         <source>This username already exists</source>
         <translation>使用者名稱已存在</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="617"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="641"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="156"/>
         <source>The first letter must be in lowercase</source>
         <translation>首字母需為小寫</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="623"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="646"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="161"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
         <translation>使用者名稱需包含小寫英文字母，數字或是特殊符號（_-）</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="630"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="652"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="167"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
         <translation>請輸入 %1 到 %2 個字元的使用者名稱</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="654"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="675"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="116"/>
         <source>Please input computer name</source>
         <translation>請輸入電腦名稱</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="659"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="679"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="120"/>
         <source>Computer name is invalid</source>
         <translation>電腦名稱無法使用</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="664"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="683"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="124"/>
         <source>Computer name already exists, please input another one</source>
         <translation>電腦名稱已存在，請輸入其他名稱</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="670"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="688"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="129"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
         <translation>請輸入 %1 到 %2 個字元的電腦名稱</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="699"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="716"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="80"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="194"/>
         <source>The password should be different from the username</source>
         <translation>密碼應與使用者名稱不同</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="714"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="730"/>
         <source>The password cannot be empty​</source>
         <translation>密碼不能為空</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="719"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="734"/>
         <source>Password must contain letters, numbers and symbols</source>
         <translation>密碼必須由字母、數字、符號三種類型組成</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="725"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="739"/>
         <source>Password must have at least 8 characters</source>
         <translation>密碼長度不能少於8位</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="739"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="752"/>
         <source>Password must not contain common words and combinations</source>
         <translation>密碼不得含有常用單詞及組合</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="745"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="758"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>密碼不得含有連續4個以上的回文字元</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="750"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="763"/>
         <source>Password must contain lowercase letters</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="755"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="768"/>
         <source>Password must contain capital letters</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="760"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="773"/>
         <source>Password must contain special characters</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="765"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="778"/>
         <source>Passwords must contain Numbers</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="993"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="1010"/>
         <source>Add fingerprint password in Control Center &gt; Accounts to unlock and authenticate</source>
         <translation>本機支援指紋識別，您可以在“控制中心 &gt;帳戶”中添加指紋密碼</translation>
     </message>
@@ -1248,38 +1252,38 @@
         <translation>日</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="177"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="184"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="233"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="178"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="185"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="239"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="82"/>
         <source>Select Components</source>
         <translation>選擇元件</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="185"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="241"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="186"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="247"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="54"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="85"/>
         <source>Basic Environment</source>
         <translation>基本環境</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="186"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="236"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="187"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="242"/>
         <source>Select the components according to your needs</source>
         <translation>請根據您的需要選擇元件</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="187"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="247"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="188"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="253"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="55"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="86"/>
         <source>Add-Ons</source>
         <translation>附加選項</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="189"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="320"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="190"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="326"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="76"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="99"/>
@@ -1350,6 +1354,7 @@
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="85"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="17"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="62"/>
         <source>Click the button below and then remove the installation media immediately</source>
         <translation>點擊按鈕後，請立即拔出安裝介質！</translation>
     </message>
@@ -1750,9 +1755,8 @@
         <translation>請根據您的需要選擇元件。</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="62"/>
         <source>Clik the button below and then remove the installation media immediately</source>
-        <translation>點擊按鈕後，請立即拔出安裝介質！</translation>
+        <translation type="vanished">點擊按鈕後，請立即拔出安裝介質！</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="82"/>

@@ -304,7 +304,7 @@ QPair<QString, QString> ComponentInstallManager::updateTs(const QString& id) con
     {"network-file-system-client", {::QObject::tr("Network File System Client"), ::QObject::tr("Environments for network storage devices.")}},
     {"performance-tools", {::QObject::tr("Performance Tools"), ::QObject::tr("Packages for monitoring and diagnosing hardware devices, system programs, and applications.")}},
     {"security-tools", {::QObject::tr("Security Tools"), ::QObject::tr("Packages for integrity and trust verification.")}},
-    {"web-server", {::QObject::tr("Web Server"), ::QObject::tr("Provides Java servelets and Web common service components.")}},
+    {"web-server", {::QObject::tr("Web Server"), ::QObject::tr("Provides Java servlets and Web common service components.")}},
     {"guest-agents", {::QObject::tr("Guest Agents"), ::QObject::tr("Agents used when running under a hypervisor.")}},
     {"virtualization-client", {::QObject::tr("Virtualization Client"), ::QObject::tr("Clients for installing and managing virtualization instances.")}},
     {"virtualization-hypervisor", {::QObject::tr("Virtualization Hypervisor"), ::QObject::tr("Smallest possible virtualization host installation.")}},

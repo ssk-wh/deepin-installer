@@ -219,7 +219,7 @@ void SystemInfoFormFrame::checkNextButtonEnable()
         return;
     }
 
-    if (d->m_setRootPasswordCheck->isChecked()) {
+    if (!d->m_setRootPasswordCheck->isChecked()) {
         if (d->m_rootPasswordEdit->text().isEmpty()
             || d->m_rootPasswordCheckEdit->text().isEmpty()) {
             emit requestNextButtonEnable(false);
@@ -476,8 +476,7 @@ void SystemInfoFormFramePrivate::initUI()
     passwordCheckFrame->setFixedWidth(kMainWindowWidth);
 
     m_setRootPasswordCheck = new QCheckBox;
-    m_setRootPasswordCheck->setCheckable(true);
-    m_setRootPasswordCheck->setChecked(false);
+    m_setRootPasswordCheck->setCheckState(Qt::Checked);
     m_setRootPasswordCheck->setObjectName("RootPasswordCheckBox");
     m_setRootPasswordCheck->setVisible(GetSettingsBool(kSetRootPasswordFromUser));
 
@@ -780,7 +779,7 @@ bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, Q
     }
 
     if (!PwqualityManager::instance()->oem_require_number(passwordEdit->text())) {
-        msg = ::QObject::tr("Passwords must contain Numbers").arg(palingrome);
+        msg = ::QObject::tr("Passwords must contain numbers").arg(palingrome);
         return false;
     }
 
@@ -980,7 +979,7 @@ void SystemInfoFormFramePrivate::onRootPasswordCheckEditingFinished()
 
 void SystemInfoFormFramePrivate::onSetRootPasswordCheckChanged(bool enable)
 {
-    if (enable) {
+    if (!enable) {
         m_rootPasswordEdit->setFocus();
         m_rootPasswordFrame->show();
         m_rootPasswordCheckFrame->show();

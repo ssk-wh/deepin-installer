@@ -84,8 +84,8 @@ void PartitionTableWarningFrame::changeEvent(QEvent* event) {
                               .arg(::QObject::tr("Make sure you have backed up all data before proceeding"))
                               .arg(::QObject::tr("Continuing installation will format your disk")));
     m_warningWidget3->setTitle(QString("%1").arg(::QObject::tr("Cancel")));
-    m_warningWidget3->setBody(QString("1.%1")
-                              .arg(::QObject::tr("Nothing to do")));
+//    m_warningWidget3->setBody(QString("1.%1")
+//                              .arg(::QObject::tr("Nothing to do")));
 
     next_button_->setText(::QObject::tr("Next"));
     m_buttonBox->hide();
@@ -150,8 +150,8 @@ void PartitionTableWarningFrame::initUI() {
   m_warningWidget3->setFixedSize(kWarnItemWidth, kWarnItemHeight);
   m_warningWidget3->setSelectIcon(":/images/select_blue.svg");
   m_warningWidget3->setTitle(QString("%1").arg(::QObject::tr("Cancel")));
-  m_warningWidget3->setBody(QString("1.%1")
-                            .arg(::QObject::tr("Nothing to do")));
+//  m_warningWidget3->setBody(QString("1.%1")
+//                            .arg(::QObject::tr("Nothing to do")));
 
   m_buttonBox = new DButtonBox(this);
   m_buttonBox->setButtonList({m_warningWidget1, m_warningWidget2, m_warningWidget3}, true);
