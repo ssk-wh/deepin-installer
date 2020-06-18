@@ -304,6 +304,7 @@ void SelectLanguageFramePrivate::initUI() {
     sub_title_label_->setAlignment(Qt::AlignHCenter);
 
     m_languageView = new DListView();
+    m_languageView->setFocusPolicy(Qt::TabFocus);
     m_languageView->setEditTriggers(QListView::NoEditTriggers);
     m_languageView->setIconSize(QSize(32, 32));
     m_languageView->setResizeMode(QListView::Adjust);
@@ -320,8 +321,6 @@ void SelectLanguageFramePrivate::initUI() {
     m_languageView->installEventFilter(q);
 
     QScrollArea* languageArea = StyleDelegate::area(m_languageView);
-    languageArea->setFocusPolicy(Qt::ClickFocus);
-    languageArea->setParent(q);
 
     accept_license_ = new QCheckBox;
     accept_license_->setCheckable(true);
@@ -482,6 +481,12 @@ void SelectLanguageFramePrivate::onLanguageListSelected(const QModelIndex& curre
 }
 
 void SelectLanguageFramePrivate::onAccpetLicenseChanged(bool enable) {
+    if (enable) {
+        m_languageView->setFocusPolicy(Qt::NoFocus);
+        q_ptr->setFocus();
+    } else {
+        m_languageView->setFocusPolicy(Qt::TabFocus);
+    }
     emit q_ptr->requestNextButtonEnable(enable && !lang_.name.isEmpty());
 }
 
