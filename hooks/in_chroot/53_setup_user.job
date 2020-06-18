@@ -143,10 +143,10 @@ fi
 # in real user setup(see code above).
 setup_first_boot_hostname() {
   msg "Setup first boot temporary hostname"
-  echo "first-boot-hostname" | tee /etc/hostname
+  echo "username" | tee /etc/hostname
   cat > /etc/hosts << EOF
 127.0.0.1	localhost
-127.0.1.1 first-boot-hostname
+127.0.1.1 username
 EOF
 }
 
