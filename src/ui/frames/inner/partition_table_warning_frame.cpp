@@ -94,6 +94,18 @@ void PartitionTableWarningFrame::changeEvent(QEvent* event) {
   }
 }
 
+void PartitionTableWarningFrame::showEvent(QShowEvent *event)
+{
+    if (m_currentButton != nullptr) {
+        static_cast<OperatorWidget *>(m_currentButton)->setSelect(false);
+        m_currentButton = nullptr;
+    }
+
+    next_button_->setEnabled(false);
+
+    QFrame::showEvent(event);
+}
+
 void PartitionTableWarningFrame::initConnections() {
   connect(next_button_, &QPushButton::clicked,
           this, &PartitionTableWarningFrame::onNextButtonClicked);
@@ -155,10 +167,9 @@ void PartitionTableWarningFrame::initUI() {
 
   m_buttonBox = new DButtonBox(this);
   m_buttonBox->setButtonList({m_warningWidget1, m_warningWidget2, m_warningWidget3}, true);
-  // Checked warning widget 1.
-  emit m_warningWidget1->clicked(true);
-  // default setting
-  m_currentButton = m_warningWidget1;
+
+  // default setting is null.
+  m_currentButton = nullptr;
 
   next_button_ = new QPushButton(::QObject::tr("Next"));
   next_button_->setFixedSize(QSize(310, 36));
@@ -206,6 +217,8 @@ void PartitionTableWarningFrame::onButtonGroupToggled(QAbstractButton *button)
         m_warningWidget1->setSelect(false);
         m_warningWidget2->setSelect(false);
     }
+
+    next_button_->setEnabled(m_currentButton != nullptr);
 }
 
 void PartitionTableWarningFrame::onNextButtonClicked()
