@@ -235,7 +235,8 @@ void SelectLanguageFrame::showEvent(QShowEvent *event)
 {
     Q_D(SelectLanguageFrame);
 
-    d->m_languageView->setFocus();
+//    d->m_languageView->setFocus();
+//    setFocus();
 
     QFrame::showEvent(event);
 }
@@ -319,6 +320,8 @@ void SelectLanguageFramePrivate::initUI() {
     m_languageView->installEventFilter(q);
 
     QScrollArea* languageArea = StyleDelegate::area(m_languageView);
+    languageArea->setFocusPolicy(Qt::ClickFocus);
+    languageArea->setParent(q);
 
     accept_license_ = new QCheckBox;
     accept_license_->setCheckable(true);

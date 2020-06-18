@@ -22,6 +22,7 @@
 #include <QThread>
 #include <QTimer>
 #include <QDateTime>
+#include <DSysInfo>
 
 #include "base/file_util.h"
 #include "base/thread_util.h"
@@ -29,6 +30,8 @@
 #include "service/backend/hook_worker.h"
 #include "service/settings_name.h"
 #include "service/settings_manager.h"
+
+DCORE_USE_NAMESPACE
 
 namespace installer {
 
@@ -198,7 +201,7 @@ void HooksManager::handleRunHooks() {
                      kAfterChrootEndVal, nullptr);
 
   // add system version log
-  qInfo() << "system version: UOS " << QSysInfo().productVersion();
+  qInfo() << "system version: " << QSysInfo().prettyProductName();
   // add kernel versionlog
   qInfo() << "kernel version: " << QSysInfo().kernelVersion();
   // add hooks scripts start time
