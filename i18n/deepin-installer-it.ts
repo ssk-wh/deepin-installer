@@ -481,7 +481,7 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="193"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="433"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="436"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="415"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="210"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="73"/>
@@ -493,7 +493,7 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="193"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="433"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="436"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="415"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="210"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="73"/>
@@ -617,9 +617,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="551"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="338"/>
-        <source>/boot partition requires at least %1 GB</source>
-        <translation>La partizione /boot richiede almeno %1 GB</translation>
+        <source>/boot partition requires at least %1 MB</source>
+        <translation>La partizione /boot richiede almeno %1 MB</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="555"/>
@@ -977,34 +976,34 @@
         <translation>Se non hai dimestichezza con i settaggi, seleziona quelli raccomandati</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="432"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="435"/>
         <source>I have read and agree to the</source>
         <translation>Dichiaro di aver letto ed approvato quanto scritto nel</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="433"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="436"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="210"/>
         <source>%1 Software End User License Agreement</source>
         <translation>Licenza d&apos;uso per l&apos;Utente finale di %1</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="437"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="440"/>
         <source>and</source>
         <translation>e</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="446"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="449"/>
         <source>Agree to the</source>
         <translation>Acconsento con il</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="447"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="450"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="209"/>
         <source>User Experience Program License Agreement</source>
         <translation>Contratto di licenza per l&apos;utente finale</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="449"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="452"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="108"/>
         <location filename="../src/ui/frames_cli/language_frame.cpp" line="46"/>
         <source>Select Language</source>
@@ -1682,6 +1681,11 @@
         <source>Insert key: create or edit partition. Delete key: delete partition.</source>
         <translation>Chiave inserimento: crea una nuova partizione o edita una presente.
 Tasto elimina: elimina una partizione.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="338"/>
+        <source>/boot partition requires at least %1 GB</source>
+        <translation>La partizione /boot richiede almeno %1 GB</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="401"/>

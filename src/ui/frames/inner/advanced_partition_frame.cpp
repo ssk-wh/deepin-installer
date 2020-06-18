@@ -548,7 +548,7 @@ QString AdvancedPartitionFrame::validateStateToText(ValidateState state) {
     }
     case ValidateState::BootTooSmall: {
       const int boot_recommended = GetSettingsInt(kPartitionDefaultBootSpace);
-      return ::QObject::tr("/boot partition requires at least %1 GB")
+      return ::QObject::tr("/boot partition requires at least %1 MB")
           .arg( boot_recommended);
     }
     case ValidateState::BootBeforeLvm: {
