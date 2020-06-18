@@ -187,7 +187,7 @@ bool SystemInfoFormFrame::validateUserInfo()
         d->tooltip_->setText(msg);
         d->tooltip_->showBottom(d->m_passwordCheckEdit);
     }
-    else if (d->m_setRootPasswordCheck->isChecked()) {
+    else if (!d->m_setRootPasswordCheck->isChecked()) {
         if (!d->validatePassword(d->m_rootPasswordEdit, msg)) {
             d->tooltip_->setText(msg);
             d->tooltip_->showBottom(d->m_rootPasswordEdit);
