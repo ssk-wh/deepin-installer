@@ -8,7 +8,7 @@
 QScrollArea *installer::StyleDelegate::area(QWidget *widget)
 {
     QVBoxLayout *languageLayout = new QVBoxLayout;
-    languageLayout->setContentsMargins(0, 0, 10, 0);
+    languageLayout->setContentsMargins(5, 5, 15, 0);
     languageLayout->addWidget(widget);
 
     QFrame *languageFrame = new QFrame;

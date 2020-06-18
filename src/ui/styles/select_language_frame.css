@@ -21,7 +21,7 @@ QCheckBox::indicator {
   height: 16px;
 }
 
-QScrollBar:vertical
+QScrollArea#QScrollBar:vertical
 {
     width:8px;
     background:rgba(0,0,0,0%);
@@ -29,14 +29,14 @@ QScrollBar:vertical
     padding-top:9px;
     padding-bottom:9px;
 }
-QScrollBar::handle:vertical
+QScrollArea#QScrollBar::handle:vertical
 {
     width:8px;
     background:rgba(0,0,0,25%);
     border-radius:4px;
     min-height:20;
 }
-QScrollBar::handle:vertical:hover
+QScrollArea#QScrollBar::handle:vertical:hover
 {
     width:8px;
     background:rgba(0,0,0,50%);
@@ -44,14 +44,14 @@ QScrollBar::handle:vertical:hover
     min-height:20;
 }
 
-QScrollBar::add-line:vertical {
+QScrollArea#QScrollBar::add-line:vertical {
     border: 0px;
     width: 0px;
     subcontrol-position: top;
     subcontrol-origin: margin;
 }
 
-QScrollBar::sub-line:vertical {
+QScrollArea#QScrollBar::sub-line:vertical {
     border: 0px;
     width: 0px;
     subcontrol-position: bottom;
