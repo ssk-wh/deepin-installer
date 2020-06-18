@@ -812,7 +812,7 @@ void PartitionFramePrivate::showPartitionTableWarningFrame(
   partition_table_warning_frame_->setDevicePath(device_path);
   main_layout_->setCurrentWidget(partition_table_warning_frame_);
 
-  emit q_ptr->coverMainWindowFrameLabelsView();
+  emit q_ptr->disCoverMainWindowFrameLabelsView();
 }
 
 void PartitionFramePrivate::showSelectBootloaderFrame() {
