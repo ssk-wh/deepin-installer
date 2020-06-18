@@ -259,10 +259,6 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Provides Java servelets and Web common service components.</source>
-        <translation type="vanished">Java servetets ve Web ortak servis bileşenleri sağlar.</translation>
-    </message>
-    <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>Guest Agents</source>
         <translation>Misafir İstemciler</translation>
@@ -449,11 +445,6 @@
         <translation>UOS Uç nokta Yönetim Ortamı bölgesini ayarlayın</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/control_platform_frame.cpp" line="193"/>
-        <source>Control Platform</source>
-        <translation>Platform Kontrolü</translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="199"/>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="90"/>
@@ -464,7 +455,7 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="723"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="918"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="231"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="652"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="654"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="202"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="131"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="25"/>
@@ -720,7 +711,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="230"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="801"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="805"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="126"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="240"/>
         <source>Passwords do not match</source>
@@ -743,8 +734,8 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="265"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="463"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="598"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="605"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="597"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="604"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="459"/>
         <source>Password</source>
         <translation>Parola</translation>
@@ -902,7 +893,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="76"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="47"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="645"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="647"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="183"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="24"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="21"/>
@@ -952,13 +943,6 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="147"/>
         <source>Continuing installation will format your disk</source>
         <translation>Kuruluma devam ederseniz diskiniz biçimlendirilecek</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="88"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="154"/>
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="91"/>
-        <source>Nothing to do</source>
-        <translation>Yapacak bir şey yok</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="127"/>
@@ -1043,166 +1027,171 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="387"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="596"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="603"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="595"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="602"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="458"/>
         <source>Username</source>
         <translation>Kullanıcı adı</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="415"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="597"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="604"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="596"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="603"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="457"/>
         <source>Computer name</source>
         <translation>Bilgisayar adı</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="464"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="599"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="606"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="598"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="605"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="210"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="460"/>
         <source>Repeat password</source>
         <translation>Parolayı tekrarla</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="600"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="607"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="599"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="606"/>
         <source>Root password</source>
         <translation>Kök parolası</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="601"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="608"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="600"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="607"/>
         <source>Repeat root password</source>
         <translation>Kök parolasını tekrarla</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="610"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="609"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="130"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="454"/>
         <source>Create Accounts</source>
         <translation>Hesap Oluştur</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="611"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="610"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="456"/>
         <source>Fill in the username, computer name and your password</source>
         <translation>Kullanıcı adını, bilgisayar adını ve parolanızı girin</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="612"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="611"/>
         <source>Use that password to edit boot menu</source>
         <translation>Önyükleme menüsünü düzenlemek için bu parolayı kullanın</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="613"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="612"/>
         <source>Set as root password</source>
         <translation>Kök parolası olarak ayarla</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="637"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="636"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="152"/>
         <source>This username already exists</source>
         <translation>Bu kullanıcı adı zaten mevcut</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="641"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="640"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="156"/>
         <source>The first letter must be in lowercase</source>
         <translation>İlk harf küçük olmalıdır</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="646"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="645"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="161"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
         <translation>Kullanıcı adında, İngiliz alfabesi harfleri (küçük harfler), rakamlar ya da özel simgeler (_-) bulunmalıdır</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="652"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="651"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="167"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
         <translation>Lütfen kullanıcı adını uzunluğu %1 ile %2 karakter arasında olacak şekilde yazın</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="675"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="674"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="116"/>
         <source>Please input computer name</source>
         <translation>Lütfen bilgisayar adını yazın</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="679"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="678"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="120"/>
         <source>Computer name is invalid</source>
         <translation>Bilgisayar adı geçersiz</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="683"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="682"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="124"/>
         <source>Computer name already exists, please input another one</source>
         <translation>Bilgisayar adı zaten var, lütfen başka bir ad girin</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="688"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="687"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="129"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
         <translation>Lütfen bilgisayar adını uzunluğu %1 ile %2 karakter arasında olacak şekilde yazın</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="716"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="715"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="80"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="194"/>
         <source>The password should be different from the username</source>
         <translation>Parola kullanıcı adından farklı olmalıdır</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="730"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="729"/>
         <source>The password cannot be empty​</source>
         <translation>Parola boş olamaz</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="734"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="733"/>
         <source>Password must contain letters, numbers and symbols</source>
         <translation>Parola, harf rakam ve sembol içermelidir</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="739"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="737"/>
         <source>Password must have at least 8 characters</source>
         <translation>Parola en az 8 karakterden oluşmalıdır</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="752"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="741"/>
+        <source>Password must be between %1 and %2 characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="756"/>
         <source>Password must not contain common words and combinations</source>
         <translation>Parola yaygın kelimeler ve kombinasyonlar içermemelidir</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="758"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="762"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Parola 4&apos;ten fazla tersten okunuşu aynı olan karakteri içermemelidir</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="763"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="767"/>
         <source>Password must contain lowercase letters</source>
         <translation>Parola küçük harf içermelidir</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="768"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="772"/>
         <source>Password must contain capital letters</source>
         <translation>Parola büyük harf içermelidir</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="773"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="777"/>
         <source>Password must contain special characters</source>
         <translation>Parola özel karakterler içermelidir</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="778"/>
-        <source>Passwords must contain Numbers</source>
-        <translation>Parola sayı içermelidir</translation>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="782"/>
+        <source>Passwords must contain numbers</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="1010"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="1014"/>
         <source>Add fingerprint password in Control Center &gt; Accounts to unlock and authenticate</source>
         <translation>Kilit açmak ve kimlik doğrulaması yapmak için Kontrol Merkezi&gt; Hesaplar&apos;a parmak izi ekle</translation>
     </message>
@@ -1495,14 +1484,14 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="186"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="223"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="429"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="749"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="751"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="89"/>
         <source>Create Partitions</source>
         <translation>Bölümler Oluştur</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="221"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="669"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="671"/>
         <source>Edit LVM Disk</source>
         <translation>LVM Diski Düzenle</translation>
     </message>
@@ -1530,17 +1519,17 @@
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="498"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="653"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="655"/>
         <source>Start installation</source>
         <translation>Kurulumu başlat</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="628"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="630"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
         <translation>Hedef disk dinamiktir ve devam ederseniz verileriniz kaybolabilir. Lütfen önce önemli dosyalarınızın yedeğini alın.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="632"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="634"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
         <translation>Hedef disk dinamiktir ve ilerlerken biçimlendirilir. Lütfen önce önemli dosyalarınızın yedeğini alın.</translation>
     </message>
@@ -1749,14 +1738,15 @@
         <translation>Veri kaybını önlemek için tüm verilerinizi yedekleyin</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="91"/>
+        <source>Nothing to do</source>
+        <translation>Yapacak bir şey yok</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="53"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="84"/>
         <source>Select the components according to your needs.</source>
         <translation>Bileşenleri ihtiyaçlarınıza göre seçin.</translation>
-    </message>
-    <message>
-        <source>Clik the button below and then remove the installation media immediately</source>
-        <translation type="vanished">Aşağıdaki düğmeyi tıklayın ve ardından yükleme medyasını hemen çıkarın</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="82"/>

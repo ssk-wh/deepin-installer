@@ -256,11 +256,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>Provides Java servlets and Web common service components.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Provides Java servelets and Web common service components.</source>
-        <translation type="vanished">Proporciona miniaplicacions de servidor de Java i components de servei comuns de xarxa.</translation>
+        <translation>Proporciona miniaplicacions de servidor de Java i components de servei comuns de xarxa.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
@@ -449,11 +445,6 @@
         <translation>Establiu la regió per a la plataforma de gestió EndPoint d&apos;UOS.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/control_platform_frame.cpp" line="193"/>
-        <source>Control Platform</source>
-        <translation>Plataforma de control</translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="199"/>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="90"/>
@@ -464,7 +455,7 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="723"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="918"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="231"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="652"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="654"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="202"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="131"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="25"/>
@@ -720,7 +711,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="230"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="801"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="805"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="126"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="240"/>
         <source>Passwords do not match</source>
@@ -743,8 +734,8 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="265"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="463"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="598"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="605"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="597"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="604"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="459"/>
         <source>Password</source>
         <translation>Contrasenya</translation>
@@ -902,7 +893,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="76"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="47"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="645"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="647"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="183"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="24"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="21"/>
@@ -952,13 +943,6 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="147"/>
         <source>Continuing installation will format your disk</source>
         <translation>Continuar la instal·lació formatarà el disc</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="88"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="154"/>
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="91"/>
-        <source>Nothing to do</source>
-        <translation>Res per fer</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="127"/>
@@ -1043,166 +1027,171 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="387"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="596"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="603"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="595"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="602"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="458"/>
         <source>Username</source>
         <translation>Nom d&apos;usuari</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="415"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="597"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="604"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="596"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="603"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="457"/>
         <source>Computer name</source>
         <translation>Nom de l&apos;ordinador</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="464"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="599"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="606"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="598"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="605"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="210"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="460"/>
         <source>Repeat password</source>
         <translation>Repetiu la contrasenya.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="600"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="607"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="599"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="606"/>
         <source>Root password</source>
         <translation>Contrasenya d&apos;arrel</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="601"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="608"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="600"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="607"/>
         <source>Repeat root password</source>
         <translation>Repetiu la contrasenya d&apos;arrel.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="610"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="609"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="130"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="454"/>
         <source>Create Accounts</source>
         <translation>Crea comptes</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="611"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="610"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="456"/>
         <source>Fill in the username, computer name and your password</source>
         <translation>Empleneu el nom d&apos;usuari, el nom de l&apos;ordinador i la vostra contrasenya</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="612"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="611"/>
         <source>Use that password to edit boot menu</source>
         <translation>Usa aquesta contrasenya per editar el menú d&apos;arrencada</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="613"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="612"/>
         <source>Set as root password</source>
         <translation>Estableix-la com a contrasenya d&apos;arrel.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="637"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="636"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="152"/>
         <source>This username already exists</source>
         <translation>Aquest nom d&apos;usuari ja existeix.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="641"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="640"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="156"/>
         <source>The first letter must be in lowercase</source>
         <translation>La primera lletra ha de ser en minúscula.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="646"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="645"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="161"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
         <translation>El nom d&apos;usuari ha de tenir lletres angleses (en minúscula), números o símbols especials (_-).</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="652"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="651"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="167"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
         <translation>Si us plau, escriviu un nom d&apos;usuari de més de %1 caràcters i de menys de %2.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="675"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="674"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="116"/>
         <source>Please input computer name</source>
         <translation>Si us plau, escriviu el nom de l&apos;ordinador.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="679"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="678"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="120"/>
         <source>Computer name is invalid</source>
         <translation>El nom d&apos;ordinador no és vàlid.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="683"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="682"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="124"/>
         <source>Computer name already exists, please input another one</source>
         <translation>El nom de l&apos;ordinador ja existeix, si us plau, escriviu-ne un altre.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="688"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="687"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="129"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
         <translation>Si us plau, escriviu un nom d&apos;ordinador de més de %1 caràcters i de menys de %2.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="716"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="715"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="80"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="194"/>
         <source>The password should be different from the username</source>
         <translation>La contrasenya hauria de ser diferent del nom d&apos;usuari.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="730"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="729"/>
         <source>The password cannot be empty​</source>
         <translation>La contrasenya no pot estar en blanc.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="734"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="733"/>
         <source>Password must contain letters, numbers and symbols</source>
         <translation>La contrasenya ha de contenir lletres, números i símbols.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="739"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="737"/>
         <source>Password must have at least 8 characters</source>
         <translation>La contrasenya ha de tenir com a mínim 8 caràcters.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="752"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="741"/>
+        <source>Password must be between %1 and %2 characters</source>
+        <translation>La contrasenya ha de tenir entre %1 i %2 caràcters.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="756"/>
         <source>Password must not contain common words and combinations</source>
         <translation>La contrasenya no ha de contenir paraules i combinacions de paraules comunes.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="758"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="762"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>La contrasenya no ha de contenir més de 4 caràcters palíndroms.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="763"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="767"/>
         <source>Password must contain lowercase letters</source>
-        <translation type="unfinished"/>
+        <translation>La contrasenya ha de contenir lletres minúscules.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="768"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="772"/>
         <source>Password must contain capital letters</source>
-        <translation type="unfinished"/>
+        <translation>La contrasenya ha de contenir lletres majúscules.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="773"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="777"/>
         <source>Password must contain special characters</source>
-        <translation type="unfinished"/>
+        <translation>La contrasenya ha de contenir caràcters especials.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="778"/>
-        <source>Passwords must contain Numbers</source>
-        <translation type="unfinished"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="782"/>
+        <source>Passwords must contain numbers</source>
+        <translation>Les contrasenyes han de contenir números.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="1010"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="1014"/>
         <source>Add fingerprint password in Control Center &gt; Accounts to unlock and authenticate</source>
         <translation>Afegiu una contrasenya d’empremta al Centre de control &gt; Comptes per al desbloqueig i l&apos;autenticació.</translation>
     </message>
@@ -1495,14 +1484,14 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="186"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="223"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="429"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="749"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="751"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="89"/>
         <source>Create Partitions</source>
         <translation>Crea particions</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="221"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="669"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="671"/>
         <source>Edit LVM Disk</source>
         <translation>Edita el disc d&apos;LVM</translation>
     </message>
@@ -1530,17 +1519,17 @@
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="498"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="653"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="655"/>
         <source>Start installation</source>
         <translation>Inicia la instal·lació</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="628"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="630"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
         <translation>El disc de destinació és dinàmic i se&apos;n poden perdre les dades si continueu. Si us plau, feu una còpia de seguretat dels fitxers importants qui hi tingueu.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="632"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="634"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
         <translation>El disc de destinació és dinàmic i es formatarà si continueu. Si us plau, feu una còpia de seguretat dels fitxers importants qui hi tingueu.</translation>
     </message>
@@ -1749,14 +1738,15 @@
         <translation>Feu una còpia de seguretat de totes les vostres dades per evitar la pèrdua de dades</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="91"/>
+        <source>Nothing to do</source>
+        <translation>Res per fer</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="53"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="84"/>
         <source>Select the components according to your needs.</source>
         <translation>Seleccioneu els components segons les vostres necessitats.</translation>
-    </message>
-    <message>
-        <source>Clik the button below and then remove the installation media immediately</source>
-        <translation type="vanished">Cliqueu al botó següent i extraieu el mitjà d&apos;instal·lació immediatament.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="82"/>
