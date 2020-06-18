@@ -730,13 +730,18 @@ bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, Q
         msg = ::QObject::tr("The password cannot be empty​");
         return false;
     }
-    case ValidatePasswordState::StrongError: {  // fall through
+    case ValidatePasswordState::StrongError: {
         msg = ::QObject::tr("Password must contain letters, numbers and symbols");
         return false;
     }
-    case ValidatePasswordState::TooShortError:  // fall through
-    case ValidatePasswordState::TooLongError: {
+    case ValidatePasswordState::TooShortError: {
         msg = ::QObject::tr("Password must have at least 8 characters");
+        return false;
+    }
+    case ValidatePasswordState::TooLongError: {
+        msg = ::QObject::tr("Password must be between %1 and %2 characters")
+                .arg(min_len)
+                .arg(max_len);
         return false;
     }
     case ValidatePasswordState::Ok: {
