@@ -388,6 +388,8 @@ void SelectInstallComponentFramePrivate::onServerTypeClicked()
     nextButton->setEnabled(componentWidget->isSelected());
 
     if(componentWidget == m_currentComponentWidget){
+        componentWidget->setSelected(true);
+        nextButton->setEnabled(componentWidget->isSelected());
         return;
     }
 
