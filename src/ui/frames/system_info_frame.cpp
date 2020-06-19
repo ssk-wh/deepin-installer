@@ -130,6 +130,15 @@ QString SystemInfoFrame::returnFrameName() const
     return ::QObject::tr("Create Accounts");
 }
 
+void SystemInfoFrame::changeEvent(QEvent *event)
+{
+    if (event->type() == QEvent::LanguageChange) {
+        m_private->nextButton->setText(::QObject::tr("Next"));
+    }
+
+    return FrameInterface::changeEvent(event);
+}
+
 void SystemInfoFramePrivate::initConnections() {
   connect(form_frame_, &SystemInfoFormFrame::systemInfoFormDone, this, [=] {
       emit nextButton->clicked();

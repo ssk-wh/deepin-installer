@@ -52,6 +52,9 @@ class SystemInfoFrame : public FrameInterface {
   bool shouldDisplay() const override;
   QString returnFrameName() const override;
 
+protected:
+  void changeEvent(QEvent *event);
+
 private:
     QScopedPointer<SystemInfoFramePrivate> m_private;
 };
