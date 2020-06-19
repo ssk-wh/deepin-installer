@@ -205,6 +205,9 @@ void FirstBootSetupWindow::initConnections() {
 
     connect(control_panel_shortcut_, &QShortcut::activated,
             control_panel_frame_, &ControlPanelFrame::toggleVisible);
+
+    connect(language_frame_, &LanguageFrame::timezoneUpdated,
+            timezone_frame_, &TimezoneFrame::updateTimezoneBasedOnLanguage);
 }
 
 void FirstBootSetupWindow::initUI() {
