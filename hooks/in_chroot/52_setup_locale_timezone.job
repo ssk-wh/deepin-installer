@@ -26,6 +26,22 @@ LOCAL
 EOF
 }
 
+rm_ntp_config() {
+	rm -fr /usr/lib/systemd/system/systemd-timesyncd.service.d/disable-timesyncd-with-installer.conf
+	msg "rm ntp config"
+}
+
+setup_ntp_config() {
+	cat > /usr/lib/systemd/system/systemd-timesyncd.service.d/disable-timesyncd-with-installer.conf << EOF
+
+esyncd-with-installer.conf-bak
+[Unit]
+# Don't run timesyncd if installer is installed
+ConditionFileIsExecutable=!/usr/bin/deepin-installer
+EOF
+	msg "setup ntp config"
+}
+
 # Setup locale and timezone.
 # This function used in hook_manager.sh and first_boot_setup.sh
 setup_locale_timezone() {
@@ -88,8 +104,12 @@ EOF
     # Use RTC time, "timedatectl set-local-rtc 1"
     enable_local_rtc
   else
+	  rm_ntp_config  	
       systemctl enable systemd-timesyncd.service
       systemctl start systemd-timesyncd.service
+	  timedatectl set-ntp true
+	  msg "set-ntp true"
+	  setup_ntp_config
   fi
 
   # Check locale
