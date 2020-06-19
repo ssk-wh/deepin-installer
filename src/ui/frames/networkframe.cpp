@@ -313,6 +313,9 @@ public:
         m_secondaryDNSLabel->setText(::QObject::tr("Secondary DNS:"));
         m_dhcpTypeModel->setStringList({::QObject::tr("Auto"),
                                         ::QObject::tr("Manual")});
+
+        m_editBtn->setText(::QObject::tr("Edit"));
+        m_acceptBtn->setText(::QObject::tr("Accept"));
     }
 
     void initWidgetState()
