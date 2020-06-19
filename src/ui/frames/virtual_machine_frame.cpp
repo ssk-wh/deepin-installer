@@ -71,7 +71,7 @@ void VirtualMachineFrame::changeEvent(QEvent* event) {
     m_private->title_label_->setText(::QObject::tr("Friendly Note"));
     m_private->comment_label_->setText(
         ::QObject::tr("You are installing %1 on a virtual machine which may result in sub-optimal performance. For the best experience, please install %1 on a real machine.").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS")));
-    m_private->nextButton->setText(::QObject::tr("Continue"));
+    m_private->nextButton->setText(::QObject::tr("Next"));
   } else {
     FrameInterface::changeEvent(event);
   }
@@ -106,7 +106,11 @@ void VirtualMachineFrame::finished()
 
 bool VirtualMachineFrame::shouldDisplay() const
 {
+#ifdef QT_DEBUG
+    return true;
+#else
     return !GetSettingsBool(kSkipVirtualMachinePage) && IsVirtualMachine() ;
+#endif // QT_DBUG
 }
 
 QString VirtualMachineFrame::returnFrameName() const
@@ -123,7 +127,7 @@ void VirtualMachineFramePrivate::initUI() {
   comment_layout->setSpacing(0);
   comment_layout->addWidget(comment_label_);
 
-  nextButton->setText(::QObject::tr("Continue"));
+  nextButton->setText(::QObject::tr("Next"));
 
   centerLayout->setContentsMargins(0, 0, 0, 0);
   centerLayout->setSpacing(kMainLayoutSpacing);
