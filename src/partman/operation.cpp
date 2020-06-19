@@ -152,8 +152,11 @@ bool Operation::applyToDisk() {
           (new_partition->fs != FsType::Empty)) {
         // Create new filesystem on new_partition.
         if (!Mkfs(new_partition)) {
-          qCritical() << "OperationCreate Mkfs() failed:" << new_partition;
-          return false;
+            //大容量磁盘格式化有概率失败，二次执行可以指数级减小格式化失败概率
+            if (!Mkfs(new_partition)) {
+                qCritical() << "OperationCreate Mkfs() failed:" << new_partition;
+                return false;
+            }
         }
 
         // Set flags on new_partition.
