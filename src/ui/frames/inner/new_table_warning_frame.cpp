@@ -32,7 +32,7 @@ namespace {
     const int kButtonWidth = 200;
     const int kButtonHeight = 36;
 
-    const int kCommentLabelWidth = 798;
+    const int kCommentLabelWidth = 398;
 }
 
 namespace installer {
@@ -89,6 +89,9 @@ void NewTableWarningFrame::initUI() {
     ::QObject::tr("Continuing installation will format the whole disk, "
        "please make a backup of all your data. If you do not know what you are doing, please do not continue"));
   comment_label_->setFixedWidth(kCommentLabelWidth);
+  comment_label_->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+  comment_label_->setWordWrap(true);
+  comment_label_->setAlignment(Qt::AlignCenter);
 
   cancel_button_ = new QPushButton(::QObject::tr("Cancel"));
   cancel_button_->setFixedSize(kButtonWidth, kButtonHeight);

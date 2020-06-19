@@ -43,7 +43,7 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     m_descLabel->setFont(descFont);
 
     m_vLayout = new QVBoxLayout;
-    m_vLayout->setContentsMargins(0, 0, 0, 0);
+    m_vLayout->setContentsMargins(5, 0, 0, 0);
     m_vLayout->setSpacing(0);
     m_vLayout->addStretch();
     m_vLayout->addWidget(m_deviceName, 0, Qt::AlignLeft);
@@ -58,7 +58,7 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     m_checkedLabel->setVisible(isChecked());
 
     m_hLayout = new QHBoxLayout;
-    m_hLayout->setContentsMargins(5, 5, 5, 5);
+    m_hLayout->setContentsMargins(1, 1, 1, 1);
     m_hLayout->setSpacing(0);
 
     m_hLayout->addLayout(m_vLayout);
@@ -205,8 +205,9 @@ void NetworkDeviceWidget::updateCheckedAppearance()
 void NetworkDeviceWidget::setDeviceInfo(NetworkManager::Device::Ptr device) {
     qDebug() << "Device type: " << device->type();
 
-#ifdef QT_DEBUG_test
+#ifdef QT_DEBUG
     setTitle(::QObject::tr("Ethernet (%1)").arg("nsp21111111110"));
+    setDesc(::QObject::tr("test nsp21111111110"));
 #else
     if (device->type() == NetworkManager::Device::Type::Ethernet) {
         setTitle(::QObject::tr("Ethernet") + QString(" (%1)").arg(device->interfaceName()));

@@ -34,6 +34,8 @@
 #include <DVerticalLine>
 #include <DLineEdit>
 #include <DSwitchButton>
+#include <QScrollArea>
+#include <QScrollBar>
 
 DWIDGET_USE_NAMESPACE
 
@@ -744,8 +746,7 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
 
     // 左侧布局
     m_leftLayout = new QVBoxLayout;
-    m_leftLayout->setContentsMargins(10, 10, 10, 10);
-    m_leftLayout->setSpacing(10);
+    m_leftLayout->setMargin(5);
     QFrame *leftWidget = new QFrame;
     leftWidget->setContentsMargins(0, 0, 0, 0);
     leftWidget->setFixedSize(kLeftViewWidth, kViewHeight);
@@ -803,6 +804,14 @@ void NetworkFrame::initDeviceWidgetList()
     m_buttonList.clear();
 
     NetworkManager::Device::List list = NetworkManager::networkInterfaces();
+
+#ifdef QT_DEBUG_test
+    for (int i = 0; i < 6; i++) {
+        NetworkManager::Device::Ptr d(new NetworkManager::Device(QString("zdd test")));
+        list << d;
+    }
+#endif // QT_DEBUG
+
     bool hasSet = false;
 
     foreach (NetworkManager::Device::Ptr dev, list) {
@@ -811,11 +820,14 @@ void NetworkFrame::initDeviceWidgetList()
         qDebug() << "type: " << dev->type();
         qDebug() << "interface name: " << dev->interfaceName();
 
+#ifdef QT_DEBUG_test
+#else
         // FIXME: what about !dev->managed()
         if (dev->type() != NetworkManager::Device::Type::Ethernet
             || dev->interfaceName().contains("vmnet")) {
             continue;
         }
+#endif // QT_DEBUG
 
         NetworkDeviceWidget* deviceWidget = new NetworkDeviceWidget(this);
         deviceWidget->setCheckable(true);
@@ -839,11 +851,32 @@ void NetworkFrame::initDeviceWidgetList()
     connect(m_buttonBox, &DButtonBox::buttonClicked, this
             , &NetworkFrame::onButtonGroupToggled);
 
+    QVBoxLayout *leftLayout = new QVBoxLayout;
+    leftLayout->setContentsMargins(0, 0, 0, 0);
     for (DButtonBoxButton* button : m_buttonList) {
         NetworkDeviceWidget* widget = qobject_cast<NetworkDeviceWidget*>(button);
-        m_leftLayout->addWidget(widget);
+        leftLayout->addWidget(widget, 0, Qt::AlignTop);
     }
 
+    QFrame *leftFrame = new QFrame;
+    leftFrame->setContentsMargins(0, 0, 0, 0);
+    leftFrame->setLayout(leftLayout);
+
+    QScrollArea *leftArea = new QScrollArea;
+    leftArea->setContentsMargins(0, 0, 15, 0);
+    leftArea->setWidgetResizable(true);
+    leftArea->setFocusPolicy(Qt::NoFocus);
+    leftArea->setFrameStyle(QFrame::NoFrame);
+    leftArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+    leftArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    leftArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    leftArea->setContextMenuPolicy(Qt::NoContextMenu);
+    leftArea->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    leftArea->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    leftArea->setWidget(leftFrame);
+    leftArea->setFixedWidth(255);
+
+    m_leftLayout->addWidget(leftArea);
     m_leftLayout->addStretch();
 }
 
