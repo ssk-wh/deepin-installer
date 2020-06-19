@@ -187,9 +187,12 @@ public:
             m_secondaryDNSEdit,
         };
 
+        QRegExp regExpIP("((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])[\\.])"
+                         "{3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])");
+
         for (auto it = m_editList.begin(); it != m_editList.end(); ++it) {
             connect(*it, &DLineEdit::textEdited, this, &NetworkEditWidget::onEditingLineEdit);
-            (*it)->lineEdit()->setValidator(m_validityCheck.get());
+            (*it)->lineEdit()->setValidator(new QRegExpValidator(regExpIP));
             (*it)->lineEdit()->setAlignment(Qt::AlignCenter);
         }
 
@@ -287,10 +290,6 @@ public:
         mainLayout->addWidget(m_gatewayWidget);
         mainLayout->addWidget(m_primaryDNSWidget);
         mainLayout->addWidget(m_secondaryDNSWidget);
-
-        m_validityCheck = std::unique_ptr<
-            QRegularExpressionValidator>(new QRegularExpressionValidator(QRegularExpression(
-            "((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)?\\.){0,3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)?")));
 
         mainLayout->addStretch();
         mainLayout->addWidget(m_editBtn, 0, Qt::AlignHCenter);
@@ -721,7 +720,6 @@ private:
     QStringListModel* m_dhcpTypeModel;
 
     DHCPTYpe m_dhcpType;
-    std::unique_ptr<QRegularExpressionValidator> m_validityCheck;
     SystemInfoTip*                               m_errorTip;
     QComboBox *m_dhcpTypeWidget;
     NetworkManager::Device::Ptr m_device = nullptr;
