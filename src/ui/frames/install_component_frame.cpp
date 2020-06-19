@@ -166,7 +166,7 @@ void SelectInstallComponentFrame::finished()
 
 bool SelectInstallComponentFrame::shouldDisplay() const
 {
-#ifdef QT_DEBUG
+#ifdef QT_DEBUG_test
     return true;
 #else
     return !GetSettingsBool(kSkipSelectComponentPage);

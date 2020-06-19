@@ -233,8 +233,7 @@ void SelectLanguageFrame::showEvent(QShowEvent *event)
 {
     Q_D(SelectLanguageFrame);
 
-//    d->m_languageView->setFocus();
-//    setFocus();
+    d->m_languageView->setFocus();
 
     QFrame::showEvent(event);
 }

@@ -314,8 +314,15 @@ public:
         m_dhcpTypeModel->setStringList({::QObject::tr("Auto"),
                                         ::QObject::tr("Manual")});
 
+
         m_editBtn->setText(::QObject::tr("Edit"));
         m_acceptBtn->setText(::QObject::tr("Accept"));
+
+        m_ipv4Edit->lineEdit()->setPlaceholderText(::QObject::tr("IP Address"));
+        m_maskEdit->lineEdit()->setPlaceholderText(::QObject::tr("Netmask"));
+        m_gatewayEdit->lineEdit()->setPlaceholderText(::QObject::tr("Gateway"));
+        m_primaryDNSEdit->lineEdit()->setPlaceholderText(::QObject::tr("Primary DNS"));
+        m_secondaryDNSEdit->lineEdit()->setPlaceholderText(::QObject::tr("Secondary DNS"));
     }
 
     void initWidgetState()
