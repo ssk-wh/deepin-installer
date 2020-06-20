@@ -109,6 +109,8 @@ void installer::RepairSystemFramePrivate::initUi() {
     centerLayout->addWidget(m_repairWidget, 0, Qt::AlignHCenter);
     centerLayout->addStretch(25);
     centerLayout->addWidget(nextButton, 0, Qt::AlignHCenter | Qt::AlignBottom);
+
+    this->setupTs();
 }
 
 void installer::RepairSystemFramePrivate::initConnection() {
@@ -188,6 +190,10 @@ void installer::RepairSystemFrame::finished()
 
 bool installer::RepairSystemFrame::shouldDisplay() const
 {
+#ifdef QT_DEBUG
+    return true;
+#endif // QT_DEBUG
+
     return isRepair() && !GetSettingsBool(kSkipRepairSystemPage) && !IsVirtualMachine();
 }
 
