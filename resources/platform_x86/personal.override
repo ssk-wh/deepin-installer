@@ -1,6 +1,5 @@
 [General]
 select_language_default_locale = zh_CN
 timezone_default = Asia/Shanghai
-timezone_use_local_time_regardless = true
 skip_select_component_page = true
 partition_skip_simple_partition_page = true

@@ -221,6 +221,8 @@ void TimezoneFrame::finished() {
 
   if (!m_private->m_systemDateFrame->isEnabled()) {
       qInfo() << "set ntp start...";
+      WriteIsLocalTime(false);
+      WriteIsLocalTimeForce(false);
       process->start("timedatectl", {"set-ntp", "true"});
       if (!process->waitForFinished()) {
            qCritical() << "set ntp failed! " << process->readAllStandardOutput();
@@ -228,12 +230,12 @@ void TimezoneFrame::finished() {
   } else {
       qInfo() << "set time start...";
 
+      WriteIsLocalTime(true);
+      WriteIsLocalTimeForce(true);
       process->start("timedatectl", {"set-ntp", "false"});
       if (!process->waitForFinished()) {
            qCritical() << "set ntp failed! " << process->readAllStandardOutput();
       }
-
-      WriteIsLocalTime(true);
 
       process->start("timedatectl", {"set-time", m_private->m_systemDateFrame->timedate()});
       if (!process->waitForFinished()) {
