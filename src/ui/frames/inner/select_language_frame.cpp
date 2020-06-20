@@ -218,12 +218,10 @@ bool SelectLanguageFrame::eventFilter(QObject* obj, QEvent* event) {
             case Qt::Key_Enter:
             case Qt::Key_Return:
                 QModelIndex index = d->m_languageView->currentIndex();
-                DStandardItem* item = dynamic_cast<DStandardItem* >(d->m_languageModel->item(index.row()));
-                if (d->m_lastItem) {
-                    d->m_lastItem->setCheckState(Qt::Unchecked);
-                }
-                d->m_lastItem = item;
-                d->m_lastItem->setCheckState(Qt::Checked);
+
+                Q_D(SelectLanguageFrame);
+                d->onLanguageListSelected(index);
+
                 break;
         }
     }
