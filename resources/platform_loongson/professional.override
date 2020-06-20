@@ -16,4 +16,6 @@ partition_full_disk_large_legacy_label = "Boot;Swap;Root;_dde_data"
 system_info_disable_experience = false
 skip_select_component_page = true
 select_component_default_install_type = ""
+end_user_license_zh_CN = professional-deepin-end-user-license-agreement_zh_CN.txt
+end_user_license_en_US = professional-deepin-end-user-license-agreement_en_US.txt
 

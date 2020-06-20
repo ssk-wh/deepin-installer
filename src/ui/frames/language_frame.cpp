@@ -30,6 +30,7 @@
 
 #include <QApplication>
 #include <DSysInfo>
+#include <QDebug>
 
 DCORE_USE_NAMESPACE
 
@@ -37,10 +38,10 @@ namespace installer {
 
 #ifdef PROFESSIONAL
 const QString zh_CN_license { ":/license/deepin-end-user-license-agreement_zh_CN.txt" };
-const QString en_US_license{ ":/license/deepin-end-user-license-agreement_en_US.txt" };
+const QString en_US_license { ":/license/deepin-end-user-license-agreement_en_US.txt" };
 #else
 const QString zh_CN_license { ":/license/deepin-end-user-license-agreement_community_zh_CN.txt" };
-const QString en_US_license{ ":/license/deepin-end-user-license-agreement_community_en_US.txt" };
+const QString en_US_license { ":/license/deepin-end-user-license-agreement_community_en_US.txt" };
 #endif  // PROFESSIONAL
 
 const QString zh_CN_experience { ":/license/deepin-end-user-experience-agreement_zh_CN.txt" };
@@ -165,11 +166,17 @@ void LanguageFramePrivate::initConnect() {
 }
 
 void LanguageFramePrivate::showUserLicense() {
+    QString zh_cn_li = QString(":/license/%1").arg(GetSettingsString(kEndUserLicense_zh_CN));
+    QString en_us_li = QString(":/license/%1").arg(GetSettingsString(kEndUserLicense_en_US));
+
+    qDebug() << "zh_cn_li = " << zh_cn_li;
+    qDebug() << "en_us_li = " << en_us_li;
+
     if (installer::ReadLocale() == "zh_CN") {
-        m_user_license_frame->setUserAgreement(zh_CN_license, en_US_license);
+        m_user_license_frame->setUserAgreement(zh_cn_li, en_us_li);
         m_user_license_frame->setCheckedButton(kChineseToggleButtonId);
     } else {
-        m_user_license_frame->setUserAgreement(en_US_license, zh_CN_license);
+        m_user_license_frame->setUserAgreement(en_us_li, zh_cn_li);
         m_user_license_frame->setCheckedButton(kEnglishToggleButtonId);
     }
     m_frame_layout->setCurrentWidget(m_user_license_frame);

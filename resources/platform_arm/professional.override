@@ -6,4 +6,6 @@ partition_skip_partition_crypt_page = true
 system_info_disable_experience = false
 skip_select_component_page = true
 select_component_default_install_type = ""
+end_user_license_zh_CN = professional-deepin-end-user-license-agreement_zh_CN.txt
+end_user_license_en_US = professional-deepin-end-user-license-agreement_en_US.txt
 
