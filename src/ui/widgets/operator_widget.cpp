@@ -16,8 +16,9 @@
  */
 
 #include "operator_widget.h"
-
 #include "base/file_util.h"
+#include "ui/utils/widget_util.h"
+
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QMouseEvent>
@@ -47,7 +48,7 @@ void installer::OperatorWidget::setBody(const QString &text)
 
 void installer::OperatorWidget::setSelectIcon(const QString &icon)
 {
-    const QPixmap defaultPixmap(icon);
+    const QPixmap defaultPixmap(installer::renderPixmap(icon));
     m_selectIconLabel->setPixmap(defaultPixmap);
     m_selectIconLabel->setFixedSize(defaultPixmap.size() / devicePixelRatioF());
 }
@@ -125,7 +126,7 @@ void installer::OperatorWidget::initUi()
     m_bodyLabel->adjustSize();
     m_bodyLabel->setWordWrap(true);
 
-    const QPixmap defaultPixmap(":/images/select.svg");
+    const QPixmap defaultPixmap(installer::renderPixmap(":/images/select_blue.svg"));
     m_selectIconLabel = new QLabel;
     m_selectIconLabel->setPixmap(defaultPixmap);
     m_selectIconLabel->setFixedSize(defaultPixmap.size() / devicePixelRatioF());
@@ -136,9 +137,12 @@ void installer::OperatorWidget::initUi()
     textLayout->addWidget(m_bodyLabel);
 
     QHBoxLayout* mainLayout = new QHBoxLayout;
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setSpacing(0);
     mainLayout->addLayout(textLayout);
-    mainLayout->addStretch();
-    mainLayout->addWidget(m_selectIconLabel);
+    mainLayout->addWidget(m_selectIconLabel, 0, Qt::AlignRight);
+    mainLayout->addSpacing(10);
+
     setLayout(mainLayout);
 }
 
