@@ -123,7 +123,7 @@ public:
         m_editBtn = new QPushButton(::QObject::tr("Edit"));
         m_editBtn->setEnabled(m_deviceEnable);
         m_editBtn->setFixedSize(kEditSaveButtonWidth, kEditSaveButtonHeight);
-        m_acceptBtn = new QPushButton(::QObject::tr("Accept"));
+        m_acceptBtn = new QPushButton(::QObject::tr("Confirm"));
         m_acceptBtn->setFixedSize(kEditSaveButtonWidth, kEditSaveButtonHeight);
         m_dhcpType = DHCPTYpe::Auto;
 
@@ -317,13 +317,15 @@ public:
 
 
         m_editBtn->setText(::QObject::tr("Edit"));
-        m_acceptBtn->setText(::QObject::tr("Accept"));
+        m_acceptBtn->setText(::QObject::tr("Confirm"));
 
         m_ipv4Edit->lineEdit()->setPlaceholderText(::QObject::tr("IP Address"));
         m_maskEdit->lineEdit()->setPlaceholderText(::QObject::tr("Netmask"));
         m_gatewayEdit->lineEdit()->setPlaceholderText(::QObject::tr("Gateway"));
         m_primaryDNSEdit->lineEdit()->setPlaceholderText(::QObject::tr("Primary DNS"));
         m_secondaryDNSEdit->lineEdit()->setPlaceholderText(::QObject::tr("Secondary DNS"));
+
+
     }
 
     void initWidgetState()
