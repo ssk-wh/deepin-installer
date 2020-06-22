@@ -115,6 +115,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     m_encryptFrame->setLayout(encryptLayout);
     m_encryptLbl->setFixedWidth(150);
     m_encryptEdit->setFixedWidth(350);
+    m_encryptEdit->setContextMenuPolicy(Qt::ContextMenuPolicy::NoContextMenu);
     m_encryptFrame->setFixedWidth(kContentWidth);
 
     QHBoxLayout *encryptCheckLayout = new QHBoxLayout;
@@ -126,6 +127,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     m_encryptCheckFrame->setLayout(encryptCheckLayout);
     m_encryptCheckLbl->setFixedWidth(150);
     m_encryptRepeatEdit->setFixedWidth(350);
+    m_encryptRepeatEdit->setContextMenuPolicy(Qt::ContextMenuPolicy::NoContextMenu);
     m_encryptCheckFrame->setFixedWidth(kContentWidth);
 
     m_layout->addWidget(m_encryptFrame, 0, Qt::AlignHCenter);
