@@ -186,7 +186,7 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
         QLabel *partNameLable = new QLabel();
         partNameLable->setFont(font);
         partNameLable->setFixedWidth(75);
-        partNameLable->setAlignment(Qt::AlignmentFlag::AlignLeft);
+        partNameLable->setAlignment(Qt::AlignmentFlag::AlignLeft | Qt::AlignmentFlag::AlignBottom);
         partNameLable->setText(GetPartitionDisplayText(partition));
         partNameLable->setStyleSheet("QLabel{color:#363636} ");
         tooltipString.append(partNameLable->text());
@@ -196,7 +196,7 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
         QLabel *partSize = new QLabel();
         partSize->setFont(mountfont);
         partSize->setFixedWidth(42);
-        partSize->setAlignment(Qt::AlignmentFlag::AlignRight);
+        partSize->setAlignment(Qt::AlignmentFlag::AlignRight | Qt::AlignmentFlag::AlignBottom);
         QString tmp = GetPartitionUsage(partition);
         int index = tmp.lastIndexOf('/');
         partSize->setText(index < 0 ? tmp : tmp.mid(index + 1));
@@ -207,7 +207,7 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
         QLabel *fileSysType = new QLabel();
         fileSysType->setFont(mountfont);
         fileSysType->setFixedWidth(42);
-        fileSysType->setAlignment(Qt::AlignmentFlag::AlignRight);
+        fileSysType->setAlignment(Qt::AlignmentFlag::AlignRight | Qt::AlignmentFlag::AlignBottom);
 
         fileSysType->setText(GetFsTypeName(partition->fs));
         tooltipString.append(" " + fileSysType->text());
