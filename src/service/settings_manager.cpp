@@ -131,8 +131,8 @@ OSType GetCurrentType() {
     QSettings settings("/etc/deepin-version", QSettings::IniFormat);
     settings.beginGroup("Release");
 
-#ifdef QT_DEBUG_test
-    const QString& type = "Professional";
+#ifdef QT_DEBUG
+    const QString& type = "Server";
 #else
     const QString& type = settings.value("Type", "Desktop").toString();
 #endif // QT_DEBUG

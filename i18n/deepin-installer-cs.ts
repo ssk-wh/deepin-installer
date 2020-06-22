@@ -2,47 +2,47 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/partman/operation.cpp" line="300"/>
+        <location filename="../src/partman/operation.cpp" line="303"/>
         <source>Create extended partition %1</source>
         <translation>Vytvořit rozšířený oddíl %1</translation>
     </message>
     <message>
-        <location filename="../src/partman/operation.cpp" line="304"/>
+        <location filename="../src/partman/operation.cpp" line="307"/>
         <source>Create new partition %1, type: %2</source>
         <translation>Vytvořit nový oddíl %1, typ: %2</translation>
     </message>
     <message>
-        <location filename="../src/partman/operation.cpp" line="308"/>
+        <location filename="../src/partman/operation.cpp" line="311"/>
         <source>Create new partition %1 as %2 (mountpoint), type: %3</source>
         <translation>Vytvořit nový oddíl %1 jako %2 (přípojný bod), typ: %3</translation>
     </message>
     <message>
-        <location filename="../src/partman/operation.cpp" line="317"/>
+        <location filename="../src/partman/operation.cpp" line="320"/>
         <source>Delete %1 partition</source>
         <translation>Smazat oddíl %1</translation>
     </message>
     <message>
-        <location filename="../src/partman/operation.cpp" line="322"/>
+        <location filename="../src/partman/operation.cpp" line="325"/>
         <source>Format %1 partition, type: %2</source>
         <translation>Naformátovat oddíl %1, typ: %2</translation>
     </message>
     <message>
-        <location filename="../src/partman/operation.cpp" line="326"/>
+        <location filename="../src/partman/operation.cpp" line="329"/>
         <source>Format %1 partition as %2 (mountpoint), type: %3</source>
         <translation>Naformátovat oddíl %1 jako %2 (přípojný bod), typ: %3</translation>
     </message>
     <message>
-        <location filename="../src/partman/operation.cpp" line="334"/>
+        <location filename="../src/partman/operation.cpp" line="337"/>
         <source>Use %1 partition as %2 (mountpoint)</source>
         <translation>Použít oddíl %1 jako %2 (přípojný bod)</translation>
     </message>
     <message>
-        <location filename="../src/partman/operation.cpp" line="340"/>
+        <location filename="../src/partman/operation.cpp" line="343"/>
         <source>Format %1 and create %2 new partition table</source>
         <translation>Naformátovat %1 a vytvořit novou %2 tabulku oddílů</translation>
     </message>
     <message>
-        <location filename="../src/partman/operation.cpp" line="346"/>
+        <location filename="../src/partman/operation.cpp" line="349"/>
         <source>Adjust the size of %1 partition</source>
         <translation>Poupravit velikost oddílu %1</translation>
     </message>
@@ -416,7 +416,7 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="95"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="82"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="156"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="77"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="74"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="126"/>
@@ -448,15 +448,16 @@
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="199"/>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="90"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="163"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="174"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="301"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="189"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="208"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="723"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="918"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="215"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="726"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="921"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="231"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="654"/>
-        <location filename="../src/ui/frames/system_info_frame.cpp" line="202"/>
+        <location filename="../src/ui/frames/system_info_frame.cpp" line="136"/>
+        <location filename="../src/ui/frames/system_info_frame.cpp" line="211"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="131"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="25"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="22"/>
@@ -481,9 +482,9 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="193"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="436"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="433"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="415"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="210"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="217"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="73"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="120"/>
         <source>Deepin</source>
@@ -493,9 +494,9 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="193"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="436"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="433"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="415"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="210"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="217"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="73"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="120"/>
         <source>UOS</source>
@@ -518,7 +519,7 @@
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="116"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="113"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="125"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="75"/>
         <source>Warning</source>
         <translation>Varování</translation>
@@ -531,7 +532,7 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="93"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="86"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="152"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="164"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="95"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="119"/>
         <source>Cancel</source>
@@ -618,7 +619,7 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="551"/>
         <source>/boot partition requires at least %1 MB</source>
-        <translation type="unfinished"/>
+        <translation>Pro oddíl /boot je zapotřebí přinejmenším %1 MB</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="555"/>
@@ -913,38 +914,38 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="78"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="136"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="148"/>
         <source>Disable UEFI</source>
         <translation>Vypněte UEFI zavádění</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="80"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="138"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="150"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="86"/>
         <source>Reboot, enter BIOS, and disable UEFI</source>
         <translation>Restartujte, jděte do UEFI setup a přepněte na legacy boot (podrobnosti viz příručka k notebooku / základní desce)</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="81"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="139"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="151"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="87"/>
         <source>Exit BIOS, and install UOS again</source>
         <translation>Opusťte UEFI setup a nainstalujte UOS znovu</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="146"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="158"/>
         <source>Make sure you have backed up all data before proceeding</source>
         <translation>Před pokračováním se ujistěte, že máte zazálohována všechna data</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="85"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="147"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="159"/>
         <source>Continuing installation will format your disk</source>
         <translation>Pokračování v instalaci povede ke zformátování disku</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="127"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="139"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="79"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
         <translation>Máte UEFI zavaděč, ale na disku MBR tabulku rozdělení, proto není možné nainstalovat UOS přímo. Vyberte jedno z níže nabízených řešení a pokračujte.</translation>
@@ -976,35 +977,35 @@
         <translation>Pokud nastavením nerozumíte, zvolte to doporučené</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="435"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="432"/>
         <source>I have read and agree to the</source>
         <translation>Přečetl(a) jsem si a souhlasím s</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="436"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="210"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="433"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="217"/>
         <source>%1 Software End User License Agreement</source>
         <translation>%1 licenční ujednání s koncovým uživatelem software</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="440"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="437"/>
         <source>and</source>
         <translation>a</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="449"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="446"/>
         <source>Agree to the</source>
         <translation>Souhlasím s</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="450"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="209"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="447"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="216"/>
         <source>User Experience Program License Agreement</source>
         <translation>Licenční ujednání programu pro hodnocení dojmu z používání</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="452"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="108"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="449"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="109"/>
         <location filename="../src/ui/frames_cli/language_frame.cpp" line="46"/>
         <source>Select Language</source>
         <translation>Vyberte jazyk</translation>
@@ -1353,43 +1354,45 @@
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="121"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="317"/>
         <source>Edit</source>
         <translation>Upravit</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="124"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="318"/>
         <source>Accept</source>
         <translation>Přijmout</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="151"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="309"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="583"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="586"/>
         <source>IP Address</source>
         <translation>IP adresa</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="152"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="166"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="584"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="587"/>
         <source>Netmask</source>
         <translation>Maska sítě</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="153"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="585"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="588"/>
         <source>Gateway</source>
         <translation>Brána</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="154"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="586"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="589"/>
         <source>Primary DNS</source>
         <translation>Primární DNS</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="155"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="587"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="590"/>
         <source>Secondary DNS</source>
         <translation>Sekundární DNS</translation>
     </message>
@@ -1451,31 +1454,31 @@
         <translation>Ručně</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="471"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="474"/>
         <source>Illegal %1, please have a check.</source>
         <translation>Neplatné %1 – zkontrolujte prosím.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="488"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="491"/>
         <source>IP address error: illegal IP address, please have a check.</source>
         <translation>Chyba IP adresy: neplatná IP adresa – prosím zkontrolujte.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="502"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="505"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
         <translation>Chyba masky sítě: neplatná maska sítě – prosím zkontrolujte.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="729"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="842"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="916"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="732"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="845"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="919"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="170"/>
         <source>Configure Network</source>
         <translation>Nastavení sítě</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="730"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="917"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="733"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="920"/>
         <source>IP address has been auto-configured, but you can configure the network as well</source>
         <translation>Nastavení IP adresy bylo získáno automaticky, ale můžete provést i ruční nastavení</translation>
     </message>
@@ -1583,8 +1586,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="128"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="249"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="319"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="251"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="321"/>
         <source>Is it the right timezone? You can change it as well</source>
         <translation>Je toto správné časové pásmo? Můžete ho také změnit</translation>
     </message>
