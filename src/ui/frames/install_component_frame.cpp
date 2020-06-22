@@ -323,6 +323,7 @@ void SelectInstallComponentFramePrivate::initUI()
     m_selectAllCheckBox->setObjectName("selectAllCheckBox");
     m_selectAllCheckBox->setCheckable(true);
     m_selectAllCheckBox->setChecked(false);
+    m_selectAllCheckBox->setFont(font);
     m_selectAllCheckBox->setText(::QObject::tr("Select All"));
     m_selectAllCheckBox->setFocusPolicy(Qt::NoFocus);
 
