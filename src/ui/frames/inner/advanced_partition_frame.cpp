@@ -404,7 +404,6 @@ void AdvancedPartitionFrame::repaintDevices() {
       button->setEditable(editing_button_->isChecked());
       partition_layout_->addWidget(button);
       partition_button_group_->addButton(button);
-      button->show();
 
       connect(editing_button_, &QPushButton::toggled,
               button, &AdvancedPartitionButton::setEditable);
