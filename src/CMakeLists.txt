@@ -533,6 +533,8 @@ set(UI_FILES
     ui/widgets/ticker_label.h
     ui/widgets/select_button.cpp
     ui/widgets/select_button.h
+    ui/widgets/caps_lock_line_edit.cpp
+    ui/widgets/caps_lock_line_edit.h
 
     ui/xrandr/multi_head_manager.cpp
     ui/xrandr/multi_head_manager.h
@@ -877,6 +879,8 @@ add_executable(deepin-installer-user-form
                ui/widgets/title_label.h
                ui/widgets/di_scrollarea.h
                ui/widgets/di_scrollarea.cpp
+               ui/widgets/caps_lock_line_edit.h
+               ui/widgets/caps_lock_line_edit.cpp
                ui/utils/widget_util.cpp
                ui/utils/widget_util.h
                ui/utils/xutil.cpp

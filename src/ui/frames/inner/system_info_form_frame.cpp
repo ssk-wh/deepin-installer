@@ -33,6 +33,7 @@
 #include "ui/widgets/system_info_tip.h"
 #include "ui/widgets/title_label.h"
 #include "ui/widgets/di_scrollarea.h"
+#include "ui/widgets/caps_lock_line_edit.h"
 
 #include <QEvent>
 #include <QHBoxLayout>
@@ -50,6 +51,7 @@
 #include <DPasswordEdit>
 #include <QAction>
 #include <QDBusInterface>
+#include <QMouseEvent>
 
 DWIDGET_USE_NAMESPACE
 
@@ -86,7 +88,8 @@ private:
     bool validatePassword(DPasswordEdit* passwordEdit, QString& msg);
     bool validatePassword2(DPasswordEdit* passwordEdit, DPasswordEdit* passwordCheckEdit, QString& msg);
 
-    void updateCapsLockState(bool capslock);
+    void updateCapsLockState();
+//    void updateCapsLockState(bool capslock);
     void systemInfoFrameFinish();
 
     // Hide tooltip frame when line-edit is being edited.
@@ -106,7 +109,6 @@ private:
     void onRootPasswordCheckEdited();
     void onRootPasswordCheckEditingFinished();
     void onSetRootPasswordCheckChanged(bool enable);
-
     bool searchDevice();
 private:
     bool m_isUsernameEdited_ = false;
@@ -284,7 +286,17 @@ void SystemInfoFormFrame::showEvent(QShowEvent* event)
     d->tooltip_->hide();
     d->updateDevice();
 
-    d_private->updateCapsLockState(KeyboardMonitor::instance()->isCapslockOn());
+    d_private->updateCapsLockState();
+}
+
+bool SystemInfoFormFrame::eventFilter(QObject *watched, QEvent *event) {
+
+    Q_D(SystemInfoFormFrame);
+    if (event->type()== QEvent::FocusIn || event->type() == QEvent::FocusOut){
+        d->updateCapsLockState();
+    }
+
+    return QFrame::eventFilter(watched, event);
 }
 
 void SystemInfoFormFramePrivate::initConnections()
@@ -334,6 +346,7 @@ void SystemInfoFormFramePrivate::initConnections()
         //        connect(edit, &DLineEdit::gotFocus, this, [=] {
         //            updateCapsLockState(KeyboardMonitor::instance()->isCapslockOn());
         //        });
+        edit->lineEdit()->installEventFilter(q);
     }
 
     connect(m_usernameEdit, &DLineEdit::textEdited, this,
@@ -786,18 +799,37 @@ bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, Q
     return true;
 }
 
-void SystemInfoFormFramePrivate::updateCapsLockState(bool capsLock)
+void SystemInfoFormFramePrivate::updateCapsLockState()
 {
+    Q_Q(SystemInfoFormFrame);
+
     for (DLineEdit* edit : m_editList) {
-        QLineEdit *lineEdit = edit->lineEdit();
-        if (capsLock) {
-            lineEdit->addAction(m_capsLock, QLineEdit::TrailingPosition);
+        QLineEdit* lineEdit = dynamic_cast<QLineEdit*>(q->focusWidget());
+        if (lineEdit == edit->lineEdit()) {
+            if (KeyboardMonitor::instance()->isCapslockOn()) {
+                edit->lineEdit()->addAction(m_capsLock, QLineEdit::TrailingPosition);
+            } else {
+                edit->lineEdit()->removeAction(m_capsLock);
+            }
         } else {
-            lineEdit->removeAction(m_capsLock);
+            edit->lineEdit()->removeAction(m_capsLock);
         }
-        lineEdit->update();
     }
+
 }
+
+//void SystemInfoFormFramePrivate::updateCapsLockState(bool capsLock)
+//{
+//    for (DLineEdit* edit : m_editList) {
+//        QLineEdit *lineEdit = edit->lineEdit();
+//        if (capsLock) {
+//            lineEdit->addAction(m_capsLock, QLineEdit::TrailingPosition);
+//        } else {
+//            lineEdit->removeAction(m_capsLock);
+//        }
+//        lineEdit->update();
+//    }
+//}
 
 bool SystemInfoFormFramePrivate::validatePassword2(DPasswordEdit *passwordEdit, DPasswordEdit *passwordCheckEdit, QString& msg)
 {
@@ -843,6 +875,7 @@ void SystemInfoFormFramePrivate::systemInfoFrameFinish()
 
 void SystemInfoFormFramePrivate::onEditingLineEdit()
 {
+    qDebug() << "onEditingLineEdit";
     if (tooltip_->isVisible()) {
         tooltip_->hide();
     }

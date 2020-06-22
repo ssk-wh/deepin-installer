@@ -62,6 +62,7 @@ protected:
 
     // Set username_edit_ as the default focused widget.
     void showEvent(QShowEvent* event) override;
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     QScopedPointer<SystemInfoFormFramePrivate> d_private;
