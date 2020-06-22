@@ -177,24 +177,56 @@ bool NetworkOperate::setIpV4(NetworkSettingInfo info)
 
 void NetworkOperate::setDeviceEnable(const QString &devPath, const bool enable)
 {
-    QDBusInterface deviceManager("org.freedesktop.NetworkManager",
-                                 devPath,
-                                 "org.freedesktop.NetworkManager.Device",
-                                 QDBusConnection::systemBus());
+    QDBusInterface ddeNetworkMnager(
+              "com.deepin.daemon.Network",
+              "/com/deepin/daemon/Network",
+              "com.deepin.daemon.Network",
+              QDBusConnection::sessionBus());
 
-    QList<QVariant> arg;
-
-    if (!enable) {
-        QDBusPendingReply<> reply = deviceManager.asyncCallWithArgumentList(QStringLiteral("Disconnect"), arg);
-        reply.waitForFinished();
+    QFile ddeSessionDaemon("/usr/lib/deepin-daemon/dde-session-daemon");
+    if (ddeSessionDaemon.exists()) {
+        setDeviceEnableByDdeBus(ddeNetworkMnager, devPath, enable);
     }
     else {
+        qCritical() << "com.deepin.daemon.Network daemon is invalid";
+
+        QDBusInterface freedesktopNetworkMnager("org.freedesktop.NetworkManager",
+                                           devPath,
+                                           "org.freedesktop.NetworkManager.Device",
+                                           QDBusConnection::systemBus());
+        if (!freedesktopNetworkMnager.isValid()) {
+            qCritical() << "org.freedesktop.NetworkManager daemon is invalid";
+            return;
+        }
+
+        setDeviceEnableByNetworkBus(freedesktopNetworkMnager, devPath, enable);
+    }
+
+    if (enable) {
         if (m_connection) {
             if (!activateConn()) {
                 qCritical() << "setDeviceEnable() active connection failed";
             }
         }
     }
+}
+
+void NetworkOperate::setDeviceEnableByNetworkBus(QDBusInterface &deviceManager, const QString &devPath, const bool enable)
+{
+    QList<QVariant> arg;
+
+    if (!enable) {
+        QDBusPendingReply<> reply = deviceManager.asyncCallWithArgumentList(QStringLiteral("Disconnect"), arg);
+        reply.waitForFinished();
+    }
+}
+
+void NetworkOperate::setDeviceEnableByDdeBus(QDBusInterface &deviceManager, const QString &devPath, const bool enable)
+{
+    QList<QVariant> arg;
+    arg << QVariant::fromValue(QDBusObjectPath(devPath)) << QVariant::fromValue(enable);
+
+    deviceManager.callWithArgumentList(QDBus::Block, "EnableDevice", arg);
 }
 
 bool NetworkOperate::getDeviceEnable(const QString &devPath)

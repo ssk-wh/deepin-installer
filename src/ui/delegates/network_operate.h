@@ -40,6 +40,8 @@ public:
     void initNetworkConnection();
     bool setIpV4(NetworkSettingInfo info);
     void setDeviceEnable(const QString &devPath, const bool enable);
+    void setDeviceEnableByNetworkBus(QDBusInterface &deviceManager, const QString &devPath, const bool enable);
+    void setDeviceEnableByDdeBus(QDBusInterface &deviceManager, const QString &devPath, const bool enable);
     bool getDeviceEnable(const QString &devPath);
     DHCPTYpe getDhcp() const;
     bool activateConn();
