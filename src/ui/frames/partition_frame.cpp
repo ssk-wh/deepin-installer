@@ -650,8 +650,6 @@ void PartitionFramePrivate::onNextButtonClicked() {
        lvm_partition_frame_->updateLayout(next_layout, ::QObject::tr("Back"));
        nextButton->setText(::QObject::tr("Ready to Install"));
        emit q_ptr->disCoverMainWindowFrameLabelsView();
-    } else {
-       nextButton->setText(::QObject::tr("Next"));
     }
 }
 
