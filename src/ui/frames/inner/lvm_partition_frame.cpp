@@ -43,10 +43,17 @@ void LvmPartitionFrame::updateLayout(QHBoxLayout* layout, QString text) {
     m_lastButtonLayout->setContentsMargins(margin / 2, 0, margin / 2, 0);
     m_lastButtonLayout->insertWidget(0, m_lastButton);
     m_lastButton->setText(text);
-    m_lastButton->show();
+//    m_lastButton->show();
 
-    // Register Back button text
+//    // Register Back button text
     LanguageManager::translator(m_lastButton, &QPushButton::setText, TranslatorType::BackButton);
+}
+
+void LvmPartitionFrame::changeEvent(QEvent *event) {
+    if (event->type() == QEvent::LanguageChange) {
+        m_lastButton->setText(::QObject::tr("Back"));
+    }
+    return AdvancedPartitionFrame::changeEvent(event);
 }
 
 void LvmPartitionFrame::onLastButtonClicked() {

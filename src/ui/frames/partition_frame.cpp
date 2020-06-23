@@ -219,16 +219,19 @@ void PartitionFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
       if (m_private->partition_stacked_layout_->currentWidget() ==  m_private->lvm_partition_frame_) {
           m_private->title_label_->setText(::QObject::tr("Edit LVM Disk"));
+          m_private->comment_label_->setText(
+              ::QObject::tr("Make a backup of your important data and then continue"));
+          m_private->nextButton->setText(::QObject::tr("Ready to Install"));
       } else {
           m_private->title_label_->setText(::QObject::tr("Create Partitions"));
+          m_private->comment_label_->setText(
+              ::QObject::tr("Make sure you have backed up important data, then select the disk to install"));
+          m_private->nextButton->setText(::QObject::tr("Next"));
       }
 
-    m_private->comment_label_->setText(
-        ::QObject::tr("Make sure you have backed up important data, then select the disk to install"));
     m_private->simple_frame_button_->setText(::QObject::tr("Simple"));
     m_private->advanced_frame_button_->setText(::QObject::tr("Advanced"));
     m_private->full_disk_frame_button_->setText(::QObject::tr("Full Disk"));
-    m_private->nextButton->setText(::QObject::tr("Next"));
   } else {
       FrameInterface::changeEvent(event);
   }
@@ -645,7 +648,10 @@ void PartitionFramePrivate::onNextButtonClicked() {
     if (AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_Format_Pv) {
        emit prepare_install_frame_->finished();
        lvm_partition_frame_->updateLayout(next_layout, ::QObject::tr("Back"));
+       nextButton->setText(::QObject::tr("Ready to Install"));
        emit q_ptr->disCoverMainWindowFrameLabelsView();
+    } else {
+       nextButton->setText(::QObject::tr("Next"));
     }
 }
 
@@ -748,7 +754,8 @@ void PartitionFramePrivate::showMainFrame() {
       advanced_delegate_->onDeviceRefreshed(advanced_delegate_->realDevices());
       partition_stacked_layout_->setCurrentWidget(advanced_partition_frame_);
       main_layout_->setCurrentWidget(main_frame_);
-      title_label_->setText(::QObject::tr("Create Partitions"));
+      title_label_->setText(::QObject::tr("Create Partitions"));     
+      nextButton->setText(::QObject::tr("Next"));
   }
 
   main_layout_->setCurrentWidget(main_frame_);

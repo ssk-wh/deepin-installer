@@ -37,6 +37,10 @@ class LvmPartitionFrame : public AdvancedPartitionFrame {
  signals:
   // Emitted when abort-button is clicked, returning to previous page.
   void aborted();
+
+protected:
+  void changeEvent(QEvent *event) override;
+
  private slots:
   void onLastButtonClicked();
 
