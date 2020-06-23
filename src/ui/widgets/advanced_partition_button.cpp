@@ -44,7 +44,7 @@ const int kDiskSizeLeftMarin = 141;
 const int kDiskPercentLeftMarin = 218;
 const int kDiskPercentHeight = 6;
 const int kMountPointLeftMargin = 295;
-const int kTipLeftMargin = 375;
+const int kTipLeftMargin = 355;
 
 const int kFileSystemLeftMargin = 452;
 const int kControlButtonLeftMargin = 520;
