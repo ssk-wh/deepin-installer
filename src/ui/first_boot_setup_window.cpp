@@ -93,15 +93,14 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
   Q_ASSERT(m_frames.count() > 0);
   m_frames.first()->init();
 
-  stacked_layout_->setCurrentWidget(network_frame_);
-//  updateFrameLabelState(m_frames.first(), FrameLabelState::Show);
-//  stacked_layout_->setCurrentWidget(m_frames.first());
+  updateFrameLabelState(m_frames.first(), FrameLabelState::Show);
+  stacked_layout_->setCurrentWidget(m_frames.first());
 
-//  if ( !GetSettingsBool(kSkipSelectLanguagePage) ||
-//        GetSettingsBool(kSkipSelectLanguagePageOnFirstBoot)) {
-//      Q_ASSERT(m_frames.first() == language_frame_);
-//      nextFrame();
-//  }
+  if ( !GetSettingsBool(kSkipSelectLanguagePage) ||
+        GetSettingsBool(kSkipSelectLanguagePageOnFirstBoot)) {
+      Q_ASSERT(m_frames.first() == language_frame_);
+      nextFrame();
+  }
 }
 
 FirstBootSetupWindow::~FirstBootSetupWindow() {
