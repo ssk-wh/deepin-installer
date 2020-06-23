@@ -183,7 +183,10 @@ void AdvancedPartitionButton::paintEvent(QPaintEvent *event)
            kFileSystemLeftMargin - (backgroudRect.x() + kTipLeftMargin),
            backgroudRect.height());
     text = painter.fontMetrics().elidedText(text, Qt::TextElideMode::ElideRight, text_rect.width());
+    QPen penBak = painter.pen();
+    painter.setPen(QColor("#ff8000"));
     painter.drawText(text_rect, Qt::AlignLeft | Qt::AlignVCenter, text);
+    painter.setPen(penBak);
 
     // Draw filesystem name.
     text.clear();

@@ -160,6 +160,9 @@ void FullDiskFrame::initUI() {
   m_tip_label = new QLabel(::QObject::tr("Install here"));
   m_tip_label->setObjectName("tip_label");
   m_tip_label->setFixedHeight(18);
+  QPalette palette;
+  palette.setColor(QPalette::Text, QColor("#ff8000"));
+  m_tip_label->setPalette(palette);
   addTransLate(m_trList, std::bind(&QLabel::setText, m_tip_label, std::placeholders::_1), ::QObject::tr("Install here"));
 
   m_encryptCheck = new QCheckBox;

@@ -237,6 +237,9 @@ void SimplePartitionFrame::initUI() {
   tip_label_ = new QLabel(::QObject::tr("Install here"));
   tip_label_->setObjectName("tip_label");
   tip_label_->setFixedHeight(18);
+  QPalette palette;
+  palette.setColor(QPalette::Text, QColor("#ff8000"));
+  tip_label_->setPalette(palette);
 
   QHBoxLayout* tip_layout = new QHBoxLayout();
   tip_layout->setContentsMargins(0, 0, 0, 0);
