@@ -116,6 +116,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     m_encryptLbl->setFixedWidth(150);
     m_encryptEdit->setFixedWidth(350);
     m_encryptEdit->setContextMenuPolicy(Qt::ContextMenuPolicy::NoContextMenu);
+    m_encryptEdit->setFocusPolicy(Qt::NoFocus);
     m_encryptFrame->setFixedWidth(kContentWidth);
 
     QHBoxLayout *encryptCheckLayout = new QHBoxLayout;
@@ -128,6 +129,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     m_encryptCheckLbl->setFixedWidth(150);
     m_encryptRepeatEdit->setFixedWidth(350);
     m_encryptRepeatEdit->setContextMenuPolicy(Qt::ContextMenuPolicy::NoContextMenu);
+    m_encryptRepeatEdit->setFocusPolicy(Qt::NoFocus);
     m_encryptCheckFrame->setFixedWidth(kContentWidth);
 
     m_layout->addWidget(m_encryptFrame, 0, Qt::AlignHCenter);
@@ -151,7 +153,11 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
 
     // add buttons
     m_cancelBtn->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);
+    m_cancelBtn->setFocusPolicy(Qt::NoFocus);
+
     m_confirmBtn->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);
+    m_confirmBtn->setFocusPolicy(Qt::NoFocus);
+
     m_layout->addWidget(buttonWrapWidget, 0, Qt::AlignHCenter);
     m_layout->addSpacing(10);
 
@@ -313,7 +319,7 @@ void Full_Disk_Encrypt_frame::setupCloseButton()
 {
     // TODO: use titleBar implement.
     m_close_button = new DImageButton(this);
-    m_close_button->setFocusPolicy(Qt::TabFocus);
+    m_close_button->setFocusPolicy(Qt::NoFocus);
     m_close_button->setFixedSize(40, 40);
     m_close_button->setNormalPic(":/images/close_normal.svg");
     m_close_button->setHoverPic(":/images/close_normal.svg");

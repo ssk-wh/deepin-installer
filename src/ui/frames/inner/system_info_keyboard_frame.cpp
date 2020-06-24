@@ -403,6 +403,7 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     m_layoutView->setMovement(QListView::Static);
     m_layoutView->setSelectionMode(QListView::NoSelection);
     m_layoutView->setFrameShape(QFrame::NoFrame);
+    m_layoutView->setFocusPolicy(Qt::NoFocus);
 
     m_variantView->setObjectName("variant_view");
     m_variantView->setFixedWidth(kRightViewWidth);
@@ -421,6 +422,7 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     m_variantView->setMovement(QListView::Static);
     m_variantView->setSelectionMode(QListView::NoSelection);
     m_variantView->setFrameShape(QFrame::NoFrame);
+    m_variantView->setFocusPolicy(Qt::NoFocus);
 
     QVBoxLayout *leftLayout = new QVBoxLayout;
     leftLayout->setContentsMargins(5, 5, 15, 0);

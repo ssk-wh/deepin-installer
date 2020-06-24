@@ -39,13 +39,8 @@ class PartitionNumberLimitationFrame : public QFrame {
   // Emitted when back button is clicked.
   void finished();
 
- public slots:
-  // If there is no extended partition in device disk, show only one comment
-  // label.
-  void setHasExtendedPartition(bool has_ext_part);
-
  protected:
-  void changeEvent(QEvent* event) override;
+  void showEvent(QShowEvent* event) override;
 
  private:
   void initConnections();

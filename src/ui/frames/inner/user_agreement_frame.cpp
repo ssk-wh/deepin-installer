@@ -50,17 +50,20 @@ void UserAgreementFrame::initUI()
     m_subTitle->setObjectName("user_agreement_subtitle");
 
     m_buttonBox = new DButtonBox;
-    m_buttonBox->setFocusPolicy(Qt::ClickFocus);
+    m_buttonBox->setFocusPolicy(Qt::NoFocus);
     m_chineseButton = new DButtonBoxButton("中文");
     m_chineseButton->setObjectName("chineseButton");
     m_chineseButton->setCheckable(true);
     m_chineseButton->setFixedWidth(75);
     m_chineseButton->setFixedHeight(36);
+    m_chineseButton->setFocusPolicy(Qt::NoFocus);
+
     m_englishButton = new DButtonBoxButton("English");
     m_englishButton->setObjectName("englishButton");
     m_englishButton->setCheckable(true);
     m_englishButton->setFixedWidth(75);
     m_englishButton->setFixedHeight(36);
+    m_englishButton->setFocusPolicy(Qt::NoFocus);
 
     m_btnlist.append(m_chineseButton);
     m_btnlist.append(m_englishButton);
@@ -133,6 +136,7 @@ void UserAgreementFrame::initUI()
 
     m_back = new QPushButton;
     m_back->setFixedSize(310, 36);
+    m_back->setFocusPolicy(Qt::NoFocus);
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins(0, 0, 0, 0);
@@ -152,11 +156,11 @@ void UserAgreementFrame::initUI()
 
 void UserAgreementFrame::initConnect()
 {
-    QShortcut *key = new QShortcut(QKeySequence(Qt::Key_Return), m_back);
-    key->setAutoRepeat(false);
-    connect(key, &QShortcut::activated, this, [=]{
-        emit m_back->click();
-    });
+//    QShortcut *key = new QShortcut(QKeySequence(Qt::Key_Return), m_back);
+//    key->setAutoRepeat(false);
+//    connect(key, &QShortcut::activated, this, [=]{
+//        emit m_back->click();
+//    });
     connect(m_back, &QPushButton::clicked, this, &UserAgreementFrame::back);
     connect(m_buttonBox, &DButtonBox::buttonClicked, this, &UserAgreementFrame::toggleLicense);
 }

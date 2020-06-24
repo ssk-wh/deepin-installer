@@ -440,10 +440,13 @@ void PartitionFramePrivate::initUI() {
   m_buttonGroup = new DButtonBox(q_ptr);
   simple_frame_button_ = new DButtonBoxButton(::QObject::tr("Simple"), q_ptr);
   simple_frame_button_->setMinimumWidth(86);
+  simple_frame_button_->setFocusPolicy(Qt::NoFocus);
   advanced_frame_button_ = new DButtonBoxButton(::QObject::tr("Advanced"), q_ptr);
   advanced_frame_button_->setMinimumWidth(86);
+  advanced_frame_button_->setFocusPolicy(Qt::NoFocus);
   full_disk_frame_button_ = new DButtonBoxButton(::QObject::tr("Full Disk"), q_ptr);
   full_disk_frame_button_->setMinimumWidth(86);
+  full_disk_frame_button_->setFocusPolicy(Qt::NoFocus);
 
   if (GetSettingsBool(kPartitionSkipFullDiskPartitionPage)) {
       m_buttonGroup->setButtonList({advanced_frame_button_}, true);
@@ -533,7 +536,7 @@ void PartitionFramePrivate::initUI() {
 
   centerLayout->addLayout(main_layout_);
   q_ptr->setContentsMargins(0, 0, 0, 0);
-  q_ptr->setFocusPolicy(Qt::ClickFocus);
+  q_ptr->setFocusPolicy(Qt::NoFocus);
   q_ptr->setLayout(centerLayout);
 }
 

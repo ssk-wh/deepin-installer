@@ -214,7 +214,6 @@ void FirstBootSetupWindow::initUI() {
     back_button_ = new DImageButton(this);
     back_button_->setFixedSize(48, 38);
     back_button_->move(20, 20);
-    back_button_->setFocusPolicy(Qt::TabFocus);
     back_button_->setNormalPic(":/images/back_normal.svg");
     back_button_->setHoverPic(":/images/back_hover.svg");
     back_button_->setPressPic(":/images/back_pressed.svg");
@@ -265,6 +264,8 @@ void FirstBootSetupWindow::initUI() {
 
     control_panel_frame_ = new ControlPanelFrame(this);
     control_panel_frame_->hide();
+
+    this->setFocusPolicy(Qt::TabFocus);
 }
 
 void FirstBootSetupWindow::initPages()

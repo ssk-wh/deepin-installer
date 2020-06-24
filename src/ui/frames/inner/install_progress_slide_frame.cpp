@@ -107,9 +107,12 @@ void InstallProgressSlideFrame::initUI() {
   m_backButton = new DIconButton(this);
   m_backButton->setIcon(QIcon(":/images/backPicture.svg"));
   m_backButton->setIconSize(QSize(20, 20));
+  m_backButton->setFocusPolicy(Qt::NoFocus);
+
   m_nextButton = new DIconButton(this);
   m_nextButton->setIcon(QIcon(":/images/nextPicture.svg"));
   m_nextButton->setIconSize(QSize(20, 20));
+  m_nextButton->setFocusPolicy(Qt::NoFocus);
 
   QHBoxLayout* layout = new QHBoxLayout;
   layout->setContentsMargins(0, 0, 0, 0);
@@ -173,7 +176,6 @@ void InstallProgressSlideFrame::updateSlidePixmap()
 
 void InstallProgressSlideFrame::showEvent(QShowEvent *event)
 {
-    setFocusPolicy(Qt::ClickFocus);
     m_backButton->setCheckable(false);
     m_nextButton->setCheckable(false);
     m_animationContainer->setFocus();

@@ -229,15 +229,6 @@ bool SelectLanguageFrame::eventFilter(QObject* obj, QEvent* event) {
     return QObject::eventFilter(obj, event);
 }
 
-void SelectLanguageFrame::showEvent(QShowEvent *event)
-{
-    Q_D(SelectLanguageFrame);
-
-    d->m_languageView->setFocus();
-
-    QFrame::showEvent(event);
-}
-
 void SelectLanguageFramePrivate::initConnections()
 {
     connect(m_languageView, &DListView::clicked, this,
@@ -288,6 +279,8 @@ void SelectLanguageFramePrivate::readLanguageSortFile()
 void SelectLanguageFramePrivate::initUI() {
     Q_Q(SelectLanguageFrame);
 
+    q->setFocusPolicy(Qt::NoFocus);
+
     QLabel* logo_label = new QLabel();
     logo_label->setPixmap(QPixmap(installer::GetVendorLogo()));
 
@@ -301,7 +294,7 @@ void SelectLanguageFramePrivate::initUI() {
     sub_title_label_->setAlignment(Qt::AlignHCenter);
 
     m_languageView = new DListView();
-    m_languageView->setFocusPolicy(Qt::TabFocus);
+    m_languageView->setFocusPolicy(Qt::NoFocus);
     m_languageView->setEditTriggers(QListView::NoEditTriggers);
     m_languageView->setIconSize(QSize(32, 32));
     m_languageView->setResizeMode(QListView::Adjust);
@@ -478,12 +471,6 @@ void SelectLanguageFramePrivate::onLanguageListSelected(const QModelIndex& curre
 }
 
 void SelectLanguageFramePrivate::onAccpetLicenseChanged(bool enable) {
-    if (enable) {
-        m_languageView->setFocusPolicy(Qt::NoFocus);
-        q_ptr->setFocus();
-    } else {
-        m_languageView->setFocusPolicy(Qt::TabFocus);
-    }
     emit q_ptr->requestNextButtonEnable(enable && !lang_.name.isEmpty());
 }
 

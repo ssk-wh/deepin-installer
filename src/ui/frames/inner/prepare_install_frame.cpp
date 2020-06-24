@@ -138,8 +138,10 @@ void PrepareInstallFrame::initUI() {
 
   abort_button_ = new SelectButton();
   abort_button_->setFixedSize(kButtonWidth, kButtonHeight);
+  abort_button_->setFocusPolicy(Qt::NoFocus);
   continue_button_ = new DSuggestButton();
   continue_button_->setFixedSize(kButtonWidth, kButtonHeight);
+  continue_button_->setFocusPolicy(Qt::NoFocus);
 
   QHBoxLayout *buttonLayout = new QHBoxLayout;
   buttonLayout->setContentsMargins(0, 0, 0, 0);

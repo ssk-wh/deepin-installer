@@ -206,6 +206,7 @@ void AdvancedPartitionFrame::initUI() {
   editing_button_->setFlat(true);
   editing_button_->setCheckable(true);
   editing_button_->setChecked(false);
+  editing_button_->setFocusPolicy(Qt::NoFocus);
 
   QHBoxLayout* bottom_layout = new QHBoxLayout();
   bottom_layout->setContentsMargins(15, 10, 15, 10);
@@ -249,7 +250,6 @@ void AdvancedPartitionFrame::initUI() {
   m_installNvidiaCheck->setObjectName("check_box");
   m_installNvidiaCheck->setCheckable(true);
   m_installNvidiaCheck->setChecked(false);
-  m_installNvidiaCheck->setFocusPolicy(Qt::NoFocus);
   m_installNvidiaCheck->setText(::QObject::tr("Install NVIDIA closed source driver"));
   main_layout->addWidget(m_installNvidiaCheck, 0 ,Qt::AlignHCenter);
 
@@ -263,6 +263,8 @@ void AdvancedPartitionFrame::initUI() {
   QSizePolicy container_policy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
   container_policy.setVerticalStretch(100);
   this->setSizePolicy(container_policy);
+
+  this->setFocusPolicy(Qt::NoFocus);
 }
 
 AdvancedPartitionButton* AdvancedPartitionFrame::getAppropriateButtonForState(

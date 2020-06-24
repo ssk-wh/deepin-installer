@@ -400,6 +400,7 @@ void SystemDateFramePrivate::initUI()
 {
     m_setDateTimeCheckBox->setCheckable(true);
     m_setDateTimeCheckBox->setChecked(false);
+    m_setDateTimeCheckBox->setFocusPolicy(Qt::NoFocus);
 
     m_hourEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{1,2}")));
     m_hourEdit->setObjectName("hourEdit");
@@ -407,6 +408,7 @@ void SystemDateFramePrivate::initUI()
     m_hourEdit->setFixedSize(kMonthDayHourMinuteQLineEditWidth, 36);
     m_hourEdit->setAlignment(Qt::AlignHCenter);
     m_hourEdit->setContextMenuPolicy(Qt::NoContextMenu);
+    m_hourEdit->setFocusPolicy(Qt::NoFocus);
 
     m_minuteEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{1,2}")));
     m_minuteEdit->setObjectName("minuteEdit");
@@ -414,6 +416,7 @@ void SystemDateFramePrivate::initUI()
     m_minuteEdit->setFixedSize(kMonthDayHourMinuteQLineEditWidth, 36);
     m_minuteEdit->setAlignment(Qt::AlignHCenter);
     m_minuteEdit->setContextMenuPolicy(Qt::NoContextMenu);
+    m_minuteEdit->setFocusPolicy(Qt::NoFocus);
 
     m_hourLabel->setObjectName("hourLabel");
     m_hourLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
@@ -427,6 +430,8 @@ void SystemDateFramePrivate::initUI()
     m_yearEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_yearEdit->setAlignment(Qt::AlignHCenter);
     m_yearEdit->setContextMenuPolicy(Qt::NoContextMenu);
+    m_yearEdit->setFocusPolicy(Qt::NoFocus);
+
     m_yearLabel->setObjectName("yearLabel");
     m_yearLabel->setFixedSize(kDateTimeLabelWidth, 36);
     m_yearLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
@@ -436,6 +441,8 @@ void SystemDateFramePrivate::initUI()
     m_monthEdit->setFixedSize(kMonthDayHourMinuteQLineEditWidth, 36);
     m_monthEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_monthEdit->setContextMenuPolicy(Qt::NoContextMenu);
+    m_monthEdit->setFocusPolicy(Qt::NoFocus);
+
     m_monthLabel->setObjectName("monthLabel");
     m_monthLabel->setFixedSize(kDateTimeLabelWidth, 36);
     m_monthLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
@@ -445,6 +452,8 @@ void SystemDateFramePrivate::initUI()
     m_dayEdit->setFixedSize(kMonthDayHourMinuteQLineEditWidth, 36);
     m_dayEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_dayEdit->setContextMenuPolicy(Qt::NoContextMenu);
+    m_dayEdit->setFocusPolicy(Qt::NoFocus);
+
     m_dayLabel->setObjectName("dayLabel");
     m_dayLabel->setFixedSize(kDateTimeLabelWidth, 36);
     m_dayLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);

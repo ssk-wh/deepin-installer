@@ -35,6 +35,8 @@ public:
         mainLayout->addLayout(centerLayout);
 
         nextButton->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);
+        nextButton->setFocusPolicy(Qt::NoFocus);
+
         mainLayout->addWidget(nextButton, 0, Qt::AlignCenter | Qt::AlignBottom);
 
         frameInterface->setLayout(mainLayout);
@@ -67,11 +69,11 @@ public:
     }
 
     virtual void registerShortcutKey() const {
-        QShortcut *key = new QShortcut(QKeySequence(Qt::Key_Return), nextButton);
-        key->setAutoRepeat(false);
-        connect(key, &QShortcut::activated, this, [=]{
-            emit nextButton->click();
-        });
+//        QShortcut *key = new QShortcut(QKeySequence(Qt::Key_Return), nextButton);
+//        key->setAutoRepeat(false);
+//        connect(key, &QShortcut::activated, this, [=]{
+//            emit nextButton->click();
+//        });
     }
 
 protected:

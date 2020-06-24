@@ -114,6 +114,7 @@ void PartitionSizeSlider::initUI() {
   editor_->setFixedWidth(90);
   // Disable context menu.
   editor_->setContextMenuPolicy(Qt::NoContextMenu);
+  editor_->setFocusPolicy(Qt::NoFocus);
   connect(editor_, &QLineEdit::selectionChanged, this,[=] {
     editor_->setFocus();
   });

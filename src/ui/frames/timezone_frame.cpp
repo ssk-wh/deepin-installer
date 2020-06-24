@@ -327,11 +327,14 @@ void TimezoneFramePrivate::initUI() {
   m_timezoneMapButton->setCheckable(true);
   m_timezoneMapButton->setMinimumWidth(60);
   m_timezoneMapButton->setMaximumHeight(36);
+  m_timezoneMapButton->setFocusPolicy(Qt::NoFocus);
+
   m_timezoneListButton = new DButtonBoxButton("");
   m_timezoneListButton->setObjectName("timezoneListButton");
   m_timezoneListButton->setCheckable(true);
   m_timezoneListButton->setMinimumWidth(60);
   m_timezoneListButton->setMaximumHeight(36);
+  m_timezoneListButton->setFocusPolicy(Qt::NoFocus);
 
   m_buttonList.append(m_timezoneMapButton);
   m_buttonList.append(m_timezoneListButton);
@@ -377,7 +380,7 @@ void TimezoneFramePrivate::initUI() {
   centerLayout->addWidget(m_timezonePage);
 
   q_ptr->setContentsMargins(0, 0, 0, 0);
-  q_ptr->setFocusPolicy(Qt::ClickFocus);
+  q_ptr->setFocusPolicy(Qt::NoFocus);
 
   updateTs();
 }

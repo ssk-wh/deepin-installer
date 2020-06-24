@@ -39,35 +39,16 @@ PartitionNumberLimitationFrame::PartitionNumberLimitationFrame(
   this->initConnections();
 }
 
-void PartitionNumberLimitationFrame::setHasExtendedPartition(bool has_ext_part)
-{
-  if (has_ext_part) {
-    comment1_label_->setText(
-        ::QObject::tr("You should delete a primary partition before creating a new one"));
-    comment2_label_->setText(
-        ::QObject::tr("New logical partitions can only be created near "
-           "existing logical partitions"));
-    comment2_label_->show();
-  } else {
-    comment1_label_->setText(
-        ::QObject::tr("You should delete a primary partition before creating a new partition"));
-    comment2_label_->hide();
-  }
-}
 
-void PartitionNumberLimitationFrame::changeEvent(QEvent* event) {
-  if (event->type() == QEvent::LanguageChange) {
+void PartitionNumberLimitationFrame::showEvent(QShowEvent* event) {
     title_label_->setText(::QObject::tr("Failed to Create New Partition"));
     comment1_label_->setText(
-        ::QObject::tr("You should delete a primary partition before creating a new one, "
-           "as there can only be four primary partitions on an MBR disk"));
+        ::QObject::tr("You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk"));
     comment2_label_->setText(
-        ::QObject::tr("You should delete a primary partition before creating a logical one, "
-           "or move the existing logical partition to the end of the disk"));
+        ::QObject::tr("You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk"));
     back_button_->setText(::QObject::tr("Back"));
-  } else {
-    QFrame::changeEvent(event);
-  }
+
+  return QFrame::showEvent(event);
 }
 
 void PartitionNumberLimitationFrame::initConnections() {
@@ -99,15 +80,11 @@ void PartitionNumberLimitationFrame::initUI() {
   title_layout->addWidget(title_label_, 0, Qt::AlignVCenter);
   title_layout->addStretch();
 
-  comment1_label_ = new CommentLabel(
-      ::QObject::tr("You should delete a primary partition before creating a new one, "
-         "as there can only be four primary partitions on an MBR disk"));
+  comment1_label_ = new CommentLabel(this);
   comment1_label_->setFixedWidth(kHintLabelWidth);
   comment1_label_->setWordWrap(true);
 
-  comment2_label_ = new CommentLabel(
-      ::QObject::tr("You should delete a primary partition before creating a logical one, "
-         "or move the existing logical partition to the end of the disk"));
+  comment2_label_ = new CommentLabel(this);
   comment2_label_->setFixedWidth(kHintLabelWidth);
   comment2_label_->setWordWrap(true);
 
