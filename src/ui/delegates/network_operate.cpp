@@ -34,6 +34,12 @@ void NetworkOperate::initNetworkConnection()
         m_connection = findConnectionByUuid(activeConnection->uuid());
 
         m_connectionSettings = m_connection->settings();
+
+        QString connName = QString("%1-lap").arg(m_device->interfaceName());
+        QString tmp = m_connectionSettings->id();
+        m_connectionSettings->setId(connName);
+        qInfo() << QString("Update network connection id %1 to %2").arg(tmp).arg(connName);
+
         NetworkManager::Ipv4Setting::Ptr ipv4Setting
                 = m_connectionSettings->setting(Setting::Ipv4).dynamicCast<Ipv4Setting>();
         m_configMethod = ipv4Setting->method() == NetworkManager::Ipv4Setting::ConfigMethod::Manual ?
