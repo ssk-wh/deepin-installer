@@ -1,415 +1,415 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sq" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.1">
 <context>
     <name>QObject</name>
     <message>
         <location filename="../src/partman/operation.cpp" line="303"/>
         <source>Create extended partition %1</source>
-        <translation>Krijo pjesë të zgjeruar %1</translation>
+        <translation>Crear partición extendida %1 </translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="307"/>
         <source>Create new partition %1, type: %2</source>
-        <translation>Krijo pjesë të re %1, lloj: %2</translation>
+        <translation>Crear nueva partición %1, de tipo %2</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="311"/>
         <source>Create new partition %1 as %2 (mountpoint), type: %3</source>
-        <translation>Krijo pjesë të re %1 si %2 (pikë montimi), lloj: %3</translation>
+        <translation>Crear nueva partición %1 como %2 (punto de montaje), de tipo %3</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="320"/>
         <source>Delete %1 partition</source>
-        <translation>Fshije pjesën %1</translation>
+        <translation>Borrar %1 partición</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="325"/>
         <source>Format %1 partition, type: %2</source>
-        <translation>Formato pjesën %1, lloj: %2</translation>
+        <translation>Formatear partición %1, de tipo %2</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="329"/>
         <source>Format %1 partition as %2 (mountpoint), type: %3</source>
-        <translation>Formato pjesën %1 si %2 (pikë montimi), lloj: %3</translation>
+        <translation>Formatear partición %1 como %2 (punto de montaje), de tipo %3</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="337"/>
         <source>Use %1 partition as %2 (mountpoint)</source>
-        <translation>Përdor pjesën %1 si %2 (pikë montimi)</translation>
+        <translation>Utilizar la partición %1 como %2 (punto de montaje)</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="343"/>
         <source>Format %1 and create %2 new partition table</source>
-        <translation>Formato %1 dhe krijo tabelë të re pjesësh %2</translation>
+        <translation>Formatear %1 y crear nueva tabla de particiones %2</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="349"/>
         <source>Adjust the size of %1 partition</source>
-        <translation>Rregulloni madhësinë e pjesës %1</translation>
+        <translation>Ajustar el tamaño de la partición %1</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
         <source>Core</source>
-        <translation>Thelb</translation>
+        <translation>Mínimo</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
         <source>Core packages for server OS.</source>
-        <translation>Paketa thelb për OS shërbyesi.</translation>
+        <translation>Paquetes mínimos para un SO servidor.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
         <source>Base</source>
-        <translation>Bazë</translation>
+        <translation>Base</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
         <source>Base packages for server OS.</source>
-        <translation>Paketa bazë për OS shërbyesi.</translation>
+        <translation>Paquetes base para un SO servidor.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
         <source>Basic Server Environment</source>
-        <translation>Mjedis Bazë Shërbyesi</translation>
+        <translation>Entorno de servidor básico</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
         <source>Applies to standard common service environments, such as Web services and database services.</source>
-        <translation>Vlen për mjedise standard shërbimesh të zakonshme, të tilla si shërbime Web dhe shërbime bazash të dhënash.</translation>
+        <translation>Para entornos de servicios comunes y estandarizados, como servicios web y de bases de datos.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
         <source>Cloud and Virtualzalition</source>
-        <translation>Re dhe Virtualizim</translation>
+        <translation>Nube y virtualización</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
         <source>Applies to IaaS environments, such as virtualization, containers, and clouds.</source>
-        <translation>Vlen për mjedise IaaS, bie fjala, virtualizim, kontejnerë dhe re.</translation>
+        <translation>Para entornos IaaS, como virtualización, contenedores y nubes.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
         <source>Big Data</source>
-        <translation>Big Data</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
         <source>Applies to servers that provide parallel processing of massive data.</source>
-        <translation>Vlen për shërbyes që furnizojë përpunim paralel sasish masive të dhënash.</translation>
+        <translation>Para servidores que proporcionan procesamiento paralelo de datos masivos.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Server Environment with GUI</source>
-        <translation>Mjedis Shërbyesi me GUI</translation>
+        <translation>Entorno de servidor con GUI</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Operates the services and applications on the graphical user interface.</source>
-        <translation>Mban në punë shërbimet dhe aplikacionet te ndërfaqja grafike e përdoruesit.</translation>
+        <translation>Para operar servicios y aplicaciones usando interfaz gráfica de usuario.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>Custom Installation</source>
-        <translation>Instalim Vetjak</translation>
+        <translation>Instalación personalizada</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>Provides most package groups for custom selection, covering minimum to maximum installation.</source>
-        <translation>Furnizon shumicën e grupeve të paketave për përzgjedhje vetjake, duke mbuluar nga instalime minimum deri në instalime maksimum.</translation>
+        <translation>Permite seleccionar de manera personalizada los grupos de paquetes, cubriendo desde las instalaciones mínimas a las avanzadas.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>Debugging Tools</source>
-        <translation>Mjete Diagnostikimi</translation>
+        <translation>Herramientas de depuración</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>Provide debugging package for program function and performance.</source>
-        <translation>Furnizon paketa diagnostikimi për funksione dhe punim programesh.</translation>
+        <translation>Paquete para depurar el funcionamiento y el rendimiento de programas.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>Applications with GUI</source>
-        <translation>Aplikacione me GUI</translation>
+        <translation>Aplicaciones con GUI</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>Commonly used server application packages in graphical user interface.</source>
-        <translation>Paketa aplikacionesh shërbyesi të përdorura rëndom në ndërfaqe grafike përdoruesi.</translation>
+        <translation>Paquete de aplicaciones de uso común en servidores con interfaz gráfica de usuario.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Development Tools</source>
-        <translation>Mjete për Zhvillim</translation>
+        <translation>Herramientas de desarrollo</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Development tool packages in multiple programming languages.</source>
-        <translation>Paketa mjetesh zhvillimi për shumë gjuhë programimi.</translation>
+        <translation>Paquete de herramientas para programar en múltiples lenguajes.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>Directory Client</source>
-        <translation>Klient Drejtorish</translation>
+        <translation>Directorio de clientes</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>Clients for integration into a network managed by a directory service.</source>
-        <translation>Klientë për integrim në një drejtori të administruar nga një shërbim drejtorish.</translation>
+        <translation>Clientes para integración en una red gestionada por servicio de directorio.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Domain Name Service</source>
-        <translation>Shërbim Emrash Përkatësish</translation>
+        <translation>Servicio de nombres de dominio</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Environments for running the domain name service (DNS).</source>
-        <translation>Mjedise për xhirim shërbimi emrash përkatësish (DNS).</translation>
+        <translation>Entornos para ejecutar un servicio de nombres de dominio (DNS).</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>File and Storage Server</source>
-        <translation>Shërbyes Kartelash dhe Depozitimesh</translation>
+        <translation>Servidor de archivos y almacenamiento</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
-        <translation>Shërbyes depozitimesh CIFS, SMB, NFS, iSCSI, iSER, dhe iSNS rrjeti.</translation>
+        <translation>CIFS, SMB, NFS, iSCSI, iSER y servidor de almacenamiento en red iSNS.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>Graphics Creation Tools</source>
-        <translation>Mjete Krijimi Grafik</translation>
+        <translation>Herramientas de creación de gráficos</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>Software for creating and editing images.</source>
-        <translation>Software për krijim dhe përpunim figurash.</translation>
+        <translation>Programas para crear y editar imágenes.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>Load Balancer</source>
-        <translation>Balancues Ngarkese</translation>
+        <translation>Balanceador de carga</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>Load balancing support for network traffic.</source>
-        <translation>Mbulim për balancim ngarkese për trafik rrejti.</translation>
+        <translation>Soporte de balanceo de carga para el tráfico de red.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>MariaDB Database Server</source>
-        <translation>Shërbyes Baze të Dhënash MariaDB</translation>
+        <translation>Servidor de base de datos MariaDB</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>The MariaDB SQL database server, and associated packages.</source>
-        <translation>Shërbyes për bazën e të dhënave MariaDB SQL, dhe paketat përkatëse.</translation>
+        <translation>El servidor de base de datos MariaDB SQL y los paquetes asociados.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>E-mail Server</source>
-        <translation>Shërbyes Email-i</translation>
+        <translation>Servidor de correo</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
-        <translation>I lejon sistemit të veprojë si një shërbyes SMTP dhe/ose IMAP email-esh.</translation>
+        <translation>Permite usar el sistema como servidor de correo electrónico SMTP y/o IMAP.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>Network File System Client</source>
-        <translation>Klient Sistemesh Kartelash Rrjeti</translation>
+        <translation>Cliente de sistema de archivos de red</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>Environments for network storage devices.</source>
-        <translation>Mjedise për pajisje depozitë në rrjet.</translation>
+        <translation>Entornos para dispositivos de almacenamiento en red.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>Performance Tools</source>
-        <translation>Mjete Funksionimi</translation>
+        <translation>Herramientas de rendimiento</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>Packages for monitoring and diagnosing hardware devices, system programs, and applications.</source>
-        <translation>Paketa për mbikëqyrje dhe diagnostikim pajisjesh hardware, programe sistemi dhe aplikacione.</translation>
+        <translation>Paquetes para monitorear y diagnosticar dispositivos de hardware, programas del sistema y aplicaciones.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>Security Tools</source>
-        <translation>Mjete Sigurie</translation>
+        <translation>Herramientas de seguridad</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>Packages for integrity and trust verification.</source>
-        <translation>Paketa për verifikim integriteti dhe besimi.</translation>
+        <translation>Paquetes para verificación de integridad y confiabilidad.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>Web Server</source>
-        <translation>Shërbyes Web</translation>
+        <translation>Servidor web</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>Provides Java servlets and Web common service components.</source>
-        <translation>Furnizon shërbyesth Java dhe përbërës shërbimesh të rëndomtë Web.</translation>
+        <translation>Proporciona servlets Java y componentes de servicios web comunes.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>Guest Agents</source>
-        <translation>Agjentë Mysafiri</translation>
+        <translation>Agentes huésped</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>Agents used when running under a hypervisor.</source>
-        <translation>Agjentë të përdorur kur xhirohet nën një hipervizor.</translation>
+        <translation>Agentes utilizados cuando se ejecuta bajo un hipervisor.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Virtualization Client</source>
-        <translation>Klient Virtualizimi</translation>
+        <translation>Cliente de virtualización</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Clients for installing and managing virtualization instances.</source>
-        <translation>Klientë për instalim dhe administrim instancash virtualizimi.</translation>
+        <translation>Clientes para la instalación y gestión de instancias de virtualización.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Virtualization Hypervisor</source>
-        <translation>Hipervizor Virtualizimi</translation>
+        <translation>Hipervisor de virtualización</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Smallest possible virtualization host installation.</source>
-        <translation>Instalimi më i vogël i mundshëm i një strehe virtualizimesh.</translation>
+        <translation>Instalación del anfitrión de virtualización más pequeño posible.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Virtualization Tools</source>
-        <translation>Mjete Virtualizimi</translation>
+        <translation>Herramientas de virtualización</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Tools for offline virtual image management.</source>
-        <translation>Mjete për administrim pamjesh virtuale jashtë interneti.</translation>
+        <translation>Herramientas para la gestión de imágenes virtuales fuera de línea.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Virtualization Platform</source>
-        <translation>Platformë Virtualizimi</translation>
+        <translation>Plataforma de virtualización</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Provides an interface for acessing and controlling virtualized guests and containers.</source>
-        <translation>Furnizon një ndërfaqe për përdorim dhe kontroll mysafirësh dhe kontejnerësh të virtualizuar.</translation>
+        <translation>Proporciona una interfaz para acceder y controlar huéspedes y contenedores virtualizados.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>High Availability</source>
-        <translation type="unfinished"/>
+        <translation>Alta disponibilidad</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Infrastructure for highly available services and/or shared storage.</source>
-        <translation type="unfinished"/>
+        <translation>Infraestructura para servicios de alta disponibilidad y/o almacenamiento compartido.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>InfiniBand Support</source>
-        <translation>Mbulim për Infiniband</translation>
+        <translation>Soporte InfiniBand</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
-        <translation type="unfinished"/>
+        <translation>Software diseñado para soportar la agrupación en clústeres y utilizando conectividad en red basada en RDMA InfiniBand e iWARP.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Large Systems Performance</source>
-        <translation>Funksionim Sistemesh të Mëdha</translation>
+        <translation>Rendimiento de grandes sistemas</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Performance support tools for large systems.</source>
-        <translation>Mjete në ndihmë të funksionimit për sisteme të mëdha.</translation>
+        <translation>Herramientas de soporte de rendimiento para grandes sistemas.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Platform Development</source>
-        <translation>Zhvillim Platformash</translation>
+        <translation>Plataforma de desarrollo</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
-        <translation>Krye dhe librari të rekomanduara zhvillimi, për zhvillim aplikacionesh që xhirojnë në UOS.</translation>
+        <translation>Cabeceras y librerías de desarrollo recomendadas para desarrollar aplicaciones que se ejecuten en UOS.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Internet Applications</source>
-        <translation>Aplikacione Internet</translation>
+        <translation>Aplicaciones de internet</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Email, chat, and video conferencing software.</source>
-        <translation>Software për email, fjalosje dhe takime video.</translation>
+        <translation>Software de correo electrónico, chat y videoconferencia.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Virtualization Toolset</source>
-        <translation>Grup mjetesh Virtualizimi</translation>
+        <translation>Conjunto de herramientas de virtualización</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Toolset for virtualization enviroment (host and guest).</source>
-        <translation>Grup mjetesh për mjedis virtualizim (strehë dhe mysafir).</translation>
+        <translation>Conjunto de herramientas para el entorno de virtualización (anfitrión y huésped).</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>PostgreSQL Database Server</source>
-        <translation>Shërbyes Baze të Dhënash PostgreSQL</translation>
+        <translation>Servidor de base de datos PostgreSQL</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>The PostgreSQL SQL database server, and associated packages.</source>
-        <translation>Shërbyes për bazën e të dhënave PostgreSQL SQL, dhe paketat përkatëse.</translation>
+        <translation>Servidor de base de datos PostgreSQL SQL y los paquetes asociados.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="262"/>
         <source>Do not use this partition</source>
-        <translation>Mos e përdor këtë pjesë</translation>
+        <translation>No usar esta partición</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="275"/>
         <source>Swap partition</source>
-        <translation>Pjesë swap</translation>
+        <translation>Partición de intercambio</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="279"/>
         <source>Unknown</source>
-        <translation>E panjohur</translation>
+        <translation>Desconocido</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="320"/>
         <location filename="../src/ui/delegates/partition_util.cpp" line="351"/>
         <source>Freespace</source>
-        <translation>Hapësirë e lirë</translation>
+        <translation>Espacio libre</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="57"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="101"/>
         <source>Abort Installation</source>
-        <translation>Ndërprite Instalimin</translation>
+        <translation>Detener la instalación</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="59"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="86"/>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
-        <translation>Veprimet përkatëse që bëtë te procesi i instalimit s’do të kenë efekt, të ndërpritet apo të vazhdohet instalimi?</translation>
+        <translation>Los cambios realizados en el asistente de instalación no se aplicarán, ¿desea cancelar o continuar la instalación?</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="60"/>
@@ -421,26 +421,26 @@
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="100"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="121"/>
         <source>Continue</source>
-        <translation>Vazhdo</translation>
+        <translation>Continuar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="61"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="43"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="61"/>
         <source>Abort</source>
-        <translation>Ndërprite</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="39"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="201"/>
         <source>Set Control Region</source>
-        <translation>Caktoni Rajon Kontrolli</translation>
+        <translation>Establecer región de control</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="40"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="202"/>
         <source>Set the region for UOS EndPoint Management Platform</source>
-        <translation>Caktoni rajonin për UOS EndPoint Management Platform</translation>
+        <translation>Establecer la región para la gestión de «EndPoint» en UOS</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="199"/>
@@ -466,18 +466,18 @@
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="25"/>
         <location filename="../src/base/translator.h" line="16"/>
         <source>Next</source>
-        <translation>Pasuesi</translation>
+        <translation>Siguiente</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="200"/>
         <source>Server Address</source>
-        <translation>Adresë Shërbyesi</translation>
+        <translation>Dirección del servidor</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="197"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
-        <translation>Që të instaloni %2, ju duhen të paktën %1 GB hapësirë disku. Për të pasur funksionim më të mirë, këshillohen %3 GB ose më tepër</translation>
+        <translation>Necesita al menos %1 GB de espacio en disco para instalar %2. Para obtener un mejor rendimiento, se recomienda %3 GB o más</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
@@ -508,14 +508,14 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="96"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="123"/>
         <source>Insufficient Disk Space</source>
-        <translation>Hapësirë Disku e Pamjaftueshme</translation>
+        <translation>Espacio insuficiente en el disco</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="98"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="130"/>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="86"/>
         <source>Exit</source>
-        <translation>Dil</translation>
+        <translation>Salir</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="116"/>
@@ -523,7 +523,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="125"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="75"/>
         <source>Warning</source>
-        <translation>Sinjalizim</translation>
+        <translation>Advertencia</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
@@ -537,26 +537,26 @@
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="95"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="119"/>
         <source>Cancel</source>
-        <translation>Anuloje</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="54"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="87"/>
         <source>Tuning system</source>
-        <translation>Përimtim sistemi</translation>
+        <translation>Optimizando el sistema</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="89"/>
         <source>Applying changes to your system, please wait...</source>
-        <translation>Po zbatohen ndryshimet te sistemi juaj, ju lutemi, prisni…</translation>
+        <translation>Aplicando cambios. Espere por favor...</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="109"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="197"/>
         <source>Change boot loader</source>
-        <translation>Ndryshoni ngarkues nisjesh</translation>
+        <translation>Editar gestor de arranque</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="111"/>
@@ -565,14 +565,14 @@
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="15"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="60"/>
         <source>Done</source>
-        <translation>U bë</translation>
+        <translation>Finalizar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="113"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="204"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="617"/>
         <source>Delete</source>
-        <translation>Fshije</translation>
+        <translation>Borrar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="115"/>
@@ -580,95 +580,95 @@
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="129"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="180"/>
         <source>Install NVIDIA closed source driver</source>
-        <translation>Instaloni përudhës NVIDIA me burim të mbyllur</translation>
+        <translation>Instalar controlador de código cerrado de NVIDIA</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="476"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="393"/>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation>U gjet %1 gabim, ndreqeni, që të vazhdohet instalimi, ose kaloni nën mënyrën e thjeshtë</translation>
+        <translation>%1 error encontrado. Corríjalo para continuar la instalación o cambie al modo simple</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="480"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="396"/>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation>U gjetën %1 gabime, ndreqini, që të vazhdohet instalimi, ose kaloni nën mënyrën e thjeshtë</translation>
+        <translation>%1 errores encontrados. Corríjalos para continuar la instalación o cambie al modo simple</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="486"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="490"/>
         <source>%1 errors found, fix to continue installation</source>
-        <translation>U gjetën %1 gabime, ndreqini, që të vazhdohet instalimi</translation>
+        <translation>%1 errores encontrados, corríjalos para continuar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="537"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="329"/>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation>Lloji i sistemit të kartelave të pjesës drejtori /boot mund të jetë vetëm %1 </translation>
+        <translation>El tipo de sistema de archivos de la partición /boot solo puede ser %1</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="541"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="333"/>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation>Pjesa drejtori /boot duhet të jetë pjesa e parë në hard disk</translation>
+        <translation>La partición /boot debe ser la primera partición en el disco duro</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="545"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
-        <translation>Pjesa e drejtorisë /boot/efi duhet të jetë pjesa e parë në hard disk</translation>
+        <translation>La partición /boot/efi debe ser la primera partición del disco duro</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="550"/>
         <source>/boot partition requires at least %1 MB</source>
-        <translation>Pjesa /boot lyp të paktën %1 MB</translation>
+        <translation>La partición /boot necesita al menos %1 MB</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="554"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="342"/>
         <source>To create lvm, /boot partition is required</source>
-        <translation>Për të krijuar lvm, pjesa /boot është e domosdoshme</translation>
+        <translation>Se necesita una partición /boot para crear el LVM</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="557"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="345"/>
         <source>Add an EFI partition to continue</source>
-        <translation>Që të vazhdohet, shtoni një pjesë EFI</translation>
+        <translation>Para continuar, añada una partición EFI</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="561"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="349"/>
         <source>/efi partition requires at least %1 MB</source>
-        <translation>Për pjesë /efi lypsen të paktën %1 MB</translation>
+        <translation>La partición /efi necesita al menos %1 MB</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="565"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="353"/>
         <source>Add a root partition to continue</source>
-        <translation>Që të vazhdohet, shtoni një pjesë Rrënjë</translation>
+        <translation>Para continuar, añada una partición root</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="570"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="89"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="358"/>
         <source>/root partition requires at least %1 GB</source>
-        <translation>Për pjesën /root lypsen të paktën %1 GB</translation>
+        <translation>La partición root necesita al menos %1 GB</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="575"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="363"/>
         <source>%2 partition requires at least %1 GB</source>
-        <translation>Për pjesën %2 lypsen të paktën %1 GB</translation>
+        <translation>La partición %2 necesita al menos %1 GB</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="580"/>
         <source>Add a logical partition to continue</source>
-        <translation>Që të vazhdohet, shtoni një pjesë logjike</translation>
+        <translation>Para continuar, añada una partición lógica</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="124"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="214"/>
         <source>Edit Disk</source>
-        <translation>Përpunoni Disk</translation>
+        <translation>Edición de disco</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="125"/>
@@ -678,7 +678,7 @@
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="187"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="227"/>
         <source>File system</source>
-        <translation>Sistem kartelash</translation>
+        <translation>Sistema de archivos</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="126"/>
@@ -688,13 +688,13 @@
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="193"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="228"/>
         <source>Mount point</source>
-        <translation>Pikë montimi</translation>
+        <translation>Punto de montaje</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="127"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="275"/>
         <source>Format the partition</source>
-        <translation>Formatoje pjesën</translation>
+        <translation>Formatear la partición</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="129"/>
@@ -703,12 +703,12 @@
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="96"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="120"/>
         <source>Create</source>
-        <translation>Krijoje</translation>
+        <translation>Aplicar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="225"/>
         <source>Please input password</source>
-        <translation>Ju lutemi, jepni fjalëkalimin</translation>
+        <translation>Por favor, ingrese la contraseña</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="232"/>
@@ -716,21 +716,21 @@
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="126"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="240"/>
         <source>Passwords do not match</source>
-        <translation>Fjalëkalimet nuk përputhen</translation>
+        <translation>Las contraseñas no coinciden</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="265"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="130"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="173"/>
         <source>Encrypt This Disk</source>
-        <translation>Fshehtëzoje Këtë Disk</translation>
+        <translation>Cifrar este disco</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="266"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="228"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="434"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation>Sigurohuni se keni kopjeruajtur të dhëna të rëndësishme, mandej përzgjidhni diskun për instalim</translation>
+        <translation>Asegúrese de haber respaldado los datos importantes, después seleccione el disco para la instalación</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="267"/>
@@ -739,12 +739,12 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="639"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="459"/>
         <source>Password</source>
-        <translation>Fjalëkalim</translation>
+        <translation>Contraseña</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="268"/>
         <source>Repeat Password</source>
-        <translation>Ripërsëritni Fjalëkalimin</translation>
+        <translation>Repita la contraseña</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="270"/>
@@ -754,18 +754,18 @@
         <location filename="../src/ui/main_window_cli.cpp" line="79"/>
         <location filename="../src/ui/main_window_cli.cpp" line="91"/>
         <source>Confirm</source>
-        <translation>Ripohojeni</translation>
+        <translation>Confirmar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="271"/>
         <source>Take care of your password, otherwise, all your data will be lost</source>
-        <translation>Mos e humbni fjalëkalimin tuaj, përndryshe, krejt të dhënat tuaja do të humbin</translation>
+        <translation>Guarde bien su contraseña, si la olvida, perderá todos sus datos</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="131"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="185"/>
         <source>Please select a disk to start installation</source>
-        <translation>Ju lutemi, përzgjidhni një disk për të filluar instalimin</translation>
+        <translation>Por favor seleccione un disco para iniciar la instalación</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="132"/>
@@ -775,7 +775,7 @@
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="237"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="174"/>
         <source>Install here</source>
-        <translation>Instaloje këtu</translation>
+        <translation>Instalar aquí</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/lvm_partition_frame.cpp" line="54"/>
@@ -796,14 +796,14 @@
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="24"/>
         <location filename="../src/base/translator.h" line="17"/>
         <source>Back</source>
-        <translation>Mbrapsht</translation>
+        <translation>Atrás</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="201"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="172"/>
         <source>Create New Partition</source>
-        <translation>Krijoni Pjesë të Re</translation>
+        <translation>Creación de nueva partición</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="145"/>
@@ -811,7 +811,7 @@
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="176"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="225"/>
         <source>Type</source>
-        <translation>Lloj</translation>
+        <translation>Tipo</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="146"/>
@@ -819,7 +819,7 @@
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="182"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="226"/>
         <source>Location</source>
-        <translation>Vendndodhje</translation>
+        <translation>Ubicación</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="149"/>
@@ -827,132 +827,132 @@
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="198"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="229"/>
         <source>Size</source>
-        <translation>Madhësi</translation>
+        <translation>Tamaño</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="151"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="221"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="115"/>
         <source>Start</source>
-        <translation>Fillim</translation>
+        <translation>Al inicio</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="151"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="221"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="116"/>
         <source>End</source>
-        <translation>Fund</translation>
+        <translation>Al final</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="153"/>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation>Aceptar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="35"/>
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="52"/>
         <source>Formatting...</source>
-        <translation>Po formatohet…</translation>
+        <translation>Formateando...</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="80"/>
         <source>Format Warning</source>
-        <translation>Sinjalizim Formatimi</translation>
+        <translation>Advertencia de formato</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="63"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="89"/>
         <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation>Vazhdimi i instalimit do të formatojë krejt diskun, ju lutemi, bëni një kopjeruajtje të krejt të dhënave tuaja. Nëse nuk dini se ç’po bëni, ju lutemi, mos vazhdoni më tej</translation>
+        <translation>Si continúa se borrará todo el disco, por favor haga una copia de seguridad de todos sus datos. Si no sabe lo que está haciendo, por favor no continúe</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="37"/>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="45"/>
         <source>Scan disks</source>
-        <translation>Skano disqe</translation>
+        <translation>Escaneando discos</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="38"/>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="46"/>
         <source>Scanning disks, please wait...</source>
-        <translation>Po skanohen disqe, ju lutemi, prisni…</translation>
+        <translation>Buscando discos, por favor espere...</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="46"/>
         <source>You should delete a primary partition before creating a new one</source>
-        <translation>Duhet të fshini një pjesë parësore, përpara se të krijoni një të re</translation>
+        <translation>Debe borrar una partición primaria antes de crear una nueva</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="48"/>
         <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation>Pjesë të reja logjike mund të krijohen vetëm pranë pjesësh ekzistuese logjike</translation>
+        <translation>Las nuevas particiones lógicas solo se pueden crear junto a particiones lógicas existentes</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="53"/>
         <source>You should delete a primary partition before creating a new partition</source>
-        <translation>Duhet të fshini një pjesë parësore, përpara se të krijoni një të re</translation>
+        <translation>Debe borrar una partición primaria antes de crear la nueva partición</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="86"/>
         <source>Failed to Create New Partition</source>
-        <translation>S’u Arrit të Krijohej Pjesë e Re</translation>
+        <translation>La creación de la nueva partición falló</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="103"/>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
-        <translation>Duhet të fshini një pjesë parësore, përpara se të krijoni një të re, ngaqë mund të ketë vetëm katër pjesë parësore në një disk MBR</translation>
+        <translation>Debe borrar una partición primaria antes de crear una nueva, ya que solo pueden haber cuatro particiones primarias en un disco MBR.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="109"/>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
-        <translation>Duhet të fshini një pjesë parësore, përpara se të krijoni një të re, ose ta kaloni pjesën logjike ekzistuese në fund të diskut</translation>
+        <translation>Debe borrar una partición primaria antes de crear una partición lógica, o mover la partición lógica existente al final del disco.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="76"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. Please select one of the below solutions and continue.</source>
-        <translation>Keni një ngarkues nisjesh EFI, por një disk MBR ama, ndaj s’mund të instaloni drejtpërsëdrejti %1-in. Ju lutemi, përzgjidhni një nga zgjidhjet më poshtë dhe vazhdoni.</translation>
+        <translation>Tiene un sistema de arranque EFI pero un disco MBR, no se puede instalar %1 directamente. Por favor, seleccione una de las siguientes soluciones para continuar.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="78"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="148"/>
         <source>Disable UEFI</source>
-        <translation>Çaktivizo UEFI</translation>
+        <translation>Desactivar UEFI</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="80"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="150"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="86"/>
         <source>Reboot, enter BIOS, and disable UEFI</source>
-        <translation>Riniseni, hyni në BIOS, dhe çaktivizoni UEFI-n</translation>
+        <translation>Reinicie el sistema, acceda al BIOS y desactive UEFI</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="81"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="151"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="87"/>
         <source>Exit BIOS, and install UOS again</source>
-        <translation>Dilni nga BIOS-i, dhe riinstaloni UOS-in</translation>
+        <translation>Salga del BIOS e instale UOS de nuevo</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="158"/>
         <source>Make sure you have backed up all data before proceeding</source>
-        <translation>Përpara se të vazhdoni, sigurohuni se keni kopjeruajtur krejt të dhënat tuaja</translation>
+        <translation>Asegúrese de haber hecho respaldo de todos los datos antes de continuar con la instalación</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="85"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="159"/>
         <source>Continuing installation will format your disk</source>
-        <translation>Vazhdimi i instalimit do të formatojë diskun tuaj</translation>
+        <translation>Al continuar con la instalación, el disco será formateado.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="139"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="79"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
-        <translation>Keni një ngarkues nisjesh EFI, por një disk MBR ama, ndaj s’mund të instaloni drejtpërsëdrejti UOS-in. Ju lutemi, përzgjidhni një nga zgjidhjet më poshtë dhe vazhdoni.</translation>
+        <translation>Tiene un sistema de arranque EFI pero un disco MBR, no se puede instalar UOS directamente. Por favor, seleccione una de las siguientes soluciones para continuar.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="73"/>
@@ -961,7 +961,7 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="651"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="88"/>
         <source>Ready to Install</source>
-        <translation>Gati për Instalim</translation>
+        <translation>Listo para instalar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="75"/>
@@ -969,68 +969,68 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="223"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="92"/>
         <source>Make a backup of your important data and then continue</source>
-        <translation>Është e rëndësishme gjithashtu që të bë</translation>
+        <translation>Haga un respaldo de sus datos importantes y luego continúe</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="44"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="78"/>
         <source>Select location for boot loader</source>
-        <translation>Përzgjidhni vend për ngarkues nisjesh</translation>
+        <translation>Seleccione la ubicación para el gestor de arranque</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="46"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="80"/>
         <source>If you do not understand the settings, please select the recommended one</source>
-        <translation>Nëse s’i kuptoni rregullimet, ju lutemi, përzgjidhni atë të rekomanduarin</translation>
+        <translation>Si no entiende la configuración, seleccione la recomendada</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="431"/>
         <source>I have read and agree to the</source>
-        <translation>I kam lexuar dhe pajtohem me</translation>
+        <translation>He leído y acepto el</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="432"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="217"/>
         <source>%1 Software End User License Agreement</source>
-        <translation>Marrëveshje Licence Përdoruesi të Thjeshtë %1</translation>
+        <translation>acuerdo de licencia de software de usuario final de %1</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="436"/>
         <source>and</source>
-        <translation>dhe</translation>
+        <translation>y</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="445"/>
         <source>Agree to the</source>
-        <translation>Pajtohem me</translation>
+        <translation>Acepto el</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="446"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="216"/>
         <source>User Experience Program License Agreement</source>
-        <translation>Marrëveshje licence për programin “User Experience Program”</translation>
+        <translation>acuerdo de licencia del programa de experiencia de usuario</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="448"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="109"/>
         <location filename="../src/ui/frames_cli/language_frame.cpp" line="46"/>
         <source>Select Language</source>
-        <translation>Përzgjidhni Gjuhë</translation>
+        <translation>Seleccione el idioma</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="75"/>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation>S’arrihet të krijohet pjesë e re, ju lutemi, përzgjidhni një nga pjesët ekzistuese!</translation>
+        <translation>¡No se puede crear una nueva partición, por favor seleccione una de las existentes!</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="82"/>
         <source>Please select one of the partitions to install!</source>
-        <translation>Ju lutemi, përzgjidhni një nga pjesët që të instalohet!</translation>
+        <translation>¡Por favor seleccione una de las particiones para instalar!</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="417"/>
         <source>Windows will not boot if you install %1 on Windows disk, please confirm to continue</source>
-        <translation>Windows nuk do të niset, nëse instaloni %1 në një disk Windows, që të vazhdohet, ju lutemi, ripohojeni</translation>
+        <translation>Windows no iniciará si instala %1 en el disco de Windows, por favor, verifique antes de continuar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="399"/>
@@ -1039,7 +1039,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="644"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="458"/>
         <source>Username</source>
-        <translation>Emër përdoruesi</translation>
+        <translation>Nombre de usuario</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="427"/>
@@ -1047,7 +1047,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="638"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="457"/>
         <source>Computer name</source>
-        <translation>Emër kompjuteri</translation>
+        <translation>Nombre del equipo</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="476"/>
@@ -1056,37 +1056,37 @@
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="210"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="460"/>
         <source>Repeat password</source>
-        <translation>Përsëritni fjalëkalimin</translation>
+        <translation>Repita la contraseña</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="634"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="641"/>
         <source>Root password</source>
-        <translation>Fjalëkalim rrënjë</translation>
+        <translation>Contraseña de root</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="635"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="642"/>
         <source>Repeat root password</source>
-        <translation>Përsëritni fjalëkalimin rrënjë</translation>
+        <translation>Repita la contraseña de root</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="646"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="130"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="454"/>
         <source>Create Accounts</source>
-        <translation>Krijoni Llogari</translation>
+        <translation>Cree su cuenta</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="647"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="456"/>
         <source>Fill in the username, computer name and your password</source>
-        <translation>Plotësoni emrin e përdoruesit, emrin e kompjuterit dhe fjalëkalimin tuaj</translation>
+        <translation>Ingrese el nombre de usuario, nombre de equipo y su contraseña</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="648"/>
         <source>Use that password to edit boot menu</source>
-        <translation>Përdore këtë fjalëkalim për përpunim të menusë së nisjes</translation>
+        <translation>Usar contraseña para editar el menú de arranque</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="649"/>
@@ -1097,131 +1097,131 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="673"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="152"/>
         <source>This username already exists</source>
-        <translation>Ky emër përdoruesi ekziston tashmë</translation>
+        <translation>El nombre de usuario ya existe</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="677"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="156"/>
         <source>The first letter must be in lowercase</source>
-        <translation>Shkronja e parë duhet të jetë shkronjë me të vogël</translation>
+        <translation>La primera letra debe ser minúscula</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="682"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="161"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
-        <translation>Emri i përdoruesit duhet të përmbajë shkronja anglishteje (me të vogla), numra ose simbole specialë (_-)</translation>
+        <translation>En el nombre de usuario solo use letras sin tilde (minúsculas), números o símbolos especiales (_-)</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="688"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="167"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
-        <translation>Ju lutemi, jepni një emër përdorues më të gjatë se %1 shenja dhe më të shkurtër se %2 shenja</translation>
+        <translation>Ingrese un nombre de usuario con más de %1 caracteres y menos de %2 caracteres</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="711"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="116"/>
         <source>Please input computer name</source>
-        <translation>Ju lutemi, jepni emër kompjuteri</translation>
+        <translation>Por favor, ingrese el nombre del equipo</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="715"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="120"/>
         <source>Computer name is invalid</source>
-        <translation>Emri i kompjuterit është i pavlefshëm</translation>
+        <translation>El nombre de equipo es inválido</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="719"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="124"/>
         <source>Computer name already exists, please input another one</source>
-        <translation>Emri i kompjuterit ekziston tashmë, ju lutemi, jepni një tjetër</translation>
+        <translation>Este nombre de equipo ya existe, por favor ingrese otro</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="724"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="129"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
-        <translation>Ju lutemi, jepni një emër kompjuteri më të gjatë se %1 shenja dhe më të shkurtër se %2 shenja</translation>
+        <translation>Ingrese un nombre de equipo con más de %1 caracteres y menos de %2 caracteres</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="752"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="80"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="194"/>
         <source>The password should be different from the username</source>
-        <translation>Fjalëkalimi duhet të jetë i ndryshëm nga emri i përdoruesit</translation>
+        <translation>La contraseña debe ser diferente del nombre de usuario</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="766"/>
         <source>The password cannot be empty​</source>
-        <translation>Fjalëkalimi s’mund të jetë i zbrazët</translation>
+        <translation>La contraseña no puede estar vacía </translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="770"/>
         <source>Password must contain letters, numbers and symbols</source>
-        <translation>Fjalëkalimi duhet të përmbajë shkronja, numra dhe simbole</translation>
+        <translation>La contraseña debe contener letras, números y símbolos</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="774"/>
         <source>Password must have at least 8 characters</source>
-        <translation>Fjalëkalimi duhet të ketë të paktën 8 shenja</translation>
+        <translation>La contraseña debe tener al menos 8 caracteres</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="778"/>
         <source>Password must be between %1 and %2 characters</source>
-        <translation>Fjalëkalimi duhet të jetë mes %1 dhe %2 shenjash</translation>
+        <translation>La contraseña debe tener entre %1 y %2 caracteres</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="793"/>
         <source>Password must not contain common words and combinations</source>
-        <translation>Fjalëkalimi s’duhet të përmbajë fjalë të rëndomta dhe kombinime</translation>
+        <translation>La contraseña no debe contener palabras y combinaciones comunes</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="799"/>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>Fjalëkalimi s’duhet të përmbajë më tepër se 4 shenja palindromike</translation>
+        <translation>La contraseña no debe contener más de 4 caracteres palíndromos</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="804"/>
         <source>Password must contain lowercase letters</source>
-        <translation>Fjalëkalimi duhet të përmbajë shkronja të vogla</translation>
+        <translation>La contraseña debe contener letras minúsculas</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="809"/>
         <source>Password must contain capital letters</source>
-        <translation>Fjalëkalimi duhet të përmbajë shkronja të mëdha</translation>
+        <translation>La contraseña debe contener letras mayúsculas</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="814"/>
         <source>Password must contain special characters</source>
-        <translation>Fjalëkalimi duhet të përmbajë shenja Speciale</translation>
+        <translation>La contraseña debe contener caracteres especiales</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="819"/>
         <source>Passwords must contain numbers</source>
-        <translation>Fjalëkalimet duhet të përmbajnë numra</translation>
+        <translation>La contraseña debe contener números</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="1073"/>
         <source>Add fingerprint password in Control Center &gt; Accounts to unlock and authenticate</source>
-        <translation>Për shkyçje dhe mirëfilltësim, shtoni fjalëkalim shenja gishti te Qendër Kontrolli &gt; Llogari</translation>
+        <translation>Añada una contraseña de huella dactilar en el Centro de control &gt; Cuentas, para desbloquear y autenticar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="299"/>
         <source>Set Keyboard Layout</source>
-        <translation>Caktoni Skemë Tastiere</translation>
+        <translation>Seleccione la distribución del teclado</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="300"/>
         <source>Select a proper keyboard layout</source>
-        <translation>Përzgjidhni skemën e duhur të tastierës</translation>
+        <translation>Seleccione una distribución de teclado adecuada</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.h" line="54"/>
         <source>Keyboard Layout</source>
-        <translation>Skemë Tastiere</translation>
+        <translation>Distribución del teclado</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="90"/>
         <source>Change time</source>
-        <translation>Ndryshoni kohën</translation>
+        <translation>Cambie fecha y hora</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="91"/>
@@ -1236,7 +1236,7 @@
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="93"/>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation>A</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
@@ -1254,7 +1254,7 @@
         <location filename="../src/ui/frames/install_component_frame.cpp" line="239"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="82"/>
         <source>Select Components</source>
-        <translation>Përzgjidhni Përbërës</translation>
+        <translation>Seleccione componentes</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="186"/>
@@ -1262,13 +1262,13 @@
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="54"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="85"/>
         <source>Basic Environment</source>
-        <translation>Mjedis Bazë</translation>
+        <translation>Entorno básico</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="187"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="242"/>
         <source>Select the components according to your needs</source>
-        <translation>Përzgjidhni përbërësin sipas nevojave tuaja</translation>
+        <translation>Seleccione los componentes según sus necesidades</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="188"/>
@@ -1276,7 +1276,7 @@
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="55"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="86"/>
         <source>Add-Ons</source>
-        <translation>Shtesa</translation>
+        <translation>Complementos</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="190"/>
@@ -1285,7 +1285,7 @@
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="99"/>
         <source>Select All</source>
-        <translation>Përzgjidheni Krejt</translation>
+        <translation>Seleccionar todo</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="82"/>
@@ -1293,51 +1293,51 @@
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="63"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="64"/>
         <source>Installation Failed</source>
-        <translation>Instalimi Dështoi</translation>
+        <translation>La instalación falló</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="84"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="19"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="65"/>
         <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
-        <translation>Na ndjeni për problemin. Ju lutemi, fotografoni ose skanoni kodin QR, që të na dërgoni regjistrin e gabimeve, ose ruajeni regjistrin në një disk të jashtëm. Do t’ju ndihmojmë të zgjidhni problemin.</translation>
+        <translation>Disculpe las molestias. Por favor, fotografíe o escanee el código QR para enviarnos el registro de errores, o guárdelo en un disco externo. Nosotros le ayudaremos a resolver el problema.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="87"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="180"/>
         <source>Save Log</source>
-        <translation>Ruaje Regjistrin</translation>
+        <translation>Guardar registro</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="168"/>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="143"/>
         <source>Install</source>
-        <translation>Instaloje</translation>
+        <translation>Instalar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="212"/>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="266"/>
         <location filename="../src/ui/frames_cli/install_process_frame.cpp" line="68"/>
         <source>Installing</source>
-        <translation>Po instalohet</translation>
+        <translation>Instalando</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="289"/>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="399"/>
         <source>Show log</source>
-        <translation>Shfaq regjistër</translation>
+        <translation>Mostrar registro</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="396"/>
         <source>Hide log</source>
-        <translation>Fshihe regjistrin</translation>
+        <translation>Ocultar registro</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="43"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="75"/>
         <source>Reboot Now</source>
-        <translation>Rinisu Tani</translation>
+        <translation>Reiniciar ahora</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
@@ -1346,25 +1346,25 @@
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="59"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="61"/>
         <source>Successfully Installed</source>
-        <translation>U instalua Me Sukses</translation>
+        <translation>Instalación exitosa</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="85"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="17"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="62"/>
         <source>Click the button below and then remove the installation media immediately</source>
-        <translation>Klikoni mbi butonin më poshtë dhe mandej hiqni menjëherë median e instalimit</translation>
+        <translation>Haga clic en el botón de abajo y luego remueva el medio de instalación inmediatamente</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="86"/>
         <source>Reboot to complete the installation</source>
-        <translation>Që të plotësohet instalimi riniseni</translation>
+        <translation>Reinicie para completar la instalación</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="123"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="319"/>
         <source>Edit</source>
-        <translation>Përpunoni</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="153"/>
@@ -1372,7 +1372,7 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="322"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="596"/>
         <source>IP Address</source>
-        <translation>Adresë IP</translation>
+        <translation>Dirección IP</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="154"/>
@@ -1380,28 +1380,28 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="323"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="597"/>
         <source>Netmask</source>
-        <translation>NetMask-ë</translation>
+        <translation>Máscara de red</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="155"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="324"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="598"/>
         <source>Gateway</source>
-        <translation>Kanal</translation>
+        <translation>Puerta de enlace</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="156"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="325"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="599"/>
         <source>Primary DNS</source>
-        <translation>DNS Parësore</translation>
+        <translation>DNS primario</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="157"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="326"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="600"/>
         <source>Secondary DNS</source>
-        <translation>DNS Dytësore</translation>
+        <translation>DNS secundario</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="167"/>
@@ -1415,7 +1415,7 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="312"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="211"/>
         <source>Gateway:</source>
-        <translation>Kanal:</translation>
+        <translation>Puerta de enlace:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="170"/>
@@ -1423,25 +1423,25 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="313"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="212"/>
         <source>Primary DNS:</source>
-        <translation>DNS Parësore:</translation>
+        <translation>DNS primario:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="171"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="314"/>
         <source>Secondary DNS:</source>
-        <translation>DNS Dytësore:</translation>
+        <translation>DNS secundario:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="203"/>
         <source>IP Address:</source>
-        <translation>Adresë IP:</translation>
+        <translation>Dirección IP:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="215"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="311"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="210"/>
         <source>Netmask:</source>
-        <translation>NetMask-ë:</translation>
+        <translation>Máscara de red:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="262"/>
@@ -1452,28 +1452,28 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="268"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="315"/>
         <source>Auto</source>
-        <translation>Auto</translation>
+        <translation>Automático</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="269"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="316"/>
         <source>Manual</source>
-        <translation>Dorazi</translation>
+        <translation>Manual</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="484"/>
         <source>Illegal %1, please have a check.</source>
-        <translation>%1 e paligjshme, ju lutemi, kontrollojeni.</translation>
+        <translation>1% no permitido, por favor revíselo.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="501"/>
         <source>IP address error: illegal IP address, please have a check.</source>
-        <translation>Gabim adrese IP: adresë IP e paligjshme, ju lutemi, kontrollojeni.</translation>
+        <translation>Error de dirección IP: dirección IP no permitida, por favor revísela.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="515"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
-        <translation>Gabim netmask-e: netmask-ë e paligjshme, ju lutemi, kontrollojeni.</translation>
+        <translation>Error de máscara de red: máscara de red no es permitida, por favor revísela.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="741"/>
@@ -1481,13 +1481,13 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="959"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="170"/>
         <source>Configure Network</source>
-        <translation>Formësoni Rrjetin</translation>
+        <translation>Configuración red</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="742"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="960"/>
         <source>IP address has been auto-configured, but you can configure the network as well</source>
-        <translation>Adresa IP është formësuar automatikisht, por mund të formësoni edhe rrjetin</translation>
+        <translation>La dirección IP se configuró automáticamente, pero también puede configurarla manualmente</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="186"/>
@@ -1496,19 +1496,19 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="755"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="89"/>
         <source>Create Partitions</source>
-        <translation>Krijoni Pjesë</translation>
+        <translation>Creación de partición</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="221"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="675"/>
         <source>Edit LVM Disk</source>
-        <translation>Përpunoni Disk LVM</translation>
+        <translation>Editar disco LVM</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="232"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="441"/>
         <source>Simple</source>
-        <translation>I thjeshtë</translation>
+        <translation>Simple</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="233"/>
@@ -1516,7 +1516,7 @@
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="88"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="99"/>
         <source>Advanced</source>
-        <translation>I thelluar</translation>
+        <translation>Avanzado</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="234"/>
@@ -1524,64 +1524,64 @@
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="91"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="98"/>
         <source>Full Disk</source>
-        <translation>Tërë Diskun</translation>
+        <translation>Usar todo</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="501"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="659"/>
         <source>Start installation</source>
-        <translation>Fillo instalimin</translation>
+        <translation>Iniciar instalación</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="633"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation>Disku i synuar është dinamik dhe, nëse vazhdoni, të dhënat tuaja mund të humbin. Ju lutemi, së pari bëni një kopjeruajtje të kartelave tuaja të rëndësishme.</translation>
+        <translation>El disco de destino es dinámico, y sus datos pueden perderse si continúa. Por favor, primero haga una copia de seguridad de sus archivos importantes.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="637"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation>Disku i synuar është dinamik dhe, nëse vazhdoni, do të formatohet. Ju lutemi, së pari bëni një kopjeruajtje të kartelave tuaja të rëndësishme.</translation>
+        <translation>El disco de destino es dinámico, se formateará si continúa. Por favor haga una copia de seguridad de sus archivos importantes primero.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="140"/>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="202"/>
         <source>System Setup</source>
-        <translation>Ujdisje Sistemi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="141"/>
         <source>Choose an option for your system</source>
-        <translation>Zgjidhni një mundësi për sistemin tuaj</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="144"/>
         <source>Install the system in your installation media.</source>
-        <translation>Instalojeni sistemin te media juaj e instalimit</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="146"/>
         <source>Repair</source>
-        <translation>Riparim</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="147"/>
         <source>Use recovery tools to fix system issues.</source>
-        <translation>Përdorni mjete rikthimi për të ndrequr probleme sistemi.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="149"/>
         <source>Enter the</source>
-        <translation>Jepni</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="181"/>
         <source>Save the error log to a removable device</source>
-        <translation>Ruajeni regjistrin e gabimeve te një pajisje e heqshme</translation>
+        <translation>Guardar el registro de errores en un dispositivo extraíble</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="182"/>
         <source>Save as</source>
-        <translation>Ruaje si</translation>
+        <translation>Guardar como</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="127"/>
@@ -1589,113 +1589,113 @@
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="25"/>
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="51"/>
         <source>Select Timezone</source>
-        <translation>Përzgjidhni Zonë Kohore</translation>
+        <translation>Seleccione su zona horaria</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="128"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="251"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="321"/>
         <source>Is it the right timezone? You can change it as well</source>
-        <translation>A është zona kohore e duhur? Mundeni edhe ta ndryshoni.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="129"/>
         <source>Map</source>
-        <translation>Hartë</translation>
+        <translation>Mapa</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="130"/>
         <source>List</source>
-        <translation>Listë</translation>
+        <translation>Lista</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="71"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="122"/>
         <source>Friendly Note</source>
-        <translation>Shënim Miqësor</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="73"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="124"/>
         <source>You are installing %1 on a virtual machine which may result in sub-optimal performance. For the best experience, please install %1 on a real machine.</source>
-        <translation>Po e instaloni %1 në një makinë virtuale çka mund sjellë funksionim nën optimalin. Për funksionimin më të mirë, ju lutemi, instalojeni %1 në një makinë të njëmendtë.</translation>
+        <translation>Está usando una máquina virtual, esto afectará el rendimiento del sistema y a la experiencia del usuario. Obtendrá una experiencia más fluida si instala %1 en un entorno real.</translation>
     </message>
     <message>
         <location filename="../src/ui/models/bootloader_list_model.cpp" line="42"/>
         <source>%1 %2 (recommended)</source>
-        <translation>%1 %2 (e rekomanduar)</translation>
+        <translation>%1 %2 (recomendado)</translation>
     </message>
     <message>
         <location filename="../src/ui/models/mount_point_model.cpp" line="37"/>
         <source>Do not use</source>
-        <translation>Mos e përdor</translation>
+        <translation>No usar</translation>
     </message>
     <message>
         <location filename="../src/ui/models/partition_type_model.cpp" line="41"/>
         <location filename="../src/ui/models/partition_type_model.cpp" line="47"/>
         <source>Logical Partition</source>
-        <translation>Pjesë Logjike</translation>
+        <translation>Partición lógica</translation>
     </message>
     <message>
         <location filename="../src/ui/models/partition_type_model.cpp" line="45"/>
         <source>Primary Partition</source>
-        <translation>Pjesë Parësore</translation>
+        <translation>Partición primaria</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="177"/>
         <source>To be formatted</source>
-        <translation>Për t’u formatuar</translation>
+        <translation>A ser formateada</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="220"/>
         <source>System Disk</source>
-        <translation>Disk Sistemi</translation>
+        <translation>Disco del sistema</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="220"/>
         <source>Data Disk</source>
-        <translation>Disk të Dhënash</translation>
+        <translation>Disco de datos</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="213"/>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="250"/>
         <source>Ethernet</source>
-        <translation>Ethernet</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="216"/>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="253"/>
         <source>WLAN</source>
-        <translation>WLAN</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="219"/>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="256"/>
         <source>Unknown device</source>
-        <translation>Pajisje e panjohur</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="89"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="92"/>
         <source>Make sure you have backed up important data, then select the disk to install.</source>
-        <translation>Sigurohuni se keni kopjeruajtur të dhëna të rëndësishme, mandej përzgjidhni diskun për instalim.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="90"/>
         <source>Insert key: create or edit partition. Delete key: delete partition.</source>
-        <translation>Tasti Insert : krijoni ose përpunoni pjesë. Tasti Delete: fshirje pjese.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="338"/>
         <source>/boot partition requires at least %1 GB</source>
-        <translation>Për pjesën /boot lypsen të paktën %1 GB</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="401"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="404"/>
         <source>%1 error found, fix to continue installation</source>
-        <translation>U gjet %1 gabim, ndreqeini, që të vazhdohet instalimi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="94"/>
@@ -1703,119 +1703,119 @@
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="208"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="220"/>
         <source>Please input password longer than %1 characters and shorter than %2 characters</source>
-        <translation>Ju lutemi, jepni një fjalëkalim më të gjatë se %1 shenja dhe më të shkurtër se %2 shenja</translation>
+        <translation>Ingrese una contraseña de más de %1 caracteres y menos de %2 caracteres</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="215"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Fjalëkalimi duhet të përmbajë shkronja të anglishtes (bëhet dallimi mes të voglave dhe të mëdhave), numra ose simbole speciale (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+        <translation>En la contraseña solo use letras sin tilde (distingue mayúsculas y minúsculas), números o símbolos especiales (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="204"/>
         <source>Create Root Account</source>
-        <translation>Krijo Llogarinë Rrënjë</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="207"/>
         <source>Password:</source>
-        <translation>Fjalëkalim:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="93"/>
         <source>System Disk:</source>
-        <translation>Disk Sistemi:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
         <source>Data Disk:</source>
-        <translation>Disk të Dhënash:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="86"/>
         <source>Primary partition</source>
-        <translation>Pjesë parësore</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="90"/>
         <source>Logical partition</source>
-        <translation>Pjesë logjike</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="89"/>
         <source>Make a backup of all your data to avoid data loss</source>
-        <translation>Që të shmangni humbje të dhënash, bëni një kopjeruajtje të krejt të dhënave tuaja</translation>
+        <translation>Haga un respaldo de todos sus datos para evitar la pérdida de los mismos</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="91"/>
         <source>Nothing to do</source>
-        <translation>S’ka ç’bëhet</translation>
+        <translation>Nada que hacer</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="53"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="84"/>
         <source>Select the components according to your needs.</source>
-        <translation>Përzgjidhni përbërësit sipas nevojave tuaja.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="82"/>
         <source>Shut Down</source>
-        <translation>Fike</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/keyboard_frame.cpp" line="16"/>
         <location filename="../src/ui/frames_cli/keyboard_frame.cpp" line="17"/>
         <source>Select Keyboard Layout</source>
-        <translation>Përzgjidhni Skemë Tastiere</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/language_frame.cpp" line="48"/>
         <source>Choose a language used in the installation process, which will also be the default system language.</source>
-        <translation>Zgjidhni gjuhën për t’u përdorur në procesin e instalimit, e cila do të jetë gjithashtu gjuha parazgjedhje e sistemit.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="57"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="124"/>
         <source>Please agree to the license</source>
-        <translation>Ju lutemi, pajtohuni me licencën</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="112"/>
         <source>UOS Software End User License Agreement</source>
-        <translation>Marrëveshje Licence Përdoruesi të Thjeshtë UOS</translation>
+        <translation>Acuerdo de licencia de software de usuario final de UOS</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="113"/>
         <source>I have read and agree to the UOS Software End User License Agreement</source>
-        <translation>E kam lexuar dhe pajtohem me Marrëveshjen e Licencës së Përdoruesit të Thjeshtë të Software-it UOS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="71"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="176"/>
         <source>Configure Ethernet according to your needs, but you can skip it as well.</source>
-        <translation>  Formësoni Ethernet-in sipas nevojave tuaja, por edhe mund ta anashkaloni këtë.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="72"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="177"/>
         <source>Set the IP address, gateway, netmask, DNS please.</source>
-        <translation>  Ju lutemi, caktoni adresë IP, kanal, netmask-ë, DNS.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="75"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="214"/>
         <source>Network connection error, check the configuration please</source>
-        <translation>Gabim lidhjeje rrjeti, ju lutemi, kontrolloni formësimin</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="202"/>
         <source>Configure Now</source>
-        <translation>Formësojini Tani</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="203"/>
         <source>Skip</source>
-        <translation>Anashkaloje</translation>
+        <translation>Omitir</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="602"/>
@@ -1823,7 +1823,7 @@
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="630"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="635"/>
         <source>e.g., 255.255.255.0</source>
-        <translation>p.sh., 255.255.255.0</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="610"/>
@@ -1833,71 +1833,71 @@
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="658"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="663"/>
         <source>e.g., 192.168.30.30</source>
-        <translation>p.sh., 192.168.30.30</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="93"/>
         <source>Make sure you have backed up important data, then select the partition mode.</source>
-        <translation>Sigurohuni se keni kopjeruajtur të dhëna të rëndësishme, mandej përzgjidhni mënyrën e pjesëtimit.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="95"/>
         <source>Partition mode</source>
-        <translation>Mënyrë pjesëtimi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="461"/>
         <source>Set Root Password</source>
-        <translation>Caktoni Fjalëkalim Rrënje</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="463"/>
         <source>If you check &quot;Set as root password&quot;, the root password is the same as the password, otherwise, you need to set it separately.</source>
-        <translation>Nëse i vini shenjë mundësisë “Caktoje si fjalëkalim rrënje”, fjalëkalimi i rrënjës do të jetë i njëjtë me fjalëkalimin, përndryshe lypset t’i caktoni ndarazi.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="464"/>
         <source>Your root password should be different from the user password, please take care of them.</source>
-        <translation>Fjalëkalimi juaj si rrënjë duhet të jetë i ndryshëm nga fjalëkalimi si përdorues, ju lutemi, mbrojini me kujdes. </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="29"/>
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="53"/>
         <source>Is it the right timezone? You can change it as well.</source>
-        <translation>A është zona kohore e duhur? Mundeni edhe ta ndryshoni.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/base/translator.h" line="18"/>
         <source>Select system language</source>
-        <translation>Përzgjidhni gjuhë sistemi</translation>
+        <translation>Seleccione el idioma del sistema</translation>
     </message>
     <message>
         <location filename="../src/ui/main_window_cli.cpp" line="62"/>
         <location filename="../src/ui/main_window_cli.cpp" line="75"/>
         <location filename="../src/ui/main_window_cli.cpp" line="87"/>
         <source>Welcome to install UOS</source>
-        <translation>Mirë se vini te instalimi i UOS-it</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/main_window_cli.cpp" line="64"/>
         <location filename="../src/ui/main_window_cli.cpp" line="77"/>
         <location filename="../src/ui/main_window_cli.cpp" line="89"/>
         <source>Select Item</source>
-        <translation>Përzgjidhni Objekt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/main_window_cli.cpp" line="65"/>
         <location filename="../src/ui/main_window_cli.cpp" line="78"/>
         <location filename="../src/ui/main_window_cli.cpp" line="90"/>
         <source>Change Field</source>
-        <translation>Ndryshoni Fushë</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/main_window_cli.cpp" line="67"/>
         <location filename="../src/ui/main_window_cli.cpp" line="80"/>
         <location filename="../src/ui/main_window_cli.cpp" line="92"/>
         <source>Select</source>
-        <translation>Përzgjidhni</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1905,7 +1905,7 @@
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="250"/>
         <source>Secondary DNS:</source>
-        <translation>DNS Dytësore:</translation>
+        <translation>DNS secundario:</translation>
     </message>
 </context>
 </TS>

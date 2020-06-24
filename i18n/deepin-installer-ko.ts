@@ -1,415 +1,415 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sq" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ko" version="2.1">
 <context>
     <name>QObject</name>
     <message>
         <location filename="../src/partman/operation.cpp" line="303"/>
         <source>Create extended partition %1</source>
-        <translation>Krijo pjesë të zgjeruar %1</translation>
+        <translation>확장 파티션 %1 생성</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="307"/>
         <source>Create new partition %1, type: %2</source>
-        <translation>Krijo pjesë të re %1, lloj: %2</translation>
+        <translation>%1 새 파티션 생성, 유형: %2</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="311"/>
         <source>Create new partition %1 as %2 (mountpoint), type: %3</source>
-        <translation>Krijo pjesë të re %1 si %2 (pikë montimi), lloj: %3</translation>
+        <translation>%1 파티션을 %2 (마운트 지점)로 새로 만듭니다. 입력: %3</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="320"/>
         <source>Delete %1 partition</source>
-        <translation>Fshije pjesën %1</translation>
+        <translation>%1 파티션 삭제</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="325"/>
         <source>Format %1 partition, type: %2</source>
-        <translation>Formato pjesën %1, lloj: %2</translation>
+        <translation> %1 파티션, 유형: %2 포맷</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="329"/>
         <source>Format %1 partition as %2 (mountpoint), type: %3</source>
-        <translation>Formato pjesën %1 si %2 (pikë montimi), lloj: %3</translation>
+        <translation>%1 파티션을 %2(마운트 포인트)로 포맷, 유형: %3</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="337"/>
         <source>Use %1 partition as %2 (mountpoint)</source>
-        <translation>Përdor pjesën %1 si %2 (pikë montimi)</translation>
+        <translation>%1 파티션을 %2(마운트 포인트)로 사용</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="343"/>
         <source>Format %1 and create %2 new partition table</source>
-        <translation>Formato %1 dhe krijo tabelë të re pjesësh %2</translation>
+        <translation>%1 포맷 및 %2 새 파티션 테이블 생성</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="349"/>
         <source>Adjust the size of %1 partition</source>
-        <translation>Rregulloni madhësinë e pjesës %1</translation>
+        <translation>%1 파티션 크기 조정</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
         <source>Core</source>
-        <translation>Thelb</translation>
+        <translation>코어</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
         <source>Core packages for server OS.</source>
-        <translation>Paketa thelb për OS shërbyesi.</translation>
+        <translation>서버 OS용 핵심 패키지입니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
         <source>Base</source>
-        <translation>Bazë</translation>
+        <translation>기본</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
         <source>Base packages for server OS.</source>
-        <translation>Paketa bazë për OS shërbyesi.</translation>
+        <translation>서버 OS용 기본 패키지입니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
         <source>Basic Server Environment</source>
-        <translation>Mjedis Bazë Shërbyesi</translation>
+        <translation>기본 서버 환경</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
         <source>Applies to standard common service environments, such as Web services and database services.</source>
-        <translation>Vlen për mjedise standard shërbimesh të zakonshme, të tilla si shërbime Web dhe shërbime bazash të dhënash.</translation>
+        <translation>웹 서비스 및 데이터베이스 서비스와 같은 표준 공통 서비스 환경에 적용됩니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
         <source>Cloud and Virtualzalition</source>
-        <translation>Re dhe Virtualizim</translation>
+        <translation>클라우드 및 가상화</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
         <source>Applies to IaaS environments, such as virtualization, containers, and clouds.</source>
-        <translation>Vlen për mjedise IaaS, bie fjala, virtualizim, kontejnerë dhe re.</translation>
+        <translation>가상화, 컨테이너 및 클라우드와 같은 IaaS 환경에 적용됩니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
         <source>Big Data</source>
-        <translation>Big Data</translation>
+        <translation>빅 데이터</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
         <source>Applies to servers that provide parallel processing of massive data.</source>
-        <translation>Vlen për shërbyes që furnizojë përpunim paralel sasish masive të dhënash.</translation>
+        <translation>대규모 데이터의 병렬 처리를 제공하는 서버에 적용됩니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Server Environment with GUI</source>
-        <translation>Mjedis Shërbyesi me GUI</translation>
+        <translation>GUI를 사용하는 서버 환경</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Operates the services and applications on the graphical user interface.</source>
-        <translation>Mban në punë shërbimet dhe aplikacionet te ndërfaqja grafike e përdoruesit.</translation>
+        <translation>그래픽 사용자 인터페이스에서 서비스 및 응용프로그램을 작동합니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>Custom Installation</source>
-        <translation>Instalim Vetjak</translation>
+        <translation>사용자 지정 설치</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>Provides most package groups for custom selection, covering minimum to maximum installation.</source>
-        <translation>Furnizon shumicën e grupeve të paketave për përzgjedhje vetjake, duke mbuluar nga instalime minimum deri në instalime maksimum.</translation>
+        <translation>최소 설치부터 최대 설치까지 사용자 지정 선택에 대한 대부분의 패키지 그룹을 제공합니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>Debugging Tools</source>
-        <translation>Mjete Diagnostikimi</translation>
+        <translation>디버깅 도구</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>Provide debugging package for program function and performance.</source>
-        <translation>Furnizon paketa diagnostikimi për funksione dhe punim programesh.</translation>
+        <translation>프로그램 기능 및 성능에 대한 디버깅 패키지를 제공합니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>Applications with GUI</source>
-        <translation>Aplikacione me GUI</translation>
+        <translation>GUI를 사용하는 응용프로그램</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>Commonly used server application packages in graphical user interface.</source>
-        <translation>Paketa aplikacionesh shërbyesi të përdorura rëndom në ndërfaqe grafike përdoruesi.</translation>
+        <translation>그래픽 사용자 인터페이스에서 일반적으로 사용되는 서버 응용 프로그램 패키지입니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Development Tools</source>
-        <translation>Mjete për Zhvillim</translation>
+        <translation>개발 도구</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Development tool packages in multiple programming languages.</source>
-        <translation>Paketa mjetesh zhvillimi për shumë gjuhë programimi.</translation>
+        <translation>여러 프로그래밍 언어로 된 개발 도구 패키지입니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>Directory Client</source>
-        <translation>Klient Drejtorish</translation>
+        <translation>디렉토리 클라이언트</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>Clients for integration into a network managed by a directory service.</source>
-        <translation>Klientë për integrim në një drejtori të administruar nga një shërbim drejtorish.</translation>
+        <translation>디렉토리 서비스에서 관리하는 네트워크로 통합하기 위한 클라이언트</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Domain Name Service</source>
-        <translation>Shërbim Emrash Përkatësish</translation>
+        <translation>도메인 이름 서비스</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Environments for running the domain name service (DNS).</source>
-        <translation>Mjedise për xhirim shërbimi emrash përkatësish (DNS).</translation>
+        <translation>DNS(Domain Name Service)를 실행하기 위한 환경.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>File and Storage Server</source>
-        <translation>Shërbyes Kartelash dhe Depozitimesh</translation>
+        <translation>파일 및 저장소 서버</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
-        <translation>Shërbyes depozitimesh CIFS, SMB, NFS, iSCSI, iSER, dhe iSNS rrjeti.</translation>
+        <translation>CIFS, SMB, NFS, iSCSI, iSER, 및 iSNS 네트워크 저장소 서버.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>Graphics Creation Tools</source>
-        <translation>Mjete Krijimi Grafik</translation>
+        <translation>그래픽 제작 도구</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>Software for creating and editing images.</source>
-        <translation>Software për krijim dhe përpunim figurash.</translation>
+        <translation>이미지를 생성하고 편집하기 위한 소프트웨어.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>Load Balancer</source>
-        <translation>Balancues Ngarkese</translation>
+        <translation>부하 분산장치</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>Load balancing support for network traffic.</source>
-        <translation>Mbulim për balancim ngarkese për trafik rrejti.</translation>
+        <translation>네트워크 트래픽에 대한 부하 평형화 지원.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>MariaDB Database Server</source>
-        <translation>Shërbyes Baze të Dhënash MariaDB</translation>
+        <translation>MariaDB 데이터베이스 서버</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>The MariaDB SQL database server, and associated packages.</source>
-        <translation>Shërbyes për bazën e të dhënave MariaDB SQL, dhe paketat përkatëse.</translation>
+        <translation>MariaDB SQL 데이터베이스 서버 및 관련 패키지.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>E-mail Server</source>
-        <translation>Shërbyes Email-i</translation>
+        <translation>이메일 서버</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
-        <translation>I lejon sistemit të veprojë si një shërbyes SMTP dhe/ose IMAP email-esh.</translation>
+        <translation>시스템이 SMTP 및/또는 IMAP 전자 메일 서버 역할을 하도록 허용.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>Network File System Client</source>
-        <translation>Klient Sistemesh Kartelash Rrjeti</translation>
+        <translation>네트워크 파일 시스템 클라이언트</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>Environments for network storage devices.</source>
-        <translation>Mjedise për pajisje depozitë në rrjet.</translation>
+        <translation>네트워크 스토리지 장치 환경.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>Performance Tools</source>
-        <translation>Mjete Funksionimi</translation>
+        <translation>성능 도구</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>Packages for monitoring and diagnosing hardware devices, system programs, and applications.</source>
-        <translation>Paketa për mbikëqyrje dhe diagnostikim pajisjesh hardware, programe sistemi dhe aplikacione.</translation>
+        <translation>하드웨어 장치, 시스템 프로그램 및 응용프로그램을 모니터링 및 진단하기 위한 패키지.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>Security Tools</source>
-        <translation>Mjete Sigurie</translation>
+        <translation>보안 도구</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>Packages for integrity and trust verification.</source>
-        <translation>Paketa për verifikim integriteti dhe besimi.</translation>
+        <translation>무결성 및 신뢰 확인을 위한 패키지.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>Web Server</source>
-        <translation>Shërbyes Web</translation>
+        <translation>웹 서버</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>Provides Java servlets and Web common service components.</source>
-        <translation>Furnizon shërbyesth Java dhe përbërës shërbimesh të rëndomtë Web.</translation>
+        <translation>Java 서블릿 및 웹 공통 서비스 구성 요소를 제공합니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>Guest Agents</source>
-        <translation>Agjentë Mysafiri</translation>
+        <translation>게스트 에이전트</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>Agents used when running under a hypervisor.</source>
-        <translation>Agjentë të përdorur kur xhirohet nën një hipervizor.</translation>
+        <translation>하이퍼바이저에서 실행할 때 사용되는 에이전트.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Virtualization Client</source>
-        <translation>Klient Virtualizimi</translation>
+        <translation>가상화 클라이언트</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Clients for installing and managing virtualization instances.</source>
-        <translation>Klientë për instalim dhe administrim instancash virtualizimi.</translation>
+        <translation>가상화 인스턴스 설치 및 관리를위한 클라이언트.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Virtualization Hypervisor</source>
-        <translation>Hipervizor Virtualizimi</translation>
+        <translation>가상화 하이퍼바이저</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Smallest possible virtualization host installation.</source>
-        <translation>Instalimi më i vogël i mundshëm i një strehe virtualizimesh.</translation>
+        <translation>가장 작은 가상화 호스트 설치.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Virtualization Tools</source>
-        <translation>Mjete Virtualizimi</translation>
+        <translation>가상화 도구</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Tools for offline virtual image management.</source>
-        <translation>Mjete për administrim pamjesh virtuale jashtë interneti.</translation>
+        <translation>오프라인 가상 이미지 관리를 위한 도구.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Virtualization Platform</source>
-        <translation>Platformë Virtualizimi</translation>
+        <translation>가상화 플랫폼</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Provides an interface for acessing and controlling virtualized guests and containers.</source>
-        <translation>Furnizon një ndërfaqe për përdorim dhe kontroll mysafirësh dhe kontejnerësh të virtualizuar.</translation>
+        <translation>가상화된 게스트 및 컨테이너를 평가하고 제어하기 위한 인터페이스를 제공합니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>High Availability</source>
-        <translation type="unfinished"/>
+        <translation>고가용성</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Infrastructure for highly available services and/or shared storage.</source>
-        <translation type="unfinished"/>
+        <translation>가용성이 높은 서비스 및/또는 공유 저장소를 위한 인프라구조.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>InfiniBand Support</source>
-        <translation>Mbulim për Infiniband</translation>
+        <translation>인피니티 밴드 지원</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
-        <translation type="unfinished"/>
+        <translation>RDMA 기반 InfiniBand 및 iWARP 패브릭을 사용하여 클러스터링 및 그리드 연결을 지원하도록 설계된 소프트웨어.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Large Systems Performance</source>
-        <translation>Funksionim Sistemesh të Mëdha</translation>
+        <translation>대형 시스템 성능</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Performance support tools for large systems.</source>
-        <translation>Mjete në ndihmë të funksionimit për sisteme të mëdha.</translation>
+        <translation>대형 시스템에 대한 성능 지원 도구.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Platform Development</source>
-        <translation>Zhvillim Platformash</translation>
+        <translation>플랫폼 개발</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
-        <translation>Krye dhe librari të rekomanduara zhvillimi, për zhvillim aplikacionesh që xhirojnë në UOS.</translation>
+        <translation>UOS에서 실행할 응용 프로그램을 개발하기 위한 권장 개발 헤더 및 라이브러리입니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Internet Applications</source>
-        <translation>Aplikacione Internet</translation>
+        <translation>인터넷 응용프로그램</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Email, chat, and video conferencing software.</source>
-        <translation>Software për email, fjalosje dhe takime video.</translation>
+        <translation>이메일, 채팅 및 화상 회의 소프트웨어.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Virtualization Toolset</source>
-        <translation>Grup mjetesh Virtualizimi</translation>
+        <translation>가상화 툴셋</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Toolset for virtualization enviroment (host and guest).</source>
-        <translation>Grup mjetesh për mjedis virtualizim (strehë dhe mysafir).</translation>
+        <translation>가상화 환경을 위한 툴셋 (호스트 및 게스트)</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>PostgreSQL Database Server</source>
-        <translation>Shërbyes Baze të Dhënash PostgreSQL</translation>
+        <translation>PostgreSQL 데이터베이스 서버</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>The PostgreSQL SQL database server, and associated packages.</source>
-        <translation>Shërbyes për bazën e të dhënave PostgreSQL SQL, dhe paketat përkatëse.</translation>
+        <translation>PostgreSQL SQL 데이터베이스 서버 및 관련 패키지.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="262"/>
         <source>Do not use this partition</source>
-        <translation>Mos e përdor këtë pjesë</translation>
+        <translation>이 파티션 사용안함</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="275"/>
         <source>Swap partition</source>
-        <translation>Pjesë swap</translation>
+        <translation>스왑 파티션</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="279"/>
         <source>Unknown</source>
-        <translation>E panjohur</translation>
+        <translation>알 수 없음</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="320"/>
         <location filename="../src/ui/delegates/partition_util.cpp" line="351"/>
         <source>Freespace</source>
-        <translation>Hapësirë e lirë</translation>
+        <translation>빈 공간</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="57"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="101"/>
         <source>Abort Installation</source>
-        <translation>Ndërprite Instalimin</translation>
+        <translation>설치 중단</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="59"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="86"/>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
-        <translation>Veprimet përkatëse që bëtë te procesi i instalimit s’do të kenë efekt, të ndërpritet apo të vazhdohet instalimi?</translation>
+        <translation>설치 프로세스에서 수행한 관련 작업이 적용되지 않습니다. 설치를 중단하거나 계속하시겠습니까?</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="60"/>
@@ -421,26 +421,26 @@
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="100"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="121"/>
         <source>Continue</source>
-        <translation>Vazhdo</translation>
+        <translation>계속</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="61"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="43"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="61"/>
         <source>Abort</source>
-        <translation>Ndërprite</translation>
+        <translation>중단</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="39"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="201"/>
         <source>Set Control Region</source>
-        <translation>Caktoni Rajon Kontrolli</translation>
+        <translation>제어 영역 설정</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="40"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="202"/>
         <source>Set the region for UOS EndPoint Management Platform</source>
-        <translation>Caktoni rajonin për UOS EndPoint Management Platform</translation>
+        <translation>UOS 엔드포인트 관리 플랫폼의 지역 설정</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="199"/>
@@ -466,18 +466,18 @@
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="25"/>
         <location filename="../src/base/translator.h" line="16"/>
         <source>Next</source>
-        <translation>Pasuesi</translation>
+        <translation>다음</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="200"/>
         <source>Server Address</source>
-        <translation>Adresë Shërbyesi</translation>
+        <translation>서버 주소</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="197"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
-        <translation>Që të instaloni %2, ju duhen të paktën %1 GB hapësirë disku. Për të pasur funksionim më të mirë, këshillohen %3 GB ose më tepër</translation>
+        <translation>%2을(를) 설치하려면 %1GB 이상의 디스크 공간이 필요합니다. 더 나은 성능을 얻으려면 %3GB 이상이 권장됩니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
@@ -508,14 +508,14 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="96"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="123"/>
         <source>Insufficient Disk Space</source>
-        <translation>Hapësirë Disku e Pamjaftueshme</translation>
+        <translation>디스크 공간 부족</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="98"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="130"/>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="86"/>
         <source>Exit</source>
-        <translation>Dil</translation>
+        <translation>종료</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="116"/>
@@ -523,7 +523,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="125"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="75"/>
         <source>Warning</source>
-        <translation>Sinjalizim</translation>
+        <translation>경고</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
@@ -537,26 +537,26 @@
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="95"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="119"/>
         <source>Cancel</source>
-        <translation>Anuloje</translation>
+        <translation>취소</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="54"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="87"/>
         <source>Tuning system</source>
-        <translation>Përimtim sistemi</translation>
+        <translation>튜닝 시스템</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="89"/>
         <source>Applying changes to your system, please wait...</source>
-        <translation>Po zbatohen ndryshimet te sistemi juaj, ju lutemi, prisni…</translation>
+        <translation>변경 사항을 시스템에 적용하려면, 잠시 기다려 주세요...</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="109"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="197"/>
         <source>Change boot loader</source>
-        <translation>Ndryshoni ngarkues nisjesh</translation>
+        <translation>부트 로더 변경</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="111"/>
@@ -565,14 +565,14 @@
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="15"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="60"/>
         <source>Done</source>
-        <translation>U bë</translation>
+        <translation>완료</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="113"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="204"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="617"/>
         <source>Delete</source>
-        <translation>Fshije</translation>
+        <translation>삭제</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="115"/>
@@ -580,95 +580,95 @@
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="129"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="180"/>
         <source>Install NVIDIA closed source driver</source>
-        <translation>Instaloni përudhës NVIDIA me burim të mbyllur</translation>
+        <translation>NVIDIA 비공개 소스 드라이버 설치</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="476"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="393"/>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation>U gjet %1 gabim, ndreqeni, që të vazhdohet instalimi, ose kaloni nën mënyrën e thjeshtë</translation>
+        <translation>%1 오류 발견, 설치를 계속하거나 단순 모드로 전환하도록 수정</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="480"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="396"/>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation>U gjetën %1 gabime, ndreqini, që të vazhdohet instalimi, ose kaloni nën mënyrën e thjeshtë</translation>
+        <translation>%1 오류 발견, 설치를 계속하거나 단순 모드로 전환하도록 수정</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="486"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="490"/>
         <source>%1 errors found, fix to continue installation</source>
-        <translation>U gjetën %1 gabime, ndreqini, që të vazhdohet instalimi</translation>
+        <translation>%1 오류 발견, 설치를 계속하려면 수정하십시오</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="537"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="329"/>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation>Lloji i sistemit të kartelave të pjesës drejtori /boot mund të jetë vetëm %1 </translation>
+        <translation>/boot 디렉토리의 파티션 파일 시스템 유형은 %1만 가능합니다. </translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="541"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="333"/>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation>Pjesa drejtori /boot duhet të jetë pjesa e parë në hard disk</translation>
+        <translation>/boot 디렉토리의 파티션은 하드 디스크의 첫 번째 파티션이어야 합니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="545"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
-        <translation>Pjesa e drejtorisë /boot/efi duhet të jetë pjesa e parë në hard disk</translation>
+        <translation>/boot/efi 디렉토리의 파티션이 하드 디스크의 첫 번째 파티션이어야 합니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="550"/>
         <source>/boot partition requires at least %1 MB</source>
-        <translation>Pjesa /boot lyp të paktën %1 MB</translation>
+        <translation>/boot 파티션에 %1MB 이상 필요</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="554"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="342"/>
         <source>To create lvm, /boot partition is required</source>
-        <translation>Për të krijuar lvm, pjesa /boot është e domosdoshme</translation>
+        <translation>lvm을 생성하려면 /boot 파티션이 필요함</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="557"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="345"/>
         <source>Add an EFI partition to continue</source>
-        <translation>Që të vazhdohet, shtoni një pjesë EFI</translation>
+        <translation>계속하려면 EFI 파티션 추가</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="561"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="349"/>
         <source>/efi partition requires at least %1 MB</source>
-        <translation>Për pjesë /efi lypsen të paktën %1 MB</translation>
+        <translation>/efi 파티션에 %1MB 이상 필요</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="565"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="353"/>
         <source>Add a root partition to continue</source>
-        <translation>Që të vazhdohet, shtoni një pjesë Rrënjë</translation>
+        <translation>계속하려면 루트 파티션 추가</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="570"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="89"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="358"/>
         <source>/root partition requires at least %1 GB</source>
-        <translation>Për pjesën /root lypsen të paktën %1 GB</translation>
+        <translation>/root 파티션에 %1GB 이상 필요</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="575"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="363"/>
         <source>%2 partition requires at least %1 GB</source>
-        <translation>Për pjesën %2 lypsen të paktën %1 GB</translation>
+        <translation>%2 파티션에 %1GB 이상 필요</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="580"/>
         <source>Add a logical partition to continue</source>
-        <translation>Që të vazhdohet, shtoni një pjesë logjike</translation>
+        <translation>계속하려면 논리적 파티션 추가</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="124"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="214"/>
         <source>Edit Disk</source>
-        <translation>Përpunoni Disk</translation>
+        <translation>디스크 편집</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="125"/>
@@ -678,7 +678,7 @@
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="187"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="227"/>
         <source>File system</source>
-        <translation>Sistem kartelash</translation>
+        <translation>파일 시스템</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="126"/>
@@ -688,13 +688,13 @@
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="193"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="228"/>
         <source>Mount point</source>
-        <translation>Pikë montimi</translation>
+        <translation>마운트 지점</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="127"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="275"/>
         <source>Format the partition</source>
-        <translation>Formatoje pjesën</translation>
+        <translation>파티션 포맷</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="129"/>
@@ -703,12 +703,12 @@
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="96"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="120"/>
         <source>Create</source>
-        <translation>Krijoje</translation>
+        <translation>생성</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="225"/>
         <source>Please input password</source>
-        <translation>Ju lutemi, jepni fjalëkalimin</translation>
+        <translation>비밀번호를 입력하세요</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="232"/>
@@ -716,21 +716,21 @@
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="126"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="240"/>
         <source>Passwords do not match</source>
-        <translation>Fjalëkalimet nuk përputhen</translation>
+        <translation>비밀번호가 일치하지 않습니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="265"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="130"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="173"/>
         <source>Encrypt This Disk</source>
-        <translation>Fshehtëzoje Këtë Disk</translation>
+        <translation>이 디스크 암호화</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="266"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="228"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="434"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation>Sigurohuni se keni kopjeruajtur të dhëna të rëndësishme, mandej përzgjidhni diskun për instalim</translation>
+        <translation>중요한 데이터를 백업했는지 확인한 다음 설치할 디스크를 선택하세요</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="267"/>
@@ -739,12 +739,12 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="639"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="459"/>
         <source>Password</source>
-        <translation>Fjalëkalim</translation>
+        <translation>비밀번호</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="268"/>
         <source>Repeat Password</source>
-        <translation>Ripërsëritni Fjalëkalimin</translation>
+        <translation>재입력 비밀번호</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="270"/>
@@ -754,18 +754,18 @@
         <location filename="../src/ui/main_window_cli.cpp" line="79"/>
         <location filename="../src/ui/main_window_cli.cpp" line="91"/>
         <source>Confirm</source>
-        <translation>Ripohojeni</translation>
+        <translation>확인</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="271"/>
         <source>Take care of your password, otherwise, all your data will be lost</source>
-        <translation>Mos e humbni fjalëkalimin tuaj, përndryshe, krejt të dhënat tuaja do të humbin</translation>
+        <translation>암호를 주의하십시오. 그렇지 않으면 모든 데이터가 손실됩니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="131"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="185"/>
         <source>Please select a disk to start installation</source>
-        <translation>Ju lutemi, përzgjidhni një disk për të filluar instalimin</translation>
+        <translation>설치를 시작할 디스크를 선택하세요</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="132"/>
@@ -775,7 +775,7 @@
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="237"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="174"/>
         <source>Install here</source>
-        <translation>Instaloje këtu</translation>
+        <translation>여기 설치</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/lvm_partition_frame.cpp" line="54"/>
@@ -796,14 +796,14 @@
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="24"/>
         <location filename="../src/base/translator.h" line="17"/>
         <source>Back</source>
-        <translation>Mbrapsht</translation>
+        <translation>뒤로</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="201"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="172"/>
         <source>Create New Partition</source>
-        <translation>Krijoni Pjesë të Re</translation>
+        <translation>새 파티션 만들기</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="145"/>
@@ -811,7 +811,7 @@
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="176"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="225"/>
         <source>Type</source>
-        <translation>Lloj</translation>
+        <translation>유형</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="146"/>
@@ -819,7 +819,7 @@
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="182"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="226"/>
         <source>Location</source>
-        <translation>Vendndodhje</translation>
+        <translation>위치</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="149"/>
@@ -827,132 +827,132 @@
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="198"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="229"/>
         <source>Size</source>
-        <translation>Madhësi</translation>
+        <translation>크기</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="151"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="221"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="115"/>
         <source>Start</source>
-        <translation>Fillim</translation>
+        <translation>시작</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="151"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="221"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="116"/>
         <source>End</source>
-        <translation>Fund</translation>
+        <translation>종료</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="153"/>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation>확인</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="35"/>
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="52"/>
         <source>Formatting...</source>
-        <translation>Po formatohet…</translation>
+        <translation>포맷중...</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="80"/>
         <source>Format Warning</source>
-        <translation>Sinjalizim Formatimi</translation>
+        <translation>포맷 경고</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="63"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="89"/>
         <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation>Vazhdimi i instalimit do të formatojë krejt diskun, ju lutemi, bëni një kopjeruajtje të krejt të dhënave tuaja. Nëse nuk dini se ç’po bëni, ju lutemi, mos vazhdoni më tej</translation>
+        <translation>설치를 계속하면 전체 디스크가 포맷됩니다. 모든 데이터를 백업하십시오. 만약 당신이 무엇을 하고 있는지 모른다면, 계속하지 마십시오</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="37"/>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="45"/>
         <source>Scan disks</source>
-        <translation>Skano disqe</translation>
+        <translation>디스크 검사</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="38"/>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="46"/>
         <source>Scanning disks, please wait...</source>
-        <translation>Po skanohen disqe, ju lutemi, prisni…</translation>
+        <translation>디스크 검사 중입니다. 잠시 기다려주세요...</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="46"/>
         <source>You should delete a primary partition before creating a new one</source>
-        <translation>Duhet të fshini një pjesë parësore, përpara se të krijoni një të re</translation>
+        <translation>새 파티션을 만들기 전에 기본 파티션을 삭제해야 합니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="48"/>
         <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation>Pjesë të reja logjike mund të krijohen vetëm pranë pjesësh ekzistuese logjike</translation>
+        <translation>새 논리 파티션은 기존 논리 파티션 근처에만 만들 수 있습니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="53"/>
         <source>You should delete a primary partition before creating a new partition</source>
-        <translation>Duhet të fshini një pjesë parësore, përpara se të krijoni një të re</translation>
+        <translation>새 파티션을 만들기 전에 기본 파티션을 삭제해야 합니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="86"/>
         <source>Failed to Create New Partition</source>
-        <translation>S’u Arrit të Krijohej Pjesë e Re</translation>
+        <translation>새 파티션을 만들지 못했습니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="62"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="103"/>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
-        <translation>Duhet të fshini një pjesë parësore, përpara se të krijoni një të re, ngaqë mund të ketë vetëm katër pjesë parësore në një disk MBR</translation>
+        <translation>MBR 디스크에 4개의 기본 파티션만 있을 수 있으므로, 새 파티션을 만들기 전에 기본 파티션을 삭제해야 합니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="109"/>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
-        <translation>Duhet të fshini një pjesë parësore, përpara se të krijoni një të re, ose ta kaloni pjesën logjike ekzistuese në fund të diskut</translation>
+        <translation>논리 파티션을 만들기 전에 기본 파티션을 삭제하거나 기존 논리 파티션을 디스크 끝으로 이동해야 합니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="76"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. Please select one of the below solutions and continue.</source>
-        <translation>Keni një ngarkues nisjesh EFI, por një disk MBR ama, ndaj s’mund të instaloni drejtpërsëdrejti %1-in. Ju lutemi, përzgjidhni një nga zgjidhjet më poshtë dhe vazhdoni.</translation>
+        <translation>EFI 부트 로더는 있지만 MBR 디스크가 있으므로 %1을 직접 설치할 수 없다. 아래 솔루션 중 하나를 선택하고 계속하십시오.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="78"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="148"/>
         <source>Disable UEFI</source>
-        <translation>Çaktivizo UEFI</translation>
+        <translation>UEFI 사용중지</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="80"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="150"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="86"/>
         <source>Reboot, enter BIOS, and disable UEFI</source>
-        <translation>Riniseni, hyni në BIOS, dhe çaktivizoni UEFI-n</translation>
+        <translation>재부팅, BIOS 입력 및 UEFI 비활성화</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="81"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="151"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="87"/>
         <source>Exit BIOS, and install UOS again</source>
-        <translation>Dilni nga BIOS-i, dhe riinstaloni UOS-in</translation>
+        <translation>BIOS를 종료하고, UOS를 다시 설치합니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="158"/>
         <source>Make sure you have backed up all data before proceeding</source>
-        <translation>Përpara se të vazhdoni, sigurohuni se keni kopjeruajtur krejt të dhënat tuaja</translation>
+        <translation>계속하기 전에 모든 데이터를 백업했는지 확인합니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="85"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="159"/>
         <source>Continuing installation will format your disk</source>
-        <translation>Vazhdimi i instalimit do të formatojë diskun tuaj</translation>
+        <translation>설치를 계속하면 디스크가 포맷됩니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="139"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="79"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
-        <translation>Keni një ngarkues nisjesh EFI, por një disk MBR ama, ndaj s’mund të instaloni drejtpërsëdrejti UOS-in. Ju lutemi, përzgjidhni një nga zgjidhjet më poshtë dhe vazhdoni.</translation>
+        <translation>EFI 부트 로더가 있지만 MBR 디스크가 있으므로 UOS를 직접 설치할 수 없습니다. 아래 솔루션 중 하나를 선택하고 계속하십시오.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="73"/>
@@ -961,7 +961,7 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="651"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="88"/>
         <source>Ready to Install</source>
-        <translation>Gati për Instalim</translation>
+        <translation>설치 준비 완료</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="75"/>
@@ -969,68 +969,68 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="223"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="92"/>
         <source>Make a backup of your important data and then continue</source>
-        <translation>Është e rëndësishme gjithashtu që të bë</translation>
+        <translation>중요한 데이터를 백업한 후 계속 진행합니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="44"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="78"/>
         <source>Select location for boot loader</source>
-        <translation>Përzgjidhni vend për ngarkues nisjesh</translation>
+        <translation>부트 로더 위치 선택</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="46"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="80"/>
         <source>If you do not understand the settings, please select the recommended one</source>
-        <translation>Nëse s’i kuptoni rregullimet, ju lutemi, përzgjidhni atë të rekomanduarin</translation>
+        <translation>설정을 이해하지 못할 경우, 권장 설정을 선택하십시오</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="431"/>
         <source>I have read and agree to the</source>
-        <translation>I kam lexuar dhe pajtohem me</translation>
+        <translation>나는 다음을 읽고 동의합니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="432"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="217"/>
         <source>%1 Software End User License Agreement</source>
-        <translation>Marrëveshje Licence Përdoruesi të Thjeshtë %1</translation>
+        <translation>%1 소프트웨어 최종 사용자 사용권 계약</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="436"/>
         <source>and</source>
-        <translation>dhe</translation>
+        <translation>및</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="445"/>
         <source>Agree to the</source>
-        <translation>Pajtohem me</translation>
+        <translation>동의:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="446"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="216"/>
         <source>User Experience Program License Agreement</source>
-        <translation>Marrëveshje licence për programin “User Experience Program”</translation>
+        <translation>사용자 환경 프로그램 사용권 계약</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="448"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="109"/>
         <location filename="../src/ui/frames_cli/language_frame.cpp" line="46"/>
         <source>Select Language</source>
-        <translation>Përzgjidhni Gjuhë</translation>
+        <translation>언어 선택</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="75"/>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation>S’arrihet të krijohet pjesë e re, ju lutemi, përzgjidhni një nga pjesët ekzistuese!</translation>
+        <translation>새 파티션을 만들 수 없습니다. 기존 파티션 중 하나를 선택하세요!</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="82"/>
         <source>Please select one of the partitions to install!</source>
-        <translation>Ju lutemi, përzgjidhni një nga pjesët që të instalohet!</translation>
+        <translation>설치할 파티션 중 하나를 선택하세요!</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="417"/>
         <source>Windows will not boot if you install %1 on Windows disk, please confirm to continue</source>
-        <translation>Windows nuk do të niset, nëse instaloni %1 në një disk Windows, që të vazhdohet, ju lutemi, ripohojeni</translation>
+        <translation>%1을 Windows 디스크에 설치하는 경우 Windows가 부팅되지 않습니다. 계속하려면 확인하십시오</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="399"/>
@@ -1039,7 +1039,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="644"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="458"/>
         <source>Username</source>
-        <translation>Emër përdoruesi</translation>
+        <translation>사용자 이름</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="427"/>
@@ -1047,7 +1047,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="638"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="457"/>
         <source>Computer name</source>
-        <translation>Emër kompjuteri</translation>
+        <translation>컴퓨터 이름</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="476"/>
@@ -1056,37 +1056,37 @@
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="210"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="460"/>
         <source>Repeat password</source>
-        <translation>Përsëritni fjalëkalimin</translation>
+        <translation>비밀번호 반복</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="634"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="641"/>
         <source>Root password</source>
-        <translation>Fjalëkalim rrënjë</translation>
+        <translation>루트 비밀번호</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="635"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="642"/>
         <source>Repeat root password</source>
-        <translation>Përsëritni fjalëkalimin rrënjë</translation>
+        <translation>루트 비밀번호 반복</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="646"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="130"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="454"/>
         <source>Create Accounts</source>
-        <translation>Krijoni Llogari</translation>
+        <translation>계정 만들기</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="647"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="456"/>
         <source>Fill in the username, computer name and your password</source>
-        <translation>Plotësoni emrin e përdoruesit, emrin e kompjuterit dhe fjalëkalimin tuaj</translation>
+        <translation>사용자 이름, 컴퓨터 이름 및 비밀번호 입력</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="648"/>
         <source>Use that password to edit boot menu</source>
-        <translation>Përdore këtë fjalëkalim për përpunim të menusë së nisjes</translation>
+        <translation>해당 비밀번호를 사용하여 부팅 메뉴 편집</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="649"/>
@@ -1097,156 +1097,156 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="673"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="152"/>
         <source>This username already exists</source>
-        <translation>Ky emër përdoruesi ekziston tashmë</translation>
+        <translation>이 사용자 이름은 이미 있습니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="677"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="156"/>
         <source>The first letter must be in lowercase</source>
-        <translation>Shkronja e parë duhet të jetë shkronjë me të vogël</translation>
+        <translation>첫 번째 문자는 소문자 여야합니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="682"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="161"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
-        <translation>Emri i përdoruesit duhet të përmbajë shkronja anglishteje (me të vogla), numra ose simbole specialë (_-)</translation>
+        <translation>사용자 이름은 영문자(낮음), 숫자 또는 특수 기호(_-)를 포함해야 합니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="688"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="167"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
-        <translation>Ju lutemi, jepni një emër përdorues më të gjatë se %1 shenja dhe më të shkurtër se %2 shenja</translation>
+        <translation>%1자보다 길고 %2자보다 짧은 사용자 이름을 입력하세요</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="711"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="116"/>
         <source>Please input computer name</source>
-        <translation>Ju lutemi, jepni emër kompjuteri</translation>
+        <translation>컴퓨터 이름을 입력하세요</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="715"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="120"/>
         <source>Computer name is invalid</source>
-        <translation>Emri i kompjuterit është i pavlefshëm</translation>
+        <translation>컴퓨터 이름이 잘못되었습니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="719"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="124"/>
         <source>Computer name already exists, please input another one</source>
-        <translation>Emri i kompjuterit ekziston tashmë, ju lutemi, jepni një tjetër</translation>
+        <translation>컴퓨터 이름이 이미 있으므로 다른 이름을 입력하세요</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="724"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="129"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
-        <translation>Ju lutemi, jepni një emër kompjuteri më të gjatë se %1 shenja dhe më të shkurtër se %2 shenja</translation>
+        <translation>%1자보다 길고 %2자보다 짧은 컴퓨터 이름을 입력하세요</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="752"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="80"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="194"/>
         <source>The password should be different from the username</source>
-        <translation>Fjalëkalimi duhet të jetë i ndryshëm nga emri i përdoruesit</translation>
+        <translation>비밀번호는 사용자 이름과 달라야 합니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="766"/>
         <source>The password cannot be empty​</source>
-        <translation>Fjalëkalimi s’mund të jetë i zbrazët</translation>
+        <translation>비밀번호는 비워 둘 수 없음</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="770"/>
         <source>Password must contain letters, numbers and symbols</source>
-        <translation>Fjalëkalimi duhet të përmbajë shkronja, numra dhe simbole</translation>
+        <translation>비밀번호는 문자, 숫자 및 기호를 포함해야 함</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="774"/>
         <source>Password must have at least 8 characters</source>
-        <translation>Fjalëkalimi duhet të ketë të paktën 8 shenja</translation>
+        <translation>비밀번호는 8자 이상이어야 함</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="778"/>
         <source>Password must be between %1 and %2 characters</source>
-        <translation>Fjalëkalimi duhet të jetë mes %1 dhe %2 shenjash</translation>
+        <translation>비밀번호는 %1에서 %2자 사이여야 함</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="793"/>
         <source>Password must not contain common words and combinations</source>
-        <translation>Fjalëkalimi s’duhet të përmbajë fjalë të rëndomta dhe kombinime</translation>
+        <translation>비밀번호에는 공통 단어와 조합을 사용할 수 없습니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="799"/>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>Fjalëkalimi s’duhet të përmbajë më tepër se 4 shenja palindromike</translation>
+        <translation>비밀번호에는 4자 이상의 회문 문자를 사용할 수 없음</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="804"/>
         <source>Password must contain lowercase letters</source>
-        <translation>Fjalëkalimi duhet të përmbajë shkronja të vogla</translation>
+        <translation>비밀번호는 소문자를 포함해야 함</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="809"/>
         <source>Password must contain capital letters</source>
-        <translation>Fjalëkalimi duhet të përmbajë shkronja të mëdha</translation>
+        <translation>비밀번호는 대문자를 포함해야 함</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="814"/>
         <source>Password must contain special characters</source>
-        <translation>Fjalëkalimi duhet të përmbajë shenja Speciale</translation>
+        <translation>비밀번호는 특수 문자를 포함해야 함</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="819"/>
         <source>Passwords must contain numbers</source>
-        <translation>Fjalëkalimet duhet të përmbajnë numra</translation>
+        <translation>비밀번호는 숫자를 포함해야 함</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="1073"/>
         <source>Add fingerprint password in Control Center &gt; Accounts to unlock and authenticate</source>
-        <translation>Për shkyçje dhe mirëfilltësim, shtoni fjalëkalim shenja gishti te Qendër Kontrolli &gt; Llogari</translation>
+        <translation>제어 센터에 지문 암호를 추가 &gt; 계정잠금을 해제하고 인증</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="299"/>
         <source>Set Keyboard Layout</source>
-        <translation>Caktoni Skemë Tastiere</translation>
+        <translation>키보드 자판 지정하기</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="300"/>
         <source>Select a proper keyboard layout</source>
-        <translation>Përzgjidhni skemën e duhur të tastierës</translation>
+        <translation>적절한 키보드 레이아웃 선택</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.h" line="54"/>
         <source>Keyboard Layout</source>
-        <translation>Skemë Tastiere</translation>
+        <translation>키보드 자판</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="90"/>
         <source>Change time</source>
-        <translation>Ndryshoni kohën</translation>
+        <translation>시간 변경</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="91"/>
         <source>hr</source>
-        <translation>hr</translation>
+        <translation>시간</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="92"/>
         <source>min</source>
-        <translation>min</translation>
+        <translation>분</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="93"/>
         <source>Y</source>
-        <translation>Y</translation>
+        <translation>년</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
         <source>M</source>
-        <translation>M</translation>
+        <translation>월</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
         <source>D</source>
-        <translation>D</translation>
+        <translation>일</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="178"/>
@@ -1254,7 +1254,7 @@
         <location filename="../src/ui/frames/install_component_frame.cpp" line="239"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="82"/>
         <source>Select Components</source>
-        <translation>Përzgjidhni Përbërës</translation>
+        <translation>구성 요소 선택</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="186"/>
@@ -1262,13 +1262,13 @@
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="54"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="85"/>
         <source>Basic Environment</source>
-        <translation>Mjedis Bazë</translation>
+        <translation>기본 환경</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="187"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="242"/>
         <source>Select the components according to your needs</source>
-        <translation>Përzgjidhni përbërësin sipas nevojave tuaja</translation>
+        <translation>필요에 따라 구성 요소 선택</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="188"/>
@@ -1276,7 +1276,7 @@
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="55"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="86"/>
         <source>Add-Ons</source>
-        <translation>Shtesa</translation>
+        <translation>추가 기능</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="190"/>
@@ -1285,7 +1285,7 @@
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="99"/>
         <source>Select All</source>
-        <translation>Përzgjidheni Krejt</translation>
+        <translation>모두 선택</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="82"/>
@@ -1293,51 +1293,51 @@
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="63"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="64"/>
         <source>Installation Failed</source>
-        <translation>Instalimi Dështoi</translation>
+        <translation>설치 실패</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="84"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="19"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="65"/>
         <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
-        <translation>Na ndjeni për problemin. Ju lutemi, fotografoni ose skanoni kodin QR, që të na dërgoni regjistrin e gabimeve, ose ruajeni regjistrin në një disk të jashtëm. Do t’ju ndihmojmë të zgjidhni problemin.</translation>
+        <translation>문제에 대해 죄송합니다. 사진 또는 우리에게 오류 로그를 보내 QR 코드를 스캔하거나 외부 디스크에 로그를 저장하시기 바랍니다. 우리는 이 문제를 해결하는 데 도움이 될 것입니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="87"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="180"/>
         <source>Save Log</source>
-        <translation>Ruaje Regjistrin</translation>
+        <translation>로그 저장</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="168"/>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="143"/>
         <source>Install</source>
-        <translation>Instaloje</translation>
+        <translation>설치</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="212"/>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="266"/>
         <location filename="../src/ui/frames_cli/install_process_frame.cpp" line="68"/>
         <source>Installing</source>
-        <translation>Po instalohet</translation>
+        <translation>설치 중</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="289"/>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="399"/>
         <source>Show log</source>
-        <translation>Shfaq regjistër</translation>
+        <translation>로그 표시</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="396"/>
         <source>Hide log</source>
-        <translation>Fshihe regjistrin</translation>
+        <translation>로그 숨김</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="43"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="75"/>
         <source>Reboot Now</source>
-        <translation>Rinisu Tani</translation>
+        <translation>지금 재부팅</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
@@ -1346,25 +1346,25 @@
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="59"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="61"/>
         <source>Successfully Installed</source>
-        <translation>U instalua Me Sukses</translation>
+        <translation>성공적으로 설치됨</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="85"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="17"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="62"/>
         <source>Click the button below and then remove the installation media immediately</source>
-        <translation>Klikoni mbi butonin më poshtë dhe mandej hiqni menjëherë median e instalimit</translation>
+        <translation>아래 버튼을 클릭한 다음 설치 미디어를 즉시 제거하십시오</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="86"/>
         <source>Reboot to complete the installation</source>
-        <translation>Që të plotësohet instalimi riniseni</translation>
+        <translation>설치를 완료하려면 재부팅</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="123"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="319"/>
         <source>Edit</source>
-        <translation>Përpunoni</translation>
+        <translation>편집</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="153"/>
@@ -1372,7 +1372,7 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="322"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="596"/>
         <source>IP Address</source>
-        <translation>Adresë IP</translation>
+        <translation>IP 주소</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="154"/>
@@ -1380,28 +1380,28 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="323"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="597"/>
         <source>Netmask</source>
-        <translation>NetMask-ë</translation>
+        <translation>넷마스크</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="155"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="324"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="598"/>
         <source>Gateway</source>
-        <translation>Kanal</translation>
+        <translation>게이트웨이</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="156"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="325"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="599"/>
         <source>Primary DNS</source>
-        <translation>DNS Parësore</translation>
+        <translation>기본 DNS</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="157"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="326"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="600"/>
         <source>Secondary DNS</source>
-        <translation>DNS Dytësore</translation>
+        <translation>보조 DNS</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="167"/>
@@ -1415,7 +1415,7 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="312"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="211"/>
         <source>Gateway:</source>
-        <translation>Kanal:</translation>
+        <translation>게이트웨이:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="170"/>
@@ -1423,25 +1423,25 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="313"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="212"/>
         <source>Primary DNS:</source>
-        <translation>DNS Parësore:</translation>
+        <translation>기본 DNS:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="171"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="314"/>
         <source>Secondary DNS:</source>
-        <translation>DNS Dytësore:</translation>
+        <translation>보조 DNS:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="203"/>
         <source>IP Address:</source>
-        <translation>Adresë IP:</translation>
+        <translation>IP 주소:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="215"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="311"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="210"/>
         <source>Netmask:</source>
-        <translation>NetMask-ë:</translation>
+        <translation>넷마스크:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="262"/>
@@ -1452,28 +1452,28 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="268"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="315"/>
         <source>Auto</source>
-        <translation>Auto</translation>
+        <translation>자동</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="269"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="316"/>
         <source>Manual</source>
-        <translation>Dorazi</translation>
+        <translation>수동</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="484"/>
         <source>Illegal %1, please have a check.</source>
-        <translation>%1 e paligjshme, ju lutemi, kontrollojeni.</translation>
+        <translation>잘못된 %1, 확인하십시오.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="501"/>
         <source>IP address error: illegal IP address, please have a check.</source>
-        <translation>Gabim adrese IP: adresë IP e paligjshme, ju lutemi, kontrollojeni.</translation>
+        <translation>IP 주소 오류: 잘못된 IP 주소. 확인하십시오.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="515"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
-        <translation>Gabim netmask-e: netmask-ë e paligjshme, ju lutemi, kontrollojeni.</translation>
+        <translation>넷마스크 오류 : 잘못된 넷마스크. 확인하십시오.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="741"/>
@@ -1481,13 +1481,13 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="959"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="170"/>
         <source>Configure Network</source>
-        <translation>Formësoni Rrjetin</translation>
+        <translation>네트워크 구성</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="742"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="960"/>
         <source>IP address has been auto-configured, but you can configure the network as well</source>
-        <translation>Adresa IP është formësuar automatikisht, por mund të formësoni edhe rrjetin</translation>
+        <translation>IP 주소가 자동으로 구성되었지만 네트워크를 구성할 수도 있습니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="186"/>
@@ -1496,19 +1496,19 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="755"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="89"/>
         <source>Create Partitions</source>
-        <translation>Krijoni Pjesë</translation>
+        <translation>파티션 만들기</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="221"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="675"/>
         <source>Edit LVM Disk</source>
-        <translation>Përpunoni Disk LVM</translation>
+        <translation>LVM 디스크 편집</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="232"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="441"/>
         <source>Simple</source>
-        <translation>I thjeshtë</translation>
+        <translation>간편하게</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="233"/>
@@ -1516,7 +1516,7 @@
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="88"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="99"/>
         <source>Advanced</source>
-        <translation>I thelluar</translation>
+        <translation>상세하게</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="234"/>
@@ -1524,64 +1524,64 @@
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="91"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="98"/>
         <source>Full Disk</source>
-        <translation>Tërë Diskun</translation>
+        <translation>전체 디스크</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="501"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="659"/>
         <source>Start installation</source>
-        <translation>Fillo instalimin</translation>
+        <translation>설치 시작</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="633"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation>Disku i synuar është dinamik dhe, nëse vazhdoni, të dhënat tuaja mund të humbin. Ju lutemi, së pari bëni një kopjeruajtje të kartelave tuaja të rëndësishme.</translation>
+        <translation>대상 디스크는 동적이므로 계속하면 데이터가 손실될 수 있습니다. 먼저 중요한 파일을 백업해 주세요.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="637"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation>Disku i synuar është dinamik dhe, nëse vazhdoni, do të formatohet. Ju lutemi, së pari bëni një kopjeruajtje të kartelave tuaja të rëndësishme.</translation>
+        <translation>대상 디스크는 동적 디스크이며 계속 진행하면 포맷됩니다. 먼저 중요한 파일을 백업해 주세요.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="140"/>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="202"/>
         <source>System Setup</source>
-        <translation>Ujdisje Sistemi</translation>
+        <translation>시스템 설정</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="141"/>
         <source>Choose an option for your system</source>
-        <translation>Zgjidhni një mundësi për sistemin tuaj</translation>
+        <translation>시스템에 대한 옵션 선택</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="144"/>
         <source>Install the system in your installation media.</source>
-        <translation>Instalojeni sistemin te media juaj e instalimit</translation>
+        <translation>설치 미디어에 시스템을 설치하십시오.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="146"/>
         <source>Repair</source>
-        <translation>Riparim</translation>
+        <translation>수리하기</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="147"/>
         <source>Use recovery tools to fix system issues.</source>
-        <translation>Përdorni mjete rikthimi për të ndrequr probleme sistemi.</translation>
+        <translation>복구 도구를 사용하여 시스템 문제를 해결하십시오.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="149"/>
         <source>Enter the</source>
-        <translation>Jepni</translation>
+        <translation>입력:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="181"/>
         <source>Save the error log to a removable device</source>
-        <translation>Ruajeni regjistrin e gabimeve te një pajisje e heqshme</translation>
+        <translation>오류 로그를 이동식 장치에 저장</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="182"/>
         <source>Save as</source>
-        <translation>Ruaje si</translation>
+        <translation>다른 이름으로 저장</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="127"/>
@@ -1589,79 +1589,79 @@
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="25"/>
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="51"/>
         <source>Select Timezone</source>
-        <translation>Përzgjidhni Zonë Kohore</translation>
+        <translation>시간대 선택</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="128"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="251"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="321"/>
         <source>Is it the right timezone? You can change it as well</source>
-        <translation>A është zona kohore e duhur? Mundeni edhe ta ndryshoni.</translation>
+        <translation>올바른 시간대입니까? 변경할 수도 있습니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="129"/>
         <source>Map</source>
-        <translation>Hartë</translation>
+        <translation>지도</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="130"/>
         <source>List</source>
-        <translation>Listë</translation>
+        <translation>목록</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="71"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="122"/>
         <source>Friendly Note</source>
-        <translation>Shënim Miqësor</translation>
+        <translation>쓸모있는 메모</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="73"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="124"/>
         <source>You are installing %1 on a virtual machine which may result in sub-optimal performance. For the best experience, please install %1 on a real machine.</source>
-        <translation>Po e instaloni %1 në një makinë virtuale çka mund sjellë funksionim nën optimalin. Për funksionimin më të mirë, ju lutemi, instalojeni %1 në një makinë të njëmendtë.</translation>
+        <translation>가상 컴퓨터에 %1을(를) 설치하여 최적의 성능이 저하될 수 있습니다. 최상의 환경을 위해 실제 컴퓨터에 %1을(를) 설치하십시오.</translation>
     </message>
     <message>
         <location filename="../src/ui/models/bootloader_list_model.cpp" line="42"/>
         <source>%1 %2 (recommended)</source>
-        <translation>%1 %2 (e rekomanduar)</translation>
+        <translation>%1 %2 (추천됨)</translation>
     </message>
     <message>
         <location filename="../src/ui/models/mount_point_model.cpp" line="37"/>
         <source>Do not use</source>
-        <translation>Mos e përdor</translation>
+        <translation>사용하지 마세요</translation>
     </message>
     <message>
         <location filename="../src/ui/models/partition_type_model.cpp" line="41"/>
         <location filename="../src/ui/models/partition_type_model.cpp" line="47"/>
         <source>Logical Partition</source>
-        <translation>Pjesë Logjike</translation>
+        <translation>논리 파티션</translation>
     </message>
     <message>
         <location filename="../src/ui/models/partition_type_model.cpp" line="45"/>
         <source>Primary Partition</source>
-        <translation>Pjesë Parësore</translation>
+        <translation>기본 파티션</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="177"/>
         <source>To be formatted</source>
-        <translation>Për t’u formatuar</translation>
+        <translation>포맷할 수 있습니다</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="220"/>
         <source>System Disk</source>
-        <translation>Disk Sistemi</translation>
+        <translation>시스템 디스크</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="220"/>
         <source>Data Disk</source>
-        <translation>Disk të Dhënash</translation>
+        <translation>데이터 디스크</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="213"/>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="250"/>
         <source>Ethernet</source>
-        <translation>Ethernet</translation>
+        <translation>이더넷</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="216"/>
@@ -1673,29 +1673,29 @@
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="219"/>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="256"/>
         <source>Unknown device</source>
-        <translation>Pajisje e panjohur</translation>
+        <translation>알 수 없는 장치</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="89"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="92"/>
         <source>Make sure you have backed up important data, then select the disk to install.</source>
-        <translation>Sigurohuni se keni kopjeruajtur të dhëna të rëndësishme, mandej përzgjidhni diskun për instalim.</translation>
+        <translation>중요한 데이터를 백업했는지 확인한 다음 설치할 디스크를 선택하십시오.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="90"/>
         <source>Insert key: create or edit partition. Delete key: delete partition.</source>
-        <translation>Tasti Insert : krijoni ose përpunoni pjesë. Tasti Delete: fshirje pjese.</translation>
+        <translation>삽입 키: 파티션 만들기 또는 편집 삭제 키: 파티션 삭제</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="338"/>
         <source>/boot partition requires at least %1 GB</source>
-        <translation>Për pjesën /boot lypsen të paktën %1 GB</translation>
+        <translation>/boot 파티션에 %1GB 이상 필요</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="401"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="404"/>
         <source>%1 error found, fix to continue installation</source>
-        <translation>U gjet %1 gabim, ndreqeini, që të vazhdohet instalimi</translation>
+        <translation>%1 오류 발견, 설치를 계속하려면 수정</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="94"/>
@@ -1703,119 +1703,119 @@
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="208"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="220"/>
         <source>Please input password longer than %1 characters and shorter than %2 characters</source>
-        <translation>Ju lutemi, jepni një fjalëkalim më të gjatë se %1 shenja dhe më të shkurtër se %2 shenja</translation>
+        <translation>%1자보다 길고 %2자보다 짧은 비밀번호를 입력하십시오</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="215"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Fjalëkalimi duhet të përmbajë shkronja të anglishtes (bëhet dallimi mes të voglave dhe të mëdhave), numra ose simbole speciale (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+        <translation>비밀번호에는 영문자(대소문자 구분), 숫자 또는 특수 기호(~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)가 포함되어야 합니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="204"/>
         <source>Create Root Account</source>
-        <translation>Krijo Llogarinë Rrënjë</translation>
+        <translation>루트 계정 만들기</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="207"/>
         <source>Password:</source>
-        <translation>Fjalëkalim:</translation>
+        <translation>비밀번호:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="93"/>
         <source>System Disk:</source>
-        <translation>Disk Sistemi:</translation>
+        <translation>시스템 디스크:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
         <source>Data Disk:</source>
-        <translation>Disk të Dhënash:</translation>
+        <translation>데이터 디스크:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="86"/>
         <source>Primary partition</source>
-        <translation>Pjesë parësore</translation>
+        <translation>기본 파티션</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="90"/>
         <source>Logical partition</source>
-        <translation>Pjesë logjike</translation>
+        <translation>논리 파티션</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="89"/>
         <source>Make a backup of all your data to avoid data loss</source>
-        <translation>Që të shmangni humbje të dhënash, bëni një kopjeruajtje të krejt të dhënave tuaja</translation>
+        <translation>데이터 손실을 방지하기 위해 모든 데이터를 백업합니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="91"/>
         <source>Nothing to do</source>
-        <translation>S’ka ç’bëhet</translation>
+        <translation>할 일이 없습니다</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="53"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="84"/>
         <source>Select the components according to your needs.</source>
-        <translation>Përzgjidhni përbërësit sipas nevojave tuaja.</translation>
+        <translation>필요에 따라 구성 요소를 선택하십시오.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="82"/>
         <source>Shut Down</source>
-        <translation>Fike</translation>
+        <translation>컴퓨터 끄기</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/keyboard_frame.cpp" line="16"/>
         <location filename="../src/ui/frames_cli/keyboard_frame.cpp" line="17"/>
         <source>Select Keyboard Layout</source>
-        <translation>Përzgjidhni Skemë Tastiere</translation>
+        <translation>키보드 자판 선택</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/language_frame.cpp" line="48"/>
         <source>Choose a language used in the installation process, which will also be the default system language.</source>
-        <translation>Zgjidhni gjuhën për t’u përdorur në procesin e instalimit, e cila do të jetë gjithashtu gjuha parazgjedhje e sistemit.</translation>
+        <translation>설치 과정에서 사용되는 언어를 선택하십시오(기본 시스템 언어).</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="57"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="124"/>
         <source>Please agree to the license</source>
-        <translation>Ju lutemi, pajtohuni me licencën</translation>
+        <translation>라이센스에 동의하십시오</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="112"/>
         <source>UOS Software End User License Agreement</source>
-        <translation>Marrëveshje Licence Përdoruesi të Thjeshtë UOS</translation>
+        <translation>UOS 소프트웨어 최종 사용자 사용권 계약</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="113"/>
         <source>I have read and agree to the UOS Software End User License Agreement</source>
-        <translation>E kam lexuar dhe pajtohem me Marrëveshjen e Licencës së Përdoruesit të Thjeshtë të Software-it UOS</translation>
+        <translation>UOS 소프트웨어 최종 사용자 사용권 계약을 읽고 동의함</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="71"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="176"/>
         <source>Configure Ethernet according to your needs, but you can skip it as well.</source>
-        <translation>  Formësoni Ethernet-in sipas nevojave tuaja, por edhe mund ta anashkaloni këtë.</translation>
+        <translation>필요에 따라 이더넷을 구성하지만, 이것도 건너뛸 수 있습니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="72"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="177"/>
         <source>Set the IP address, gateway, netmask, DNS please.</source>
-        <translation>  Ju lutemi, caktoni adresë IP, kanal, netmask-ë, DNS.</translation>
+        <translation>IP 주소, 게이트웨이, 넷 마스크, DNS를 지정하십시오.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="75"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="214"/>
         <source>Network connection error, check the configuration please</source>
-        <translation>Gabim lidhjeje rrjeti, ju lutemi, kontrolloni formësimin</translation>
+        <translation>네트워크 연결 오류, 구성을 확인하십시오</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="202"/>
         <source>Configure Now</source>
-        <translation>Formësojini Tani</translation>
+        <translation>지금 구성하기</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="203"/>
         <source>Skip</source>
-        <translation>Anashkaloje</translation>
+        <translation>건너뛰기</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="602"/>
@@ -1823,7 +1823,7 @@
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="630"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="635"/>
         <source>e.g., 255.255.255.0</source>
-        <translation>p.sh., 255.255.255.0</translation>
+        <translation>예. 255.255.255.0</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="610"/>
@@ -1833,71 +1833,71 @@
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="658"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="663"/>
         <source>e.g., 192.168.30.30</source>
-        <translation>p.sh., 192.168.30.30</translation>
+        <translation>예. 192.168.30.30</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="93"/>
         <source>Make sure you have backed up important data, then select the partition mode.</source>
-        <translation>Sigurohuni se keni kopjeruajtur të dhëna të rëndësishme, mandej përzgjidhni mënyrën e pjesëtimit.</translation>
+        <translation>중요한 데이터를 백업했는지 확인한 다음 파티션 모드를 선택하십시오.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="95"/>
         <source>Partition mode</source>
-        <translation>Mënyrë pjesëtimi</translation>
+        <translation>파티션 모드</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="461"/>
         <source>Set Root Password</source>
-        <translation>Caktoni Fjalëkalim Rrënje</translation>
+        <translation>루트 비밀번호 지정하기</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="463"/>
         <source>If you check &quot;Set as root password&quot;, the root password is the same as the password, otherwise, you need to set it separately.</source>
-        <translation>Nëse i vini shenjë mundësisë “Caktoje si fjalëkalim rrënje”, fjalëkalimi i rrënjës do të jetë i njëjtë me fjalëkalimin, përndryshe lypset t’i caktoni ndarazi.</translation>
+        <translation>&quot;루트 비밀번호로 지정하기&quot;를 선택하면, 루트 비밀번호가 비밀번호와 동일하므로 별도로 설정해야 합니다.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="464"/>
         <source>Your root password should be different from the user password, please take care of them.</source>
-        <translation>Fjalëkalimi juaj si rrënjë duhet të jetë i ndryshëm nga fjalëkalimi si përdorues, ju lutemi, mbrojini me kujdes. </translation>
+        <translation>루트 비밀번호는 사용자 비밀번호와 달라야 합니다. 잘 관리하십시오.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="29"/>
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="53"/>
         <source>Is it the right timezone? You can change it as well.</source>
-        <translation>A është zona kohore e duhur? Mundeni edhe ta ndryshoni.</translation>
+        <translation>올바른 시간대입니까? 변경할 수도 있습니다.</translation>
     </message>
     <message>
         <location filename="../src/base/translator.h" line="18"/>
         <source>Select system language</source>
-        <translation>Përzgjidhni gjuhë sistemi</translation>
+        <translation>시스템 언어 선택</translation>
     </message>
     <message>
         <location filename="../src/ui/main_window_cli.cpp" line="62"/>
         <location filename="../src/ui/main_window_cli.cpp" line="75"/>
         <location filename="../src/ui/main_window_cli.cpp" line="87"/>
         <source>Welcome to install UOS</source>
-        <translation>Mirë se vini te instalimi i UOS-it</translation>
+        <translation>UOS 설치에 오신 것을 환영합니다</translation>
     </message>
     <message>
         <location filename="../src/ui/main_window_cli.cpp" line="64"/>
         <location filename="../src/ui/main_window_cli.cpp" line="77"/>
         <location filename="../src/ui/main_window_cli.cpp" line="89"/>
         <source>Select Item</source>
-        <translation>Përzgjidhni Objekt</translation>
+        <translation>항목 선택</translation>
     </message>
     <message>
         <location filename="../src/ui/main_window_cli.cpp" line="65"/>
         <location filename="../src/ui/main_window_cli.cpp" line="78"/>
         <location filename="../src/ui/main_window_cli.cpp" line="90"/>
         <source>Change Field</source>
-        <translation>Ndryshoni Fushë</translation>
+        <translation>필드 변경</translation>
     </message>
     <message>
         <location filename="../src/ui/main_window_cli.cpp" line="67"/>
         <location filename="../src/ui/main_window_cli.cpp" line="80"/>
         <location filename="../src/ui/main_window_cli.cpp" line="92"/>
         <source>Select</source>
-        <translation>Përzgjidhni</translation>
+        <translation>선택</translation>
     </message>
 </context>
 <context>
@@ -1905,7 +1905,7 @@
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="250"/>
         <source>Secondary DNS:</source>
-        <translation>DNS Dytësore:</translation>
+        <translation>보조 DNS:</translation>
     </message>
 </context>
 </TS>

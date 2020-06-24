@@ -143,6 +143,8 @@ private:
 
     QFrame *m_rootPasswordFrame = nullptr;
     QFrame *m_rootPasswordCheckFrame = nullptr;
+    QFrame *m_rootUserFrame = nullptr;
+    QLabel *m_rootUserLabel = nullptr;
 
     // Display tooltip error message.
     SystemInfoTip*         tooltip_     = nullptr;
@@ -189,7 +191,7 @@ bool SystemInfoFormFrame::validateUserInfo()
         d->tooltip_->setText(msg);
         d->tooltip_->showBottom(d->m_passwordCheckEdit);
     }
-    else if (!d->m_setRootPasswordCheck->isChecked()) {
+    else if (d->m_setRootPasswordCheck->isChecked()) {
         if (!d->validatePassword(d->m_rootPasswordEdit, msg)) {
             d->tooltip_->setText(msg);
             d->tooltip_->showBottom(d->m_rootPasswordEdit);
@@ -221,7 +223,7 @@ void SystemInfoFormFrame::checkNextButtonEnable()
         return;
     }
 
-    if (!d->m_setRootPasswordCheck->isChecked()) {
+    if (d->m_setRootPasswordCheck->isChecked()) {
         if (d->m_rootPasswordEdit->text().isEmpty()
             || d->m_rootPasswordCheckEdit->text().isEmpty()) {
             emit requestNextButtonEnable(false);
@@ -260,9 +262,12 @@ void SystemInfoFormFrame::writeConf()
     WriteUsername(d->m_usernameEdit->text());
     WriteHostname(d->m_hostnameEdit->text());
     WritePassword(d->m_passwordEdit->text());
-    WriteRootPassword(GetSettingsBool(kSetRootPasswordFromUser)
-                      ? d->m_rootPasswordEdit->text()
-                      : d->m_passwordEdit->text());
+
+    if (d->m_setRootPasswordCheck->isChecked()) {
+        WriteRootPassword(d->m_rootPasswordEdit->text());
+    } else {
+        WriteRootPassword("");
+    }
 }
 
 void SystemInfoFormFrame::changeEvent(QEvent* event)
@@ -489,7 +494,6 @@ void SystemInfoFormFramePrivate::initUI()
     passwordCheckFrame->setFixedWidth(kMainWindowWidth);
 
     m_setRootPasswordCheck = new QCheckBox;
-    m_setRootPasswordCheck->setCheckState(Qt::Checked);
     m_setRootPasswordCheck->setObjectName("RootPasswordCheckBox");
     m_setRootPasswordCheck->setVisible(GetSettingsBool(kSetRootPasswordFromUser));
 
@@ -550,6 +554,27 @@ void SystemInfoFormFramePrivate::initUI()
     m_grubPasswordCheck_->setObjectName("GrubPasswordCheckBox");
     m_grubPasswordCheck_->setVisible(GetSettingsBool(kSystemInfoEnableGrubEditPwd));
 
+    m_rootUserLabel = new QLabel;
+    m_rootUserLabel->setFixedWidth(kHintLabelWidth + 40);
+
+    DLineEdit* rootUser = new DLineEdit;
+    rootUser->setEnabled(false);
+    rootUser->setFixedWidth(kInputWidgetWidth - 45);
+    rootUser->setContextMenuPolicy(Qt::NoContextMenu);
+    rootUser->lineEdit()->setPlaceholderText("root");
+
+    QHBoxLayout *rootUserFrameLayout = new QHBoxLayout;
+    rootUserFrameLayout->setContentsMargins(0, 0, 0, 0);
+    rootUserFrameLayout->setSpacing(0);
+    rootUserFrameLayout->addWidget(m_rootUserLabel, 0, Qt::AlignLeft | Qt::AlignVCenter);
+    rootUserFrameLayout->addWidget(rootUser, 0, Qt::AlignLeft);
+    rootUserFrameLayout->addStretch();
+
+    m_rootUserFrame= new QFrame;
+    m_rootUserFrame->setLayout(rootUserFrameLayout);
+    m_rootUserFrame->setFixedWidth(kMainWindowWidth);
+    m_rootUserFrame->hide();
+
     QVBoxLayout* layout = new QVBoxLayout;
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(kMainLayoutSpacing);
@@ -563,6 +588,8 @@ void SystemInfoFormFramePrivate::initUI()
     layout->addSpacing(kSetRootPasswordCheckBoxHeight);
     m_setRootPasswordCheck->setFixedSize(kSetRootPasswordCheckBoxWidth, kSetRootPasswordCheckBoxHeight);
     layout->addWidget(m_setRootPasswordCheck, 0, Qt::AlignHCenter);
+    layout->addSpacing(kSetRootPasswordCheckBoxHeight);
+    layout->addWidget(m_rootUserFrame, 0, Qt::AlignHCenter);
     layout->addSpacing(kSetRootPasswordCheckBoxHeight);
     layout->addWidget(m_rootPasswordFrame, 0, Qt::AlignHCenter);
     layout->addSpacing(kSetRootPasswordCheckBoxHeight);
@@ -619,10 +646,12 @@ void SystemInfoFormFramePrivate::updateTex()
     m_rootPasswordLabel->setText(::QObject::tr("Root password").append(" :"));
     m_rootPasswordCheckLabel->setText(::QObject::tr("Repeat root password").append(" :"));
 
+    m_rootUserLabel->setText(::QObject::tr("Username").append(" :"));
+
     m_titleLabel_->setText(::QObject::tr("Create Accounts"));
     m_commentLabel_->setText(::QObject::tr("Fill in the username, computer name and your password"));
     m_grubPasswordCheck_->setText(::QObject::tr("Use that password to edit boot menu"));
-    m_setRootPasswordCheck->setText(::QObject::tr("Set as root password"));
+    m_setRootPasswordCheck->setText(::QObject::tr("Enable root user"));
     tooltip_->setText("");
 }
 
@@ -1012,14 +1041,16 @@ void SystemInfoFormFramePrivate::onRootPasswordCheckEditingFinished()
 
 void SystemInfoFormFramePrivate::onSetRootPasswordCheckChanged(bool enable)
 {
-    if (!enable) {
+    if (enable) {
         m_rootPasswordEdit->setFocus();
         m_rootPasswordFrame->show();
         m_rootPasswordCheckFrame->show();
+        m_rootUserFrame->show();
     }
     else {
         m_rootPasswordFrame->hide();
         m_rootPasswordCheckFrame->hide();
+        m_rootUserFrame->hide();
 
         if (tooltip_->isVisible()) {
             tooltip_->hide();

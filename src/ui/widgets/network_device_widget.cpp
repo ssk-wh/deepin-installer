@@ -206,8 +206,8 @@ void NetworkDeviceWidget::setDeviceInfo(NetworkManager::Device::Ptr device) {
     qDebug() << "Device type: " << device->type();
 
 #ifdef QT_DEBUG
-    setTitle(::QObject::tr("Ethernet (%1)").arg("nsp21111111110"));
-    setDesc(::QObject::tr("test nsp21111111110"));
+    setTitle(QString("Ethernet (%1)").arg("nsp21111111110"));
+    setDesc("test nsp21111111110");
 #else
     if (device->type() == NetworkManager::Device::Type::Ethernet) {
         setTitle(::QObject::tr("Ethernet") + QString(" (%1)").arg(device->interfaceName()));
