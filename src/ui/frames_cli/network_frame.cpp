@@ -7,6 +7,7 @@
 #include "ui/ncurses_widgets/ncurses_button.h"
 #include "base/utils.h"
 
+#include <QProcess>
 #include <QThread>
 #include <QNetworkInterface>
 //#include <networkworker.h>
@@ -365,6 +366,8 @@ bool NetwrokFramePrivate::writeInfoList()
     /*if(m_dhcpType == DHCPTYpe::Manual) {
     } else if(m_dhcpType == DHCPTYpe::Auto) {
     }*/
+
+    return false;
 }
 
 void NetwrokFramePrivate::updateChoiceType(int type)

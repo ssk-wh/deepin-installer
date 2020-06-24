@@ -77,6 +77,8 @@ QString NcursesCheckBoxList::getCurrentSingleSelectTitle()
     } else {
         return "";
     }
+
+    return {};
 }
 
 QString NcursesCheckBoxList::getCurrentSingleSelectText()

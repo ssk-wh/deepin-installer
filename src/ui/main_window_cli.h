@@ -19,6 +19,7 @@
 #include "ui/frames_cli/inner/create_root_user_frame.h"
 
 #include <QThread>
+#include <QTranslator>
 
 namespace installer {
 

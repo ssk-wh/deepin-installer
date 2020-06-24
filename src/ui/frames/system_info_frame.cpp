@@ -30,6 +30,7 @@
 #include <QStackedLayout>
 #include <DFrame>
 #include <DPalette>
+#include <QEvent>
 
 DWIDGET_USE_NAMESPACE
 DGUI_USE_NAMESPACE

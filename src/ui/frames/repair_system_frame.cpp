@@ -31,6 +31,7 @@
 #include <QDebug>
 #include <QTranslator>
 #include <QApplication>
+#include <QPainterPath>
 
 DWIDGET_USE_NAMESPACE
 

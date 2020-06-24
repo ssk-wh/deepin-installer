@@ -23,6 +23,7 @@
 #include <QVBoxLayout>
 #include <QMouseEvent>
 #include <QCheckBox>
+#include <QPainterPath>
 
 namespace  {
     const int kMargin = 5;
