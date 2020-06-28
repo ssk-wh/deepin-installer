@@ -10,7 +10,12 @@ class NcursesLabel;
 class NCursesLineEdit : public NCursesWindowBase
 {
     Q_OBJECT
+
 public:
+    enum EditModle{
+        NORMAL = 0,
+        IPEDIT
+    };
     NCursesLineEdit(NCursesWindowBase* parent, int lines, int cols, int beginY, int beginX);
     void setIsNumber(bool isnumber);
 public slots:
@@ -18,6 +23,7 @@ public slots:
     void setEchoMode(bool isPassword);
     QString text() const;
     void setFocus(bool foucs) override;
+    void setModle (EditModle modle) { m_EditModle = modle; }
 
 protected:
     void onKeyPress(int keyCode) override;
@@ -32,11 +38,12 @@ signals:
     void editingFinished();
 
 private:
-    NcursesLabel * m_showlabel = nullptr;
-    QString        m_text;
-    bool           m_is_passowrd;
-    bool m_isNumber = false;
-    bool m_isFinished = false;
+    NcursesLabel * m_showlabel    = nullptr;
+    QString        m_text         = "";
+    bool           m_is_passowrd  = false;
+    bool           m_isNumber     = false;
+    bool           m_isFinished   = false;
+    EditModle      m_EditModle    = NORMAL;
 };
 
 }

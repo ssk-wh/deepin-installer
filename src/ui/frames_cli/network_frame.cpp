@@ -109,6 +109,7 @@ void NetwrokFramePrivate::initUI()
     ipconfigitemsipset.m_NcursesLabel->setFocusEnabled(false);
     ipconfigitemsipset.m_NCursesLineEdit = new NCursesLineEdit(this, 1, 3, begy(), begx());
     ipconfigitemsipset.m_NCursesLineEdit->setBackground(NcursesUtil::getInstance()->edit_attr());
+    ipconfigitemsipset.m_NCursesLineEdit->setModle(NCursesLineEdit::IPEDIT);
     ipconfigitemsipset.m_ErrorinfoLabel = new NcursesLabel(this, 1, 3, begy(), begx());
     ipconfigitemsipset.m_ErrorinfoLabel->setBackground(NcursesUtil::getInstance()->error_attr());
     ipconfigitemsipset.m_ErrorinfoLabel->setFocusEnabled(false);
@@ -117,6 +118,7 @@ void NetwrokFramePrivate::initUI()
     ipconfigitemsmaskset.m_NcursesLabel->setFocusEnabled(false);
     ipconfigitemsmaskset.m_NCursesLineEdit = new NCursesLineEdit(this, 1, 3, begy(), begx());
     ipconfigitemsmaskset.m_NCursesLineEdit->setBackground(NcursesUtil::getInstance()->edit_attr());
+    ipconfigitemsmaskset.m_NCursesLineEdit->setModle(NCursesLineEdit::IPEDIT);
     ipconfigitemsmaskset.m_ErrorinfoLabel = new NcursesLabel(this, 1, 3, begy(), begx());
     ipconfigitemsmaskset.m_ErrorinfoLabel->setBackground(NcursesUtil::getInstance()->error_attr());
     ipconfigitemsmaskset.m_ErrorinfoLabel->setFocusEnabled(false);
@@ -125,6 +127,7 @@ void NetwrokFramePrivate::initUI()
     ipconfigitemsgatewayset.m_NcursesLabel->setFocusEnabled(false);
     ipconfigitemsgatewayset.m_NCursesLineEdit = new NCursesLineEdit(this, 1, 3, begy(), begx());
     ipconfigitemsgatewayset.m_NCursesLineEdit->setBackground(NcursesUtil::getInstance()->edit_attr());
+    ipconfigitemsgatewayset.m_NCursesLineEdit->setModle(NCursesLineEdit::IPEDIT);
     ipconfigitemsgatewayset.m_ErrorinfoLabel = new NcursesLabel(this, 1, 3, begy(), begx());
     ipconfigitemsgatewayset.m_ErrorinfoLabel->setBackground(NcursesUtil::getInstance()->error_attr());
     ipconfigitemsgatewayset.m_ErrorinfoLabel->setFocusEnabled(false);
@@ -133,6 +136,7 @@ void NetwrokFramePrivate::initUI()
     ipconfigitemsprimarydnsset.m_NcursesLabel->setFocusEnabled(false);
     ipconfigitemsprimarydnsset.m_NCursesLineEdit = new NCursesLineEdit(this, 1, 3, begy(), begx());
     ipconfigitemsprimarydnsset.m_NCursesLineEdit->setBackground(NcursesUtil::getInstance()->edit_attr());
+    ipconfigitemsprimarydnsset.m_NCursesLineEdit->setModle(NCursesLineEdit::IPEDIT);
     ipconfigitemsprimarydnsset.m_ErrorinfoLabel = new NcursesLabel(this, 1, 3, begy(), begx());
     ipconfigitemsprimarydnsset.m_ErrorinfoLabel->setBackground(NcursesUtil::getInstance()->error_attr());
     ipconfigitemsprimarydnsset.m_ErrorinfoLabel->setFocusEnabled(false);

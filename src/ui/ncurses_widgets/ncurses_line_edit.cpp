@@ -67,9 +67,18 @@ void installer::NCursesLineEdit::onKeyPress(int keyCode)
             text.remove(text.length()-1, 1);
         break;
         default:
-        if (keyCode > 32 && keyCode <= 126 && text.length() < width()) {
-            text += QChar(keyCode);
+        {
+            if (m_EditModle == IPEDIT) {
+                if (((keyCode >= 48 && keyCode <= 57) || (keyCode == 46)) && text.length() < width()) {
+                    text += QChar(keyCode);
+                }
+            } else {
+                if (keyCode > 32 && keyCode <= 126 && text.length() < width()) {
+                    text += QChar(keyCode);
+                }
+            }
         }
+        break;
     }
 
     this->setText(text);
