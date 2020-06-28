@@ -59,7 +59,7 @@ namespace installer {
 
 namespace {
 const int kSetRootPasswordCheckBoxWidth = 520;
-const int kSetRootPasswordCheckBoxHeight = 36;
+const int kSetRootPasswordCheckBoxHeight = 20;
 
 const int kMainWindowWidth = 520;
 const int kHintLabelWidth = 140;
@@ -606,7 +606,7 @@ void SystemInfoFormFramePrivate::initUI()
     area->setWidget(content);
     area->setWidgetResizable(true);
     area->setFrameStyle(QScrollArea::NoFrame);
-    area->setFixedWidth(kMainWindowWidth);
+    area->setFixedWidth(kMainWindowWidth + 50);
     area->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     area->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
