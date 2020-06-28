@@ -21,6 +21,7 @@
 #include <QDebug>
 #include <QIcon>
 #include <DLog>
+#include <DSysInfo>
 
 #include "ui/delegates/componentinstallmanager.h"
 #include "base/consts.h"
@@ -39,6 +40,7 @@ DCORE_USE_NAMESPACE
 int main(int argc, char* argv[]) {
 #ifdef QT_DEBUG
     // add system version log
+    qInfo() << "DSysInfo::productType() = " << DSysInfo::productType();
     qInfo() << "system version: " << QSysInfo().prettyProductName();
     // add kernel versionlog
     qInfo() << "kernel version: " << QSysInfo().kernelVersion();
@@ -93,6 +95,11 @@ int main(int argc, char* argv[]) {
   installer::BeforeInstallHook();
 
   qDebug() << "Version:" << installer::kAppVersion;
+  // add system version log
+  qInfo() << "DSysInfo::productType() = " << DSysInfo::productType();
+  qInfo() << "system version: " << QSysInfo().prettyProductName();
+  // add kernel versionlog
+  qInfo() << "kernel version: " << QSysInfo().kernelVersion();
 
   const QString conf_file(args_parser.getConfFile());
   // Append customized configurations.
