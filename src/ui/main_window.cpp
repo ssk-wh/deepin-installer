@@ -782,13 +782,14 @@ void MainWindow::rebootSystem() {
 void MainWindow::shutdownSystem() {
   this->saveLogFile();
 
+  if (!ShutdownSystem()) {
+      qWarning() << "ShutdownSystem() failed!";
+  }
+
   if (!ShutdownSystemWithMagicKey()) {
       qWarning() << "ShutdownSystemWithMagicKey() failed!";
   }
 
-  if (!ShutdownSystem()) {
-      qWarning() << "ShutdownSystem() failed!";
-  }
 }
 
 }  // namespace installer
