@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2017 ~ 2018 Deepin Technology Co., Ltd.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -165,7 +165,7 @@ void NewPartitionFrame::initUI() {
   QString strCancel = ::QObject::tr("Back");
   int buttonHeight = 3;
   int buttonWidth = std::max(strCancel.length(), strCreate.length()) + 4;
-  cancel_button_ = new NcursesButton(this, strCancel, buttonHeight, 14, begy() + height() - buttonHeight - 2, begx() + 5);
+  //cancel_button_ = new NcursesButton(this, strCancel, buttonHeight, 14, begy() + height() - buttonHeight - 2, begx() + 5);
 
   title_label_ = new NcursesLabel(this, 1, 1, begy(), begx());
   title_label_->setFocusEnabled(false);
@@ -199,6 +199,7 @@ void NewPartitionFrame::initUI() {
   size_slider_ = new NCursesLineEdit(this, 1, 20, begy(), begx());
   size_slider_->setIsNumber(true);
 
+  cancel_button_ = new NcursesButton(this, strCancel, buttonHeight, 14, begy() + height() - buttonHeight - 2, begx() + 5);
   create_button_ = new NcursesButton(this, strCreate, buttonHeight, 14, begy() + height() - buttonHeight - 2, begx() + width() - buttonWidth - 13);
 
   cancel_button_->drawShadow(true);
@@ -281,7 +282,7 @@ void NewPartitionFrame::layout()
 void NewPartitionFrame::onKeyPress(int keycode)
 {
     switch (keycode) {
-        case KEY_TAB: break;
+        case KEY_TAB:// break;
         case KEY_RIGHT:
         case KEY_LEFT:
         QVector<NCursesWindowBase* > showChild;
@@ -357,9 +358,11 @@ void NewPartitionFrame::updateSlideSize() {
   if (visible) {
       mount_point_label_->show();
       mount_point_box_->adjustSizeByContext();
+      mount_point_box_->setFocusEnabled(true);
       mount_point_box_->show();
   } else {
       mount_point_label_->hide();
+      mount_point_box_->setFocusEnabled(false);
       mount_point_box_->hide();
   }
 
