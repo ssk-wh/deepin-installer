@@ -187,7 +187,7 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
             root_device = device;
             rootPartition = partition;
             root_fs = partition->fs;
-            const qint64 root_real_bytes = partition->getByteLength() + kMebiByte;
+            const qint64 root_real_bytes = partition->getByteLength();
             const qint64 root_minimum_bytes = root_required * kGibiByte;
             root_large_enough = (root_real_bytes >= root_minimum_bytes);
 
@@ -197,7 +197,7 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
             boot_fs = partition->fs;
             const qint64 boot_recommend_bytes = boot_recommended * kMebiByte;
             // Add 1Mib to partition size.
-            const qint64 boot_real_bytes = partition->getByteLength() + kMebiByte;
+            const qint64 boot_real_bytes = partition->getByteLength();
             boot_large_enough = (boot_real_bytes >= boot_recommend_bytes);
             boot_device = device;
           }
@@ -228,12 +228,12 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
                  if (partition->status == PartitionStatus::Real) {
                    // For existing EFI partition->
                    const qint64 efi_minimum_bytes = efi_minimum * kMebiByte;
-                   const qint64 efi_real_bytes = partition->getByteLength() + kMebiByte;
+                   const qint64 efi_real_bytes = partition->getByteLength();
                    efi_large_enough = (efi_real_bytes >= efi_minimum_bytes);
                  } else {
                    // For newly created EFI partition->
                    const qint64 efi_recommended_bytes = efi_recommended * kMebiByte;
-                   const qint64 efi_real_bytes = partition->getByteLength() + kMebiByte;
+                   const qint64 efi_real_bytes = partition->getByteLength();
                    efi_large_enough = (efi_real_bytes >= efi_recommended_bytes);
                  }
                  break;
@@ -248,12 +248,12 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
                      if (partition->status == PartitionStatus::Real) {
                        // For existing EFI partition->
                        const qint64 efi_minimum_bytes = efi_minimum * kMebiByte;
-                       const qint64 efi_real_bytes = partition->getByteLength() + kMebiByte;
+                       const qint64 efi_real_bytes = partition->getByteLength();
                        efi_large_enough = (efi_real_bytes >= efi_minimum_bytes);
                      } else {
                        // For newly created EFI partition->
                        const qint64 efi_recommended_bytes = efi_recommended * kMebiByte;
-                       const qint64 efi_real_bytes = partition->getByteLength() + kMebiByte;
+                       const qint64 efi_real_bytes = partition->getByteLength();
                        efi_large_enough = (efi_real_bytes >= efi_recommended_bytes);
                      }
                      break;
