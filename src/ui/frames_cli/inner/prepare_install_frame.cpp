@@ -58,7 +58,6 @@ void PrepareInstallFrame::show()
     if(!m_isshow){
         NCursesWindowBase::show();
         m_isshow = true;
-        operations_box_->clearFoucs();
     }
 }
 
@@ -91,10 +90,16 @@ void PrepareInstallFrame::initUI() {
   m_commentLabel->setFocusEnabled(false);
   m_commentLabel->setText(::QObject::tr("Make a backup of your important data and then continue"));
 
-  operations_box_ = new NcursesListView(this, height() - 10, 80, begy(), begx());
+  operations_box_ = new NcursesTextBrower(this, height() - 10, width() - 4, begy() + 4, begx() + 2);
   //QStringList opt(delegate_->getOptDescriptions());
-  operations_box_->setList(m_optDescriptions);
-  operations_box_->setFocusEnabled(false);
+
+  bool iswchar = false;
+  if (installer::ReadLocale() == "zh_CN") {
+      iswchar = true;
+  }
+  foreach (QString testoptions, m_optDescriptions) {
+      operations_box_->appendItemText(testoptions, iswchar);
+  }
 
   QString strBack = ::QObject::tr("Back");
   QString strContinue = ::QObject::tr("Continue");
@@ -130,8 +135,8 @@ void PrepareInstallFrame::layout()
     m_commentLabel->adjustSizeByContext();
     m_commentLabel->mvwin(begy() + 2, begx() + (width() - m_commentLabel->width()) / 2);
 
-    operations_box_->adjustSizeByContext();
-    operations_box_->mvwin(begy() + 3, begx() + (width() - operations_box_->width()) / 2);
+    //operations_box_->adjustSizeByContext();
+    //operations_box_->mvwin(begy() + 3, begx() + (width() - operations_box_->width()) / 2);
 
     //cancel_button_->adjustSizeByContext();
     //cancel_button_->mvwin(begy() + height() -3 , begx() + (width() - m_titleLabel_->width()) / 2 - 20);

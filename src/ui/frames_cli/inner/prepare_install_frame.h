@@ -27,6 +27,7 @@ class QPushButton;
 #include "ui/ncurses_widgets/ncurses_label.h"
 #include "ui/ncurses_widgets/ncurses_list_view.h"
 #include "ui/ncurses_widgets/ncurses_line_edit.h"
+#include "ui/ncurses_widgets/ncurses_text_brower.h"
 
 namespace installer {
 
@@ -62,7 +63,7 @@ public:
 
   NcursesLabel* m_titleLabel_ = nullptr;
   NcursesLabel* m_commentLabel = nullptr;
-  NcursesListView* operations_box_ = nullptr;
+  NcursesTextBrower* operations_box_ = nullptr;
 
   NcursesButton* cancel_button_ = nullptr;
   NcursesButton* create_button_ = nullptr;
