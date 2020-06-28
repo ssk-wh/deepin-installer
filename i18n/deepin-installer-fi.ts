@@ -879,37 +879,53 @@
         <translation>Levyjä etsitään, ole hyvä ja odota...</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="46"/>
         <source>You should delete a primary partition before creating a new one</source>
-        <translation>Sinun tulee poistaa ensisijainen osio ennen kuin luot uuden</translation>
+        <translation type="vanished">Sinun tulee poistaa ensisijainen osio ennen kuin luot uuden</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="48"/>
         <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation>Uusia loogisia osioita voidaan luoda vain lähelle olemassa olevia loogisia osioita</translation>
+        <translation type="vanished">Uusia loogisia osioita voidaan luoda vain lähelle olemassa olevia loogisia osioita</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="53"/>
         <source>You should delete a primary partition before creating a new partition</source>
-        <translation>Sinun tulee poistaa ensisijainen osio ennen kuin luot uuden osion</translation>
+        <translation type="vanished">Sinun tulee poistaa ensisijainen osio ennen kuin luot uuden osion</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="60"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="44"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="67"/>
         <source>Failed to Create New Partition</source>
         <translation>Uuden osion luominen epäonnistui</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="62"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="103"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="46"/>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
         <translation>Ensisijainen osio tulisi poistaa ennen uuden luomista, koska MBR-levyllä voi olla vain neljä ensisijaista osiota</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="65"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="109"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="48"/>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
         <translation>Sinun tulisi poistaa ensisijainen osio ennen loogisen luomista tai siirtää olemassa oleva looginen osio levyn loppuun</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/lvm_partition_frame.cpp" line="54"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="49"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="47"/>
+        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="650"/>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="183"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="24"/>
+        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="21"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="165"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="230"/>
+        <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="120"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="145"/>
+        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="24"/>
+        <location filename="../src/base/translator.h" line="17"/>
+        <source>Back</source>
+        <translation>Takaisin</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="76"/>
@@ -1091,7 +1107,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="649"/>
         <source>Enable root user</source>
-        <translation type="unfinished"/>
+        <translation>Ota root pääkäyttäjä käyttöön</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="673"/>

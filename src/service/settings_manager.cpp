@@ -282,17 +282,17 @@ QString GetReservedUsernameFile() {
 }
 
 QString GetVendorLogo() {
-//  QString oem_file = DSysInfo::distributionOrgLogo(DSysInfo::Distribution, DSysInfo::Normal);
-//  qDebug() << "oem_file = " << oem_file;
-//  if (QFile::exists(oem_file)) {
-//    return oem_file;
-//  }
+  QString oem_file = DSysInfo::distributionOrgLogo(DSysInfo::Distribution, DSysInfo::Normal);
+  qDebug() << "oem_file = " << oem_file;
+  if (QFile::exists(oem_file)) {
+    return oem_file;
+  }
 
-//  oem_file = GetOemDir().absoluteFilePath("vendor.png");
-//  qDebug() << "oem_file = " << oem_file;
-//  if (QFile::exists(oem_file)) {
-//    return oem_file;
-//  }
+  oem_file = GetOemDir().absoluteFilePath("vendor.png");
+  qDebug() << "oem_file = " << oem_file;
+  if (QFile::exists(oem_file)) {
+    return oem_file;
+  }
 
   // Returns builtin logo.
   return ":/images/logo.svg";

@@ -879,37 +879,53 @@
         <translation>Diskler taranıyor, lütfen bekleyin...</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="46"/>
         <source>You should delete a primary partition before creating a new one</source>
-        <translation>Yeni bir birincil bölüm oluşturmak için var olan birincil bölümü silmelisiniz</translation>
+        <translation type="vanished">Yeni bir birincil bölüm oluşturmak için var olan birincil bölümü silmelisiniz</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="48"/>
         <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation>Yeni mantıksal bölümler yalnız var olan mantıksal bölümlerin yanında oluşturulabilir</translation>
+        <translation type="vanished">Yeni mantıksal bölümler yalnız var olan mantıksal bölümlerin yanında oluşturulabilir</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="53"/>
         <source>You should delete a primary partition before creating a new partition</source>
-        <translation>Yeni bir bölüm oluşturmak için bir birincil bölümü silmelisiniz</translation>
+        <translation type="vanished">Yeni bir bölüm oluşturmak için bir birincil bölümü silmelisiniz</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="60"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="44"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="67"/>
         <source>Failed to Create New Partition</source>
         <translation>Yeni Bölüm Oluşturulamadı</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="62"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="103"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="46"/>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
         <translation>MBR diskinde yalnızca dört birincil bölüm olabileceğinden, yeni bir tane oluşturmadan önce bir birincil bölümü silmelisiniz</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="65"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="109"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="48"/>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
         <translation>Mantıksal bir tane oluşturmadan önce birincil bölümü silmeniz veya varolan mantıksal bölümü diskin sonuna taşımanız gerekir.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/lvm_partition_frame.cpp" line="54"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="49"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="47"/>
+        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="650"/>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="183"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="24"/>
+        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="21"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="165"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="230"/>
+        <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="120"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="145"/>
+        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="24"/>
+        <location filename="../src/base/translator.h" line="17"/>
+        <source>Back</source>
+        <translation>Geri</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="76"/>
@@ -1091,7 +1107,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="649"/>
         <source>Enable root user</source>
-        <translation type="unfinished"/>
+        <translation>Kök kullanıcıyı etkinleştir</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="673"/>

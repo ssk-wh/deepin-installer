@@ -879,37 +879,53 @@
         <translation>正在掃描磁碟機，請稍候…</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="46"/>
         <source>You should delete a primary partition before creating a new one</source>
-        <translation>建立新主要分割區前，您需要刪除一個主要分割區</translation>
+        <translation type="vanished">建立新主要分割區前，您需要刪除一個主要分割區</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="48"/>
         <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation>新的邏輯分割區只能在鄰近現有邏輯分割區的位置建立</translation>
+        <translation type="vanished">新的邏輯分割區只能在鄰近現有邏輯分割區的位置建立</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="53"/>
         <source>You should delete a primary partition before creating a new partition</source>
-        <translation>建立新分割區前，您需要刪除一個主要分割區</translation>
+        <translation type="vanished">建立新分割區前，您需要刪除一個主要分割區</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="60"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="44"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="67"/>
         <source>Failed to Create New Partition</source>
         <translation>無法建立新分割區</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="62"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="103"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="46"/>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
         <translation>您需要刪除硬碟上現有的主要分割區才可以繼續建立新的主要分割區，MBR格式的硬碟最多只能建立4個主要分割區</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="65"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="109"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="48"/>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
         <translation>您需要刪除硬碟上現有的主要分割區才可以繼續建立新的邏輯分割區，或者移動硬碟上現有的邏輯分割區到硬碟末尾位置</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/lvm_partition_frame.cpp" line="54"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="49"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="47"/>
+        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="650"/>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="183"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="24"/>
+        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="21"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="165"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="230"/>
+        <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="120"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="145"/>
+        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="24"/>
+        <location filename="../src/base/translator.h" line="17"/>
+        <source>Back</source>
+        <translation>返回</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="76"/>

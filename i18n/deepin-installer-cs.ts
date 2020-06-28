@@ -879,37 +879,53 @@
         <translation>Prohledávají se disky – čekejte prosím…</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="46"/>
         <source>You should delete a primary partition before creating a new one</source>
-        <translation>Aby bylo možné vytvořit další primární oddíl, bude třeba napřed smazat některý z těch stávajících.</translation>
+        <translation type="vanished">Aby bylo možné vytvořit další primární oddíl, bude třeba napřed smazat některý z těch stávajících.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="48"/>
         <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation>Nové logické oddíly lze vytvářet pouze vedle těch stávajících (tedy uvnitř rozšířeného oddílu)</translation>
+        <translation type="vanished">Nové logické oddíly lze vytvářet pouze vedle těch stávajících (tedy uvnitř rozšířeného oddílu)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="53"/>
         <source>You should delete a primary partition before creating a new partition</source>
-        <translation>Aby bylo možné vytvořit nový oddíl, bude třeba napřed smazat jeden z primárních oddílů.</translation>
+        <translation type="vanished">Aby bylo možné vytvořit nový oddíl, bude třeba napřed smazat jeden z primárních oddílů.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="60"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="44"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="67"/>
         <source>Failed to Create New Partition</source>
         <translation>Nepodařilo se vytvořit nový diskový oddíl</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="62"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="103"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="46"/>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
         <translation>Pro nový primární oddíl už nebývá volná pozice v MBR tabulce rozdělení disku (ta pojme nejvýše čtyři takové, resp. tři + rozšířený oddíl, obsahující další logické oddíly). Nejprve tedy smažte některý ze stávajících primárních oddílů.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="65"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="109"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="48"/>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
         <translation>V případě, že se mezi blokem logických oddílů a volným místem na konci disku nachází primární oddíl, pak buď tento překážející oddíl smažte nebo celý blok logických oddílů (tj. rozšířený oddíl) přesuňte až na začátek volného místa na konci disku</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/lvm_partition_frame.cpp" line="54"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="49"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="47"/>
+        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="650"/>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="183"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="24"/>
+        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="21"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="165"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="230"/>
+        <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="120"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="145"/>
+        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="24"/>
+        <location filename="../src/base/translator.h" line="17"/>
+        <source>Back</source>
+        <translation>Zpět</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="76"/>

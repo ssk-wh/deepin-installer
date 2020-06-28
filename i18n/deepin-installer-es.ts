@@ -89,7 +89,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
         <source>Big Data</source>
-        <translation type="unfinished"/>
+        <translation>Macrodatos</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
@@ -879,80 +879,96 @@
         <translation>Buscando discos, por favor espere...</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="46"/>
         <source>You should delete a primary partition before creating a new one</source>
-        <translation>Debe borrar una partición primaria antes de crear una nueva</translation>
+        <translation type="vanished">Debe borrar una partición primaria antes de crear una nueva</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="48"/>
         <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation>Las nuevas particiones lógicas solo se pueden crear junto a particiones lógicas existentes</translation>
+        <translation type="vanished">Las nuevas particiones lógicas solo se pueden crear junto a particiones lógicas existentes</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="53"/>
         <source>You should delete a primary partition before creating a new partition</source>
-        <translation>Debe borrar una partición primaria antes de crear la nueva partición</translation>
+        <translation type="vanished">Debe borrar una partición primaria antes de crear la nueva partición</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="60"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="44"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="67"/>
         <source>Failed to Create New Partition</source>
         <translation>La creación de la nueva partición falló</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="62"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="103"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="46"/>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
         <translation>Debe borrar una partición primaria antes de crear una nueva, ya que solo pueden haber cuatro particiones primarias en un disco MBR.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="65"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="109"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="48"/>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
         <translation>Debe borrar una partición primaria antes de crear una partición lógica, o mover la partición lógica existente al final del disco.</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/lvm_partition_frame.cpp" line="54"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="49"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="47"/>
+        <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="650"/>
+        <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="183"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="24"/>
+        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="21"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="165"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="230"/>
+        <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="120"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="145"/>
+        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="24"/>
+        <location filename="../src/base/translator.h" line="17"/>
+        <source>Back</source>
+        <translation>Atrás</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="76"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. Please select one of the below solutions and continue.</source>
-        <translation>Tiene un sistema de arranque EFI pero un disco MBR, no se puede instalar %1 directamente. Por favor, seleccione una de las siguientes soluciones para continuar.</translation>
+        <translation>Tiene un sistema de arranque EFI pero un disco MBR, para instalar %1, debe seleccionar una de las dos soluciones siguientes.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="78"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="148"/>
         <source>Disable UEFI</source>
-        <translation>Desactivar UEFI</translation>
+        <translation>Activar el modo legacy</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="80"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="150"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="86"/>
         <source>Reboot, enter BIOS, and disable UEFI</source>
-        <translation>Reinicie el sistema, acceda al BIOS y desactive UEFI</translation>
+        <translation>Reinicie el equipo, acceda al BIOS y active el modo legacy o CSM.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="81"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="151"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="87"/>
         <source>Exit BIOS, and install UOS again</source>
-        <translation>Salga del BIOS e instale UOS de nuevo</translation>
+        <translation>Salga del BIOS e instale UOS de nuevo (arranque con la opción que NO es UEFI).</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="158"/>
         <source>Make sure you have backed up all data before proceeding</source>
-        <translation>Asegúrese de haber hecho respaldo de todos los datos antes de continuar con la instalación</translation>
+        <translation>Asegúrese de haber respaldado todos sus datos antes de continuar con la instalación.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="85"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="159"/>
         <source>Continuing installation will format your disk</source>
-        <translation>Al continuar con la instalación, el disco será formateado.</translation>
+        <translation>Al hacer clic en continuar, borrará todo el disco y lo cambiará a GPT.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="139"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="79"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
-        <translation>Tiene un sistema de arranque EFI pero un disco MBR, no se puede instalar UOS directamente. Por favor, seleccione una de las siguientes soluciones para continuar.</translation>
+        <translation>Tiene un sistema de arranque EFI pero un disco MBR, para instalar UOS, debe seleccionar una de las dos soluciones siguientes.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="73"/>
@@ -1091,7 +1107,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="649"/>
         <source>Enable root user</source>
-        <translation type="unfinished"/>
+        <translation>Activar usuario root</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="673"/>
@@ -1546,32 +1562,32 @@
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="140"/>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="202"/>
         <source>System Setup</source>
-        <translation type="unfinished"/>
+        <translation>Configuración del sistema</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="141"/>
         <source>Choose an option for your system</source>
-        <translation type="unfinished"/>
+        <translation>Elija una opción para su sistema</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="144"/>
         <source>Install the system in your installation media.</source>
-        <translation type="unfinished"/>
+        <translation>Instalar el sistema en el medio de almacenamiento.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="146"/>
         <source>Repair</source>
-        <translation type="unfinished"/>
+        <translation>Reparar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="147"/>
         <source>Use recovery tools to fix system issues.</source>
-        <translation type="unfinished"/>
+        <translation>Usar herramientas para solucionar problemas del sistema.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="149"/>
         <source>Enter the</source>
-        <translation type="unfinished"/>
+        <translation>Ingrese el</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="181"/>
@@ -1596,7 +1612,7 @@
         <location filename="../src/ui/frames/timezone_frame.cpp" line="251"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="321"/>
         <source>Is it the right timezone? You can change it as well</source>
-        <translation type="unfinished"/>
+        <translation>¿Es la zona horaria correcta? Puede cambiarla manualmente</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="129"/>
@@ -1613,13 +1629,13 @@
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="122"/>
         <source>Friendly Note</source>
-        <translation type="unfinished"/>
+        <translation>Sugerencia</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="73"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="124"/>
         <source>You are installing %1 on a virtual machine which may result in sub-optimal performance. For the best experience, please install %1 on a real machine.</source>
-        <translation>Está usando una máquina virtual, esto afectará el rendimiento del sistema y a la experiencia del usuario. Obtendrá una experiencia más fluida si instala %1 en un entorno real.</translation>
+        <translation>Está usando una máquina virtual, esto afectará el rendimiento del sistema y a la experiencia de usuario. Obtendrá una experiencia más fluida si instala %1 en un entorno real.</translation>
     </message>
     <message>
         <location filename="../src/ui/models/bootloader_list_model.cpp" line="42"/>
@@ -1661,41 +1677,41 @@
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="213"/>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="250"/>
         <source>Ethernet</source>
-        <translation type="unfinished"/>
+        <translation>Ethernet</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="216"/>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="253"/>
         <source>WLAN</source>
-        <translation type="unfinished"/>
+        <translation>WLAN</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="219"/>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="256"/>
         <source>Unknown device</source>
-        <translation type="unfinished"/>
+        <translation>Dispositivo desconocido</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="89"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="92"/>
         <source>Make sure you have backed up important data, then select the disk to install.</source>
-        <translation type="unfinished"/>
+        <translation>Asegúrese de haber respaldado los datos importantes, después seleccione el disco para la instalación.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="90"/>
         <source>Insert key: create or edit partition. Delete key: delete partition.</source>
-        <translation type="unfinished"/>
+        <translation>Insertar clave: crear o editar partición. Eliminar clave: eliminar partición.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="338"/>
         <source>/boot partition requires at least %1 GB</source>
-        <translation type="unfinished"/>
+        <translation>La partición /boot necesita al menos %1 GB</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="401"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="404"/>
         <source>%1 error found, fix to continue installation</source>
-        <translation type="unfinished"/>
+        <translation>%1 error encontrado, corríjalo para continuar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="94"/>
@@ -1714,37 +1730,37 @@
     <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="204"/>
         <source>Create Root Account</source>
-        <translation type="unfinished"/>
+        <translation>Crear cuenta root</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="207"/>
         <source>Password:</source>
-        <translation type="unfinished"/>
+        <translation>Contraseña:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="93"/>
         <source>System Disk:</source>
-        <translation type="unfinished"/>
+        <translation>Disco del sistema:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
         <source>Data Disk:</source>
-        <translation type="unfinished"/>
+        <translation>Disco de datos:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="86"/>
         <source>Primary partition</source>
-        <translation type="unfinished"/>
+        <translation>Partición primaria</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="90"/>
         <source>Logical partition</source>
-        <translation type="unfinished"/>
+        <translation>Partición lógica</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="89"/>
         <source>Make a backup of all your data to avoid data loss</source>
-        <translation>Haga un respaldo de todos sus datos para evitar la pérdida de los mismos</translation>
+        <translation>Haga un respaldo de todos sus datos para evitar perderlos.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="91"/>
@@ -1755,62 +1771,62 @@
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="53"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="84"/>
         <source>Select the components according to your needs.</source>
-        <translation type="unfinished"/>
+        <translation>Seleccione los componentes según sus necesidades.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="82"/>
         <source>Shut Down</source>
-        <translation type="unfinished"/>
+        <translation>Apagar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/keyboard_frame.cpp" line="16"/>
         <location filename="../src/ui/frames_cli/keyboard_frame.cpp" line="17"/>
         <source>Select Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Seleccione la distribución del teclado</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/language_frame.cpp" line="48"/>
         <source>Choose a language used in the installation process, which will also be the default system language.</source>
-        <translation type="unfinished"/>
+        <translation>Elija el idioma durante la instalación, que también será el idioma predeterminado del sistema.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="57"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="124"/>
         <source>Please agree to the license</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, acepte la licencia</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="112"/>
         <source>UOS Software End User License Agreement</source>
-        <translation>Acuerdo de licencia de software de usuario final de UOS</translation>
+        <translation>acuerdo de licencia de software de usuario final de UOS</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="113"/>
         <source>I have read and agree to the UOS Software End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Leí y acepto el acuerdo de licencia de usuario final del software UOS</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="71"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="176"/>
         <source>Configure Ethernet according to your needs, but you can skip it as well.</source>
-        <translation type="unfinished"/>
+        <translation>Configure Ethernet según sus necesidades, pero también puede omitirlo.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="72"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="177"/>
         <source>Set the IP address, gateway, netmask, DNS please.</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, establezca la dirección IP, puerta de enlace, máscara de red y DNS.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="75"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="214"/>
         <source>Network connection error, check the configuration please</source>
-        <translation type="unfinished"/>
+        <translation>Error de conexión de red, por favor verifique la configuración</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="202"/>
         <source>Configure Now</source>
-        <translation type="unfinished"/>
+        <translation>Configurar ahora</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="203"/>
@@ -1823,7 +1839,7 @@
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="630"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="635"/>
         <source>e.g., 255.255.255.0</source>
-        <translation type="unfinished"/>
+        <translation>ej.: 255.255.255.0</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="610"/>
@@ -1833,38 +1849,38 @@
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="658"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="663"/>
         <source>e.g., 192.168.30.30</source>
-        <translation type="unfinished"/>
+        <translation>ej.: 192.168.30.30</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="93"/>
         <source>Make sure you have backed up important data, then select the partition mode.</source>
-        <translation type="unfinished"/>
+        <translation>Asegúrese de haber respaldado los datos importantes, después seleccione el modo de partición.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="95"/>
         <source>Partition mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo de partición</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="461"/>
         <source>Set Root Password</source>
-        <translation type="unfinished"/>
+        <translation>Establecer contraseña de root</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="463"/>
         <source>If you check &quot;Set as root password&quot;, the root password is the same as the password, otherwise, you need to set it separately.</source>
-        <translation type="unfinished"/>
+        <translation>Si marca &quot;Establecer como contraseña de root&quot;, la contraseña de root es la misma que la contraseña; de lo contrario, debe establecerla por separado.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="464"/>
         <source>Your root password should be different from the user password, please take care of them.</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña de root debe ser diferente de la contraseña del usuario, por favor sea cuidadoso.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="29"/>
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="53"/>
         <source>Is it the right timezone? You can change it as well.</source>
-        <translation type="unfinished"/>
+        <translation>¿Es la zona horaria correcta? Puede cambiarla manualmente.</translation>
     </message>
     <message>
         <location filename="../src/base/translator.h" line="18"/>
@@ -1876,28 +1892,28 @@
         <location filename="../src/ui/main_window_cli.cpp" line="75"/>
         <location filename="../src/ui/main_window_cli.cpp" line="87"/>
         <source>Welcome to install UOS</source>
-        <translation type="unfinished"/>
+        <translation>Bienvenido a la instalación de UOS</translation>
     </message>
     <message>
         <location filename="../src/ui/main_window_cli.cpp" line="64"/>
         <location filename="../src/ui/main_window_cli.cpp" line="77"/>
         <location filename="../src/ui/main_window_cli.cpp" line="89"/>
         <source>Select Item</source>
-        <translation type="unfinished"/>
+        <translation>Seleccione el elemento</translation>
     </message>
     <message>
         <location filename="../src/ui/main_window_cli.cpp" line="65"/>
         <location filename="../src/ui/main_window_cli.cpp" line="78"/>
         <location filename="../src/ui/main_window_cli.cpp" line="90"/>
         <source>Change Field</source>
-        <translation type="unfinished"/>
+        <translation>Cambiar campo</translation>
     </message>
     <message>
         <location filename="../src/ui/main_window_cli.cpp" line="67"/>
         <location filename="../src/ui/main_window_cli.cpp" line="80"/>
         <location filename="../src/ui/main_window_cli.cpp" line="92"/>
         <source>Select</source>
-        <translation type="unfinished"/>
+        <translation>Seleccionar</translation>
     </message>
 </context>
 <context>
