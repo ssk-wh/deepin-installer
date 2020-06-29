@@ -107,7 +107,7 @@ void UserAgreementFrame::initUI()
     m_sourceScrollArea->setWidget(sourceWidget);
     m_sourceScrollArea->setObjectName("scrollarea");
     m_sourceScrollArea->setWidgetResizable(true);
-    m_sourceScrollArea->setFocusPolicy(Qt::NoFocus);
+    m_sourceScrollArea->setFocusPolicy(Qt::TabFocus);
     m_sourceScrollArea->setFrameStyle(QFrame::NoFrame);
     m_sourceScrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     m_sourceScrollArea->setContentsMargins(0, 0, 0, 0);
@@ -136,7 +136,7 @@ void UserAgreementFrame::initUI()
 
     m_back = new QPushButton;
     m_back->setFixedSize(310, 36);
-    m_back->setFocusPolicy(Qt::NoFocus);
+    m_back->setFocusPolicy(Qt::TabFocus);
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins(0, 0, 0, 0);

@@ -273,7 +273,7 @@ void EditPartitionFrame::initUI() {
   format_check_box_ = new QCheckBox();
   format_check_box_->setObjectName("format_check_box");
   format_check_box_->setText(::QObject::tr("Format the partition"));
-  format_check_box_->setFocusPolicy(Qt::NoFocus);
+  format_check_box_->setFocusPolicy(Qt::TabFocus);
 
   QHBoxLayout* fs_layout =  new QHBoxLayout;
   fs_layout->addStretch();
@@ -291,10 +291,10 @@ void EditPartitionFrame::initUI() {
 
   cancel_button_ = new SelectButton();
   cancel_button_->setFixedSize(QSize(kButtonWidth, kButtonHeight));
-  cancel_button_->setFocusPolicy(Qt::NoFocus);
+  cancel_button_->setFocusPolicy(Qt::TabFocus);
   ok_button_ = new DSuggestButton();
   ok_button_->setFixedSize(QSize(kButtonWidth, kButtonHeight));
-  ok_button_->setFocusPolicy(Qt::NoFocus);
+  ok_button_->setFocusPolicy(Qt::TabFocus);
 
   QHBoxLayout *buttonLayout = new QHBoxLayout;
   buttonLayout->setContentsMargins(0, 0, 0, 0);

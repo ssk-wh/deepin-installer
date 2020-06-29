@@ -206,7 +206,7 @@ void AdvancedPartitionFrame::initUI() {
   editing_button_->setFlat(true);
   editing_button_->setCheckable(true);
   editing_button_->setChecked(false);
-  editing_button_->setFocusPolicy(Qt::NoFocus);
+  editing_button_->setFocusPolicy(Qt::TabFocus);
 
   QHBoxLayout* bottom_layout = new QHBoxLayout();
   bottom_layout->setContentsMargins(15, 10, 15, 10);
@@ -264,7 +264,7 @@ void AdvancedPartitionFrame::initUI() {
   container_policy.setVerticalStretch(100);
   this->setSizePolicy(container_policy);
 
-  this->setFocusPolicy(Qt::NoFocus);
+  this->setFocusPolicy(Qt::TabFocus);
 }
 
 AdvancedPartitionButton* AdvancedPartitionFrame::getAppropriateButtonForState(

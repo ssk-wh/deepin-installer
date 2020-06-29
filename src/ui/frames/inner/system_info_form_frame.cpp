@@ -496,7 +496,7 @@ void SystemInfoFormFramePrivate::initUI()
     m_setRootPasswordCheck = new QCheckBox;
     m_setRootPasswordCheck->setObjectName("RootPasswordCheckBox");
     m_setRootPasswordCheck->setVisible(GetSettingsBool(kSetRootPasswordFromUser));
-    m_setRootPasswordCheck->setFocusPolicy(Qt::NoFocus);
+    m_setRootPasswordCheck->setFocusPolicy(Qt::TabFocus);
 
     m_rootPasswordLabel = new QLabel;
     m_rootPasswordLabel->setAlignment(Qt::AlignLeft);
@@ -554,7 +554,7 @@ void SystemInfoFormFramePrivate::initUI()
     m_grubPasswordCheck_->setChecked(false);
     m_grubPasswordCheck_->setObjectName("GrubPasswordCheckBox");
     m_grubPasswordCheck_->setVisible(GetSettingsBool(kSystemInfoEnableGrubEditPwd));
-    m_grubPasswordCheck_->setFocusPolicy(Qt::NoFocus);
+    m_grubPasswordCheck_->setFocusPolicy(Qt::TabFocus);
 
     m_rootUserLabel = new QLabel;
     m_rootUserLabel->setFixedWidth(kHintLabelWidth + 40);

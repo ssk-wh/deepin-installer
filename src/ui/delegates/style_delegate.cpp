@@ -18,7 +18,7 @@ QScrollArea *installer::StyleDelegate::area(QWidget *widget)
     QScrollArea *languageArea = new QScrollArea;
     languageArea->setContentsMargins(0, 0, 0, 0);
     languageArea->setWidgetResizable(true);
-    languageArea->setFocusPolicy(Qt::NoFocus);
+    languageArea->setFocusPolicy(Qt::TabFocus);
     languageArea->setFrameStyle(QFrame::NoFrame);
     languageArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     languageArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);

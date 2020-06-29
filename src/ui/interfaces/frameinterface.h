@@ -69,7 +69,7 @@ public:
     explicit FrameInterface(FrameProxyInterface* inter, QWidget* parent = nullptr)
         : BaseFrameInterface(FrameType::Frame, inter, parent)
     {
-        setFocusPolicy(Qt::NoFocus);
+        setFocusPolicy(Qt::TabFocus);
     }
 
     virtual ~FrameInterface() {}

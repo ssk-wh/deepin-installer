@@ -31,7 +31,7 @@ LvmPartitionFrame::LvmPartitionFrame(
 
     m_lastButton = new QPushButton;
     m_lastButton->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);
-    m_lastButton->setFocusPolicy(Qt::NoFocus);
+    m_lastButton->setFocusPolicy(Qt::TabFocus);
 
     connect(m_lastButton, &QPushButton::clicked, this, &LvmPartitionFrame::onLastButtonClicked);
 }

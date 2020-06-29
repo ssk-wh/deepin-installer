@@ -421,6 +421,7 @@ void SelectInstallComponentFramePrivate::onServerTypeClicked()
         QString id = it->get()->Id;
         ComponentWidget* compWdg = new ComponentWidget(false);
         compWdg->setSelected(it->get()->Selected);
+        compWdg->setFocusPolicy(Qt::NoFocus);
 
         m_componentLayout->addWidget(compWdg);
 

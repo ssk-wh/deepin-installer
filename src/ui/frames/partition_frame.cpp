@@ -536,7 +536,7 @@ void PartitionFramePrivate::initUI() {
 
   centerLayout->addLayout(main_layout_);
   q_ptr->setContentsMargins(0, 0, 0, 0);
-  q_ptr->setFocusPolicy(Qt::NoFocus);
+  q_ptr->setFocusPolicy(Qt::TabFocus);
   q_ptr->setLayout(centerLayout);
 }
 

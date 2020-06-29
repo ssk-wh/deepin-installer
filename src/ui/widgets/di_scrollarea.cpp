@@ -32,7 +32,7 @@ void DIScrollArea::setWidget(QWidget *widget)
 void DIScrollArea::initUI()
 {
     setWidgetResizable(true);
-    setFocusPolicy(Qt::NoFocus);
+    setFocusPolicy(Qt::TabFocus);
     setFrameStyle(QFrame::NoFrame);
     setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
     setContentsMargins(0, 0, 0, 0);

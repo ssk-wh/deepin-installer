@@ -208,7 +208,7 @@ void InstallFailedFramePrivate::initUI()
     content_frame->setLayout(switchLayout);
 
     control_button_ = new QPushButton(content_frame);
-    control_button_->setFocusPolicy(Qt::NoFocus);
+    control_button_->setFocusPolicy(Qt::TabFocus);
     control_button_->setIcon(QIcon(installer::renderPixmap(":/images/failed_qr.svg")));
     control_button_->setObjectName("control_button");
     control_button_->setFlat(true);
@@ -220,10 +220,10 @@ void InstallFailedFramePrivate::initUI()
 
     reboot_button_ = new QPushButton;
     reboot_button_->setFixedSize(kButtonWidth, kButtonHeight);
-    reboot_button_->setFocusPolicy(Qt::NoFocus);
+    reboot_button_->setFocusPolicy(Qt::TabFocus);
     saveLogButton = new QPushButton;
     saveLogButton->setFixedSize(kButtonWidth, kButtonHeight);
-    saveLogButton->setFocusPolicy(Qt::NoFocus);
+    saveLogButton->setFocusPolicy(Qt::TabFocus);
 
     QHBoxLayout *buttonLayout = new QHBoxLayout;
     buttonLayout->setContentsMargins(0, 0, 0, 0);

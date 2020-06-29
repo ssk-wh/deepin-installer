@@ -291,10 +291,10 @@ void NewPartitionFrame::initUI() {
 
   cancel_button_ = new SelectButton();
   cancel_button_->setFixedWidth(kButtonwidth);
-  cancel_button_->setFocusPolicy(Qt::NoFocus);
+  cancel_button_->setFocusPolicy(Qt::TabFocus);
   create_button_ = new DSuggestButton();
   create_button_->setFixedWidth(kButtonwidth);
-  create_button_->setFocusPolicy(Qt::NoFocus);
+  create_button_->setFocusPolicy(Qt::TabFocus);
 
   QHBoxLayout* bt_layout = new QHBoxLayout;
   bt_layout->addStretch();

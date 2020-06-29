@@ -222,7 +222,7 @@ void AdvancedPartitionButton::initUI() {
   control_button_->setObjectName("control_button");
   control_button_->setFlat(true);
   control_button_->setFixedSize(kBtnSize, kBtnSize);
-  control_button_->setFocusPolicy(Qt::NoFocus);
+  control_button_->setFocusPolicy(Qt::TabFocus);
 
   setContentsMargins(0, 0, 0, 0);
   setFixedWidth(kMainWindowWidth);

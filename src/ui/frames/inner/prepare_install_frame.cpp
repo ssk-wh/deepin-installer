@@ -125,7 +125,7 @@ void PrepareInstallFrame::initUI() {
 
   QScrollArea* scroll = new QScrollArea(this);
   scroll->setWidgetResizable(true);
-  scroll->setFocusPolicy(Qt::NoFocus);
+  scroll->setFocusPolicy(Qt::TabFocus);
   scroll->setFrameStyle(QFrame::NoFrame);
   scroll->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
   scroll->setContentsMargins(0, 0, 0, 0);
@@ -138,10 +138,10 @@ void PrepareInstallFrame::initUI() {
 
   abort_button_ = new SelectButton();
   abort_button_->setFixedSize(kButtonWidth, kButtonHeight);
-  abort_button_->setFocusPolicy(Qt::NoFocus);
+  abort_button_->setFocusPolicy(Qt::TabFocus);
   continue_button_ = new DSuggestButton();
   continue_button_->setFixedSize(kButtonWidth, kButtonHeight);
-  continue_button_->setFocusPolicy(Qt::NoFocus);
+  continue_button_->setFocusPolicy(Qt::TabFocus);
 
   QHBoxLayout *buttonLayout = new QHBoxLayout;
   buttonLayout->setContentsMargins(0, 0, 0, 0);

@@ -169,14 +169,14 @@ void FullDiskFrame::initUI() {
   m_encryptCheck->setObjectName("check_box");
   m_encryptCheck->setCheckable(true);
   m_encryptCheck->setChecked(false);
-  m_encryptCheck->setFocusPolicy(Qt::NoFocus);
+  m_encryptCheck->setFocusPolicy(Qt::TabFocus);
   addTransLate(m_trList, std::bind(&QCheckBox::setText, m_encryptCheck, std::placeholders::_1), ::QObject::tr("Encrypt This Disk"));
 
   m_installNvidiaCheck = new QCheckBox;
   m_installNvidiaCheck->setObjectName("check_box");
   m_installNvidiaCheck->setCheckable(true);
   m_installNvidiaCheck->setChecked(false);
-  m_installNvidiaCheck->setFocusPolicy(Qt::NoFocus);
+  m_installNvidiaCheck->setFocusPolicy(Qt::TabFocus);
   m_installNvidiaCheck->setText(::QObject::tr("Install NVIDIA closed source driver"));
 
   m_errorTip = new QLabel;

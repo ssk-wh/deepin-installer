@@ -411,7 +411,7 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     m_layoutView->setMovement(QListView::Static);
     m_layoutView->setSelectionMode(QListView::NoSelection);
     m_layoutView->setFrameShape(QFrame::NoFrame);
-    m_layoutView->setFocusPolicy(Qt::NoFocus);
+    m_layoutView->setFocusPolicy(Qt::TabFocus);
 
     m_variantView->setObjectName("variant_view");
     m_variantView->setFixedWidth(kRightViewWidth);
@@ -430,7 +430,7 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     m_variantView->setMovement(QListView::Static);
     m_variantView->setSelectionMode(QListView::NoSelection);
     m_variantView->setFrameShape(QFrame::NoFrame);
-    m_variantView->setFocusPolicy(Qt::NoFocus);
+    m_variantView->setFocusPolicy(Qt::TabFocus);
 
     QVBoxLayout *leftLayout = new QVBoxLayout;
     leftLayout->setContentsMargins(5, 5, 15, 0);
@@ -441,7 +441,7 @@ void SystemInfoKeyboardFramePrivate::initUI() {
 
     QScrollArea *leftSourceScrollArea = new QScrollArea;
     leftSourceScrollArea->setWidgetResizable(true);
-    leftSourceScrollArea->setFocusPolicy(Qt::NoFocus);
+    leftSourceScrollArea->setFocusPolicy(Qt::TabFocus);
     leftSourceScrollArea->setFrameStyle(QFrame::NoFrame);
     leftSourceScrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     leftSourceScrollArea->setContentsMargins(0, 0, 0, 0);
@@ -461,7 +461,7 @@ void SystemInfoKeyboardFramePrivate::initUI() {
 
     QScrollArea *rightSourceScrollArea = new QScrollArea;
     rightSourceScrollArea->setWidgetResizable(true);
-    rightSourceScrollArea->setFocusPolicy(Qt::NoFocus);
+    rightSourceScrollArea->setFocusPolicy(Qt::TabFocus);
     rightSourceScrollArea->setFrameStyle(QFrame::NoFrame);
     rightSourceScrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     rightSourceScrollArea->setContentsMargins(0, 0, 0, 0);

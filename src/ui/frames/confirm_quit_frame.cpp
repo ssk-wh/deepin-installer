@@ -90,11 +90,11 @@ void ConfirmQuitFrame::initUI() {
 
   continue_button_ = new SelectButton();
   continue_button_->setFixedSize(170, 36);
-  continue_button_->setFocusPolicy(Qt::NoFocus);
+  continue_button_->setFocusPolicy(Qt::TabFocus);
 
   abort_button_ = new DSuggestButton();
   abort_button_->setFixedSize(170, 36);
-  abort_button_->setFocusPolicy(Qt::NoFocus);
+  abort_button_->setFocusPolicy(Qt::TabFocus);
 
   QPixmap pixmap = installer::renderPixmap(":/images/interaction_warning.svg");
   const auto ratio = devicePixelRatioF();
@@ -120,7 +120,7 @@ void ConfirmQuitFrame::setupCloseButton()
 {
     // TODO: use titleBar implement.
     m_close_button = new DImageButton(this);
-    m_close_button->setFocusPolicy(Qt::NoFocus);
+    m_close_button->setFocusPolicy(Qt::TabFocus);
     m_close_button->setFixedSize(40, 40);
     m_close_button->setNormalPic(":/images/close_normal.svg");
     m_close_button->setHoverPic(":/images/close_normal.svg");

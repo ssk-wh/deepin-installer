@@ -380,7 +380,7 @@ void TimezoneFramePrivate::initUI() {
   centerLayout->addWidget(m_timezonePage);
 
   q_ptr->setContentsMargins(0, 0, 0, 0);
-  q_ptr->setFocusPolicy(Qt::NoFocus);
+  q_ptr->setFocusPolicy(Qt::TabFocus);
 
   updateTs();
 }

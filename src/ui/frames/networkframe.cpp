@@ -123,11 +123,11 @@ public:
         m_editBtn = new QPushButton(::QObject::tr("Edit"));
         m_editBtn->setEnabled(m_deviceEnable);
         m_editBtn->setFixedSize(kEditSaveButtonWidth, kEditSaveButtonHeight);
-        m_editBtn->setFocusPolicy(Qt::NoFocus);
+        m_editBtn->setFocusPolicy(Qt::TabFocus);
 
         m_acceptBtn = new QPushButton(::QObject::tr("Confirm"));
         m_acceptBtn->setFixedSize(kEditSaveButtonWidth, kEditSaveButtonHeight);
-        m_acceptBtn->setFocusPolicy(Qt::NoFocus);
+        m_acceptBtn->setFocusPolicy(Qt::TabFocus);
 
         m_dhcpType = DHCPTYpe::Auto;
 
@@ -816,7 +816,7 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     layout->addStretch();
 
     m_nextButton->setFixedSize(kNextButtonWidth, kNextButtonHeight);
-    m_nextButton->setFocusPolicy(Qt::NoFocus);
+    m_nextButton->setFocusPolicy(Qt::TabFocus);
     connect(m_nextButton, &QPushButton::clicked, this, &NetworkFrame::saveConf);
 
     layout->addWidget(m_nextButton, 0, Qt::AlignHCenter);
@@ -887,6 +887,7 @@ void NetworkFrame::initDeviceWidgetList()
             m_leftLayout->addSpacing(10);
         }
     }
+
     m_leftLayout->addStretch();
 }
 
