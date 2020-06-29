@@ -59,6 +59,10 @@ void LicenceFramePrivate::initUI()
     m_errorInfoLabel->setFocusEnabled(false);
     m_errorInfoLabel->setBackground(NcursesUtil::getInstance()->error_attr());
     m_errorInfoLabel->hide();
+
+    m_pNextButton->setFocusEnabled(false);
+    m_pNextButton->setFocus(false);
+    m_NcursesCheckBox->setFocus(true);
 }
 
 bool LicenceFramePrivate::validate()
@@ -102,7 +106,10 @@ void LicenceFramePrivate::onKeyPress(int keyCode)
 void LicenceFramePrivate::checkboxSelectChange(bool select)
 {
     if (select) {
-        m_errorInfoLabel->hide();
+        m_errorInfoLabel->hide();   
+        m_pNextButton->setFocusEnabled(true);
+    } else {
+        m_pNextButton->setFocusEnabled(false);
     }
 }
 
