@@ -451,10 +451,10 @@
         <location filename="../src/ui/frames/install_component_frame.cpp" line="189"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="215"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="739"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="966"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="971"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="229"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="661"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="759"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="762"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="137"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="212"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="131"/>
@@ -697,13 +697,15 @@
         <translation>Formatoje pjesën</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="153"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="164"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="232"/>
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="96"/>
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="120"/>
-        <source>Create</source>
-        <translation>Krijoje</translation>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="129"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="276"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="128"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="324"/>
+        <location filename="../src/ui/main_window_cli.cpp" line="66"/>
+        <location filename="../src/ui/main_window_cli.cpp" line="79"/>
+        <location filename="../src/ui/main_window_cli.cpp" line="91"/>
+        <source>Confirm</source>
+        <translation>Ripohojeni</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="231"/>
@@ -729,6 +731,7 @@
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="272"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="228"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="434"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="764"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Sigurohuni se keni kopjeruajtur të dhëna të rëndësishme, mandej përzgjidhni diskun për instalim</translation>
     </message>
@@ -745,17 +748,6 @@
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="274"/>
         <source>Repeat Password</source>
         <translation>Ripërsëritni Fjalëkalimin</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="129"/>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="276"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="128"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="324"/>
-        <location filename="../src/ui/main_window_cli.cpp" line="66"/>
-        <location filename="../src/ui/main_window_cli.cpp" line="79"/>
-        <location filename="../src/ui/main_window_cli.cpp" line="91"/>
-        <source>Confirm</source>
-        <translation>Ripohojeni</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="277"/>
@@ -845,8 +837,13 @@
         <translation>Fund</translation>
     </message>
     <message>
-        <source>OK</source>
-        <translation type="vanished">OK</translation>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="153"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="164"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="232"/>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="96"/>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="120"/>
+        <source>Create</source>
+        <translation>Krijoje</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="35"/>
@@ -877,18 +874,6 @@
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="46"/>
         <source>Scanning disks, please wait...</source>
         <translation>Po skanohen disqe, ju lutemi, prisni…</translation>
-    </message>
-    <message>
-        <source>You should delete a primary partition before creating a new one</source>
-        <translation type="vanished">Duhet të fshini një pjesë parësore, përpara se të krijoni një të re</translation>
-    </message>
-    <message>
-        <source>New logical partitions can only be created near existing logical partitions</source>
-        <translation type="vanished">Pjesë të reja logjike mund të krijohen vetëm pranë pjesësh ekzistuese logjike</translation>
-    </message>
-    <message>
-        <source>You should delete a primary partition before creating a new partition</source>
-        <translation type="vanished">Duhet të fshini një pjesë parësore, përpara se të krijoni një të re</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="45"/>
@@ -954,6 +939,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="91"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="224"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="654"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="681"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="87"/>
         <source>Ready to Install</source>
         <translation>Gati për Instalim</translation>
@@ -962,6 +948,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="75"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="93"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="223"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="680"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="91"/>
         <source>Make a backup of your important data and then continue</source>
         <translation>Është e rëndësishme gjithashtu që të bë</translation>
@@ -1472,15 +1459,15 @@
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="745"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="890"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="964"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="895"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="969"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="175"/>
         <source>Configure Network</source>
         <translation>Formësoni Rrjetin</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="746"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="965"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="970"/>
         <source>IP address has been auto-configured, but you can configure the network as well</source>
         <translation>Adresa IP është formësuar automatikisht, por mund të formësoni edhe rrjetin</translation>
     </message>
@@ -1488,7 +1475,7 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="186"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="226"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="432"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="758"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="761"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="89"/>
         <source>Create Partitions</source>
         <translation>Krijoni Pjesë</translation>
@@ -1653,20 +1640,20 @@
         <translation>Disk të Dhënash</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/network_device_widget.cpp" line="213"/>
-        <location filename="../src/ui/widgets/network_device_widget.cpp" line="250"/>
+        <location filename="../src/ui/widgets/network_device_widget.cpp" line="209"/>
+        <location filename="../src/ui/widgets/network_device_widget.cpp" line="245"/>
         <source>Ethernet</source>
         <translation>Ethernet</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/network_device_widget.cpp" line="216"/>
-        <location filename="../src/ui/widgets/network_device_widget.cpp" line="253"/>
+        <location filename="../src/ui/widgets/network_device_widget.cpp" line="212"/>
+        <location filename="../src/ui/widgets/network_device_widget.cpp" line="248"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/network_device_widget.cpp" line="219"/>
-        <location filename="../src/ui/widgets/network_device_widget.cpp" line="256"/>
+        <location filename="../src/ui/widgets/network_device_widget.cpp" line="215"/>
+        <location filename="../src/ui/widgets/network_device_widget.cpp" line="251"/>
         <source>Unknown device</source>
         <translation>Pajisje e panjohur</translation>
     </message>

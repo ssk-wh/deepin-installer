@@ -676,6 +676,9 @@ void PartitionFramePrivate::onManualPartDone(bool ok, const DeviceList& devices)
         partition_stacked_layout_->setCurrentWidget(lvm_partition_frame_);
         main_layout_->setCurrentWidget(main_frame_);
         title_label_->setText(::QObject::tr("Edit LVM Disk"));
+        comment_label_->setText(
+            ::QObject::tr("Make a backup of your important data and then continue"));
+        nextButton->setText(::QObject::tr("Ready to Install"));
         return ;
     } else if (Install_Lvm_Status::Lvm_Install == AdvancedPartitionDelegate::install_Lvm_Status) {
         lvm_delegate_->onManualPartDone(devices);
@@ -757,6 +760,8 @@ void PartitionFramePrivate::showMainFrame() {
       main_layout_->setCurrentWidget(main_frame_);
       title_label_->setText(::QObject::tr("Create Partitions"));     
       nextButton->setText(::QObject::tr("Next"));
+      comment_label_->setText(
+          ::QObject::tr("Make sure you have backed up important data, then select the disk to install"));
   }
 
   main_layout_->setCurrentWidget(main_frame_);
