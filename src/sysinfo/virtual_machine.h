@@ -22,6 +22,7 @@ namespace installer {
 
 // Check whether current system is running in a virtual machine.
 bool IsVirtualMachine();
+bool systemdDetectVirt();
 
 }  // namespace
 

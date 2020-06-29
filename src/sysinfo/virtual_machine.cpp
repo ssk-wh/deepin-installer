@@ -18,6 +18,9 @@
 #include "sysinfo/virtual_machine.h"
 
 #include "base/file_util.h"
+#include "base/command.h"
+
+#include <QDebug>
 
 namespace installer {
 
@@ -25,7 +28,25 @@ namespace installer {
 bool IsVirtualMachine() {
   // Check "hypervisor" flag is added in /proc/cpuinfo.
   const QString content(ReadFile("/proc/cpuinfo"));
-  return content.contains("hypervisor");
+  return content.contains("hypervisor") || systemdDetectVirt();
+}
+
+bool systemdDetectVirt() {
+    QString output, err;
+
+    SpawnCmd("/usr/bin/systemd-detect-virt", {}, output, err);
+    if (output.isEmpty()) {
+        qCritical() << "systemd-detect-virt command failed. err:" << err << ". output:" << output;
+        return false;
+    }
+
+    qInfo() << "systemd-detect-virt output : " << output;
+
+    if (output.contains("none")) {
+        return false;
+    }
+
+    return true;
 }
 
 }  // namespace installer
