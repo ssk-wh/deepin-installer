@@ -99,6 +99,7 @@ public:
     bool isLeapYear(uint year) const;
     uint getDaysInMonth(uint year, uint month) const;
     bool validateHour(const QString& str) const;
+    bool check24Hour(const QString &str) const;
     bool validateMinute(const QString& str) const;
     bool validateYear(const QString& str) const;
     bool validateMonth(const QString& str) const;
@@ -221,7 +222,9 @@ void SystemDateFramePrivate::onHourEditingFinished()
 {
     Q_Q(SystemDateFrame);
     q->setFocus();
-    if(!validateHour(m_hourEdit->text())){
+    if (!check24Hour(m_hourEdit->text())) {
+        m_hourEdit->setText(QString::number(0));
+    } else if(!validateHour(m_hourEdit->text())){
         m_hourEdit->setText(QString::number(QTime::currentTime().hour()));
     }
 }
@@ -309,6 +312,19 @@ bool SystemDateFramePrivate::validateHour(const QString &str) const
     }
 
     if(str.toUInt() > 23){
+        return false;
+    }
+
+    return true;
+}
+
+bool SystemDateFramePrivate::check24Hour(const QString &str) const
+{
+    if(str.isEmpty()){
+        return false;
+    }
+
+    if(str.toUInt() == 24){
         return false;
     }
 
