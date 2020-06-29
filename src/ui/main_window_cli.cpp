@@ -160,7 +160,7 @@ void MainWindow::slot_languageChange()
 
     const QString locale(ReadLocale());
     if(!locale.compare("zh_CN")) {
-        QString tmplocale = QString("cli_%1").arg(locale);
+        QString tmplocale = QString("%1").arg(locale);
         m_translator->load(GetLocalePath(locale));
         m_translator_cli->load(GetLocalePath(tmplocale));
         qApp->installTranslator(m_translator);
