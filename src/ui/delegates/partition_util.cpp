@@ -386,7 +386,7 @@ QString GetPartitionName(const QString& path) {
 QString GetPartitionUsage(const Partition::Ptr partition) {
   qint64 total, used;
   if (partition->type != PartitionType::Unallocated && (partition->length > 0) && (partition->length >= partition->freespace)) {
-    total = partition->length;
+    total = partition->getByteLength();
     used = total - partition->freespace;
   } else {
     total = partition->getByteLength();
