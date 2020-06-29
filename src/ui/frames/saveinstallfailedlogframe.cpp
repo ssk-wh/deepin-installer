@@ -201,13 +201,15 @@ void SaveInstallFailedLogFrame::refreshDevices()
         device_model_label->setFixedSize(kWindowWidth, 20);
 
         // Make sure that widgets in grid are left-aligned.
+        /*
         m_partitionGridLayout->addWidget(device_model_label,
                                          row,
                                          0,
                                          1,
                                          kDiskColumns,
                                          Qt::AlignLeft);
-        row += 1;
+                                         */
+        //row += 1;
 
         auto list = it.value();
         for (auto part = list.constBegin(); part != list.constEnd(); ++part) {
@@ -236,8 +238,8 @@ void SaveInstallFailedLogFrame::refreshDevices()
         }
 
         // Go to next row.
-        column = 0;
-        row += 1;
+        //column = 0;
+        //row += 1;
     }
 
     // Add place holder. It is used for install_tip
