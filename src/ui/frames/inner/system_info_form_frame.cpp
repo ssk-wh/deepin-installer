@@ -589,15 +589,20 @@ void SystemInfoFormFramePrivate::initUI()
     layout->addWidget(passwordCheckFrame, 0, Qt::AlignHCenter);
     layout->addSpacing(kSetRootPasswordCheckBoxHeight);
     m_setRootPasswordCheck->setFixedSize(kSetRootPasswordCheckBoxWidth, kSetRootPasswordCheckBoxHeight);
-    layout->addWidget(m_setRootPasswordCheck, 0, Qt::AlignHCenter);
-    layout->addSpacing(kSetRootPasswordCheckBoxHeight);
-    layout->addWidget(m_rootUserFrame, 0, Qt::AlignHCenter);
-    layout->addSpacing(kSetRootPasswordCheckBoxHeight);
-    layout->addWidget(m_rootPasswordFrame, 0, Qt::AlignHCenter);
-    layout->addSpacing(kSetRootPasswordCheckBoxHeight);
-    layout->addWidget(m_rootPasswordCheckFrame, 0, Qt::AlignHCenter);
-    layout->addSpacing(kSetRootPasswordCheckBoxHeight);
-    layout->addWidget(m_grubPasswordCheck_, 0, Qt::AlignHCenter);
+
+    if (m_setRootPasswordCheck->isVisible()) {
+        layout->addWidget(m_setRootPasswordCheck, 0, Qt::AlignHCenter);
+        layout->addSpacing(kSetRootPasswordCheckBoxHeight);
+        layout->addWidget(m_rootUserFrame, 0, Qt::AlignHCenter);
+        layout->addSpacing(kSetRootPasswordCheckBoxHeight);
+        layout->addWidget(m_rootPasswordFrame, 0, Qt::AlignHCenter);
+        layout->addSpacing(kSetRootPasswordCheckBoxHeight);
+        layout->addWidget(m_rootPasswordCheckFrame, 0, Qt::AlignHCenter);
+        layout->addSpacing(kSetRootPasswordCheckBoxHeight);
+        layout->addWidget(m_grubPasswordCheck_, 0, Qt::AlignHCenter);
+    } else {
+        layout->addSpacing(kSetRootPasswordCheckBoxHeight * 6);
+    }
 
     QFrame* content = new QFrame;
     content->setLayout(layout);
