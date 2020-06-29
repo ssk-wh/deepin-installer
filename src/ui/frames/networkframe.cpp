@@ -750,11 +750,35 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
 
     // 左侧布局
     m_leftLayout = new QVBoxLayout;
-    m_leftLayout->setMargin(5);
+    m_leftLayout->setContentsMargins(0, 0, 0, 0);
+    m_leftLayout->setSpacing(0);
+
+    QFrame *leftFrame = new QFrame;
+    leftFrame->setContentsMargins(0, 0, 0, 0);
+    leftFrame->setLayout(m_leftLayout);
+
+    QScrollArea *leftArea = new QScrollArea;
+    leftArea->setContentsMargins(0, 0, 10, 0);
+    leftArea->setWidgetResizable(true);
+    leftArea->setFocusPolicy(Qt::NoFocus);
+    leftArea->setFrameStyle(QFrame::NoFrame);
+    leftArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+    leftArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    leftArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    leftArea->setContextMenuPolicy(Qt::NoContextMenu);
+    leftArea->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    leftArea->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    leftArea->setWidget(leftFrame);
+    leftArea->setFixedWidth(252);
+
+    QVBoxLayout* leftLayout = new QVBoxLayout;
+    leftLayout->setContentsMargins(10, 10, 10, 10);
+    leftLayout->addWidget(leftArea);
+
     QFrame *leftWidget = new QFrame;
     leftWidget->setContentsMargins(0, 0, 0, 0);
     leftWidget->setFixedSize(kLeftViewWidth, kViewHeight);
-    leftWidget->setLayout(m_leftLayout);
+    leftWidget->setLayout(leftLayout);
 
     // 右侧布局
     QVBoxLayout* rightLayout = new QVBoxLayout;
@@ -856,32 +880,13 @@ void NetworkFrame::initDeviceWidgetList()
     connect(m_buttonBox, &DButtonBox::buttonClicked, this
             , &NetworkFrame::onButtonGroupToggled);
 
-    QVBoxLayout *leftLayout = new QVBoxLayout;
-    leftLayout->setContentsMargins(0, 0, 0, 0);
     for (DButtonBoxButton* button : m_buttonList) {
         NetworkDeviceWidget* widget = qobject_cast<NetworkDeviceWidget*>(button);
-        leftLayout->addWidget(widget, 0, Qt::AlignTop);
+        m_leftLayout->addWidget(widget, 0, Qt::AlignTop);
+        if (button != m_buttonList.last()) {
+            m_leftLayout->addSpacing(10);
+        }
     }
-
-    QFrame *leftFrame = new QFrame;
-    leftFrame->setContentsMargins(0, 0, 0, 0);
-    leftFrame->setLayout(leftLayout);
-
-    QScrollArea *leftArea = new QScrollArea;
-    leftArea->setContentsMargins(0, 0, 15, 0);
-    leftArea->setWidgetResizable(true);
-    leftArea->setFocusPolicy(Qt::NoFocus);
-    leftArea->setFrameStyle(QFrame::NoFrame);
-    leftArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-    leftArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    leftArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    leftArea->setContextMenuPolicy(Qt::NoContextMenu);
-    leftArea->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-    leftArea->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-    leftArea->setWidget(leftFrame);
-    leftArea->setFixedWidth(255);
-
-    m_leftLayout->addWidget(leftArea);
     m_leftLayout->addStretch();
 }
 

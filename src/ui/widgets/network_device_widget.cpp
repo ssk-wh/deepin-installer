@@ -11,7 +11,7 @@
 namespace installer {
 
 namespace {
-    const int kNetworkDeviceWidgetWidth = 240;
+    const int kNetworkDeviceWidgetWidth = 235;
     const int kNetworkDeviceWidgetHeight = 90;
     const int KQLabelWidth = 180;
     const int kTitleFont = 14; // 14pt
@@ -43,7 +43,7 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     m_descLabel->setFont(descFont);
 
     m_vLayout = new QVBoxLayout;
-    m_vLayout->setContentsMargins(5, 0, 0, 0);
+    m_vLayout->setContentsMargins(0, 0, 0, 0);
     m_vLayout->setSpacing(0);
     m_vLayout->addStretch();
     m_vLayout->addWidget(m_deviceName, 0, Qt::AlignLeft);
@@ -51,7 +51,7 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     m_vLayout->addStretch();
 
     m_checkedLabel = new QLabel;
-    const QPixmap pixmap = installer::renderPixmap(":/images/select.svg");
+    const QPixmap pixmap = installer::renderPixmap(":/images/select_blue.svg");
     Q_ASSERT(!pixmap.isNull());
     m_checkedLabel->setPixmap(pixmap);
     m_checkedLabel->setFixedSize(pixmap.size() / devicePixelRatioF());
@@ -205,10 +205,6 @@ void NetworkDeviceWidget::updateCheckedAppearance()
 void NetworkDeviceWidget::setDeviceInfo(NetworkManager::Device::Ptr device) {
     qDebug() << "Device type: " << device->type();
 
-#ifdef QT_DEBUG
-    setTitle(QString("Ethernet (%1)").arg("nsp21111111110"));
-    setDesc("test nsp21111111110");
-#else
     if (device->type() == NetworkManager::Device::Type::Ethernet) {
         setTitle(::QObject::tr("Ethernet") + QString(" (%1)").arg(device->interfaceName()));
     }
@@ -218,7 +214,6 @@ void NetworkDeviceWidget::setDeviceInfo(NetworkManager::Device::Ptr device) {
     else {
         setTitle(::QObject::tr("Unknown device") + QString(" (%1)").arg(device->interfaceName()));
     }
-#endif // QT_DEBUG
 
     m_device = device;
     m_networkOperate = new NetworkOperate(device);
