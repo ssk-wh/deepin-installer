@@ -150,7 +150,7 @@ void NewPartitionFrame::changeEvent(QEvent* event) {
     alignment_box_->clear();
     alignment_box_->addItems({::QObject::tr("Start"), ::QObject::tr("End")});
     cancel_button_->setText(::QObject::tr("Cancel"));
-    create_button_->setText(::QObject::tr("OK"));
+    create_button_->setText(::QObject::tr("Create"));
 
     if (m_close_button) {
         const int marginSize = this->layout()->margin();

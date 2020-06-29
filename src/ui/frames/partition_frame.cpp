@@ -580,7 +580,7 @@ bool PartitionFramePrivate::isRawDevice(const QList<Device::Ptr> list) {
 
 void PartitionFramePrivate::onButtonGroupToggled(QAbstractButton *button)
 {
-#ifdef QT_DEBUG
+#ifdef QT_DEBUG_test
   showPartitionNumberLimitationFrame();
 #else
     if (button == full_disk_frame_button_){

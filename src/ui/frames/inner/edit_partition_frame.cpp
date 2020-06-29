@@ -126,7 +126,7 @@ void EditPartitionFrame::changeEvent(QEvent* event) {
     mount_point_label_->setText(::QObject::tr("Mount point"));
     format_check_box_->setText(::QObject::tr("Format the partition"));
     cancel_button_->setText(::QObject::tr("Cancel"));
-    ok_button_->setText(::QObject::tr("Create"));
+    ok_button_->setText(::QObject::tr("Confirm"));
 
     if (m_close_button) {
         const int marginSize = this->layout()->margin();
