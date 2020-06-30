@@ -126,6 +126,8 @@ private:
 
     DListView* m_layoutView = new DListView;
     DListView* m_variantView = new DListView;
+
+    // The user last checked item.
     DStandardItem* m_lastItem = nullptr;
     DStandardItem* m_lastItemVar = nullptr;
 
@@ -133,6 +135,10 @@ private:
     XkbLayoutList layout_list_;
     XKbLayoutVariantList variant_list_;
     XkbModelList model_list;
+
+    // The user last checked both left and right view item.
+    DStandardItem* m_lastChangedItem = nullptr;
+    int m_lastItemRow = -1;
 };
 
 SystemInfoKeyboardFrame::SystemInfoKeyboardFrame(FrameProxyInterface *parent)
@@ -191,7 +197,9 @@ void SystemInfoKeyboardFramePrivate::initLayout(const QString& locale) {
 
   m_layoutModel->clear();
   m_lastItem = nullptr;
+  m_lastChangedItem = nullptr;
   m_lastItemVar = nullptr;
+  m_lastItemRow = -1;
 
   // Append layout to its variant list.
   for (XkbLayout& layout : layout_list_) {
@@ -511,23 +519,32 @@ void SystemInfoKeyboardFramePrivate::onLayoutViewSelectionChanged(
         m_lastItem->setCheckState(Qt::Unchecked);
     }
 
-    m_lastItem = item;
-
     // Update variant list.
     setVariantList(getVariantList(current),  m_currentLocale);
 
     // Scroll to top of variant view.
     m_variantView->scrollToTop();
-    if (m_variantModel->rowCount() > 0)  {
-        // Select the default layout variant.
-        m_variantView->setCurrentIndex(m_variantModel->index(0, 0));
+
+    // Select the default layout variant.
+    if (nullptr == m_lastItem) {
+        if (m_variantModel->rowCount() > 0)  {
+            m_variantView->setCurrentIndex(m_variantModel->index(0, 0));
+            m_lastChangedItem = item;
+        }
     }
+    else {
+        if (m_lastChangedItem == item) {
+            if (m_lastItemRow >= 0) {
+                m_variantView->setCurrentIndex(m_variantModel->index(m_lastItemRow, 0));
+            }
+        }
+    }
+
+    m_lastItem = item;
 }
 
 void SystemInfoKeyboardFramePrivate::onVariantViewSelected(
         const QModelIndex& current, const QModelIndex& previous) {
-    Q_Q(SystemInfoKeyboardFrame);
-
     Q_UNUSED(previous);
 
     DStandardItem* item = dynamic_cast<DStandardItem* >(m_variantModel->item(current.row()));
@@ -538,6 +555,10 @@ void SystemInfoKeyboardFramePrivate::onVariantViewSelected(
     }
 
     m_lastItemVar = item;
+    m_lastItemRow = m_lastItemVar->row();
+
+    m_lastChangedItem = dynamic_cast<DStandardItem* >
+            (m_layoutModel->item(m_layoutView->currentIndex().row()));
 
     const QModelIndex layout_index = m_layoutView->currentIndex();
     const QString layout = getLayoutName(layout_index);
