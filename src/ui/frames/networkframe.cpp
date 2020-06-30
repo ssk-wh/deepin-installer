@@ -316,9 +316,10 @@ public:
         m_gatewayLable->setText(::QObject::tr("Gateway:"));
         m_primaryDNSLabel->setText(::QObject::tr("Primary DNS:"));
         m_secondaryDNSLabel->setText(::QObject::tr("Secondary DNS:"));
+        m_dhcpTypeWidget->blockSignals(true);
         m_dhcpTypeModel->setStringList({::QObject::tr("Auto"),
                                         ::QObject::tr("Manual")});
-
+        m_dhcpTypeWidget->blockSignals(false);
 
         m_editBtn->setText(::QObject::tr("Edit"));
         m_acceptBtn->setText(::QObject::tr("Confirm"));
@@ -581,6 +582,8 @@ public:
 
             setLineEditEnable(true);
             m_errorTip->hide();
+
+            qDebug() << "We will never get here";
         }
         else {
             m_dhcpTypeWidget->setEnabled(false);
@@ -591,6 +594,8 @@ public:
 
             setLineEditEnable(false);
             m_errorTip->hide();
+
+            m_switchButton->setEnabled(true);
         }
     }
 
@@ -834,13 +839,6 @@ void NetworkFrame::initDeviceWidgetList()
 
     NetworkManager::Device::List list = NetworkManager::networkInterfaces();
 
-#ifdef QT_DEBUG_test
-    for (int i = 0; i < 6; i++) {
-        NetworkManager::Device::Ptr d(new NetworkManager::Device(QString("zdd test")));
-        list << d;
-    }
-#endif // QT_DEBUG
-
     bool hasSet = false;
 
     foreach (NetworkManager::Device::Ptr dev, list) {
@@ -849,14 +847,11 @@ void NetworkFrame::initDeviceWidgetList()
         qDebug() << "type: " << dev->type();
         qDebug() << "interface name: " << dev->interfaceName();
 
-#ifdef QT_DEBUG_test
-#else
         // FIXME: what about !dev->managed()
         if (dev->type() != NetworkManager::Device::Type::Ethernet
             || dev->interfaceName().contains("vmnet")) {
             continue;
         }
-#endif // QT_DEBUG
 
         NetworkDeviceWidget* deviceWidget = new NetworkDeviceWidget(this);
         deviceWidget->setCheckable(true);
