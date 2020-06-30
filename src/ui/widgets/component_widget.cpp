@@ -36,11 +36,12 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
     m_descLabel->adjustSize();
 
     m_hLayout = new QHBoxLayout;
-    m_hLayout->addSpacing(0);
+    m_hLayout->setContentsMargins(0, 0, 0, 0);
     m_vLayout = new QVBoxLayout;
     m_vLayout->setSpacing(0);
     m_vLayout->addWidget(m_titleLabel, 0, Qt::AlignLeft);
     m_vLayout->addWidget(m_descLabel, 0, Qt::AlignLeft);
+    m_vLayout->setContentsMargins(0, 0, 0, 0);
     if(singleSelected){
         m_radioBotton = new QRadioButton;
         m_radioBotton->setCheckable(true);
@@ -71,6 +72,7 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
     setMinimumHeight(kComponentWidgetMinHeight);
     setObjectName("ComponentWidget");
     setLayout(m_hLayout);
+    setContentsMargins(0, 0, 0, 0);
 
     this->setStyleSheet(ReadFile(":/styles/component_widget.css"));
 }

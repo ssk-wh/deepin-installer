@@ -295,8 +295,8 @@ void SelectInstallComponentFramePrivate::initUI()
     m_serverScrollArea->setWidget(m_baseComponentListWidget);
 
     m_componentLayout = new QVBoxLayout;
-    m_componentLayout->setContentsMargins(0, 0, 12, 0);
     m_componentLayout->setSpacing(kItemSpacing);
+    m_componentLayout->setContentsMargins(0, 0, 12, 0);
 
     m_extraComponentListWidget = new QWidget;
     m_extraComponentListWidget->setLayout(m_componentLayout);
@@ -316,9 +316,6 @@ void SelectInstallComponentFramePrivate::initUI()
     componentLayout->setSpacing(0);
     componentLayout->addWidget(m_compScrollArea);
 
-    QHBoxLayout *allCheckLayout = new QHBoxLayout;
-    allCheckLayout->setContentsMargins(0, 0, 0, 0);
-
     m_selectAllCheckBox = new QCheckBox;
     m_selectAllCheckBox->setObjectName("selectAllCheckBox");
     m_selectAllCheckBox->setCheckable(true);
@@ -332,10 +329,13 @@ void SelectInstallComponentFramePrivate::initUI()
     });
     m_selectAllCheckBox->installEventFilter(this);
 
-    allCheckLayout->addSpacing(kItemSpacing);
-    allCheckLayout->addWidget(m_selectAllCheckBox, 0, Qt::AlignLeft | Qt::AlignVCenter);
+    QHBoxLayout *allCheckLayout = new QHBoxLayout;
+    allCheckLayout->setContentsMargins(0, 0, 0, 0);
+    allCheckLayout->addWidget(m_selectAllCheckBox);
     allCheckLayout->addStretch();
+
     m_selectAllFrame = new QFrame;
+    m_selectAllFrame->setContentsMargins(0, 0, 0, 0);
     m_selectAllFrame->setObjectName("selectAllFrame");
     m_selectAllFrame->setFixedHeight(30);
     m_selectAllFrame->setLayout(allCheckLayout);
