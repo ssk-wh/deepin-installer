@@ -349,7 +349,7 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
 
               if (device->table == PartitionTableType::GPT) {
                   int index = list.indexOf(efiPartition);
-                  if (index != -1 && index != 0) {
+                  if ((index != -1 && index != 0) || efiPartition->partition_number != 1) {
                       states.clear();
                       states << ValidateState::EfiPartNumberinvalid;
                       return states;
@@ -359,7 +359,7 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
 
               int index = list.indexOf(bootPartition);
               // boot partition exists, but is not the first partition.
-              if (index != -1 && index != 0) {
+              if ((index != -1 && index != 0) || bootPartition->partition_number != 1) {
                   states.clear();
                   states << ValidateState::BootPartNumberInvalid;
                   return states;
@@ -367,7 +367,7 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
 
               index = list.indexOf(rootPartition);
               // boot partition does not exist, root partition exists, but is not the first partition.
-              if (bootPartition.isNull() && index != -1 && index != 0) {
+              if (bootPartition.isNull() && ((index != -1 && index != 0) || rootPartition->partition_number != 1)) {
                   states.clear();
                   states << ValidateState::BootPartNumberInvalid;
                   return states;
