@@ -322,7 +322,7 @@ bool FullDiskFrame::doFullDiskPartition()
     }
 
     Device::Ptr device(new Device(*m_delegate->virtualDevices()[index]));
-    const qint64 root_required = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
+    const qint64 root_required = GetSettingsInt(kPartitionRootMiniSpace);
     const qint64 root_required_bytes = kGibiByte * root_required;
     if (device->getByteLength() < root_required_bytes) {
         qWarning() << QString("MULTIDISK: disk too small:size:{%1}.").arg(device->getByteLength());
