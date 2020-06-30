@@ -239,6 +239,8 @@ set(SERVICE_FILES
     service/timezone_manager.h
     service/language_manager.h
     service/language_manager.cpp
+    service/screen_adaptation_manager.h
+    service/screen_adaptation_manager.cpp
     )
 
 set(SYSINFO_FILES

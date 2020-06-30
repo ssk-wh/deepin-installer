@@ -28,6 +28,7 @@
 #include <QResizeEvent>
 
 #include "service/settings_manager.h"
+#include "service/screen_adaptation_manager.h"
 #include "ui/delegates/install_slide_frame_util.h"
 #include "ui/utils/widget_util.h"
 
@@ -100,8 +101,8 @@ void InstallProgressSlideFrame::initUI() {
   container_label_ = new QLabel(m_animationContainer);
 
   if (!GetSlideFiles(ReadLocale()).isEmpty()) {
-     m_animationContainer->setFixedSize(QPixmap(GetSlideFiles(ReadLocale()).at(0)).size());
-     container_label_->setFixedSize(QPixmap(GetSlideFiles(ReadLocale()).at(0)).size());
+     m_animationContainer->setFixedSize(ScreenAdaptationManager::instance()->adapterPixmap(GetSlideFiles(ReadLocale()).at(0)).size());
+     container_label_->setFixedSize(ScreenAdaptationManager::instance()->adapterPixmap(GetSlideFiles(ReadLocale()).at(0)).size());
   }
 
   m_backButton = new DIconButton(this);
@@ -171,7 +172,7 @@ void InstallProgressSlideFrame::updateSlidePixmap()
     constexpr int buttonSpacing = 20;
     const int width = this->width() - (buttonWidth + buttonSpacing) * 2;
 
-    container_label_->setPixmap(m_cachePixmap);
+    container_label_->setPixmap(ScreenAdaptationManager::instance()->adapterPixmap(m_cachePixmap));
 }
 
 void InstallProgressSlideFrame::showEvent(QShowEvent *event)

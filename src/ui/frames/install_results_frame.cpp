@@ -72,7 +72,11 @@ InstallResultsFrame::InstallResultsFrame(FrameProxyInterface* frameProxyInterfac
 
 void InstallResultsFrame::init()
 {
+#ifdef QT_DEBUG
+    const bool m_result = true;
+#else
     const bool m_result = GetSettingsBool("DI_INSTALL_SUCCESSED");
+#endif // QT_DEBUG
 
     if (m_result) {
         m_private->showInstallSuccessFrame();

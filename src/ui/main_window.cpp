@@ -448,6 +448,9 @@ void MainWindow::initPages() {
 
   m_originalFrames = {
       // TODO: move the front new statement over here
+#ifdef QT_DEBUG_test
+
+#else
       privilege_error_frame_,
       m_repairSystemFrame,
       select_language_frame_,
@@ -457,6 +460,7 @@ void MainWindow::initPages() {
       system_info_frame_,
       m_selectComponentFrame,
       partition_frame_,
+#endif // QT_DEBUG
       install_progress_frame_,
       m_installResultsFrame,
   };
