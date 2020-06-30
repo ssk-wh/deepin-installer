@@ -157,7 +157,12 @@ namespace installer {
 #define COLOR_COUNT                  8
 
 
-#define ATTRIBUTE_COUNT               34
+#define ATTRIBUTE_COUNT               38
+
+/* new style */
+#define BUTTON_FG COLOR_BLACK
+#define BUTTON_GB COLOR_YELLOW
+#define BUTTON_HL TRUE
 
 
 class NcursesUtil
@@ -301,6 +306,14 @@ public:
     chtype list_view_item_select() {
         return attributes[33];
     }
+
+    chtype button() {
+        return attributes[37];
+    }
+
+//    chtype button_select() {
+//        return attributes[38];
+//    }
 
 private:
     NcursesUtil();

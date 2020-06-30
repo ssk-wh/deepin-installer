@@ -18,6 +18,7 @@ public:
     void onKeyPress(int keyCode) override;
     QString text() const;
     void resetBackground();
+    void drawFoucs();
 
 signals:
     void clicked();

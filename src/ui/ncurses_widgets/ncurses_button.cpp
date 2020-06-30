@@ -27,7 +27,7 @@ void NcursesButton::show()
     } else {
         move(height() / 2 , (width() - m_text.length()) / 2);
     }
-    attron(m_foucs ? NcursesUtil::getInstance()->button_label_active_attr() : NcursesUtil::getInstance()->button_active_attr());
+    drawFoucs();
     addstr(m_text.toUtf8().data());
     NCursesWindowBase::show();
 }
@@ -63,6 +63,15 @@ QString NcursesButton::text() const
 void NcursesButton::resetBackground()
 {
     setBackground(m_enalble ? NcursesUtil::getInstance()->button_active_attr() : NcursesUtil::getInstance()->button_inactive_attr());
+}
+
+void NcursesButton::drawFoucs()
+{
+    if (isOnFoucs()) {
+        bkgd(NcursesUtil::getInstance()->button_key_active_attr());
+    } else {
+        bkgd(this->background());
+    }
 }
 
 }

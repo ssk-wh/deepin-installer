@@ -324,6 +324,8 @@ void SystemInfoFramePrivate::initUI()
         m_label_error_info->setFocusEnabled(false);
         m_label_error_info->setBackground(NcursesUtil::getInstance()->error_attr());
 
+        m_pNextButton->setBackground(NcursesUtil::getInstance()->button());
+
 //        connect(m_le_username, &NCursesLineEdit::textChanged, this, [=](){
 //            m_le_hostname->setText(m_le_username->text().append("-PC"));
 //        });
