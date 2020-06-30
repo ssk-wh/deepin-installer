@@ -562,6 +562,7 @@ void NetwrokFramePrivate::doBackBtnClicked()
     if(m_currentchoicetype == 1) {
         m_childpagecounttext->setText(" [1/1] ");
         m_childpagecounttext->show();
+        m_networkconnecterrorlabel->hide();
         updateChoiceType(0);
         setFocusEnableType(0);
     } else {
@@ -723,6 +724,7 @@ void NetwrokFramePrivate::layout()
     //updateTs();
     int testcurry = begy() + m_titledesbrower->height() + 6;
     int testcurrx = width() / 2 - m_operationchoice.at(0).m_NcursesLabel->text().length() / 2;
+    int curry = testcurry;
 
     for(int i = 0; i < m_operationchoice.size(); i++) {
         m_operationchoice[i].m_begy = testcurry + i;
@@ -741,7 +743,12 @@ void NetwrokFramePrivate::layout()
         m_ipconfigitems.at(i).m_ErrorinfoLabel->wresize(1, width() - testcurrx - 2 - width() / 2 + (testcurrx + edittorisize) / 2);
         m_ipconfigitems.at(i).m_ErrorinfoLabel->mvwin(m_ipconfigitems.at(i).m_begy + 1, m_ipconfigitems.at(i).m_begx + testcurrx + 1);
         testcurry++;
+        curry = testcurry + i;
     }
+
+    m_networkconnecterrorlabel->adjustSizeByContext();
+    testcurrx = begx() + width() / 2 - (m_networkconnecterrorlabel->width()) / 2;
+    m_networkconnecterrorlabel->mvwin(curry + 1, testcurrx);
 }
 
 
