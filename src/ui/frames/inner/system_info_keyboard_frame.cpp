@@ -366,18 +366,23 @@ void SystemInfoKeyboardFrame::changeEvent(QEvent* event) {
     if (event->type() == QEvent::LanguageChange) {
         d->updateTs();
 
-        const QString& locale = ReadLocale();
-        d->initLayout(locale);
+        d->initLayout(ReadLocale());
 
-        int index = locale.indexOf('_');
-        if (index >= 0){
-            const QModelIndex modelIndex = d->getLayoutByName(locale.mid(index + 1).toLower());
-            if (modelIndex.isValid()) {
-                d->m_layoutView->setCurrentIndex(modelIndex);
+        QStringList localeList;
+        localeList << ReadLocale() << GetSettingsString(kSelectLanguageDefaultLocale);
+
+        for (const QString& locale : localeList) {
+            int index = locale.indexOf('_');
+            if (index >= 0){
+                const QModelIndex modelIndex = d->getLayoutByName(locale.mid(index + 1).toLower());
+                if (modelIndex.isValid()) {
+                    d->m_layoutView->setCurrentIndex(modelIndex);
+                    break;
+                }
             }
-        }
-        else{
-            qWarning() << "invalid locale:" << locale;
+            else{
+                qWarning() << "invalid locale:" << locale;
+            }
         }
     } else {
         FrameInterface::changeEvent(event);
