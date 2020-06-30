@@ -319,6 +319,8 @@ public:
         m_dhcpTypeWidget->blockSignals(true);
         m_dhcpTypeModel->setStringList({::QObject::tr("Auto"),
                                         ::QObject::tr("Manual")});
+        int index = m_dhcpType == DHCPTYpe::Auto ? 0 : 1;
+        m_dhcpTypeWidget->setCurrentIndex(index);
         m_dhcpTypeWidget->blockSignals(false);
 
         m_editBtn->setText(::QObject::tr("Edit"));
@@ -329,8 +331,6 @@ public:
         m_gatewayEdit->lineEdit()->setPlaceholderText(::QObject::tr("Gateway"));
         m_primaryDNSEdit->lineEdit()->setPlaceholderText(::QObject::tr("Primary DNS"));
         m_secondaryDNSEdit->lineEdit()->setPlaceholderText(::QObject::tr("Secondary DNS"));
-
-
     }
 
     void initWidgetState()
