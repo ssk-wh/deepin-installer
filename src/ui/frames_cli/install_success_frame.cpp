@@ -16,7 +16,7 @@ InstallSuccessFramePrivate::InstallSuccessFramePrivate(NCursesWindowBase *parent
       m_installSuccessInfoDes(::QObject::tr("Successfully Installed")),
       m_installSuccessInfoTodo(::QObject::tr("Click the button below and then remove the installation media immediately")),
       m_installFailedInfoTitle(::QObject::tr("Installation Failed")),
-      m_installFailedInfoDes(::QObject::tr("Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue."))
+      m_installFailedInfoDes(::QObject::tr("Sorry for the trouble. Please take a photo to send us the error log, or save the log to an external disk. We will help solve the issue."))
 {
     initUI();
     initConnection();
@@ -62,7 +62,7 @@ void InstallSuccessFramePrivate::updateTs()
     m_installSuccessInfoTodo  = ::QObject::tr("Click the button below and then remove the installation media immediately");
     m_installFailedTitle      = ::QObject::tr("Installation Failed");
     m_installFailedInfoTitle  = ::QObject::tr("Installation Failed");
-    m_installFailedInfoDes    = ::QObject::tr("Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.");
+    m_installFailedInfoDes    = ::QObject::tr("Sorry for the trouble. Please take a photo to send us the error log, or save the log to an external disk. We will help solve the issue.");
 
     bool testissuccess = GetSettingsBool("DI_INSTALL_SUCCESSED");
 
