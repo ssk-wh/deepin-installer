@@ -280,6 +280,24 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
       if (install_Lvm_Status == Install_Lvm_Status::Lvm_Install) {
           const DeviceList devices = virtualDevices();
 
+          const QStringList known_mounts { kMountPointRoot, kMountPointBoot };
+          for (const Device::Ptr& device : virtualDevices()) {
+            for (const Partition::Ptr& partition : device->partitions) {
+              if (partition->fs == FsType::EFI) {
+                    continue;
+              }
+              if (partition->mount_point.isEmpty()) {
+                  continue;
+              }
+              if (known_mounts.contains(partition->mount_point)) {
+                  continue;
+              }
+              if (partition->getByteLength() < partition_min_size_bytes) {
+                   states.append(ValidateState(ValidateState::PartitionTooSmall, partition));
+              }
+            }
+          }
+
           if (devices.size() != 1) {
               return states;
           }
