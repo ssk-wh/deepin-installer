@@ -18,6 +18,7 @@
 #include "partman/vg_device.h"
 
 #include <QDateTime>
+#include <QDir>
 
 #include "base/command.h"
 
@@ -81,20 +82,40 @@ void VgDevice::update() {
 }
 
 void VgDevice::enableVG(bool enable) {
-    const QString cmd { "vgchange" };
-    const QStringList args { "-a", enable ? "y" : "n", m_vgName };
-    QString output { "" };
-    QString error  { "" };
-    if (!SpawnCmd(cmd, args, output, error)) {
-        qWarning() << QString("EnableVG:Failed to enable vg(%1)").arg(enable);
-        if (!error.isEmpty()) {
-             qWarning() << QString("EnableVG:{%1}").arg(error);
-             enableVG(enable);
+
+
+    //判断pv是否已经分配给其他vg
+    bool ret = false;
+
+    while (!ret) {
+        const QString cmd { "vgchange" };
+        const QStringList args { "-a", enable ? "y" : "n", m_vgName };
+        QString output { "" };
+        QString error  { "" };
+        if (!SpawnCmd(cmd, args, output, error)) {
+            qWarning() << QString("EnableVG:Failed to enable vg(%1)").arg(enable);
+            if (!error.isEmpty()) {
+                 qWarning() << QString("EnableVG:{%1}").arg(error);
+                 enableVG(enable);
+            }
+        }
+
+        QDir dir( "/dev/mapper/");
+        QFileInfoList fileInfoList = dir.entryInfoList();
+        for (QFileInfo fileInfo : fileInfoList) {
+           if (fileInfo.fileName() == "." || fileInfo.fileName() == "..")  continue;
+               QString vglvName = fileInfo.absoluteFilePath();
+               if (vglvName.indexOf(m_vgName) > -1) {
+                   ret = true;
+                   break;
+               }
+        }
+
+        if (!output.isEmpty()) {
+            qInfo() << QString("EnableVG:{%1}").arg(output);
         }
     }
-    if (!output.isEmpty()) {
-        qInfo() << QString("EnableVG:{%1}").arg(output);
-    }
+
 }
 
 uint64_t VgDevice::getSize() {
