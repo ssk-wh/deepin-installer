@@ -447,11 +447,11 @@
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="90"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="174"/>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="301"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="309"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="189"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="215"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="739"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="971"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="210"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="744"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="974"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="229"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="661"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="762"/>
@@ -485,7 +485,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="425"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="418"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="217"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="212"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="73"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="124"/>
         <source>Deepin</source>
@@ -497,7 +497,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="425"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="418"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="217"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="212"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="73"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="124"/>
         <source>UOS</source>
@@ -513,7 +513,7 @@
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="98"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="130"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="85"/>
         <source>Exit</source>
         <translation>Ukončit</translation>
     </message>
@@ -561,7 +561,7 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="111"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="617"/>
-        <location filename="../src/ui/frames/install_results_frame.cpp" line="97"/>
+        <location filename="../src/ui/frames/install_results_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="15"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="60"/>
         <source>Done</source>
@@ -700,7 +700,7 @@
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="129"/>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="276"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="128"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="324"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="327"/>
         <location filename="../src/ui/main_window_cli.cpp" line="66"/>
         <location filename="../src/ui/main_window_cli.cpp" line="79"/>
         <location filename="../src/ui/main_window_cli.cpp" line="91"/>
@@ -714,7 +714,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="238"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="868"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="873"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="126"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="240"/>
         <source>Passwords do not match</source>
@@ -738,8 +738,8 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="273"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="481"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="639"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="646"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="644"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="651"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="459"/>
         <source>Password</source>
         <translation>Heslo</translation>
@@ -972,7 +972,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="425"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="217"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="212"/>
         <source>%1 Software End User License Agreement</source>
         <translation>%1 licenční ujednání s koncovým uživatelem software</translation>
     </message>
@@ -988,13 +988,13 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="439"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="216"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="211"/>
         <source>User Experience Program License Agreement</source>
         <translation>Licenční ujednání programu pro hodnocení dojmu z používání</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="441"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="109"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="104"/>
         <location filename="../src/ui/frames_cli/language_frame.cpp" line="46"/>
         <source>Select Language</source>
         <translation>Vyberte jazyk</translation>
@@ -1016,182 +1016,182 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="405"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="637"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="644"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="651"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="642"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="649"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="656"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="458"/>
         <source>Username</source>
         <translation>Uživatelské jméno</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="433"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="638"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="645"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="643"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="650"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="457"/>
         <source>Computer name</source>
         <translation>Název počítače</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="482"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="640"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="647"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="645"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="652"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="210"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="460"/>
         <source>Repeat password</source>
         <translation>Zopakujte heslo</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="641"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="648"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="646"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="653"/>
         <source>Root password</source>
         <translation>Heslo k účtu správce (root)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="642"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="649"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="647"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="654"/>
         <source>Repeat root password</source>
         <translation>Zopakujte heslo k účtu správce (root)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="653"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="658"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="131"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="454"/>
         <source>Create Accounts</source>
         <translation>Vytvořit účty</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="654"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="659"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="456"/>
         <source>Fill in the username, computer name and your password</source>
         <translation>Vyplňte uživatelské jméno, název počítače a heslo</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="655"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="660"/>
         <source>Use that password to edit boot menu</source>
         <translation>Použijte toto heslo pro upravení nabídky startu systému</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="656"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="661"/>
         <source>Enable root user</source>
         <translation>Zpřístupnit účet správce systému (root)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="680"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="685"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="152"/>
         <source>This username already exists</source>
         <translation>Toto uživatelské jméno už v systému existuje</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="684"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="689"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="156"/>
         <source>The first letter must be in lowercase</source>
         <translation>Je třeba, aby první písmeno bylo malé</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="689"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="694"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="161"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
         <translation>Je třeba, aby uživatelské obsahovalo pouze znaky z anglické abecedy (a bylo psáno malými písmeny) a případně ještě číslice, podtržítka (_) a pomlčky (-)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="695"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="700"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="167"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
         <translation>Zadejte uživatelské jméno tak, aby bylo delší než %1 znaků a kratší než %2 znaků</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="718"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="723"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="116"/>
         <source>Please input computer name</source>
         <translation>Zadejte název počítače</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="722"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="727"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="120"/>
         <source>Computer name is invalid</source>
         <translation>Název počítače není platný</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="726"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="731"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="124"/>
         <source>Computer name already exists, please input another one</source>
         <translation>Název počítače už na síti existuje – zadejte jiný</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="731"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="736"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="129"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
         <translation>Zadejte název pro počítač (delší než %1 znaků a kratší než %2 znaků)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="759"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="764"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="80"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="194"/>
         <source>The password should be different from the username</source>
         <translation>Heslo a uživatelské jméno by neměly být shodné</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="773"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="778"/>
         <source>The password cannot be empty​</source>
         <translation>Heslo nemůže zůstat nevyplněné</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="777"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="782"/>
         <source>Password must contain letters, numbers and symbols</source>
         <translation>Je třeba, aby heslo obsahovalo písmena, číslice a symboly</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="781"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="786"/>
         <source>Password must have at least 8 characters</source>
         <translation>Je třeba, aby heslo bylo alespoň 8 znaků dlouhé</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="785"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="790"/>
         <source>Password must be between %1 and %2 characters</source>
         <translation>Je třeba, aby heslo mělo délku mezi %1 až %2 znaky</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="800"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="805"/>
         <source>Password must not contain common words and combinations</source>
         <translation>Je třeba, by heslo neobsahovalo běžná slova a jejich kombinace</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="806"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="811"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Je třeba, aby heslo neobsahovalo více než 4 znaky, které  se čtou stejně z obou stran (palidrom)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="811"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="816"/>
         <source>Password must contain lowercase letters</source>
         <translation>Je třeba, aby heslo obsahovalo malá písmena</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="816"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="821"/>
         <source>Password must contain capital letters</source>
         <translation>Je třeba, aby heslo obsahovalo velká písmena</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="821"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="826"/>
         <source>Password must contain special characters</source>
         <translation>Je třeba, aby heslo obsahovalo speciální znaky</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="826"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="831"/>
         <source>Passwords must contain numbers</source>
         <translation>Je třeba, aby heslo obsahovalo číslice</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="1080"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="1085"/>
         <source>Add fingerprint password in Control Center &gt; Accounts to unlock and authenticate</source>
         <translation>Heslo otiskem prstu pro odemykání a ověřování se přidáte v Ovládací panely &gt; Účty</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="299"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="307"/>
         <source>Set Keyboard Layout</source>
         <translation>Nastavit rozložení klávesnice</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="300"/>
+        <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="308"/>
         <source>Select a proper keyboard layout</source>
         <translation>Vyberte příslušné rozvržení klávesnice</translation>
     </message>
@@ -1262,7 +1262,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="190"/>
-        <location filename="../src/ui/frames/install_component_frame.cpp" line="327"/>
+        <location filename="../src/ui/frames/install_component_frame.cpp" line="324"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="76"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="99"/>
@@ -1281,11 +1281,15 @@
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="84"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="19"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="65"/>
-        <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
-        <translation>Omlouváme se za vzniklé potíže. Záznam chybových událostí nám prosím pošlete vyfocením nebo naskenováním QR kódu. Případně záznam uložte na USB klíčenku. Problém pomůžeme vyřešit.</translation>
+        <source>Sorry for the trouble. Please take a photo to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="87"/>
+        <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
+        <translation type="vanished">Omlouváme se za vzniklé potíže. Záznam chybových událostí nám prosím pošlete vyfocením nebo naskenováním QR kódu. Případně záznam uložte na USB klíčenku. Problém pomůžeme vyřešit.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="86"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="180"/>
         <source>Save Log</source>
         <translation>Uložit záznam událostí</translation>
@@ -1344,44 +1348,44 @@
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="123"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="323"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="326"/>
         <source>Edit</source>
         <translation>Upravit</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="157"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="314"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="326"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="600"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="329"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="605"/>
         <source>IP Address</source>
         <translation>IP adresa</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="158"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="172"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="327"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="601"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="330"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="606"/>
         <source>Netmask</source>
         <translation>Maska sítě</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="159"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="328"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="602"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="331"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="607"/>
         <source>Gateway</source>
         <translation>Brána</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="160"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="329"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="603"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="332"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="608"/>
         <source>Primary DNS</source>
         <translation>Primární DNS</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="161"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="330"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="604"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="333"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="609"/>
         <source>Secondary DNS</source>
         <translation>Sekundární DNS</translation>
     </message>
@@ -1432,42 +1436,42 @@
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="272"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="319"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="320"/>
         <source>Auto</source>
         <translation>Automaticky</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="273"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="320"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="321"/>
         <source>Manual</source>
         <translation>Ručně</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="488"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="489"/>
         <source>Illegal %1, please have a check.</source>
         <translation>Neplatné %1 – zkontrolujte prosím.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="505"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="506"/>
         <source>IP address error: illegal IP address, please have a check.</source>
         <translation>Chyba IP adresy: neplatná IP adresa – prosím zkontrolujte.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="519"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="520"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
         <translation>Chyba masky sítě: neplatná maska sítě – prosím zkontrolujte.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="745"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="750"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="895"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="969"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="972"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="175"/>
         <source>Configure Network</source>
         <translation>Nastavení sítě</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="746"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="970"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="751"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="973"/>
         <source>IP address has been auto-configured, but you can configure the network as well</source>
         <translation>Nastavení IP adresy bylo získáno automaticky, ale můžete provést i ruční nastavení</translation>
     </message>
@@ -1757,17 +1761,17 @@
     </message>
     <message>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="57"/>
-        <location filename="../src/ui/frames_cli/licence_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames_cli/licence_frame.cpp" line="131"/>
         <source>Please agree to the license</source>
         <translation>Prosím odsouhlaste licenci</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/licence_frame.cpp" line="112"/>
+        <location filename="../src/ui/frames_cli/licence_frame.cpp" line="119"/>
         <source>UOS Software End User License Agreement</source>
         <translation>UOS licenční ujednání s koncovým uživatelem software</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/licence_frame.cpp" line="113"/>
+        <location filename="../src/ui/frames_cli/licence_frame.cpp" line="120"/>
         <source>I have read and agree to the UOS Software End User License Agreement</source>
         <translation>Přečetl(a) jsem si a souhlasím s UOS licenčním ujednáním s koncovým uživatelem</translation>
     </message>
