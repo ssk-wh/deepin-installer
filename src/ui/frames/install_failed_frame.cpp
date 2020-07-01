@@ -72,7 +72,7 @@ public:
     QRWidget *qr_widget_;
     DFrame* qrParentWidget;
     QPlainTextEdit *m_plainTextEdit ;
-    QPushButton *control_button_ ;
+    //QPushButton *control_button_ ;
     QStackedLayout* stacked_layout;
 
     void initConnections();
@@ -81,8 +81,7 @@ public:
     {
         title_label_->setText(::QObject::tr("Installation Failed"));
         comment_label_->setText(
-            ::QObject::tr("Sorry for the trouble. Please photo or scan the QR code to send us the error log, "
-               "or save the log to an external disk. We will help solve the issue."));
+            ::QObject::tr("Sorry for the trouble. Please take a photo to send us the error log, or save the log to an external disk. We will help solve the issue."));
         reboot_button_->setText(::QObject::tr("Exit"));
         saveLogButton->setText(::QObject::tr("Save Log"));
     }
@@ -145,8 +144,8 @@ void InstallFailedFrame::changeEvent(QEvent *event)
 
 void InstallFailedFramePrivate::initConnections()
 {
-    connect(control_button_, &QPushButton::clicked,
-            this, &InstallFailedFramePrivate::onControlButtonClicked);
+//    connect(control_button_, &QPushButton::clicked,
+//            this, &InstallFailedFramePrivate::onControlButtonClicked);
     connect(reboot_button_, &QPushButton::clicked,
             m_ptr, &InstallFailedFrame::finished);
     connect(saveLogButton, &QPushButton::clicked,
@@ -207,16 +206,16 @@ void InstallFailedFramePrivate::initUI()
 
     content_frame->setLayout(switchLayout);
 
-    control_button_ = new QPushButton(content_frame);
-    control_button_->setFocusPolicy(Qt::TabFocus);
-    control_button_->setIcon(QIcon(installer::renderPixmap(":/images/failed_qr.svg")));
-    control_button_->setObjectName("control_button");
-    control_button_->setFlat(true);
-    control_button_->setFixedSize(kControlButtonSize, kControlButtonSize);
-    // Move control_button_ to top-right corner of content area.
-    control_button_->move(kContentWindowWidth - kControlButtonSize, 0);
-    control_button_->raise();
-    control_button_->show();
+//    control_button_ = new QPushButton(content_frame);
+//    control_button_->setFocusPolicy(Qt::TabFocus);
+//    control_button_->setIcon(QIcon(installer::renderPixmap(":/images/failed_qr.svg")));
+//    control_button_->setObjectName("control_button");
+//    control_button_->setFlat(true);
+//    control_button_->setFixedSize(kControlButtonSize, kControlButtonSize);
+//    // Move control_button_ to top-right corner of content area.
+//    control_button_->move(kContentWindowWidth - kControlButtonSize, 0);
+//    control_button_->raise();
+//    control_button_->show();
 
     reboot_button_ = new QPushButton;
     reboot_button_->setFixedSize(kButtonWidth, kButtonHeight);
@@ -254,14 +253,14 @@ void InstallFailedFramePrivate::onControlButtonClicked()
     // Toggle visibility of m_scrollArea and qr_widget_.
     if (stacked_layout->currentWidget() == m_plainTextEdit) {
         stacked_layout->setCurrentWidget(qrParentWidget);
-        control_button_->setIcon(QIcon(installer::renderPixmap(":/images/failed_data.svg")));
+        //control_button_->setIcon(QIcon(installer::renderPixmap(":/images/failed_data.svg")));
     }
     else {
         stacked_layout->setCurrentWidget(m_plainTextEdit);
-        control_button_->setIcon(QIcon(installer::renderPixmap(":/images/failed_qr.svg")));
+        //control_button_->setIcon(QIcon(installer::renderPixmap(":/images/failed_qr.svg")));
     }
 
-    control_button_->raise();
+    //control_button_->raise();
 }
 
 }// namespace installer
