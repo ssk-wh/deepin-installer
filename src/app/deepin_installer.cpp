@@ -22,6 +22,12 @@
 #include <QIcon>
 #include <DLog>
 #include <DSysInfo>
+#include <stdio.h>
+#include <stdlib.h>
+#include <signal.h>
+#include <string.h>
+#include <unistd.h>
+#include <DToolTip>
 
 #include "ui/delegates/componentinstallmanager.h"
 #include "base/consts.h"
@@ -37,8 +43,29 @@
 
 DCORE_USE_NAMESPACE
 
+void dump(int signo)
+{
+        char buf[1024];
+        char cmd[1024];
+        FILE *fh;
+
+        snprintf(buf, sizeof(buf), "/proc/%d/cmdline", getpid());
+        if(!(fh = fopen(buf, "r")))
+                exit(0);
+        if(!fgets(buf, sizeof(buf), fh))
+                exit(0);
+        fclose(fh);
+        if(buf[strlen(buf) - 1] == '\n')
+                buf[strlen(buf) - 1] = '\0';
+        snprintf(cmd, sizeof(cmd), "gdb %s %d", buf, getpid());
+        system(cmd);
+
+        exit(0);
+}
+
 int main(int argc, char* argv[]) {
 #ifdef QT_DEBUG
+    signal(SIGSEGV, &dump);
     // add system version log
     qInfo() << "DSysInfo::productType() = " << DSysInfo::productType();
     qInfo() << "system version: " << QSysInfo().prettyProductName();
@@ -85,7 +112,11 @@ int main(int argc, char* argv[]) {
   } else {
     log_file = QString("/var/log/%1").arg(kLogFileName);
   }
+
+#ifdef QT_DEBUG_test
+#else
   installer::RedirectLog(log_file);
+#endif // QT_DEBUG
 
   DLogManager::registerConsoleAppender();
 
@@ -100,6 +131,8 @@ int main(int argc, char* argv[]) {
   qInfo() << "system version: " << QSysInfo().prettyProductName();
   // add kernel versionlog
   qInfo() << "kernel version: " << QSysInfo().kernelVersion();
+  // add kernel versionlog
+  qInfo() << "test double next";
 
   const QString conf_file(args_parser.getConfFile());
   // Append customized configurations.

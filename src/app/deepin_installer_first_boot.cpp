@@ -22,6 +22,12 @@
 #include <QIcon>
 #include <DLog>
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <signal.h>
+#include <string.h>
+#include <unistd.h>
+
 #include "base/consts.h"
 #include "service/log_manager.h"
 #include "service/settings_manager.h"
@@ -38,8 +44,31 @@
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
-int main(int argc, char *argv[])
+void dump(int signo)
 {
+        char buf[1024];
+        char cmd[1024];
+        FILE *fh;
+
+        snprintf(buf, sizeof(buf), "/proc/%d/cmdline", getpid());
+        if(!(fh = fopen(buf, "r")))
+                exit(0);
+        if(!fgets(buf, sizeof(buf), fh))
+                exit(0);
+        fclose(fh);
+        if(buf[strlen(buf) - 1] == '\n')
+                buf[strlen(buf) - 1] = '\0';
+        snprintf(cmd, sizeof(cmd), "gdb %s %d", buf, getpid());
+        system(cmd);
+
+        exit(0);
+}
+
+int main(int argc, char* argv[]) {
+#ifdef QT_DEBUG
+  signal(SIGSEGV, &dump);
+#endif // QT_DEBUG
+
   qputenv("LC_ALL", installer::kDefaultLang);
   qputenv("LANG", installer::kDefaultLang);
 
@@ -68,7 +97,10 @@ int main(int argc, char *argv[])
     log_file = QString("/var/log/%1").arg(kLogFileName);
   }
   // Initialize log service.
+#ifdef QT_DEBUG_test
+#else
   installer::RedirectLog(log_file);
+#endif // QT_DEBUG
 
   QFont font(app.font());
   font.setFamily(installer::GetUIDefaultFont());

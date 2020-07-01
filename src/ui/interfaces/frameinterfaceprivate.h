@@ -63,6 +63,7 @@ public:
         FrameInterface* parent = dynamic_cast<FrameInterface*>(this->parent());
         if (parent != nullptr) {
             if (validate()) {
+                nextButton->setEnabled(false);
                 parent->nextFrame();
             }
         }

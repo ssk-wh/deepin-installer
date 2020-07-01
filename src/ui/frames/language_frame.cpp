@@ -70,11 +70,6 @@ public:
 
     void setupTs();
 
-    void onNextButtonClickHandle() const override {
-        FrameInterfacePrivate::onNextButtonClickHandle();
-        nextButton->setEnabled(false);
-    }
-
     void updateNextButton() const override {
         if (m_select_language_frame->isChecked()) {
             nextButton->setEnabled(true);

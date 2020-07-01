@@ -962,6 +962,7 @@ void NetworkFrame::saveConf()
         }
     }
 
+    m_nextButton->setEnabled(false);
     m_proxy->nextFrame();
 }
 
