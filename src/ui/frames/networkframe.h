@@ -43,6 +43,7 @@ private:
     DButtonBox*                                 m_buttonBox = nullptr;
     QList<DButtonBoxButton*>                    m_buttonList;
     QMap<NetworkManager::Device::Ptr, NetworkSettingInfo> m_deviceConfigInfo;
+    QStringList                                 m_connectionUuidList;
 
     void init() override;
     void finished() override;
@@ -52,7 +53,7 @@ private:
     void updateTs();
     void onButtonGroupToggled(QAbstractButton *button);
     QStringList getAllConnectionUuids();
-    void deleteAllConnections();
+    void deleteOtherConnections();
 };
 }  // namespace installer
 

@@ -65,11 +65,17 @@ void NetworkOperate::initNetworkConnection()
     }
 
     m_connectionSettings = m_connection->settings();
+    m_connectionUuid = m_connection->uuid();
 }
 
 Connection::Ptr NetworkOperate::getConnection() const
 {
     return m_connection;
+}
+
+QString NetworkOperate::getConnectionUuid() const
+{
+    return m_connectionUuid;
 }
 
 bool NetworkOperate::createNetworkConnection()

@@ -829,13 +829,13 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     setLayout(layout);
 
     m_buttonBox = new DButtonBox;
-    initDeviceWidgetList();
 }
 
 void NetworkFrame::initDeviceWidgetList()
 {
     ClearLayout(m_leftLayout);
     m_buttonList.clear();
+    m_connectionUuidList.clear();
 
     NetworkManager::Device::List list = NetworkManager::networkInterfaces();
 
@@ -853,6 +853,7 @@ void NetworkFrame::initDeviceWidgetList()
             continue;
         }
 
+        // TODO: use shared pointer defend memory leak.
         NetworkDeviceWidget* deviceWidget = new NetworkDeviceWidget(this);
         deviceWidget->setCheckable(true);
         deviceWidget->setDeviceInfo(dev);
@@ -860,6 +861,7 @@ void NetworkFrame::initDeviceWidgetList()
         bool enable = true; // deviceWidget->networkOperate()->getDeviceEnable(dev->uni());
         deviceWidget->setDeviceEnable(enable);
         m_buttonList << deviceWidget;
+        m_connectionUuidList << deviceWidget->networkOperate()->getConnectionUuid();
 
         if (!hasSet) {
             deviceWidget->setChecked(true);
@@ -884,6 +886,8 @@ void NetworkFrame::initDeviceWidgetList()
     }
 
     m_leftLayout->addStretch();
+
+    deleteOtherConnections();
 }
 
 QString NetworkFrame::returnFrameName() const
@@ -919,6 +923,8 @@ void NetworkFrame::showEvent(QShowEvent *event)
 {
     m_currentNetworkEditWidget->initWidgetState();
     initDeviceWidgetList();
+
+    FrameInterface::showEvent(event);
 }
 
 void NetworkFrame::saveConf()
@@ -1014,12 +1020,16 @@ QStringList NetworkFrame::getAllConnectionUuids()
     return uuidList;
 }
 
-void NetworkFrame::deleteAllConnections()
+void NetworkFrame::deleteOtherConnections()
 {
     QStringList uuidList = getAllConnectionUuids();
     QString nmcliResult;
 
     for (QString uuid : uuidList) {
+        if (m_connectionUuidList.contains(uuid)) {
+            continue;
+        }
+
         qDebug() << SpawnCmd("nmcli", { "connection", "delete", uuid }, nmcliResult);
     }
 }

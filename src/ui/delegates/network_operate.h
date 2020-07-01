@@ -49,9 +49,11 @@ public:
     void readIpInfo(NetworkSettingInfo& networkSettingInfo);
 
     NetworkManager::Connection::Ptr getConnection() const;
+    QString getConnectionUuid() const;
 
 private:
     QString m_interfaceName;
+    QString m_connectionUuid;
     NetworkManager::Device::Ptr m_device = nullptr;
     NetworkManager::Connection::Ptr m_connection = nullptr;
     NetworkManager::ConnectionSettings::Ptr m_connectionSettings = nullptr;
