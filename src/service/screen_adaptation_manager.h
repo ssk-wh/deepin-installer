@@ -17,13 +17,16 @@ public:
 
 private:
     virtual void init();
+    virtual void adapterWidth(int width);
+    virtual void adapterHeight(int height);
 
 private:
     ScreenAdaptationManager();
     ScreenAdaptationManager(const ScreenAdaptationManager &) = delete;
 
 private:
-    double m_zoomRatio = 1;
+    double m_widthZoomRatio = 1;
+    double m_heightZoomRatio = 1;
 };
 
 
