@@ -145,6 +145,7 @@ private:
     QFrame *m_rootPasswordCheckFrame = nullptr;
     QFrame *m_rootUserFrame = nullptr;
     QLabel *m_rootUserLabel = nullptr;
+    QLabel *m_stretchLabel = nullptr;
 
     // Display tooltip error message.
     SystemInfoTip*         tooltip_     = nullptr;
@@ -620,14 +621,19 @@ void SystemInfoFormFramePrivate::initUI()
     tooltip_ = new SystemInfoTip(content);
     tooltip_->hide();
 
+    m_stretchLabel = new QLabel;
+    m_stretchLabel->setFixedWidth(520);
+    m_stretchLabel->setWordWrap(true);
+
     QVBoxLayout* mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
     mainLayout->setSpacing(kMainLayoutSpacing);
     mainLayout->addStretch();
     mainLayout->addWidget(m_titleLabel_, 0, Qt::AlignHCenter);
-    mainLayout->addWidget(m_commentLabel_, 0, Qt::AlignHCenter);
+    mainLayout->addWidget(m_commentLabel_, 0, Qt::AlignHCenter | Qt::AlignTop);
     mainLayout->addWidget(m_avatarButton_, 0, Qt::AlignHCenter);
-    mainLayout->addStretch();
+    mainLayout->addWidget(m_stretchLabel, 0, Qt::AlignHCenter | Qt::AlignTop);
+    mainLayout->addSpacing(10);
     mainLayout->addWidget(area, 0, Qt::AlignHCenter);
     mainLayout->addSpacing(10);
 
@@ -1081,9 +1087,20 @@ bool SystemInfoFormFramePrivate::searchDevice() {
 }
 
 void SystemInfoFormFramePrivate::updateDevice() {
-    if (searchDevice()) {
-       tooltip_->setText(::QObject::tr("Add fingerprint password in Control Center > Accounts to unlock and authenticate"));
-       tooltip_->showBottom(m_passwordEdit);      
+
+#ifdef QT_DEBUG
+    const bool test = true;
+#else
+    const bool test = false;
+#endif // QT_DEBUG
+    if (test || searchDevice()) {
+       m_stretchLabel->setText(::QObject::tr("Add fingerprint password in Control Center > Accounts to unlock and authenticate"));
+       m_stretchLabel->setAlignment(Qt::AlignCenter);
+       m_stretchLabel->setStyleSheet("QLabel{"
+//                                     "background-color:rgba(244,244,244,1);"
+                                     "color: #f9704f;"
+                                     "font-size: 13px;}");
+
     }
 }
 
