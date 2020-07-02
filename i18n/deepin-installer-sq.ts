@@ -1282,7 +1282,7 @@
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="19"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="65"/>
         <source>Sorry for the trouble. Please take a photo to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
-        <translation type="unfinished"/>
+        <translation>Na ndjeni për bezdisjen. Ju lutemi, bëni një foto që të na dërgoni regjistrin e gabimeve, ose ruajeni regjistrin në një disk të jashtëm. Do t’ju ndihmojmë të zgjidhni problemin.</translation>
     </message>
     <message>
         <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>

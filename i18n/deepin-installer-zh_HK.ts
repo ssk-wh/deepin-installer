@@ -1282,7 +1282,7 @@
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="19"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="65"/>
         <source>Sorry for the trouble. Please take a photo to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
-        <translation type="unfinished"/>
+        <translation>給您帶來的不便表示抱歉，下面是錯誤日誌。請拍照將錯誤訊息反饋給我們，也可以將錯誤日誌保存在外置存儲設備中，以便我們能夠更好的為您解決問題。</translation>
     </message>
     <message>
         <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
@@ -1735,7 +1735,7 @@
     <message>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="91"/>
         <source>Nothing to do</source>
-        <translation type="unfinished"/>
+        <translation>Nothing to do</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="53"/>
