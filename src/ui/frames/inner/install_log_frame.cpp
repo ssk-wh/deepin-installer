@@ -6,6 +6,10 @@
 #include <QDebug>
 #include <QScrollBar>
 
+namespace  {
+    const int kFileKeepSize = 1024;
+}
+
 installer::InstallLogFrame::InstallLogFrame(QFrame *parent) :
     QFrame(parent)
 {   
@@ -39,6 +43,11 @@ void installer::InstallLogFrame::setLogPath(const QString &path)
         if (!file.open(QIODevice::ReadOnly)) {
             qDebug() << "Failed to open the log file. file: " << m_logPath;
         }
+
+        qint64 pos = file.size() - kFileKeepSize < 0 ? 0 : file.size() - kFileKeepSize;
+        file.seek(pos);
+
+        m_installLog->clear();
         m_installLog->insertPlainText(file.readAll());
         m_installLog->moveCursor(QTextCursor::End);
         file.close();
