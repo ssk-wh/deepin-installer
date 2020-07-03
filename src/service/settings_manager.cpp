@@ -132,7 +132,7 @@ OSType GetCurrentType() {
     settings.beginGroup("Release");
 
 #ifdef QT_DEBUG
-    const QString& type = "Server";
+    const QString& type = "Professional";
 #else
     const QString& type = settings.value("Type", "Desktop").toString();
 #endif // QT_DEBUG

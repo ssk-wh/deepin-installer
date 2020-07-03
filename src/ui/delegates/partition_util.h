@@ -83,6 +83,9 @@ QString GetInstallerDevicePath();
 QString GetLocalFsTypeName(FsType fs_type);
 
 // Get icon path of os type
+QString GetUosAndDeepinLogo32();
+QString GetUosAndDeepinLogo64();
+QString GetUosAndDeepinLogo128();
 QString GetOsTypeIcon(OsType os_type);
 QString GetOsTypeLargeIcon(OsType os_type);
 

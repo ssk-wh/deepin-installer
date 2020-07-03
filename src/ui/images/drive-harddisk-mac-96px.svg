@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="96px" height="96px" viewBox="0 0 96 96" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>drive-harddisk-mac-96px</title>
+    <defs>
+        <filter x="-17.6%" y="-15.0%" width="135.3%" height="130.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="102.549264%" y1="57.6822305%" x2="-2.65228894%" y2="57.6822305%" id="linearGradient-2">
+            <stop stop-color="#0067BC" offset="0%"></stop>
+            <stop stop-color="#30EA7F" offset="4.57146722%"></stop>
+            <stop stop-color="#00D887" offset="9.93130604%"></stop>
+            <stop stop-color="#00B160" offset="88.9446523%"></stop>
+            <stop stop-color="#00C165" offset="93.7925209%"></stop>
+            <stop stop-color="#008CBD" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="56.4295561%" x2="0%" y2="56.4295561%" id="linearGradient-3">
+            <stop stop-color="#FFFFFF" stop-opacity="0.5" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="8.38902143%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.8" offset="52.3560063%"></stop>
+            <stop stop-color="#FFFFFF" offset="88.1683526%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.5" offset="100%"></stop>
+        </linearGradient>
+        <radialGradient cx="48.2392027%" cy="19.1031265%" fx="48.2392027%" fy="19.1031265%" r="78.6539217%" gradientTransform="translate(0.482392,0.191031),scale(0.205882,1.000000),rotate(90.000000),scale(1.000000,3.580713),translate(-0.482392,-0.191031)" id="radialGradient-4">
+            <stop stop-color="#7CFFFE" offset="0%"></stop>
+            <stop stop-color="#D6CDE6" offset="100%"></stop>
+        </radialGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#0174FF" offset="0%"></stop>
+            <stop stop-color="#01C2FF" offset="50.8499801%"></stop>
+            <stop stop-color="#0056FF" offset="100%"></stop>
+        </linearGradient>
+        <path d="M21.974,0.5 C22.5262847,0.5 22.974,0.943716645 22.974,1.49980749 L22.974,4.50019251 C22.974,5.01292962 22.5912798,5.43551958 22.0913326,5.49327356 L21.974,5.5 C21.4217153,5.5 20.974,5.05628335 20.974,4.50019251 L20.974,1.49980749 C20.974,0.987070378 21.3567202,0.564480424 21.8566674,0.506726436 L21.974,0.5 Z M17.974,0.5 C18.5262847,0.5 18.974,0.943716645 18.974,1.49980749 L18.974,4.50019251 C18.974,5.01292962 18.5912798,5.43551958 18.0913326,5.49327356 L17.974,5.5 C17.4217153,5.5 16.974,5.05628335 16.974,4.50019251 L16.974,1.49980749 C16.974,0.987070378 17.3567202,0.564480424 17.8566674,0.506726436 L17.974,0.5 Z M13.974,0.5 C14.5262847,0.5 14.974,0.943716645 14.974,1.49980749 L14.974,4.50019251 C14.974,5.01292962 14.5912798,5.43551958 14.0913326,5.49327356 L13.974,5.5 C13.4217153,5.5 12.974,5.05628335 12.974,4.50019251 L12.974,1.49980749 C12.974,0.987070378 13.3567202,0.564480424 13.8566674,0.506726436 L13.974,0.5 Z M9.974,0.5 C10.5262847,0.5 10.974,0.943716645 10.974,1.49980749 L10.974,4.50019251 C10.974,5.01292962 10.5912798,5.43551958 10.0913326,5.49327356 L9.974,5.5 C9.42171525,5.5 8.974,5.05628335 8.974,4.50019251 L8.974,1.49980749 C8.974,0.987070378 9.35672018,0.564480424 9.85666744,0.506726436 L9.974,0.5 Z M5.974,0.5 C6.52628475,0.5 6.974,0.943716645 6.974,1.49980749 L6.974,4.50019251 C6.974,5.01292962 6.59127982,5.43551958 6.09133256,5.49327356 L5.974,5.5 C5.42171525,5.5 4.974,5.05628335 4.974,4.50019251 L4.974,1.49980749 C4.974,0.987070378 5.35672018,0.564480424 5.85666744,0.506726436 L5.974,0.5 Z M1.974,0.5 C2.52628475,0.5 2.974,0.943716645 2.974,1.49980749 L2.974,4.50019251 C2.974,5.01292962 2.59127982,5.43551958 2.09133256,5.49327356 L1.974,5.5 C1.42171525,5.5 0.974,5.05628335 0.974,4.50019251 L0.974,1.49980749 C0.974,0.987070378 1.35672018,0.564480424 1.85666744,0.506726436 L1.974,0.5 Z" id="path-6"></path>
+        <filter x="-2.3%" y="-10.0%" width="104.5%" height="140.0%" filterUnits="objectBoundingBox" id="filter-7">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.226675725 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+        <radialGradient cx="50%" cy="37.643375%" fx="50%" fy="37.643375%" r="62.356625%" id="radialGradient-8">
+            <stop stop-color="#B0FF58" offset="0%"></stop>
+            <stop stop-color="#37EC00" offset="100%"></stop>
+        </radialGradient>
+        <polygon id="path-9" points="28 13.5213 28 26 0 26 0 1.0426 28 1.0426 28 13.5213"></polygon>
+        <polygon id="path-11" points="8.20458033 1.416 1.45871257 1.416 1.45871257 9.25752201 8.20458033 9.25752201 8.20458033 1.416"></polygon>
+    </defs>
+    <g id="drive-harddisk-mac-96px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="drive-harddisk-96px">
+            <g id="Group-2" filter="url(#filter-1)" transform="translate(14.000000, 8.000000)">
+                <rect id="Rectangle-1" fill="url(#linearGradient-2)" x="0" y="0" width="68" height="79" rx="12"></rect>
+                <path d="M59.9995753,57.5 L8.00042472,57.5 C5.93000454,57.5 4.0547276,58.339946 2.69714081,59.6978351 C1.33984834,61.0554298 0.5,62.9307732 0.5,65.0022064 L1.00071311,73.5 L67.5,73.0000398 L67.5,65.0022064 C67.5,62.9311389 66.6602771,61.0554158 65.3026996,59.697536 C63.9454392,58.3399733 62.0705354,57.5 59.9995753,57.5 Z" id="Rectangle-3" stroke-opacity="0.5" stroke="#FFFFFF" fill="url(#linearGradient-3)"></path>
+                <path d="M60.9948087,66.5 L7.00519134,66.5 C5.21123702,66.5 3.5842812,67.2283741 2.40610685,68.4056754 C1.2291591,69.5817509 0.5,71.2059541 0.5,73 C0.5,74.7921612 1.22898657,76.4177767 2.40713232,77.5950494 C3.58419618,78.771241 5.2097229,79.5 7.00519134,79.5 L60.9948087,79.5 C62.799119,79.5 64.4344957,78.762752 65.6129471,77.5440631 C66.7782607,76.3389607 67.4956254,74.664568 67.4959418,72.7690083 C67.4348714,71.0281865 66.6860317,69.4590937 65.5125559,68.326064 C64.3424106,67.1962501 62.749786,66.5 60.9948087,66.5 Z" id="Rectangle-1" stroke-opacity="0.2" stroke="#003D9C" fill="url(#radialGradient-4)"></path>
+                <g id="Group" transform="translate(39.000000, 70.000000)">
+                    <g id="Combined-Shape">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-7)" xlink:href="#path-6"></use>
+                        <use fill="url(#linearGradient-5)" fill-rule="evenodd" xlink:href="#path-6"></use>
+                    </g>
+                </g>
+                <path d="M8,70.5 C7.30964406,70.5 6.68464406,70.779822 6.23223305,71.232233 C5.77982203,71.6846441 5.5,72.3096441 5.5,73 C5.5,73.6903559 5.77982203,74.3153559 6.23223305,74.767767 C6.68464406,75.220178 7.30964406,75.5 8,75.5 C8.69035594,75.5 9.31535594,75.220178 9.76776695,74.767767 C10.220178,74.3153559 10.5,73.6903559 10.5,73 C10.5,72.3096441 10.220178,71.6846441 9.76776695,71.232233 C9.31535594,70.779822 8.69035594,70.5 8,70.5 Z" id="Oval" stroke="#54D800" fill="url(#radialGradient-8)"></path>
+            </g>
+        </g>
+        <g id="Page-1" transform="translate(34.000000, 17.000000)">
+            <g id="Group-3" transform="translate(0.000000, 8.585000)">
+                <mask id="mask-10" fill="white">
+                    <use xlink:href="#path-9"></use>
+                </mask>
+                <g id="Clip-2"></g>
+                <path d="M28,17.3206 C27.234,19.0166 26.868,19.7746 25.884,21.2726 C24.508,23.3666 22.572,25.9726 20.17,25.9946 C18.036,26.0146 17.488,24.6066 14.594,24.6226 C11.698,24.6386 11.094,26.0186 8.96,26.0006 C6.558,25.9786 4.722,23.6246 3.348,21.5306 C-0.498,15.6786 -0.9,8.8106 1.472,5.1586 C3.158,2.5646 5.814,1.0466 8.314,1.0466 C10.86,1.0466 12.46,2.4406 14.564,2.4406 C16.604,2.4406 17.848,1.0426 20.79,1.0426 C23.014,1.0426 25.37,2.2546 27.05,4.3486 C21.548,7.3626 22.442,15.2206 28,17.3206" id="Fill-1" fill="#FFFFFF" mask="url(#mask-10)"></path>
+            </g>
+            <g id="Group-6" transform="translate(12.000000, 0.585000)">
+                <mask id="mask-12" fill="white">
+                    <use xlink:href="#path-11"></use>
+                </mask>
+                <g id="Clip-5"></g>
+                <path d="M6.5578,6.7054 C7.6258,5.3334 8.4378,3.3954 8.1438,1.4154 C6.3978,1.5354 4.3558,2.6474 3.1638,4.0954 C2.0798,5.4094 1.1858,7.3594 1.5358,9.2554 C3.4418,9.3134 5.4138,8.1754 6.5578,6.7054" id="Fill-4" fill="#FFFFFF" mask="url(#mask-12)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

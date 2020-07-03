@@ -127,5 +127,35 @@
         <file>logo.svg</file>
         <file>select_blue.svg</file>
         <file>driver_64.svg</file>
+        <file>drive-harddisk-Windows-128px.svg</file>
+        <file>drive-harddisk-32px.svg</file>
+        <file>drive-harddisk-48px.svg</file>
+        <file>drive-harddisk-64px.svg</file>
+        <file>drive-harddisk-96px.svg</file>
+        <file>drive-harddisk-128px.svg</file>
+        <file>drive-harddisk-deepin-32px.svg</file>
+        <file>drive-harddisk-deepin-48px.svg</file>
+        <file>drive-harddisk-deepin-64px.svg</file>
+        <file>drive-harddisk-deepin-96px.svg</file>
+        <file>drive-harddisk-deepin-128px.svg</file>
+        <file>drive-harddisk-linux-32px.svg</file>
+        <file>drive-harddisk-linux-48px.svg</file>
+        <file>drive-harddisk-linux-64px.svg</file>
+        <file>drive-harddisk-linux-96px.svg</file>
+        <file>drive-harddisk-linux-128px.svg</file>
+        <file>drive-harddisk-mac-32px.svg</file>
+        <file>drive-harddisk-mac-48px.svg</file>
+        <file>drive-harddisk-mac-64px.svg</file>
+        <file>drive-harddisk-mac-96px.svg</file>
+        <file>drive-harddisk-mac-128px.svg</file>
+        <file>drive-harddisk-uniontech-32px.svg</file>
+        <file>drive-harddisk-uniontech-48px.svg</file>
+        <file>drive-harddisk-uniontech-64px.svg</file>
+        <file>drive-harddisk-uniontech-96px.svg</file>
+        <file>drive-harddisk-uniontech-128px.svg</file>
+        <file>drive-harddisk-windows-32px.svg</file>
+        <file>drive-harddisk-Windows-48px.svg</file>
+        <file>drive-harddisk-Windows-64px.svg</file>
+        <file>drive-harddisk-Windows-96px.svg</file>
     </qresource>
 </RCC>

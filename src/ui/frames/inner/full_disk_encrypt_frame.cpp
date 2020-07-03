@@ -75,7 +75,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     for(int i = 0; i < FULL_DISK_DISK_MAX_COUNT; i++) {
         QLabel *diskLbl = new QLabel;
         diskLbl->setFixedSize(QSize(50, 50));
-        diskLbl->setPixmap(installer::renderPixmap(":/images/driver_64.svg").scaledToHeight(50));
+        diskLbl->setPixmap(installer::renderPixmap(":/images/drive-harddisk-64px.svg").scaledToHeight(50));
         m_diskinfo[i].m_diskLbl = diskLbl;
         m_diskinfo[i].m_devicePathLbl = new QLabel();
         m_diskinfo[i].m_deviceSizeLbl = new QLabel();

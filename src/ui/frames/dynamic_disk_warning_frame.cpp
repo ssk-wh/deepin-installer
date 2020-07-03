@@ -82,7 +82,7 @@ void DynamicDiskWarningFrame::setDevice(const QList<Device::Ptr> list)
         diskLayout->setSpacing(0);
 
         QLabel* diskLbl = new QLabel;
-        diskLbl->setPixmap(installer::renderPixmap(":/images/driver_128.svg"));
+        diskLbl->setPixmap(installer::renderPixmap(":/images/drive-harddisk-128px.svg"));
 
         QLabel* diskInfoLbl = new QLabel;
         diskInfoLbl->setObjectName("DiskInfoLabel");

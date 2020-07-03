@@ -33,8 +33,8 @@ const int kButtonHeight = 220;
 const int kOsIconWidth = 120;
 const int kOsIconHeight = 120;
 
-const QString kDriverIcon = ":/images/driver_128.svg";
-const QString kDriverInstallIcon = ":/images/driver_install_128.svg";
+const QString kDriverIcon = ":/images/drive-harddisk-128px.svg";
+const QString kDriverInstallIcon = GetUosAndDeepinLogo128();
 
 }  // namespace
 

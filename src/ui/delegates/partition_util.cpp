@@ -21,6 +21,7 @@
 
 #include <QFileInfo>
 #include <QRegularExpression>
+#include <DSysInfo>
 
 #include "partman/os_prober.h"
 #include "partman/utils.h"
@@ -29,6 +30,8 @@
 #include "sysinfo/proc_meminfo.h"
 #include "sysinfo/proc_mounts.h"
 #include "base/command.h"
+
+DCORE_USE_NAMESPACE
 
 namespace installer {
 
@@ -280,38 +283,98 @@ QString GetLocalFsTypeName(FsType fs_type) {
   }
 }
 
+QString GetUosAndDeepinLogo32() {
+#ifdef QT_DEBUG_test
+    const bool test = true;
+#else
+    const bool test = false;
+#endif // QT_DEBUG
+
+    if (test || DSysInfo::productType() == DSysInfo::Deepin){
+        return ":/images/drive-harddisk-deepin-32px.svg";
+    } else {
+        return ":/images/drive-harddisk-uniontech-32px.svg";
+    }
+}
+
+QString GetUosAndDeepinLogo64() {
+#ifdef QT_DEBUG_test
+    const bool test = true;
+#else
+    const bool test = false;
+#endif // QT_DEBUG
+
+    if (test || DSysInfo::productType() == DSysInfo::Deepin){
+        return ":/images/drive-harddisk-deepin-64px.svg";
+    } else {
+        return ":/images/drive-harddisk-uniontech-64px.svg";
+    }
+}
+
+QString GetUosAndDeepinLogo128() {
+#ifdef QT_DEBUG_test
+    const bool test = true;
+#else
+    const bool test = false;
+#endif // QT_DEBUG
+
+    if (test || DSysInfo::productType() == DSysInfo::Deepin){
+        return ":/images/drive-harddisk-deepin-128px.svg";
+    } else {
+        return ":/images/drive-harddisk-uniontech-128px.svg";
+    }
+}
+
 QString GetOsTypeIcon(OsType os_type) {
-  switch (os_type) {
-    case OsType::Linux: {
-      return ":/images/driver_linux_32.svg";
+
+    switch (os_type) {
+        case OsType::Linux: {
+            return ":/images/drive-harddisk-linux-32px.svg";
+        }
+        case OsType::Mac: {
+            return ":/images/drive-harddisk-mac-32px.svg";
+        }
+        case OsType::Windows: {
+            return ":/images/drive-harddisk-windows-32px.svg";
+        }
+        default: {
+            return GetUosAndDeepinLogo32();
+        }
     }
-    case OsType::Mac: {
-      return ":/images/driver_mac_32.svg";
+}
+
+QString GetOsTypeIcon64(OsType os_type) {
+    switch (os_type) {
+        case OsType::Linux: {
+            return ":/images/drive-harddisk-linux-64px.svg";
+        }
+        case OsType::Mac: {
+            return ":/images/drive-harddisk-mac-64px.svg";
+        }
+        case OsType::Windows: {
+            return ":/images/drive-harddisk-Windows-64px.svg";
+        }
+        default: {
+            return GetUosAndDeepinLogo64();
+        }
     }
-    case OsType::Windows: {
-      return ":/images/driver_windows_32.svg";
-    }
-    default: {
-      return ":/images/driver_32.svg";
-    }
-  }
 }
 
 QString GetOsTypeLargeIcon(OsType os_type) {
-  switch (os_type) {
-    case OsType::Linux: {
-      return ":/images/driver_linux_128.svg";
+    switch (os_type) {
+        case OsType::Linux: {
+            return ":/images/drive-harddisk-linux-128px.svg";
+        }
+        case OsType::Mac: {
+            return ":/images/drive-harddisk-mac-128px.svg";
+        }
+        case OsType::Windows: {
+            return ":/images/drive-harddisk-Windows-128px.svg";
+        }
+        default: {
+            return GetUosAndDeepinLogo128();
+        }
     }
-    case OsType::Mac: {
-      return ":/images/driver_mac_128.svg";
-    }
-    case OsType::Windows: {
-      return ":/images/driver_windows_128.svg";
-    }
-    default: {
-      return ":/images/driver_64.svg";
-    }
-  }
 }
 
 QString GetPartitionLabel(const Partition::Ptr partition) {
