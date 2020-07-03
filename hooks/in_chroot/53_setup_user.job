@@ -65,6 +65,13 @@ setup_username_password_hostname() {
 
   msg "====== User info ======"
   msg "create user: ${DI_USERNAME}"
+  if [[ -d /home/${DI_USERNAME} ]]; then
+      mv /home/${DI_USERNAME} /home/${DI_USERNAME}_recoverry
+      userdel ${DI_USERNAME}
+      groupdel ${DI_USERNAME}
+      groupdel ${DI_USERNAME}
+  fi
+
   useradd -U -m --skel /etc/skel --shell /bin/bash ${DI_USERNAME}
 
   # Update password.
@@ -133,6 +140,11 @@ EOF
 parse_cmdline
 if [ x"$cli_mode" != xtrue ]; then
     hostnamectl set-hostname ${DI_HOSTNAME}
+fi
+
+if [[ -d /home/${DI_USERNAME}_recoverry ]]; then
+   rm -rf /home/${DI_USERNAME}
+   mv /home/${DI_USERNAME}_recoverry /home/${DI_USERNAME}
 fi
 }
 
