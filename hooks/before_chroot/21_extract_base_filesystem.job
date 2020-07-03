@@ -30,4 +30,8 @@ deepin-installer-unsquashfs --dest /target --progress "${PROGRESS_FILE}" \
   "${BASE_MODULE}" 1>/dev/null || \
   error "installer-unsquashfs failed, ${BASE_MODULE}"
 
-return 0
+if ! is_loongson; then
+  return 0
+fi
+
+cp -f /usr/lib/live/mount/medium/oem/hooks/before_chroot/10_linux /target/etc/grub.d/
