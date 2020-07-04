@@ -68,9 +68,9 @@ setup_username_password_hostname() {
   if [[ -d /home/${DI_USERNAME} ]]; then
       mv /home/${DI_USERNAME} /home/${DI_USERNAME}_recoverry
       userdel ${DI_USERNAME}
-      groupdel ${DI_USERNAME}
-      groupdel ${DI_USERNAME}
   fi
+  groupdel ${DI_USERNAME}
+  groupdel ${DI_USERNAME}
 
   useradd -U -m --skel /etc/skel --shell /bin/bash ${DI_USERNAME}
 
