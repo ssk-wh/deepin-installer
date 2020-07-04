@@ -886,8 +886,6 @@ void NetworkFrame::initDeviceWidgetList()
     }
 
     m_leftLayout->addStretch();
-
-    deleteOtherConnections();
 }
 
 QString NetworkFrame::returnFrameName() const
@@ -921,6 +919,8 @@ bool NetworkFrame::shouldDisplay() const
 
 void NetworkFrame::showEvent(QShowEvent *event)
 {
+    m_nextButton->setEnabled(true);
+
     m_currentNetworkEditWidget->initWidgetState();
     initDeviceWidgetList();
 
