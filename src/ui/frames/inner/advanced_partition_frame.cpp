@@ -181,7 +181,7 @@ void AdvancedPartitionFrame::initUI() {
 
   scroll_area_ = new QScrollArea();
   scroll_area_->setObjectName("scroll_area");
-  scroll_area_->setContentsMargins(0, 0, 0, 0);
+  scroll_area_->setContentsMargins(0, 0, 15, 0);
   QSizePolicy scroll_area_size_policy(QSizePolicy::MinimumExpanding,
                                       QSizePolicy::MinimumExpanding);
   scroll_area_size_policy.setHorizontalStretch(10);
@@ -189,7 +189,7 @@ void AdvancedPartitionFrame::initUI() {
   scroll_area_->setSizePolicy(scroll_area_size_policy);
   scroll_area_->setWidget(scroll_frame);
   scroll_area_->setWidgetResizable(true);
-  scroll_area_->setMaximumWidth(kWindowWidth);
+  scroll_area_->setMaximumWidth(kWindowWidth + 15);
   scroll_area_->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   scroll_area_->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
   scroll_area_->setFrameShape(QFrame::Shape::NoFrame);
