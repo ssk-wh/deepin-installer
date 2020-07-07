@@ -162,12 +162,15 @@ setup_first_boot_hostname() {
 EOF
 }
 
+POLICY="$(installer_get "system_info_password_validate")"
+POLICY="$(echo ${POLICY} | sed -e 's/\\/\\\\/g')"
+
 cat > /etc/deepin/dde.conf << EOF
 [Password]
 STRONG_PASSWORD=$(installer_get "DI_STRONG_PASSWORD")
 PASSWORD_MIN_LENGTH=$(installer_get "system_info_password_min_len")
 PASSWORD_MAX_LENGTH=$(installer_get "system_info_password_max_len")
-VALIDATE_POLICY="$(installer_get "system_info_password_validate")"
+VALIDATE_POLICY="${POLICY}"
 VALIDATE_REQUIRED=$(installer_get "system_info_password_validate_required")
 EOF
 
