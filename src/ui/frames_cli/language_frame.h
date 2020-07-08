@@ -34,6 +34,7 @@ public:
     }
 
     void update();
+    void updateText();
 
 signals:
     void languageChange();
@@ -48,7 +49,7 @@ private:
     NcursesListView* m_languageView = nullptr;
     NcursesLabel* m_instructions = nullptr;
     //NcursesLabel* m_titleLabel = nullptr;
-    bool m_isshow;
+    bool m_isshow = false;
 
 };
 

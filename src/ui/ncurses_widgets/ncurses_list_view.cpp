@@ -95,16 +95,28 @@ void NcursesListView::onKeyPress(int keyCode)
     switch (keyCode) {
         case KEY_UP:
             if (m_currentIndex > 0) {
-               m_currentIndex--;
-               show();
-               emit selectChanged(m_currentIndex);
+                m_childWindows[m_currentIndex]->setFocus(false);
+                m_currentIndex--;
+                m_currLine--;
+                if (m_currLine < 0) {
+                    show();
+                } else {
+                    m_childWindows[m_currentIndex]->setFocus(true);
+                }
+                emit selectChanged(m_currentIndex);
             }
             break;
         case KEY_DOWN:
             if (m_currentIndex < m_childWindows.size()-1) {
-               m_currentIndex++;
-               show();
-               emit selectChanged(m_currentIndex);
+                m_childWindows[m_currentIndex]->setFocus(false);
+                m_currentIndex++;
+                m_currLine++;
+                if (m_currLine > height()) {
+                    show();
+                } else {
+                    m_childWindows[m_currentIndex]->setFocus(true);
+                }
+                emit selectChanged(m_currentIndex);
             }
 
             break;
@@ -136,6 +148,8 @@ void NcursesListView::show()
         m_childWindows[currY + (m_page * height())]->mvwin(begy() + currY, begx() + m_reserveX);
         m_childWindows[currY + (m_page * height())]->show();
     }
+
+    m_currLine = m_currentIndex % height();
 }
 
 

@@ -41,12 +41,8 @@ void LanguageFramePrivate::layout()
 
 void LanguageFramePrivate::updateTs()
 {
-    box(ACS_VLINE,ACS_HLINE);
     //m_titleLabel->setText(::QObject::tr("Select Language"));
-    printTitle(::QObject::tr("Select Language"), width());
-    m_instructions->erase();
-    m_instructions->setText("  " + ::QObject::tr("Choose a language used in the installation process, which will also be the default system language."));
-    FrameInterfacePrivate::updateTs();
+    updateText();
     layout();
 }
 
@@ -56,8 +52,8 @@ void LanguageFramePrivate::initConnection()
         m_index = index;
         writeConf();
         emit languageChange();
-        updateTs();
-        m_isshow = false;
+        updateText();
+        //m_isshow = false;
         this->show();
     });
 
@@ -88,6 +84,16 @@ void LanguageFramePrivate::hide()
 {
     NCursesWindowBase::hide();
     m_isshow = false;
+}
+
+void LanguageFramePrivate::updateText()
+{
+    box(ACS_VLINE,ACS_HLINE);
+    printTitle(::QObject::tr("Select Language"), width());
+    m_instructions->erase();
+    m_instructions->setText("  " + ::QObject::tr("Choose a language used in the installation process, which will also be the default system language."));
+    m_instructions->show();
+    FrameInterfacePrivate::updateTs();
 }
 
 void LanguageFramePrivate::readConf()

@@ -33,11 +33,11 @@ public:
     void getKeyInputRun() {
         int testcount = 0;
         while (true) {
-            if(testcount < 5) {
-                QThread::msleep(10);
-                testcount++;
-                continue;
-            }
+//            if(testcount < 2) {
+//                QThread::msleep(10);
+//                testcount++;
+//                continue;
+//            }
             int key = getKey();
             testcount = 0;
             if(m_FrameInterface->getCurrentChild() != nullptr)
