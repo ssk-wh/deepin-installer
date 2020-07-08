@@ -69,8 +69,8 @@ void NetwrokFramePrivate::initUI()
     //m_titledes.append(::QObject::tr("  Do network set by auto, use dhcp to set network"));
     //m_titledes.append(::QObject::tr("  Do network set by manual, in this page you can set IP. Mask. Gateway. DNS"));
     //m_titledes.append(::QObject::tr("  Do not set network now, if you not want set the network now, you can do it with the installation complete"));
-    m_titledes.append("    " + ::QObject::tr("Configure Ethernet according to your needs, but you can skip it as well."));
     m_titledes.append("    " + ::QObject::tr("Set the IP address, gateway, netmask, DNS please."));
+    m_titledes.append("    " + ::QObject::tr("Configure Ethernet according to your needs, but you can skip it as well."));
 
 //    m_networkconfigtypestr = ::QObject::tr("Configuration type") + ":";
     m_networkconnecterrorstr = ::QObject::tr("Network connection error, check the configuration please");
@@ -178,8 +178,8 @@ void NetwrokFramePrivate::updateTs()
 //    m_titledes.append("  " + ::QObject::tr("Do network set by auto, use dhcp to set network"));
     //m_titledes.append("  " + ::QObject::tr("Do network set by manual, in this page you can set IP. Mask. Gateway. DNS"));
     //m_titledes.append("  " + ::QObject::tr("Do not set network now, if you not want set the network now, you can do it with the installation complete"));
-    m_titledes.append("  " + ::QObject::tr("Configure Ethernet according to your needs, but you can skip it as well."));
     m_titledes.append("  " + ::QObject::tr("Set the IP address, gateway, netmask, DNS please."));
+    m_titledes.append("  " + ::QObject::tr("Configure Ethernet according to your needs, but you can skip it as well."));
     if(installer::ReadLocale() == "zh_CN") {
         m_titledesbrower->setText(m_titledes[0], true);
     } else {
