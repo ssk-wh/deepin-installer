@@ -104,6 +104,8 @@ void InstallComponentFramePrivate::updateTs()
 
     if(m_localeString.compare("") && m_localeString.compare(installer::ReadLocale())) {
         initInfoList();
+    } else {
+        m_localeString = installer::ReadLocale();
     }
 
     FrameInterfacePrivate::updateTs();

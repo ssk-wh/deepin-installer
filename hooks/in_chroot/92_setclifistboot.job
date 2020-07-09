@@ -40,6 +40,7 @@ if [ -f "${CONF_FILE}" ]; then
         installer_set "skip_auto_sync_time_page" "false"
         installer_set "skip_timezone_page" "true"
         installer_set "skip_control_platform_page" "true"
+        installer_set "skip_system_keyboard_page" "true"
 #    else
 #        DI_SKIP_SELECT_LANGUAGE=$(installer_get "skip_select_language_page")
 #        if [ x${DI_SKIP_SELECT_LANGUAGE=} = "xtrue" ];then
