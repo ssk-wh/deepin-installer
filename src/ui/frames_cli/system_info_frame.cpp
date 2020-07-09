@@ -4,6 +4,7 @@
 #include "sysinfo/validate_hostname.h"
 #include "sysinfo/validate_username.h"
 #include "sysinfo/validate_password.h"
+#include "service/pwquality_manager.h"
 
 namespace installer {
 
@@ -205,20 +206,19 @@ bool SystemInfoFramePrivate::validatePassword(NCursesLineEdit *passwordEdit, QSt
 
     switch (state) {
     case ValidatePasswordState::EmptyError: {
-        msg = ::QObject::tr("Please input password longer than %1 characters and "
-                 "shorter than %2 characters")
-                .arg(min_len)
-                .arg(max_len);
+        msg = ::QObject::tr("The password cannot be empty​");
         return false;
     }
-    case ValidatePasswordState::StrongError: {  // fall through
-        msg = ::QObject::tr("The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)");
+    case ValidatePasswordState::StrongError: {
+        msg = ::QObject::tr("Password must contain letters, numbers and symbols");
         return false;
     }
-    case ValidatePasswordState::TooShortError:  // fall through
+    case ValidatePasswordState::TooShortError: {
+        msg = ::QObject::tr("Password must have at least 8 characters");
+        return false;
+    }
     case ValidatePasswordState::TooLongError: {
-        msg = ::QObject::tr("Please input password longer than %1 characters and "
-                 "shorter than %2 characters")
+        msg = ::QObject::tr("Password must be between %1 and %2 characters")
                 .arg(min_len)
                 .arg(max_len);
         return false;
@@ -230,6 +230,39 @@ bool SystemInfoFramePrivate::validatePassword(NCursesLineEdit *passwordEdit, QSt
     default:
         break;
     }
+
+    QString dict = PwqualityManager::instance()->dictChecked(passwordEdit->text());
+    if (!dict.isEmpty()) {
+        msg = ::QObject::tr("Password must not contain common words and combinations").arg(dict);
+        return false;
+    }
+
+    QString palingrome = PwqualityManager::instance()->palindromeChecked(passwordEdit->text());
+    if (!palingrome.isEmpty()) {
+        msg = ::QObject::tr("Password must not contain more than 4 palindrome characters").arg(palingrome);
+        return false;
+    }
+
+    if (!PwqualityManager::instance()->oem_lower_case(passwordEdit->text())) {
+        msg = ::QObject::tr("Password must contain lowercase letters").arg(palingrome);
+        return false;
+    }
+
+    if (!PwqualityManager::instance()->oem_upper_case(passwordEdit->text())) {
+        msg = ::QObject::tr("Password must contain capital letters").arg(palingrome);
+        return false;
+    }
+
+    if (!PwqualityManager::instance()->oem_special_char(passwordEdit->text())) {
+        msg = ::QObject::tr("Password must contain special characters").arg(palingrome);
+        return false;
+    }
+
+    if (!PwqualityManager::instance()->oem_require_number(passwordEdit->text())) {
+        msg = ::QObject::tr("Passwords must contain numbers").arg(palingrome);
+        return false;
+    }
+
     return true;
 }
 

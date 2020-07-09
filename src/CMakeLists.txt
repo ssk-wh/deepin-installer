@@ -759,6 +759,10 @@ add_executable(deepin-installer-cli
               app/deepin_install_cli.cpp
               ui/main_window_cli.h
               ui/main_window_cli.cpp
+
+              service/pwquality_manager.h
+              service/pwquality_manager.cpp
+
               ${CLI_UI_FILES}
               ${BASE_FILES}
               ${PARTMAN_FILES}
@@ -770,7 +774,7 @@ target_include_directories(deepin-installer-cli PUBLIC
                ${KF5_QT_INCLUDE_DIRS}
 )
 
-target_link_libraries(deepin-installer-cli ${LINK_LIBS} ncurses++w ncursesw panelw ${KF5_QT_LIBRARIES})
+target_link_libraries(deepin-installer-cli ${LINK_LIBS} ncurses++w ncursesw panelw ${KF5_QT_LIBRARIES} pwquality)
 add_dependencies(deepin-installer-cli installer-qm-update)
 
 
