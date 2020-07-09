@@ -143,9 +143,8 @@ set superusers="${USERNAME}"
 password_pbkdf2 ${USERNAME} ${GRUB_PASSWORD}
 P_EOF
 EOF
-fi
-
 update-grub
+fi
 }
 
 main() {
