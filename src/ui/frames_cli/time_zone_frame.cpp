@@ -3,7 +3,6 @@
 #include "service/settings_name.h"
 #include <QCollator>
 
-
 namespace installer {
 
 const char kCliContinentDefault[] = "Asia";
@@ -77,6 +76,21 @@ void TimeZoneFramePrivate::initConnection()
     });
 }
 
+void TimeZoneFramePrivate::leftHandle()
+{
+    if (m_timeZoneView->isOnFoucs()) {
+        m_continentView->setFocus(true);
+        m_timeZoneView->setFocus(false);
+    }
+}
+
+void TimeZoneFramePrivate::rightHandle()
+{
+    if (m_continentView->isOnFoucs()) {
+        m_continentView->setFocus(false);
+        m_timeZoneView->setFocus(true);
+    }
+}
 
 TimeZoneFrame::TimeZoneFrame(FrameInterface* parent) :
     FrameInterface (parent),

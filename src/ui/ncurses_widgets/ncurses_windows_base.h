@@ -10,7 +10,6 @@
 #include <cursesp.h>
 
 namespace installer {
-
 const int KEY_ESC = 27;
 const int KEY_TAB  = 9;
 const int KEY_SPACE = 32;

@@ -8,6 +8,11 @@
 #include <QSharedPointer>
 #include <QTimer>
 
+namespace  {
+const int kKeyLeft = 260;
+const int kKeyRight = 261;
+}
+
 namespace installer {
 
 class FrameInterfacePrivate : public NCursesWindowBase
@@ -24,6 +29,14 @@ public:
     {
         return true;
     }
+
+    void onKeyPress(int keyCode) override {
+        switch (keyCode) {
+            case kKeyLeft: leftHandle(); break;
+            case kKeyRight: rightHandle(); break;
+        }
+    }
+
     virtual void initUI() {
 
         setBackground(NcursesUtil::getInstance()->dialog_attr());
@@ -86,6 +99,7 @@ public:
     }
 
     virtual void keyEventTriger(int key) {
+        qDebug() << "key = " << key;
         switch (key) {
             case KEY_TAB:
                 switchChildWindowsFoucs();
@@ -104,7 +118,7 @@ public:
                });
             break;
             default:
-                foreach (NCursesWindowBase* childWindow, m_childWindows) {
+                foreach (NCursesWindowBase* childWindow, m_foucsWindows) {
                     if (childWindow->isOnFoucs()) {
                          childWindow->onKeyPress(key);
                     }
@@ -162,6 +176,15 @@ signals:
     void next();
     void back();
     void close();
+
+protected:
+    virtual void leftHandle() {
+
+    }
+
+    virtual void rightHandle() {
+
+    }
 
 protected:
     NcursesButton* m_pNextButton = nullptr;

@@ -113,6 +113,22 @@ void InstallComponentFramePrivate::updateTs()
     layout();
 }
 
+void InstallComponentFramePrivate::leftHandle()
+{
+    if (m_extrachoiceslist->isOnFoucs()) {
+        m_basicenvironmentlist->setFocus(true);
+        m_extrachoiceslist->setFocus(false);
+    }
+}
+
+void InstallComponentFramePrivate::rightHandle()
+{
+    if (m_basicenvironmentlist->isOnFoucs()) {
+        m_basicenvironmentlist->setFocus(false);
+        m_extrachoiceslist->setFocus(true);
+    }
+}
+
 void InstallComponentFramePrivate::initConnection()
 {
     connect(m_basicenvironmentlist, SIGNAL(signal_KeyTriger(int, int, int)), this, SLOT(slot_KeyTriger(int, int, int)));
@@ -227,12 +243,6 @@ void InstallComponentFramePrivate::writeInfoList()
             break;
         }
     }
-}
-
-
-void InstallComponentFramePrivate::onKeyPress(int keyCode)
-{
-
 }
 
 

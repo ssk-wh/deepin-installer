@@ -27,6 +27,11 @@ public:
     void updateTs() override;
     void initConnection();
     bool validate() override;
+
+protected:
+    void leftHandle() override;
+    void rightHandle() override;
+
 private:
     QString m_title;
     NcursesLabel* m_instructions;

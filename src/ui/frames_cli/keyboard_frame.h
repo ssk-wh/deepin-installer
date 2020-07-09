@@ -22,6 +22,11 @@ public:
     void updateTs() override;
     void initConnection();
     bool validate() override;
+
+protected:
+    void leftHandle() override;
+    void rightHandle() override;
+
 private:
     void readConf();
     void writeConf();

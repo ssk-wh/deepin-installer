@@ -79,6 +79,22 @@ bool KeyboardFramePrivate::validate()
     return true;
 }
 
+void KeyboardFramePrivate::leftHandle()
+{
+    if (m_variantView->isOnFoucs()) {
+        m_layoutView->setFocus(true);
+        m_variantView->setFocus(false);
+    }
+}
+
+void KeyboardFramePrivate::rightHandle()
+{
+    if (m_layoutView->isOnFoucs()) {
+        m_layoutView->setFocus(false);
+        m_variantView->setFocus(true);
+    }
+}
+
 void KeyboardFramePrivate::readConf()
 {
     // Load xkb config first.
