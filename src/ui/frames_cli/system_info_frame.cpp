@@ -466,6 +466,8 @@ void SystemInfoFramePrivate::updateTs()
     ::QObject::tr("Your root password should be different from the user password, please take care of them.");
 
     FrameInterfacePrivate::updateTs();
+
+    layout();
 }
 
 
@@ -488,7 +490,6 @@ bool SystemInfoFrame::init()
 {
     if (m_currState == FRAME_STATE_NOT_START) {
         //readConf();
-        m_private->layout();
         m_currState = FRAME_STATE_RUNNING;
     }
     //m_private->show();
