@@ -209,22 +209,33 @@ void TimezoneFrame::finished() {
   }();
 
   process->start("timedatectl", {"set-local-rtc", localRtc});
-  process->waitForFinished();
+  if (!process->waitForFinished()) {
+       qCritical() << "set local rtc failed! " << process->readAllStandardOutput();
+  }
+
+  process->start("timedatectl", {"set-timezone", m_private->timezone_});
+  if (!process->waitForFinished()) {
+       qCritical() << "set timezone failed! " << process->readAllStandardOutput();
+  }
 
   if (!m_private->m_systemDateFrame->isEnabled()) {
       return;
   }
 
-  WriteIsLocalTime(true);
-
-  process->start("timedatectl", {"set-timezone", m_private->timezone_});
-  process->waitForFinished();
+  qInfo() << "set time start...";
 
   process->start("timedatectl", {"set-ntp", "false"});
-  process->waitForFinished();
+  if (!process->waitForFinished()) {
+       qCritical() << "set ntp failed! " << process->readAllStandardOutput();
+  }
+
+  WriteIsLocalTime(true);
 
   process->start("timedatectl", {"set-time", m_private->m_systemDateFrame->timedate()});
-  process->waitForFinished();
+  if (!process->waitForFinished()) {
+       qCritical() << "set time failed! " << process->readAllStandardOutput();
+  }
+
 }
 
 void TimezoneFrame::changeEvent(QEvent* event) {
