@@ -232,10 +232,20 @@ void installer::RepairSystemFrame::changeEvent(QEvent *event)
 
 bool installer::RepairSystemFrame::isRepair() const
 {
-#ifdef QT_DEBUG
+#ifdef QT_DEBUG_test
     return true;
 #endif // QT_DEBUG
-    return !GetOsProberItems().isEmpty();
+    for (OsProberItem os : OsProberItems()) {
+        if (os.type == OsType::Linux) {
+            if (os.description.toLower().contains("debian")
+                    || os.distro_name.toLower().contains("debian")
+                    || os.description.toLower().contains("uos")
+                    || os.distro_name.toLower().contains("uos")) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 #include "repair_system_frame.moc"
