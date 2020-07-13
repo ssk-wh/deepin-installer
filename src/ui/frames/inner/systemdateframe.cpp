@@ -400,7 +400,7 @@ void SystemDateFrame::timeDateSetFinished()
 
 #if 0 // 更改到timezone_frame中writeConf完成
     QProcess process;
-//    qDebug() << process.execute("timedatectl", QStringList() << "set-ntp" << "false");
+    qDebug() << process.execute("timedatectl", QStringList() << "set-ntp" << "false");
 
     const QString dateTime = m_ptr->timedate();
 
