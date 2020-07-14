@@ -308,7 +308,7 @@ public:
     }
 
     chtype button() {
-        return attributes[37];
+        return attributes[34];
     }
 
 //    chtype button_select() {

@@ -32,7 +32,7 @@ NcursesUtil* NcursesUtil::getInstance()
 void NcursesUtil::colorSetup()
 {
     int color_table[][3] = {
-        {SCREEN_FG, SCREEN_BG, SCREEN_HL},
+        {SCREEN_FG, SCREEN_BG, SCREEN_HL},//0
         {SHADOW_FG, SHADOW_BG, SHADOW_HL},
         {DIALOG_FG, DIALOG_BG, DIALOG_HL},
         {TITLE_FG, TITLE_BG, TITLE_HL},
@@ -68,9 +68,9 @@ void NcursesUtil::colorSetup()
         {COMMENT_FG, COMMENT_GB, COMMENT_HL},
         {WARNINT_FG, WARNINT_GB, WARNINT_HL},
         {ERROR_FG, ERROR_GB, ERROR_HL},
-        {LIST_VIEW_ITEM_SELECTD_FG, LIST_VIEW_ITEM_SELECTD_GB, LIST_VIEW_ITEM_SELECTD_HL}, // 36
+        {LIST_VIEW_ITEM_SELECTD_FG, LIST_VIEW_ITEM_SELECTD_GB, LIST_VIEW_ITEM_SELECTD_HL}, // 33
         /* new style */
-        {BUTTON_FG, BUTTON_GB, BUTTON_HL},  // 37
+        {BUTTON_FG, BUTTON_GB, BUTTON_HL},  // 34
     };	/* color_table */
 
     int i;
