@@ -137,6 +137,8 @@ OSType GetCurrentType() {
     const QString& type = settings.value("Type", "Desktop").toString();
 #endif // QT_DEBUG
 
+    qDebug() << "GetCurrentType() = " << type;
+
     return QMap<QString, OSType>{
         { "Desktop", OSType::Community },
         { "Professional", OSType::Professional },

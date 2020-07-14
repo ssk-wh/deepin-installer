@@ -379,23 +379,23 @@
         <translation>PostgreSQL SQL-tietokantapalvelin ja siihen liittyvät paketit.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="262"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="265"/>
         <source>Do not use this partition</source>
         <translation>Älä käytä tätä osiota</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="275"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="278"/>
         <source>Swap partition</source>
         <translation>Swap-osio</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="279"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="282"/>
         <source>Unknown</source>
         <translation>Tuntematon</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="320"/>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="351"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="383"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="414"/>
         <source>Freespace</source>
         <translation>Tallennustilaa</translation>
     </message>
@@ -449,7 +449,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="174"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="309"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="189"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="210"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="217"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="744"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="974"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="229"/>
@@ -480,28 +480,47 @@
         <translation>Tarvitset vähintään %1 Gt levytilaa asentaaksesi %2. Parhaan suorituskyvyn saavuttamiseksi suositellaan vähintään 3 Gt</translation>
     </message>
     <message>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="12"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="196"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="425"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="418"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="212"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="73"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="124"/>
         <source>Deepin</source>
         <translation>Deepin</translation>
     </message>
     <message>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="12"/>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="46"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="196"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="425"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="418"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="212"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="73"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="124"/>
         <source>UOS</source>
         <translation>UOS</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="15"/>
+        <source>End User License Agreement for UnionTech OS Desktop Home</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="16"/>
+        <source>End User License Agreement for UnionTech OS Desktop Professional</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="42"/>
+        <source>UnionTech UOS</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="26"/>
+        <source>UnionTech OS User Experience Program License Agreement</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="91"/>
@@ -714,7 +733,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="238"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="873"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="879"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="126"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="240"/>
         <source>Passwords do not match</source>
@@ -737,9 +756,9 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="273"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="481"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="644"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="651"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="482"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="650"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="657"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="459"/>
         <source>Password</source>
         <translation>Salasana</translation>
@@ -966,35 +985,33 @@
         <translation>Jos et ymmärrä asetuksia, ole hyvä ja valitse oletusasetukset</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="424"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="425"/>
         <source>I have read and agree to the</source>
         <translation>Olen lukenut ja hyväksyn</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="425"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="212"/>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="19"/>
         <source>%1 Software End User License Agreement</source>
         <translation>%1 ohjelmiston loppukäyttäjän lisenssisopimus</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="429"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="430"/>
         <source>and</source>
         <translation>ja</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="438"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="439"/>
         <source>Agree to the</source>
         <translation>Hyväksy</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="439"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="211"/>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="30"/>
         <source>User Experience Program License Agreement</source>
         <translation>Käyttäjän kokemusohjelman lisenssisopimus</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="441"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="104"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="442"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="105"/>
         <location filename="../src/ui/frames_cli/language_frame.cpp" line="46"/>
         <source>Select Language</source>
         <translation>Valitse kieli</translation>
@@ -1015,173 +1032,173 @@
         <translation>Windows ei käynnisty, jos %1 asennetaan Windows-levylle. Vahvista jatkaaksesi</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="405"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="642"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="649"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="656"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="406"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="648"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="655"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="662"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="458"/>
         <source>Username</source>
         <translation>Käyttäjänimi</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="433"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="643"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="650"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="434"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="649"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="656"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="457"/>
         <source>Computer name</source>
         <translation>Tietokoneen nimi</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="482"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="645"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="652"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="483"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="651"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="658"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="210"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="460"/>
         <source>Repeat password</source>
         <translation>Toista salasana</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="646"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="653"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="652"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="659"/>
         <source>Root password</source>
         <translation>Root salasana</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="647"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="654"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="653"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="660"/>
         <source>Repeat root password</source>
         <translation>Toista root salasana</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="658"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="664"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="131"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="454"/>
         <source>Create Accounts</source>
         <translation>Luo tilit</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="659"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="665"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="456"/>
         <source>Fill in the username, computer name and your password</source>
         <translation>Syötä käyttäjätunnus, tietokoneen nimi ja salasana</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="660"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="666"/>
         <source>Use that password to edit boot menu</source>
         <translation>Käytä tätä salasanaa muokatessasi käynnistysvalikkoa</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="661"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="667"/>
         <source>Enable root user</source>
         <translation>Ota root pääkäyttäjä käyttöön</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="685"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="691"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="152"/>
         <source>This username already exists</source>
         <translation>Tämä käyttäjänimi on jo olemassa</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="689"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="695"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="156"/>
         <source>The first letter must be in lowercase</source>
         <translation>Ensimmäisen kirjaimen on oltava pienaakkonen</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="694"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="700"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="161"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
         <translation>Käyttäjänimen on sisällettävä (pienaakkosia), numeroita tai erikoismerkkejä (_-)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="700"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="706"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="167"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
         <translation>Ole hyvä ja syötä käyttäjänimi, joka on pidempi kuin %1 merkkiä ja lyhyempi kuin %2 merkkiä</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="723"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="729"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="116"/>
         <source>Please input computer name</source>
         <translation>Ole hyvä ja kirjoita laitteen nimi</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="727"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="733"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="120"/>
         <source>Computer name is invalid</source>
         <translation>Laitteen nimi ei kelpaa</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="731"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="737"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="124"/>
         <source>Computer name already exists, please input another one</source>
         <translation>Laitteen nimi on jo olemassa, ole hyvä ja syötä toinen</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="736"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="742"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="129"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
         <translation>Ole hyvä ja syötä laitteen nimi, joka on pidempi kuin %1 merkkiä ja lyhyempi kuin %2 merkkiä</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="764"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="770"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="80"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="194"/>
         <source>The password should be different from the username</source>
         <translation>Salasanan pitäisi olla eri kuin käyttäjänimi</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="778"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="784"/>
         <source>The password cannot be empty​</source>
         <translation>Salasana ei voi olla tyhjä</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="782"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="788"/>
         <source>Password must contain letters, numbers and symbols</source>
         <translation>Salasanassa on oltava kirjaimia, numeroita ja erikoismerkkejä</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="786"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="792"/>
         <source>Password must have at least 8 characters</source>
         <translation>Salasanassa on oltava vähintään 8 merkkiä</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="790"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="796"/>
         <source>Password must be between %1 and %2 characters</source>
         <translation>Salasanassa on oltava %1 ja %2 merkkiä</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="805"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="811"/>
         <source>Password must not contain common words and combinations</source>
         <translation>Salasana ei saa sisältää yleisiä sanoja ja yhdistelmiä</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="811"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="817"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Salasana saa sisältää enintään 4 merkkiä käänteisesti</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="816"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="822"/>
         <source>Password must contain lowercase letters</source>
         <translation>Salasanassa on oltava pieniä kirjaimia</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="821"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="827"/>
         <source>Password must contain capital letters</source>
         <translation>Salasanassa on oltava isoja kirjaimia</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="826"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="832"/>
         <source>Password must contain special characters</source>
         <translation>Salasanassa on oltava erikoismerkkejä</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="831"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="837"/>
         <source>Passwords must contain numbers</source>
         <translation>Salasanojen on sisällettävä numeroita</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="1085"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="1097"/>
         <source>Add fingerprint password in Control Center &gt; Accounts to unlock and authenticate</source>
         <translation>Lisää sormenjälki salasanaksi Ohjauspaneeli &gt; Tilit lukituksen avaamiseksi ja tunnistautumiseen</translation>
     </message>
@@ -1282,7 +1299,7 @@
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="19"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="65"/>
         <source>Sorry for the trouble. Please take a photo to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
-        <translation type="unfinished"/>
+        <translation>Pahoittelemme ongelmaa. Ota valokuva ja lähetä se meille virhelokin kanssa tai tallenna loki ulkoiselle levylle. Autamme ratkaisemaan asian.</translation>
     </message>
     <message>
         <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
@@ -1463,7 +1480,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="750"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="895"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="893"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="972"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="175"/>
         <source>Configure Network</source>

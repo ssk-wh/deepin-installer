@@ -25,6 +25,7 @@
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
 #include "sysinfo/virtual_machine.h"
+#include "ui/delegates/license_delegate.h"
 
 #include <QEvent>
 #include <QLabel>
@@ -70,7 +71,7 @@ void VirtualMachineFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     m_private->title_label_->setText(::QObject::tr("Friendly Note"));
     m_private->comment_label_->setText(
-        ::QObject::tr("You are installing %1 on a virtual machine which may result in sub-optimal performance. For the best experience, please install %1 on a real machine.").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS")));
+        ::QObject::tr("You are installing %1 on a virtual machine which may result in sub-optimal performance. For the best experience, please install %1 on a real machine.").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : LicenseDelegate::product()));
     m_private->nextButton->setText(::QObject::tr("Next"));
   } else {
     FrameInterface::changeEvent(event);
@@ -121,7 +122,7 @@ QString VirtualMachineFrame::returnFrameName() const
 void VirtualMachineFramePrivate::initUI() {
   title_label_ = new TitleLabel(::QObject::tr("Friendly Note"));
   comment_label_ = new CommentLabel(
-      ::QObject::tr("You are installing %1 on a virtual machine which may result in sub-optimal performance. For the best experience, please install %1 on a real machine.").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS")));
+      ::QObject::tr("You are installing %1 on a virtual machine which may result in sub-optimal performance. For the best experience, please install %1 on a real machine.").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : LicenseDelegate::product()));
   QHBoxLayout* comment_layout = new QHBoxLayout();
   comment_layout->setContentsMargins(0, 0, 0, 0);
   comment_layout->setSpacing(0);

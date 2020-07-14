@@ -1,12 +1,17 @@
 <RCC>
     <qresource prefix="/license">
-        <file>deepin-end-user-license-agreement_community_zh_CN.txt</file>
-        <file>deepin-end-user-license-agreement_community_en_US.txt</file>
-        <file>professional-deepin-end-user-license-agreement_en_US.txt</file>
-        <file>professional-deepin-end-user-license-agreement_zh_CN.txt</file>
-        <file>server-deepin-end-user-license-agreement_en_US.txt</file>
-        <file>server-deepin-end-user-license-agreement_zh_CN.txt</file>
-        <file>deepin-end-user-experience-agreement_en_US.txt</file>
-        <file>deepin-end-user-experience-agreement_zh_CN.txt</file>
+        <file>end-user-license-agreement-default_zh_CN.txt</file>
+        <file>end-user-license-agreement-default_en_US.txt</file>
+        <file>end-user-license-agreement-community_zh_CN.txt</file>
+        <file>end-user-license-agreement-community_en_US.txt</file>
+        <file>end-user-license-agreement-personal_en_US.txt</file>
+        <file>end-user-license-agreement-personal_zh_CN.txt</file>
+        <file>end-user-license-agreement-professional_en_US.txt</file>
+        <file>end-user-license-agreement-professional_zh_CN.txt</file>
+
+        <file>user-experience-agreement-default_en_US.txt</file>
+        <file>user-experience-agreement-default_zh_CN.txt</file>
+        <file>user-experience-agreement-personal_en_US.txt</file>
+        <file>user-experience-agreement-personal_zh_CN.txt</file>
     </qresource>
 </RCC>

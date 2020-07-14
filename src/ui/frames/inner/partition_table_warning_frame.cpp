@@ -33,6 +33,7 @@
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/partition_table_widget.h"
 #include "ui/widgets/operator_widget.h"
+#include "ui/delegates/license_delegate.h"
 
 #include <QDebug>
 #include <QEvent>
@@ -74,7 +75,7 @@ void PartitionTableWarningFrame::changeEvent(QEvent* event) {
     title_label_->setText(::QObject::tr("Warning"));
     comment_label_->setText(
         ::QObject::tr("You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. "
-           "Please select one of the below solutions and continue.").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS")));
+           "Please select one of the below solutions and continue.").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : LicenseDelegate::product()));
     m_warningWidget1->setTitle(QString("%1").arg(::QObject::tr("Disable UEFI")));
     m_warningWidget1->setBody(QString("1.%1\n2.%2")
                               .arg(::QObject::tr("Reboot, enter BIOS, and disable UEFI"))

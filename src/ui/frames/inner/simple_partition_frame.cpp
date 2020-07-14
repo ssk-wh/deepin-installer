@@ -35,6 +35,7 @@
 #include "ui/widgets/device_model_label.h"
 #include "ui/widgets/simple_partition_button.h"
 #include "ui/utils/widget_util.h"
+#include "ui/delegates/license_delegate.h"
 
 DCORE_USE_NAMESPACE
 
@@ -415,7 +416,7 @@ void SimplePartitionFrame::onPartitionButtonClicked() {
     // If selected partitions contains windows system, show another message.
     if (button->partition()->os == OsType::Windows) {
       msg_label_->setText(::QObject::tr("Windows will not boot if you install %1 on "
-                             "Windows disk, please confirm to continue").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS")));
+                             "Windows disk, please confirm to continue").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : LicenseDelegate::product()));
     }
 
     this->appendOperations();

@@ -6,7 +6,7 @@ select_component_default_install_type = ""
 partition_skip_simple_partition_page = true
 enable_install_nvidia_driver = true
 system_info_disable_experience = false
-end_user_license_zh_CN = professional-deepin-end-user-license-agreement_zh_CN.txt
-end_user_license_en_US = professional-deepin-end-user-license-agreement_en_US.txt
+end_user_license_zh_CN = end-user-license-agreement-professional_zh_CN.txt
+end_user_license_en_US = end-user-license-agreement-professional_en_US.txt
 
 

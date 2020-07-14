@@ -4,3 +4,6 @@ timezone_default = Asia/Shanghai
 skip_select_component_page = true
 partition_skip_simple_partition_page = true
 system_info_disable_license = true
+
+end_user_license_zh_CN = end-user-license-agreement-community_zh_CN.txt
+end_user_license_en_US = end-user-license-agreement-community_en_US.txt

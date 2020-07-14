@@ -24,6 +24,7 @@
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/title_label.h"
 #include "ui/delegates/main_window_util.h"
+#include "ui/delegates/license_delegate.h"
 
 #include <QEvent>
 #include <QHBoxLayout>
@@ -55,7 +56,7 @@ QString GetCommentLabel() {
   return ::QObject::tr("You need at least %1 GB disk space to install %2. "
                      "To get better performance, %3 GB or more is recommended")
       .arg(minimum)
-      .arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS"))
+      .arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : LicenseDelegate::product())
       .arg(recommended);
 }
 

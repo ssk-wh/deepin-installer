@@ -27,6 +27,7 @@
 #include "service/settings_name.h"
 #include "ui/interfaces/frameinterfaceprivate.h"
 #include "ui/utils/widget_util.h"
+#include "ui/delegates/license_delegate.h"
 
 #include <QApplication>
 #include <DSysInfo>
@@ -35,17 +36,6 @@
 DCORE_USE_NAMESPACE
 
 namespace installer {
-
-#ifdef PROFESSIONAL
-const QString zh_CN_license { ":/license/deepin-end-user-license-agreement_zh_CN.txt" };
-const QString en_US_license { ":/license/deepin-end-user-license-agreement_en_US.txt" };
-#else
-const QString zh_CN_license { ":/license/deepin-end-user-license-agreement_community_zh_CN.txt" };
-const QString en_US_license { ":/license/deepin-end-user-license-agreement_community_en_US.txt" };
-#endif  // PROFESSIONAL
-
-const QString zh_CN_experience { ":/license/deepin-end-user-experience-agreement_zh_CN.txt" };
-const QString en_US_experience { ":/license/deepin-end-user-experience-agreement_en_US.txt" };
 
 class LanguageFramePrivate : public FrameInterfacePrivate
 {
@@ -193,11 +183,17 @@ void LanguageFramePrivate::showOemUserLicense() {
 
 void LanguageFramePrivate::showUserExperience()
 {
+    QString zh_cn_ue = QString(":/license/%1").arg(GetSettingsString(kUserexperience_zh_CN));
+    QString en_us_ue = QString(":/license/%1").arg(GetSettingsString(kUserexperience_en_US));
+
+    qDebug() << "zh_cn_li = " << zh_cn_ue;
+    qDebug() << "en_us_li = " << en_us_ue;
+
     if (installer::ReadLocale() == "zh_CN") {
-        m_user_experience_frame->setUserAgreement(zh_CN_experience, en_US_experience);
+        m_user_experience_frame->setUserAgreement(zh_cn_ue, en_us_ue);
         m_user_experience_frame->setCheckedButton(kChineseToggleButtonId);
     } else {
-        m_user_experience_frame->setUserAgreement(en_US_experience, zh_CN_experience);
+        m_user_experience_frame->setUserAgreement(zh_cn_ue, en_us_ue);
         m_user_experience_frame->setCheckedButton(kEnglishToggleButtonId);
     }
     m_frame_layout->setCurrentWidget(m_user_experience_frame);
@@ -208,8 +204,8 @@ void LanguageFramePrivate::showUserExperience()
 void LanguageFramePrivate::setupTs()
 {
     nextButton->setText(::QObject::tr("Next"));
-    m_user_experience_frame->setTitle(::QObject::tr("User Experience Program License Agreement"));
-    m_user_license_frame->setTitle(::QObject::tr("%1 Software End User License Agreement").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS")));
+    m_user_experience_frame->setTitle(LicenseDelegate::userExperienceTitle());
+    m_user_license_frame->setTitle(LicenseDelegate::licenseTitle());
 }
 
 }  // namespace installer

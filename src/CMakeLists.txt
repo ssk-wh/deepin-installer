@@ -307,6 +307,8 @@ set(UI_FILES
     ui/delegates/partition_util.h
     ui/delegates/style_delegate.h
     ui/delegates/style_delegate.cpp
+    ui/delegates/license_delegate.cpp
+    ui/delegates/license_delegate.h
 
     ui/delegates/popup_menu_delegate.cpp
     ui/delegates/popup_menu_delegate.h

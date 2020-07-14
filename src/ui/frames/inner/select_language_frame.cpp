@@ -46,6 +46,7 @@
 #include "ui/models/language_list_model.h"
 #include "ui/views/frameless_list_view.h"
 #include "ui/delegates/user_agreement_delegate.h"
+#include "ui/delegates/license_delegate.h"
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/comment_label.h"
 #include "service/system_language.h"
@@ -282,7 +283,7 @@ void SelectLanguageFramePrivate::initUI() {
     q->setFocusPolicy(Qt::TabFocus);
 
     QLabel* logo_label = new QLabel();
-    logo_label->setPixmap(QPixmap(installer::GetVendorLogo()));
+    logo_label->setPixmap(QPixmap(LicenseDelegate::logo()));
 
     QLabel* title_label = new QLabel("Select Language");
     title_label->setObjectName("title_label");
@@ -422,7 +423,7 @@ void SelectLanguageFramePrivate::updateTs()
     palette.setColor(QPalette::Text, QColor(66, 154, 216));
 
     accept_license_->setText(::QObject::tr("I have read and agree to the"));
-    license_label_->setText(::QObject::tr("%1 Software End User License Agreement").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS")));
+    license_label_->setText(LicenseDelegate::licenseTitle());
     license_label_->setPalette(palette);
 
     if (oem_license_label_ != nullptr) {
@@ -436,7 +437,7 @@ void SelectLanguageFramePrivate::updateTs()
     }
 
     accept_experience_->setText(::QObject::tr("Agree to the"));
-    experience_label_->setText(::QObject::tr("User Experience Program License Agreement"));
+    experience_label_->setText(LicenseDelegate::userExperienceTitle());
     experience_label_->setPalette(palette);
     sub_title_label_->setText(::QObject::tr("Select Language"));
 }

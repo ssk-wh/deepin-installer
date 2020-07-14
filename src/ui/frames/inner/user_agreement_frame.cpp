@@ -4,6 +4,7 @@
 #include "ui/frames/consts.h"
 #include "ui/widgets/pointer_button.h"
 #include "service/language_manager.h"
+#include "ui/delegates/license_delegate.h"
 
 #include <QEvent>
 #include <QLabel>
@@ -44,7 +45,7 @@ void UserAgreementFrame::initUI()
 {
 
     m_logoLbl = new QLabel();
-    m_logoLbl->setPixmap(QPixmap(installer::GetVendorLogo()));
+    m_logoLbl->setPixmap(QPixmap(LicenseDelegate::logo()));
 
     m_subTitle = new QLabel(this);
     m_subTitle->setObjectName("user_agreement_subtitle");

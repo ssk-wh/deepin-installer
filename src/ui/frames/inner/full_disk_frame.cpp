@@ -38,6 +38,7 @@
 #include "ui/widgets/simple_disk_button.h"
 #include "ui/widgets/full_disk_partition_colorbar.h"
 #include "ui/widgets/multiple_disk_installation_widget.h"
+#include "ui/delegates/license_delegate.h"
 
 DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
@@ -193,7 +194,7 @@ void FullDiskFrame::initUI() {
   addTransLate(m_trList, [ = ] (const QString& msg) {
       int min_size = GetSettingsInt(kPartitionFullDiskMiniSpace);
       int recommend_size = GetSettingsInt(kPartitionRecommendedDiskSpace);
-      m_diskTooSmallTip->setText(msg.arg(min_size).arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : ::QObject::tr("UOS")).arg(recommend_size));
+      m_diskTooSmallTip->setText(msg.arg(min_size).arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : LicenseDelegate::product()).arg(recommend_size));
   }, ::QObject::tr("You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended"));
 
   QHBoxLayout* tip_layout = new QHBoxLayout();
