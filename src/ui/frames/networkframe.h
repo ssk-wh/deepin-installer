@@ -26,6 +26,7 @@ public:
     QString returnFrameName() const override;
 
     void initDeviceWidgetList();
+    void shockDdeDaemon();
 
 signals:
     void requestNext();

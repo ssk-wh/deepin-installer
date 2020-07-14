@@ -293,6 +293,8 @@ void FirstBootSetupWindow::initPages()
         m_frames << frame;
     }
 
+    network_frame_->shockDdeDaemon();
+
     m_frameLabelsView = new DListView(this);
     m_frameLabelsView->setResizeMode(QListView::Adjust);
     m_frameLabelsView->setItemSize(QSize(kLeftViewItemWidth, kLeftViewItemHeight + kLeftViewItemSpacing));

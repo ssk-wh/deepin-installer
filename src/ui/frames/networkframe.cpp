@@ -843,13 +843,14 @@ void NetworkFrame::initDeviceWidgetList()
 
     foreach (NetworkManager::Device::Ptr dev, list) {
         qDebug() << dev->uni();
+        qDebug() << "interface name: " << dev->interfaceName();
         qDebug() << "managed: " << dev->managed();
         qDebug() << "type: " << dev->type();
-        qDebug() << "interface name: " << dev->interfaceName();
 
         // FIXME: what about !dev->managed()
         if (dev->type() != NetworkManager::Device::Type::Ethernet
-            || dev->interfaceName().contains("vmnet")) {
+            || dev->interfaceName().contains("vmnet")
+            || !dev->managed()) {
             continue;
         }
 
@@ -886,6 +887,28 @@ void NetworkFrame::initDeviceWidgetList()
     }
 
     m_leftLayout->addStretch();
+}
+
+void NetworkFrame::shockDdeDaemon()
+{
+    NetworkManager::Device::List list = NetworkManager::networkInterfaces();
+
+    qDebug() << "shockDdeDaemon()";
+    foreach (NetworkManager::Device::Ptr dev, list) {
+        qDebug() << dev->uni();
+        qDebug() << "managed: " << dev->managed();
+        qDebug() << "type: " << dev->type();
+        qDebug() << "interface name: " << dev->interfaceName();
+
+        // FIXME: what about !dev->managed()
+        if (dev->type() != NetworkManager::Device::Type::Ethernet
+            || dev->interfaceName().contains("vmnet")) {
+            continue;
+        }
+
+        NetworkOperate networkOperate(dev);
+        networkOperate.setDeviceEnable(dev->uni(), true);
+    }
 }
 
 QString NetworkFrame::returnFrameName() const
@@ -945,7 +968,6 @@ void NetworkFrame::saveConf()
             // If the user has previously disabled the network card
             // , then leave the page. The network card must be enabled
             // until the user come back to this page again.
-            operate->setDeviceEnable(device->uni(), true);
 
             QMap<DHCPTYpe, NetworkSettingInfo> inMap = deviceWidget->getNetworkSettingInfo();
             if (inMap.count() > 0) {
@@ -956,9 +978,9 @@ void NetworkFrame::saveConf()
                 if (!operate->setIpV4(networkSettingInfo)) {
                     qDebug() << "saveConf() set ipV4 failed";
                 }
-
-                operate->setDeviceEnable(device->uni(), true);
             }
+
+            operate->setDeviceEnable(device->uni(), true);
         }
     }
 

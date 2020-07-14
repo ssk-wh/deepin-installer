@@ -36,13 +36,15 @@ public:
     explicit NetworkOperate(NetworkManager::Device::Ptr device, QObject* parent = nullptr);
     ~NetworkOperate();
 
-    bool createNetworkConnection();
-    void initNetworkConnection();
-    bool setIpV4(NetworkSettingInfo info);
+    static void getAllConnections();
     void setDeviceEnable(const QString &devPath, const bool enable);
     void setDeviceEnableByNetworkBus(QDBusInterface &deviceManager, const QString &devPath, const bool enable);
     void setDeviceEnableByDdeBus(QDBusInterface &deviceManager, const QString &devPath, const bool enable);
     bool getDeviceEnable(const QString &devPath);
+
+    bool createNetworkConnection();
+    void initNetworkConnection();
+    bool setIpV4(NetworkSettingInfo info);
     DHCPTYpe getDhcp() const;
     bool activateConn();
     bool isIpv4Address(const QString &ip);

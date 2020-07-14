@@ -24,13 +24,16 @@ NetworkOperate::~NetworkOperate()
 
 void NetworkOperate::initNetworkConnection()
 {
-    qDebug() << "The device " << m_device->interfaceName() << " availableConnections:";
+    qDebug() << "initNetworkConnection() the device " << m_device->interfaceName() << " availableConnections:";
     foreach (Connection::Ptr conn , m_device->availableConnections()) {
         qDebug() << conn->path();
     }
 
     ActiveConnection::Ptr activeConnection = m_device->activeConnection();
     if (!activeConnection.isNull()) {
+        qInfo() << "initNetworkConnection() the device " << m_device->interfaceName()
+                << " activeConnection:" << activeConnection->path();
+
         m_connection = findConnectionByUuid(activeConnection->uuid());
 
         m_connectionSettings = m_connection->settings();
@@ -58,6 +61,7 @@ void NetworkOperate::initNetworkConnection()
         else {
             m_connection = connections.first();
 
+            qInfo() << "initNetworkConnection() activate connection";
             if (!activateConn()) {
                 qCritical() << "initNetworkConnection() active connection failed";
             }
@@ -114,11 +118,31 @@ bool NetworkOperate::createNetworkConnection()
     return true;
 }
 
+void NetworkOperate::getAllConnections()
+{
+    QDBusInterface deviceManager("org.freedesktop.NetworkManager",
+              "/org/freedesktop/NetworkManager/Settings",
+              "org.freedesktop.NetworkManager.Settings",
+              QDBusConnection::systemBus());
+
+    QList<QVariant> argumentList;
+    QDBusPendingReply<QList<QDBusObjectPath>> reply =
+            deviceManager.asyncCallWithArgumentList(QStringLiteral("ListConnections"), argumentList);
+
+    reply.waitForFinished();
+
+    QStringList settingPathList;
+    for (QDBusObjectPath& obj : reply.value()) {
+        settingPathList << obj.path();
+    }
+    qDebug() << "settingPaths" << settingPathList;
+}
+
 bool NetworkOperate::setIpV4(NetworkSettingInfo info)
 {
     Q_ASSERT(m_connection);
 
-    qDebug() << "The device " << m_device->interfaceName() << " availableConnections:";
+    qDebug() << "setIpV4(), the device " << m_device->interfaceName() << " availableConnections:";
     foreach (Connection::Ptr conn , m_device->availableConnections()) {
         qDebug() << conn->path();
     }
@@ -160,6 +184,8 @@ bool NetworkOperate::setIpV4(NetworkSettingInfo info)
             qCritical() << "The connection has not corresponding active connection";
         }
         else {
+            qInfo() << "Deactivate connection " << activeConnection->path();
+
             reply = deactivateConnection(activeConnection->path());
             reply.waitForFinished();
             if (reply.isError()) {
@@ -178,6 +204,7 @@ bool NetworkOperate::setIpV4(NetworkSettingInfo info)
     }
 
     if (info.setIpMode == DHCPTYpe::Auto) {
+        qInfo() << "setIpV4() call activateConn()";
         if (!activateConn()) {
             qCritical() << "setIpV4() active connection failed";
             return false;
@@ -197,6 +224,7 @@ void NetworkOperate::setDeviceEnable(const QString &devPath, const bool enable)
 
     QFile ddeSessionDaemon("/usr/lib/deepin-daemon/dde-session-daemon");
     if (ddeSessionDaemon.exists()) {
+        qInfo() << "setDeviceEnableByDdeBus() " << devPath << enable;
         setDeviceEnableByDdeBus(ddeNetworkMnager, devPath, enable);
     }
     else {
@@ -211,11 +239,13 @@ void NetworkOperate::setDeviceEnable(const QString &devPath, const bool enable)
             return;
         }
 
+        qInfo() << "setDeviceEnableByNetworkBus() " << devPath << enable;
         setDeviceEnableByNetworkBus(freedesktopNetworkMnager, devPath, enable);
     }
 
     if (enable) {
         if (m_connection) {
+            qInfo() << "setDeviceEnable() call activateConn()";
             if (!activateConn()) {
                 qCritical() << "setDeviceEnable() active connection failed";
             }
@@ -263,6 +293,8 @@ DHCPTYpe NetworkOperate::getDhcp() const
 
 bool NetworkOperate::activateConn()
 {
+    qInfo() << "Activate connection " << m_connection->path();
+
     QDBusPendingReply<QDBusObjectPath> reply = activateConnection(m_connection->path(), m_device->uni(), "");
     reply.waitForFinished();
     if (reply.isError()) {
