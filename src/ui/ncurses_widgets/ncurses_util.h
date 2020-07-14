@@ -157,7 +157,7 @@ namespace installer {
 #define COLOR_COUNT                  8
 
 
-#define ATTRIBUTE_COUNT               38
+#define ATTRIBUTE_COUNT               35
 
 /* new style */
 #define BUTTON_FG COLOR_BLACK
