@@ -21,6 +21,7 @@
 
 #include "base/file_util.h"
 #include "service/settings_manager.h"
+#include "service/settings_name.h"
 
 namespace installer {
 
@@ -36,6 +37,17 @@ QString GetSlideDir(const QString& locale) {
   QDir installer_dir(QFile::exists(kSlideFolder) ? kSlideFolder : SOURCE_DIR "/resources/slide");
   Q_ASSERT(installer_dir.exists());
   QDir oem_slide_dir(GetOemDir().absoluteFilePath("slide"));
+
+  QString os_type_slide = GetSettingsString(kInstallProgressOsTypeSlide);
+  QDir os_type_dir(RESOURCES_DIR + QString(QDir::separator()) + os_type_slide);
+  QFileInfo os_type_file(os_type_dir.absoluteFilePath(locale));
+
+  qInfo() << "os_type_slide = " << os_type_slide;
+  qInfo() << "os_type_file = " << os_type_file.absoluteFilePath();
+  if (!os_type_slide.isEmpty() && os_type_file.isDir() && os_type_file.exists())
+  {
+      return os_type_file.absoluteFilePath();
+  }
 
   // Check existence of folders one by one.
   QFileInfo file_info(oem_slide_dir.absoluteFilePath(locale));

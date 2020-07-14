@@ -131,7 +131,7 @@ OSType GetCurrentType() {
     QSettings settings("/etc/deepin-version", QSettings::IniFormat);
     settings.beginGroup("Release");
 
-#ifdef QT_DEBUG
+#ifdef QT_DEBUG_test
     const QString& type = "Professional";
 #else
     const QString& type = settings.value("Type", "Desktop").toString();
@@ -601,6 +601,7 @@ void AddConfigFile() {
                               QString("/override/%1.override").arg(prefix));
 #endif  // QT_DEBUG
 
+    qInfo() << "override_settings = " << override_settings;
     if (QFile::exists(override_settings)) {
         settingsList << override_settings;
     }

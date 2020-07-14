@@ -3,3 +3,4 @@ select_language_default_locale = zh_CN
 timezone_default = Asia/Shanghai
 skip_select_component_page = true
 partition_skip_simple_partition_page = true
+install_progress_os_type_slide = slide/personal

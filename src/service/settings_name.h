@@ -182,6 +182,8 @@ const char kInstallProgressPageDisableSlideAnimation[] =
 const char kInstallProgressPageAnimationDuration[] =
     "install_progress_page_animation_duration";
 
+const char kInstallProgressOsTypeSlide[] = "install_progress_os_type_slide";
+
 // Install failed page
 const char kInstallFailedFeedbackServer[] = "install_failed_feedback_server";
 const char kInstallFailedQRErrMsgLen[] = "install_failed_qr_err_msg_len";
