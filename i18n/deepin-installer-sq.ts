@@ -311,12 +311,12 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>High Availability</source>
-        <translation type="unfinished"/>
+        <translation>High Availability</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Infrastructure for highly available services and/or shared storage.</source>
-        <translation type="unfinished"/>
+        <translation>Infrastructure for highly available services and/or shared storage.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
@@ -326,7 +326,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
-        <translation type="unfinished"/>
+        <translation>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
@@ -505,22 +505,22 @@
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="15"/>
         <source>End User License Agreement for UnionTech OS Desktop Home</source>
-        <translation type="unfinished"/>
+        <translation>Marrëveshje Licence Përdoruesi të Thjeshtë për UnionTech OS Desktop Home</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="16"/>
         <source>End User License Agreement for UnionTech OS Desktop Professional</source>
-        <translation type="unfinished"/>
+        <translation>Marrëveshje Licence Përdoruesi të Thjeshtë për UnionTech OS Desktop Professional</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="42"/>
         <source>UnionTech UOS</source>
-        <translation type="unfinished"/>
+        <translation>UnionTech UOS</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="26"/>
         <source>UnionTech OS User Experience Program License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Marrëveshje Licence për Programin “UnionTech OS User Experience Program”</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="91"/>

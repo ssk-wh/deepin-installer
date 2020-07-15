@@ -406,7 +406,10 @@ void SelectLanguageFramePrivate::updateTranslator(const QString& locale) {
     // Remove the old translator if it is loaded.
     qApp->removeTranslator(current_translator_);
   }
+
   const QString locale_file(GetLocalePath(locale));
+  qDebug() << "locale_file = " << locale_file;
+
 //  qDebug() << current_translator_->
   if (current_translator_->load(locale_file)) {
     if (!qApp->installTranslator(current_translator_)) {
@@ -463,6 +466,7 @@ void SelectLanguageFramePrivate::onLanguageListSelected(const QModelIndex& curre
 
         m_lastItem = item;
 
+        qDebug() << "language_item.locale = " << language_item.locale;
         this->updateTranslator(language_item.locale);
         lang_ = language_item;
         q->writeConf();

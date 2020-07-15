@@ -505,22 +505,22 @@
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="15"/>
         <source>End User License Agreement for UnionTech OS Desktop Home</source>
-        <translation type="unfinished"/>
+        <translation>Acordo de licença de utilizador para o ambiente de trabalho doméstico da UnionTech OS</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="16"/>
         <source>End User License Agreement for UnionTech OS Desktop Professional</source>
-        <translation type="unfinished"/>
+        <translation>Acordo de licença de utilizador para o ambiente de trabalho profissional da UnionTech OS</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="42"/>
         <source>UnionTech UOS</source>
-        <translation type="unfinished"/>
+        <translation>UnionTech UOS</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="26"/>
         <source>UnionTech OS User Experience Program License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Contrato de licença do programa de experiência do utilizador da UnionTech OS</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="91"/>
