@@ -104,6 +104,8 @@ MainWindow::MainWindow(QObject* parent)
     connect(m_keyinputcheck, &QThread::started, m_KeyInput, &KeyInput::getKeyInputRun);
     m_KeyInput->moveToThread(m_keyinputcheck);
     m_keyinputcheck->start();
+
+    WriteNecuresCliInstallMode(true);
 }
 
 

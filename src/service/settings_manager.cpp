@@ -844,4 +844,9 @@ bool SettingCustom::hasSetting(const QString &key)
     return false;
 }
 
+void WriteNecuresCliInstallMode(bool mode)
+{
+    AppendToConfigFile("DI_NECURESCLIINSTALL_MODE", mode);
+}
+
 }  // namespace installer

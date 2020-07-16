@@ -227,6 +227,7 @@ struct DiskPartitionSetting {
 
 void WriteDiskPartitionSetting(const DiskPartitionSetting& setting);
 
+void WriteNecuresCliInstallMode(bool mode);
 }  // namespace installer
 
 #endif  // INSTALLER_SETTINGS_MANAGER_H
