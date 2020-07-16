@@ -311,7 +311,7 @@ public:
 
     void updateTs()
     {
-        m_ipLabel->setText(::QObject::tr("IP Address"));
+        m_ipLabel->setText(::QObject::tr("IP Address:"));
         m_maskLabel->setText(::QObject::tr("Netmask:"));
         m_gatewayLable->setText(::QObject::tr("Gateway:"));
         m_primaryDNSLabel->setText(::QObject::tr("Primary DNS:"));
