@@ -60,7 +60,7 @@ void MainWindowPrivate::initUI()
 {
     setBackground(NcursesUtil::getInstance()->screen_attr());
     addstr(0, 1, QString(::QObject::tr("Welcome to install UOS")).toUtf8().data());
-    QString keyManual = QString("<↑ ↓ ← →>移动  | <Tab>切换 |<Enter> 确定 |<Space>选中")
+    QString keyManual = QString("<↑ ↓ ← →>%1  | <Tab>%2 | <Enter>%3 | <Space>%4")
             .arg(::QObject::tr("Select Item"))
             .arg(::QObject::tr("Change Field"))
             .arg(::QObject::tr("Confirm"))
@@ -73,7 +73,7 @@ void MainWindowPrivate::updateTs()
 {
     erase();
     addstr(0, 1, QString(::QObject::tr("Welcome to install UOS")).toUtf8().data());
-    QString keyManual = QString("<↑ ↓ ← →>移动  | <Tab>切换 |<Enter> 确定 |<Space>选中")
+    QString keyManual = QString("<↑ ↓ ← →>%1  | <Tab>%2 | <Enter>%3 | <Space>%4")
             .arg(::QObject::tr("Select Item"))
             .arg(::QObject::tr("Change Field"))
             .arg(::QObject::tr("Confirm"))
@@ -85,7 +85,7 @@ void MainWindowPrivate::show()
 {
     erase();
     addstr(0, 1, QString(::QObject::tr("Welcome to install UOS")).toUtf8().data());
-    QString keyManual = QString("<↑ ↓ ← →>移动  | <Tab>切换 |<Enter> 确定 |<Space>选中")
+    QString keyManual = QString("<↑ ↓ ← →>%1  | <Tab>%2 | <Enter>%3 | <Space>%4")
             .arg(::QObject::tr("Select Item"))
             .arg(::QObject::tr("Change Field"))
             .arg(::QObject::tr("Confirm"))
@@ -172,7 +172,8 @@ void MainWindow::slot_languageChange()
         qApp->installTranslator(m_translator);
     }
 
-
+    Q_D(MainWindow);
+    d->updateTs();
 }
 
 void MainWindow::slot_dostartInstall()
