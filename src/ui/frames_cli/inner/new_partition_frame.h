@@ -63,7 +63,7 @@ public:
   // Update current slider size based on mount point and filesystem type.
   void updateSlideSize();
 
-  NcursesLabel* title_label_ = nullptr;
+  //NcursesLabel* title_label_ = nullptr;
   NcursesListView* comment_label_ = nullptr;
   NcursesLabel* type_label_ = nullptr;
   NcursesListView* type_box_ = nullptr;

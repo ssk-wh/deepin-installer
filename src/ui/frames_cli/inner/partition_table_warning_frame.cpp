@@ -70,9 +70,13 @@ void PartitionTableWarningFrame::initConnections() {
 }
 
 void PartitionTableWarningFrame::initUI() {
-  title_label_ = new NcursesLabel(this, 1, 1, begy(), begx());
-  title_label_->setFocusEnabled(false);  
-  title_label_->setText(::QObject::tr("Warning"));
+  this->drawShadow(true);
+  this->box();
+
+  //title_label_ = new NcursesLabel(this, 1, 1, begy(), begx());
+  //title_label_->setFocusEnabled(false);
+  //title_label_->setText(::QObject::tr("Warning"));
+  printTitle(::QObject::tr("Warning"), width());
 
   m_commentLab = new NcursesLabel(this, 1, 40, begy(), begx());
   m_commentLab->setFocusEnabled(false);
@@ -97,14 +101,14 @@ void PartitionTableWarningFrame::initUI() {
   int buttonHeight = 3;
   int buttonWidth = std::max(strCancel.length(), strCreate.length()) + 4;
 
-  cancel_button_ = new NcursesButton(this, strCancel, buttonHeight, 14, begy() + height() - buttonHeight - 2, begx() + 5);
-  create_button_ = new NcursesButton(this, strCreate, buttonHeight, 14, begy() + height() - buttonHeight - 2, begx() + width() - buttonWidth - 13);
+  create_button_ = new NcursesButton(this, strCreate, 3, 14, begy() + height() - 5, begx() + width() - 20);
+  cancel_button_ = new NcursesButton(this, strCancel, 3, 14, begy() + height() - 5, begx() + 5);
 
-  cancel_button_->drawShadow(true);
   create_button_->drawShadow(true);
+  cancel_button_->drawShadow(true);
 
-  cancel_button_->box();
   create_button_->box();
+  cancel_button_->box();
 
   this->setFocus(true);
 
@@ -116,6 +120,8 @@ void PartitionTableWarningFrame::initUI() {
 
 void PartitionTableWarningFrame::updateTs()
 {
+    box(ACS_VLINE,ACS_HLINE);
+    printTitle(::QObject::tr("Warning"), width());
     cancel_button_->setText(::QObject::tr("Cancel"));
     create_button_->setText(::QObject::tr("Create"));
     layout();
@@ -123,8 +129,8 @@ void PartitionTableWarningFrame::updateTs()
 
 void PartitionTableWarningFrame::layout()
 {
-    title_label_->adjustSizeByContext();
-    title_label_->mvwin(begy(), begx() + (width() - title_label_->width()) / 2);
+    //title_label_->adjustSizeByContext();
+    //title_label_->mvwin(begy(), begx() + (width() - title_label_->width()) / 2);
 
 
     m_commentLab->adjustSizeByContext();

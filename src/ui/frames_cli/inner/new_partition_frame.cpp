@@ -161,15 +161,19 @@ void NewPartitionFrame::initConnections() {
 }
 
 void NewPartitionFrame::initUI() {
+  this->drawShadow(true);
+  this->box();
+
   QString strCreate = ::QObject::tr("Create");
   QString strCancel = ::QObject::tr("Back");
   int buttonHeight = 3;
   int buttonWidth = std::max(strCancel.length(), strCreate.length()) + 4;
   //cancel_button_ = new NcursesButton(this, strCancel, buttonHeight, 14, begy() + height() - buttonHeight - 2, begx() + 5);
 
-  title_label_ = new NcursesLabel(this, 1, 1, begy(), begx());
-  title_label_->setFocusEnabled(false);
-  title_label_->setText(::QObject::tr("Create New Partition"));
+  //title_label_ = new NcursesLabel(this, 1, 1, begy(), begx());
+  //title_label_->setFocusEnabled(false);
+  //title_label_->setText(::QObject::tr("Create New Partition"));
+  printTitle(::QObject::tr("Create New Partition"), width());
 
   type_label_ = new NcursesLabel(this, 1, 20, begy(), begx());
   type_label_->setFocusEnabled(false);
@@ -199,14 +203,14 @@ void NewPartitionFrame::initUI() {
   size_slider_ = new NCursesLineEdit(this, 1, 20, begy(), begx());
   size_slider_->setIsNumber(true);
 
-  cancel_button_ = new NcursesButton(this, strCancel, buttonHeight, 14, begy() + height() - buttonHeight - 2, begx() + 5);
-  create_button_ = new NcursesButton(this, strCreate, buttonHeight, 14, begy() + height() - buttonHeight - 2, begx() + width() - buttonWidth - 13);
+  create_button_ = new NcursesButton(this, strCreate, 3, 14, begy() + height() - 5, begx() + width() - 20);
+  cancel_button_ = new NcursesButton(this, strCancel, 3, 14, begy() + height() - 5, begx() + 5);
 
-  cancel_button_->drawShadow(true);
   create_button_->drawShadow(true);
+  cancel_button_->drawShadow(true);
 
-  cancel_button_->box();
   create_button_->box();
+  cancel_button_->box();
 
 
   this->setFocus(true);
@@ -223,6 +227,8 @@ void NewPartitionFrame::initUI() {
 
 void NewPartitionFrame::updateTs()
 {
+    box(ACS_VLINE,ACS_HLINE);
+    printTitle(::QObject::tr("Create New Partition"), width());
     type_label_->setText(::QObject::tr("Type"));
     alignment_label_->setText(::QObject::tr("Location"));
     fs_label_->setText(::QObject::tr("File system"));
@@ -235,8 +241,8 @@ void NewPartitionFrame::updateTs()
 
 void NewPartitionFrame::layout()
 {
-    title_label_->adjustSizeByContext();
-    title_label_->mvwin(begy(), begx() + (width() - title_label_->width()) / 2);
+    //title_label_->adjustSizeByContext();
+    //title_label_->mvwin(begy(), begx() + (width() - title_label_->width()) / 2);
 
     type_label_->adjustSizeByContext();
     type_label_->mvwin(begy() + 1, begx() + 1);

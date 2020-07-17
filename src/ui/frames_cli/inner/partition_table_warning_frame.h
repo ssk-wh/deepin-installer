@@ -63,7 +63,7 @@ public:
   void initUI();
 
 
-  NcursesLabel* title_label_ = nullptr;
+  //NcursesLabel* title_label_ = nullptr;
   NcursesLabel* m_commentLab = nullptr;
 
 
