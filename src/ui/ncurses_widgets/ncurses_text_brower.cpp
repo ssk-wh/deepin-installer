@@ -132,7 +132,6 @@ void NcursesTextBrower::show()
             break;
         }
         addstr(currY, m_reserveX, m_text.at(i).toUtf8().data());//
-        addstr(currY, m_reserveX, m_text.at(i).toUtf8().data());//
         currY++;
     }
 
