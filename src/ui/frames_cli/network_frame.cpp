@@ -150,15 +150,15 @@ void NetwrokFramePrivate::initUI()
     QString strBack = ::QObject::tr("Back");
     QString strNext = ::QObject::tr("Next");
 
-    m_pBackButton = new NcursesButton(this, strBack, 3, 14, begy() + height() - 5, begx() + 5);
-    m_pBackButton->drawShadow(true);
-    m_pBackButton->box();
-    m_pBackButton->setObjectName(strBack);
-
     m_pNextButton = new NcursesButton(this, strNext, 3, 14, begy() + height() - 5, begx() + width() - 20);
     m_pNextButton->drawShadow(true);
     m_pNextButton->box();
     m_pNextButton->setObjectName(strNext);
+
+    m_pBackButton = new NcursesButton(this, strBack, 3, 14, begy() + height() - 5, begx() + 5);
+    m_pBackButton->drawShadow(true);
+    m_pBackButton->box();
+    m_pBackButton->setObjectName(strBack);
 
     m_networkconnecterrorlabel = new NcursesLabel(this, m_networkconnecterrorstr,
                                                   1,

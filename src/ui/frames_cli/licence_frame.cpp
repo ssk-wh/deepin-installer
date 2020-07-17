@@ -60,9 +60,9 @@ void LicenceFramePrivate::initUI()
     m_errorInfoLabel->setBackground(NcursesUtil::getInstance()->error_attr());
     m_errorInfoLabel->hide();
 
-    m_pNextButton->setFocusEnabled(false);
     m_pNextButton->setFocus(false);
-    m_NcursesCheckBox->setFocus(true);
+    m_pNextButton->setFocusEnabled(false);
+    m_ncursesTextBrower->setFocus(true);
 }
 
 bool LicenceFramePrivate::validate()
@@ -138,7 +138,6 @@ void LicenceFramePrivate::updateTs()
 
 void LicenceFramePrivate::layout()
 {
-    m_ncursesTextBrower->setFocus(true);
     QString checkboxtext = "I have read and agree to the UOS Software End User License Agreement";
     int textlength = checkboxtext.length();
     if (installer::ReadLocale() == "zh_CN") {
