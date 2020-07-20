@@ -22,7 +22,9 @@ ubuntu-drivers autoinstall || \
 
 if lspci -n | grep -i 10de | egrep -i '.*03(80|0[0-2])' ;then
   if [ x"$(installer_get DI_ENABLE_NVIDIA_DRIVER)" == xtrue ];then
-    install_package nvidia-driver || msg "install nvidia driver failed!"
+	  debconf-set-selections <<< 'nvidia-legacy-check nvidia-driver/check-for-unsupported-gpu select Yes'
+	  debconf-set-selections <<< 'nvidia-legacy-check nvidia-driver/install-even-if-unsupported-gpu-exists select OK'
+	  install_package nvidia-driver || msg "install nvidia driver failed!"
   fi
 fi
 
