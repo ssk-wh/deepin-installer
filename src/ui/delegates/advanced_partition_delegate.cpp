@@ -515,6 +515,14 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
     // In legacy mode.
     settings_.root_disk = root_disk;
     settings_.root_partition = root_path;
+
+    if (bootloader_path_.isEmpty()) {
+        qCritical() << "bootloader_path_ path is empty!";
+        if (boot_device.isNull() && !root_disk.isEmpty()) {
+            bootloader_path_ = root_disk;
+        }
+    }
+
     settings_.boot_partition = bootloader_path_;
     settings_.mount_points = mount_points.join(';');
   }
