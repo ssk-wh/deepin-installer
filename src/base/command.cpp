@@ -21,6 +21,7 @@
 #include <QDir>
 #include <QProcess>
 #include <QThread>
+#include <QSettings>
 
 namespace installer {
 
@@ -66,7 +67,21 @@ bool SpawnCmd(const QString& cmd, const QStringList& args) {
   process.setProgram(cmd);
   process.setArguments(args);
   // Merge stdout and stderr of subprocess with main process.
-  process.setProcessChannelMode(QProcess::ForwardedChannels);
+#ifdef QT_DEBUG// Absolute path to installer config file.
+  QSettings settings("/tmp/deepin-installer.conf", QSettings::IniFormat);
+#else
+  QSettings settings("/etc/deepin-installer.conf", QSettings::IniFormat);
+#endif // QT_DEBUG
+  if (settings.contains("DI_NECURESCLIINSTALL_MODE")) {
+      if (settings.value("DI_NECURESCLIINSTALL_MODE").toBool()) {
+          process.setProcessChannelMode(QProcess::MergedChannels);
+      } else {
+          process.setProcessChannelMode(QProcess::ForwardedChannels);
+      }
+  } else {
+      process.setProcessChannelMode(QProcess::ForwardedChannels);
+  }
+
   process.start();
   // Wait for process to finish without timeout.
   process.waitForFinished(-1);
