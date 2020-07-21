@@ -36,7 +36,7 @@ ValidateHostnameState ValidateHostname(const QString& hostname,
     return ValidateHostnameState::ReservedError;
   }
 
-  const QRegExp reg("[a-z0-9-]{1,63}", Qt::CaseInsensitive);
+  const QRegExp reg("[a-z0-9\\-\\_]{1,63}", Qt::CaseInsensitive);
   const QStringList parts = hostname.split('.');
   if (parts.isEmpty()) {
     return ValidateHostnameState::InvalidChar;
