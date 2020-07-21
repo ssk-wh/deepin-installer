@@ -82,7 +82,7 @@ void NetwrokFramePrivate::initUI()
     m_networkconfigtypelabel = new NcursesLabel(this, m_networkconfigtypestr, 1, m_networkconfigtypestr.length() + 2, begy() + 6, begx() + 1);
     m_networkconfigtypelabel->setFocusEnabled(false);
 
-    m_childpagecounttext = new NcursesLabel(this, " [1/1] ", 1, width() - 2 - m_networkconfigtypelabel->width(), begy() + 6, begx() + 1 + m_networkconfigtypelabel->width());
+    m_childpagecounttext = new NcursesLabel(this, " [1/2] ", 1, width() - 2 - m_networkconfigtypelabel->width(), begy() + 6, begx() + 1 + m_networkconfigtypelabel->width());
     m_childpagecounttext->setFocusEnabled(false);
 
 //    NetwrokFrameItem operationchoiceautoset;
@@ -192,12 +192,12 @@ void NetwrokFramePrivate::updateTs()
     m_networkconfigtypelabel->show();
     if(m_currentchoicetype == 0) {
         if(m_operationchoice.at(0).m_NcursesLabel->isOnFoucs()) {
-            m_childpagecounttext->setText(" [1/1] ");
+            m_childpagecounttext->setText(" [1/2] ");
         } else {
             m_childpagecounttext->setText("");
         }
     } else if(m_currentchoicetype == 1) {
-        m_childpagecounttext->setText(" [1/1] ");
+        m_childpagecounttext->setText(" [1/2] ");
     }
 
     for(int i = 0; i < m_operationchoice.size(); i++) {
@@ -229,6 +229,7 @@ void NetwrokFramePrivate::show()
     if(!m_isshow){
         NCursesWindowBase::show();
         m_isshow = true;
+        m_pBackButton->setFocus(false);
         m_pNextButton->setFocus(true);
         m_networkconnecterrorlabel->hide();
     }
@@ -298,16 +299,16 @@ bool NetwrokFramePrivate::writeInfoList()
     if (m_currentchoicetype == 0) {
         return true;
     } else if (m_currentchoicetype == 1) {
-        bool isallinputok = true;
+        m_isallinputok = true;
         for(int i = 0; i < m_ipconfigitems.size(); i++) {
             if(m_ipconfigitems.at(i).m_IsOK == false) {
-                isallinputok = false;
+                m_isallinputok = false;
                 m_networkconnecterrorlabel->show();
                 break;
             }
         }
 
-        if(isallinputok) {
+        if(m_isallinputok) {
             NetworkSettingInfo networkSettingInfo;
             networkSettingInfo.ip         = m_ipconfigitems.at(0).m_NCursesLineEdit->text();
             networkSettingInfo.mask       = m_ipconfigitems.at(1).m_NCursesLineEdit->text();
@@ -435,6 +436,7 @@ void NetwrokFramePrivate::setFocusEnableType(int type)
         }
 
         m_pBackButton->setFocus(false);
+        m_pNextButton->setFocusEnabled(true);
         m_pNextButton->setFocus(true);
 
     } else if(type == 1){
@@ -464,6 +466,7 @@ void NetwrokFramePrivate::setFocusEnableType(int type)
 
         m_pBackButton->setFocus(false);
         m_pNextButton->setFocus(false);
+        m_pNextButton->setFocusEnabled(false);
     }
 
     m_currentchoicetype = type;
@@ -484,7 +487,7 @@ void NetwrokFramePrivate::onKeyPress(int keyCode)
                         m_titledesbrower->refresh();
 
                         if((i - 1) == 0) {
-                            m_childpagecounttext->setText(" [1/1] ");
+                            m_childpagecounttext->setText(" [1/2] ");
                             m_childpagecounttext->show();
                         } else {
                             m_childpagecounttext->setText("");
@@ -513,7 +516,7 @@ void NetwrokFramePrivate::onKeyPress(int keyCode)
                         m_titledesbrower->refresh();
 
                         if((i + 1) == 0) {
-                            m_childpagecounttext->setText(" [1/1] ");
+                            m_childpagecounttext->setText(" [1/2] ");
                             m_childpagecounttext->show();
                         } else {
                             m_childpagecounttext->setText("");
@@ -560,7 +563,7 @@ void NetwrokFramePrivate::AutoConfigure()
 void NetwrokFramePrivate::doBackBtnClicked()
 {
     if(m_currentchoicetype == 1) {
-        m_childpagecounttext->setText(" [1/1] ");
+        m_childpagecounttext->setText(" [1/2] ");
         m_childpagecounttext->show();
         m_networkconnecterrorlabel->hide();
         updateChoiceType(0);
@@ -694,6 +697,21 @@ void NetwrokFramePrivate::slot_EidtTextChange(const QString &text)
                 }
                 break;
             }
+        }
+
+        m_isallinputok = true;
+        for (int i = 0; i < m_ipconfigitems.size(); i++) {
+            if (m_ipconfigitems.at(i).m_IsOK == false) {
+                m_isallinputok = false;
+                m_networkconnecterrorlabel->show();
+                break;
+            }
+        }
+
+        if (m_isallinputok) {
+            m_pNextButton->setFocusEnabled(true);
+        } else {
+            m_pNextButton->setFocusEnabled(false);
         }
     }
 }

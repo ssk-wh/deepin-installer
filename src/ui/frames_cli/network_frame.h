@@ -68,7 +68,7 @@ public:
     bool writeInfoList();
     void updateChoiceType(int type);
     void setFocusEnableType(int type);
-    virtual void onKeyPress(int keyCode);
+    virtual void onKeyPress(int keyCode) override;
     void resetValue();
     void manualConfigure();
     void AutoConfigure();
@@ -83,6 +83,7 @@ private slots:
 
 private:
     bool m_isshow;
+    bool m_isallinputok;
     int m_currentchoicetype;
     int m_currentlineeditindex;
     QStringList m_titledes;
