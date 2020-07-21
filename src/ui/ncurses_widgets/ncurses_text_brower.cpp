@@ -31,10 +31,10 @@ void NcursesTextBrower::appendText(const QString &text, bool iswchar)
     int lineCharNum = 0;
     if(iswchar)
     {
-        lineCharNum = width() / 2;//一行显示的字符个数
+        lineCharNum = width() / 2 - 2;//一行显示的字符个数
 
     } else {
-        lineCharNum = width() - 2 * m_reserveX;//一行显示的字符个数
+        lineCharNum = width() - 2 * m_reserveX - 2;//一行显示的字符个数
     }
 
     int delta = 0;
@@ -50,7 +50,7 @@ void NcursesTextBrower::appendText(const QString &text, bool iswchar)
     }
 
     QString teststr = text.right(text.length() - delta);
-    appendItemText(teststr);
+    appendItemText(teststr, iswchar);
 }
 
 void NcursesTextBrower::appendItemText(const QString &text, bool iswchar)
@@ -58,10 +58,10 @@ void NcursesTextBrower::appendItemText(const QString &text, bool iswchar)
     int lineCharNum = 0;
     if(iswchar)
     {
-        lineCharNum = width() / 2;//中文一行显示的字符个数
+        lineCharNum = width() / 2 - 2;//中文一行显示的字符个数
 
     } else {
-        lineCharNum = width() - 2 * m_reserveX;//英文一行显示的字符个数
+        lineCharNum = width() - 2 * m_reserveX - 2;//英文一行显示的字符个数
     }
 
     if (!text.isEmpty()) {
