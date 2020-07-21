@@ -92,6 +92,7 @@ void LanguageFramePrivate::updateText()
     printTitle(::QObject::tr("Select Language"), width());
     m_instructions->erase();
     m_instructions->setText("  " + ::QObject::tr("Choose a language used in the installation process, which will also be the default system language."));
+    m_instructions->adjustSizeByContext();
     m_instructions->show();
     FrameInterfacePrivate::updateTs();
 }

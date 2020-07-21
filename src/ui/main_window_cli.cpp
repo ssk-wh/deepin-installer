@@ -168,8 +168,10 @@ void MainWindow::slot_languageChange()
         qApp->installTranslator(m_translator);
         qApp->installTranslator(m_translator_cli);
     } else {
-        m_translator->load(GetLocalePath(locale));
-        qApp->installTranslator(m_translator);
+        if (!locale.contains("zh")) {
+            m_translator->load(GetLocalePath(locale));
+            qApp->installTranslator(m_translator);
+        }
     }
 
     Q_D(MainWindow);

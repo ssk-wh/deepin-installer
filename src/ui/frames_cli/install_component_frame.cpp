@@ -102,11 +102,11 @@ void InstallComponentFramePrivate::updateTs()
     m_firstSubTiltleLabel->setText(testfirststr.toUtf8().data());
     m_secondSubTiltleLabel->setText(testsecondstr.toUtf8().data());
 
-    if(m_localeString.compare("") && m_localeString.compare(installer::ReadLocale())) {
+    if(m_localeString.compare("") || m_localeString.compare(installer::ReadLocale())) {
         initInfoList();
-    } else {
-        m_localeString = installer::ReadLocale();
     }
+
+    m_localeString = installer::ReadLocale();
 
     FrameInterfacePrivate::updateTs();
 
