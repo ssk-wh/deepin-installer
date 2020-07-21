@@ -17,6 +17,7 @@ public:
     QString getCurrenItem();
     QStringList getList();
     void append(QString& text);
+    void setSeelectMode(bool isSelect);
     void onKeyPress(int keyCode) override;
     void show() override;
     void drawFoucs() override;
@@ -35,6 +36,8 @@ private:
     int m_height;
     int m_currentIndex = 0;
     int m_page = 0;
+    bool m_is_select_mode = true;
+
 };
 
 

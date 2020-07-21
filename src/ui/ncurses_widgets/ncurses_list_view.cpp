@@ -89,6 +89,11 @@ void NcursesListView::append(QString &text)
 
 }
 
+void NcursesListView::setSeelectMode(bool isSelect)
+{
+    m_is_select_mode = isSelect;
+}
+
 void NcursesListView::onKeyPress(int keyCode)
 {
 
@@ -143,7 +148,9 @@ void NcursesListView::show()
 
     m_page = m_currentIndex / height();
     for (int currY = 0; currY <= height() && currY + (m_page * height()) < m_childWindows.size(); currY++) {
-        m_childWindows[m_currentIndex]->setFocus(true);
+        if (m_is_select_mode) {
+            m_childWindows[m_currentIndex]->setFocus(true);
+        }
         m_childWindows[currY + (m_page * height())]->adjustSizeByContext();
         m_childWindows[currY + (m_page * height())]->mvwin(begy() + currY, begx() + m_reserveX);
         m_childWindows[currY + (m_page * height())]->show();

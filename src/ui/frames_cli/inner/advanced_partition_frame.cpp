@@ -45,8 +45,9 @@ void AdvancedPartitionFramePrivate::initUI()
         m_msgHeadLabel = new NcursesLabel(this, 1, width() / 2, begy() + 2, begx());
         m_msgHeadLabel->setFocusEnabled(false);
 
-        m_errorLabel = new NcursesListView(this, 4, width() / 2, begy(), begx() + width() / 4);
+        m_errorLabel = new NcursesListView(this, 4, width() - width() / 4 - 1, begy(), begx() + width() / 4);
         m_errorLabel->setFocusEnabled(false);
+        m_errorLabel->setSeelectMode(false);
 
         m_pNextButton = new NcursesButton(this, strNext, 3, 14, begy() + height() - 5, begx() + width() - 20);
         m_pNextButton->drawShadow(true);
@@ -73,10 +74,10 @@ void AdvancedPartitionFramePrivate::layout()
         m_msgHeadLabel->mvwin(beginY + 4, begx() + (width() - m_msgHeadLabel->width()) / 2);
 
         m_errorLabel->adjustSizeByContext();
-        m_errorLabel->mvwin(beginY + 5, begx() + (width() - m_errorLabel->width()) / 2);
+        m_errorLabel->mvwin(beginY + 5, begx() + width() / 4);
 
         m_listViewPartitionMode->adjustSizeByContext();
-        m_listViewPartitionMode->mvwin(beginY + 6, begx() + (width() - m_listViewPartitionMode->width()) / 2);
+        m_listViewPartitionMode->mvwin(beginY + 6 + m_errorLabel->height(), begx() + (width() - m_listViewPartitionMode->width()) / 2);
 
     } catch (NCursesException& e) {
          qCritical() << QString(e.message);

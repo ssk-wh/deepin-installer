@@ -543,7 +543,7 @@ DeviceList ScanDevices(bool enable_os_prober) {
 
       // add a MBR disk which has two partitions.
       ++deviceNum;
-      //devices << constructDevice2(deviceNum);
+      devices << constructDevice2(deviceNum);
 
       // add a GPT disk which has four partitions and one of the partitions is working.
       ++deviceNum;
