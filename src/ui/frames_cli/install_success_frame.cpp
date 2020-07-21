@@ -69,15 +69,15 @@ void InstallSuccessFramePrivate::updateTs()
     if(testissuccess) {
        printTitle(m_installSuccessTitle, width());
        m_installresultTextBrower->clearText();
-       m_installresultTextBrower->appendItemText(m_installSuccessInfoTitle);
-       m_installresultTextBrower->appendItemText(m_installSuccessInfoDes);
+       //m_installresultTextBrower->appendItemText(m_installSuccessInfoTitle);
+       //m_installresultTextBrower->appendItemText(m_installSuccessInfoDes);
        m_installresultTextBrower->appendItemText(m_installSuccessInfoTodo);
        QString strNext = ::QObject::tr("Reboot Now");
        m_pNextButton->setText(strNext);
     } else {
        m_installresultTextBrower->clearText();
        printTitle(m_installFailedTitle, width());
-       m_installresultTextBrower->appendItemText(m_installFailedInfoTitle);
+       //m_installresultTextBrower->appendItemText(m_installFailedInfoTitle);
        m_installresultTextBrower->appendItemText(m_installFailedInfoDes);
        QString strNext = ::QObject::tr("Shut Down");
        m_pNextButton->setText(strNext);
