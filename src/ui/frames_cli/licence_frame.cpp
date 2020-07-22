@@ -40,7 +40,7 @@ void LicenceFramePrivate::initUI()
     setBackground(NcursesUtil::getInstance()->dialog_attr());
     FrameInterfacePrivate::initUI();
 
-    m_ncursesTextBrower = new NcursesTextBrower(this, height() - 11, width() - 5, begy() + 2, begx() + 1);
+    m_ncursesTextBrower = new NcursesTextBrower(this, height() - 11, width() - 2, begy() + 2, begx() + 1);
 
     QString checkboxtext = "I have read and agree to the UOS Software End User License Agreement";
     int textlength = checkboxtext.length();

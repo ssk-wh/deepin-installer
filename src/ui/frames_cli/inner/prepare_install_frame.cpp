@@ -91,6 +91,7 @@ void PrepareInstallFrame::initUI() {
   m_commentLabel->setText(::QObject::tr("Make a backup of your important data and then continue"));
 
   //QStringList opt(delegate_->getOptDescriptions());
+  operations_box_->setFocusEnabled(false);
 
   bool iswchar = false;
   if (installer::ReadLocale() == "zh_CN") {

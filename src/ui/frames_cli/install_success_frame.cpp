@@ -36,8 +36,9 @@ void InstallSuccessFramePrivate::initUI()
     this->drawShadow(true);
     this->box();
 
-    m_installresultTextBrower = new NcursesTextBrower(this, height() - 10, width() - 5, begy() + 1, begx() + 1);
+    m_installresultTextBrower = new NcursesTextBrower(this, height() - 10, width() - 2 , begy() + 1, begx() + 1);
     m_installresultTextBrower->setBackground(this->background());
+    m_installresultTextBrower->setFocusEnabled(false);
 
     //QString strBack = ::QObject::tr("Back");
     QString strNext = ::QObject::tr("Reboot Now");
@@ -64,7 +65,11 @@ void InstallSuccessFramePrivate::updateTs()
     m_installFailedInfoTitle  = ::QObject::tr("Installation Failed");
     m_installFailedInfoDes    = ::QObject::tr("Sorry for the trouble. Please take a photo to send us the error log, or save the log to an external disk. We will help solve the issue.");
 
+#ifdef QT_DEBUG_test
+    bool testissuccess = true;
+#else
     bool testissuccess = GetSettingsBool("DI_INSTALL_SUCCESSED");
+#endif // QT_DEBUG
 
     if(testissuccess) {
        printTitle(m_installSuccessTitle, width());

@@ -1,3 +1,4 @@
+#include <wctype.h>
 #include "ui/ncurses_widgets/ncurses_text_brower.h"
 
 namespace installer {
@@ -31,10 +32,10 @@ void NcursesTextBrower::appendText(const QString &text, bool iswchar)
     int lineCharNum = 0;
     if(iswchar)
     {
-        lineCharNum = width() / 2 - 2;//一行显示的字符个数
+        lineCharNum = width() / 2;//一行显示的字符个数
 
     } else {
-        lineCharNum = width() - 2 * m_reserveX - 2;//一行显示的字符个数
+        lineCharNum = width();//一行显示的字符个数
     }
 
     int delta = 0;
@@ -55,16 +56,23 @@ void NcursesTextBrower::appendText(const QString &text, bool iswchar)
 
 void NcursesTextBrower::appendItemText(const QString &text, bool iswchar)
 {
+    QString input = text;
+
+#ifdef QT_DEBUG_test
+     input = "";
+     iswchar = true;
+#endif // QT_DEBUG
+
     int lineCharNum = 0;
     if(iswchar)
     {
-        lineCharNum = width() / 2 - 2;//中文一行显示的字符个数
+        lineCharNum = width() / 2;//中文一行显示的字符个数
 
     } else {
-        lineCharNum = width() - 2 * m_reserveX - 2;//英文一行显示的字符个数
+        lineCharNum = width();//英文一行显示的字符个数
     }
 
-    if (!text.isEmpty()) {
+    if (!input.isEmpty()) {
 
         QString tmp = "";
         for (int i = 0; i < text.length();) {
@@ -73,7 +81,7 @@ void NcursesTextBrower::appendItemText(const QString &text, bool iswchar)
                 m_text.push_back(tmp);
                 tmp = "";
             }else {
-                if(text.at(i) == "\n"){
+                if(input.at(i) == "\n"){
                     m_text.push_back(tmp);
                     tmp = "";
                     i++;
@@ -131,7 +139,7 @@ void NcursesTextBrower::show()
         if (currY > (height() - 2 * m_reserveY)) {
             break;
         }
-        addstr(currY, m_reserveX, m_text.at(i).toUtf8().data());//
+        addstr(currY, 0, m_text.at(i).toUtf8().data());//
         currY++;
     }
 
