@@ -4,3 +4,5 @@ timezone_default = Asia/Shanghai
 skip_select_component_page = true
 partition_skip_simple_partition_page = true
 install_progress_os_type_slide = slide/personal
+system_info_disable_experience = false
+
