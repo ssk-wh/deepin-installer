@@ -42,12 +42,14 @@ void AdvancedPartitionFramePrivate::initUI()
         m_listViewPartitionMode = new NcursesListView(this, height() / 2 , width() / 2, begy(), begx() + width() / 4);
         m_listViewPartitionMode->setFocus(true);
 
-        m_msgHeadLabel = new NcursesLabel(this, 1, width() / 2, begy() + 2, begx());
+        m_msgHeadLabel = new NcursesLabel(this, 1, width() - width() / 4 - 1, begy() + 2, begx());
         m_msgHeadLabel->setFocusEnabled(false);
+        m_msgHeadLabel->setBackground(NcursesUtil::getInstance()->error_attr());
 
         m_errorLabel = new NcursesListView(this, 4, width() - width() / 4 - 1, begy(), begx() + width() / 4);
         m_errorLabel->setFocusEnabled(false);
         m_errorLabel->setSeelectMode(false);
+        m_errorLabel->setBackground(NcursesUtil::getInstance()->error_attr());
 
         m_pNextButton = new NcursesButton(this, strNext, 3, 14, begy() + height() - 5, begx() + width() - 20);
         m_pNextButton->drawShadow(true);
@@ -63,21 +65,24 @@ void AdvancedPartitionFramePrivate::initUI()
 void AdvancedPartitionFramePrivate::layout()
 {
     try {
-        int beginY = begy();
+        int beginY = begy() + 2;
+        m_label_title->mvwin(beginY, begx() + 1);
         m_label_title->adjustSizeByContext();
-        m_label_title->mvwin(beginY + 2, begx() + 1);
 
+        beginY += m_label_title->height();
+        m_label_tips->mvwin(beginY, begx() + 1);
         m_label_tips->adjustSizeByContext();
-        m_label_tips->mvwin(beginY + 3, begx() + 1);
 
+        beginY += m_label_tips->height();
+        m_msgHeadLabel->mvwin(beginY, begx() + width() / 4 - 1);
         m_msgHeadLabel->adjustSizeByContext();
-        m_msgHeadLabel->mvwin(beginY + 4, begx() + (width() - m_msgHeadLabel->width()) / 2);
 
-        m_errorLabel->adjustSizeByContext();
-        m_errorLabel->mvwin(beginY + 5, begx() + width() / 4);
+        beginY += m_msgHeadLabel->height();
+        m_errorLabel->mvwin(beginY, begx() + width() / 4 - 1);
 
+        beginY += m_errorLabel->height();
+        m_listViewPartitionMode->mvwin(beginY + 3, begx() + (width() - m_listViewPartitionMode->width()) / 2);
         m_listViewPartitionMode->adjustSizeByContext();
-        m_listViewPartitionMode->mvwin(beginY + 6 + m_errorLabel->height(), begx() + (width() - m_listViewPartitionMode->width()) / 2);
 
     } catch (NCursesException& e) {
          qCritical() << QString(e.message);
@@ -321,49 +326,56 @@ bool AdvancedPartitionFrame::validate() {
 QString AdvancedPartitionFrame::validateStateToText(ValidateState state) {
   switch (state) {
     case ValidateState::BootFsInvalid: {
-      const FsTypeList boot_fs_list = m_currentDelegate->getBootFsTypeList();
-      QStringList fs_name_list;
-      for (const FsType& fs_type : boot_fs_list) {
-        fs_name_list.append(GetFsTypeName(fs_type));
-      }
-      const QString fs_name(fs_name_list.join("/"));
-      return ::QObject::tr("The partition filesystem type of /boot directory "
-                "can only be %1 ").arg(fs_name);
+        const FsTypeList boot_fs_list = m_currentDelegate->getBootFsTypeList();
+        QStringList fs_name_list;
+        for (const FsType& fs_type : boot_fs_list) {
+          fs_name_list.append(GetFsTypeName(fs_type));
+        }
+        const QString fs_name(fs_name_list.join("/"));
+        return ::QObject::tr("The partition filesystem type of /boot directory "
+              "can only be %1 ").arg(fs_name);
     }
     case ValidateState::BootPartNumberInvalid: {
-      return ::QObject::tr("The partition of /boot directory should be "
-                "the first partition on hard disk");
+        return ::QObject::tr("The partition of /boot directory should be "
+              "the first partition on hard disk");
+    }
+    case ValidateState::EfiPartNumberinvalid: {
+        return ::QObject::tr("The partition of /boot/efi directory should be "
+              "the first partition on hard disk");
     }
     case ValidateState::BootTooSmall: {
-      const int boot_recommended = GetSettingsInt(kPartitionDefaultBootSpace);
-      return ::QObject::tr("/boot partition requires at least %1 GB")
-          .arg( boot_recommended);
+        const int boot_recommended = GetSettingsInt(kPartitionDefaultBootSpace);
+        return ::QObject::tr("/boot partition requires at least %1 MB")
+            .arg( boot_recommended);
     }
     case ValidateState::BootBeforeLvm: {
-      return ::QObject::tr("To create lvm, /boot partition is required");
+        return ::QObject::tr("To create lvm, /boot partition is required");
     }
     case ValidateState::EfiMissing: {
-      return ::QObject::tr("Add an EFI partition to continue");
+        return ::QObject::tr("Add an EFI partition to continue");
     }
     case ValidateState::EfiTooSmall: {
-      const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace);
-      return ::QObject::tr("/efi partition requires at least %1 MB")
-          .arg(efi_recommended);
+        const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace);
+        return ::QObject::tr("/efi partition requires at least %1 MB")
+            .arg(efi_recommended);
     }
     case ValidateState::RootMissing: {
-      return ::QObject::tr("Add a root partition to continue");
+        return ::QObject::tr("Add a root partition to continue");
     }
     case ValidateState::RootTooSmall: {
-      const int root_required =
-          GetSettingsInt(kPartitionRootMiniSpace);
-      return ::QObject::tr("/root partition requires at least %1 GB")
-          .arg(root_required);
+        const int root_required =
+            GetSettingsInt(kPartitionRootMiniSpace);
+        return ::QObject::tr("/root partition requires at least %1 GB")
+            .arg(root_required);
     }
     case ValidateState::PartitionTooSmall: {
-      const int partition_min_size_by_gb = GetSettingsInt(kPartitionOthersMinimumSize);
-      return ::QObject::tr("%2 partition requires at least %1 GB")
-          .arg(partition_min_size_by_gb)
-          .arg(GetPartitionName(state->partition()->path));
+        const int partition_min_size_by_gb = GetSettingsInt(kPartitionOthersMinimumSize);
+        return ::QObject::tr("%2 partition requires at least %1 GB")
+            .arg(partition_min_size_by_gb)
+            .arg(GetPartitionName(state->partition()->path));
+    }
+    case ValidateState::LvmPartNumberInvalid: {
+        return ::QObject::tr("Add a logical partition to continue");
     }
 
     default: {
