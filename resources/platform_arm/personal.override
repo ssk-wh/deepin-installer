@@ -7,6 +7,5 @@ install_progress_os_type_slide = slide/personal
 end_user_license_zh_CN = end-user-license-agreement-personal_zh_CN.txt
 end_user_license_en_US = end-user-license-agreement-personal_en_US.txt
 system_info_disable_experience = false
-user_experience_zh_CN = user-experience-agreement-personal_zh_CN.txt
-user_experience_en_US = user-experience-agreement-personal_en_US.txt
+
 

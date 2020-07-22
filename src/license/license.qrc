@@ -8,10 +8,7 @@
         <file>end-user-license-agreement-personal_zh_CN.txt</file>
         <file>end-user-license-agreement-professional_en_US.txt</file>
         <file>end-user-license-agreement-professional_zh_CN.txt</file>
-
         <file>user-experience-agreement-default_en_US.txt</file>
         <file>user-experience-agreement-default_zh_CN.txt</file>
-        <file>user-experience-agreement-personal_en_US.txt</file>
-        <file>user-experience-agreement-personal_zh_CN.txt</file>
     </qresource>
 </RCC>

@@ -23,10 +23,10 @@ QString installer::LicenseDelegate::licenseTitle()
 QString installer::LicenseDelegate::userExperienceTitle()
 {
     switch (GetCurrentType()) {
+        case OSType::Professional:
         case OSType::Personal: return ::QObject::tr("UnionTech OS User Experience Program License Agreement");
         case OSType::Community:
         case OSType::Server:
-        case OSType::Professional:
         default: return ::QObject::tr("User Experience Program License Agreement");
     }
 }
