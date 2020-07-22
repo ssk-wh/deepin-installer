@@ -29,7 +29,7 @@
         "filesystem": "recovery",
         "mountPoint": "/recovery",
         "label": "Backup",
-        "usage": "20Gib",
+        "usage": "server-backup-size",
         "alignStart": false,
         "device": "",
         "platform": [ "x86", "sw", "loongson", "arm" ]

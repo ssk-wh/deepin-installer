@@ -493,6 +493,20 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
             partitionSize = ParsePartitionSize(swap_size_str,length);
         }
 
+        if (policy.usage == "backup-size") {
+            //恢复分区大小=总分区大小的2%+10GB
+            qint64  backSize = length * 2 / 100 / kGibiByte + 10;
+            const QString backup_size_str = QString("%1gib").arg(backSize);
+            partitionSize = ParsePartitionSize(backup_size_str,length);
+         }
+
+        if (policy.usage == "server-backup-size") {
+            //恢复分区大小=总分区大小的2%+20GB
+            qint64  backSize = length * 2 / 100 / kGibiByte + 20;
+            const QString backup_size_str = QString("%1gib").arg(backSize);
+            partitionSize = ParsePartitionSize(backup_size_str,length);
+        }
+
         if (policy.usage == "100%") {
             percent100_count++;
         }
