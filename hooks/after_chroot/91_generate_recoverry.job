@@ -9,6 +9,11 @@ if [ -z ${DI_RECOVERY_PATH} ];then
     return 0;
 fi
 
+DI_FULLDISK_MODE=$(installer_get "DI_FULLDISK_MODE")
+if [ x${DI_FULLDISK_MODE} != "xtrue" ]; then
+    return 0;
+fi
+
 # mount all point
 /tmp/installer/hook_manager.sh /tmp/installer/before_chroot/11_mount_target.job
 /tmp/installer/hook_manager.sh /tmp/installer/before_chroot/41_setup_mount_points.job
