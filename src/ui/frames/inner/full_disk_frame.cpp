@@ -50,7 +50,7 @@ namespace {
 // 4 partitions are displays at each row.
 const int kDiskColumns = 1;
 
-const int kWindowWidth = 578;
+const int kWindowWidth = 560;
 
 enum class DiskCountType : int
 {
@@ -96,7 +96,14 @@ bool FullDiskFrame::validate() const {
     if (m_delegate->selectedDisks().count() < 2) {
         const qint64 root_required = GetSettingsInt(kPartitionFullDiskMiniSpace);
         const qint64 root_required_bytes = kGibiByte * root_required;
-        if (device->getByteLength() < root_required_bytes) {
+
+#ifdef QT_DEBUG
+        const bool debug_test = true;
+#else
+        const bool debug_test = false;
+#endif // QT_DEBUG
+
+        if (debug_test || device->getByteLength() < root_required_bytes) {
             m_diskTooSmallTip->show();
             qWarning() << QString("MULTIDISK: disk too small:size:{%1}.").arg(device->getByteLength());
             return false;
@@ -131,6 +138,10 @@ void FullDiskFrame::changeEvent(QEvent* event) {
         m_encryptCheck->setText(::QObject::tr("Encrypt This Disk"));
         m_errorTip->setText(::QObject::tr("Please select a disk to start installation"));
         m_tip_label->setText(::QObject::tr("Install here"));
+
+        int min_size = GetSettingsInt(kPartitionFullDiskMiniSpace);
+        int recommend_size = GetSettingsInt(kPartitionRecommendedDiskSpace);
+        m_diskTooSmallTip->setText(::QObject::tr("You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended").arg(min_size).arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : LicenseDelegate::product()).arg(recommend_size));
     }
     else {
         QFrame::changeEvent(event);
@@ -187,9 +198,11 @@ void FullDiskFrame::initUI() {
 
   m_diskTooSmallTip = new QLabel;
   m_diskTooSmallTip->setObjectName("msg_label");
-  m_diskTooSmallTip->setMaximumWidth(kWindowWidth);
-  m_diskTooSmallTip->setFixedHeight(20);
-  m_diskTooSmallTip->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
+  m_diskTooSmallTip->setFixedWidth(kWindowWidth);
+  m_diskTooSmallTip->setFixedHeight(40);
+//  m_diskTooSmallTip->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
+  m_diskTooSmallTip->setWordWrap(true);
+  m_diskTooSmallTip->setAlignment(Qt::AlignCenter);
   m_diskTooSmallTip->hide();
   addTransLate(m_trList, [ = ] (const QString& msg) {
       int min_size = GetSettingsInt(kPartitionFullDiskMiniSpace);
@@ -252,18 +265,16 @@ void FullDiskFrame::initUI() {
 
   QVBoxLayout* main_layout = new QVBoxLayout();
   main_layout->setContentsMargins(0, 0, 0, 0);
-  main_layout->setSpacing(0);
+  main_layout->addSpacing(0);
   main_layout->addWidget(scroll_frame, 0, Qt::AlignHCenter);
-  main_layout->addSpacing(10);
   main_layout->addWidget(m_diskPartitionWidget, 0, Qt::AlignHCenter);
+  main_layout->addStretch();
 
   QHBoxLayout* h_layout = new QHBoxLayout();
   h_layout->addWidget(m_encryptCheck);
-  h_layout->addSpacing(10);
   h_layout->addWidget(m_installNvidiaCheck);
   main_layout->addLayout(h_layout);
   main_layout->setAlignment(h_layout, Qt::AlignHCenter);
-
   main_layout->addSpacing(10);
   main_layout->addWidget(m_errorTip, 0, Qt::AlignHCenter);
   main_layout->addWidget(m_diskTooSmallTip, 0, Qt::AlignHCenter);
@@ -331,7 +342,7 @@ void FullDiskFrame::repaintDevices() {
 void FullDiskFrame::showInstallTip(QAbstractButton* button) {
   // Move install_tip to bottom of button
   const QPoint pos = button->pos();
-  m_install_tip->move(pos.x(), pos.y() - 10);
+  m_install_tip->move(pos.x(), pos.y());
   m_install_tip->show();
 }
 
