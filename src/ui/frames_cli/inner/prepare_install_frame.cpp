@@ -90,21 +90,23 @@ void PrepareInstallFrame::initUI() {
   m_commentLabel->setFocusEnabled(false);
   m_commentLabel->setText(::QObject::tr("Make a backup of your important data and then continue"));
 
-  operations_box_ = new NcursesTextBrower(this, height() - 10, width() - 4, begy() + 4, begx() + 2);
   //QStringList opt(delegate_->getOptDescriptions());
 
   bool iswchar = false;
   if (installer::ReadLocale() == "zh_CN") {
       iswchar = true;
   }
-  foreach (QString testoptions, m_optDescriptions) {
-      operations_box_->appendItemText(testoptions, iswchar);
-  }
 
   QString strBack = ::QObject::tr("Back");
   QString strContinue = ::QObject::tr("Continue");
 
   cancel_button_ = new NcursesButton(this, strBack, 3, 14, begy() + height() - 5, begx() + 5);
+
+  operations_box_ = new NcursesTextBrower(this, height() - 10, width() - 4, begy() + 4, begx() + 2);
+  foreach (QString testoptions, m_optDescriptions) {
+      operations_box_->appendItemText(testoptions, iswchar);
+  }
+
   create_button_ = new NcursesButton(this, strContinue, 3, 14, begy() + height() - 5, begx() + width() - 20);
 
   cancel_button_->drawShadow(true);

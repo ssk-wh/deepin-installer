@@ -113,7 +113,6 @@ void FullDiskFramePrivate::show()
     if(!m_isshow) {
         NCursesWindowBase::show();
         m_isshow = true;
-        m_pNextButton->setFocus(true);
     }
 }
 
@@ -182,9 +181,9 @@ void FullDiskFramePrivate::showListView()
 void FullDiskFramePrivate::setchildFoursEnabel(bool enabel)
 {
     m_pBackButton->setFocusEnabled(enabel);
-    m_pNextButton->setFocusEnabled(enabel);
     m_systemdisklist->setFocusEnabled(enabel);
     m_datadisklist->setFocusEnabled(enabel);
+    m_pNextButton->setFocusEnabled(enabel);
 }
 
 void FullDiskFramePrivate::keyPresseEvent(int keycode)

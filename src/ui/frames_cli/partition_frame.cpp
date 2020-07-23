@@ -121,7 +121,6 @@ void PartitionFramePrivate::show()
     if(!m_isshow) {
         NCursesWindowBase::show();
         m_isshow = true;
-        m_pNextButton->setFocus(true);
     }
 }
 
@@ -174,17 +173,18 @@ void PartitionFramePrivate::doNextBtnClicked()
         if(m_currentchoicetype == -1)
             return;
         //m_label_title->hide();
-        m_label_comment1->hide();
-        m_label_comment2->hide();
-        m_pBackButton->setFocus(false);
-        m_pNextButton->setFocus(false);
-        //m_label_title->setFocus(false);
-        m_partitionmodelist->setFocus(false);
-        m_pBackButton->setFocusEnabled(false);
-        m_pNextButton->setFocusEnabled(false);
-        //m_label_title->setFocusEnabled(false);
-        m_partitionmodelist->setFocusEnabled(false);
-        m_partitionmodelist->hide();
+//        m_label_comment1->hide();
+//        m_label_comment2->hide();
+//        m_pBackButton->setFocus(false);
+//        m_pNextButton->setFocus(false);
+//        //m_label_title->setFocus(false);
+//        m_partitionmodelist->setFocus(false);
+//        m_pBackButton->setFocusEnabled(false);
+//        m_pNextButton->setFocusEnabled(false);
+//        //m_label_title->setFocusEnabled(false);
+//        m_partitionmodelist->setFocusEnabled(false);
+//        m_partitionmodelist->hide();
+        this->hide();
 
         showChildSignal(m_currentchoicetype);
     }

@@ -205,8 +205,8 @@ void AdvancedPartitionFramePrivate::doNextBtnClicked()
 void AdvancedPartitionFramePrivate::setchildFoursEnabel(bool enabel)
 {
     m_pBackButton->setFocusEnabled(enabel);
-    m_pNextButton->setFocusEnabled(enabel);
     m_listViewPartitionMode->setFocusEnabled(enabel);
+    m_pNextButton->setFocusEnabled(enabel);
 }
 
 void AdvancedPartitionFramePrivate::setCurrentchoicetype(int state)
