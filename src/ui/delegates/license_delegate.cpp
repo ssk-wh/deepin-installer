@@ -45,7 +45,7 @@ QString installer::LicenseDelegate::logo()
 QString installer::LicenseDelegate::product()
 {
     switch (GetCurrentType()) {
-        case OSType::Professional: return ::QObject::tr("UnionTech UOS");
+        case OSType::Professional: return ::QObject::tr("UnionTech OS");
         case OSType::Community:
         case OSType::Server:
         case OSType::Personal:

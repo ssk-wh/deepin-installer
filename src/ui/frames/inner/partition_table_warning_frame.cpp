@@ -74,12 +74,12 @@ void PartitionTableWarningFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     title_label_->setText(::QObject::tr("Warning"));
     comment_label_->setText(
-        ::QObject::tr("You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. "
-           "Please select one of the below solutions and continue.").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : LicenseDelegate::product()));
-    m_warningWidget1->setTitle(QString("%1").arg(::QObject::tr("Disable UEFI")));
+        ::QObject::tr("You have an EFI boot loader but an MBR disk, thus you cannot install the system directly. Please select one of the below solutions and continue."));
     m_warningWidget1->setBody(QString("1.%1\n2.%2")
                               .arg(::QObject::tr("Reboot, enter BIOS, and disable UEFI"))
-                              .arg(::QObject::tr("Exit BIOS, and install UOS again")));
+                              .arg(::QObject::tr("Exit BIOS, and install %1 again"))\
+                                  .arg(DSysInfo::productType() == DSysInfo::Deepin ?
+                                       ::QObject::tr("Deepin") : LicenseDelegate::product()));
     m_warningWidget2->setTitle(QString("%1").arg(::QObject::tr("Continue")));
     m_warningWidget2->setBody(QString("1.%1\n2.%2")
                               .arg(::QObject::tr("Make sure you have backed up all data before proceeding"))
@@ -137,8 +137,9 @@ void PartitionTableWarningFrame::initUI() {
   title_layout->addStretch();
 
   comment_label_ = new CommentLabel(
-      ::QObject::tr("You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. "
-         "Please select one of the below solutions and continue."));
+      ::QObject::tr("You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. "
+         "Please select one of the below solutions and continue.")\
+              .arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : LicenseDelegate::product()));
   comment_label_->setFixedWidth(kTitleCommentWidth);
   comment_label_->setWordWrap(true);
   comment_label_->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
@@ -149,7 +150,9 @@ void PartitionTableWarningFrame::initUI() {
   m_warningWidget1->setTitle(QString("%1").arg(::QObject::tr("Disable UEFI")));
   m_warningWidget1->setBody(QString("1.%1\n2.%2")
                             .arg(::QObject::tr("Reboot, enter BIOS, and disable UEFI"))
-                            .arg(::QObject::tr("Exit BIOS, and install UOS again")));
+                            .arg(::QObject::tr("Exit BIOS, and install %1 again"))\
+                                .arg(DSysInfo::productType() == DSysInfo::Deepin ?
+                                         ::QObject::tr("Deepin") : LicenseDelegate::product()));
 
   m_warningWidget2 = new OperatorWidget;
   m_warningWidget2->setFixedSize(kWarnItemWidth, kWarnItemHeight);

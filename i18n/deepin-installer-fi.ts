@@ -415,8 +415,8 @@
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="98"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="82"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="156"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="83"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="160"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="77"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="105"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="126"/>
@@ -445,21 +445,21 @@
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="199"/>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="118"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="90"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="174"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="178"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="309"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="189"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="217"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="206"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="744"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="974"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="996"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="229"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="661"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="762"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="137"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="212"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="131"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="74"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="130"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="75"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="131"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="25"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="22"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="151"/>
@@ -474,31 +474,27 @@
         <translation>Palvelimen osoite</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="55"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="197"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="56"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="198"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
         <translation>Tarvitset vähintään %1 Gt levytilaa asentaaksesi %2. Parhaan suorituskyvyn saavuttamiseksi suositellaan vähintään 3 Gt</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="12"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="196"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="418"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="73"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="59"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="197"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="82"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="142"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="155"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="419"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="125"/>
         <source>Deepin</source>
         <translation>Deepin</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="12"/>
-        <location filename="../src/ui/delegates/license_delegate.cpp" line="46"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="196"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="418"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="73"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="124"/>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="52"/>
         <source>UOS</source>
         <translation>UOS</translation>
     </message>
@@ -513,9 +509,9 @@
         <translation>UnionTech OS Desktop Professional loppukäyttäjän lisenssisopimus </translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/license_delegate.cpp" line="42"/>
-        <source>UnionTech UOS</source>
-        <translation>UnionTech UOS</translation>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="48"/>
+        <source>UnionTech OS</source>
+		<translation>UnionTech OS</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="26"/>
@@ -523,23 +519,23 @@
         <translation>UnionTech OS käyttökokemusohjelman lisenssisopimus</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="96"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="123"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="92"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="97"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="124"/>
         <source>Insufficient Disk Space</source>
         <translation>Liian vähän levytilaa</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="98"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="130"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="131"/>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="85"/>
         <source>Exit</source>
         <translation>Poistu</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="116"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="74"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="125"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="75"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="126"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="75"/>
         <source>Warning</source>
         <translation>Varoitus</translation>
@@ -551,8 +547,8 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="152"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="96"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="86"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="164"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="87"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="168"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="95"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="119"/>
         <source>Cancel</source>
@@ -596,8 +592,8 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="115"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="253"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="129"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="180"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="130"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="181"/>
         <source>Install NVIDIA closed source driver</source>
         <translation>Asenna NVIDIA suljetun lähdekoodin ohjain</translation>
     </message>
@@ -667,7 +663,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="572"/>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="89"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="90"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="358"/>
         <source>/root partition requires at least %1 GB</source>
         <translation>/root-osio vaatii vähintään %1 GB</translation>
@@ -741,8 +737,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="271"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="130"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="173"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="131"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="174"/>
         <source>Encrypt This Disk</source>
         <translation>Salaa tämä levy</translation>
     </message>
@@ -774,17 +770,17 @@
         <translation>Pidä huolta salasanastasi, muuten voit menettää kaikki tietosi</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="131"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="185"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="132"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="186"/>
         <source>Please select a disk to start installation</source>
         <translation>Valitse levy johon haluat asentaa</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="132"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="160"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="166"/>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="118"/>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="237"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="133"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="161"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="167"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="119"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="238"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="174"/>
         <source>Install here</source>
         <translation>Asenna tänne</translation>
@@ -911,47 +907,44 @@
         <translation>Sinun tulisi poistaa ensisijainen osio ennen loogisen luomista tai siirtää olemassa oleva looginen osio levyn loppuun</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="76"/>
-        <source>You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. Please select one of the below solutions and continue.</source>
-        <translation>Sinulla on EFI-käynnistys, mutta MBR-levy joten et voi asentaa suoraan %1 käyttöjärjestelmää. Valitse yksi alla olevista ratkaisuista.</translation>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
+        <source>You have an EFI boot loader but an MBR disk, thus you cannot install the system directly. Please select one of the below solutions and continue.</source>
+		<translation>You have an EFI boot loader but an MBR disk, thus you cannot install the system directly. Please select one of the below solutions and continue.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="78"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="148"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="150"/>
         <source>Disable UEFI</source>
         <translation>Poista UEFI</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="80"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="150"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="79"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="152"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="86"/>
         <source>Reboot, enter BIOS, and disable UEFI</source>
         <translation>Käynnistä uudelleen, siirry BIOSiin ja poista käytöstä UEFI</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="81"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="151"/>
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="87"/>
-        <source>Exit BIOS, and install UOS again</source>
-        <translation>Sulje BIOS ja asenna UOS uudelleen</translation>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="80"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="153"/>
+        <source>Exit BIOS, and install %1 again</source>
+        <translation>BIOS-asetukset ja asenna %1 uudelleen</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="158"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="162"/>
         <source>Make sure you have backed up all data before proceeding</source>
         <translation>Varmista, että olet varmuuskopioinut kaikki tiedot ennen kuin jatkat</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="85"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="159"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="163"/>
         <source>Continuing installation will format your disk</source>
         <translation>Asennuksen jatkaminen alustaa valitun levyn</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="139"/>
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="79"/>
-        <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
-        <translation>Sinulla on EFI-käynnistäjä, mutta MBR-levy joten et voi asentaa UOS -ohjelmistoa suoraan. Valitse yksi alla olevista ratkaisuista ja jatka.</translation>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="140"/>
+        <source>You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. Please select one of the below solutions and continue.</source>
+        <translation>Sinulla on EFI-käynnistys, mutta MBR-levy joten et voi asentaa suoraan %1 käyttöjärjestelmää. Valitse yksi alla olevista ratkaisuista.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="73"/>
@@ -985,7 +978,7 @@
         <translation>Jos et ymmärrä asetuksia, ole hyvä ja valitse oletusasetukset</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="425"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="428"/>
         <source>I have read and agree to the</source>
         <translation>Olen lukenut ja hyväksyn</translation>
     </message>
@@ -995,12 +988,12 @@
         <translation>%1 ohjelmiston loppukäyttäjän lisenssisopimus</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="430"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="433"/>
         <source>and</source>
         <translation>ja</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="439"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="442"/>
         <source>Agree to the</source>
         <translation>Hyväksy</translation>
     </message>
@@ -1010,24 +1003,24 @@
         <translation>Käyttäjän kokemusohjelman lisenssisopimus</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="442"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="105"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="445"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/language_frame.cpp" line="46"/>
         <source>Select Language</source>
         <translation>Valitse kieli</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="75"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="76"/>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
         <translation>Uutta osiota ei voitu luoda, valitse jokin nykyisistä osioista!</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="82"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="83"/>
         <source>Please select one of the partitions to install!</source>
         <translation>Valitse osio, johon haluat asentaa!</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="417"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="418"/>
         <source>Windows will not boot if you install %1 on Windows disk, please confirm to continue</source>
         <translation>Windows ei käynnisty, jos %1 asennetaan Windows-levylle. Vahvista jatkaaksesi</translation>
     </message>
@@ -1371,7 +1364,6 @@
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="157"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="314"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="329"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="605"/>
         <source>IP Address</source>
@@ -1436,6 +1428,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="207"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="314"/>
         <source>IP Address:</source>
         <translation>IP-osoite:</translation>
     </message>
@@ -1480,15 +1473,15 @@
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="750"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="893"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="972"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="916"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="994"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="175"/>
         <source>Configure Network</source>
         <translation>Määritä verkko</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="751"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="973"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="995"/>
         <source>IP address has been auto-configured, but you can configure the network as well</source>
         <translation>IP-osoite on määritetty automaattisesti, mutta voit myös määrittää verkon</translation>
     </message>
@@ -1612,15 +1605,15 @@
         <translation>Lista</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="71"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="118"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="122"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="72"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="119"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="123"/>
         <source>Friendly Note</source>
         <translation>Huomautus</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="73"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="125"/>
         <source>You are installing %1 on a virtual machine which may result in sub-optimal performance. For the best experience, please install %1 on a real machine.</source>
         <translation>Asennat %1 virtuaalikoneelle, mikä saattaa johtaa huonoon suorituskykyyn. Parhaan kokemuksen saat asentamalla %1 oikealle tietokoneelle.</translation>
     </message>
@@ -1743,6 +1736,16 @@
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="90"/>
         <source>Logical partition</source>
         <translation>Looginen osio</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="79"/>
+        <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
+        <translation>Sinulla on EFI-käynnistäjä, mutta MBR-levy joten et voi asentaa UOS -ohjelmistoa suoraan. Valitse yksi alla olevista ratkaisuista ja jatka.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="87"/>
+        <source>Exit BIOS, and install UOS again</source>
+        <translation>Sulje BIOS ja asenna UOS uudelleen</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="89"/>
