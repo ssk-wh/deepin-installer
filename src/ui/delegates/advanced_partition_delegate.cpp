@@ -379,16 +379,22 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
               }
 
               if (!bootPartition.isNull()) {
-                  int index = list.indexOf(bootPartition);
-                  // boot partition exists, but is not the first partition.
-                  if ((index != -1 && index != 0) || bootPartition->partition_number != 1) {
-                      states.clear();
-                      states << ValidateState::BootPartNumberInvalid;
-                      return states;
+                  if (bootPartition->device_path == device->path) {
+                      int index = list.indexOf(bootPartition);
+                      // boot partition exists, but is not the first partition.
+                      if ((index != -1 && index != 0) || bootPartition->partition_number != 1) {
+                          states.clear();
+                          states << ValidateState::BootPartNumberInvalid;
+                          return states;
+                      }
                   }
               }
 
               if (rootPartition.isNull()) {
+                  continue;
+              }
+
+              if (rootPartition->device_path != device->path) {
                   continue;
               }
 
