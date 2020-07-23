@@ -439,6 +439,7 @@ void MainWindow::initPages() {
   stacked_layout_->addWidget(timezone_frame_);
 
   virtual_machine_frame_ = new VirtualMachineFrame(this);
+  stacked_layout_->addWidget(virtual_machine_frame_);
 
   m_selectComponentFrame = new SelectInstallComponentFrame(this);
   stacked_layout_->addWidget(m_selectComponentFrame);
@@ -489,6 +490,11 @@ void MainWindow::constructLabelView()
     int i = 1;
     for (FrameInterface* frame : m_originalFrames){
         if (!frame->shouldDisplay() || frame->frameType() != FrameType::Frame){
+            continue;
+        }
+
+        // Virtual machine page only show once, can not back to this page again.
+        if (frame == virtual_machine_frame_) {
             continue;
         }
 
