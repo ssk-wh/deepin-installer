@@ -123,7 +123,7 @@ void NCursesWindowBase::removeChildWindows(NCursesWindowBase *childWindows)
 void NCursesWindowBase::clearFoucs()
 {
     if (m_parent != nullptr) {
-        for (NCursesWindowBase *win : m_parent->m_foucsWindows) {
+        for (NCursesWindowBase *win : m_parent->m_childWindows) {
             win->updateFoucs(false);
         }
     }
@@ -144,9 +144,7 @@ void NCursesWindowBase::setFocus(bool foucs) {
     if (hidden()) {
         return;
     }
-    if (!m_foucs_enabled) {
-        m_foucs = false;
-    }
+
     if (foucs) {
         this->clearFoucs();
     }

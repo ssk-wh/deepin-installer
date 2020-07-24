@@ -420,6 +420,7 @@ void NetwrokFramePrivate::setFocusEnableType(int type)
 
 void NetwrokFramePrivate::onKeyPress(int keyCode)
 {
+    qDebug() << "keyCode = " << keyCode;
     switch (keyCode) {
     case KEY_ENTER:
     case KEY_ENTER_OTHER:

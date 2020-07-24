@@ -48,6 +48,9 @@ protected:
     void readConf();
     void writeConf();
 
+    void downHandle() override;
+    void upHandle() override;
+
 private:
     bool validatePassword(NCursesLineEdit *passwordEdit, QString& msg);
     bool validatePassword2(NCursesLineEdit* passwordEdit, NCursesLineEdit* passwordCheckEdit, QString& msg);

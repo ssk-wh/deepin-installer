@@ -54,6 +54,7 @@ void KeyboardFramePrivate::initUI()
         m_layoutView = new NcursesListView(this, height() - 10, 20, begy(), begx());
         m_layoutView->setFocus(true);
         m_variantView = new NcursesListView(this, height() - 10, 20, begy(), begx());
+        m_variantView->setFocusEnabled(false);
     } catch (NCursesException& e) {
         qCritical() << QString(e.message);
     }

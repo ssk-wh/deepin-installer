@@ -65,24 +65,10 @@ void SystemInfoFramePrivate::hide()
     m_isshow = false;
 }
 
-void SystemInfoFramePrivate::keyEventTriger(int key)
+void SystemInfoFramePrivate::onKeyPress(int keyCode)
 {
-    switch (key) {
-       case KEY_TAB:
-           switchChildWindowsFoucs();
-           show();
-       break;
-       default:
-           foreach (NCursesWindowBase* childWindow, m_childWindows) {
-               if (childWindow->isOnFoucs()) {
-                   childWindow->onKeyPress(key);
-                   if (!m_isHostEdited && childWindow == m_le_username) {
-                       m_le_hostname->setText(QString("%1-PC").arg(m_le_username->text()));
-                   }
-               }
-
-           }
-           onKeyPress(key);
+    if (!m_isHostEdited && m_le_username->isOnFoucs()) {
+        m_le_hostname->setText(QString("%1-PC").arg(m_le_username->text()));
     }
 }
 
@@ -103,7 +89,53 @@ void SystemInfoFramePrivate::writeConf()
 
 //    WriteRootPassword(GetSettingsBool(kSetRootPasswordFromUser)
 //                     ? d->m_rootPasswordEdit->text()
-//                     : d->m_passwordEdit->text());
+    //                     : d->m_passwordEdit->text());
+}
+
+void SystemInfoFramePrivate::downHandle()
+{
+    if (!this->isOnFoucs()) {
+        return;
+    }
+    if (m_le_username->isOnFoucs()) {
+        m_le_username->setFocus(false);
+        m_le_hostname->setFocus(true);
+    } else if (m_le_hostname->isOnFoucs()) {
+        m_le_hostname->setFocus(false);
+        m_le_password->setFocus(true);
+    } else if (m_le_password->isOnFoucs()) {
+        m_le_password->setFocus(false);
+        m_le_password_confirm->setFocus(true);
+    }
+}
+
+void SystemInfoFramePrivate::upHandle()
+{
+    if (!this->isOnFoucs()) {
+        return;
+    }
+
+    if (m_le_password_confirm->isOnFoucs()) {
+        m_le_password_confirm->setFocus(false);
+        m_le_password->setFocus(true);
+    } else if (m_le_password->isOnFoucs()) {
+        m_le_password->setFocus(false);
+        m_le_hostname->setFocus(true);
+    } else if (m_le_hostname->isOnFoucs()) {
+        m_le_hostname->setFocus(false);
+        m_le_username->setFocus(true);
+    }
+}
+
+void SystemInfoFramePrivate::switchChildWindowsFoucs()
+{
+    FrameInterfacePrivate::switchChildWindowsFoucs();
+    if (this->isOnFoucs()) {
+        m_le_password_confirm->setFocus(false);
+        m_le_password->setFocus(false);
+        m_le_hostname->setFocus(false);
+        m_le_username->setFocus(true);
+    }
 }
 
 bool SystemInfoFramePrivate::validateHostname(QString &msg)
@@ -280,6 +312,7 @@ bool SystemInfoFramePrivate::validatePassword2(NCursesLineEdit *passwordEdit, NC
 
 void SystemInfoFramePrivate::showError(const QString &msg)
 {
+    qDebug() << "showError = " << msg;
     if (msg.isEmpty()) {
         m_label_error_info->setText(msg);
     }
@@ -326,12 +359,14 @@ void SystemInfoFramePrivate::initUI()
         m_le_username = new NCursesLineEdit(this, 1, width() - 4, begy(), begx());
         m_le_username->setBackground(NcursesUtil::getInstance()->edit_attr());
         m_le_username->setFocus(true);
+        m_le_username->setFocusEnabled(false);
 
         m_label_hostname = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_hostname->setFocusEnabled(false);
 
         m_le_hostname = new NCursesLineEdit(this, 1, width() - 4, begy(), begx());
         m_le_hostname->setBackground(NcursesUtil::getInstance()->edit_attr());
+        m_le_hostname->setFocusEnabled(false);
 
         m_label_password = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_password->setFocusEnabled(false);
@@ -340,15 +375,18 @@ void SystemInfoFramePrivate::initUI()
         m_le_password = new NCursesLineEdit(this, 1, width() - 4, begy(), begx());
         m_le_password->setBackground(NcursesUtil::getInstance()->edit_attr());
         m_le_password->setEchoMode(true);
-
+        m_le_password->setFocusEnabled(false);
 
         m_label_password_confirm = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_password_confirm->setFocusEnabled(false);
 
-
         m_le_password_confirm = new NCursesLineEdit(this, 1, width() - 4, begy(), begx());
         m_le_password_confirm->setBackground(NcursesUtil::getInstance()->edit_attr());
         m_le_password_confirm->setEchoMode(true);
+        m_le_password_confirm->setFocusEnabled(false);
+
+        m_foucsWindows.append(this);
+        this->setFocus(true);
 
         m_NcursesCheckBox = new NcursesCheckBox(this, 1, (width() - 5) / 2, begy(), begx());
         m_NcursesCheckBox->setIsUseTitle(false);
@@ -465,7 +503,11 @@ void SystemInfoFramePrivate::initConnection()
     });
 
 #ifdef QT_DEBUG
-    connect(m_le_username, &NCursesWindowBase::outFoucs, [this]{qDebug() << "outFoucs test";});
+    connect(m_le_username, &NCursesWindowBase::outFoucs, [this]{qDebug() << "m_le_username outFoucs test";});
+    connect(m_le_hostname, &NCursesWindowBase::outFoucs, [this]{qDebug() << "m_le_hostname outFoucs test";});
+    connect(m_le_password, &NCursesWindowBase::outFoucs, [this]{qDebug() << "m_le_password outFoucs test";});
+    connect(m_le_password_confirm, &NCursesWindowBase::outFoucs, [this]{qDebug() << "m_le_password_confirm outFoucs test";});
+
     connect(m_NcursesCheckBox, &NcursesCheckBox::signal_SelectChange, this, [=]{qDebug() << "select change";});
     connect(q, &SystemInfoFrame::createRoot, this, [=]{qDebug() << "create user:";});
     connect(m_le_username, &NCursesLineEdit::textChanged, this, [=](const QString &name){

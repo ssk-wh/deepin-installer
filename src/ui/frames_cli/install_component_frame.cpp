@@ -72,6 +72,7 @@ void InstallComponentFramePrivate::initUI()
     m_extrachoiceslist->setListType(NcursesCheckBoxList::EXTRACHOICES);
     m_extrachoiceslist->setSingleSelect(false);
     m_extrachoiceslist->setRealSelect(false);
+    m_extrachoiceslist->setFocusEnabled(false);
 
     m_selectallextra = new NcursesCheckBox(this, ::QObject::tr("Select All"), 1, width() / 2 - 2, begy() + height() - 7,  begx() + width() / 2  + 1);
 }

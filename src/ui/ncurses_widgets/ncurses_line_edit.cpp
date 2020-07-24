@@ -51,8 +51,6 @@ void installer::NCursesLineEdit::setFocus(bool foucs)
 
 void installer::NCursesLineEdit::onKeyPress(int keyCode)
 {
-    qDebug() << "keyCode = " << keyCode;
-
     if (!this->isOnFoucs()) {
         return;
     }

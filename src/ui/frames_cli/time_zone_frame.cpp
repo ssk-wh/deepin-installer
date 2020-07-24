@@ -37,6 +37,7 @@ void TimeZoneFramePrivate::initUI()
     m_continentView->setFocus(true);
 
     m_timeZoneView = new NcursesListView(this, listViewH, listviewW, begy() + m_instructions->height() + 2, begx() + (width() - listviewW * 2) / 2 + listviewW);
+    m_timeZoneView->setFocusEnabled(false);
 
 
 

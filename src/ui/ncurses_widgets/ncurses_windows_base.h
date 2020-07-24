@@ -15,6 +15,10 @@ const int KEY_TAB  = 9;
 const int KEY_SPACE = 32;
 const int KEY_ENTER_OTHER = 10;
 const int KEY_BACK = 263;
+const int kKeyUp = 259;
+const int kKeyDown = 258;
+const int kKeyLeft = 260;
+const int kKeyRight = 261;
 
 class NCursesWindowBase : public QObject, public NCursesPanel
 {
@@ -59,8 +63,8 @@ protected:
     void removeFoucsWindows(NCursesWindowBase* childWindows);
 
 private:
-    void clearFoucs();
     void updateFoucs(bool foucs);
+    void clearFoucs();
 
 protected:
     NCursesWindowBase* m_parent;

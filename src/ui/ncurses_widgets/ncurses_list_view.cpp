@@ -96,10 +96,9 @@ void NcursesListView::setSeelectMode(bool isSelect)
 
 void NcursesListView::onKeyPress(int keyCode)
 {
-
     switch (keyCode) {
         case KEY_UP:
-            if (m_currentIndex > 0) {
+            if (m_currentIndex) {
                 m_childWindows[m_currentIndex]->setFocus(false);
                 m_currentIndex--;
                 m_currLine--;

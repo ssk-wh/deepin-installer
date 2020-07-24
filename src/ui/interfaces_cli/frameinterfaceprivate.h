@@ -30,13 +30,6 @@ public:
         return true;
     }
 
-    void onKeyPress(int keyCode) override {
-        switch (keyCode) {
-            case kKeyLeft: leftHandle(); break;
-            case kKeyRight: rightHandle(); break;
-        }
-    }
-
     virtual void initUI() {
 
         setBackground(NcursesUtil::getInstance()->dialog_attr());
@@ -99,32 +92,17 @@ public:
     }
 
     virtual void keyEventTriger(int key) {
-        qDebug() << "key = " << key;
         switch (key) {
             case KEY_TAB:
                 switchChildWindowsFoucs();
                 show();
             break;
-            case KEY_ESC:
-               m_escCnt++;
-               QTimer::singleShot(100, this, [=]{
-                   if (m_escCnt == 1) {
-                       Q_EMIT back();
-                   } /*else if (m_escCnt == 2){
-                       exit(0);
-                   }*/
-
-                   m_escCnt = 0;
-               });
-            break;
-            default:
-                foreach (NCursesWindowBase* childWindow, m_foucsWindows) {
-                    if (childWindow->isOnFoucs()) {
-                         childWindow->onKeyPress(key);
-                    }
-
-                }
-                onKeyPress(key);
+            case KEY_ESC: escKeyHandle(); break;
+            case kKeyUp: upHandle(); break;
+            case kKeyDown: downHandle(); break;
+            case kKeyLeft: leftHandle(); break;
+            case kKeyRight: rightHandle(); break;
+            default: defaultHandle(key);
         }
     }
 
@@ -172,20 +150,51 @@ public:
         return true;
     }
 
+protected:
+    virtual void escKeyHandle() {
+        m_escCnt++;
+        QTimer::singleShot(100, this, [=]{
+            if (m_escCnt == 1) {
+                Q_EMIT back();
+            } /*else if (m_escCnt == 2){
+                exit(0);
+            }*/
+
+            m_escCnt = 0;
+        });
+    }
+
+    virtual void rightHandle() {
+        defaultHandle(kKeyRight);
+    }
+
+    virtual void leftHandle() {
+        defaultHandle(kKeyLeft);
+    }
+
+    virtual void upHandle() {
+        defaultHandle(kKeyUp);
+    }
+
+    virtual void downHandle() {
+        defaultHandle(kKeyDown);
+    }
+
+private:
+    void defaultHandle(int key) {
+        foreach (NCursesWindowBase* childWindow, m_childWindows) {
+            if (childWindow->isOnFoucs()) {
+                 childWindow->onKeyPress(key);
+            }
+        }
+        onKeyPress(key);
+    }
 
 signals:
     void next();
     void back();
     void close();
 
-protected:
-    virtual void leftHandle() {
-
-    }
-
-    virtual void rightHandle() {
-
-    }
 
 protected:
     NcursesButton* m_pNextButton = nullptr;

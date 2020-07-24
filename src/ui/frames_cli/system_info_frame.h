@@ -24,11 +24,16 @@ public:
     bool validate() override;
     void show() override;
     void hide() override;
-    void keyEventTriger(int key) override;
+    void onKeyPress(int keyCode) override;
 
 public:
     void readConf();
     void writeConf();
+
+protected:
+    void downHandle() override;
+    void upHandle() override;
+    void switchChildWindowsFoucs() override;
 
 private:
     bool validateUsername(QString& msg);
