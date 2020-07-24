@@ -161,13 +161,9 @@ void MainWindow::scanDevicesAndTimezone() {
     timezone_frame_->init();
   }
 
-  //if (!GetSettingsBool(kSkipPartitionPage) &&
-  //    !GetSettingsBool(kPartitionDoAutoPart)) {
-    // Notify background thread to scan device list.
-    // When device is refreshed in partition_frame_, call fullscreen() method
-    // to display main window.
-    partition_frame_->scanDevices();
-  //}
+  if (GetSettingsBool("DI_LUPIN")) {
+      partition_frame_->scanDevices();
+  }
 }
 
 //void MainWindow::setEnableAutoInstall(bool auto_install) {
