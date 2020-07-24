@@ -54,7 +54,7 @@ void LanguageFramePrivate::initConnection()
         emit languageChange();
         updateText();
         //m_isshow = false;
-        this->show();
+        //this->show();
     });
 
     connect(m_languageView, &NcursesListView::selectd, this, [=](int index){
@@ -95,6 +95,11 @@ void LanguageFramePrivate::updateText()
     m_instructions->adjustSizeByContext();
     m_instructions->show();
     FrameInterfacePrivate::updateTs();
+}
+
+QString LanguageFramePrivate::getCurrentLanguageTimezone()
+{
+    return m_languageList.at(m_index).timezone;
 }
 
 void LanguageFramePrivate::readConf()
@@ -176,6 +181,12 @@ bool LanguageFrame::init()
 QString LanguageFrame::getFrameName()
 {
     return "LanguageFrame";
+}
+
+QString LanguageFrame::getCurrentLanguageTimezone()
+{
+    Q_D(LanguageFrame);
+    return d->getCurrentLanguageTimezone();
 }
 
 bool LanguageFrame::handle()

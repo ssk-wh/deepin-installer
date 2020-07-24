@@ -36,6 +36,9 @@ if [ -f "${CONF_FILE}" ]; then
     installer_set "system_info_default_username" "${DI_USERNAME}"
     installer_set "system_info_default_hostname" "${DI_HOSTNAME}"
     installer_set "system_info_default_password" "${REAL_PASSWORD}"
+
+    DI_TIMEZONE=$(installer_get "DI_TIMEZONE")
+    installer_set "timezone_default" "${DI_TIMEZONE}"
   fi
 fi
 

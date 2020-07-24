@@ -35,6 +35,7 @@ public:
 
     void update();
     void updateText();
+    QString getCurrentLanguageTimezone();
 
 signals:
     void languageChange();
@@ -66,6 +67,7 @@ public:
     QString getFrameName() override;
 
     void update();
+    QString getCurrentLanguageTimezone();
 
 signals:
     void languageChanged();

@@ -55,6 +55,7 @@ public:
 public:
     bool init() override;
     QString getFrameName() override;
+    void setDefaultTimezone(QString timezone);
 private:
     void readConf();
     void writeConf();
@@ -71,6 +72,8 @@ private:
     QStringList m_currentTimeZoneList;
     TimezoneAliasMap m_alias_map;
     QString m_localeString;
+    QString m_kCliContinentDefault;
+    QString m_kCliTimezoneDefault;
     Q_DECLARE_PRIVATE_D(m_private, TimeZoneFrame)
 };
 

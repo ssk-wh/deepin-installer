@@ -176,6 +176,10 @@ void MainWindow::slot_languageChange()
 
     Q_D(MainWindow);
     d->updateTs();
+
+    if ((m_timeZoneFrame != nullptr) && (m_languageFrame != nullptr)) {
+        m_timeZoneFrame->setDefaultTimezone(m_languageFrame->getCurrentLanguageTimezone());
+    }
 }
 
 void MainWindow::slot_dostartInstall()

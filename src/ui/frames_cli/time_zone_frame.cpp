@@ -95,7 +95,9 @@ void TimeZoneFramePrivate::rightHandle()
 TimeZoneFrame::TimeZoneFrame(FrameInterface* parent) :
     FrameInterface (parent),
     m_alias_map(GetTimezoneAliasMap()),
-    m_localeString("")
+    m_localeString(""),
+    m_kCliContinentDefault(kCliContinentDefault),
+    m_kCliTimezoneDefault(kCliTimezoneDefault)
 {
     int h = LINES / 2;
     int w = COLS / 2;
@@ -127,7 +129,7 @@ bool TimeZoneFrame::init()
 
         connect(dynamic_cast<TimeZoneFramePrivate*>(m_private), &TimeZoneFramePrivate::timezoneChanged, this, [=]{
             Q_D(TimeZoneFrame);
-            m_timezone = m_currentTimeZoneList.at(d->m_currentTimezoneIndex);
+            m_timezone = QString("%1/%2").arg(m_currentContinentList.at(d->m_currentContinentIndex)).arg(m_currentTimeZoneList.at(d->m_currentTimezoneIndex));
             qDebug() << m_timezone;
         });
 
@@ -146,6 +148,14 @@ QString TimeZoneFrame::getFrameName()
     return "TimeZoneFrame";
 }
 
+void TimeZoneFrame::setDefaultTimezone(QString timezone)
+{
+    if (timezone.indexOf("/") != -1) {
+        m_kCliContinentDefault = timezone.left(timezone.indexOf("/"));
+        m_kCliTimezoneDefault = timezone.right(timezone.length() - timezone.indexOf("/") - 1);
+    }
+}
+
 void TimeZoneFrame::readConf()
 {
     Q_D(TimeZoneFrame);
@@ -156,7 +166,7 @@ void TimeZoneFrame::readConf()
     QString locale = ReadLocale();
     updateContinentData(locale);
 
-    d->m_currentContinentIndex = m_currentContinentList.indexOf(kCliContinentDefault);
+    d->m_currentContinentIndex = m_currentContinentList.indexOf(m_kCliContinentDefault);
     if (d->m_currentContinentIndex == -1) {
         d->m_currentContinentIndex = 0;
     }
@@ -164,7 +174,7 @@ void TimeZoneFrame::readConf()
 
     updateTimezoneData();
 
-    d->m_currentTimezoneIndex = m_currentTimeZoneList.indexOf(kCliTimezoneDefault);
+    d->m_currentTimezoneIndex = m_currentTimeZoneList.indexOf(m_kCliTimezoneDefault);
     if (d->m_currentTimezoneIndex == -1) {
         d->m_currentTimezoneIndex = 0;
     }
