@@ -487,6 +487,10 @@ void AdvancedPartitionFrame::doBackBtnClicked()
         }
         AdvancedPartitionDelegate::install_Lvm_Status = Install_Lvm_Status::Lvm_No_Need;
         emit m_currentDelegate->deviceRefreshed(m_delegate->realDevices());
+        Q_D(AdvancedPartitionFrame);
+        d->box();
+        d->printTitle(::QObject::tr("Advanced"), d->width());
+        d->refresh();
     } else {
         Q_D(AdvancedPartitionFrame);
         emit d->backToPreviousPage();
@@ -505,7 +509,9 @@ void AdvancedPartitionFrame::doNextBtnClicked()
     device = m_currentDelegate->getAllUsedDevice();
 
 
-    if (AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_Format_Pv) {        
+    if (AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_Format_Pv) {
+        Q_D(AdvancedPartitionFrame);
+        d->printTitle(::QObject::tr("Edit LVM Disk"), d->width());
         onPrepareInstallFrameFinished();
     } else {
         Q_D(AdvancedPartitionFrame);
