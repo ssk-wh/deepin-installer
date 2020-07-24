@@ -123,7 +123,6 @@ void NcursesTextBrower::setFocus(bool foucs)
     if (foucs) {
         attron(NcursesUtil::getInstance()->item_selected_attr());
     } else {
-        //attron(NcursesUtil::getInstance()->item_attr());
         setBackground(this->background());
     }
 

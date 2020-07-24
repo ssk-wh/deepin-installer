@@ -34,6 +34,7 @@ void NcursesCheckBoxList::setList(QVector<QPair<QString, QString>>& list,  bool 
         testcheckbox->setIsUseTitle(isusetitle);
         testcheckbox->setText(text.first, text.second, iswchar);
         testcheckbox->setBackground(this->background());
+        testcheckbox->setFocusStyle(NcursesUtil::getInstance()->list_view_item_select());
         testcheckbox->hide();
 
         if(m_selectitems.indexOf(text.first) != -1) {
@@ -112,15 +113,14 @@ void NcursesCheckBoxList::onKeyPress(int keyCode)
 {
     switch (keyCode) {
     case KEY_UP:
-        m_ncursesCheckBoxs_vector.at(m_index)->setFocus(false);
         m_index--;
         if(m_index < 0){
             m_index = 0;
             m_heightpos = m_ncursesCheckBoxs_vector.at(m_index)->getStrHeight();
-            m_ncursesCheckBoxs_vector.at(m_index)->setFocus(true);
             break;
         } else {
             m_heightpos -= m_ncursesCheckBoxs_vector.at(m_index+1)->getStrHeight();
+            m_ncursesCheckBoxs_vector.at(m_index + 1)->setFocus(false);
         }
 
         if((m_heightpos == 0) && (m_index > 0)) {
@@ -153,17 +153,17 @@ void NcursesCheckBoxList::onKeyPress(int keyCode)
         }
 
         this->refresh();
+        emit signal_KeyTriger(keyCode, m_listtype, m_index);
         break;
 
     case KEY_DOWN:
-        m_ncursesCheckBoxs_vector.at(m_index)->setFocus(false);
         m_index++;
         if(m_index >= m_ncursesCheckBoxs_vector.size()){
             m_index = m_ncursesCheckBoxs_vector.size() - 1;
-            m_ncursesCheckBoxs_vector.at(m_index)->setFocus(true);
             break;
         } else {
             m_heightpos += m_ncursesCheckBoxs_vector.at(m_index)->getStrHeight();
+            m_ncursesCheckBoxs_vector.at(m_index - 1)->setFocus(false);
         }
 
         if(m_heightpos > height()) {
@@ -183,6 +183,7 @@ void NcursesCheckBoxList::onKeyPress(int keyCode)
         }
 
         this->refresh();
+        emit signal_KeyTriger(keyCode, m_listtype, m_index);
         break;
 
     case 32:
@@ -222,12 +223,12 @@ void NcursesCheckBoxList::onKeyPress(int keyCode)
                 m_selectitems.append(m_ncursesCheckBoxs_vector.at(m_index)->title());
             }
         }
+        emit signal_KeyTriger(keyCode, m_listtype, m_index);
         break;
     default:
         break;
     }
 
-    emit signal_KeyTriger(keyCode, m_listtype, m_index);
     NCursesWindowBase::onKeyPress(keyCode);
 }
 
@@ -258,11 +259,19 @@ void NcursesCheckBoxList::show()
         testheightpos += m_ncursesCheckBoxs_vector.at(i)->getStrHeight();
     }
 
-    m_ncursesCheckBoxs_vector.at(m_index)->setFocus(true);
+    if (isOnFoucs()) {
+        m_ncursesCheckBoxs_vector.at(m_index)->setFocus(true);
+    } else {
+        chtype testchtype = m_ncursesCheckBoxs_vector.at(m_index)->getFocusStyle();
+        m_ncursesCheckBoxs_vector.at(m_index)->setbkgd(testchtype);
+    }
 
     if(m_listtype == BASICENVIRONMENT) {
         doSingleSelect();
     }
+
+    m_ncursesCheckBoxs_vector.at(m_index)->setSelect(m_ncursesCheckBoxs_vector.at(m_index)->isSelect());
+
 }
 
 void NcursesCheckBoxList::drawFoucs()
@@ -281,6 +290,20 @@ void NcursesCheckBoxList::selectAll(bool selectall)
     } else {
         for(int i = 0; i < m_ncursesCheckBoxs_vector.size(); i++) {
             m_ncursesCheckBoxs_vector.at(i)->setSelect(false);
+        }
+    }
+}
+
+void NcursesCheckBoxList::setFocus(bool foucs)
+{
+    NCursesWindowBase::setFocus(foucs);
+
+    if (m_ncursesCheckBoxs_vector.size() > 0) {
+        if (foucs) {
+            m_ncursesCheckBoxs_vector.at(m_index)->setFocus(true);
+        } else {
+            chtype testchtype = m_ncursesCheckBoxs_vector.at(m_index)->getFocusStyle();
+            m_ncursesCheckBoxs_vector.at(m_index)->setbkgd(testchtype);
         }
     }
 }

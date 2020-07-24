@@ -45,6 +45,7 @@ public:
     chtype background();
     void setBold(bool bold);
     void setFocusStyle(chtype type);
+    chtype getFocusStyle(){ return m_chtype_focus; }
 signals:
     void selectionChanged();
     void enter();

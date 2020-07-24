@@ -13,15 +13,9 @@ namespace network {
 }
 }
 
-//namespace NetworkManager {
-//    class Device{
-//    public:
-//        typedef QSharedPointer<Device> Ptr;
-//    };
-//}
-
 namespace installer {
 
+class NcursesListView;
 class NcursesTextBrower;
 class NcursesLabel;
 class NCursesLineEdit;
@@ -79,7 +73,6 @@ public:
 
 private slots:
     void slot_EidtTextChange(const QString &text);
-    //void slot_onDeviceListChanged(const QList<dde::network::NetworkDevice *> devices);
 
 private:
     bool m_isshow;
@@ -90,10 +83,9 @@ private:
     QString m_networkconfigtypestr;
     QString m_networkconnecterrorstr;
     NcursesTextBrower* m_titledesbrower;
-    NcursesLabel* m_networkconfigtypelabel;
     NcursesLabel* m_childpagecounttext;
     NcursesLabel* m_networkconnecterrorlabel;
-    QVector<NetwrokFrameItem> m_operationchoice;
+    NcursesListView* m_operationchoice;
     QVector<NetwrokFrameItem> m_ipconfigitems;
     NetworkManager::Device::Ptr m_ipv4Device;
     DHCPTYpe m_dhcpType;

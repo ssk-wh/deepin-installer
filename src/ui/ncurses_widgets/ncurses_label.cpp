@@ -25,7 +25,7 @@ void NcursesLabel::setText(const QString &text)
 void NcursesLabel::setFocus(bool foucs)
 {
     if (foucs) {
-        attron(m_chtype_focus);
+        bkgd(NcursesUtil::getInstance()->button_key_active_attr());
     } else {
         //attron(NcursesUtil::getInstance()->item_attr());
         setBackground(this->background());
@@ -61,6 +61,12 @@ void NcursesLabel::show()
     NCursesWindowBase::show();
 }
 
+void NcursesLabel::hide()
+{
+    NCursesWindowBase::hide();
+    m_isShow = false;
+}
+
 void NcursesLabel::setAlignment(Qt::Alignment alignment)
 {
     m_alignment = alignment;
@@ -82,6 +88,11 @@ void NcursesLabel::adjustSizeByContext()
             resize(height(), m_text.length());
         }
     }
+}
+
+void NcursesLabel::drawFoucs()
+{
+
 }
 
 QString NcursesLabel::text() const

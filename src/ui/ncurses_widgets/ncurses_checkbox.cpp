@@ -135,10 +135,12 @@ void NcursesCheckBox::setSelect(bool select)
 }
 
 void NcursesCheckBox::setFocus(bool foucs) {
+
+    NCursesWindowBase::setFocus(foucs);
+
     if (foucs) {
         attron(NcursesUtil::getInstance()->item_selected_attr());
     } else {
-        //attrset(NcursesUtil::getInstance()->item_attr());
         setBackground(m_parent->background());
     }
 
@@ -148,8 +150,10 @@ void NcursesCheckBox::setFocus(bool foucs) {
     if(m_contentbrower != nullptr) {
        m_contentbrower->setFocus(foucs);
     }
+
     setSelect(m_select);
-    NCursesWindowBase::setFocus(foucs);
+
+
 }
 
 void NcursesCheckBox::resizew(int newLines, int newColumns)
@@ -230,6 +234,34 @@ void NcursesCheckBox::moveWindowTo(int y, int x)
     } else if(m_contentbrower != nullptr) {
         m_contentbrower->mvwin(y, x + testframestr.length());
     }
+}
+
+void NcursesCheckBox::setbkgd(chtype colortype)
+{
+    attron(colortype);
+
+    if(m_titlebrower != nullptr) {
+       m_titlebrower->attron(colortype);//bkgd(colortype);
+       m_titlebrower->show();
+    }
+    if(m_contentbrower != nullptr) {
+       m_contentbrower->attron(colortype);//bkgd(colortype);
+       m_contentbrower->show();
+    }
+
+    refresh();
+}
+
+void NcursesCheckBox::setFocusStyle(chtype type)
+{
+    m_chtype_focus = type;
+    if(m_titlebrower != nullptr) {
+       m_titlebrower->setFocusStyle(type);
+    }
+    if(m_contentbrower != nullptr) {
+       m_contentbrower->setFocusStyle(type);
+    }
+
 }
 
 

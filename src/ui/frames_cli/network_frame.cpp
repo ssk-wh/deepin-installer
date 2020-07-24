@@ -10,11 +10,6 @@
 #include <QProcess>
 #include <QThread>
 #include <QNetworkInterface>
-//#include <networkworker.h>
-//#include <networkmodel.h>
-//#include <networkdevice.h>
-//#include <wirelessdevice.h>
-//#include <wireddevice.h>
 
 #include <QRegularExpression>
 #include <QRegularExpressionValidator>
@@ -50,7 +45,6 @@ NetwrokFramePrivate::NetwrokFramePrivate(NCursesWindowBase *parent, int lines, i
       m_currentlineeditindex(0),
       m_titledes(""),
       m_titledesbrower(nullptr),
-      m_networkconfigtypelabel(nullptr),
       m_childpagecounttext(nullptr),
       m_networkconnecterrorlabel(nullptr),
       m_dhcpType(DHCPTYpe::Auto)
@@ -66,43 +60,20 @@ void NetwrokFramePrivate::initUI()
     this->drawShadow(true);
     this->box();
 
-    //m_titledes.append(::QObject::tr("  Do network set by auto, use dhcp to set network"));
-    //m_titledes.append(::QObject::tr("  Do network set by manual, in this page you can set IP. Mask. Gateway. DNS"));
-    //m_titledes.append(::QObject::tr("  Do not set network now, if you not want set the network now, you can do it with the installation complete"));
     m_titledes.append("    " + ::QObject::tr("Set the IP address, gateway, netmask, DNS please."));
     m_titledes.append("    " + ::QObject::tr("Configure Ethernet according to your needs, but you can skip it as well."));
 
-//    m_networkconfigtypestr = ::QObject::tr("Configuration type") + ":";
     m_networkconnecterrorstr = ::QObject::tr("Network connection error, check the configuration please");
 
     m_titledesbrower = new NcursesTextBrower(this, 3, width() - 2, begy() + 2, begx() + 1);
     m_titledesbrower->setFocusEnabled(false);
     m_titledesbrower->setText(m_titledes[0]);
 
-    m_networkconfigtypelabel = new NcursesLabel(this, m_networkconfigtypestr, 1, m_networkconfigtypestr.length() + 2, begy() + 6, begx() + 1);
-    m_networkconfigtypelabel->setFocusEnabled(false);
-
-    m_childpagecounttext = new NcursesLabel(this, " [1/2] ", 1, width() - 2 - m_networkconfigtypelabel->width(), begy() + 6, begx() + 1 + m_networkconfigtypelabel->width());
+    m_childpagecounttext = new NcursesLabel(this, " [1/2] ", 1, 8, begy() + 6, begx() + 1);
     m_childpagecounttext->setFocusEnabled(false);
 
-//    NetwrokFrameItem operationchoiceautoset;
-//    operationchoiceautoset.m_NcursesLabel = new NcursesLabel(this, 1, width() /2, begy(), begx());
-//    operationchoiceautoset.m_NcursesLabel->setFocusEnabled(false);
-//    Utils::addTransLate(m_trList, std::bind(&NcursesLabel::setText, operationchoiceautoset.m_NcursesLabel, std::placeholders::_1), QString(::QObject::tr("Network auto set")));
-
-    NetwrokFrameItem operationchoicemanualset;
-    operationchoicemanualset.m_NcursesLabel = new NcursesLabel(this, 1, width() /2, begy(), begx());
-    operationchoicemanualset.m_NcursesLabel->setFocusEnabled(false);
-    operationchoicemanualset.m_NcursesLabel->setFocusStyle(NcursesUtil::getInstance()->list_view_item_select());
-
-    NetwrokFrameItem operationchoicenotset;
-    operationchoicenotset.m_NcursesLabel = new NcursesLabel(this, 1, width() /2, begy(), begx());
-    operationchoicenotset.m_NcursesLabel->setFocusEnabled(false);
-    operationchoicenotset.m_NcursesLabel->setFocusStyle(NcursesUtil::getInstance()->list_view_item_select());
-
-//    m_operationchoice.push_back(operationchoiceautoset);
-    m_operationchoice.push_back(operationchoicemanualset);
-    m_operationchoice.push_back(operationchoicenotset);
+    m_operationchoice = new NcursesListView(this, 2, width() / 2, begy(), begx());
+    m_operationchoice->setFocus(true);
 
     NetwrokFrameItem ipconfigitemsipset;
     ipconfigitemsipset.m_NcursesLabel = new NcursesLabel(this, 1, 15, begy(), begx());
@@ -175,9 +146,6 @@ void NetwrokFramePrivate::updateTs()
     printTitle(::QObject::tr("Configure Network"), width());
 
     m_titledes.clear();
-//    m_titledes.append("  " + ::QObject::tr("Do network set by auto, use dhcp to set network"));
-    //m_titledes.append("  " + ::QObject::tr("Do network set by manual, in this page you can set IP. Mask. Gateway. DNS"));
-    //m_titledes.append("  " + ::QObject::tr("Do not set network now, if you not want set the network now, you can do it with the installation complete"));
     m_titledes.append("  " + ::QObject::tr("Set the IP address, gateway, netmask, DNS please."));
     m_titledes.append("  " + ::QObject::tr("Configure Ethernet according to your needs, but you can skip it as well."));
     if(installer::ReadLocale() == "zh_CN") {
@@ -186,12 +154,12 @@ void NetwrokFramePrivate::updateTs()
         m_titledesbrower->setText(m_titledes[0]);
     }
 
-//    m_networkconfigtypestr = ::QObject::tr("Configuration type") + ":";
-    m_networkconfigtypelabel->erase();
-    m_networkconfigtypelabel->setText(m_networkconfigtypestr);
-    m_networkconfigtypelabel->show();
+    //m_networkconfigtypelabel->erase();
+    //m_networkconfigtypelabel->setText(m_networkconfigtypestr);
+    //m_networkconfigtypelabel->show();
+
     if(m_currentchoicetype == 0) {
-        if(m_operationchoice.at(0).m_NcursesLabel->isOnFoucs()) {
+        if(m_operationchoice->getCurrentIndex() == 0) {
             m_childpagecounttext->setText(" [1/2] ");
         } else {
             m_childpagecounttext->setText("");
@@ -200,12 +168,11 @@ void NetwrokFramePrivate::updateTs()
         m_childpagecounttext->setText(" [1/2] ");
     }
 
-    for(int i = 0; i < m_operationchoice.size(); i++) {
-        m_operationchoice.at(i).m_NcursesLabel->erase();
-    }
+    QStringList strList;
+    strList << ::QObject::tr("Configure Now");
+    strList << ::QObject::tr("Skip");
+    m_operationchoice->setList(strList);
 
-    m_operationchoice.at(0).m_NcursesLabel->setText(::QObject::tr("Configure Now"));
-    m_operationchoice.at(1).m_NcursesLabel->setText(::QObject::tr("Skip"));
 
     for(int i = 0; i < m_ipconfigitems.size(); i++) {
         m_ipconfigitems.at(i).m_NcursesLabel->erase();
@@ -383,17 +350,11 @@ void NetwrokFramePrivate::updateChoiceType(int type)
             m_ipconfigitems.at(i).m_NCursesLineEdit->hide();
             m_ipconfigitems.at(i).m_ErrorinfoLabel->hide();
         }
-
-        for(int i = 0; i < m_operationchoice.size(); i++) {
-            m_operationchoice.at(i).m_NcursesLabel->mvwin(m_operationchoice.at(i).m_begy, m_operationchoice.at(i).m_begx);
-            m_operationchoice.at(i).m_NcursesLabel->show();
-            m_operationchoice.at(i).m_NcursesLabel->refresh();
-        }
+        m_operationchoice->show();
+        m_operationchoice->refresh();
 
     } else if(type == 1){
-        for(int i = 0; i < m_operationchoice.size(); i++) {
-            m_operationchoice.at(i).m_NcursesLabel->hide();
-        }
+        m_operationchoice->hide();
 
         int testcurrx = m_ipconfigitems.at(3).m_NcursesLabel->width();
         for(int i = 0; i < m_ipconfigitems.size(); i++) {
@@ -418,31 +379,16 @@ void NetwrokFramePrivate::setFocusEnableType(int type)
             m_ipconfigitems.at(i).m_NCursesLineEdit->setFocusEnabled(false);
             m_ipconfigitems.at(i).m_ErrorinfoLabel->setFocusEnabled(false);
         }
-
-        for(int i = 0; i < m_operationchoice.size(); i++) {
-            m_operationchoice.at(i).m_NcursesLabel->setFocusEnabled(false);
-        }
-
-        bool ishasfocus = false;
-        for(int i = 0; i < m_operationchoice.size(); i++) {
-            if(m_operationchoice.at(i).m_NcursesLabel->isOnFoucs()) {
-                ishasfocus = true;
-                break;
-            }
-        }
-
-        if(!ishasfocus) {
-            m_operationchoice.at(0).m_NcursesLabel->setFocus(true);
-        }
+        m_operationchoice->setFocusEnabled(true);
+        m_operationchoice->setFocus(false);
 
         m_pBackButton->setFocus(false);
         m_pNextButton->setFocusEnabled(true);
         m_pNextButton->setFocus(true);
 
     } else if(type == 1){
-        for(int i = 0; i < m_operationchoice.size(); i++) {
-            m_operationchoice.at(i).m_NcursesLabel->setFocusEnabled(false);
-        }
+        m_operationchoice->setFocus(false);
+        m_operationchoice->setFocusEnabled(false);
 
         for(int i = 0; i < m_ipconfigitems.size(); i++) {
             m_ipconfigitems.at(i).m_NcursesLabel->setFocusEnabled(false);
@@ -475,63 +421,6 @@ void NetwrokFramePrivate::setFocusEnableType(int type)
 void NetwrokFramePrivate::onKeyPress(int keyCode)
 {
     switch (keyCode) {
-    case KEY_UP:
-        if(m_currentchoicetype == 0) {
-            for(int i = 0; i < m_operationchoice.size(); i++) {
-                if(m_operationchoice.at(i).m_NcursesLabel->isOnFoucs()){
-                    if(i != 0) {
-                        m_operationchoice.at(i).m_NcursesLabel->setFocus(false);
-                        m_operationchoice.at(i - 1).m_NcursesLabel->setFocus(true);
-                        m_titledesbrower->setText(m_titledes[i - 1]);
-                        m_titledesbrower->show();
-                        m_titledesbrower->refresh();
-
-                        if((i - 1) == 0) {
-                            m_childpagecounttext->setText(" [1/2] ");
-                            m_childpagecounttext->show();
-                        } else {
-                            m_childpagecounttext->setText("");
-                            m_childpagecounttext->show();
-                        }
-                        break;
-                    }
-                }
-            }
-
-            m_pBackButton->setFocus(false);
-            m_pNextButton->setFocus(true);
-        }
-
-        break;
-
-    case KEY_DOWN:
-        if(m_currentchoicetype == 0) {
-            for(int i = 0; i < m_operationchoice.size(); i++) {
-                if(m_operationchoice.at(i).m_NcursesLabel->isOnFoucs()){
-                    if((i + 1) != m_operationchoice.size()) {
-                        m_operationchoice.at(i).m_NcursesLabel->setFocus(false);
-                        m_operationchoice.at(i + 1).m_NcursesLabel->setFocus(true);
-                        m_titledesbrower->setText(m_titledes[i + 1]);
-                        m_titledesbrower->show();
-                        m_titledesbrower->refresh();
-
-                        if((i + 1) == 0) {
-                            m_childpagecounttext->setText(" [1/2] ");
-                            m_childpagecounttext->show();
-                        } else {
-                            m_childpagecounttext->setText("");
-                            m_childpagecounttext->show();
-                        }
-                        break;
-                    }
-                }
-            }
-            m_pBackButton->setFocus(false);
-            m_pNextButton->setFocus(true);
-        }
-
-        break;
-
     case KEY_ENTER:
     case KEY_ENTER_OTHER:
         if(m_pBackButton->isOnFoucs()) {
@@ -580,18 +469,13 @@ void NetwrokFramePrivate::doNextBtnClicked()
             emit next();
         }
     } else if(m_currentchoicetype == 0) {
-/*        if(m_operationchoice.at(0).m_NcursesLabel->isOnFoucs()) {
-            m_dhcpType = DHCPTYpe::Auto;
-            if(writeInfoList()) {
-                emit next();
-            }
-        } else */if(m_operationchoice.at(0).m_NcursesLabel->isOnFoucs()) {
+        if(m_operationchoice->getCurrentIndex() == 0) {
             m_dhcpType = DHCPTYpe::Manual;
             m_childpagecounttext->setText(" [2/2] ");
             m_childpagecounttext->show();
             updateChoiceType(1);
             setFocusEnableType(1);
-        } else if(m_operationchoice.at(1).m_NcursesLabel->isOnFoucs()) {
+        } else if(m_operationchoice->getCurrentIndex() == 1) {
             emit next();
         }
     }
@@ -716,39 +600,15 @@ void NetwrokFramePrivate::slot_EidtTextChange(const QString &text)
     }
 }
 
-/*void NetwrokFramePrivate::slot_onDeviceListChanged(const QList<dde::network::NetworkDevice *> devices)
-{
-    // add wireless device list
-    bool testhasAp = false;
-    bool testhasWired = false;
-    bool testhasWireless = false;
-    for (auto const dev : devices) {
-        if (dev->type() == dde::network::NetworkDevice::Wired) {
-            testhasWired = true;
-        }
-        if (dev->type() != dde::network::NetworkDevice::Wireless)
-            continue;
-        testhasWireless = true;
-        if (qobject_cast<dde::network::WirelessDevice *>(dev)->supportHotspot()) {
-            testhasAp = true;
-        }
-    }
-    qDebug() << "[Network] device state : " << testhasWired << "," << testhasWireless << "," << testhasAp;
-}*/
-
 
 void NetwrokFramePrivate::layout()
 {
-    //updateTs();
+    m_operationchoice->adjustSizeByContext();
     int testcurry = begy() + m_titledesbrower->height() + 6;
-    int testcurrx = width() / 2 - m_operationchoice.at(0).m_NcursesLabel->text().length() / 2;
+    int testcurrx = begx() + width() / 2 - m_operationchoice->width() / 2;
     int curry = testcurry;
 
-    for(int i = 0; i < m_operationchoice.size(); i++) {
-        m_operationchoice[i].m_begy = testcurry + i;
-        m_operationchoice[i].m_begx = begx() + testcurrx;
-        m_operationchoice.at(i).m_NcursesLabel->mvwin(m_operationchoice.at(i).m_begy, m_operationchoice.at(i).m_begx);
-    }
+    m_operationchoice->mvwin(testcurry, testcurrx);
 
     testcurrx = m_ipconfigitems.at(3).m_NcursesLabel->width();
     int edittorisize = width() / 2 - testcurrx - 2;

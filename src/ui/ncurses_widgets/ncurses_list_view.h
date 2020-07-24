@@ -23,6 +23,7 @@ public:
     void drawFoucs() override;
     void adjustSizeByContext() override;
     int size();
+    void setFocus(bool foucs) override;
     void clearFoucs();
 signals:
     void selectChanged(int index);

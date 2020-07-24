@@ -32,6 +32,9 @@ public:
     void clearText();
     void moveWindowTo(int y, int x);
     int getStrHeight(){ return m_strheight; }
+    void setbkgd(chtype type);
+    void setFocusStyle(chtype type);
+    chtype getFocusStyle(){ return m_chtype_focus; }
 
 signals:
     void signal_SelectChange(bool select);

@@ -15,9 +15,11 @@ public:
     void setFocus(bool foucs) override;
     void setText(const QString& text);
     virtual void show() override;
+    virtual void hide() override;
     QString text() const;
     void setAlignment(Qt::Alignment alignment);
     void adjustSizeByContext() override;
+    void drawFoucs() override;
 
 signals:
     void signal_OnFocus(bool focus);
@@ -27,6 +29,7 @@ private:
 private:
     QString m_text;
     Qt::Alignment m_alignment;
+    bool m_isShow = false;
 };
 
 }

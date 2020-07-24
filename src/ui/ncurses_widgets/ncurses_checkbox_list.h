@@ -35,6 +35,7 @@ public:
     void drawFoucs() override;
     void selectAll(bool selectall);
     int size(){ return m_listsize; }
+    void setFocus(bool foucs) override;
 
 signals:
     void signal_KeyTriger(int keycode, int listtype, int index);

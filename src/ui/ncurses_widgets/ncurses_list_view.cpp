@@ -149,7 +149,14 @@ void NcursesListView::show()
     m_page = m_currentIndex / height();
     for (int currY = 0; currY <= height() && currY + (m_page * height()) < m_childWindows.size(); currY++) {
         if (m_is_select_mode) {
-            m_childWindows[m_currentIndex]->setFocus(true);
+            if(isOnFoucs()){
+                m_childWindows[m_currentIndex]->setFocus(true);
+            } else {
+                chtype testchtype = m_childWindows[m_currentIndex]->getFocusStyle();
+                m_childWindows[m_currentIndex]->bkgd(testchtype);
+                m_childWindows[m_currentIndex]->show();
+            }
+
         }
         m_childWindows[currY + (m_page * height())]->adjustSizeByContext();
         m_childWindows[currY + (m_page * height())]->mvwin(begy() + currY, begx() + m_reserveX);
@@ -193,6 +200,22 @@ void NcursesListView::adjustSizeByContext()
 int NcursesListView::size()
 {
     return m_list.size();
+}
+
+void NcursesListView::setFocus(bool foucs)
+{
+    NCursesWindowBase::setFocus(foucs);
+    if (m_childWindows.size() > 0) {
+        if (foucs) {
+            m_childWindows[m_currentIndex]->setFocus(true);
+        } else {
+            //m_childWindows[m_currentIndex]->setFocus(false);
+            chtype testchtype = m_childWindows[m_currentIndex]->getFocusStyle();
+            m_childWindows[m_currentIndex]->bkgd(testchtype);
+            m_childWindows[m_currentIndex]->show();
+        }
+    }
+
 }
 
 void NcursesListView::clearFoucs()
