@@ -1,6 +1,5 @@
 [Unit]
 Description=Launch installer in normal mode
-ConditionKernelCommandLine!=auto-deepin-installer
 
 [Service]
 Type=forking

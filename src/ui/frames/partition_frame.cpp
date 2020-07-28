@@ -178,7 +178,7 @@ void PartitionFrame::finished()
 }
 
 bool PartitionFrame::shouldDisplay() const{
-    return !GetSettingsBool(kSkipPartitionPage) || !GetSettingsBool("DI_LUPIN");
+    return !GetSettingsBool(kSkipPartitionPage);
 }
 
 QString PartitionFrame::returnFrameName() const
