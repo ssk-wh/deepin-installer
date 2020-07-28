@@ -80,6 +80,7 @@ class NewPartitionFrame : public ChildFrameInterface {
   TableComboBox* mount_point_box_ = nullptr;
   QLabel* size_label_ = nullptr;
   PartitionSizeSlider* size_slider_ = nullptr;
+  QLabel* m_auto_label = nullptr;
 
   SelectButton* cancel_button_ = nullptr;
   DSuggestButton* create_button_ = nullptr;

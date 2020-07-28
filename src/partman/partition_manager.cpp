@@ -539,11 +539,11 @@ DeviceList ScanDevices(bool enable_os_prober) {
       int deviceNum = 1;
 
       // add a MBR disk which has not any partitions.
-      devices << constructDevice1(deviceNum);
+      //devices << constructDevice1(deviceNum);
 
       // add a MBR disk which has two partitions.
       ++deviceNum;
-      devices << constructDevice2(deviceNum);
+      //devices << constructDevice2(deviceNum);
 
       // add a GPT disk which has four partitions and one of the partitions is working.
       ++deviceNum;
@@ -681,7 +681,7 @@ Device::Ptr constructDevice3(int deviceNum)
 {
     Device* device = new Device();
     device->model = "debug device";
-    device->path = QString("/dev/debugDevice%1").arg(deviceNum);
+    device->path = QString("/dev/debug%1").arg(deviceNum);
     device->length = 701651888;
     device->sectors = 63;
     device->sector_size = 512;

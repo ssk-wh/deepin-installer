@@ -30,6 +30,7 @@
 #include <DPushButton>
 
 #include "base/file_util.h"
+#include "sysinfo/proc_meminfo.h"
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
 #include "ui/frames/consts.h"
@@ -88,8 +89,32 @@ void NewPartitionFrame::setPartition(const Partition::Ptr partition) {
   if (mount_point_model_) {
       mount_point_model_->deleteLater();
   }
-  mount_point_model_ = new MountPointModel(delegate_->getMountPoints(), this);
+  QStringList mountPointList = delegate_->getMountPoints();
+  if (partition->is_lvm) {
+      if (mountPointList.indexOf("/") < 0) {
+          mountPointList.removeOne(kMountPointAuto);
+      }
+  }
+
+  if (GetCurrentType() == OSType::Server) {
+      mountPointList.removeOne(kMountPointAuto);
+  }
+
+  Device::Ptr device = delegate_->findDevice(partition_->device_path);
+
+  for (Partition::Ptr parttition : device->partitions) {
+      if (parttition->fs == FsType::LinuxSwap) {
+           mountPointList.removeOne(kMountPointAuto);
+      }
+
+      if (parttition->mount_point == kMountPointRoot) {
+           mountPointList.removeOne(kMountPointAuto);
+      }
+  }
+
+  mount_point_model_ = new MountPointModel(mountPointList, this);
   mount_point_box_->setModel(mount_point_model_);
+
 
   const bool primary_ok = delegate_->canAddPrimary(partition);
   const bool logical_ok = delegate_->canAddLogical(partition);
@@ -296,6 +321,8 @@ void NewPartitionFrame::initUI() {
   create_button_->setFixedWidth(kButtonwidth);
   create_button_->setFocusPolicy(Qt::TabFocus);
 
+  m_auto_label = new QLabel();
+
   QHBoxLayout* bt_layout = new QHBoxLayout;
   bt_layout->addStretch();
   bt_layout->addWidget(cancel_button_, 0, Qt::AlignHCenter);
@@ -311,7 +338,9 @@ void NewPartitionFrame::initUI() {
   layout->addSpacing(kMainLayoutSpacing);
 
   layout->addWidget(content_frame, 0, Qt::AlignHCenter);
-  layout->addSpacing(74);
+  layout->addSpacing(54);
+  layout->addWidget(m_auto_label, 0, Qt::AlignHCenter);
+  layout->addSpacing(8);
   layout->addLayout(bt_layout);
   layout->addSpacing(20);
 
@@ -334,6 +363,8 @@ void NewPartitionFrame::updateSlideSize() {
   mount_point_box_->setVisible(visible);
 
   if (fs_type == FsType::EFI) {
+    m_auto_label->setText("");
+    create_button_->setEnabled(true);
     // Set default size of EFI partition.
     // NOTE(xushaohua): partition size might be less than |default_size|.
     // Its value will also be checked in AdvancedPartitionFrame.
@@ -347,6 +378,8 @@ void NewPartitionFrame::updateSlideSize() {
     size_slider_->setValue(real_size);
     size_slider_->blockSignals(false);
   } else if (mount_point == kMountPointBoot) {
+    m_auto_label->setText("");
+    create_button_->setEnabled(true);
     // Set default size for /boot.
     // NOTE(xushaohua): partition size might be less than |default_size|.
     // Its value will also be checked in AdvancedPartitionFrame.
@@ -357,8 +390,48 @@ void NewPartitionFrame::updateSlideSize() {
     size_slider_->blockSignals(true);
     size_slider_->setValue(real_size);
     size_slider_->blockSignals(false);
+  } else if (mount_point == kMountPointAuto
+             && fs_type != FsType::EFI
+             && fs_type != FsType::LVM2PV
+             && fs_type != FsType::Recovery
+             && fs_type != FsType::LinuxSwap) {
+    // Set default size for auto mount.
+    // NOTE(huzhengming): partition size might be less than |default_size|.
+    // Its value will also be checked in AdvancedPartitionFrame.
+    static const MemInfo mem_info = GetMemInfo();
+    qint64 swapeSpace =  2 * kGibiByte;
+    if (mem_info.mem_total > 2 *  kGibiByte) {
+        swapeSpace = mem_info.mem_total + 2 *  kGibiByte;
+    }
+    const int root_required = GetSettingsInt(kPartitionRootMiniSpace);
+    qint64 sumSapce = root_required * kGibiByte + swapeSpace;
+
+    PartitionTableType table = delegate_->findDevice(partition_->device_path)->table;
+
+    if (table == PartitionTableType::GPT) {
+        sumSapce += 300 * kMebiByte;
+    }
+
+    size_slider_->setMinimum(0);
+    size_slider_->blockSignals(true);
+    size_slider_->setValue(0);
+    size_slider_->blockSignals(false);
+
+    const qint64 default_size = sumSapce;
+    QString msg = "";
+    if (default_size > size_slider_->value() * kMebiByte) {
+        msg = ::QObject::tr("Unable to mount automatically, as it requires at least %1 GB")
+              .arg(QString::number(default_size / kGibiByte));
+       create_button_->setEnabled(false);
+    } else {
+        create_button_->setEnabled(true);
+    }
+
+    m_auto_label->setText(msg);
   }
   else if (fs_type == FsType::Recovery) {
+      m_auto_label->setText("");
+      create_button_->setEnabled(true);
       const qint64 default_size = GetSettingsInt(kRecoveryDefaultSize) * kGibiByte;
       const qint64 real_size    = qMin(default_size, partition_->getByteLength());
       size_slider_->setMinimum(real_size);
@@ -369,6 +442,8 @@ void NewPartitionFrame::updateSlideSize() {
       size_slider_->blockSignals(false);
   }
   else {
+    m_auto_label->setText("");
+    create_button_->setEnabled(true);
     // Reset minimum value of size_slider_.
     size_slider_->setMinimum(kMinimumPartitionSize);
 
@@ -399,10 +474,69 @@ void NewPartitionFrame::onCreateButtonClicked() {
   // TODO(xushaohua): Calculate exact sectors
   const qint64 total_sectors = size_slider_->value() / partition_->sector_size;
 
-  delegate_->createPartition(partition_, partition_type, align_start, fs_type,
-                             mount_point, total_sectors);
-  delegate_->refreshVisual();
+  if (mount_point == kMountPointAuto
+               && fs_type != FsType::EFI
+               && fs_type != FsType::LVM2PV
+               && fs_type != FsType::Recovery
+               && fs_type != FsType::LinuxSwap) {
+      Device::Ptr device = delegate_->findDevice(partition_->device_path);
+      PartitionTableType table = device->table;
+      const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace) + 1;
+      qint64 total_sectors_auto = efi_recommended * kMebiByte / partition_->sector_size;
+      static const MemInfo mem_info = GetMemInfo();
+      qint64 swapeSpace =  2 * kGibiByte;
+      if (mem_info.mem_total > 2 *  kGibiByte) {
+          swapeSpace = mem_info.mem_total + 2 *  kGibiByte;
+      }
 
+      if (align_start) {//从起点开始创建
+          //创建EFI分区
+          if (table == PartitionTableType::GPT) {
+              delegate_->createPartition(partition_, partition_type, align_start, FsType::EFI,
+                                         "", total_sectors_auto);
+          }
+
+          //创建/分区
+          partition_ = device->partitions.back();
+          qint64 rootSapce = size_slider_->value() - efi_recommended * kMebiByte - swapeSpace;
+          total_sectors_auto = rootSapce / partition_->sector_size;
+          delegate_->createPartition(partition_, partition_type, align_start, fs_type,
+                                     kMountPointRoot, total_sectors_auto);
+
+          //创建交换分区
+          partition_ = device->partitions.back();
+          total_sectors_auto = swapeSpace / partition_->sector_size;
+          delegate_->createPartition(partition_, partition_type, align_start, FsType::LinuxSwap,
+                                     "", total_sectors_auto);
+      } else {//从终点开始创建
+          //创建交换分区
+          int indexPartition = device->partitions.indexOf(partition_);
+          total_sectors_auto = swapeSpace / partition_->sector_size;
+          delegate_->createPartition(partition_, partition_type, align_start, FsType::LinuxSwap,
+                                     "", total_sectors_auto);
+
+          //创建/分区
+          partition_ = device->partitions.at(indexPartition);
+          qint64 rootSapce = total_sectors * partition_->sector_size - 301 * kMebiByte - swapeSpace;
+          total_sectors_auto = rootSapce / partition_->sector_size;
+          delegate_->createPartition(partition_, partition_type, align_start, fs_type,
+                                     kMountPointRoot, total_sectors_auto);
+          //创建EFI
+          if (table == PartitionTableType::GPT) {
+              partition_ = device->partitions.at(indexPartition);
+              total_sectors_auto = efi_recommended * kMebiByte / partition_->sector_size;
+              delegate_->createPartition(partition_, partition_type, align_start, FsType::EFI,
+                                         "", total_sectors_auto);
+          }
+
+      }
+
+  } else {
+      delegate_->createPartition(partition_, partition_type, align_start, fs_type,
+                                 mount_point, total_sectors);      
+  }
+
+  delegate_->refreshVisual();
   emit this->finished();
 }
 
@@ -412,13 +546,50 @@ void NewPartitionFrame::onFsChanged(int index) {
 }
 
 void NewPartitionFrame::onMountPointChanged(int index) {
-  Q_UNUSED(index);
+  Q_UNUSED(index);  
   this->updateSlideSize();
 }
 
 void NewPartitionFrame::onSizeSliderValueChanged(qint64 size) {
   // Memorize new value setup by user.
   last_slider_value_ = size;
+  const int mp_index = mount_point_box_->currentIndex();
+  const QString mount_point = mount_point_model_->getMountPoint(mp_index);
+  const FsType fs_type = fs_model_->getFs(fs_box_->currentIndex());
+  if (mount_point == kMountPointAuto
+               && fs_type != FsType::EFI
+               && fs_type != FsType::LVM2PV
+               && fs_type != FsType::Recovery
+               && fs_type != FsType::LinuxSwap) {
+    // Set default size for auto mount.
+    // NOTE(huzhengming): partition size might be less than |default_size|.
+    // Its value will also be checked in AdvancedPartitionFrame.
+    static const MemInfo mem_info = GetMemInfo();
+    qint64 swapeSpace =  2 * kGibiByte;
+    if (mem_info.mem_total > 2 *  kGibiByte) {
+        swapeSpace = mem_info.mem_total + 2 *  kGibiByte;
+    }
+    const int root_required = GetSettingsInt(kPartitionRootMiniSpace);
+    qint64 sumSapce = root_required * kGibiByte + swapeSpace;
+
+    PartitionTableType table = delegate_->findDevice(partition_->device_path)->table;
+
+    if (table == PartitionTableType::GPT) {
+        sumSapce += 300 * kMebiByte;
+    }
+
+    const qint64 default_size = sumSapce;
+    QString msg = "";
+    if (default_size > size) {
+        msg = ::QObject::tr("Unable to mount automatically, as it requires at least %1 GB")
+              .arg(QString::number(default_size / kGibiByte));
+       create_button_->setEnabled(false);
+    } else {
+        create_button_->setEnabled(true);
+    }
+
+    m_auto_label->setText(msg);
+  }
 }
 
 void NewPartitionFrame::setupCloseButton()

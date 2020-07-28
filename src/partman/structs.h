@@ -35,6 +35,7 @@ const qint64 kExbiByte = kPebiByte * kKibiByte;
 const char kMountPointRoot[] = "/";
 const char kMountPointBoot[] = "/boot";
 const char kMountPointEFI[]  = "/boot/efi";
+const char kMountPointAuto[]  = "auto mount";
 
 // This header file defines commonly used types and struct type in partman
 // module.

@@ -91,7 +91,12 @@ void EditPartitionFrame::setPartition(const Partition::Ptr partition) {
   if (mount_point_model_) {
       mount_point_model_->deleteLater();
   }
-  mount_point_model_ = new MountPointModel(delegate_->getMountPoints(), this);
+
+  QStringList mountList = delegate_->getMountPoints();
+  if (mountList.back() == kMountPointAuto) {
+      mountList.pop_back();
+  }
+  mount_point_model_ = new MountPointModel(mountList, this);
   mount_point_box_->setModel(mount_point_model_);
 
   os_label_->setPixmap(QPixmap(GetOsTypeLargeIcon(partition->os)));
