@@ -97,20 +97,25 @@ void KeyboardFramePrivate::rightHandle()
 
 void KeyboardFramePrivate::readConf()
 {
-    // Load xkb config first.
-    m_currentLocale = ReadLocale();
-    initLayout(m_currentLocale);
-
     const QString kb_layout = GetSettingsString("DI_LAYOUT");
     const QString kb_variant = GetSettingsString("DI_LAYOUT_VARIANT");
     const QString kb_default_layout = GetSettingsString(kSystemInfoDefaultKeyboardLayout);
     const QString kb_default_variant = GetSettingsString(kSystemInfoDefaultKeyboardLayoutVariant);
-    const QString layout = kb_layout.isEmpty() ? kb_default_layout : kb_layout;
+    QString layout = kb_layout.isEmpty() ? kb_default_layout : kb_layout;
     const QString variant = kb_layout.isEmpty() ? kb_default_variant : kb_variant;
 
     if (layout.isEmpty()) {
         qWarning() << "Default keyboard layout is empty!";
         return;
+    }
+
+    // Load xkb config first.
+    m_currentLocale = ReadLocale();
+    initLayout(m_currentLocale);
+
+    QString locale = m_currentLocale.mid(m_currentLocale.indexOf("_") + 1).toLower();
+    if (!m_currentLocale.isEmpty()) {
+        layout = locale;
     }
 
     const int index = getLayoutByName(layout);
