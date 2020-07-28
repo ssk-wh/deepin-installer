@@ -1368,14 +1368,14 @@
         <translation>Amaga el registre</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="82"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="46"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="89"/>
         <source>Reboot Now</source>
         <translation>Reinicia ara</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="16"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="18"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="69"/>
@@ -1384,16 +1384,19 @@
         <translation>Instal·lació correcta</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
+        <source>Reboot to discover and enjoy system features</source>
+        <translation>Reinicieu per descobrir i gaudir de les característiques del sistema.</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="19"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="72"/>
         <source>Click the button below and then remove the installation media immediately</source>
         <translation>Cliqueu al botó següent i extraieu el mitjà d&apos;instal·lació immediatament.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="86"/>
         <source>Reboot to complete the installation</source>
-        <translation>Reinicieu el sistema per completar la instal·lació.</translation>
+        <translation type="vanished">Reinicieu el sistema per completar la instal·lació.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="123"/>

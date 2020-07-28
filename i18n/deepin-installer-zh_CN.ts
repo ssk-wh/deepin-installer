@@ -1368,14 +1368,14 @@
         <translation>隐藏日志</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="82"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="46"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="89"/>
         <source>Reboot Now</source>
         <translation>立即重启</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="16"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="18"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="69"/>
@@ -1384,16 +1384,19 @@
         <translation>安装成功</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
+        <source>Reboot to discover and enjoy system features</source>
+        <translation>重启即可体验该系统，祝您使用愉快！</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="19"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="72"/>
         <source>Click the button below and then remove the installation media immediately</source>
         <translation>点击按钮后，请立即拔出安装介质！</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="86"/>
         <source>Reboot to complete the installation</source>
-        <translation>重启即可享受该系统给您带来的新体验，祝您使用愉快！</translation>
+        <translation type="vanished">重启即可享受该系统给您带来的新体验，祝您使用愉快！</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="123"/>

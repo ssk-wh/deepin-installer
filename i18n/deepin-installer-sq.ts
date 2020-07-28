@@ -885,7 +885,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="423"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="584"/>
         <source>Unable to mount automatically, as it requires at least %1 GB</source>
-        <translation type="unfinished"/>
+        <translation>S’arrihet të montohet automatikisht, ngaqë lypsen të paktën %1 GB</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="35"/>
@@ -1368,14 +1368,14 @@
         <translation>Fshihe regjistrin</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="82"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="46"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="89"/>
         <source>Reboot Now</source>
         <translation>Rinisu Tani</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="16"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="18"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="69"/>
@@ -1384,16 +1384,19 @@
         <translation>U instalua Me Sukses</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
+        <source>Reboot to discover and enjoy system features</source>
+        <translation>Riniseni, që të zbuloni dhe shijoni veçori sistemi</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="19"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="72"/>
         <source>Click the button below and then remove the installation media immediately</source>
         <translation>Klikoni mbi butonin më poshtë dhe mandej hiqni menjëherë median e instalimit</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="86"/>
         <source>Reboot to complete the installation</source>
-        <translation>Që të plotësohet instalimi riniseni</translation>
+        <translation type="vanished">Që të plotësohet instalimi riniseni</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="123"/>
@@ -1626,7 +1629,7 @@
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="59"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="82"/>
         <source>No swap partition created, which may affect system performance</source>
-        <translation type="unfinished"/>
+        <translation>S’u krijua pjesë swap, çka mund të prekë funksionimin e sistemit</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="60"/>

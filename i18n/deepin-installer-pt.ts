@@ -885,7 +885,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="423"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="584"/>
         <source>Unable to mount automatically, as it requires at least %1 GB</source>
-        <translation type="unfinished"/>
+        <translation>Incapaz de montar automaticamente, uma vez que requer pelo menos %1 GB</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="35"/>
@@ -1368,14 +1368,14 @@
         <translation>Ocultar registo</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="82"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="46"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="89"/>
         <source>Reboot Now</source>
         <translation>Reiniciar agora</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="16"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="18"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="69"/>
@@ -1384,16 +1384,19 @@
         <translation>Instalado com sucesso</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
+        <source>Reboot to discover and enjoy system features</source>
+        <translation>Reiniciar para descobrir e desfrutar das funcionalidades do sistema</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="19"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="72"/>
         <source>Click the button below and then remove the installation media immediately</source>
         <translation>Clique no botão abaixo e remova o meio de instalação imediatamente</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="86"/>
         <source>Reboot to complete the installation</source>
-        <translation>Reinicie para concluir a instalação</translation>
+        <translation type="vanished">Reinicie para concluir a instalação</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="123"/>
@@ -1626,7 +1629,7 @@
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="59"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="82"/>
         <source>No swap partition created, which may affect system performance</source>
-        <translation type="unfinished"/>
+        <translation>Nenhuma partição swap criada, o que pode afetar o desempenho do sistema</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="60"/>

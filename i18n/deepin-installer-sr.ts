@@ -426,7 +426,7 @@
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="48"/>
         <source>UnionTech OS</source>
-        <translation type="unfinished"/>
+        <translation>UnionTech OS</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="265"/>
@@ -885,7 +885,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="423"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="584"/>
         <source>Unable to mount automatically, as it requires at least %1 GB</source>
-        <translation type="unfinished"/>
+        <translation>Самомонтирање није успрело јер је потребно најмање %1 GB</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="35"/>
@@ -936,7 +936,7 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install the system directly. Please select one of the below solutions and continue.</source>
-        <translation type="unfinished"/>
+        <translation>Имате ЕФИ покретач и МБР диск па не можете инсталирати Дипин директно. Одаберите једно од решења испод и наставите.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="79"/>
@@ -1368,14 +1368,14 @@
         <translation>Сакриј записник</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="82"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="46"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="89"/>
         <source>Reboot Now</source>
         <translation>Поново покрени</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="16"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="18"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="69"/>
@@ -1384,16 +1384,19 @@
         <translation>Инсталација је успешна</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
+        <source>Reboot to discover and enjoy system features</source>
+        <translation>Поново покрените да откријете и уживате у могућностима система</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="19"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="72"/>
         <source>Click the button below and then remove the installation media immediately</source>
         <translation>Кликните на дугме испод, затим одмах уклоните инсталациони медиј</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="86"/>
         <source>Reboot to complete the installation</source>
-        <translation>Поново покрени да довршиш инсталацију</translation>
+        <translation type="vanished">Поново покрени да довршиш инсталацију</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="123"/>
@@ -1626,7 +1629,7 @@
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="59"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="82"/>
         <source>No swap partition created, which may affect system performance</source>
-        <translation type="unfinished"/>
+        <translation>Није направљена партиција помоћне меморије, што може утицати на учинак система</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="60"/>

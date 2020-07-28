@@ -885,7 +885,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="423"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="584"/>
         <source>Unable to mount automatically, as it requires at least %1 GB</source>
-        <translation type="unfinished"/>
+        <translation>Automatisch aankoppelen mislukt: minimaal %1 GB vrije schijfruimte vereist</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="35"/>
@@ -1368,14 +1368,14 @@
         <translation>Logboek verbergen</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="82"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="46"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="89"/>
         <source>Reboot Now</source>
         <translation>Nu opnieuw opstarten</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="16"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="18"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="69"/>
@@ -1384,16 +1384,19 @@
         <translation>Installatie voltooid</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
+        <source>Reboot to discover and enjoy system features</source>
+        <translation>Herstart om aan de slag te gaan en het systeem te ontdekken</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="19"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="72"/>
         <source>Click the button below and then remove the installation media immediately</source>
         <translation>Klik op onderstaande knop en verwijder daarna direct het installatiemedium</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="86"/>
         <source>Reboot to complete the installation</source>
-        <translation>Start je computer opnieuw op om de installatie af te ronden</translation>
+        <translation type="vanished">Start je computer opnieuw op om de installatie af te ronden</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="123"/>
@@ -1626,7 +1629,7 @@
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="59"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="82"/>
         <source>No swap partition created, which may affect system performance</source>
-        <translation type="unfinished"/>
+        <translation>Je hebt geen wisselgeheugenpartitie aangemaakt. Dit kan de systeemprestaties beïnvloeden.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="60"/>
