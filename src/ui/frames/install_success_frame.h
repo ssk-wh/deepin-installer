@@ -39,9 +39,6 @@ signals:
  // Emitted when reboot button is clicked.
  void finished();
 
-public slots:
-    void setEjectLabelVisible(bool visible);
-
 protected:
     void changeEvent(QEvent* event) override;
 
