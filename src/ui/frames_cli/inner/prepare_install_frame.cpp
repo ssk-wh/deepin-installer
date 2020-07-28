@@ -91,7 +91,6 @@ void PrepareInstallFrame::initUI() {
   m_commentLabel->setText(::QObject::tr("Make a backup of your important data and then continue"));
 
   //QStringList opt(delegate_->getOptDescriptions());
-  operations_box_->setFocusEnabled(false);
 
   bool iswchar = false;
   if (installer::ReadLocale() == "zh_CN") {
@@ -107,6 +106,7 @@ void PrepareInstallFrame::initUI() {
   foreach (QString testoptions, m_optDescriptions) {
       operations_box_->appendItemText(testoptions, iswchar);
   }
+  operations_box_->setFocusEnabled(false);
 
   create_button_ = new NcursesButton(this, strContinue, 3, 14, begy() + height() - 5, begx() + width() - 20);
 
