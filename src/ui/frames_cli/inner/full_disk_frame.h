@@ -24,7 +24,6 @@ public:
         initUI();
         initConnection();
         hide();
-        //updateTs();
     }
 
     void initUI() override;

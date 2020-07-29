@@ -602,6 +602,8 @@ set(CLI_UI_FILES
     ui/frames_cli/inner/prepare_install_frame.cpp
     ui/frames_cli/inner/create_root_user_frame.h
     ui/frames_cli/inner/create_root_user_frame.cpp
+    ui/frames_cli/inner/savelog_frame.h
+    ui/frames_cli/inner/savelog_frame.cpp
     ui/frames_cli/language_frame.h
     ui/frames_cli/language_frame.cpp
     ui/frames_cli/privilege_error_frame.h

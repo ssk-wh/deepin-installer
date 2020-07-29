@@ -296,6 +296,15 @@ void NCursesWindowBase::setIsShow(bool isshow)
 
 }
 
+void NCursesWindowBase::moveWidowTo(int y, int x)
+{
+    mvwin(y, x);
+    if(m_isshadowWindow)
+    {
+        m_shadowWindow->mvwin(y+1, x+1);
+    }
+}
+
 void NCursesWindowBase::setBackground(chtype box)
 {
     bkgd(box);

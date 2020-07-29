@@ -41,7 +41,6 @@ KeyboardFramePrivate::KeyboardFramePrivate(NCursesWindowBase *parent, int lines,
 {
     initUI();
     initConnection();
-    //updateTs();
 }
 
 void KeyboardFramePrivate::initUI()

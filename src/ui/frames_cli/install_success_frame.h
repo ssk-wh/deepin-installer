@@ -7,6 +7,7 @@
 namespace installer {
 
 class NcursesTextBrower;
+class SaveLogFrame;
 
 class InstallSuccessFramePrivate : public FrameInterfacePrivate
 {
@@ -24,10 +25,15 @@ public:
     bool validate() override;
     void show() override;
     void hide() override;
+    void onKeyPress(int keyCode) override;
+    void keyEventTriger(int keycode) override;
+    void setValue();
 
 signals:
     void failFinished();
     void successFinished();
+    void keyEventTrigerSignal(int keycode);
+    void showChildSignal(int index);
 
 private slots:
     void doBackBtnClicked();
@@ -43,6 +49,7 @@ private:
     QString m_installFailedInfoTitle;
     QString m_installFailedInfoDes;
     bool m_isshow;
+    int m_currentchoicetype = -1;//-1-main page 0-Save Log page
 };
 
 class InstallSuccessFrame : public FrameInterface
@@ -57,10 +64,14 @@ public:
     bool init() override;
     QString getFrameName() override;
 
+private slots:
+    void showChildSlot(int index);
+
 protected:
     bool handle() override;
 
 private:
+    SaveLogFrame* m_savelogframe = nullptr;
     Q_DECLARE_PRIVATE_D(m_private, InstallSuccessFrame)
 };
 

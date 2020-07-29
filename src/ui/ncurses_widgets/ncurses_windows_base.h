@@ -40,6 +40,7 @@ public:
     virtual void adjustSizeByContext();
     virtual void resizew(int newLines, int newColumns);
     virtual void setIsShow(bool isshow);
+    virtual void moveWidowTo(int y, int x);
     void setBackground(chtype box);
     void setAttr(chtype attr);
     chtype background();
