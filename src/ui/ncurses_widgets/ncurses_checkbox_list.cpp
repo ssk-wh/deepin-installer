@@ -46,7 +46,9 @@ void NcursesCheckBoxList::setList(QVector<QPair<QString, QString>>& list,  bool 
     m_listsize = list.size();
     m_index     = 0;
     m_showindex = m_index;
-    m_heightpos = m_ncursesCheckBoxs_vector.at(m_index)->getStrHeight();
+    if (m_ncursesCheckBoxs_vector.size() > 0) {
+        m_heightpos = m_ncursesCheckBoxs_vector.at(m_index)->getStrHeight();
+    }
 }
 
 QString NcursesCheckBoxList::getCurrentTitle()
@@ -113,13 +115,17 @@ void NcursesCheckBoxList::onKeyPress(int keyCode)
 {
     switch (keyCode) {
     case KEY_UP:
+        if (m_ncursesCheckBoxs_vector.size() == 0) {
+            break;
+        }
+
         m_index--;
         if(m_index < 0){
             m_index = 0;
             m_heightpos = m_ncursesCheckBoxs_vector.at(m_index)->getStrHeight();
             break;
         } else {
-            m_heightpos -= m_ncursesCheckBoxs_vector.at(m_index+1)->getStrHeight();
+            m_heightpos -= m_ncursesCheckBoxs_vector.at(m_index + 1)->getStrHeight();
             m_ncursesCheckBoxs_vector.at(m_index + 1)->setFocus(false);
         }
 
@@ -157,6 +163,9 @@ void NcursesCheckBoxList::onKeyPress(int keyCode)
         break;
 
     case KEY_DOWN:
+        if (m_ncursesCheckBoxs_vector.size() == 0) {
+            break;
+        }
         m_index++;
         if(m_index >= m_ncursesCheckBoxs_vector.size()){
             m_index = m_ncursesCheckBoxs_vector.size() - 1;
@@ -190,6 +199,10 @@ void NcursesCheckBoxList::onKeyPress(int keyCode)
         if(m_listtype == BASICENVIRONMENT) {
 
         } else if(m_listtype == EXTRACHOICES){
+            if (m_ncursesCheckBoxs_vector.size() == 0) {
+                break;
+            }
+
              m_ncursesCheckBoxs_vector.at(m_index)->onKeyPress(keyCode);
              if(m_ncursesCheckBoxs_vector.at(m_index)->isSelect()){
                  if(m_selectitems.indexOf(m_ncursesCheckBoxs_vector.at(m_index)->title()) == -1) {
@@ -201,6 +214,10 @@ void NcursesCheckBoxList::onKeyPress(int keyCode)
                  }
              }
         } else if (m_listtype == OTHER) {
+            if (m_ncursesCheckBoxs_vector.size() == 0) {
+                break;
+            }
+
             m_ncursesCheckBoxs_vector.at(m_index)->onKeyPress(keyCode);
             if(m_ncursesCheckBoxs_vector.at(m_index)->isSelect()){
                 if(m_selectitems.indexOf(m_ncursesCheckBoxs_vector.at(m_index)->title()) == -1) {
@@ -220,7 +237,9 @@ void NcursesCheckBoxList::onKeyPress(int keyCode)
                         m_selectitems.clear();
                     }
                 }
-                m_selectitems.append(m_ncursesCheckBoxs_vector.at(m_index)->title());
+                if(m_selectitems.indexOf(m_ncursesCheckBoxs_vector.at(m_index)->title()) == -1) {
+                    m_selectitems.append(m_ncursesCheckBoxs_vector.at(m_index)->title());
+                }
             }
         }
         emit signal_KeyTriger(keyCode, m_listtype, m_index);
@@ -238,7 +257,7 @@ void NcursesCheckBoxList::show()
 
     erase();
 
-    if(m_index >= m_ncursesCheckBoxs_vector.size()) {
+    if((m_index >= m_ncursesCheckBoxs_vector.size()) || (m_ncursesCheckBoxs_vector.size() == 0)) {
         return;
     }
 
@@ -281,15 +300,19 @@ void NcursesCheckBoxList::drawFoucs()
 
 void NcursesCheckBoxList::selectAll(bool selectall)
 {
-    m_selectitems.clear();
     if (selectall) {
         for(int i = 0; i < m_ncursesCheckBoxs_vector.size(); i++) {
             m_ncursesCheckBoxs_vector.at(i)->setSelect(true);
-            m_selectitems.append(m_ncursesCheckBoxs_vector.at(i)->title());
+            if(m_selectitems.indexOf(m_ncursesCheckBoxs_vector.at(i)->title()) == -1) {
+                m_selectitems.append(m_ncursesCheckBoxs_vector.at(i)->title());
+            }
         }
     } else {
         for(int i = 0; i < m_ncursesCheckBoxs_vector.size(); i++) {
             m_ncursesCheckBoxs_vector.at(i)->setSelect(false);
+            if(m_selectitems.indexOf(m_ncursesCheckBoxs_vector.at(i)->title()) != -1) {
+                m_selectitems.removeOne(m_ncursesCheckBoxs_vector.at(i)->title());
+            }
         }
     }
 }
@@ -315,8 +338,12 @@ void NcursesCheckBoxList::doSingleSelect()
         m_selectitems.clear();
     }
 
-    m_ncursesCheckBoxs_vector.at(m_index)->setSelect(true);
-    m_selectitems.append(m_ncursesCheckBoxs_vector.at(m_index)->title());
+    if (m_ncursesCheckBoxs_vector.size() > 0) {
+        m_ncursesCheckBoxs_vector.at(m_index)->setSelect(true);
+        if(m_selectitems.indexOf(m_ncursesCheckBoxs_vector.at(m_index)->title()) == -1) {
+            m_selectitems.append(m_ncursesCheckBoxs_vector.at(m_index)->title());
+        }
+    }
 
     this->refresh();
 }

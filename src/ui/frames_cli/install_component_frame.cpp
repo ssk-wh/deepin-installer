@@ -102,7 +102,7 @@ void InstallComponentFramePrivate::updateTs()
     m_firstSubTiltleLabel->setText(testfirststr.toUtf8().data());
     m_secondSubTiltleLabel->setText(testsecondstr.toUtf8().data());
 
-    if(m_localeString.compare("") || m_localeString.compare(installer::ReadLocale())) {
+    if(!m_localeString.compare("") || m_localeString.compare(installer::ReadLocale())) {
         initInfoList();
     }
 
@@ -185,17 +185,25 @@ void InstallComponentFramePrivate::initInfoList()
             testiswchar = false;
         }
 
-        QStringList testitems;
-        if (m_serverList.size() > 0) {
-            for (int i = 0; i< m_serverList.first()->defaultValue().size(); i++) {
-                m_serverList.first()->defaultValue()[i]->Selected = true;
+        QStringList testitems = m_basicenvironmentlist->getSelectItems();
+        if (testitems.size() == 0) {
+            if (m_serverList.size() > 0) {
+                //for (int i = 0; i< m_serverList.first()->defaultValue().size(); i++) {
+                //    m_serverList.first()->defaultValue()[i]->Selected = true;
+                //}
+                QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(m_serverList.first());
+                testitems.append(tsPair.first);
             }
-            QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(m_serverList.first());
-            testitems.append(tsPair.first);
+            m_basicenvironmentlist->setSelectItems(testitems);
+            testitems.clear();
+        } else {
+            m_basicenvironmentlist->setSelectItems(testitems);
+            testitems.clear();
         }
-        m_basicenvironmentlist->setSelectItems(testitems);
-        testitems.clear();
+
+        testitems = m_extrachoiceslist->getSelectItems();
         m_extrachoiceslist->setSelectItems(testitems);
+
         m_basicenvironmentlist->setList(basicenvironmentinfolist, testiswchar);
         m_extrachoiceslist->setList(extrachoicesinfolist, testiswchar);
     }
@@ -227,8 +235,7 @@ void InstallComponentFramePrivate::writeInfoList()
             }
 
             bool isMinimalGraphicInstall = true;
-            foreach(QSharedPointer<ComponentInfo> testinfo, (*it)->extra())
-            {
+            foreach (QSharedPointer<ComponentInfo> testinfo, (*it)->extra()) {
                 if (testinfo->Selected) {
                     isMinimalGraphicInstall = false;
                     break;
@@ -282,7 +289,7 @@ void InstallComponentFramePrivate::slot_KeyTriger(int keycode, int listtype, int
                     }
                 }
             }
-            m_extrachoiceslist->setSelectItems(testselcetitems);
+            //m_extrachoiceslist->setSelectItems(testselcetitems);//yong yu chu li qie huan ji chu xuan xiang shi mei ge ji chu xuan xiang de fu jia xuan xiang du li
             m_extrachoiceslist->setList(testinfolist);
             m_extrachoiceslist->show();
             refresh();
@@ -363,7 +370,7 @@ bool ComponentFrame::init()
 {
     Q_D(InstallComponentFrame);
     if (m_currState == FRAME_STATE_NOT_START) {
-        d->initInfoList();
+        //d->initInfoList();
         m_private->layout();
         m_currState = FRAME_STATE_RUNNING;
     }
