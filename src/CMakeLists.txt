@@ -381,6 +381,8 @@ set(UI_FILES
 
     ui/frames/confirm_quit_frame.cpp
     ui/frames/confirm_quit_frame.h
+    ui/frames/swap_warnning_frame.cpp
+    ui/frames/swap_warnning_frame.h
     ui/frames/control_panel_frame.cpp
     ui/frames/control_panel_frame.h
     ui/frames/disk_space_insufficient_frame.cpp

@@ -33,6 +33,7 @@ const char kMountPointUnused[] = "unused";
 
 Install_Lvm_Status AdvancedPartitionDelegate::install_Lvm_Status = Install_Lvm_Status::Lvm_No_Need;
 QStringList AdvancedPartitionDelegate::mountPoints_AdvancedPartition;
+bool AdvancedPartitionDelegate::swapOk = false;
 
 AdvancedPartitionDelegate::AdvancedPartitionDelegate(QObject* parent)
     : m_islvm(false),
@@ -145,6 +146,7 @@ bool AdvancedPartitionDelegate::isPartitionTableMatch(
 }
 
 ValidateStates AdvancedPartitionDelegate::validate() const {
+      swapOk = false;
       ValidateStates states;
       bool found_lvm = false;
       bool found_efi = false;
@@ -214,6 +216,8 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
               if (install_Lvm_Status == Install_Lvm_Status::Lvm_No_Need) {
                   install_Lvm_Status = Install_Lvm_Status::Lvm_Format_Pv;
               }
+          } else if (partition->fs == FsType::LinuxSwap && partition->status != PartitionStatus::Real ) {
+              swapOk = true;
           }
 
         }

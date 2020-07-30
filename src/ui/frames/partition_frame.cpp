@@ -25,6 +25,7 @@
 #include "ui/delegates/full_disk_delegate.h"
 #include "ui/delegates/simple_partition_delegate.h"
 #include "ui/frames/dynamic_disk_warning_frame.h"
+#include "ui/frames/swap_warnning_frame.h"
 #include "ui/delegates/partition_util.h"
 #include "ui/frames/consts.h"
 #include "ui/frames/inner/advanced_partition_frame.h"
@@ -627,8 +628,6 @@ void PartitionFramePrivate::onNextButtonClicked() {
     }
   }
 
-
-
   // check disk is raw
   QList<Device::Ptr> device;
   if (isSimplePartitionMode()) {
@@ -638,6 +637,13 @@ void PartitionFramePrivate::onNextButtonClicked() {
   else if (!isFullDiskPartitionMode()) {
     device = advanced_partition_frame_->getAllUsedDevice();
     dynamic_disk_warning_frame_->setWarningTip(::QObject::tr("The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first."));
+    static bool isFirstWarning = true;
+    if (isFirstWarning && !AdvancedPartitionDelegate::swapOk) {
+        SwapWarnningFrame swapWarnningFrame;
+        swapWarnningFrame.display();
+        isFirstWarning = false;
+        return;
+    }
   }
 
   if (!device.isEmpty() && isRawDevice(device)) {

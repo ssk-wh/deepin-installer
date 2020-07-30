@@ -56,6 +56,8 @@ class AdvancedPartitionDelegate : public partition::Delegate {
   bool m_islvm;
   static Install_Lvm_Status install_Lvm_Status;
   static QStringList mountPoints_AdvancedPartition;
+  static bool swapOk;
+
 };
 
 }  // namespace installer
