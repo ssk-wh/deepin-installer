@@ -621,18 +621,16 @@ void SystemInfoFormFramePrivate::initUI()
     tooltip_ = new SystemInfoTip(content);
     tooltip_->hide();
 
-    m_stretchLabel = new QLabel;
-    m_stretchLabel->setFixedWidth(520);
-    m_stretchLabel->setWordWrap(true);
+    m_stretchLabel = new CommentLabel;
+    m_stretchLabel->setAlignment(Qt::AlignCenter);
 
     QVBoxLayout* mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
     mainLayout->setSpacing(kMainLayoutSpacing);
     mainLayout->addStretch();
     mainLayout->addWidget(m_titleLabel_, 0, Qt::AlignHCenter);
-    mainLayout->addWidget(m_commentLabel_, 0, Qt::AlignHCenter | Qt::AlignTop);
-    mainLayout->addWidget(m_avatarButton_, 0, Qt::AlignHCenter);
     mainLayout->addWidget(m_stretchLabel, 0, Qt::AlignHCenter | Qt::AlignTop);
+    mainLayout->addWidget(m_avatarButton_, 0, Qt::AlignHCenter);
     mainLayout->addSpacing(10);
     mainLayout->addWidget(area, 0, Qt::AlignHCenter);
     mainLayout->addSpacing(10);
@@ -1095,12 +1093,6 @@ void SystemInfoFormFramePrivate::updateDevice() {
 #endif // QT_DEBUG
     if (test || searchDevice()) {
        m_stretchLabel->setText(::QObject::tr("Add fingerprint password in Control Center > Accounts to unlock and authenticate"));
-       m_stretchLabel->setAlignment(Qt::AlignCenter);
-       m_stretchLabel->setStyleSheet("QLabel{"
-//                                     "background-color:rgba(244,244,244,1);"
-                                     "color: #f9704f;"
-                                     "font-size: 13px;}");
-
     }
 }
 
