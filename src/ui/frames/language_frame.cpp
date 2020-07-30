@@ -86,7 +86,7 @@ LanguageFrame::~LanguageFrame() {}
 
 bool LanguageFrame::shouldDisplay() const
 {
-    return !GetSettingsBool(kSkipSelectLanguagePage);
+    return !GetSettingsBool(kSkipSelectLanguagePage) && !GetSettingsBool("DI_LUPIN");
 }
 
 QString LanguageFrame::returnFrameName() const

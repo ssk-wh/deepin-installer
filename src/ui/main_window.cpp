@@ -147,7 +147,7 @@ void MainWindow::fullscreen() {
 
   ShowFullscreen(this);
 
-  if (GetSettingsBool(kPartitionDoAutoPart)) {
+    if (GetSettingsBool(kPartitionDoAutoPart) || GetSettingsBool("DI_LUPIN")) {
     // In auto-install mode, partitioning is done in hook script.
     // So notify InstallProgressFrame to run hooks directly.
     partition_frame_->autoPart();
@@ -166,13 +166,9 @@ void MainWindow::scanDevicesAndTimezone() {
     timezone_frame_->init();
   }
 
-  //if (!GetSettingsBool(kSkipPartitionPage) &&
-  //    !GetSettingsBool(kPartitionDoAutoPart)) {
-    // Notify background thread to scan device list.
-    // When device is refreshed in partition_frame_, call fullscreen() method
-    // to display main window.
+   if (!GetSettingsBool("DI_LUPIN")) {
     partition_frame_->scanDevices();
-  //}
+   }
 }
 
 //void MainWindow::setEnableAutoInstall(bool auto_install) {

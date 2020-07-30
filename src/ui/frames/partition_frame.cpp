@@ -179,7 +179,7 @@ void PartitionFrame::finished()
 }
 
 bool PartitionFrame::shouldDisplay() const{
-    return !GetSettingsBool(kSkipPartitionPage);
+    return !GetSettingsBool(kSkipPartitionPage) && !GetSettingsBool("DI_LUPIN");
 }
 
 QString PartitionFrame::returnFrameName() const
@@ -188,6 +188,12 @@ QString PartitionFrame::returnFrameName() const
 }
 
 void PartitionFrame::autoPart() {
+    if (GetSettingsBool("DI_LUPIN")) {
+        emit finished();
+        emit autoPartDone(true);
+        return;
+    }
+
     if (m_private->full_disk_partition_frame_->isEncrypt()) {
         WriteFullDiskMode(true);
         m_private->partition_model_->autoPart();
