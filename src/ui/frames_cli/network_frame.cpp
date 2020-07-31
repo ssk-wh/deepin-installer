@@ -111,11 +111,22 @@ void NetwrokFramePrivate::initUI()
     ipconfigitemsprimarydnsset.m_ErrorinfoLabel = new NcursesLabel(this, 1, 3, begy(), begx());
     ipconfigitemsprimarydnsset.m_ErrorinfoLabel->setBackground(NcursesUtil::getInstance()->error_attr());
     ipconfigitemsprimarydnsset.m_ErrorinfoLabel->setFocusEnabled(false);
+    //m_secondaryDNSEdit->setObjectName("Secondary DNS");
+    NetwrokFrameItem ipconfigitemssecondarydnsset;
+    ipconfigitemssecondarydnsset.m_NcursesLabel = new NcursesLabel(this, 1, 15, begy(), begx());
+    ipconfigitemssecondarydnsset.m_NcursesLabel->setFocusEnabled(false);
+    ipconfigitemssecondarydnsset.m_NCursesLineEdit = new NCursesLineEdit(this, 1, 3, begy(), begx());
+    ipconfigitemssecondarydnsset.m_NCursesLineEdit->setBackground(NcursesUtil::getInstance()->edit_attr());
+    ipconfigitemssecondarydnsset.m_NCursesLineEdit->setModle(NCursesLineEdit::IPEDIT);
+    ipconfigitemssecondarydnsset.m_ErrorinfoLabel = new NcursesLabel(this, 1, 3, begy(), begx());
+    ipconfigitemssecondarydnsset.m_ErrorinfoLabel->setBackground(NcursesUtil::getInstance()->error_attr());
+    ipconfigitemssecondarydnsset.m_ErrorinfoLabel->setFocusEnabled(false);
 
     m_ipconfigitems.push_back(ipconfigitemsipset);
     m_ipconfigitems.push_back(ipconfigitemsmaskset);
     m_ipconfigitems.push_back(ipconfigitemsgatewayset);
     m_ipconfigitems.push_back(ipconfigitemsprimarydnsset);
+    m_ipconfigitems.push_back(ipconfigitemssecondarydnsset);
 
 
     QString strBack = ::QObject::tr("Back");
@@ -182,6 +193,7 @@ void NetwrokFramePrivate::updateTs()
     m_ipconfigitems.at(1).m_NcursesLabel->setText(::QObject::tr("Netmask:"));
     m_ipconfigitems.at(2).m_NcursesLabel->setText(::QObject::tr("Gateway:"));
     m_ipconfigitems.at(3).m_NcursesLabel->setText(::QObject::tr("Primary DNS:"));
+    m_ipconfigitems.at(4).m_NcursesLabel->setText(::QObject::tr("Secondary DNS:"));
 
     m_networkconnecterrorstr = ::QObject::tr("Network connection error, check the configuration please");
     m_networkconnecterrorlabel->setText(m_networkconnecterrorstr);
@@ -281,6 +293,7 @@ bool NetwrokFramePrivate::writeInfoList()
             networkSettingInfo.mask       = m_ipconfigitems.at(1).m_NCursesLineEdit->text();
             networkSettingInfo.gateway    = m_ipconfigitems.at(2).m_NCursesLineEdit->text();
             networkSettingInfo.primaryDNS = m_ipconfigitems.at(3).m_NCursesLineEdit->text();
+            networkSettingInfo.secondaryDNS = m_ipconfigitems.at(4).m_NCursesLineEdit->text();
             networkSettingInfo.setIpMode  = m_dhcpType;
 
             NetworkOperate testNetworkOperate(m_ipv4Device);
@@ -315,7 +328,7 @@ bool NetwrokFramePrivate::writeInfoList()
                                           << "mod"
                                           << QString("\"%1-lab\"").arg(interface.name())
                                           << "ipv4.dns"
-                                          << QString("%1 %2").arg(networkSettingInfo.primaryDNS, ""));
+                                          << QString("%1 %2").arg(networkSettingInfo.primaryDNS, networkSettingInfo.secondaryDNS));
 
             int setifnameresult = QProcess::execute("nmcli", QStringList() << "con"
                                           << "up"
@@ -588,7 +601,6 @@ void NetwrokFramePrivate::slot_EidtTextChange(const QString &text)
         for (int i = 0; i < m_ipconfigitems.size(); i++) {
             if (m_ipconfigitems.at(i).m_IsOK == false) {
                 m_isallinputok = false;
-                m_networkconnecterrorlabel->show();
                 break;
             }
         }
