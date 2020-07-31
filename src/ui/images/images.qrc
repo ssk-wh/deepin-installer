@@ -157,5 +157,6 @@
         <file>drive-harddisk-Windows-48px.svg</file>
         <file>drive-harddisk-Windows-64px.svg</file>
         <file>drive-harddisk-Windows-96px.svg</file>
+        <file>dropdown_arrow.svg</file>
     </qresource>
 </RCC>

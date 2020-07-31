@@ -23,6 +23,10 @@
 #include <QScopedPointer>
 
 namespace installer {
+enum class LanguageType {
+    Chinese = 0,
+    English,
+};
 
 class RepairSystemFramePrivate;
 
@@ -59,5 +63,7 @@ private:
 };
 
 }
+
+Q_DECLARE_METATYPE(installer::LanguageType)
 
 #endif // REPAIR_SYSTEM_FRAME_H

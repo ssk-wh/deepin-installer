@@ -26,19 +26,22 @@
 #include "ui/widgets/operator_widget.h"
 #include "ui/utils/widget_util.h"
 #include "sysinfo/virtual_machine.h"
+#include "ui/widgets/ddropdown.h"
 
 #include <QProcess>
 #include <QDebug>
 #include <QTranslator>
 #include <QApplication>
 #include <QPainterPath>
+#include <QAction>
 
 DWIDGET_USE_NAMESPACE
 
 namespace  {
     const int kItemWidth = 560;
     const int kItemHeight = 100;
-    const char kLanguageFileTpl[] = I18N_DIR "/deepin-installer-zh_CN.qm";
+    const char kChineseLanguageFile[] = I18N_DIR "/deepin-installer-zh_CN.qm";
+    const char kEnglishLanguageFile[] = I18N_DIR "/deepin-installer.qm";
 }
 
 namespace installer {
@@ -48,9 +51,10 @@ class RepairSystemFramePrivate : public FrameInterfacePrivate {
 public:
     explicit RepairSystemFramePrivate(FrameInterface* parent):
         FrameInterfacePrivate(parent),
-        q_ptr(qobject_cast<RepairSystemFrame* >(parent))
+        q_ptr(qobject_cast<RepairSystemFrame* >(parent)),
+        m_currentLanguageType(LanguageType::Chinese)
     {
-        this->updateTs();
+        this->updateTranslator();
         this->initUi();
         this->initConnection();
     }
@@ -64,8 +68,8 @@ private:
     void initConnection();
 
     void setupTs();
-    void updateTs();
-    void removeTs() const;
+    bool updateTranslator();
+    bool removeTranslator() const;
 
 private:
     RepairSystemFrame* q_ptr = nullptr;
@@ -74,8 +78,10 @@ private:
 
     TitleLabel*     m_titleLabel = nullptr;
     CommentLabel*   m_commentLabel = nullptr;
+    DDropdown*      m_dropdown       = nullptr;
     OperatorWidget* m_installerWidget = nullptr;
     OperatorWidget* m_repairWidget = nullptr;
+    LanguageType    m_currentLanguageType = LanguageType::Chinese;
     QTranslator*    m_trans = nullptr;
 };
 
@@ -83,13 +89,20 @@ private:
 
 bool installer::RepairSystemFramePrivate::validate() const
 {
-    this->removeTs();
+    this->removeTranslator();
     return true;
 }
 
 void installer::RepairSystemFramePrivate::initUi() {
     m_titleLabel = new TitleLabel();
     m_commentLabel= new CommentLabel();
+
+    m_dropdown = new DDropdown;
+    m_dropdown->setFixedHeight(28);
+    m_dropdown->setFixedWidth(130);
+    m_dropdown->addAction("中文", QVariant::fromValue<LanguageType>(LanguageType::Chinese));
+    m_dropdown->addAction("English", QVariant::fromValue<LanguageType>(LanguageType::English));
+    m_dropdown->setCurrentAction(m_dropdown->actions().first());
 
     m_installerWidget = new OperatorWidget;
     m_installerWidget->setFixedSize(kItemWidth, kItemHeight);
@@ -105,6 +118,8 @@ void installer::RepairSystemFramePrivate::initUi() {
     centerLayout->addWidget(m_titleLabel, 0, Qt::AlignHCenter);
     centerLayout->addWidget(m_commentLabel, 0, Qt::AlignHCenter| Qt::AlignTop);
     centerLayout->addStretch(2);
+    centerLayout->addWidget(m_dropdown, 0, Qt::AlignHCenter);
+    centerLayout->addSpacing(30);
     centerLayout->addWidget(m_installerWidget, 0, Qt::AlignHCenter);
     centerLayout->addStretch(1);
     centerLayout->addWidget(m_repairWidget, 0, Qt::AlignHCenter);
@@ -134,6 +149,25 @@ void installer::RepairSystemFramePrivate::initConnection() {
             q_ptr->repairSystem();
         }
     });
+
+    connect(m_dropdown, &DDropdown::triggered,
+    this, [ = ](QAction * action) {
+        m_dropdown->setCurrentAction(action);
+        LanguageType type = action->data().value<LanguageType>();
+        if (LanguageType::English == type) {
+            m_currentLanguageType = LanguageType::English;
+        }
+        else {
+            m_currentLanguageType = LanguageType::Chinese;
+        }
+
+        if (updateTranslator()) {
+            setupTs();
+        }
+        else {
+            qWarning() << "Call updateTranslator() failed";
+        }
+    });
 }
 
 void installer::RepairSystemFramePrivate::setupTs()
@@ -150,21 +184,53 @@ void installer::RepairSystemFramePrivate::setupTs()
     nextButton->setText(::QObject::tr("Enter the"));
 }
 
-void installer::RepairSystemFramePrivate::updateTs()
+bool installer::RepairSystemFramePrivate::updateTranslator()
 {
-    if (m_trans == nullptr) {
-        m_trans = new QTranslator(this);
-        m_trans->load(kLanguageFileTpl);
-        qApp->installTranslator(m_trans);
+    if (!removeTranslator()) {
+        qWarning() << "Call removeTranslator() failed";
+        return false;
     }
 
+    QString languageFile;
+    if (LanguageType::English == m_currentLanguageType) {
+        languageFile = kEnglishLanguageFile;
+    }
+    else {
+        languageFile = kChineseLanguageFile;
+    }
+
+    if (nullptr == m_trans) {
+        m_trans = new QTranslator(this);
+    }
+
+    if (m_trans->load(languageFile)) {
+        if (!qApp->installTranslator(m_trans)) {
+            qWarning() << "Failed to install ui language at:" << languageFile;
+            return false;
+        }
+    }
+    else {
+        qWarning() << "Failed to load locale file:" << languageFile;
+        return false;
+    }
+
+    return true;
 }
 
-void installer::RepairSystemFramePrivate::removeTs() const
+bool installer::RepairSystemFramePrivate::removeTranslator() const
 {
     if (m_trans != nullptr) {
-        qApp->removeTranslator(m_trans);
+        if (!qApp->removeTranslator(m_trans)) {
+            QString languageFile = m_currentLanguageType == LanguageType::English ?
+                        kEnglishLanguageFile : kChineseLanguageFile;
+
+            qWarning() << "Failed to remove ui language at:" << languageFile;
+
+            return false;
+        }
     }
+
+    return true;
 }
 
 installer::RepairSystemFrame::RepairSystemFrame(installer::FrameProxyInterface *frameProxyInterface, QWidget *parent):
