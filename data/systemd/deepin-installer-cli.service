@@ -3,7 +3,7 @@ Description=Launch installer in normal mode
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/fbterm -n CESI_SS_GB2312 /usr/bin/deepin-installer-cli
+ExecStart=/usr/bin/fbterm -n CESI_XBS_GB2312 --font-width=9 --font-height=18 /usr/bin/deepin-installer-cli
 StandardInput=tty-force
 TTYPath=/dev/tty2
 TTYReset=yes
