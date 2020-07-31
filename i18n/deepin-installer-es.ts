@@ -4,7 +4,7 @@
     <message>
         <location filename="../src/partman/operation.cpp" line="303"/>
         <source>Create extended partition %1</source>
-        <translation>Crear partición extendida %1 </translation>
+        <translation>Crear partición extendida %1</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="307"/>
@@ -416,7 +416,11 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="98"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="83"/>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="160"/>
+=======
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
+>>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="77"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="105"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="126"/>
@@ -446,7 +450,11 @@
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="199"/>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="91"/>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="178"/>
+=======
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="175"/>
+>>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="309"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="189"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="206"/>
@@ -483,9 +491,13 @@
         <location filename="../src/ui/delegates/license_delegate.cpp" line="12"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="59"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="197"/>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="82"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="142"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="155"/>
+=======
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="78"/>
+>>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="419"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="74"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="125"/>
@@ -510,8 +522,13 @@
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="48"/>
+<<<<<<< HEAD
         <source>UnionTech OS</source>
         <translation>UnionTech OS</translation>
+=======
+        <source>UnionTech UOS</source>
+        <translation>UnionTech UOS</translation>
+>>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="26"/>
@@ -548,7 +565,11 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="96"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="87"/>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="168"/>
+=======
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="165"/>
+>>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="95"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="119"/>
         <source>Cancel</source>
@@ -619,7 +640,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="539"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="329"/>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation>El tipo de sistema de archivos de la partición /boot solo puede ser %1</translation>
+        <translation>El tipo de sistema de archivos de la partición /boot solo puede ser %1 </translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="543"/>
@@ -720,7 +741,7 @@
         <location filename="../src/ui/main_window_cli.cpp" line="79"/>
         <location filename="../src/ui/main_window_cli.cpp" line="91"/>
         <source>Confirm</source>
-        <translation>Confirmar</translation>
+        <translation>Aplicar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="231"/>
@@ -908,22 +929,37 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
+<<<<<<< HEAD
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install the system directly. Please select one of the below solutions and continue.</source>
         <translation>Tiene un sistema de arranque EFI pero un disco MBR, no se puede instalar el systema directamente. Por favor, seleccione una de las dos soluciones siguientes.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="150"/>
+=======
+        <source>You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. Please select one of the below solutions and continue.</source>
+        <translation>Tiene un sistema de arranque EFI pero un disco MBR, para instalar %1, debe seleccionar una de las soluciones siguientes.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="79"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="149"/>
+>>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
         <source>Disable UEFI</source>
         <translation>Activar el modo legacy</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="79"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="152"/>
+=======
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="81"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="151"/>
+>>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="86"/>
         <source>Reboot, enter BIOS, and disable UEFI</source>
         <translation>Reinicie el equipo, acceda al BIOS y active el modo legacy o CSM.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="80"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="153"/>
         <source>Exit BIOS, and install %1 again</source>
@@ -932,19 +968,40 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="85"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="162"/>
+=======
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="82"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="152"/>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="87"/>
+        <source>Exit BIOS, and install UOS again</source>
+        <translation>Salga del BIOS e instale UOS de nuevo (arranque con la opción que NO es UEFI).</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="159"/>
+>>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
         <source>Make sure you have backed up all data before proceeding</source>
         <translation>Asegúrese de haber respaldado todos sus datos antes de continuar con la instalación.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="86"/>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="163"/>
+=======
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="160"/>
+>>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
         <source>Continuing installation will format your disk</source>
         <translation>Al hacer clic en continuar, borrará todo el disco y lo cambiará a GPT.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="140"/>
+<<<<<<< HEAD
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. Please select one of the below solutions and continue.</source>
         <translation>Tiene un sistema de arranque EFI pero un disco MBR, para instalar %1, debe seleccionar una de las dos soluciones siguientes.</translation>
+=======
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="79"/>
+        <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
+        <translation>Tiene un sistema de arranque EFI pero un disco MBR, para instalar UOS, debe seleccionar una de las soluciones siguientes.</translation>
+>>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="73"/>
@@ -1203,7 +1260,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="308"/>
         <source>Select a proper keyboard layout</source>
-        <translation>Seleccione una distribución de teclado adecuada</translation>
+        <translation>Haga clic en su distribución de teclado</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.h" line="54"/>
@@ -1213,7 +1270,7 @@
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="90"/>
         <source>Change time</source>
-        <translation>Cambie fecha y hora</translation>
+        <translation>Cambiar fecha y hora</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="91"/>
@@ -1329,14 +1386,14 @@
         <translation>Ocultar registro</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="82"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="43"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="75"/>
         <source>Reboot Now</source>
         <translation>Reiniciar ahora</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="14"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="16"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="59"/>
@@ -1345,16 +1402,19 @@
         <translation>Instalación exitosa</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
+        <source>Reboot to discover and enjoy system features</source>
+        <translation>Reinicie para disfrutar de todas las características del sistema</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="17"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="62"/>
         <source>Click the button below and then remove the installation media immediately</source>
         <translation>Haga clic en el botón de abajo y luego remueva el medio de instalación inmediatamente</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="86"/>
         <source>Reboot to complete the installation</source>
-        <translation>Reinicie para completar la instalación</translation>
+        <translation type="vanished">Reinicie para completar la instalación</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="123"/>
@@ -1459,7 +1519,7 @@
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="489"/>
         <source>Illegal %1, please have a check.</source>
-        <translation>1% no permitido, por favor revíselo.</translation>
+        <translation>%1 no permitida, por favor revísela.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="506"/>
@@ -1473,8 +1533,13 @@
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="750"/>
+<<<<<<< HEAD
         <location filename="../src/ui/frames/networkframe.cpp" line="916"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="994"/>
+=======
+        <location filename="../src/ui/frames/networkframe.cpp" line="893"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="972"/>
+>>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="175"/>
         <source>Configure Network</source>
         <translation>Configuración red</translation>
@@ -1585,14 +1650,14 @@
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="25"/>
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="51"/>
         <source>Select Timezone</source>
-        <translation>Seleccione su zona horaria</translation>
+        <translation>Seleccione su región</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="128"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="251"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="321"/>
         <source>Is it the right timezone? You can change it as well</source>
-        <translation>¿Es la zona horaria correcta? Puede cambiarla manualmente</translation>
+        <translation>¿Es la región correcta? Puede cambiarla manualmente</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="129"/>
@@ -1870,7 +1935,7 @@
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="29"/>
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="53"/>
         <source>Is it the right timezone? You can change it as well.</source>
-        <translation>¿Es la zona horaria correcta? Puede cambiarla manualmente.</translation>
+        <translation>¿Es la región correcta? Puede cambiarla manualmente</translation>
     </message>
     <message>
         <location filename="../src/base/translator.h" line="18"/>
