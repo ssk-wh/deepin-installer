@@ -686,19 +686,34 @@ void FullDiskDelegate::onDeviceRefreshed(const DeviceList &devices)
     QMap<Device::Ptr, qint64> deviceSpeedMap;
     QList<Device::Ptr> deviceList;
 
-    for (Device::Ptr device : virtual_devices_) {
-        qint64 currentTime = QDateTime::currentMSecsSinceEpoch();
-        SpawnCmd("dd", {QString("if=%1").arg(device->path), QString("of=%1").arg(device->path), "bs=4k", "count=5120", "iflag=direct,nonblock", "oflag=direct,nonblock"});
-        deviceSpeedMap[device] = QDateTime::currentMSecsSinceEpoch() - currentTime;
-        deviceList << device;
-        qWarning() << Q_FUNC_INFO << "Device:"<< device->path <<" time use :" << deviceSpeedMap[device] << "data size 4k * 5120";
-    }
+    //如果有指定设备，则使用指定的设备
+    QStringList devicelistfromset = GetSettingsStringList("DI_FULLDISK_MULTIDISK_DEVICE");
+    if(devicelistfromset.size() > 0) {
+        foreach(QString testdevicepath, devicelistfromset) {
+            foreach (Device::Ptr device, virtual_devices_) {
+                if(!testdevicepath.compare(device->path)) {
+                    qint64 currentTime = QDateTime::currentMSecsSinceEpoch();
+                    deviceSpeedMap[device] = QDateTime::currentMSecsSinceEpoch() - currentTime;
+                    deviceList << device;
+                    qWarning() << Q_FUNC_INFO << "DI_FULLDISK_MULTIDISK_DEVICE Device:"<< device->path;
+                }
+            }
+        }
+    } else {
+        for (Device::Ptr device : virtual_devices_) {
+            qint64 currentTime = QDateTime::currentMSecsSinceEpoch();
+            SpawnCmd("dd", {QString("if=%1").arg(device->path), QString("of=%1").arg(device->path), "bs=4k", "count=5120", "iflag=direct,nonblock", "oflag=direct,nonblock"});
+            deviceSpeedMap[device] = QDateTime::currentMSecsSinceEpoch() - currentTime;
+            deviceList << device;
+            qWarning() << Q_FUNC_INFO << "Device:"<< device->path <<" time use :" << deviceSpeedMap[device] << "data size 4k * 5120";
+        }
 
-    //排序
-    if (deviceList.length() > 1) {
-        std::sort(deviceList.begin(), deviceList.end(), [=](Device::Ptr p1, Device::Ptr p2) {
-            return deviceSpeedMap[p1] < deviceSpeedMap[p2];
-        });
+        //排序
+        if (deviceList.length() > 1) {
+            std::sort(deviceList.begin(), deviceList.end(), [=](Device::Ptr p1, Device::Ptr p2) {
+                return deviceSpeedMap[p1] < deviceSpeedMap[p2];
+            });
+        }
     }
 
     //获取所有符合条件的硬盘

@@ -123,7 +123,7 @@ void SystemInfoFrame::finished() {
 
 bool SystemInfoFrame::shouldDisplay() const
 {
-    return !(GetSettingsBool(kSystemInfoSetupAfterReboot) || GetSettingsBool(kSkipSystemInfoPage) || GetSettingsBool(kPartitionDoAutoPart));
+    return !(GetSettingsBool(kSystemInfoSetupAfterReboot) || GetSettingsBool(kSkipSystemInfoPage));
 }
 
 QString SystemInfoFrame::returnFrameName() const
