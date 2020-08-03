@@ -379,6 +379,56 @@
         <translation>Сервер баз даних PostgreSQL SQL та пов&apos;язані з ними пакети.</translation>
     </message>
     <message>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="12"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="59"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="144"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="210"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="82"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="142"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="155"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="419"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="125"/>
+        <source>Deepin</source>
+        <translation>Deepin</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="12"/>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="52"/>
+        <source>UOS</source>
+        <translation>UOS</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="15"/>
+        <source>End User License Agreement for UnionTech OS Desktop Home</source>
+        <translation>Ліцензійна угода із кінцевим користувачем для UnionTech OS Desktop Home</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="16"/>
+        <source>End User License Agreement for UnionTech OS Desktop Professional</source>
+        <translation>Ліцензійна угода із кінцевим користувачем для UnionTech OS Desktop Professional</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="19"/>
+        <source>%1 Software End User License Agreement</source>
+        <translation>Ліцензійна угода із кінцевим користувачем %1</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="27"/>
+        <source>UnionTech OS User Experience Program License Agreement</source>
+        <translation>Ліцензійна угода щодо програми вивчення роботи користувачів UnionTech OS</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="30"/>
+        <source>User Experience Program License Agreement</source>
+        <translation>Ліцензійна угода щодо програми вивчення роботи користувачів</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="48"/>
+        <source>UnionTech OS</source>
+        <translation>ОС UnionTech</translation>
+    </message>
+    <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="265"/>
         <source>Do not use this partition</source>
         <translation>Не використовуйте цей розділ</translation>
@@ -416,14 +466,10 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="98"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="83"/>
-<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="160"/>
-=======
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
->>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="105"/>
-        <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="126"/>
+        <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="101"/>
+        <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="129"/>
         <source>Continue</source>
         <translation>Продовжити</translation>
     </message>
@@ -450,19 +496,15 @@
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="199"/>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="91"/>
-<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="178"/>
-=======
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="175"/>
->>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="309"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="189"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="206"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="744"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="996"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="229"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="661"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="762"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="230"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="667"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="768"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="137"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="212"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="131"/>
@@ -470,7 +512,7 @@
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="131"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="25"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="22"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="151"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="133"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="25"/>
         <location filename="../src/base/translator.h" line="16"/>
         <source>Next</source>
@@ -483,57 +525,10 @@
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="56"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="198"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="144"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="211"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
         <translation>Для встановлення %2 вам потрібно більше ніж %1 ГБ дискового простору. Для підвищення продуктивності, рекомендуємо використовувати %3 ГБ і більше місця</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/delegates/license_delegate.cpp" line="12"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="197"/>
-<<<<<<< HEAD
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="82"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="142"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="155"/>
-=======
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="78"/>
->>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="419"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="74"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="125"/>
-        <source>Deepin</source>
-        <translation>Deepin</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/delegates/license_delegate.cpp" line="12"/>
-        <location filename="../src/ui/delegates/license_delegate.cpp" line="52"/>
-        <source>UOS</source>
-        <translation>UOS</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/delegates/license_delegate.cpp" line="15"/>
-        <source>End User License Agreement for UnionTech OS Desktop Home</source>
-        <translation>Ліцензійна угода із кінцевим користувачем для UnionTech OS Desktop Home</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/delegates/license_delegate.cpp" line="16"/>
-        <source>End User License Agreement for UnionTech OS Desktop Professional</source>
-        <translation>Ліцензійна угода із кінцевим користувачем для UnionTech OS Desktop Professional</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/delegates/license_delegate.cpp" line="48"/>
-<<<<<<< HEAD
-        <source>UnionTech OS</source>
-        <translation>ОС UnionTech</translation>
-=======
-        <source>UnionTech UOS</source>
-        <translation>UnionTech UOS</translation>
->>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
-    </message>
-    <message>
-        <location filename="../src/ui/delegates/license_delegate.cpp" line="26"/>
-        <source>UnionTech OS User Experience Program License Agreement</source>
-        <translation>Ліцензійна угода щодо програми вивчення роботи користувачів UnionTech OS</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="92"/>
@@ -546,6 +541,8 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="99"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="131"/>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="98"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="172"/>
         <source>Exit</source>
         <translation>Вхід</translation>
     </message>
@@ -553,25 +550,24 @@
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="116"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="75"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="126"/>
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="75"/>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="79"/>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="124"/>
         <source>Warning</source>
         <translation>УВАГА</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="128"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="133"/>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="275"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="152"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="177"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="96"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="87"/>
-<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="168"/>
-=======
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="165"/>
->>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="95"/>
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="119"/>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="125"/>
+        <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="35"/>
+        <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="92"/>
         <source>Cancel</source>
         <translation>Скасувати</translation>
     </message>
@@ -598,8 +594,8 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="111"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="617"/>
         <location filename="../src/ui/frames/install_results_frame.cpp" line="101"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="15"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="60"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="17"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="70"/>
         <source>Done</source>
         <translation>Готово</translation>
     </message>
@@ -613,20 +609,20 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="115"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="253"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="130"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="181"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="137"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="192"/>
         <source>Install NVIDIA closed source driver</source>
         <translation>Встановити закритий драйвер NVIDIA</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="478"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="393"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="406"/>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
         <translation>%1 виявлена помилка, виправити, продовжити встановлення або переключитися в простий режим</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="482"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="396"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="409"/>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
         <translation>%1 виявлені помилки, виправити, продовжити встановлення або переключитися в простий режим</translation>
     </message>
@@ -638,102 +634,105 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="539"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="329"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="335"/>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
         <translation>Тип файлової системи розділу /boot-директорії може бути тільки %1 </translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="543"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="333"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="339"/>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
         <translation>Розділ /boot-директорії  повинен бути першим розділом на жорсткому диску</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="547"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="343"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
         <translation>Розділ /boot/efi-директорії  повинен бути першим розділом на жорсткому диску</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="552"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="348"/>
         <source>/boot partition requires at least %1 MB</source>
         <translation>Для розділу /boot потрібно принаймні %1 МБ</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="556"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="342"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="352"/>
         <source>To create lvm, /boot partition is required</source>
         <translation>Для створення LVM потрібен розділ /boot</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="559"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="345"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="355"/>
         <source>Add an EFI partition to continue</source>
         <translation>Додайте розділ EFI, щоб продовжити</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="563"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="349"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="359"/>
         <source>/efi partition requires at least %1 MB</source>
         <translation>Для розділу /efi потрібно принаймні %1 МБ</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="567"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="353"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="363"/>
         <source>Add a root partition to continue</source>
         <translation>Додайте кореневий розділ, щоб продовжити</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="572"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="90"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="358"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="368"/>
         <source>/root partition requires at least %1 GB</source>
         <translation>Для розділу /root потрібно принаймні %1 ГБ</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="577"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="363"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="373"/>
         <source>%2 partition requires at least %1 GB</source>
         <translation>Для розділу %2 потрібно принаймні %1 ГБ</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="582"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="378"/>
         <source>Add a logical partition to continue</source>
         <translation>Додайте логічний розділ, щоб продовжити</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="124"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="214"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="129"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="219"/>
         <source>Edit Disk</source>
         <translation>Редагувати диск</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="125"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="259"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="147"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="232"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="187"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="228"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="130"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="172"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="257"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="191"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="234"/>
         <source>File system</source>
         <translation>Файлова система</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="126"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="255"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="148"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="247"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="193"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="229"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="131"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="260"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="173"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="272"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="197"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="235"/>
         <source>Mount point</source>
         <translation>Точка монтування</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="127"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="275"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="132"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="280"/>
         <source>Format the partition</source>
         <translation>Форматувати розділ</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="129"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="134"/>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="276"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="128"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="327"/>
@@ -750,33 +749,33 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="238"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="879"/>
-        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="126"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="240"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="877"/>
+        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="159"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="305"/>
         <source>Passwords do not match</source>
         <translation>Паролі не збігаються</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="271"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="131"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="174"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="138"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="185"/>
         <source>Encrypt This Disk</source>
         <translation>Зашифрувати цей диск</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="272"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="228"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="434"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="764"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="229"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="435"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="770"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Переконайтеся, що ви створили резервну копію важливих даних, потім виберіть диск для встановлення</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="273"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="482"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="650"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="657"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="459"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="648"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="655"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="536"/>
         <source>Password</source>
         <translation>Пароль</translation>
     </message>
@@ -791,15 +790,15 @@
         <translation>Подбайте про якісний пароль, інакше усі ваші дані може бути втрачено</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="132"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="186"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="139"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="197"/>
         <source>Please select a disk to start installation</source>
         <translation>Будь ласка, виберіть диск, щоб розпочати встановлення</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="133"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="161"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="167"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="140"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="172"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="178"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="119"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="238"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="174"/>
@@ -813,73 +812,80 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="76"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="47"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="653"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="659"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="183"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="24"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="21"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="165"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="231"/>
-        <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="104"/>
-        <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="125"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="150"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="168"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="237"/>
+        <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="100"/>
+        <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="128"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="132"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="24"/>
         <location filename="../src/base/translator.h" line="17"/>
         <source>Back</source>
         <translation>Назад</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="144"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="201"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="172"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="169"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="226"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="176"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="231"/>
         <source>Create New Partition</source>
         <translation>Створіть новий розділ</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="145"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="203"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="176"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="226"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="170"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="228"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="180"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="232"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="146"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="218"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="182"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="227"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="171"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="243"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="186"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="233"/>
         <source>Location</source>
         <translation>Місцезнаходження</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="149"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="263"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="198"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="230"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="174"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="288"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="202"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="236"/>
         <source>Size</source>
         <translation>Розмір</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="151"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="221"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="176"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="246"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="115"/>
         <source>Start</source>
         <translation>Почати</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="151"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="221"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="176"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="246"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="116"/>
         <source>End</source>
         <translation>Кінець</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="153"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="164"/>
-        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="232"/>
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="96"/>
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="120"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="178"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="167"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="238"/>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="100"/>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="126"/>
         <source>Create</source>
         <translation>Створити </translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="423"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="584"/>
+        <source>Unable to mount automatically, as it requires at least %1 GB</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="35"/>
@@ -929,37 +935,17 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
-<<<<<<< HEAD
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install the system directly. Please select one of the below solutions and continue.</source>
         <translation>У вас завантажувач EFI, але диск MBR, тому ви не можете встановити операційну систему безпосередньо. Будь ласка, виберіть одне з наведених нижче рішень, щоб продовжити.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="150"/>
-=======
-        <source>You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. Please select one of the below solutions and continue.</source>
-        <translation>У вас завантажувач EFI, але диск MBR, тому ви не можете встановити %1 безпосередньо. Будь ласка, виберіть одне з наведених нижче рішень, щоб продовжити.</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="79"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="149"/>
->>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
-        <source>Disable UEFI</source>
-        <translation>Вимкнути UEFI</translation>
-    </message>
-    <message>
-<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="79"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="152"/>
-=======
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="81"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="151"/>
->>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="90"/>
         <source>Reboot, enter BIOS, and disable UEFI</source>
         <translation>Перезавантажитеся, увійдіть в BIOS і вимкніть UEFI</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="80"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="153"/>
         <source>Exit BIOS, and install %1 again</source>
@@ -968,47 +954,31 @@
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="85"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="162"/>
-=======
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="82"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="152"/>
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="87"/>
-        <source>Exit BIOS, and install UOS again</source>
-        <translation>Вийдіть з BIOS і знову встановіть deepin</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="85"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="159"/>
->>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
         <source>Make sure you have backed up all data before proceeding</source>
         <translation>Переконайтеся, що ви створили резервну копію всіх даних, перш ніж продовжити</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="86"/>
-<<<<<<< HEAD
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="163"/>
-=======
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="160"/>
->>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
         <source>Continuing installation will format your disk</source>
         <translation>Продовжити встановлення буде відформатовано ваш диск</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="140"/>
-<<<<<<< HEAD
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. Please select one of the below solutions and continue.</source>
         <translation>У вас завантажувач EFI, але диск MBR, тому ви не можете встановити %1 безпосередньо. Будь ласка, виберіть одне з наведених нижче рішень, щоб продовжити.</translation>
-=======
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="79"/>
-        <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
-        <translation>У вас завантажувач EFI, але диск MBR, тому ви не можете встановити deepin безпосередньо. Будь ласка, виберіть одне з наведених нижче рішень, щоб продовжити.</translation>
->>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="150"/>
+        <source>Disable UEFI</source>
+        <translation>Вимкнути UEFI</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="73"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="224"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="654"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="681"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="225"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="660"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="687"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="87"/>
         <source>Ready to Install</source>
         <translation>Готовий до встановлення</translation>
@@ -1016,8 +986,8 @@
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="75"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="223"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="680"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="224"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="686"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="91"/>
         <source>Make a backup of your important data and then continue</source>
         <translation>Зробіть резервну копію ваших важливих даних і потім продовжуйте</translation>
@@ -1040,11 +1010,6 @@
         <translation>Мною прочитано угоду. Я погоджуюся із умовами</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/license_delegate.cpp" line="19"/>
-        <source>%1 Software End User License Agreement</source>
-        <translation>Ліцензійна угода із кінцевим користувачем %1</translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="433"/>
         <source>and</source>
         <translation>і</translation>
@@ -1055,14 +1020,9 @@
         <translation>Погоджуюся із умовами</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/license_delegate.cpp" line="30"/>
-        <source>User Experience Program License Agreement</source>
-        <translation>Ліцензійна угода щодо програми вивчення роботи користувачів</translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="445"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="94"/>
-        <location filename="../src/ui/frames_cli/language_frame.cpp" line="46"/>
+        <location filename="../src/ui/frames_cli/language_frame.cpp" line="92"/>
         <source>Select Language</source>
         <translation>Вибір мови</translation>
     </message>
@@ -1083,172 +1043,192 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="406"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="648"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="655"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="662"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="458"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="646"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="653"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="660"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="535"/>
         <source>Username</source>
         <translation>Ім&apos;я користувача</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="434"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="649"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="656"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="457"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="647"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="654"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="534"/>
         <source>Computer name</source>
         <translation>Ім&apos;я комп&apos;ютера</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="483"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="651"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="658"/>
-        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="210"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="460"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="649"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="656"/>
+        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="244"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="537"/>
         <source>Repeat password</source>
         <translation>Повторіть пароль</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="652"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="659"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="650"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="657"/>
         <source>Root password</source>
         <translation>Root пароль</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="653"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="660"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="651"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="658"/>
         <source>Repeat root password</source>
         <translation>Повторити пароль root</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="664"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="662"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="131"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="454"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="531"/>
         <source>Create Accounts</source>
         <translation>Створення облікових записів</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="665"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="456"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="663"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="533"/>
         <source>Fill in the username, computer name and your password</source>
         <translation>Введіть ім&apos;я користувача, ім&apos;я комп&apos;ютера і ваш пароль</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="666"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="664"/>
         <source>Use that password to edit boot menu</source>
         <translation>Використовуйте цей пароль для редагування меню завантаження</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="667"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="665"/>
         <source>Enable root user</source>
         <translation>Увімкнути користувача root</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="691"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="152"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="689"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="185"/>
         <source>This username already exists</source>
         <translation>Це ім&apos;я користувача вже існує</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="695"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="156"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="693"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="189"/>
         <source>The first letter must be in lowercase</source>
         <translation>Перша літера повинна бути в нижньому регістрі</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="700"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="161"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="698"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="194"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
         <translation>Ім&apos;я користувача повинно містити англійські літери (малі літери), цифри або спеціальні символи (_-)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="706"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="167"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="704"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="200"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
         <translation>Будь ласка, введіть ім&apos;я користувача довше ніж %1 символів і менше, ніж %2 символів</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="729"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="116"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="727"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="149"/>
         <source>Please input computer name</source>
         <translation>Будь ласка, введіть ім&apos;я комп&apos;ютера</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="733"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="120"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="731"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="153"/>
         <source>Computer name is invalid</source>
         <translation>Ім&apos;я комп&apos;ютера недійсне</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="737"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="735"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="157"/>
         <source>Computer name already exists, please input another one</source>
         <translation>Ім&apos;я комп&apos;ютера вже існує, будь ласка, введіть інше</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="742"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="129"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="740"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="162"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
         <translation>Будь ласка, введіть назву комп&apos;ютера довше ніж %1 символів і менше, ніж %2 символів</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="770"/>
-        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="80"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="194"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="768"/>
+        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="81"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="227"/>
         <source>The password should be different from the username</source>
         <translation>Пароль має відрізнятися від імені користувача</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="784"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="782"/>
+        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="95"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="241"/>
         <source>The password cannot be empty​</source>
         <translation>Пароль не може бути порожнім</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="788"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="786"/>
+        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="245"/>
         <source>Password must contain letters, numbers and symbols</source>
         <translation>Пароль має складатися із латинських літер, цифр та символів пунктуації</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="792"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="790"/>
+        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="103"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="249"/>
         <source>Password must have at least 8 characters</source>
         <translation>Пароль має складатися із принаймні 8 символів</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="796"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="794"/>
+        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="107"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="253"/>
         <source>Password must be between %1 and %2 characters</source>
         <translation>У паролі має бути від %1 до %2 символів</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="811"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="809"/>
+        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="122"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="268"/>
         <source>Password must not contain common words and combinations</source>
         <translation>Пароль не повинен містити загальновживаних слів і їхніх комбінацій</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="817"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="815"/>
+        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="128"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="274"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Пароль не повинен містити понад 4 паліндромних символів</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="822"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="820"/>
+        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="133"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="279"/>
         <source>Password must contain lowercase letters</source>
         <translation>У паролі мають міститися малі літери</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="827"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="825"/>
+        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="138"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="284"/>
         <source>Password must contain capital letters</source>
         <translation>У паролі мають міститися великі літери</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="832"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="830"/>
+        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="143"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="289"/>
         <source>Password must contain special characters</source>
         <translation>Пароль має містити спеціальні символи</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="837"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="835"/>
+        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="148"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="294"/>
         <source>Passwords must contain numbers</source>
         <translation>У паролі мають міститися цифри</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="1097"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="1095"/>
         <source>Add fingerprint password in Control Center &gt; Accounts to unlock and authenticate</source>
         <translation>Додайте пароль до відбитка за допомогою модуля «Центр керування &gt; Облікові записи», для розблокування і розпізнавання</translation>
     </message>
@@ -1301,7 +1281,7 @@
         <location filename="../src/ui/frames/install_component_frame.cpp" line="178"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="185"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="239"/>
-        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="82"/>
+        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="83"/>
         <source>Select Components</source>
         <translation>Виберіть компоненти</translation>
     </message>
@@ -1309,7 +1289,7 @@
         <location filename="../src/ui/frames/install_component_frame.cpp" line="186"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="247"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="54"/>
-        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="86"/>
         <source>Basic Environment</source>
         <translation>Основне середовище</translation>
     </message>
@@ -1323,41 +1303,43 @@
         <location filename="../src/ui/frames/install_component_frame.cpp" line="188"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="253"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="55"/>
-        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="87"/>
         <source>Add-Ons</source>
         <translation>Додатки</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="190"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="324"/>
-        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="76"/>
-        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="94"/>
-        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="77"/>
+        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="95"/>
+        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="100"/>
         <source>Select All</source>
         <translation>Вибрати все</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="82"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="18"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="63"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="64"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="20"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="73"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="74"/>
         <source>Installation Failed</source>
         <translation>Не вдалося встановити</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="84"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="19"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="65"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="21"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="75"/>
         <source>Sorry for the trouble. Please take a photo to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
         <translation>Вибачте за незручності. Будь ласка, зробіть фотографію, щоб надіслати нам журнал помилок, або збережіть журнал на зовнішній диск. Ми допоможемо усунути проблему.</translation>
     </message>
     <message>
-        <source>Sorry for the trouble. Please photo or scan the QR code to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
-        <translation type="vanished">Приносимо вибачення за незручності, будь ласка, сфотографуйте або відскануйте QR-код, щоб надіслати нам журнал помилок, або збережіть журнал на зовнішній диск. Ми допоможемо вирішити проблему.</translation>
-    </message>
-    <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="86"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="180"/>
+        <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="36"/>
+        <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="89"/>
+        <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="93"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="45"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="97"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="171"/>
         <source>Save Log</source>
         <translation>Зберегти журнал</translation>
     </message>
@@ -1386,35 +1368,32 @@
         <translation>Приховати журнал</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="82"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="43"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="75"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="46"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="89"/>
         <source>Reboot Now</source>
         <translation>Перезавантажити зараз</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="14"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="16"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="59"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="18"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="69"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="71"/>
         <source>Successfully Installed</source>
         <translation>Успішно встановлено</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
-        <source>Reboot to discover and enjoy system features</source>
-        <translation>Перезавантажте, щоб відкрити і насолодитися функціями системи</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="17"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="62"/>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="19"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="72"/>
         <source>Click the button below and then remove the installation media immediately</source>
         <translation>Натисніть показану нижче кнопку і від&apos;єднайте від комп&apos;ютера носій для встановлення системи</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/install_success_frame.cpp" line="86"/>
         <source>Reboot to complete the installation</source>
-        <translation type="vanished">Перезавантажте для завершення встановлення</translation>
+        <translation>Перезавантажте для завершення встановлення</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="123"/>
@@ -1460,7 +1439,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="171"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="214"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="192"/>
         <source>IP:</source>
         <translation>IP:</translation>
     </message>
@@ -1468,7 +1447,7 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="173"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="231"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="316"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="216"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="194"/>
         <source>Gateway:</source>
         <translation>Шлюз:</translation>
     </message>
@@ -1476,13 +1455,14 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="174"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="243"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="317"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="217"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="195"/>
         <source>Primary DNS:</source>
         <translation>Основний DNS:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="175"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="318"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="196"/>
         <source>Secondary DNS:</source>
         <translation>Вторинний DNS:</translation>
     </message>
@@ -1495,7 +1475,7 @@
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="219"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="315"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="215"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="193"/>
         <source>Netmask:</source>
         <translation>Маска мережі:</translation>
     </message>
@@ -1533,14 +1513,9 @@
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="750"/>
-<<<<<<< HEAD
         <location filename="../src/ui/frames/networkframe.cpp" line="916"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="994"/>
-=======
-        <location filename="../src/ui/frames/networkframe.cpp" line="893"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="972"/>
->>>>>>> fix: 解决字符安装，网络配置界面文案与需求不符问题
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="175"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="157"/>
         <source>Configure Network</source>
         <translation>Налаштувати Мережу</translation>
     </message>
@@ -1551,55 +1526,57 @@
         <translation>IP-адресу налаштовано на автоматичне отримання, але ви все одно можете змінити параметри мережі</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="186"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="226"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="432"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="761"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="187"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="227"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="433"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="767"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="89"/>
         <source>Create Partitions</source>
         <translation>Створити розділи</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="221"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="678"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="222"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="684"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="514"/>
         <source>Edit LVM Disk</source>
         <translation>Редагувати диск LVM</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="232"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="441"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="233"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="442"/>
         <source>Simple</source>
         <translation>Простий</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="233"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="444"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="88"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="234"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="445"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="94"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="492"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="99"/>
         <source>Advanced</source>
         <translation>Розширений</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="234"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="447"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="235"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="448"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="91"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="98"/>
         <source>Full Disk</source>
         <translation>Диск заповнено</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="504"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="662"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="505"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="668"/>
         <source>Start installation</source>
         <translation>Почніть встановлення</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="636"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="635"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
         <translation>Цільовий диск є динамічним і ваші дані можуть бути втрачені при продовженні. Спочатку зробіть резервну копію важливих файлів.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="640"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="639"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
         <translation>Цільовий диск є динамічним, який буде відформатовано, якщо продовжити. Спочатку зробіть резервну копію важливих файлів.</translation>
     </message>
@@ -1636,6 +1613,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="181"/>
+        <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="90"/>
         <source>Save the error log to a removable device</source>
         <translation>Збережіть журнал помилок на знімному пристрої</translation>
     </message>
@@ -1645,9 +1623,21 @@
         <translation>Зберегти як</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="59"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="82"/>
+        <source>No swap partition created, which may affect system performance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="60"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="88"/>
+        <source>OK</source>
+        <translation>Гаразд</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="127"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="156"/>
-        <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="25"/>
+        <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="24"/>
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="51"/>
         <source>Select Timezone</source>
         <translation>Виберіть часовий пояс</translation>
@@ -1670,6 +1660,8 @@
         <translation>Список</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="57"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="97"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="72"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="119"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="123"/>
@@ -1737,48 +1729,29 @@
         <translation>Невідомий пристрій</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="89"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="95"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="92"/>
         <source>Make sure you have backed up important data, then select the disk to install.</source>
         <translation>Переконайтеся, що ви створили резервну копію важливих даних, потім виберіть диск для встановлення.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="90"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="96"/>
         <source>Insert key: create or edit partition. Delete key: delete partition.</source>
         <translation>Клавіша Insert: створити або редагувати розділ. Клавіша Delete: вилучити розділ.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="338"/>
-        <source>/boot partition requires at least %1 GB</source>
-        <translation>Для розділу /boot потрібно принаймні %1 ГБ</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="401"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="404"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="414"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="417"/>
         <source>%1 error found, fix to continue installation</source>
         <translation>Виявлено %1 помилку. Виправте, щоб продовжити встановлення</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="94"/>
-        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="106"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="208"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="220"/>
-        <source>Please input password longer than %1 characters and shorter than %2 characters</source>
-        <translation>Будь ласка, введіть пароль довше, ніж %1 символів і менше, ніж %2 символів</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="101"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="215"/>
-        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Пароль повинен містити англійські літери (чутливі до регістру), цифри або спеціальні символи (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="204"/>
+        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="238"/>
         <source>Create Root Account</source>
         <translation>Створити обліковий запис root</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="207"/>
+        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="241"/>
         <source>Password:</source>
         <translation>Пароль:</translation>
     </message>
@@ -1803,35 +1776,30 @@
         <translation>Логічний розділ</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="79"/>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="83"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
         <translation>У вас завантажувач EFI, але диск MBR, тому ви не можете встановити deepin безпосередньо. Будь ласка, виберіть одне з наведених нижче рішень, щоб продовжити.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="87"/>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="91"/>
         <source>Exit BIOS, and install UOS again</source>
         <translation>Вийдіть з BIOS і знову встановіть deepin</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="89"/>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="93"/>
         <source>Make a backup of all your data to avoid data loss</source>
         <translation>Зробіть резервну копію всіх своїх даних, щоб уникнути їх втрати.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="91"/>
+        <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="95"/>
         <source>Nothing to do</source>
         <translation>Нічого робити</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="53"/>
-        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="85"/>
         <source>Select the components according to your needs.</source>
         <translation>Виберіть потрібні вам компоненти.</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="82"/>
-        <source>Shut Down</source>
-        <translation>Вимкнути</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/keyboard_frame.cpp" line="16"/>
@@ -1840,7 +1808,7 @@
         <translation>Виберіть розкладку клавіатури</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/language_frame.cpp" line="48"/>
+        <location filename="../src/ui/frames_cli/language_frame.cpp" line="94"/>
         <source>Choose a language used in the installation process, which will also be the default system language.</source>
         <translation>Виберіть мову, яку буде використано у процесі встановлення, і яка буде типовою мовою системи.</translation>
     </message>
@@ -1861,48 +1829,48 @@
         <translation>Мною прочитано Ліцензійну угоду із кінцевим користувачем програмного забезпечення UOS. Я погоджуюся із нею</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="72"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="181"/>
-        <source>Configure Ethernet according to your needs, but you can skip it as well.</source>
-        <translation>Налаштуйте Ethernet так, як вам потрібно. Втім, можете пропустити цей крок.</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="73"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="182"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="63"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="160"/>
         <source>Set the IP address, gateway, netmask, DNS please.</source>
         <translation>  Будь ласка, налаштуйте IP-адресу, шлюз, маску мережі та DNS.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="76"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="219"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="64"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="161"/>
+        <source>Configure Ethernet according to your needs, but you can skip it as well.</source>
+        <translation>Налаштуйте Ethernet так, як вам потрібно. Втім, можете пропустити цей крок.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="66"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="198"/>
         <source>Network connection error, check the configuration please</source>
         <translation>Не вдалося встановити з&apos;єднання. Будь ласка, перевірте, чи правильно вказано параметри.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="207"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="183"/>
         <source>Configure Now</source>
         <translation>Налаштувати зараз</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="208"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="184"/>
         <source>Skip</source>
         <translation>Пропустити</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="609"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="614"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="637"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="642"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="511"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="516"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="539"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="544"/>
         <source>e.g., 255.255.255.0</source>
         <translation>Приклад: 255.255.255.0</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="617"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="622"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="655"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="660"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="665"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="670"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="519"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="524"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="557"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="562"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="567"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="572"/>
         <source>e.g., 192.168.30.30</source>
         <translation>Приклад: 192.168.30.30</translation>
     </message>
@@ -1917,22 +1885,22 @@
         <translation>Режим поділу на розділи</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="461"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="538"/>
         <source>Set Root Password</source>
         <translation>Встановити пароль root</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="463"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="540"/>
         <source>If you check &quot;Set as root password&quot;, the root password is the same as the password, otherwise, you need to set it separately.</source>
         <translation>Якщо ви позначите пункт «Встановити як пароль root», пароль root буде тим самим, що і цей пароль. Якщо пункт не буде позначено, вам доведеться вказати пароль окремо.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="464"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="541"/>
         <source>Your root password should be different from the user password, please take care of them.</source>
         <translation>Ваш пароль root має відрізнятися від пароля користувача. Будь ласка, подбайте про це.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="29"/>
+        <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="28"/>
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="53"/>
         <source>Is it the right timezone? You can change it as well.</source>
         <translation>Чи правильно вказано часовий пояс? Ви можете його змінити.</translation>

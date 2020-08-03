@@ -386,7 +386,6 @@ void SystemInfoFramePrivate::initUI()
         m_le_password_confirm->setFocusEnabled(false);
 
         m_foucsWindows.append(this);
-        this->setFocus(true);
 
         m_NcursesCheckBox = new NcursesCheckBox(this, 1, (width() - 5) / 2, begy(), begx());
         m_NcursesCheckBox->setIsUseTitle(false);
@@ -396,6 +395,7 @@ void SystemInfoFramePrivate::initUI()
         m_label_error_info->setBackground(NcursesUtil::getInstance()->error_attr());
 
         m_pNextButton->setBackground(NcursesUtil::getInstance()->button());
+        this->setFocus(true);
 
 //        connect(m_le_username, &NCursesLineEdit::textChanged, this, [=](){
 //            m_le_hostname->setText(m_le_username->text().append("-PC"));

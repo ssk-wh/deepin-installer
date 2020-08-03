@@ -54,7 +54,7 @@ void SwapWarnningFrame::display()
 
 void SwapWarnningFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    setTitle(::QObject::tr("Friendly Noten"));
+    setTitle(::QObject::tr("Friendly Note"));
     comment_label_->setText(
         ::QObject::tr("No swap partition created, which may affect system performance"));
     continue_button_->setText(::QObject::tr("OK"));
@@ -94,7 +94,7 @@ void SwapWarnningFrame::initUI() {
   pixmap = pixmap.scaled(48 * ratio, 48 * ratio, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
   setIconPixmap(pixmap);
 
-  setTitle(::QObject::tr("Friendly Noten"));
+  setTitle(::QObject::tr("Friendly Note"));
 
   addContent(comment_label_, Qt::AlignTop | Qt::AlignHCenter);
 

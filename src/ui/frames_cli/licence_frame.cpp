@@ -14,11 +14,11 @@
 namespace installer {
 
 #ifdef PROFESSIONAL
-const QString zh_CN_license { ":/license/server-deepin-end-user-license-agreement_zh_CN.txt" };
-const QString en_US_license{ ":/license/server-deepin-end-user-license-agreement_en_US.txt" };
+const QString zh_CN_license { ":/license/end-user-license-agreement-default_zh_CN.txt" };
+const QString en_US_license{ ":/license/end-user-license-agreement-default_en_US.txt" };
 #else
-const QString zh_CN_license { ":/license/deepin-end-user-license-agreement_community_zh_CN.txt" };
-const QString en_US_license { ":/license/deepin-end-user-license-agreement_community_en_US.txt" };
+const QString zh_CN_license { ":/license/end-user-license-agreement-community_zh_CN.txt" };
+const QString en_US_license { ":/license/end-user-license-agreement-community_en_US.txt" };
 #endif  // PROFESSIONAL
 
 
