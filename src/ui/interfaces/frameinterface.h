@@ -26,9 +26,10 @@
 
 namespace installer {
 enum class FrameType {
-    Frame,       // 主页面
-    ExtFrame,    // 不显示在列表中的主页面
-    ChildFrame,  // 子页面
+    Frame,              // 主页面
+    ExtFrame,           // 在左侧列表中不显示的主页面
+    FullScreenExtFrame, // 全屏显示的主页面
+    ChildFrame,         // 子页面
 };
 
 class BaseFrameInterface : public QWidget {

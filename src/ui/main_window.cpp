@@ -26,6 +26,7 @@
 #include <QStackedLayout>
 #include <QTranslator>
 #include <QList>
+#include <QDesktopWidget>
 #include <DStandardItem>
 #include <DBackgroundGroup>
 #include <DTitlebar>
@@ -117,6 +118,9 @@ MainWindow::MainWindow(QWidget* parent)
     updateFrameLabelState(m_frames.first(), FrameLabelState::Show);
     if (m_frames.first()->frameType() == FrameType::Frame) {
         stacked_layout_->setCurrentWidget(m_frames.first());
+    }
+    else if (m_frames.first()->frameType() == FrameType::FullScreenExtFrame) {
+        showExtFrameFullscreen(m_frames.first());
     }
     else {
         showChildFrame(m_frames.first());
@@ -210,6 +214,9 @@ void MainWindow::nextFrame()
                     m_currentPreviousState = (*it)->allowPrevious();
                 }
             }
+            else if ((*it)->frameType() == FrameType::FullScreenExtFrame) {
+                showExtFrameFullscreen(*it);
+            }
             else {
                 showChildFrame(*it);
             }
@@ -300,6 +307,12 @@ void MainWindow::hideChildFrame() const
 {
     shadow_widget->eraseContent();
     shadow_widget->hide();
+}
+
+void MainWindow::showExtFrameFullscreen(BaseFrameInterface* childFrameInterface)
+{
+    childFrameInterface->setParent(this);
+    ShowFullscreen(childFrameInterface);
 }
 
 void MainWindow::resizeEvent(QResizeEvent *event)
@@ -415,9 +428,6 @@ void MainWindow::initPages() {
   confirm_quit_frame_->hide();
 
   m_repairSystemFrame = new RepairSystemFrame(this);
-  if (m_repairSystemFrame->shouldDisplay()) {
-    stacked_layout_->addWidget(m_repairSystemFrame);
-  }
 
   select_language_frame_ = new LanguageFrame(this);
   stacked_layout_->addWidget(select_language_frame_);
@@ -452,8 +462,8 @@ void MainWindow::initPages() {
 #ifdef QT_DEBUG_test
 
 #else
-      privilege_error_frame_,
       m_repairSystemFrame,
+      privilege_error_frame_,
       select_language_frame_,
       disk_space_insufficient_frame_,
       virtual_machine_frame_,

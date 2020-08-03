@@ -102,6 +102,7 @@ class MainWindow : public DMainWindow, public FrameProxyInterface {
   void exitInstall(bool reboot = false) override;
   void showChildFrame(BaseFrameInterface* childFrameInterface) override;
   void hideChildFrame() const override;
+  void showExtFrameFullscreen(BaseFrameInterface* childFrameInterface);
   void coverFrameLabelsView();
   void disCoverFrameLabelsView();
 

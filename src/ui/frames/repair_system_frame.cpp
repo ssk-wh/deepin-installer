@@ -143,7 +143,7 @@ void installer::RepairSystemFramePrivate::initConnection() {
     disconnect(nextButton, nullptr, nullptr, nullptr);
     connect(nextButton, &QPushButton::clicked, this, [=] {
         if (m_installerWidget->isCheckable()) {
-            q_ptr->m_proxy->hideChildFrame();
+            q_ptr->hide();
             q_ptr->m_proxy->nextFrame();
         } else if (m_repairWidget->isCheckable()) {
             q_ptr->repairSystem();
@@ -238,7 +238,7 @@ installer::RepairSystemFrame::RepairSystemFrame(installer::FrameProxyInterface *
     m_private(new RepairSystemFramePrivate(this))
 {
     setObjectName("repair_system_frame");
-    setFrameType(FrameType::Frame);
+    setFrameType(FrameType::FullScreenExtFrame);
 }
 
 installer::RepairSystemFrame::~RepairSystemFrame()

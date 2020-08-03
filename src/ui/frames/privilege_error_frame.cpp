@@ -98,6 +98,7 @@ void PrivilegeErrorFramePrivate::initUI() {
   TitleLabel* title_label = new TitleLabel("Privilege Error");
   CommentLabel* comment_label = new CommentLabel(
       "Please execute with root account");
+  nextButton->setText("Next");
 
   centerLayout->setContentsMargins(0, 0, 0, 0);
   centerLayout->setSpacing(kMainLayoutSpacing);
