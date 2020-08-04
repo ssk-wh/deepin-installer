@@ -399,17 +399,18 @@ void NewPartitionFrame::updateSlideSize() {
     // NOTE(huzhengming): partition size might be less than |default_size|.
     // Its value will also be checked in AdvancedPartitionFrame.
     static const MemInfo mem_info = GetMemInfo();
-    qint64 swapeSpace =  2 * kGibiByte;
+    qint64 swapeSpace =  mem_info.mem_total * 2;
     if (mem_info.mem_total > 2 *  kGibiByte) {
         swapeSpace = mem_info.mem_total + 2 *  kGibiByte;
     }
     const int root_required = GetSettingsInt(kPartitionRootMiniSpace);
+    const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace) + 1;
     qint64 sumSapce = root_required * kGibiByte + swapeSpace;
 
     PartitionTableType table = delegate_->findDevice(partition_->device_path)->table;
 
     if (table == PartitionTableType::GPT) {
-        sumSapce += 300 * kMebiByte;
+        sumSapce += efi_recommended * kMebiByte;
     }
 
     size_slider_->setMinimum(0);
@@ -417,7 +418,7 @@ void NewPartitionFrame::updateSlideSize() {
     size_slider_->setValue(0);
     size_slider_->blockSignals(false);
 
-    const qint64 default_size = sumSapce;
+    const qint64 default_size = sumSapce + kGibiByte;
     QString msg = "";
     if (default_size > size_slider_->value() * kMebiByte) {
         msg = ::QObject::tr("Unable to mount automatically, as it requires at least %1 GB")
@@ -484,7 +485,7 @@ void NewPartitionFrame::onCreateButtonClicked() {
       const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace) + 1;
       qint64 total_sectors_auto = efi_recommended * kMebiByte / partition_->sector_size;
       static const MemInfo mem_info = GetMemInfo();
-      qint64 swapeSpace =  2 * kGibiByte;
+      qint64 swapeSpace =  mem_info.mem_total * 2;
       if (mem_info.mem_total > 2 *  kGibiByte) {
           swapeSpace = mem_info.mem_total + 2 *  kGibiByte;
       }
@@ -517,7 +518,10 @@ void NewPartitionFrame::onCreateButtonClicked() {
 
           //创建/分区
           partition_ = device->partitions.at(indexPartition);
-          qint64 rootSapce = total_sectors * partition_->sector_size - 301 * kMebiByte - swapeSpace;
+          qint64 rootSapce = total_sectors * partition_->sector_size - swapeSpace;
+          if (table == PartitionTableType::GPT) {
+              rootSapce = rootSapce - (efi_recommended + 1) * kMebiByte;
+          }
           total_sectors_auto = rootSapce / partition_->sector_size;
           delegate_->createPartition(partition_, partition_type, align_start, fs_type,
                                      kMountPointRoot, total_sectors_auto);
@@ -565,20 +569,21 @@ void NewPartitionFrame::onSizeSliderValueChanged(qint64 size) {
     // NOTE(huzhengming): partition size might be less than |default_size|.
     // Its value will also be checked in AdvancedPartitionFrame.
     static const MemInfo mem_info = GetMemInfo();
-    qint64 swapeSpace =  2 * kGibiByte;
+    qint64 swapeSpace =  mem_info.mem_total * 2;
     if (mem_info.mem_total > 2 *  kGibiByte) {
         swapeSpace = mem_info.mem_total + 2 *  kGibiByte;
     }
     const int root_required = GetSettingsInt(kPartitionRootMiniSpace);
+    const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace) + 1;
     qint64 sumSapce = root_required * kGibiByte + swapeSpace;
 
     PartitionTableType table = delegate_->findDevice(partition_->device_path)->table;
 
     if (table == PartitionTableType::GPT) {
-        sumSapce += 300 * kMebiByte;
+        sumSapce += efi_recommended * kMebiByte;
     }
 
-    const qint64 default_size = sumSapce;
+    const qint64 default_size = sumSapce + kGibiByte;
     QString msg = "";
     if (default_size > size) {
         msg = ::QObject::tr("Unable to mount automatically, as it requires at least %1 GB")
