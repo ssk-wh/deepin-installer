@@ -36,18 +36,31 @@ DWIDGET_USE_NAMESPACE
 class DDropdownPrivate
 {
 public:
-    DDropdownPrivate(DDropdown *parent) : q_ptr(parent) {}
+    enum class ButtonStatus {
+        Normal,
+        Hover,
+        Press
+    };
+
+    DDropdownPrivate(DDropdown *parent)
+        : q_ptr(parent)
+        , m_state(ButtonStatus::Normal)
+    {}
+
+    void updatePic();
 
     QMenu       *menu       = nullptr;
     QLabel      *text       = nullptr;
     QLabel      *dropdown   = nullptr;
-    QString     status;
+    ButtonStatus m_state    = ButtonStatus::Normal;
 
     DDropdown *q_ptr;
     Q_DECLARE_PUBLIC(DDropdown)
 };
 
-DDropdown::DDropdown(QWidget *parent) : QFrame(parent), d_ptr(new DDropdownPrivate(this))
+DDropdown::DDropdown(QWidget *parent)
+    : QFrame(parent)
+    , d_ptr(new DDropdownPrivate(this))
 {
     Q_D(DDropdown);
 
@@ -101,12 +114,6 @@ DDropdown::~DDropdown()
 
 }
 
-QString DDropdown::status() const
-{
-    Q_D(const DDropdown);
-    return d->status;
-}
-
 QList<QAction *> DDropdown::actions() const
 {
     Q_D(const DDropdown);
@@ -144,41 +151,72 @@ QAction *DDropdown::addAction(const QString &item, const QVariant &var)
     return action;
 }
 
-void DDropdown::setStatus(QString status)
-{
-    Q_D(DDropdown);
-    d->status = status;
-}
-
 void DDropdown::enterEvent(QEvent *event)
 {
-    setStatus("hover");
-    QFrame::enterEvent(event);
+    Q_D(DDropdown);
+    d->m_state = DDropdownPrivate::ButtonStatus::Hover;
+    d->updatePic();
 
     this->style()->unpolish(this);
     this->style()->polish(this);
     update();
+
+    QFrame::enterEvent(event);
 }
 
 void DDropdown::leaveEvent(QEvent *event)
 {
-    setStatus("");
-    QFrame::leaveEvent(event);
+    Q_D(DDropdown);
+    d->m_state = DDropdownPrivate::ButtonStatus::Normal;
+    d->updatePic();
 
     this->style()->unpolish(this);
     this->style()->polish(this);
     update();
+
+    QFrame::leaveEvent(event);
 }
 
 void DDropdown::mousePressEvent(QMouseEvent *event)
 {
+    if (event->button() == Qt::LeftButton) {
+        Q_D(DDropdown);
+        d->m_state = DDropdownPrivate::ButtonStatus::Press;
+        d->updatePic();
+    }
+
     QFrame::mousePressEvent(event);
 }
 
 void DDropdown::mouseReleaseEvent(QMouseEvent *event)
 {
+    Q_D(DDropdown);
+    if (d->m_state == DDropdownPrivate::ButtonStatus::Press && rect().contains(event->pos())) {
+        d->m_state = DDropdownPrivate::ButtonStatus::Hover;
+        d->updatePic();
+    }
+
     if (event->button() == Qt::LeftButton) {
         Q_EMIT requestContextMenu();
     }
+
     QFrame::mouseReleaseEvent(event);
+}
+
+void DDropdownPrivate::updatePic()
+{
+    switch(m_state){
+    case ButtonStatus::Normal:
+        dropdown->setPixmap(installer::renderPixmap(":/images/dropdown_arrow-normal.svg"));
+        break;
+    case ButtonStatus::Hover:
+        dropdown->setPixmap(installer::renderPixmap(":/images/dropdown_arrow-hover.svg"));
+        break;
+    case ButtonStatus::Press:
+        dropdown->setPixmap(installer::renderPixmap(":/images/dropdown_arrow-press.svg"));
+        break;
+    default:
+        qCritical() << "invalid DDropdown state";
+        break;
+    }
 }

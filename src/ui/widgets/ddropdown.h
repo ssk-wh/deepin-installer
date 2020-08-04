@@ -28,16 +28,14 @@ class DDropdownPrivate;
 class DDropdown : public QFrame
 {
     Q_OBJECT
-    Q_PROPERTY(QString status READ status WRITE setStatus NOTIFY statusChanged)
+
 public:
     explicit DDropdown(QWidget *parent = Q_NULLPTR);
     ~DDropdown();
 
-    QString status() const;
     QList<QAction *> actions() const;
 
 signals:
-    void statusChanged(QString status);
     void requestContextMenu();
     void triggered(QAction *action);
 
@@ -45,7 +43,6 @@ public slots:
     void setText(const QString &text);
     void setCurrentAction(QAction *action);
     QAction *addAction(const QString &item, const QVariant &var);
-    void setStatus(QString status);
 
 protected:
     virtual void enterEvent(QEvent *event);
