@@ -27,6 +27,7 @@
 #include <QShortcut>
 #include <DBackgroundGroup>
 #include <DTitlebar>
+#include <DImageButton>
 #include <linux/vt.h>
 #include <sys/types.h>
 #include <sys/ioctl.h>
@@ -54,6 +55,7 @@
 #include "ui/frames/control_platform_frame.h"
 #include "ui/frames/inner/system_info_keyboard_frame.h"
 #include "ui/frames/control_panel_frame.h"
+#include "ui/frames/confirm_quit_frame.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -187,7 +189,20 @@ void FirstBootSetupWindow::setWindowIcon(const QString &path)
     }
 }
 
+void FirstBootSetupWindow::onCloseEvent()
+{
+    confirm_quit_frame_->display();
+}
+
 void FirstBootSetupWindow::initConnections() {
+    connect(close_button_, &DImageButton::clicked, this, &FirstBootSetupWindow::onCloseEvent);
+
+    connect(confirm_quit_frame_, &ConfirmQuitFrame::quitCancelled, this, [=](){
+               confirm_quit_frame_->close();
+            });
+    connect(confirm_quit_frame_, &ConfirmQuitFrame::quitConfirmed,
+            this, &FirstBootSetupWindow::shutdownSystem);
+
     connect(hook_worker_, &FirstBootHookWorker::hookFinished,
             this, &FirstBootSetupWindow::onHookFinished);
 
@@ -219,6 +234,14 @@ void FirstBootSetupWindow::initUI() {
     back_button_->setPressPic(":/images/back_pressed.svg");
     back_button_->setDisabledPic(":/images/back_disabled.svg");
     back_button_->hide();
+
+    close_button_ = new DImageButton(this);
+    close_button_->setObjectName("close_button");
+    close_button_->setFocusPolicy(Qt::TabFocus);
+    close_button_->setFixedSize(40, 40);
+    close_button_->setNormalPic(":/images/close_normal.svg");
+    close_button_->setHoverPic(":/images/close_normal.svg");
+    close_button_->setPressPic(":/images/close_normal.svg");
 
     stacked_layout_ = new QStackedLayout;
     stacked_layout_->setContentsMargins(0, 0, 0, 0);
@@ -270,6 +293,8 @@ void FirstBootSetupWindow::initUI() {
 
 void FirstBootSetupWindow::initPages()
 {
+    confirm_quit_frame_ = new ConfirmQuitFrame(this);
+    confirm_quit_frame_->hide();
     language_frame_ = new LanguageFrame(this);
     m_keyboardFrame = new SystemInfoKeyboardFrame(this);
     system_info_frame_ = new SystemInfoFrame(this);
@@ -333,6 +358,17 @@ void FirstBootSetupWindow::changeEvent(QEvent *event)
     else {
         QWidget::changeEvent(event);
     }
+}
+
+void FirstBootSetupWindow::resizeEvent(QResizeEvent *event)
+{
+    if (close_button_) {
+      const int marginSize = this->layout()->margin();
+      close_button_->move(width() - close_button_->width() - marginSize, marginSize);
+      close_button_->raise();
+    }
+
+    DMainWindow::resizeEvent(event);
 }
 
 void FirstBootSetupWindow::constructLabelView()
@@ -586,6 +622,17 @@ void FirstBootSetupWindow::updateFrameLabelPreviousState(bool allow)
                 updateFrameLabelState(frame, FrameLabelState::Previous);
             }
         }
+    }
+}
+
+void FirstBootSetupWindow::shutdownSystem()
+{
+    if (!ShutdownSystem()) {
+        qWarning() << "ShutdownSystem() failed!";
+    }
+
+    if (!ShutdownSystemWithMagicKey()) {
+        qWarning() << "ShutdownSystemWithMagicKey() failed!";
     }
 }
 

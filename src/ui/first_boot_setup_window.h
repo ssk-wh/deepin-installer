@@ -55,6 +55,7 @@ class NetworkFrame;
 class ControlPlatformFrame;
 class SystemInfoKeyboardFrame;
 class ControlPanelFrame;
+class ConfirmQuitFrame;
 
 // Main window of deepin_installer_first_boot.
 class FirstBootSetupWindow : public DMainWindow, public FrameProxyInterface {
@@ -75,7 +76,10 @@ class FirstBootSetupWindow : public DMainWindow, public FrameProxyInterface {
   void setWindowIcon(const QString &path);
 
 protected:
+  // Show ConfirmQuitFrame when top right corner is clicked.
+  void onCloseEvent();
   void changeEvent(QEvent *event) override;
+  void resizeEvent(QResizeEvent* event) override;
 
  private:
   void initConnections();
@@ -86,6 +90,7 @@ protected:
   void registerShortcut();
 
   DImageButton*          back_button_         = nullptr;
+  DImageButton*          close_button_        = nullptr;
   QLabel*                background_label_    = nullptr;
   SystemInfoFrame*       system_info_frame_   = nullptr;
   TimezoneFrame*         timezone_frame_      = nullptr;
@@ -95,6 +100,7 @@ protected:
   ControlPlatformFrame*  control_platform_frame_ = nullptr;
   QStackedLayout*        stacked_layout_      = nullptr;
   SystemInfoKeyboardFrame* m_keyboardFrame    = nullptr;
+  ConfirmQuitFrame*      confirm_quit_frame_  = nullptr;
 
   QThread*             hook_worker_thread_ = nullptr;
   FirstBootHookWorker* hook_worker_        = nullptr;
@@ -154,6 +160,8 @@ protected:
 
   void updateFrameLabelState(FrameInterface *frame, FrameLabelState state);
   void updateFrameLabelPreviousState(bool allow);
+
+  void shutdownSystem();
 };
 
 }  // namespace installer

@@ -325,7 +325,7 @@ void MainWindow::resizeEvent(QResizeEvent *event)
       close_button_->raise();
     }
 
-    QWidget::resizeEvent(event);
+    DMainWindow::resizeEvent(event);
 }
 
 void MainWindow::onCloseEvent()
