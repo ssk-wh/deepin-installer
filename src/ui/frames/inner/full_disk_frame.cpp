@@ -103,7 +103,7 @@ bool FullDiskFrame::validate() const {
         const bool debug_test = false;
 #endif // QT_DEBUG
 
-        if (debug_test || device->getByteLength() < root_required_bytes) {
+        if (device->getByteLength() < root_required_bytes) {
             m_diskTooSmallTip->show();
             qWarning() << QString("MULTIDISK: disk too small:size:{%1}.").arg(device->getByteLength());
             return false;
