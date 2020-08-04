@@ -60,7 +60,7 @@ DDropdown::DDropdown(QWidget *parent) : QFrame(parent), d_ptr(new DDropdownPriva
     d->text->setObjectName("DDropdownText");
     d->dropdown = new QLabel;
     d->dropdown->setObjectName("DDropdownIcon");
-    d->dropdown->setPixmap(installer::renderPixmap(":/images/dropdown_arrow.svg"));
+    d->dropdown->setPixmap(installer::renderPixmap(":/images/dropdown_arrow-normal.svg"));
     d->dropdown->setFixedSize(8, 5);
 
     auto wrapLayout = new QHBoxLayout;
@@ -168,6 +168,11 @@ void DDropdown::leaveEvent(QEvent *event)
     this->style()->unpolish(this);
     this->style()->polish(this);
     update();
+}
+
+void DDropdown::mousePressEvent(QMouseEvent *event)
+{
+    QFrame::mousePressEvent(event);
 }
 
 void DDropdown::mouseReleaseEvent(QMouseEvent *event)

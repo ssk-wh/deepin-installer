@@ -50,6 +50,7 @@ public slots:
 protected:
     virtual void enterEvent(QEvent *event);
     virtual void leaveEvent(QEvent *event);
+    virtual void mousePressEvent(QMouseEvent *event);
     virtual void mouseReleaseEvent(QMouseEvent *event);
 
 private:
