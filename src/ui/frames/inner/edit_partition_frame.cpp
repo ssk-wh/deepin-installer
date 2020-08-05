@@ -93,8 +93,11 @@ void EditPartitionFrame::setPartition(const Partition::Ptr partition) {
   }
 
   QStringList mountList = delegate_->getMountPoints();
-  if (mountList.back() == kMountPointAuto) {
-      mountList.pop_back();
+  for (QString mountString : mountList) {
+      if (mountString == kMountPointAuto) {
+          mountList.removeOne(mountString);
+          break;
+      }
   }
   mount_point_model_ = new MountPointModel(mountList, this);
   mount_point_box_->setModel(mount_point_model_);
