@@ -629,7 +629,9 @@ void SystemInfoFormFramePrivate::initUI()
     mainLayout->setSpacing(kMainLayoutSpacing);
     mainLayout->addStretch();
     mainLayout->addWidget(m_titleLabel_, 0, Qt::AlignHCenter);
+    mainLayout->addWidget(m_commentLabel_, 0, Qt::AlignHCenter | Qt::AlignTop);
     mainLayout->addWidget(m_stretchLabel, 0, Qt::AlignHCenter | Qt::AlignTop);
+    m_stretchLabel->hide();
     mainLayout->addWidget(m_avatarButton_, 0, Qt::AlignHCenter);
     mainLayout->addSpacing(10);
     mainLayout->addWidget(area, 0, Qt::AlignHCenter);
@@ -661,6 +663,7 @@ void SystemInfoFormFramePrivate::updateTex()
 
     m_titleLabel_->setText(::QObject::tr("Create Accounts"));
     m_commentLabel_->setText(::QObject::tr("Fill in the username, computer name and your password"));
+    m_stretchLabel->setText(::QObject::tr("Add fingerprint password in Control Center > Accounts to unlock and authenticate"));
     m_grubPasswordCheck_->setText(::QObject::tr("Use that password to edit boot menu"));
     m_setRootPasswordCheck->setText(::QObject::tr("Enable root user"));
     tooltip_->setText("");
@@ -1092,7 +1095,12 @@ void SystemInfoFormFramePrivate::updateDevice() {
     const bool test = false;
 #endif // QT_DEBUG
     if (test || searchDevice()) {
-       m_stretchLabel->setText(::QObject::tr("Add fingerprint password in Control Center > Accounts to unlock and authenticate"));
+        m_stretchLabel->show();
+        m_commentLabel_->hide();
+    }
+    else {
+        m_stretchLabel->hide();
+        m_commentLabel_->show();
     }
 }
 
