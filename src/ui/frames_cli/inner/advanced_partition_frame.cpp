@@ -10,6 +10,7 @@
 #include "ui/delegates/advanced_partition_delegate.h"
 #include "ui/delegates/lvm_partition_delegate.h"
 #include "partition_table_warning_frame.h"
+#include "base/command.h"
 
 namespace installer {
 
@@ -486,7 +487,23 @@ void AdvancedPartitionFrame::doBackBtnClicked()
             VgDevice::p_installer_VgDevice = nullptr;
         }
         AdvancedPartitionDelegate::install_Lvm_Status = Install_Lvm_Status::Lvm_No_Need;
-        emit m_currentDelegate->deviceRefreshed(m_delegate->realDevices());
+        DeviceList devices= m_delegate->realDevices();
+        //删除当前盘符
+        for (Device::Ptr device : devices) {
+            QStringList args("-h");
+            QString outPut ="";
+            args.append("/usr/lib/live/mount/medium");
+            args.append("| grep");
+            args.append(device->path);
+            SpawnCmd("df", args, outPut);
+
+            if (outPut.indexOf(device->path) < 0) continue;
+
+            devices.removeOne(device);
+            break;
+        }
+
+        emit m_currentDelegate->deviceRefreshed(devices);
         Q_D(AdvancedPartitionFrame);
         d->box();
         d->printTitle(::QObject::tr("Advanced"), d->width());
