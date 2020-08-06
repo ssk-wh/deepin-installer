@@ -63,9 +63,6 @@ class FullDiskDelegate : public partition::Delegate{
   // Nor does it handle life time of model.
   explicit FullDiskDelegate(QObject* parent = nullptr);
 
-  // return fake device
-  Device::Ptr fullInstallScheme(Device::Ptr device) const;
-
   // add System disk
   void addSystemDisk(const QString & device_path);
 

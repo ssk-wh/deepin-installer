@@ -48,37 +48,6 @@ FullDiskDelegate::FullDiskDelegate(QObject* parent)
     this->setObjectName("full_disk_delegate");
 }
 
-Device::Ptr FullDiskDelegate::fullInstallScheme(Device::Ptr device) const
-{
-    Device::Ptr fake(new Device());
-
-    for (auto dev : selected_devices) {
-        if (dev->path != device->path) {
-            continue;
-        }
-
-        fake = Device::Ptr(new Device(*dev));
-        fake->partitions.clear();
-
-        for (auto partition : dev->partitions) {
-            if (partition->end_sector < 0
-             || partition->start_sector < 0
-             || partition->type == PartitionType::Extended) {
-                continue;
-            }
-            Partition::Ptr p(new Partition(*partition));
-            p->type = PartitionType::Unallocated;
-            p->length = p->end_sector - p->start_sector + 1;
-            fake->partitions.append(p);
-        }
-        std::sort(fake->partitions.begin(), fake->partitions.end(), [=] (Partition::Ptr partition1, Partition::Ptr partition2) {
-            return partition1->start_sector < partition2->start_sector;
-        });
-        return fake;
-    }
-    return fake;
-}
-
 bool FullDiskDelegate::formatWholeDevice(const QString& device_path,
                                          PartitionTableType type) {
   // * First clear any existing operations
