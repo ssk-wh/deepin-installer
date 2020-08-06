@@ -49,6 +49,9 @@ fi
 # umount all point
 /tmp/installer/hook_manager.sh /tmp/installer/after_chroot/90_unmount.job
 
+# force umount /target point
+umount -l /target
+
 mkdir -p /target/recovery
 mount ${DI_RECOVERY_PATH} /target/recovery || error "Faild to mount recovery"
 
