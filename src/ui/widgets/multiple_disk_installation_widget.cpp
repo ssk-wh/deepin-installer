@@ -179,8 +179,11 @@ void MultipleDiskInstallationWidget::onInstallationSelectedChanged(const QModelI
         }
     }
 
+    m_right_view->blockSignals(true);
     m_right_view->setModel(m_right_model[m_current_left_index]);
     m_right_view->setCurrentIndex(m_right_model[m_current_left_index]->index(current_detail_index, 0));
+    m_right_model[m_current_left_index]->setSelectedIndex(current_detail_index);
+    m_right_view->blockSignals(false);
 }
 
 void MultipleDiskInstallationWidget::onInstallationDetailSelectedChanged(int index)
