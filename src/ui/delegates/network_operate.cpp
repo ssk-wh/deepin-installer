@@ -179,19 +179,17 @@ bool NetworkOperate::setIpV4(NetworkSettingInfo info)
     QDBusPendingReply<> reply;
     ActiveConnection::Ptr activeConnection = m_device->activeConnection();
 
-    if (info.setIpMode == DHCPTYpe::Auto) {
-        if (activeConnection.isNull()) {
-            qCritical() << "The connection has not corresponding active connection";
-        }
-        else {
-            qInfo() << "Deactivate connection " << activeConnection->path();
+    if (activeConnection.isNull()) {
+        qCritical() << "The connection has not corresponding active connection";
+    }
+    else {
+        qInfo() << "Deactivate connection " << activeConnection->path();
 
-            reply = deactivateConnection(activeConnection->path());
-            reply.waitForFinished();
-            if (reply.isError()) {
-                qDebug() << "error occurred while deactivate connection" << reply.error();
-                // Go on, don't return here.
-            }
+        reply = deactivateConnection(activeConnection->path());
+        reply.waitForFinished();
+        if (reply.isError()) {
+            qDebug() << "error occurred while deactivate connection" << reply.error();
+            // Go on, don't return here.
         }
     }
 
@@ -203,12 +201,10 @@ bool NetworkOperate::setIpV4(NetworkSettingInfo info)
         return false;
     }
 
-    if (info.setIpMode == DHCPTYpe::Auto) {
-        qInfo() << "setIpV4() call activateConn()";
-        if (!activateConn()) {
-            qCritical() << "setIpV4() active connection failed";
-            return false;
-        }
+    qInfo() << "setIpV4() call activateConn()";
+    if (!activateConn()) {
+        qCritical() << "setIpV4() active connection failed";
+        return false;
     }
 
     return true;
