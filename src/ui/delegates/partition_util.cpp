@@ -218,7 +218,11 @@ PartitionList FilterFragmentationPartition(PartitionList partitionList) {
 }
 
 FsType GetDefaultFsType() {
-  const QString default_fs_name = GetSettingsString(kPartitionDefaultFs);
+  QString default_fs_name = GetSettingsString(kPartitionDefaultFs);
+  if (GetCurrentType() == OSType::Server) {
+      default_fs_name = GetSettingsString(kServerPartitionDefaultFs);
+  }
+
   return GetFsTypeByName(default_fs_name);
 }
 
