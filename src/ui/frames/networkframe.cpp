@@ -937,7 +937,7 @@ void NetworkFrame::finished()
 
 bool NetworkFrame::shouldDisplay() const
 {
-    return !(GetSettingsBool(kSystemInfoSetupAfterReboot) || GetSettingsBool(kSkipNetworkPage));
+    return !GetSettingsBool(kSkipNetworkPage);
 }
 
 void NetworkFrame::showEvent(QShowEvent *event)

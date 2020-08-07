@@ -35,18 +35,6 @@ void NetworkOperate::initNetworkConnection()
                 << " activeConnection:" << activeConnection->path();
 
         m_connection = findConnectionByUuid(activeConnection->uuid());
-
-        m_connectionSettings = m_connection->settings();
-
-        QString connName = QString("%1-lap").arg(m_device->interfaceName());
-        QString tmp = m_connectionSettings->id();
-        m_connectionSettings->setId(connName);
-        qInfo() << QString("Update network connection id %1 to %2").arg(tmp).arg(connName);
-
-        NetworkManager::Ipv4Setting::Ptr ipv4Setting
-                = m_connectionSettings->setting(Setting::Ipv4).dynamicCast<Ipv4Setting>();
-        m_configMethod = ipv4Setting->method() == NetworkManager::Ipv4Setting::ConfigMethod::Manual ?
-                    DHCPTYpe::Manual : DHCPTYpe::Auto;
     }
     else {
         qInfo() << "This device has no active connection";
@@ -70,6 +58,11 @@ void NetworkOperate::initNetworkConnection()
 
     m_connectionSettings = m_connection->settings();
     m_connectionUuid = m_connection->uuid();
+
+    NetworkManager::Ipv4Setting::Ptr ipv4Setting
+            = m_connectionSettings->setting(Setting::Ipv4).dynamicCast<Ipv4Setting>();
+    m_configMethod = ipv4Setting->method() == NetworkManager::Ipv4Setting::ConfigMethod::Manual ?
+                DHCPTYpe::Manual : DHCPTYpe::Auto;
 }
 
 Connection::Ptr NetworkOperate::getConnection() const
@@ -220,11 +213,11 @@ void NetworkOperate::setDeviceEnable(const QString &devPath, const bool enable)
 
     QFile ddeSessionDaemon("/usr/lib/deepin-daemon/dde-session-daemon");
     if (ddeSessionDaemon.exists()) {
-        qInfo() << "setDeviceEnableByDdeBus() " << devPath << enable;
+        qInfo() << "setDeviceEnableByDdeDaemonBus() " << devPath << enable;
         setDeviceEnableByDdeBus(ddeNetworkMnager, devPath, enable);
     }
     else {
-        qCritical() << "com.deepin.daemon.Network daemon is invalid";
+        qCritical() << "com.deepin.daemon.Network daemon is not exists";
 
         QDBusInterface freedesktopNetworkMnager("org.freedesktop.NetworkManager",
                                            devPath,
@@ -235,7 +228,7 @@ void NetworkOperate::setDeviceEnable(const QString &devPath, const bool enable)
             return;
         }
 
-        qInfo() << "setDeviceEnableByNetworkBus() " << devPath << enable;
+        qInfo() << "setDeviceEnableByNetworkManagerDaemonBus() " << devPath << enable;
         setDeviceEnableByNetworkBus(freedesktopNetworkMnager, devPath, enable);
     }
 

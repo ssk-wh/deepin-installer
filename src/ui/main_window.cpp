@@ -58,6 +58,7 @@
 #include "ui/widgets/shadow_widget.h"
 #include "ui/frames/repair_system_frame.h"
 #include "ui/frames/inner/system_info_keyboard_frame.h"
+#include "ui/frames/networkframe.h"
 
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/pointer_button.h"
@@ -457,6 +458,9 @@ void MainWindow::initPages() {
   m_installResultsFrame = new InstallResultsFrame(this);
   stacked_layout_->addWidget(m_installResultsFrame);
 
+  network_frame_ = new NetworkFrame(this);
+  stacked_layout_->addWidget(network_frame_);
+
   m_originalFrames = {
       // TODO: move the front new statement over here
 #ifdef QT_DEBUG_test
@@ -467,6 +471,7 @@ void MainWindow::initPages() {
       select_language_frame_,
       disk_space_insufficient_frame_,
       virtual_machine_frame_,
+      network_frame_,
       timezone_frame_,
       system_info_frame_,
       m_selectComponentFrame,
@@ -479,6 +484,20 @@ void MainWindow::initPages() {
   for (FrameInterface* frame : m_originalFrames){
       // TODO: move the front addWidget statement over here
       m_frames << frame;
+  }
+
+  QDBusInterface ddeNetworkMnager(
+            "com.deepin.daemon.Network",
+            "/com/deepin/daemon/Network",
+            "com.deepin.daemon.Network",
+            QDBusConnection::sessionBus());
+
+  // If dde-daemon is exists, it will interfere with the network configuration
+  // in deepin-installer. The solution for now is to fake it and have a scare.
+  // Then the network connection settings is stable.
+  if (ddeNetworkMnager.isValid()) {
+      qInfo() << "Fake dde-daemon and have a scare.";
+      network_frame_->shockDdeDaemon();
   }
 
   m_frameLabelsView = new DListView(this);

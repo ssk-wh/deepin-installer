@@ -96,7 +96,6 @@ protected:
   TimezoneFrame*         timezone_frame_      = nullptr;
   FirstBootLoadingFrame* loading_frame_       = nullptr;
   LanguageFrame*         language_frame_      = nullptr;
-  NetworkFrame*          network_frame_       = nullptr;
   ControlPlatformFrame*  control_platform_frame_ = nullptr;
   QStackedLayout*        stacked_layout_      = nullptr;
   SystemInfoKeyboardFrame* m_keyboardFrame    = nullptr;

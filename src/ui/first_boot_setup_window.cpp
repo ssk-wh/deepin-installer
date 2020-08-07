@@ -51,7 +51,6 @@
 #include "base/file_util.h"
 
 #include "ui/frames/language_frame.h"
-#include "ui/frames/networkframe.h"
 #include "ui/frames/control_platform_frame.h"
 #include "ui/frames/inner/system_info_keyboard_frame.h"
 #include "ui/frames/control_panel_frame.h"
@@ -301,7 +300,6 @@ void FirstBootSetupWindow::initPages()
     language_frame_ = new LanguageFrame(this);
     m_keyboardFrame = new SystemInfoKeyboardFrame(this);
     system_info_frame_ = new SystemInfoFrame(this);
-    network_frame_ = new NetworkFrame(this);
     timezone_frame_ = new TimezoneFrame(this);
     loading_frame_ = new FirstBootLoadingFrame(this);
     control_platform_frame_ = new ControlPlatformFrame(this);
@@ -311,7 +309,6 @@ void FirstBootSetupWindow::initPages()
         m_keyboardFrame,
         timezone_frame_,
         system_info_frame_,
-        network_frame_,
         control_platform_frame_,
         loading_frame_,
     };
@@ -320,8 +317,6 @@ void FirstBootSetupWindow::initPages()
         stacked_layout_->addWidget(frame);
         m_frames << frame;
     }
-
-    network_frame_->shockDdeDaemon();
 
     m_frameLabelsView = new DListView(this);
     m_frameLabelsView->setResizeMode(QListView::Adjust);
@@ -463,7 +458,7 @@ void FirstBootSetupWindow::onSystemInfoFinished() {
   if (GetSettingsBool(kSkipNetworkPage)) {
     this->onNetworkFinished();
   } else {
-    stacked_layout_->setCurrentWidget(network_frame_);
+      //    stacked_layout_->setCurrentWidget(network_frame_);
     updateBackButtonVisible(stacked_layout_->currentWidget());
   }
 }
