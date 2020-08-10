@@ -1,5 +1,6 @@
 [General]
 skip_select_component_page = false
+skip_network_page = false
 select_language_default_locale = zh_CN
 timezone_default = Asia/Shanghai
 partition_skip_simple_partition_page = true
