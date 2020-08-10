@@ -404,7 +404,7 @@ void NewPartitionFrame::updateSlideSize() {
         swapeSpace = mem_info.mem_total + 2 *  kGibiByte;
     }
     const int root_required = GetSettingsInt(kPartitionRootMiniSpace);
-    const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace) + 1;
+    const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace);
     qint64 sumSapce = root_required * kGibiByte + swapeSpace;
 
     PartitionTableType table = delegate_->findDevice(partition_->device_path)->table;
@@ -417,7 +417,8 @@ void NewPartitionFrame::updateSlideSize() {
     size_slider_->blockSignals(true);
     size_slider_->setValue(0);
     size_slider_->blockSignals(false);
-
+    sumSapce = sumSapce / kGibiByte;
+    sumSapce = sumSapce  * kGibiByte;
     const qint64 default_size = sumSapce + kGibiByte;
     QString msg = "";
     if (default_size > size_slider_->value() * kMebiByte) {
@@ -482,7 +483,7 @@ void NewPartitionFrame::onCreateButtonClicked() {
                && fs_type != FsType::LinuxSwap) {
       Device::Ptr device = delegate_->findDevice(partition_->device_path);
       PartitionTableType table = device->table;
-      const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace) + 1;
+      const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace);
       qint64 total_sectors_auto = efi_recommended * kMebiByte / partition_->sector_size;
       static const MemInfo mem_info = GetMemInfo();
       qint64 swapeSpace =  mem_info.mem_total * 2;
@@ -520,7 +521,7 @@ void NewPartitionFrame::onCreateButtonClicked() {
           partition_ = device->partitions.at(indexPartition);
           qint64 rootSapce = total_sectors * partition_->sector_size - swapeSpace;
           if (table == PartitionTableType::GPT) {
-              rootSapce = rootSapce - (efi_recommended + 1) * kMebiByte;
+              rootSapce = rootSapce - efi_recommended * kMebiByte;
           }
           total_sectors_auto = rootSapce / partition_->sector_size;
           delegate_->createPartition(partition_, partition_type, align_start, fs_type,
@@ -574,7 +575,7 @@ void NewPartitionFrame::onSizeSliderValueChanged(qint64 size) {
         swapeSpace = mem_info.mem_total + 2 *  kGibiByte;
     }
     const int root_required = GetSettingsInt(kPartitionRootMiniSpace);
-    const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace) + 1;
+    const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace);
     qint64 sumSapce = root_required * kGibiByte + swapeSpace;
 
     PartitionTableType table = delegate_->findDevice(partition_->device_path)->table;
@@ -582,7 +583,8 @@ void NewPartitionFrame::onSizeSliderValueChanged(qint64 size) {
     if (table == PartitionTableType::GPT) {
         sumSapce += efi_recommended * kMebiByte;
     }
-
+    sumSapce = sumSapce / kGibiByte;
+    sumSapce = sumSapce  * kGibiByte;
     const qint64 default_size = sumSapce + kGibiByte;
     QString msg = "";
     if (default_size > size) {
