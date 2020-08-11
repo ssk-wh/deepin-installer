@@ -69,6 +69,13 @@ fi
 
 deepin-clone --tui ${DI_ROOT_PARTITION} /target/recovery/backup/system.dim
 
+if [ -d /target/data ];then
+    mount ${DI_ROOT_PARTITION} /mnt
+    rm -rf /mnt/var/*
+    rm -rf /mnt/opt/*
+    umount /mnt
+fi
+
 if [ ! -f "/target/recovery/backup/system.dim" ];then
     return -1
 fi
