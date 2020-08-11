@@ -1,0 +1,1746 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# tsewang baljor <bdcwbj@163.com>, 2020
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-02 17:33+0800\n"
+"PO-Revision-Date: 2017-02-06 02:09+0000\n"
+"Last-Translator: tsewang baljor <bdcwbj@163.com>, 2020\n"
+"Language-Team: Tibetan (https://www.transifex.com/linuxdeepin/teams/3976/bo/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: bo\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: system-config-date-timezones.h:1
+msgid "Africa/Abidjan"
+msgstr "ཧྥེ་གླིང་/ཨ་པི་རང་།"
+
+#: system-config-date-timezones.h:2
+msgid "Africa/Accra"
+msgstr "ཧྥེ་གླིང་/ཨ་ཁོ་ལ།"
+
+#: system-config-date-timezones.h:3
+msgid "Africa/Addis_Ababa"
+msgstr "ཧྥེ་གླིང་/ཨ་ཏི་སི་ཨ་པ་པ།"
+
+#: system-config-date-timezones.h:4
+msgid "Africa/Algiers"
+msgstr "ཧྥེ་གླིང་/ཨར་ཅིར།"
+
+#: system-config-date-timezones.h:5
+msgid "Africa/Asmara"
+msgstr "ཧྥེ་གླིང་/ཨ་སི་མ་ལ།"
+
+#: system-config-date-timezones.h:6
+msgid "Africa/Bamako"
+msgstr "ཧྥེ་གླིང་/པ་མ་ཁོ།"
+
+#: system-config-date-timezones.h:7
+msgid "Africa/Bangui"
+msgstr "ཧྥེ་གླིང་/པན་ཅི།"
+
+#: system-config-date-timezones.h:8
+msgid "Africa/Banjul"
+msgstr "ཧྥེ་གླིང་/པན་ཅུལ།"
+
+#: system-config-date-timezones.h:9
+msgid "Africa/Bissau"
+msgstr "ཧྥེ་གླིང་/པི་སའོ།"
+
+#: system-config-date-timezones.h:10
+msgid "Africa/Blantyre"
+msgstr "ཧྥེ་གླིང་/པུ་ལན་ཐའེ་ཨེར།"
+
+#: system-config-date-timezones.h:11
+msgid "Africa/Brazzaville"
+msgstr "ཧྥེ་གླིང་/པུ་ལ་བཀྲ་ཝི།"
+
+#: system-config-date-timezones.h:12
+msgid "Africa/Bujumbura"
+msgstr "ཧྥེ་གླིང་/པུ་ཅུ་པུ་ར།"
+
+#: system-config-date-timezones.h:13
+msgid "Africa/Cairo"
+msgstr "ཧྥེ་གླིང་/ཁེ་རོ།"
+
+#: system-config-date-timezones.h:14
+msgid "Africa/Casablanca"
+msgstr "ཧྥེ་གླིང་/ཁ་ས་པུ་ལན་ཁ།"
+
+#: system-config-date-timezones.h:15
+msgid "Africa/Ceuta"
+msgstr "ཧྥེ་གླིང་/ཤིའུ་ཏ།"
+
+#: system-config-date-timezones.h:16
+msgid "Africa/Conakry"
+msgstr "ཧྥེ་གླིང་/ཁོ་ན་ཁེ་ལི།"
+
+#: system-config-date-timezones.h:17
+msgid "Africa/Dakar"
+msgstr "ཧྥེ་གླིང་/ཏ་ཁེར།"
+
+#: system-config-date-timezones.h:18
+msgid "Africa/Dar_es_Salaam"
+msgstr "ཧྥེ་གླིང་/ཏར་ཨི་སི་ས་ལ་མུ།"
+
+#: system-config-date-timezones.h:19
+msgid "Africa/Djibouti"
+msgstr "ཧྥེ་གླིང་/ཅི་པུ་ཐི།"
+
+#: system-config-date-timezones.h:20
+msgid "Africa/Douala"
+msgstr "ཧྥེ་གླིང་/ཏུའོ་ལ།"
+
+#: system-config-date-timezones.h:21
+msgid "Africa/El_Aaiun"
+msgstr "ཧྥེ་གླིང་/ཨེ་ཡུའོ་ཨེན།"
+
+#: system-config-date-timezones.h:22
+msgid "Africa/Freetown"
+msgstr "ཧྥེ་གླིང་/ཧྥུ་ལི་ཏུན།"
+
+#: system-config-date-timezones.h:23
+msgid "Africa/Gaborone"
+msgstr "ཧྥེ་གླིང་/ཧ་པོ་ལོ་ནའེ།"
+
+#: system-config-date-timezones.h:24
+msgid "Africa/Harare"
+msgstr "ཧྥེ་གླིང་/ཧ་ར་རེ།"
+
+#: system-config-date-timezones.h:25
+msgid "Africa/Johannesburg"
+msgstr "ཧྥེ་གླིང་/ཡོ་ཧན་ནེ་སི་པའོ།"
+
+#: system-config-date-timezones.h:26
+msgid "Africa/Juba"
+msgstr "ཧྥེ་གླིང་/ཅུ་པ།"
+
+#: system-config-date-timezones.h:27
+msgid "Africa/Kampala"
+msgstr "ཧྥེ་གླིང་/ཁམ་པ་ལ།"
+
+#: system-config-date-timezones.h:28
+msgid "Africa/Khartoum"
+msgstr "ཧྥེ་གླིང་/གར་ཐུ་མུ།"
+
+#: system-config-date-timezones.h:29
+msgid "Africa/Kigali"
+msgstr "ཧྥེ་གླིང་/ཀི་ག་ལི།"
+
+#: system-config-date-timezones.h:30
+msgid "Africa/Kinshasa"
+msgstr "ཧྥེ་གླིང་/ཀི་ཤ་ས།"
+
+#: system-config-date-timezones.h:31
+msgid "Africa/Lagos"
+msgstr "ཧྥེ་གླིང་/ལ་ཁོ་སི།"
+
+#: system-config-date-timezones.h:32
+msgid "Africa/Libreville"
+msgstr "ཧྥེ་གླིང་/ལི་པྲེ་ཝིར།"
+
+#: system-config-date-timezones.h:33
+msgid "Africa/Lome"
+msgstr "ཧྥེ་གླིང་/ལོ་མེ།"
+
+#: system-config-date-timezones.h:34
+msgid "Africa/Luanda"
+msgstr "ཧྥེ་གླིང་/ལུ་ཨན་ཏ།"
+
+#: system-config-date-timezones.h:35
+msgid "Africa/Lubumbashi"
+msgstr "ཧྥེ་གླིང་/ལུ་པུམ་པ་ཞི།"
+
+#: system-config-date-timezones.h:36
+msgid "Africa/Lusaka"
+msgstr "ཧྥེ་གླིང་/ལུ་ས་ཀ"
+
+#: system-config-date-timezones.h:37
+msgid "Africa/Malabo"
+msgstr "ཧྥེ་གླིང་/མ་ལ་པོ།"
+
+#: system-config-date-timezones.h:38
+msgid "Africa/Maputo"
+msgstr "ཧྥེ་གླིང་/མ་ཕུ་ཏོ།"
+
+#: system-config-date-timezones.h:39
+msgid "Africa/Maseru"
+msgstr "ཧྥེ་གླིང་/མ་སེ་རུ།"
+
+#: system-config-date-timezones.h:40
+msgid "Africa/Mbabane"
+msgstr "ཧྥེ་གླིང་/མ་པ་པ་ནེ།"
+
+#: system-config-date-timezones.h:41
+msgid "Africa/Mogadishu"
+msgstr "ཧྥེ་གླིང་/མོ་ག་ཏི་ཞུ།"
+
+#: system-config-date-timezones.h:42
+msgid "Africa/Monrovia"
+msgstr "ཧྥེ་གླིང་/མོན་རོ་ཝི་ཡ།"
+
+#: system-config-date-timezones.h:43
+msgid "Africa/Nairobi"
+msgstr "ཧྥེ་གླིང་/ནའེ་རོ་པི།"
+
+#: system-config-date-timezones.h:44
+msgid "Africa/Ndjamena"
+msgstr "ཧྥེ་གླིང་/ཨེན་ཅ་མེ་ན།"
+
+#: system-config-date-timezones.h:45
+msgid "Africa/Niamey"
+msgstr "ཧྥེ་གླིང་/ནི་ཡ་མེ།"
+
+#: system-config-date-timezones.h:46
+msgid "Africa/Nouakchott"
+msgstr "ཧྥེ་གླིང་/ནོའུ་ཁ་ཆོ་ཌ།"
+
+#: system-config-date-timezones.h:47
+msgid "Africa/Ouagadougou"
+msgstr "ཧྥེ་གླིང་/ཨོའུ་ག་ཏོའུ་གོའུ།"
+
+#: system-config-date-timezones.h:48
+msgid "Africa/Porto-Novo"
+msgstr "ཧྥེ་གླིང་/ཕོར་ཏོ་ནོ་ཝོ།"
+
+#: system-config-date-timezones.h:49
+msgid "Africa/Sao_Tome"
+msgstr "ཧྥེ་གླིང་/སའོ་ཏོ་མེ།"
+
+#: system-config-date-timezones.h:50
+msgid "Africa/Tripoli"
+msgstr "ཧྥེ་གླིང་/ཏྲི་ཕོ་ལི།"
+
+#: system-config-date-timezones.h:51
+msgid "Africa/Tunis"
+msgstr "ཧྥེ་གླིང་/ཐུ་ནི་སི།"
+
+#: system-config-date-timezones.h:52
+msgid "Africa/Windhoek"
+msgstr "ཧྥེ་གླིང་/ཝིན་ཐོ་ཨེ་ཀ"
+
+#: system-config-date-timezones.h:53
+msgid "America/Adak"
+msgstr "མེ་གླིང་/ཨེ་ཏ་ཀ"
+
+#: system-config-date-timezones.h:54
+msgid "America/Anchorage"
+msgstr "མེ་གླིང་/ཨན་ཁོར་རེ་ཅེ།"
+
+#: system-config-date-timezones.h:55
+msgid "America/Anguilla"
+msgstr "མེ་གླིང་/ཨན་ཀུའེ་ལ།"
+
+#: system-config-date-timezones.h:56
+msgid "America/Antigua"
+msgstr "མེ་གླིང་/ཨན་ཏི་ཀྭ"
+
+#: system-config-date-timezones.h:57
+msgid "America/Araguaina"
+msgstr "མེ་གླིང་/ཨ་ར་ཀྭ་ཡི་ན།"
+
+#: system-config-date-timezones.h:58
+msgid "America/Argentina/Buenos_Aires"
+msgstr "མེ་གླིང་/ཨ་ཀེན་ཐིན་/པུ་དབྱི་ནོ་སི་ཨེ་རི་སི།"
+
+#: system-config-date-timezones.h:59
+msgid "America/Argentina/Catamarca"
+msgstr "མེ་གླིང་/ཨ་ཀེན་ཐིན་/གཱ་ཏ་མར་གཱ"
+
+#: system-config-date-timezones.h:60
+msgid "America/Argentina/Cordoba"
+msgstr "མེ་གླིང་/ཨ་ཀེན་ཐིན་/གོར་ཏོ་པ།"
+
+#: system-config-date-timezones.h:61
+msgid "America/Argentina/Jujuy"
+msgstr "མེ་གླིང་/ཨ་ཀེན་ཐིན་/ཅུ་ཅུ་ཡ།"
+
+#: system-config-date-timezones.h:62
+msgid "America/Argentina/La_Rioja"
+msgstr "མེ་གླིང་/ཨ་ཀེན་ཐིན་/ལ་རིའོ་ཅ།"
+
+#: system-config-date-timezones.h:63
+msgid "America/Argentina/Mendoza"
+msgstr "མེ་གླིང་/ཨ་ཀེན་ཐིན་/མེན་ཏོ་ཙ།"
+
+#: system-config-date-timezones.h:64
+msgid "America/Argentina/Rio_Gallegos"
+msgstr "མེ་གླིང་/ཨ་ཀེན་ཐིན་/རིའོ་ག་ལེ་ཀི་སི།"
+
+#: system-config-date-timezones.h:65
+msgid "America/Argentina/Salta"
+msgstr "མེ་གླིང་/ཨ་ཀེན་ཐིན་/སལ་ཏ།"
+
+#: system-config-date-timezones.h:66
+msgid "America/Argentina/San_Juan"
+msgstr "མེ་གླིང་/ཨ་ཀེན་ཐིན་/སན་ཅུ་ཨན།"
+
+#: system-config-date-timezones.h:67
+msgid "America/Argentina/San_Luis"
+msgstr "མེ་གླིང་/ཨ་ཀེན་ཐིན་/སན་ལུའི་སི།"
+
+#: system-config-date-timezones.h:68
+msgid "America/Argentina/Tucuman"
+msgstr "མེ་གླིང་/ཨ་ཀེན་ཐིན་/ཐུ་ཁུ་མན།"
+
+#: system-config-date-timezones.h:69
+msgid "America/Argentina/Ushuaia"
+msgstr "མེ་གླིང་/ཨ་ཀེན་ཐིན་/ཝུ་ཞུ་ཧྭ་ཡ།"
+
+#: system-config-date-timezones.h:70
+msgid "America/Aruba"
+msgstr "མེ་གླིང་/ཨ་རུ་པ།"
+
+#: system-config-date-timezones.h:71
+msgid "America/Asuncion"
+msgstr "མེ་གླིང་/ཨ་སུན་སེན།"
+
+#: system-config-date-timezones.h:72
+msgid "America/Atikokan"
+msgstr "མེ་གླིང་/ཨ་ཏི་ཀོ་ཀན།"
+
+#: system-config-date-timezones.h:73
+msgid "America/Bahia"
+msgstr "མེ་གླིང་/པ་ཧི་ཨ།"
+
+#: system-config-date-timezones.h:74
+msgid "America/Bahia_Banderas"
+msgstr "མེ་གླིང་/པ་ཧི་ཨ་པན་ཏེ་ར་སི།"
+
+#: system-config-date-timezones.h:75
+msgid "America/Barbados"
+msgstr "མེ་གླིང་/པར་པ་ཏོ་སི།"
+
+#: system-config-date-timezones.h:76
+msgid "America/Belem"
+msgstr "མེ་གླིང་/པེ་ལེམ།"
+
+#: system-config-date-timezones.h:77
+msgid "America/Belize"
+msgstr "མེ་གླིང་/པེ་ལི་ཙེ།"
+
+#: system-config-date-timezones.h:78
+msgid "America/Blanc-Sablon"
+msgstr "མེ་གླིང་/པེ་ལན་ས་པོ་ལུན།"
+
+#: system-config-date-timezones.h:79
+msgid "America/Boa_Vista"
+msgstr "མེ་གླིང་/པོ་ཨ་ཝི་སི་ཏ།"
+
+#: system-config-date-timezones.h:80
+msgid "America/Bogota"
+msgstr "མེ་གླིང་/པོ་གོ་ཏ།"
+
+#: system-config-date-timezones.h:81
+msgid "America/Boise"
+msgstr "མེ་གླིང་/པོའི་སེ།"
+
+#: system-config-date-timezones.h:82
+msgid "America/Cambridge_Bay"
+msgstr "མེ་གླིང་/ཁེམ་པུ་རི་ཇེ་པའེ།"
+
+#: system-config-date-timezones.h:83
+msgid "America/Campo_Grande"
+msgstr "མེ་གླིང་/ཁེམ་ཕོ་ཆེ་བ།"
+
+#: system-config-date-timezones.h:84
+msgid "America/Cancun"
+msgstr "མེ་གླིང་/ཁན་ཁུན།"
+
+#: system-config-date-timezones.h:85
+msgid "America/Caracas"
+msgstr "མེ་གླིང་/ཅ་ར་ཅ་སི།"
+
+#: system-config-date-timezones.h:86
+msgid "America/Cayenne"
+msgstr "མེ་གླིང་/ཁ་ཡེན།"
+
+#: system-config-date-timezones.h:87
+msgid "America/Cayman"
+msgstr "མེ་གླིང་/ཁ་མན།"
+
+#: system-config-date-timezones.h:88
+msgid "America/Chicago"
+msgstr "མེ་གླིང་/ཁྲི་ཁ་གོ"
+
+#: system-config-date-timezones.h:89
+msgid "America/Chihuahua"
+msgstr "མེ་གླིང་/ཁྲི་ཧྭ་ཧྭ།"
+
+#: system-config-date-timezones.h:90
+msgid "America/Costa_Rica"
+msgstr "མེ་གླིང་/ཁོ་སི་ཏ་རི་ཅ།"
+
+#: system-config-date-timezones.h:91
+msgid "America/Creston"
+msgstr "མེ་གླིང་/ཁོ་རེ་སི་ཏོན།"
+
+#: system-config-date-timezones.h:92
+msgid "America/Cuiaba"
+msgstr "མེ་གླིང་/ཁུ་ཨི་པ།"
+
+#: system-config-date-timezones.h:93
+msgid "America/Curacao"
+msgstr "མེ་གླིང་/ཁུ་ར་ཁའོ།"
+
+#: system-config-date-timezones.h:94
+msgid "America/Danmarkshavn"
+msgstr "མེ་གླིང་/ཏན་མར་ཁ།"
+
+#: system-config-date-timezones.h:95
+msgid "America/Dawson"
+msgstr "མེ་གླིང་/ཏའོ་སུན།"
+
+#: system-config-date-timezones.h:96
+msgid "America/Dawson_Creek"
+msgstr "མེ་གླིང་/ཏའོ་སུན་ཁོ་ལི་ཀ"
+
+#: system-config-date-timezones.h:97
+msgid "America/Denver"
+msgstr "མེ་གླིང་/ཏེན་ཧྥུར།"
+
+#: system-config-date-timezones.h:98
+msgid "America/Detroit"
+msgstr "མེ་གླིང་/ཏེ་ཐོར་ར།"
+
+#: system-config-date-timezones.h:99
+msgid "America/Dominica"
+msgstr "མེ་གླིང་/ཏོར་མི་ནི་ཅ།"
+
+#: system-config-date-timezones.h:100
+msgid "America/Edmonton"
+msgstr "མེ་གླིང་/ཨེ་ཏ་མོན་ཏོན།"
+
+#: system-config-date-timezones.h:101
+msgid "America/Eirunepe"
+msgstr "མེ་གླིང་/ཨེ་རུན་ནེ་ཕེ།"
+
+#: system-config-date-timezones.h:102
+msgid "America/El_Salvador"
+msgstr "མེ་གླིང་/སའེ་ཝར་ཏོར།"
+
+#: system-config-date-timezones.h:103
+msgid "America/Fort_Nelson"
+msgstr "མེ་གླིང་/ནེའི་སུན།"
+
+#: system-config-date-timezones.h:104
+msgid "America/Fortaleza"
+msgstr "མེ་གླིང་/ཧྥོར་ཏཱ་ལ་ཙ།"
+
+#: system-config-date-timezones.h:105
+msgid "America/Glace_Bay"
+msgstr "མེ་གླིང་/ཀ་ལེ་སི།"
+
+#: system-config-date-timezones.h:106
+msgid "America/Godthab"
+msgstr "མེ་གླིང་/ཀོད་ཐ་པ།"
+
+#: system-config-date-timezones.h:107
+msgid "America/Goose_Bay"
+msgstr "མེ་གླིང་/ཀུའུ་སེ།"
+
+#: system-config-date-timezones.h:108
+msgid "America/Grand_Turk"
+msgstr "མེ་གླིང་/ཐུར་ཁེ།"
+
+#: system-config-date-timezones.h:109
+msgid "America/Grenada"
+msgstr "མེ་གླིང་/ཀེ་རེ་ན་ཏ།"
+
+#: system-config-date-timezones.h:110
+msgid "America/Guadeloupe"
+msgstr "མེ་གླིང་/ཀྭ་ཏེ་ལོ་ཕུ།"
+
+#: system-config-date-timezones.h:111
+msgid "America/Guatemala"
+msgstr "མེ་གླིང་/ཀྭ་ཏེ་མ་ལ།"
+
+#: system-config-date-timezones.h:112
+msgid "America/Guayaquil"
+msgstr "མེ་གླིང་/ཀྭ་ཡ་ཁུའེ།"
+
+#: system-config-date-timezones.h:113
+msgid "America/Guyana"
+msgstr "མེ་གླིང་/ཀུ་ཡ་ན།"
+
+#: system-config-date-timezones.h:114
+msgid "America/Halifax"
+msgstr "མེ་གླིང་/ཧ་ལི་ཧྥ་སི།"
+
+#: system-config-date-timezones.h:115
+msgid "America/Havana"
+msgstr "མེ་གླིང་/ཧ་ཝ་ན།"
+
+#: system-config-date-timezones.h:116
+msgid "America/Hermosillo"
+msgstr "མེ་གླིང་/ཧེར་མོ་སི་ལོ།"
+
+#: system-config-date-timezones.h:117
+msgid "America/Indiana/Indianapolis"
+msgstr "མེ་གླིང་/དབྱིན་ཏི་ཨ་ན་/དབྱིན་ཏི་ཨན་ཕོ་ལི་སི།"
+
+#: system-config-date-timezones.h:118
+msgid "America/Indiana/Knox"
+msgstr "མེ་གླིང་/དབྱིན་ཏི་ཨ་ན་/ནོར་སི།"
+
+#: system-config-date-timezones.h:119
+msgid "America/Indiana/Marengo"
+msgstr "མེ་གླིང་/དབྱིན་ཏི་ཨ་ན་/མ་རེན་ཀོ།"
+
+#: system-config-date-timezones.h:120
+msgid "America/Indiana/Petersburg"
+msgstr "མེ་གླིང་/དབྱིན་ཏི་ཨ་ན་/ཕེ་ཏེར་སི་པོར་ཀ"
+
+#: system-config-date-timezones.h:121
+msgid "America/Indiana/Tell_City"
+msgstr "མེ་གླིང་/དབྱིན་ཏི་ཨ་ན་/ཐེའོ་གྲོང་ཁྱེར།"
+
+#: system-config-date-timezones.h:122
+msgid "America/Indiana/Vevay"
+msgstr "མེ་གླིང་/དབྱིན་ཏི་ཨ་ན་/ཝེ་ཝའེ།"
+
+#: system-config-date-timezones.h:123
+msgid "America/Indiana/Vincennes"
+msgstr "མེ་གླིང་/དབྱིན་ཏི་ཨ་ན་/ཝིན་སེ་ནེསི།"
+
+#: system-config-date-timezones.h:124
+msgid "America/Indiana/Winamac"
+msgstr "མེ་གླིང་/དབྱིན་ཏི་ཨ་ན་/ཝི་ན་མ་ཁ།"
+
+#: system-config-date-timezones.h:125
+msgid "America/Inuvik"
+msgstr "མེ་གླིང་/དབྱིན་ཏི་ཨ་ན་/དབྱི་ནུ་ཝི་ཁ།"
+
+#: system-config-date-timezones.h:126
+msgid "America/Iqaluit"
+msgstr "མེ་གླིང་/དབྱིན་ཏི་ཨ་ན་/དབྱི་གྭ་དབྱི་ཐེ།"
+
+#: system-config-date-timezones.h:127
+msgid "America/Jamaica"
+msgstr "མེ་གླིང་/དབྱིན་ཏི་ཨ་ན་/ཅ་མའེ་ཆ།"
+
+#: system-config-date-timezones.h:128
+msgid "America/Juneau"
+msgstr "མེ་གླིང་/ཅུ་ནེའོ།"
+
+#: system-config-date-timezones.h:129
+msgid "America/Kentucky/Louisville"
+msgstr "མེ་གླིང་/ཀེན་ཐུ་ཀི་/ལུའུ་དབྱི་སི་ཝེར།"
+
+#: system-config-date-timezones.h:130
+msgid "America/Kentucky/Monticello"
+msgstr "མེ་གླིང་/ཀེན་ཐུ་ཀི་/མོན་ཏི་ཅེ་ལོ།"
+
+#: system-config-date-timezones.h:131
+msgid "America/Kralendijk"
+msgstr "མེ་གླིང་/ཁ་ན་ཏི་ཁ།"
+
+#: system-config-date-timezones.h:132
+msgid "America/La_Paz"
+msgstr "མེ་གླིང་/ལ་ཕ་ཙི།"
+
+#: system-config-date-timezones.h:133
+msgid "America/Lima"
+msgstr "མེ་གླིང་/ལི་མ།"
+
+#: system-config-date-timezones.h:134
+msgid "America/Los_Angeles"
+msgstr "མེ་གླིང་/ལོ་ཧྲན་ཅི།"
+
+#: system-config-date-timezones.h:135
+msgid "America/Lower_Princes"
+msgstr "མེ་གླིང་/ལོར་ཕུ་རིན་སི།"
+
+#: system-config-date-timezones.h:136
+msgid "America/Maceio"
+msgstr "མེ་གླིང་/མ་སིའོ།"
+
+#: system-config-date-timezones.h:137
+msgid "America/Managua"
+msgstr "མེ་གླིང་/མ་ན་ཀྭ"
+
+#: system-config-date-timezones.h:138
+msgid "America/Manaus"
+msgstr "མེ་གླིང་/མ་ན་སི།"
+
+#: system-config-date-timezones.h:139
+msgid "America/Marigot"
+msgstr "མེ་གླིང་/མ་རི་ཀོ"
+
+#: system-config-date-timezones.h:140
+msgid "America/Martinique"
+msgstr "མེ་གླིང་/མར་ཏི་ནི་ཁུའེ།"
+
+#: system-config-date-timezones.h:141
+msgid "America/Matamoros"
+msgstr "མེ་གླིང་/མ་ཏ་མོ་རོ་སི།"
+
+#: system-config-date-timezones.h:142
+msgid "America/Mazatlan"
+msgstr "མེ་གླིང་/མ་ཙ་ཏི་ལན།"
+
+#: system-config-date-timezones.h:143
+msgid "America/Menominee"
+msgstr "མེ་གླིང་/མེ་ནོ་མི་ནེ།"
+
+#: system-config-date-timezones.h:144
+msgid "America/Merida"
+msgstr "མེ་གླིང་/མེ་རི་ཏ།"
+
+#: system-config-date-timezones.h:145
+msgid "America/Metlakatla"
+msgstr "མེ་གླིང་/མེ་ཏ་ལ་ཀ་ཏ་ལ།"
+
+#: system-config-date-timezones.h:146
+msgid "America/Mexico_City"
+msgstr "མེ་གླིང་/མེ་ཟི་ཁོ།"
+
+#: system-config-date-timezones.h:147
+msgid "America/Miquelon"
+msgstr "མེ་གླིང་/མི་ཁུའེ་ལོན།"
+
+#: system-config-date-timezones.h:148
+msgid "America/Moncton"
+msgstr "མེ་གླིང་/མོན་ཀ་ཏོན།"
+
+#: system-config-date-timezones.h:149
+msgid "America/Monterrey"
+msgstr "མེ་གླིང་/མོན་ཏེར་རེ།"
+
+#: system-config-date-timezones.h:150
+msgid "America/Montevideo"
+msgstr "མེ་གླིང་/མོན་ཏེ་ཝི་ཏེའོ།"
+
+#: system-config-date-timezones.h:151
+msgid "America/Montserrat"
+msgstr "མེ་གླིང་/མོན་ཙེ་ར་ཏི།"
+
+#: system-config-date-timezones.h:152
+msgid "America/Nassau"
+msgstr "མེ་གླིང་/ན་སའོ།"
+
+#: system-config-date-timezones.h:153
+msgid "America/New_York"
+msgstr "མེ་གླིང་/ནིའུ་ཡོར་ཁེ།"
+
+#: system-config-date-timezones.h:154
+msgid "America/Nipigon"
+msgstr "མེ་གླིང་/ནི་ཕི་ཀོན།"
+
+#: system-config-date-timezones.h:155
+msgid "America/Nome"
+msgstr "མེ་གླིང་/ནོ་མེ།"
+
+#: system-config-date-timezones.h:156
+msgid "America/Noronha"
+msgstr "མེ་གླིང་/ནོ་རོན་ཧ།"
+
+#: system-config-date-timezones.h:157
+msgid "America/North_Dakota/Beulah"
+msgstr "མེ་གླིང་/ད་ཀོ་ཏ་བྱང་མ་/པེའུ་ལྭ།"
+
+#: system-config-date-timezones.h:158
+msgid "America/North_Dakota/Center"
+msgstr "མེ་གླིང་/ད་ཀོ་ཏ་བྱང་མ་/ལྟེ་ཁུལ།"
+
+#: system-config-date-timezones.h:159
+msgid "America/North_Dakota/New_Salem"
+msgstr "མེ་གླིང་/ད་ཀོ་ཏ་བྱང་མ་/ས་ལེམ་གསར་པ།"
+
+#: system-config-date-timezones.h:160
+msgid "America/Ojinaga"
+msgstr "མེ་གླིང་/ཨོ་ཅི་ན་ཀ"
+
+#: system-config-date-timezones.h:161
+msgid "America/Panama"
+msgstr "མེ་གླིང་/ཕ་ན་མ།"
+
+#: system-config-date-timezones.h:162
+msgid "America/Pangnirtung"
+msgstr "མེ་གླིང་/ཕང་ནི་ཐུང་།"
+
+#: system-config-date-timezones.h:163
+msgid "America/Paramaribo"
+msgstr "མེ་གླིང་/ཕ་ར་མ་རི་པོ།"
+
+#: system-config-date-timezones.h:164
+msgid "America/Phoenix"
+msgstr "མེ་གླིང་/ཧྥི་ནི་སི།"
+
+#: system-config-date-timezones.h:165
+msgid "America/Port-au-Prince"
+msgstr "མེ་གླིང་/རྒྱལ་སྲས་ཁུག"
+
+#: system-config-date-timezones.h:166
+msgid "America/Port_of_Spain"
+msgstr "མེ་གླིང་/སི་ཕེན་ཁུག"
+
+#: system-config-date-timezones.h:167
+msgid "America/Porto_Velho"
+msgstr "མེ་གླིང་/ཕོར་ཏོ་ཝེ་ལྷོ།"
+
+#: system-config-date-timezones.h:168
+msgid "America/Puerto_Rico"
+msgstr "མེ་གླིང་/ཕུའེ་ཏོ་རི་གོ།"
+
+#: system-config-date-timezones.h:169
+msgid "America/Punta_Arenas"
+msgstr "མེ་གླིང་/ཕུན་ཏ་ཨ་རེ་ན་སི།"
+
+#: system-config-date-timezones.h:170
+msgid "America/Rainy_River"
+msgstr "མེ་གླིང་/རའི་ནི་ཆུ་བོ།"
+
+#: system-config-date-timezones.h:171
+msgid "America/Rankin_Inlet"
+msgstr "མེ་གླིང་/རན་ཀིན་མཚོ་ཁ།"
+
+#: system-config-date-timezones.h:172
+msgid "America/Recife"
+msgstr "མེ་གླིང་/རེ་ཤི་ཧྥེ།"
+
+#: system-config-date-timezones.h:173
+msgid "America/Regina"
+msgstr "མེ་གླིང་/རེ་ཀི་ན།"
+
+#: system-config-date-timezones.h:174
+msgid "America/Resolute"
+msgstr "མེ་གླིང་/རེ་སོ་ལུ་ཏེ།"
+
+#: system-config-date-timezones.h:175
+msgid "America/Rio_Branco"
+msgstr "མེ་གླིང་/རིའོ་པྲན་གོ།"
+
+#: system-config-date-timezones.h:176
+msgid "America/Santarem"
+msgstr "མེ་གླིང་/སན་ཏ་རེམ།"
+
+#: system-config-date-timezones.h:177
+msgid "America/Santiago"
+msgstr "མེ་གླིང་/སན་ཏི་ཨ་ཀོ།"
+
+#: system-config-date-timezones.h:178
+msgid "America/Santo_Domingo"
+msgstr "མེ་གླིང་/སན་ཏོ་དོ་མིན་ཀོ།"
+
+#: system-config-date-timezones.h:179
+msgid "America/Sao_Paulo"
+msgstr "མེ་གླིང་/སའོ་ཕའུ་ལོ།"
+
+#: system-config-date-timezones.h:180
+msgid "America/Scoresbysund"
+msgstr "མེ་གླིང་/སི་ཁོ་རེ་སི་པི་སུན་ད།"
+
+#: system-config-date-timezones.h:181
+msgid "America/Sitka"
+msgstr "མེ་གླིང་/སི་ཏ་ག"
+
+#: system-config-date-timezones.h:182
+msgid "America/St_Barthelemy"
+msgstr "མེ་གླིང་/སན་པར་ཐེ་ལེ་མིའུ།"
+
+#: system-config-date-timezones.h:183
+msgid "America/St_Johns"
+msgstr "མེ་གླིང་/སན་ཅོང་སི།"
+
+#: system-config-date-timezones.h:184
+msgid "America/St_Kitts"
+msgstr "མེ་གླིང་/སན་གི་ཏ་སི།"
+
+#: system-config-date-timezones.h:185
+msgid "America/St_Lucia"
+msgstr "མེ་གླིང་/སན་ལུ་ཤི་ཨ།"
+
+#: system-config-date-timezones.h:186
+msgid "America/St_Thomas"
+msgstr "མེ་གླིང་/སན་ཐོ་མ་སི།"
+
+#: system-config-date-timezones.h:187
+msgid "America/St_Vincent"
+msgstr "མེ་གླིང་/སན་ཝིན་སེན་ཏ།"
+
+#: system-config-date-timezones.h:188
+msgid "America/Swift_Current"
+msgstr "མེ་གླིང་/ས་ཝི་ཧྥུ་ཏ་ཁུ་རེན་ཏ།"
+
+#: system-config-date-timezones.h:189
+msgid "America/Tegucigalpa"
+msgstr "མེ་གླིང་/ཏེ་ཀུ་ཤི་ཀལ་ཕ།"
+
+#: system-config-date-timezones.h:190
+msgid "America/Thule"
+msgstr "མེ་གླིང་/ཕུ་ལེ།"
+
+#: system-config-date-timezones.h:191
+msgid "America/Thunder_Bay"
+msgstr "མེ་གླིང་/སྲན་ཏེར་པའེ།"
+
+#: system-config-date-timezones.h:192
+msgid "America/Tijuana"
+msgstr "མེ་གླིང་/ཏི་ཅུ་ནན།"
+
+#: system-config-date-timezones.h:193
+msgid "America/Toronto"
+msgstr "མེ་གླིང་/ཏོ་རུན་ཏོ།"
+
+#: system-config-date-timezones.h:194
+msgid "America/Tortola"
+msgstr "མེ་གླིང་/ཏོར་ཏོ་ལ།"
+
+#: system-config-date-timezones.h:195
+msgid "America/Vancouver"
+msgstr "མེ་གླིང་/ཝན་ཁོའུ་ཝེར།"
+
+#: system-config-date-timezones.h:196
+msgid "America/Whitehorse"
+msgstr "མེ་གླིང་/ཝའེ་ཏེ་ཧོར་སི།"
+
+#: system-config-date-timezones.h:197
+msgid "America/Winnipeg"
+msgstr "མེ་གླིང་/ཝིན་ནི་ཕེ་ཀ"
+
+#: system-config-date-timezones.h:198
+msgid "America/Yakutat"
+msgstr "མེ་གླིང་/ཡ་ཁུ་ཏ།"
+
+#: system-config-date-timezones.h:199
+msgid "America/Yellowknife"
+msgstr "མེ་གླིང་/ཡེ་ལོ་ནའི་ཧྥུ།"
+
+#: system-config-date-timezones.h:200
+msgid "Antarctica/Casey"
+msgstr "ལྷོ་སྣེའི་གླིང་/ཁ་སིའི།"
+
+#: system-config-date-timezones.h:201
+msgid "Antarctica/Davis"
+msgstr "ལྷོ་སྣེའི་གླིང་/ཏ་ཝི་སི།"
+
+#: system-config-date-timezones.h:202
+msgid "Antarctica/DumontDUrville"
+msgstr "ལྷོ་སྣེའི་གླིང་/ཏུ་ཆོན་ཏ་ཝེ་ལེ།"
+
+#: system-config-date-timezones.h:203
+msgid "Antarctica/Macquarie"
+msgstr "ལྷོ་སྣེའི་གླིང་/རྨ་ཁུའི་རི།"
+
+#: system-config-date-timezones.h:204
+msgid "Antarctica/Mawson"
+msgstr "ལྷོ་སྣེའི་གླིང་/མའོ་སུན།"
+
+#: system-config-date-timezones.h:205
+msgid "Antarctica/McMurdo"
+msgstr "ལྷོ་སྣེའི་གླིང་/མ་ཁ་མུར་ཏོ།"
+
+#: system-config-date-timezones.h:206
+msgid "Antarctica/Palmer"
+msgstr "ལྷོ་སྣེའི་གླིང་/ཕལ་མེར།"
+
+#: system-config-date-timezones.h:207
+msgid "Antarctica/Rothera"
+msgstr "ལྷོ་སྣེའི་གླིང་/རོ་ཐེ་ར།"
+
+#: system-config-date-timezones.h:208
+msgid "Antarctica/Syowa"
+msgstr "ལྷོ་སྣེའི་གླིང་/སྱོ་ཝ།"
+
+#: system-config-date-timezones.h:209
+msgid "Antarctica/Troll"
+msgstr "ལྷོ་སྣེའི་གླིང་/ཏ་རོལ།"
+
+#: system-config-date-timezones.h:210
+msgid "Antarctica/Vostok"
+msgstr "ལྷོ་སྣེའི་གླིང་/ཝོ་སི་ཏོག"
+
+#: system-config-date-timezones.h:211
+msgid "Arctic/Longyearbyen"
+msgstr "བྱང་སྣེའི་གླིང་/ལོང་ཡེར་པ་ཡེན།"
+
+#: system-config-date-timezones.h:212
+msgid "Asia/Aden"
+msgstr "ཡ་གླིང་/ཨ་ཏེན།"
+
+#: system-config-date-timezones.h:213
+msgid "Asia/Almaty"
+msgstr "ཡ་གླིང་/ཨ་ལ་མ་ཐེ།"
+
+#: system-config-date-timezones.h:214
+msgid "Asia/Amman"
+msgstr "ཡ་གླིང་/ཨར་མན།"
+
+#: system-config-date-timezones.h:215
+msgid "Asia/Anadyr"
+msgstr "ཡ་གླིང་/ཨ་ན་ཏེར།"
+
+#: system-config-date-timezones.h:216
+msgid "Asia/Aqtau"
+msgstr "ཡ་གླིང་/ཨ་ཁི་ཐུ།"
+
+#: system-config-date-timezones.h:217
+msgid "Asia/Aqtobe"
+msgstr "ཡ་གླིང་/ཨ་ཁི་ཏོ་པེ།"
+
+#: system-config-date-timezones.h:218
+msgid "Asia/Ashgabat"
+msgstr "ཡ་གླིང་/ཨ་ཞི་ཀ་པ་ཏ།"
+
+#: system-config-date-timezones.h:219
+msgid "Asia/Atyrau"
+msgstr "ཡ་གླིང་/ཨ་ཏ་རའོ།"
+
+#: system-config-date-timezones.h:220
+msgid "Asia/Baghdad"
+msgstr "ཡ་གླིང་/པ་གྷཏ།"
+
+#: system-config-date-timezones.h:221
+msgid "Asia/Bahrain"
+msgstr "ཡ་གླིང་/བྷ་རིན།"
+
+#: system-config-date-timezones.h:222
+msgid "Asia/Baku"
+msgstr "ཡ་གླིང་/པ་ཀུ།"
+
+#: system-config-date-timezones.h:223
+msgid "Asia/Bangkok"
+msgstr "ཡ་གླིང་/པང་ཁོག"
+
+#: system-config-date-timezones.h:224
+msgid "Asia/Barnaul"
+msgstr "ཡ་གླིང་/པར་ནའོ་ལ།"
+
+#: system-config-date-timezones.h:225
+msgid "Asia/Beijing"
+msgstr "ཡ་གླིང་/པེ་ཅིན།"
+
+#: system-config-date-timezones.h:226
+msgid "Asia/Beirut"
+msgstr "ཡ་གླིང་/པེ་རུ་ཏ།"
+
+#: system-config-date-timezones.h:227
+msgid "Asia/Bishkek"
+msgstr "ཡ་གླིང་/པི་ཤ་ཁེག"
+
+#: system-config-date-timezones.h:228
+msgid "Asia/Brunei"
+msgstr "ཡ་གླིང་/པུ་རུ་ནེ།"
+
+#: system-config-date-timezones.h:229
+msgid "Asia/Chengdu"
+msgstr "ཡ་གླིང་/ཁྲེང་ཏུའུ།"
+
+#: system-config-date-timezones.h:230
+msgid "Asia/Chita"
+msgstr "ཡ་གླིང་/ཁྲི་ཏ།"
+
+#: system-config-date-timezones.h:231
+msgid "Asia/Choibalsan"
+msgstr "ཡ་གླིང་/ཁྲོའུ་དཔལ་སན།"
+
+#: system-config-date-timezones.h:232
+msgid "Asia/Chongqing"
+msgstr "ཡ་གླིང་/ཁྲུང་ཆིང་།"
+
+#: system-config-date-timezones.h:233
+msgid "Asia/Colombo"
+msgstr "ཡ་གླིང་/ཁོ་ལོམ་པོ།"
+
+#: system-config-date-timezones.h:234
+msgid "Asia/Damascus"
+msgstr "ཡ་གླིང་/ཏ་མ་སི་ཁུ།"
+
+#: system-config-date-timezones.h:235
+msgid "Asia/Dhaka"
+msgstr "ཡ་གླིང་/དྷ་ཁ།"
+
+#: system-config-date-timezones.h:236
+msgid "Asia/Dili"
+msgstr "ཡ་གླིང་/ཏི་ལི།"
+
+#: system-config-date-timezones.h:237
+msgid "Asia/Dubai"
+msgstr "ཡ་གླིང་/ཏུ་པའེ།"
+
+#: system-config-date-timezones.h:238
+msgid "Asia/Dushanbe"
+msgstr "ཡ་གླིང་/ཏུ་ཤན་པེ།"
+
+#: system-config-date-timezones.h:239
+msgid "Asia/Famagusta"
+msgstr "ཡ་གླིང་/ཧྥ་མ་ཀུ་ས་ཏེ།"
+
+#: system-config-date-timezones.h:240
+msgid "Asia/Gaza"
+msgstr "ཡ་གླིང་/ཀ་ཙ།"
+
+#: system-config-date-timezones.h:241
+msgid "Asia/Hebron"
+msgstr "ཡ་གླིང་/ཧེ་པོ་རོན།"
+
+#: system-config-date-timezones.h:242
+msgid "Asia/Ho_Chi_Minh"
+msgstr "ཡ་གླིང་/ཧོ་ཁྲི་མིན།"
+
+#: system-config-date-timezones.h:243
+msgid "Asia/Hong_Kong"
+msgstr "ཡ་གླིང་/ཞང་ཀང་།"
+
+#: system-config-date-timezones.h:244
+msgid "Asia/Hovd"
+msgstr "ཡ་གླིང་/ཧོ་ཝ་ཏ།"
+
+#: system-config-date-timezones.h:245
+msgid "Asia/Irkutsk"
+msgstr "ཡ་གླིང་/ཡིར་ཁུ་ཙི་ཁ།"
+
+#: system-config-date-timezones.h:246
+msgid "Asia/Jakarta"
+msgstr "ཡ་གླིང་/ཡ་ཁར་ཏ།"
+
+#: system-config-date-timezones.h:247
+msgid "Asia/Jayapura"
+msgstr "ཡ་གླིང་/ཅ་ཡ་ཕུ་ར།"
+
+#: system-config-date-timezones.h:248
+msgid "Asia/Jerusalem"
+msgstr "ཡ་གླིང་/ཡེ་རུ་ས་ལེམ།"
+
+#: system-config-date-timezones.h:249
+msgid "Asia/Kabul"
+msgstr "ཡ་གླིང་/ཁ་པུལ།"
+
+#: system-config-date-timezones.h:250
+msgid "Asia/Kamchatka"
+msgstr "ཡ་གླིང་/ཁམ་ཁྲ་ཏ་ཁ།"
+
+#: system-config-date-timezones.h:251
+msgid "Asia/Karachi"
+msgstr "ཡ་གླིང་/ཁ་ར་ཆི།"
+
+#: system-config-date-timezones.h:252
+msgid "Asia/Kathmandu"
+msgstr "ཡ་གླིང་/ཀ་ཏ་མན་རྡུ།"
+
+#: system-config-date-timezones.h:253
+msgid "Asia/Khandyga"
+msgstr "ཡ་གླིང་/གྷན་ཏྱ་ཅ།"
+
+#: system-config-date-timezones.h:254
+msgid "Asia/Kolkata"
+msgstr "ཡ་གླིང་/ཁོལ་ཁ་ཏ།"
+
+#: system-config-date-timezones.h:255
+msgid "Asia/Krasnoyarsk"
+msgstr "ཡ་གླིང་/ཁ་ར་སི་ནོ་ཡར་སིག"
+
+#: system-config-date-timezones.h:256
+msgid "Asia/Kuala_Lumpur"
+msgstr "ཡ་གླིང་/ཁྭ་ལ་ལུམ་ཕུར།"
+
+#: system-config-date-timezones.h:257
+msgid "Asia/Kuching"
+msgstr "ཡ་གླིང་/ཁུ་ཆིང་།"
+
+#: system-config-date-timezones.h:258
+msgid "Asia/Kuwait"
+msgstr "ཡ་གླིང་/ཁུ་ཝའེ་ཏ།"
+
+#: system-config-date-timezones.h:259
+msgid "Asia/Macau"
+msgstr "ཡ་གླིང་/ཨའོ་མོན།"
+
+#: system-config-date-timezones.h:260
+msgid "Asia/Magadan"
+msgstr "ཡ་གླིང་/མ་ཀ་དན།"
+
+#: system-config-date-timezones.h:261
+msgid "Asia/Makassar"
+msgstr "ཡ་གླིང་/མ་ཀ་སར།"
+
+#: system-config-date-timezones.h:262
+msgid "Asia/Manila"
+msgstr "ཡ་གླིང་/མ་ཉི་ལ།"
+
+#: system-config-date-timezones.h:263
+msgid "Asia/Muscat"
+msgstr "ཡ་གླིང་/མུ་སི་ཁ་ཏ།"
+
+#: system-config-date-timezones.h:264
+msgid "Asia/Nanjing"
+msgstr "ཡ་གླིང་/ནན་ཅིང་།"
+
+#: system-config-date-timezones.h:265
+msgid "Asia/Nicosia"
+msgstr "ཡ་གླིང་/ཉི་ཁོ་སི་ཡ།"
+
+#: system-config-date-timezones.h:266
+msgid "Asia/Novokuznetsk"
+msgstr "ཡ་གླིང་/ནིའུ་ཝོ་ཁུ་ཙ་ནེ་ཙོག"
+
+#: system-config-date-timezones.h:267
+msgid "Asia/Novosibirsk"
+msgstr "ཡ་གླིང་/ནོ་ཝོ་སི་པི་ཙིག"
+
+#: system-config-date-timezones.h:268
+msgid "Asia/Omsk"
+msgstr "ཡ་གླིང་/ཨོ་མ་སིག"
+
+#: system-config-date-timezones.h:269
+msgid "Asia/Oral"
+msgstr "ཡ་གླིང་/ཨོ་རལ།"
+
+#: system-config-date-timezones.h:270
+msgid "Asia/Phnom_Penh"
+msgstr "ཡ་གླིང་/ཕ་ནོམ་ཕེན།"
+
+#: system-config-date-timezones.h:271
+msgid "Asia/Pontianak"
+msgstr "ཡ་གླིང་/ཕོན་ཏི་ནག"
+
+#: system-config-date-timezones.h:272
+msgid "Asia/Pyongyang"
+msgstr "ཡ་གླིང་/ཕོང་དབྱང་།"
+
+#: system-config-date-timezones.h:273
+msgid "Asia/Qatar"
+msgstr "ཡ་གླིང་/ཁ་ཐར།"
+
+#: system-config-date-timezones.h:274
+msgid "Asia/Qostanay"
+msgstr "ཡ་གླིང་/ཁོ་སི་ཐན་ཉི།"
+
+#: system-config-date-timezones.h:275
+msgid "Asia/Qyzylorda"
+msgstr "ཡ་གླིང་/ཁོ་ཙི་ལོར་ཏ།"
+
+#: system-config-date-timezones.h:276
+msgid "Asia/Riyadh"
+msgstr "ཡ་གླིང་/རི་ཡ་དྷ།"
+
+#: system-config-date-timezones.h:277
+msgid "Asia/Sakhalin"
+msgstr "ཡ་གླིང་/ས་ཁཱ་ལིན།"
+
+#: system-config-date-timezones.h:278
+msgid "Asia/Samarkand"
+msgstr "ཡ་གླིང་/ས་མར་ཁན་ཏ།"
+
+#: system-config-date-timezones.h:279
+msgid "Asia/Seoul"
+msgstr "ཡ་གླིང་/སེ་འོལ།"
+
+#: system-config-date-timezones.h:280
+msgid "Asia/Shanghai"
+msgstr "ཡ་གླིང་/ཧྲང་ཧའེ།"
+
+#: system-config-date-timezones.h:281
+msgid "Asia/Singapore"
+msgstr "ཡ་གླིང་/སིང་ཀ་ཕོར།"
+
+#: system-config-date-timezones.h:282
+msgid "Asia/Srednekolymsk"
+msgstr "ཡ་གླིང་/སྲེ་ད་ནེ་ཁོལ་ཡམ་སིག"
+
+#: system-config-date-timezones.h:283
+msgid "Asia/Taipei"
+msgstr "ཡ་གླིང་/ཐའེ་པེ།"
+
+#: system-config-date-timezones.h:284
+msgid "Asia/Tashkent"
+msgstr "ཡ་གླིང་/ཏ་ཧྲི་ཁེན།"
+
+#: system-config-date-timezones.h:285
+msgid "Asia/Tbilisi"
+msgstr "ཡ་གླིང་/ཏ་པི་ལི་སི།"
+
+#: system-config-date-timezones.h:286
+msgid "Asia/Tehran"
+msgstr "ཡ་གླིང་/ཐེ་ཧེ་རན།"
+
+#: system-config-date-timezones.h:287
+msgid "Asia/Thimphu"
+msgstr "ཡ་གླིང་/ཡུམ་བུ།"
+
+#: system-config-date-timezones.h:288
+msgid "Asia/Tokyo"
+msgstr "ཡ་གླིང་/ཐོ་ཁེའོ།"
+
+#: system-config-date-timezones.h:289
+msgid "Asia/Tomsk"
+msgstr "ཡ་གླིང་ཐོམ་སིག"
+
+#: system-config-date-timezones.h:290
+msgid "Asia/Ulaanbaatar"
+msgstr "ཡ་གླིང་/ཨུ་ལན་དཔའ་ཐུལ།"
+
+#: system-config-date-timezones.h:291
+msgid "Asia/Urumqi"
+msgstr "ཡ་གླིང་/ཝུའུ་རུམ་ཆི།"
+
+#: system-config-date-timezones.h:292
+msgid "Asia/Ust-Nera"
+msgstr "ཡ་གླིང་/ ཝུ་སི་ནེ་ར།"
+
+#: system-config-date-timezones.h:293
+msgid "Asia/Vientiane"
+msgstr "ཡ་གླིང་/ཝན་ཐེན།"
+
+#: system-config-date-timezones.h:294
+msgid "Asia/Vladivostok"
+msgstr "ཡ་གླིང་/ཝ་ལ་ཏི་པོ་སི་ཏོག"
+
+#: system-config-date-timezones.h:295
+msgid "Asia/Wuhan"
+msgstr "ཡ་གླིང་/ཝུའུ་ཧན།"
+
+#: system-config-date-timezones.h:296
+msgid "Asia/Xian"
+msgstr "ཡ་གླིང་/ཞི་ཨན།"
+
+#: system-config-date-timezones.h:297
+msgid "Asia/Yakutsk"
+msgstr "ཡ་གླིང་/ཡ་ཁུ་ཙོག"
+
+#: system-config-date-timezones.h:298
+msgid "Asia/Yangon"
+msgstr "ཡ་གླིང་/ཡང་ཀོང་།"
+
+#: system-config-date-timezones.h:299
+msgid "Asia/Yekaterinburg"
+msgstr "ཡ་གླིང་/ཡེ་ཁ་ཏེ་རིན་པོར་ཀ"
+
+#: system-config-date-timezones.h:300
+msgid "Asia/Yerevan"
+msgstr "ཡ་གླིང་/ཡེ་རེ་ཝན།"
+
+#: system-config-date-timezones.h:301
+msgid "Atlantic/Azores"
+msgstr "ནུབ་རྒྱ་མཚོ་ཆེན་མོ་/ཨ་ཙོ་རེ་གླིང་ཚོམ།"
+
+#: system-config-date-timezones.h:302
+msgid "Atlantic/Bermuda"
+msgstr "ནུབ་རྒྱ་མཚོ་ཆེན་མོ་/པེར་མུ་ཏ།"
+
+#: system-config-date-timezones.h:303
+msgid "Atlantic/Canary"
+msgstr "ནུབ་རྒྱ་མཚོ་ཆེན་མོ་/ཅ་ན་རི།"
+
+#: system-config-date-timezones.h:304
+msgid "Atlantic/Cape_Verde"
+msgstr "ནུབ་རྒྱ་མཚོ་ཆེན་མོ་/ཝེར་ཏེ་ཟུར།"
+
+#: system-config-date-timezones.h:305
+msgid "Atlantic/Faroe"
+msgstr "ནུབ་རྒྱ་མཚོ་ཆེན་མོ་/ཧྥ་རོའེ།"
+
+#: system-config-date-timezones.h:306
+msgid "Atlantic/Madeira"
+msgstr "ནུབ་རྒྱ་མཚོ་ཆེན་མོ་/མ་ཏའེ་ར།"
+
+#: system-config-date-timezones.h:307
+msgid "Atlantic/Reykjavik"
+msgstr "ནུབ་རྒྱ་མཚོ་ཆེན་མོ་/རེ་ཁ་ཡ་ཝིག"
+
+#: system-config-date-timezones.h:308
+msgid "Atlantic/South_Georgia"
+msgstr "ནུབ་རྒྱ་མཚོ་ཆེན་མོ་/ཅོར་ཅི་ཡ་ལྷོ་མ།"
+
+#: system-config-date-timezones.h:309
+msgid "Atlantic/St_Helena"
+msgstr "ནུབ་རྒྱ་མཚོ་ཆེན་མོ་/སན་ཧེ་ལེ་ན།"
+
+#: system-config-date-timezones.h:310
+msgid "Atlantic/Stanley"
+msgstr "ནུབ་རྒྱ་མཚོ་ཆེན་མོ་/སི་ཏན་ལི།"
+
+#: system-config-date-timezones.h:311
+msgid "Australia/Adelaide"
+msgstr "ཨོ་གླིང་/ཨ་ཏེ་ལའེ་ཏེ།"
+
+#: system-config-date-timezones.h:312
+msgid "Australia/Brisbane"
+msgstr "ཨོ་གླིང་/པུ་རི་སི་པན།"
+
+#: system-config-date-timezones.h:313
+msgid "Australia/Broken_Hill"
+msgstr "ཨོ་གླིང་/པ་རོ་ཁེན་ཧིའུ།"
+
+#: system-config-date-timezones.h:314
+msgid "Australia/Currie"
+msgstr "ཨོ་གླིང་/ཁུ་རི།"
+
+#: system-config-date-timezones.h:315
+msgid "Australia/Darwin"
+msgstr "ཨོ་གླིང་/ཏར་ཝིན།"
+
+#: system-config-date-timezones.h:316
+msgid "Australia/Eucla"
+msgstr "ཨོ་གླིང་/ཨིའུ་ཁ་ལ།"
+
+#: system-config-date-timezones.h:317
+msgid "Australia/Hobart"
+msgstr "ཨོ་གླིང་/ཧོ་པར་ཏ།"
+
+#: system-config-date-timezones.h:318
+msgid "Australia/Lindeman"
+msgstr "ཨོ་གླིང་/ལིན་ཏེ་མན།"
+
+#: system-config-date-timezones.h:319
+msgid "Australia/Lord_Howe"
+msgstr "ཨོ་གླིང་/ལོར་ཏ་ཧོ་ཝེ།"
+
+#: system-config-date-timezones.h:320
+msgid "Australia/Melbourne"
+msgstr "ཨོ་གླིང་/མེལ་པོའུ་ནེ།"
+
+#: system-config-date-timezones.h:321
+msgid "Australia/Perth"
+msgstr "ཨོ་གླིང་/ཕེར་སྲི།"
+
+#: system-config-date-timezones.h:322
+msgid "Australia/Sydney"
+msgstr "ཨོ་གླིང་/སི་ཏི་ནི།"
+
+#: system-config-date-timezones.h:323
+msgid "Europe/Amsterdam"
+msgstr "ཡོ་གླིང་/ཨམ་སི་ཐེ་ཏམ།"
+
+#: system-config-date-timezones.h:324
+msgid "Europe/Andorra"
+msgstr "ཡོ་གླིང་/ཨན་ཏོར།"
+
+#: system-config-date-timezones.h:325
+msgid "Europe/Astrakhan"
+msgstr "ཡོ་གླིང་/ཨ་སི་ཐེར་གྷན།"
+
+#: system-config-date-timezones.h:326
+msgid "Europe/Athens"
+msgstr "ཡོ་གླིང་/ཨ་ཐེན་སི། "
+
+#: system-config-date-timezones.h:327
+msgid "Europe/Belgrade"
+msgstr "ཡོ་གླིང་/པེལ་ཀ་རི་ཏེ། "
+
+#: system-config-date-timezones.h:328
+msgid "Europe/Berlin"
+msgstr "ཡོ་གླིང་/པེར་ལིན།"
+
+#: system-config-date-timezones.h:329
+msgid "Europe/Bratislava"
+msgstr "ཡོ་གླིང་/པྲ་ཏི་སི་ལ་ཝ།"
+
+#: system-config-date-timezones.h:330
+msgid "Europe/Brussels"
+msgstr "ཡོ་གླིང་/པུ་རུ་སེར།"
+
+#: system-config-date-timezones.h:331
+msgid "Europe/Bucharest"
+msgstr "ཡོ་གླིང་/པུ་ཆ་རེ་སི་ཏ།"
+
+#: system-config-date-timezones.h:332
+msgid "Europe/Budapest"
+msgstr "ཡོ་གླིང་/པུ་ཏ་ཕེ་སི།"
+
+#: system-config-date-timezones.h:333
+msgid "Europe/Busingen"
+msgstr "ཡོ་གླིང་/པུ་སིན་ཀེན།"
+
+#: system-config-date-timezones.h:334
+msgid "Europe/Chisinau"
+msgstr "ཡོ་གླིང་/ཆི་སི་ནའོ།"
+
+#: system-config-date-timezones.h:335
+msgid "Europe/Copenhagen"
+msgstr "ཡོ་གླིང་/ཁོ་ཕེན་ཧ་ཀེན།"
+
+#: system-config-date-timezones.h:336
+msgid "Europe/Dublin"
+msgstr "ཡོ་གླིང་/ཏུ་པ་ལིན།"
+
+#: system-config-date-timezones.h:337
+msgid "Europe/Gibraltar"
+msgstr "ཡོ་གླིང་/ཀི་པར་ལ་ཏར།"
+
+#: system-config-date-timezones.h:338
+msgid "Europe/Guernsey"
+msgstr "ཡོ་གླིང་/ཀུ་ཨེན་སི།"
+
+#: system-config-date-timezones.h:339
+msgid "Europe/Helsinki"
+msgstr "ཡོ་གླིང་/ཧེལ་སིན་ཁི།"
+
+#: system-config-date-timezones.h:340
+msgid "Europe/Isle_of_Man"
+msgstr "ཡོ་གླིང་/མན་གླིང་ཕྲན།"
+
+#: system-config-date-timezones.h:341
+msgid "Europe/Istanbul"
+msgstr "ཡོ་གླིང་/དབྱི་སི་ཐན་པུར།"
+
+#: system-config-date-timezones.h:342
+msgid "Europe/Jersey"
+msgstr "ཡོ་གླིང་/ཅེར་སི།"
+
+#: system-config-date-timezones.h:343
+msgid "Europe/Kaliningrad"
+msgstr "ཡོ་གླིང་/ཁ་ལི་ཉིན་ཀེར་ཏ།"
+
+#: system-config-date-timezones.h:344
+msgid "Europe/Kiev"
+msgstr "ཡོ་གླིང་/ཁི་ཝུ།"
+
+#: system-config-date-timezones.h:345
+msgid "Europe/Kirov"
+msgstr "ཡོ་གླིང་/ཁི་རོ་ཝུ།"
+
+#: system-config-date-timezones.h:346
+msgid "Europe/Lisbon"
+msgstr "ཡོ་གླིང་/ལི་སི་པོན།"
+
+#: system-config-date-timezones.h:347
+msgid "Europe/Ljubljana"
+msgstr "ཡོ་གླིང་/ལུ་པུལ་ཅ་ན།"
+
+#: system-config-date-timezones.h:348
+msgid "Europe/London"
+msgstr "ཡོ་གླིང་/ལོན་ཏོན།"
+
+#: system-config-date-timezones.h:349
+msgid "Europe/Luxembourg"
+msgstr "ཡོ་གླིང་/ལུའུ་སེམ་པོར་ཀ"
+
+#: system-config-date-timezones.h:350
+msgid "Europe/Madrid"
+msgstr "ཡོ་གླིང་/མ་ཏ་རི།"
+
+#: system-config-date-timezones.h:351
+msgid "Europe/Malta"
+msgstr "ཡོ་གླིང་/མ་ལ་ཏ།"
+
+#: system-config-date-timezones.h:352
+msgid "Europe/Mariehamn"
+msgstr "ཡོ་གླིང་/མ་རིའེ་ཧམ།"
+
+#: system-config-date-timezones.h:353
+msgid "Europe/Minsk"
+msgstr "ཡོ་གླིང་/མིན་སི་ཁ།"
+
+#: system-config-date-timezones.h:354
+msgid "Europe/Monaco"
+msgstr "ཡོ་གླིང་/མོ་ན་ཁོ།"
+
+#: system-config-date-timezones.h:355
+msgid "Europe/Moscow"
+msgstr "ཡོ་གླིང་/མོ་སི་ཁོ།"
+
+#: system-config-date-timezones.h:356
+msgid "Europe/Oslo"
+msgstr "ཡོ་གླིང་/ཨོ་སི་ལོ།"
+
+#: system-config-date-timezones.h:357
+msgid "Europe/Paris"
+msgstr "ཡོ་གླིང་/ཧྥ་རི་སི།"
+
+#: system-config-date-timezones.h:358
+msgid "Europe/Podgorica"
+msgstr "ཡོ་གླིང་/ཕོ་ད་ཀོ་རི་ཁ།"
+
+#: system-config-date-timezones.h:359
+msgid "Europe/Prague"
+msgstr "ཡོ་གླིང་/ཕོ་རའེ་ཀུའེ།"
+
+#: system-config-date-timezones.h:360
+msgid "Europe/Riga"
+msgstr "ཡོ་གླིང་/རི་ཀ"
+
+#: system-config-date-timezones.h:361
+msgid "Europe/Rome"
+msgstr "ཡོ་གླིང་/རོ་མེ།"
+
+#: system-config-date-timezones.h:362
+msgid "Europe/Samara"
+msgstr "ཡོ་གླིང་/ས་མ་ར།"
+
+#: system-config-date-timezones.h:363
+msgid "Europe/San_Marino"
+msgstr "ཡོ་གླིང་/སན་མ་རི་ནོ།"
+
+#: system-config-date-timezones.h:364
+msgid "Europe/Sarajevo"
+msgstr "ཡོ་གླིང་/ས་ར་ཅེ་ཝོ།"
+
+#: system-config-date-timezones.h:365
+msgid "Europe/Saratov"
+msgstr "ཡོ་གླིང་/ས་ར་ཏོའུ། "
+
+#: system-config-date-timezones.h:366
+msgid "Europe/Simferopol"
+msgstr "ཡོ་གླིང་/སིམ་ཧྥེ་རོ་པོལ།"
+
+#: system-config-date-timezones.h:367
+msgid "Europe/Skopje"
+msgstr "ཡོ་གླིང་/སི་ཁོ་ཕ་ཅེ།"
+
+#: system-config-date-timezones.h:368
+msgid "Europe/Sofia"
+msgstr "ཡོ་གླིང་/སོ་ཧྥི་ཡ།"
+
+#: system-config-date-timezones.h:369
+msgid "Europe/Stockholm"
+msgstr "ཡོ་གླིང་/སི་ཏོག་ཀོལ་མ།"
+
+#: system-config-date-timezones.h:370
+msgid "Europe/Tallinn"
+msgstr "ཡོ་གླིང་/ཐ་ལིན།"
+
+#: system-config-date-timezones.h:371
+msgid "Europe/Tirane"
+msgstr "ཡོ་གླིང་/ཏི་ར་ནེ།"
+
+#: system-config-date-timezones.h:372
+msgid "Europe/Ulyanovsk"
+msgstr "ཡོ་གླིང་/ཝུ་ལི་ཡ་ནོ་ཧྥུ་ཁ།"
+
+#: system-config-date-timezones.h:373
+msgid "Europe/Uzhgorod"
+msgstr "ཡོ་གླིང་/ཝུ་ཙི་ཀོ་རོ་ད།"
+
+#: system-config-date-timezones.h:374
+msgid "Europe/Vaduz"
+msgstr "ཡོ་གླིང་/ཝ་ཏུ་ཙི།"
+
+#: system-config-date-timezones.h:375
+msgid "Europe/Vatican"
+msgstr "ཡོ་གླིང་/ཝ་ཐི་ཁན།"
+
+#: system-config-date-timezones.h:376
+msgid "Europe/Vienna"
+msgstr "ཡོ་གླིང་/ཝེ་ཡེ་ན།"
+
+#: system-config-date-timezones.h:377
+msgid "Europe/Vilnius"
+msgstr "ཡོ་གླིང་/ཝིལ་ནིའུ་སི།"
+
+#: system-config-date-timezones.h:378
+msgid "Europe/Volgograd"
+msgstr "ཡོ་གླིང་/ཝོ་ཀོ་ཀེལ་ད།"
+
+#: system-config-date-timezones.h:379
+msgid "Europe/Warsaw"
+msgstr "ཡོ་གླིང་/ཝར་སོ།"
+
+#: system-config-date-timezones.h:380
+msgid "Europe/Zagreb"
+msgstr "ཡོ་གླིང་/ཙ་ཀ་རེ་པ།"
+
+#: system-config-date-timezones.h:381
+msgid "Europe/Zaporozhye"
+msgstr "ཡོ་གླིང་/ཙ་ཕོ་རོ་ཙི་ཡེ།"
+
+#: system-config-date-timezones.h:382
+msgid "Europe/Zurich"
+msgstr "ཡོ་གླིང་/ཙུ་རི་ཧྲི།"
+
+#: system-config-date-timezones.h:383
+msgid "Indian/Antananarivo"
+msgstr "ཧིན་རྡུ་རྒྱ་མཚོ་ཆེན་པོ་/ཨན་ཏ་ནཱ་ནཱ་རི་ཝོ།"
+
+#: system-config-date-timezones.h:384
+msgid "Indian/Chagos"
+msgstr "ཧིན་རྡུ་རྒྱ་མཚོ་ཆེན་པོ་/ཁྲ་ཀོ་སི།"
+
+#: system-config-date-timezones.h:385
+msgid "Indian/Christmas"
+msgstr "ཧིན་རྡུ་རྒྱ་མཚོ་ཆེན་པོ་/ཁུ་རི་སི་མ་སི་གླིང་ཕྲན།"
+
+#: system-config-date-timezones.h:386
+msgid "Indian/Cocos"
+msgstr "ཧིན་རྡུ་རྒྱ་མཚོ་ཆེན་པོ་/ཁོ་ཁོ་སི།"
+
+#: system-config-date-timezones.h:387
+msgid "Indian/Comoro"
+msgstr "ཧིན་རྡུ་རྒྱ་མཚོ་ཆེན་པོ་/ཁོ་མོ་རོ།"
+
+#: system-config-date-timezones.h:388
+msgid "Indian/Kerguelen"
+msgstr "ཧིན་རྡུ་རྒྱ་མཚོ་ཆེན་པོ་/ཁེར་ཀུའེ་ལེན།"
+
+#: system-config-date-timezones.h:389
+msgid "Indian/Mahe"
+msgstr "ཧིན་རྡུ་རྒྱ་མཚོ་ཆེན་པོ་/མ་ཧེ་གླིང་ཕྲན།"
+
+#: system-config-date-timezones.h:390
+msgid "Indian/Maldives"
+msgstr "ཧིན་རྡུ་རྒྱ་མཚོ་ཆེན་པོ་/མལ་ཏི་ཝེ་སི།"
+
+#: system-config-date-timezones.h:391
+msgid "Indian/Mauritius"
+msgstr "ཧིན་རྡུ་རྒྱ་མཚོ་ཆེན་པོ་/མའོ་རི་ཏིའུ་སི།"
+
+#: system-config-date-timezones.h:392
+msgid "Indian/Mayotte"
+msgstr "ཧིན་རྡུ་རྒྱ་མཚོ་ཆེན་པོ་/མ་ཡོ་ཏེ།"
+
+#: system-config-date-timezones.h:393
+msgid "Indian/Reunion"
+msgstr "ཧིན་རྡུ་རྒྱ་མཚོ་ཆེན་པོ་/རེའུ་ཉི་ཨོན།"
+
+#: system-config-date-timezones.h:394
+msgid "Pacific/Apia"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཨ་ཕི་ཨ།"
+
+#: system-config-date-timezones.h:395
+msgid "Pacific/Auckland"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཨོ་ཁ་ལན་ཏི།"
+
+#: system-config-date-timezones.h:396
+msgid "Pacific/Bougainville"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/པོའུ་ཀའེ་ཝི་ལ།"
+
+#: system-config-date-timezones.h:397
+msgid "Pacific/Chatham"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཆ་ཐམ།"
+
+#: system-config-date-timezones.h:398
+msgid "Pacific/Chuuk"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཆུའུ་ཁ།"
+
+#: system-config-date-timezones.h:399
+msgid "Pacific/Easter"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/དབྱི་སི་ཐེར་གླིང་ཕྲན།"
+
+#: system-config-date-timezones.h:400
+msgid "Pacific/Efate"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཨེ་ཧྥ་ཏེ།"
+
+#: system-config-date-timezones.h:401
+msgid "Pacific/Enderbury"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཨེན་ཏེར་པུ་རི།"
+
+#: system-config-date-timezones.h:402
+msgid "Pacific/Fakaofo"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཧྥ་ཁའོ་ཧྥོ།"
+
+#: system-config-date-timezones.h:403
+msgid "Pacific/Fiji"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཧྥི་ཅི།"
+
+#: system-config-date-timezones.h:404
+msgid "Pacific/Funafuti"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཧྥུ་ན་ཧྥུ་ཏི།"
+
+#: system-config-date-timezones.h:405
+msgid "Pacific/Galapagos"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཀ་ལ་ཕ་ཀོ་སི། "
+
+#: system-config-date-timezones.h:406
+msgid "Pacific/Gambier"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཀམ་པི་ཨེར།"
+
+#: system-config-date-timezones.h:407
+msgid "Pacific/Guadalcanal"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཀྭ་ཏ་ཁ་ནལ།"
+
+#: system-config-date-timezones.h:408
+msgid "Pacific/Guam"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཀུ་ཨམ་གླིང་ཕྲན།"
+
+#: system-config-date-timezones.h:409
+msgid "Pacific/Honolulu"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཧོ་ནོ་ལུ་ལུ།"
+
+#: system-config-date-timezones.h:410
+msgid "Pacific/Kiritimati"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཁི་རི་ཏི་མ་ཏི།"
+
+#: system-config-date-timezones.h:411
+msgid "Pacific/Kosrae"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཁོ་ས་རའེ།"
+
+#: system-config-date-timezones.h:412
+msgid "Pacific/Kwajalein"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཁྭ་ཅ་ལེན།"
+
+#: system-config-date-timezones.h:413
+msgid "Pacific/Majuro"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/མ་ཅུ་རོ།"
+
+#: system-config-date-timezones.h:414
+msgid "Pacific/Marquesas"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/མར་ཁུའེ་ས་སི།"
+
+#: system-config-date-timezones.h:415
+msgid "Pacific/Midway"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/མི་ཏ་ཝའེ།"
+
+#: system-config-date-timezones.h:416
+msgid "Pacific/Nauru"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ནའོ་རུ།"
+
+#: system-config-date-timezones.h:417
+msgid "Pacific/Niue"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཉིའུ་ཨེ།"
+
+#: system-config-date-timezones.h:418
+msgid "Pacific/Norfolk"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ནོར་ཧྥུ་ཁེ།"
+
+#: system-config-date-timezones.h:419
+msgid "Pacific/Noumea"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ནོའུ་མེ་ཨ།"
+
+#: system-config-date-timezones.h:420
+msgid "Pacific/Pago_Pago"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཕ་ཀོ་-ཕ་ཀོ།"
+
+#: system-config-date-timezones.h:421
+msgid "Pacific/Palau"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཕ་ལའོ།"
+
+#: system-config-date-timezones.h:422
+msgid "Pacific/Pitcairn"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཕི་ཏ་ཁའེ་རིན།"
+
+#: system-config-date-timezones.h:423
+msgid "Pacific/Pohnpei"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཕོ་ན་ཕའེ།"
+
+#: system-config-date-timezones.h:424
+msgid "Pacific/Port_Moresby"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/མོ་རེ་ས་པི་གྲུ་ཁ།"
+
+#: system-config-date-timezones.h:425
+msgid "Pacific/Rarotonga"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ར་རོ་ཏོན་ཀ"
+
+#: system-config-date-timezones.h:426
+msgid "Pacific/Saipan"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/སའི་ཕན།"
+
+#: system-config-date-timezones.h:427
+msgid "Pacific/Tahiti"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཏ་ཧི་ཏི།"
+
+#: system-config-date-timezones.h:428
+msgid "Pacific/Tarawa"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཏ་ར་ཝ།"
+
+#: system-config-date-timezones.h:429
+msgid "Pacific/Tongatapu"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཏོན་ཀ་ཏ་ཕུ།"
+
+#: system-config-date-timezones.h:430
+msgid "Pacific/Wake"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཝེ་ཁེ།"
+
+#: system-config-date-timezones.h:431
+msgid "Pacific/Wallis"
+msgstr "ཞི་བདེ་རྒྱ་མཚོ་ཆེན་པོ་/ཝ་ལཱི་སི།"

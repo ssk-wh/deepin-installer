@@ -36,6 +36,9 @@ QVariant MountPointModel::data(const QModelIndex& index, int role) const {
     if (name.isEmpty()) {
       return ::QObject::tr("Do not use");
     } else {
+        if (name == "auto mount") {
+            return ::QObject::tr("auto mount");
+        }
       return name;
     }
   }

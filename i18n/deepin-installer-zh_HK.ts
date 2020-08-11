@@ -383,9 +383,9 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="59"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="210"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="82"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="142"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="155"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="83"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="143"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="156"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="419"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="74"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="125"/>
@@ -465,8 +465,8 @@
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="98"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="83"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="160"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="161"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="77"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="129"/>
@@ -495,8 +495,8 @@
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="199"/>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="118"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="178"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="92"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="179"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="309"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="189"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="206"/>
@@ -510,7 +510,7 @@
         <location filename="../src/ui/frames/timezone_frame.cpp" line="131"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="75"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="131"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="25"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="26"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="22"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="133"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="25"/>
@@ -549,7 +549,7 @@
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="116"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="75"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="126"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="127"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="79"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="124"/>
         <source>Warning</source>
@@ -557,13 +557,13 @@
     </message>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="133"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="136"/>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="275"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="177"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="96"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="87"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="168"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="88"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="169"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="99"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="125"/>
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="35"/>
@@ -574,13 +574,13 @@
     <message>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="54"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="64"/>
-        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="87"/>
+        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="88"/>
         <source>Tuning system</source>
         <translation>優化系統配置</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="66"/>
-        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="89"/>
+        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="90"/>
         <source>Applying changes to your system, please wait...</source>
         <translation>正在更新系統設置，請稍候...</translation>
     </message>
@@ -616,13 +616,13 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="478"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="406"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="407"/>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
         <translation>發現%1處錯誤，修復後即可繼續安裝或切換到簡單模式</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="482"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="409"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="410"/>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
         <translation>發現%1處錯誤，修復後即可繼續安裝或切換到簡單模式</translation>
     </message>
@@ -634,80 +634,80 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="539"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="335"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="336"/>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
         <translation>/boot 目錄所在分區的文件系統類型只可以是 %1</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="543"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="339"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="340"/>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
         <translation>/boot 目錄所在的分區應為硬盤的第一個分區</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="547"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="343"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="344"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
         <translation>/boot/efi 目錄所在的分區應為硬盤的第一個分區</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="552"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="348"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="349"/>
         <source>/boot partition requires at least %1 MB</source>
         <translation>boot分區至少需要%1 MB磁盤空間</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="556"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="352"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="353"/>
         <source>To create lvm, /boot partition is required</source>
         <translation>需要創建一個boot分區才可以新建lvm分區</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="559"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="355"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="356"/>
         <source>Add an EFI partition to continue</source>
         <translation>需要添加一個EFI分區才能繼續安裝</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="563"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="359"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="360"/>
         <source>/efi partition requires at least %1 MB</source>
         <translation>efi分區至少需要%1 MB磁盤空間</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="567"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="363"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="364"/>
         <source>Add a root partition to continue</source>
         <translation>需要添加一個根分區才能繼續安裝</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="572"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="90"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="368"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="369"/>
         <source>/root partition requires at least %1 GB</source>
         <translation>根分區至少需要%1 GB磁盤空間</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="577"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="373"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="374"/>
         <source>%2 partition requires at least %1 GB</source>
         <translation>%2分區至少需要%1 GB磁盤空間</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="582"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="378"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="379"/>
         <source>Add a logical partition to continue</source>
         <translation>需要添加一個邏輯分區才能繼續安裝</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="129"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="219"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="132"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="222"/>
         <source>Edit Disk</source>
         <translation>磁盤編輯</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="130"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="133"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="267"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="172"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="257"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="191"/>
@@ -716,8 +716,8 @@
         <translation>文件系統</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="131"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="260"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="134"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="263"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="173"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="272"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="197"/>
@@ -726,13 +726,13 @@
         <translation>掛載點</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="132"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="280"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="135"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="283"/>
         <source>Format the partition</source>
         <translation>格式化該分區</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="134"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="137"/>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="276"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="128"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="327"/>
@@ -749,7 +749,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="238"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="877"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="880"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="159"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="305"/>
         <source>Passwords do not match</source>
@@ -773,8 +773,8 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="273"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="482"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="648"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="655"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="650"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="657"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="536"/>
         <source>Password</source>
         <translation>安全金鑰</translation>
@@ -814,7 +814,7 @@
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="91"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="659"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="183"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="24"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="25"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="21"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="168"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="237"/>
@@ -882,8 +882,8 @@
         <translation>新建</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="423"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="584"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="424"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="589"/>
         <source>Unable to mount automatically, as it requires at least %1 GB</source>
         <translation>當前無法自動掛載，自動掛載空間至少需要%1 GB</translation>
     </message>
@@ -939,37 +939,38 @@
         <translation>檢測到您的主板引導為EFI，但磁盤格式為MBR，無法直接安裝；若要繼續完成安裝，請在下列解決方案中選擇一項進行操作。</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="79"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="152"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="80"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="153"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="90"/>
         <source>Reboot, enter BIOS, and disable UEFI</source>
         <translation>重啟到BIOS設置，並關閉UEFI設置啟動</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="80"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="153"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="81"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="154"/>
         <source>Exit BIOS, and install %1 again</source>
         <translation>退出BIOS，重新安裝%1</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="85"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="162"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="163"/>
         <source>Make sure you have backed up all data before proceeding</source>
         <translation>請確認您已備份好數據，然後繼續安裝</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="86"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="163"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="87"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="164"/>
         <source>Continuing installation will format your disk</source>
         <translation>繼續安裝會格式化您的磁盤</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="140"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="141"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. Please select one of the below solutions and continue.</source>
         <translation>檢測到您的主板引導為EFI，但磁盤格式為MBR，無法直接安裝%1；若要繼續完成安裝，請在下列解決方案中選擇一項進行操作。</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="150"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="78"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="151"/>
         <source>Disable UEFI</source>
         <translation>關閉UEFI</translation>
     </message>
@@ -1043,192 +1044,192 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="406"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="646"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="653"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="660"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="648"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="655"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="662"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="535"/>
         <source>Username</source>
         <translation>用戶名</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="434"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="647"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="654"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="649"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="656"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="534"/>
         <source>Computer name</source>
         <translation>計算機名</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="483"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="649"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="656"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="651"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="658"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="244"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="537"/>
         <source>Repeat password</source>
         <translation>重複密碼</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="650"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="657"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="652"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="659"/>
         <source>Root password</source>
         <translation>root密碼</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="651"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="658"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="653"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="660"/>
         <source>Repeat root password</source>
         <translation>重複root密碼</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="662"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="664"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="131"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="531"/>
         <source>Create Accounts</source>
         <translation>創建用戶</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="663"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="665"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="533"/>
         <source>Fill in the username, computer name and your password</source>
         <translation>請輸入用戶名，計算機名並設置密碼</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="664"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="667"/>
         <source>Use that password to edit boot menu</source>
         <translation>同時設置為修改啟動菜單的密碼</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="665"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="668"/>
         <source>Enable root user</source>
         <translation>啟用root用戶</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="689"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="692"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="185"/>
         <source>This username already exists</source>
         <translation>這個用戶名已存在</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="693"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="696"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="189"/>
         <source>The first letter must be in lowercase</source>
         <translation>首字母必須為小寫</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="698"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="701"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="194"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
         <translation>用戶名必須包含英文（小寫）、數字或特殊符號（_-）</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="704"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="707"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="200"/>
         <source>Please input username longer than %1 characters and shorter than %2 characters</source>
         <translation>請輸入長度大於%1，小於%2位用戶名</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="727"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="730"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="149"/>
         <source>Please input computer name</source>
         <translation>請輸入計算機名</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="731"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="734"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="153"/>
         <source>Computer name is invalid</source>
         <translation>計算機名無效</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="735"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="738"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="157"/>
         <source>Computer name already exists, please input another one</source>
         <translation>計算機名被佔用，請重新輸入</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="740"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="743"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="162"/>
         <source>Please input computer name longer than %1 characters and shorter than %2 characters</source>
         <translation>請輸入長度大於%1，小於%2位計算機名</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="768"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="771"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="81"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="227"/>
         <source>The password should be different from the username</source>
         <translation>用戶密碼不能與用戶名相同</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="782"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="785"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="95"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="241"/>
         <source>The password cannot be empty​</source>
         <translation>密碼不能為空</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="786"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="789"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="99"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="245"/>
         <source>Password must contain letters, numbers and symbols</source>
         <translation>密碼必須由字母、數字、符號三種類型組成</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="790"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="793"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="103"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="249"/>
         <source>Password must have at least 8 characters</source>
         <translation>密碼長度不能少於8位</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="794"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="797"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="107"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="253"/>
         <source>Password must be between %1 and %2 characters</source>
         <translation>密碼長度必須介於%1到%2個字符之間</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="809"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="812"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="122"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="268"/>
         <source>Password must not contain common words and combinations</source>
         <translation>密碼不得含有常用單詞及組合</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="815"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="818"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="128"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="274"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>密碼不得含有連續4個以上的回文字符</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="820"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="823"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="133"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="279"/>
         <source>Password must contain lowercase letters</source>
         <translation>密碼必須包含小寫字母</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="825"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="828"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="138"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="284"/>
         <source>Password must contain capital letters</source>
         <translation>密碼必須包含大寫字母</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="830"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="833"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="143"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="289"/>
         <source>Password must contain special characters</source>
         <translation>密碼必須包含特殊字符</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="835"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="838"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="148"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="294"/>
         <source>Passwords must contain numbers</source>
         <translation>密碼必須包含數字</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="1095"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="666"/>
         <source>Add fingerprint password in Control Center &gt; Accounts to unlock and authenticate</source>
         <translation>本機支持指紋識別，您可以在“控制中心 &gt;賬戶”中添加指紋密碼</translation>
     </message>
@@ -1345,7 +1346,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="168"/>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="144"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="178"/>
         <source>Install</source>
         <translation>安裝</translation>
     </message>
@@ -1540,7 +1541,7 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="222"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="684"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="514"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="531"/>
         <source>Edit LVM Disk</source>
         <translation>配置邏輯卷</translation>
     </message>
@@ -1553,8 +1554,8 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="234"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="445"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="94"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="492"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="95"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="509"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="99"/>
         <source>Advanced</source>
         <translation>手動安裝</translation>
@@ -1584,33 +1585,33 @@
         <translation>目標磁盤為動態磁盤，進一步操作將格式化該磁盤，請備份您的數據。</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="141"/>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="203"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="175"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="269"/>
         <source>System Setup</source>
         <translation>操作選擇</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="142"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="176"/>
         <source>Choose an option for your system</source>
         <translation>請選擇您將要對系統進行的操作</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="145"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="179"/>
         <source>Install the system in your installation media.</source>
         <translation>對存儲介質裏的系統進行安裝。</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="147"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="181"/>
         <source>Repair</source>
         <translation>修復</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="148"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="182"/>
         <source>Use recovery tools to fix system issues.</source>
         <translation>進入live系統對原有系統進行修復。</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="150"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="184"/>
         <source>Enter the</source>
         <translation>進入</translation>
     </message>
@@ -1688,6 +1689,11 @@
         <translation>不使用</translation>
     </message>
     <message>
+        <location filename="../src/ui/models/mount_point_model.cpp" line="40"/>
+        <source>auto mount</source>
+        <translation>自動掛載</translation>
+    </message>
+    <message>
         <location filename="../src/ui/models/partition_type_model.cpp" line="41"/>
         <location filename="../src/ui/models/partition_type_model.cpp" line="47"/>
         <source>Logical Partition</source>
@@ -1704,12 +1710,12 @@
         <translation>將被格式化</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="220"/>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="223"/>
         <source>System Disk</source>
         <translation>系統盤</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="220"/>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="223"/>
         <source>Data Disk</source>
         <translation>數據盤</translation>
     </message>
@@ -1732,19 +1738,19 @@
         <translation>未知的設備</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="95"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="96"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="92"/>
         <source>Make sure you have backed up important data, then select the disk to install.</source>
         <translation>請確定您已備份好重要數據，然後選擇要安裝的磁盤。</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="96"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="97"/>
         <source>Insert key: create or edit partition. Delete key: delete partition.</source>
         <translation>Insert鍵：新建或編輯分區。Delete鍵：刪除分區。</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="414"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="417"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="415"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="418"/>
         <source>%1 error found, fix to continue installation</source>
         <translation>發現%1處錯誤，修復後即可繼續安裝</translation>
     </message>

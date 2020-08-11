@@ -62,8 +62,14 @@ void NewPartitionFrame::setPartition(const Partition::Ptr partition) {
       fsStringList.append(GetFsTypeName(fs));
   }
   fs_box_->setList(fsStringList);
-
-  QStringList mountPointStringList(delegate_->getMountPoints());
+  QStringList mountList = delegate_->getMountPoints();
+  for (QString mountString : mountList) {
+      if (mountString == kMountPointAuto) {
+          mountList.removeOne(mountString);
+          break;
+      }
+  }
+  QStringList mountPointStringList(mountList);
   if (mountPointStringList.at(0) == "") {
       mountPointStringList.removeFirst();
       mountPointStringList.insert(0, "unused");
