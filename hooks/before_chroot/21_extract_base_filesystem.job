@@ -26,9 +26,13 @@ L=${DI_LOCALE%.*}
 # First, extract base filesystem
 readonly PROGRESS_FILE="/dev/shm/unsquashfs_progress"
 readonly BASE_MODULE="${LIVE_FILESYSTEM}/filesystem.squashfs"
-deepin-installer-unsquashfs --dest /target --progress "${PROGRESS_FILE}" \
+
+CORES=${CORES:-$(cat /proc/cpuinfo |grep "processor" | wc -l)}
+unsquashfs -d /target -p $CORES \
   "${BASE_MODULE}" 1>/dev/null || \
-  error "installer-unsquashfs failed, ${BASE_MODULE}"
+  error "unsquashfs failed, ${BASE_MODULE}"
+sync 
+echo 3 > /proc/sys/vm/drop_caches
 
 if ! is_loongson; then
   return 0

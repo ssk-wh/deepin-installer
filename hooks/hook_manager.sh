@@ -81,6 +81,8 @@ fi
 # Mark $OEM_DIR as readonly constant.
 readonly OEM_DIR
 
+start_time=$(date +%s)
+
 # Run hook file
 case ${_HOOK_FILE} in
   */in_chroot/*)
@@ -89,11 +91,13 @@ case ${_HOOK_FILE} in
         error "Config file ${CONF_FILE} does not exists."
       fi
       . "${_HOOK_FILE}"
+      end_time=$(date +%s)
+      cost_time=$[ $end_time-$start_time ]
+      echo "run ${_HOOK_FILE} time is $(($cost_time/60))m $(($cost_time%60))s"
       exit $?
     else
       # Switch to chroot env.
       chroot /target "${_SELF}" "${_HOOK_FILE}" 'true'
-      exit $?
     fi
     ;;
   *)
@@ -102,6 +106,9 @@ case ${_HOOK_FILE} in
       error "Config file ${CONF_FILE} does not exists."
     fi
     . "${_HOOK_FILE}"
+    end_time=$(date +%s)
+    cost_time=$[ $end_time-$start_time ]
+    echo "run ${_HOOK_FILE} time is $(($cost_time/60))m $(($cost_time%60))s"
     exit $?
     ;;
 esac
