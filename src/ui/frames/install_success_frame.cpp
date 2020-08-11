@@ -39,6 +39,7 @@ public:
     InstallSuccessFrame *q_ptr=nullptr;
 
     TitleLabel *title_label_ = new TitleLabel("");
+    CommentLabel *eject_label_ = new CommentLabel;
     CommentLabel *comment_label_ = new CommentLabel;
 
     QLabel *status_label = new QLabel;
@@ -81,6 +82,7 @@ void InstallSuccessFramePrivate::updateTs()
 {
     reboot_button_->setText(::QObject::tr("Reboot Now"));
     title_label_->setText(::QObject::tr("Successfully Installed"));
+    eject_label_->setText(::QObject::tr("Click the button below and then remove the installation media immediately"));
     comment_label_->setText(::QObject::tr("Reboot to discover and enjoy system features"));
 }
 
@@ -109,6 +111,7 @@ void InstallSuccessFramePrivate::initUI()
     layout->addWidget(title_label_, 0, Qt::AlignCenter);
     layout->addLayout(comment_layout);
     layout->addStretch();
+    layout->addWidget(eject_label_, 0, Qt::AlignCenter);
     layout->addWidget(reboot_button_, 0, Qt::AlignCenter);
 
     q_ptr->setLayout(layout);
