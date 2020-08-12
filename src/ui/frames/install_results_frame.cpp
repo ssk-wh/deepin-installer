@@ -108,7 +108,7 @@ bool InstallResultsFrame::allowPrevious() const
 
 void InstallResultsFrame::showEvent(QShowEvent *event)
 {
-    Q_EMIT closeButtionChange(false);
+    Q_EMIT closeButtionChange(true);
     return FrameInterface::showEvent(event);
 }
 
