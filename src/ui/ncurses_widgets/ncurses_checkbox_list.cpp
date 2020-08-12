@@ -317,8 +317,8 @@ void NcursesCheckBoxList::selectAll(bool selectall)
 
 void NcursesCheckBoxList::setFocus(bool foucs)
 {
-    NCursesWindowBase::setFocus(foucs);
-
+    m_foucs = foucs;
+    show();
     if (m_ncursesCheckBoxs_vector.size() > 0) {
         if (foucs) {
             m_ncursesCheckBoxs_vector.at(m_index)->setFocus(true);
