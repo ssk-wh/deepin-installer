@@ -25,7 +25,9 @@ const QString en_US_license { ":/license/end-user-license-agreement-community_en
 LicenceFramePrivate::LicenceFramePrivate(NCursesWindowBase *parent, int lines, int cols, int beginY, int beginX)
     : FrameInterfacePrivate(parent, lines, cols, beginY, beginX),
     m_ncursesTextBrower(nullptr),
-    m_NcursesCheckBox(nullptr)
+    m_NcursesCheckBox(nullptr),
+    m_localeString(""),
+    m_isshow(false)
 {
     initUI();
     initConnection();
@@ -41,6 +43,7 @@ void LicenceFramePrivate::initUI()
     FrameInterfacePrivate::initUI();
 
     m_ncursesTextBrower = new NcursesTextBrower(this, height() - 11, width() - 2, begy() + 2, begx() + 1);
+    //m_ncursesTextBrower->hide();
 
     QString checkboxtext = "I have read and agree to the UOS Software End User License Agreement";
     int textlength = checkboxtext.length();
@@ -51,18 +54,15 @@ void LicenceFramePrivate::initUI()
     } else {
         textlength += 5;
     }
-    m_NcursesCheckBox = new NcursesCheckBox(this, 1, textlength, begy() + height() - 7, begx() + (width() - checkboxtext.length()) / 2);
+    m_NcursesCheckBox = new NcursesCheckBox(this, 1, textlength, begy(), begx());
     m_NcursesCheckBox->setIsUseTitle(false);
+    //m_NcursesCheckBox->hide();
 
     QString errorinfo = ::QObject::tr("Please agree to the license");
     m_errorInfoLabel = new NcursesLabel(this, errorinfo, 1, errorinfo.length(), begy() + height() - 5, begx() + (width() - errorinfo.length()) / 2);
     m_errorInfoLabel->setFocusEnabled(false);
     m_errorInfoLabel->setBackground(NcursesUtil::getInstance()->error_attr());
-    m_errorInfoLabel->hide();
-
-    m_pNextButton->setFocus(false);
-    m_pNextButton->setFocusEnabled(false);
-    m_ncursesTextBrower->setFocus(true);
+    //m_errorInfoLabel->hide();
 }
 
 bool LicenceFramePrivate::validate()
@@ -80,6 +80,7 @@ void LicenceFramePrivate::show()
 {
     if (!m_isshow) {
         NCursesWindowBase::show();
+        m_pNextButton->setFocusEnabled(m_NcursesCheckBox->isSelect());
         m_errorInfoLabel->hide();
         m_isshow = true;
     }
@@ -99,8 +100,14 @@ void LicenceFramePrivate::initConnection()
 
 void LicenceFramePrivate::onKeyPress(int keyCode)
 {
+    switch (keyCode) {
+    case KEY_TAB:
+        switchChildWindowsFoucs();
+        break;
+    }
+
     qDebug()<< keyCode;
-    NCursesWindowBase::onKeyPress(keyCode);
+    //NCursesWindowBase::onKeyPress(keyCode);
 }
 
 void LicenceFramePrivate::checkboxSelectChange(bool select)
@@ -115,6 +122,11 @@ void LicenceFramePrivate::checkboxSelectChange(bool select)
 
 void LicenceFramePrivate::updateTs()
 {
+    if (!m_localeString.compare(installer::ReadLocale())) {
+        return;
+    }
+    m_localeString = installer::ReadLocale();
+
     box(ACS_VLINE,ACS_HLINE);
     printTitle(::QObject::tr("UOS Software End User License Agreement"), width());
     QString teststr = ::QObject::tr("I have read and agree to the UOS Software End User License Agreement");
@@ -134,6 +146,8 @@ void LicenceFramePrivate::updateTs()
     FrameInterfacePrivate::updateTs();
 
     layout();
+
+    m_pBackButton->setFocus(true);
 }
 
 void LicenceFramePrivate::layout()
@@ -155,11 +169,12 @@ void LicenceFramePrivate::layout()
 LicenceFrame::LicenceFrame(FrameInterface* parent)
     :FrameInterface (parent)
 {
-    int h = LINES / 2;
-    int w = COLS / 2;
+    int h = MAINWINDOW_HEIGHT;//LINES / 2;
+    int w = MAINWINDOW_WIDTH;//COLS / 2;
     int beginY = (LINES - h - 2) / 2;
     int beginX = (COLS - w) / 2;
     m_private = new LicenceFramePrivate (parent->getPrivate(), h, w, beginY, beginX);
+    //m_private->hide();
 }
 
 LicenceFrame::~LicenceFrame()

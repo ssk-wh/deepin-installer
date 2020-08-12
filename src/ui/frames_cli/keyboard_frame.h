@@ -22,6 +22,9 @@ public:
     void updateTs() override;
     void initConnection();
     bool validate() override;
+    void show() override;
+    void hide() override;
+    virtual void onKeyPress(int keyCode) override;
 
 protected:
     void leftHandle() override;
@@ -59,6 +62,7 @@ private:
     NcursesListView* m_variantView = nullptr;
 
     QString m_localeString = "";
+    bool m_isshow;
 };
 
 

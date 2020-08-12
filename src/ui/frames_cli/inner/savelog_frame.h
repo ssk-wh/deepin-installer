@@ -32,6 +32,7 @@ public:
     bool validate() override;
     void show() override;
     void hide() override;
+    virtual void onKeyPress(int keycode) override;
 
 signals:
     void backToPreviousPage();

@@ -47,7 +47,7 @@ class NewPartitionFrame : public FrameInterfacePrivate {
   void hide() override;
   void updateTs();
   void layout();
-  void onKeyPress(int keycode) override;
+  virtual void onKeyPress(int keycode) override;
  signals:
   void finished();
   void keyEventTrigerSignal(int keycode);

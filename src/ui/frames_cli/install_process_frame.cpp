@@ -50,11 +50,12 @@ void InstallProcessFramePrivate::initUI()
     this->box();
 
     m_NcursesTextBrower = new NcursesTextBrower(this, height() - 10, width() - 5, begy() + 2, begx() + 5 / 2);
+    //m_NcursesTextBrower->hide();
 
     m_NcursesProgressBar = new NcursesProgressBar(this, 3, width(), begy() + height() - 3, begx());
     m_NcursesProgressBar->setRange(100);
-
-    //connect(this, SIGNAL(signal_timeout()), this, SLOT(slot_timeout()));
+    //m_NcursesProgressBar->hide();
+    ////connect(this, SIGNAL(signal_timeout()), this, SLOT(slot_timeout()));
 }
 
 void InstallProcessFramePrivate::layout()
@@ -72,7 +73,7 @@ void InstallProcessFramePrivate::updateTs()
 void InstallProcessFramePrivate::show()
 {
     if (!m_isshow) {
-        QString testbrowertext = QString("Do parttition ...");
+        QString testbrowertext = ::QObject::tr("Installing") + QString(" ... ");//QString("Do parttition ...");
         m_NcursesTextBrower->appendItemText(testbrowertext, false);
         m_NcursesTextBrower->scrollToEnd();
 
@@ -99,10 +100,11 @@ bool InstallProcessFramePrivate::validate()
 void InstallProcessFramePrivate::onKeyPress(int keyCode)
 {
     switch (keyCode) {
+    case KEY_TAB:
+        switchChildWindowsFoucs();
+        break;
     case KEY_DOWN:
-    {
         emit signal_timeout();
-    }
         break;
     default:
         break;
@@ -141,9 +143,9 @@ void InstallProcessFramePrivate::onProgressUpdate(int progress)
 
 void InstallProcessFramePrivate::startInstall()
 {
-    QString testbrowertext = QString("partion complete");
-    m_NcursesTextBrower->appendItemText(testbrowertext, false);
-    m_NcursesTextBrower->scrollToEnd();
+//    QString testbrowertext = QString("partion complete");
+//    m_NcursesTextBrower->appendItemText(testbrowertext, false);
+//    m_NcursesTextBrower->scrollToEnd();
     m_NcursesProgressBar->setValue(5);
 
     hooks_manager_ = new HooksManager();
@@ -182,11 +184,12 @@ void InstallProcessFramePrivate::slot_timeout()
 InstallProcessFrame::InstallProcessFrame(FrameInterface* parent) :
     FrameInterface (parent)
 {
-    int h = LINES / 2;
-    int w = COLS / 2;
+    int h = MAINWINDOW_HEIGHT;//LINES / 2;
+    int w = MAINWINDOW_WIDTH;//COLS / 2;
     int beginY = (LINES - h - 2) / 2;
     int beginX = (COLS - w) / 2;
     m_private = new InstallProcessFramePrivate (parent->getPrivate(), h, w, beginY, beginX);
+    //m_private->hide();
 }
 
 InstallProcessFrame::~InstallProcessFrame()

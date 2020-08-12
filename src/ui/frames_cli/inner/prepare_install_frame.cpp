@@ -152,41 +152,13 @@ void PrepareInstallFrame::layout()
 
 void PrepareInstallFrame::onKeyPress(int keycode)
 {
-    /*switch (keycode) {
-        case KEY_TAB: break;
-        case KEY_RIGHT:
-        case KEY_LEFT:
-        QVector<NCursesWindowBase* > showChild;
-        for(NCursesWindowBase* child : m_showChild) {
-            if(!child->hidden()) {
-                showChild.append(child);
-            }
-        }
-
-        for (NCursesWindowBase* child : showChild) {
-            if(child->isOnFoucs()) {
-                int size = showChild.size();
-                int index = showChild.indexOf(child);
-
-                int offset = 1;
-
-                int nextIndex = ( index + offset) % size;
-                NCursesWindowBase* nextchild = showChild.at(nextIndex);
-
-                if(nextchild != cancel_button_) {
-                    cancel_button_->setFocus(false);
-                }
-
-                if(nextchild != create_button_) {
-                    create_button_->setFocus(false);
-                }
-
-                nextchild->setFocus(true);
-                return ;
-            }
-        }
+    switch (keycode) {
+    case KEY_TAB:
+        switchChildWindowsFoucs();
         break;
-    }*/
+    }
+
+    qDebug()<< keycode;
 }
 
 void PrepareInstallFrame::keyPresseEvent(int keycode)

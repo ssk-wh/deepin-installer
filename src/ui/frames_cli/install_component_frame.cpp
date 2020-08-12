@@ -61,24 +61,34 @@ void InstallComponentFramePrivate::initUI()
     m_firstSubTiltleLabel->setFocusEnabled(false);
     m_secondSubTiltleLabel->setFocusEnabled(false);
 
+    //m_tiltleLabel->hide();
+    //m_firstSubTiltleLabel->hide();
+    //m_secondSubTiltleLabel->hide();
+
     m_basicenvironmentlist = new NcursesCheckBoxList(this, height() - 15, width() / 2 - 2, begy() + 7,  begx() + 2);
-    //m_basicenvironmentlist->setFocus(true);
     m_basicenvironmentlist->setListType(NcursesCheckBoxList::BASICENVIRONMENT);
     m_basicenvironmentlist->setSingleSelect(true);
     m_basicenvironmentlist->setRealSelect(true);
+    //m_basicenvironmentlist->hide();
 
     m_extrachoiceslist = new NcursesCheckBoxList(this, height() - 15, width() / 2 - 2, begy() + 7,  begx() + width() / 2);
-    //m_extrachoiceslist->setFocus(true);
     m_extrachoiceslist->setListType(NcursesCheckBoxList::EXTRACHOICES);
     m_extrachoiceslist->setSingleSelect(false);
     m_extrachoiceslist->setRealSelect(false);
     m_extrachoiceslist->setFocusEnabled(false);
+    //m_extrachoiceslist->hide();
 
     m_selectallextra = new NcursesCheckBox(this, ::QObject::tr("Select All"), 1, width() / 2 - 2, begy() + height() - 7,  begx() + width() / 2  + 1);
+    //m_selectallextra->hide();
 }
 
 void InstallComponentFramePrivate::updateTs()
 {
+    if (!m_localeString.compare(installer::ReadLocale())) {
+        return;
+    }
+    m_localeString = installer::ReadLocale();
+
     box(ACS_VLINE,ACS_HLINE);
     printTitle(::QObject::tr("Select Components"), width());
 
@@ -103,15 +113,13 @@ void InstallComponentFramePrivate::updateTs()
     m_firstSubTiltleLabel->setText(testfirststr.toUtf8().data());
     m_secondSubTiltleLabel->setText(testsecondstr.toUtf8().data());
 
-    if(!m_localeString.compare("") || m_localeString.compare(installer::ReadLocale())) {
-        initInfoList();
-    }
-
-    m_localeString = installer::ReadLocale();
+    initInfoList();
 
     FrameInterfacePrivate::updateTs();
 
     layout();
+
+    m_pNextButton->setFocus(true);
 }
 
 void InstallComponentFramePrivate::leftHandle()
@@ -253,6 +261,20 @@ void InstallComponentFramePrivate::writeInfoList()
     }
 }
 
+void InstallComponentFramePrivate::onKeyPress(int keyCode)
+{
+    switch (keyCode) {
+    case KEY_TAB:
+        if (m_extrachoiceslist->isOnFoucs()) {
+            m_extrachoiceslist->setFocus(false);
+        }
+        switchChildWindowsFoucs();
+        break;
+    }
+
+    qDebug()<< keyCode;
+}
+
 
 void InstallComponentFramePrivate::slot_KeyTriger(int keycode, int listtype, int index)
 {
@@ -355,11 +377,12 @@ void InstallComponentFramePrivate::layout()
 
 ComponentFrame::ComponentFrame(FrameInterface *parent)
 {
-    int h = LINES / 2;
-    int w = COLS / 2;
+    int h = MAINWINDOW_HEIGHT;//LINES / 2;
+    int w = MAINWINDOW_WIDTH;//COLS / 2;
     int beginY = (LINES - h - 2) / 2;
     int beginX = (COLS - w) / 2;
     m_private = new InstallComponentFramePrivate (parent->getPrivate(), h, w, beginY, beginX);
+    //m_private->hide();
 }
 
 ComponentFrame::~ComponentFrame()

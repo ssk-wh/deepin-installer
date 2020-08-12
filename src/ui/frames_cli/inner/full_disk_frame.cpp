@@ -13,7 +13,6 @@ namespace installer {
 void FullDiskFramePrivate::initUI()
 {
     try {
-        //FrameInterfacePrivate::initUI();
         setBackground(NcursesUtil::getInstance()->dialog_attr());
         this->drawShadow(true);
         this->box();
@@ -25,38 +24,37 @@ void FullDiskFramePrivate::initUI()
         m_pBackButton->drawShadow(true);
         m_pBackButton->box();
         m_pBackButton->setObjectName(strBack);
-        m_pBackButton->hide();
+        //m_pBackButton->hide();
 
         m_label_title = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_title->setFocusEnabled(false);
-        m_label_title->hide();
+        //m_label_title->hide();
 
         m_label_systemdisk = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_systemdisk->setFocusEnabled(false);
-        m_label_systemdisk->hide();
+        //m_label_systemdisk->hide();
 
         m_systemdisklist = new NcursesCheckBoxList(this, (height() - 10) / 2, width() / 2, begy() + 2, begx() + width() / 4);
         m_systemdisklist->setListType(NcursesCheckBoxList::BASICENVIRONMENT);
         m_systemdisklist->setSingleSelect(true);
         m_systemdisklist->setRealSelect(true);
         m_systemdisklist->setSingleSelect(true);
-        m_systemdisklist->hide();
+        //m_systemdisklist->hide();
 
         m_label_datadisk = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_datadisk->setFocusEnabled(false);
-        m_label_datadisk->hide();
+        //m_label_datadisk->hide();
 
         m_datadisklist = new NcursesCheckBoxList(this, (height() - 10) / 2, width() / 2, begy() + 2, begx() + width() / 4);
         m_datadisklist->setListType(NcursesCheckBoxList::OTHER);
         m_datadisklist->setSingleSelect(true);
-        m_datadisklist->hide();
+        //m_datadisklist->hide();
 
         m_pNextButton = new NcursesButton(this, strNext, 3, 14, begy() + height() - 5, begx() + width() - 20);
         m_pNextButton->drawShadow(true);
         m_pNextButton->box();
         m_pNextButton->setObjectName(strNext);
-        m_pNextButton->setFocus(false);
-
+        //m_pNextButton->hide();
 
     } catch (NCursesException& e) {
         qCritical() << QString(e.message);
@@ -88,12 +86,19 @@ void FullDiskFramePrivate::layout()
 
 void FullDiskFramePrivate::updateTs()
 {
+    if (!m_localeString.compare(installer::ReadLocale())) {
+        return;
+    }
+    m_localeString = installer::ReadLocale();
+
     printTitle(::QObject::tr("Full Disk"), width());
     m_label_title->setText("    " + ::QObject::tr("Make sure you have backed up important data, then select the disk to install."));
     m_label_systemdisk->setText(::QObject::tr("System Disk:"));
     m_label_datadisk->setText(::QObject::tr("Data Disk:"));
     FrameInterfacePrivate::updateTs();
     layout();
+
+    m_pNextButton->setFocus(true);
 }
 
 void FullDiskFramePrivate::initConnection()
@@ -186,6 +191,17 @@ void FullDiskFramePrivate::setchildFoursEnabel(bool enabel)
     m_pNextButton->setFocusEnabled(enabel);
 }
 
+void FullDiskFramePrivate::onKeyPress(int keyCode)
+{
+    switch (keyCode) {
+    case KEY_TAB:
+            switchChildWindowsFoucs();
+        break;
+    }
+
+    qDebug()<< keyCode;
+}
+
 void FullDiskFramePrivate::keyPresseEvent(int keycode)
 {
     if(!m_isshow) {
@@ -232,11 +248,12 @@ FullDiskFrame::FullDiskFrame(FrameInterface* parent, PartitionModel* model)
     : m_partitionModel(model),
       m_prepareInstallFrame(nullptr)
 {
-    int h = LINES / 2;
-    int w = COLS / 2;
+    int h = MAINWINDOW_HEIGHT;//LINES / 2;
+    int w = MAINWINDOW_WIDTH;//COLS / 2;
     int beginY = (LINES - h - 2) / 2;
     int beginX = (COLS - w) / 2;
     m_private = new FullDiskFramePrivate(nullptr, h, w, beginY, beginX);
+    //m_private->hide();
     m_delegate = new FullDiskDelegate(this);
     //m_prepareInstallFrame = new PrepareInstallFrame(nullptr, h, w, beginY, beginX);
 

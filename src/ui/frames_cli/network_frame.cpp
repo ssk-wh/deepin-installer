@@ -60,67 +60,84 @@ void NetwrokFramePrivate::initUI()
     this->drawShadow(true);
     this->box();
 
-    m_titledes.append("    " + ::QObject::tr("Set the IP address, gateway, netmask, DNS please."));
     m_titledes.append("    " + ::QObject::tr("Configure Ethernet according to your needs, but you can skip it as well."));
+    m_titledes.append("    " + ::QObject::tr("Set the IP address, gateway, netmask, DNS please."));
 
     m_networkconnecterrorstr = ::QObject::tr("Network connection error, check the configuration please");
 
     m_titledesbrower = new NcursesTextBrower(this, 3, width() - 2, begy() + 2, begx() + 1);
     m_titledesbrower->setFocusEnabled(false);
-    m_titledesbrower->setText(m_titledes[0]);
+    m_titledesbrower->setText(m_titledes[m_currentchoicetype]);
+    //m_titledesbrower->hide();
 
     m_childpagecounttext = new NcursesLabel(this, " [1/2] ", 1, 8, begy() + 6, begx() + 1);
     m_childpagecounttext->setFocusEnabled(false);
+    //m_childpagecounttext->hide();
 
     m_operationchoice = new NcursesListView(this, 2, width() / 2, begy(), begx());
-    m_operationchoice->setFocus(true);
+    ////m_operationchoice->setFocus(true);
+    //m_operationchoice->hide();
 
     NetwrokFrameItem ipconfigitemsipset;
     ipconfigitemsipset.m_NcursesLabel = new NcursesLabel(this, 1, 15, begy(), begx());
     ipconfigitemsipset.m_NcursesLabel->setFocusEnabled(false);
+    //ipconfigitemsipset.m_NcursesLabel->hide();
     ipconfigitemsipset.m_NCursesLineEdit = new NCursesLineEdit(this, 1, 3, begy(), begx());
     ipconfigitemsipset.m_NCursesLineEdit->setBackground(NcursesUtil::getInstance()->edit_attr());
     ipconfigitemsipset.m_NCursesLineEdit->setModle(NCursesLineEdit::IPEDIT);
+    //ipconfigitemsipset.m_NCursesLineEdit->hide();
     ipconfigitemsipset.m_ErrorinfoLabel = new NcursesLabel(this, 1, 3, begy(), begx());
     ipconfigitemsipset.m_ErrorinfoLabel->setBackground(NcursesUtil::getInstance()->error_attr());
     ipconfigitemsipset.m_ErrorinfoLabel->setFocusEnabled(false);
+    //ipconfigitemsipset.m_ErrorinfoLabel->hide();
     NetwrokFrameItem ipconfigitemsmaskset;
     ipconfigitemsmaskset.m_NcursesLabel = new NcursesLabel(this, 1, 15, begy(), begx());
     ipconfigitemsmaskset.m_NcursesLabel->setFocusEnabled(false);
+    //ipconfigitemsmaskset.m_NcursesLabel->hide();
     ipconfigitemsmaskset.m_NCursesLineEdit = new NCursesLineEdit(this, 1, 3, begy(), begx());
     ipconfigitemsmaskset.m_NCursesLineEdit->setBackground(NcursesUtil::getInstance()->edit_attr());
     ipconfigitemsmaskset.m_NCursesLineEdit->setModle(NCursesLineEdit::IPEDIT);
+    //ipconfigitemsmaskset.m_NCursesLineEdit->hide();
     ipconfigitemsmaskset.m_ErrorinfoLabel = new NcursesLabel(this, 1, 3, begy(), begx());
     ipconfigitemsmaskset.m_ErrorinfoLabel->setBackground(NcursesUtil::getInstance()->error_attr());
     ipconfigitemsmaskset.m_ErrorinfoLabel->setFocusEnabled(false);
+    //ipconfigitemsmaskset.m_ErrorinfoLabel->hide();
     NetwrokFrameItem ipconfigitemsgatewayset;
     ipconfigitemsgatewayset.m_NcursesLabel = new NcursesLabel(this, 1, 15, begy(), begx());
     ipconfigitemsgatewayset.m_NcursesLabel->setFocusEnabled(false);
+    //ipconfigitemsgatewayset.m_NcursesLabel->hide();
     ipconfigitemsgatewayset.m_NCursesLineEdit = new NCursesLineEdit(this, 1, 3, begy(), begx());
     ipconfigitemsgatewayset.m_NCursesLineEdit->setBackground(NcursesUtil::getInstance()->edit_attr());
     ipconfigitemsgatewayset.m_NCursesLineEdit->setModle(NCursesLineEdit::IPEDIT);
+    //ipconfigitemsgatewayset.m_NCursesLineEdit->hide();
     ipconfigitemsgatewayset.m_ErrorinfoLabel = new NcursesLabel(this, 1, 3, begy(), begx());
     ipconfigitemsgatewayset.m_ErrorinfoLabel->setBackground(NcursesUtil::getInstance()->error_attr());
     ipconfigitemsgatewayset.m_ErrorinfoLabel->setFocusEnabled(false);
+    //ipconfigitemsgatewayset.m_ErrorinfoLabel->hide();
     NetwrokFrameItem ipconfigitemsprimarydnsset;
     ipconfigitemsprimarydnsset.m_NcursesLabel = new NcursesLabel(this, 1, 15, begy(), begx());
     ipconfigitemsprimarydnsset.m_NcursesLabel->setFocusEnabled(false);
+    //ipconfigitemsprimarydnsset.m_NcursesLabel->hide();
     ipconfigitemsprimarydnsset.m_NCursesLineEdit = new NCursesLineEdit(this, 1, 3, begy(), begx());
     ipconfigitemsprimarydnsset.m_NCursesLineEdit->setBackground(NcursesUtil::getInstance()->edit_attr());
     ipconfigitemsprimarydnsset.m_NCursesLineEdit->setModle(NCursesLineEdit::IPEDIT);
+    //ipconfigitemsprimarydnsset.m_NCursesLineEdit->hide();
     ipconfigitemsprimarydnsset.m_ErrorinfoLabel = new NcursesLabel(this, 1, 3, begy(), begx());
     ipconfigitemsprimarydnsset.m_ErrorinfoLabel->setBackground(NcursesUtil::getInstance()->error_attr());
     ipconfigitemsprimarydnsset.m_ErrorinfoLabel->setFocusEnabled(false);
-    //m_secondaryDNSEdit->setObjectName("Secondary DNS");
+    //ipconfigitemsprimarydnsset.m_ErrorinfoLabel->hide();
     NetwrokFrameItem ipconfigitemssecondarydnsset;
     ipconfigitemssecondarydnsset.m_NcursesLabel = new NcursesLabel(this, 1, 15, begy(), begx());
     ipconfigitemssecondarydnsset.m_NcursesLabel->setFocusEnabled(false);
+    //ipconfigitemssecondarydnsset.m_NcursesLabel->hide();
     ipconfigitemssecondarydnsset.m_NCursesLineEdit = new NCursesLineEdit(this, 1, 3, begy(), begx());
     ipconfigitemssecondarydnsset.m_NCursesLineEdit->setBackground(NcursesUtil::getInstance()->edit_attr());
     ipconfigitemssecondarydnsset.m_NCursesLineEdit->setModle(NCursesLineEdit::IPEDIT);
+    //ipconfigitemssecondarydnsset.m_NCursesLineEdit->hide();
     ipconfigitemssecondarydnsset.m_ErrorinfoLabel = new NcursesLabel(this, 1, 3, begy(), begx());
     ipconfigitemssecondarydnsset.m_ErrorinfoLabel->setBackground(NcursesUtil::getInstance()->error_attr());
     ipconfigitemssecondarydnsset.m_ErrorinfoLabel->setFocusEnabled(false);
+    //ipconfigitemssecondarydnsset.m_ErrorinfoLabel->hide();
 
     m_ipconfigitems.push_back(ipconfigitemsipset);
     m_ipconfigitems.push_back(ipconfigitemsmaskset);
@@ -136,11 +153,13 @@ void NetwrokFramePrivate::initUI()
     m_pNextButton->drawShadow(true);
     m_pNextButton->box();
     m_pNextButton->setObjectName(strNext);
+    //m_pNextButton->hide();
 
     m_pBackButton = new NcursesButton(this, strBack, 3, 14, begy() + height() - 5, begx() + 5);
     m_pBackButton->drawShadow(true);
     m_pBackButton->box();
     m_pBackButton->setObjectName(strBack);
+    //m_pBackButton->hide();
 
     m_networkconnecterrorlabel = new NcursesLabel(this, m_networkconnecterrorstr,
                                                   1,
@@ -149,6 +168,7 @@ void NetwrokFramePrivate::initUI()
                                                   begx() + (width() - m_networkconnecterrorstr.length()) / 2);
     m_networkconnecterrorlabel->setBackground(NcursesUtil::getInstance()->error_attr());
     m_networkconnecterrorlabel->setFocusEnabled(false);
+    //m_networkconnecterrorlabel->hide();
 }
 
 void NetwrokFramePrivate::updateTs()
@@ -157,12 +177,12 @@ void NetwrokFramePrivate::updateTs()
     printTitle(::QObject::tr("Configure Network"), width());
 
     m_titledes.clear();
-    m_titledes.append("  " + ::QObject::tr("Set the IP address, gateway, netmask, DNS please."));
     m_titledes.append("  " + ::QObject::tr("Configure Ethernet according to your needs, but you can skip it as well."));
+    m_titledes.append("  " + ::QObject::tr("Set the IP address, gateway, netmask, DNS please."));
     if(installer::ReadLocale() == "zh_CN") {
-        m_titledesbrower->setText(m_titledes[0], true);
+        m_titledesbrower->setText(m_titledes[m_currentchoicetype], true);
     } else {
-        m_titledesbrower->setText(m_titledes[0]);
+        m_titledesbrower->setText(m_titledes[m_currentchoicetype]);
     }
 
     //m_networkconfigtypelabel->erase();
@@ -211,9 +231,8 @@ void NetwrokFramePrivate::show()
         m_pBackButton->setFocus(false);
         m_pNextButton->setFocus(true);
         m_networkconnecterrorlabel->hide();
+        updateChoiceType(m_currentchoicetype);
     }
-    m_titledesbrower->show();
-    updateChoiceType(m_currentchoicetype);
 }
 
 void NetwrokFramePrivate::hide()
@@ -279,11 +298,21 @@ bool NetwrokFramePrivate::writeInfoList()
         return true;
     } else if (m_currentchoicetype == 1) {
         m_isallinputok = true;
-        for(int i = 0; i < m_ipconfigitems.size(); i++) {
+        for(int i = 0; i < m_ipconfigitems.size() - 2; i++) {
             if(m_ipconfigitems.at(i).m_IsOK == false) {
                 m_isallinputok = false;
                 m_networkconnecterrorlabel->show();
                 break;
+            }
+        }
+
+        if(m_isallinputok) {
+            for(int i = m_ipconfigitems.size() - 3; i < m_ipconfigitems.size(); i++) {
+                if((m_ipconfigitems.at(i).m_IsOK == false) && (m_ipconfigitems.at(i).m_NCursesLineEdit->text().compare(""))) {
+                    m_isallinputok = false;
+                    m_networkconnecterrorlabel->show();
+                    break;
+                }
             }
         }
 
@@ -393,14 +422,11 @@ void NetwrokFramePrivate::setFocusEnableType(int type)
             m_ipconfigitems.at(i).m_ErrorinfoLabel->setFocusEnabled(false);
         }
         m_operationchoice->setFocusEnabled(true);
-        m_operationchoice->setFocus(false);
 
-        m_pBackButton->setFocus(false);
         m_pNextButton->setFocusEnabled(true);
-        m_pNextButton->setFocus(true);
+        m_pBackButton->setFocusEnabled(true);
 
     } else if(type == 1){
-        m_operationchoice->setFocus(false);
         m_operationchoice->setFocusEnabled(false);
 
         for(int i = 0; i < m_ipconfigitems.size(); i++) {
@@ -423,9 +449,9 @@ void NetwrokFramePrivate::setFocusEnableType(int type)
             m_currentlineeditindex = 0;
         }
 
-        m_pBackButton->setFocus(false);
-        m_pNextButton->setFocus(false);
-        m_pNextButton->setFocusEnabled(false);
+        m_pBackButton->setFocusEnabled(false);
+        m_pNextButton->setFocusEnabled(m_isallinputok);
+        m_pBackButton->setFocusEnabled(true);
     }
 
     m_currentchoicetype = type;
@@ -435,6 +461,9 @@ void NetwrokFramePrivate::onKeyPress(int keyCode)
 {
     qDebug() << "keyCode = " << keyCode;
     switch (keyCode) {
+    case KEY_TAB:
+            switchChildWindowsFoucs();
+        break;
     case KEY_ENTER:
     case KEY_ENTER_OTHER:
         if(m_pBackButton->isOnFoucs()) {
@@ -471,6 +500,12 @@ void NetwrokFramePrivate::doBackBtnClicked()
         m_networkconnecterrorlabel->hide();
         updateChoiceType(0);
         setFocusEnableType(0);
+        if(installer::ReadLocale() == "zh_CN") {
+            m_titledesbrower->setText(m_titledes[m_currentchoicetype], true);
+        } else {
+            m_titledesbrower->setText(m_titledes[m_currentchoicetype]);
+        }
+        m_titledesbrower->show();
     } else {
       emit back();
     }
@@ -489,6 +524,13 @@ void NetwrokFramePrivate::doNextBtnClicked()
             m_childpagecounttext->show();
             updateChoiceType(1);
             setFocusEnableType(1);
+            if(installer::ReadLocale() == "zh_CN") {
+                m_titledesbrower->setText(m_titledes[m_currentchoicetype], true);
+            } else {
+                m_titledesbrower->setText(m_titledes[m_currentchoicetype]);
+            }
+            m_titledesbrower->show();
+            m_pNextButton->setFocus(false);
         } else if(m_operationchoice->getCurrentIndex() == 1) {
             emit next();
         }
@@ -585,7 +627,7 @@ void NetwrokFramePrivate::slot_EidtTextChange(const QString &text)
     if(m_currentchoicetype == 1) {
 
         for(int i = 0; i < m_ipconfigitems.size(); i++) {
-            if(m_ipconfigitems.at(i).m_NCursesLineEdit->isOnFoucs()) {
+            if(m_ipconfigitems.at(i).m_NCursesLineEdit->isOnFoucs() && m_ipconfigitems.at(i).m_NCursesLineEdit->text().compare("")) {
                 if(m_currentlineeditindex != i) {
                     editTextCheck(m_currentlineeditindex, m_ipconfigitems.at(m_currentlineeditindex).m_NCursesLineEdit->text());
                     m_currentlineeditindex = i;
@@ -598,17 +640,22 @@ void NetwrokFramePrivate::slot_EidtTextChange(const QString &text)
         }
 
         m_isallinputok = true;
-        for (int i = 0; i < m_ipconfigitems.size(); i++) {
+        for (int i = 0; i < m_ipconfigitems.size() - 2; i++) {
             if (m_ipconfigitems.at(i).m_IsOK == false) {
                 m_isallinputok = false;
                 break;
             }
         }
 
-        if (m_isallinputok) {
-            m_pNextButton->setFocusEnabled(true);
-        } else {
-            m_pNextButton->setFocusEnabled(false);
+        if(m_isallinputok) {
+            for(int i = m_ipconfigitems.size() - 3; i < m_ipconfigitems.size(); i++) {
+                if((m_ipconfigitems.at(i).m_IsOK == false) && (m_ipconfigitems.at(i).m_NCursesLineEdit->text().compare(""))) {
+                    m_isallinputok = false;
+                    break;
+                }
+            }
+
+            setFocusEnableType(1);
         }
     }
 }
@@ -646,11 +693,12 @@ void NetwrokFramePrivate::layout()
 NetwrokFrame::NetwrokFrame(FrameInterface* parent) :
     FrameInterface (parent)
 {
-    int h = LINES / 2;
-    int w = COLS / 2;
+    int h = MAINWINDOW_HEIGHT;//LINES / 2;
+    int w = MAINWINDOW_WIDTH;//COLS / 2;
     int beginY = (LINES - h - 2) / 2;
     int beginX = (COLS - w) / 2;
     m_private = new NetwrokFramePrivate (parent->getPrivate(), h, w, beginY, beginX);
+    //m_private->hide();
 }
 
 NetwrokFrame::~NetwrokFrame()
@@ -667,7 +715,6 @@ bool NetwrokFrame::init()
         m_currState = FRAME_STATE_RUNNING;
     }
     d->resetValue();
-    d->initIPConfig();
     d->updateChoiceType(0);
     d->setFocusEnableType(0);
     return true;

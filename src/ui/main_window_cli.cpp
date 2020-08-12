@@ -235,61 +235,48 @@ bool MainWindow::init()
     if (m_currState == FRAME_STATE_NOT_START) {
         m_private->initUI();
         //m_privilegeErrrorFrame = new PrivilegeErrorFrame(this);
-        //m_privilegeErrrorFrame->hide();
         //addChildFrame(m_privilegeErrrorFrame);
 
         //m_virtualMachineFrame = new VirtualMachineFrame(this);
-        //m_virtualMachineFrame->hide();
         //addChildFrame(m_virtualMachineFrame);
 
         m_languageFrame = new LanguageFrame(this);
-        m_languageFrame->hide();
         connect(m_languageFrame, &LanguageFrame::languageChanged, this, &MainWindow::slot_languageChange);
         addChildFrame(m_languageFrame);
 
         m_licenceFrame = new LicenceFrame(this);
-        m_licenceFrame->hide();
         addChildFrame(m_licenceFrame);
 
         m_keyboardFrame = new KeyboardFrame(this);
-        m_keyboardFrame->hide();
         addChildFrame(m_keyboardFrame);
 
         m_networkFrame = new NetwrokFrame(this);
-        m_networkFrame->hide();
         addChildFrame(m_networkFrame);
 
         m_timeZoneFrame = new TimeZoneFrame(this);
-        m_timeZoneFrame->hide();
         addChildFrame(m_timeZoneFrame);
 
         m_componentFrame = new ComponentFrame(this);
-        m_componentFrame->hide();
         addChildFrame(m_componentFrame);
 
         m_systemInfoFrame = new SystemInfoFrame(this);
-        m_systemInfoFrame->hide();
         addChildFrame(m_systemInfoFrame);
 
         m_systemInfoRootPaswordFrame = new CreateRootUserFrame(this);
-        m_systemInfoRootPaswordFrame->hide();
         addChildFrame(m_systemInfoRootPaswordFrame);
 
         //m_diskSpaceInsufficientFrame = new DiskSpaceInsufficient(this);
         //addChildFrame(m_diskSpaceInsufficientFrame);
 
         m_partitionFrame = new PartitionFrame(this);
-        m_partitionFrame->hide();
         connect( static_cast<PartitionFramePrivate*>(m_partitionFrame->getPrivate()),
                  &PartitionFramePrivate::dostartInstall, this, &MainWindow::slot_dostartInstall);
         addChildFrame(m_partitionFrame);
 
         m_installProcessFrame = new InstallProcessFrame(this);
-        m_installProcessFrame->hide();
         addChildFrame(m_installProcessFrame);
 
         m_installSuccessFrame = new InstallSuccessFrame(this);
-        m_installSuccessFrame->hide();
         connect( static_cast<InstallSuccessFramePrivate*>(m_installSuccessFrame->getPrivate()),
                  &InstallSuccessFramePrivate::failFinished, this, &MainWindow::slot_failFinished);
         connect( static_cast<InstallSuccessFramePrivate*>(m_installSuccessFrame->getPrivate()),

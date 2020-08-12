@@ -32,6 +32,7 @@ public:
 
     void initInfoList();
     void writeInfoList();
+    virtual void onKeyPress(int keyCode) override;
 
 protected:
     void leftHandle() override;

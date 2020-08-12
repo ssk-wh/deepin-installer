@@ -66,27 +66,12 @@ void NCursesWindowBase::setTitle(QString title) {
 
 void NCursesWindowBase::drawShadow(bool isshow)
 {
-    /*int i;
-    if (has_colors() && m_parent) {
-        m_parent->attrset(NcursesUtil::getInstance()->shadow_attr());
-        m_parent->move(begy() - m_parent->begy() + height(), begx() - m_parent->begx() + 1);
-        for (i = 0; i < width(); i++)
-            m_parent->addch(m_parent->inch() & A_CHARTEXT);
-        for (i = begy() - m_parent->begy() + 1; i < begy() - m_parent->begy() + height() + 1; i++) {
-            m_parent->move(i, begx() - m_parent->begx() + width());
-            m_parent->addch(m_parent->inch() & A_CHARTEXT);
-            m_parent->addch(m_parent->inch() & A_CHARTEXT);
-        }
-        m_parent->noutrefresh();
-    }*/
-
-    if(isshow){
+    /*if(isshow){
         m_shadowWindow->show();
     }else{
         m_shadowWindow->hide();
     }
-
-    m_shadowWindow->refresh();
+    m_shadowWindow->refresh();*/
     m_isshadowWindow = isshow;
 }
 
@@ -151,8 +136,8 @@ void NCursesWindowBase::setFocus(bool foucs) {
     updateFoucs(foucs);
 
     this->show();
-    if (m_parent != nullptr)
-        m_parent->refresh();
+    /*if (m_parent != nullptr)
+        m_parent->refresh();*/
 }
 
 void NCursesWindowBase::setFocusEnabled(bool enabled)
@@ -175,43 +160,36 @@ void NCursesWindowBase::show() {
 
     //show shadowWindow
     if(m_isshadowWindow){
-        m_shadowWindow->top();
         m_shadowWindow->show();
-        m_shadowWindow->refresh();
     }
 
     this->drawCurs();
     this->drawFoucs();
-    this->top();
-    if (!m_title.isEmpty()) {
-//        attrset(NcursesUtil::getInstance()->title_attr());
+    NCursesPanel::show();
+    
+    /*if (!m_title.isEmpty()) {
         label(m_title.toUtf8().data(), "");
-    }
-    refresh();
-    //m_parent->noutrefresh();
+    }*/
+
     foreach (NCursesWindowBase *childWindows, m_childWindows) {
             childWindows->show();  
     }
 
-    if (m_parent) {
-        m_parent->refresh();
-    }
-
-
+    refresh();
 }
 
 void NCursesWindowBase::hide() {
     m_shadowWindow->hide();
     NCursesPanel::hide();
-    this->refresh();
-    if(m_parent != nullptr)
-        m_parent->noutrefresh();
+//    if(m_parent != nullptr)
+//        m_parent->noutrefresh();
     foreach (NCursesWindowBase *childWindows, m_childWindows) {
         childWindows->hide();
         //childWindows->refresh();
     }
-    if(m_parent != nullptr)
-        m_parent->refresh();
+//    if(m_parent != nullptr)
+//        m_parent->refresh();
+    refresh();
 }
 
 
@@ -307,7 +285,7 @@ void NCursesWindowBase::setBackground(chtype box)
 {
     bkgd(box);
     m_background = box;
-    this->refresh();
+    //this->refresh();
 }
 
 void NCursesWindowBase::setAttr(chtype attr)

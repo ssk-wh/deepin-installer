@@ -60,7 +60,7 @@ void installer::NCursesLineEdit::onKeyPress(int keyCode)
         case KEY_ENTER_OTHER:
         case KEY_ESC:
         case KEY_TAB:
-        break;
+        return;
         case KEY_BACK:
             text.remove(text.length()-1, 1);
         break;

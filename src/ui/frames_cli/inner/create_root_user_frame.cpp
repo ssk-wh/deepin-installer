@@ -29,8 +29,8 @@ installer::CreateRootUserFramePrivate::CreateRootUserFramePrivate(CreateRootUser
     q_ptr(qobject_cast<CreateRootUserFrame*>(parent))
 {
     initUI();
-    updateTs();
-    layout();
+//    updateTs();
+//    layout();
     initConnection();
 }
 
@@ -180,26 +180,32 @@ void installer::CreateRootUserFramePrivate::initUI()
 
         m_labelTitle = new NcursesLabel(this, 1, 1, begy(), begx());
         m_labelTitle->setFocusEnabled(false);
+        //m_labelTitle->hide();
 
         m_rootPasswordLabel = new NcursesLabel(this, 1, width() - 4, begy(), begx());
         m_rootPasswordLabel->setFocusEnabled(false);
+        //m_rootPasswordLabel->hide();
 
         m_rootPasswordLineEdit = new NCursesLineEdit(this, 1, width() - 4, begy(), begx());
         m_rootPasswordLineEdit->setBackground(NcursesUtil::getInstance()->edit_attr());
-        m_rootPasswordLineEdit->setFocus(true);
+        ////m_rootPasswordLineEdit->setFocus(true);
         m_rootPasswordLineEdit->setEchoMode(true);
+        //m_rootPasswordLineEdit->hide();
 
         m_passwordConfirmLabel = new NcursesLabel(this, 1, width() - 4, begy(), begx());
         m_passwordConfirmLabel->setFocusEnabled(false);
+        //m_passwordConfirmLabel->hide();
 
         m_passwordConfirmLineEdit = new NCursesLineEdit(this, 1, width() - 4, begy(), begx());
         m_passwordConfirmLineEdit->setBackground(NcursesUtil::getInstance()->edit_attr());
         m_passwordConfirmLineEdit->setEchoMode(true);
         m_passwordConfirmLineEdit->setFocusEnabled(false);
+        //m_passwordConfirmLineEdit->hide();
 
         m_errorInfo = new NcursesLabel(this, 1, 1, begy(), begx());
         m_errorInfo->setBackground(NcursesUtil::getInstance()->error_attr());
         m_errorInfo->setFocusEnabled(false);
+        //m_errorInfo->hide();
 
     } catch (NCursesException& e) {
         qCritical() << QString(e.message);
@@ -285,12 +291,13 @@ void installer::CreateRootUserFramePrivate::upHandle()
 installer::CreateRootUserFrame::CreateRootUserFrame(installer::FrameInterface *parent):
     FrameInterface(parent)
 {
-    int h = LINES / 2;
-    int w = COLS / 2;
+    int h = MAINWINDOW_HEIGHT;//LINES / 2;
+    int w = MAINWINDOW_WIDTH;//COLS / 2;
     int beginY = (LINES - h - 2) / 2;
     int beginX = (COLS - w) / 2;
 
     m_private = new CreateRootUserFramePrivate (this, h, w, beginY, beginX);
+    //m_private->hide();
 }
 
 bool installer::CreateRootUserFrame::shouldDisplay() const

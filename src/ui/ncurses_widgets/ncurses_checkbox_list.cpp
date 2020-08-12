@@ -253,8 +253,6 @@ void NcursesCheckBoxList::onKeyPress(int keyCode)
 
 void NcursesCheckBoxList::show()
 {
-    NCursesWindowBase::show();
-
     erase();
 
     if((m_index >= m_ncursesCheckBoxs_vector.size()) || (m_ncursesCheckBoxs_vector.size() == 0)) {

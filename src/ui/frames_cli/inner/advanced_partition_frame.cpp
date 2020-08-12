@@ -17,7 +17,6 @@ namespace installer {
 void AdvancedPartitionFramePrivate::initUI()
 {
     try {
-        //FrameInterfacePrivate::initUI();
         setBackground(NcursesUtil::getInstance()->dialog_attr());
         this->drawShadow(true);
         this->box();
@@ -25,38 +24,39 @@ void AdvancedPartitionFramePrivate::initUI()
         QString strBack = ::QObject::tr("Back");
         QString strNext = ::QObject::tr("Next");
 
-        //int buttonHeight = 3;
-        //int buttonWidth = std::max(strNext.length(), strBack.length()) + 4;
-
         m_pBackButton = new NcursesButton(this, strBack, 3, 14, begy() + height() - 5, begx() + 5);
         m_pBackButton->drawShadow(true);
         m_pBackButton->box();
         m_pBackButton->setObjectName(strBack);
-        m_pBackButton->setFocus(false);
+        //m_pBackButton->hide();
 
         m_label_title = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_title->setFocusEnabled(false);
+        //m_label_title->hide();
 
         m_label_tips = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_tips->setFocusEnabled(false);
+        //m_label_tips->hide();
 
         m_listViewPartitionMode = new NcursesListView(this, height() / 2 , width() / 2, begy(), begx() + width() / 4);
-        m_listViewPartitionMode->setFocus(true);
+        //m_listViewPartitionMode->hide();
 
         m_msgHeadLabel = new NcursesLabel(this, 1, width() - width() / 4 - 1, begy() + 2, begx());
         m_msgHeadLabel->setFocusEnabled(false);
         m_msgHeadLabel->setBackground(NcursesUtil::getInstance()->error_attr());
+        //m_msgHeadLabel->hide();
 
         m_errorLabel = new NcursesListView(this, 4, width() - width() / 4 - 1, begy(), begx() + width() / 4);
         m_errorLabel->setFocusEnabled(false);
         m_errorLabel->setSeelectMode(false);
         m_errorLabel->setBackground(NcursesUtil::getInstance()->error_attr());
+        //m_errorLabel->hide();
 
         m_pNextButton = new NcursesButton(this, strNext, 3, 14, begy() + height() - 5, begx() + width() - 20);
         m_pNextButton->drawShadow(true);
         m_pNextButton->box();
         m_pNextButton->setObjectName(strNext);
-        m_pNextButton->setFocus(false);
+        //m_pNextButton->hide();
 
     } catch (NCursesException& e) {
         qCritical() << QString(e.message);
@@ -82,7 +82,7 @@ void AdvancedPartitionFramePrivate::layout()
         m_errorLabel->mvwin(beginY, begx() + width() / 4 - 1);
 
         beginY += m_errorLabel->height();
-        m_listViewPartitionMode->mvwin(beginY + 3, begx() + (width() - m_listViewPartitionMode->width()) / 2);
+        m_listViewPartitionMode->mvwin(beginY + 1, begx() + (width() - m_listViewPartitionMode->width()) / 2);
         m_listViewPartitionMode->adjustSizeByContext();
 
     } catch (NCursesException& e) {
@@ -92,11 +92,18 @@ void AdvancedPartitionFramePrivate::layout()
 
 void AdvancedPartitionFramePrivate::updateTs()
 {
+    if (!m_localeString.compare(installer::ReadLocale())) {
+        return;
+    }
+    m_localeString = installer::ReadLocale();
+
     printTitle(::QObject::tr("Advanced"), width());
     m_label_title->setText("    " + ::QObject::tr("Make sure you have backed up important data, then select the disk to install."));
     m_label_tips->setText("    " + ::QObject::tr("Insert key: create or edit partition. Delete key: delete partition."));
     FrameInterfacePrivate::updateTs();
     layout();
+
+    m_pNextButton->setFocus(true);
 }
 
 void AdvancedPartitionFramePrivate::initConnection()
@@ -181,16 +188,21 @@ void AdvancedPartitionFramePrivate::setErrorLable(QStringList& error)
 void AdvancedPartitionFramePrivate::onKeyPress(int keycode)
 {
     Partition::Ptr partition(getCurrentPartition());
-    if(!partition) return ;
-    if(partition->busy) return ;
 
     switch (keycode) {
-    case KEY_IC:       
+    case KEY_TAB:
+        switchChildWindowsFoucs();
+        break;
+    case KEY_IC:
+        if(!partition) return ;
+        if(partition->busy) return ;
         if(partition->partition_number > -1) return ;
          m_currentchoicetype = 1;
         emit newPartition(partition);
         break;
     case KEY_DC:
+        if(!partition) return ;
+        if(partition->busy) return ;
         if(partition->partition_number < 0) return ;
         emit deletePartition(partition);
         break;
@@ -256,11 +268,12 @@ Partition::Ptr AdvancedPartitionFramePrivate::getCurrentPartition()
 AdvancedPartitionFrame::AdvancedPartitionFrame(FrameInterface* parent,PartitionModel* model)
     : m_partitionModel(model)
 {
-    int h = LINES / 2;
-    int w = COLS / 2;
+    int h = MAINWINDOW_HEIGHT;//LINES / 2;
+    int w = MAINWINDOW_WIDTH;//COLS / 2;
     int beginY = (LINES - h - 2) / 2;
     int beginX = (COLS - w) / 2;
     m_private = new AdvancedPartitionFramePrivate(nullptr, h, w, beginY, beginX);
+    //m_private->hide();
 
     m_delegate = new AdvancedPartitionDelegate(this);
     m_lvmDelegate = new LvmPartitionDelegate(this);

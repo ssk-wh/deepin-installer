@@ -41,6 +41,7 @@ void InstallSuccessFramePrivate::initUI()
     m_installresultTextBrower = new NcursesTextBrower(this, height() - 10, width() - 2 , begy() + 1, begx() + 1);
     m_installresultTextBrower->setBackground(this->background());
     m_installresultTextBrower->setFocusEnabled(false);
+    //m_installresultTextBrower->hide();
 
     QString strBack = ::QObject::tr("Save Log");
     QString strNext = ::QObject::tr("Reboot Now");
@@ -50,16 +51,18 @@ void InstallSuccessFramePrivate::initUI()
     int buttonWidth_nextbtn = strNext.length() + 4;
 
     m_pBackButton = new NcursesButton(this, strNext, buttonHeight,
-                                    buttonWidth_backbtn, begy() + height() - buttonHeight - 2, begx() + (width() / 2) + 2);
+                                      buttonWidth_backbtn, begy() + height() - buttonHeight - 2, begx() + (width() / 2) + 2);
     m_pBackButton->drawShadow(true);
     m_pBackButton->box();
     m_pBackButton->setObjectName(strNext);
+    //m_pBackButton->hide();
 
     m_pNextButton = new NcursesButton(this, strNext, buttonHeight,
-                                    buttonWidth_nextbtn, begy() + height() - buttonHeight - 2, begx() + (width() / 2) - buttonWidth_nextbtn -2);
+                                      buttonWidth_nextbtn, begy() + height() - buttonHeight - 2, begx() + (width() / 2) - buttonWidth_nextbtn -2);
     m_pNextButton->drawShadow(true);
     m_pNextButton->box();
     m_pNextButton->setObjectName(strNext);
+    //m_pNextButton->hide();
 }
 
 void InstallSuccessFramePrivate::updateTs()
@@ -83,17 +86,13 @@ void InstallSuccessFramePrivate::updateTs()
     if(testissuccess) {
        printTitle(m_installSuccessTitle, width());
        m_installresultTextBrower->clearText();
-       //m_installresultTextBrower->appendItemText(m_installSuccessInfoTitle);
-       //m_installresultTextBrower->appendItemText(m_installSuccessInfoDes);
        m_installresultTextBrower->appendItemText(m_installSuccessInfoTodo);
        QString strNext = ::QObject::tr("Reboot Now");
        m_pNextButton->setText(strNext);
     } else {
-       m_installresultTextBrower->clearText();
        printTitle(m_installFailedTitle, width());
-       //m_installresultTextBrower->appendItemText(m_installFailedInfoTitle);
+       m_installresultTextBrower->clearText();
        m_installresultTextBrower->appendItemText(m_installFailedInfoDes);
-       //QString strNext = ::QObject::tr("Shut Down");
        QString strSaveLog = ::QObject::tr("Save Log");
        QString strNext = ::QObject::tr("Exit");
        m_pBackButton->setText(strSaveLog);
@@ -119,6 +118,12 @@ void InstallSuccessFramePrivate::show()
     if(!m_isshow) {
         NCursesWindowBase::show();
         m_isshow = true;
+
+        bool testissuccess = GetSettingsBool("DI_INSTALL_SUCCESSED");
+        if (testissuccess) {
+            m_pBackButton->hide();
+            m_pBackButton->setFocusEnabled(false);
+        }
     }
 }
 
@@ -130,7 +135,11 @@ void InstallSuccessFramePrivate::hide()
 
 void InstallSuccessFramePrivate::onKeyPress(int keyCode)
 {
-
+    switch (keyCode) {
+    case KEY_TAB:
+        switchChildWindowsFoucs();
+        break;
+    }
 }
 
 void InstallSuccessFramePrivate::keyEventTriger(int keycode)
@@ -145,7 +154,10 @@ void InstallSuccessFramePrivate::keyEventTriger(int keycode)
 void InstallSuccessFramePrivate::setValue()
 {
     m_currentchoicetype = -1;
-    m_pBackButton->setFocusEnabled(true);
+    bool testissuccess = GetSettingsBool("DI_INSTALL_SUCCESSED");
+    if (!testissuccess) {
+        m_pBackButton->setFocusEnabled(true);
+    }
     m_pNextButton->setFocusEnabled(true);
     m_pNextButton->setFocus(true);
 }
@@ -168,8 +180,16 @@ void InstallSuccessFramePrivate::doNextBtnClicked()
 
 void InstallSuccessFramePrivate::layout()
 {
+    bool testissuccess = GetSettingsBool("DI_INSTALL_SUCCESSED");
+
     QString strSaveLog = ::QObject::tr("Save Log");
-    QString strNext = ::QObject::tr("Exit");
+    QString strNext = "";
+    if (testissuccess) {
+        strNext = ::QObject::tr("Reboot Now");
+    }else {
+        strNext = ::QObject::tr("Exit");
+    }
+
     int buttonHeight = 3;
     int buttonWidth_savelogbtn = 2;
     int buttonWidth_nextbtn = 2;
@@ -181,8 +201,6 @@ void InstallSuccessFramePrivate::layout()
         buttonWidth_savelogbtn = strSaveLog.length() + 4;
         buttonWidth_nextbtn = strNext.length() + 4;
     }
-
-    bool testissuccess = GetSettingsBool("DI_INSTALL_SUCCESSED");
 
     if(!testissuccess) {
         m_pBackButton->erase();
@@ -199,7 +217,11 @@ void InstallSuccessFramePrivate::layout()
     m_pNextButton->resetBackground();
     m_pNextButton->box(ACS_VLINE,ACS_HLINE);
     m_pNextButton->setText(strNext);
-    m_pNextButton->moveWidowTo(begy() + height() - buttonHeight - 2, begx() + (width() / 2) - buttonWidth_nextbtn - 2);
+    if(!testissuccess) {
+        m_pNextButton->moveWidowTo(begy() + height() - buttonHeight - 2, begx() + (width() / 2) - buttonWidth_nextbtn - 2);
+    } else {
+        m_pNextButton->moveWidowTo(begy() + height() - buttonHeight - 2, begx() + ((width() - buttonWidth_nextbtn) / 2));
+    }
     m_pNextButton->show();
 
     m_pNextButton->setFocus(true);
@@ -211,14 +233,15 @@ void InstallSuccessFramePrivate::layout()
 InstallSuccessFrame::InstallSuccessFrame(FrameInterface* parent) :
     FrameInterface (parent)
 {
-    int h = LINES / 2;
-    int w = COLS / 2;
+    int h = MAINWINDOW_HEIGHT;//LINES / 2;
+    int w = MAINWINDOW_WIDTH;//COLS / 2;
     int beginY = (LINES - h - 2) / 2;
     int beginX = (COLS - w) / 2;
     m_private = new InstallSuccessFramePrivate (parent->getPrivate(), h, w, beginY, beginX);
+    //m_private->hide();
 
     m_savelogframe = new SaveLogFrame(this);
-    m_savelogframe->hide();
+    //m_savelogframe->hide();
 
     addChildFrame(m_savelogframe);
 

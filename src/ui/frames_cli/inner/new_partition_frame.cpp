@@ -226,8 +226,8 @@ void NewPartitionFrame::initUI() {
   m_showChild.push_back(fs_box_);
   m_showChild.push_back(mount_point_box_);
   m_showChild.push_back(size_slider_);
-  m_showChild.push_back(cancel_button_);
-  m_showChild.push_back(create_button_);
+  //m_showChild.push_back(cancel_button_);
+  //m_showChild.push_back(create_button_);
 
 }
 
@@ -294,49 +294,50 @@ void NewPartitionFrame::layout()
 void NewPartitionFrame::onKeyPress(int keycode)
 {
     switch (keycode) {
-        case KEY_TAB:// break;
+        case KEY_TAB:
+            switchChildWindowsFoucs();
+        break;
         case KEY_RIGHT:
-        case KEY_LEFT:
-        QVector<NCursesWindowBase* > showChild;
-        for(NCursesWindowBase* child : m_showChild) {
-            if(!child->hidden()) {
-                showChild.append(child);
-            }
-        }
-
-        for (NCursesWindowBase* child : showChild) {
-            if(child->isOnFoucs()) {
-                int size = showChild.size();
-                int index = showChild.indexOf(child);
-
-                int offset = 1;
-                if (keycode == KEY_LEFT) {
-                    if (index == 0) {
-                        offset = size -1;
+            for (int i = 0; i < m_showChild.size(); i++) {
+                if (m_showChild.at(i)->isOnFoucs()) {
+                    if ((i + 1) > (m_showChild.size() - 1)) {
+                        m_showChild.at(i)->setFocus(true);
                     } else {
-                        offset = -1;
+                        m_showChild.at(i)->setFocus(false);
+                        if (m_showChild.at(i + 1)->hidden()) {
+                            if ((i + 2) > (m_showChild.size() - 1)) {
+                                m_showChild.at(i)->setFocus(true);
+                            } else {
+                                m_showChild.at(i + 2)->setFocus(true);
+                            }
+                        } else {
+                            m_showChild.at(i + 1)->setFocus(true);
+                        }
                     }
+                    break;
                 }
-
-                int nextIndex = ( index + offset) % size;
-                NCursesWindowBase* nextchild = showChild.at(nextIndex);
-
-                if(nextchild != cancel_button_) {
-                    cancel_button_->setFocus(false);
-                }
-
-                if(nextchild != create_button_) {
-                    create_button_->setFocus(false);
-                }
-
-                if(nextchild != size_slider_) {
-                    size_slider_->setFocus(false);
-                }
-
-                nextchild->setFocus(true);
-                return ;
             }
-        }
+        break;
+        case KEY_LEFT:
+            for (int i = 0; i < m_showChild.size(); i++) {
+                if (m_showChild.at(i)->isOnFoucs()) {
+                    if ((i - 1) < 0) {
+                        m_showChild.at(i)->setFocus(true);
+                    } else {
+                        m_showChild.at(i)->setFocus(false);
+                        if (m_showChild.at(i - 1)->hidden()) {
+                            if ((i - 2) < 0) {
+                                m_showChild.at(i)->setFocus(true);
+                            } else {
+                                m_showChild.at(i - 2)->setFocus(true);
+                            }
+                        } else {
+                            m_showChild.at(i - 1)->setFocus(true);
+                        }
+                    }
+                    break;
+                }
+            }
         break;
     }
 }
@@ -366,6 +367,9 @@ void NewPartitionFrame::updateSlideSize() {
   const QString mount_point = mount_point_box_->getCurrenItem();
 
   // If fs_type is special, no need to display mount-point box.
+  size_slider_->setFocusEnabled(false);
+  create_button_->setFocusEnabled(false);
+  cancel_button_->setFocusEnabled(false);
   const bool visible = IsMountPointSupported(fs_type);
   if (visible) {
       mount_point_label_->show();
@@ -377,6 +381,9 @@ void NewPartitionFrame::updateSlideSize() {
       mount_point_box_->setFocusEnabled(false);
       mount_point_box_->hide();
   }
+  size_slider_->setFocusEnabled(true);
+  create_button_->setFocusEnabled(true);
+  cancel_button_->setFocusEnabled(true);
 
   if (fs_type == FsType::EFI) {
     // Set default size of EFI partition.

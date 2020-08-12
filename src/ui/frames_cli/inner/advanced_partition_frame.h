@@ -37,7 +37,7 @@ public:
     void onDeviceRefreshed(const DeviceList& devices);
     void setMsgHeadLable(QString& msg);
     void setErrorLable(QStringList& error);
-    void onKeyPress(int keycode) override;
+    virtual void onKeyPress(int keyCode) override;
     void doBackBtnClicked();
     void doNextBtnClicked();
     void setchildFoursEnabel(bool enabel);
@@ -65,6 +65,7 @@ private:
     bool m_isshow = false;
     DeviceList m_devices;
     int m_currentchoicetype = -1;
+    QString m_localeString = "";
 };
 
 class AdvancedPartitionFrame : public FrameInterface

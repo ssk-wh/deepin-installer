@@ -26,7 +26,7 @@ public:
     void show() override;
     void hide() override;
     void onKeyPress(int keyCode) override;
-    void keyEventTriger(int keycode) override;
+    virtual void keyEventTriger(int keycode) override;
     void setValue();
 
 signals:

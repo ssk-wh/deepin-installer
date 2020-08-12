@@ -59,6 +59,7 @@ private:
     NCursesLineEdit* m_le_root_password_confirm = nullptr;
     NcursesLabel*    m_label_error_info = nullptr;
     NcursesCheckBox* m_NcursesCheckBox = nullptr;
+    QString m_localeString = "";
     bool m_isshow = false;
     bool m_isHostEdited = false;
 

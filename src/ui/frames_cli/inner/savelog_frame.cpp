@@ -37,7 +37,7 @@ void SaveLogFramePrivate::initUI()
 
     m_label_title = new NcursesLabel(this, 1, 1, begy(), begx());
     m_label_title->setFocusEnabled(false);
-    m_label_title->hide();
+    //m_label_title->hide();
 
     m_partitionlist = new NcursesListView(this, (height() - 3) / 2, width() / 2, begy() + 4, begx() + (width() / 3));
 
@@ -45,13 +45,13 @@ void SaveLogFramePrivate::initUI()
     m_pBackButton->drawShadow(true);
     m_pBackButton->box();
     m_pBackButton->setObjectName(strBack);
-    m_pBackButton->hide();
+    //m_pBackButton->hide();
 
     m_pNextButton = new NcursesButton(this, strNext, 3, 14, begy() + height() - 5, begx() + width() - 20);
     m_pNextButton->drawShadow(true);
     m_pNextButton->box();
     m_pNextButton->setObjectName(strNext);
-    m_pNextButton->setFocus(true);
+    //m_pNextButton->hide();
 
     m_diskManager = new DDiskManager;
     m_diskManager->setWatchChanges(false);
@@ -113,6 +113,7 @@ void SaveLogFramePrivate::show()
     if(!m_isshow) {
         m_diskManager->setWatchChanges(true);
         NCursesWindowBase::show();
+        m_pNextButton->setFocus(true);
         m_isshow = true;
     }
 }
@@ -122,6 +123,17 @@ void SaveLogFramePrivate::hide()
     m_diskManager->setWatchChanges(false);
     NCursesWindowBase::hide();
     m_isshow = false;
+}
+
+void SaveLogFramePrivate::onKeyPress(int keycode)
+{
+    switch (keycode) {
+    case KEY_TAB:
+        switchChildWindowsFoucs();
+        break;
+    }
+
+    qDebug()<< keycode;
 }
 
 void SaveLogFramePrivate::keyPresseEvent(int keycode)
@@ -254,11 +266,12 @@ void SaveLogFramePrivate::slot_AddDeviceParth(QString testpath)
 
 SaveLogFrame::SaveLogFrame(FrameInterface *parent)
 {
-    int h = LINES / 2;
-    int w = COLS / 2;
+    int h = MAINWINDOW_HEIGHT;//LINES / 2;
+    int w = MAINWINDOW_WIDTH;//COLS / 2;
     int beginY = (LINES - h - 2) / 2;
     int beginX = (COLS - w) / 2;
     m_private = new SaveLogFramePrivate(nullptr, h, w, beginY, beginX);
+    //m_private->hide();
 
     Q_D(SaveLogFrame);
     connect(parent->getPrivate(), SIGNAL(keyEventTrigerSignal(int)), d, SLOT(keyPresseEvent(int)));

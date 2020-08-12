@@ -28,7 +28,7 @@ public:
     bool validate() override;
     void show() override;
     void hide() override;
-    virtual void onKeyPress(int keyCode);
+    virtual void onKeyPress(int keyCode) override;
 
 private slots:
     void checkboxSelectChange(bool select);
@@ -37,6 +37,7 @@ private:
     NcursesTextBrower* m_ncursesTextBrower;
     NcursesCheckBox*   m_NcursesCheckBox;
     NcursesLabel*      m_errorInfoLabel;
+    QString            m_localeString;
     bool               m_isshow;
 };
 

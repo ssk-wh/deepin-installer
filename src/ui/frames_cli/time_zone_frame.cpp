@@ -12,7 +12,9 @@ TimeZoneFramePrivate::TimeZoneFramePrivate(TimeZoneFrame *parent, int lines, int
     : FrameInterfacePrivate(nullptr, lines, cols, beginY, beginX),
       q_ptr(qobject_cast<TimeZoneFrame*>(parent)),
       m_currentContinentIndex(0),
-      m_currentTimezoneIndex(0)
+      m_currentTimezoneIndex(0),
+      m_localeString(""),
+      m_isshow(false)
 {
     initUI();
     initConnection();
@@ -21,38 +23,39 @@ TimeZoneFramePrivate::TimeZoneFramePrivate(TimeZoneFrame *parent, int lines, int
 void TimeZoneFramePrivate::initUI()
 {
     FrameInterfacePrivate::initUI();
-    m_title = ::QObject::tr("Select Timezone");
-    setTitle(m_title);
 
-    m_instructions = new NcursesLabel(this, 1, width() - 4, begy() + 1, begx() + 1);
-    m_instructions->setText(::QObject::tr("Is it the right timezone? You can change it as well."));
+    m_instructions = new NcursesLabel(this, 1, width() - 4, begy() + 2, begx() + 1);
+    m_instructions->setText("  " + ::QObject::tr("Is it the right timezone? You can change it as well."));
     m_instructions->setFocusEnabled(false);
-    m_instructions->setAlignment(Qt::AlignCenter);
+    //m_instructions->hide();
 
-    int listViewH = height() - 10;
+    int listViewH = height() - 11;
     int listviewW = 30;
-    m_instructions->setFocusEnabled(false);
 
-    m_continentView = new NcursesListView(this, listViewH, listviewW, begy() + m_instructions->height() + 2,  begx() + (width() - listviewW * 2) / 2);
-    m_continentView->setFocus(true);
+    m_continentView = new NcursesListView(this, listViewH, listviewW, begy() + m_instructions->height() + 3,  begx() + (width() - listviewW * 2) / 2);
+    //m_continentView->hide();
 
-    m_timeZoneView = new NcursesListView(this, listViewH, listviewW, begy() + m_instructions->height() + 2, begx() + (width() - listviewW * 2) / 2 + listviewW);
+    m_timeZoneView = new NcursesListView(this, listViewH, listviewW, begy() + m_instructions->height() + 3, begx() + (width() - listviewW * 2) / 2 + listviewW);
     m_timeZoneView->setFocusEnabled(false);
-
-
-
+    //m_timeZoneView->hide();
 }
 
 void TimeZoneFramePrivate::updateTs()
 {
+    if (!m_localeString.compare(installer::ReadLocale())) {
+        return;
+    }
+    m_localeString = installer::ReadLocale();
+
     Q_Q(TimeZoneFrame);
 
     box(ACS_VLINE, ACS_HLINE);
-    m_title = ::QObject::tr("Select Timezone");
-    setTitle(m_title);
-    m_instructions->setText(::QObject::tr("Is it the right timezone? You can change it as well."));
+    printTitle(::QObject::tr("Select Timezone"), width());
+    m_instructions->setText("  " + ::QObject::tr("Is it the right timezone? You can change it as well."));
 
     FrameInterfacePrivate::updateTs();
+
+    m_pNextButton->setFocus(true);
 }
 
 bool TimeZoneFramePrivate::validate()
@@ -62,6 +65,34 @@ bool TimeZoneFramePrivate::validate()
     q->writeConf();
 
     return FrameInterfacePrivate::validate();
+}
+
+void TimeZoneFramePrivate::show()
+{
+    if (!m_isshow) {
+        NCursesWindowBase::show();
+        m_isshow = true;
+    }
+}
+
+void TimeZoneFramePrivate::hide()
+{
+    NCursesWindowBase::hide();
+    m_isshow = false;
+}
+
+void TimeZoneFramePrivate::onKeyPress(int keyCode)
+{
+    switch (keyCode) {
+    case KEY_TAB:
+        if (m_timeZoneView->isOnFoucs()) {
+            m_timeZoneView->setFocus(false);
+        }
+        switchChildWindowsFoucs();
+        break;
+    }
+
+    qDebug()<< keyCode;
 }
 
 void TimeZoneFramePrivate::initConnection()
@@ -100,11 +131,12 @@ TimeZoneFrame::TimeZoneFrame(FrameInterface* parent) :
     m_kCliContinentDefault(kCliContinentDefault),
     m_kCliTimezoneDefault(kCliTimezoneDefault)
 {
-    int h = LINES / 2;
-    int w = COLS / 2;
+    int h = MAINWINDOW_HEIGHT;//LINES / 2;
+    int w = MAINWINDOW_WIDTH;//COLS / 2;
     int beginY = (LINES - h - 2) / 2;
     int beginX = (COLS - w) / 2;
     m_private = new TimeZoneFramePrivate (this, h, w, beginY, beginX);
+    //m_private->hide();
 }
 
 TimeZoneFrame::~TimeZoneFrame()

@@ -23,7 +23,6 @@ public:
     {
         initUI();
         initConnection();
-        hide();
     }
 
     void initUI() override;
@@ -43,6 +42,7 @@ public:
     void showListView();
     void setchildFoursEnabel(bool enabel);
     void setCurrentchoicetype(int state) { m_currentchoicetype = state; }
+    virtual void onKeyPress(int keyCode) override;
 
 signals:
     void backToPreviousPage();
@@ -65,6 +65,7 @@ private:
     //DeviceList m_devices;
     int m_currentchoicetype = -1;
     QStringList m_deviceList;
+    QString m_localeString = "";
 };
 
 class FullDiskFrame : public FrameInterface

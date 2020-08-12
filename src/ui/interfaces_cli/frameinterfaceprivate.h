@@ -40,14 +40,12 @@ public:
         QString strNext = ::QObject::tr("Next");
         QString strBack = ::QObject::tr("Back");
 
-        /*m_pNextButton = new NcursesButton(this, strNext, buttonHeight,
-                                        buttonWidth, begy() + height() - buttonHeight - 2, begx() + width() / 2 + buttonDistanceDelta);*/
         m_pNextButton = new NcursesButton(this, strNext, 3, 14, begy() + height() - 5, begx() + width() - 20);
 
         m_pNextButton->drawShadow(true);
         m_pNextButton->box();
         m_pNextButton->setObjectName(strNext);
-        m_pNextButton->setFocus(true);
+        //m_pNextButton->setFocus(true);
         addChildWindows(m_pNextButton);
         connect(m_pNextButton, &NcursesButton::clicked, this, [=] {
             if (validate()) {
@@ -55,18 +53,12 @@ public:
             }
         });
 
-        /*m_pBackButton = new NcursesButton(this, strBack, buttonHeight,
-                                          buttonWidth, begy() + height() - buttonHeight - 2, begx() + width() / 2 - buttonDistanceDelta - buttonWidth);*/
-
         if (canBack()) {
             m_pBackButton = new NcursesButton(this, strBack, 3, 14, begy() + height() - 5, begx() + 5);
             m_pBackButton->drawShadow(true);
             m_pBackButton->box();
             m_pBackButton->setObjectName(strBack);
-
             addChildWindows(m_pBackButton);
-
-
             connect(m_pBackButton, &NcursesButton::clicked, this, &FrameInterfacePrivate::back);
         }
     }
@@ -93,10 +85,7 @@ public:
 
     virtual void keyEventTriger(int key) {
         switch (key) {
-            case KEY_TAB:
-                switchChildWindowsFoucs();
-                show();
-            break;
+            case KEY_TAB: tabKeyHandle(); break;
             case KEY_ESC: escKeyHandle(); break;
             case kKeyUp: upHandle(); break;
             case kKeyDown: downHandle(); break;
@@ -151,6 +140,10 @@ public:
     }
 
 protected:
+    virtual void tabKeyHandle() {
+        defaultHandle(KEY_TAB);
+    }
+
     virtual void escKeyHandle() {
         m_escCnt++;
         QTimer::singleShot(100, this, [=]{

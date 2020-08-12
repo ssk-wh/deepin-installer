@@ -12,9 +12,8 @@ void KeyboardFramePrivate::updateTs()
     }
     m_localeString = installer::ReadLocale();
     box(ACS_VLINE,ACS_HLINE);
-    //m_titleLabel->setText(::QObject::tr("Select Keyboard Layout"));
     printTitle(::QObject::tr("Select Keyboard Layout"), width());
-    m_instructionsLabel->setText(::QObject::tr("Select Keyboard Layout") + ":");
+    m_instructionsLabel->setText("  " + ::QObject::tr("Select Keyboard Layout") + ":");
     readConf();
     FrameInterfacePrivate::updateTs();
     layout();
@@ -23,21 +22,20 @@ void KeyboardFramePrivate::updateTs()
 void KeyboardFramePrivate::layout()
 {
     try {
-        //m_titleLabel->adjustSizeByContext();
-        //m_titleLabel->mvwin(begy(), begx() + (width() - m_titleLabel->width()) / 2);
         m_instructionsLabel->adjustSizeByContext();
-        m_instructionsLabel->mvwin(begy() + 1, begx() + 10);
+        m_instructionsLabel->mvwin(begy() + 2, begx() + 1);
         m_layoutView->adjustSizeByContext();
         m_variantView->adjustSizeByContext();
-        m_layoutView->mvwin(begy() + 3, begx() + (width() - (m_layoutView->width() + m_variantView->width() + 2)) / 2);
-        m_variantView->mvwin(begy() + 3, begx() + (width() - (m_layoutView->width() + m_variantView->width() + 2)) / 2 + m_layoutView->width() + 2);
+        m_layoutView->mvwin(begy() + 4, begx() + (width() - (m_layoutView->width() + m_variantView->width() + 2)) / 2);
+        m_variantView->mvwin(begy() + 4, begx() + (width() - (m_layoutView->width() + m_variantView->width() + 2)) / 2 + m_layoutView->width() + 2);
     } catch (NCursesException& e) {
         qCritical() << QString(e.message);
     }
 }
 
 KeyboardFramePrivate::KeyboardFramePrivate(NCursesWindowBase *parent, int lines, int cols, int beginY, int beginX)
-    : FrameInterfacePrivate(parent, lines, cols, beginY, beginX)
+    : FrameInterfacePrivate(parent, lines, cols, beginY, beginX),
+    m_isshow(false)
 {
     initUI();
     initConnection();
@@ -47,14 +45,14 @@ void KeyboardFramePrivate::initUI()
 {
     try {
         FrameInterfacePrivate::initUI();
-        //m_titleLabel = new NcursesLabel(this, 1, 25, begy(), begx());
-        //m_titleLabel->setFocusEnabled(false);
         m_instructionsLabel = new NcursesLabel(this, 1, 35, begy(), begx());
         m_instructionsLabel->setFocusEnabled(false);
-        m_layoutView = new NcursesListView(this, height() - 10, 20, begy(), begx());
-        m_layoutView->setFocus(true);
-        m_variantView = new NcursesListView(this, height() - 10, 20, begy(), begx());
+        //m_instructionsLabel->hide();
+        m_layoutView = new NcursesListView(this, height() - 11, 20, begy(), begx());
+        //m_layoutView->hide();
+        m_variantView = new NcursesListView(this, height() - 11, 20, begy(), begx());
         m_variantView->setFocusEnabled(false);
+        //m_variantView->hide();
     } catch (NCursesException& e) {
         qCritical() << QString(e.message);
     }
@@ -77,6 +75,34 @@ bool KeyboardFramePrivate::validate()
 {
     writeConf();
     return true;
+}
+
+void KeyboardFramePrivate::show()
+{
+    if (!m_isshow) {
+        NCursesWindowBase::show();
+        m_isshow = true;
+    }
+}
+
+void KeyboardFramePrivate::hide()
+{
+    NCursesWindowBase::hide();
+    m_isshow = false;
+}
+
+void KeyboardFramePrivate::onKeyPress(int keyCode)
+{
+    switch (keyCode) {
+    case KEY_TAB:
+        if (m_variantView->isOnFoucs()) {
+            m_variantView->setFocus(false);
+        }
+        switchChildWindowsFoucs();
+        break;
+    }
+
+    qDebug()<< keyCode;
 }
 
 void KeyboardFramePrivate::leftHandle()
@@ -132,6 +158,8 @@ void KeyboardFramePrivate::readConf()
     } else {
         qWarning() << "Invalid default keyboard layout:" << layout;
     }
+
+    m_pNextButton->setFocus(true);
 }
 
 void KeyboardFramePrivate::writeConf()
@@ -268,11 +296,12 @@ QString KeyboardFramePrivate::getVariantName(const int index)
 
 KeyboardFrame::KeyboardFrame(FrameInterface *parent)
 {
-    int h = LINES / 2;
-    int w = COLS / 2;
+    int h = MAINWINDOW_HEIGHT;//LINES / 2;
+    int w = MAINWINDOW_WIDTH;//COLS / 2;
     int beginY = (LINES - h - 2) / 2;
     int beginX = (COLS - w) / 2;
     m_private = new KeyboardFramePrivate (parent->getPrivate(), h, w, beginY, beginX);
+    //m_private->hide();
 }
 
 KeyboardFrame::~KeyboardFrame()

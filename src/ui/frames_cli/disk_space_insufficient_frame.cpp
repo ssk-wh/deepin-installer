@@ -97,8 +97,8 @@ void DiskSpaceInsufficientPrivate::keyHandle()
 DiskSpaceInsufficient::DiskSpaceInsufficient(FrameInterface* parent) :
     FrameInterface (parent)
 {
-    int h = LINES / 2;
-    int w = COLS / 2;
+    int h = MAINWINDOW_HEIGHT;//LINES / 2;
+    int w = MAINWINDOW_WIDTH;//COLS / 2;
     int beginY = (LINES - h - 2) / 2;
     int beginX = (COLS - w) / 2;
     m_private = new DiskSpaceInsufficientPrivate (parent->getPrivate(), h, w, beginY, beginX);

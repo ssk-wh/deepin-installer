@@ -56,6 +56,7 @@ private:
     NcursesLabel* m_label_comment2 = nullptr;
     NcursesListView* m_partitionmodelist = nullptr;
     ePartitionMode m_parMode = PAR_MOD_FULL_DISK;
+    QString m_localeString = "";
     bool m_isshow = false;
     int m_currentchoicetype = -1;//-1-main page 0-full disk page 1-advance page
     //int m_currentpageindex = -1;//

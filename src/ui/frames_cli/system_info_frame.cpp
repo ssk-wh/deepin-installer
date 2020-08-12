@@ -50,12 +50,14 @@ bool SystemInfoFramePrivate::validate()
 void SystemInfoFramePrivate::show()
 {
     if(!m_isshow) {
+        updateTs();
         NCursesWindowBase::show();
         m_isshow = true;
     }
 
     if (!GetSettingsBool(kSetRootPasswordFromUser)) {
         m_NcursesCheckBox->hide();
+        m_NcursesCheckBox->setFocusEnabled(false);
     }
 }
 
@@ -67,7 +69,12 @@ void SystemInfoFramePrivate::hide()
 
 void SystemInfoFramePrivate::onKeyPress(int keyCode)
 {
-    if (!m_isHostEdited && m_le_username->isOnFoucs()) {
+    switch (keyCode) {
+    case KEY_TAB:
+            switchChildWindowsFoucs();
+        break;
+    }
+    if (!m_isHostEdited && m_le_username->isOnFoucs() && !m_le_username->text().isEmpty()) {
         m_le_hostname->setText(QString("%1-PC").arg(m_le_username->text()));
     }
 }
@@ -94,9 +101,6 @@ void SystemInfoFramePrivate::writeConf()
 
 void SystemInfoFramePrivate::downHandle()
 {
-    if (!this->isOnFoucs()) {
-        return;
-    }
     if (m_le_username->isOnFoucs()) {
         m_le_username->setFocus(false);
         m_le_hostname->setFocus(true);
@@ -111,10 +115,6 @@ void SystemInfoFramePrivate::downHandle()
 
 void SystemInfoFramePrivate::upHandle()
 {
-    if (!this->isOnFoucs()) {
-        return;
-    }
-
     if (m_le_password_confirm->isOnFoucs()) {
         m_le_password_confirm->setFocus(false);
         m_le_password->setFocus(true);
@@ -130,12 +130,12 @@ void SystemInfoFramePrivate::upHandle()
 void SystemInfoFramePrivate::switchChildWindowsFoucs()
 {
     FrameInterfacePrivate::switchChildWindowsFoucs();
-    if (this->isOnFoucs()) {
-        m_le_password_confirm->setFocus(false);
-        m_le_password->setFocus(false);
-        m_le_hostname->setFocus(false);
-        m_le_username->setFocus(true);
-    }
+//    if (this->isOnFoucs()) {
+//        m_le_password_confirm->setFocus(false);
+//        m_le_password->setFocus(false);
+//        m_le_hostname->setFocus(false);
+//        m_le_username->setFocus(true);
+//    }
 }
 
 bool SystemInfoFramePrivate::validateHostname(QString &msg)
@@ -338,7 +338,7 @@ SystemInfoFramePrivate::SystemInfoFramePrivate(SystemInfoFrame *parent, int line
 {
     initUI();
     initConnection();
-    updateTs();
+    //updateTs();
 }
 
 void SystemInfoFramePrivate::initUI()
@@ -348,58 +348,69 @@ void SystemInfoFramePrivate::initUI()
 
         m_label_title = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_title->setFocusEnabled(false);
+        //m_label_title->hide();
 
         m_label_instructions = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_instructions->setFocusEnabled(false);
         m_label_instructions->attron(NcursesUtil::getInstance()->comment_attr());
+        //m_label_instructions->hide();
 
         m_label_username = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_username->setFocusEnabled(false);
+        //m_label_username->hide();
 
         m_le_username = new NCursesLineEdit(this, 1, width() - 4, begy(), begx());
         m_le_username->setBackground(NcursesUtil::getInstance()->edit_attr());
-        m_le_username->setFocus(true);
-        m_le_username->setFocusEnabled(false);
+        ////m_le_username->setFocus(true);
+        ////m_le_username->setFocusEnabled(false);
+        //m_le_username->hide();
 
         m_label_hostname = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_hostname->setFocusEnabled(false);
+        //m_label_hostname->hide();
 
         m_le_hostname = new NCursesLineEdit(this, 1, width() - 4, begy(), begx());
         m_le_hostname->setBackground(NcursesUtil::getInstance()->edit_attr());
-        m_le_hostname->setFocusEnabled(false);
+        ////m_le_hostname->setFocusEnabled(false);
+        //m_le_hostname->hide();
 
         m_label_password = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_password->setFocusEnabled(false);
-
+        //m_label_password->hide();
 
         m_le_password = new NCursesLineEdit(this, 1, width() - 4, begy(), begx());
         m_le_password->setBackground(NcursesUtil::getInstance()->edit_attr());
         m_le_password->setEchoMode(true);
-        m_le_password->setFocusEnabled(false);
+        ////m_le_password->setFocusEnabled(false);
+        //m_le_password->hide();
 
         m_label_password_confirm = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_password_confirm->setFocusEnabled(false);
+        //m_label_password_confirm->hide();
 
         m_le_password_confirm = new NCursesLineEdit(this, 1, width() - 4, begy(), begx());
         m_le_password_confirm->setBackground(NcursesUtil::getInstance()->edit_attr());
         m_le_password_confirm->setEchoMode(true);
-        m_le_password_confirm->setFocusEnabled(false);
+        ////m_le_password_confirm->setFocusEnabled(false);
+        //m_le_password_confirm->hide();
 
-        m_foucsWindows.append(this);
+        ////m_foucsWindows.append(this);
 
         m_NcursesCheckBox = new NcursesCheckBox(this, 1, (width() - 5) / 2, begy(), begx());
         m_NcursesCheckBox->setIsUseTitle(false);
+        //m_NcursesCheckBox->hide();
 
         m_label_error_info = new NcursesLabel(this, 1, width() - 4, begy(), begx());
         m_label_error_info->setFocusEnabled(false);
         m_label_error_info->setBackground(NcursesUtil::getInstance()->error_attr());
+        //m_label_error_info->hide();
 
         m_pNextButton->setBackground(NcursesUtil::getInstance()->button());
-        this->setFocus(true);
+        //this->setFocus(true);
 
-//        connect(m_le_username, &NCursesLineEdit::textChanged, this, [=](){
-//            m_le_hostname->setText(m_le_username->text().append("-PC"));
-//        });
+////        connect(m_le_username, &NCursesLineEdit::textChanged, this, [=](){
+////            m_le_hostname->setText(m_le_username->text().append("-PC"));
+////        });
     } catch (NCursesException& e) {
         qCritical() << QString(e.message);
     }
@@ -543,17 +554,20 @@ void SystemInfoFramePrivate::updateTs()
     FrameInterfacePrivate::updateTs();
 
     layout();
+
+    m_le_username->setFocus(true);
 }
 
 
 SystemInfoFrame::SystemInfoFrame(FrameInterface* parent) :
     FrameInterface (parent)
 {
-    int h = LINES / 2;
-    int w = COLS / 2;
+    int h = MAINWINDOW_HEIGHT;//LINES / 2;
+    int w = MAINWINDOW_WIDTH;//COLS / 2;
     int beginY = (LINES - h - 2) / 2;
     int beginX = (COLS - w) / 2;
     m_private = new SystemInfoFramePrivate (this, h, w, beginY, beginX);
+    //m_private->hide();
 }
 
 SystemInfoFrame::~SystemInfoFrame()

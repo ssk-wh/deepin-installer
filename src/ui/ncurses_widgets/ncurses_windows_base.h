@@ -20,6 +20,9 @@ const int kKeyDown = 258;
 const int kKeyLeft = 260;
 const int kKeyRight = 261;
 
+const int MAINWINDOW_HEIGHT = 28;
+const int MAINWINDOW_WIDTH = 118;
+
 class NCursesWindowBase : public QObject, public NCursesPanel
 {
     Q_OBJECT

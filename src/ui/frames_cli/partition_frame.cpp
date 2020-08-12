@@ -28,28 +28,26 @@ void PartitionFramePrivate::initUI()
         m_pBackButton->drawShadow(true);
         m_pBackButton->box();
         m_pBackButton->setObjectName(strBack);
-        m_pBackButton->setFocus(false);
+        //m_pBackButton->hide();
 
         //界面控件
-        //m_label_title = new NcursesLabel(this, 1, 1, begy(), begx());
-        //m_label_title->setFocusEnabled(false);
-
         m_label_comment1 = new NcursesLabel(this, 3, 2, begy(), begx());
         m_label_comment1->setFocusEnabled(false);
         m_label_comment1->setBackground(NcursesUtil::getInstance()->comment_attr());
+        //m_label_comment1->hide();
 
         m_label_comment2 = new NcursesLabel(this, 1, 1, begy(), begx());
         m_label_comment2->setFocusEnabled(false);
-        //m_label_comment2->setBackground(NcursesUtil::getInstance()->comment_attr());
+        //m_label_comment2->hide();
 
         m_partitionmodelist = new NcursesListView(this, 2, width() / 2, begy(), begx());
-        m_partitionmodelist->setFocus(true);
+        //m_partitionmodelist->hide();
 
         m_pNextButton = new NcursesButton(this, strNext, 3, 14, begy() + height() - 5, begx() + width() - 20);
         m_pNextButton->drawShadow(true);
         m_pNextButton->box();
         m_pNextButton->setObjectName(strNext);
-        m_pNextButton->setFocus(false);
+        //m_pNextButton->hide();
 
     } catch (NCursesException& e) {
         qCritical() << QString(e.message);
@@ -60,9 +58,6 @@ void PartitionFramePrivate::layout()
 {
     try {
         int beginY = begy();
-        //m_label_title->adjustSizeByContext();
-        //m_label_title->mvwin(beginY, begx() + (width() - m_label_title->width()) / 2);
-        //beginY += m_label_title->height() + 1;
 
         beginY = beginY + 2;
         m_label_comment1->adjustSizeByContext();
@@ -84,10 +79,13 @@ void PartitionFramePrivate::layout()
 
 void PartitionFramePrivate::updateTs()
 {
+    if (!m_localeString.compare(installer::ReadLocale())) {
+        return;
+    }
+    m_localeString = installer::ReadLocale();
+
     box(ACS_VLINE,ACS_HLINE);
-    //m_label_title->setText(::QObject::tr("Create Partitions"));
     printTitle(::QObject::tr("Create Partitions"), width());
-    //m_label_comment1->setText(::QObject::tr("   The setup program can guide you to use various standard schemes "
     // "for disk partition. If you like, you can do it manually. If you choose the Partition Wizard,"
     // "you will have the opportunity to check and modify the partition settings later."));
     m_label_comment1->setText("  " + ::QObject::tr("Make sure you have backed up important data, then select the partition mode."));
@@ -102,6 +100,8 @@ void PartitionFramePrivate::updateTs()
 
     FrameInterfacePrivate::updateTs();
     layout();
+
+    m_pNextButton->setFocus(true);
 }
 
 bool PartitionFramePrivate::validate()
@@ -142,6 +142,13 @@ void PartitionFramePrivate::initConnection()
 
 void PartitionFramePrivate::onKeyPress(int keyCode)
 {
+    switch (keyCode) {
+    case KEY_TAB:
+            switchChildWindowsFoucs();
+        break;
+    }
+
+    qDebug()<< keyCode;
     //NCursesWindowBase::onKeyPress(keyCode);
 }
 
@@ -202,8 +209,8 @@ void PartitionFramePrivate::setValue()
 PartitionFrame::PartitionFrame(FrameInterface* parent) :
     FrameInterface (parent)
 {
-    int h = LINES / 2;
-    int w = COLS / 2;
+    int h = MAINWINDOW_HEIGHT;//LINES / 2;
+    int w = MAINWINDOW_WIDTH;//COLS / 2;
     int beginY = (LINES - h - 2) / 2;
     int beginX = (COLS - w) / 2;
     m_partition_model = new PartitionModel(this);
@@ -213,8 +220,9 @@ PartitionFrame::PartitionFrame(FrameInterface* parent) :
 
     addChildFrame(m_fullDiskFrame);
     addChildFrame(m_advancedPartitionFrame);
-    m_fullDiskFrame->hide();
-    m_advancedPartitionFrame->hide();
+    //m_private->hide();
+    //m_fullDiskFrame->hide();
+    //m_advancedPartitionFrame->hide();
 
     Q_D(PartitionFrame);
     connect( static_cast<AdvancedPartitionFramePrivate*>(m_advancedPartitionFrame->getPrivate()),

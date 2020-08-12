@@ -48,7 +48,7 @@ class PrepareInstallFrame : public FrameInterfacePrivate {
   void hide() override;
   void updateTs();
   void layout();
-  void onKeyPress(int keycode) override;
+  virtual void onKeyPress(int keycode) override;
  signals:
   void finished(bool isOK);
   void keyEventTrigerSignal(int keycode);

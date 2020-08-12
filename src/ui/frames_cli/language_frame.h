@@ -36,6 +36,7 @@ public:
     void update();
     void updateText();
     QString getCurrentLanguageTimezone();
+    virtual void onKeyPress(int keyCode) override;
 
 signals:
     void languageChange();

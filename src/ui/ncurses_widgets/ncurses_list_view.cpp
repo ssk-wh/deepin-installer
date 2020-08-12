@@ -136,10 +136,6 @@ void NcursesListView::onKeyPress(int keyCode)
 
 void NcursesListView::show()
 {
-    this->top();
-    refresh();
-    m_parent->noutrefresh();
-
     for (int i = 0; i < m_childWindows.size(); i++) {
         m_childWindows[i]->setFocus(false);
         m_childWindows[i]->hide();
@@ -163,6 +159,8 @@ void NcursesListView::show()
     }
 
     m_currLine = m_currentIndex % height();
+
+    refresh();
 }
 
 
@@ -203,7 +201,8 @@ int NcursesListView::size()
 
 void NcursesListView::setFocus(bool foucs)
 {
-    NCursesWindowBase::setFocus(foucs);
+    m_foucs = foucs;
+    //NCursesWindowBase::setFocus(foucs);
     if (m_childWindows.size() > 0) {
         if (foucs) {
             m_childWindows[m_currentIndex]->setFocus(true);

@@ -13,24 +13,20 @@ namespace installer {
 void LanguageFramePrivate::initUI()
 {
     FrameInterfacePrivate::initUI();
-    //m_titleLabel = new NcursesLabel(this, 1, 1, begy(), begx());
-    //m_titleLabel->setFocusEnabled(false);
 
-    m_instructions = new NcursesLabel(this, 3, 1, begy() + 1, begx() + 1);
+    m_instructions = new NcursesLabel(this, 3, 1, begy() + 2, begx() + 1);
+    //m_instructions->hide();
     m_instructions->setFocusEnabled(false);
 
     m_languageView = new NcursesListView(this, height() - 10, 20, begy(), begx());
-    m_languageView->setFocus(true);
-    updateTs();
+    //m_languageView->hide();
 }
 
 void LanguageFramePrivate::layout()
 {
     try {
-        //m_titleLabel->adjustSizeByContext();
-        //m_titleLabel->mvwin(begy(), begx() + (width() - m_titleLabel->width()) / 2);
         m_instructions->adjustSizeByContext();
-        m_instructions->mvwin(begy() + 1, begx() + 2);
+        m_instructions->mvwin(begy() + 2, begx() + 2);
         m_languageView->adjustSizeByContext();
         m_languageView->resize(height() - 10,  m_languageView->width());
         m_languageView->mvwin(begy() + m_instructions->height() + 2,  begx() + (width() - m_languageView->width()) / 2);
@@ -41,7 +37,6 @@ void LanguageFramePrivate::layout()
 
 void LanguageFramePrivate::updateTs()
 {
-    //m_titleLabel->setText(::QObject::tr("Select Language"));
     updateText();
     layout();
 }
@@ -61,8 +56,6 @@ void LanguageFramePrivate::initConnection()
         m_index = index;
         emit next();
     });
-
-    readConf();
 }
 
 bool LanguageFramePrivate::validate()
@@ -77,6 +70,7 @@ void LanguageFramePrivate::show()
     if(!m_isshow) {
         NCursesWindowBase::show();
         m_isshow = true;
+        m_pNextButton->setFocus(true);
     }
 }
 
@@ -100,6 +94,17 @@ void LanguageFramePrivate::updateText()
 QString LanguageFramePrivate::getCurrentLanguageTimezone()
 {
     return m_languageList.at(m_index).timezone;
+}
+
+void LanguageFramePrivate::onKeyPress(int keyCode)
+{
+    switch (keyCode) {
+    case KEY_TAB:
+        switchChildWindowsFoucs();
+        break;
+    }
+
+    qDebug()<< keyCode;
 }
 
 void LanguageFramePrivate::readConf()
@@ -152,11 +157,12 @@ void LanguageFramePrivate::writeConf()
 LanguageFrame::LanguageFrame(FrameInterface* parent) :
     FrameInterface (parent)
 {
-    int h = LINES / 2;
-    int w = COLS / 2;
+    int h = MAINWINDOW_HEIGHT;//LINES / 2;
+    int w = MAINWINDOW_WIDTH;//COLS / 2;
     int beginY = (LINES - h - 2) / 2;
     int beginX = (COLS - w) / 2;
     m_private = new LanguageFramePrivate (parent->getPrivate(), h, w, beginY, beginX);
+    //m_private->hide();
 
     Q_D(LanguageFrame);
     connect(d, &LanguageFramePrivate::languageChange, this, &LanguageFrame::languageChanged);
@@ -172,6 +178,7 @@ bool LanguageFrame::init()
 {
     Q_D(LanguageFrame);
     if (m_currState == FRAME_STATE_NOT_START) {
+        d->readConf();
         m_private->layout();
         m_currState = FRAME_STATE_RUNNING;
     }
