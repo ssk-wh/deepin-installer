@@ -170,12 +170,12 @@ void TimezoneFrame::init() {
     qDebug() << "timezone updated from settings";
     m_private->timezone_source_ = TimezoneSource::Conf;
   } else {
+    // Use default timezone.
+    m_private->timezone_ = kDefaultTimezone;
+
     const bool use_geoip = GetSettingsBool(kTimezoneUseGeoIp);
     const bool use_regdomain = GetSettingsBool(kTimezoneUseRegdomain);
     m_private->timezone_manager_->update(use_geoip, use_regdomain);
-
-    // Use default timezone.
-    m_private->timezone_ = kDefaultTimezone;
   }
   emit timezoneUpdated(m_private->timezone_);
 }
