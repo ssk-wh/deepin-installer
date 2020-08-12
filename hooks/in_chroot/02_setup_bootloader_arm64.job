@@ -69,7 +69,8 @@ case ${BOOT} in
     ;;
 esac
 
-BOOTLOADER_ID="${BOOTLOADER_ID:-deepin}"
+#BOOTLOADER_ID="${BOOTLOADER_ID:-deepin}"
+BOOTLOADER_ID="UOS"
 
 case ${BOOT} in
   #"legacy")
