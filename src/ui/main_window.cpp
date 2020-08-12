@@ -459,7 +459,7 @@ void MainWindow::initPages() {
 
   m_originalFrames = {
       // TODO: move the front new statement over here
-#ifdef QT_DEBUG_test
+#ifdef QT_DEBUG_TEST
 
 #else
       m_repairSystemFrame,

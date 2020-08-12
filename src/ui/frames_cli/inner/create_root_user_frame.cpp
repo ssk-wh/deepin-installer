@@ -94,7 +94,10 @@ bool installer::CreateRootUserFramePrivate::validatePassword(NCursesLineEdit *pa
 
     switch (state) {
     case ValidatePasswordState::EmptyError: {
-        msg = ::QObject::tr("The password cannot be empty​");
+        msg = ::QObject::tr("Please input a password longer than %1 characters and "
+                 "shorter than %2 characters")
+                .arg(min_len)
+                .arg(max_len);
         return false;
     }
     case ValidatePasswordState::StrongError: {
@@ -106,7 +109,8 @@ bool installer::CreateRootUserFramePrivate::validatePassword(NCursesLineEdit *pa
         return false;
     }
     case ValidatePasswordState::TooLongError: {
-        msg = ::QObject::tr("Password must be between %1 and %2 characters")
+        msg = ::QObject::tr("Please input a password longer than %1 characters and "
+                 "shorter than %2 characters")
                 .arg(min_len)
                 .arg(max_len);
         return false;

@@ -127,6 +127,16 @@ QDir GetOemDir() {
   return QDir(g_oem_dir);
 }
 
+
+QString GetCurrentPlatform() {
+    QMap<QString, QString> BUILD_ARCH_MAP{ { "x86_64",  "x86" },
+                                           { "sw_64",   "sw" },
+                                           { "mips64", "loongson" },
+                                           { "aarch64", "arm" } };
+
+    return BUILD_ARCH_MAP[PLATFORM_BUILD_ARCH];
+}
+
 OSType GetCurrentType() {
     QSettings settings("/etc/deepin-version", QSettings::IniFormat);
     settings.beginGroup("Release");
@@ -143,15 +153,6 @@ OSType GetCurrentType() {
         { "Server", OSType::Server },
         { "Personal", OSType::Personal },
     }[type];
-}
-
-QString GetCurrentPlatform() {
-    QMap<QString, QString> BUILD_ARCH_MAP{ { "x86_64",  "x86" },
-                                           { "sw_64",   "sw" },
-                                           { "mips64", "loongson" },
-                                           { "aarch64", "arm" } };
-
-    return BUILD_ARCH_MAP[PLATFORM_BUILD_ARCH];
 }
 
 bool GetSettingsBool(const QString& key) {

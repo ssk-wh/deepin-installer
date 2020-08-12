@@ -4,6 +4,3 @@ timezone_default = Asia/Shanghai
 skip_select_component_page = true
 partition_skip_simple_partition_page = true
 install_progress_os_type_slide = slide/personal
-end_user_license_zh_CN = end-user-license-agreement-personal_zh_CN.txt
-end_user_license_en_US = end-user-license-agreement-personal_en_US.txt
-system_info_disable_experience = false

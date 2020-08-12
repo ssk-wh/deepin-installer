@@ -49,6 +49,7 @@ public:
         , m_select_language_frame(new SelectLanguageFrame(m_user_license_delegate))
         , m_user_license_frame(new UserAgreementFrame)
         , m_user_experience_frame(new UserAgreementFrame)
+        , m_privacy_license_frame(new UserAgreementFrame)
     {}
 
     void initUI();
@@ -57,6 +58,7 @@ public:
     void showLanguage();
     void showOemUserLicense();
     void showUserExperience();
+    void showPrivacyLicense();
 
     void setupTs();
 
@@ -72,6 +74,7 @@ public:
     SelectLanguageFrame* m_select_language_frame = nullptr;
     UserAgreementFrame*  m_user_license_frame    = nullptr;
     UserAgreementFrame*  m_user_experience_frame = nullptr;
+    UserAgreementFrame*  m_privacy_license_frame = nullptr;
     std::list<std::pair<std::function<void (QString)>, QString>> m_trList;
 };
 LanguageFrame::LanguageFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
@@ -123,6 +126,7 @@ void LanguageFramePrivate::initUI() {
     m_frame_layout->addWidget(m_select_language_frame);
     m_frame_layout->addWidget(m_user_experience_frame);
     m_frame_layout->addWidget(m_user_license_frame);
+    m_frame_layout->addWidget(m_privacy_license_frame);
 
     nextButton->setEnabled(false);
     centerLayout->addLayout(m_frame_layout);
@@ -148,11 +152,19 @@ void LanguageFramePrivate::initConnect() {
     }
 
     connect(m_select_language_frame, &SelectLanguageFrame::requestNextButtonEnable, nextButton, &QPushButton::setEnabled);
+
+    connect(m_privacy_license_frame, &UserAgreementFrame::back, this,
+            &LanguageFramePrivate::showLanguage);
+
+    connect(m_select_language_frame, &SelectLanguageFrame::requestPrivacyLicense, this,
+            &LanguageFramePrivate::showPrivacyLicense);
 }
 
 void LanguageFramePrivate::showUserLicense() {
-    QString zh_cn_li = QString(":/license/%1").arg(GetSettingsString(kEndUserLicense_zh_CN));
-    QString en_us_li = QString(":/license/%1").arg(GetSettingsString(kEndUserLicense_en_US));
+    QString zh_cn_li = QString(":/license/end-user-license-agreement-%1_zh_CN.txt")\
+            .arg(installer::LicenseDelegate::OSType());
+    QString en_us_li = QString(":/license/end-user-license-agreement-%1_en_US.txt")\
+            .arg(installer::LicenseDelegate::OSType());
 
     qDebug() << "zh_cn_li = " << zh_cn_li;
     qDebug() << "en_us_li = " << en_us_li;
@@ -183,8 +195,11 @@ void LanguageFramePrivate::showOemUserLicense() {
 
 void LanguageFramePrivate::showUserExperience()
 {
-    QString zh_cn_ue = QString(":/license/%1").arg(GetSettingsString(kUserexperience_zh_CN));
-    QString en_us_ue = QString(":/license/%1").arg(GetSettingsString(kUserexperience_en_US));
+    QString zh_cn_ue = QString(":/license/user-experience-agreement-%1_zh_CN.txt")\
+            .arg(installer::LicenseDelegate::OSType());
+    QString en_us_ue = QString(":/license/user-experience-agreement-%1_en_US.txt")\
+            .arg(installer::LicenseDelegate::OSType());
+
 
     qDebug() << "zh_cn_li = " << zh_cn_ue;
     qDebug() << "en_us_li = " << en_us_ue;
@@ -201,11 +216,34 @@ void LanguageFramePrivate::showUserExperience()
     nextButton->hide();
 }
 
+void LanguageFramePrivate::showPrivacyLicense()
+{
+    QString zh_pl_li = QString(":/license/privacy-policy-%1_zh_CN.txt")\
+            .arg(installer::LicenseDelegate::OSType());
+    QString en_pl_li = QString(":/license/privacy-policy-%1_en_US.txt")\
+            .arg(installer::LicenseDelegate::OSType());
+
+    qDebug() << "zh_pl_li = " << zh_pl_li;
+    qDebug() << "en_pl_li = " << en_pl_li;
+
+    if (installer::ReadLocale() == "zh_CN") {
+        m_privacy_license_frame->setUserAgreement(zh_pl_li, en_pl_li);
+        m_privacy_license_frame->setCheckedButton(kChineseToggleButtonId);
+    } else {
+        m_privacy_license_frame->setUserAgreement(en_pl_li, zh_pl_li);
+        m_privacy_license_frame->setCheckedButton(kEnglishToggleButtonId);
+    }
+    m_frame_layout->setCurrentWidget(m_privacy_license_frame);
+
+    nextButton->hide();
+}
+
 void LanguageFramePrivate::setupTs()
 {
     nextButton->setText(::QObject::tr("Next"));
     m_user_experience_frame->setTitle(LicenseDelegate::userExperienceTitle());
     m_user_license_frame->setTitle(LicenseDelegate::licenseTitle());
+    m_privacy_license_frame->setTitle(LicenseDelegate::privacyLicenseTitle());
 }
 
 }  // namespace installer

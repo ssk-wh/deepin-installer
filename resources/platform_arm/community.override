@@ -3,7 +3,7 @@ select_language_default_locale = zh_CN
 timezone_default = Asia/Shanghai
 partition_skip_simple_partition_page = true
 partition_skip_partition_crypt_page = true
+install_progress_os_type_slide = slide/community
 
-end_user_license_zh_CN = end-user-license-agreement-community_zh_CN.txt
-end_user_license_en_US = end-user-license-agreement-community_en_US.txt
+
 

@@ -162,7 +162,7 @@ bool SystemInfoFramePrivate::validateHostname(QString &msg)
         }
         case ValidateHostnameState::TooLongError:  // fall through
         case ValidateHostnameState::TooShortError: {
-            msg = ::QObject::tr("Please input computer name longer than %1 characters and "
+            msg = ::QObject::tr("Please input a computer name longer than %1 characters and "
                      "shorter than %2 characters")
                     .arg(kHostnameMinLen)
                     .arg(kHostnameMaxLen);
@@ -200,7 +200,7 @@ bool SystemInfoFramePrivate::validateUsername(QString &msg)
         }
         case ValidateUsernameState::TooLongError:  // fall through
         case ValidateUsernameState::TooShortError: {
-            msg = ::QObject::tr("Please input username longer than %1 characters and "
+            msg = ::QObject::tr("Please input a username longer than %1 characters and "
                      "shorter than %2 characters")
                     .arg(min_len)
                     .arg(max_len);
@@ -241,11 +241,15 @@ bool SystemInfoFramePrivate::validatePassword(NCursesLineEdit *passwordEdit, QSt
 
     switch (state) {
     case ValidatePasswordState::EmptyError: {
+<<<<<<< HEAD
         msg = ::QObject::tr("The password cannot be empty​");
         return false;
     }
     case ValidatePasswordState::StrongError: {
-        msg = ::QObject::tr("Password must contain letters, numbers and symbols");
+        msg = ::QObject::tr("Please input a password longer than %1 characters and "
+                 "shorter than %2 characters")
+                .arg(min_len)
+                .arg(max_len);
         return false;
     }
     case ValidatePasswordState::TooShortError: {
@@ -253,7 +257,8 @@ bool SystemInfoFramePrivate::validatePassword(NCursesLineEdit *passwordEdit, QSt
         return false;
     }
     case ValidatePasswordState::TooLongError: {
-        msg = ::QObject::tr("Password must be between %1 and %2 characters")
+        msg = ::QObject::tr("Please input a password longer than %1 characters and "
+                 "shorter than %2 characters")
                 .arg(min_len)
                 .arg(max_len);
         return false;

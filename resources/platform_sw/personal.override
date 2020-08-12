@@ -16,5 +16,4 @@ partition_full_disk_large_legacy_label = "Boot;Swap;Root;_dde_data"
 install_progress_os_type_slide = slide/personal
 end_user_license_zh_CN = end-user-license-agreement-personal_zh_CN.txt
 end_user_license_en_US = end-user-license-agreement-personal_en_US.txt
-system_info_disable_experience = false
 

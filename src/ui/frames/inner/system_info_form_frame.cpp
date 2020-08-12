@@ -704,7 +704,7 @@ bool SystemInfoFormFramePrivate::validateUsername(QString& msg)
     }
     case ValidateUsernameState::TooLongError:  // fall through
     case ValidateUsernameState::TooShortError: {
-        msg = ::QObject::tr("Please input username longer than %1 characters and "
+        msg = ::QObject::tr("Please input a username longer than %1 characters and "
                  "shorter than %2 characters")
                 .arg(min_len)
                 .arg(max_len);
@@ -740,7 +740,7 @@ bool SystemInfoFormFramePrivate::validateHostname(QString& msg)
     }
     case ValidateHostnameState::TooLongError:  // fall through
     case ValidateHostnameState::TooShortError: {
-        msg = ::QObject::tr("Please input computer name longer than %1 characters and "
+        msg = ::QObject::tr("Please input a computer name longer than %1 characters and "
                  "shorter than %2 characters")
                 .arg(kHostnameMinLen)
                 .arg(kHostnameMaxLen);

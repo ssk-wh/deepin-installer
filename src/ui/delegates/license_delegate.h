@@ -10,9 +10,12 @@ class LicenseDelegate
 public:
     static QString licenseTitle();
     static QString userExperienceTitle();
+    static QString privacyLicenseTitle();
 
     static QString logo();
     static QString product();
+
+    static QString OSType();
 
 private:
     LicenseDelegate() = delete;

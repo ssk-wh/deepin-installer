@@ -22,12 +22,6 @@ namespace installer {
 
 // Keys used in settings ini file.
 
-// License
-const char kEndUserLicense_zh_CN[] = "end_user_license_zh_CN";
-const char kEndUserLicense_en_US[] = "end_user_license_en_US";
-const char kUserexperience_zh_CN[] = "user_experience_zh_CN";
-const char kUserexperience_en_US[] = "user_experience_en_US";
-
 // Pages
 const char kSkipDiskSpaceInsufficientPage[] =
     "skip_disk_space_insufficient_page";

@@ -69,6 +69,8 @@ public:
     QLabel*                license_label_      = nullptr;
     QCheckBox*             accept_experience_     = nullptr;
     QLabel*                experience_label_      = nullptr;
+    QLabel*                m_and_label         = nullptr;
+    QLabel*                m_privacy_license_label_ = nullptr;
     QLabel*                oem_and_label_      = nullptr;
     QLabel*                oem_license_label_  = nullptr;
     QLabel*                sub_title_label_    = nullptr;
@@ -213,6 +215,15 @@ bool SelectLanguageFrame::eventFilter(QObject* obj, QEvent* event) {
         }
     }
 
+    if (obj == d->m_privacy_license_label_) {
+        switch (event->type()) {
+            case QEvent::MouseButtonRelease: emit requestPrivacyLicense(); break;
+            case QEvent::Enter: setCursor(QCursor(Qt::PointingHandCursor)); break;
+            case QEvent::Leave: setCursor(QCursor(Qt::ArrowCursor)); break;
+            default: break;
+        }
+    }
+
     if (event->type() == QEvent::KeyPress && obj == d->m_languageView) {
         QKeyEvent* key = dynamic_cast<QKeyEvent*>(event);
         switch (key->key()) {
@@ -322,6 +333,9 @@ void SelectLanguageFramePrivate::initUI() {
     license_label_->setObjectName("LicenseLabel");
     license_label_->installEventFilter(q);
 
+    m_privacy_license_label_ = new QLabel;
+    m_privacy_license_label_->installEventFilter(q);
+
     if (user_license_delegate_->isLicenseDirExists()) {
         oem_and_label_ = new QLabel;
         oem_and_label_->setObjectName("OemAndLabel");
@@ -330,12 +344,16 @@ void SelectLanguageFramePrivate::initUI() {
         oem_license_label_->installEventFilter(q);
     }
 
+    m_and_label = new QLabel;
+
     QHBoxLayout* license_layout = new QHBoxLayout;
     license_layout->setMargin(0);
     license_layout->setSpacing(5);
     license_layout->addStretch();
     license_layout->addWidget(accept_license_);
     license_layout->addWidget(license_label_);
+    license_layout->addWidget(m_and_label);
+    license_layout->addWidget(m_privacy_license_label_);
 
     if (nullptr != oem_license_label_) {
         license_layout->addWidget(oem_and_label_);
@@ -426,8 +444,13 @@ void SelectLanguageFramePrivate::updateTs()
     palette.setColor(QPalette::Text, QColor(66, 154, 216));
 
     accept_license_->setText(::QObject::tr("I have read and agree to the"));
-    license_label_->setText(LicenseDelegate::licenseTitle());
+    license_label_->setText(::QObject::tr("End User License Agreement"));
     license_label_->setPalette(palette);
+
+    m_and_label->setText(::QObject::tr("and"));
+
+    m_privacy_license_label_->setText(::QObject::tr("Privacy Policy"));
+    m_privacy_license_label_->setPalette(palette);
 
     if (oem_license_label_ != nullptr) {
         oem_and_label_->setText(::QObject::tr("and"));
