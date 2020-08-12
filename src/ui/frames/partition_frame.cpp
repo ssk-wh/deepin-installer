@@ -644,7 +644,7 @@ void PartitionFramePrivate::onNextButtonClicked() {
     device = advanced_partition_frame_->getAllUsedDevice();
     dynamic_disk_warning_frame_->setWarningTip(::QObject::tr("The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first."));
     static bool isFirstWarning = true;
-    if (isFirstWarning && !AdvancedPartitionDelegate::swapOk) {
+    if (isFirstWarning && !AdvancedPartitionDelegate::swapOk && AdvancedPartitionDelegate::install_Lvm_Status != Install_Lvm_Status::Lvm_Format_Pv) {
         SwapWarnningFrame swapWarnningFrame;
         swapWarnningFrame.display();
         isFirstWarning = false;
