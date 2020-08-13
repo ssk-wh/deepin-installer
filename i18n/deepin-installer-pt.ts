@@ -4,7 +4,7 @@
     <message>
         <location filename="../src/partman/operation.cpp" line="303"/>
         <source>Create extended partition %1</source>
-        <translation>Criar partição extendida %1</translation>
+        <translation>Criar partição estendida %1</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="307"/>
@@ -429,23 +429,23 @@
         <translation>UnionTech OS</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="265"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="269"/>
         <source>Do not use this partition</source>
         <translation>Não usar esta partição</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="278"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="282"/>
         <source>Swap partition</source>
         <translation>Partição de swap</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="282"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="286"/>
         <source>Unknown</source>
         <translation>Desconhecido</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="383"/>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="414"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="387"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="418"/>
         <source>Freespace</source>
         <translation>Espaço livre</translation>
     </message>
@@ -510,9 +510,9 @@
         <location filename="../src/ui/frames/timezone_frame.cpp" line="131"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="75"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="131"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="26"/>
-        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="22"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="133"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="25"/>
+        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="21"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="150"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="25"/>
         <location filename="../src/base/translator.h" line="16"/>
         <source>Next</source>
@@ -541,8 +541,8 @@
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="99"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="131"/>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="85"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="98"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="172"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="97"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="190"/>
         <source>Exit</source>
         <translation>Sair</translation>
     </message>
@@ -595,7 +595,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="617"/>
         <location filename="../src/ui/frames/install_results_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="17"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="70"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="73"/>
         <source>Done</source>
         <translation>Concluído</translation>
     </message>
@@ -616,13 +616,13 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="478"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="407"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="420"/>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
         <translation>%1 erro encontrado, corrigir para continuar a instalação ou alterar para o modo simples</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="482"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="410"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="423"/>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
         <translation>%1 erros encontrados, corrigir para continuar a instalação ou alterar para o modo simples</translation>
     </message>
@@ -634,68 +634,68 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="539"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="336"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="349"/>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
         <translation>O tipo de sistema de ficheiros da partição do diretório /boot apenas pode ser %1</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="543"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="340"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="353"/>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
         <translation>A partição com o diretório /boot deve ser a primeira partição do disco rígido</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="547"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="344"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="357"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
         <translation>A partição do diretório /boot/efi deve ser a primeira partição no disco rígido</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="552"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="349"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="362"/>
         <source>/boot partition requires at least %1 MB</source>
         <translation>A partição /boot requer pelo menos %1 MB</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="556"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="353"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="366"/>
         <source>To create lvm, /boot partition is required</source>
         <translation>Para criar o lvm, a partição /boot é necessária</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="559"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="356"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="369"/>
         <source>Add an EFI partition to continue</source>
         <translation>Adicionar uma partição EFI para continuar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="563"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="360"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="373"/>
         <source>/efi partition requires at least %1 MB</source>
         <translation>A partição /efi requer pelo menos %1 MB</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="567"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="364"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="377"/>
         <source>Add a root partition to continue</source>
         <translation>Adicionar uma partição root para continuar</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="572"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="90"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="369"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="382"/>
         <source>/root partition requires at least %1 GB</source>
         <translation>A partição /root requer pelo menos %1 GB</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="577"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="374"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="387"/>
         <source>%2 partition requires at least %1 GB</source>
         <translation>A partição %2 requer pelo menos %1 GB</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="582"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="379"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="392"/>
         <source>Add a logical partition to continue</source>
         <translation>Adicionar uma partição lógica para continuar</translation>
     </message>
@@ -775,7 +775,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="482"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="650"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="657"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="536"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="547"/>
         <source>Password</source>
         <translation>Palavra-passe</translation>
     </message>
@@ -814,13 +814,13 @@
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="91"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="665"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="183"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="25"/>
-        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="21"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="24"/>
+        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="20"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="174"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="243"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="100"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="128"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="132"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="149"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="24"/>
         <location filename="../src/base/translator.h" line="17"/>
         <source>Back</source>
@@ -882,8 +882,8 @@
         <translation>Criar</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="424"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="589"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="425"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="591"/>
         <source>Unable to mount automatically, as it requires at least %1 GB</source>
         <translation>Incapaz de montar automaticamente, uma vez que requer pelo menos %1 GB</translation>
     </message>
@@ -1023,7 +1023,7 @@
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="445"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="94"/>
-        <location filename="../src/ui/frames_cli/language_frame.cpp" line="92"/>
+        <location filename="../src/ui/frames_cli/language_frame.cpp" line="86"/>
         <source>Select Language</source>
         <translation>Selecione o idioma</translation>
     </message>
@@ -1047,7 +1047,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="648"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="655"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="662"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="535"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="546"/>
         <source>Username</source>
         <translation>Nome de utilizador</translation>
     </message>
@@ -1055,7 +1055,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="434"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="649"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="656"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="534"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="545"/>
         <source>Computer name</source>
         <translation>Nome do computador</translation>
     </message>
@@ -1063,8 +1063,8 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="483"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="651"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="658"/>
-        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="244"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="537"/>
+        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="250"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="548"/>
         <source>Repeat password</source>
         <translation>Repetir a palavra-passe</translation>
     </message>
@@ -1083,13 +1083,13 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="664"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="131"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="531"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="542"/>
         <source>Create Accounts</source>
         <translation>Criar contas</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="665"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="533"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="544"/>
         <source>Fill in the username, computer name and your password</source>
         <translation>Preencha o nome de utilizador, nome do computador e a sua palavra-passe</translation>
     </message>
@@ -1282,7 +1282,7 @@
         <location filename="../src/ui/frames/install_component_frame.cpp" line="178"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="185"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="239"/>
-        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="83"/>
+        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="93"/>
         <source>Select Components</source>
         <translation>Selecionar componentes</translation>
     </message>
@@ -1290,7 +1290,7 @@
         <location filename="../src/ui/frames/install_component_frame.cpp" line="186"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="247"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="54"/>
-        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="96"/>
         <source>Basic Environment</source>
         <translation>Ambiente básico</translation>
     </message>
@@ -1304,31 +1304,31 @@
         <location filename="../src/ui/frames/install_component_frame.cpp" line="188"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="253"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="55"/>
-        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="87"/>
+        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="97"/>
         <source>Add-Ons</source>
         <translation>Complementos</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="190"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="324"/>
-        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="95"/>
-        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="100"/>
+        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="81"/>
+        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="105"/>
+        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="110"/>
         <source>Select All</source>
         <translation>Selecionar tudo</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="82"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="20"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="73"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="77"/>
         <source>Installation Failed</source>
         <translation>A Instalação falhou</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="84"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="21"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="75"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="78"/>
         <source>Sorry for the trouble. Please take a photo to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
         <translation>Pedimos desculpa pelo incómodo. Por favor, tire uma fotografia para nos enviar o registo de erros, ou guarde o registo num disco externo. Nós ajudaremos a resolver o problema.</translation>
     </message>
@@ -1338,9 +1338,9 @@
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="36"/>
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="89"/>
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="93"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="45"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="97"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="171"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="46"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="96"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="185"/>
         <source>Save Log</source>
         <translation>Guardar registo</translation>
     </message>
@@ -1353,7 +1353,8 @@
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="212"/>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="266"/>
-        <location filename="../src/ui/frames_cli/install_process_frame.cpp" line="68"/>
+        <location filename="../src/ui/frames_cli/install_process_frame.cpp" line="69"/>
+        <location filename="../src/ui/frames_cli/install_process_frame.cpp" line="76"/>
         <source>Installing</source>
         <translation>A instalar</translation>
     </message>
@@ -1370,8 +1371,9 @@
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="46"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="89"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="47"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="90"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="188"/>
         <source>Reboot Now</source>
         <translation>Reiniciar agora</translation>
     </message>
@@ -1379,20 +1381,20 @@
         <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="16"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="18"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="69"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="71"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="72"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="74"/>
         <source>Successfully Installed</source>
         <translation>Instalado com sucesso</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="86"/>
         <source>Reboot to discover and enjoy system features</source>
-        <translation>Reiniciar para descobrir e desfrutar das funcionalidades do sistema</translation>
+        <translation>Reinicie para descobrir e desfrutar das funcionalidades do sistema</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="85"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="19"/>
-        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="72"/>
+        <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="75"/>
         <source>Click the button below and then remove the installation media immediately</source>
         <translation>Clique no botão abaixo e remova o meio de instalação imediatamente</translation>
     </message>
@@ -1444,7 +1446,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="171"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="192"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="212"/>
         <source>IP:</source>
         <translation>IP:</translation>
     </message>
@@ -1452,7 +1454,7 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="173"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="231"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="316"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="194"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="214"/>
         <source>Gateway:</source>
         <translation>Gateway:</translation>
     </message>
@@ -1460,14 +1462,14 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="174"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="243"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="317"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="195"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="215"/>
         <source>Primary DNS:</source>
         <translation>DNS principal:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="175"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="318"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="196"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="216"/>
         <source>Secondary DNS:</source>
         <translation>DNS secundário:</translation>
     </message>
@@ -1480,7 +1482,7 @@
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="219"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="315"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="193"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="213"/>
         <source>Netmask:</source>
         <translation>Máscara de rede:</translation>
     </message>
@@ -1520,7 +1522,7 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="750"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="916"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="994"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="157"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="177"/>
         <source>Configure Network</source>
         <translation>Configuração de rede</translation>
     </message>
@@ -1535,14 +1537,14 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="233"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="439"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="773"/>
-        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="89"/>
+        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="88"/>
         <source>Create Partitions</source>
         <translation>Criar partições</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="228"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="690"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="531"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="544"/>
         <source>Edit LVM Disk</source>
         <translation>Editar disco LVM</translation>
     </message>
@@ -1555,17 +1557,17 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="240"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="451"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="95"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="509"/>
-        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="100"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="522"/>
+        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="97"/>
         <source>Advanced</source>
         <translation>Avançado</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="241"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="454"/>
-        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="98"/>
+        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
+        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="96"/>
         <source>Full Disk</source>
         <translation>Disco inteiro</translation>
     </message>
@@ -1642,8 +1644,7 @@
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="127"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="156"/>
-        <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="24"/>
-        <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="51"/>
+        <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="53"/>
         <source>Select Timezone</source>
         <translation>Selecione a zona horária</translation>
     </message>
@@ -1686,13 +1687,16 @@
     </message>
     <message>
         <location filename="../src/ui/models/mount_point_model.cpp" line="37"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="75"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="132"/>
+        <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="442"/>
         <source>Do not use</source>
         <translation>Não usar</translation>
     </message>
     <message>
         <location filename="../src/ui/models/mount_point_model.cpp" line="40"/>
         <source>auto mount</source>
-        <translation type="unfinished"/>
+        <translation>montagem automática</translation>
     </message>
     <message>
         <location filename="../src/ui/models/partition_type_model.cpp" line="41"/>
@@ -1739,39 +1743,39 @@
         <translation>Dispositivo desconhecido</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="96"/>
-        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="92"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="101"/>
+        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="95"/>
         <source>Make sure you have backed up important data, then select the disk to install.</source>
         <translation>Certifique-se que efetuou uma cópia de segurança e de seguida escolha o disco para instalação.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="97"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="102"/>
         <source>Insert key: create or edit partition. Delete key: delete partition.</source>
         <translation>Inserir chave: criar ou editar partição. Tecla eliminar: eliminar partição.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="415"/>
-        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="418"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="428"/>
+        <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="431"/>
         <source>%1 error found, fix to continue installation</source>
         <translation>%1 erro encontrado, corrigir para continuar a instalação</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="238"/>
+        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="244"/>
         <source>Create Root Account</source>
         <translation>Criar conta root</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="241"/>
+        <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="247"/>
         <source>Password:</source>
         <translation>Palavra-passe:</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="93"/>
+        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="96"/>
         <source>System Disk:</source>
         <translation>Disco do sistema:</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
+        <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="97"/>
         <source>Data Disk:</source>
         <translation>Disco de dados:</translation>
     </message>
@@ -1807,111 +1811,111 @@
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="53"/>
-        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="85"/>
+        <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="95"/>
         <source>Select the components according to your needs.</source>
         <translation>Selecione os componentes de acordo com as suas necessidades.</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames_cli/keyboard_frame.cpp" line="15"/>
         <location filename="../src/ui/frames_cli/keyboard_frame.cpp" line="16"/>
-        <location filename="../src/ui/frames_cli/keyboard_frame.cpp" line="17"/>
         <source>Select Keyboard Layout</source>
         <translation>Selecione o esquema do teclado</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/language_frame.cpp" line="94"/>
+        <location filename="../src/ui/frames_cli/language_frame.cpp" line="88"/>
         <source>Choose a language used in the installation process, which will also be the default system language.</source>
         <translation>Escolha um idioma utilizado no processo de instalação, que será também o idioma predefinido do sistema.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/licence_frame.cpp" line="57"/>
-        <location filename="../src/ui/frames_cli/licence_frame.cpp" line="131"/>
+        <location filename="../src/ui/frames_cli/licence_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames_cli/licence_frame.cpp" line="143"/>
         <source>Please agree to the license</source>
         <translation>Concorde com a licença</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/licence_frame.cpp" line="119"/>
+        <location filename="../src/ui/frames_cli/licence_frame.cpp" line="131"/>
         <source>UOS Software End User License Agreement</source>
         <translation>Contrato de licença do utilizador final do software do UOS</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/licence_frame.cpp" line="120"/>
+        <location filename="../src/ui/frames_cli/licence_frame.cpp" line="132"/>
         <source>I have read and agree to the UOS Software End User License Agreement</source>
         <translation>Li e concordo com o contrato de licença do utilizador final do software do UOS</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="63"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="160"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="64"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="181"/>
         <source>Set the IP address, gateway, netmask, DNS please.</source>
         <translation>Defina o endereço IP, gateway, máscara de rede, DNS.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="64"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="161"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="63"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="180"/>
         <source>Configure Ethernet according to your needs, but you can skip it as well.</source>
         <translation>Configure a Ethernet de acordo com as suas necessidades, mas também pode ignorá-la.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="66"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="198"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="218"/>
         <source>Network connection error, check the configuration please</source>
         <translation>Erro de ligação de rede, verifique a configuração</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="183"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="203"/>
         <source>Configure Now</source>
         <translation>Configurar agora</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="184"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="204"/>
         <source>Skip</source>
         <translation>Saltar</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="511"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="516"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="539"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="544"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="553"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="558"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="581"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="586"/>
         <source>e.g., 255.255.255.0</source>
         <translation>e.x., 255.255.255.0</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="519"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="524"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="557"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="562"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="567"/>
-        <location filename="../src/ui/frames_cli/network_frame.cpp" line="572"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="561"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="566"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="599"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="604"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="609"/>
+        <location filename="../src/ui/frames_cli/network_frame.cpp" line="614"/>
         <source>e.g., 192.168.30.30</source>
         <translation>e.x., 192.168.30.30</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="93"/>
+        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="91"/>
         <source>Make sure you have backed up important data, then select the partition mode.</source>
         <translation>Certifique-se de que efetuou uma cópia de segurança, depois selecione o modo de partição.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="95"/>
+        <location filename="../src/ui/frames_cli/partition_frame.cpp" line="93"/>
         <source>Partition mode</source>
         <translation>Modo de partição</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="538"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="549"/>
         <source>Set Root Password</source>
         <translation>Defina a palavra-passe do Root</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="540"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="551"/>
         <source>If you check &quot;Set as root password&quot;, the root password is the same as the password, otherwise, you need to set it separately.</source>
         <translation>Se marcar &quot;Definir como palavra-passe root&quot;, a palavra-passe root será igual à palavra-passe, caso contrário, terá de a definir separadamente.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="541"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="552"/>
         <source>Your root password should be different from the user password, please take care of them.</source>
         <translation>A sua palavra-passe root deve ser diferente da palavra-passe do utilizador, proteja-as.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="28"/>
-        <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="53"/>
+        <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="54"/>
         <source>Is it the right timezone? You can change it as well.</source>
         <translation>É o fuso horário correto? Pode alterar também.</translation>
     </message>

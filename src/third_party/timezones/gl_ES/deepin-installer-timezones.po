@@ -5,6 +5,7 @@
 # 
 # Translators:
 # Xurxo Guerra Perez <xguerrap@gmail.com>, 2017
+# David Rebolo Magariños <drgaga345@gmail.com>, 2020
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-02 17:33+0800\n"
 "PO-Revision-Date: 2017-02-06 02:09+0000\n"
-"Last-Translator: Xurxo Guerra Perez <xguerrap@gmail.com>, 2017\n"
+"Last-Translator: David Rebolo Magariños <drgaga345@gmail.com>, 2020\n"
 "Language-Team: Galician (Spain) (https://www.transifex.com/linuxdeepin/teams/3976/gl_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,23 +24,23 @@ msgstr ""
 
 #: system-config-date-timezones.h:1
 msgid "Africa/Abidjan"
-msgstr ""
+msgstr "África/Abidjan"
 
 #: system-config-date-timezones.h:2
 msgid "Africa/Accra"
-msgstr ""
+msgstr "África/Accra"
 
 #: system-config-date-timezones.h:3
 msgid "Africa/Addis_Ababa"
-msgstr ""
+msgstr "África/Addis_Ababa"
 
 #: system-config-date-timezones.h:4
 msgid "Africa/Algiers"
-msgstr ""
+msgstr "África/Algiers"
 
 #: system-config-date-timezones.h:5
 msgid "Africa/Asmara"
-msgstr ""
+msgstr "África/Asmara"
 
 #: system-config-date-timezones.h:6
 msgid "Africa/Bamako"
@@ -47,27 +48,27 @@ msgstr "África/Bamako"
 
 #: system-config-date-timezones.h:7
 msgid "Africa/Bangui"
-msgstr ""
+msgstr "África/Bangui"
 
 #: system-config-date-timezones.h:8
 msgid "Africa/Banjul"
-msgstr ""
+msgstr "África/Banjul"
 
 #: system-config-date-timezones.h:9
 msgid "Africa/Bissau"
-msgstr ""
+msgstr "África/Bissau"
 
 #: system-config-date-timezones.h:10
 msgid "Africa/Blantyre"
-msgstr ""
+msgstr "África/Blantyre"
 
 #: system-config-date-timezones.h:11
 msgid "Africa/Brazzaville"
-msgstr ""
+msgstr "África/Brazzaville"
 
 #: system-config-date-timezones.h:12
 msgid "Africa/Bujumbura"
-msgstr ""
+msgstr "África/Bujumbura"
 
 #: system-config-date-timezones.h:13
 msgid "Africa/Cairo"
@@ -83,7 +84,7 @@ msgstr "África/Ceuta"
 
 #: system-config-date-timezones.h:16
 msgid "Africa/Conakry"
-msgstr ""
+msgstr "África/Conakry"
 
 #: system-config-date-timezones.h:17
 msgid "Africa/Dakar"
@@ -91,131 +92,131 @@ msgstr "África/Dakar"
 
 #: system-config-date-timezones.h:18
 msgid "Africa/Dar_es_Salaam"
-msgstr ""
+msgstr "África/Dar_es_Salaam"
 
 #: system-config-date-timezones.h:19
 msgid "Africa/Djibouti"
-msgstr ""
+msgstr "África/Djibouti"
 
 #: system-config-date-timezones.h:20
 msgid "Africa/Douala"
-msgstr ""
+msgstr "África/Douala"
 
 #: system-config-date-timezones.h:21
 msgid "Africa/El_Aaiun"
-msgstr ""
+msgstr "África/El_Aaiun"
 
 #: system-config-date-timezones.h:22
 msgid "Africa/Freetown"
-msgstr ""
+msgstr "África/Freetown"
 
 #: system-config-date-timezones.h:23
 msgid "Africa/Gaborone"
-msgstr ""
+msgstr "África/Gaborone"
 
 #: system-config-date-timezones.h:24
 msgid "Africa/Harare"
-msgstr ""
+msgstr "África/Harare"
 
 #: system-config-date-timezones.h:25
 msgid "Africa/Johannesburg"
-msgstr ""
+msgstr "África/Johannesburg"
 
 #: system-config-date-timezones.h:26
 msgid "Africa/Juba"
-msgstr ""
+msgstr "África/Juba"
 
 #: system-config-date-timezones.h:27
 msgid "Africa/Kampala"
-msgstr ""
+msgstr "África/Kampala"
 
 #: system-config-date-timezones.h:28
 msgid "Africa/Khartoum"
-msgstr ""
+msgstr "África/Khartoum"
 
 #: system-config-date-timezones.h:29
 msgid "Africa/Kigali"
-msgstr ""
+msgstr "África/Kigali"
 
 #: system-config-date-timezones.h:30
 msgid "Africa/Kinshasa"
-msgstr ""
+msgstr "África/Kinshasa"
 
 #: system-config-date-timezones.h:31
 msgid "Africa/Lagos"
-msgstr ""
+msgstr "África/Lagos"
 
 #: system-config-date-timezones.h:32
 msgid "Africa/Libreville"
-msgstr ""
+msgstr "África/Libreville"
 
 #: system-config-date-timezones.h:33
 msgid "Africa/Lome"
-msgstr ""
+msgstr "África/Lome"
 
 #: system-config-date-timezones.h:34
 msgid "Africa/Luanda"
-msgstr ""
+msgstr "África/Luanda"
 
 #: system-config-date-timezones.h:35
 msgid "Africa/Lubumbashi"
-msgstr ""
+msgstr "África/Lubumbashi"
 
 #: system-config-date-timezones.h:36
 msgid "Africa/Lusaka"
-msgstr ""
+msgstr "África/Lusaka"
 
 #: system-config-date-timezones.h:37
 msgid "Africa/Malabo"
-msgstr ""
+msgstr "África/Malabo"
 
 #: system-config-date-timezones.h:38
 msgid "Africa/Maputo"
-msgstr ""
+msgstr "África/Maputo"
 
 #: system-config-date-timezones.h:39
 msgid "Africa/Maseru"
-msgstr ""
+msgstr "África/Maseru"
 
 #: system-config-date-timezones.h:40
 msgid "Africa/Mbabane"
-msgstr ""
+msgstr "África/Mbabane"
 
 #: system-config-date-timezones.h:41
 msgid "Africa/Mogadishu"
-msgstr ""
+msgstr "África/Mogadishu"
 
 #: system-config-date-timezones.h:42
 msgid "Africa/Monrovia"
-msgstr ""
+msgstr "África/Monrovia"
 
 #: system-config-date-timezones.h:43
 msgid "Africa/Nairobi"
-msgstr ""
+msgstr "África/Nairobi"
 
 #: system-config-date-timezones.h:44
 msgid "Africa/Ndjamena"
-msgstr ""
+msgstr "África/Ndjamena"
 
 #: system-config-date-timezones.h:45
 msgid "Africa/Niamey"
-msgstr ""
+msgstr "África/Niamey"
 
 #: system-config-date-timezones.h:46
 msgid "Africa/Nouakchott"
-msgstr ""
+msgstr "África/Nouakchott"
 
 #: system-config-date-timezones.h:47
 msgid "Africa/Ouagadougou"
-msgstr ""
+msgstr "África/Ouagadougou"
 
 #: system-config-date-timezones.h:48
 msgid "Africa/Porto-Novo"
-msgstr ""
+msgstr "África/Porto-Novo"
 
 #: system-config-date-timezones.h:49
 msgid "Africa/Sao_Tome"
-msgstr ""
+msgstr "África/Sao_Tome"
 
 #: system-config-date-timezones.h:50
 msgid "Africa/Tripoli"
@@ -227,19 +228,19 @@ msgstr "África/Tunisia"
 
 #: system-config-date-timezones.h:52
 msgid "Africa/Windhoek"
-msgstr ""
+msgstr "África/Windhoek"
 
 #: system-config-date-timezones.h:53
 msgid "America/Adak"
-msgstr ""
+msgstr "América/Adak"
 
 #: system-config-date-timezones.h:54
 msgid "America/Anchorage"
-msgstr ""
+msgstr "América/Anchorage"
 
 #: system-config-date-timezones.h:55
 msgid "America/Anguilla"
-msgstr ""
+msgstr "América/Anguilla"
 
 #: system-config-date-timezones.h:56
 msgid "America/Antigua"
@@ -247,7 +248,7 @@ msgstr "América/Antigua"
 
 #: system-config-date-timezones.h:57
 msgid "America/Araguaina"
-msgstr ""
+msgstr "América/Araguaina"
 
 #: system-config-date-timezones.h:58
 msgid "America/Argentina/Buenos_Aires"
@@ -267,7 +268,7 @@ msgstr "América/Arxentina/Jujuy"
 
 #: system-config-date-timezones.h:62
 msgid "America/Argentina/La_Rioja"
-msgstr ""
+msgstr "América/Argentina/La_Rioja"
 
 #: system-config-date-timezones.h:63
 msgid "America/Argentina/Mendoza"
@@ -275,7 +276,7 @@ msgstr "América/Arxentina/Mendoza"
 
 #: system-config-date-timezones.h:64
 msgid "America/Argentina/Rio_Gallegos"
-msgstr ""
+msgstr "América/Argentina/Rio_Gallegos"
 
 #: system-config-date-timezones.h:65
 msgid "America/Argentina/Salta"
@@ -311,11 +312,11 @@ msgstr "América/Atikokan"
 
 #: system-config-date-timezones.h:73
 msgid "America/Bahia"
-msgstr ""
+msgstr "América/Bahia"
 
 #: system-config-date-timezones.h:74
 msgid "America/Bahia_Banderas"
-msgstr ""
+msgstr "América/Bahia_Banderas"
 
 #: system-config-date-timezones.h:75
 msgid "America/Barbados"
@@ -327,15 +328,15 @@ msgstr "América/Belém"
 
 #: system-config-date-timezones.h:77
 msgid "America/Belize"
-msgstr ""
+msgstr "América/Belize"
 
 #: system-config-date-timezones.h:78
 msgid "America/Blanc-Sablon"
-msgstr ""
+msgstr "América/Blanc-Sablon"
 
 #: system-config-date-timezones.h:79
 msgid "America/Boa_Vista"
-msgstr ""
+msgstr "América/Boa_Vista"
 
 #: system-config-date-timezones.h:80
 msgid "America/Bogota"
@@ -343,11 +344,11 @@ msgstr "América/Bogotá"
 
 #: system-config-date-timezones.h:81
 msgid "America/Boise"
-msgstr ""
+msgstr "América/Boise"
 
 #: system-config-date-timezones.h:82
 msgid "America/Cambridge_Bay"
-msgstr ""
+msgstr "América/Cambridge_Bay"
 
 #: system-config-date-timezones.h:83
 msgid "America/Campo_Grande"
@@ -363,11 +364,11 @@ msgstr "América/Caracas"
 
 #: system-config-date-timezones.h:86
 msgid "America/Cayenne"
-msgstr ""
+msgstr "América/Cayenne"
 
 #: system-config-date-timezones.h:87
 msgid "America/Cayman"
-msgstr ""
+msgstr "América/Cayman"
 
 #: system-config-date-timezones.h:88
 msgid "America/Chicago"
@@ -383,19 +384,19 @@ msgstr "América/Costa_Rica"
 
 #: system-config-date-timezones.h:91
 msgid "America/Creston"
-msgstr ""
+msgstr "América/Creston"
 
 #: system-config-date-timezones.h:92
 msgid "America/Cuiaba"
-msgstr ""
+msgstr "América/Cuiaba"
 
 #: system-config-date-timezones.h:93
 msgid "America/Curacao"
-msgstr ""
+msgstr "América/Curacao"
 
 #: system-config-date-timezones.h:94
 msgid "America/Danmarkshavn"
-msgstr ""
+msgstr "América/Danmarkshavn"
 
 #: system-config-date-timezones.h:95
 msgid "America/Dawson"
@@ -403,23 +404,23 @@ msgstr "América/Dawson"
 
 #: system-config-date-timezones.h:96
 msgid "America/Dawson_Creek"
-msgstr ""
+msgstr "América/Dawson_Creek"
 
 #: system-config-date-timezones.h:97
 msgid "America/Denver"
-msgstr ""
+msgstr "América/Denver"
 
 #: system-config-date-timezones.h:98
 msgid "America/Detroit"
-msgstr ""
+msgstr "América/Detroit"
 
 #: system-config-date-timezones.h:99
 msgid "America/Dominica"
-msgstr ""
+msgstr "América/Dominica"
 
 #: system-config-date-timezones.h:100
 msgid "America/Edmonton"
-msgstr ""
+msgstr "América/Edmonton"
 
 #: system-config-date-timezones.h:101
 msgid "America/Eirunepe"
@@ -431,7 +432,7 @@ msgstr "América/El_Salvador"
 
 #: system-config-date-timezones.h:103
 msgid "America/Fort_Nelson"
-msgstr ""
+msgstr "América/Fort_Nelson"
 
 #: system-config-date-timezones.h:104
 msgid "America/Fortaleza"
@@ -439,19 +440,19 @@ msgstr "América/Fortaleza"
 
 #: system-config-date-timezones.h:105
 msgid "America/Glace_Bay"
-msgstr ""
+msgstr "América/Glace_Bay"
 
 #: system-config-date-timezones.h:106
 msgid "America/Godthab"
-msgstr ""
+msgstr "América/Godthab"
 
 #: system-config-date-timezones.h:107
 msgid "America/Goose_Bay"
-msgstr ""
+msgstr "América/Goose_Bay"
 
 #: system-config-date-timezones.h:108
 msgid "America/Grand_Turk"
-msgstr ""
+msgstr "América/Grand_Turk"
 
 #: system-config-date-timezones.h:109
 msgid "America/Grenada"
@@ -471,7 +472,7 @@ msgstr "América/Guayaquil"
 
 #: system-config-date-timezones.h:113
 msgid "America/Guyana"
-msgstr ""
+msgstr "América/Guyana"
 
 #: system-config-date-timezones.h:114
 msgid "America/Halifax"
@@ -483,11 +484,11 @@ msgstr "América/A Habana"
 
 #: system-config-date-timezones.h:116
 msgid "America/Hermosillo"
-msgstr ""
+msgstr "América/Hermosillo"
 
 #: system-config-date-timezones.h:117
 msgid "America/Indiana/Indianapolis"
-msgstr ""
+msgstr "América/Indiana/Indianapolis"
 
 #: system-config-date-timezones.h:118
 msgid "America/Indiana/Knox"
@@ -495,35 +496,35 @@ msgstr "América/Indiana/Knox"
 
 #: system-config-date-timezones.h:119
 msgid "America/Indiana/Marengo"
-msgstr ""
+msgstr "América/Indiana/Marengo"
 
 #: system-config-date-timezones.h:120
 msgid "America/Indiana/Petersburg"
-msgstr ""
+msgstr "América/Indiana/Petersburg"
 
 #: system-config-date-timezones.h:121
 msgid "America/Indiana/Tell_City"
-msgstr ""
+msgstr "América/Indiana/Tell_City"
 
 #: system-config-date-timezones.h:122
 msgid "America/Indiana/Vevay"
-msgstr ""
+msgstr "América/Indiana/Vevay"
 
 #: system-config-date-timezones.h:123
 msgid "America/Indiana/Vincennes"
-msgstr ""
+msgstr "América/Indiana/Vincennes"
 
 #: system-config-date-timezones.h:124
 msgid "America/Indiana/Winamac"
-msgstr ""
+msgstr "América/Indiana/Winamac"
 
 #: system-config-date-timezones.h:125
 msgid "America/Inuvik"
-msgstr ""
+msgstr "América/Inuvik"
 
 #: system-config-date-timezones.h:126
 msgid "America/Iqaluit"
-msgstr ""
+msgstr "América/Iqaluit"
 
 #: system-config-date-timezones.h:127
 msgid "America/Jamaica"
@@ -531,19 +532,19 @@ msgstr "América/Xamaica"
 
 #: system-config-date-timezones.h:128
 msgid "America/Juneau"
-msgstr ""
+msgstr "América/Juneau"
 
 #: system-config-date-timezones.h:129
 msgid "America/Kentucky/Louisville"
-msgstr ""
+msgstr "América/Kentucky/Louisville"
 
 #: system-config-date-timezones.h:130
 msgid "America/Kentucky/Monticello"
-msgstr ""
+msgstr "América/Kentucky/Monticello"
 
 #: system-config-date-timezones.h:131
 msgid "America/Kralendijk"
-msgstr ""
+msgstr "América/Kralendijk"
 
 #: system-config-date-timezones.h:132
 msgid "America/La_Paz"
@@ -559,27 +560,27 @@ msgstr "América/Os_Ánxeles"
 
 #: system-config-date-timezones.h:135
 msgid "America/Lower_Princes"
-msgstr ""
+msgstr "América/Lower_Princes"
 
 #: system-config-date-timezones.h:136
 msgid "America/Maceio"
-msgstr ""
+msgstr "América/Maceio"
 
 #: system-config-date-timezones.h:137
 msgid "America/Managua"
-msgstr ""
+msgstr "América/Managua"
 
 #: system-config-date-timezones.h:138
 msgid "America/Manaus"
-msgstr ""
+msgstr "América/Manaus"
 
 #: system-config-date-timezones.h:139
 msgid "America/Marigot"
-msgstr ""
+msgstr "América/Marigot"
 
 #: system-config-date-timezones.h:140
 msgid "America/Martinique"
-msgstr ""
+msgstr "América/Martinique"
 
 #: system-config-date-timezones.h:141
 msgid "America/Matamoros"
@@ -587,123 +588,123 @@ msgstr "América/Matamoros"
 
 #: system-config-date-timezones.h:142
 msgid "America/Mazatlan"
-msgstr ""
+msgstr "América/Mazatlan"
 
 #: system-config-date-timezones.h:143
 msgid "America/Menominee"
-msgstr ""
+msgstr "América/Menominee"
 
 #: system-config-date-timezones.h:144
 msgid "America/Merida"
-msgstr ""
+msgstr "América/Merida"
 
 #: system-config-date-timezones.h:145
 msgid "America/Metlakatla"
-msgstr ""
+msgstr "América/Metlakatla"
 
 #: system-config-date-timezones.h:146
 msgid "America/Mexico_City"
-msgstr ""
+msgstr "América/Mexico_City"
 
 #: system-config-date-timezones.h:147
 msgid "America/Miquelon"
-msgstr ""
+msgstr "América/Miquelon"
 
 #: system-config-date-timezones.h:148
 msgid "America/Moncton"
-msgstr ""
+msgstr "América/Moncton"
 
 #: system-config-date-timezones.h:149
 msgid "America/Monterrey"
-msgstr ""
+msgstr "América/Monterrey"
 
 #: system-config-date-timezones.h:150
 msgid "America/Montevideo"
-msgstr ""
+msgstr "América/Montevideo"
 
 #: system-config-date-timezones.h:151
 msgid "America/Montserrat"
-msgstr ""
+msgstr "América/Montserrat"
 
 #: system-config-date-timezones.h:152
 msgid "America/Nassau"
-msgstr ""
+msgstr "América/Nassau"
 
 #: system-config-date-timezones.h:153
 msgid "America/New_York"
-msgstr ""
+msgstr "América/New_York"
 
 #: system-config-date-timezones.h:154
 msgid "America/Nipigon"
-msgstr ""
+msgstr "América/Nipigon"
 
 #: system-config-date-timezones.h:155
 msgid "America/Nome"
-msgstr ""
+msgstr "América/Nome"
 
 #: system-config-date-timezones.h:156
 msgid "America/Noronha"
-msgstr ""
+msgstr "América/Noronha"
 
 #: system-config-date-timezones.h:157
 msgid "America/North_Dakota/Beulah"
-msgstr ""
+msgstr "América/North_Dakota/Beulah"
 
 #: system-config-date-timezones.h:158
 msgid "America/North_Dakota/Center"
-msgstr ""
+msgstr "América/North_Dakota/Center"
 
 #: system-config-date-timezones.h:159
 msgid "America/North_Dakota/New_Salem"
-msgstr ""
+msgstr "América/North_Dakota/New_Salem"
 
 #: system-config-date-timezones.h:160
 msgid "America/Ojinaga"
-msgstr ""
+msgstr "América/Ojinaga"
 
 #: system-config-date-timezones.h:161
 msgid "America/Panama"
-msgstr ""
+msgstr "América/Panama"
 
 #: system-config-date-timezones.h:162
 msgid "America/Pangnirtung"
-msgstr ""
+msgstr "América/Pangnirtung"
 
 #: system-config-date-timezones.h:163
 msgid "America/Paramaribo"
-msgstr ""
+msgstr "América/Paramaribo"
 
 #: system-config-date-timezones.h:164
 msgid "America/Phoenix"
-msgstr ""
+msgstr "América/Phoenix"
 
 #: system-config-date-timezones.h:165
 msgid "America/Port-au-Prince"
-msgstr ""
+msgstr "América/Port-au-Prince"
 
 #: system-config-date-timezones.h:166
 msgid "America/Port_of_Spain"
-msgstr ""
+msgstr "América/Port_of_Spain"
 
 #: system-config-date-timezones.h:167
 msgid "America/Porto_Velho"
-msgstr ""
+msgstr "América/Porto_Velho"
 
 #: system-config-date-timezones.h:168
 msgid "America/Puerto_Rico"
-msgstr ""
+msgstr "América/Puerto_Rico"
 
 #: system-config-date-timezones.h:169
 msgid "America/Punta_Arenas"
-msgstr ""
+msgstr "América/Punta_Arenas"
 
 #: system-config-date-timezones.h:170
 msgid "America/Rainy_River"
-msgstr ""
+msgstr "América/Rainy_River"
 
 #: system-config-date-timezones.h:171
 msgid "America/Rankin_Inlet"
-msgstr ""
+msgstr "América/Rankin_Inlet"
 
 #: system-config-date-timezones.h:172
 msgid "America/Recife"
@@ -711,19 +712,19 @@ msgstr "América/Recife"
 
 #: system-config-date-timezones.h:173
 msgid "America/Regina"
-msgstr ""
+msgstr "América/Regina"
 
 #: system-config-date-timezones.h:174
 msgid "America/Resolute"
-msgstr ""
+msgstr "América/Resolute"
 
 #: system-config-date-timezones.h:175
 msgid "America/Rio_Branco"
-msgstr ""
+msgstr "América/Rio_Branco"
 
 #: system-config-date-timezones.h:176
 msgid "America/Santarem"
-msgstr ""
+msgstr "América/Santarem"
 
 #: system-config-date-timezones.h:177
 msgid "America/Santiago"
@@ -735,43 +736,43 @@ msgstr "América/Santo_Domingo"
 
 #: system-config-date-timezones.h:179
 msgid "America/Sao_Paulo"
-msgstr ""
+msgstr "América/Sao_Paulo"
 
 #: system-config-date-timezones.h:180
 msgid "America/Scoresbysund"
-msgstr ""
+msgstr "América/Scoresbysund"
 
 #: system-config-date-timezones.h:181
 msgid "America/Sitka"
-msgstr ""
+msgstr "América/Sitka"
 
 #: system-config-date-timezones.h:182
 msgid "America/St_Barthelemy"
-msgstr ""
+msgstr "América/St_Barthelemy"
 
 #: system-config-date-timezones.h:183
 msgid "America/St_Johns"
-msgstr ""
+msgstr "América/St_Johns"
 
 #: system-config-date-timezones.h:184
 msgid "America/St_Kitts"
-msgstr ""
+msgstr "América/St_Kitts"
 
 #: system-config-date-timezones.h:185
 msgid "America/St_Lucia"
-msgstr ""
+msgstr "América/St_Lucia"
 
 #: system-config-date-timezones.h:186
 msgid "America/St_Thomas"
-msgstr ""
+msgstr "América/St_Thomas"
 
 #: system-config-date-timezones.h:187
 msgid "America/St_Vincent"
-msgstr ""
+msgstr "América/St_Vincent"
 
 #: system-config-date-timezones.h:188
 msgid "America/Swift_Current"
-msgstr ""
+msgstr "América/Swift_Current"
 
 #: system-config-date-timezones.h:189
 msgid "America/Tegucigalpa"
@@ -779,11 +780,11 @@ msgstr "América/Tegucigalpa"
 
 #: system-config-date-timezones.h:190
 msgid "America/Thule"
-msgstr ""
+msgstr "América/Thule"
 
 #: system-config-date-timezones.h:191
 msgid "America/Thunder_Bay"
-msgstr ""
+msgstr "América/Thunder_Bay"
 
 #: system-config-date-timezones.h:192
 msgid "America/Tijuana"
@@ -795,379 +796,379 @@ msgstr "América/Toronto"
 
 #: system-config-date-timezones.h:194
 msgid "America/Tortola"
-msgstr ""
+msgstr "América/Tortola"
 
 #: system-config-date-timezones.h:195
 msgid "America/Vancouver"
-msgstr ""
+msgstr "América/Vancouver"
 
 #: system-config-date-timezones.h:196
 msgid "America/Whitehorse"
-msgstr ""
+msgstr "América/Whitehorse"
 
 #: system-config-date-timezones.h:197
 msgid "America/Winnipeg"
-msgstr ""
+msgstr "América/Winnipeg"
 
 #: system-config-date-timezones.h:198
 msgid "America/Yakutat"
-msgstr ""
+msgstr "América/Yakutat"
 
 #: system-config-date-timezones.h:199
 msgid "America/Yellowknife"
-msgstr ""
+msgstr "América/Yellowknife"
 
 #: system-config-date-timezones.h:200
 msgid "Antarctica/Casey"
-msgstr ""
+msgstr "Antártica/Casey"
 
 #: system-config-date-timezones.h:201
 msgid "Antarctica/Davis"
-msgstr ""
+msgstr "Antártica/Davis"
 
 #: system-config-date-timezones.h:202
 msgid "Antarctica/DumontDUrville"
-msgstr ""
+msgstr "Antártica/DumontDUrville"
 
 #: system-config-date-timezones.h:203
 msgid "Antarctica/Macquarie"
-msgstr ""
+msgstr "Antártica/Macquarie"
 
 #: system-config-date-timezones.h:204
 msgid "Antarctica/Mawson"
-msgstr ""
+msgstr "Antártica/Mawson"
 
 #: system-config-date-timezones.h:205
 msgid "Antarctica/McMurdo"
-msgstr ""
+msgstr "Antártica/McMurdo"
 
 #: system-config-date-timezones.h:206
 msgid "Antarctica/Palmer"
-msgstr ""
+msgstr "Antártica/Palmer"
 
 #: system-config-date-timezones.h:207
 msgid "Antarctica/Rothera"
-msgstr ""
+msgstr "Antártica/Rothera"
 
 #: system-config-date-timezones.h:208
 msgid "Antarctica/Syowa"
-msgstr ""
+msgstr "Antártica/Syowa"
 
 #: system-config-date-timezones.h:209
 msgid "Antarctica/Troll"
-msgstr ""
+msgstr "Antártica/Troll"
 
 #: system-config-date-timezones.h:210
 msgid "Antarctica/Vostok"
-msgstr ""
+msgstr "Antártica/Vostok"
 
 #: system-config-date-timezones.h:211
 msgid "Arctic/Longyearbyen"
-msgstr ""
+msgstr "Ártico/Longyearbyen"
 
 #: system-config-date-timezones.h:212
 msgid "Asia/Aden"
-msgstr ""
+msgstr "Asia/Aden"
 
 #: system-config-date-timezones.h:213
 msgid "Asia/Almaty"
-msgstr ""
+msgstr "Asia/Almaty"
 
 #: system-config-date-timezones.h:214
 msgid "Asia/Amman"
-msgstr ""
+msgstr "Asia/Amman"
 
 #: system-config-date-timezones.h:215
 msgid "Asia/Anadyr"
-msgstr ""
+msgstr "Asia/Anadyr"
 
 #: system-config-date-timezones.h:216
 msgid "Asia/Aqtau"
-msgstr ""
+msgstr "Asia/Aqtau"
 
 #: system-config-date-timezones.h:217
 msgid "Asia/Aqtobe"
-msgstr ""
+msgstr "Asia/Aqtobe"
 
 #: system-config-date-timezones.h:218
 msgid "Asia/Ashgabat"
-msgstr ""
+msgstr "Asia/Ashgabat"
 
 #: system-config-date-timezones.h:219
 msgid "Asia/Atyrau"
-msgstr ""
+msgstr "Asia/Atyrau"
 
 #: system-config-date-timezones.h:220
 msgid "Asia/Baghdad"
-msgstr ""
+msgstr "Asia/Baghdad"
 
 #: system-config-date-timezones.h:221
 msgid "Asia/Bahrain"
-msgstr ""
+msgstr "Asia/Bahrain"
 
 #: system-config-date-timezones.h:222
 msgid "Asia/Baku"
-msgstr ""
+msgstr "Asia/Baku"
 
 #: system-config-date-timezones.h:223
 msgid "Asia/Bangkok"
-msgstr ""
+msgstr "Asia/Bangkok"
 
 #: system-config-date-timezones.h:224
 msgid "Asia/Barnaul"
-msgstr ""
+msgstr "Asia/Barnaul"
 
 #: system-config-date-timezones.h:225
 msgid "Asia/Beijing"
-msgstr ""
+msgstr "Asia/Beijing"
 
 #: system-config-date-timezones.h:226
 msgid "Asia/Beirut"
-msgstr ""
+msgstr "Asia/Beirut"
 
 #: system-config-date-timezones.h:227
 msgid "Asia/Bishkek"
-msgstr ""
+msgstr "Asia/Bishkek"
 
 #: system-config-date-timezones.h:228
 msgid "Asia/Brunei"
-msgstr ""
+msgstr "Asia/Brunei"
 
 #: system-config-date-timezones.h:229
 msgid "Asia/Chengdu"
-msgstr ""
+msgstr "Asia/Chengdu"
 
 #: system-config-date-timezones.h:230
 msgid "Asia/Chita"
-msgstr ""
+msgstr "Asia/Chita"
 
 #: system-config-date-timezones.h:231
 msgid "Asia/Choibalsan"
-msgstr ""
+msgstr "Asia/Choibalsan"
 
 #: system-config-date-timezones.h:232
 msgid "Asia/Chongqing"
-msgstr ""
+msgstr "Asia/Chongqing"
 
 #: system-config-date-timezones.h:233
 msgid "Asia/Colombo"
-msgstr ""
+msgstr "Asia/Colombo"
 
 #: system-config-date-timezones.h:234
 msgid "Asia/Damascus"
-msgstr ""
+msgstr "Asia/Damascus"
 
 #: system-config-date-timezones.h:235
 msgid "Asia/Dhaka"
-msgstr ""
+msgstr "Asia/Dhaka"
 
 #: system-config-date-timezones.h:236
 msgid "Asia/Dili"
-msgstr ""
+msgstr "Asia/Dili"
 
 #: system-config-date-timezones.h:237
 msgid "Asia/Dubai"
-msgstr ""
+msgstr "Asia/Dubai"
 
 #: system-config-date-timezones.h:238
 msgid "Asia/Dushanbe"
-msgstr ""
+msgstr "Asia/Dushanbe"
 
 #: system-config-date-timezones.h:239
 msgid "Asia/Famagusta"
-msgstr ""
+msgstr "Asia/Famagusta"
 
 #: system-config-date-timezones.h:240
 msgid "Asia/Gaza"
-msgstr ""
+msgstr "Asia/Gaza"
 
 #: system-config-date-timezones.h:241
 msgid "Asia/Hebron"
-msgstr ""
+msgstr "Asia/Hebron"
 
 #: system-config-date-timezones.h:242
 msgid "Asia/Ho_Chi_Minh"
-msgstr ""
+msgstr "Asia/Ho_Chi_Minh"
 
 #: system-config-date-timezones.h:243
 msgid "Asia/Hong_Kong"
-msgstr ""
+msgstr "Asia/Hong_Kong"
 
 #: system-config-date-timezones.h:244
 msgid "Asia/Hovd"
-msgstr ""
+msgstr "Asia/Hovd"
 
 #: system-config-date-timezones.h:245
 msgid "Asia/Irkutsk"
-msgstr ""
+msgstr "Asia/Irkutsk"
 
 #: system-config-date-timezones.h:246
 msgid "Asia/Jakarta"
-msgstr ""
+msgstr "Asia/Jakarta"
 
 #: system-config-date-timezones.h:247
 msgid "Asia/Jayapura"
-msgstr ""
+msgstr "Asia/Jayapura"
 
 #: system-config-date-timezones.h:248
 msgid "Asia/Jerusalem"
-msgstr ""
+msgstr "Asia/Jerusalem"
 
 #: system-config-date-timezones.h:249
 msgid "Asia/Kabul"
-msgstr ""
+msgstr "Asia/Kabul"
 
 #: system-config-date-timezones.h:250
 msgid "Asia/Kamchatka"
-msgstr ""
+msgstr "Asia/Kamchatka"
 
 #: system-config-date-timezones.h:251
 msgid "Asia/Karachi"
-msgstr ""
+msgstr "Asia/Karachi"
 
 #: system-config-date-timezones.h:252
 msgid "Asia/Kathmandu"
-msgstr ""
+msgstr "Asia/Kathmandu"
 
 #: system-config-date-timezones.h:253
 msgid "Asia/Khandyga"
-msgstr ""
+msgstr "Asia/Khandyga"
 
 #: system-config-date-timezones.h:254
 msgid "Asia/Kolkata"
-msgstr ""
+msgstr "Asia/Kolkata"
 
 #: system-config-date-timezones.h:255
 msgid "Asia/Krasnoyarsk"
-msgstr ""
+msgstr "Asia/Krasnoyarsk"
 
 #: system-config-date-timezones.h:256
 msgid "Asia/Kuala_Lumpur"
-msgstr ""
+msgstr "Asia/Kuala_Lumpur"
 
 #: system-config-date-timezones.h:257
 msgid "Asia/Kuching"
-msgstr ""
+msgstr "Asia/Kuching"
 
 #: system-config-date-timezones.h:258
 msgid "Asia/Kuwait"
-msgstr ""
+msgstr "Asia/Kuwait"
 
 #: system-config-date-timezones.h:259
 msgid "Asia/Macau"
-msgstr ""
+msgstr "Asia/Macau"
 
 #: system-config-date-timezones.h:260
 msgid "Asia/Magadan"
-msgstr ""
+msgstr "Asia/Magadan"
 
 #: system-config-date-timezones.h:261
 msgid "Asia/Makassar"
-msgstr ""
+msgstr "Asia/Makassar"
 
 #: system-config-date-timezones.h:262
 msgid "Asia/Manila"
-msgstr ""
+msgstr "Asia/Manila"
 
 #: system-config-date-timezones.h:263
 msgid "Asia/Muscat"
-msgstr ""
+msgstr "Asia/Muscat"
 
 #: system-config-date-timezones.h:264
 msgid "Asia/Nanjing"
-msgstr ""
+msgstr "Asia/Nanjing"
 
 #: system-config-date-timezones.h:265
 msgid "Asia/Nicosia"
-msgstr ""
+msgstr "Asia/Nicosia"
 
 #: system-config-date-timezones.h:266
 msgid "Asia/Novokuznetsk"
-msgstr ""
+msgstr "Asia/Novokuznetsk"
 
 #: system-config-date-timezones.h:267
 msgid "Asia/Novosibirsk"
-msgstr ""
+msgstr "Asia/Novosibirsk"
 
 #: system-config-date-timezones.h:268
 msgid "Asia/Omsk"
-msgstr ""
+msgstr "Asia/Omsk"
 
 #: system-config-date-timezones.h:269
 msgid "Asia/Oral"
-msgstr ""
+msgstr "Asia/Oral"
 
 #: system-config-date-timezones.h:270
 msgid "Asia/Phnom_Penh"
-msgstr ""
+msgstr "Asia/Phnom_Penh"
 
 #: system-config-date-timezones.h:271
 msgid "Asia/Pontianak"
-msgstr ""
+msgstr "Asia/Pontianak"
 
 #: system-config-date-timezones.h:272
 msgid "Asia/Pyongyang"
-msgstr ""
+msgstr "Asia/Pyongyang"
 
 #: system-config-date-timezones.h:273
 msgid "Asia/Qatar"
-msgstr ""
+msgstr "Asia/Qatar"
 
 #: system-config-date-timezones.h:274
 msgid "Asia/Qostanay"
-msgstr ""
+msgstr "Asia/Qostanay"
 
 #: system-config-date-timezones.h:275
 msgid "Asia/Qyzylorda"
-msgstr ""
+msgstr "Asia/Qyzylorda"
 
 #: system-config-date-timezones.h:276
 msgid "Asia/Riyadh"
-msgstr ""
+msgstr "Asia/Riyadh"
 
 #: system-config-date-timezones.h:277
 msgid "Asia/Sakhalin"
-msgstr ""
+msgstr "Asia/Sakhalin"
 
 #: system-config-date-timezones.h:278
 msgid "Asia/Samarkand"
-msgstr ""
+msgstr "Asia/Samarkand"
 
 #: system-config-date-timezones.h:279
 msgid "Asia/Seoul"
-msgstr ""
+msgstr "Asia/Seoul"
 
 #: system-config-date-timezones.h:280
 msgid "Asia/Shanghai"
-msgstr ""
+msgstr "Asia/Shanghai"
 
 #: system-config-date-timezones.h:281
 msgid "Asia/Singapore"
-msgstr ""
+msgstr "Asia/Singapore"
 
 #: system-config-date-timezones.h:282
 msgid "Asia/Srednekolymsk"
-msgstr ""
+msgstr "Asia/Srednekolymsk"
 
 #: system-config-date-timezones.h:283
 msgid "Asia/Taipei"
-msgstr ""
+msgstr "Asia/Taipei"
 
 #: system-config-date-timezones.h:284
 msgid "Asia/Tashkent"
-msgstr ""
+msgstr "Asia/Tashkent"
 
 #: system-config-date-timezones.h:285
 msgid "Asia/Tbilisi"
-msgstr ""
+msgstr "Asia/Tbilisi"
 
 #: system-config-date-timezones.h:286
 msgid "Asia/Tehran"
-msgstr ""
+msgstr "Asia/Tehran"
 
 #: system-config-date-timezones.h:287
 msgid "Asia/Thimphu"
-msgstr ""
+msgstr "Asia/Thimphu"
 
 #: system-config-date-timezones.h:288
 msgid "Asia/Tokyo"
@@ -1175,51 +1176,51 @@ msgstr "Asia/Toquio"
 
 #: system-config-date-timezones.h:289
 msgid "Asia/Tomsk"
-msgstr ""
+msgstr "Asia/Tomsk"
 
 #: system-config-date-timezones.h:290
 msgid "Asia/Ulaanbaatar"
-msgstr ""
+msgstr "Asia/Ulaanbaatar"
 
 #: system-config-date-timezones.h:291
 msgid "Asia/Urumqi"
-msgstr ""
+msgstr "Asia/Urumqi"
 
 #: system-config-date-timezones.h:292
 msgid "Asia/Ust-Nera"
-msgstr ""
+msgstr "Asia/Ust-Nera"
 
 #: system-config-date-timezones.h:293
 msgid "Asia/Vientiane"
-msgstr ""
+msgstr "Asia/Vientiane"
 
 #: system-config-date-timezones.h:294
 msgid "Asia/Vladivostok"
-msgstr ""
+msgstr "Asia/Vladivostok"
 
 #: system-config-date-timezones.h:295
 msgid "Asia/Wuhan"
-msgstr ""
+msgstr "Asia/Wuhan"
 
 #: system-config-date-timezones.h:296
 msgid "Asia/Xian"
-msgstr ""
+msgstr "Asia/Xian"
 
 #: system-config-date-timezones.h:297
 msgid "Asia/Yakutsk"
-msgstr ""
+msgstr "Asia/Yakutsk"
 
 #: system-config-date-timezones.h:298
 msgid "Asia/Yangon"
-msgstr ""
+msgstr "Asia/Yangon"
 
 #: system-config-date-timezones.h:299
 msgid "Asia/Yekaterinburg"
-msgstr ""
+msgstr "Asia/Yekaterinburg"
 
 #: system-config-date-timezones.h:300
 msgid "Asia/Yerevan"
-msgstr ""
+msgstr "Asia/Yerevan"
 
 #: system-config-date-timezones.h:301
 msgid "Atlantic/Azores"
@@ -1227,7 +1228,7 @@ msgstr "Atlántico/Azores"
 
 #: system-config-date-timezones.h:302
 msgid "Atlantic/Bermuda"
-msgstr ""
+msgstr "Atlántico/Bermuda"
 
 #: system-config-date-timezones.h:303
 msgid "Atlantic/Canary"
@@ -1243,23 +1244,23 @@ msgstr "Atlántico/Feroe"
 
 #: system-config-date-timezones.h:306
 msgid "Atlantic/Madeira"
-msgstr ""
+msgstr "Atlántico/Madeira"
 
 #: system-config-date-timezones.h:307
 msgid "Atlantic/Reykjavik"
-msgstr ""
+msgstr "Atlántico/Reykjavik"
 
 #: system-config-date-timezones.h:308
 msgid "Atlantic/South_Georgia"
-msgstr ""
+msgstr "Atlántico/South_Georgia"
 
 #: system-config-date-timezones.h:309
 msgid "Atlantic/St_Helena"
-msgstr ""
+msgstr "Atlántico/St_Helena"
 
 #: system-config-date-timezones.h:310
 msgid "Atlantic/Stanley"
-msgstr ""
+msgstr "Atlántico/Stanley"
 
 #: system-config-date-timezones.h:311
 msgid "Australia/Adelaide"
@@ -1271,7 +1272,7 @@ msgstr "Australia/Brisbane"
 
 #: system-config-date-timezones.h:313
 msgid "Australia/Broken_Hill"
-msgstr ""
+msgstr "Australia/Broken_Hill"
 
 #: system-config-date-timezones.h:314
 msgid "Australia/Currie"
@@ -1283,7 +1284,7 @@ msgstr "Australia/Darwin"
 
 #: system-config-date-timezones.h:316
 msgid "Australia/Eucla"
-msgstr ""
+msgstr "Australia/Eucla"
 
 #: system-config-date-timezones.h:317
 msgid "Australia/Hobart"
@@ -1295,7 +1296,7 @@ msgstr "Australia/Lindeman"
 
 #: system-config-date-timezones.h:319
 msgid "Australia/Lord_Howe"
-msgstr ""
+msgstr "Australia/Lord_Howe"
 
 #: system-config-date-timezones.h:320
 msgid "Australia/Melbourne"
@@ -1319,7 +1320,7 @@ msgstr "Europa/Andorra"
 
 #: system-config-date-timezones.h:325
 msgid "Europe/Astrakhan"
-msgstr ""
+msgstr "Europa/Astrakhan"
 
 #: system-config-date-timezones.h:326
 msgid "Europe/Athens"
@@ -1335,7 +1336,7 @@ msgstr "Europa/Berlín"
 
 #: system-config-date-timezones.h:329
 msgid "Europe/Bratislava"
-msgstr ""
+msgstr "Europa/Bratislava"
 
 #: system-config-date-timezones.h:330
 msgid "Europe/Brussels"
@@ -1351,15 +1352,15 @@ msgstr "Europa/Budapest"
 
 #: system-config-date-timezones.h:333
 msgid "Europe/Busingen"
-msgstr ""
+msgstr "Europa/Busingen"
 
 #: system-config-date-timezones.h:334
 msgid "Europe/Chisinau"
-msgstr ""
+msgstr "Europa/Chisinau"
 
 #: system-config-date-timezones.h:335
 msgid "Europe/Copenhagen"
-msgstr ""
+msgstr "Europa/Copenhagen"
 
 #: system-config-date-timezones.h:336
 msgid "Europe/Dublin"
@@ -1371,7 +1372,7 @@ msgstr "Europa/Gibraltar"
 
 #: system-config-date-timezones.h:338
 msgid "Europe/Guernsey"
-msgstr ""
+msgstr "Europa/Guernsey"
 
 #: system-config-date-timezones.h:339
 msgid "Europe/Helsinki"
@@ -1399,7 +1400,7 @@ msgstr "Europa/Kiev"
 
 #: system-config-date-timezones.h:345
 msgid "Europe/Kirov"
-msgstr ""
+msgstr "Europa/Kirov"
 
 #: system-config-date-timezones.h:346
 msgid "Europe/Lisbon"
@@ -1407,7 +1408,7 @@ msgstr "Europa/Lisboa"
 
 #: system-config-date-timezones.h:347
 msgid "Europe/Ljubljana"
-msgstr ""
+msgstr "Europa/Ljubljana"
 
 #: system-config-date-timezones.h:348
 msgid "Europe/London"
@@ -1427,7 +1428,7 @@ msgstr "Europa/Malta"
 
 #: system-config-date-timezones.h:352
 msgid "Europe/Mariehamn"
-msgstr ""
+msgstr "Europa/Mariehamn"
 
 #: system-config-date-timezones.h:353
 msgid "Europe/Minsk"
@@ -1451,7 +1452,7 @@ msgstr "Europa/París"
 
 #: system-config-date-timezones.h:358
 msgid "Europe/Podgorica"
-msgstr ""
+msgstr "Europa/Podgorica"
 
 #: system-config-date-timezones.h:359
 msgid "Europe/Prague"
@@ -1479,15 +1480,15 @@ msgstr "Europa/Saraxevo"
 
 #: system-config-date-timezones.h:365
 msgid "Europe/Saratov"
-msgstr ""
+msgstr "Europa/Saratov"
 
 #: system-config-date-timezones.h:366
 msgid "Europe/Simferopol"
-msgstr ""
+msgstr "Europa/Simferopol"
 
 #: system-config-date-timezones.h:367
 msgid "Europe/Skopje"
-msgstr ""
+msgstr "Europa/Skopje"
 
 #: system-config-date-timezones.h:368
 msgid "Europe/Sofia"
@@ -1499,23 +1500,23 @@ msgstr "Europa/Estocolmo"
 
 #: system-config-date-timezones.h:370
 msgid "Europe/Tallinn"
-msgstr ""
+msgstr "Europa/Tallinn"
 
 #: system-config-date-timezones.h:371
 msgid "Europe/Tirane"
-msgstr ""
+msgstr "Europa/Tirane"
 
 #: system-config-date-timezones.h:372
 msgid "Europe/Ulyanovsk"
-msgstr ""
+msgstr "Europa/Ulyanovsk"
 
 #: system-config-date-timezones.h:373
 msgid "Europe/Uzhgorod"
-msgstr ""
+msgstr "Europa/Uzhgorod"
 
 #: system-config-date-timezones.h:374
 msgid "Europe/Vaduz"
-msgstr ""
+msgstr "Europa/Vaduz"
 
 #: system-config-date-timezones.h:375
 msgid "Europe/Vatican"
@@ -1527,7 +1528,7 @@ msgstr "Europa/Viena"
 
 #: system-config-date-timezones.h:377
 msgid "Europe/Vilnius"
-msgstr ""
+msgstr "Europa/Vilnius"
 
 #: system-config-date-timezones.h:378
 msgid "Europe/Volgograd"
@@ -1551,196 +1552,196 @@ msgstr "Europa/Zúric"
 
 #: system-config-date-timezones.h:383
 msgid "Indian/Antananarivo"
-msgstr ""
+msgstr "Índico/Antananarivo"
 
 #: system-config-date-timezones.h:384
 msgid "Indian/Chagos"
-msgstr ""
+msgstr "Índico/Chagos"
 
 #: system-config-date-timezones.h:385
 msgid "Indian/Christmas"
-msgstr ""
+msgstr "Índico/Christmas"
 
 #: system-config-date-timezones.h:386
 msgid "Indian/Cocos"
-msgstr ""
+msgstr "Índico/Cocos"
 
 #: system-config-date-timezones.h:387
 msgid "Indian/Comoro"
-msgstr ""
+msgstr "Índico/Comoro"
 
 #: system-config-date-timezones.h:388
 msgid "Indian/Kerguelen"
-msgstr ""
+msgstr "Índico/Kerguelen"
 
 #: system-config-date-timezones.h:389
 msgid "Indian/Mahe"
-msgstr ""
+msgstr "Índico/Mahe"
 
 #: system-config-date-timezones.h:390
 msgid "Indian/Maldives"
-msgstr ""
+msgstr "Índico/Maldives"
 
 #: system-config-date-timezones.h:391
 msgid "Indian/Mauritius"
-msgstr ""
+msgstr "Índico/Mauritius"
 
 #: system-config-date-timezones.h:392
 msgid "Indian/Mayotte"
-msgstr ""
+msgstr "Índico/Mayotte"
 
 #: system-config-date-timezones.h:393
 msgid "Indian/Reunion"
-msgstr ""
+msgstr "Índico/Reunion"
 
 #: system-config-date-timezones.h:394
 msgid "Pacific/Apia"
-msgstr ""
+msgstr "Pacífico/Apia"
 
 #: system-config-date-timezones.h:395
 msgid "Pacific/Auckland"
-msgstr ""
+msgstr "Pacífico/Auckland"
 
 #: system-config-date-timezones.h:396
 msgid "Pacific/Bougainville"
-msgstr ""
+msgstr "Pacífico/Bougainville"
 
 #: system-config-date-timezones.h:397
 msgid "Pacific/Chatham"
-msgstr ""
+msgstr "Pacífico/Chatham"
 
 #: system-config-date-timezones.h:398
 msgid "Pacific/Chuuk"
-msgstr ""
+msgstr "Pacífico/Chuuk"
 
 #: system-config-date-timezones.h:399
 msgid "Pacific/Easter"
-msgstr ""
+msgstr "Pacífico/Easter"
 
 #: system-config-date-timezones.h:400
 msgid "Pacific/Efate"
-msgstr ""
+msgstr "Pacífico/Efate"
 
 #: system-config-date-timezones.h:401
 msgid "Pacific/Enderbury"
-msgstr ""
+msgstr "Pacífico/Enderbury"
 
 #: system-config-date-timezones.h:402
 msgid "Pacific/Fakaofo"
-msgstr ""
+msgstr "Pacífico/Fakaofo"
 
 #: system-config-date-timezones.h:403
 msgid "Pacific/Fiji"
-msgstr ""
+msgstr "Pacífico/Fiji"
 
 #: system-config-date-timezones.h:404
 msgid "Pacific/Funafuti"
-msgstr ""
+msgstr "Pacífico/Funafuti"
 
 #: system-config-date-timezones.h:405
 msgid "Pacific/Galapagos"
-msgstr ""
+msgstr "Pacífico/Galapagos"
 
 #: system-config-date-timezones.h:406
 msgid "Pacific/Gambier"
-msgstr ""
+msgstr "Pacífico/Gambier"
 
 #: system-config-date-timezones.h:407
 msgid "Pacific/Guadalcanal"
-msgstr ""
+msgstr "Pacífico/Guadalcanal"
 
 #: system-config-date-timezones.h:408
 msgid "Pacific/Guam"
-msgstr ""
+msgstr "Pacífico/Guam"
 
 #: system-config-date-timezones.h:409
 msgid "Pacific/Honolulu"
-msgstr ""
+msgstr "Pacífico/Honolulu"
 
 #: system-config-date-timezones.h:410
 msgid "Pacific/Kiritimati"
-msgstr ""
+msgstr "Pacífico/Kiritimati"
 
 #: system-config-date-timezones.h:411
 msgid "Pacific/Kosrae"
-msgstr ""
+msgstr "Pacífico/Kosrae"
 
 #: system-config-date-timezones.h:412
 msgid "Pacific/Kwajalein"
-msgstr ""
+msgstr "Pacífico/Kwajalein"
 
 #: system-config-date-timezones.h:413
 msgid "Pacific/Majuro"
-msgstr ""
+msgstr "Pacífico/Majuro"
 
 #: system-config-date-timezones.h:414
 msgid "Pacific/Marquesas"
-msgstr ""
+msgstr "Pacífico/Marquesas"
 
 #: system-config-date-timezones.h:415
 msgid "Pacific/Midway"
-msgstr ""
+msgstr "Pacífico/Midway"
 
 #: system-config-date-timezones.h:416
 msgid "Pacific/Nauru"
-msgstr ""
+msgstr "Pacífico/Nauru"
 
 #: system-config-date-timezones.h:417
 msgid "Pacific/Niue"
-msgstr ""
+msgstr "Pacífico/Niue"
 
 #: system-config-date-timezones.h:418
 msgid "Pacific/Norfolk"
-msgstr ""
+msgstr "Pacífico/Norfolk"
 
 #: system-config-date-timezones.h:419
 msgid "Pacific/Noumea"
-msgstr ""
+msgstr "Pacífico/Noumea"
 
 #: system-config-date-timezones.h:420
 msgid "Pacific/Pago_Pago"
-msgstr ""
+msgstr "Pacífico/Pago_Pago"
 
 #: system-config-date-timezones.h:421
 msgid "Pacific/Palau"
-msgstr ""
+msgstr "Pacífico/Palau"
 
 #: system-config-date-timezones.h:422
 msgid "Pacific/Pitcairn"
-msgstr ""
+msgstr "Pacífico/Pitcairn"
 
 #: system-config-date-timezones.h:423
 msgid "Pacific/Pohnpei"
-msgstr ""
+msgstr "Pacífico/Pohnpei"
 
 #: system-config-date-timezones.h:424
 msgid "Pacific/Port_Moresby"
-msgstr ""
+msgstr "Pacífico/Port_Moresby"
 
 #: system-config-date-timezones.h:425
 msgid "Pacific/Rarotonga"
-msgstr ""
+msgstr "Pacífico/Rarotonga"
 
 #: system-config-date-timezones.h:426
 msgid "Pacific/Saipan"
-msgstr ""
+msgstr "Pacífico/Saipan"
 
 #: system-config-date-timezones.h:427
 msgid "Pacific/Tahiti"
-msgstr ""
+msgstr "Pacífico/Tahiti"
 
 #: system-config-date-timezones.h:428
 msgid "Pacific/Tarawa"
-msgstr ""
+msgstr "Pacífico/Tarawa"
 
 #: system-config-date-timezones.h:429
 msgid "Pacific/Tongatapu"
-msgstr ""
+msgstr "Pacífico/Tongatapu"
 
 #: system-config-date-timezones.h:430
 msgid "Pacific/Wake"
-msgstr ""
+msgstr "Pacífico/Wake"
 
 #: system-config-date-timezones.h:431
 msgid "Pacific/Wallis"
-msgstr ""
+msgstr "Pacífico/Wallis"

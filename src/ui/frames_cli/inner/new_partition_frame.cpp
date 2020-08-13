@@ -72,7 +72,7 @@ void NewPartitionFrame::setPartition(const Partition::Ptr partition) {
   QStringList mountPointStringList(mountList);
   if (mountPointStringList.at(0) == "") {
       mountPointStringList.removeFirst();
-      mountPointStringList.insert(0, "unused");
+      mountPointStringList.insert(0, ::QObject::tr("Do not use"));
   }
   mount_point_box_->setList(mountPointStringList);
 
@@ -129,7 +129,7 @@ void NewPartitionFrame::setPartition(const Partition::Ptr partition) {
   fs_box_->setCurrentIndex(default_fs_index);
 
   // Select empty mount-point.
-  const int mount_point_index = mount_point_box_->getList().indexOf("unused");
+  const int mount_point_index = mount_point_box_->getList().indexOf(::QObject::tr("Do not use"));
   mount_point_box_->setCurrentIndex(mount_point_index);
 
   // Set value range of size_slider_
@@ -439,7 +439,7 @@ void NewPartitionFrame::onCreateButtonClicked() {
   if (IsMountPointSupported(fs_type)) {
     // Set mount_point only if mount_point_box_ is visible.
     mount_point = mount_point_box_->getCurrenItem();
-    if (mount_point == "unused") {
+    if (mount_point == ::QObject::tr("Do not use")) {
         mount_point = "";
     }
   }
