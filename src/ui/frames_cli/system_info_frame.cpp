@@ -241,7 +241,6 @@ bool SystemInfoFramePrivate::validatePassword(NCursesLineEdit *passwordEdit, QSt
 
     switch (state) {
     case ValidatePasswordState::EmptyError: {
-<<<<<<< HEAD
         msg = ::QObject::tr("The password cannot be empty​");
         return false;
     }

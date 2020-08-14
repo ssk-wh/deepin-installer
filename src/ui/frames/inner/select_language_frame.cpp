@@ -334,6 +334,7 @@ void SelectLanguageFramePrivate::initUI() {
     license_label_->installEventFilter(q);
 
     m_privacy_license_label_ = new QLabel;
+    m_privacy_license_label_->setObjectName("LicenseLabel");
     m_privacy_license_label_->installEventFilter(q);
 
     if (user_license_delegate_->isLicenseDirExists()) {
