@@ -268,10 +268,7 @@ void installer::CreateRootUserFramePrivate::readConf()
 
 void installer::CreateRootUserFramePrivate::writeConf()
 {
-    Q_Q(CreateRootUserFrame);
-    WriteRootPassword(GetSettingsBool(kSetRootPasswordFromUser) ?
-                          m_passwordConfirmLineEdit->text():
-                          q->m_userPassword);
+    WriteRootPassword(m_rootPasswordLineEdit->text());
 }
 
 void installer::CreateRootUserFramePrivate::onKeyPress(int keyCode)

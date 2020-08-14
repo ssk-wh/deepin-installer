@@ -97,6 +97,9 @@ void SystemInfoFramePrivate::writeConf()
 //    WriteRootPassword(GetSettingsBool(kSetRootPasswordFromUser)
 //                     ? d->m_rootPasswordEdit->text()
     //                     : d->m_passwordEdit->text());
+    if (!m_NcursesCheckBox->isSelect()) {
+        WriteRootPassword("");
+    }
 }
 
 void SystemInfoFramePrivate::downHandle()
