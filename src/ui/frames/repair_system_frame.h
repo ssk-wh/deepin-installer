@@ -53,6 +53,7 @@ public:
 protected:
     void paintEvent(QPaintEvent *event) override;
     void changeEvent(QEvent* event) override;
+    void hideEvent(QHideEvent* event) override;
 
 private:
     bool isRepair() const;

@@ -59,10 +59,6 @@ public:
         this->initConnection();
     }
 
-protected:
-    // Verify that jumping to the next frame is allowed.
-    bool validate() const;
-
 private:
     void initUi();
     void initConnection();
@@ -85,12 +81,6 @@ private:
     QTranslator*    m_trans = nullptr;
 };
 
-}
-
-bool installer::RepairSystemFramePrivate::validate() const
-{
-    this->removeTranslator();
-    return true;
 }
 
 void installer::RepairSystemFramePrivate::initUi() {
@@ -304,6 +294,15 @@ void installer::RepairSystemFrame::changeEvent(QEvent *event)
     }
 
     return FrameInterface::changeEvent(event);
+}
+
+void installer::RepairSystemFrame::hideEvent(QHideEvent *event)
+{
+    /* 处理安装器ts文件中 translation type="unfinished"时默认现实为中文的情况*/
+    Q_D(RepairSystemFrame);
+    d->removeTranslator();
+
+    return FrameInterface::hideEvent(event);
 }
 
 bool installer::RepairSystemFrame::isRepair() const
