@@ -219,7 +219,7 @@ void NewPartitionFrame::initUI() {
   cancel_button_->box();
 
 
-  this->setFocus(true);
+  //this->setFocus(true);
 
   m_showChild.push_back(type_box_);
   m_showChild.push_back(alignment_box_);

@@ -79,7 +79,6 @@ public:
   QString m_devicePath;   
   bool m_isshow = false;
   int m_currentchoicetype = -1;
-  QVector<NCursesWindowBase* > m_showChild;
   PartitionModel* m_partitionModel;
 };
 

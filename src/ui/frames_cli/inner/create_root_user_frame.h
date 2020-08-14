@@ -48,6 +48,7 @@ protected:
     void readConf();
     void writeConf();
 
+    void onKeyPress(int keyCode) override;
     void downHandle() override;
     void upHandle() override;
 

@@ -136,6 +136,8 @@ void NcursesListView::onKeyPress(int keyCode)
 
 void NcursesListView::show()
 {
+    NCursesPanel::show();
+
     for (int i = 0; i < m_childWindows.size(); i++) {
         m_childWindows[i]->setFocus(false);
         m_childWindows[i]->hide();

@@ -112,10 +112,6 @@ void PartitionTableWarningFrame::initUI() {
 
   this->setFocus(true);
 
-  m_showChild.push_back(m_warningBox);
-  m_showChild.push_back(cancel_button_);
-  m_showChild.push_back(create_button_);
-
 }
 
 void PartitionTableWarningFrame::updateTs()
@@ -152,37 +148,12 @@ void PartitionTableWarningFrame::layout()
 void PartitionTableWarningFrame::onKeyPress(int keycode)
 {
     switch (keycode) {
-        case KEY_TAB:
-        QVector<NCursesWindowBase* > showChild;
-        for(NCursesWindowBase* child : m_showChild) {
-            if(!child->hidden()) {
-                showChild.append(child);
-            }
-        }
-
-        for (NCursesWindowBase* child : showChild) {
-            if(child->isOnFoucs()) {
-                int size = showChild.size();
-                int index = showChild.indexOf(child);
-
-                int offset = 1;                
-
-                int nextIndex = ( index + offset) % size;
-                NCursesWindowBase* nextchild = showChild.at(nextIndex);
-
-                if(nextchild != cancel_button_) {
-                    cancel_button_->setFocus(false);
-                }
-
-                if(nextchild != create_button_) {
-                    create_button_->setFocus(false);
-                }
-                nextchild->setFocus(true);
-                return ;
-            }
-        }
+    case KEY_TAB:
+            switchChildWindowsFoucs();
         break;
     }
+
+    qDebug()<< keycode;
 }
 
 void PartitionTableWarningFrame::rebootSystem() {

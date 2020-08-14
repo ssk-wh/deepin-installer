@@ -59,6 +59,8 @@ bool installer::CreateRootUserFramePrivate::validate()
 
 void installer::CreateRootUserFramePrivate::show()
 {
+    updateTs();
+    layout();
     m_errorInfo->hide();
     return FrameInterfacePrivate::show();
 }
@@ -199,7 +201,7 @@ void installer::CreateRootUserFramePrivate::initUI()
         m_passwordConfirmLineEdit = new NCursesLineEdit(this, 1, width() - 4, begy(), begx());
         m_passwordConfirmLineEdit->setBackground(NcursesUtil::getInstance()->edit_attr());
         m_passwordConfirmLineEdit->setEchoMode(true);
-        m_passwordConfirmLineEdit->setFocusEnabled(false);
+        //m_passwordConfirmLineEdit->setFocusEnabled(false);
         //m_passwordConfirmLineEdit->hide();
 
         m_errorInfo = new NcursesLabel(this, 1, 1, begy(), begx());
@@ -270,6 +272,17 @@ void installer::CreateRootUserFramePrivate::writeConf()
     WriteRootPassword(GetSettingsBool(kSetRootPasswordFromUser) ?
                           m_passwordConfirmLineEdit->text():
                           q->m_userPassword);
+}
+
+void installer::CreateRootUserFramePrivate::onKeyPress(int keyCode)
+{
+    switch (keyCode) {
+    case KEY_TAB:
+            switchChildWindowsFoucs();
+        break;
+    }
+
+    qDebug()<< keyCode;
 }
 
 void installer::CreateRootUserFramePrivate::downHandle()
