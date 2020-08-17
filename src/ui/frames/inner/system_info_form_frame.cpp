@@ -789,10 +789,7 @@ bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, Q
         msg = ::QObject::tr("Password must contain letters, numbers and symbols");
         return false;
     }
-    case ValidatePasswordState::TooShortError: {
-        msg = ::QObject::tr("Password must have at least 8 characters");
-        return false;
-    }
+    case ValidatePasswordState::TooShortError:
     case ValidatePasswordState::TooLongError: {
         msg = ::QObject::tr("Password must be between %1 and %2 characters")
                 .arg(min_len)
