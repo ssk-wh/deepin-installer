@@ -39,9 +39,9 @@ parse_kernel_cmdline() {
 }
 
 main() {
-  parse_kernel_cmdline
+##  parse_kernel_cmdline
 
-  if [ $auto_install_mode ]; then
+  if [ $auto_install_mode eq 1 ]; then
     #fix install_path
     #if use boot config, iso mount on /lib/live/mount/findiso
     local iso_root=/lib/live/mount/findiso
