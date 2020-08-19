@@ -71,7 +71,7 @@ bool LicenceFramePrivate::validate()
 void LicenceFramePrivate::show()
 {
     if (!m_isshow) {
-        NCursesWindowBase::show();
+        FrameInterfacePrivate::show();
         m_pNextButton->setFocusEnabled(m_NcursesCheckBox->isSelect());
         m_errorInfoLabel->hide();
         m_isshow = true;

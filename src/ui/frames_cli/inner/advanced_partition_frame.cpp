@@ -120,7 +120,7 @@ bool AdvancedPartitionFramePrivate::validate()
 void AdvancedPartitionFramePrivate::show()
 {
     if(!m_isshow) {
-        NCursesWindowBase::show();
+        FrameInterfacePrivate::show();
         m_isshow = true;
     }
 }
@@ -251,6 +251,11 @@ void AdvancedPartitionFramePrivate::keyPresseEvent(int keycode)
             emit keyEventTrigerSignal(keycode);
         }
     }
+}
+
+void AdvancedPartitionFramePrivate::backHandle()
+{
+    Q_EMIT backToPreviousPage();
 }
 
 

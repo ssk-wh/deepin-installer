@@ -116,7 +116,7 @@ bool InstallSuccessFramePrivate::validate()
 void InstallSuccessFramePrivate::show()
 {
     if(!m_isshow) {
-        NCursesWindowBase::show();
+        FrameInterfacePrivate::show();
         m_isshow = true;
 
         bool testissuccess = GetSettingsBool("DI_INSTALL_SUCCESSED");

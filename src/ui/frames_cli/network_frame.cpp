@@ -226,7 +226,7 @@ void NetwrokFramePrivate::updateTs()
 void NetwrokFramePrivate::show()
 {
     if(!m_isshow){
-        NCursesWindowBase::show();
+        FrameInterfacePrivate::show();
         m_isshow = true;
         m_pBackButton->setFocus(false);
         m_pNextButton->setFocus(true);

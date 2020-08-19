@@ -70,7 +70,7 @@ bool TimeZoneFramePrivate::validate()
 void TimeZoneFramePrivate::show()
 {
     if (!m_isshow) {
-        NCursesWindowBase::show();
+        FrameInterfacePrivate::show();
         m_isshow = true;
     }
 }

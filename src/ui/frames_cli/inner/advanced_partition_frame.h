@@ -56,6 +56,9 @@ signals:
 private slots:
     void keyPresseEvent(int keycode);
 
+protected:
+    void backHandle() override;
+
 private:
     NcursesLabel* m_label_title = nullptr;
     NcursesLabel* m_label_tips = nullptr;

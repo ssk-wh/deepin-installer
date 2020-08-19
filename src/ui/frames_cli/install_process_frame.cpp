@@ -77,7 +77,7 @@ void InstallProcessFramePrivate::show()
         m_NcursesTextBrower->appendItemText(testbrowertext, false);
         m_NcursesTextBrower->scrollToEnd();
 
-        NCursesWindowBase::show();
+        FrameInterfacePrivate::show();
         m_isshow = true;
     }
 }
