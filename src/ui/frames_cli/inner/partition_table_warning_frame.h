@@ -58,6 +58,10 @@ class PartitionTableWarningFrame : public FrameInterfacePrivate {
 public:
     void keyPresseEvent(int keycode);
     NcursesListView* m_warningBox = nullptr;
+
+protected:
+    void backHandle() override;
+
  private:
   void initConnections();
   void initUI();

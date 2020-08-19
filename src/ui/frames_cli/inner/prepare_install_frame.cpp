@@ -56,7 +56,7 @@ PrepareInstallFrame::PrepareInstallFrame(NCursesWindowBase *parent, int lines, i
 void PrepareInstallFrame::show()
 {
     if(!m_isshow){
-        NCursesWindowBase::show();
+        FrameInterfacePrivate::show();
         m_isshow = true;
     }
 }
@@ -178,7 +178,10 @@ void PrepareInstallFrame::keyPresseEvent(int keycode)
     }
 }
 
-
+void PrepareInstallFrame::backHandle()
+{
+    Q_EMIT emit this->finished(false);
+}
 
 void PrepareInstallFrame::onCreateButtonClicked()
 {

@@ -194,7 +194,7 @@ void NCursesWindowBase::hide() {
 
 
 void NCursesWindowBase::switchChildWindowsFoucs() {
-
+    qDebug() << "switchChildWindowsFoucs " << m_foucsWindows.size();
     if (m_foucsWindows.empty()) {
         return;
     }
