@@ -41,6 +41,7 @@ public:
     ~RepairSystemFrame() override;
 
 signals:
+    void installerMode() const;
     void repair() const;
 
 public:

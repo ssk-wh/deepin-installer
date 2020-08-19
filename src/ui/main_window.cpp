@@ -308,8 +308,7 @@ void MainWindow::hideChildFrame() const
 
 void MainWindow::showExtFrameFullscreen(BaseFrameInterface* childFrameInterface)
 {
-    childFrameInterface->setParent(this);
-    ShowFullscreen(childFrameInterface);
+    m_frameSelectedListWidget->hide();
 }
 
 void MainWindow::resizeEvent(QResizeEvent *event)
@@ -379,6 +378,10 @@ void MainWindow::initConnections() {
   connect(m_repairSystemFrame, &RepairSystemFrame::finished,
           this, &MainWindow::goNextPage);
 
+  connect(m_repairSystemFrame, &RepairSystemFrame::installerMode, this, [=] {
+      m_frameSelectedListWidget->show();
+  });
+
   connect(m_repairSystemFrame, &RepairSystemFrame::repair,
           qApp, &QApplication::quit);
 
@@ -425,6 +428,7 @@ void MainWindow::initPages() {
   confirm_quit_frame_->hide();
 
   m_repairSystemFrame = new RepairSystemFrame(this);
+  stacked_layout_->addWidget(m_repairSystemFrame);
 
   select_language_frame_ = new LanguageFrame(this);
   stacked_layout_->addWidget(select_language_frame_);

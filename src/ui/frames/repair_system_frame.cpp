@@ -134,6 +134,7 @@ void installer::RepairSystemFramePrivate::initConnection() {
     connect(nextButton, &QPushButton::clicked, this, [=] {
         if (m_installerWidget->isCheckable()) {
             q_ptr->hide();
+            Q_EMIT q_ptr->installerMode();
             q_ptr->m_proxy->nextFrame();
         } else if (m_repairWidget->isCheckable()) {
             q_ptr->repairSystem();
