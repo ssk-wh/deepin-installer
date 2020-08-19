@@ -500,7 +500,10 @@ void NewPartitionFrame::onCreateButtonClicked() {
 
           //创建/分区
           partition_ = device->partitions.back();
-          qint64 rootSapce = size_slider_->value() - efi_recommended * kMebiByte - swapeSpace;
+          qint64 rootSapce = size_slider_->value() - swapeSpace;
+          if (table == PartitionTableType::GPT) {
+              rootSapce = rootSapce - efi_recommended * kMebiByte;
+          }
           total_sectors_auto = rootSapce / partition_->sector_size;
           delegate_->createPartition(partition_, partition_type, align_start, fs_type,
                                      kMountPointRoot, total_sectors_auto);
