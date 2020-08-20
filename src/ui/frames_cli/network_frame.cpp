@@ -715,6 +715,7 @@ bool NetwrokFrame::init()
         m_currState = FRAME_STATE_RUNNING;
     }
     d->resetValue();
+    d->initIPConfig();
     d->updateChoiceType(0);
     d->setFocusEnableType(0);
     return true;
