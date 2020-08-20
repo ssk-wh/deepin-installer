@@ -20,6 +20,7 @@ public:
     int getTextHeight(){ return m_text.size(); }
     void setFocus(bool foucs) override;
     void show() override;
+    void hide() override;
     void onKeyPress(int keyCode) override;
 
 private:

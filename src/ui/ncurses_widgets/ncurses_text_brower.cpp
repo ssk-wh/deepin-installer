@@ -145,6 +145,12 @@ void NcursesTextBrower::show()
     NCursesWindowBase::show();
 }
 
+void NcursesTextBrower::hide()
+{
+   m_currLine = 0;
+   return NCursesWindowBase::hide();
+}
+
 void NcursesTextBrower::onKeyPress(int keyCode) {
     if (m_text.size() <= (height() - 2 * m_reserveY)) {
         return;

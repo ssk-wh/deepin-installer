@@ -590,6 +590,9 @@ set(CLI_UI_FILES
     ui/delegates/network_operate.cpp
     ui/delegates/advanced_validate_state.h
     ui/delegates/advanced_validate_state.cpp
+    ui/delegates/license_delegate.cpp
+    ui/delegates/license_delegate.h
+
     ui/models/partition_model.cpp
     ui/models/partition_model.h
     ui/frames_cli/inner/full_disk_frame.h

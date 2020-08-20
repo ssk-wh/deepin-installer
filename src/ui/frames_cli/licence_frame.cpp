@@ -9,18 +9,10 @@
 #include "ui/ncurses_widgets/ncurses_list_view.h"
 #include "base/file_util.h"
 #include "service/settings_manager.h"
+#include "ui/delegates/license_delegate.h"
 
 
 namespace installer {
-
-#ifdef PROFESSIONAL
-const QString zh_CN_license { ":/license/end-user-license-agreement-default_zh_CN.txt" };
-const QString en_US_license{ ":/license/end-user-license-agreement-default_en_US.txt" };
-#else
-const QString zh_CN_license { ":/license/end-user-license-agreement-community_zh_CN.txt" };
-const QString en_US_license { ":/license/end-user-license-agreement-community_en_US.txt" };
-#endif  // PROFESSIONAL
-
 
 LicenceFramePrivate::LicenceFramePrivate(NCursesWindowBase *parent, int lines, int cols, int beginY, int beginX)
     : FrameInterfacePrivate(parent, lines, cols, beginY, beginX),
@@ -130,12 +122,17 @@ void LicenceFramePrivate::updateTs()
     box(ACS_VLINE,ACS_HLINE);
     printTitle(::QObject::tr("UOS Software End User License Agreement"), width());
     QString teststr = ::QObject::tr("I have read and agree to the UOS Software End User License Agreement");
+
+    QString zh_cn_li = QString(":/license/end-user-license-agreement-%1_zh_CN.txt")\
+            .arg(installer::LicenseDelegate::OSType());
+    QString en_us_li = QString(":/license/end-user-license-agreement-%1_en_US.txt")\
+            .arg(installer::LicenseDelegate::OSType());
     if (installer::ReadLocale() == "zh_CN") {
-        QString testlicenceinfo = installer::ReadFile(zh_CN_license);
+        QString testlicenceinfo = installer::ReadFile(zh_cn_li);
         m_NcursesCheckBox->setText("", teststr, true);
         m_ncursesTextBrower->setText(testlicenceinfo, true);
     } else {
-        QString testlicenceinfo = installer::ReadFile(en_US_license);
+        QString testlicenceinfo = installer::ReadFile(en_us_li);
         m_NcursesCheckBox->setText("", teststr, false);
         m_ncursesTextBrower->setText(testlicenceinfo, false);
     }
