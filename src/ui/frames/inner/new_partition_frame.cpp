@@ -409,7 +409,7 @@ void NewPartitionFrame::updateSlideSize() {
 
     PartitionTableType table = delegate_->findDevice(partition_->device_path)->table;
 
-    if (table == PartitionTableType::GPT) {
+    if (table == PartitionTableType::GPT && !partition_->is_lvm) {
         sumSapce += efi_recommended * kMebiByte;
     }
 
@@ -493,7 +493,7 @@ void NewPartitionFrame::onCreateButtonClicked() {
 
       if (align_start) {//从起点开始创建
           //创建EFI分区
-          if (table == PartitionTableType::GPT) {
+          if (table == PartitionTableType::GPT && device->device_type == DeviceType::NormalDevice) {
               delegate_->createPartition(partition_, partition_type, align_start, FsType::EFI,
                                          "", total_sectors_auto);
           }
@@ -501,7 +501,7 @@ void NewPartitionFrame::onCreateButtonClicked() {
           //创建/分区
           partition_ = device->partitions.back();
           qint64 rootSapce = size_slider_->value() - swapeSpace;
-          if (table == PartitionTableType::GPT) {
+          if (table == PartitionTableType::GPT && device->device_type == DeviceType::NormalDevice) {
               rootSapce = rootSapce - efi_recommended * kMebiByte;
           }
           total_sectors_auto = rootSapce / partition_->sector_size;
@@ -523,14 +523,14 @@ void NewPartitionFrame::onCreateButtonClicked() {
           //创建/分区
           partition_ = device->partitions.at(indexPartition);
           qint64 rootSapce = total_sectors * partition_->sector_size - swapeSpace;
-          if (table == PartitionTableType::GPT) {
+          if (table == PartitionTableType::GPT && device->device_type == DeviceType::NormalDevice) {
               rootSapce = rootSapce - efi_recommended * kMebiByte;
           }
           total_sectors_auto = rootSapce / partition_->sector_size;
           delegate_->createPartition(partition_, partition_type, align_start, fs_type,
                                      kMountPointRoot, total_sectors_auto);
           //创建EFI
-          if (table == PartitionTableType::GPT) {
+          if (table == PartitionTableType::GPT && device->device_type == DeviceType::NormalDevice) {
               partition_ = device->partitions.at(indexPartition);
               total_sectors_auto = efi_recommended * kMebiByte / partition_->sector_size;
               delegate_->createPartition(partition_, partition_type, align_start, FsType::EFI,
@@ -583,7 +583,7 @@ void NewPartitionFrame::onSizeSliderValueChanged(qint64 size) {
 
     PartitionTableType table = delegate_->findDevice(partition_->device_path)->table;
 
-    if (table == PartitionTableType::GPT) {
+    if (table == PartitionTableType::GPT && !partition_->is_lvm) {
         sumSapce += efi_recommended * kMebiByte;
     }
     sumSapce = sumSapce / kGibiByte;
