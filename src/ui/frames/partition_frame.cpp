@@ -666,7 +666,7 @@ void PartitionFramePrivate::onNextButtonClicked() {
        emit prepare_install_frame_->finished();
        lvm_partition_frame_->updateLayout(next_layout, ::QObject::tr("Back"));
        nextButton->setText(::QObject::tr("Ready to Install"));
-       emit q_ptr->disCoverMainWindowFrameLabelsView();
+       emit q_ptr->coverMainWindowFrameLabelsView(false);
     }
 }
 
@@ -780,7 +780,7 @@ void PartitionFramePrivate::showMainFrame() {
 
   main_layout_->setCurrentWidget(main_frame_);
 
-  emit q_ptr->disCoverMainWindowFrameLabelsView();
+  emit q_ptr->coverMainWindowFrameLabelsView(false);
 }
 
 void PartitionFramePrivate::showNewPartitionFrame(
@@ -797,7 +797,7 @@ void PartitionFramePrivate::showNewPartitionFrame(
 void PartitionFramePrivate::showNewTableLoadingFrame() {
   main_layout_->setCurrentWidget(new_table_loading_frame_);
 
-  emit q_ptr->coverMainWindowFrameLabelsView();
+  emit q_ptr->coverMainWindowFrameLabelsView(true);
 }
 
 void PartitionFramePrivate::showNewTableWarningFrame(const QString& device_path) {
@@ -825,13 +825,13 @@ void PartitionFramePrivate::showNewTableWarningFrame(const QString& device_path)
   new_table_warning_frame_->setDevicePath(device_path, device_info);
   main_layout_->setCurrentWidget(new_table_warning_frame_);
 
-  emit q_ptr->coverMainWindowFrameLabelsView();
+  emit q_ptr->coverMainWindowFrameLabelsView(true);
 }
 
 void PartitionFramePrivate::showPartitionNumberLimitationFrame() {
   main_layout_->setCurrentWidget(partition_number_limitation_frame_);
 
-  emit q_ptr->coverMainWindowFrameLabelsView();
+  emit q_ptr->coverMainWindowFrameLabelsView(true);
 }
 
 void PartitionFramePrivate::showPartitionTableWarningFrame(
@@ -839,7 +839,7 @@ void PartitionFramePrivate::showPartitionTableWarningFrame(
   partition_table_warning_frame_->setDevicePath(device_path);
   main_layout_->setCurrentWidget(partition_table_warning_frame_);
 
-  emit q_ptr->disCoverMainWindowFrameLabelsView();
+  emit q_ptr->coverMainWindowFrameLabelsView(false);
 }
 
 void PartitionFramePrivate::showSelectBootloaderFrame() {
@@ -862,7 +862,7 @@ void PartitionFramePrivate::showEncryptFrame()
 void PartitionFramePrivate::showDynamicDiskFrame() {
   main_layout_->setCurrentWidget(dynamic_disk_warning_frame_);
 
-  emit q_ptr->coverMainWindowFrameLabelsView();
+  emit q_ptr->coverMainWindowFrameLabelsView(true);
 }
 
 void PartitionFramePrivate::showPrepareInstallFrame()
@@ -884,7 +884,7 @@ void PartitionFramePrivate::showPrepareInstallFrame()
     prepare_install_frame_->updateDescription(descriptions);
     main_layout_->setCurrentWidget(prepare_install_frame_);
 
-    emit q_ptr->coverMainWindowFrameLabelsView();
+    emit q_ptr->coverMainWindowFrameLabelsView(true);
 }
 
 }  // namespace installer

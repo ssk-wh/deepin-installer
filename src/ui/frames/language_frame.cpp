@@ -144,6 +144,8 @@ void LanguageFramePrivate::initConnect() {
             &LanguageFramePrivate::showLanguage);
     connect(m_select_language_frame, &SelectLanguageFrame::requestShowUserExperience, this,
             &LanguageFramePrivate::showUserExperience);
+    connect(m_select_language_frame, &SelectLanguageFrame::coverMainWindowFrameLabelsView, q_ptr
+            , &LanguageFrame::coverMainWindowFrameLabelsView);
     connect(m_user_experience_frame, &UserAgreementFrame::back, this,
             &LanguageFramePrivate::showLanguage);
     if (m_user_license_delegate->licenseCount() > 0) {

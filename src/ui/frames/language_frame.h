@@ -54,6 +54,8 @@ signals:
     // Emitted when new language item is selected.
     void timezoneUpdated(const QString& timezone);
 
+    void coverMainWindowFrameLabelsView(bool cover);
+
 private:
     QScopedPointer<LanguageFramePrivate> m_private;
     Q_DECLARE_PRIVATE_D(m_private, LanguageFrame)

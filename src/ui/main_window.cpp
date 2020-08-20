@@ -267,20 +267,20 @@ void MainWindow::onFrameLabelsViewClicked(const QModelIndex& index)
     previousFrameSelected(framePointer);
 }
 
-void MainWindow::coverFrameLabelsView()
+void MainWindow::coverFrameLabelsView(bool cover) const
 {
-    if (m_frameLabelsViewCoverWidget->isVisible()) {
-        return;
+    if (cover) {
+        if (m_frameLabelsViewCoverWidget->isVisible()) {
+            return;
+        }
+
+        m_frameLabelsViewCoverWidget->setFixedSize(m_frameSelectedListWidget->size());
+        m_frameLabelsViewCoverWidget->raise();
+        m_frameLabelsViewCoverWidget->show();
     }
-
-    m_frameLabelsViewCoverWidget->setFixedSize(m_frameSelectedListWidget->size());
-    m_frameLabelsViewCoverWidget->raise();
-    m_frameLabelsViewCoverWidget->show();
-}
-
-void MainWindow::disCoverFrameLabelsView()
-{
-    m_frameLabelsViewCoverWidget->hide();
+    else {
+        m_frameLabelsViewCoverWidget->hide();
+    }
 }
 
 void MainWindow::exitInstall(bool reboot)
@@ -369,11 +369,12 @@ void MainWindow::initConnections() {
           this, &MainWindow::rebootSystem);
   connect(partition_frame_, &PartitionFrame::coverMainWindowFrameLabelsView
           , this, &MainWindow::coverFrameLabelsView);
-  connect(partition_frame_, &PartitionFrame::disCoverMainWindowFrameLabelsView
-          , this, &MainWindow::disCoverFrameLabelsView);
 
   connect(select_language_frame_, &LanguageFrame::timezoneUpdated,
           timezone_frame_, &TimezoneFrame::updateTimezoneBasedOnLanguage);
+
+  connect(select_language_frame_, &LanguageFrame::coverMainWindowFrameLabelsView
+          , this, &MainWindow::coverFrameLabelsView);
 
   connect(m_repairSystemFrame, &RepairSystemFrame::finished,
           this, &MainWindow::goNextPage);

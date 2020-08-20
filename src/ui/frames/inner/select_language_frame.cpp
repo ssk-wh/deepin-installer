@@ -506,6 +506,7 @@ void SelectLanguageFramePrivate::onAccpetLicenseChanged(bool enable) {
         m_languageView->setFocusPolicy(Qt::TabFocus);
     }
 
+    Q_EMIT q_ptr->coverMainWindowFrameLabelsView(!enable);
     emit q_ptr->requestNextButtonEnable(enable && !lang_.name.isEmpty());
 }
 

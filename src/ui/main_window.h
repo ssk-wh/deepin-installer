@@ -104,8 +104,7 @@ class MainWindow : public DMainWindow, public FrameProxyInterface {
   void showChildFrame(BaseFrameInterface* childFrameInterface) override;
   void hideChildFrame() const override;
   void showExtFrameFullscreen(BaseFrameInterface* childFrameInterface);
-  void coverFrameLabelsView();
-  void disCoverFrameLabelsView();
+  void coverFrameLabelsView(bool cover) const;
 
  protected:
   // Show ConfirmQuitFrame when top right corner is clicked.

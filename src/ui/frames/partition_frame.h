@@ -80,8 +80,7 @@ class PartitionFrame : public FrameInterface {
   void autoPartDone(bool ok);
   void manualPartDone(bool ok);
 
-  void disCoverMainWindowFrameLabelsView();
-  void coverMainWindowFrameLabelsView();
+  void coverMainWindowFrameLabelsView(bool cover);
 
  public slots:
   // Notify delegate to scan devices.

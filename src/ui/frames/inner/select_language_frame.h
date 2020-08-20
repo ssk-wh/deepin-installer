@@ -67,6 +67,8 @@ class SelectLanguageFrame : public QFrame {
 
   void requestPrivacyLicense();
 
+  void coverMainWindowFrameLabelsView(bool cover);
+
  protected:
   // Update text of next_button_
   void changeEvent(QEvent* event) override;
