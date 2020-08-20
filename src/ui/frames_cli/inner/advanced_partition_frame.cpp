@@ -152,6 +152,10 @@ void AdvancedPartitionFramePrivate::onDeviceRefreshed(const DeviceList& devices)
             }
             QString name(QFileInfo(partition->path).fileName());
             QString freeflag(partition->busy?"busy":"free");
+            if ((partition->type == PartitionType::Extended) || partition->busy) {
+              // Ignores extended partition and currently in-used partitions.
+              continue;
+            }
             list.append( QString("|______%1(%2 %3)(%4%5)(%6)")
                          .arg(GetFsTypeName(partition->fs))
                          .arg(freeflag)
