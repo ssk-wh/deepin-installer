@@ -14,6 +14,8 @@ if [ x${DI_FULLDISK_MODE} != "xtrue" ]; then
     return 0;
 fi
 
+variable_done_data_var_opt_copy=0
+
 # mount all point
 /tmp/installer/hook_manager.sh /tmp/installer/before_chroot/11_mount_target.job
 /tmp/installer/hook_manager.sh /tmp/installer/before_chroot/41_setup_mount_points.job
@@ -30,6 +32,8 @@ if [ -d /target/data ];then
     cp -a /target/data/opt /mnt/
     
     umount /mnt
+
+    variable_done_data_var_opt_copy=1
 fi
 
 chroot /target deepin-installer-settings set "/etc/deepin-installer.conf" "system_check_mode" "false"
@@ -69,7 +73,7 @@ fi
 
 deepin-clone --tui ${DI_ROOT_PARTITION} /target/recovery/backup/system.dim
 
-if [ -d /target/data ];then
+if [ ${variable_done_data_var_opt_copy} == 1 ];then
     mount ${DI_ROOT_PARTITION} /mnt
     rm -rf /mnt/var/*
     rm -rf /mnt/opt/*
