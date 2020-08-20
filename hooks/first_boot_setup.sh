@@ -147,29 +147,6 @@ update-grub
 fi
 }
 
-update_grub_timeout(){
-    TIMEOUT=5
-    OSNUM=`/usr/lib/deepin-daemon/grub2 -os-num` || warn "grub2 -os-num failed"
-
-    if [ -z $OSNUM ]; then
-        warn "/usr/lib/deepin-daemon/grub2 -os-num return is empty";
-    else
-        msg "os num="$OSNUM;
-    fi
-
-    if [ $OSNUM -ge 2 ]; then
-        TIMEOUT=10
-    fi
-
-cat >> /etc/grub.d/00_header <<EOF
-cat << P_EOF
-set timeout=${TIMEOUT}
-P_EOF
-EOF
-
-    update-grub
-}
-
 main() {
   [ -f "${CONF_FILE}" ] || error "deepin-installer.conf not found"
   cat "${CONF_FILE}"
@@ -194,9 +171,6 @@ main() {
 
   #设置grub密码
   setup_grub_passwd
-
-  #设置grub的超时时间
-  update_grub_timeout
 
   sync
   cleanup_oem_license
