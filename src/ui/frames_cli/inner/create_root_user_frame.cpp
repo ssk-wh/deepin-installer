@@ -59,10 +59,19 @@ bool installer::CreateRootUserFramePrivate::validate()
 
 void installer::CreateRootUserFramePrivate::show()
 {
-    updateTs();
-    layout();
-    m_errorInfo->hide();
-    return FrameInterfacePrivate::show();
+    if(!m_isshow) {
+        updateTs();
+        layout();
+        m_errorInfo->hide();
+        m_rootPasswordLineEdit->setFocus(true);
+        return FrameInterfacePrivate::show();
+    }
+}
+
+void installer::CreateRootUserFramePrivate::hide()
+{
+    FrameInterfacePrivate::hide();
+    m_isshow = false;
 }
 
 bool installer::CreateRootUserFramePrivate::validatePassword(NCursesLineEdit *passwordEdit, QString &msg)

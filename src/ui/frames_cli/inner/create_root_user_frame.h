@@ -38,6 +38,7 @@ public:
 public:
     bool validate() override;
     void show() override;
+    void hide() override;
 
 protected:
     void initUI() override;
@@ -69,6 +70,7 @@ private:
     NcursesLabel* m_errorInfo = nullptr;
 
     CreateRootUserFrame *q_ptr = nullptr;
+    bool m_isshow = false;
     Q_DECLARE_PUBLIC(CreateRootUserFrame)
 };
 
