@@ -648,6 +648,8 @@ void PartitionFramePrivate::onNextButtonClicked() {
         SwapWarnningFrame swapWarnningFrame;
         swapWarnningFrame.display();
         isFirstWarning = false;
+        q_ptr->setFocus();
+        nextButton->setFocus();
         return;
     }
   }
