@@ -74,11 +74,15 @@ setup_username_password_hostname() {
     REAL_PASSWORD=$(echo "${DI_PASSWORD}" | base64 -d)
     echo "${DI_USERNAME}:${REAL_PASSWORD}" | chpasswd
   fi
-
-  # Update root password.
+  
+  # Update root password. 
   if [ -n "${DI_ROOTPASSWORD}" ]; then
-    REAL_ROOTPASSWORD=$(echo "${DI_ROOTPASSWORD}" | base64 -d)
-    echo "root:${REAL_ROOTPASSWORD}" | chpasswd
+    system_info_default_root_password=$DI_ROOTPASSWORD
+  fi
+
+  if [ -n "${system_info_default_root_password}" ]; then
+    REAL_ROOTPASSWORD=$(echo "${system_info_default_root_password}" | base64 -d)
+    echo "root:${system_info_default_root_password}" | chpasswd
   fi
 
   # Add user to groups.

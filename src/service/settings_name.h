@@ -80,6 +80,8 @@ const char kSystemInfoEnableGrubEditPwd[] = "system_info_enable_grub_pwd";
 const char kRebootWhenInstallFinished[] = "reboot_when_install_finished";
 const char kSetRootPasswordFromUser[] = "set_root_password_from_user";
 
+const char kSystemInfoDefaultRootPassword[] = "system_info_default_root_password";
+
 const char kSystemInfoDefaultKeyboardLayout[] =
     "system_info_default_keyboard_layout";
 const char kSystemInfoDefaultKeyboardLayoutVariant[] =
