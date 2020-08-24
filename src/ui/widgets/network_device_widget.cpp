@@ -2,6 +2,7 @@
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/auto_wrap_label.h"
 #include "ui/widgets/ticker_label.h"
+#include "base/command.h"
 
 #include <QStyleOption>
 #include <QPainter>
@@ -12,10 +13,54 @@ namespace installer {
 
 namespace {
     const int kNetworkDeviceWidgetWidth = 235;
-    const int kNetworkDeviceWidgetHeight = 90;
+    const int kNetworkDeviceWidgetHeight = 64;
     const int KQLabelWidth = 180;
     const int kTitleFont = 14; // 14pt
     const int kDescFont = 12; // 12pt
+
+    const int kBusInfoPos = 5; // ex. /sys/devices/pci0000:00/0000:00:19.0/net/eno1
+}
+
+QString GetVendorInfo(const QString& udi)
+{
+    QStringList list = udi.split("/");
+    qDebug() << "device UDI:" << list;
+
+    if (list.count() >= kBusInfoPos) {
+        QString busInfo = list.at(kBusInfoPos - 1);
+
+        int index;
+        if ((index = busInfo.indexOf(":")) >= 0) {
+            QString pciId = busInfo.mid(index + 1);
+            QString output, err;
+
+            SpawnCmd("lspci", {"-s", pciId}, output, err);
+            if (output.isEmpty()) {
+                qCritical() << QString("lspci %1 command failed. err: %2. output: %3")
+                               .arg(pciId).arg(err).arg(output);
+                return "";
+            }
+
+            qInfo() << QString("lspci -s %1 output: %2").arg(pciId).arg(output);
+            if ((index = output.indexOf(": ")) >= 0) {
+                output = output.mid(index + 1);
+                if ((index = output.indexOf("(rev")) > 0) {
+                    output = output.left(index).trimmed();
+                }
+
+                qInfo() << "device vendor: " << output;
+                return output;
+            }
+        }
+        else {
+            qWarning() << "Invalid bus info" << busInfo;
+        }
+    }
+    else {
+        qWarning() << "Invalid device UDI:" << udi;
+    }
+
+    return "";
 }
 
 NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
@@ -35,7 +80,6 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     m_descLabel = new QLabel;
     m_descLabel->setObjectName("descLabel");
     m_descLabel->setFixedWidth(KQLabelWidth);
-    m_descLabel->setWordWrap(true);
     m_descLabel->adjustSize();
 
     QFont descFont;
@@ -58,14 +102,14 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     m_checkedLabel->setVisible(isChecked());
 
     m_hLayout = new QHBoxLayout;
-    m_hLayout->setContentsMargins(1, 1, 1, 1);
+    m_hLayout->setContentsMargins(11, 11, 1, 11);
     m_hLayout->setSpacing(0);
 
     m_hLayout->addLayout(m_vLayout);
     m_hLayout->addWidget(m_checkedLabel, 0, Qt::AlignRight);
 
     setFixedWidth(kNetworkDeviceWidgetWidth);
-    setMaximumHeight(kNetworkDeviceWidgetHeight);
+    setFixedHeight(kNetworkDeviceWidgetHeight);
     setObjectName("PartitionTableWarningWidget");
     setContentsMargins(0, 0, 0, 0);
     setLayout(m_hLayout);
@@ -119,6 +163,7 @@ void NetworkDeviceWidget::setTitle(const QString &title)
 void NetworkDeviceWidget::setDesc(const QString &desc)
 {
     m_descLabel->setText(desc);
+    m_descLabel->setToolTip(desc);
 }
 
 void NetworkDeviceWidget::setNetworkSettingInfo(const QMap<DHCPTYpe, NetworkSettingInfo> &info)
@@ -214,6 +259,8 @@ void NetworkDeviceWidget::setDeviceInfo(NetworkManager::Device::Ptr device) {
     else {
         setTitle(::QObject::tr("Unknown device") + QString(" (%1)").arg(device->interfaceName()));
     }
+
+    setDesc(GetVendorInfo(device->udi()));
 
     m_device = device;
     m_networkOperate = new NetworkOperate(device);
