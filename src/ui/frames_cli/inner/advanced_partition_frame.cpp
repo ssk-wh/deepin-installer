@@ -256,14 +256,11 @@ void AdvancedPartitionFramePrivate::keyPresseEvent(int keycode)
 
 Partition::Ptr AdvancedPartitionFramePrivate::getCurrentPartition()
 {
-    QStringList list;
-    int indexItem(0);
-    for (Device::Ptr device : m_devices) {
-        indexItem++;
+    QString indexItem(m_listViewPartitionMode->getCurrenItem());
+    for (Device::Ptr device : m_devices) {        
         for (Partition::Ptr partition : device->partitions) {
-            if (indexItem == m_listViewPartitionMode->getCurrentIndex())
-                return partition;
-            indexItem++;
+            if (indexItem.indexOf(QFileInfo(partition->path).fileName()) > -1)
+                return partition;            
         }
     }
    return nullptr;
