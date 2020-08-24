@@ -90,7 +90,7 @@ void NewPartitionFrame::setPartition(const Partition::Ptr partition) {
       mount_point_model_->deleteLater();
   }
   QStringList mountPointList = delegate_->getMountPoints();
-  if (partition->is_lvm) {
+  if (AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_Install) {
       if (mountPointList.indexOf("/") < 0) {
           mountPointList.removeOne(kMountPointAuto);
       }
