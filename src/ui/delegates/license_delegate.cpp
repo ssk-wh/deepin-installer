@@ -54,8 +54,8 @@ QString installer::LicenseDelegate::product()
     switch (GetCurrentType()) {
         case OSType::Community: return ::QObject::tr("Deepin");
         case OSType::Professional: return ::QObject::tr("UnionTech OS");
-        case OSType::Server:
         case OSType::Personal:
+        case OSType::Server:
         default: return ::QObject::tr("UOS");
     }
 }
