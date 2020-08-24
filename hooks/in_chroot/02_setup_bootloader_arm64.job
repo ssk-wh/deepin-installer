@@ -133,7 +133,11 @@ case ${BOOT} in
       fallback_efi_bak="${fallback_efi}-$(date +%s).bak"
       [ -f "${fallback_efi}" ] && cp "${fallback_efi}" "${fallback_efi_bak}"
       # Override fallback efi with shim.
-      cp -vf /boot/efi/EFI/${BOOTLOADER_ID}/shim*.efi "${fallback_efi}"
+      if ls /boot/efi/EFI/${BOOTLOADER_ID}/shim* 1>/dev/null 2>&1; then
+        cp -vf /boot/efi/EFI/${BOOTLOADER_ID}/shim*.efi "${fallback_efi}"
+      else
+        cp -vf /boot/efi/EFI/${BOOTLOADER_ID}/grubaa64.efi "${fallback_efi}"
+      fi
     fi
 
     ;;
