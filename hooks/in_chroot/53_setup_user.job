@@ -45,6 +45,9 @@ setup_username_password_hostname() {
   DI_USERNAME=$(installer_get "DI_USERNAME")
   PASSWORD_MIN_LEN=$(installer_get "system_info_password_min_len")
 
+  REAL_ROOTPASSWORD=$(echo "$(installer_get "system_info_default_root_password")" | base64 -d)
+  msg "--- system_info_default_root_password = <$(installer_get "system_info_default_root_password")>--- "
+
   [ -z "${DI_USERNAME}" ] && error "Variable DI_USERNAME not set. Abort!"
    if [ x"${PASSWORD_MIN_LEN}" != x0 -a -z "${DI_PASSWORD}" ]; then
     error "Variable DI_PASSWORD not set. Abort!"
@@ -54,6 +57,8 @@ setup_username_password_hostname() {
   # Reset password in settings file
   installer_set "system_info_default_password" ""
   installer_set "DI_PASSWORD" ""
+  installer_set "system_info_default_root_password" ""
+  installer_set "DI_ROOTPASSWORD" ""
 
   msg "====== User info ======"
   msg "create user: ${DI_USERNAME}"
@@ -77,12 +82,12 @@ setup_username_password_hostname() {
   
   # Update root password. 
   if [ -n "${DI_ROOTPASSWORD}" ]; then
-    system_info_default_root_password=$DI_ROOTPASSWORD
+    REAL_ROOTPASSWORD=$(echo "${DI_ROOTPASSWORD}" | base64 -d)
+    msg "--- DI_ROOTPASSWORD = <${DI_ROOTPASSWORD}>--- "
   fi
 
-  if [ -n "${system_info_default_root_password}" ]; then
-    REAL_ROOTPASSWORD=$(echo "${system_info_default_root_password}" | base64 -d)
-    echo "root:${system_info_default_root_password}" | chpasswd
+  if [ -n "${REAL_ROOTPASSWORD}" ]; then
+    echo "root:${REAL_ROOTPASSWORD}" | chpasswd
   fi
 
   # Add user to groups.

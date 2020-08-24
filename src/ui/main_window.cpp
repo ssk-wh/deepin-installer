@@ -327,6 +327,7 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 void MainWindow::onCloseEvent()
 {
     confirm_quit_frame_->display();
+    this->setFocus();
 }
 
 void MainWindow::changeEvent(QEvent *event)

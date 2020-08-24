@@ -149,7 +149,7 @@ fi
 
 main() {
   [ -f "${CONF_FILE}" ] || error "deepin-installer.conf not found"
-  cat "${CONF_FILE}"
+  cat "${CONF_FILE}" | grep -v "PASSWORD" | grep -v "password"
 
   generate_machine_id
   setup_lightdm_auto_login
