@@ -172,7 +172,7 @@ void installer::RepairSystemFramePrivate::setupTs()
     m_repairWidget->setTitle(::QObject::tr("Repair"));
     m_repairWidget->setBody(::QObject::tr("Use recovery tools to fix system issues."));
 
-    nextButton->setText(::QObject::tr("Enter the"));
+    nextButton->setText(tr("Start"));
 }
 
 bool installer::RepairSystemFramePrivate::updateTranslator()

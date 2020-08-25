@@ -54,7 +54,7 @@ void ConfirmQuitFrame::display()
 
 void ConfirmQuitFrame::updateTsForSuccessPage()
 {
-    setTitle("Shut Down");
+    setTitle(::QObject::tr("Shut Down"));
     comment_label_->setText(
         ::QObject::tr("You can experience it after configuring user information in next system startup."));
     continue_button_->setText(::QObject::tr("Cancel"));
