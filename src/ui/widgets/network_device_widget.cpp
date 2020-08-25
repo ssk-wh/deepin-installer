@@ -18,7 +18,7 @@ namespace {
     const int kTitleFont = 14; // 14pt
     const int kDescFont = 12; // 12pt
 
-    const int kBusInfoPos = 5; // ex. /sys/devices/pci0000:00/0000:00:19.0/net/eno1
+    const int kBusInfoPos = 4; // ex. /sys/devices/pci0000:00/0000:00:19.0/net/eno1
 }
 
 QString GetVendorInfo(const QString& udi)
@@ -26,8 +26,10 @@ QString GetVendorInfo(const QString& udi)
     QStringList list = udi.split("/");
     qDebug() << "device UDI:" << list;
 
-    if (list.count() >= kBusInfoPos) {
-        QString busInfo = list.at(kBusInfoPos - 1);
+    if (list.count() > kBusInfoPos) {
+        // delete empty string ""
+        list.removeFirst();
+        QString busInfo = list.at(kBusInfoPos);
 
         int index;
         if ((index = busInfo.indexOf(":")) >= 0) {
@@ -36,7 +38,7 @@ QString GetVendorInfo(const QString& udi)
 
             SpawnCmd("lspci", {"-s", pciId}, output, err);
             if (output.isEmpty()) {
-                qCritical() << QString("lspci %1 command failed. err: %2. output: %3")
+                qCritical() << QString("lspci -s %1 command failed. err: %2. output: %3")
                                .arg(pciId).arg(err).arg(output);
                 return "";
             }
@@ -58,45 +60,6 @@ QString GetVendorInfo(const QString& udi)
     }
     else {
         qWarning() << "Invalid device UDI:" << udi;
-    }
-
-    return "";
-}
-
-QString GetVendorInfo(const QString& udi)
-{
-    QStringList list = udi.split("/");
-    qDebug() << "device UDI:" << list;
-
-    int index = list.indexOf("net");
-    if (index > 0) {
-        QString busInfo = list.at(index - 1);
-
-        if ((index = busInfo.indexOf(":")) >= 0) {
-            QString pciId = busInfo.mid(index + 1);
-            QString output, err;
-
-            SpawnCmd("lspci", {"-s", pciId}, output, err);
-            if (output.isEmpty()) {
-                qCritical() << QString("lspci %1 command failed. err: %2. output: %3")
-                               .arg(pciId).arg(err).arg(output);
-                return "";
-            }
-
-            qInfo() << QString("lspci %1 output: %2").arg(pciId).arg(output);
-            if ((index = output.indexOf(": ")) >= 0) {
-                output = output.mid(index + 1);
-                if ((index = output.indexOf("(rev")) > 0) {
-                    output = output.left(index).trimmed();
-                }
-
-                qInfo() << "device vendor: " << output;
-                return output;
-            }
-        }
-        else {
-            qWarning() << "Invalid bus info" << busInfo;
-        }
     }
 
     return "";
