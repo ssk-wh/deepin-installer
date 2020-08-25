@@ -225,6 +225,9 @@ void FirstBootSetupWindow::initConnections() {
 
     connect(language_frame_, &LanguageFrame::timezoneUpdated,
             timezone_frame_, &TimezoneFrame::updateTimezoneBasedOnLanguage);
+
+    connect(language_frame_, &LanguageFrame::coverMainWindowFrameLabelsView
+            , this, &FirstBootSetupWindow::updateFrameLabelPreviousState);
 }
 
 void FirstBootSetupWindow::initUI() {
@@ -328,6 +331,8 @@ void FirstBootSetupWindow::initPages()
     m_frameSelectedLayout->addWidget(m_frameLabelsView, 0, Qt::AlignHCenter);
 
     constructLabelView();
+
+    language_frame_->acceptLicense(true);
 }
 
 

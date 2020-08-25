@@ -165,6 +165,12 @@ bool SelectLanguageFrame::isChecked()
     return !d_private->lang_.name.isEmpty() && enable;
 }
 
+void SelectLanguageFrame::acceptLicense(bool accept) const
+{
+    d_private->accept_license_->setChecked(accept);
+    Q_EMIT d_private->accept_license_->clicked(accept);
+}
+
 void SelectLanguageFrame::changeEvent(QEvent* event) {
     Q_D(SelectLanguageFrame);
 

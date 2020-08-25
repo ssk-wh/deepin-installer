@@ -48,6 +48,7 @@ class SelectLanguageFrame : public QFrame {
   void writeConf();
 
   bool isChecked();
+  void acceptLicense(bool accept) const;
 
  signals:
   // Emitted when new language item is selected.

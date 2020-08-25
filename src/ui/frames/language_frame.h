@@ -46,9 +46,10 @@ public:
     void finished() override;
     bool shouldDisplay() const override;
     QString returnFrameName() const override;
+    void acceptLicense(bool accept) const;
 
 protected:
-    void changeEvent(QEvent* event);
+    void changeEvent(QEvent* event) override;
 
 signals:
     // Emitted when new language item is selected.

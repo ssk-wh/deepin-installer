@@ -97,6 +97,11 @@ QString LanguageFrame::returnFrameName() const
     return ::QObject::tr("Select Language");
 }
 
+void LanguageFrame::acceptLicense(bool accept) const
+{
+    m_private->m_select_language_frame->acceptLicense(accept);
+}
+
 void LanguageFrame::changeEvent(QEvent *event)
 {
     Q_D(LanguageFrame);
