@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="en">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
 <context>
     <name>QObject</name>
     <message>
@@ -466,14 +464,19 @@
         <translation>Freespace</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="57"/>
+        <source>Shut Down</source>
+        <translation>Shut Down</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="59"/>
         <source>You can experience it after configuring user information in next system startup.</source>
-        <translation type="unfinished"></translation>
+        <translation>You can experience it after configuring user information in next system startup.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="61"/>
         <source>Shut down</source>
-        <translation type="unfinished"></translation>
+        <translation>Shut down</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="66"/>
@@ -1643,11 +1646,6 @@
         <translation>Use recovery tools to fix system issues.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="175"/>
-        <source>Enter</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Enter the</source>
         <translation type="vanished">Enter the</translation>
     </message>
@@ -2000,6 +1998,14 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="254"/>
         <source>Secondary DNS:</source>
         <translation>Secondary DNS:</translation>
+    </message>
+</context>
+<context>
+    <name>installer::RepairSystemFramePrivate</name>
+    <message>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="175"/>
+        <source>Start</source>
+        <translation>Start</translation>
     </message>
 </context>
 </TS>
