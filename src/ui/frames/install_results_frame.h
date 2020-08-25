@@ -58,8 +58,11 @@ signals:
     void failedFinished();
     void saveFailedLog();
     void closeButtionChange(bool change);
+    void updateQuitFrameTs(bool result);
 
 private:
+    bool m_result = false;
+
     QScopedPointer<InstallResultsFramePrivate> m_private;
 };
 

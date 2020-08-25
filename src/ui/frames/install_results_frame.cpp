@@ -64,6 +64,7 @@ public:
 
 InstallResultsFrame::InstallResultsFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
     : FrameInterface(frameProxyInterface, parent)
+    , m_result(false)
     , m_private(new InstallResultsFramePrivate(this))
 {
     m_private->initUI();
@@ -73,9 +74,9 @@ InstallResultsFrame::InstallResultsFrame(FrameProxyInterface* frameProxyInterfac
 void InstallResultsFrame::init()
 {
 #ifdef QT_DEBUG_test
-    const bool m_result = true;
+    m_result = true;
 #else
-    const bool m_result = GetSettingsBool("DI_INSTALL_SUCCESSED");
+    m_result = GetSettingsBool("DI_INSTALL_SUCCESSED");
 #endif // QT_DEBUG
 
     if (m_result) {
@@ -84,6 +85,8 @@ void InstallResultsFrame::init()
         m_private->m_installFailedFrame->updateMessage();
         m_private->showInstallFailedFrame();
     }
+
+    Q_EMIT updateQuitFrameTs(m_result);
 }
 
 void InstallResultsFrame::finished()
@@ -108,7 +111,7 @@ bool InstallResultsFrame::allowPrevious() const
 
 void InstallResultsFrame::showEvent(QShowEvent *event)
 {
-    Q_EMIT closeButtionChange(true);
+    Q_EMIT closeButtionChange(m_result);
     return FrameInterface::showEvent(event);
 }
 

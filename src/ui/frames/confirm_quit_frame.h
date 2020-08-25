@@ -36,6 +36,7 @@ class ConfirmQuitFrame : public DDialog {
  public:
   explicit ConfirmQuitFrame(QWidget* parent = nullptr);
   void display();
+  void updateTsForSuccessPage();
 
  signals:
   // Emitted when cancel-button is clicked.

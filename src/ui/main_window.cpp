@@ -412,6 +412,11 @@ void MainWindow::initConnections() {
           , &MainWindow::shutdownSystem);
   connect(m_installResultsFrame, &InstallResultsFrame::closeButtionChange, this
           , &MainWindow::setCloseButtonVisible);
+  connect(m_installResultsFrame, &InstallResultsFrame::updateQuitFrameTs, this, [=] (bool result) {
+      if (result) {
+          confirm_quit_frame_->updateTsForSuccessPage();
+      }
+  });
 
   connect(install_progress_frame_, &InstallProgressFrame::closeButtionChange,
           this, &MainWindow::setCloseButtonVisible);
