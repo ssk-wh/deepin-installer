@@ -327,7 +327,6 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 void MainWindow::onCloseEvent()
 {
     confirm_quit_frame_->display();
-    this->setFocus();
 }
 
 void MainWindow::changeEvent(QEvent *event)
@@ -351,6 +350,7 @@ void MainWindow::initConnections() {
 
   connect(confirm_quit_frame_, &ConfirmQuitFrame::quitCancelled, this, [=](){
              confirm_quit_frame_->close();
+             qApp->setActiveWindow(this);
           });
   connect(confirm_quit_frame_, &ConfirmQuitFrame::quitConfirmed,
           this, &MainWindow::shutdownSystem);

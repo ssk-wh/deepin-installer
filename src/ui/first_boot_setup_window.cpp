@@ -198,6 +198,7 @@ void FirstBootSetupWindow::initConnections() {
 
     connect(confirm_quit_frame_, &ConfirmQuitFrame::quitCancelled, this, [=](){
                confirm_quit_frame_->close();
+               qApp->setActiveWindow(this);
             });
     connect(confirm_quit_frame_, &ConfirmQuitFrame::quitConfirmed,
             this, &FirstBootSetupWindow::shutdownSystem);
