@@ -206,8 +206,8 @@ void MainWindow::nextFrame()
             if ((*it)->frameType() == FrameType::Frame) {
                 stacked_layout_->setCurrentWidget(*it);
                 // Can only appear back or not back, to traverse the updates
-                if ((*it)->allowPrevious() != m_currentPreviousState) {
-                    updateFrameLabelPreviousState(m_currentPreviousState);
+                if ((*it)->allowPrevious() != m_currentPreviousState || !(*it)->allowPrevious()) {
+                    updateFrameLabelPreviousState((*it)->allowPrevious());
                     m_currentPreviousState = (*it)->allowPrevious();
                 }
             }
@@ -771,7 +771,7 @@ void MainWindow::updateFrameLabelPreviousState(bool allow)
     Q_ASSERT(currentFrame != nullptr);
     for (FrameInterface* frame : m_hasShowFrames) {
         if (frame != currentFrame) {
-            if (!allow) {
+            if (allow) {
                 updateFrameLabelState(frame, FrameLabelState::FinishedConfig);
             } else {
                 updateFrameLabelState(frame, FrameLabelState::Previous);
