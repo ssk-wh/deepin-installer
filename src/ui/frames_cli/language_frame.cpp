@@ -2,6 +2,9 @@
 #include "cursesp.h"
 #include "cursesm.h"
 #include <QScopedPointer>
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonObject>
 
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
@@ -116,6 +119,26 @@ void LanguageFramePrivate::readConf()
     const QString locale = di_locale.isEmpty() ? default_locale : di_locale;
 
     m_languageList = GetLanguageList();
+
+    QJsonParseError error;
+    QJsonDocument doc = QJsonDocument::fromJson(GetLanguageSort().toUtf8(), &error);
+    if (error.error == QJsonParseError::NoError) {
+        if (doc.isArray()) {
+            QJsonArray array = doc.array();
+            for (auto it = array.begin(); it != array.end(); ++it) {
+                m_languageSortList << it->toString();
+            }
+        }
+    }
+
+    if (!m_languageSortList.isEmpty()) {
+        qSort(m_languageList.begin(), m_languageList.end(), [&] (LanguageItem& left, LanguageItem& right) {
+            return m_languageSortList.indexOf(left.name) < m_languageSortList.indexOf(right.name);
+        });
+    } else {
+        qCritical() << "language sort list is empty";
+    }
+
     QStringList list;
     int index = 0;
 

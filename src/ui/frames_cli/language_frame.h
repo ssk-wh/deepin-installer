@@ -48,6 +48,7 @@ public:
 private:
     int m_index;
     LanguageList m_languageList;
+    QStringList m_languageSortList;
     NcursesListView* m_languageView = nullptr;
     NcursesLabel* m_instructions = nullptr;
     //NcursesLabel* m_titleLabel = nullptr;
