@@ -205,7 +205,7 @@ private:
     QList<FrameInterface*> m_frames;
     QList<FrameInterface*> m_hasShowFrames;
     bool m_showPastFrame = false;
-    bool m_currentPreviousState = true;
+    bool m_currentAllowPreviousState = true;
 
     QList<QString> m_frameTitles;
     DListView* m_frameLabelsView = nullptr;

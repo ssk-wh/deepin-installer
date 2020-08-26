@@ -138,9 +138,9 @@ void FirstBootSetupWindow::nextFrame()
             updateFrameLabelState(*it, FrameLabelState::Show);
             stacked_layout_->setCurrentWidget(*it);
             // Can only appear back or not back, to traverse the updates
-            if ((*it)->allowPrevious() != m_currentPreviousState || !(*it)->allowPrevious()) {
+            if ((*it)->allowPrevious() != m_currentAllowPreviousState || !(*it)->allowPrevious()) {
                 updateFrameLabelPreviousState((*it)->allowPrevious());
-                m_currentPreviousState = (*it)->allowPrevious();
+                m_currentAllowPreviousState = (*it)->allowPrevious();
             }
             m_showPastFrame = false;
             break;

@@ -206,9 +206,9 @@ void MainWindow::nextFrame()
             if ((*it)->frameType() == FrameType::Frame) {
                 stacked_layout_->setCurrentWidget(*it);
                 // Can only appear back or not back, to traverse the updates
-                if ((*it)->allowPrevious() != m_currentPreviousState || !(*it)->allowPrevious()) {
+                if ((*it)->allowPrevious() != m_currentAllowPreviousState || !(*it)->allowPrevious()) {
                     updateFrameLabelPreviousState((*it)->allowPrevious());
-                    m_currentPreviousState = (*it)->allowPrevious();
+                    m_currentAllowPreviousState = (*it)->allowPrevious();
                 }
             }
             else if ((*it)->frameType() == FrameType::FullScreenExtFrame) {
