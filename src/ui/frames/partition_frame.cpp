@@ -54,6 +54,7 @@
 #include <QStackedLayout>
 #include <QProcess>
 #include <QTextStream>
+#include <QApplication>
 #include <DButtonBox>
 
 DWIDGET_USE_NAMESPACE
@@ -647,7 +648,8 @@ void PartitionFramePrivate::onNextButtonClicked() {
     if (isFirstWarning && !AdvancedPartitionDelegate::swapOk && AdvancedPartitionDelegate::install_Lvm_Status != Install_Lvm_Status::Lvm_Format_Pv) {
         SwapWarnningFrame swapWarnningFrame;
         swapWarnningFrame.display();
-        isFirstWarning = false;        
+        isFirstWarning = false;
+        qApp->setActiveWindow(q_ptr);
         return;
     } else if (isFirstWarning && AdvancedPartitionDelegate::swapOk && AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_Format_Pv) {
         isFirstWarning = false;
