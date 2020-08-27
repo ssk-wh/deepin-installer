@@ -326,46 +326,8 @@ bool NetwrokFramePrivate::writeInfoList()
             networkSettingInfo.setIpMode  = m_dhcpType;
 
             NetworkOperate testNetworkOperate(m_ipv4Device);
-            testNetworkOperate.setIpV4(networkSettingInfo);
 
-
-            const auto interfaces = QNetworkInterface::allInterfaces();
-            QNetworkInterface interface;
-            for (const QNetworkInterface i : interfaces) {
-                // FIXME: name == lo
-                if (i.name() != "lo") {
-                    interface = i;
-                    break;
-                }
-            }
-
-            int setipv4result = QProcess::execute("nmcli", QStringList() << "con"
-                                          << "add"
-                                          << "type"
-                                          << "ethernet"
-                                          << "con-name"
-                                          << QString("\"%1-lab\"").arg(interface.name())
-                                          << "ifname"
-                                          << interface.name()
-                                          << "ip4"
-                                          << QString("%1/%2").arg(networkSettingInfo.ip).arg(coverMask(networkSettingInfo.mask))
-                                          << "gw4"
-                                          << networkSettingInfo.gateway
-                                          );
-
-            int setipv4dnsresult = QProcess::execute("nmcli", QStringList() << "con"
-                                          << "mod"
-                                          << QString("\"%1-lab\"").arg(interface.name())
-                                          << "ipv4.dns"
-                                          << QString("%1 %2").arg(networkSettingInfo.primaryDNS, networkSettingInfo.secondaryDNS));
-
-            int setifnameresult = QProcess::execute("nmcli", QStringList() << "con"
-                                          << "up"
-                                          << QString("\"%1-lab\"").arg(interface.name())
-                                          << "ifname"
-                                          << interface.name());
-
-            if ((setipv4result == 0) && (setipv4dnsresult == 0) && (setifnameresult == 0)) {
+            if (testNetworkOperate.setIpV4(networkSettingInfo)) {
                 return true;
             } else {
                 m_networkconnecterrorlabel->show();
