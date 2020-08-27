@@ -68,7 +68,7 @@ bool LanguageFramePrivate::validate()
 void LanguageFramePrivate::show()
 {
     if(!m_isshow) {
-        FrameInterfacePrivate::show();
+        NCursesWindowBase::show();
         m_isshow = true;
         m_pNextButton->setFocus(false);
         m_languageView->setFocus(true);

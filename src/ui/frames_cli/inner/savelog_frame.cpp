@@ -112,7 +112,7 @@ void SaveLogFramePrivate::show()
 {
     if(!m_isshow) {
         m_diskManager->setWatchChanges(true);
-        FrameInterfacePrivate::show();
+        NCursesWindowBase::show();
         m_pNextButton->setFocus(true);
         m_isshow = true;
     }

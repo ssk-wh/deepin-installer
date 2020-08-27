@@ -44,9 +44,6 @@ public:
     void setCurrentchoicetype(int state) { m_currentchoicetype = state; }
     virtual void onKeyPress(int keyCode) override;
 
-protected:
-    void backHandle() override;
-
 signals:
     void backToPreviousPage();
     void allIsFinished();

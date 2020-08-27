@@ -154,7 +154,7 @@ bool InstallComponentFramePrivate::validate()
 void InstallComponentFramePrivate::show()
 {
     if(!m_isshow){
-        FrameInterfacePrivate::show();
+        NCursesWindowBase::show();
         m_isshow = true;
     }
 }

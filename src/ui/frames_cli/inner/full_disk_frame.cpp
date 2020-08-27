@@ -116,7 +116,7 @@ bool FullDiskFramePrivate::validate()
 void FullDiskFramePrivate::show()
 {
     if(!m_isshow) {
-        FrameInterfacePrivate::show();
+        NCursesWindowBase::show();
         m_isshow = true;
     }
 }
@@ -200,11 +200,6 @@ void FullDiskFramePrivate::onKeyPress(int keyCode)
     }
 
     qDebug()<< keyCode;
-}
-
-void FullDiskFramePrivate::backHandle()
-{
-    Q_EMIT backToPreviousPage();
 }
 
 void FullDiskFramePrivate::keyPresseEvent(int keycode)

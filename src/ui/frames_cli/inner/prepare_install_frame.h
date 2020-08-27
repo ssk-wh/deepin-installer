@@ -56,10 +56,6 @@ class PrepareInstallFrame : public FrameInterfacePrivate {
   void doNectBtnClickedSignal();
 public:
     void keyPresseEvent(int keycode);
-
-protected:
-    void backHandle() override;
-
  private:
   void initConnections();
   void initUI();

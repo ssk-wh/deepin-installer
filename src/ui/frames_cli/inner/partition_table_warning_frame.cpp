@@ -48,7 +48,7 @@ void PartitionTableWarningFrame::setDevicePath(const QString& device_path) {
 void PartitionTableWarningFrame::show()
 {
     //if(!m_isshow){
-        FrameInterfacePrivate::show();
+        NCursesWindowBase::show();
         m_isshow = true;
 
 
@@ -181,12 +181,7 @@ void PartitionTableWarningFrame::keyPresseEvent(int keycode)
             FrameInterfacePrivate::keyEventTriger(keycode);
             emit keyEventTrigerSignal(keycode);
         }
-   }
-}
-
-void PartitionTableWarningFrame::backHandle()
-{
-    Q_EMIT doBackBtnClickedSignal();
+    }
 }
 
 

@@ -80,14 +80,14 @@ bool KeyboardFramePrivate::validate()
 void KeyboardFramePrivate::show()
 {
     if (!m_isshow) {
-        FrameInterfacePrivate::show();
+        NCursesWindowBase::show();
         m_isshow = true;
     }
 }
 
 void KeyboardFramePrivate::hide()
 {
-    FrameInterfacePrivate::hide();
+    NCursesWindowBase::hide();
     m_isshow = false;
 }
 

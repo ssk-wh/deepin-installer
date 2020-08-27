@@ -43,8 +43,6 @@ private slots:
     void slot_timeout();
 
 protected:
-    void backHandle() override {}
-    void quitHandle() override {}
 
 private:
     bool failed_;

@@ -78,7 +78,7 @@ bool DiskSpaceInsufficientPrivate::validate()
 void DiskSpaceInsufficientPrivate::show()
 {
     if(!m_isshow) {
-        FrameInterfacePrivate::show();
+        NCursesWindowBase::show();
         m_isshow = true;
     }
 }

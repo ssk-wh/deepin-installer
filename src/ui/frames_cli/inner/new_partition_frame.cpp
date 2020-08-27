@@ -357,12 +357,7 @@ void NewPartitionFrame::keyPresseEvent(int keycode)
             FrameInterfacePrivate::keyEventTriger(keycode);
             emit keyEventTrigerSignal(keycode);
         }
-   }
-}
-
-void NewPartitionFrame::backHandle()
-{
-    Q_EMIT doBackBtnClickedSignal();
+    }
 }
 
 void NewPartitionFrame::updateSlideSize() {

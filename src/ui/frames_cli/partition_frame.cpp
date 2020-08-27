@@ -119,7 +119,7 @@ void PartitionFramePrivate::show()
     }
 
     if(!m_isshow) {
-        FrameInterfacePrivate::show();
+        NCursesWindowBase::show();
         m_isshow = true;
     }
 }

@@ -5,7 +5,6 @@
 #include "ui/ncurses_widgets/ncurses_windows_base.h"
 #include "ui/ncurses_widgets/ncurses_button.h"
 #include "service/settings_manager.h"
-#include "ui/ncurses_widgets/ncurses_quit.h"
 #include <QSharedPointer>
 #include <QTimer>
 
@@ -64,11 +63,6 @@ public:
         }
     }
 
-    void show() override {
-        NCursesWindowBase::show();
-        if (m_quit) m_quit->hide();
-    }
-
     virtual void keyHandle() {
         while (!this->hidden()) {
                 int key = getKey();
@@ -90,20 +84,15 @@ public:
     }
 
     virtual void keyEventTriger(int key) {
-        if (m_quit && m_quit->isOnFoucs()) {
-            m_quit->keyHandle(key);
-        } else {
-            switch (key) {
-                case KEY_TAB: tabKeyHandle(); break;
-                case KEY_ESC: escKeyHandle(); break;
-                case kKeyUp: upHandle(); break;
-                case kKeyDown: downHandle(); break;
-                case kKeyLeft: leftHandle(); break;
-                case kKeyRight: rightHandle(); break;
-                default: defaultHandle(key);
-            }
+        switch (key) {
+            case KEY_TAB: tabKeyHandle(); break;
+            case KEY_ESC: escKeyHandle(); break;
+            case kKeyUp: upHandle(); break;
+            case kKeyDown: downHandle(); break;
+            case kKeyLeft: leftHandle(); break;
+            case kKeyRight: rightHandle(); break;
+            default: defaultHandle(key);
         }
-
     }
 
     virtual void updateTs()
@@ -155,35 +144,17 @@ protected:
         defaultHandle(KEY_TAB);
     }
 
-    void escKeyHandle() {
-//        m_escCnt++;
-//        QTimer::singleShot(0, this, [=]{
-//            if (m_escCnt == 1) {
-////                backHandle();
-////            } else if (m_escCnt == 2){
-                quitHandle();
-//            }
+    virtual void escKeyHandle() {
+        m_escCnt++;
+        QTimer::singleShot(100, this, [=]{
+            if (m_escCnt == 1) {
+                Q_EMIT back();
+            } /*else if (m_escCnt == 2){
+                exit(0);
+            }*/
 
-//            m_escCnt = 0;
-//        });
-    }
-
-    virtual void quitHandle() {
-        this->hide();
-        if (!m_quit) {
-            m_quit = new NcursesQuit(this, this->height(), this->width(), begy(), begx(), false, true);
-            m_quit->setFocusEnabled(false);
-            connect(m_quit, &NcursesQuit::cancel, this, [=]{
-                this->show();
-                m_quit->hide();
-            });
-        }
-        m_quit->show();
-        m_quit->setFocus(true);
-    }
-
-    virtual void backHandle() {
-        Q_EMIT back();
+            m_escCnt = 0;
+        });
     }
 
     virtual void rightHandle() {
@@ -219,7 +190,6 @@ signals:
 
 
 protected:
-    NcursesQuit *  m_quit = nullptr;
     NcursesButton* m_pNextButton = nullptr;
     NcursesButton* m_pBackButton = nullptr;
     int m_escCnt = 0;

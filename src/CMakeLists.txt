@@ -661,8 +661,6 @@ set(CLI_UI_FILES
     ui/ncurses_widgets/ncurses_checkbox_list.cpp
     ui/ncurses_widgets/operator_widget.h
     ui/ncurses_widgets/operator_widget.cpp
-    ui/ncurses_widgets/ncurses_quit.h
-    ui/ncurses_widgets/ncurses_quit.cpp
     )
 
 

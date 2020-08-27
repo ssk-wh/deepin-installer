@@ -51,7 +51,7 @@ void SystemInfoFramePrivate::show()
 {
     if(!m_isshow) {
         updateTs();
-        FrameInterfacePrivate::show();
+        NCursesWindowBase::show();
         m_isshow = true;
     }
 
