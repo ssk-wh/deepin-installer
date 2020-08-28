@@ -151,6 +151,9 @@ void AdvancedPartitionFramePrivate::onDeviceRefreshed(const DeviceList& devices)
                 free_gibi_size = ToMebiByte(partition->freespace);
             }
             QString name(QFileInfo(partition->path).fileName());
+            if (partition->partition_number < 1) {
+                name += QString::number(partition->partition_number);
+            }
             QString freeflag(partition->busy?"busy":"free");
             if ((partition->type == PartitionType::Extended) || partition->busy) {
               // Ignores extended partition and currently in-used partitions.
@@ -259,8 +262,13 @@ Partition::Ptr AdvancedPartitionFramePrivate::getCurrentPartition()
     QString indexItem(m_listViewPartitionMode->getCurrenItem());
     for (Device::Ptr device : m_devices) {        
         for (Partition::Ptr partition : device->partitions) {
-            if (indexItem.indexOf(QFileInfo(partition->path).fileName()) > -1)
+            QString path = QFileInfo(partition->path).fileName();
+            if (partition->partition_number < 1) {
+                path += QString::number(partition->partition_number);
+            }
+            if (indexItem.indexOf(path) > -1) {
                 return partition;            
+            }
         }
     }
    return nullptr;
