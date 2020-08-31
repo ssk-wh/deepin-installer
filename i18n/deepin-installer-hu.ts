@@ -1,422 +1,422 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="uk" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" version="2.1">
 <context>
     <name>QObject</name>
     <message>
         <location filename="../src/partman/operation.cpp" line="303"/>
         <source>Create extended partition %1</source>
-        <translation>Створити розширений розділ %1</translation>
+        <translation>Kibővített partíció létrehozása %1</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="307"/>
         <source>Create new partition %1, type: %2</source>
-        <translation>Створіть новий розділ %1, тип: %2</translation>
+        <translation>Új partíció létrehozása %1, típus: %2</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="311"/>
         <source>Create new partition %1 as %2 (mountpoint), type: %3</source>
-        <translation>Створіть новий розділ %1 як %2 (точка монтування), тип: %3</translation>
+        <translation>Új partíció %1 létrehozása %2 (csatolási pont), típus: %3</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="320"/>
         <source>Delete %1 partition</source>
-        <translation>Видалити %1 розділ</translation>
+        <translation>%1 partíció törlése</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="325"/>
         <source>Format %1 partition, type: %2</source>
-        <translation>Форматувати %1 розділ, тип: %2</translation>
+        <translation>%1 partíció formázása, típus: %2</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="329"/>
         <source>Format %1 partition as %2 (mountpoint), type: %3</source>
-        <translation>Форматувати %1 розділ як %2 (точка монтування), тип: %3</translation>
+        <translation>%1 partíció formázása %2 (csatolási pont), típus: %3</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="337"/>
         <source>Use %1 partition as %2 (mountpoint)</source>
-        <translation>Використовуйте розділ %1 як %2 (точку монтування)</translation>
+        <translation>%1 partíció használata %2 (csatolási pont)</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="343"/>
         <source>Format %1 and create %2 new partition table</source>
-        <translation>Форматувати %1 і створити нову таблицю розділів %2</translation>
+        <translation>%1 formázása és %2 új partíciós tábla létrehozása</translation>
     </message>
     <message>
         <location filename="../src/partman/operation.cpp" line="349"/>
         <source>Adjust the size of %1 partition</source>
-        <translation>Налаштуйте розмір розділу %1</translation>
+        <translation>%1 partíció méretének beállítása</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
         <source>Core</source>
-        <translation>Ядро</translation>
+        <translation>Mag</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
         <source>Core packages for server OS.</source>
-        <translation>Пакунки ядра для серверної операційної системи.</translation>
+        <translation>Szerver operációs rendszer alapcsomagjai.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
         <source>Base</source>
-        <translation>Основа</translation>
+        <translation>Alap</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
         <source>Base packages for server OS.</source>
-        <translation>Основні пакунки для серверної операційної системи.</translation>
+        <translation>Alap kiszolgáló OS csomagok.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
         <source>Basic Server Environment</source>
-        <translation>Базове середовища сервера</translation>
+        <translation>Alapszintű kiszolgálói környezet</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
         <source>Applies to standard common service environments, such as Web services and database services.</source>
-        <translation>Пасує до стандартних середовищ серверів, містить, зокрема, вебслужби та служби баз даних.</translation>
+        <translation>A szokásos általános szolgáltatási környezetekre vonatkozik, például a webszolgáltatásokra és az adatbázis-szolgáltatásokra.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
         <source>Cloud and Virtualzalition</source>
-        <translation>Віртуалізація і хмарні обчислення</translation>
+        <translation>Felhő és Virtualizáció</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
         <source>Applies to IaaS environments, such as virtualization, containers, and clouds.</source>
-        <translation>Пасує до середовищ IaaS, зокрема середовищ для віртуалізації, контейнерів та хмарних обчислень.</translation>
+        <translation>Az IaaS környezetekre vonatkozik, például virtualizációra, tárolókra és felhőkre.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
         <source>Big Data</source>
-        <translation>Аналіз даних</translation>
+        <translation>Nagy adat</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
         <source>Applies to servers that provide parallel processing of massive data.</source>
-        <translation>Пасує до серверів, які призначено для паралельної обробки великих масивів даних.</translation>
+        <translation>Olyan szerverekre vonatkozik, amelyek hatalmas adatok párhuzamos feldolgozását biztosítják.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Server Environment with GUI</source>
-        <translation>Серверне середовище із графічним інтерфейсом</translation>
+        <translation>Szerver környezet grafikus felülettel</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Operates the services and applications on the graphical user interface.</source>
-        <translation>Містить служби і програми для забезпечення роботи графічного інтерфейсу користувача.</translation>
+        <translation>A grafikus felhasználói felületen üzemelteti a szolgáltatásokat és az alkalmazásokat.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>Custom Installation</source>
-        <translation>Нетипове встановлення</translation>
+        <translation>Egyéni telepítés</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
         <source>Provides most package groups for custom selection, covering minimum to maximum installation.</source>
-        <translation>Більшість нетипових груп пакунків. Надає змогу створювати системи від мінімалістичних до повних.</translation>
+        <translation>Biztosítja a legtöbb csomagcsoportot az egyéni kiválasztáshoz, amely lefedi a minimális és maximális telepítést.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>Debugging Tools</source>
-        <translation>Інструменти налагодження</translation>
+        <translation>Hibakereső eszközök</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
         <source>Provide debugging package for program function and performance.</source>
-        <translation>Діагностичні пакунки для вивчення роботи програм та проблем із швидкодією.</translation>
+        <translation>Adjon hibakereső csomagot a program funkcióihoz és teljesítményéhez.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>Applications with GUI</source>
-        <translation>Програми із графічним інтерфейсом</translation>
+        <translation>Alkalmazások grafikus felülettel</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
         <source>Commonly used server application packages in graphical user interface.</source>
-        <translation>Пакунки типових серверних програм із графічним інтерфейсом користувача.</translation>
+        <translation>Gyakran használt kiszolgálóalkalmazás-csomagok grafikus felhasználói felületen.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Development Tools</source>
-        <translation>Інструменти розробки</translation>
+        <translation>Fejlesztői eszközök</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
         <source>Development tool packages in multiple programming languages.</source>
-        <translation>Пакунки для розробки різними мовами програмування.</translation>
+        <translation>Fejlesztőeszköz-csomagok több programozási nyelven.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>Directory Client</source>
-        <translation>Клієнт каталогу</translation>
+        <translation>Vezető kliens</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
         <source>Clients for integration into a network managed by a directory service.</source>
-        <translation>Клієнти для інтеграції в мережу, керовану службою каталогу.</translation>
+        <translation>Ügyfelek a címtárszolgáltatás által kezelt hálózatba történő integráláshoz.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Domain Name Service</source>
-        <translation>Служба назв доменів</translation>
+        <translation>Domain név szolgáltatás</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
         <source>Environments for running the domain name service (DNS).</source>
-        <translation>Середовища для запуску служби назв доменів (DNS).</translation>
+        <translation>Környezetek a tartománynév szolgáltatás (DNS) futtatásához.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>File and Storage Server</source>
-        <translation>Файл і сервер зберігання</translation>
+        <translation>Fájl- és tárolószerver</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
         <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
-        <translation>CIFS, SMB, NFS, iSCSI, iSER та iSNS-сервер мережевого зберігання даних.</translation>
+        <translation>CIFS, SMB, NFS, iSCSI, iSER, és iSNS hálózati tárolószerver.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>Graphics Creation Tools</source>
-        <translation>Інструменти створення графіки</translation>
+        <translation>Grafika létrehozó eszközök</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
         <source>Software for creating and editing images.</source>
-        <translation>Програмне забезпечення для створення і редагування зображень.</translation>
+        <translation>Szoftver képek létrehozására és szerkesztésére.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>Load Balancer</source>
-        <translation>Балансувальник навантаження</translation>
+        <translation>Terheléselosztás</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
         <source>Load balancing support for network traffic.</source>
-        <translation>Підтримка балансування навантаження для мережевого трафіку.</translation>
+        <translation>Terheléselosztási támogatása a hálózati forgalom számára.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>MariaDB Database Server</source>
-        <translation>Сервер баз даних MariaDB</translation>
+        <translation>MariaDB adatbázis kiszolgáló</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
         <source>The MariaDB SQL database server, and associated packages.</source>
-        <translation>Сервер баз даних MariaDB SQL та пов&apos;язані з ними пакети.</translation>
+        <translation>A MariaDB SQL adatbázis-kiszolgáló és a kapcsolódó csomagok.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>E-mail Server</source>
-        <translation>Сервер електронної пошти</translation>
+        <translation>E-mail szerver</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
         <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
-        <translation>Дозволяє системі діяти як SMTP та/або сервер електронної пошти IMAP.</translation>
+        <translation>Lehetővé teszi a rendszer számára, hogy SMTP és / vagy IMAP e-mail szerverként működjön.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>Network File System Client</source>
-        <translation>Клієнт мережевої файлової системи</translation>
+        <translation>Hálózati fájlrendszer kliens</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
         <source>Environments for network storage devices.</source>
-        <translation>Середовища для пристроїв зберігання даних у мережі.</translation>
+        <translation>Környezetek hálózati tárolóeszközökhöz.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>Performance Tools</source>
-        <translation>Інструменти продуктивності</translation>
+        <translation>Teljesítményeszközök</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
         <source>Packages for monitoring and diagnosing hardware devices, system programs, and applications.</source>
-        <translation>Пакунки для стеження за апаратним забезпеченням, програмами системи та додатками, а також діагностування проблем.</translation>
+        <translation>Csomagok hardvereszközök, rendszerprogramok és alkalmazások megfigyeléséhez és diagnosztizálásához.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>Security Tools</source>
-        <translation>Засоби безпеки</translation>
+        <translation>Biztonsági eszközök</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
         <source>Packages for integrity and trust verification.</source>
-        <translation>Пакунки для перевірки цілісності та захищеності системи.</translation>
+        <translation>Csomagok az integritás és a megbízhatóság ellenőrzéséhez.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>Web Server</source>
-        <translation>Вебсервер</translation>
+        <translation>Web szerver</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
         <source>Provides Java servlets and Web common service components.</source>
-        <translation>Містить сервлети та типові компоненти служб мережі Java.</translation>
+        <translation>Java szervleteket és általános webszolgáltatási összetevőket biztosít.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>Guest Agents</source>
-        <translation>Гостьові агенти</translation>
+        <translation>Vendégügynökök</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
         <source>Agents used when running under a hypervisor.</source>
-        <translation>Агенти, які використовуються при роботі під гіпервізором.</translation>
+        <translation>Hipervizor alatt futó szerek.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Virtualization Client</source>
-        <translation>Клієнт віртуалізації</translation>
+        <translation>Virtualizációs kliens</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Clients for installing and managing virtualization instances.</source>
-        <translation>Клієнти для встановлення та керування екземплярами віртуалізації.</translation>
+        <translation>Ügyfelek a virtualizációs példányok telepítéséhez és kezeléséhez.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Virtualization Hypervisor</source>
-        <translation>Гіпервізор з віртуалізації</translation>
+        <translation>Virtualizációs felügyelő</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Smallest possible virtualization host installation.</source>
-        <translation>Найменша можлива установка хоста для віртуалізації.</translation>
+        <translation>A lehető legkisebb virtualizációs állomás telepítése.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Virtualization Tools</source>
-        <translation>Інструменти віртуалізації</translation>
+        <translation>Virtualizációs eszközök</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Tools for offline virtual image management.</source>
-        <translation>Інструменти для керування віртуальними зображеннями в автономному режимі.</translation>
+        <translation>Eszközök offline virtuális képkezeléshez.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Virtualization Platform</source>
-        <translation>Платформа віртуалізації</translation>
+        <translation>Virtualizációs platform</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Provides an interface for acessing and controlling virtualized guests and containers.</source>
-        <translation>Містить інтерфейс для доступу і керування віртуальними гостьовими системами і контейнерами.</translation>
+        <translation>Felületet biztosít a virtualizált vendégek és tárolók eléréséhez és vezérléséhez.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>High Availability</source>
-        <translation>Висока доступність</translation>
+        <translation>Magas rendelkezésreállás</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Infrastructure for highly available services and/or shared storage.</source>
-        <translation>Інфраструктура для високодоступних послуг та/або спільного зберігання.</translation>
+        <translation>Infrastruktúra a rendkívül elérhető szolgáltatásokhoz és / vagy megosztott tárhelyhez.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>InfiniBand Support</source>
-        <translation>Підтримка InfiniBand</translation>
+        <translation>InfiniBand támogatás</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
         <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
-        <translation>Програмне забезпечення, розроблене для підтримки кластеризації і підключення до сітки з використанням заснованих на RDMA матрицях InfiniBand і iWARP.</translation>
+        <translation>A fürtözés és a hálózati csatlakozás támogatására tervezett szoftver, RDMA alapú InfiniBand és iWARP eszközökkel.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Large Systems Performance</source>
-        <translation>Велика продуктивність системи</translation>
+        <translation>Nagy rendszer teljesítmény</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Performance support tools for large systems.</source>
-        <translation>Інструменти підтримки продуктивності для великих систем.</translation>
+        <translation>Teljesítménytámogató eszközök nagy rendszerek számára.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Platform Development</source>
-        <translation>Розробка платформи</translation>
+        <translation>Platform fejlesztőeszközök</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
-        <translation>Рекомендовані заголовки для розробки і бібліотеки для розробки додатків для роботи на deepin.</translation>
+        <translation>Javasolt fejlesztési fejlécek és könyvtárak az UOS rendszeren futó alkalmazások fejlesztéséhez.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Internet Applications</source>
-        <translation>Інтернет-додатки</translation>
+        <translation>Internetes alkalmazások</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Email, chat, and video conferencing software.</source>
-        <translation>Програмне забезпечення для електронної пошти, чату та відеоконференцій.</translation>
+        <translation>Email, csevegő és videókonferencia-alkalmazások</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Virtualization Toolset</source>
-        <translation>Набір інструментів для віртуалізації</translation>
+        <translation>Virtualizációs eszközkészlet</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Toolset for virtualization enviroment (host and guest).</source>
-        <translation>Набір інструментів для середовищ віртуалізації (основна і гостьова система).</translation>
+        <translation>Eszközkészlet a virtualizációs környezethez (host és vendég).</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>PostgreSQL Database Server</source>
-        <translation>PostgreSQL сервер баз даних</translation>
+        <translation>PostgreSQL adatbázis kiszolgáló</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>The PostgreSQL SQL database server, and associated packages.</source>
-        <translation>Сервер баз даних PostgreSQL SQL та пов&apos;язані з ними пакети.</translation>
+        <translation>PostgreSQL SQL adatbázis-kiszolgáló és a kapcsolódó csomagok.</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="12"/>
         <source>End User License Agreement for UnionTech OS Desktop Home</source>
-        <translation>Ліцензійна угода із кінцевим користувачем для UnionTech OS Desktop Home</translation>
+        <translation>Végfelhasználói licencszerződés az UnionTech OS Otthoni asztal környezetéhez</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="13"/>
         <source>End User License Agreement for UnionTech OS Desktop Professional</source>
-        <translation>Ліцензійна угода із кінцевим користувачем для UnionTech OS Desktop Professional</translation>
+        <translation>Végfelhasználói licencszerződés az UnionTech OS Professional környezetéhez</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="14"/>
         <source>End User License Agreement for Deepin OS</source>
-        <translation>Ліцензійна угода із кінцевим користувачем для ОС Deepin</translation>
+        <translation>Végfelhasználói licencszerződés az Deepin OS Otthoni asztal környezetéhez</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="15"/>
         <source>End User License Agreement for UnionTech OS Server</source>
-        <translation>Ліцензійна угода із кінцевим користувачем для ОС UnionTech Server</translation>
+        <translation>Végfelhasználói licencszerződés az UnionTech OS szerver környezetéhez</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="22"/>
         <source>Deepin OS User Experience Program License Agreement</source>
-        <translation>Ліцензійна угода щодо програми вивчення роботи користувачів ОС Deepin</translation>
+        <translation>A Deepin OS felhasználói élmény program licencszerződése</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="26"/>
         <source>UnionTech OS User Experience Program License Agreement</source>
-        <translation>Ліцензійна угода щодо програми вивчення роботи користувачів UnionTech OS</translation>
+        <translation>Az UnionTech OS felhasználói élmény program licencszerződése</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="33"/>
         <source>Deepin OS Privacy Policy</source>
-        <translation>Правила конфіденційності ОС Deepin</translation>
+        <translation>A Deepin OS adatvédelmi irányelvei</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="37"/>
         <source>UnionTech Software Privacy Policy</source>
-        <translation>Правила конфіденційності програмного забезпечення UnionTech</translation>
+        <translation>UnionTech szoftver adatvédelmi irányelvei</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="55"/>
@@ -435,7 +435,7 @@
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="56"/>
         <source>UnionTech OS</source>
-        <translation>ОС UnionTech</translation>
+        <translation>UnionTech OS</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="59"/>
@@ -445,33 +445,33 @@
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="269"/>
         <source>Do not use this partition</source>
-        <translation>Не використовуйте цей розділ</translation>
+        <translation>Nem használjuk ezt a partíciót</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="282"/>
         <source>Swap partition</source>
-        <translation>Swap розділ</translation>
+        <translation>Cserehely partíció</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="286"/>
         <source>Unknown</source>
-        <translation>Невідомий</translation>
+        <translation>Ismeretlen</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/partition_util.cpp" line="387"/>
         <location filename="../src/ui/delegates/partition_util.cpp" line="418"/>
         <source>Freespace</source>
-        <translation>Вільний простір</translation>
+        <translation>Üres hely</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="57"/>
         <source>Shut Down</source>
-        <translation>Вимкнути</translation>
+        <translation>Leállítás</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="59"/>
         <source>You can experience it after configuring user information in next system startup.</source>
-        <translation>Ви зможете скористатися цим після налаштовування даних користувача під час наступного запуску системи.</translation>
+        <translation>A felhasználói adatok konfigurálása után a következő rendszerindításkor tapasztalhatja meg.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="60"/>
@@ -489,26 +489,26 @@
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="35"/>
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="92"/>
         <source>Cancel</source>
-        <translation>Скасувати</translation>
+        <translation>Kilépés</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="61"/>
         <source>Shut down</source>
-        <translation>Вимкнути</translation>
+        <translation>Leállítás</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="113"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="50"/>
         <source>Abort Installation</source>
-        <translation>Скасувати встановлення</translation>
+        <translation>Telepítés megszakítása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="68"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="95"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="55"/>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
-        <translation>Відповідні операції, виконані вами в процесі інсталяції, не вступлять в силу, не будуть скасовані або продовжено інсталяцію?</translation>
+        <translation>Az ide vonatkozó műveletek amit a telepítés során kijelöltünk, nem kerülnek végrehajtásra. Megszakítod a telepítést, vagy folytatod?</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="69"/>
@@ -522,7 +522,7 @@
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="17"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="62"/>
         <source>Continue</source>
-        <translation>Продовжити</translation>
+        <translation>Tovább</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="70"/>
@@ -531,19 +531,19 @@
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="23"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="68"/>
         <source>Abort</source>
-        <translation>Скасувати</translation>
+        <translation>Megszakítás</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="39"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="201"/>
         <source>Set Control Region</source>
-        <translation>Встановіть Область Керування</translation>
+        <translation>Vezérlő régió beállítása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="40"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="202"/>
         <source>Set the region for UOS EndPoint Management Platform</source>
-        <translation>Встановіть регіон для платформи Керування Deepin EndPoint</translation>
+        <translation>Állítsa be az UOS végponti menedzsment platform régióját</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="199"/>
@@ -568,26 +568,26 @@
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="25"/>
         <location filename="../src/base/translator.h" line="16"/>
         <source>Next</source>
-        <translation>Далі</translation>
+        <translation>Következő</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="200"/>
         <source>Server Address</source>
-        <translation>Адреса Серверу</translation>
+        <translation>Szervercím</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="56"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="211"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
-        <translation>Для встановлення %2 вам потрібно більше ніж %1 ГБ дискового простору. Для підвищення продуктивності, рекомендуємо використовувати %3 ГБ і більше місця</translation>
+        <translation>Legalább %1 GB lemezterületre van szüksége a %2 telepítéséhez. A jobb teljesítmény érdekében legalább %3 GB ajánlott</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="92"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="97"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="124"/>
         <source>Insufficient Disk Space</source>
-        <translation>Недостатньо місця на диску</translation>
+        <translation>Nincs elegendő lemezterület</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="99"/>
@@ -596,7 +596,7 @@
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="190"/>
         <source>Exit</source>
-        <translation>Вхід</translation>
+        <translation>Kilépés</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="116"/>
@@ -605,26 +605,26 @@
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="79"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="129"/>
         <source>Warning</source>
-        <translation>УВАГА</translation>
+        <translation>Figyelem!</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="54"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="88"/>
         <source>Tuning system</source>
-        <translation>Тюнінг системи</translation>
+        <translation>Rendszerhangolás</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="90"/>
         <source>Applying changes to your system, please wait...</source>
-        <translation>Застосовую зміни у вашій системі, зачекайте...</translation>
+        <translation>Változtatások alkalmazása, kérlek várj...</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="109"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="199"/>
         <source>Change boot loader</source>
-        <translation>Змінити завантажувач</translation>
+        <translation>Rendszerbetöltő csere</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="111"/>
@@ -633,14 +633,14 @@
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="17"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="73"/>
         <source>Done</source>
-        <translation>Готово</translation>
+        <translation>Kész</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="113"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="206"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="621"/>
         <source>Delete</source>
-        <translation>Вилучити</translation>
+        <translation>Törlés</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="115"/>
@@ -648,98 +648,98 @@
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="137"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="192"/>
         <source>Install NVIDIA closed source driver</source>
-        <translation>Встановити закритий драйвер NVIDIA</translation>
+        <translation>Telepítse az NVIDIA zárt forráskódú illesztőprogramot</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="480"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="435"/>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation>%1 виявлена помилка, виправити, продовжити встановлення або переключитися в простий режим</translation>
+        <translation>%1 hiba, javítsd ki a telepítés folytatásához vagy válts egyszerű módra</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="484"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="438"/>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation>%1 виявлені помилки, виправити, продовжити встановлення або переключитися в простий режим</translation>
+        <translation>%1 hiba található, javítsd ki a telepítés folytatásához vagy válts egyszerű módra</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="490"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="494"/>
         <source>%1 errors found, fix to continue installation</source>
-        <translation>Виявлено %1 помилок. Виправте їх, щоб продовжити встановлення</translation>
+        <translation>%1 hiba található, javítsa ki a telepítés folytatásához</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="541"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="364"/>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation>Тип файлової системи розділу /boot-директорії може бути тільки %1 </translation>
+        <translation>A partíció, ahol a /boot könyvtár van, csak %1 lehet</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="545"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="368"/>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation>Розділ /boot-директорії  повинен бути першим розділом на жорсткому диску</translation>
+        <translation>A merevlemez első partíciójában kell lennie a /boot könyvtárnak</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="549"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="372"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
-        <translation>Розділ /boot/efi-директорії  повинен бути першим розділом на жорсткому диску</translation>
+        <translation>A /boot/efi könyvtár partíciójának a merevlemez első partíciójának kell lennie</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="554"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="377"/>
         <source>/boot partition requires at least %1 MB</source>
-        <translation>Для розділу /boot потрібно принаймні %1 МБ</translation>
+        <translation>A /boot partícióhoz legalább %1 MB szükséges</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="558"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="381"/>
         <source>To create lvm, /boot partition is required</source>
-        <translation>Для створення LVM потрібен розділ /boot</translation>
+        <translation>Az lvm létrehozásához a /boot partícióra van szükség</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="561"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="384"/>
         <source>Add an EFI partition to continue</source>
-        <translation>Додайте розділ EFI, щоб продовжити</translation>
+        <translation>A folytatáshoz hozz létre EFI partíciót</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="565"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="388"/>
         <source>/efi partition requires at least %1 MB</source>
-        <translation>Для розділу /efi потрібно принаймні %1 МБ</translation>
+        <translation>A /efi partícióhoz legalább %1 MB szükséges</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="569"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="392"/>
         <source>Add a root partition to continue</source>
-        <translation>Додайте кореневий розділ, щоб продовжити</translation>
+        <translation>A folytatáshoz hozzon létre egy gyökérpartíciót</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="574"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="91"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="397"/>
         <source>/root partition requires at least %1 GB</source>
-        <translation>Для розділу /root потрібно принаймні %1 ГБ</translation>
+        <translation>A /root partícióhoz legalább %1 GB szükséges</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="579"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="402"/>
         <source>%2 partition requires at least %1 GB</source>
-        <translation>Для розділу %2 потрібно принаймні %1 ГБ</translation>
+        <translation>A %2 partícióhoz legalább %1 GB szükséges</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="584"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="407"/>
         <source>Add a logical partition to continue</source>
-        <translation>Додайте логічний розділ, щоб продовжити</translation>
+        <translation>Adjon hozzá egy logikai partíciót a folytatáshoz</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="132"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="222"/>
         <source>Edit Disk</source>
-        <translation>Редагувати диск</translation>
+        <translation>Lemez szerkesztése</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="133"/>
@@ -749,7 +749,7 @@
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="197"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="240"/>
         <source>File system</source>
-        <translation>Файлова система</translation>
+        <translation>Fájlrendszer</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="134"/>
@@ -759,13 +759,13 @@
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="203"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="241"/>
         <source>Mount point</source>
-        <translation>Точка монтування</translation>
+        <translation>Csatolási pont</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="135"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="283"/>
         <source>Format the partition</source>
-        <translation>Форматувати розділ</translation>
+        <translation>Partíció formázás</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="137"/>
@@ -781,12 +781,12 @@
         <location filename="../src/ui/frames_cli/time_zone_frame.h" line="69"/>
         <location filename="../src/ui/main_window_cli.cpp" line="81"/>
         <source>Confirm</source>
-        <translation>Підтвердити</translation>
+        <translation>Megerősít</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="231"/>
         <source>Please input password</source>
-        <translation>Будь ласка, введіть пароль</translation>
+        <translation>Kérlek add meg jelszavadat</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="238"/>
@@ -794,14 +794,14 @@
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="174"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="314"/>
         <source>Passwords do not match</source>
-        <translation>Паролі не збігаються</translation>
+        <translation>Jelszavak nem egyeznek</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="271"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="138"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="185"/>
         <source>Encrypt This Disk</source>
-        <translation>Зашифрувати цей диск</translation>
+        <translation>A lemez titkosítása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="272"/>
@@ -809,7 +809,7 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="442"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="780"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation>Переконайтеся, що ви створили резервну копію важливих даних, потім виберіть диск для встановлення</translation>
+        <translation>Győződjön meg róla, hogy minden adatáról készített biztonsági mentést, majd válassza ki a lemezt a telepítéshez</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="273"/>
@@ -818,23 +818,23 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="659"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="556"/>
         <source>Password</source>
-        <translation>Пароль</translation>
+        <translation>Jelszó</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="274"/>
         <source>Repeat Password</source>
-        <translation>Повторіть пароль</translation>
+        <translation>Jelszó ismétlése</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="277"/>
         <source>Take care of your password, otherwise, all your data will be lost</source>
-        <translation>Подбайте про якісний пароль, інакше усі ваші дані може бути втрачено</translation>
+        <translation>Vigyázzon a jelszavára, különben minden adata elvész</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="139"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="197"/>
         <source>Please select a disk to start installation</source>
-        <translation>Будь ласка, виберіть диск, щоб розпочати встановлення</translation>
+        <translation>Kérlek, válassz egy lemezt a telepítéshez</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="140"/>
@@ -844,7 +844,7 @@
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="239"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="174"/>
         <source>Install here</source>
-        <translation>Встановити тут</translation>
+        <translation>Telepítés helye</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/lvm_partition_frame.cpp" line="55"/>
@@ -867,7 +867,7 @@
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="24"/>
         <location filename="../src/base/translator.h" line="17"/>
         <source>Back</source>
-        <translation>Назад</translation>
+        <translation>Vissza</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="169"/>
@@ -875,7 +875,7 @@
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="182"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="237"/>
         <source>Create New Partition</source>
-        <translation>Створіть новий розділ</translation>
+        <translation>Új partíció létrehozása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="170"/>
@@ -883,7 +883,7 @@
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="186"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="238"/>
         <source>Type</source>
-        <translation>Тип</translation>
+        <translation>Típus</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="171"/>
@@ -891,7 +891,7 @@
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="192"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="239"/>
         <source>Location</source>
-        <translation>Місцезнаходження</translation>
+        <translation>Hely</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="174"/>
@@ -899,21 +899,21 @@
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="208"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="242"/>
         <source>Size</source>
-        <translation>Розмір</translation>
+        <translation>Méret</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="176"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="246"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="121"/>
         <source>Start</source>
-        <translation>Почати</translation>
+        <translation>Eleje</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="176"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="246"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="122"/>
         <source>End</source>
-        <translation>Кінець</translation>
+        <translation>Vége</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="178"/>
@@ -922,43 +922,43 @@
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="109"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="131"/>
         <source>Create</source>
-        <translation>Створити </translation>
+        <translation>Létrehoz</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="425"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="595"/>
         <source>Unable to mount automatically, as it requires at least %1 GB</source>
-        <translation>Монтування в автоматичному режимі неможливе — потрібно принаймні %1 ГБ</translation>
+        <translation>Nem sikerült automatikusan csatlakoztatni, mivel ehhez legalább %1 GB szükséges</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="35"/>
         <location filename="../src/ui/frames/inner/new_table_loading_frame.cpp" line="52"/>
         <source>Formatting...</source>
-        <translation>Форматування...</translation>
+        <translation>Formázás...</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="80"/>
         <source>Format Warning</source>
-        <translation>Попередження про форматування </translation>
+        <translation>Formázási figyelmeztetés</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="63"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="89"/>
         <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation>Продовження встановлення відформатує весь диск, будь ласка, зробіть резервну копію всіх ваших даних. Якщо ви не знаєте, що робите, будь ласка, не продовжуйте</translation>
+        <translation>A telepítés folytatása az egész lemezt formázza, kérjük, készítsen biztonsági másolatot az összes adatról. Ha nem tudja, mit csinál, kérjük, ne folytassa</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="37"/>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="45"/>
         <source>Scan disks</source>
-        <translation>Сканування дисків</translation>
+        <translation>Lemezek ellenőrzése</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="38"/>
         <location filename="../src/ui/frames/inner/partition_loading_frame.cpp" line="46"/>
         <source>Scanning disks, please wait...</source>
-        <translation>Сканування дисків, будь ласка, зачекайте...</translation>
+        <translation>Lemezek ellenőrzése, várj...</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="45"/>
@@ -966,62 +966,62 @@
         <location filename="../src/ui/frames_cli/inner/partition_number_limitation_frame.cpp" line="68"/>
         <location filename="../src/ui/frames_cli/inner/partition_number_limitation_frame.cpp" line="95"/>
         <source>Failed to Create New Partition</source>
-        <translation>Не вдалося створити новий розділ</translation>
+        <translation>Új partíció létrehozása sikertelen</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="46"/>
         <location filename="../src/ui/frames_cli/inner/partition_number_limitation_frame.cpp" line="72"/>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
-        <translation>Ви повинні видалити основний розділ перед створенням нового, так як на диску MBR може бути тільки чотири основні розділи.</translation>
+        <translation>Új létrehozása előtt törölnie kell egy elsődleges partíciót, mivel az MBR lemezen csak négy elsődleges partíció lehet</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="47"/>
         <location filename="../src/ui/frames_cli/inner/partition_number_limitation_frame.cpp" line="76"/>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
-        <translation>Ви повинні видалити первинний розділ перед створенням логічного або перемістити існуючий логічний розділ на кінець диску</translation>
+        <translation>Törölnie kell egy elsődleges partíciót egy logikai létrehozása előtt, vagy a meglévő logikai partíciót a lemez végére kell áthelyeznie</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="77"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install the system directly. Please select one of the below solutions and continue.</source>
-        <translation>У вас завантажувач EFI, але диск MBR, тому ви не можете встановити операційну систему безпосередньо. Будь ласка, виберіть одне з наведених нижче рішень, щоб продовжити.</translation>
+        <translation>Ön EFI boot betöltővel rendelkezik, de MBR lemezzel, így nem tudja közvetlenül telepíteni a rendszert. Kérjük, válassza az alábbi megoldások egyikét, és folytassa.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="78"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="151"/>
         <source>Disable UEFI</source>
-        <translation>Вимкнути UEFI</translation>
+        <translation>UEFI letiltása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="80"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="153"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="91"/>
         <source>Reboot, enter BIOS, and disable UEFI</source>
-        <translation>Перезавантажитеся, увійдіть в BIOS і вимкніть UEFI</translation>
+        <translation>Indítsd újra a számítógépet, lépj be a BIOS-ba az UEFI letiltásához.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="81"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="154"/>
         <source>Exit BIOS, and install %1 again</source>
-        <translation>Вийдіть з BIOS і знову встановіть %1</translation>
+        <translation>Lépjen ki a BIOS-ból, és telepítse újra a % 1-t</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="86"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="163"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="94"/>
         <source>Make sure you have backed up all data before proceeding</source>
-        <translation>Переконайтеся, що ви створили резервну копію всіх даних, перш ніж продовжити</translation>
+        <translation>Győződjön meg róla, hogy minden adatáról készített biztonsági mentést mielőtt folytatná</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="87"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="164"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="95"/>
         <source>Continuing installation will format your disk</source>
-        <translation>Продовжити встановлення буде відформатовано ваш диск</translation>
+        <translation>A telepítés folytatása formázni fogja a lemezt</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="141"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. Please select one of the below solutions and continue.</source>
-        <translation>У вас завантажувач EFI, але диск MBR, тому ви не можете встановити %1 безпосередньо. Будь ласка, виберіть одне з наведених нижче рішень, щоб продовжити.</translation>
+        <translation>Ön EFI rendszerindítóval rendelkezik, de MBR lemezzel, így nem tudja közvetlenül telepíteni a %1 alkalmazást. Kérjük, válassza az alábbi megoldások egyikét, és folytassa.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="80"/>
@@ -1031,7 +1031,7 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="697"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="88"/>
         <source>Ready to Install</source>
-        <translation>Готовий до встановлення</translation>
+        <translation>Telepítésre kész</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="82"/>
@@ -1040,73 +1040,73 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="696"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="92"/>
         <source>Make a backup of your important data and then continue</source>
-        <translation>Зробіть резервну копію ваших важливих даних і потім продовжуйте</translation>
+        <translation>Kérem, készítsen mentést a fontos adatokról, majd folytassa</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="44"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="78"/>
         <source>Select location for boot loader</source>
-        <translation>Виберіть місце для завантажувача</translation>
+        <translation>Telepítési hely kiválasztása a rendszerbetöltőhöz</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="46"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="80"/>
         <source>If you do not understand the settings, please select the recommended one</source>
-        <translation>Якщо ви не розумієте детальні налаштування, виберіть налаштування за замовчуванням</translation>
+        <translation>Ha nem érti a beállításokat, válassza ki az ajánlottakat</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="464"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="219"/>
         <source>I have read and agree to the</source>
-        <translation>Мною прочитано угоду. Я погоджуюся із умовами</translation>
+        <translation>Elolvastam és egyetértek a</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="465"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="203"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="220"/>
         <source>End User License Agreement</source>
-        <translation>Ліцензійна угода із кінцевим користувачем</translation>
+        <translation>Végfelhasználói Szerződés</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="468"/>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="474"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="221"/>
         <source>and</source>
-        <translation>і</translation>
+        <translation>és</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="470"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="206"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="222"/>
         <source>Privacy Policy</source>
-        <translation>Правила конфіденційності</translation>
+        <translation>Adatvédelmi irányelv</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="483"/>
         <source>Agree to the</source>
-        <translation>Погоджуюся із умовами</translation>
+        <translation>Egyetértek a</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="486"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/language_frame.cpp" line="90"/>
         <source>Select Language</source>
-        <translation>Вибір мови</translation>
+        <translation>Nyelv kiválasztása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="77"/>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation>Неможливо створити новий розділ, будь ласка, виберіть один з існуючих розділів!</translation>
+        <translation>Új partíciót nem lehet létrehozni. Válassz a már létező partíciók közül!</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="84"/>
         <source>Please select one of the partitions to install!</source>
-        <translation>Будь ласка, виберіть один з розділів для встановлення!</translation>
+        <translation>Válassz ki egy partíciót a telepítéshez</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="421"/>
         <source>Windows will not boot if you install %1 on Windows disk, please confirm to continue</source>
-        <translation>Windows не завантажиться, якщо встановити %1 на диску Windows, будь ласка, підтвердьте, щоб продовжити</translation>
+        <translation>A Windows nem indul el, ha %1-et a Windows lemezre telepíti, kérjük erősítse meg a folytatást</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="406"/>
@@ -1115,7 +1115,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="664"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="555"/>
         <source>Username</source>
-        <translation>Ім&apos;я користувача</translation>
+        <translation>Felhasználónév</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="434"/>
@@ -1123,7 +1123,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="658"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="554"/>
         <source>Computer name</source>
-        <translation>Ім&apos;я комп&apos;ютера</translation>
+        <translation>Számítógépnév</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="483"/>
@@ -1132,206 +1132,206 @@
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="265"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="557"/>
         <source>Repeat password</source>
-        <translation>Повторіть пароль</translation>
+        <translation>Jelszó ismétlése</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="654"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="661"/>
         <source>Root password</source>
-        <translation>Root пароль</translation>
+        <translation>Rendszergazda jelszó</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="655"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="662"/>
         <source>Repeat root password</source>
-        <translation>Повторити пароль root</translation>
+        <translation>Rendszergazda jelszó ismétlése</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="666"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="131"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="551"/>
         <source>Create Accounts</source>
-        <translation>Створення облікових записів</translation>
+        <translation>Fiókok létrehozása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="667"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="553"/>
         <source>Fill in the username, computer name and your password</source>
-        <translation>Введіть ім&apos;я користувача, ім&apos;я комп&apos;ютера і ваш пароль</translation>
+        <translation>Adja meg a felhasználónevet, számítógépnevet és a jelszavát</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="668"/>
         <source>Add fingerprint password in Control Center &gt; Accounts to unlock and authenticate</source>
-        <translation>Додайте пароль до відбитка за допомогою модуля «Центр керування &gt; Облікові записи», для розблокування і розпізнавання</translation>
+        <translation>Adjon hozzá ujjlenyomat-jelszót a Vezérlőközpont&gt; Fiókok a feloldásához és hitelesítéséhez menüpont alatt</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="669"/>
         <source>Use that password to edit boot menu</source>
-        <translation>Використовуйте цей пароль для редагування меню завантаження</translation>
+        <translation>Jelszó használata a boot menü szerkesztéséhez</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="670"/>
         <source>Enable root user</source>
-        <translation>Увімкнути користувача root</translation>
+        <translation>Rendszergazda felhasználó engedélyezése</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="694"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="190"/>
         <source>This username already exists</source>
-        <translation>Це ім&apos;я користувача вже існує</translation>
+        <translation>A felhasználónév már létezik</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="698"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="194"/>
         <source>The first letter must be in lowercase</source>
-        <translation>Перша літера повинна бути в нижньому регістрі</translation>
+        <translation>Az első betűnek kis betűnek kell lennie</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="703"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="199"/>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
-        <translation>Ім&apos;я користувача повинно містити англійські літери (малі літери), цифри або спеціальні символи (_-)</translation>
+        <translation>A felhasználónév csak angol kisbetűket (tehát nem ékezetes betűket), számokat vagy különleges szimbólumokat  ( aláhúzás vagy kötőjel ) tartalmazhat.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="709"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="205"/>
         <source>Please input a username longer than %1 characters and shorter than %2 characters</source>
-        <translation>Будь ласка, введіть ім&apos;я користувача довше ніж %1 символів і менше, ніж %2 символів</translation>
+        <translation>Adj meg egy felhasználónevet ami hosszabb mint %1 karakter és rövidebb mint %2 karakter</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="732"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="154"/>
         <source>Please input computer name</source>
-        <translation>Будь ласка, введіть ім&apos;я комп&apos;ютера</translation>
+        <translation>Add meg a számítógép nevét</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="736"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="158"/>
         <source>Computer name is invalid</source>
-        <translation>Ім&apos;я комп&apos;ютера недійсне</translation>
+        <translation>Érvénytelen számítógépnév</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="740"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="162"/>
         <source>Computer name already exists, please input another one</source>
-        <translation>Ім&apos;я комп&apos;ютера вже існує, будь ласка, введіть інше</translation>
+        <translation>Ez a számítógép név már létezik. Adj meg egy másik nevet</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="745"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="167"/>
         <source>Please input a computer name longer than %1 characters and shorter than %2 characters</source>
-        <translation>Будь ласка, введіть назву комп&apos;ютера довше ніж %1 символів і менше, ніж %2 символів</translation>
+        <translation>Adj meg egy számítógép nevet ami hosszabb mint %1 karakter és rövidebb mint %2 karakter</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="773"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="92"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="232"/>
         <source>The password should be different from the username</source>
-        <translation>Пароль має відрізнятися від імені користувача</translation>
+        <translation>A felhasználónévnek és jelszónak különböznie kell egymástól</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="787"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="246"/>
         <source>The password cannot be empty​</source>
-        <translation>Пароль не може бути порожнім</translation>
+        <translation>A jelszó nem lehet üres</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="791"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="113"/>
         <source>Password must contain letters, numbers and symbols</source>
-        <translation>Пароль має складатися із латинських літер, цифр та символів пунктуації</translation>
+        <translation>A jelszónak tartalmaznia kell betűket, számokat és szimbólumokat</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="796"/>
         <source>Password must be between %1 and %2 characters</source>
-        <translation>У паролі має бути від %1 до %2 символів</translation>
+        <translation>A jelszónak %1 és %2 karakter között kell lennie</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="811"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="137"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="277"/>
         <source>Password must not contain common words and combinations</source>
-        <translation>Пароль не повинен містити загальновживаних слів і їхніх комбінацій</translation>
+        <translation>A jelszó nem tartalmazhat általános szavakat és kombinációkat</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="817"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="143"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="283"/>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>Пароль не повинен містити понад 4 паліндромних символів</translation>
+        <translation>A jelszó legfeljebb 4 palindróm karaktert tartalmazhat</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="822"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="148"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="288"/>
         <source>Password must contain lowercase letters</source>
-        <translation>У паролі мають міститися малі літери</translation>
+        <translation>A jelszónak kisbetűket kell tartalmaznia</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="827"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="153"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="293"/>
         <source>Password must contain capital letters</source>
-        <translation>У паролі мають міститися великі літери</translation>
+        <translation>A jelszónak nagybetűket kell tartalmaznia</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="832"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="158"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="298"/>
         <source>Password must contain special characters</source>
-        <translation>Пароль має містити спеціальні символи</translation>
+        <translation>A jelszónak speciális karaktereket kell tartalmaznia</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="837"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="163"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="303"/>
         <source>Passwords must contain numbers</source>
-        <translation>У паролі мають міститися цифри</translation>
+        <translation>A jelszónak számokat kell tartalmaznia</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="307"/>
         <source>Set Keyboard Layout</source>
-        <translation>Встановити розкладку клавіатури</translation>
+        <translation>Billentyűzetkiosztás beállítása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="308"/>
         <source>Select a proper keyboard layout</source>
-        <translation>Виберіть розкладку клавіатури</translation>
+        <translation>Válassza ki a megfelelő billentyűzet-kiosztást</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.h" line="54"/>
         <source>Keyboard Layout</source>
-        <translation>Розкладка клавіатури</translation>
+        <translation>Billentyűzetkiosztás</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="90"/>
         <source>Change time</source>
-        <translation>Змінити час</translation>
+        <translation>Idő módosítása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="91"/>
         <source>hr</source>
-        <translation>год.</translation>
+        <translation>ó</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="92"/>
         <source>min</source>
-        <translation>хв.</translation>
+        <translation>p</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="93"/>
         <source>Y</source>
-        <translation>Р</translation>
+        <translation>É</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
         <source>M</source>
-        <translation>М</translation>
+        <translation>H</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
         <source>D</source>
-        <translation>Д</translation>
+        <translation>N</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="178"/>
@@ -1339,7 +1339,7 @@
         <location filename="../src/ui/frames/install_component_frame.cpp" line="239"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="93"/>
         <source>Select Components</source>
-        <translation>Виберіть компоненти</translation>
+        <translation>Összetevők kiválasztása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="186"/>
@@ -1347,13 +1347,13 @@
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="54"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="96"/>
         <source>Basic Environment</source>
-        <translation>Основне середовище</translation>
+        <translation>Alapszintű környezet</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="187"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="242"/>
         <source>Select the components according to your needs</source>
-        <translation>Виберіть потрібні вам компоненти</translation>
+        <translation>Válassza ki az összetevőket az Ön igényeinek megfelelően</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="188"/>
@@ -1361,7 +1361,7 @@
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="55"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="97"/>
         <source>Add-Ons</source>
-        <translation>Додатки</translation>
+        <translation>Kiegészítők</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="190"/>
@@ -1369,7 +1369,7 @@
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="81"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="107"/>
         <source>Select All</source>
-        <translation>Вибрати все</translation>
+        <translation>Összes kiválasztása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="82"/>
@@ -1377,14 +1377,14 @@
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="76"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="77"/>
         <source>Installation Failed</source>
-        <translation>Не вдалося встановити</translation>
+        <translation>Sikertelen telepítés</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="84"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="21"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="78"/>
         <source>Sorry for the trouble. Please take a photo to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
-        <translation>Вибачте за незручності. Будь ласка, зробіть фотографію, щоб надіслати нам журнал помилок, або збережіть журнал на зовнішній диск. Ми допоможемо усунути проблему.</translation>
+        <translation>Elnézést a kellemetlenségekért. Kérjük, készítsen egy fényképet a hibanapló elküldéséhez, vagy mentse a naplót egy külső lemezre. Mi segítünk a probléma megoldásában.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="86"/>
@@ -1396,13 +1396,13 @@
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="96"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="185"/>
         <source>Save Log</source>
-        <translation>Зберегти журнал</translation>
+        <translation>Bejegyzés mentése</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="168"/>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="169"/>
         <source>Install</source>
-        <translation>Встановити</translation>
+        <translation>Telepít</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="212"/>
@@ -1410,18 +1410,18 @@
         <location filename="../src/ui/frames_cli/install_process_frame.cpp" line="69"/>
         <location filename="../src/ui/frames_cli/install_process_frame.cpp" line="76"/>
         <source>Installing</source>
-        <translation>Встановлення</translation>
+        <translation>Telepítés</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="289"/>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="399"/>
         <source>Show log</source>
-        <translation>Показати журнал</translation>
+        <translation>Napló mutatása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="396"/>
         <source>Hide log</source>
-        <translation>Приховати журнал</translation>
+        <translation>Napló elrejtése</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="83"/>
@@ -1429,7 +1429,7 @@
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="90"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="188"/>
         <source>Reboot Now</source>
-        <translation>Перезавантажити зараз</translation>
+        <translation>Újraindítás most</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="84"/>
@@ -1438,32 +1438,32 @@
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="72"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="74"/>
         <source>Successfully Installed</source>
-        <translation>Успішно встановлено</translation>
+        <translation>A telepítés sikeresen megtörtént</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="85"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="19"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="75"/>
         <source>Click the button below and then remove the installation media immediately</source>
-        <translation>Натисніть показану нижче кнопку і від&apos;єднайте від комп&apos;ютера носій для встановлення системи</translation>
+        <translation>Kattintson az alábbi gombra, majd azonnal távolítsa el a telepítési adathordozót</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="86"/>
         <source>Reboot to discover and enjoy system features</source>
-        <translation>Перезавантажте, щоб відкрити і насолодитися функціями системи</translation>
+        <translation>Indítsa újra, hogy felfedezze és élvezze a rendszer funkcióit</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="125"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="341"/>
         <source>Edit</source>
-        <translation>Змінити</translation>
+        <translation>Szerkesztés</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="159"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="344"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="620"/>
         <source>IP Address</source>
-        <translation>IP Адреса</translation>
+        <translation>IP cím</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="160"/>
@@ -1471,28 +1471,28 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="345"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="621"/>
         <source>Netmask</source>
-        <translation>Маска мережі</translation>
+        <translation>Alhálózati maszk</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="161"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="346"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="622"/>
         <source>Gateway</source>
-        <translation>Шлюз</translation>
+        <translation>Átjáró</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="162"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="347"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="623"/>
         <source>Primary DNS</source>
-        <translation>Основний DNS</translation>
+        <translation>Elsődleges DNS</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="163"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="348"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="624"/>
         <source>Secondary DNS</source>
-        <translation>Вторинний DNS</translation>
+        <translation>Másodlagos DNS</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="173"/>
@@ -1506,7 +1506,7 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="331"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="211"/>
         <source>Gateway:</source>
-        <translation>Шлюз:</translation>
+        <translation>Átjáró:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="176"/>
@@ -1514,27 +1514,27 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="332"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="212"/>
         <source>Primary DNS:</source>
-        <translation>Основний DNS:</translation>
+        <translation>Elsődleges DNS:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="177"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="333"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="213"/>
         <source>Secondary DNS:</source>
-        <translation>Вторинний DNS:</translation>
+        <translation>Másodlagos DNS:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="211"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="329"/>
         <source>IP Address:</source>
-        <translation>IP-адреса:</translation>
+        <translation>IP cím:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="224"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="330"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="210"/>
         <source>Netmask:</source>
-        <translation>Маска мережі:</translation>
+        <translation>Alhálózati maszk:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="275"/>
@@ -1545,28 +1545,28 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="282"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="335"/>
         <source>Auto</source>
-        <translation>Авто</translation>
+        <translation>Automatikus</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="283"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="336"/>
         <source>Manual</source>
-        <translation>Вручну</translation>
+        <translation>Kézi</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="504"/>
         <source>Illegal %1, please have a check.</source>
-        <translation>Некоректне значення %1. Будь ласка, перевірте.</translation>
+        <translation>%1 nem megengedett, kérjük ellenőrizze.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="521"/>
         <source>IP address error: illegal IP address, please have a check.</source>
-        <translation>Помилка IP-адреси: незаконна IP-адреса, будь ласка, перевірте.</translation>
+        <translation>IP címhiba: nem megengedett IP cím! Kérem, ellenőrizze!</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="535"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
-        <translation>Помилка мережної маски: незаконна маска мережі, будь ласка, перевірте.</translation>
+        <translation>Alhálózati maszk hiba: nem megengedett maszk, kérem ellenőrizze.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="765"/>
@@ -1574,13 +1574,13 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="1009"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="177"/>
         <source>Configure Network</source>
-        <translation>Налаштувати Мережу</translation>
+        <translation>Hálózat beállítása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="766"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="1010"/>
         <source>IP address has been auto-configured, but you can configure the network as well</source>
-        <translation>IP-адресу налаштовано на автоматичне отримання, але ви все одно можете змінити параметри мережі</translation>
+        <translation>Az IP-címet automatikusan konfigurálták, de beállíthatja a hálózatot is</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="188"/>
@@ -1589,20 +1589,20 @@
         <location filename="../src/ui/frames/partition_frame.cpp" line="777"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="88"/>
         <source>Create Partitions</source>
-        <translation>Створити розділи</translation>
+        <translation>Partíciók létrehozása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="229"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="694"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="559"/>
         <source>Edit LVM Disk</source>
-        <translation>Редагувати диск LVM</translation>
+        <translation>LVM lemez szerkesztése</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="240"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="449"/>
         <source>Simple</source>
-        <translation>Простий</translation>
+        <translation>Egyszerű</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="241"/>
@@ -1611,7 +1611,7 @@
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="537"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="97"/>
         <source>Advanced</source>
-        <translation>Розширений</translation>
+        <translation>Kibővített</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="242"/>
@@ -1619,59 +1619,59 @@
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="96"/>
         <source>Full Disk</source>
-        <translation>Диск заповнено</translation>
+        <translation>Teljes lemez</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="512"/>
         <source>Start installation</source>
-        <translation>Почніть встановлення</translation>
+        <translation>Telepítés elindítása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="642"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation>Цільовий диск є динамічним і ваші дані можуть бути втрачені при продовженні. Спочатку зробіть резервну копію важливих файлів.</translation>
+        <translation>A céllemez dinamikus, és az adatok elveszhetnek, ha folytatja. Először készítsen biztonsági másolatot a fontos fájlokról.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="646"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation>Цільовий диск є динамічним, який буде відформатовано, якщо продовжити. Спочатку зробіть резервну копію важливих файлів.</translation>
+        <translation>A céllemez dinamikus, amelyet formázni fog, ha folytatja. Először készítsen biztonsági másolatot a fontos fájlokról.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="166"/>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="260"/>
         <source>System Setup</source>
-        <translation>Налаштовування системи</translation>
+        <translation>Rendszer beállítások</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="167"/>
         <source>Choose an option for your system</source>
-        <translation>Виберіть варіант для вашої системи</translation>
+        <translation>Válasszon egy lehetőséget a rendszeréhez</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="170"/>
         <source>Install the system in your installation media.</source>
-        <translation>Встановити систему з вашого носія для встановлення.</translation>
+        <translation>Telepítse a rendszert a telepítési adathordozóra.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="172"/>
         <source>Repair</source>
-        <translation>Відновити</translation>
+        <translation>Javítás</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="173"/>
         <source>Use recovery tools to fix system issues.</source>
-        <translation>Скористатися засобами відновлення для усування проблем у системі.</translation>
+        <translation>A rendszerproblémák kijavításához használja helyreállítási eszközöket.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="184"/>
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="90"/>
         <source>Save the error log to a removable device</source>
-        <translation>Збережіть журнал помилок на знімному пристрої</translation>
+        <translation>Mentse a hibanaplót egy cserélhető eszközre</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="185"/>
         <source>Save as</source>
-        <translation>Зберегти як</translation>
+        <translation>Mentés másként</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="57"/>
@@ -1680,54 +1680,54 @@
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="119"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="123"/>
         <source>Friendly Note</source>
-        <translation>Дружнє нагадування</translation>
+        <translation>Barátságos megjegyzés</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="59"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="82"/>
         <source>No swap partition created, which may affect system performance</source>
-        <translation>Не створено розділу резервної пам&apos;яті — це може погіршити роботу системи</translation>
+        <translation>Nincs létrehozva cserepartíció, ami befolyásolhatja a rendszer teljesítményét</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="60"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="88"/>
         <source>OK</source>
-        <translation>Гаразд</translation>
+        <translation>Rendben</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="127"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="156"/>
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="53"/>
         <source>Select Timezone</source>
-        <translation>Виберіть часовий пояс</translation>
+        <translation>Időzóna kiválasztása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="128"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="253"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="323"/>
         <source>Is it the right timezone? You can change it as well</source>
-        <translation>Чи правильно вказано часовий пояс? Ви можете його змінити.</translation>
+        <translation>Ez a megfelelő időzóna? Megváltoztathatja azt is</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="129"/>
         <source>Map</source>
-        <translation>Карта</translation>
+        <translation>Térkép</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="130"/>
         <source>List</source>
-        <translation>Список</translation>
+        <translation>Lista</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="74"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="125"/>
         <source>You are installing %1 on a virtual machine which may result in sub-optimal performance. For the best experience, please install %1 on a real machine.</source>
-        <translation>Ви встановлюєте %1 на віртуальну машину. Це може призвести до проблем із швидкодією. Щоб скористатися системою на повну потужність, будь ласка, встановіть %1 на справжній комп&apos;ютер.</translation>
+        <translation>%1 telepítése egy virtuális gépre, ami nem optimális teljesítményt eredményezhet. A legjobb élmény érdekében telepítse a %1 szoftvert egy valós gépre.</translation>
     </message>
     <message>
         <location filename="../src/ui/models/bootloader_list_model.cpp" line="42"/>
         <source>%1 %2 (recommended)</source>
-        <translation>%1 %2 (рекомендовано)</translation>
+        <translation>%1 %2 (ajánlott)</translation>
     </message>
     <message>
         <location filename="../src/ui/models/mount_point_model.cpp" line="37"/>
@@ -1735,73 +1735,73 @@
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="132"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="447"/>
         <source>Do not use</source>
-        <translation>Не використовувати</translation>
+        <translation>Ne használd</translation>
     </message>
     <message>
         <location filename="../src/ui/models/mount_point_model.cpp" line="40"/>
         <source>auto mount</source>
-        <translation>автомонтування</translation>
+        <translation>automatikus csatolás</translation>
     </message>
     <message>
         <location filename="../src/ui/models/partition_type_model.cpp" line="41"/>
         <location filename="../src/ui/models/partition_type_model.cpp" line="47"/>
         <source>Logical Partition</source>
-        <translation>Логічний розділ</translation>
+        <translation>Logikai partíció</translation>
     </message>
     <message>
         <location filename="../src/ui/models/partition_type_model.cpp" line="45"/>
         <source>Primary Partition</source>
-        <translation>Основний розділ</translation>
+        <translation>Elsődleges partíció</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="177"/>
         <source>To be formatted</source>
-        <translation>Слід форматувати</translation>
+        <translation>Formázásra kerül</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="223"/>
         <source>System Disk</source>
-        <translation>Системний диск</translation>
+        <translation>Rendszerlemez</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="223"/>
         <source>Data Disk</source>
-        <translation>Диск з даними</translation>
+        <translation>Adatlemez</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="264"/>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="302"/>
         <source>Ethernet</source>
-        <translation>Ethernet</translation>
+        <translation>Vezetékes hálózat</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="267"/>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="305"/>
         <source>WLAN</source>
-        <translation>WLAN</translation>
+        <translation>Vezeték nélküli hálózat</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="270"/>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="308"/>
         <source>Unknown device</source>
-        <translation>Невідомий пристрій</translation>
+        <translation>Ismeretlen eszköz</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="102"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="95"/>
         <source>Make sure you have backed up important data, then select the disk to install.</source>
-        <translation>Переконайтеся, що ви створили резервну копію важливих даних, потім виберіть диск для встановлення.</translation>
+        <translation>Győződjön meg arról, hogy készített biztonsági másolatot a fontos adatokról, majd válassza ki a telepítendő lemezt.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="103"/>
         <source>Insert key: create partition. Delete key: delete partition.</source>
-        <translation>Клавіша Insert: створити розділ. Клавіша Delete: вилучити розділ.</translation>
+        <translation>Insert billentyű: partíció létrehozása. Delete billentyű: partíció törlése.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="443"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="446"/>
         <source>%1 error found, fix to continue installation</source>
-        <translation>Виявлено %1 помилку. Виправте, щоб продовжити встановлення</translation>
+        <translation>%1 hiba található, javítsa a telepítés folytatásához</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="106"/>
@@ -1809,59 +1809,59 @@
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="250"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="261"/>
         <source>Please input a password longer than %1 characters and shorter than %2 characters</source>
-        <translation>Будь ласка, введіть пароль довше, ніж %1 символів і менше, ніж %2 символів</translation>
+        <translation>Kérjük, írja be a jelszót, amely hosszabb, mint %1, és rövidebb, mint %2 karakter</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="117"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="257"/>
         <source>Password must have at least 8 characters</source>
-        <translation>Пароль має складатися із принаймні 8 символів</translation>
+        <translation>A jelszónak legalább 8 karakterből kell állnia</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="259"/>
         <source>Create Root Account</source>
-        <translation>Створити обліковий запис root</translation>
+        <translation>Rendszergazda fiókok létrehozása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="262"/>
         <source>Password:</source>
-        <translation>Пароль:</translation>
+        <translation>jelszó:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="96"/>
         <source>System Disk:</source>
-        <translation>Диск системи:</translation>
+        <translation>Rendszer lemez:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="97"/>
         <source>Data Disk:</source>
-        <translation>Диск даних:</translation>
+        <translation>Adat lemez:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="92"/>
         <source>Primary partition</source>
-        <translation>Основний розділ</translation>
+        <translation>Elsődleges partíció</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="96"/>
         <source>Logical partition</source>
-        <translation>Логічний розділ</translation>
+        <translation>Logikai partíció</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="83"/>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
-        <translation>У вас завантажувач EFI, але диск MBR, тому ви не можете встановити deepin безпосередньо. Будь ласка, виберіть одне з наведених нижче рішень, щоб продовжити.</translation>
+        <translation>Ön EFI rendszerindítóval rendelkezik, de MBR lemezzel, így nem tudja közvetlenül telepíteni az UOS-t. Kérjük, válassza az alábbi megoldások egyikét, és folytassa.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="92"/>
         <source>Exit BIOS, and install UOS again</source>
-        <translation>Вийдіть з BIOS і знову встановіть deepin</translation>
+        <translation>Lépjen ki a BIOS-ból, és telepítse újra az UOS-t</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="53"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="95"/>
         <source>Select the components according to your needs.</source>
-        <translation>Виберіть потрібні вам компоненти.</translation>
+        <translation>Válassza ki az összetevőket az Ön igényeinek megfelelően.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_component_frame.h" line="71"/>
@@ -1872,7 +1872,7 @@
         <location filename="../src/ui/frames_cli/time_zone_frame.h" line="67"/>
         <location filename="../src/ui/main_window_cli.cpp" line="79"/>
         <source>Select Item</source>
-        <translation>Виберіть пункт</translation>
+        <translation>Elem kiválasztása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_component_frame.h" line="72"/>
@@ -1883,7 +1883,7 @@
         <location filename="../src/ui/frames_cli/time_zone_frame.h" line="68"/>
         <location filename="../src/ui/main_window_cli.cpp" line="80"/>
         <source>Change Field</source>
-        <translation>Змінити поле</translation>
+        <translation>Mező módosítása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_component_frame.h" line="74"/>
@@ -1892,29 +1892,29 @@
         <location filename="../src/ui/frames_cli/system_info_frame.h" line="86"/>
         <location filename="../src/ui/frames_cli/time_zone_frame.h" line="70"/>
         <source>Select</source>
-        <translation>Вибрати</translation>
+        <translation>Kiválaszt</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/keyboard_frame.cpp" line="15"/>
         <location filename="../src/ui/frames_cli/keyboard_frame.cpp" line="16"/>
         <source>Select Keyboard Layout</source>
-        <translation>Виберіть розкладку клавіатури</translation>
+        <translation>Billentyűzetkiosztás kiválasztása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/language_frame.cpp" line="92"/>
         <source>Choose a language used in the installation process, which will also be the default system language.</source>
-        <translation>Виберіть мову, яку буде використано у процесі встановлення, і яка буде типовою мовою системи.</translation>
+        <translation>Válassza ki a telepítés során használt nyelvet, amely egyben az alapértelmezett rendszernyelv is.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="51"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="200"/>
         <source>Please agree to the license</source>
-        <translation>Будь ласка, погодьтеся із умовами ліцензування</translation>
+        <translation>Kérjük fogadja el a licensz feltételeket</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="198"/>
         <source>UOS Software End User License Agreement</source>
-        <translation>Ліцензійний договір кінцевого користувача програмного забезпечення UOS</translation>
+        <translation>UOS szoftver végfelhasználói licencszerződés</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="223"/>
@@ -1925,29 +1925,29 @@
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="63"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="180"/>
         <source>Configure Ethernet according to your needs, but you can skip it as well.</source>
-        <translation>Налаштуйте Ethernet так, як вам потрібно. Втім, можете пропустити цей крок.</translation>
+        <translation>Konfigurálja a vezetékes hálózatot igényei szerint, de ezt ki is hagyhatja.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="64"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="181"/>
         <source>Set the IP address, gateway, netmask, DNS please.</source>
-        <translation>  Будь ласка, налаштуйте IP-адресу, шлюз, маску мережі та DNS.</translation>
+        <translation>Kérjük, állítsa be az IP-címet, az átjárót, a hálózati maszkot, a DNS-t.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="66"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="215"/>
         <source>Network connection error, check the configuration please</source>
-        <translation>Не вдалося встановити з&apos;єднання. Будь ласка, перевірте, чи правильно вказано параметри.</translation>
+        <translation>Hálózati csatlakozási hiba, ellenőrizze a konfigurációt</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="200"/>
         <source>Configure Now</source>
-        <translation>Налаштувати зараз</translation>
+        <translation>Konfigurálás most</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="201"/>
         <source>Skip</source>
-        <translation>Пропустити</translation>
+        <translation>Átugrás</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="504"/>
@@ -1955,7 +1955,7 @@
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="532"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="537"/>
         <source>e.g., 255.255.255.0</source>
-        <translation>Приклад: 255.255.255.0</translation>
+        <translation>pl., 255.255.255.0</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="512"/>
@@ -1965,48 +1965,48 @@
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="560"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="565"/>
         <source>e.g., 192.168.30.30</source>
-        <translation>Приклад: 192.168.30.30</translation>
+        <translation>pl., 192.168.30.30</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="91"/>
         <source>Make sure you have backed up important data, then select the partition mode.</source>
-        <translation>Створіть резервну копію важливих даних, потім виберіть режим поділу диска на розділи.</translation>
+        <translation>Győződjön meg arról, hogy készített biztonsági másolatot a fontos adatokról, majd válassza a partíciós módot.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="93"/>
         <source>Partition mode</source>
-        <translation>Режим поділу на розділи</translation>
+        <translation>Partíciós mód</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="558"/>
         <source>Set Root Password</source>
-        <translation>Встановити пароль root</translation>
+        <translation>Rendszergazda jelszó beállítása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="560"/>
         <source>If you check &quot;Set as root password&quot;, the root password is the same as the password, otherwise, you need to set it separately.</source>
-        <translation>Якщо ви позначите пункт «Встановити як пароль root», пароль root буде тим самим, що і цей пароль. Якщо пункт не буде позначено, вам доведеться вказати пароль окремо.</translation>
+        <translation>Ha bejelöli a &quot;Beállítás rendszergazda jelszóként&quot; lehetőséget, akkor a rendszergazda jelszó megegyezik a jelszóval, egyéb esetben külön kell beállítania.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="561"/>
         <source>Your root password should be different from the user password, please take care of them.</source>
-        <translation>Ваш пароль root має відрізнятися від пароля користувача. Будь ласка, подбайте про це.</translation>
+        <translation>A rendszergazda jelszónak különböznie kell a felhasználói jelszótól, kérjük, vigyázzon rájuk.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="28"/>
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="54"/>
         <source>Is it the right timezone? You can change it as well.</source>
-        <translation>Чи правильно вказано часовий пояс? Ви можете його змінити.</translation>
+        <translation>Ez a megfelelő időzóna? Megváltoztathatja azt is.</translation>
     </message>
     <message>
         <location filename="../src/base/translator.h" line="18"/>
         <source>Select system language</source>
-        <translation>Виберіть мову системи</translation>
+        <translation>Válassza ki az operációs rendszer nyelvét</translation>
     </message>
     <message>
         <location filename="../src/ui/main_window_cli.cpp" line="76"/>
         <source>Welcome to install UOS</source>
-        <translation>Вітаємо у засобі встановлення UOS</translation>
+        <translation>Üdvözli az UOS telepítő</translation>
     </message>
 </context>
 <context>
@@ -2014,7 +2014,7 @@
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="262"/>
         <source>Secondary DNS:</source>
-        <translation>Вторинний DNS:</translation>
+        <translation>Másodlagos DNS:</translation>
     </message>
 </context>
 <context>
@@ -2022,7 +2022,7 @@
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="175"/>
         <source>Start</source>
-        <translation>Почати</translation>
+        <translation>Eleje</translation>
     </message>
 </context>
 </TS>
