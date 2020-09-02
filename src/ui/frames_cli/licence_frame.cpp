@@ -19,6 +19,8 @@ LicenceFramePrivate::LicenceFramePrivate(NCursesWindowBase *parent, int lines, i
     m_ncursesTextBrower(nullptr),
     m_NcursesCheckBox(nullptr),
     m_localeString(""),
+    m_show_license(QString(":/license/end-user-license-agreement-%1")\
+        .arg(installer::LicenseDelegate::OSType())),
     m_isshow(false)
 {
     initUI();
@@ -34,7 +36,14 @@ void LicenceFramePrivate::initUI()
     setBackground(NcursesUtil::getInstance()->dialog_attr());
     FrameInterfacePrivate::initUI();
 
-    m_ncursesTextBrower = new NcursesTextBrower(this, height() - 11, width() - 2, begy() + 2, begx() + 1);
+    m_user_license_lab = new NcursesLabel(this, 1, 6, begy() + 1, begx());
+    m_user_license_lab->box(true);
+    m_privacy_license = new NcursesLabel(this, 1, 6, begy() + 1, begx());
+    m_privacy_license->box(true);
+    m_privacy_license->setFocusEnabled(false);
+
+    m_ncursesTextBrower = new NcursesTextBrower(this, height() - 12, width() - 2, begy() + 4, begx() + 1);
+    m_ncursesTextBrower->setFocusEnabled(false);
     //m_ncursesTextBrower->hide();
 
     QString checkboxtext = "I have read and agree to the UOS Software End User License Agreement";
@@ -94,12 +103,84 @@ void LicenceFramePrivate::onKeyPress(int keyCode)
 {
     switch (keyCode) {
     case KEY_TAB:
+        if (m_privacy_license->isOnFoucs()) {
+            m_privacy_license->setFocus(false);
+            m_user_license_lab->setFocus(true);
+        }
         switchChildWindowsFoucs();
+        if (m_user_license_lab->isOnFoucs()) {
+            setLicense(QString(":/license/end-user-license-agreement-%1")\
+                       .arg(installer::LicenseDelegate::OSType()));
+        }
         break;
+    case kKeyLeft:
+    case kKeyRight: switchLicense(); break;
+    case kKeyUp:
+    case kKeyDown: browseLicense(keyCode); break;
     }
 
     qDebug()<< keyCode;
     //NCursesWindowBase::onKeyPress(keyCode);
+}
+
+void LicenceFramePrivate::setLicense(const QString text)
+{
+
+    QString str = ::QObject::tr("I have read and agree to the");
+    QString user_lice_str = ::QObject::tr("End User License Agreement");
+    QString and_str = ::QObject::tr("and");
+    QString privacy_str = ::QObject::tr("Privacy Policy");
+    QString teststr = ::QObject::tr("%1 %2 %3 %4")\
+            .arg(str)\
+            .arg(user_lice_str)\
+            .arg(and_str)
+            .arg(privacy_str);
+
+    QString zh_cn_li = QString("%1_zh_CN.txt")\
+            .arg(text);
+    QString en_us_li = QString("%1_en_US.txt")\
+            .arg(text);
+
+    qDebug() << "zh_cn_li = " << zh_cn_li;
+    qDebug() << "en_us_li = " << en_us_li;
+    if (installer::ReadLocale() == "zh_CN") {
+        QString testlicenceinfo = installer::ReadFile(zh_cn_li);
+        m_NcursesCheckBox->setText("", teststr, true);
+        m_ncursesTextBrower->clearText();
+        m_ncursesTextBrower->setText(testlicenceinfo, true);
+
+    } else {
+        QString testlicenceinfo = installer::ReadFile(en_us_li);
+        m_NcursesCheckBox->setText("", teststr, false);
+        m_ncursesTextBrower->clearText();
+        m_ncursesTextBrower->setText(testlicenceinfo, false);
+    }
+
+    m_ncursesTextBrower->show();
+}
+
+void LicenceFramePrivate::switchLicense()
+{
+    if (m_user_license_lab->isOnFoucs()) {
+        m_user_license_lab->setFocus(false);
+        m_privacy_license->setFocus(true);
+        m_show_license = QString(":/license/privacy-policy-%1")\
+                .arg(installer::LicenseDelegate::OSType());
+    } else if (m_privacy_license->isOnFoucs()) {
+        m_user_license_lab->setFocus(true);
+        m_privacy_license->setFocus(false);
+        m_show_license = QString(":/license/end-user-license-agreement-%1")\
+                .arg(installer::LicenseDelegate::OSType());
+    }
+
+    setLicense(m_show_license);
+}
+
+void LicenceFramePrivate::browseLicense(int key)
+{
+    if (m_user_license_lab->isOnFoucs() || m_privacy_license->isOnFoucs()) {
+        m_ncursesTextBrower->onKeyPress(key);
+    }
 }
 
 void LicenceFramePrivate::checkboxSelectChange(bool select)
@@ -121,24 +202,18 @@ void LicenceFramePrivate::updateTs()
 
     box(ACS_VLINE,ACS_HLINE);
     printTitle(::QObject::tr("UOS Software End User License Agreement"), width());
-    QString teststr = ::QObject::tr("I have read and agree to the UOS Software End User License Agreement");
 
-    QString zh_cn_li = QString(":/license/end-user-license-agreement-%1_zh_CN.txt")\
-            .arg(installer::LicenseDelegate::OSType());
-    QString en_us_li = QString(":/license/end-user-license-agreement-%1_en_US.txt")\
-            .arg(installer::LicenseDelegate::OSType());
-    if (installer::ReadLocale() == "zh_CN") {
-        QString testlicenceinfo = installer::ReadFile(zh_cn_li);
-        m_NcursesCheckBox->setText("", teststr, true);
-        m_ncursesTextBrower->setText(testlicenceinfo, true);
-    } else {
-        QString testlicenceinfo = installer::ReadFile(en_us_li);
-        m_NcursesCheckBox->setText("", teststr, false);
-        m_ncursesTextBrower->setText(testlicenceinfo, false);
-    }
+    switchLicense();
 
     QString errorinfo = ::QObject::tr("Please agree to the license");
     m_errorInfoLabel->setText(errorinfo);
+
+    m_user_license_lab->setText(::QObject::tr("End User License Agreement"));
+    m_user_license_lab->adjustSizeByContext();
+    m_user_license_lab->mvwin(begy() + 2, begx() + width() / 4);
+    m_privacy_license->setText(::QObject::tr("Privacy Policy"));
+    m_privacy_license->adjustSizeByContext();
+    m_privacy_license->mvwin(begy() + 2, begx() + width() - width() / 4 - m_privacy_license->width());
 
     FrameInterfacePrivate::updateTs();
 
@@ -156,7 +231,7 @@ void LicenceFramePrivate::layout()
             textlength = (width() + checkboxtext.length()) / 2 - 10;
         }
     } else {
-        textlength += 5;
+        textlength += 10;
     }
     m_NcursesCheckBox->resizew(m_NcursesCheckBox->height(), textlength);
     m_NcursesCheckBox->moveWindowTo(begy() + height() - 7, begx() + (width() - checkboxtext.length()) / 2);

@@ -114,6 +114,7 @@ void NcursesTextBrower::scrollToEnd()
 void NcursesTextBrower::clearText()
 {
     erase();
+    m_currLine = 0;
     m_text.clear();
     refresh();
 }

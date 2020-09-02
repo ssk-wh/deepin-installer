@@ -30,15 +30,24 @@ public:
     void hide() override;
     virtual void onKeyPress(int keyCode) override;
 
+private:
+    void setLicense(const QString text);
+    void switchLicense();
+    void browseLicense(int key);
+
 private slots:
     void checkboxSelectChange(bool select);
 
 private:
+    NcursesLabel*      m_user_license_lab;
+    NcursesLabel*      m_privacy_license;
     NcursesTextBrower* m_ncursesTextBrower;
     NcursesCheckBox*   m_NcursesCheckBox;
     NcursesLabel*      m_errorInfoLabel;
     QString            m_localeString;
     bool               m_isshow;
+
+    QString            m_show_license;
 };
 
 class LicenceFrame : public FrameInterface
