@@ -74,7 +74,7 @@ void InstallProcessFramePrivate::show()
 {
     if (!m_isshow) {
         QString testbrowertext = ::QObject::tr("Installing") + QString(" ... ");//QString("Do parttition ...");
-        m_NcursesTextBrower->appendItemText(testbrowertext, false);
+        m_NcursesTextBrower->appendItemText(testbrowertext);
         m_NcursesTextBrower->scrollToEnd();
 
         FrameInterfacePrivate::show();
@@ -101,7 +101,7 @@ void InstallProcessFramePrivate::onKeyPress(int keyCode)
 {
     switch (keyCode) {
     case KEY_TAB:
-        switchChildWindowsFoucs();
+        //switchChildWindowsFoucs();
         break;
     case KEY_DOWN:
         emit signal_timeout();
@@ -174,7 +174,7 @@ void InstallProcessFramePrivate::slot_timeout()
     } else {
         m_progressvalue++;
         QString testbrowertext = QString("").arg(m_progressvalue);
-        m_NcursesTextBrower->appendItemText(testbrowertext, false);
+        m_NcursesTextBrower->appendItemText(testbrowertext);
         m_NcursesTextBrower->scrollToEnd();
     }
     m_NcursesProgressBar->setValue(m_progressvalue);
