@@ -200,7 +200,8 @@ void NCursesWindowBase::switchChildWindowsFoucs() {
     }
 
     int index = m_foucsWindows.size();
-    for (int i = 0; i < index; i++) {
+    int i = 0;
+    for (; i < index; i++) {
         if (m_foucsWindows[i]->isOnFoucs()) {
             if ((i + 1) == index) {
                 m_foucsWindows[i]->setFocus(false);
@@ -212,6 +213,10 @@ void NCursesWindowBase::switchChildWindowsFoucs() {
 
             break;
         }
+    }
+
+    if (i >= index) {
+        m_foucsWindows[0]->setFocus(true);
     }
 }
 

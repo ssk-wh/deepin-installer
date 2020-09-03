@@ -115,12 +115,6 @@ void PrepareInstallFrame::initUI() {
   cancel_button_->box();
   create_button_->box();
 
-  this->setFocus(true);
-
-  m_showChild.push_back(operations_box_);
-  m_showChild.push_back(cancel_button_);
-  m_showChild.push_back(create_button_);
-
 }
 
 void PrepareInstallFrame::updateTs()
