@@ -78,6 +78,12 @@ public:
 public:
     bool init() override;
     QString getFrameName() override;
+    QString getAbout() override{
+        return   QString("<↑ ↓>%1  | <Tab>%2 | <Enter>%3")
+                .arg(::QObject::tr("Select Item"))
+                .arg(::QObject::tr("Change Field"))
+                .arg(::QObject::tr("Confirm"));
+    }
 
 signals:
     void createRoot(bool isCreate);

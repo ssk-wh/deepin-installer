@@ -71,6 +71,10 @@ public:
     QString getFrameName() override;
     void startInstall();
 
+    QString getAbout() override{
+        return   QString("");
+    }
+
 protected:
     bool handle() override;
 

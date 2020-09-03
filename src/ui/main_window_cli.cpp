@@ -73,26 +73,23 @@ void MainWindowPrivate::updateTs()
 {
     erase();
     addstr(0, 1, QString(::QObject::tr("Welcome to install UOS")).toUtf8().data());
-    QString keyManual = QString("<↑ ↓ ← →>%1  | <Tab>%2 | <Enter>%3 | <Space>%4")
-            .arg(::QObject::tr("Select Item"))
-            .arg(::QObject::tr("Change Field"))
-            .arg(::QObject::tr("Confirm"))
-            .arg(::QObject::tr("Select"));
-    addstr(begy() + lines() - 1,  (width() - std::min(width() - 2, keyManual.length())) / 2, keyManual.toUtf8().data());
+
+    QString text = QString("<↑ ↓>%1  | <Tab>%2 |<Enter>%3")
+                   .arg(::QObject::tr("Select Item"))
+                   .arg(::QObject::tr("Change Field"))
+                   .arg(::QObject::tr("Confirm"));
+    update(text);
 }
 
 void MainWindowPrivate::show()
 {
-    erase();
-    addstr(0, 1, QString(::QObject::tr("Welcome to install UOS")).toUtf8().data());
-    QString keyManual = QString("<↑ ↓ ← →>%1  | <Tab>%2 | <Enter>%3 | <Space>%4")
-            .arg(::QObject::tr("Select Item"))
-            .arg(::QObject::tr("Change Field"))
-            .arg(::QObject::tr("Confirm"))
-            .arg(::QObject::tr("Select"));
-    addstr(begy() + lines() - 1,  (width() - std::min(width() - 2, keyManual.length())) / 2, keyManual.toUtf8().data());
 }
 
+void MainWindowPrivate::update(const QString &text)
+{
+    erase();
+    addstr(begy() + lines() - 1,  (width() - std::min(width() - 2, text.length())) / 2, text.toUtf8().data());
+}
 
 MainWindow::MainWindow(QObject* parent)
 {
@@ -134,10 +131,16 @@ void MainWindow::setLogFile(const QString &log_file)
 
 void MainWindow::initConnection()
 {
+    Q_D(MainWindow);
+
     connect(m_systemInfoFrame, &SystemInfoFrame::createRoot, m_systemInfoRootPaswordFrame, &CreateRootUserFrame::setShoulDispaly);
 
     connect(m_systemInfoFrame, &SystemInfoFrame::userName, m_systemInfoRootPaswordFrame, &CreateRootUserFrame::setUserName);
     connect(m_systemInfoFrame, &SystemInfoFrame::userPassword, m_systemInfoRootPaswordFrame, &CreateRootUserFrame::setUserPassword);
+
+    connect(this, &MainWindow::update, this, [=](const QString txet) {
+        d->update(txet);
+    });
 
     return FrameInterface::initConnection();
 }

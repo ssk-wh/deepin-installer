@@ -35,6 +35,8 @@ public:
     void initUI() override;
     void updateTs() override;
     void show() override;
+
+    void update(const QString &);
 };
 
 class MainWindow : public FrameInterface

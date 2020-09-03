@@ -64,6 +64,11 @@ public:
     bool init() override;
     QString getFrameName() override;
 
+    QString getAbout() override{
+        return   QString("<Enter>%")
+                .arg(::QObject::tr("Confirm"));
+    }
+
 private slots:
     void showChildSlot(int index);
 

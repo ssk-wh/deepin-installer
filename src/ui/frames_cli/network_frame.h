@@ -105,6 +105,14 @@ public:
     bool init() override;
     QString getFrameName() override;
 
+    QString getAbout() override{
+        return   QString("<↑ ↓ ← →>%1  | <Tab>%2 | <Enter>%3")
+                .arg(::QObject::tr("Select Item"))
+                .arg(::QObject::tr("Change Field"))
+                .arg(::QObject::tr("Confirm"))
+                .arg(::QObject::tr("Select"));
+    }
+
 protected:
     bool handle() override;
     Q_DECLARE_PRIVATE_D(m_private, NetwrokFrame)

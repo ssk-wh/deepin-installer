@@ -101,6 +101,7 @@ void FrameInterface::initConnection()
                    //m_childFrame[m_currTask]->getPrivate()->hide();
                    m_childFrame[m_currTask]->hide();
                    m_currTask++;
+                   Q_EMIT update(m_childFrame[m_currTask]->getAbout());
                    if (m_currTask >= m_childFrame.size()) {
                        return;
                    }
@@ -122,6 +123,7 @@ void FrameInterface::initConnection()
                        }
                        m_childFrame[m_currTask]->show();
                    }
+
                    qDebug() << "frame = " << m_childFrame[m_currTask]->getFrameName();
                    qDebug() << "m_currTask" << m_currTask;
                    qDebug() << "m_childFrame.size = " << m_childFrame.size();
@@ -145,6 +147,8 @@ void FrameInterface::initConnection()
                        m_childFrame[m_currTask]->setFrameState(FRAME_STATE_RUNNING);
                        m_childFrame[m_currTask]->show();
                    }
+
+                   Q_EMIT update(m_childFrame[m_currTask]->getAbout());
                    qDebug() << "m_currTask" << m_currTask;
                }else if (m_currTask == 0 && m_childFrame.size() > 0) {
                    if (m_parent != nullptr) {
@@ -201,6 +205,7 @@ bool FrameInterface::shouldDisplay() const
 {
     return true;
 }
+
 
 void FrameInterface::abort()
 {
