@@ -11,9 +11,9 @@ class NcursesTextBrower : public NCursesWindowBase
 public:
     NcursesTextBrower(NCursesWindowBase* parent, int lines, int cols, int beginY, int beginX);
     virtual ~NcursesTextBrower(){}
-    void setText(const QString &text, bool iswchar = false);
-    void appendText(const QString& text, bool iswchar = false);
-    void appendItemText(const QString& text, bool iswchar = false);
+    void setText(const QString &text);
+    void appendText(const QString& text);
+    void appendItemText(const QString& text);
     bool setFileName(const QString);
     void scrollToEnd();
     void clearText();

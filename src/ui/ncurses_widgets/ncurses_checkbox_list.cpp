@@ -14,6 +14,7 @@ NcursesCheckBoxList::NcursesCheckBoxList(NCursesWindowBase* parent, int lines, i
       m_heightpos(0)
 {
     this->setBackground(parent->background());
+    curs_set(0);
 }
 
 NcursesCheckBoxList::~NcursesCheckBoxList()
@@ -21,7 +22,7 @@ NcursesCheckBoxList::~NcursesCheckBoxList()
     clearList();
 }
 
-void NcursesCheckBoxList::setList(QVector<QPair<QString, QString>>& list,  bool iswchar, bool isusetitle)
+void NcursesCheckBoxList::setList(QVector<QPair<QString, QString>>& list, bool isusetitle)
 {
     if(list.size() == 0) {
         return;
@@ -32,7 +33,7 @@ void NcursesCheckBoxList::setList(QVector<QPair<QString, QString>>& list,  bool 
     foreach (auto text, list) {
         NcursesCheckBox* testcheckbox = new NcursesCheckBox(this, 1, width() - 2, begy(), begx() + 2);
         testcheckbox->setIsUseTitle(isusetitle);
-        testcheckbox->setText(text.first, text.second, iswchar);
+        testcheckbox->setText(text.first, text.second);
         testcheckbox->setBackground(this->background());
         testcheckbox->setFocusStyle(NcursesUtil::getInstance()->list_view_item_select());
         testcheckbox->hide();

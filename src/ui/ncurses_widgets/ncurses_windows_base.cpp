@@ -194,33 +194,25 @@ void NCursesWindowBase::hide() {
 
 
 void NCursesWindowBase::switchChildWindowsFoucs() {
-    qDebug() << "switchChildWindowsFoucs " << m_foucsWindows.size();
+
     if (m_foucsWindows.empty()) {
         return;
     }
 
-    int i = m_foucsWindows.size() - 1;
-    for (; i >= 0; i--) {
-        if(m_foucsWindows[i]->isOnFoucs()) {
+    int index = m_foucsWindows.size();
+    for (int i = 0; i < index; i++) {
+        if (m_foucsWindows[i]->isOnFoucs()) {
+            if ((i + 1) == index) {
+                m_foucsWindows[i]->setFocus(false);
+                m_foucsWindows[0]->setFocus(true);
+            } else {
+                m_foucsWindows[i]->setFocus(false);
+                m_foucsWindows[i + 1]->setFocus(true);
+            }
+
             break;
         }
     }
-
-    if (i >= m_foucsWindows.size() - 1){
-        m_foucsWindows.front()->setFocus(true);
-        for (int j = 1; j < m_foucsWindows.size(); j++) {
-            m_foucsWindows[j]->setFocus(false);
-        }
-    }else {
-        i++;
-        m_foucsWindows[i]->setFocus(true);
-        for (int j = 0; j < m_foucsWindows.size(); j++) {
-            if (j != i) {
-                m_foucsWindows[j]->setFocus(false);
-            }
-        }
-    }
-
 }
 
 void NCursesWindowBase::onKeyPress(int keyCode) {

@@ -8,6 +8,7 @@ NcursesLabel::NcursesLabel(NCursesWindowBase *parent, const QString &text, int l
       m_text(text),
       m_alignment(Qt::AlignLeft)
 {
+    curs_set(0);
 }
 
 NcursesLabel::NcursesLabel(NCursesWindowBase *parent, int lines, int cols, int beginY, int beginX)
@@ -15,6 +16,7 @@ NcursesLabel::NcursesLabel(NCursesWindowBase *parent, int lines, int cols, int b
       m_alignment(Qt::AlignLeft)
 
 {
+    curs_set(0);
 }
 
 void NcursesLabel::setText(const QString &text)
@@ -74,20 +76,28 @@ void NcursesLabel::setAlignment(Qt::Alignment alignment)
 
 void NcursesLabel::adjustSizeByContext()
 {
-    if (m_text.length() > m_parent->width()) {
-        resize(height(), m_parent->width() - 2);
-    } else {
-        if(installer::ReadLocale() == "zh_CN"){
-            if((m_text.length() * 2) <= m_parent->width()) {
-                resize(height(), m_text.length() * 2);
-            } else {
-                resize(height(), m_text.length());
-            }
-
+    int maxLength = 0;
+    QString chineseStr_zh = "";
+    QString chineseStr_en = "";
+    int nCount = m_text.count();
+    for(int i = 0 ; i < nCount ; i++) {
+        QChar cha = m_text.at(i);
+        ushort uni = cha.unicode();
+        if((uni >= 0x4E00 && uni <= 0x9FA5)
+                || (uni >= 0x3130 && uni <= 0x318F) || (uni >= 0xAC00 && uni <= 0xD7A3)
+                || (cha == "（") || (cha == "）") || (cha == "，") || (cha == "。")|| (cha == "：")|| (cha == "；")|| (cha == "“") || (cha == "”") || (cha == "《") || (cha == "》") || (cha == "【") || (cha == "】") || (cha == "、")) {
+            chineseStr_zh.append(uni);
         } else {
-            resize(height(), m_text.length());
+            chineseStr_en.append(uni);
         }
     }
+
+    int testlength = chineseStr_en.length() + chineseStr_zh.length() * 2;
+    if (testlength > maxLength) {
+        maxLength = testlength;
+    }
+
+    resize(height(), testlength);
 }
 
 void NcursesLabel::drawFoucs()

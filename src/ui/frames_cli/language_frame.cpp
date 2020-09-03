@@ -17,7 +17,7 @@ void LanguageFramePrivate::initUI()
 {
     FrameInterfacePrivate::initUI();
 
-    m_instructions = new NcursesLabel(this, 3, 1, begy() + 2, begx() + 1);
+    m_instructions = new NcursesLabel(this, 3, width() - 3, begy() + 2, begx() + 1);
     //m_instructions->hide();
     m_instructions->setFocusEnabled(false);
 
@@ -28,7 +28,7 @@ void LanguageFramePrivate::initUI()
 void LanguageFramePrivate::layout()
 {
     try {
-        m_instructions->adjustSizeByContext();
+        //m_instructions->adjustSizeByContext();
         m_instructions->mvwin(begy() + 2, begx() + 2);
         m_languageView->adjustSizeByContext();
         m_languageView->resize(height() - 10,  m_languageView->width());
@@ -89,8 +89,8 @@ void LanguageFramePrivate::updateText()
     box(ACS_VLINE,ACS_HLINE);
     printTitle(::QObject::tr("Select Language"), width());
     m_instructions->erase();
-    m_instructions->setText("  " + ::QObject::tr("Choose a language used in the installation process, which will also be the default system language."));
-    m_instructions->adjustSizeByContext();
+    m_instructions->setText("    " + ::QObject::tr("Choose a language used in the installation process, which will also be the default system language."));
+    //m_instructions->adjustSizeByContext();
     m_instructions->show();
     FrameInterfacePrivate::updateTs();
 }

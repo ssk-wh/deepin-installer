@@ -23,6 +23,7 @@ public:
     explicit FrameInterfacePrivate(NCursesWindowBase* parent, int lines, int cols, int beginY, int beginX)
         : NCursesWindowBase (parent, lines, cols, beginY, beginX)
     {
+        curs_set(0);
     }
 
     virtual ~FrameInterfacePrivate(){}

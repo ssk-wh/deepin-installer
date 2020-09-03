@@ -14,6 +14,7 @@ NcursesListView::NcursesListView(NCursesWindowBase *parent, int lines, int cols,
 
 {
      bkgd(parent->getbkgd());
+     curs_set(0);
 }
 
 NcursesListView::~NcursesListView()
@@ -176,24 +177,31 @@ void NcursesListView::adjustSizeByContext()
     if (m_list.empty()) {
         return;
     }
-    auto iter = std::max_element(std::begin(m_list), std::end(m_list), [&](const QString& a, const QString& b) -> bool {
-        return  a.length() < b.length();
-    });
-    int maxLength = iter->length();
-    if(installer::ReadLocale() == "zh_CN") {
-        maxLength = iter->length() * 2;
 
-        if(maxLength >((m_parent->width() / 2) - 3)) {
-            maxLength = iter->length();
+    int maxLength = 0;
+    foreach (QString text, m_list) {
+        QString chineseStr_zh = "";
+        QString chineseStr_en = "";
+        int nCount = text.count();
+        for(int i = 0 ; i < nCount ; i++) {
+            QChar cha = text.at(i);
+            ushort uni = cha.unicode();
+            if((uni >= 0x4E00 && uni <= 0x9FA5)
+                    || (uni >= 0x3130 && uni <= 0x318F) || (uni >= 0xAC00 && uni <= 0xD7A3)
+                    || (cha == "（") || (cha == "）") || (cha == "，") || (cha == "。")|| (cha == "：")|| (cha == "；")|| (cha == "“") || (cha == "”") || (cha == "《") || (cha == "》") || (cha == "【") || (cha == "】") || (cha == "、")) {
+                chineseStr_zh.append(uni);
+            } else {
+                chineseStr_en.append(uni);
+            }
+        }
+
+        int testlength = chineseStr_en.length() + chineseStr_zh.length() * 2;
+        if (testlength > maxLength) {
+            maxLength = testlength;
         }
     }
 
     resize(height(), maxLength);
-    foreach (NCursesWindowBase* child, m_childWindows) {
-        if (child) {
-            child->resize(child->height(), maxLength);
-        }
-    }
 }
 
 int NcursesListView::size()

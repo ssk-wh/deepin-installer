@@ -13,19 +13,13 @@
 
 namespace installer {
 
-/*void CopyLogFile(const QString& log_file) {
-  const QString current_log_file(GetLogFilepath());
-  if (!CopyFile(current_log_file, log_file, true)) {
-    qCritical() << "Failed to copy log to:" << log_file;
-  }
-}*/
-
 class KeyInput : public FrameInterfacePrivate
 {
 public:
     explicit KeyInput(NCursesWindowBase* parent, int lines, int cols, int beginY, int beginX)
         : FrameInterfacePrivate(parent, lines, cols, beginY, beginX)
     {
+        fcntl(0,F_SETFL, O_NONBLOCK);
     }
     virtual ~KeyInput(){}
 
@@ -33,25 +27,32 @@ public:
     void getKeyInputRun() {
         int testcount = 0;
         while (true) {
-//            if(testcount < 2) {
-//                QThread::msleep(10);
-//                testcount++;
-//                continue;
-//            }
-            int key = getKey();
-            testcount = 0;
-            if(m_FrameInterface->getCurrentChild() != nullptr)
-                m_FrameInterface->getCurrentChild()->getPrivate()->keyEventTriger(key);
+            //int key = getKey();
+            int key = getch();
 
-            while(testcount < 5) {
-                QThread::msleep(10);
-                testcount++;
-                continue;
+            if (key != -1) {
+                if (m_keys.size() > 0) {
+                    if (key != m_keys.last()) {
+                        m_keys.push_back(key);
+                    }
+                } else {
+                    m_keys.push_back(key);
+                }
             }
-            testcount = 0;
+
+
+            if ((m_keys.size() > 0) && (m_FrameInterface->getCurrentChild() != nullptr)) {
+                m_FrameInterface->getCurrentChild()->getPrivate()->keyEventTriger(m_keys.front());
+                m_keys.pop_front();
+            }
+
+            QThread::msleep(50);
         }
     }
     void setFrameInterface(FrameInterface* object){ m_FrameInterface = object; }
+
+private:
+    QQueue<int> m_keys;
     FrameInterface* m_FrameInterface = nullptr;
 };
 
@@ -59,14 +60,6 @@ public:
 void MainWindowPrivate::initUI()
 {
     setBackground(NcursesUtil::getInstance()->screen_attr());
-    addstr(0, 1, QString(::QObject::tr("Welcome to install UOS")).toUtf8().data());
-    QString keyManual = QString("<↑ ↓ ← →>%1  | <Tab>%2 | <Enter>%3 | <Space>%4")
-            .arg(::QObject::tr("Select Item"))
-            .arg(::QObject::tr("Change Field"))
-            .arg(::QObject::tr("Confirm"))
-            .arg(::QObject::tr("Select"));
-    addstr(begy() + lines() - 1,  (width() - std::min(width() - 2, keyManual.length())) / 2, keyManual.toUtf8().data());
-    refresh();
 }
 
 void MainWindowPrivate::updateTs()

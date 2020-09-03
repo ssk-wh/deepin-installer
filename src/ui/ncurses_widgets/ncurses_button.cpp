@@ -13,6 +13,7 @@ NcursesButton::NcursesButton(NCursesWindowBase* parent, QString text, int lines,
     setBackground(m_enalble ? NcursesUtil::getInstance()->button_active_attr() : NcursesUtil::getInstance()->button_inactive_attr());
     Q_ASSERT(lines < parent->lines());
     Q_ASSERT(cols < parent->cols());
+    curs_set(0);
 }
 
 
@@ -22,11 +23,29 @@ void NcursesButton::show()
         //box('|', '-');
     }
 
-    if (installer::ReadLocale() == "zh_CN") {
-        move(height() / 2 , (width() - m_text.length() * 2) / 2);
-    } else {
-        move(height() / 2 , (width() - m_text.length()) / 2);
+    int maxLength = 0;
+    QString chineseStr_zh = "";
+    QString chineseStr_en = "";
+    int nCount = m_text.count();
+    for(int i = 0 ; i < nCount ; i++) {
+        QChar cha = m_text.at(i);
+        ushort uni = cha.unicode();
+        if((uni >= 0x4E00 && uni <= 0x9FA5)
+                || (uni >= 0x3130 && uni <= 0x318F) || (uni >= 0xAC00 && uni <= 0xD7A3)
+                || (cha == "（") || (cha == "）") || (cha == "，") || (cha == "。")|| (cha == "：")|| (cha == "；")|| (cha == "“") || (cha == "”") || (cha == "《") || (cha == "》") || (cha == "【") || (cha == "】") || (cha == "、")) {
+            chineseStr_zh.append(uni);
+        } else {
+            chineseStr_en.append(uni);
+        }
     }
+
+    int testlength = chineseStr_en.length() + chineseStr_zh.length() * 2;
+    if (testlength > maxLength) {
+        maxLength = testlength;
+    }
+
+    move(height() / 2 , (width() - maxLength) / 2);
+
     drawFoucs();
     addstr(m_text.toUtf8().data());
     NCursesWindowBase::show();

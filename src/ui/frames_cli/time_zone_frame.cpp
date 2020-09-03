@@ -13,7 +13,7 @@ TimeZoneFramePrivate::TimeZoneFramePrivate(TimeZoneFrame *parent, int lines, int
       q_ptr(qobject_cast<TimeZoneFrame*>(parent)),
       m_currentContinentIndex(0),
       m_currentTimezoneIndex(0),
-      m_localeString(""),
+//      m_localeString(""),
       m_isshow(false)
 {
     initUI();
@@ -25,7 +25,7 @@ void TimeZoneFramePrivate::initUI()
     FrameInterfacePrivate::initUI();
 
     m_instructions = new NcursesLabel(this, 1, width() - 4, begy() + 2, begx() + 1);
-    m_instructions->setText("  " + ::QObject::tr("Is it the right timezone? You can change it as well."));
+    m_instructions->setText("    " + ::QObject::tr("Is it the right timezone? You can change it as well."));
     m_instructions->setFocusEnabled(false);
     //m_instructions->hide();
 
@@ -41,11 +41,11 @@ void TimeZoneFramePrivate::initUI()
 }
 
 void TimeZoneFramePrivate::updateTs()
-{
-    if (!m_localeString.compare(installer::ReadLocale())) {
-        return;
-    }
-    m_localeString = installer::ReadLocale();
+{    
+//    if (!m_localeString.compare(installer::ReadLocale())) {
+//        return;
+//    }
+//    m_localeString = installer::ReadLocale();
 
     Q_Q(TimeZoneFrame);
 
@@ -147,11 +147,6 @@ TimeZoneFrame::~TimeZoneFrame()
 
 bool TimeZoneFrame::init()
 {
-    if (m_localeString.compare(installer::ReadLocale())) {
-        readConf();
-        m_localeString = installer::ReadLocale();
-    }
-
     if (m_currState == FRAME_STATE_NOT_START) {
 
         connect(dynamic_cast<TimeZoneFramePrivate*>(m_private), &TimeZoneFramePrivate::continentChanged, this, [=]{
@@ -169,9 +164,14 @@ bool TimeZoneFrame::init()
         m_currState = FRAME_STATE_RUNNING;
     }
 
-    Q_D(TimeZoneFrame);
-    d->updateTs();
-    m_private->show();
+    if (m_localeString.compare(installer::ReadLocale())) {
+        readConf();
+        m_localeString = installer::ReadLocale();
+    }
+
+//    Q_D(TimeZoneFrame);
+//    d->updateTs();
+//    m_private->show();
 
     return true;
 }

@@ -42,7 +42,7 @@ private:
     NcursesListView* m_timeZoneView;
     int m_currentContinentIndex;
     int m_currentTimezoneIndex;
-    QString m_localeString;
+    //QString m_localeString;
     bool m_isshow;
 
     TimeZoneFrame *q_ptr = nullptr;

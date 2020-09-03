@@ -98,20 +98,13 @@ void InstallComponentFramePrivate::updateTs()
     m_tiltleLabel->erase();
     m_firstSubTiltleLabel->erase();
     m_secondSubTiltleLabel->erase();
-    if(installer::ReadLocale() == "zh_CN") {
-        m_tiltleLabel->resizew(1, testtiltle.length() * 2);
-        m_firstSubTiltleLabel->resizew(1, testfirststr.length() * 2);
-        m_secondSubTiltleLabel->resizew(1, testsecondstr.length() * 2);
-        m_selectallextra->setText("", ::QObject::tr("Select All"), true);
-    } else {
-        m_tiltleLabel->resizew(1, testtiltle.length());
-        m_firstSubTiltleLabel->resizew(1, testfirststr.length());
-        m_secondSubTiltleLabel->resizew(1, testsecondstr.length());
-        m_selectallextra->setText("", ::QObject::tr("Select All"), false);
-    }
     m_tiltleLabel->setText(testtiltle.toUtf8().data());
     m_firstSubTiltleLabel->setText(testfirststr.toUtf8().data());
     m_secondSubTiltleLabel->setText(testsecondstr.toUtf8().data());
+    m_tiltleLabel->adjustSizeByContext();
+    m_firstSubTiltleLabel->adjustSizeByContext();
+    m_secondSubTiltleLabel->adjustSizeByContext();
+    m_selectallextra->setText("", ::QObject::tr("Select All"));
 
     initInfoList();
 
@@ -187,13 +180,6 @@ void InstallComponentFramePrivate::initInfoList()
             extrachoicesinfolist.push_back(tsPair);
         }
 
-        bool testiswchar = false;
-        if(installer::ReadLocale() == "zh_CN") {
-            testiswchar = true;
-        } else {
-            testiswchar = false;
-        }
-
         QStringList testitems = m_basicenvironmentlist->getSelectItems();
         if (testitems.size() == 0) {
             if (m_serverList.size() > 0) {
@@ -213,8 +199,8 @@ void InstallComponentFramePrivate::initInfoList()
         testitems = m_extrachoiceslist->getSelectItems();
         m_extrachoiceslist->setSelectItems(testitems);
 
-        m_basicenvironmentlist->setList(basicenvironmentinfolist, testiswchar);
-        m_extrachoiceslist->setList(extrachoicesinfolist, testiswchar);
+        m_basicenvironmentlist->setList(basicenvironmentinfolist);
+        m_extrachoiceslist->setList(extrachoicesinfolist);
     }
 }
 

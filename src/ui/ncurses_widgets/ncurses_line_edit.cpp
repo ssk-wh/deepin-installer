@@ -7,6 +7,7 @@ installer::NCursesLineEdit::NCursesLineEdit(installer::NCursesWindowBase *parent
     m_is_passowrd(false),
     m_isNumber(false)
 {
+    curs_set(0);
 }
 
 void installer::NCursesLineEdit::setIsNumber(bool isnumber)

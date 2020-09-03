@@ -179,11 +179,8 @@ void NetwrokFramePrivate::updateTs()
     m_titledes.clear();
     m_titledes.append("  " + ::QObject::tr("Configure Ethernet according to your needs, but you can skip it as well."));
     m_titledes.append("  " + ::QObject::tr("Set the IP address, gateway, netmask, DNS please."));
-    if(installer::ReadLocale() == "zh_CN") {
-        m_titledesbrower->setText(m_titledes[m_currentchoicetype], true);
-    } else {
-        m_titledesbrower->setText(m_titledes[m_currentchoicetype]);
-    }
+
+    m_titledesbrower->setText(m_titledes[m_currentchoicetype]);
 
     //m_networkconfigtypelabel->erase();
     //m_networkconfigtypelabel->setText(m_networkconfigtypestr);
@@ -462,11 +459,7 @@ void NetwrokFramePrivate::doBackBtnClicked()
         m_networkconnecterrorlabel->hide();
         updateChoiceType(0);
         setFocusEnableType(0);
-        if(installer::ReadLocale() == "zh_CN") {
-            m_titledesbrower->setText(m_titledes[m_currentchoicetype], true);
-        } else {
-            m_titledesbrower->setText(m_titledes[m_currentchoicetype]);
-        }
+        m_titledesbrower->setText(m_titledes[m_currentchoicetype]);
         m_titledesbrower->show();
     } else {
       emit back();
@@ -486,11 +479,7 @@ void NetwrokFramePrivate::doNextBtnClicked()
             m_childpagecounttext->show();
             updateChoiceType(1);
             setFocusEnableType(1);
-            if(installer::ReadLocale() == "zh_CN") {
-                m_titledesbrower->setText(m_titledes[m_currentchoicetype], true);
-            } else {
-                m_titledesbrower->setText(m_titledes[m_currentchoicetype]);
-            }
+            m_titledesbrower->setText(m_titledes[m_currentchoicetype]);
             m_titledesbrower->show();
             m_pNextButton->setFocus(false);
         } else if(m_operationchoice->getCurrentIndex() == 1) {

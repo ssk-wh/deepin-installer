@@ -104,7 +104,7 @@ void PrepareInstallFrame::initUI() {
 
   operations_box_ = new NcursesTextBrower(this, height() - 10, width() - 4, begy() + 4, begx() + 2);
   foreach (QString testoptions, m_optDescriptions) {
-      operations_box_->appendItemText(testoptions, iswchar);
+      operations_box_->appendItemText(testoptions);
   }
   operations_box_->setFocusEnabled(false);
 

@@ -88,7 +88,7 @@ void PartitionFramePrivate::updateTs()
     printTitle(::QObject::tr("Create Partitions"), width());
     // "for disk partition. If you like, you can do it manually. If you choose the Partition Wizard,"
     // "you will have the opportunity to check and modify the partition settings later."));
-    m_label_comment1->setText("  " + ::QObject::tr("Make sure you have backed up important data, then select the partition mode."));
+    m_label_comment1->setText("    " + ::QObject::tr("Make sure you have backed up important data, then select the partition mode."));
 
     m_label_comment2->setText(QString(::QObject::tr("Partition mode")).append(" :"));
 

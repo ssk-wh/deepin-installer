@@ -37,25 +37,14 @@ void LicenceFramePrivate::initUI()
     FrameInterfacePrivate::initUI();
 
     m_user_license_lab = new NcursesLabel(this, 1, 6, begy() + 1, begx());
-    m_user_license_lab->box(true);
     m_privacy_license = new NcursesLabel(this, 1, 6, begy() + 1, begx());
-    m_privacy_license->box(true);
     m_privacy_license->setFocusEnabled(false);
 
     m_ncursesTextBrower = new NcursesTextBrower(this, height() - 12, width() - 2, begy() + 4, begx() + 1);
     m_ncursesTextBrower->setFocusEnabled(false);
     //m_ncursesTextBrower->hide();
 
-    QString checkboxtext = "I have read and agree to the UOS Software End User License Agreement";
-    int textlength = checkboxtext.length();
-    if (installer::ReadLocale() == "zh_CN") {
-        if((textlength * 2) > (width() - 2)){
-            textlength = width() - 2;
-        }
-    } else {
-        textlength += 5;
-    }
-    m_NcursesCheckBox = new NcursesCheckBox(this, 1, textlength, begy(), begx());
+    m_NcursesCheckBox = new NcursesCheckBox(this, 1, width() - 2, begy(), begx());
     m_NcursesCheckBox->setIsUseTitle(false);
     //m_NcursesCheckBox->hide();
 
@@ -108,13 +97,22 @@ void LicenceFramePrivate::onKeyPress(int keyCode)
             m_user_license_lab->setFocus(true);
         }
         switchChildWindowsFoucs();
-        if (m_user_license_lab->isOnFoucs()) {
-            setLicense(QString(":/license/end-user-license-agreement-%1")\
-                       .arg(installer::LicenseDelegate::OSType()));
-        }
+        switchLicense();
         break;
     case kKeyLeft:
-    case kKeyRight: switchLicense(); break;
+         if (m_privacy_license->isOnFoucs()) {
+            m_user_license_lab->setFocus(true);
+            m_privacy_license->setFocus(false);
+        }
+        switchLicense();
+        break;
+    case kKeyRight:
+        if (m_user_license_lab->isOnFoucs()) {
+            m_user_license_lab->setFocus(false);
+            m_privacy_license->setFocus(true);
+        }
+        switchLicense();
+        break;
     case kKeyUp:
     case kKeyDown: browseLicense(keyCode); break;
     }
@@ -125,17 +123,6 @@ void LicenceFramePrivate::onKeyPress(int keyCode)
 
 void LicenceFramePrivate::setLicense(const QString text)
 {
-
-    QString str = ::QObject::tr("I have read and agree to the");
-    QString user_lice_str = ::QObject::tr("End User License Agreement");
-    QString and_str = ::QObject::tr("and");
-    QString privacy_str = ::QObject::tr("Privacy Policy");
-    QString teststr = ::QObject::tr("%1 %2 %3 %4")\
-            .arg(str)\
-            .arg(user_lice_str)\
-            .arg(and_str)
-            .arg(privacy_str);
-
     QString zh_cn_li = QString("%1_zh_CN.txt")\
             .arg(text);
     QString en_us_li = QString("%1_en_US.txt")\
@@ -143,37 +130,42 @@ void LicenceFramePrivate::setLicense(const QString text)
 
     qDebug() << "zh_cn_li = " << zh_cn_li;
     qDebug() << "en_us_li = " << en_us_li;
+    QString testlicenceinfo = "";
     if (installer::ReadLocale() == "zh_CN") {
-        QString testlicenceinfo = installer::ReadFile(zh_cn_li);
-        m_NcursesCheckBox->setText("", teststr, true);
-        m_ncursesTextBrower->clearText();
-        m_ncursesTextBrower->setText(testlicenceinfo, true);
-
+        testlicenceinfo = installer::ReadFile(zh_cn_li);
     } else {
-        QString testlicenceinfo = installer::ReadFile(en_us_li);
-        m_NcursesCheckBox->setText("", teststr, false);
-        m_ncursesTextBrower->clearText();
-        m_ncursesTextBrower->setText(testlicenceinfo, false);
+        testlicenceinfo = installer::ReadFile(en_us_li);
     }
 
+    m_ncursesTextBrower->clearText();
+    m_ncursesTextBrower->setText(testlicenceinfo);
     m_ncursesTextBrower->show();
 }
 
 void LicenceFramePrivate::switchLicense()
 {
+    QString testlicense = "";
     if (m_user_license_lab->isOnFoucs()) {
-        m_user_license_lab->setFocus(false);
-        m_privacy_license->setFocus(true);
-        m_show_license = QString(":/license/privacy-policy-%1")\
+        testlicense = QString(":/license/end-user-license-agreement-%1")\
                 .arg(installer::LicenseDelegate::OSType());
     } else if (m_privacy_license->isOnFoucs()) {
-        m_user_license_lab->setFocus(true);
-        m_privacy_license->setFocus(false);
-        m_show_license = QString(":/license/end-user-license-agreement-%1")\
+        testlicense = QString(":/license/privacy-policy-%1")\
                 .arg(installer::LicenseDelegate::OSType());
     }
 
-    setLicense(m_show_license);
+    if (!m_localeString.compare(installer::ReadLocale())) {
+        if (testlicense.compare("") && m_show_license.compare(testlicense)) {
+            m_show_license = testlicense;
+            setLicense(m_show_license);
+        } else {
+            if (m_ncursesTextBrower->getTextHeight() == 0) {
+                setLicense(m_show_license);
+            }
+        }
+    }
+    else {
+        setLicense(m_show_license);
+    }
 }
 
 void LicenceFramePrivate::browseLicense(int key)
@@ -195,6 +187,8 @@ void LicenceFramePrivate::checkboxSelectChange(bool select)
 
 void LicenceFramePrivate::updateTs()
 {
+    switchLicense();
+
     if (!m_localeString.compare(installer::ReadLocale())) {
         return;
     }
@@ -202,8 +196,6 @@ void LicenceFramePrivate::updateTs()
 
     box(ACS_VLINE,ACS_HLINE);
     printTitle(::QObject::tr("UOS Software End User License Agreement"), width());
-
-    switchLicense();
 
     QString errorinfo = ::QObject::tr("Please agree to the license");
     m_errorInfoLabel->setText(errorinfo);
@@ -224,17 +216,43 @@ void LicenceFramePrivate::updateTs()
 
 void LicenceFramePrivate::layout()
 {
-    QString checkboxtext = "I have read and agree to the UOS Software End User License Agreement";
-    int textlength = checkboxtext.length();
-    if (installer::ReadLocale() == "zh_CN") {
-        if((textlength * 2) > (width() - 2)){
-            textlength = (width() + checkboxtext.length()) / 2 - 10;
+    QString str = ::QObject::tr("I have read and agree to the");
+    QString user_lice_str = ::QObject::tr("End User License Agreement");
+    QString and_str = ::QObject::tr("and");
+    QString privacy_str = ::QObject::tr("Privacy Policy");
+    QString checkboxtext = ::QObject::tr("%1 %2 %3 %4")\
+            .arg(str)\
+            .arg(user_lice_str)\
+            .arg(and_str)
+            .arg(privacy_str);
+
+    //QString checkboxtext = ::QObject::tr("I have read and agree to the UOS Software End User License Agreement");
+
+    QString chineseStr_zh = "";
+    QString chineseStr_en = "";
+    int nCount = checkboxtext.count();
+    for(int i = 0 ; i < nCount ; i++) {
+        QChar cha = checkboxtext.at(i);
+        ushort uni = cha.unicode();
+        if((uni >= 0x4E00 && uni <= 0x9FA5)
+                || (uni >= 0x3130 && uni <= 0x318F) || (uni >= 0xAC00 && uni <= 0xD7A3)
+                || (cha == "（") || (cha == "）") || (cha == "，") || (cha == "。")|| (cha == "：")|| (cha == "；")|| (cha == "“") || (cha == "”") || (cha == "《") || (cha == "》") || (cha == "【") || (cha == "】") || (cha == "、")) {
+            chineseStr_zh.append(uni);
+        } else {
+            chineseStr_en.append(uni);
         }
-    } else {
-        textlength += 10;
     }
-    m_NcursesCheckBox->resizew(m_NcursesCheckBox->height(), textlength);
-    m_NcursesCheckBox->moveWindowTo(begy() + height() - 7, begx() + (width() - checkboxtext.length()) / 2);
+
+    int maxLength = chineseStr_en.length() + chineseStr_zh.length() * 2 + 2;
+
+    if (maxLength > width()) {
+        maxLength = width() - 2;
+    }
+
+    m_NcursesCheckBox->resizew(m_NcursesCheckBox->height(), maxLength);
+    m_NcursesCheckBox->setText("", checkboxtext);
+    m_NcursesCheckBox->resizew(m_NcursesCheckBox->height(), maxLength);
+    m_NcursesCheckBox->moveWindowTo(begy() + height() - 7, begx() + (width() - maxLength) / 2);
 }
 
 
@@ -257,7 +275,7 @@ LicenceFrame::~LicenceFrame()
 bool LicenceFrame::init()
 {
     if (m_currState == FRAME_STATE_NOT_START) {
-        m_private->layout();
+        //m_private->layout();
         m_currState = FRAME_STATE_RUNNING;
     }
     return true;

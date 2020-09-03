@@ -12,6 +12,7 @@ NcursesProgressBar::NcursesProgressBar(NCursesWindowBase* parent, int lines, int
     this->box();
     m_progressSlidmonitor = new NCursesPanel(1, 1, beginY + 1, beginX + 1);
     m_progressSlidmonitor->bkgd(NcursesUtil::getInstance()->screen_attr());
+    curs_set(0);
 }
 
 NcursesProgressBar::~NcursesProgressBar()

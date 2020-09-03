@@ -18,6 +18,7 @@ NcursesCheckBox::NcursesCheckBox(NCursesWindowBase *parent, const QString &text,
     if(parent != nullptr) {
         this->setBackground(parent->background());
     }
+    curs_set(0);
 }
 
 NcursesCheckBox::NcursesCheckBox(NCursesWindowBase* parent, int lines, int cols, int beginY, int beginX)
@@ -36,6 +37,7 @@ NcursesCheckBox::NcursesCheckBox(NCursesWindowBase* parent, int lines, int cols,
     if(parent != nullptr) {
         this->setBackground(parent->background());
     }
+    curs_set(0);
 }
 
 NcursesCheckBox::~NcursesCheckBox()
@@ -57,7 +59,7 @@ void NcursesCheckBox::hide()
     m_isshow = false;
 }
 
-void NcursesCheckBox::setText(const QString &title, const QString &text, bool iswchar)
+void NcursesCheckBox::setText(const QString &title, const QString &text)
 {
     m_title = title;
     m_text = text;
@@ -73,51 +75,33 @@ void NcursesCheckBox::setText(const QString &title, const QString &text, bool is
     }
     int testbrowerwidth = width() - testframestr.length();
 
-    int browerwidthtest = testbrowerwidth;
-    if(iswchar) {
-        browerwidthtest = browerwidthtest / 2;
-    }
-
     if(m_isusetitle) {
-        int testlines_1 = title.length() / browerwidthtest;
-        if((title.length() % browerwidthtest) > 0){
-            testlines_1++;
-        }
+        m_titlebrower   = new NcursesTextBrower(this, 1, testbrowerwidth, begy(), begx() + width() - testbrowerwidth);
+        m_titlebrower->setText(title);
+        int testlines_1 = m_titlebrower->getTextHeight();
+        m_titlebrower->resize(testlines_1, testbrowerwidth);
 
-        int testlines_2 = text.length() / browerwidthtest;
-        if((text.length() % browerwidthtest) > 0) {
-            testlines_2++;
-        }
+        m_contentbrower = new NcursesTextBrower(this, 1, testbrowerwidth, begy() + testlines_1, begx() + width() - testbrowerwidth);
+        m_contentbrower->setText(text);
+        int testlines_2 = m_contentbrower->getTextHeight();
+        m_contentbrower->resize(testlines_2, testbrowerwidth);
+
         m_strheight = testlines_1 + testlines_2;
-        wresize(m_strheight, width());
+        resize(m_strheight, width());
 
-        m_titlebrower   = new NcursesTextBrower(this, testlines_1, testbrowerwidth, begy(), begx() + width() - testbrowerwidth);
-        m_titlebrower->setText(title, iswchar);
-        m_titlebrower->show();
-        m_titlebrower->refresh();
-
-        m_contentbrower = new NcursesTextBrower(this, testlines_2, testbrowerwidth, begy() + testlines_1, begx() + width() - testbrowerwidth);
-        m_contentbrower->setText(text, iswchar);
-        m_contentbrower->show();
-        m_contentbrower->refresh();
         m_selectshowpos = testlines_1;
     } else {
-        int testlines = 0;
-        testlines = text.length() / testbrowerwidth;
-        if((text.length() % browerwidthtest) > 0) {
-            testlines++;
-        }
-        m_strheight = testlines;
-        wresize(m_strheight, width());
+        m_contentbrower = new NcursesTextBrower(this, 1, testbrowerwidth, begy(), begx() + width() - testbrowerwidth);
+        m_contentbrower->setText(text);
 
-        m_contentbrower = new NcursesTextBrower(this, testlines, testbrowerwidth, begy(), begx() + width() - testbrowerwidth);
-        m_contentbrower->setText(text, iswchar);
-        m_contentbrower->show();
-        m_contentbrower->refresh();
+        int testlines = m_contentbrower->getTextHeight();
+        m_strheight = testlines;
+        m_contentbrower->resize(m_strheight, testbrowerwidth);
+        resize(m_strheight, width());
+
         m_selectshowpos = 0;
     }
     addstr(m_selectshowpos, 0, testframestr.toUtf8().data());
-    this->refresh();
 }
 
 void NcursesCheckBox::setSelect(bool select)
@@ -136,7 +120,8 @@ void NcursesCheckBox::setSelect(bool select)
 
 void NcursesCheckBox::setFocus(bool foucs) {
 
-    NCursesWindowBase::setFocus(foucs);
+    //NCursesWindowBase::setFocus(foucs);
+    m_foucs = foucs;
 
     if (foucs) {
         attron(NcursesUtil::getInstance()->item_selected_attr());
@@ -152,8 +137,6 @@ void NcursesCheckBox::setFocus(bool foucs) {
     }
 
     setSelect(m_select);
-
-
 }
 
 void NcursesCheckBox::resizew(int newLines, int newColumns)
@@ -175,7 +158,7 @@ void NcursesCheckBox::resizew(int newLines, int newColumns)
         m_contentbrower->resize(m_contentbrower->height(), testbrowerwidth);
     }
 
-    NCursesWindowBase::resizew(this->height(), testbrowerwidth);
+    wresize(this->height(), testbrowerwidth);
     NCursesWindowBase::show();
 }
 

@@ -151,7 +151,7 @@ void FullDiskFramePrivate::setSystemDiskList(QStringList &info)
     }
 
     if (testinfo.size() > 0) {
-        m_systemdisklist->setList(testinfo, false, false);
+        m_systemdisklist->setList(testinfo, false);
         systemDisklistKeyTriger(0, 0, 0);
     }
 
@@ -171,7 +171,7 @@ void FullDiskFramePrivate::setDataDiskList(QStringList &info)
     }
 
     if (testinfo.size() > 0) {
-        m_datadisklist->setList(testinfo, false, false);
+        m_datadisklist->setList(testinfo, false);
     }
 }
 
@@ -239,7 +239,7 @@ void FullDiskFramePrivate::systemDisklistKeyTriger(int keycode, int listtype, in
 
         if( testinfo.size() > 0) {
             m_datadisklist->getSelectItems();
-            m_datadisklist->setList(testinfo, false, false);
+            m_datadisklist->setList(testinfo, false);
             if (m_isshow) {
                 m_datadisklist->show();
             }

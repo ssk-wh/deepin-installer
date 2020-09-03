@@ -14,29 +14,23 @@ NcursesTextBrower::NcursesTextBrower(NCursesWindowBase *parent, int lines, int c
     bkgd(parent->getbkgd());
     scrollok(true);
     setscrreg(0, lines);
+    curs_set(0);
 }
 
-void NcursesTextBrower::setText(const QString &text, bool iswchar)
+void NcursesTextBrower::setText(const QString &text)
 {
     m_text.clear();
-    appendItemText(text, iswchar);
+    appendItemText(text);
 }
 
-void NcursesTextBrower::appendText(const QString &text, bool iswchar)
+void NcursesTextBrower::appendText(const QString &text)
 {
     if(text.isEmpty())
     {
         return;
     }
 
-    int lineCharNum = 0;
-    if(iswchar)
-    {
-        lineCharNum = width() / 2;//一行显示的字符个数
-
-    } else {
-        lineCharNum = width();//一行显示的字符个数
-    }
+    int lineCharNum = width();
 
     int delta = 0;
     if (!m_text.isEmpty()) {
@@ -47,14 +41,13 @@ void NcursesTextBrower::appendText(const QString &text, bool iswchar)
             last += text.mid(0, delta);
             m_text.push_back(last);
         }
-
     }
 
     QString teststr = text.right(text.length() - delta);
-    appendItemText(teststr, iswchar);
+    appendItemText(teststr);
 }
 
-void NcursesTextBrower::appendItemText(const QString &text, bool iswchar)
+void NcursesTextBrower::appendItemText(const QString &text)
 {
     QString input = text;
 
@@ -63,30 +56,41 @@ void NcursesTextBrower::appendItemText(const QString &text, bool iswchar)
      iswchar = true;
 #endif // QT_DEBUG
 
-    int lineCharNum = 0;
-    if(iswchar)
-    {
-        lineCharNum = width() / 2;//中文一行显示的字符个数
-
-    } else {
-        lineCharNum = width();//英文一行显示的字符个数
-    }
+    int lineCharNum = lineCharNum = width();
 
     if (!input.isEmpty()) {
 
         QString tmp = "";
-        for (int i = 0; i < text.length();) {
+        QString chineseStr_zh = "";
+        QString chineseStr_en = "";
 
-            if(tmp.length() == lineCharNum){
+        for (int i = 0; i < text.length();) {
+            QChar cha = input.at(i);
+            ushort uni = cha.unicode();
+            if ((uni >= 0x4E00 && uni <= 0x9FA5)
+                    || (uni >= 0x3130 && uni <= 0x318F) || (uni >= 0xAC00 && uni <= 0xD7A3)
+                    || (cha == "（") || (cha == "）") || (cha == "，") || (cha == "。")|| (cha == "：")|| (cha == "；")|| (cha == "“") || (cha == "”") || (cha == "《") || (cha == "》") || (cha == "【") || (cha == "】") || (cha == "、")) {
+                chineseStr_zh.append(uni);
+            } else {
+                chineseStr_en.append(uni);
+            }
+
+            int maxLength = chineseStr_en.length() + chineseStr_zh.length() * 2;
+
+            if (maxLength >= lineCharNum) {
                 m_text.push_back(tmp);
                 tmp = "";
-            }else {
-                if(input.at(i) == "\n"){
+                chineseStr_zh = "";
+                chineseStr_en = "";
+            } else {
+                if (input.at(i) == "\n") {
                     m_text.push_back(tmp);
                     tmp = "";
+                    chineseStr_zh = "";
+                    chineseStr_en = "";
                     i++;
                 } else {
-                    tmp += text.at(i);
+                    tmp += input.at(i);
                     i++;
                 }
             }

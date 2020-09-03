@@ -20,7 +20,7 @@ public:
     virtual void hide() override;
     virtual void setFocus(bool foucs) override;
     virtual void resizew(int newLines, int newColumns);
-    void setText(const QString &title = "", const QString& text = "", bool iswchar = false);
+    void setText(const QString &title = "", const QString& text = "");
     void setSelect(bool select);
     bool isSelect(){ return m_select; }
     void setEnable(bool enable);
