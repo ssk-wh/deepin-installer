@@ -51,6 +51,7 @@ void SystemInfoFramePrivate::show()
 {
     if(!m_isshow) {
         updateTs();
+        m_le_username->setFocus(true);
         FrameInterfacePrivate::show();
         m_isshow = true;
     }
@@ -562,7 +563,6 @@ void SystemInfoFramePrivate::updateTs()
 
     layout();
 
-    m_le_username->setFocus(true);
 }
 
 
