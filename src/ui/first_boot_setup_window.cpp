@@ -74,7 +74,7 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
       m_showPastFrame(false)
 {
   this->setObjectName("first_boot_setup_window");
-  SettingCustom::Instance()->setSettingsBool(kSystemInfoSetupAfterReboot, false);
+  installer::CustomSetSettingsBool(kSystemInfoSetupAfterReboot, false);
 
   hook_worker_thread_->start();
   hook_worker_->moveToThread(hook_worker_thread_);
