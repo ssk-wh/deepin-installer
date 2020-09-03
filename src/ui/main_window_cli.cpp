@@ -89,6 +89,7 @@ void MainWindowPrivate::update(const QString &text)
 {
     erase();
     addstr(begy() + lines() - 1,  (width() - std::min(width() - 2, text.length())) / 2, text.toUtf8().data());
+    refresh();
 }
 
 MainWindow::MainWindow(QObject* parent)
