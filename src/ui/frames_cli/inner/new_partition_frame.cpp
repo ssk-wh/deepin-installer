@@ -354,8 +354,8 @@ void NewPartitionFrame::keyPresseEvent(int keycode)
         if(m_currentchoicetype != -1){
             emit keyEventTrigerSignal(keycode);
         } else {
-            FrameInterfacePrivate::keyEventTriger(keycode);
             emit keyEventTrigerSignal(keycode);
+            FrameInterfacePrivate::keyEventTriger(keycode);
         }
    }
 }

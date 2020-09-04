@@ -58,6 +58,7 @@ void PrepareInstallFrame::show()
     if(!m_isshow){
         FrameInterfacePrivate::show();
         m_isshow = true;
+        create_button_->setFocus(true);
     }
 }
 
@@ -157,17 +158,17 @@ void PrepareInstallFrame::onKeyPress(int keycode)
 
 void PrepareInstallFrame::keyPresseEvent(int keycode)
 {
-    if(!m_isshow) {
-        if(m_currentchoicetype != -1){
+    if (!m_isshow) {
+        if (m_currentchoicetype != -1) {
             emit keyEventTrigerSignal(keycode);
         }
         return;
     } else {
-        if(m_currentchoicetype != -1){
+        if (m_currentchoicetype != -1) {
             emit keyEventTrigerSignal(keycode);
         } else {
-            FrameInterfacePrivate::keyEventTriger(keycode);
             emit keyEventTrigerSignal(keycode);
+            FrameInterfacePrivate::keyEventTriger(keycode);
         }
     }
 }

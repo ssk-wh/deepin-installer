@@ -74,7 +74,9 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
       m_showPastFrame(false)
 {
   this->setObjectName("first_boot_setup_window");
-  installer::CustomSetSettingsBool(kSystemInfoSetupAfterReboot, false);
+    if (GetSettingsBool("lightdm_enable_auto_login")) {
+        installer::CustomSetSettingsBool(kSystemInfoSetupAfterReboot, false);
+    }
 
   hook_worker_thread_->start();
   hook_worker_->moveToThread(hook_worker_thread_);
