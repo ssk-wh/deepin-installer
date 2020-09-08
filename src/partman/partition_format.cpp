@@ -336,19 +336,11 @@ bool Mkfs(const Partition::Ptr partition)
         { FsType::Reiser4, Formater(new Reiser4Formater(partition)) },
         { FsType::Reiserfs, Formater(new ReiserFsFormater(partition)) },
         { FsType::Xfs, Formater(new XfsFormater(partition)) },
-        { FsType::Recovery, Formater(new Ext4Formater(partition))},
+        { FsType::Recovery, Formater(new Ext4Formater(partition)) },
         { FsType::LVM2PV, Formater(new LVMPVFormater(partition))}
 
     };
-    const MachineArch arch = GetMachineArch();
-    if (arch == MachineArch::LOONGSON || arch == MachineArch::SW) {
-        map.insert(FsType::Recovery,Formater(new Ext4Formater(partition)));
-    } else if(GetCurrentType() == OSType::Server){
-        map.insert(FsType::Recovery,Formater(new XfsFormater(partition)));
-    } else {
-        map.insert(FsType::Recovery,Formater(new Ext4Formater(partition)));
-    }
-
+    
     if (!map.contains(partition->fs)) {
         qWarning() << "Unsupported filesystem to format!" << partition->path;
         return false;
