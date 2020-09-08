@@ -30,8 +30,8 @@ setup_lightdm_auto_login() {
     "Seat:*" "autologin-user" "${USERNAME}"
 }
 
-if [ x$(installer_get "system_info_setup_after_reboot") != "xtrue" ]; then
-  setup_lightdm_auto_login
-fi
+##if [ x$(installer_get "system_info_setup_after_reboot") != "xtrue" ]; then
+setup_lightdm_auto_login
+##fi
 
 return 0
