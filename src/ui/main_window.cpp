@@ -368,14 +368,16 @@ void MainWindow::initConnections() {
 
   connect(partition_frame_, &PartitionFrame::reboot,
           this, &MainWindow::rebootSystem);
-  connect(partition_frame_, &PartitionFrame::coverMainWindowFrameLabelsView
-          , this, &MainWindow::coverFrameLabelsView);
+  connect(partition_frame_, &PartitionFrame::coverMainWindowFrameLabelsView, this, [=] (bool cover) {
+      updateFrameLabelPreviousState(!cover);
+  });
 
   connect(select_language_frame_, &LanguageFrame::timezoneUpdated,
           timezone_frame_, &TimezoneFrame::updateTimezoneBasedOnLanguage);
 
-  connect(select_language_frame_, &LanguageFrame::coverMainWindowFrameLabelsView
-          , this, &MainWindow::coverFrameLabelsView);
+  connect(select_language_frame_, &LanguageFrame::coverMainWindowFrameLabelsView, this, [=] (bool cover) {
+      updateFrameLabelPreviousState(!cover);
+  });
 
   connect(m_repairSystemFrame, &RepairSystemFrame::finished,
           this, &MainWindow::goNextPage);

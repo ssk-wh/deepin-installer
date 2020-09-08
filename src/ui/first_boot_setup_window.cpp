@@ -227,8 +227,9 @@ void FirstBootSetupWindow::initConnections() {
     connect(language_frame_, &LanguageFrame::timezoneUpdated,
             timezone_frame_, &TimezoneFrame::updateTimezoneBasedOnLanguage);
 
-    connect(language_frame_, &LanguageFrame::coverMainWindowFrameLabelsView
-            , this, &FirstBootSetupWindow::updateFrameLabelPreviousState);
+    connect(language_frame_, &LanguageFrame::coverMainWindowFrameLabelsView, this, [=] (bool cover) {
+        updateFrameLabelPreviousState(!cover);
+    });
 }
 
 void FirstBootSetupWindow::initUI() {
