@@ -86,15 +86,22 @@ void PartitionTableWarningFrame::initUI() {
   m_warningBox->setFocus(true);
 
   QStringList waringList;
-  waringList.append(QString("1.Restart.%1. %2")
+
+  waringList.append(QString("1.%1, %2")
+                    .arg(::QObject::tr("Reboot, enter BIOS, and disable UEFI"))
+                    .arg(::QObject::tr("Exit BIOS, and install UOS again")));
+  waringList.append(QString("2.%1, %2")
+                    .arg(::QObject::tr("Make sure you have backed up all data before proceeding"))
+                    .arg(::QObject::tr("Continuing installation will format your disk")));
+  waringList.append(QString("3.%1")
+                     .arg(::QObject::tr("Cancel")));
+  /*waringList.append(QString("1.Restart.%1. %2")
                     .arg(::QObject::tr("Reboot, enter BIOS, and disable UEFI"))
                     .arg(::QObject::tr("Exit BIOS, and install UOS again")));
   waringList.append(QString("2.Format the entire disk. %1")
                     .arg(::QObject::tr("Make a backup of all your data to avoid data loss")));
   waringList.append(QString("3.%1")
-                     .arg(::QObject::tr("Cancel")));
-  /*waringList.append( QString("3.To select a disk. %1.")
-                     .arg(::QObject::tr("Nothing to do")));*/
+                     .arg(::QObject::tr("Cancel")));*/
 
   m_warningBox->setList(waringList);
 
