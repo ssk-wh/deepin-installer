@@ -25,7 +25,6 @@ public:
 
 public:
     void getKeyInputRun() {
-        int testcount = 0;
         while (true) {
             //int key = getKey();
             int key = getch();
@@ -34,19 +33,28 @@ public:
                 if (m_keys.size() > 0) {
                     if (key != m_keys.last()) {
                         m_keys.push_back(key);
+                    } else {
+                        qWarning() << "same key : "<< key;
                     }
                 } else {
                     m_keys.push_back(key);
                 }
             }
 
-
-            if ((m_keys.size() > 0) && (m_FrameInterface->getCurrentChild() != nullptr)) {
-                m_FrameInterface->getCurrentChild()->getPrivate()->keyEventTriger(m_keys.front());
+            if (m_keys.size() > 0) {
+                if ((m_keys.front() == KEY_ESC) && (m_quit == nullptr)) {
+                    keyEventTriger(m_keys.front());
+                } else {
+                    if (m_quit != nullptr) {
+                        m_quit->keyHandle(m_keys.front());
+                    } else if (m_FrameInterface->getCurrentChild() != nullptr) {
+                        m_FrameInterface->getCurrentChild()->getPrivate()->keyEventTriger(m_keys.front());
+                    }
+                }
                 m_keys.pop_front();
             }
 
-            QThread::msleep(50);
+            QThread::msleep(10);
         }
     }
     void setFrameInterface(FrameInterface* object){ m_FrameInterface = object; }
@@ -269,6 +277,7 @@ bool MainWindow::init()
         connect( static_cast<PartitionFramePrivate*>(m_partitionFrame->getPrivate()),
                  &PartitionFramePrivate::dostartInstall, this, &MainWindow::slot_dostartInstall);
         addChildFrame(m_partitionFrame);
+        m_partitionFrame->scanDevices();
 
         m_installProcessFrame = new InstallProcessFrame(this);
         addChildFrame(m_installProcessFrame);

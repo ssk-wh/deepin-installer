@@ -210,13 +210,13 @@ void NCursesWindowBase::switchChildWindowsFoucs() {
                 m_foucsWindows[i]->setFocus(false);
                 m_foucsWindows[i + 1]->setFocus(true);
             }
-
             break;
+        } else {
+            if ((i + 1) == index) {
+                m_foucsWindows[i]->setFocus(false);
+                m_foucsWindows[0]->setFocus(true);
+            }
         }
-    }
-
-    if (i >= index) {
-        m_foucsWindows[0]->setFocus(true);
     }
 }
 

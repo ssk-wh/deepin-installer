@@ -7,6 +7,7 @@
 installer::NcursesQuit::NcursesQuit(installer::NCursesWindowBase *parent, int lines, int cols, int beginY, int beginX, bool shadow, bool box) :
     NCursesWindowBase(parent, lines, cols, beginY, beginX, shadow, box)
 {
+    setBackground(NcursesUtil::getInstance()->dialog_attr());
     m_title_lab = new NcursesLabel(this, 1, cols - 2, beginY, beginX);
     m_title_lab->setFocusEnabled(false);
 
@@ -82,14 +83,14 @@ void installer::NcursesQuit::hide()
 void installer::NcursesQuit::keyHandle(int key)
 {
     switch (key) {
-        case KEY_TAB:keyHandle();break;
-        default:
-            foreach (NCursesWindowBase* childWindow, m_childWindows) {
-                if (childWindow->isOnFoucs()) {
-                     childWindow->onKeyPress(key);
-                }
-
+    case KEY_TAB:keyHandle();break;
+    default:
+        foreach (NCursesWindowBase* childWindow, m_childWindows) {
+            if (childWindow->isOnFoucs()) {
+                childWindow->onKeyPress(key);
             }
+        }
+        break;
     }
 
 }

@@ -242,7 +242,7 @@ bool PartitionFrame::init()
 {
     static bool isFirst = true;
     if (isFirst) {
-        scanDevices();
+        //scanDevices();
         isFirst = false;
     }
     if (m_currState == FRAME_STATE_NOT_START) {        

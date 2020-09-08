@@ -67,7 +67,6 @@ public:
 
     void show() override {
         NCursesWindowBase::show();
-        if (m_quit) m_quit->hide();
     }
 
     virtual void keyHandle() {
@@ -91,20 +90,15 @@ public:
     }
 
     virtual void keyEventTriger(int key) {
-        if (m_quit && m_quit->isOnFoucs()) {
-            m_quit->keyHandle(key);
-        } else {
-            switch (key) {
-                case KEY_TAB: tabKeyHandle(); break;
-                case KEY_ESC: escKeyHandle(); break;
-                case kKeyUp: upHandle(); break;
-                case kKeyDown: downHandle(); break;
-                case kKeyLeft: leftHandle(); break;
-                case kKeyRight: rightHandle(); break;
-                default: defaultHandle(key);
-            }
+        switch (key) {
+            case KEY_TAB: tabKeyHandle(); break;
+            case KEY_ESC: escKeyHandle(); break;
+            case kKeyUp: upHandle(); break;
+            case kKeyDown: downHandle(); break;
+            case kKeyLeft: leftHandle(); break;
+            case kKeyRight: rightHandle(); break;
+            default: defaultHandle(key);
         }
-
     }
 
     virtual void updateTs()
@@ -170,17 +164,19 @@ protected:
     }
 
     virtual void quitHandle() {
-        this->hide();
         if (!m_quit) {
-            m_quit = new NcursesQuit(this, this->height(), this->width(), begy(), begx(), false, true);
-            m_quit->setFocusEnabled(false);
+            int h = MAINWINDOW_HEIGHT;//LINES / 2;
+            int w = MAINWINDOW_WIDTH;//COLS / 2;
+            int beginY = (LINES - h - 2) / 2;
+            int beginX = (COLS - w) / 2;
+            m_quit = new NcursesQuit(this, h, w, beginY, beginX, false, true);
             connect(m_quit, &NcursesQuit::cancel, this, [=]{
-                this->show();
                 m_quit->hide();
+                removeChildWindows(m_quit);
+                m_quit = nullptr;
             });
         }
         m_quit->show();
-        m_quit->setFocus(true);
     }
 
     virtual void backHandle() {
