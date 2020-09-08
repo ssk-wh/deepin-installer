@@ -10,6 +10,7 @@
 #include "ui/delegates/advanced_partition_delegate.h"
 #include "ui/delegates/lvm_partition_delegate.h"
 #include "partition_table_warning_frame.h"
+#include "partition_number_limitation_frame.h"
 #include "base/command.h"
 
 namespace installer {
@@ -685,7 +686,22 @@ void AdvancedPartitionFrame::requestNewTable(const QString& device_path) {
 }
 
 void AdvancedPartitionFrame::requestPartitionNumberLimitationFrame() {
-
+    Q_D(AdvancedPartitionFrame);
+    PartitionNumberLimitationFrame * partitionNumberWarningFrame = new PartitionNumberLimitationFrame(d, d->height(), d->width(), d->begy(), d->begx(), m_partitionModel);
+    partitionNumberWarningFrame->hide();
+    connect(d, &AdvancedPartitionFramePrivate::keyEventTrigerSignal, partitionNumberWarningFrame, &PartitionNumberLimitationFrame::keyPresseEvent);
+    connect(partitionNumberWarningFrame, &PartitionNumberLimitationFrame::finished,this, [=](){
+        disconnect(d, &AdvancedPartitionFramePrivate::keyEventTrigerSignal, partitionNumberWarningFrame, &PartitionNumberLimitationFrame::keyPresseEvent);
+        d->removeChildWindows(partitionNumberWarningFrame);
+        show();
+        d->setchildFoursEnabel(true);
+        d->setCurrentchoicetype(-1);
+    });
+    partitionNumberWarningFrame->inits();
+    partitionNumberWarningFrame->updateTs();
+    d->setchildFoursEnabel(false);
+    hide();
+    partitionNumberWarningFrame->show();
 }
 
 void AdvancedPartitionFrame::readConf()

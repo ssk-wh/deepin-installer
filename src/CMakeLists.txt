@@ -601,6 +601,8 @@ set(CLI_UI_FILES
     ui/frames_cli/inner/advanced_partition_frame.cpp
     ui/frames_cli/inner/partition_table_warning_frame.h
     ui/frames_cli/inner/partition_table_warning_frame.cpp
+    ui/frames_cli/inner/partition_number_limitation_frame.h
+    ui/frames_cli/inner/partition_number_limitation_frame.cpp
     ui/frames_cli/inner/new_partition_frame.h
     ui/frames_cli/inner/new_partition_frame.cpp
     ui/frames_cli/inner/prepare_install_frame.h
