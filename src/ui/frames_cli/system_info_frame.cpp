@@ -75,8 +75,9 @@ void SystemInfoFramePrivate::onKeyPress(int keyCode)
             switchChildWindowsFoucs();
         break;
     }
-    if (!m_isHostEdited && m_le_username->isOnFoucs() && !m_le_username->text().isEmpty()) {
-        m_le_hostname->setText(QString("%1-PC").arg(m_le_username->text()));
+    if (!m_isHostEdited && m_le_username->isOnFoucs()) {
+        QString s_str = m_le_username->text().isEmpty() ? "" : QString("%1-PC").arg(m_le_username->text());
+        m_le_hostname->setText(s_str);
     }
 }
 
