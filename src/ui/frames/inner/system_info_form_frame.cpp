@@ -601,6 +601,7 @@ void SystemInfoFormFramePrivate::initUI()
         layout->addWidget(m_rootPasswordCheckFrame, 0, Qt::AlignHCenter);
         layout->addSpacing(kSetRootPasswordCheckBoxHeight);
         layout->addWidget(m_grubPasswordCheck_, 0, Qt::AlignHCenter);
+        layout->addSpacing(kSetRootPasswordCheckBoxHeight);
     } else {
         layout->addSpacing(kSetRootPasswordCheckBoxHeight * 6);
     }
