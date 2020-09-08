@@ -35,13 +35,13 @@
         "platform": [ "x86", "sw", "loongson", "arm" ]
     },
     {
-        "filesystem": "xfs",
+        "filesystem": "ext4",
         "mountPoint": "/",
         "label": "Roota",
         "usage": "root-size",
         "alignStart": true,
         "device": "",
-        "platform": [ "x86", "sw", "loongson", "arm" ]
+        "platform": [ "sw", "loongson"]
     },
     {
         "filesystem": "ext4",
@@ -50,6 +50,24 @@
         "usage": "100%",
         "alignStart": true,
         "device": "",
-        "platform": [ "x86", "sw", "loongson", "arm" ]
+        "platform": ["sw", "loongson"]
+    },
+    {
+        "filesystem": "xfs",
+        "mountPoint": "/",
+        "label": "Roota",
+        "usage": "root-size",
+        "alignStart": true,
+        "device": "",
+        "platform": [ "x86", "arm" ]
+    },
+    {
+        "filesystem": "xfs",
+        "mountPoint": "/data",
+        "label": "_dde_data",
+        "usage": "100%",
+        "alignStart": true,
+        "device": "",
+        "platform": [ "x86", "arm" ]
     }
 ]

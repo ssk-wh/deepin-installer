@@ -23,6 +23,7 @@
 #include "base/command.h"
 #include "sysinfo/machine.h"
 #include "ui/delegates/partition_util.h"
+#include "service/settings_manager.h"
 
 namespace installer {
 class PartitionFormater {
@@ -316,8 +317,7 @@ bool Mkfs(const Partition::Ptr partition)
 {
     qDebug() << "Mkfs()" << partition;
 
-    using Formater = std::shared_ptr<PartitionFormater>;
-
+    using Formater = std::shared_ptr<PartitionFormater>;   
     QMap<FsType, std::shared_ptr<PartitionFormater>> map{
         { FsType::Btrfs, Formater(new BtrfsFormater(partition)) },
         { FsType::Ext2, Formater(new Ext2Formater(partition)) },
@@ -340,6 +340,14 @@ bool Mkfs(const Partition::Ptr partition)
         { FsType::LVM2PV, Formater(new LVMPVFormater(partition))}
 
     };
+    const MachineArch arch = GetMachineArch();
+    if (arch == MachineArch::LOONGSON || arch == MachineArch::SW) {
+        map.insert(FsType::Recovery,Formater(new Ext4Formater(partition)));
+    } else if(GetCurrentType() == OSType::Server){
+        map.insert(FsType::Recovery,Formater(new XfsFormater(partition)));
+    } else {
+        map.insert(FsType::Recovery,Formater(new Ext4Formater(partition)));
+    }
 
     if (!map.contains(partition->fs)) {
         qWarning() << "Unsupported filesystem to format!" << partition->path;
