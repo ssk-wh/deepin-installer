@@ -55,7 +55,9 @@ namespace {
     const int kLineEditWidth = 168;
     const int kLineEditHeight = 36;
 
-    const int kFontSize = 10;
+    const int kNetworkSwitchFontSize = 14;
+    const int kLabelFontSize = 12;
+    const int kEditFontSize = 10;
 }
 
 static uint coverMask(const QString &source)
@@ -132,7 +134,7 @@ public:
         m_dhcpType = DHCPTYpe::Auto;
 
         QFont font;
-        font.setPixelSize(kFontSize);
+        font.setPointSize(kEditFontSize);
         m_ipv4Edit = new DLineEdit;
         m_ipv4Edit->setObjectName("IP Address");
         m_ipv4Edit->setFixedSize(kLineEditWidth, kLineEditHeight);
@@ -204,8 +206,11 @@ public:
         ipLayout->setMargin(0);
         ipLayout->setSpacing(0);
 
+        QFont labelFont;
+        labelFont.setPointSize(kLabelFontSize);
         m_ipLabel = new QLabel(::QObject::tr("IP Address:"));
         m_ipLabel->setFixedSize(105, 20);
+        m_ipLabel->setFont(labelFont);
 
         ipLayout->addWidget(m_ipLabel, 0, Qt::AlignLeft | Qt::AlignHCenter);
         ipLayout->addWidget(m_ipv4Edit, 0, Qt::AlignRight | Qt::AlignHCenter);
@@ -218,6 +223,7 @@ public:
 
         m_maskLabel = new QLabel(::QObject::tr("Netmask:"));
         m_maskLabel->setFixedSize(105, 20);
+        m_maskLabel->setFont(labelFont);
 
         maskLayout->addWidget(m_maskLabel, 0, Qt::AlignLeft | Qt::AlignHCenter);
         maskLayout->addWidget(m_maskEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
@@ -230,6 +236,7 @@ public:
 
         m_gatewayLable = new QLabel(::QObject::tr("Gateway:"));
         m_gatewayLable->setFixedSize(105, 20);
+        m_gatewayLable->setFont(labelFont);
 
         gatewayLayout->addWidget(m_gatewayLable, 0, Qt::AlignLeft | Qt::AlignHCenter);
         gatewayLayout->addWidget(m_gatewayEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
@@ -242,6 +249,7 @@ public:
 
         m_primaryDNSLabel = new QLabel(::QObject::tr("Primary DNS:"));
         m_primaryDNSLabel->setFixedSize(105, 20);
+        m_primaryDNSLabel->setFont(labelFont);
 
         dnsLayout->addWidget(m_primaryDNSLabel, 0, Qt::AlignLeft | Qt::AlignHCenter);
         dnsLayout->addWidget(m_primaryDNSEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
@@ -253,6 +261,7 @@ public:
         secondaryDnsLayout->setSpacing(0);
         m_secondaryDNSLabel = new QLabel(tr("Secondary DNS:"));
         m_secondaryDNSLabel->setFixedSize(105, 20);
+        m_secondaryDNSLabel->setFont(labelFont);
 
         secondaryDnsLayout->addWidget(m_secondaryDNSLabel, 0, Qt::AlignLeft | Qt::AlignHCenter);
         secondaryDnsLayout->addWidget(m_secondaryDNSEdit, 0, Qt::AlignRight | Qt::AlignHCenter);
@@ -264,6 +273,7 @@ public:
         dhcpLayout->setSpacing(0);
 
         QLabel* dhcpName = new QLabel(::QObject::tr("DHCP:"));
+        dhcpName->setFont(labelFont);
         dhcpName->setFixedSize(53, 20);
         dhcpLayout->addWidget(dhcpName, 0, Qt::AlignLeft | Qt::AlignHCenter);
         dhcpLayout->addWidget(m_dhcpTypeWidget, 0, Qt::AlignRight | Qt::AlignHCenter);
@@ -278,6 +288,11 @@ public:
         // If has not any devices, label must have default name.
         m_switchName = new QLabel("Network Switch");
         m_switchName->setFixedSize(130, 20);
+
+        QFont networkSwitchFont;
+        networkSwitchFont.setPointSize(kNetworkSwitchFontSize);
+        m_switchName->setFont(networkSwitchFont);
+
         connect(m_switchButton, &DSwitchButton::checkedChanged, this, &NetworkEditWidget::onSwitchStateChanged);
 
         QHBoxLayout* switchLayout = new QHBoxLayout;

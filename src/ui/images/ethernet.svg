@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="32px" viewBox="0 0 36 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组</title>
+    <defs>
+        <filter x="-13.3%" y="-15.4%" width="126.7%" height="130.8%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="2" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0.41176792   0 0 0 0 1  0 0 0 0.2 0" type="matrix" in="shadowOffsetOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="安装器-服务器版5" transform="translate(-264.000000, -190.000000)">
+            <g id="编组-5" transform="translate(241.000000, 164.000000)">
+                <g id="复制" transform="translate(10.000000, 10.000000)">
+                    <g id="编组" filter="url(#filter-1)" transform="translate(16.000000, 19.000000)">
+                        <rect id="矩形" stroke="#4F89CA" fill="#E1DFB6" x="1.5" y="6.5" width="26" height="13"></rect>
+                        <path d="M1.5,0.5 L1.5,13.5 L3.5,13.5 L3.5,14.5 L1.5,14.5 L1.5,25.5 L0.5,25.5 L0.5,0.5 L1.5,0.5 Z" id="形状结合" stroke="#4F89CA" fill="#E1DFB6"></path>
+                        <rect id="矩形" fill="#4663FF" x="12" y="10" width="6" height="6"></rect>
+                        <rect id="矩形" stroke="#4F89CA" fill="#E1DFB6" x="14.5" y="19.5" width="2" height="3"></rect>
+                        <rect id="矩形" stroke="#4F89CA" fill="#E1DFB6" x="16.5" y="19.5" width="2" height="3"></rect>
+                        <rect id="矩形" stroke="#4F89CA" fill="#E1DFB6" x="18.5" y="19.5" width="2" height="3"></rect>
+                        <rect id="矩形" stroke="#4F89CA" fill="#E1DFB6" x="20.5" y="19.5" width="2" height="3"></rect>
+                        <rect id="矩形" stroke="#4F89CA" fill="#E1DFB6" x="12.5" y="19.5" width="2" height="3"></rect>
+                        <rect id="矩形" stroke="#4F89CA" fill="#E1DFB6" x="10.5" y="19.5" width="2" height="3"></rect>
+                        <rect id="矩形" stroke="#4F89CA" fill="#E1DFB6" x="8.5" y="19.5" width="2" height="3"></rect>
+                        <rect id="矩形" stroke="#4F89CA" fill="#E1DFB6" x="6.5" y="19.5" width="2" height="3"></rect>
+                        <rect id="矩形" stroke="#4F89CA" fill="#E1DFB6" x="4.5" y="19.5" width="2" height="3"></rect>
+                        <circle id="椭圆形" fill="#1D9C73" cx="23" cy="19" r="7"></circle>
+                        <path d="M22.7093809,13.5931333 C20.1590496,15.4147985 19.3419303,17.0490371 20.6464466,18.3535534 C21.0115571,18.7186639 21.3715412,18.9984229 21.7613888,19.2383292 C21.9803347,19.3730651 22.5765399,19.6910412 22.5644305,19.6841216 C22.9241599,19.8896812 23,20.0110254 23,20.5 L24,20.5 C24,19.6389746 23.7216734,19.1936521 23.0605695,18.8158784 C23.0484601,18.8089588 22.4727903,18.5019349 22.2854862,18.3866708 C21.9599806,18.1863597 21.6615198,17.954413 21.3535534,17.6464466 C20.6580697,16.9509629 21.1742837,15.9185349 23.2906191,14.4068667 L22.7093809,13.5931333 Z" id="路径" fill="#FFFFFF" fill-rule="nonzero"></path>
+                        <polygon id="路径" fill="#FFFFFF" fill-rule="nonzero" points="22 20 25 20 25 23 22 23"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

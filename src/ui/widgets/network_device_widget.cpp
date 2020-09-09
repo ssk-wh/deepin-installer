@@ -14,9 +14,9 @@ namespace installer {
 namespace {
     const int kNetworkDeviceWidgetWidth = 235;
     const int kNetworkDeviceWidgetHeight = 64;
-    const int KQLabelWidth = 180;
-    const int kTitleFont = 14; // 14pt
-    const int kDescFont = 12; // 12pt
+    const int KQLabelWidth = 155;
+    const int kTitleFont = 12; // 12pt
+    const int kDescFont = 10; // 10pt
 
     const int kBusInfoPos = 4; // ex. /sys/devices/pci0000:00/0000:00:19.0/net/eno1
 }
@@ -74,6 +74,12 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     QFont titleFont;
     titleFont.setPointSize(kTitleFont);
 
+    m_iconLabel = new QLabel;
+    QPixmap pixmap = installer::renderPixmap(":/images/ethernet.svg");
+    Q_ASSERT(!pixmap.isNull());
+    m_iconLabel->setPixmap(pixmap);
+    m_iconLabel->setFixedSize(pixmap.size() / devicePixelRatioF());
+
     m_deviceName = new TickerLabel;
     m_deviceName->setObjectName("titleLabel");
     m_deviceName->setFixedWidth(KQLabelWidth);
@@ -97,7 +103,7 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     m_vLayout->addStretch();
 
     m_checkedLabel = new QLabel;
-    const QPixmap pixmap = installer::renderPixmap(":/images/select_blue.svg");
+    pixmap = installer::renderPixmap(":/images/select_blue.svg");
     Q_ASSERT(!pixmap.isNull());
     m_checkedLabel->setPixmap(pixmap);
     m_checkedLabel->setFixedSize(pixmap.size() / devicePixelRatioF());
@@ -107,6 +113,8 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     m_hLayout->setContentsMargins(11, 11, 1, 11);
     m_hLayout->setSpacing(0);
 
+    m_hLayout->addWidget(m_iconLabel, 0, Qt::AlignLeft);
+    m_hLayout->addSpacing(2);
     m_hLayout->addLayout(m_vLayout);
     m_hLayout->addWidget(m_checkedLabel, 0, Qt::AlignRight);
 
