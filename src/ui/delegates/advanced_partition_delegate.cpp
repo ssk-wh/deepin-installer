@@ -216,7 +216,7 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
               if (install_Lvm_Status == Install_Lvm_Status::Lvm_No_Need) {
                   install_Lvm_Status = Install_Lvm_Status::Lvm_Format_Pv;
               }
-          } else if (partition->fs == FsType::LinuxSwap && partition->status != PartitionStatus::Real ) {
+          } else if (partition->fs == FsType::LinuxSwap) {
               swapOk = true;
           }
 
