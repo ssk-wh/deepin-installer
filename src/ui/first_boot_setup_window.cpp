@@ -84,12 +84,10 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
   registerShortcut();
   initConnections();
 
-  Qt::WindowFlags flags = windowFlags();
-  flags &= ~Qt::WindowMinMaxButtonsHint;
-  flags |= Qt::WindowCloseButtonHint;
-  setWindowFlags(flags);
+  setWindowFlags(windowFlags() & ~Qt::WindowMinMaxButtonsHint);
 
   titlebar()->setMenuVisible(false);
+  titlebar()->setFullScreenButtonVisible(false);
 
   Q_ASSERT(m_frames.count() > 0);
   m_frames.first()->init();
@@ -265,6 +263,7 @@ void FirstBootSetupWindow::initUI() {
     close_button_->setNormalPic(":/images/close_normal.svg");
     close_button_->setHoverPic(":/images/close_normal.svg");
     close_button_->setPressPic(":/images/close_normal.svg");
+    close_button_->hide();
 
     stacked_layout_ = new QStackedLayout;
     stacked_layout_->setContentsMargins(0, 0, 0, 0);
@@ -390,6 +389,12 @@ void FirstBootSetupWindow::resizeEvent(QResizeEvent *event)
     }
 
     DMainWindow::resizeEvent(event);
+}
+
+void FirstBootSetupWindow::closeEvent(QCloseEvent *event)
+{
+    event->ignore();
+    confirm_quit_frame_->display();
 }
 
 void FirstBootSetupWindow::constructLabelView()
@@ -678,7 +683,12 @@ void FirstBootSetupWindow::shutdownSystem()
 
 void FirstBootSetupWindow::setCloseButtonVisible(bool visible)
 {
-    close_button_->setVisible(visible);
+    if (visible) {
+        setWindowFlags(windowFlags() | Qt::WindowCloseButtonHint);
+    }
+    else {
+        setWindowFlags(windowFlags() & ~Qt::WindowCloseButtonHint);
+    }
 }
 
 void FirstBootSetupWindow::updateFrameLabelState(FrameInterface *frame, FrameLabelState state)
