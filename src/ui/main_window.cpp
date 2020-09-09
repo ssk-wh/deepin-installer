@@ -113,11 +113,16 @@ MainWindow::MainWindow(QWidget* parent)
         }
     }
 
+    stacked_layout_->setCurrentWidget(nullptr);
+
     Q_ASSERT(m_frames.count() > 0);
     m_frames.first()->init();
 
-    updateFrameLabelState(m_frames.first(), FrameLabelState::Show);
     if (m_frames.first()->frameType() == FrameType::Frame) {
+        stacked_layout_->setCurrentWidget(m_frames.first());
+        updateFrameLabelState(m_frames.first(), FrameLabelState::Show);
+    }
+    else if (m_frames.first()->frameType() == FrameType::NoLeftLabelExtFrame) {
         stacked_layout_->setCurrentWidget(m_frames.first());
     }
     else if (m_frames.first()->frameType() == FrameType::FullScreenExtFrame) {
@@ -186,7 +191,10 @@ void MainWindow::nextFrame()
     Q_ASSERT(frame != nullptr);
 
     frame->finished();
-    updateFrameLabelState(frame, FrameLabelState::FinishedConfig);
+
+    if (frame->frameType() == FrameType::Frame) {
+        updateFrameLabelState(frame, FrameLabelState::FinishedConfig);
+    }
 
     if (!m_showPastFrame){
         m_frames.removeFirst();
@@ -201,8 +209,7 @@ void MainWindow::nextFrame()
             if (!m_showPastFrame){
                 (*it)->init();
             }
-            m_hasShowFrames << frame;
-            updateFrameLabelState(*it, FrameLabelState::Show);
+
             if ((*it)->frameType() == FrameType::Frame) {
                 stacked_layout_->setCurrentWidget(*it);
                 // Can only appear back or not back, to traverse the updates
@@ -210,11 +217,18 @@ void MainWindow::nextFrame()
                     updateFrameLabelPreviousState((*it)->allowPrevious());
                     m_currentAllowPreviousState = (*it)->allowPrevious();
                 }
+
+                m_hasShowFrames << frame;
+                updateFrameLabelState(*it, FrameLabelState::Show);
+            }
+            else if ((*it)->frameType() == FrameType::NoLeftLabelExtFrame) {
+                stacked_layout_->setCurrentWidget(*it);
             }
             else if ((*it)->frameType() == FrameType::FullScreenExtFrame) {
                 showExtFrameFullscreen(*it);
             }
             else {
+                // FrameType::ChildFrame and FrameType::PopupExtFrame display mode.
                 showChildFrame(*it);
             }
             m_showPastFrame = false;
@@ -253,14 +267,27 @@ void MainWindow::onFrameLabelsViewClicked(const QModelIndex& index)
 {
     Q_ASSERT(sender() == m_frameLabelsView);
 
+    QModelIndex currentIndex = m_frameLabelsView->currentIndex();
+
+    FrameInterface* currentFrame = qobject_cast<FrameInterface*>(stacked_layout_->currentWidget());
+    Q_ASSERT(currentFrame);
+    if (currentFrame->frameType() != FrameType::Frame) {
+        // TODO: will user another way implement.
+        m_frameLabelsView->setCurrentIndex(currentIndex);
+        return;
+    }
+
     FrameInterface* framePointer = index.data(FramePointerRole).value<FrameInterface*>();
     Q_ASSERT(framePointer);
+    if (framePointer == currentFrame) {
+        // TODO: will user another way implement.
+        m_frameLabelsView->setCurrentIndex(currentIndex);
+        return;
+    }
+
     if (!m_frameModelItemMap[framePointer]->flags().testFlag(Qt::ItemFlag::ItemIsEnabled)){
         // TODO: will user another way implement.
-        FrameInterface* frame = qobject_cast<FrameInterface*>(stacked_layout_->currentWidget());
-        Q_ASSERT(frame);
-        m_frameLabelsView->setCurrentIndex(m_frameLabelsModel->indexFromItem(
-                                               m_frameModelItemMap[frame]));
+        m_frameLabelsView->setCurrentIndex(currentIndex);
         return;
     }
 
@@ -308,6 +335,7 @@ void MainWindow::hideChildFrame() const
 
 void MainWindow::showExtFrameFullscreen(BaseFrameInterface* childFrameInterface)
 {
+    Q_UNUSED(childFrameInterface);
     m_frameSelectedListWidget->hide();
 }
 
@@ -531,11 +559,6 @@ void MainWindow::constructLabelView()
             continue;
         }
 
-        // Virtual machine page only show once, can not back to this page again.
-        if (frame == virtual_machine_frame_) {
-            continue;
-        }
-
         DStandardItem* item = new DStandardItem;
         QString pixPathTemplate(":/images/NO_inactive%1.svg");
         item->setIcon(QIcon(pixPathTemplate.arg(i)));
@@ -737,6 +760,10 @@ void MainWindow::onPrimaryScreenChanged(const QRect& geometry) {
 
 void MainWindow::updateFrameLabelState(FrameInterface *frame, FrameLabelState state)
 {
+    if (frame->frameType() != FrameType::Frame) {
+        return;
+    }
+
     if (!m_frameModelItemMap.contains(frame)){
         return;
     }

@@ -27,7 +27,8 @@
 namespace installer {
 enum class FrameType {
     Frame,              // 主页面
-    ExtFrame,           // 在左侧列表中不显示的主页面
+    PopupExtFrame,      // 以弹窗全屏显示的主页面
+    NoLeftLabelExtFrame,// 在左侧列表中无标签的主页面
     FullScreenExtFrame, // 全屏显示的主页面
     ChildFrame,         // 子页面
 };

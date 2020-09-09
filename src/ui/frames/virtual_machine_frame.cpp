@@ -62,7 +62,7 @@ VirtualMachineFrame::VirtualMachineFrame(FrameProxyInterface* frameProxyInterfac
     , m_private(new VirtualMachineFramePrivate(this))
 {
   setObjectName("virtual_machine_frame");
-  setFrameType(FrameType::Frame);
+  setFrameType(FrameType::NoLeftLabelExtFrame);
 
   m_private->initUI();
 }

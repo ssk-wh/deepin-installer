@@ -65,7 +65,7 @@ QString GetCommentLabel() {
 DiskSpaceInsufficientFrame::DiskSpaceInsufficientFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
   : FrameInterface(frameProxyInterface, parent) {
   setObjectName("disk_space_insufficient_frame");
-  setFrameType(FrameType::ExtFrame);
+  setFrameType(FrameType::PopupExtFrame);
 
   initUI();
   initConnections();

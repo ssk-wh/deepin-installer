@@ -86,6 +86,7 @@ protected:
   void initUI();
   void initPages();
   void constructLabelView();
+  void showExtFrameFullscreen(BaseFrameInterface* childFrameInterface);
 
   void registerShortcut();
 

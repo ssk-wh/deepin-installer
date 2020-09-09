@@ -97,7 +97,7 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
   updateFrameLabelState(m_frames.first(), FrameLabelState::Show);
   stacked_layout_->setCurrentWidget(m_frames.first());
 
-  if ( !GetSettingsBool(kSkipSelectLanguagePage) ||
+  if (!GetSettingsBool(kSkipSelectLanguagePage) ||
         GetSettingsBool(kSkipSelectLanguagePageOnFirstBoot)) {
       Q_ASSERT(m_frames.first() == language_frame_);
       nextFrame();
@@ -118,7 +118,10 @@ void FirstBootSetupWindow::nextFrame()
     Q_ASSERT(frame != nullptr);
 
     frame->finished();
-    updateFrameLabelState(frame, FrameLabelState::FinishedConfig);
+
+    if (frame->frameType() == FrameType::Frame) {
+        updateFrameLabelState(frame, FrameLabelState::FinishedConfig);
+    }
 
     if (!m_showPastFrame){
         m_frames.removeFirst();
@@ -134,13 +137,26 @@ void FirstBootSetupWindow::nextFrame()
                 (*it)->init();
             }
 
-            m_hasShowFrames << frame;
-            updateFrameLabelState(*it, FrameLabelState::Show);
-            stacked_layout_->setCurrentWidget(*it);
-            // Can only appear back or not back, to traverse the updates
-            if ((*it)->allowPrevious() != m_currentAllowPreviousState || !(*it)->allowPrevious()) {
-                updateFrameLabelPreviousState((*it)->allowPrevious());
-                m_currentAllowPreviousState = (*it)->allowPrevious();
+            if ((*it)->frameType() == FrameType::Frame) {
+                stacked_layout_->setCurrentWidget(*it);
+                // Can only appear back or not back, to traverse the updates
+                if ((*it)->allowPrevious() != m_currentAllowPreviousState || !(*it)->allowPrevious()) {
+                    updateFrameLabelPreviousState((*it)->allowPrevious());
+                    m_currentAllowPreviousState = (*it)->allowPrevious();
+                }
+
+                m_hasShowFrames << frame;
+                updateFrameLabelState(*it, FrameLabelState::Show);
+            }
+            else if ((*it)->frameType() == FrameType::NoLeftLabelExtFrame) {
+                stacked_layout_->setCurrentWidget(*it);
+            }
+            else if ((*it)->frameType() == FrameType::FullScreenExtFrame) {
+                showExtFrameFullscreen(*it);
+            }
+            else {
+                // FrameType::ChildFrame and FrameType::PopupExtFrame display mode.
+                showChildFrame(*it);
             }
             m_showPastFrame = false;
             break;
@@ -406,6 +422,12 @@ void FirstBootSetupWindow::constructLabelView()
     }
 }
 
+void FirstBootSetupWindow::showExtFrameFullscreen(BaseFrameInterface *childFrameInterface)
+{
+    Q_UNUSED(childFrameInterface);
+    m_frameSelectedListWidget->hide();
+}
+
 void FirstBootSetupWindow::registerShortcut() {
     control_panel_shortcut_ = new QShortcut(QKeySequence("Ctrl+Alt+Z"), this);
     control_panel_shortcut_->setContext(Qt::ApplicationShortcut);
@@ -601,14 +623,27 @@ void FirstBootSetupWindow::onFrameLabelsViewClicked(const QModelIndex &index)
 {
     Q_ASSERT(sender() == m_frameLabelsView);
 
+    QModelIndex currentIndex = m_frameLabelsView->currentIndex();
+
+    FrameInterface* currentFrame = qobject_cast<FrameInterface*>(stacked_layout_->currentWidget());
+    Q_ASSERT(currentFrame);
+    if (currentFrame->frameType() != FrameType::Frame) {
+        // TODO: will user another way implement.
+        m_frameLabelsView->setCurrentIndex(currentIndex);
+        return;
+    }
+
     FrameInterface* framePointer = index.data(FramePointerRole).value<FrameInterface*>();
     Q_ASSERT(framePointer);
+    if (framePointer == currentFrame) {
+        // TODO: will user another way implement.
+        m_frameLabelsView->setCurrentIndex(currentIndex);
+        return;
+    }
+
     if (!m_frameModelItemMap[framePointer]->flags().testFlag(Qt::ItemFlag::ItemIsEnabled)){
         // TODO: will user another way implement.
-        FrameInterface* frame = qobject_cast<FrameInterface*>(stacked_layout_->currentWidget());
-        Q_ASSERT(frame);
-        m_frameLabelsView->setCurrentIndex(m_frameLabelsModel->indexFromItem(
-                                               m_frameModelItemMap[frame]));
+        m_frameLabelsView->setCurrentIndex(currentIndex);
         return;
     }
 
@@ -648,6 +683,10 @@ void FirstBootSetupWindow::setCloseButtonVisible(bool visible)
 
 void FirstBootSetupWindow::updateFrameLabelState(FrameInterface *frame, FrameLabelState state)
 {
+    if (frame->frameType() != FrameType::Frame) {
+        return;
+    }
+
     if (!m_frameModelItemMap.contains(frame)){
         return;
     }

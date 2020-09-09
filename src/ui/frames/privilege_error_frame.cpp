@@ -64,7 +64,7 @@ PrivilegeErrorFrame::PrivilegeErrorFrame(FrameProxyInterface* frameProxyInterfac
     , m_private(new PrivilegeErrorFramePrivate(this))
 {
   setObjectName("privilege_error_frame");
-  setFrameType(FrameType::ExtFrame);
+  setFrameType(FrameType::PopupExtFrame);
 
   m_private->initUI();
 }
