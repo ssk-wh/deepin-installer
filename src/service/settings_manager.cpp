@@ -142,7 +142,7 @@ OSType GetCurrentType() {
     settings.beginGroup("Release");
 
 #ifdef QT_DEBUG
-    const QString& type = "Server";
+    const QString& type = "Professional";
 #else
     const QString& type = settings.value("Type", "Desktop").toString();
 #endif // QT_DEBUG
@@ -160,7 +160,9 @@ bool GetSettingsBool(const QString& key) {
         return SettingCustom::Instance()->getSettingsBool(key);
     }
 
+
   const QVariant value = GetSettingsValue(key);
+  qDebug() << kInstallerConfigFile <<  "  key = " << key << "  =  " << value;
   if (value.isValid()) {
     return value.toBool();
   }

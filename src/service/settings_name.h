@@ -41,6 +41,7 @@ const char kSkipSystemKeyboardPage[] = "skip_system_keyboard_page";
 
 // System Language List
 const char kSelectLanguageDefaultLocale[] = "select_language_default_locale";
+const char kSystemDefaultUserExperience[] = "system_default_user_experience";
 
 // Repair System
 const char kRepairScriptPoints[] = "repair_script_points";

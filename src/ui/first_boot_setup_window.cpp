@@ -95,8 +95,7 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
   updateFrameLabelState(m_frames.first(), FrameLabelState::Show);
   stacked_layout_->setCurrentWidget(m_frames.first());
 
-  if (!GetSettingsBool(kSkipSelectLanguagePage) ||
-        GetSettingsBool(kSkipSelectLanguagePageOnFirstBoot)) {
+  if (GetSettingsBool(kSkipSelectLanguagePageOnFirstBoot)) {
       Q_ASSERT(m_frames.first() == language_frame_);
       nextFrame();
   }

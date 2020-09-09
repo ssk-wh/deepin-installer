@@ -146,6 +146,17 @@ void SelectLanguageFrame::readConf() {
     d->m_languageView->setCurrentIndex(index);
     emit d->m_languageView->clicked(index);
   }
+
+#ifdef QT_DEBUG
+  bool default_experience = true;
+#else
+  bool default_experience = GetSettingsBool(kSystemDefaultUserExperience);
+#endif // QT_DEBUG
+  if (default_experience) {
+    d->accept_experience_->setCheckState(Qt::Checked);
+  } else {
+    d->accept_experience_->setCheckState(Qt::Unchecked);
+  }
 }
 
 void SelectLanguageFrame::writeConf() {
