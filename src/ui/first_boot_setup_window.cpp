@@ -120,6 +120,7 @@ void FirstBootSetupWindow::nextFrame()
 
     if (frame->frameType() == FrameType::Frame) {
         updateFrameLabelState(frame, FrameLabelState::FinishedConfig);
+        m_hasShowFrames << frame;
     }
 
     if (!m_showPastFrame){
@@ -144,7 +145,6 @@ void FirstBootSetupWindow::nextFrame()
                     m_currentAllowPreviousState = (*it)->allowPrevious();
                 }
 
-                m_hasShowFrames << frame;
                 updateFrameLabelState(*it, FrameLabelState::Show);
             }
             else if ((*it)->frameType() == FrameType::NoLeftLabelExtFrame) {
