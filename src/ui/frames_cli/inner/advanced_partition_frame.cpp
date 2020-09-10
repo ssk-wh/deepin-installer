@@ -155,18 +155,31 @@ void AdvancedPartitionFramePrivate::onDeviceRefreshed(const DeviceList& devices)
             if (partition->partition_number < 1) {
                 name += QString::number(partition->partition_number);
             }
-            QString freeflag(partition->busy?"busy":"free");
+            QString freeflag(partition->partition_number > 0 ?"":"free");
             if ((partition->type == PartitionType::Extended) || partition->busy) {
               // Ignores extended partition and currently in-used partitions.
               continue;
             }
-            list.append( QString("|______%1(%2 %3)(%4%5)(%6)")
-                         .arg(GetFsTypeName(partition->fs))
-                         .arg(freeflag)
-                         .arg(partition->mount_point)
-                         .arg(gibi_size)
-                         .arg(diskUnit)
-                         .arg(name));
+            if (partition->partition_number > 0) {
+                QString mountString = partition->mount_point;
+                if (mountString.size() < 1) {
+                    mountString = "unmounted";
+                }
+                list.append( QString("|______%1(%2)(%3%4)(%5)")
+                             .arg(GetFsTypeName(partition->fs))
+                             .arg(mountString)
+                             .arg(gibi_size)
+                             .arg(diskUnit)
+                             .arg(name));
+            } else {
+                list.append( QString("|______%1(%2)(%3%4)(%5)")
+                             .arg(GetFsTypeName(partition->fs))
+                             .arg(freeflag)
+                             .arg(gibi_size)
+                             .arg(diskUnit)
+                             .arg(name));
+            }
+
         }
     }
 
