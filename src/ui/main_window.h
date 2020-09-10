@@ -111,7 +111,6 @@ class MainWindow : public DMainWindow, public FrameProxyInterface {
   void onCloseEvent();
   void changeEvent(QEvent* event) override;
   void resizeEvent(QResizeEvent* event) override;
-  void closeEvent(QCloseEvent* event) override;
 
 private:
   enum PageId {

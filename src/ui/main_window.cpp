@@ -95,10 +95,9 @@ MainWindow::MainWindow(QWidget* parent)
     this->registerShortcut();
     this->initConnections();
 
-    setWindowFlags(windowFlags() & ~Qt::WindowMinMaxButtonsHint);
+    setWindowFlags(windowFlags() & ~Qt::WindowCloseButtonHint & ~Qt::WindowMinMaxButtonsHint);
 
     titlebar()->setMenuVisible(false);
-    titlebar()->setFullScreenButtonVisible(false);
 
     SetBrightness(GetSettingsInt(kScreenDefaultBrightness));
     WriteDisplayPort(getenv("DISPLAY"));
@@ -353,12 +352,6 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     DMainWindow::resizeEvent(event);
 }
 
-void MainWindow::closeEvent(QCloseEvent *event)
-{
-    event->ignore();
-    confirm_quit_frame_->display();
-}
-
 void MainWindow::onCloseEvent()
 {
     confirm_quit_frame_->display();
@@ -608,7 +601,6 @@ void MainWindow::initUI() {
   close_button_->setNormalPic(":/images/close_normal.svg");
   close_button_->setHoverPic(":/images/close_normal.svg");
   close_button_->setPressPic(":/images/close_normal.svg");
-  close_button_->hide();
 
   stacked_layout_ = new QStackedLayout();
   stacked_layout_->setContentsMargins(0, 0, 0, 0);
@@ -736,12 +728,7 @@ void MainWindow::setWindowIcon(const QString &path)
 
 void MainWindow::setCloseButtonVisible(bool visible)
 {
-    if (visible) {
-        setWindowFlags(windowFlags() | Qt::WindowCloseButtonHint);
-    }
-    else {
-        setWindowFlags(windowFlags() & ~Qt::WindowCloseButtonHint);
-    }
+    close_button_->setVisible(visible);
 }
 
 void MainWindow::backPage()
