@@ -674,8 +674,8 @@ void PartitionFramePrivate::onNextButtonClicked() {
 
 void PartitionFramePrivate::onFullDiskCryptoButtonClicked(bool encrypto)
 {
-    nextButton->setText(encrypto ? ::QObject::tr("Next") :
-                                   ::QObject::tr("Start installation"));
+//    nextButton->setText(encrypto ? ::QObject::tr("Next") :
+//                                   ::QObject::tr("Start installation"));
 }
 
 void PartitionFramePrivate::onManualPartDone(bool ok, const DeviceList& devices) {
