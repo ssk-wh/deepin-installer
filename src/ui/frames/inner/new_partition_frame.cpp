@@ -481,6 +481,7 @@ void NewPartitionFrame::onCreateButtonClicked() {
                && fs_type != FsType::LVM2PV
                && fs_type != FsType::Recovery
                && fs_type != FsType::LinuxSwap) {
+      WriteIsAutoMount(true);
       Device::Ptr device = delegate_->findDevice(partition_->device_path);
       PartitionTableType table = device->table;
       const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace);

@@ -132,6 +132,8 @@ QStringList ReadComponentUninstallPackages();
 
 QString GetUIDefaultFont();
 
+void WriteIsAutoMount(bool auto_mount);
+
 void WriteAvatar(const QString& avatar);
 void WriteHostname(const QString& hostname);
 // Write keyboard model, layout and layout variant name.

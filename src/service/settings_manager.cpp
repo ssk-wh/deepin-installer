@@ -457,6 +457,11 @@ void WriteEnableNvidiaDriver(bool is_enable_nvidia_driver) {
   AppendToConfigFile("DI_ENABLE_NVIDIA_DRIVER", is_enable_nvidia_driver);
 }
 
+// 写入是否使用过自动挂载功能
+void WriteIsAutoMount(bool is_auto_mount) {
+  AppendToConfigFile("DI_AUTO_MOUNT", is_auto_mount);
+}
+
 QString ReadLocale() {
   QSettings settings(kInstallerConfigFile, QSettings::IniFormat);
   QString locale;

@@ -14,4 +14,5 @@ system_info_password_palingrome_check = true
 system_info_password_palingrome_length = 4
 recovery_partition_default_size = 20
 system_info_disable_experience = true
+skip_auto_mount = true
 
