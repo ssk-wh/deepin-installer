@@ -100,7 +100,7 @@ void AdvancedPartitionFramePrivate::updateTs()
 
     printTitle(::QObject::tr("Advanced"), width());
     m_label_title->setText("    " + ::QObject::tr("Make sure you have backed up important data, then select the disk to install."));
-    m_label_tips->setText("    " + ::QObject::tr("Insert key: create or edit partition. Delete key: delete partition."));
+    m_label_tips->setText("    " + ::QObject::tr("Insert key: create partition. Delete key: delete partition."));
     FrameInterfacePrivate::updateTs();
     layout();
 

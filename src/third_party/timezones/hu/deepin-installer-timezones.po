@@ -8,6 +8,7 @@
 # c5c74d5c0e928622070863d16011fda8_265b1fe, 2017
 # e7b367b198a92ab3e6fd7f551a36a082, 2019
 # Kiss Zoltan <atari@freemail.hu>, 2020
+# Béla Bajza <bajzabela@gmail.com>, 2020
 # 
 #, fuzzy
 msgid ""
@@ -16,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-02 17:33+0800\n"
 "PO-Revision-Date: 2017-02-06 02:09+0000\n"
-"Last-Translator: Kiss Zoltan <atari@freemail.hu>, 2020\n"
+"Last-Translator: Béla Bajza <bajzabela@gmail.com>, 2020\n"
 "Language-Team: Hungarian (https://www.transifex.com/linuxdeepin/teams/3976/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -922,7 +923,7 @@ msgstr "Asia/Barnaul"
 
 #: system-config-date-timezones.h:225
 msgid "Asia/Beijing"
-msgstr ""
+msgstr "Ázsia/Beijing"
 
 #: system-config-date-timezones.h:226
 msgid "Asia/Beirut"
@@ -938,7 +939,7 @@ msgstr "Ázsia/Brunei"
 
 #: system-config-date-timezones.h:229
 msgid "Asia/Chengdu"
-msgstr ""
+msgstr "Ázsia/Chengdu"
 
 #: system-config-date-timezones.h:230
 msgid "Asia/Chita"
@@ -1078,7 +1079,7 @@ msgstr "Ázsia/Muscat"
 
 #: system-config-date-timezones.h:264
 msgid "Asia/Nanjing"
-msgstr ""
+msgstr "Ázsia/Nanjing"
 
 #: system-config-date-timezones.h:265
 msgid "Asia/Nicosia"
@@ -1202,11 +1203,11 @@ msgstr "Ázsia/Vladivostok"
 
 #: system-config-date-timezones.h:295
 msgid "Asia/Wuhan"
-msgstr ""
+msgstr "Ázsia/Wuhan"
 
 #: system-config-date-timezones.h:296
 msgid "Asia/Xian"
-msgstr ""
+msgstr "Ázsia/Xian"
 
 #: system-config-date-timezones.h:297
 msgid "Asia/Yakutsk"
