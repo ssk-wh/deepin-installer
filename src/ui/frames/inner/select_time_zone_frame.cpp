@@ -323,6 +323,10 @@ void SelectTimeZoneFrame::onTimeZoneViewSelectedChanged(QModelIndex curIndex, QM
 
 void SelectTimeZoneFrame::onUpdateTimezoneList(const QString &timezone)
 {
+    m_mapEnglishToInternation.clear();
+    updateContinentModelData();
+    updateTimezoneModelData();
+
     m_lastItem = nullptr;
 
     if (isVisible()) {
@@ -366,42 +370,6 @@ void SelectTimeZoneFrame::onUpdateTimezoneList(const QString &timezone)
     m_timeZoneListView->setCurrentIndex(m_currentTimezoneIndex);
     m_timeZoneListView->selectionModel()->blockSignals(false);
     m_timeZoneListView->scrollTo(m_currentTimezoneIndex, QAbstractItemView::PositionAtTop);
-}
-
-void SelectTimeZoneFrame::changeEvent(QEvent *event)
-{
-    if(event->type() == QEvent::LanguageChange){
-        // clear EnglishToInternation translate map first
-        m_mapEnglishToInternation.clear();
-
-        updateContinentModelData();
-        if(m_currentContinentIndex.isValid()){
-            m_continentListView->selectionModel()->blockSignals(true);
-            m_continentListView->setCurrentIndex(m_currentContinentIndex);
-            m_continentListView->selectionModel()->blockSignals(false);
-        }
-        updateTimezoneModelData();
-        if(m_currentTimezoneIndex.isValid()){
-            m_timeZoneListView->selectionModel()->blockSignals(true);
-            m_timeZoneListView->setCurrentIndex(m_currentTimezoneIndex);
-            m_timeZoneListView->selectionModel()->blockSignals(false);
-        }
-    }
-    else {
-        QFrame::changeEvent(event);
-    }
-}
-
-void SelectTimeZoneFrame::showEvent(QShowEvent *event)
-{
-    if (m_currentContinentIndex.isValid() && m_currentTimezoneIndex.isValid()) {
-        m_timeZoneListView->selectionModel()->blockSignals(true);
-        setSelectItem(m_currentTimezoneIndex);
-        m_timeZoneListView->selectionModel()->blockSignals(false);
-        m_timeZoneListView->scrollTo(m_currentTimezoneIndex, QAbstractItemView::PositionAtTop);
-    }
-
-    DFrame::showEvent(event);
 }
 
 }

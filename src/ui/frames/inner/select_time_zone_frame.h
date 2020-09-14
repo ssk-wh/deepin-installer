@@ -33,10 +33,6 @@ public:
 signals:
     void timezoneUpdated(const QString& timezone);
 
-protected:
-    void changeEvent(QEvent* event) override;
-    void showEvent(QShowEvent* event) override;
-
 private:
     void initUI();
     void initConnections();

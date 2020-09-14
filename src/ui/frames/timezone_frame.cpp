@@ -186,12 +186,14 @@ void TimezoneFrame::updateTimezoneBasedOnLanguage(const QString& timezone) {
       m_private->timezone_source_ == TimezoneSource::Language) {
     if (IsTimezoneInTab(timezone)) {
       m_private->timezone_source_ = TimezoneSource::Language;
-      m_private->timezone_ = timezone;
-      emit timezoneUpdated(m_private->timezone_);
     }
   } else {
     qDebug() << "Ignores language default timezone:" << timezone;
   }
+
+  m_private->timezone_ = timezone;
+  emit timezoneUpdated(m_private->timezone_);
+
 }
 
 void TimezoneFrame::finished() {
@@ -264,15 +266,15 @@ void TimezoneFrame::showEvent(QShowEvent* event) {
 
 //  qApp->installEventFilter(this);
 
-//  // NOTE(xushaohua): Add a delay to wait for paint event of timezone map.
-//  QTimer::singleShot(0, [&]() {
-//      if(m_private->m_mapOrListStackedLayout->currentWidget() == m_private->timezone_map_){
-//          m_private->timezone_map_->showMark();
-//      }
-//      else {
-//          m_private->timezone_map_->hideMark();
-//      }
-//  });
+  // NOTE(xushaohua): Add a delay to wait for paint event of timezone map.
+  QTimer::singleShot(0, [&]() {
+      if(m_private->m_mapOrListStackedLayout->currentWidget() == m_private->timezone_map_){
+          m_private->timezone_map_->showMark();
+      }
+      else {
+          m_private->timezone_map_->hideMark();
+      }
+  });
 }
 
 void TimezoneFrame::hideEvent(QHideEvent *event)
