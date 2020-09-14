@@ -27,6 +27,7 @@
 #include <DPalette>
 #include <QScrollArea>
 #include <QScrollBar>
+#include <QScroller>
 
 #include "base/file_util.h"
 #include "ui/frames/consts.h"
@@ -62,10 +63,16 @@ void PrepareInstallFrame::updateDescription(const QStringList& descriptions) {
   for (const QString& description : descriptions) {
     const QString content = prefix + description;
     modified_desc_list.append(content);
+#ifdef QT_DEBUG
+    modified_desc_list.append(content + "--TEST1");
+    modified_desc_list.append(content + "--TEST2");
+    modified_desc_list.append(content + "--TEST3");
+    modified_desc_list.append(content + "--TEST4");
+#endif //QT_DEBUG
   }
   const QString description_text = modified_desc_list.join("\n");
   qDebug() << "description:" << description_text;
-  description_edit_->setPlainText(description_text);
+  description_edit_->setText(description_text);
 }
 
 void PrepareInstallFrame::changeEvent(QEvent* event) {
@@ -92,10 +99,10 @@ void PrepareInstallFrame::initUI() {
   comment_label_ = new CommentLabel(
       ::QObject::tr("Make a backup of your important data and then continue"));
 
-  description_edit_ = new QTextEdit();
+  description_edit_ = new QLabel();
+  description_edit_->setWordWrap(true);
+  description_edit_->adjustSize();
   description_edit_->setFixedWidth(kDescriptionWidth - 20);
-  description_edit_->setLineWrapMode(QTextEdit::WidgetWidth);
-
   description_edit_->setFrameShape(QFrame::Shape::NoFrame);
 
   QPalette palette;
@@ -104,26 +111,27 @@ void PrepareInstallFrame::initUI() {
 
   description_edit_->setObjectName("description_edit");
   description_edit_->setContentsMargins(0, 0, 0, 0);
-  description_edit_->setAcceptRichText(false);
-  description_edit_->setReadOnly(true);
   description_edit_->setContextMenuPolicy(Qt::NoContextMenu);
-  description_edit_->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-  description_edit_->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   description_edit_->setFrameStyle(QFrame::NoFrame);
 
-  QHBoxLayout* descriptionLayout = new QHBoxLayout();
-  descriptionLayout->setContentsMargins(0, 0, 12, 0);
-  descriptionLayout->setSpacing(0);
-  descriptionLayout->addWidget(description_edit_);
 
-  DFrame *m_bgGroup = new DFrame(this);
-  m_bgGroup->setBackgroundRole(DPalette::ItemBackground);
-  m_bgGroup->setLineWidth(0);
-  m_bgGroup->setContentsMargins(0, 0, 0, 0);
-  m_bgGroup->setLayout(descriptionLayout);
-  m_bgGroup->setFixedSize(QSize(kDescriptionWidth, kDescriptionHeight));
+  DFrame *sourceWidget = new DFrame(this);
+  sourceWidget->setBackgroundRole(DPalette::ItemBackground);
+  sourceWidget->setLineWidth(0);
+  sourceWidget->setContentsMargins(0, 0, 0, 0);
+
+  QHBoxLayout *sourceLayout = new QHBoxLayout;
+  sourceLayout->setMargin(0);
+  sourceLayout->setSpacing(0);
+  sourceLayout->addWidget(description_edit_, 0, Qt::AlignTop | Qt::AlignHCenter);
+  sourceLayout->addStretch();
+  sourceLayout->setContentsMargins(0, 0, 0, 0);
+  sourceWidget->setLayout(sourceLayout);
 
   QScrollArea* scroll = new QScrollArea(this);
+  scroll->setFixedWidth(kDescriptionWidth);
+  scroll->setWidget(sourceWidget);
+  scroll->setObjectName("scrollarea");
   scroll->setWidgetResizable(true);
   scroll->setFocusPolicy(Qt::TabFocus);
   scroll->setFrameStyle(QFrame::NoFrame);
@@ -134,7 +142,23 @@ void PrepareInstallFrame::initUI() {
   scroll->setContextMenuPolicy(Qt::NoContextMenu);
   scroll->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
   scroll->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-  scroll->setWidget(m_bgGroup);
+
+  QScroller::grabGesture(scroll, QScroller::TouchGesture);
+  scroll->setFixedWidth(540);
+  QPalette pl3 = scroll->palette();
+  pl3.setBrush(QPalette::Base, QBrush(QColor(255, 0, 0, 0)));
+  scroll->setPalette(pl3);
+
+  QHBoxLayout* descriptionLayout = new QHBoxLayout();
+  descriptionLayout->setContentsMargins(5, 5, 0, 5);
+  descriptionLayout->setSpacing(0);
+  descriptionLayout->addWidget(scroll);
+
+  DFrame *m_bgGroup = new DFrame(this);
+  m_bgGroup->setBackgroundRole(DPalette::ItemBackground);
+  m_bgGroup->setLineWidth(0);
+  m_bgGroup->setContentsMargins(0, 0, 0, 0);
+  m_bgGroup->setLayout(descriptionLayout);
 
   abort_button_ = new SelectButton();
   abort_button_->setFixedSize(kButtonWidth, kButtonHeight);

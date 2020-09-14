@@ -60,7 +60,7 @@ class PrepareInstallFrame : public QFrame {
   CommentLabel* comment_label_ = nullptr;
   SelectButton* abort_button_ = nullptr;
   DSuggestButton* continue_button_ = nullptr;
-  QTextEdit* description_edit_ = nullptr;
+  QLabel* description_edit_ = nullptr;
 };
 
 }  // namespace installer
