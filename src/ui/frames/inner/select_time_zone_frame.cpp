@@ -392,4 +392,16 @@ void SelectTimeZoneFrame::changeEvent(QEvent *event)
     }
 }
 
+void SelectTimeZoneFrame::showEvent(QShowEvent *event)
+{
+    if (m_currentContinentIndex.isValid() && m_currentTimezoneIndex.isValid()) {
+        m_timeZoneListView->selectionModel()->blockSignals(true);
+        setSelectItem(m_currentTimezoneIndex);
+        m_timeZoneListView->selectionModel()->blockSignals(false);
+        m_timeZoneListView->scrollTo(m_currentTimezoneIndex, QAbstractItemView::PositionAtTop);
+    }
+
+    DFrame::showEvent(event);
+}
+
 }
