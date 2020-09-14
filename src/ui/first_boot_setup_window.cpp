@@ -84,12 +84,10 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
   registerShortcut();
   initConnections();
 
-  Qt::WindowFlags flags = windowFlags();
-  flags &= ~Qt::WindowMinMaxButtonsHint;
-  flags |= Qt::WindowCloseButtonHint;
-  setWindowFlags(flags);
+  setWindowFlags(windowFlags() & ~Qt::WindowCloseButtonHint & ~Qt::WindowMinMaxButtonsHint);
 
   titlebar()->setMenuVisible(false);
+  titlebar()->setFullScreenButtonVisible(false);
 
   Q_ASSERT(m_frames.count() > 0);
   m_frames.first()->init();
