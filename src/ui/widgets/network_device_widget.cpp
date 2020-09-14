@@ -71,18 +71,19 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     , m_deviceEnable(true)
     , m_dhcpType(DHCPTYpe::Auto)
 {
-    QFont titleFont;
-    titleFont.setPointSize(kTitleFont);
-
     m_iconLabel = new QLabel;
     QPixmap pixmap = installer::renderPixmap(":/images/ethernet.svg");
     Q_ASSERT(!pixmap.isNull());
     m_iconLabel->setPixmap(pixmap);
     m_iconLabel->setFixedSize(pixmap.size() / devicePixelRatioF());
 
-    m_deviceName = new TickerLabel;
+    m_deviceName = new QLabel;
     m_deviceName->setObjectName("titleLabel");
     m_deviceName->setFixedWidth(KQLabelWidth);
+    m_deviceName->adjustSize();
+
+    QFont titleFont;
+    titleFont.setPointSize(kTitleFont);
     m_deviceName->setFont(titleFont);
 
     m_descLabel = new QLabel;
@@ -116,6 +117,7 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     m_hLayout->addWidget(m_iconLabel, 0, Qt::AlignLeft);
     m_hLayout->addSpacing(2);
     m_hLayout->addLayout(m_vLayout);
+    m_hLayout->addStretch();
     m_hLayout->addWidget(m_checkedLabel, 0, Qt::AlignRight);
 
     setFixedWidth(kNetworkDeviceWidgetWidth);
@@ -149,8 +151,6 @@ void NetworkDeviceWidget::enterEvent(QEvent* event)
 
     update();
 
-    m_deviceName->start();
-
     QWidget::leaveEvent(event);
 }
 
@@ -160,14 +160,13 @@ void NetworkDeviceWidget::leaveEvent(QEvent* event)
 
     update();
 
-    m_deviceName->stop();
-
     QWidget::leaveEvent(event);
 }
 
 void NetworkDeviceWidget::setTitle(const QString &title)
 {
     m_deviceName->setText(title);
+    m_deviceName->setToolTip(title);
 }
 
 void NetworkDeviceWidget::setDesc(const QString &desc)

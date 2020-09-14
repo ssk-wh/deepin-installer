@@ -53,7 +53,7 @@ private:
     QHBoxLayout* m_hLayout;
     QVBoxLayout* m_vLayout;
     QLabel* m_iconLabel;
-    TickerLabel* m_deviceName;
+    QLabel* m_deviceName;
     QLabel* m_descLabel;
     QLabel *m_checkedLabel;
     bool m_isflag;
