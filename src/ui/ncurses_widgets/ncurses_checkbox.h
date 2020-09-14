@@ -35,6 +35,7 @@ public:
     void setbkgd(chtype type);
     void setFocusStyle(chtype type);
     chtype getFocusStyle(){ return m_chtype_focus; }
+    void setIsTitleUseCheckbox(bool type){ m_isTitleUseCheckbox = type; }
 
 signals:
     void signal_SelectChange(bool select);
@@ -50,6 +51,7 @@ private:
     int m_selectshowpos;
     int m_strheight;
     bool m_isshow;
+    bool m_isTitleUseCheckbox;
 };
 
 }

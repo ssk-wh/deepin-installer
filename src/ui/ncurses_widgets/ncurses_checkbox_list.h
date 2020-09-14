@@ -22,7 +22,7 @@ public:
     void setListType(ListType type){ m_listtype = type; }
     void setSingleSelect(bool issingle){ m_singleselect = issingle; }
     void setRealSelect(bool isreal){ m_realselect = isreal; }
-    void setList(QVector<QPair<QString, QString>>& list, bool isusetitle = true);
+    void setList(QVector<QPair<QString, QString>>& list, bool isusetitle = true, bool istitleusecheckbox = false);
     QString getCurrentTitle();
     QString getCurrentText();
     QString getCurrentSingleSelectTitle();

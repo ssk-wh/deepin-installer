@@ -199,8 +199,8 @@ void InstallComponentFramePrivate::initInfoList()
         testitems = m_extrachoiceslist->getSelectItems();
         m_extrachoiceslist->setSelectItems(testitems);
 
-        m_basicenvironmentlist->setList(basicenvironmentinfolist);
-        m_extrachoiceslist->setList(extrachoicesinfolist);
+        m_basicenvironmentlist->setList(basicenvironmentinfolist, true, true);
+        m_extrachoiceslist->setList(extrachoicesinfolist, true, true);
     }
 }
 
@@ -299,9 +299,9 @@ void InstallComponentFramePrivate::slot_KeyTriger(int keycode, int listtype, int
                 }
             }
             //m_extrachoiceslist->setSelectItems(testselcetitems);//yong yu chu li qie huan ji chu xuan xiang shi mei ge ji chu xuan xiang de fu jia xuan xiang du li
-            m_extrachoiceslist->setList(testinfolist);
+            m_extrachoiceslist->setList(testinfolist, true, true);
             m_extrachoiceslist->show();
-            refresh();
+            //refresh();
         }
         break;
     case 32:

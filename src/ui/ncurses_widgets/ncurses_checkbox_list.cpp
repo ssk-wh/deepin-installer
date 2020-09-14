@@ -22,7 +22,7 @@ NcursesCheckBoxList::~NcursesCheckBoxList()
     clearList();
 }
 
-void NcursesCheckBoxList::setList(QVector<QPair<QString, QString>>& list, bool isusetitle)
+void NcursesCheckBoxList::setList(QVector<QPair<QString, QString>>& list, bool isusetitle, bool istitleusecheckbox)
 {
     if(list.size() == 0) {
         return;
@@ -32,6 +32,7 @@ void NcursesCheckBoxList::setList(QVector<QPair<QString, QString>>& list, bool i
 
     foreach (auto text, list) {
         NcursesCheckBox* testcheckbox = new NcursesCheckBox(this, 1, width() - 2, begy(), begx() + 2);
+        testcheckbox->setIsTitleUseCheckbox(istitleusecheckbox);
         testcheckbox->setIsUseTitle(isusetitle);
         testcheckbox->setText(text.first, text.second);
         testcheckbox->setBackground(this->background());
@@ -102,13 +103,15 @@ QString NcursesCheckBoxList::getCurrentSingleSelectText()
 void NcursesCheckBoxList::clearList()
 {
     foreach (NCursesWindowBase* child, m_childWindows) {
-        if (child) {
-            delete child;
-            child = nullptr;
-        }
+//        if (child) {
+//            delete child;
+//            child = nullptr;
+//        }
+        removeChildWindows(child);
+        removeFoucsWindows(child);
     }
-    m_childWindows.clear();
-    m_foucsWindows.clear();
+//    m_childWindows.clear();
+//    m_foucsWindows.clear();
     m_ncursesCheckBoxs_vector.clear();
 }
 
@@ -260,21 +263,23 @@ void NcursesCheckBoxList::show()
         return;
     }
 
-    foreach(NcursesCheckBox* testitem, m_ncursesCheckBoxs_vector) {
-        testitem->hide();
-    }
-
     int testheightpos = 0;
-    for(int i = m_showindex; i < m_ncursesCheckBoxs_vector.size(); i++) {
-        int testtempheightpos = testheightpos + m_ncursesCheckBoxs_vector.at(i)->getStrHeight();
-        if(testtempheightpos > height()) {
-            break;
-        }
-        m_ncursesCheckBoxs_vector.at(i)->moveWindowTo(begy() + testheightpos, begx() + 1);
-        m_ncursesCheckBoxs_vector.at(i)->show();
-        m_ncursesCheckBoxs_vector.at(i)->refresh();
+    for(int i = m_showindex; i < m_ncursesCheckBoxs_vector.size(); i++) {        
+        if (i < m_showindex) {
+            m_ncursesCheckBoxs_vector.at(i)->hide();
+        } else {
+            int testtempheightpos = testheightpos + m_ncursesCheckBoxs_vector.at(i)->getStrHeight();
+            if (testtempheightpos > height()) {
+                m_ncursesCheckBoxs_vector.at(i)->hide();
+                continue;
+            } else {
+                m_ncursesCheckBoxs_vector.at(i)->moveWindowTo(begy() + testheightpos, begx() + 1);
+                m_ncursesCheckBoxs_vector.at(i)->show();
+                m_ncursesCheckBoxs_vector.at(i)->refresh();
 
-        testheightpos += m_ncursesCheckBoxs_vector.at(i)->getStrHeight();
+                testheightpos += m_ncursesCheckBoxs_vector.at(i)->getStrHeight();
+            }
+        }
     }
 
     if (isOnFoucs()) {

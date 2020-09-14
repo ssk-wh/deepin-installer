@@ -12,8 +12,8 @@ NcursesTextBrower::NcursesTextBrower(NCursesWindowBase *parent, int lines, int c
 
 {
     bkgd(parent->getbkgd());
-    scrollok(true);
-    setscrreg(0, lines);
+//    scrollok(true);
+//    setscrreg(0, lines);
     curs_set(0);
 }
 
@@ -69,7 +69,7 @@ void NcursesTextBrower::appendItemText(const QString &text)
             ushort uni = cha.unicode();
             if ((uni >= 0x4E00 && uni <= 0x9FA5)
                     || (uni >= 0x3130 && uni <= 0x318F) || (uni >= 0xAC00 && uni <= 0xD7A3)
-                    || (cha == "（") || (cha == "）") || (cha == "，") || (cha == "。")|| (cha == "：")|| (cha == "；")|| (cha == "“") || (cha == "”") || (cha == "《") || (cha == "》") || (cha == "【") || (cha == "】") || (cha == "、")) {
+                    || (cha == "（") || (cha == "）") || (cha == "，") || (cha == "。")|| (cha == "：")|| (cha == "；")|| (cha == "“") || (cha == "”") || (cha == "《") || (cha == "》") || (cha == "【") || (cha == "】") || (cha == "、") || (cha == "●")) {
                 chineseStr_zh.append(uni);
             } else {
                 chineseStr_en.append(uni);
