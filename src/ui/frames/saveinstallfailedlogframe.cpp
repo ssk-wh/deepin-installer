@@ -43,6 +43,7 @@
 #include <dblockdevice.h>
 #include <ddiskdevice.h>
 #include <QPainterPath>
+#include <QScrollBar>
 
 using namespace installer;
 
@@ -80,6 +81,8 @@ SaveInstallFailedLogFrame::SaveInstallFailedLogFrame(FrameProxyInterface *frameP
     area->setFrameStyle(QFrame::NoFrame);
     area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     area->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    area->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    area->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     area->setContentsMargins(0, 0, 0, 0);
     area->setWidget(widget);
     area->setAutoFillBackground(false);

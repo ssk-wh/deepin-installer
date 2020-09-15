@@ -192,6 +192,8 @@ void AdvancedPartitionFrame::initUI() {
   scroll_area_->setMaximumWidth(kWindowWidth + 15);
   scroll_area_->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   scroll_area_->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+  scroll_area_->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+  scroll_area_->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
   scroll_area_->setFrameShape(QFrame::Shape::NoFrame);
 
   bootloader_tip_button_ = new PointerButton(::QObject::tr("Change boot loader"), this);

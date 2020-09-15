@@ -615,6 +615,7 @@ void SystemInfoFormFramePrivate::initUI()
     area->setFrameStyle(QScrollArea::NoFrame);
     area->setFixedWidth(kMainWindowWidth + 50);
     area->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    area->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     area->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     area->setContentsMargins(0, 0, 0, 0);

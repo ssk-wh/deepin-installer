@@ -75,7 +75,7 @@ void MainWindowPrivate::updateTs()
     erase();
     addstr(0, 1, QString(::QObject::tr("Welcome to install UOS")).toUtf8().data());
 
-    QString text = QString("<↑ ↓>%1  | <Tab>%2 |<Enter>%3")
+    QString text = QString("<↑ ↓>%1 | <Tab>%2 | <Enter>%3")
                    .arg(::QObject::tr("Select Item"))
                    .arg(::QObject::tr("Change Field"))
                    .arg(::QObject::tr("Confirm"));

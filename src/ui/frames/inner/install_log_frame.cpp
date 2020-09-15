@@ -19,6 +19,8 @@ installer::InstallLogFrame::InstallLogFrame(QFrame *parent) :
     palette.setColor(QPalette::Text, QColor(66, 154, 216));
     m_installLog = new QPlainTextEdit(this);
     m_installLog->setContextMenuPolicy(Qt::NoContextMenu);
+    m_installLog->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    m_installLog->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     m_installLog->setFixedSize(kInstallLogWidth, kInstallLogHeight);
     m_installLog->setPalette(palette);
     m_installLog->setFont(font);

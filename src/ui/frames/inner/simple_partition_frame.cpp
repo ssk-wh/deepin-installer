@@ -26,6 +26,7 @@
 #include <QScrollArea>
 #include <QShowEvent>
 #include <DSysInfo>
+#include <QScrollBar>
 
 #include "base/file_util.h"
 #include "service/settings_manager.h"
@@ -275,6 +276,8 @@ void SimplePartitionFrame::initUI() {
   scroll_area->setWidget(grid_wrapper_);
   scroll_area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   scroll_area->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+  scroll_area->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+  scroll_area->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
   scroll_area->setWidgetResizable(true);
 
   msg_label_ = new QLabel();

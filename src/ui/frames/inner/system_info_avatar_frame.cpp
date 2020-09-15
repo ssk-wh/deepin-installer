@@ -24,6 +24,7 @@
 #include <QStringListModel>
 #include <QVBoxLayout>
 #include <QScrollArea>
+#include <QScrollBar>
 
 #include "base/file_util.h"
 #include "service/settings_manager.h"
@@ -169,6 +170,8 @@ void SystemInfoAvatarFramePrivate::initUI() {
   m_scroll->setWidget(list_view_);
   m_scroll->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   m_scroll->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+  m_scroll->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+  m_scroll->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
   m_scroll->setFrameShape(QListView::NoFrame);
 
   QVBoxLayout* layout = new QVBoxLayout();
