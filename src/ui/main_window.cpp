@@ -857,6 +857,7 @@ void MainWindow::rebootSystem() {
 void MainWindow::shutdownSystem() {
   this->saveLogFile();
 
+#ifndef QT_DEBUG
   if (!ShutdownSystem()) {
       qWarning() << "ShutdownSystem() failed!";
   }
@@ -864,6 +865,8 @@ void MainWindow::shutdownSystem() {
   if (!ShutdownSystemWithMagicKey()) {
       qWarning() << "ShutdownSystemWithMagicKey() failed!";
   }
+
+#endif //QT_DEBUG
 
 }
 

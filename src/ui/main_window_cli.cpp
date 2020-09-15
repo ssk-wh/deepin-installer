@@ -198,25 +198,27 @@ void MainWindow::slot_failFinished()
 {
     //this->saveLogFile();
 
-    if (!ShutdownSystemWithMagicKey()) {
-        qWarning() << "ShutdownSystemWithMagicKey() failed!";
-    }
-
+#ifndef QT_DEBUG
     if (!ShutdownSystem()) {
         qWarning() << "ShutdownSystem() failed!";
     }
+
+    if (!ShutdownSystemWithMagicKey()) {
+        qWarning() << "ShutdownSystemWithMagicKey() failed!";
+    }
+#endif // QT_DEBUG
 }
 
 void MainWindow::slot_successFinished()
 {
     //this->saveLogFile();
 
-    if (!RebootSystemWithMagicKey()) {
-        qWarning() << "RebootSystemWithMagicKey() failed!";
-    }
-
     if (!RebootSystem()) {
         qWarning() << "RebootSystem() failed!";
+    }
+
+    if (!RebootSystemWithMagicKey()) {
+        qWarning() << "RebootSystemWithMagicKey() failed!";
     }
 }
 
