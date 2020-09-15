@@ -94,7 +94,8 @@ MainWindow::MainWindow(QWidget* parent)
     this->initPages();
     this->registerShortcut();
     this->initConnections();
-
+    DTitlebar* titleBar = titlebar();
+    titleBar->installEventFilter(this);
     setWindowFlags(windowFlags() & ~Qt::WindowCloseButtonHint & ~Qt::WindowMinMaxButtonsHint);
 
     titlebar()->setMenuVisible(false);
@@ -151,8 +152,8 @@ void MainWindow::fullscreen() {
     multi_head_manager_->updateWallpaper();
 #endif // !QT_DEBUG
 
-  // ShowFullscreen(this);
-    this->showFullScreen();
+    ShowFullscreen(this);
+    // this->showFullScreen();
 
     if (GetSettingsBool(kPartitionDoAutoPart) || GetSettingsBool("DI_LUPIN")) {
     // In auto-install mode, partitioning is done in hook script.
@@ -352,6 +353,20 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     }
 
     DMainWindow::resizeEvent(event);
+}
+
+bool MainWindow::eventFilter(QObject *target, QEvent *event)
+{
+    if (target == titlebar()) {
+        if(event->type() == QEvent::MouseButtonPress)
+        {
+            QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
+            if (mouseEvent->button() == Qt::MouseButton::RightButton) {
+                return true;
+            }
+        }
+     }
+     return DMainWindow::eventFilter(target, event);
 }
 
 void MainWindow::onCloseEvent()

@@ -71,13 +71,13 @@ int main(int argc, char* argv[]) {
     qInfo() << "system version: " << QSysInfo().prettyProductName();
     // add kernel versionlog
     qInfo() << "kernel version: " << QSysInfo().kernelVersion();
+
 #endif // QT_DEBUG
 
   // Reset LC_ALL to en_US.UTF-8.
   // NOTE(xushaohua): "LANG" might not set in some live environment.
   qputenv("LC_ALL", installer::kDefaultLang);
   qputenv("LANG", installer::kDefaultLang);
-
   Utils::AutoScreenScale();
 
   DApplication::loadDXcbPlugin();
