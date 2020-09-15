@@ -3,7 +3,7 @@ Description=Launch installer in normal mode
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/fbterm -n CESI_KT_GB13000 /usr/bin/deepin-installer-cli
+ExecStart=/usr/bin/deepin-installer-cli-install
 StandardInput=tty-force
 TTYPath=/dev/tty2
 TTYReset=yes
