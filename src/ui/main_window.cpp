@@ -99,7 +99,7 @@ MainWindow::MainWindow(QWidget* parent)
     setWindowFlags(windowFlags() & ~Qt::WindowCloseButtonHint & ~Qt::WindowMinMaxButtonsHint);
 
     titlebar()->setMenuVisible(false);
-    titlebar()->setFullScreenButtonVisible(false);
+//    titlebar()->setFullScreenButtonVisible(false);
 
     SetBrightness(GetSettingsInt(kScreenDefaultBrightness));
     WriteDisplayPort(getenv("DISPLAY"));
@@ -152,7 +152,8 @@ void MainWindow::fullscreen() {
     multi_head_manager_->updateWallpaper();
 #endif // !QT_DEBUG
 
-  ShowFullscreen(this);
+  // ShowFullscreen(this);
+    this->showFullScreen();
 
     if (GetSettingsBool(kPartitionDoAutoPart) || GetSettingsBool("DI_LUPIN")) {
     // In auto-install mode, partitioning is done in hook script.

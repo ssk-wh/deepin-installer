@@ -347,40 +347,33 @@ void SystemInfoKeyboardFramePrivate::readConf() {
 void SystemInfoKeyboardFramePrivate::writeConf() {
 
     const QModelIndex layout_index = m_layoutView->currentIndex();
-    if (!layout_index.isValid()) {
-        qCritical() << "Current keyboard layout index is invalid";
-        return;
-    }
-
     const QString layout = getLayoutName(layout_index);
-    qInfo() << "Current selected keyboard layout is:" << layout;
-
     const QModelIndex variant_index = m_variantView->currentIndex();
-    if (!variant_index.isValid()) {
-        qCritical() << "Current keyboard variant index is invalid";
-        return;
-    }
-
     const QString variant = getVariantName(variant_index);
-    qInfo() << "Current selected keyboard variant is:" << variant;
 
     // Model name of keyboard is empty. Variant name might be empty.
     // The first row in variant list is the default layout.
     if (variant_index.row() == 0) {
-        qInfo() << "Write the default keyboard layout";
         WriteKeyboard("", layout, "");
     } else {
         WriteKeyboard("", layout, variant);
     }
 }
 
-void SystemInfoKeyboardFrame::showEvent(QShowEvent* event) {
+void SystemInfoKeyboardFrame::changeEvent(QEvent* event) {
     Q_D(SystemInfoKeyboardFrame);
 
-    d->updateTs();
+    if (event->type() == QEvent::LanguageChange) {
+        d->updateTs();
+        d->initLayout(ReadLocale());
+    } else {
+        FrameInterface::changeEvent(event);
+    }
+}
 
-    d->initLayout(ReadLocale());
-
+void SystemInfoKeyboardFrame::showEvent(QShowEvent *event)
+{
+    Q_D(SystemInfoKeyboardFrame);
     QStringList localeList;
     localeList << ReadLocale() << GetSettingsString(kSelectLanguageDefaultLocale);
 
@@ -397,6 +390,7 @@ void SystemInfoKeyboardFrame::showEvent(QShowEvent* event) {
             qWarning() << "invalid locale:" << locale;
         }
     }
+
     return FrameInterface::showEvent(event);
 }
 

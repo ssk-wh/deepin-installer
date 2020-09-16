@@ -154,12 +154,6 @@ void PrepareInstallFrame::initUI() {
   descriptionLayout->setSpacing(0);
   descriptionLayout->addWidget(scroll);
 
-  DFrame *m_bgGroup = new DFrame(this);
-  m_bgGroup->setBackgroundRole(DPalette::ItemBackground);
-  m_bgGroup->setLineWidth(0);
-  m_bgGroup->setContentsMargins(0, 0, 0, 0);
-  m_bgGroup->setLayout(descriptionLayout);
-
   abort_button_ = new SelectButton();
   abort_button_->setFixedSize(kButtonWidth, kButtonHeight);
   abort_button_->setFocusPolicy(Qt::TabFocus);

@@ -85,9 +85,10 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
   initConnections();
 
   setWindowFlags(windowFlags() & ~Qt::WindowCloseButtonHint & ~Qt::WindowMinMaxButtonsHint);
-
+  DTitlebar* titleBar = titlebar();
+  titleBar->installEventFilter(this);
   titlebar()->setMenuVisible(false);
-  titlebar()->setFullScreenButtonVisible(false);
+//  titlebar()->setFullScreenButtonVisible(false);
 
   Q_ASSERT(m_frames.count() > 0);
   m_frames.first()->init();
@@ -107,6 +108,7 @@ FirstBootSetupWindow::~FirstBootSetupWindow() {
 
 void FirstBootSetupWindow::fullscreen() {
     ShowFullscreen(this);
+    // this->showFullScreen();
 }
 
 void FirstBootSetupWindow::nextFrame()
@@ -387,6 +389,20 @@ void FirstBootSetupWindow::resizeEvent(QResizeEvent *event)
     }
 
     DMainWindow::resizeEvent(event);
+}
+
+bool FirstBootSetupWindow::eventFilter(QObject *target, QEvent *event)
+{
+    if (target == titlebar()) {
+        if(event->type() == QEvent::MouseButtonPress)
+        {
+            QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
+            if (mouseEvent->button() == Qt::MouseButton::RightButton) {
+                return true;
+            }
+        }
+     }
+     return DMainWindow::eventFilter(target, event);
 }
 
 void FirstBootSetupWindow::constructLabelView()

@@ -109,6 +109,7 @@ int main(int argc, char* argv[]) {
   installer::KeyboardMonitor::instance()->setNumlockStatus(installer::KeyboardMonitor::instance()->isNumlockOn());
 
   installer::FirstBootSetupWindow window;
+
   window.fullscreen();
   window.setWindowIcon(":/images/deepin-installer-32px.svg");
   window.show();
