@@ -539,18 +539,21 @@ void MainWindow::initPages() {
       m_frames << frame;
   }
 
-  QDBusInterface ddeNetworkMnager(
-            "com.deepin.daemon.Network",
-            "/com/deepin/daemon/Network",
-            "com.deepin.daemon.Network",
-            QDBusConnection::sessionBus());
+  FrameInterface* network = network_frame_;
+  if (network->shouldDisplay()) {
+      QDBusInterface ddeNetworkMnager(
+                "com.deepin.daemon.Network",
+                "/com/deepin/daemon/Network",
+                "com.deepin.daemon.Network",
+                QDBusConnection::sessionBus());
 
-  // If dde-daemon is exists, it will interfere with the network configuration
-  // in deepin-installer. The solution for now is to fake it and have a scare.
-  // Then the network connection settings is stable.
-  if (ddeNetworkMnager.isValid()) {
-      qInfo() << "Fake dde-daemon and have a scare.";
-      network_frame_->shockDdeDaemon();
+      // If dde-daemon is exists, it will interfere with the network configuration
+      // in deepin-installer. The solution for now is to fake it and have a scare.
+      // Then the network connection settings is stable.
+      if (ddeNetworkMnager.isValid()) {
+          qInfo() << "Fake dde-daemon and have a scare.";
+          network_frame_->shockDdeDaemon();
+      }
   }
 
   m_frameLabelsView = new DListView(this);
