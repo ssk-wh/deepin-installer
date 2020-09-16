@@ -699,35 +699,10 @@ void FullDiskDelegate::onDeviceRefreshed(const DeviceList &devices)
     if (deviceList.size() == 0) {
         qWarning() << Q_FUNC_INFO << "not found system disk, please check!";
         return;//这里的return不知是否会导致安装进度暂停，
-    } else if(deviceList.size() == 1) {
+    } else {
         addSystemDisk(deviceList.first()->path);
         qDebug()<<"add system disk path :"<< deviceList.first()->path;
         deviceList.erase(deviceList.begin());
-    } else {
-        bool isfindsda = false;
-        for (auto it = deviceList.begin(); it != deviceList.end();) {
-            Device::Ptr device = *it;
-            if(device->path.contains("sda")) {
-                qint64 testspeedsub = abs(deviceSpeedMap[device] - deviceSpeedMap[deviceList.first()]);
-                if (testspeedsub < 5000) {
-                    addSystemDisk(device->path);
-                    qDebug()<<"add system disk path :"<< device->path;
-                    deviceList.erase(it);                    
-                    isfindsda = true;
-                } else {
-                    isfindsda = false;
-                }
-                break;
-            } else {
-                ++it;
-            }
-        }
-
-        if (!isfindsda) {
-            addSystemDisk(deviceList.first()->path);
-            qDebug()<<"add system disk path :"<< deviceList.first()->path;
-            deviceList.erase(deviceList.begin());
-        }
     }
 
     for (auto it = deviceList.begin(); it != deviceList.end();) {
