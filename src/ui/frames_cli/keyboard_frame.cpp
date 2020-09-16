@@ -132,16 +132,18 @@ void KeyboardFramePrivate::readConf()
 
     if (layout.isEmpty()) {
         qWarning() << "Default keyboard layout is empty!";
-        return;
     }
 
     // Load xkb config first.
     m_currentLocale = ReadLocale();
-    initLayout(m_currentLocale);
 
-    QString locale = m_currentLocale.mid(m_currentLocale.indexOf("_") + 1).toLower();
     if (!m_currentLocale.isEmpty()) {
+        initLayout(m_currentLocale);
+        QString locale = m_currentLocale.mid(m_currentLocale.indexOf("_") + 1).toLower();
         layout = locale;
+    } else {
+        qWarning() << "ReadLocale is empty!";
+        return;
     }
 
     const int index = getLayoutByName(layout);
