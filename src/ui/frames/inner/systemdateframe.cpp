@@ -272,7 +272,7 @@ void SystemDateFramePrivate::autoAdjustDay()
     uint days = getDaysInMonth(m_yearEdit->text().toUInt(), m_monthEdit->text().toUInt());
     uint day = m_dayEdit->text().toUInt();
     if(day > days){
-        m_dayEdit->setText(QString::number(days));
+        m_dayEdit->setText(QString::number(QDate::currentDate().day()));
     }
 }
 
