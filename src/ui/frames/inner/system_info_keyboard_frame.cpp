@@ -374,33 +374,30 @@ void SystemInfoKeyboardFramePrivate::writeConf() {
     }
 }
 
-void SystemInfoKeyboardFrame::changeEvent(QEvent* event) {
+void SystemInfoKeyboardFrame::showEvent(QShowEvent* event) {
     Q_D(SystemInfoKeyboardFrame);
 
-    if (event->type() == QEvent::LanguageChange) {
-        d->updateTs();
+    d->updateTs();
 
-        d->initLayout(ReadLocale());
+    d->initLayout(ReadLocale());
 
-        QStringList localeList;
-        localeList << ReadLocale() << GetSettingsString(kSelectLanguageDefaultLocale);
+    QStringList localeList;
+    localeList << ReadLocale() << GetSettingsString(kSelectLanguageDefaultLocale);
 
-        for (const QString& locale : localeList) {
-            int index = locale.indexOf('_');
-            if (index >= 0){
-                const QModelIndex modelIndex = d->getLayoutByName(locale.mid(index + 1).toLower());
-                if (modelIndex.isValid()) {
-                    d->m_layoutView->setCurrentIndex(modelIndex);
-                    break;
-                }
-            }
-            else{
-                qWarning() << "invalid locale:" << locale;
+    for (const QString& locale : localeList) {
+        int index = locale.indexOf('_');
+        if (index >= 0){
+            const QModelIndex modelIndex = d->getLayoutByName(locale.mid(index + 1).toLower());
+            if (modelIndex.isValid()) {
+                d->m_layoutView->setCurrentIndex(modelIndex);
+                break;
             }
         }
-    } else {
-        FrameInterface::changeEvent(event);
+        else{
+            qWarning() << "invalid locale:" << locale;
+        }
     }
+    return FrameInterface::showEvent(event);
 }
 
 void SystemInfoKeyboardFramePrivate::initConnections() {
