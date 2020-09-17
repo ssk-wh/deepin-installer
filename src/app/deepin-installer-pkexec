@@ -30,8 +30,6 @@ pkill -f dde-dock
 
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 if [ x$(whoami) == 'xroot' ]; then
-  /usr/bin/kwin_no_scale&
-  sleep 3
   /usr/bin/deepin-installer $@
 else
   pkexec "/usr/bin/deepin-installer" "$@"

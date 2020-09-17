@@ -94,8 +94,7 @@ MainWindow::MainWindow(QWidget* parent)
     this->initPages();
     this->registerShortcut();
     this->initConnections();
-    DTitlebar* titleBar = titlebar();
-    titleBar->installEventFilter(this);
+
     setWindowFlags(windowFlags() & ~Qt::WindowCloseButtonHint & ~Qt::WindowMinMaxButtonsHint);
 
     titlebar()->setMenuVisible(false);
@@ -353,20 +352,6 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     }
 
     DMainWindow::resizeEvent(event);
-}
-
-bool MainWindow::eventFilter(QObject *target, QEvent *event)
-{
-    if (target == titlebar()) {
-        if(event->type() == QEvent::MouseButtonPress)
-        {
-            QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
-            if (mouseEvent->button() == Qt::MouseButton::RightButton) {
-                return true;
-            }
-        }
-     }
-     return DMainWindow::eventFilter(target, event);
 }
 
 void MainWindow::onCloseEvent()
