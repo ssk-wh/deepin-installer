@@ -270,9 +270,9 @@ void installer::CreateRootUserFramePrivate::updateTs()
 
 void installer::CreateRootUserFramePrivate::initConnection()
 {
-    auto creatErr = [=]{showError(QString());};
-    connect(m_rootPasswordLineEdit, &NCursesLineEdit::textChanged, this, creatErr, Qt::QueuedConnection);
-    connect(m_passwordConfirmLineEdit, &NCursesLineEdit::textChanged, this, creatErr, Qt::QueuedConnection);
+    //auto creatErr = [=]{showError(QString());};
+    //connect(m_rootPasswordLineEdit, &NCursesLineEdit::textChanged, this, creatErr, Qt::QueuedConnection);
+    //connect(m_passwordConfirmLineEdit, &NCursesLineEdit::textChanged, this, creatErr, Qt::QueuedConnection);
 }
 
 void installer::CreateRootUserFramePrivate::readConf()
