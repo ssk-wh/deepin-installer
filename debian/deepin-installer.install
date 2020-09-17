@@ -3,6 +3,7 @@ usr/share/xgreeters/
 lib/*
 usr/bin/deepin-installer
 usr/bin/deepin-installer-cli
+usr/bin/deepin-installer-cli-install
 usr/bin/deepin-installer-auto-install
 usr/bin/deepin-installer-first-boot
 usr/bin/deepin-installer-first-boot-pkexec
