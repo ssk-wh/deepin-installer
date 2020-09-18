@@ -324,8 +324,23 @@ void SelectTimeZoneFrame::onTimeZoneViewSelectedChanged(QModelIndex curIndex, QM
 void SelectTimeZoneFrame::onUpdateTimezoneList(const QString &timezone)
 {
     m_mapEnglishToInternation.clear();
+
     updateContinentModelData();
+    if(m_currentContinentIndex.isValid()){
+        m_continentListView->selectionModel()->blockSignals(true);
+        m_continentListView->setCurrentIndex(m_currentContinentIndex);
+        m_continentListView->selectionModel()->blockSignals(false);
+    }
+
     updateTimezoneModelData();
+    if(m_currentTimezoneIndex.isValid()){
+        m_timeZoneListView->selectionModel()->blockSignals(true);
+        setSelectItem(m_currentTimezoneIndex);
+        m_timeZoneListView->setCurrentIndex(m_currentTimezoneIndex);
+        m_timeZoneListView->selectionModel()->blockSignals(false);
+        m_timeZoneListView->scrollTo(m_currentTimezoneIndex, QAbstractItemView::PositionAtTop);
+    }
+
 
     m_lastItem = nullptr;
 
@@ -340,6 +355,12 @@ void SelectTimeZoneFrame::onUpdateTimezoneList(const QString &timezone)
     }
 
     m_currentContinentIndex = m_continentModel->index(m_currentContinentList.indexOf(timezone.left(index)));
+    if (!m_currentContinentIndex.isValid()) {
+        qCritical() << QString("Can't find continent %1 in continent list %2").arg(timezone.left(index))
+                       .arg(m_currentContinentList.join(","));
+        return;
+    }
+
     m_continentListView->selectionModel()->blockSignals(true);
     m_continentListView->setCurrentIndex(m_currentContinentIndex);
     m_continentListView->selectionModel()->blockSignals(false);
@@ -366,6 +387,12 @@ void SelectTimeZoneFrame::onUpdateTimezoneList(const QString &timezone)
 
     m_currentTimezoneIndex = m_timeZoneModel->index(
                 m_currentTimeZoneList.indexOf(timezone.mid(index + 1)), 0);
+    if (!m_currentTimezoneIndex.isValid()) {
+        qCritical() << QString("Can't find timezone %1 in timezone list %2").arg(timezone.mid(index + 1))
+                       .arg(m_currentTimeZoneList.join(","));
+        return;
+    }
+
     setSelectItem(m_currentTimezoneIndex);
     m_timeZoneListView->setCurrentIndex(m_currentTimezoneIndex);
     m_timeZoneListView->selectionModel()->blockSignals(false);
