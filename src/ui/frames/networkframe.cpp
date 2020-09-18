@@ -42,9 +42,13 @@ DWIDGET_USE_NAMESPACE
 using namespace installer;
 
 namespace {
-    const int kLeftViewWidth = 260;
-    const int kRightWidth = 295;
+    const int kTotalWidth = 555;
+    const int kLeftViewWidth = 246;
+    const int kLeftScrollAreaWidth = 238;
+    const int kRightWidth = kTotalWidth - kLeftViewWidth;
     const int kViewHeight = 370;
+
+    const int kRightViewLabelWidth = 120;
 
     const int kNextButtonWidth = 340;
     const int kNextButtonHeight = 36;
@@ -166,7 +170,7 @@ public:
         m_errorTip->hide();
 
         QVBoxLayout* mainLayout = new QVBoxLayout;
-        mainLayout->setMargin(0);
+        mainLayout->setContentsMargins(0, 0, 0, 0);
         mainLayout->setSpacing(10);
 
         QMap<QWidget*, QString> tmpM {
@@ -209,7 +213,7 @@ public:
         QFont labelFont;
         labelFont.setPointSize(kLabelFontSize);
         m_ipLabel = new QLabel(::QObject::tr("IP Address:"));
-        m_ipLabel->setFixedSize(105, 20);
+        m_ipLabel->setFixedSize(kRightViewLabelWidth, 20);
         m_ipLabel->setFont(labelFont);
 
         ipLayout->addWidget(m_ipLabel, 0, Qt::AlignLeft | Qt::AlignHCenter);
@@ -222,7 +226,7 @@ public:
         maskLayout->setSpacing(0);
 
         m_maskLabel = new QLabel(::QObject::tr("Netmask:"));
-        m_maskLabel->setFixedSize(105, 20);
+        m_maskLabel->setFixedSize(kRightViewLabelWidth, 20);
         m_maskLabel->setFont(labelFont);
 
         maskLayout->addWidget(m_maskLabel, 0, Qt::AlignLeft | Qt::AlignHCenter);
@@ -235,7 +239,7 @@ public:
         gatewayLayout->setSpacing(0);
 
         m_gatewayLable = new QLabel(::QObject::tr("Gateway:"));
-        m_gatewayLable->setFixedSize(105, 20);
+        m_gatewayLable->setFixedSize(kRightViewLabelWidth, 20);
         m_gatewayLable->setFont(labelFont);
 
         gatewayLayout->addWidget(m_gatewayLable, 0, Qt::AlignLeft | Qt::AlignHCenter);
@@ -248,7 +252,7 @@ public:
         dnsLayout->setSpacing(0);
 
         m_primaryDNSLabel = new QLabel(::QObject::tr("Primary DNS:"));
-        m_primaryDNSLabel->setFixedSize(105, 20);
+        m_primaryDNSLabel->setFixedSize(kRightViewLabelWidth, 20);
         m_primaryDNSLabel->setFont(labelFont);
 
         dnsLayout->addWidget(m_primaryDNSLabel, 0, Qt::AlignLeft | Qt::AlignHCenter);
@@ -260,7 +264,7 @@ public:
         secondaryDnsLayout->setMargin(0);
         secondaryDnsLayout->setSpacing(0);
         m_secondaryDNSLabel = new QLabel(tr("Secondary DNS:"));
-        m_secondaryDNSLabel->setFixedSize(105, 20);
+        m_secondaryDNSLabel->setFixedSize(kRightViewLabelWidth, 20);
         m_secondaryDNSLabel->setFont(labelFont);
 
         secondaryDnsLayout->addWidget(m_secondaryDNSLabel, 0, Qt::AlignLeft | Qt::AlignHCenter);
@@ -314,6 +318,7 @@ public:
         mainLayout->addWidget(m_editBtn, 0, Qt::AlignHCenter);
         mainLayout->addWidget(m_acceptBtn, 0, Qt::AlignHCenter);
 
+        setContentsMargins(0, 0, 0, 0);
         setLayout(mainLayout);
 
         m_acceptBtn->hide();
@@ -789,10 +794,10 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     leftArea->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     leftArea->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     leftArea->setWidget(leftFrame);
-    leftArea->setFixedWidth(252);
+    leftArea->setFixedWidth(kLeftScrollAreaWidth);
 
     QVBoxLayout* leftLayout = new QVBoxLayout;
-    leftLayout->setContentsMargins(10, 10, 10, 10);
+    leftLayout->setContentsMargins(7, 7, 7, 7);
     leftLayout->addWidget(leftArea);
 
     QFrame *leftWidget = new QFrame;
@@ -802,7 +807,7 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
 
     // 右侧布局
     QVBoxLayout* rightLayout = new QVBoxLayout;
-    rightLayout->setContentsMargins(10, 10, 10, 10);
+    rightLayout->setContentsMargins(7, 7, 7, 7);
     rightLayout->setSpacing(0);
 
     m_currentNetworkEditWidget = new NetworkEditWidget;

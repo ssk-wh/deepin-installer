@@ -12,7 +12,7 @@
 namespace installer {
 
 namespace {
-    const int kNetworkDeviceWidgetWidth = 235;
+    const int kNetworkDeviceWidgetWidth = 227;
     const int kNetworkDeviceWidgetHeight = 64;
     const int KQLabelWidth = 155;
     const int kTitleFont = 12; // 12pt
@@ -110,7 +110,7 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     m_checkedLabel->setVisible(isChecked());
 
     m_hLayout = new QHBoxLayout;
-    m_hLayout->setContentsMargins(11, 11, 1, 11);
+    m_hLayout->setContentsMargins(7, 7, 1, 7);
     m_hLayout->setSpacing(0);
 
     m_hLayout->addWidget(m_iconLabel, 0, Qt::AlignLeft);
