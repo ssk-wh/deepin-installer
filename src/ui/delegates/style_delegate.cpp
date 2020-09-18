@@ -20,7 +20,6 @@ QScrollArea *installer::StyleDelegate::area(QWidget *widget)
     languageArea->setWidgetResizable(true);
     languageArea->setFocusPolicy(Qt::TabFocus);
     languageArea->setFrameStyle(QFrame::NoFrame);
-    languageArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     languageArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     languageArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     languageArea->setContextMenuPolicy(Qt::NoContextMenu);

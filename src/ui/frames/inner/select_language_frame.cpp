@@ -56,6 +56,10 @@ DWIDGET_USE_NAMESPACE
 
 DCORE_USE_NAMESPACE
 
+namespace  {
+   const int kListViewWidth = 470;
+}
+
 namespace installer {
 
 class SelectLanguageFramePrivate : public QObject {
@@ -323,6 +327,7 @@ void SelectLanguageFramePrivate::initUI() {
     sub_title_label_->setAlignment(Qt::AlignHCenter);
 
     m_languageView = new DListView();
+    m_languageView->setFixedWidth(kListViewWidth - 15);
     m_languageView->setFocusPolicy(Qt::TabFocus);
     m_languageView->setEditTriggers(QListView::NoEditTriggers);
     m_languageView->setIconSize(QSize(32, 32));
@@ -339,7 +344,18 @@ void SelectLanguageFramePrivate::initUI() {
     m_languageView->setModel(m_languageModel);
     m_languageView->installEventFilter(q);
 
-    QScrollArea* languageArea = StyleDelegate::area(m_languageView);
+    QScrollArea *languageArea = new QScrollArea;
+    languageArea->setFixedWidth(kListViewWidth);
+    languageArea->setContentsMargins(0, 0, 0, 0);
+    languageArea->setWidgetResizable(true);
+    languageArea->setFocusPolicy(Qt::TabFocus);
+    languageArea->setFrameStyle(QFrame::NoFrame);
+    languageArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    languageArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    languageArea->setContextMenuPolicy(Qt::NoContextMenu);
+    languageArea->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    languageArea->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    languageArea->setWidget(m_languageView);
 
     accept_license_ = new QCheckBox;
     accept_license_->setCheckable(true);
