@@ -34,9 +34,10 @@ void PointerListView::mouseMoveEvent(QMouseEvent* event) {
     const QModelIndex index = this->indexAt(event->pos());
     // Change cursor shape to "Hand" when mouse enters list view item.
     if (index.isValid()) {
-      utils::SetCursorShape(this, XC_hand1);
+      setCursor(QCursor(Qt::PointingHandCursor));
+
     } else {
-      utils::ResetCursorShape(this);
+      setCursor(QCursor(Qt::ArrowCursor));
     }
   }
   QListView::mouseMoveEvent(event);
