@@ -230,7 +230,17 @@ void SelectTimeZoneFrame::initConnections()
 
 void SelectTimeZoneFrame::setSelectItem(QModelIndex index)
 {
-    if (m_lastItem != nullptr) {
+    if (!index.isValid()) {
+        qCritical() << "Invalid model index";
+        return;
+    }
+
+    if (index.row() >= m_timeZoneModel->rowCount()) {
+        qCritical() << "Index row isn't less than model count";
+        return;
+    }
+
+    if (m_lastItem != nullptr && m_timeZoneModel->indexFromItem(m_lastItem).isValid()) {
         m_lastItem->setCheckState(Qt::Unchecked);
     }
 
