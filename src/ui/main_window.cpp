@@ -99,7 +99,7 @@ MainWindow::MainWindow(QWidget* parent)
     setWindowFlags(windowFlags() & ~Qt::WindowCloseButtonHint & ~Qt::WindowMinMaxButtonsHint);
 
     titlebar()->setMenuVisible(false);
-//    titlebar()->setFullScreenButtonVisible(false);
+    titlebar()->setFullScreenButtonVisible(false);
 
     SetBrightness(GetSettingsInt(kScreenDefaultBrightness));
     WriteDisplayPort(getenv("DISPLAY"));
