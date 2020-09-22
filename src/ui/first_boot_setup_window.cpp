@@ -88,7 +88,7 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
   DTitlebar* titleBar = titlebar();
   titleBar->installEventFilter(this);
   titlebar()->setMenuVisible(false);
-//  titlebar()->setFullScreenButtonVisible(false);
+  titlebar()->setFullScreenButtonVisible(false);
 
   Q_ASSERT(m_frames.count() > 0);
   m_frames.first()->init();
