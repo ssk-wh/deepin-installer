@@ -3,6 +3,7 @@
 #include "ui/delegates/partition_util.h"
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/partition_color_label.h"
+#include "ui/widgets/auto_elide_label.h"
 
 #include <QPainter>
 #include <QPainterPath>
@@ -204,7 +205,7 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
         partSize->setStyleSheet("QLabel{color:#526A7F} ");
         layout->addWidget(partSize);
 
-        QLabel *fileSysType = new QLabel();
+        AutoElideLabel *fileSysType = new AutoElideLabel();
         fileSysType->setFont(mountfont);
         fileSysType->setFixedWidth(42);
         fileSysType->setAlignment(Qt::AlignmentFlag::AlignRight | Qt::AlignmentFlag::AlignBottom);
@@ -217,14 +218,6 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
         partNameLable->setToolTip(tooltipString);
         partSize->setToolTip(tooltipString);
         fileSysType->setToolTip(tooltipString);
-
-        int dis = fileSysType->width() - fileSysType->text().size() * 7;
-        if (dis< 0) {
-            int num = fileSysType->width() / 7 - 3;
-            if (num > 0) {
-                fileSysType->setText(fileSysType->text().left(num+1) + "...");
-            }
-        }
 
         if (indexNum % 3 != 2 ) {
             layout->addSpacing(25);

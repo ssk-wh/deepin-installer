@@ -2,6 +2,7 @@
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/auto_wrap_label.h"
 #include "ui/widgets/ticker_label.h"
+#include "ui/widgets/auto_elide_label.h"
 #include "base/command.h"
 
 #include <QStyleOption>
@@ -77,7 +78,7 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     m_iconLabel->setPixmap(pixmap);
     m_iconLabel->setFixedSize(pixmap.size() / devicePixelRatioF());
 
-    m_deviceName = new QLabel;
+    m_deviceName = new AutoElideLabel;
     m_deviceName->setObjectName("titleLabel");
     m_deviceName->setFixedWidth(KQLabelWidth);
     m_deviceName->adjustSize();
@@ -86,7 +87,7 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     titleFont.setPointSize(kTitleFont);
     m_deviceName->setFont(titleFont);
 
-    m_descLabel = new QLabel;
+    m_descLabel = new AutoElideLabel;
     m_descLabel->setObjectName("descLabel");
     m_descLabel->setFixedWidth(KQLabelWidth);
     m_descLabel->adjustSize();
