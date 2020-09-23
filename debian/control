@@ -87,7 +87,8 @@ Depends:
     kbd,
     fbterm,
     dde-account-faces,
-    dde-qt5integration
+    dde-qt5integration,
+    kwin_no_scale
 Description: Release version of deepin installer
  New version of deepin-installer, rewritten with Qt5.
 
