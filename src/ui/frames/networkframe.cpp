@@ -137,28 +137,16 @@ public:
 
         m_dhcpType = DHCPTYpe::Auto;
 
-        QFont font;
-        font.setPointSize(kEditFontSize);
         m_ipv4Edit = new DLineEdit;
         m_ipv4Edit->setObjectName("IP Address");
-        m_ipv4Edit->setFixedSize(kLineEditWidth, kLineEditHeight);
-        m_ipv4Edit->lineEdit()->setFont(font);
         m_maskEdit = new DLineEdit;
         m_maskEdit->setObjectName("Netmask");
-        m_maskEdit->setFixedSize(kLineEditWidth, kLineEditHeight);
-        m_maskEdit->lineEdit()->setFont(font);
         m_gatewayEdit = new DLineEdit;
         m_gatewayEdit->setObjectName("Gateway");
-        m_gatewayEdit->setFixedSize(kLineEditWidth, kLineEditHeight);
-        m_gatewayEdit->lineEdit()->setFont(font);
         m_primaryDNSEdit = new DLineEdit;
         m_primaryDNSEdit->setObjectName("Primary DNS");
-        m_primaryDNSEdit->setFixedSize(kLineEditWidth, kLineEditHeight);
-        m_primaryDNSEdit->lineEdit()->setFont(font);
         m_secondaryDNSEdit = new DLineEdit;
         m_secondaryDNSEdit->setObjectName("Secondary DNS");
-        m_secondaryDNSEdit->setFixedSize(kLineEditWidth, kLineEditHeight);
-        m_secondaryDNSEdit->lineEdit()->setFont(font);
 
         m_ipv4Edit->lineEdit()->setPlaceholderText(::QObject::tr("IP Address"));
         m_maskEdit->lineEdit()->setPlaceholderText(::QObject::tr("Netmask"));
@@ -175,7 +163,7 @@ public:
 
         QMap<QWidget*, QString> tmpM {
             {m_ipWidget, ::QObject::tr("IP:")},
-            {m_maskWidget, ::QObject::tr("Netmask") + ":"},
+            {m_maskWidget, ::QObject::tr("Netmask:")},
             {m_gatewayWidget, ::QObject::tr("Gateway:")},
             {m_primaryDNSWidget, ::QObject::tr("Primary DNS:")},
             {m_secondaryDNSWidget, ::QObject::tr("Secondary DNS:")},
@@ -200,10 +188,16 @@ public:
         QRegExp regExpIP("((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])[\\.])"
                          "{3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])");
 
+        QFont font;
+        font.setPointSize(kEditFontSize);
+
         for (auto it = m_editList.begin(); it != m_editList.end(); ++it) {
             connect(*it, &DLineEdit::textEdited, this, &NetworkEditWidget::onEditingLineEdit);
             (*it)->lineEdit()->setValidator(new QRegExpValidator(regExpIP));
-            (*it)->lineEdit()->setAlignment(Qt::AlignCenter);
+            (*it)->lineEdit()->setAlignment(Qt::AlignLeft);
+            (*it)->lineEdit()->setContextMenuPolicy(Qt::NoContextMenu);
+            (*it)->lineEdit()->setFont(font);
+            (*it)->setFixedSize(kLineEditWidth, kLineEditHeight);
         }
 
         QHBoxLayout* ipLayout = new QHBoxLayout;
