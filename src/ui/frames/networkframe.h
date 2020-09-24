@@ -45,6 +45,7 @@ private:
     QList<DButtonBoxButton*>                    m_buttonList;
     QMap<NetworkManager::Device::Ptr, NetworkSettingInfo> m_deviceConfigInfo;
     QStringList                                 m_connectionUuidList;
+    QMap<QString, bool>                         m_mapDeviceUdi2InUsed;
 
     void init() override;
     void finished() override;

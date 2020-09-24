@@ -878,8 +878,15 @@ void NetworkFrame::initDeviceWidgetList()
         NetworkDeviceWidget* deviceWidget = new NetworkDeviceWidget(this);
         deviceWidget->setCheckable(true);
         deviceWidget->setDeviceInfo(dev);
-        // TODO: temporary processing, later debugging ARM machine.
-        bool enable = true; // deviceWidget->networkOperate()->getDeviceEnable(dev->uni());
+
+        // TODO: hot plug and unplug network device.
+        // In this case set m_mapDeviceUdi2InUsed[dev->udi()] = true always.
+        if (!m_mapDeviceUdi2InUsed.contains(dev->udi())) {
+            m_mapDeviceUdi2InUsed[dev->udi()] = true;
+        }
+
+        bool enable = m_mapDeviceUdi2InUsed[dev->udi()]; // deviceWidget->networkOperate()->getDeviceEnable(dev->uni());
+
         deviceWidget->setDeviceEnable(enable);
         m_buttonList << deviceWidget;
         m_connectionUuidList << deviceWidget->networkOperate()->getConnectionUuid();
@@ -978,6 +985,14 @@ void NetworkFrame::saveConf()
 
         NetworkManager::Device::Ptr device = deviceWidget->getDevice();
         Q_ASSERT(!device.isNull());
+
+        if (!m_mapDeviceUdi2InUsed.contains(device->udi())) {
+            qCritical() << "Device udi to in used map not contain device:"
+                        << device->interfaceName() << device->udi();
+        }
+        else {
+            m_mapDeviceUdi2InUsed[device->udi()] = deviceWidget->deviceEnable();
+        }
 
         NetworkOperate* operate = deviceWidget->networkOperate();
 
