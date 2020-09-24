@@ -552,10 +552,8 @@ public:
             return false;
         }
 
-        if (!m_gatewayEdit->text().isEmpty()) {
-            if (!checkValidity(m_gatewayEdit)) {
-                return false;
-            }
+        if (!checkValidity(m_gatewayEdit)) {
+            return false;
         }
 
         if (!m_primaryDNSEdit->text().isEmpty()) {
@@ -569,6 +567,11 @@ public:
             if (!checkValidity(m_secondaryDNSEdit)) {
                 return false;
             }
+        }
+
+        if (m_primaryDNSEdit->text().isEmpty() && m_secondaryDNSEdit->text().isEmpty()) {
+            checkValidity(m_primaryDNSEdit);
+            return false;
         }
 
         return true;
