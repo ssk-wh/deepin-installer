@@ -358,15 +358,26 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 bool MainWindow::eventFilter(QObject *target, QEvent *event)
 {
     if (target == titlebar()) {
-        if(event->type() == QEvent::MouseButtonPress)
-        {
+        if(event->type() == QEvent::MouseButtonPress) {
             QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
             if (mouseEvent->button() == Qt::MouseButton::RightButton) {
                 return true;
             }
         }
-     }
-     return DMainWindow::eventFilter(target, event);
+    }
+
+    if (target == m_frameLabelsView->viewport()) {
+        if (event->type() == QEvent::MouseButtonPress
+            || event->type() == QEvent::MouseButtonDblClick) {
+            QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+            if (mouseEvent->button() == Qt::MouseButton::RightButton
+                || mouseEvent->button() == Qt::MouseButton::MiddleButton) {
+                return true;
+            }
+        }
+    }
+
+    return DMainWindow::eventFilter(target, event);
 }
 
 void MainWindow::onCloseEvent()
@@ -558,6 +569,7 @@ void MainWindow::initPages() {
   }
 
   m_frameLabelsView = new DListView(this);
+  m_frameLabelsView->viewport()->installEventFilter(this);
   m_frameLabelsView->setResizeMode(QListView::Adjust);
   m_frameLabelsView->setItemSize(QSize(kLeftViewItemWidth, kLeftViewItemHeight + kLeftViewItemSpacing));
   m_frameLabelsModel = new QStandardItemModel();
