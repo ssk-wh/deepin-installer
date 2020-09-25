@@ -240,21 +240,25 @@ void SelectTimeZoneFrame::setSelectItem(QModelIndex index)
         return;
     }
 
-    if (m_lastItem != nullptr && m_timeZoneModel->indexFromItem(m_lastItem).isValid()) {
-        m_lastItem->setCheckState(Qt::Unchecked);
+    if (m_oldTimezoneIndex.isValid())
+    {
+        DStandardItem *tmpItem = dynamic_cast<DStandardItem*>(m_timeZoneModel->item(m_oldTimezoneIndex.row()));
+        if (tmpItem != nullptr) {
+            tmpItem->setCheckState(Qt::Unchecked);
+        }
     }
 
-    m_lastItem = dynamic_cast<DStandardItem*>(m_timeZoneModel->item(index.row()));
-    if (m_lastItem != nullptr) {
-        m_lastItem->setCheckState(Qt::Checked);
+    m_oldTimezoneIndex = index;
+
+    DStandardItem *lastItem = dynamic_cast<DStandardItem*>(m_timeZoneModel->item(index.row()));
+    if (lastItem != nullptr) {
+        lastItem->setCheckState(Qt::Checked);
     }
 }
 
 void SelectTimeZoneFrame::onContinentViewSelectedChanged(QModelIndex curIndex, QModelIndex preIndex)
 {
     Q_UNUSED(preIndex);
-
-    m_lastItem = nullptr;
 
     if(!curIndex.isValid()){
         return;
@@ -350,9 +354,6 @@ void SelectTimeZoneFrame::onUpdateTimezoneList(const QString &timezone)
         m_timeZoneListView->selectionModel()->blockSignals(false);
         m_timeZoneListView->scrollTo(m_currentTimezoneIndex, QAbstractItemView::PositionAtTop);
     }
-
-
-    m_lastItem = nullptr;
 
     if (isVisible()) {
         m_timeZoneListView->setMouseTracking(true);

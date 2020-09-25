@@ -50,8 +50,7 @@ private:
 
     DListView* m_timeZoneListView = nullptr;
     QStandardItemModel* m_timeZoneModel = nullptr;
-
-    DStandardItem* m_lastItem = nullptr;
+    QModelIndex m_oldTimezoneIndex;
 };
 
 }
