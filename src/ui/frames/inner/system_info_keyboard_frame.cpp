@@ -131,6 +131,9 @@ private:
     DStandardItem* m_lastItem = nullptr;
     DStandardItem* m_lastItemVar = nullptr;
 
+    QModelIndex m_lastMode;
+    QModelIndex m_lastModeVar;
+
     // Keyboard layout list sorted by description.
     XkbLayoutList layout_list_;
     XKbLayoutVariantList variant_list_;
@@ -225,6 +228,8 @@ void SystemInfoKeyboardFramePrivate::initLayout(const QString& locale) {
       DStandardItem *item = new DStandardItem((*it).description);
       m_layoutModel->appendRow(item);
   }
+
+  m_layoutView->update();
 }
 
 XKbLayoutVariantList SystemInfoKeyboardFramePrivate::getVariantList(
@@ -283,6 +288,10 @@ void SystemInfoKeyboardFramePrivate::setVariantList(
       DStandardItem* item = new DStandardItem((*it).description);
       m_variantModel->appendRow(item);
   }
+
+  m_variantView->update();
+
+  onVariantViewSelected(m_variantModel->index(0, 0), m_variantModel->index(0, 0));
 }
 
 QString SystemInfoKeyboardFramePrivate::getVariantName(
@@ -520,52 +529,44 @@ void SystemInfoKeyboardFramePrivate::onLayoutViewSelectionChanged(
     Q_UNUSED(previous);
 
     m_variantModel->clear();
-    m_lastItemVar = nullptr;
-
-    DStandardItem* item = dynamic_cast<DStandardItem* >(m_layoutModel->item(current.row()));
-    item->setCheckState(Qt::Checked);
-
-    if (m_lastItem) {
-        m_lastItem->setCheckState(Qt::Unchecked);
-    }
-
     // Update variant list.
     setVariantList(getVariantList(current),  m_currentLocale);
 
+    if (m_lastMode.isValid()) {
+        DStandardItem* tmpItem = dynamic_cast<DStandardItem* >(m_layoutModel->item(m_lastMode.row()));
+        if (tmpItem != nullptr) {
+            tmpItem->setCheckState(Qt::Unchecked);
+        }
+    }
+
+    m_lastMode = current;
+
+    DStandardItem* item = dynamic_cast<DStandardItem* >(m_layoutModel->item(current.row()));
+    if (item != nullptr) {
+        item->setCheckState(Qt::Checked);
+    }
+
     // Scroll to top of variant view.
     m_variantView->scrollToTop();
-
-    // Select the default layout variant.
-    if (nullptr == m_lastItem) {
-        if (m_variantModel->rowCount() > 0)  {
-            m_variantView->setCurrentIndex(m_variantModel->index(0, 0));
-            m_lastChangedItem = item;
-        }
-    }
-    else {
-        if (m_lastChangedItem == item) {
-            if (m_lastItemRow >= 0) {
-                m_variantView->setCurrentIndex(m_variantModel->index(m_lastItemRow, 0));
-            }
-        }
-    }
-
-    m_lastItem = item;
 }
 
 void SystemInfoKeyboardFramePrivate::onVariantViewSelected(
         const QModelIndex& current, const QModelIndex& previous) {
     Q_UNUSED(previous);
 
-    DStandardItem* item = dynamic_cast<DStandardItem* >(m_variantModel->item(current.row()));
-    item->setCheckState(Qt::Checked);
-
-    if (m_lastItemVar) {
-        m_lastItemVar->setCheckState(Qt::Unchecked);
+    if (m_lastModeVar.isValid()) {
+        DStandardItem* tmpItem = dynamic_cast<DStandardItem* >(m_variantModel->item(m_lastModeVar.row()));
+        if (tmpItem != nullptr) {
+            tmpItem->setCheckState(Qt::Unchecked);
+        }
     }
 
-    m_lastItemVar = item;
-    m_lastItemRow = m_lastItemVar->row();
+    m_lastModeVar = current;
+
+    DStandardItem* item = dynamic_cast<DStandardItem* >(m_variantModel->item(current.row()));
+    if (item != nullptr) {
+        item->setCheckState(Qt::Checked);
+    }
 
     m_lastChangedItem = dynamic_cast<DStandardItem* >
             (m_layoutModel->item(m_layoutView->currentIndex().row()));
