@@ -133,7 +133,18 @@ bool TimezoneMap::eventFilter(QObject* watched, QEvent* event) {
         }
     }
 
-  return QWidget::eventFilter(watched, event);
+    return QWidget::eventFilter(watched, event);
+}
+
+void TimezoneMap::showEvent(QShowEvent *event)
+{
+    for (ZoneInfo info : nearest_zones_) {
+        if (info.timezone == current_zone_.timezone && !current_zone_.timezone.isEmpty()) {
+            setTimezone(current_zone_.timezone);
+        }
+    }
+
+    return QFrame::showEvent(event);
 }
 
 void TimezoneMap::initConnections() {

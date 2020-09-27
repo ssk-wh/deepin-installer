@@ -58,6 +58,7 @@ class TimezoneMap : public QFrame {
 //  void resizeEvent(QResizeEvent* event) override;
 
   bool eventFilter(QObject* watched, QEvent* event) override;
+  void showEvent(QShowEvent *event) override;
 
  private:
   void initConnections();
