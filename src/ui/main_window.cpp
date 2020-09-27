@@ -366,7 +366,7 @@ bool MainWindow::eventFilter(QObject *target, QEvent *event)
         }
     }
 
-    if (target == m_frameLabelsView->viewport()) {
+    if (m_frameLabelsView != nullptr && target == m_frameLabelsView->viewport()) {
         if (event->type() == QEvent::MouseButtonPress
             || event->type() == QEvent::MouseButtonDblClick) {
             QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
@@ -374,6 +374,13 @@ bool MainWindow::eventFilter(QObject *target, QEvent *event)
                 || mouseEvent->button() == Qt::MouseButton::MiddleButton) {
                 return true;
             }
+        }
+    }
+
+    if (event->type() == QEvent::MouseButtonPress && confirm_quit_frame_->isShow()) {
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+        if (mouseEvent->button() == Qt::MouseButton::RightButton) {
+            return true;
         }
     }
 
@@ -683,6 +690,8 @@ void MainWindow::initUI() {
   back_button_->raise();
 
   shadow_widget->hide();
+
+  qApp->installEventFilter(this);
 }
 
 void MainWindow::registerShortcut() {

@@ -38,6 +38,7 @@ namespace installer {
 
 ConfirmQuitFrame::ConfirmQuitFrame(QWidget* parent)
     : DDialog(parent)
+    , m_isShow(false)
 {
     setObjectName("confirm_quit_frame");
 
@@ -49,6 +50,7 @@ ConfirmQuitFrame::ConfirmQuitFrame(QWidget* parent)
 
 void ConfirmQuitFrame::display()
 {
+    m_isShow = true;
     exec();
 }
 
@@ -59,6 +61,11 @@ void ConfirmQuitFrame::updateTsForSuccessPage()
         ::QObject::tr("You can experience it after configuring user information in next system startup."));
     continue_button_->setText(::QObject::tr("Cancel"));
     abort_button_->setText(::QObject::tr("Shut down"));
+}
+
+bool ConfirmQuitFrame::isShow() const
+{
+    return m_isShow;
 }
 
 void ConfirmQuitFrame::changeEvent(QEvent* event) {
@@ -82,12 +89,21 @@ void ConfirmQuitFrame::changeEvent(QEvent* event) {
 
 void ConfirmQuitFrame::initConnections() {
   connect(continue_button_, &QPushButton::clicked,
-          this, &ConfirmQuitFrame::quitCancelled);
+          this, [=] {
+      m_isShow = false;
+      emit quitCancelled();
+  });
   connect(abort_button_, &QPushButton::clicked,
-          this, &ConfirmQuitFrame::quitConfirmed);
+          this, [=] {
+      m_isShow = false;
+      emit quitConfirmed();
+  });
 
   connect(m_close_button, &DImageButton::clicked,
-          this, &ConfirmQuitFrame::quitCancelled);
+          this, [=] {
+      m_isShow = false;
+      emit quitCancelled();
+  });
 }
 
 void ConfirmQuitFrame::initUI() {

@@ -37,6 +37,7 @@ class ConfirmQuitFrame : public DDialog {
   explicit ConfirmQuitFrame(QWidget* parent = nullptr);
   void display();
   void updateTsForSuccessPage();
+  bool isShow() const;
 
  signals:
   // Emitted when cancel-button is clicked.
@@ -58,6 +59,8 @@ class ConfirmQuitFrame : public DDialog {
   DSuggestButton* abort_button_ = nullptr;
 
   DImageButton *m_close_button = nullptr;
+
+  bool m_isShow = false;
 };
 
 }  // namespace installer
