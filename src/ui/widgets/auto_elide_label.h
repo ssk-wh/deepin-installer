@@ -29,7 +29,12 @@ public:
 
     void setFixedWidth(int w);
     void setFont(const QFont& font);
+
+    QString text() const;
     void setText(const QString& text);
+
+private:
+    QString m_originalText;
 };
 
 }

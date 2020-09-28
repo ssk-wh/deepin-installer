@@ -36,10 +36,17 @@ void AutoElideLabel::setFont(const QFont &font)
     setText(text());
 }
 
+QString AutoElideLabel::text() const
+{
+    return m_originalText;
+}
+
 void AutoElideLabel::setText(const QString &text)
 {
+    m_originalText = text;
+
     QFontMetrics fontWidth(font());
-    QString elideNote = fontWidth.elidedText(text, Qt::ElideRight, width());
+    QString elideNote = fontWidth.elidedText(m_originalText, Qt::ElideRight, width());
 
     QLabel::setText(elideNote);
 }
