@@ -401,6 +401,7 @@ void SelectTimeZoneFrame::onUpdateTimezoneList(const QString &timezone)
     if (!m_currentTimezoneIndex.isValid()) {
         qCritical() << QString("Can't find timezone %1 in timezone list %2").arg(timezone.mid(index + 1))
                        .arg(m_currentTimeZoneList.join(","));
+        m_timeZoneListView->selectionModel()->blockSignals(false);
         return;
     }
 
