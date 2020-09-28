@@ -83,7 +83,7 @@ void TimezoneMap::setTimezone(const QString& timezone) {
 
 void TimezoneMap::setTimezoneData(const QString& timezone) {
   const int index = GetZoneInfoByZone(total_zones_, timezone);
-  if (index > -1) {
+  if (index > -1 && index < total_zones_.size()) {
     current_zone_ = total_zones_.at(index);
     nearest_zones_.clear();
     nearest_zones_.append(current_zone_);
@@ -134,17 +134,6 @@ bool TimezoneMap::eventFilter(QObject* watched, QEvent* event) {
     }
 
     return QWidget::eventFilter(watched, event);
-}
-
-void TimezoneMap::showEvent(QShowEvent *event)
-{
-    for (ZoneInfo info : nearest_zones_) {
-        if (info.timezone == current_zone_.timezone && !current_zone_.timezone.isEmpty()) {
-            setTimezoneData(current_zone_.timezone);
-        }
-    }
-
-    return QFrame::showEvent(event);
 }
 
 void TimezoneMap::initConnections() {
@@ -289,6 +278,11 @@ void TimezoneMap::updateMap() {
     else {
         QTimer::singleShot(0, this, &TimezoneMap::remark);
     }
+}
+
+void TimezoneMap::showHistoryTimeZone()
+{
+    this->setTimezoneData(current_zone_.timezone);
 }
 
 void TimezoneMap::onPopupWindowActivated(int index) {

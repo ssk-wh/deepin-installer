@@ -53,12 +53,13 @@ class TimezoneMap : public QFrame {
   void hideMark();
   void showMark();
 
+  void showHistoryTimeZone();
+
  protected:
   // Hide tooltips when window is resized.
 //  void resizeEvent(QResizeEvent* event) override;
 
   bool eventFilter(QObject* watched, QEvent* event) override;
-  void showEvent(QShowEvent *event) override;
 
  private:
   void initConnections();

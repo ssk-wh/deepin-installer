@@ -270,6 +270,7 @@ void TimezoneFrame::showEvent(QShowEvent* event) {
   QTimer::singleShot(0, [&]() {
       if(m_private->m_mapOrListStackedLayout->currentWidget() == m_private->timezone_map_){
           m_private->timezone_map_->showMark();
+          m_private->timezone_map_->showHistoryTimeZone();
       }
       else {
           m_private->timezone_map_->hideMark();
@@ -423,6 +424,7 @@ void TimezoneFramePrivate::onMapListButtonGroupToggled(QAbstractButton *button)
     if (button == m_timezoneMapButton){
         m_mapOrListStackedLayout->setCurrentWidget(timezone_map_);
         timezone_map_->showMark();
+        timezone_map_->showHistoryTimeZone();
     }
     else{
         m_mapOrListStackedLayout->setCurrentWidget(m_selectTimeZoneFrame);
