@@ -501,7 +501,7 @@ public:
         if (!checkip(edit->text())) {
             QWidget *parent = qobject_cast<QWidget *>(edit->parent());
             m_errorTip->setText(::QObject::tr("Illegal %1, please have a check.")
-                                .arg(edit->objectName()));
+                                .arg(edit->lineEdit()->placeholderText()));
             m_errorTip->setLabelSize(QSize(kLineEditWidth, 60));
             m_errorTip->setRelativePosition(parent->pos());
             m_errorTip->showBottom(edit);
@@ -846,6 +846,8 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     setLayout(layout);
 
     m_buttonBox = new DButtonBox;
+
+    updateTs();
 }
 
 void NetworkFrame::initDeviceWidgetList()
