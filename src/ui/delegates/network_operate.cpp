@@ -34,7 +34,9 @@ void NetworkOperate::initNetworkConnection()
         qInfo() << "initNetworkConnection() the device " << m_device->interfaceName()
                 << " activeConnection:" << activeConnection->path();
 
-        m_connection = findConnectionByUuid(activeConnection->uuid());
+        if (!m_connection.isNull()) {
+            m_connectionSettings = m_connection->settings();
+        }
     }
     else {
         qInfo() << "This device has no active connection";
@@ -56,13 +58,20 @@ void NetworkOperate::initNetworkConnection()
         }
     }
 
-    m_connectionSettings = m_connection->settings();
-    m_connectionUuid = m_connection->uuid();
+    if (!m_connection.isNull()) {
+        m_connectionSettings = m_connection->settings();
+        m_connectionUuid = m_connection->uuid();
+    }
 
-    NetworkManager::Ipv4Setting::Ptr ipv4Setting
-            = m_connectionSettings->setting(Setting::Ipv4).dynamicCast<Ipv4Setting>();
-    m_configMethod = ipv4Setting->method() == NetworkManager::Ipv4Setting::ConfigMethod::Manual ?
-                DHCPTYpe::Manual : DHCPTYpe::Auto;
+    if (!m_connectionSettings.isNull()) {
+        NetworkManager::Ipv4Setting::Ptr ipv4Setting
+                = m_connectionSettings->setting(Setting::Ipv4).dynamicCast<Ipv4Setting>();
+
+        if (!ipv4Setting.isNull()) {
+            m_configMethod = ipv4Setting->method() == NetworkManager::Ipv4Setting::ConfigMethod::Manual ?
+                        DHCPTYpe::Manual : DHCPTYpe::Auto;
+        }
+    }
 }
 
 Connection::Ptr NetworkOperate::getConnection() const
@@ -90,7 +99,7 @@ bool NetworkOperate::createNetworkConnection()
     reply.waitForFinished();
     const QString &connPath = reply.value().path();
     m_connection = findConnection(connPath);
-    if (!m_connection) {
+    if (m_connection.isNull()) {
         qCritical() << "create connection failed..." << reply.error();
         return false;
     }
@@ -133,7 +142,10 @@ void NetworkOperate::getAllConnections()
 
 bool NetworkOperate::setIpV4(NetworkSettingInfo info)
 {
-    Q_ASSERT(m_connection);
+    if (m_connection.isNull()) {
+        qCritical() << "setIpV4: connection is null";
+        return false;
+    }
 
     qDebug() << "setIpV4(), the device " << m_device->interfaceName() << " availableConnections:";
     foreach (Connection::Ptr conn , m_device->availableConnections()) {
@@ -282,6 +294,10 @@ DHCPTYpe NetworkOperate::getDhcp() const
 
 bool NetworkOperate::activateConn()
 {
+    if (m_connection.isNull()) {
+        qCritical() << "activateConn: connection is null!";
+        return false;
+    }
     qInfo() << "Activate connection " << m_connection->path();
 
     QDBusPendingReply<QDBusObjectPath> reply = activateConnection(m_connection->path(), m_device->uni(), "");
