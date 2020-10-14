@@ -34,6 +34,7 @@ void NetworkOperate::initNetworkConnection()
         qInfo() << "initNetworkConnection() the device " << m_device->interfaceName()
                 << " activeConnection:" << activeConnection->path();
 
+        m_connection = findConnectionByUuid(activeConnection->uuid());
         if (!m_connection.isNull()) {
             m_connectionSettings = m_connection->settings();
         }
