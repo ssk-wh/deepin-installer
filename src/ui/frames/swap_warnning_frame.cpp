@@ -26,6 +26,8 @@
 #include <QHBoxLayout>
 #include <QPainter>
 #include <DDialog>
+#include <QApplication>
+#include <QMouseEvent>
 
 DWIDGET_USE_NAMESPACE
 
@@ -45,6 +47,7 @@ SwapWarnningFrame::SwapWarnningFrame(QWidget* parent)
 
     initUI();
     initConnections();
+    qApp->installEventFilter(this);
 }
 
 void SwapWarnningFrame::display()
@@ -68,6 +71,33 @@ void SwapWarnningFrame::changeEvent(QEvent* event) {
   } else {
     QWidget::changeEvent(event);
   }
+}
+
+bool SwapWarnningFrame::eventFilter(QObject *watched, QEvent *event)
+{
+    if (event->type() == QEvent::MouseButtonPress && isShow()) {
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+        if (mouseEvent->button() == Qt::MouseButton::RightButton) {
+            return true;
+        }
+    }
+
+    return DDialog::eventFilter(watched, event);
+}
+
+void SwapWarnningFrame::showEvent(QShowEvent *event)
+{
+    m_is_show = true;
+}
+
+bool SwapWarnningFrame::isShow()
+{
+    return m_is_show;
+}
+
+void SwapWarnningFrame::hideEvent(QHideEvent *event)
+{
+    m_is_show = false;
 }
 
 void SwapWarnningFrame::initConnections() {
