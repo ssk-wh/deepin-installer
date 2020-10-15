@@ -152,6 +152,8 @@ QPair<QString, QString> GetLocalTimezoneName(const QString& timezone, const QStr
     }
     else {
         // Set locale first.
+        char *language = const_cast<char*>(QString("LANGUAGE=" + locale).toStdString().c_str());
+        putenv(language);
         (void) setlocale(LC_ALL, (locale + ".UTF-8").toLocal8Bit().constData());
         local_name =
             dgettext(kTimezoneDomain, timezone.toLocal8Bit().constData());
