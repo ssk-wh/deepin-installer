@@ -356,11 +356,16 @@ void NewPartitionFrame::updateSlideSize() {
   const FsType fs_type = fs_model_->getFs(fs_index);
   const int mp_index = mount_point_box_->currentIndex();
   const QString mount_point = mount_point_model_->getMountPoint(mp_index);
-
+  const bool is_logical = type_model_->isLogical(type_box_->currentIndex());
   // If fs_type is special, no need to display mount-point box.
   const bool visible = IsMountPointSupported(fs_type);
   mount_point_label_->setVisible(visible);
   mount_point_box_->setVisible(visible);
+
+  qint64 offset_logical = 0;
+  if (is_logical) {
+      offset_logical = kMebiByte;
+  }
 
   if (fs_type == FsType::EFI) {
     m_auto_label->setText("");
@@ -371,7 +376,7 @@ void NewPartitionFrame::updateSlideSize() {
     const qint64 default_size = GetSettingsInt(kPartitionDefaultEFISpace) *
                                 kMebiByte;
     const qint64 real_size = qMin(default_size, partition_->getByteLength());
-    size_slider_->setMinimum(real_size);
+    size_slider_->setMinimum(real_size + offset_logical);
 
     // Block size_slider_ from emitting signals.
     size_slider_->blockSignals(true);
@@ -386,7 +391,7 @@ void NewPartitionFrame::updateSlideSize() {
     const qint64 default_size = GetSettingsInt(kPartitionDefaultBootSpace) *
                                 kMebiByte;
     const qint64 real_size = qMin(default_size, partition_->getByteLength());
-    size_slider_->setMinimum(real_size);
+    size_slider_->setMinimum(real_size + offset_logical);
     size_slider_->blockSignals(true);
     size_slider_->setValue(real_size);
     size_slider_->blockSignals(false);
@@ -436,7 +441,7 @@ void NewPartitionFrame::updateSlideSize() {
       create_button_->setEnabled(true);
       const qint64 default_size = GetSettingsInt(kRecoveryDefaultSize) * kGibiByte;
       const qint64 real_size    = qMin(default_size, partition_->getByteLength());
-      size_slider_->setMinimum(real_size);
+      size_slider_->setMinimum(real_size + offset_logical);
 
       // Block size_slider_ from emitting signals.
       size_slider_->blockSignals(true);
@@ -447,7 +452,7 @@ void NewPartitionFrame::updateSlideSize() {
     m_auto_label->setText("");
     create_button_->setEnabled(true);
     // Reset minimum value of size_slider_.
-    size_slider_->setMinimum(kMinimumPartitionSize);
+    size_slider_->setMinimum(kMinimumPartitionSize + offset_logical);
 
     // And set current value to last value specified by user.
     size_slider_->setValue(last_slider_value_);
