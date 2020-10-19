@@ -88,6 +88,7 @@ bool SwapWarnningFrame::eventFilter(QObject *watched, QEvent *event)
 void SwapWarnningFrame::showEvent(QShowEvent *event)
 {
     m_is_show = true;
+    return DDialog::showEvent(event);
 }
 
 bool SwapWarnningFrame::isShow()
@@ -98,6 +99,7 @@ bool SwapWarnningFrame::isShow()
 void SwapWarnningFrame::hideEvent(QHideEvent *event)
 {
     m_is_show = false;
+    return DDialog::hideEvent(event);
 }
 
 void SwapWarnningFrame::initConnections() {

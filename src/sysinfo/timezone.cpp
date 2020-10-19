@@ -152,14 +152,21 @@ QPair<QString, QString> GetLocalTimezoneName(const QString& timezone, const QStr
     }
     else {
         // Set locale first.
-        char *language = const_cast<char*>(QString("LANGUAGE=" + locale).toStdString().c_str());
-        putenv(language);
-        (void) setlocale(LC_ALL, (locale + ".UTF-8").toLocal8Bit().constData());
+        QString locale_type = (locale + ".utf8");
+        char * p_rest = setlocale(LC_ALL, locale_type.toLocal8Bit().constData());
+        if (p_rest == nullptr) {
+            qCritical() << "setlocale failed. locale:" << locale_type;
+        }
+
+        char *str = const_cast<char*>(QString("LANGUAGE=" + locale).toStdString().c_str());
+        putenv(str);
+        bindtextdomain(kTimezoneDomain, "/usr/share/locale/");
+
         local_name =
             dgettext(kTimezoneDomain, timezone.toLocal8Bit().constData());
 
         // Reset locale.
-        (void) setlocale(LC_ALL, kDefaultLang);
+        setlocale(LC_ALL, kDefaultLang);
     }
 
     int index = local_name.indexOf('/');
