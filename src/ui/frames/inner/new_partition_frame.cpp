@@ -426,7 +426,7 @@ void NewPartitionFrame::updateSlideSize() {
     sumSapce = sumSapce  * kGibiByte;
     const qint64 default_size = sumSapce + kGibiByte;
     QString msg = "";
-    if (default_size > size_slider_->value() * kMebiByte) {
+    if (default_size > size_slider_->value() * kMebiByte + offset_logical) {
         msg = ::QObject::tr("Unable to mount automatically, as it requires at least %1 GB")
               .arg(QString::number(default_size / kGibiByte));
        create_button_->setEnabled(false);
@@ -570,6 +570,11 @@ void NewPartitionFrame::onSizeSliderValueChanged(qint64 size) {
   const int mp_index = mount_point_box_->currentIndex();
   const QString mount_point = mount_point_model_->getMountPoint(mp_index);
   const FsType fs_type = fs_model_->getFs(fs_box_->currentIndex());
+  const bool is_logical = type_model_->isLogical(type_box_->currentIndex());
+  qint64 offset_logical = 0;
+  if (is_logical) {
+      offset_logical = kMebiByte;
+  }
   if (mount_point == kMountPointAuto
                && fs_type != FsType::EFI
                && fs_type != FsType::LVM2PV
@@ -596,7 +601,7 @@ void NewPartitionFrame::onSizeSliderValueChanged(qint64 size) {
     sumSapce = sumSapce  * kGibiByte;
     const qint64 default_size = sumSapce + kGibiByte;
     QString msg = "";
-    if (default_size > size) {
+    if (default_size > size + offset_logical) {
         msg = ::QObject::tr("Unable to mount automatically, as it requires at least %1 GB")
               .arg(QString::number(default_size / kGibiByte));
        create_button_->setEnabled(false);
