@@ -119,6 +119,37 @@ if [ x"${DI_UEFI}" = xtrue ]; then
     mkdir -p /target/boot/efi
     mount ${DI_BOOTLOADER} /target/boot/efi || \
         error "Failed to mount bootloader ${DI_BOOTLOADER}"
+else
+    #解决bug50960,兆芯逻辑分区的引导无法安装到mbr，原因需要激活扩展分区
+    cpuVendorId=$(lscpu | grep "Vendor ID" | awk '{print $3}')
+    echo $cpuVendorId
+    if [ $cpuVendorId = "CentaurHauls" ]; then
+       echo $cpuVendorId
+       diskInfo=$(parted ${DI_BOOTLOADER} print)
+       tempDisk={1 1 1 1 1}
+       extendedNumber=1
+       for diskUnit in ${diskInfo[@]}
+           do
+             tempDisk[0]=${tempDisk[1]}
+             tempDisk[1]=${tempDisk[2]}
+             tempDisk[2]=${tempDisk[3]}
+             tempDisk[3]=${tempDisk[4]}
+             tempDisk[4]=$diskUnit
+
+              echo $diskUnit
+              if [ $diskUnit = "extended" ]; then
+
+                      extendedNumber=${tempDisk[0]}
+                      echo $extendedNumber
+              fi
+        done
+        fdisk ${DI_BOOTLOADER} << EOF
+a
+$extendedNumber
+w
+EOF
+    fi
+
 fi
 
 if [ -d /target/data/ ];then
