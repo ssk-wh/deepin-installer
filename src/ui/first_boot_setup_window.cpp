@@ -338,7 +338,6 @@ void FirstBootSetupWindow::initPages()
         m_keyboardFrame,
         timezone_frame_,
         system_info_frame_,
-        control_platform_frame_,
         loading_frame_,
     };
 
