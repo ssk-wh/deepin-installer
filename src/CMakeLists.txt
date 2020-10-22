@@ -1247,6 +1247,7 @@ install(PROGRAMS
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-first-boot-pkexec
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-pkexec
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-both
+        ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-bases
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-xrandr
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-cli-install
         DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
