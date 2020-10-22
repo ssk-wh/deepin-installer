@@ -53,6 +53,7 @@ if [ x$(installer_get "system_info_setup_after_reboot") != xtrue ]; then
   UNUSED_PKGS+=("wireshark-common")
   UNUSED_PKGS+=("libwireshark*")
   UNUSED_PKGS+=("libwiretap*")
+  UNUSED_PKGS+=("imagemagick*")
 fi
 
 if grep -q boot=casper /proc/cmdline; then
