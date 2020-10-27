@@ -27,7 +27,7 @@ CONF_FILE=/etc/deepin-installer.conf
 . ./basic_utils.sh
 
 . ./in_chroot/03_setup_user_experience.job
-. ./in_chroot/09_generate_machine_id.job
+#. ./in_chroot/09_generate_machine_id.job
 . ./in_chroot/33_setup_lightdm_auto_login.job
 . ./in_chroot/34_setup_livefs.job
 . ./in_chroot/51_setup_keyboard.job
@@ -154,7 +154,7 @@ main() {
   [ -f "${CONF_FILE}" ] || error "deepin-installer.conf not found"
   cat "${CONF_FILE}" | grep -v "PASSWORD" | grep -v "password"
 
-  generate_machine_id
+  # generate_machine_id
   setup_lightdm_auto_login
   setup_keyboard
   setup_locale_timezone

@@ -27,8 +27,8 @@ generate_machine_id() {
     chmod 644 /etc/machine-id
 }
 
-if [ x$(installer_get "system_info_setup_after_reboot") != "xtrue" ]; then
-    generate_machine_id
-fi
+# if [ x$(installer_get "system_info_setup_after_reboot") != "xtrue" ]; then
+generate_machine_id
+#fi
 
 return 0
