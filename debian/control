@@ -45,7 +45,8 @@ Build-Depends:
     python-pwquality,
     libpwquality-dev,
     libpwquality1,
-    libpwquality-common 
+    libpwquality-common,
+    wamerican
 Standards-Version: 3.9.8
 Homepage: http://www.deepin.org
 

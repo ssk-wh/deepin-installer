@@ -47,7 +47,6 @@ SwapWarnningFrame::SwapWarnningFrame(QWidget* parent)
 
     initUI();
     initConnections();
-    qApp->installEventFilter(this);
 }
 
 void SwapWarnningFrame::display()
@@ -73,9 +72,19 @@ void SwapWarnningFrame::changeEvent(QEvent* event) {
   }
 }
 
+void SwapWarnningFrame::mouseMoveEvent(QMouseEvent *event) {
+    if (event->buttons() & Qt::LeftButton)
+    {
+        /*移动中的鼠标位置相对于初始位置的相对位置.*/
+        QPoint relativePos = this->pos();
+        /*然后移动窗体即可.*/
+        this->move(relativePos);
+    }
+}
+
 bool SwapWarnningFrame::eventFilter(QObject *watched, QEvent *event)
 {
-    if (event->type() == QEvent::MouseButtonPress && isShow()) {
+    if (event->type() == QEvent::MouseButtonPress) {
         QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
         if (mouseEvent->button() == Qt::MouseButton::RightButton) {
             return true;
@@ -87,18 +96,13 @@ bool SwapWarnningFrame::eventFilter(QObject *watched, QEvent *event)
 
 void SwapWarnningFrame::showEvent(QShowEvent *event)
 {
-    m_is_show = true;
+    qApp->installEventFilter(this);
     return DDialog::showEvent(event);
-}
-
-bool SwapWarnningFrame::isShow()
-{
-    return m_is_show;
 }
 
 void SwapWarnningFrame::hideEvent(QHideEvent *event)
 {
-    m_is_show = false;
+    qApp->removeEventFilter(this);
     return DDialog::hideEvent(event);
 }
 

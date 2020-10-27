@@ -377,13 +377,6 @@ bool MainWindow::eventFilter(QObject *target, QEvent *event)
         }
     }
 
-    if (event->type() == QEvent::MouseButtonPress && confirm_quit_frame_->isShow()) {
-        QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
-        if (mouseEvent->button() == Qt::MouseButton::RightButton) {
-            return true;
-        }
-    }
-
     return DMainWindow::eventFilter(target, event);
 }
 
@@ -690,8 +683,6 @@ void MainWindow::initUI() {
   back_button_->raise();
 
   shadow_widget->hide();
-
-  qApp->installEventFilter(this);
 }
 
 void MainWindow::registerShortcut() {

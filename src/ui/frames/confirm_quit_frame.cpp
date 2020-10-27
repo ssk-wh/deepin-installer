@@ -26,6 +26,8 @@
 #include <QHBoxLayout>
 #include <QPainter>
 #include <DDialog>
+#include <QMouseEvent>
+#include <QApplication>
 
 DWIDGET_USE_NAMESPACE
 
@@ -38,7 +40,6 @@ namespace installer {
 
 ConfirmQuitFrame::ConfirmQuitFrame(QWidget* parent)
     : DDialog(parent)
-    , m_isShow(false)
 {
     setObjectName("confirm_quit_frame");
 
@@ -50,7 +51,6 @@ ConfirmQuitFrame::ConfirmQuitFrame(QWidget* parent)
 
 void ConfirmQuitFrame::display()
 {
-    m_isShow = true;
     exec();
 }
 
@@ -61,11 +61,6 @@ void ConfirmQuitFrame::updateTsForSuccessPage()
         ::QObject::tr("You can experience it after configuring user information in next system startup."));
     continue_button_->setText(::QObject::tr("Cancel"));
     abort_button_->setText(::QObject::tr("Shut down"));
-}
-
-bool ConfirmQuitFrame::isShow() const
-{
-    return m_isShow;
 }
 
 void ConfirmQuitFrame::changeEvent(QEvent* event) {
@@ -90,18 +85,15 @@ void ConfirmQuitFrame::changeEvent(QEvent* event) {
 void ConfirmQuitFrame::initConnections() {
   connect(continue_button_, &QPushButton::clicked,
           this, [=] {
-      m_isShow = false;
       emit quitCancelled();
   });
   connect(abort_button_, &QPushButton::clicked,
           this, [=] {
-      m_isShow = false;
       emit quitConfirmed();
   });
 
   connect(m_close_button, &DImageButton::clicked,
           this, [=] {
-      m_isShow = false;
       emit quitCancelled();
   });
 }
@@ -150,6 +142,40 @@ void ConfirmQuitFrame::setupCloseButton()
     m_close_button->setNormalPic(":/images/close_normal.svg");
     m_close_button->setHoverPic(":/images/close_normal.svg");
     m_close_button->setPressPic(":/images/close_normal.svg");
+}
+
+bool ConfirmQuitFrame::eventFilter(QObject *watched, QEvent *event)
+{
+    if (event->type() == QEvent::MouseButtonPress) {
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+        if (mouseEvent->button() == Qt::MouseButton::RightButton) {
+            return true;
+        }
+    }
+
+    return DDialog::eventFilter(watched, event);
+}
+
+void ConfirmQuitFrame::showEvent(QShowEvent *event)
+{
+    qApp->installEventFilter(this);
+    return DDialog::showEvent(event);
+}
+
+void ConfirmQuitFrame::hideEvent(QHideEvent *event)
+{
+    qApp->removeEventFilter(this);
+    return DDialog::hideEvent(event);
+}
+
+void ConfirmQuitFrame::mouseMoveEvent(QMouseEvent *event) {
+    if (event->buttons() & Qt::LeftButton)
+    {
+        /*移动中的鼠标位置相对于初始位置的相对位置.*/
+        QPoint relativePos = this->pos();
+        /*然后移动窗体即可.*/
+        this->move(relativePos);
+    }
 }
 
 }  // namespace installer

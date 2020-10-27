@@ -311,8 +311,6 @@ void FirstBootSetupWindow::initUI() {
     control_panel_frame_->hide();
 
     this->setFocusPolicy(Qt::TabFocus);
-
-    qApp->installEventFilter(this);
 }
 
 void FirstBootSetupWindow::initPages()
@@ -413,13 +411,6 @@ bool FirstBootSetupWindow::eventFilter(QObject *target, QEvent *event)
                 || mouseEvent->button() == Qt::MouseButton::MiddleButton) {
                 return true;
             }
-        }
-    }
-
-    if (event->type() == QEvent::MouseButtonPress && confirm_quit_frame_->isShow()) {
-        QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
-        if (mouseEvent->button() == Qt::MouseButton::RightButton) {
-            return true;
         }
     }
 

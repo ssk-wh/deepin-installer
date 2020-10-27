@@ -36,7 +36,6 @@ class SwapWarnningFrame : public DDialog {
  public:
   explicit SwapWarnningFrame(QWidget* parent = nullptr);
   void display();
-  bool isShow();
 
  signals:
   // Emitted when cancel-button is clicked.
@@ -48,6 +47,7 @@ class SwapWarnningFrame : public DDialog {
  protected:
   void changeEvent(QEvent* event) override;
   bool eventFilter(QObject *watched, QEvent *event) override;
+  void mouseMoveEvent(QMouseEvent *event) override;
   void showEvent(QShowEvent *event) override;
   void hideEvent(QHideEvent *event) override;
 
@@ -61,7 +61,6 @@ class SwapWarnningFrame : public DDialog {
   DSuggestButton* abort_button_ = nullptr;
 
   DImageButton *m_close_button = nullptr;
-  bool          m_is_show = false;
 };
 
 }  // namespace installer
