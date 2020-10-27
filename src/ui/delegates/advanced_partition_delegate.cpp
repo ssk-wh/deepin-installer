@@ -172,6 +172,8 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
       Device::Ptr boot_device;
       DeviceList pv_devices;
 
+      qint64 offset_logical = 0;
+
       if (install_Lvm_Status != Install_Lvm_Status::Lvm_Install) {
           mountPoints_AdvancedPartition.clear();
           install_Lvm_Status = Install_Lvm_Status::Lvm_No_Need;
@@ -182,22 +184,24 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
 
           if (install_Lvm_Status != Install_Lvm_Status::Lvm_Install) {
             mountPoints_AdvancedPartition.append(partition->mount_point);
+          }          
+          if (partition->type == PartitionType::Logical) {
+               offset_logical = kMebiByte;
           }
-
           if (partition->mount_point == kMountPointRoot) {
             // Check / partition->
             root_device = device;
             rootPartition = partition;
             root_fs = partition->fs;
             const qint64 root_real_bytes = partition->getByteLength();
-            const qint64 root_minimum_bytes = root_required * kGibiByte;
+            const qint64 root_minimum_bytes = root_required * kGibiByte - offset_logical;
             root_large_enough = (root_real_bytes >= root_minimum_bytes);
 
           } else if (partition->mount_point == kMountPointBoot) {
             // Check /boot partition->
             bootPartition = partition;
             boot_fs = partition->fs;
-            const qint64 boot_recommend_bytes = boot_recommended * kMebiByte;
+            const qint64 boot_recommend_bytes = boot_recommended * kMebiByte - offset_logical;
             // Add 1Mib to partition size.
             const qint64 boot_real_bytes = partition->getByteLength();
             boot_large_enough = (boot_real_bytes >= boot_recommend_bytes);
@@ -230,8 +234,11 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
                  found_efi = true;
                  efiPartition = partition;
                  if (partition->status == PartitionStatus::Real) {
+                     if (partition->type == PartitionType::Logical) {
+                         offset_logical = kMebiByte;
+                     }
                    // For existing EFI partition->
-                   const qint64 efi_minimum_bytes = efi_minimum * kMebiByte;
+                   const qint64 efi_minimum_bytes = efi_minimum * kMebiByte - offset_logical;
                    const qint64 efi_real_bytes = partition->getByteLength();
                    efi_large_enough = (efi_real_bytes >= efi_minimum_bytes);
                  } else {
@@ -296,7 +303,12 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
               if (known_mounts.contains(partition->mount_point)) {
                   continue;
               }
-              if (partition->getByteLength() < partition_min_size_bytes) {
+
+              if (partition->type == PartitionType::Logical) {
+                  offset_logical = kMebiByte;
+              }
+
+              if (partition->getByteLength() + offset_logical < partition_min_size_bytes) {
                    states.append(ValidateState(ValidateState::PartitionTooSmall, partition));
               }
             }
@@ -424,7 +436,10 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
           if (known_mounts.contains(partition->mount_point)) {
               continue;
           }
-          if (partition->getByteLength() < partition_min_size_bytes) {
+          if (partition->type == PartitionType::Logical) {
+              offset_logical = kMebiByte;
+          }
+          if (partition->getByteLength() + offset_logical < partition_min_size_bytes) {
                states.append(ValidateState(ValidateState::PartitionTooSmall, partition));
           }
         }

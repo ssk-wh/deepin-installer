@@ -376,7 +376,7 @@ void NewPartitionFrame::updateSlideSize() {
     const qint64 default_size = GetSettingsInt(kPartitionDefaultEFISpace) *
                                 kMebiByte;
     const qint64 real_size = qMin(default_size, partition_->getByteLength());
-    size_slider_->setMinimum(real_size + offset_logical);
+    size_slider_->setMinimum(real_size);
 
     // Block size_slider_ from emitting signals.
     size_slider_->blockSignals(true);
@@ -391,7 +391,7 @@ void NewPartitionFrame::updateSlideSize() {
     const qint64 default_size = GetSettingsInt(kPartitionDefaultBootSpace) *
                                 kMebiByte;
     const qint64 real_size = qMin(default_size, partition_->getByteLength());
-    size_slider_->setMinimum(real_size + offset_logical);
+    size_slider_->setMinimum(real_size);
     size_slider_->blockSignals(true);
     size_slider_->setValue(real_size);
     size_slider_->blockSignals(false);
@@ -441,7 +441,7 @@ void NewPartitionFrame::updateSlideSize() {
       create_button_->setEnabled(true);
       const qint64 default_size = GetSettingsInt(kRecoveryDefaultSize) * kGibiByte;
       const qint64 real_size    = qMin(default_size, partition_->getByteLength());
-      size_slider_->setMinimum(real_size + offset_logical);
+      size_slider_->setMinimum(real_size);
 
       // Block size_slider_ from emitting signals.
       size_slider_->blockSignals(true);
@@ -452,7 +452,7 @@ void NewPartitionFrame::updateSlideSize() {
     m_auto_label->setText("");
     create_button_->setEnabled(true);
     // Reset minimum value of size_slider_.
-    size_slider_->setMinimum(kMinimumPartitionSize + offset_logical);
+    size_slider_->setMinimum(kMinimumPartitionSize);
 
     // And set current value to last value specified by user.
     size_slider_->setValue(last_slider_value_);
