@@ -497,21 +497,21 @@
         <translation>Leállítás</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="73"/>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="129"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="68"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="121"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="50"/>
         <source>Abort Installation</source>
         <translation>Telepítés megszakítása</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="75"/>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="111"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="70"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="103"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="55"/>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
         <translation>A telepítési folyamat során végrehajtott releváns műveletek nem lépnek érvénybe, megszakítja vagy folytatja a telepítést?</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="71"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="98"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
@@ -525,7 +525,7 @@
         <translation>Folytatás</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="77"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="72"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="43"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="61"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="23"/>
@@ -926,7 +926,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="430"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="600"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="605"/>
         <source>Unable to mount automatically, as it requires at least %1 GB</source>
         <translation>Nem sikerült automatikusan csatlakoztatni, mivel ehhez legalább %1 GB szükséges</translation>
     </message>
@@ -1138,13 +1138,13 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="654"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="661"/>
         <source>Root password</source>
-        <translation>Rendszergazda jelszó</translation>
+        <translation>Rendszergazdai jelszó</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="655"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="662"/>
         <source>Repeat root password</source>
-        <translation>Rendszergazda jelszó ismétlése</translation>
+        <translation>Rendszergazdai jelszó ismétlése</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="666"/>
@@ -1172,7 +1172,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="670"/>
         <source>Enable root user</source>
-        <translation>Rendszergazda felhasználó engedélyezése</translation>
+        <translation>Rendszergazdai felhasználó engedélyezése</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="694"/>
@@ -1237,6 +1237,10 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="791"/>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="113"/>
         <source>Password must contain letters, numbers and symbols</source>
         <translation>A jelszónak tartalmaznia kell betűket, számokat és szimbólumokat</translation>
@@ -1326,7 +1330,7 @@
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
         <source>M</source>
-        <translation>H</translation>
+        <translation>Hó.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
@@ -1674,8 +1678,8 @@
         <translation>Mentés másként</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="60"/>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="129"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="59"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="133"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="72"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="119"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="123"/>
@@ -1683,14 +1687,14 @@
         <translation>Barátságos megjegyzés</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="62"/>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="114"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="118"/>
         <source>No swap partition created, which may affect system performance</source>
         <translation>Nincs létrehozva cserepartíció, ami befolyásolhatja a rendszer teljesítményét</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="63"/>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="120"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="62"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="124"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
@@ -1820,7 +1824,7 @@
     <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="259"/>
         <source>Create Root Account</source>
-        <translation>Rendszergazda fiókok létrehozása</translation>
+        <translation>Rendszergazdai fiókok létrehozása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="262"/>
@@ -1980,17 +1984,17 @@
     <message>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="558"/>
         <source>Set Root Password</source>
-        <translation>Rendszergazda jelszó beállítása</translation>
+        <translation>Rendszergazdai jelszó beállítása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="560"/>
         <source>If you check &quot;Set as root password&quot;, the root password is the same as the password, otherwise, you need to set it separately.</source>
-        <translation>Ha bejelöli a &quot;Beállítás rendszergazda jelszóként&quot; lehetőséget, akkor a rendszergazda jelszó megegyezik a jelszóval, egyéb esetben külön kell beállítania.</translation>
+        <translation>Ha bejelöli a &quot;Beállítás rendszergazdai jelszóként&quot; lehetőséget, akkor a rendszergazda jelszó megegyezik a jelszóval, egyéb esetben külön kell beállítania.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="561"/>
         <source>Your root password should be different from the user password, please take care of them.</source>
-        <translation>A rendszergazda jelszónak különböznie kell a felhasználói jelszótól, kérjük vigyázzon rájuk.</translation>
+        <translation>A rendszergazdai jelszónak különböznie kell a felhasználói jelszótól, kérjük vigyázzon rájuk.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/time_zone_frame.cpp" line="28"/>
@@ -2006,7 +2010,7 @@
     <message>
         <location filename="../src/ui/main_window_cli.cpp" line="76"/>
         <source>Welcome to install UOS</source>
-        <translation>Üdvözli az UOS telepítő</translation>
+        <translation>Üdvözli az UOS® telepítő</translation>
     </message>
 </context>
 <context>

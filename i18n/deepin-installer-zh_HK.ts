@@ -497,21 +497,21 @@
         <translation>關機</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="73"/>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="129"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="68"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="121"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="50"/>
         <source>Abort Installation</source>
         <translation>終止安裝</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="75"/>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="111"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="70"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="103"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="55"/>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
         <translation>本次安裝過程中您所做的相關操作將不會生效，確定要終止安裝還是繼續完成安裝？</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="71"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="98"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
@@ -525,7 +525,7 @@
         <translation>繼續</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="77"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="72"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="43"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="61"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="23"/>
@@ -818,17 +818,17 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="659"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="556"/>
         <source>Password</source>
-        <translation>安全金鑰</translation>
+        <translation>密碼</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="274"/>
         <source>Repeat Password</source>
-        <translation>確認安全金鑰</translation>
+        <translation>確認密碼</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="277"/>
         <source>Take care of your password, otherwise, all your data will be lost</source>
-        <translation>請妥善保管好您的安全金鑰，金鑰一旦丟失，您將丟失所有數據</translation>
+        <translation>請妥善保管好您的安全密碼，密碼一旦丟失，您將丟失所有數據</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="139"/>
@@ -906,7 +906,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="246"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="121"/>
         <source>Start</source>
-        <translation>進入</translation>
+        <translation>起點</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="176"/>
@@ -926,7 +926,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="430"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="600"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="605"/>
         <source>Unable to mount automatically, as it requires at least %1 GB</source>
         <translation>當前無法自動掛載，自動掛載空間至少需要%1 GB</translation>
     </message>
@@ -1237,6 +1237,10 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="791"/>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
+        <translation>密碼必須由大寫字母、小寫字母、數字、符號四種類型組成</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="113"/>
         <source>Password must contain letters, numbers and symbols</source>
         <translation>密碼必須由字母、數字、符號三種類型組成</translation>
@@ -1674,8 +1678,8 @@
         <translation>另存為</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="60"/>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="129"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="59"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="133"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="72"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="119"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="123"/>
@@ -1683,14 +1687,14 @@
         <translation>友情提示</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="62"/>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="114"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="118"/>
         <source>No swap partition created, which may affect system performance</source>
         <translation>未掛載交換分區，可能會影響系統性能</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="63"/>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="120"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="62"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="124"/>
         <source>OK</source>
         <translation>確定</translation>
     </message>

@@ -497,21 +497,21 @@
         <translation>关机</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="73"/>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="129"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="68"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="121"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="50"/>
         <source>Abort Installation</source>
         <translation>终止安装</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="75"/>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="111"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="70"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="103"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="55"/>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
         <translation>本次安装过程中您所做的相关操作将不会生效，确定要终止安装还是继续完成安装？</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="71"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="98"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
@@ -525,7 +525,7 @@
         <translation>继续安装</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="77"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="72"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="43"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="61"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="23"/>
@@ -926,7 +926,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="430"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="600"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="605"/>
         <source>Unable to mount automatically, as it requires at least %1 GB</source>
         <translation>当前无法自动挂载，自动挂载空间至少需要%1 GB</translation>
     </message>
@@ -1237,6 +1237,10 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="791"/>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
+        <translation>密码必须由大写字母、小写字母、数字、符号四种类型组成</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="113"/>
         <source>Password must contain letters, numbers and symbols</source>
         <translation>密码必须由字母、数字、符号三种类型组成</translation>
@@ -1674,8 +1678,8 @@
         <translation>另存为</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="60"/>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="129"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="59"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="133"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="72"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="119"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="123"/>
@@ -1683,14 +1687,14 @@
         <translation>友情提示</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="62"/>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="114"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="118"/>
         <source>No swap partition created, which may affect system performance</source>
         <translation>未挂载交换分区，可能会影响系统性能</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="63"/>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="120"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="62"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="124"/>
         <source>OK</source>
         <translation>确定</translation>
     </message>

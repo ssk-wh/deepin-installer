@@ -79,7 +79,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
         <source>Cloud and Virtualzalition</source>
-        <translation>Cloud e virtualização</translation>
+        <translation>Nuvem e virtualização</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
@@ -497,21 +497,21 @@
         <translation>Encerrar</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="73"/>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="129"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="68"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="121"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="50"/>
         <source>Abort Installation</source>
         <translation>Abortar Instalação</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="75"/>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="111"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="70"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="103"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="55"/>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
         <translation>Operações relevantes efetuadas durante o processo de instalação não terão efeito. Continuar a instalação ou Abortar?</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="71"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="98"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
@@ -525,7 +525,7 @@
         <translation>Continuar</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="77"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="72"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="43"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="61"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="23"/>
@@ -926,7 +926,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="430"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="600"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="605"/>
         <source>Unable to mount automatically, as it requires at least %1 GB</source>
         <translation>Incapaz de montar automaticamente, uma vez que requer pelo menos %1 GB</translation>
     </message>
@@ -1237,6 +1237,10 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="791"/>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="113"/>
         <source>Password must contain letters, numbers and symbols</source>
         <translation>A palavra-passe deve conter letras, números e símbolos</translation>
@@ -1674,8 +1678,8 @@
         <translation>Guardar como</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="60"/>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="129"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="59"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="133"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="72"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="119"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="123"/>
@@ -1683,14 +1687,14 @@
         <translation>Aviso</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="62"/>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="114"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="118"/>
         <source>No swap partition created, which may affect system performance</source>
         <translation>Nenhuma partição swap criada, o que pode afetar o desempenho do sistema</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="63"/>
-        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="120"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="62"/>
+        <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="124"/>
         <source>OK</source>
         <translation>Aceitar</translation>
     </message>

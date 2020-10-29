@@ -788,7 +788,7 @@ bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, Q
         return false;
     }
     case ValidatePasswordState::StrongError: {
-        msg = ::QObject::tr("Password must contain letters, numbers and symbols");
+        msg = ::QObject::tr("Password must contain uppercase letters, lowercase letters, numbers and symbols");
         return false;
     }
     case ValidatePasswordState::TooShortError:
