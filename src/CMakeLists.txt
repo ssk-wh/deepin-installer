@@ -111,7 +111,7 @@ pkg_search_module(X11TST REQUIRED xtst)
 pkg_search_module(X11RandR REQUIRED xrandr)
 pkg_search_module(UDisk2 REQUIRED udisks2-qt5)
 #pkg_search_module(ncursesw REQUIRED ncurses++w)
-#pkg_search_module(pwquality REQUIRED pwquality)
+pkg_search_module(pwquality REQUIRED pwquality)
 
 include_directories(AFTER ${Parted_INCLUDE_DIRS})
 include_directories(AFTER ${X11_INCLUDE_DIRS})
@@ -761,12 +761,10 @@ add_executable(deepin-installer
 target_include_directories(deepin-installer PUBLIC
                ${QTERMWIDGET_INCLUDE_DIRS}
                ${KF5_QT_INCLUDE_DIRS}
-               #${pwquality_INCLUDE_DIRS}
+               ${pwquality_INCLUDE_DIRS}
 )
 
-target_link_libraries(deepin-installer ${LINK_LIBS} qtermwidget5 ${KF5_QT_LIBRARIES}
-    #pwquality
-    )
+target_link_libraries(deepin-installer ${LINK_LIBS} qtermwidget5 ${KF5_QT_LIBRARIES} pwquality)
 add_dependencies(deepin-installer installer-qm-update)
 
 
@@ -789,9 +787,7 @@ target_include_directories(deepin-installer-cli PUBLIC
                ${KF5_QT_INCLUDE_DIRS}
 )
 
-target_link_libraries(deepin-installer-cli ${LINK_LIBS} ncurses++w ncursesw panelw ${KF5_QT_LIBRARIES}
-    #pwquality
-    )
+target_link_libraries(deepin-installer-cli ${LINK_LIBS} ncurses++w ncursesw panelw ${KF5_QT_LIBRARIES} pwquality)
 add_dependencies(deepin-installer-cli installer-qm-update)
 
 
@@ -827,14 +823,14 @@ add_executable(deepin-installer-first-boot
 target_include_directories(deepin-installer-first-boot PUBLIC
                ${QTERMWIDGET_INCLUDE_DIRS}
                ${KF5_QT_INCLUDE_DIRS}
-               #${pwquality_INCLUDE_DIRS}
+               ${pwquality_INCLUDE_DIRS}
 )
 
 target_link_libraries(deepin-installer-first-boot
                       ${LINK_LIBS}
                       qtermwidget5
                       ${KF5_QT_LIBRARIES}
-                      #pwquality
+                      pwquality
                       )
 
 add_executable(deepin-installer-user-form
@@ -918,13 +914,10 @@ add_executable(deepin-installer-user-form
                ui/styles/styles.qrc
                license/license.qrc
                )
-target_link_libraries(deepin-installer-user-form ${LINK_LIBS}
-    #pwquality
-    )
-
-#target_include_directories(deepin-installer-user-form PUBLIC
-               #${pwquality_INCLUDE_DIRS}
-#)
+target_link_libraries(deepin-installer-user-form ${LINK_LIBS} pwquality)
+target_include_directories(deepin-installer-user-form PUBLIC
+               ${pwquality_INCLUDE_DIRS}
+)
 
 # deepin-installer-oem
 add_executable(deepin-installer-oem

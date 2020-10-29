@@ -19,7 +19,7 @@
 #define DEEPIN_INSTALLER_PWQUALITY_MANAGER_H
 
 #include <cstddef>
-//#include <pwquality.h>
+#include <pwquality.h>
 #include <QString>
 #include <QScopedPointer>
 
@@ -61,13 +61,13 @@ private:
     void setup();
 
 private:
-//    struct ScopedPointerCustomDeleter{
-//        static inline void cleanup(pwquality_settings_t *pointer){
-//            pwquality_free_settings(pointer);
-//        }
-//    };
+    struct ScopedPointerCustomDeleter{
+        static inline void cleanup(pwquality_settings_t *pointer){
+            pwquality_free_settings(pointer);
+        }
+    };
 
-//    QScopedPointer<pwquality_settings_t, ScopedPointerCustomDeleter> m_pwqualitySetting;
+    QScopedPointer<pwquality_settings_t, ScopedPointerCustomDeleter> m_pwqualitySetting;
 
     bool m_dictChecked = false;
     QString m_dictPath = "";
