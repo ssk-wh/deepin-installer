@@ -31,24 +31,24 @@ installer::PwqualityManager::PwqualityManager()
 
 void installer::PwqualityManager::init()
 {
-    m_pwqualitySetting.reset(pwquality_default_settings());
+//    m_pwqualitySetting.reset(pwquality_default_settings());
 }
 
 void installer::PwqualityManager::setup()
 {
-    m_dictChecked = GetSettingsBool(kSystemInfoPasswordDistCheck);
-    if (m_dictChecked) {
-        pwquality_set_int_value(m_pwqualitySetting.get(), PWQ_SETTING_DICT_CHECK, 1);
-    } else {
-        pwquality_set_int_value(m_pwqualitySetting.get(), PWQ_SETTING_DICT_CHECK, 0);
-    }
-    m_dictPath = GetSettingsBool(kSystemInfoPasswordDistPath);
-    if (!m_dictPath.isEmpty()) {
-        pwquality_set_str_value(m_pwqualitySetting.get(), PWQ_SETTING_DICT_PATH, m_dictPath.toStdString().c_str());
-    }
+//    m_dictChecked = GetSettingsBool(kSystemInfoPasswordDistCheck);
+//    if (m_dictChecked) {
+//        pwquality_set_int_value(m_pwqualitySetting.get(), PWQ_SETTING_DICT_CHECK, 1);
+//    } else {
+//        pwquality_set_int_value(m_pwqualitySetting.get(), PWQ_SETTING_DICT_CHECK, 0);
+//    }
+//    m_dictPath = GetSettingsBool(kSystemInfoPasswordDistPath);
+//    if (!m_dictPath.isEmpty()) {
+//        pwquality_set_str_value(m_pwqualitySetting.get(), PWQ_SETTING_DICT_PATH, m_dictPath.toStdString().c_str());
+//    }
 
-    m_palindromeChecked = GetSettingsBool(kSystemInfoPasswordPalindromeCheck);
-    m_palindromeLength = GetSettingsInt(kSystemInfoPasswordPalindromeLength);
+//    m_palindromeChecked = GetSettingsBool(kSystemInfoPasswordPalindromeCheck);
+//    m_palindromeLength = GetSettingsInt(kSystemInfoPasswordPalindromeLength);
 }
 
 
@@ -65,22 +65,22 @@ installer::ValidateState installer::PwqualityManager::checked(const QString &tex
 
 QString installer::PwqualityManager::palindromeChecked(const QString &text)
 {
-    if (m_palindromeChecked) {
-        QStringList list;
-        for (int pos = 0; pos < text.size() + 1 - m_palindromeLength; pos++) {
-            list.append(text.mid(pos, m_palindromeLength));
-        }
+//    if (m_palindromeChecked) {
+//        QStringList list;
+//        for (int pos = 0; pos < text.size() + 1 - m_palindromeLength; pos++) {
+//            list.append(text.mid(pos, m_palindromeLength));
+//        }
 
-        for (QString str : list) {
-            int code = pwquality_check(m_pwqualitySetting.get(),
-                                       str.toStdString().c_str(),
-                                       NULL, NULL, NULL);
+//        for (QString str : list) {
+//            int code = pwquality_check(m_pwqualitySetting.get(),
+//                                       str.toStdString().c_str(),
+//                                       NULL, NULL, NULL);
 
-            if (code == PWQ_ERROR_PALINDROME) {
-                return str;
-            }
-        }
-    }
+//            if (code == PWQ_ERROR_PALINDROME) {
+//                return str;
+//            }
+//        }
+//    }
 
     return QString();
 }
@@ -88,19 +88,19 @@ QString installer::PwqualityManager::palindromeChecked(const QString &text)
 
 QString installer::PwqualityManager::dictChecked(const QString &text)
 {
-    int code = pwquality_check(m_pwqualitySetting.get(),
-                               text.toStdString().c_str(),
-                               NULL, NULL, NULL);
+//    int code = pwquality_check(m_pwqualitySetting.get(),
+//                               text.toStdString().c_str(),
+//                               NULL, NULL, NULL);
 
-    if (code == PWQ_ERROR_CRACKLIB_CHECK) {
-        return text;
-    }
+//    if (code == PWQ_ERROR_CRACKLIB_CHECK) {
+//        return text;
+//    }
     return QString();
 }
 
 bool installer::PwqualityManager::lengthChecked(const QString &text)
 {
-    pwquality_set_int_value(m_pwqualitySetting.get(), PWQ_SETTING_MIN_LENGTH, 6);
+//    pwquality_set_int_value(m_pwqualitySetting.get(), PWQ_SETTING_MIN_LENGTH, 6);
     // ...
 
     return true;
