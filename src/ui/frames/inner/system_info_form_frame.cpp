@@ -700,8 +700,7 @@ bool SystemInfoFormFramePrivate::validateUsername(QString& msg)
     }
     case ValidateUsernameState::EmptyError:  // fall through
     case ValidateUsernameState::InvalidCharError: {
-        msg = ::QObject::tr("Username must contain English letters (lowercase), "
-                   "numbers or special symbols (_-)");
+        msg = ::QObject::tr("Username can only contain lowercase letters, numbers and symbols (_-)");
         return false;
     }
     case ValidateUsernameState::TooLongError:  // fall through
@@ -788,7 +787,7 @@ bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, Q
         return false;
     }
     case ValidatePasswordState::StrongError: {
-        msg = ::QObject::tr("Password must contain uppercase letters, lowercase letters, numbers and symbols");
+        msg = ::QObject::tr("Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&*()[]{}\|/?,.<>)");
         return false;
     }
     case ValidatePasswordState::TooShortError:
