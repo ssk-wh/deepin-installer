@@ -177,6 +177,7 @@ main() {
 
   sync
   cleanup_oem_license
+  update-grub && update-initramfs -u
   cleanup_first_boot
   remove_component_packages
   setup_default_target
