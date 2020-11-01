@@ -22,11 +22,10 @@ protected:
     void paintEvent(QPaintEvent* event) override;
 
 private:
-    BaseFrameInterface* childFrameInterface;
+    BaseFrameInterface* m_childFrameInterface;
     QStackedLayout* m_centerLayout;
-    QVBoxLayout* m_mainLayout;
 
-    QWidget* widget;
+    QWidget* m_widget;
 };
 }
 #endif // PARTITION_SHADOW_WIDGET_H

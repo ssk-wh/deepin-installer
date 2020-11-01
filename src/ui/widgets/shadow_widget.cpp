@@ -9,9 +9,8 @@ namespace installer {
 
 ShadowWidget::ShadowWidget(QWidget* parent)
     : QWidget(parent)
-    , childFrameInterface(nullptr)
+    , m_childFrameInterface(nullptr)
     , m_centerLayout(new QStackedLayout)
-    , m_mainLayout(new QVBoxLayout)
 {
     m_centerLayout->setContentsMargins(0, 0, 0, 0);
     m_centerLayout->setSpacing(0);
@@ -21,42 +20,43 @@ ShadowWidget::ShadowWidget(QWidget* parent)
     layout->setSpacing(0);
     layout->addLayout(m_centerLayout);
 
-    widget = new QWidget;
-    widget->setContentsMargins(0, 0, 0, 0);
-    widget->setLayout(layout);
+    m_widget = new QWidget;
+    m_widget->setContentsMargins(0, 0, 0, 0);
+    m_widget->setLayout(layout);
 
-    m_mainLayout->setContentsMargins(0, 0, 0, 0);
-    m_mainLayout->setSpacing(0);
+    QVBoxLayout* mainLayout = new QVBoxLayout;
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setSpacing(0);
 
-    m_mainLayout->addStretch();
-    m_mainLayout->addWidget(widget, 0, Qt::AlignHCenter);
-    m_mainLayout->addStretch();
+    mainLayout->addStretch();
+    mainLayout->addWidget(m_widget, 0, Qt::AlignHCenter);
+    mainLayout->addStretch();
 
     setContentsMargins(0, 0, 0, 0);
-    setLayout(m_mainLayout);
+    setLayout(mainLayout);
 }
 
 void installer::ShadowWidget::setContent(BaseFrameInterface* inter)
 {
     Q_ASSERT(inter != nullptr);
 
-    if (childFrameInterface) {
+    if (m_childFrameInterface) {
         eraseContent();
     }
 
-    childFrameInterface = inter;
-    widget->setFixedSize(childFrameInterface->size());
-    m_centerLayout->addWidget(childFrameInterface);
+    m_childFrameInterface = inter;
+    m_widget->setFixedSize(m_childFrameInterface->size());
+    m_centerLayout->addWidget(m_childFrameInterface);
 }
 
 void ShadowWidget::eraseContent()
 {
-    if (childFrameInterface) {
-        m_centerLayout->removeWidget(childFrameInterface);
-        childFrameInterface->hide();
+    if (m_childFrameInterface) {
+        m_centerLayout->removeWidget(m_childFrameInterface);
+        m_childFrameInterface->hide();
     }
 
-    childFrameInterface = nullptr;
+    m_childFrameInterface = nullptr;
 }
 
 void installer::ShadowWidget::paintEvent(QPaintEvent* event)
