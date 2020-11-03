@@ -36,6 +36,7 @@ class ConfirmQuitFrame : public DDialog {
  public:
   explicit ConfirmQuitFrame(QWidget* parent = nullptr);
   void display();
+  void updateTs();
   void updateTsForSuccessPage();
 
  signals:
@@ -51,12 +52,16 @@ class ConfirmQuitFrame : public DDialog {
   bool eventFilter(QObject *watched, QEvent *event) override;
   void showEvent(QShowEvent *event) override;
   void hideEvent(QHideEvent *event) override;
+  void resizeEvent(QResizeEvent *event) override;
 
  private:
   void initConnections();
   void initUI();
   void setupCloseButton();
+  void setCursor();
+  void resetCursor();
 
+  bool m_setOverrideCursor = false;
   CommentLabel *comment_label_ = nullptr;
   SelectButton* continue_button_ = nullptr;
   DSuggestButton* abort_button_ = nullptr;

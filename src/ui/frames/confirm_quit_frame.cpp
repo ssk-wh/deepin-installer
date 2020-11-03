@@ -28,6 +28,7 @@
 #include <DDialog>
 #include <QMouseEvent>
 #include <QApplication>
+#include <QDebug>
 
 DWIDGET_USE_NAMESPACE
 
@@ -40,6 +41,7 @@ namespace installer {
 
 ConfirmQuitFrame::ConfirmQuitFrame(QWidget* parent)
     : DDialog(parent)
+    , m_setOverrideCursor(false)
 {
     setObjectName("confirm_quit_frame");
 
@@ -54,6 +56,15 @@ void ConfirmQuitFrame::display()
     exec();
 }
 
+void ConfirmQuitFrame::updateTs()
+{
+    setTitle(::QObject::tr("Abort Installation"));
+    comment_label_->setText(
+        ::QObject::tr("Relevant operations you made in the installation process will not take effect, abort or continue installation?"));
+    continue_button_->setText(::QObject::tr("Continue"));
+    abort_button_->setText(::QObject::tr("Abort"));
+}
+
 void ConfirmQuitFrame::updateTsForSuccessPage()
 {
     setTitle(::QObject::tr("Shut Down"));
@@ -65,18 +76,7 @@ void ConfirmQuitFrame::updateTsForSuccessPage()
 
 void ConfirmQuitFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    setTitle(::QObject::tr("Abort Installation"));
-    comment_label_->setText(
-        ::QObject::tr("Relevant operations you made in the installation process will not take effect, abort or continue installation?"));
-    continue_button_->setText(::QObject::tr("Continue"));
-    abort_button_->setText(::QObject::tr("Abort"));
-
-    if (m_close_button) {
-        const int marginSize = this->layout()->margin();
-        m_close_button->move(width() - m_close_button->width() - marginSize, marginSize);
-        m_close_button->raise();
-        m_close_button->show();
-    }
+    updateTs();
   } else {
     QWidget::changeEvent(event);
   }
@@ -135,13 +135,30 @@ void ConfirmQuitFrame::initUI() {
 
 void ConfirmQuitFrame::setupCloseButton()
 {
-    // TODO: use titleBar implement.
     m_close_button = new DImageButton(this);
     //m_close_button->setFocusPolicy(Qt::TabFocus);
     m_close_button->setFixedSize(40, 40);
     m_close_button->setNormalPic(":/images/close_normal.svg");
     m_close_button->setHoverPic(":/images/close_normal.svg");
     m_close_button->setPressPic(":/images/close_normal.svg");
+
+    m_close_button->hide();
+}
+
+void ConfirmQuitFrame::setCursor()
+{
+    if (!m_setOverrideCursor) {
+        QApplication::setOverrideCursor(QCursor(Qt::ArrowCursor));
+        m_setOverrideCursor = true;
+    }
+}
+
+void ConfirmQuitFrame::resetCursor()
+{
+    if (m_setOverrideCursor) {
+        QApplication::restoreOverrideCursor();
+        m_setOverrideCursor = false;
+    }
 }
 
 bool ConfirmQuitFrame::eventFilter(QObject *watched, QEvent *event)
@@ -153,19 +170,52 @@ bool ConfirmQuitFrame::eventFilter(QObject *watched, QEvent *event)
         }
     }
 
+    if (event->type() == QEvent::MouseMove) {
+        QPoint tl = mapToGlobal(rect().topRight());
+        QRect closeButtonRect(tl.x() - 40, tl.y(), 40, 40);
+        qDebug() << "closeButtonRect:" << closeButtonRect;
+
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+        if (closeButtonRect.contains(mouseEvent->globalPos())) {
+            qDebug() << "contains mouse pos:" << mouseEvent->globalPos();
+            resetCursor();
+        }
+        else {
+            setCursor();
+        }
+    }
+
     return DDialog::eventFilter(watched, event);
 }
 
 void ConfirmQuitFrame::showEvent(QShowEvent *event)
 {
     qApp->installEventFilter(this);
+
+    setCursor();
+
     return DDialog::showEvent(event);
 }
 
 void ConfirmQuitFrame::hideEvent(QHideEvent *event)
 {
     qApp->removeEventFilter(this);
+
+    resetCursor();
+
     return DDialog::hideEvent(event);
+}
+
+void ConfirmQuitFrame::resizeEvent(QResizeEvent *event)
+{
+    if (m_close_button != nullptr) {
+        const int marginSize = this->layout()->margin();
+        m_close_button->move(width() - m_close_button->width() - marginSize, marginSize);
+        m_close_button->raise();
+        m_close_button->show();
+    }
+
+    DDialog::resizeEvent(event);
 }
 
 void ConfirmQuitFrame::mouseMoveEvent(QMouseEvent *event) {
