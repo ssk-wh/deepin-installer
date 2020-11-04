@@ -17,5 +17,5 @@
 #
 # Read kernel parameter and set global variables.
 
-/usr/bin/kwin_no_scale &
-sleep 5
+#/usr/bin/kwin_no_scale &
+#sleep 5
