@@ -113,6 +113,7 @@ void AdvancedPartitionFrame::changeEvent(QEvent* event) {
       editing_button_->setText(::QObject::tr("Delete"));
     }
     m_installNvidiaCheck->setText(::QObject::tr("Install NVIDIA closed source driver"));
+    repaintDevices();
   } else {
     QFrame::changeEvent(event);
   }
@@ -508,16 +509,16 @@ void AdvancedPartitionFrame::updateValidateStates() {
     this->hideErrorMessages();
   } else {
     for (ValidateState state : validate_states_) {
-      if (!new_states.contains(state)) {
+      //if (!new_states.contains(state)) {
         // Hide fixed error label.
         this->hideErrorMessage(state);
-      }
+      //}
     }
 
     for (ValidateState state : new_states) {
-      if (!validate_states_.contains(state)) {
+      //if (!validate_states_.contains(state)) {
         this->showErrorMessage(state);
-      }
+      //}
     }
   }
 
