@@ -4,6 +4,7 @@ timezone_default = Asia/Shanghai
 partition_skip_simple_partition_page = true
 partition_skip_partition_crypt_page = true
 install_progress_os_type_slide = slide/community
+enable_install_nvidia_driver = true
 
 
 

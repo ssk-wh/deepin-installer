@@ -32,6 +32,7 @@
 #include <QSettings>
 #include <random>
 #include <DSysInfo>
+#include <QDBusInterface>
 
 #include "base/consts.h"
 #include "service/settings_name.h"
@@ -855,6 +856,25 @@ bool SettingCustom::hasSetting(const QString &key)
 void WriteNecuresCliInstallMode(bool mode)
 {
     AppendToConfigFile("DI_NECURESCLIINSTALL_MODE", mode);
+}
+
+bool isNotebook()
+{
+    if (GetSettingsBool(kEnablePcTypeCheck)) {
+        QDBusInterface upowerInterface("org.freedesktop.UPower",
+                                            "/org/freedesktop/UPower",
+                                            "org.freedesktop.UPower",
+                                            QDBusConnection::systemBus());
+        QVariant  defaultDevice(upowerInterface.property("LidIsPresent"));
+        if (defaultDevice.type() != QVariant::Type::Bool) {
+            qCritical() << "failed get pc type.  " << defaultDevice.type();
+            return false;
+        }
+        qDebug() << "defaultDevice.toBool() = " << defaultDevice.toBool();
+        return defaultDevice.toBool();
+    } else {
+        return false;  // 不开启pc类型的检查，则不处理是否为笔记本的判断
+    }
 }
 
 }  // namespace installer

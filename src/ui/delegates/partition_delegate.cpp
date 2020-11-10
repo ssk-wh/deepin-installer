@@ -14,19 +14,18 @@ Delegate::Delegate(QObject* parent) : QObject(parent) {}
 
 bool Delegate::scanNvidia()
 {
-   if (GetCurrentType() == OSType::Server
-           || GetCurrentType() == OSType::Professional) {
-       return false;
-   }
+    if (!GetSettingsBool(KEnableInstallNvidiaDriver) || isNotebook()) {
+        return false;
+    }
 
-   QString cmd("lspci");
-   QStringList args("-n");
-   QString output;
-   if (!SpawnCmd(cmd, args, output)) {
+    QString cmd("lspci");
+    QStringList args("-n");
+    QString output;
+    if (!SpawnCmd(cmd, args, output)) {
        return false;
-   }
+    }
 
-   return (output.indexOf(QRegExp(".*03(80|0[0-2]): 10de")) > -1);
+    return (output.indexOf(QRegExp(".*03(80|0[0-2]): 10de")) > -1);
 }
 
 bool Delegate::canAddLogical(const Partition::Ptr partition) const

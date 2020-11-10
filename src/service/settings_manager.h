@@ -55,6 +55,8 @@ private:
     QObject settingObject;
 };
 
+bool isNotebook();
+
 // Get boolean option value from settings file.
 // If |key| does not exist, returns false.
 bool GetSettingsBool(const QString& key);

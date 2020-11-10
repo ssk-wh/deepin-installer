@@ -157,8 +157,12 @@ const char kPartitionFullDiskLargeRootPartRange[] =
 
 const char KPartitionSkipFullCryptPage[] =
     "partition_skip_partition_crypt_page";
+
+// Nvidia 驱动配置选项
 const char KEnableInstallNvidiaDriver[] =
     "enable_install_nvidia_driver";
+const char kEnablePcTypeCheck[] =
+    "enable_pc_type_check";
 
 const char kPartitionFullDiskSmallLegacyLabel[] =
     "partition_full_disk_small_legacy_label";

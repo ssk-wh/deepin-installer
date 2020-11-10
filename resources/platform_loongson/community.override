@@ -14,5 +14,6 @@ partition_full_disk_large_legacy_policy = "/boot:ext4:1:1536;swap:linux-swap:153
 partition_full_disk_small_legacy_label = "Boot;Swap;Root"
 partition_full_disk_large_legacy_label = "Boot;Swap;Root;_dde_data"
 install_progress_os_type_slide = slide/community
+enable_install_nvidia_driver = true
 
 

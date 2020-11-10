@@ -4,6 +4,5 @@ timezone_default = Asia/Shanghai
 skip_select_component_page = true
 select_component_default_install_type = ""
 partition_skip_simple_partition_page = true
-enable_install_nvidia_driver = true
 
 
