@@ -197,53 +197,14 @@ void TimezoneFrame::updateTimezoneBasedOnLanguage(const QString& timezone) {
 }
 
 void TimezoneFrame::finished() {
-  // Validate timezone before writing to settings file.
-  if (!IsTimezoneInTab(m_private->timezone_)) {
+    // Validate timezone before writing to settings file.
+    if (!IsTimezoneInTab(m_private->timezone_)) {
     qWarning() << "Invalid timezone:" << m_private->timezone_;
     m_private->timezone_ = kDefaultTimezone;
-  }
+    }
 
-  WriteTimezone(m_private->timezone_);
-
-  QScopedPointer<QProcess> process(new QProcess);
-
-  const QString localRtc = [=]() -> QString {
-      return GetSettingsBool(kTimezoneUseLocalTime) ? "true" : "false";
-  }();
-
-  process->start("timedatectl", {"set-local-rtc", localRtc});
-  if (!process->waitForFinished()) {
-       qCritical() << "set local rtc failed! " << process->readAllStandardOutput();
-  }
-
-  process->start("timedatectl", {"set-timezone", m_private->timezone_});
-  if (!process->waitForFinished()) {
-       qCritical() << "set timezone failed! " << process->readAllStandardOutput();
-  }
-
-  if (!m_private->m_systemDateFrame->isEnabled()) {
-      qInfo() << "set ntp start...";
-      WriteIsLocalTime(false);
-      WriteIsLocalTimeForce(false);
-      process->start("timedatectl", {"set-ntp", "true"});
-      if (!process->waitForFinished()) {
-           qCritical() << "set ntp failed! " << process->readAllStandardOutput();
-      }
-  } else {
-      qInfo() << "set time start...";
-
-      WriteIsLocalTime(true);
-      WriteIsLocalTimeForce(true);
-      process->start("timedatectl", {"set-ntp", "false"});
-      if (!process->waitForFinished()) {
-           qCritical() << "set ntp failed! " << process->readAllStandardOutput();
-      }
-
-      process->start("timedatectl", {"set-time", m_private->m_systemDateFrame->timedate()});
-      if (!process->waitForFinished()) {
-           qCritical() << "set time failed! " << process->readAllStandardOutput();
-      }
-  }
+    WriteTimezone(m_private->timezone_);
+    WriteIsEnableNTP(!m_private->m_systemDateFrame->isEnabled());
 }
 
 void TimezoneFrame::changeEvent(QEvent* event) {

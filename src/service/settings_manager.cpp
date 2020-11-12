@@ -739,14 +739,9 @@ void WriteIsMinimalCharacterSystem(const bool isMinimalCharacterSystem)
     AppendToConfigFile("DI_IS_MINIMAL_CHARACTER_SYSTEM", isMinimalCharacterSystem);
 }
 
-void WriteIsLocalTime(bool isLocalTime)
+void WriteIsEnableNTP(bool isEnableNTP)
 {
-    AppendToConfigFile("DI_IS_LOCAL_TIME", isLocalTime);
-}
-
-void WriteIsLocalTimeForce(bool isLocalTimeForce)
-{
-    AppendToConfigFile("DI_FORCE_LOCAL_TIME", isLocalTimeForce);
+    AppendToConfigFile("DI_IS_ENABLE_NTP", isEnableNTP);
 }
 
 void WriteFullDiskResolution(const FinalFullDiskResolution& resolution)

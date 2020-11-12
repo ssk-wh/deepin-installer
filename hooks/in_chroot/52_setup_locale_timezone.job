@@ -17,28 +17,63 @@
 #
 
 # Update configuration for systemd to enable locale time
+# 禁止UTC时间
 enable_local_rtc() {
-  msg "Enable local rtc"
-  cat > /etc/adjtime << EOF
+    local timezone_use_local_time_regardless timezone_force_local_time
+    local DI_IS_LOCAL_TIME
+    timezone_use_local_time_regardless=$(installer_get "timezone_use_local_time_regardless")
+    timezone_force_local_time=$(installer_get "timezone_force_local_time")
+    DI_IS_LOCAL_TIME=$(installer_get "DI_IS_LOCAL_TIME")
 
-0
-LOCAL
-EOF
+    ## timezone_use_local_time_regardless = true 时
+    ## 1. 当 timezone_force_local_time = true 强制禁止UTC时间
+    ## 2. 当使用windwos系统时间时（timezone_use_windows_time = true），如果检测到windows分区，则
+    ##   DI_IS_LOCAL_TIME = true  禁止UTC时间
+    if [[ x"${timezone_use_local_time_regardless}" = xtrue &&
+        (x"${timezone_force_local_time}" = xtrue ||
+         x"${DI_IS_LOCAL_TIME}" = xtrue) ]]; then
+        timedatectl set-local-rtc 1
+    else
+        timedatectl set-local-rtc 0
+    fi
 }
 
-rm_ntp_config() {
-	rm -fr /usr/lib/systemd/system/systemd-timesyncd.service.d/disable-timesyncd-with-installer.conf
-	msg "rm ntp config"
-}
-
-setup_ntp_config() {
-	cat > /usr/lib/systemd/system/systemd-timesyncd.service.d/disable-timesyncd-with-installer.conf << EOF
+# set ntp
+set_ntp_config() {
+    cat > /usr/lib/systemd/system/systemd-timesyncd.service.d/disable-timesyncd-with-installer.conf << EOF
 
 [Unit]
 # Don't run timesyncd if installer is installed
 ConditionFileIsExecutable=!/usr/bin/deepin-installer
 EOF
-	msg "setup ntp config"
+}
+enable_ntp() {
+    local DI_IS_ENABLE_NTP
+    DI_IS_ENABLE_NTP=$(installer_get "DI_IS_ENABLE_NTP")
+    if [[ x"${DI_IS_ENABLE_NTP}" = xtrue ]]; then
+        # 处理timesyncd服务器的配置文件，使得在安装器运行阶段ntp服务器可以被启动
+        rm -fr /usr/lib/systemd/system/systemd-timesyncd.service.d/disable-timesyncd-with-installer.conf
+        msg "rm ntp config"
+
+        # 启动ntp服务，设置开启时间同步属性
+        systemctl enable systemd-timesyncd.service
+        systemctl start systemd-timesyncd.service
+        timedatectl set-ntp true
+        msg "set-ntp true"
+
+        # 兼容历史安装器和timesysncd服务器同时启动的问题
+        set_ntp_config
+        msg "setup ntp config"
+    fi
+}
+
+# 同步系统时间对rtc中
+datetime_hctosys() {
+    local timedate_is_sysnc
+    timezone_is_sysnc=$(installer_get "timezone_is_sysnc")
+    if [[ x"${timezone_is_sysnc}" = xtrue ]]; then
+        hwclock --systohc
+    fi
 }
 
 # Setup locale and timezone.
@@ -93,23 +128,9 @@ EOF
   dpkg-reconfigure --frontend noninteractive tzdata
 
   # Set using local time or not
-  local DI_IS_LOCAL_TIME DI_FORCE_LOCAL_TIME
-  DI_IS_LOCAL_TIME=$(installer_get "DI_IS_LOCAL_TIME")
-  DI_FORCE_LOCAL_TIME=$(installer_get "DI_FORCE_LOCAL_TIME")
-  local timezone_use_local_time_regardless
-  timezone_use_local_time_regardless=$(installer_get "timezone_use_local_time_regardless")
-  if [[ x"${timezone_use_local_time_regardless}" = xtrue || x"${DI_IS_LOCAL_TIME}" = xtrue \
-    || x"${DI_FORCE_LOCAL_TIME}" = xtrue ]]; then
-    # Use RTC time, "timedatectl set-local-rtc 1"
-    enable_local_rtc
-  else
-	  rm_ntp_config  	
-      systemctl enable systemd-timesyncd.service
-      systemctl start systemd-timesyncd.service
-	  timedatectl set-ntp true
-	  msg "set-ntp true"
-	  setup_ntp_config
-  fi
+  enable_local_rtc
+  enable_ntp
+  datetime_hctosys
 
   # Check locale
   if ls /usr/share/i18n/locales | grep -q "\<${LOCALE}\>"; then
