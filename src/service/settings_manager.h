@@ -225,6 +225,8 @@ void WriteFullDiskResolution(const FinalFullDiskResolution& resolution);
 
 void WriteFullDiskMode(bool value);
 
+void WriteIfDoRecovery(const bool value);
+
 struct DiskPartitionSetting {
     DiskPartitionSetting();
     QString  root_disk;

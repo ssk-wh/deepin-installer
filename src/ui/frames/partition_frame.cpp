@@ -18,7 +18,6 @@
 #include "ui/frames/partition_frame.h"
 
 #include "base/file_util.h"
-#include "service/settings_manager.h"
 #include "service/settings_name.h"
 #include "ui/delegates/advanced_partition_delegate.h"
 #include "ui/delegates/lvm_partition_delegate.h"
@@ -176,7 +175,6 @@ void PartitionFrame::init()
 
 void PartitionFrame::finished()
 {
-
 }
 
 bool PartitionFrame::shouldDisplay() const{

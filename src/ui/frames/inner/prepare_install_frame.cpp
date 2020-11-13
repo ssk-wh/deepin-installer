@@ -34,6 +34,7 @@
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/title_label.h"
 #include "ui/widgets/select_button.h"
+#include "service/settings_manager.h"
 
 DWIDGET_USE_NAMESPACE
 DGUI_USE_NAMESPACE
@@ -77,21 +78,19 @@ void PrepareInstallFrame::updateDescription(const QStringList& descriptions) {
 
 void PrepareInstallFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
-    title_label_->setText(::QObject::tr("Ready to Install"));
-    comment_label_->setText(
-        ::QObject::tr("Make a backup of your important data and then continue"));
-    abort_button_->setText(::QObject::tr("Back"));
-    continue_button_->setText(::QObject::tr("Continue"));
+    updateTs();
   } else {
     QFrame::changeEvent(event);
   }
 }
 
 void PrepareInstallFrame::initConnections() {
-  connect(abort_button_, &QPushButton::clicked,
-          this, &PrepareInstallFrame::aborted);
-  connect(continue_button_, &QPushButton::clicked,
-          this, &PrepareInstallFrame::finished);
+    connect(abort_button_, &QPushButton::clicked,
+            this, &PrepareInstallFrame::aborted);
+    connect(continue_button_, &QPushButton::clicked, this, [=] {
+        WriteIfDoRecovery(m_selectCreateRecovery->isChecked());
+        emit finished();
+    });
 }
 
 void PrepareInstallFrame::initUI() {
@@ -154,6 +153,10 @@ void PrepareInstallFrame::initUI() {
   descriptionLayout->setSpacing(0);
   descriptionLayout->addWidget(scroll);
 
+  m_selectCreateRecovery = new DCheckBox;
+  m_selectCreateRecovery->setCheckable(true);
+  m_selectCreateRecovery->setChecked(true);
+
   abort_button_ = new SelectButton();
   abort_button_->setFixedSize(kButtonWidth, kButtonHeight);
   abort_button_->setFocusPolicy(Qt::TabFocus);
@@ -179,9 +182,23 @@ void PrepareInstallFrame::initUI() {
   layout->addStretch();
   layout->addWidget(scroll, 0, Qt::AlignHCenter);
   layout->addStretch();
+  layout->addWidget(m_selectCreateRecovery, 0, Qt::AlignHCenter);
+  layout->addSpacing(15);
   layout->addWidget(buttonWrapWidget, 0, Qt::AlignHCenter);
 
   setLayout(layout);
+
+  updateTs();
+}
+
+void PrepareInstallFrame::updateTs()
+{
+    title_label_->setText(::QObject::tr("Ready to Install"));
+    comment_label_->setText(
+        ::QObject::tr("Make a backup of your important data and then continue"));
+    abort_button_->setText(::QObject::tr("Back"));
+    continue_button_->setText(::QObject::tr("Continue"));
+    m_selectCreateRecovery->setText(::QObject::tr("Create a backup for system restore, but it will increase the time"));
 }
 
 }  // namespace installer

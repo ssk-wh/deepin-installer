@@ -907,4 +907,9 @@ bool isNotebook()
     }
 }
 
+void WriteIfDoRecovery(const bool value)
+{
+    AppendToConfigFile("DI_IF_DO_RECOVERY", value ? "true" : "false");
+}
+
 }  // namespace installer

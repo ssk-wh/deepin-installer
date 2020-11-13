@@ -20,6 +20,7 @@
 
 #include <QFrame>
 #include <DSuggestButton>
+#include <DCheckBox>
 
 DWIDGET_USE_NAMESPACE
 
@@ -56,11 +57,14 @@ class PrepareInstallFrame : public QFrame {
   void initConnections();
   void initUI();
 
+  void updateTs();
+
   TitleLabel* title_label_ = nullptr;
   CommentLabel* comment_label_ = nullptr;
   SelectButton* abort_button_ = nullptr;
   DSuggestButton* continue_button_ = nullptr;
   QLabel* description_edit_ = nullptr;
+  DCheckBox* m_selectCreateRecovery = nullptr;
 };
 
 }  // namespace installer

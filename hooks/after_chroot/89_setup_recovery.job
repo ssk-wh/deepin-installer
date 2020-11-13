@@ -23,6 +23,12 @@ if [ ! -d "/target/recovery" ];then
     return 0
 fi
 
+DI_IF_DO_RECOVERY=$(installer_get "DI_IF_DO_RECOVERY")
+
+if [ "x${DI_IF_DO_RECOVERY}" != "xtrue" ]; then
+    return 0
+fi
+
 mkdir /target/recovery/backup
 
 echo "UUID=$(lsblk -o UUID,MOUNTPOINT -f | grep -i /target/recovery$ | awk '{print $1}')" > /target/etc/deepin/system-recovery.conf
