@@ -43,6 +43,7 @@ void BackupLogFile() {
     const qint64 timestamp = QDateTime::currentMSecsSinceEpoch();
     const QString new_path = QString("%1.%2").arg(g_log_file).arg(timestamp);
     file.rename(new_path);
+    ChmodFile(new_path);
   }
 }
 
@@ -148,6 +149,10 @@ QString GetLogFilepath() {
   return g_log_file;
 }
 
+void ChmodFile(const QString &file) {
+    if (QFile::exists(file)) QFile::setPermissions(file, QFileDevice::ReadOwner | QFileDevice::WriteOwner);
+}
+
 bool RedirectLog(const QString& log_file) {
   // Store log filepath and backup old log file.
   g_log_file = log_file;
@@ -173,6 +178,8 @@ bool RedirectLog(const QString& log_file) {
     qCritical() << "Failed to redirect stderr";
     ok = false;
   }
+
+  ChmodFile(log_file);
   return ok;
 }
 

@@ -25,6 +25,7 @@ namespace installer {
 // If current user has no write permission in /var/log, keep log file in /tmp.
 QString GetLogFilepath();
 
+void ChmodFile(const QString &file);
 // Redirect stdout and stderr to |log_file|.
 bool RedirectLog(const QString& log_file);
 bool RedirectLogWithOutStd(const QString& log_file);

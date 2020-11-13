@@ -141,7 +141,6 @@ bool installer::PwqualityManager::oem_upper_case(const QString &text)
 
 bool installer::PwqualityManager::oem_special_char(const QString &text)
 {
-    qDebug() << "text = " << text;
     if (GetSettingsBool(kSystemInfoPasswordStrongCheck)
             && GetSettingsBool(kSystemInfoPasswordRequireSpecialChar)) {
 
