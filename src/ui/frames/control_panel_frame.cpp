@@ -32,6 +32,8 @@
 #include "ui/widgets/pointer_button.h"
 #include "ui/widgets/table_combo_box.h"
 #include "qtermwidget5/qtermwidget.h"
+#include "service/screen_adaptation_manager.h"
+#include "service/settings_manager.h"
 
 namespace installer {
 
@@ -71,19 +73,19 @@ ControlPanelFrame::ControlPanelFrame(QWidget* parent)
 }
 
 void ControlPanelFrame::toggleVisible() {
+    if (!GetSettingsBool("system_debug")) {
+        return;
+    }
   if (!this->isVisible()) {
     // Slide in
-    const QRect geom = this->parentWidget()->geometry();
-    const int x_orig = geom.x() - this->width();
-    const int x = geom.x();
-    const int y_orig = geom.y();
-    const int y = geom.y();
-    this->move(x_orig, y_orig);
+    const QRect geom =  ScreenAdaptationManager::instance()->adapterScreenGeometry();
+    this->setMinimumSize(QSize(geom.width() / 2, geom.height() / 2));
+    this->move(0, 0);
     this->show();
     this->raise();
     QPropertyAnimation* animation = new QPropertyAnimation(this, "pos", this);
-    animation->setStartValue(QPoint(x_orig, y_orig));
-    animation->setEndValue(QPoint(x, y));
+    animation->setStartValue(QPoint(0, 0));
+    animation->setEndValue(QPoint(0, 0));
     animation->setDuration(300);
     connect(animation, &QPropertyAnimation::finished,
             animation, &QPropertyAnimation::deleteLater);

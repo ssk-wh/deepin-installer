@@ -850,6 +850,8 @@ add_executable(deepin-installer-user-form
                service/log_manager.cpp
                service/pwquality_manager.h
                service/pwquality_manager.cpp
+               service/screen_adaptation_manager.h
+               service/screen_adaptation_manager.cpp
 
                sysinfo/keyboard.cpp
                sysinfo/keyboard.h
@@ -997,11 +999,17 @@ add_executable(combobox-test
                ui/widgets/table_combo_box.cpp
                ui/widgets/table_combo_box.h
 
+               service/settings_manager.cpp
+               service/settings_manager.h
+               service/settings_name.h
+               service/screen_adaptation_manager.h
+               service/screen_adaptation_manager.cpp
+
                ui/images/images.qrc
                ui/styles/styles.qrc
                license/license.qrc
                )
-target_link_libraries(combobox-test ${Qt_LIBS})
+target_link_libraries(combobox-test ${LINK_LIBS})
 
 
 # locale manager test
@@ -1093,6 +1101,8 @@ add_executable(timezone-frame-test
                service/backend/wifi_inspect_worker.h
                service/language_manager.h
                service/language_manager.cpp
+               service/screen_adaptation_manager.h
+               service/screen_adaptation_manager.cpp
 
                partman/os_prober.cpp
                partman/os_prober.h
@@ -1172,11 +1182,18 @@ add_executable(ctl-btn-test
                ui/utils/widget_util.cpp
                ui/utils/widget_util.h
 
+               base/command.h
+               base/command.cpp
+               service/settings_manager.h
+               service/settings_manager.cpp
+               service/screen_adaptation_manager.h
+               service/screen_adaptation_manager.cpp
+
                ui/images/images.qrc
                ui/styles/styles.qrc
                license/license.qrc
                )
-target_link_libraries(ctl-btn-test ${Qt_LIBS})
+target_link_libraries(ctl-btn-test ${LINK_LIBS})
 
 add_executable(partition-util-test
                ui/tests/partition_util_test.cpp

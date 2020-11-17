@@ -215,6 +215,9 @@ const char kAutoDetectInstallationMode[] = "auto_detect_installation_mode";
 // Force the Legacy(MBR) installation mode
 const char kForceLegacyInstallationMode[] = "force_legacy_installation_mode";
 
+// xrandr
+const char kWindowAdaptationResolution[] = "window_adaptation_resolution";
+
 }  // namespace installer
 
 #endif  // INSTALLER_SERVICE_SETTINGS_NAME_H

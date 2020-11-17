@@ -4,6 +4,8 @@
 #include <QDesktopWidget>
 #include <QRect>
 #include <QDebug>
+#include "settings_manager.h"
+#include "settings_name.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -14,6 +16,7 @@ namespace  {
     const int kXrandrHeight_624 = 624;
     const int kXrandrHeight_864 = 864;
     const int kXrandrHeight_480 = 480;
+    const int XRANDR_INVALID = 999999;
 }
 
 installer::ScreenAdaptationManager *installer::ScreenAdaptationManager::instance()
@@ -35,10 +38,17 @@ QPixmap installer::ScreenAdaptationManager::adapterPixmap(const QPixmap &pixmap)
                          Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
 }
 
+void installer::ScreenAdaptationManager::adapterWindows(QWidget *widget)
+{
+    widget->setFixedSize(adapterScreenGeometry().size());
+    widget->move(QPoint(adapterScreenGeometry().x(), adapterScreenGeometry().y()));
+//    widget->setGeometry(adapterScreenGeometry());
+}
+
 
 void installer::ScreenAdaptationManager::init()
 {
-    QRect rect = qApp->desktop()->screenGeometry();
+    QRect rect = adapterScreenGeometry();
 
     adapterWidth(rect.width());
     adapterHeight(rect.height());
@@ -53,7 +63,7 @@ void installer::ScreenAdaptationManager::init()
 void installer::ScreenAdaptationManager::adapterWidth(int width)
 {
     if (width <= kXrandrWidth_832) {
-        m_widthZoomRatio = 2;
+        m_widthZoomRatio = 2.5;
     } else if (width <= kXrandrWidth_1024){
         m_widthZoomRatio = 1.5;
     }
@@ -70,8 +80,68 @@ void installer::ScreenAdaptationManager::adapterHeight(int height)
     }
 }
 
+int installer::ScreenAdaptationManager::getXRandrWidth()
+{
+    return getXRandrWidth(m_adaptationResolution);
+}
 
-installer::ScreenAdaptationManager::ScreenAdaptationManager()
+int installer::ScreenAdaptationManager::getXRandrWidth(const QString &xrandrs)
+{
+    QStringList xrandrlist = xrandrs.split("x");
+    if (xrandrlist.size() != 2) {
+        return XRANDR_INVALID;
+    }
+
+    bool ok = false;
+    int res = xrandrlist.at(0).toInt(&ok);
+    if (ok) {
+        return res;
+    } else {
+        return XRANDR_INVALID;
+    }
+}
+
+int installer::ScreenAdaptationManager::getXRandrHeight()
+{
+    return getXRandrHeight(m_adaptationResolution);
+}
+
+int installer::ScreenAdaptationManager::getXRandrHeight(const QString &xrandrs)
+{
+    QStringList xrandrlist = xrandrs.split("x");
+    if (xrandrlist.size() != 2) {
+        return XRANDR_INVALID;
+    }
+
+    bool ok = false;
+    int res = xrandrlist.at(1).toInt(&ok);
+    if (ok) {
+        return res;
+    } else {
+        return XRANDR_INVALID;
+    }
+}
+
+bool installer::ScreenAdaptationManager::isAdapterWindows()
+{
+    return getXRandrWidth() < QApplication::desktop()->width()
+            && getXRandrHeight() < QApplication::desktop()->height();
+}
+
+QRect installer::ScreenAdaptationManager::adapterScreenGeometry()
+{
+    if (isAdapterWindows()) {
+        QPoint pos = QPoint((QApplication::desktop()->width() - getXRandrWidth()) / 2,
+                (QApplication::desktop()->height() - getXRandrHeight()) / 2);
+        return QRect(pos, QSize(getXRandrWidth(), getXRandrHeight()));
+
+    } else {
+        return QApplication::desktop()->screenGeometry();
+    }
+}
+
+installer::ScreenAdaptationManager::ScreenAdaptationManager():
+    m_adaptationResolution(GetSettingsString(kWindowAdaptationResolution))
 {
     init();
 }

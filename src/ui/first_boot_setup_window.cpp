@@ -310,6 +310,8 @@ void FirstBootSetupWindow::initUI() {
     control_panel_frame_ = new ControlPanelFrame(this);
     control_panel_frame_->hide();
 
+    multi_head_manager_ = new MultiHeadManager(this);
+
     this->setFocusPolicy(Qt::TabFocus);
 }
 
@@ -472,8 +474,6 @@ void FirstBootSetupWindow::registerShortcut() {
       qWarning() << "Failed to register global shortcut of Ctrl+Alt+P";
     }
   }
-
-  multi_head_manager_ = new MultiHeadManager(this);
 }
 
 void FirstBootSetupWindow::onHookFinished(bool ok) {
@@ -496,8 +496,9 @@ void FirstBootSetupWindow::onHookFinished(bool ok) {
 
 void FirstBootSetupWindow::onPrimaryScreenChanged(const QRect& geometry) {
   qDebug() << "on primary screen changed" << geometry;
-  this->move(geometry.topLeft());
-  this->setFixedSize(geometry.size() / devicePixelRatioF());
+//  this->move(geometry.topLeft());
+//  this->setFixedSize(geometry.size() / devicePixelRatioF());
+  ShowFullscreen(this, geometry);
 }
 
 void FirstBootSetupWindow::onLanguageSelected()

@@ -37,6 +37,7 @@ MultiHeadManager::MultiHeadManager(QObject* parent)
 
   multi_head_worker_->moveToThread(multi_head_thread_);
 
+  this->updateWallpaper(); //
   this->initConnections();
 
   multi_head_thread_->start();

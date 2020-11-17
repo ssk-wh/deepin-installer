@@ -110,8 +110,9 @@ int main(int argc, char* argv[]) {
 
   installer::FirstBootSetupWindow window;
 
-  window.fullscreen();
   window.setWindowIcon(":/images/deepin-installer-32px.svg");
+
+  window.fullscreen();
   window.show();
 
   return app.exec();

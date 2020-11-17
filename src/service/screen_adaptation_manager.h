@@ -14,11 +14,19 @@ public:
 public:
     QPixmap adapterPixmap(const QString &file);
     QPixmap adapterPixmap(const QPixmap &pixmap);
+    QRect adapterScreenGeometry();
+    void adapterWindows(QWidget *wid);
 
 private:
     virtual void init();
     virtual void adapterWidth(int width);
     virtual void adapterHeight(int height);
+
+    int getXRandrWidth();
+    int getXRandrWidth(const QString &xrandr);
+    int getXRandrHeight();
+    int getXRandrHeight(const QString &xrandr);
+    bool isAdapterWindows();
 
 private:
     ScreenAdaptationManager();
@@ -27,6 +35,7 @@ private:
 private:
     double m_widthZoomRatio = 1;
     double m_heightZoomRatio = 1;
+    QString m_adaptationResolution;
 };
 
 
