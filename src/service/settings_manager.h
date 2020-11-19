@@ -65,6 +65,9 @@ bool GetSettingsBool(const QString& key);
 // If |key| does not exist, return 0.
 int GetSettingsInt(const QString& key);
 
+// 获取系统是否为pxe安装
+bool isPexInstall();
+
 // Get string option value from settings file.
 // If |key| does not exist, returns an empty string.
 QString GetSettingsString(const QString& key);

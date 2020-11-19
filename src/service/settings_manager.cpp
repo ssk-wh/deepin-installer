@@ -156,6 +156,22 @@ OSType GetCurrentType() {
     }[type];
 }
 
+bool isPexInstall() {
+    QFile cmd_file("/proc/cmdline");
+    cmd_file.open(QIODevice::ReadOnly);
+    if (!cmd_file.isOpen()) {
+        qCritical() << "isPexInstall: Failed to open file. /proc/cmdline";
+        return true;   // 如果没有读到文件，无法做出是否为pxe的判断， 则始终不加载网络模块，防止产生网络问题
+    }
+    QString info = cmd_file.readAll();
+    if (!info.contains("nfsroot")) {
+        return false;
+    }
+
+    qInfo() << "isPexInstall: /proc/cmdline <" << info << ">";
+    return true;
+}
+
 bool GetSettingsBool(const QString& key) {
     if (SettingCustom::Instance()->hasSetting(key)) {
         return SettingCustom::Instance()->getSettingsBool(key);
