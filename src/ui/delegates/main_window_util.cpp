@@ -111,7 +111,8 @@ bool ReadErrorMsg(QString& msg, QString& encoded_msg) {
       .arg(version.version)
       .arg(version.type);
   const int qr_max_len = GetSettingsInt(kInstallFailedQRErrMsgLen);
-  encoded_msg = EncodeErrorMsg(raw_msg.right(qr_max_len));
+  //  encoded_msg = EncodeErrorMsg(raw_msg.right(qr_max_len));
+  encoded_msg = raw_msg.right(qr_max_len);
   return true;
 }
 

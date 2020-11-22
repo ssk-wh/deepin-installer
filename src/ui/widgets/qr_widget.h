@@ -41,11 +41,15 @@ class QRWidget : public QWidget {
   // Update qr |content|.
   void setText(const QString& content);
 
+  void setQRPic(const QString& path);
+
  protected:
   void paintEvent(QPaintEvent* event) override;
 
  private:
   QString content_;
+  QString m_qrPicPath;
+  bool m_isDisplayPic = false;
   int margin_;
 };
 

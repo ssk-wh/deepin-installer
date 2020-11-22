@@ -162,5 +162,6 @@
         <file>dropdown_arrow-press.svg</file>
         <file>dcc_deepin_logo_164px.svg</file>
         <file>ethernet.svg</file>
+        <file>qr_code_server.svg</file>
     </qresource>
 </RCC>

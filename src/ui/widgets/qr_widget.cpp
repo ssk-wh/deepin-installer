@@ -16,6 +16,7 @@
  */
 
 #include "ui/widgets/qr_widget.h"
+#include "ui/utils/widget_util.h"
 
 #include <QDebug>
 #include <QPaintEvent>
@@ -26,7 +27,12 @@
 namespace installer {
 
 // Refers: http://stackoverflow.com/questions/21400254
-QRWidget::QRWidget(QWidget* parent) : QWidget(parent), content_(), margin_(0) {
+QRWidget::QRWidget(QWidget* parent)
+    : QWidget(parent)
+    , content_()
+    , m_isDisplayPic(false)
+    , margin_(0)
+{
   this->setObjectName("qr_widget");
 }
 
@@ -40,36 +46,57 @@ void QRWidget::setMargin(int margin) {
 }
 
 void QRWidget::setText(const QString& content) {
+  m_isDisplayPic = false;
   content_ = content;
-  this->update();
+
+  update();
+}
+
+void QRWidget::setQRPic(const QString &path)
+{
+    m_isDisplayPic = true;
+    m_qrPicPath = path;
 }
 
 void QRWidget::paintEvent(QPaintEvent* event) {
   Q_UNUSED(event);
 
-  if (content_.isEmpty()) {
-    // Do not render qr widget when content is empty.
-    return;
-  }
-
   QPainter painter(this);
   QRcode *qr = QRcode_encodeString(content_.toStdString().c_str(),
                                    1, QR_ECLEVEL_L, QR_MODE_8, 1);
+
+  if (m_isDisplayPic) {
+      if (m_qrPicPath.isEmpty()) {
+          qCritical() << "QR picture path is empty";
+          return;
+      }
+
+      const QPixmap pixmap = installer::renderPixmap(m_qrPicPath);
+      painter.drawPixmap(rect(), pixmap);
+
+      return;
+  }
+
+  if (content_.isEmpty()) {
+      // Do not render qr widget when content is empty.
+      return;
+  }
+
   if (qr != NULL){
     QColor fg("black");
-    QColor bg("lightGray");
+    QColor bg("white");
     painter.setBrush(bg);
     painter.setPen(Qt::NoPen);
     painter.drawRect(0, 0, width(), height());
     painter.setBrush(fg);
-    const int s = qr->width > 0 ? qr->width: 1;
+    const int sideLength = qr->width > 0 ? qr->width: 1;
     const double w = width() - 2 * margin_;
     const double h = height() - 2 * margin_;
     const double aspect = w / h;
-    const double scale = ((aspect > 1.0) ? h : w) / s;
-    for (int y = 0; y < s; y++){
-      const int yy = y*s;
-      for (int x = 0; x < s; x++){
+    const double scale = ((aspect > 1.0) ? h : w) / sideLength;
+    for (int y = 0; y < sideLength; y++){
+      const int yy = y*sideLength;
+      for (int x = 0; x < sideLength; x++){
         const int xx = yy + x;
         const unsigned char b = qr->data[xx];
         if (b & 0x01){

@@ -27,6 +27,7 @@
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/title_label.h"
 #include "ui/widgets/pointer_button.h"
+#include "service/settings_manager.h"
 
 #include <QEvent>
 #include <QLabel>
@@ -39,8 +40,10 @@
 #include <QPushButton>
 #include <QStackedLayout>
 #include <DFrame>
+#include <DApplicationHelper>
 
 DWIDGET_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 
 namespace installer {
 
@@ -51,7 +54,7 @@ const int kContentWindowHeight = 226;
 const int kQrMargin = 8;
 const int kQrWindowSize = 142;
 
-const int kControlButtonSize = 32;
+const int kControlButtonSize = 20;
 
 const int kButtonWidth = 200;
 const int kButtonHeight = 36;
@@ -72,7 +75,7 @@ public:
     QRWidget *qr_widget_;
     DFrame* qrParentWidget;
     QPlainTextEdit *m_plainTextEdit ;
-    //QPushButton *control_button_ ;
+    QPushButton *control_button_ ;
     QStackedLayout* stacked_layout;
 
     void initConnections();
@@ -116,19 +119,29 @@ void InstallFailedFrame::updateMessage()
         encoded_msg = EncodeErrorMsg(msg);
     }
 
-    QPalette palette;
-    palette.setColor(QPalette::Text, QColor(66, 154, 216));
     d->m_plainTextEdit->setPlainText(msg);
     d->m_plainTextEdit->moveCursor(QTextCursor::End);
     d->m_plainTextEdit->ensureCursorVisible();
-    d->m_plainTextEdit->setPalette(palette);
 
-    if (encoded_msg.isEmpty()) {
-        // If encoded_msg if empty, qr_widget will generate a rectangle filled with
-        // red color, which is not what we expect.
-        encoded_msg = EncodeErrorMsg("Error: failed to read log");
+    if (GetCurrentType() == OSType::Server) {
+        d->qr_widget_->setQRPic(":/images/qr_code_server.svg");
     }
-    d->qr_widget_->setText(encoded_msg);
+    else {
+        if (encoded_msg.isEmpty()) {
+            // If encoded_msg if empty, qr_widget will generate a rectangle filled with
+            // red color, which is not what we expect.
+            encoded_msg = EncodeErrorMsg("Error: failed to read log");
+        }
+        QString tmp = "https://service.chinauos.com?"
+                      "DeviceInfo=CpuInfo;GpuInfo;MemorySize;DiskSize;MainboardInfo"
+                      "&DeepinInstallerVersion="
+                      "&FailedType="
+                      "&FailedLocation="
+                      "&FailedReason="
+                      "&ErrorMsg=";
+        tmp.append(encoded_msg);
+        d->qr_widget_->setText(tmp);
+    }
 }
 
 void InstallFailedFrame::changeEvent(QEvent *event)
@@ -144,8 +157,8 @@ void InstallFailedFrame::changeEvent(QEvent *event)
 
 void InstallFailedFramePrivate::initConnections()
 {
-//    connect(control_button_, &QPushButton::clicked,
-//            this, &InstallFailedFramePrivate::onControlButtonClicked);
+    connect(control_button_, &QPushButton::clicked,
+            this, &InstallFailedFramePrivate::onControlButtonClicked);
     connect(reboot_button_, &QPushButton::clicked,
             m_ptr, &InstallFailedFrame::finished);
     connect(saveLogButton, &QPushButton::clicked,
@@ -178,7 +191,16 @@ void InstallFailedFramePrivate::initUI()
     content_frame->setContentsMargins(1, 1, 1, 1);
     content_frame->setObjectName("content_frame");
     content_frame->setFrameRounded(true);
+    content_frame->setBackgroundRole(DPalette::ItemBackground);
     content_frame->setFixedSize(kContentWindowWidth, kContentWindowHeight);
+
+//    QPalette palette = m_plainTextEdit->palette();
+//    palette.setColor(QPalette::Text, QColor(66, 154, 216));
+//    const DPalette &dp = DApplicationHelper::instance()->palette(content_frame);
+//    palette.setColor(QPalette::Base, dp.color(DPalette::ItemBackground));
+//    m_plainTextEdit->setPalette(palette);
+
+    m_plainTextEdit->setStyleSheet("QPlainTextEdit {color: red; background: transparent;}");
 
     qr_widget_ = new QRWidget(content_frame);
     qr_widget_->setMargin(kQrMargin);
@@ -206,16 +228,17 @@ void InstallFailedFramePrivate::initUI()
 
     content_frame->setLayout(switchLayout);
 
-//    control_button_ = new QPushButton(content_frame);
-//    control_button_->setFocusPolicy(Qt::TabFocus);
-//    control_button_->setIcon(QIcon(installer::renderPixmap(":/images/failed_qr.svg")));
-//    control_button_->setObjectName("control_button");
-//    control_button_->setFlat(true);
-//    control_button_->setFixedSize(kControlButtonSize, kControlButtonSize);
-//    // Move control_button_ to top-right corner of content area.
-//    control_button_->move(kContentWindowWidth - kControlButtonSize, 0);
-//    control_button_->raise();
-//    control_button_->show();
+    control_button_ = new QPushButton(content_frame);
+    control_button_->setFocusPolicy(Qt::TabFocus);
+    control_button_->setObjectName("control_button");
+    control_button_->setFlat(true);
+    control_button_->setFixedSize(kControlButtonSize, kControlButtonSize);
+    control_button_->setIcon(QIcon(installer::renderPixmap(":/images/failed_qr.svg")));
+    control_button_->setIconSize(QSize(kControlButtonSize, kControlButtonSize));
+    // Move control_button_ to top-right corner of content area.
+    control_button_->move(kContentWindowWidth - kControlButtonSize, 0);
+    control_button_->raise();
+    control_button_->show();
 
     reboot_button_ = new QPushButton;
     reboot_button_->setFixedSize(kButtonWidth, kButtonHeight);
@@ -253,14 +276,14 @@ void InstallFailedFramePrivate::onControlButtonClicked()
     // Toggle visibility of m_scrollArea and qr_widget_.
     if (stacked_layout->currentWidget() == m_plainTextEdit) {
         stacked_layout->setCurrentWidget(qrParentWidget);
-        //control_button_->setIcon(QIcon(installer::renderPixmap(":/images/failed_data.svg")));
+        control_button_->setIcon(QIcon(installer::renderPixmap(":/images/failed_data.svg")));
     }
     else {
         stacked_layout->setCurrentWidget(m_plainTextEdit);
-        //control_button_->setIcon(QIcon(installer::renderPixmap(":/images/failed_qr.svg")));
+        control_button_->setIcon(QIcon(installer::renderPixmap(":/images/failed_qr.svg")));
     }
 
-    //control_button_->raise();
+    control_button_->raise();
 }
 
 }// namespace installer

@@ -1042,6 +1042,8 @@ add_executable(qr-widget-test
                third_party/zlib_wrapper/zip_util.h
                ui/widgets/qr_widget.cpp
                ui/widgets/qr_widget.h
+               ui/utils/widget_util.cpp
+               ui/utils/widget_util.h
                )
 target_link_libraries(qr-widget-test
                       ${Qt_LIBS}
