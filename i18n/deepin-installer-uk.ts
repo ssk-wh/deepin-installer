@@ -516,7 +516,7 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="98"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="161"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="200"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="102"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="124"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="17"/>
@@ -555,8 +555,8 @@
         <location filename="../src/ui/frames/language_frame.cpp" line="250"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="758"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="1027"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="237"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="778"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="235"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="776"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="137"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="212"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="131"/>
@@ -622,13 +622,13 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="109"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="199"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="200"/>
         <source>Change boot loader</source>
         <translation>Змінити завантажувач</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="111"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="619"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="618"/>
         <location filename="../src/ui/frames/install_results_frame.cpp" line="104"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="17"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="73"/>
@@ -637,100 +637,100 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="113"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="206"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="621"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="207"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="620"/>
         <source>Delete</source>
         <translation>Вилучити</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="115"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="255"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="256"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="137"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="192"/>
         <source>Install NVIDIA closed source driver</source>
         <translation>Встановити закритий драйвер NVIDIA</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="480"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="479"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="448"/>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
         <translation>%1 виявлена помилка, виправити, продовжити встановлення або переключитися в простий режим</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="484"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="483"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="451"/>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
         <translation>%1 виявлені помилки, виправити, продовжити встановлення або переключитися в простий режим</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="490"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="494"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="489"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="493"/>
         <source>%1 errors found, fix to continue installation</source>
         <translation>Виявлено %1 помилок. Виправте їх, щоб продовжити встановлення</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="541"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="540"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="377"/>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
         <translation>Тип файлової системи розділу /boot-директорії може бути тільки %1 </translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="545"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="544"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="381"/>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
         <translation>Розділ /boot-директорії  повинен бути першим розділом на жорсткому диску</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="549"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="548"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="385"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
         <translation>Розділ /boot/efi-директорії  повинен бути першим розділом на жорсткому диску</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="554"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="553"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="390"/>
         <source>/boot partition requires at least %1 MB</source>
         <translation>Для розділу /boot потрібно принаймні %1 МБ</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="558"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="557"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="394"/>
         <source>To create lvm, /boot partition is required</source>
         <translation>Для створення LVM потрібен розділ /boot</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="561"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="560"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="397"/>
         <source>Add an EFI partition to continue</source>
         <translation>Додайте розділ EFI, щоб продовжити</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="565"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="564"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="401"/>
         <source>/efi partition requires at least %1 MB</source>
         <translation>Для розділу /efi потрібно принаймні %1 МБ</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="569"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="568"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="405"/>
         <source>Add a root partition to continue</source>
         <translation>Додайте кореневий розділ, щоб продовжити</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="574"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="573"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="91"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="410"/>
         <source>/root partition requires at least %1 GB</source>
         <translation>Для розділу /root потрібно принаймні %1 ГБ</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="579"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="578"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="415"/>
         <source>%2 partition requires at least %1 GB</source>
         <translation>Для розділу %2 потрібно принаймні %1 ГБ</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="584"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="583"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="420"/>
         <source>Add a logical partition to continue</source>
         <translation>Додайте логічний розділ, щоб продовжити</translation>
@@ -805,9 +805,9 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="272"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="236"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="442"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="780"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="234"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="440"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="778"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Переконайтеся, що ви створили резервну копію важливих даних, потім виберіть диск для встановлення</translation>
     </message>
@@ -850,10 +850,10 @@
         <location filename="../src/ui/frames/inner/lvm_partition_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="48"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="90"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="83"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="199"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="47"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="669"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="667"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="186"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="25"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="20"/>
@@ -1024,23 +1024,28 @@
         <translation>У вас завантажувач EFI, але диск MBR, тому ви не можете встановити %1 безпосередньо. Будь ласка, виберіть одне з наведених нижче рішень, щоб продовжити.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="80"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="98"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="232"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="670"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="697"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="97"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="196"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="230"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="668"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="695"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="88"/>
         <source>Ready to Install</source>
         <translation>Готовий до встановлення</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="82"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="100"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="231"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="696"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="198"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="229"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="694"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="92"/>
         <source>Make a backup of your important data and then continue</source>
         <translation>Зробіть резервну копію ваших важливих даних і потім продовжуйте</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="201"/>
+        <source>Create a backup for system restore, but it will increase the time</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="44"/>
@@ -1189,12 +1194,12 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="703"/>
         <source>Username can only contain lowercase letters, numbers and symbols (_-)</source>
-        <translation type="unfinished"/>
+        <translation>Ім&apos;я користувача може складатися лише із латинських малих літер, цифр та символів (_-)</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="790"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>Пароль має складатися з великих латинських літер, малих латинських літер, цифр та символів (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="199"/>
@@ -1595,30 +1600,30 @@
         <translation>IP-адресу налаштовано на автоматичне отримання, але ви все одно можете змінити параметри мережі</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="188"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="234"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="440"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="777"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="186"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="232"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="438"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="775"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="88"/>
         <source>Create Partitions</source>
         <translation>Створити розділи</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="229"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="694"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="227"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="692"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="572"/>
         <source>Edit LVM Disk</source>
         <translation>Редагувати диск LVM</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="240"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="449"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="238"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="447"/>
         <source>Simple</source>
         <translation>Простий</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="241"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="452"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="239"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="450"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="550"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="97"/>
@@ -1626,25 +1631,25 @@
         <translation>Розширений</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="242"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="455"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="240"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="453"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="96"/>
         <source>Full Disk</source>
         <translation>Диск заповнено</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="512"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="510"/>
         <source>Start installation</source>
         <translation>Почніть встановлення</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="642"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="640"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
         <translation>Цільовий диск є динамічним і ваші дані можуть бути втрачені при продовженні. Спочатку зробіть резервну копію важливих файлів.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="646"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="644"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
         <translation>Цільовий диск є динамічним, який буде відформатовано, якщо продовжити. Спочатку зробіть резервну копію важливих файлів.</translation>
     </message>
@@ -1715,8 +1720,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="128"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="253"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="324"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="214"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="285"/>
         <source>Is it the right timezone? You can change it as well</source>
         <translation>Чи правильно вказано часовий пояс? Ви можете його змінити.</translation>
     </message>

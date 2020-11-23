@@ -516,7 +516,7 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="98"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="161"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="200"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="102"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="124"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="17"/>
@@ -555,8 +555,8 @@
         <location filename="../src/ui/frames/language_frame.cpp" line="250"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="758"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="1027"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="237"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="778"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="235"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="776"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="137"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="212"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="131"/>
@@ -622,13 +622,13 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="109"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="199"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="200"/>
         <source>Change boot loader</source>
         <translation>부트 로더 변경</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="111"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="619"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="618"/>
         <location filename="../src/ui/frames/install_results_frame.cpp" line="104"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="17"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="73"/>
@@ -637,100 +637,100 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="113"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="206"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="621"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="207"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="620"/>
         <source>Delete</source>
         <translation>삭제</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="115"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="255"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="256"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="137"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="192"/>
         <source>Install NVIDIA closed source driver</source>
         <translation>NVIDIA 비공개 소스 드라이버 설치</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="480"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="479"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="448"/>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
         <translation>%1 오류 발견, 설치를 계속하거나 단순 모드로 전환하도록 수정</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="484"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="483"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="451"/>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
         <translation>%1 오류 발견, 설치를 계속하거나 단순 모드로 전환하도록 수정</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="490"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="494"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="489"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="493"/>
         <source>%1 errors found, fix to continue installation</source>
         <translation>%1 오류 발견, 설치를 계속하려면 수정하십시오</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="541"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="540"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="377"/>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
         <translation>/boot 디렉토리의 파티션 파일 시스템 유형은 %1만 가능합니다. </translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="545"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="544"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="381"/>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
         <translation>/boot 디렉토리의 파티션은 하드 디스크의 첫 번째 파티션이어야 합니다</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="549"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="548"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="385"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
         <translation>/boot/efi 디렉토리의 파티션이 하드 디스크의 첫 번째 파티션이어야 합니다</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="554"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="553"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="390"/>
         <source>/boot partition requires at least %1 MB</source>
         <translation>/boot 파티션에 %1MB 이상 필요</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="558"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="557"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="394"/>
         <source>To create lvm, /boot partition is required</source>
         <translation>lvm을 생성하려면 /boot 파티션이 필요함</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="561"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="560"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="397"/>
         <source>Add an EFI partition to continue</source>
         <translation>계속하려면 EFI 파티션 추가</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="565"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="564"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="401"/>
         <source>/efi partition requires at least %1 MB</source>
         <translation>/efi 파티션에 %1MB 이상 필요</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="569"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="568"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="405"/>
         <source>Add a root partition to continue</source>
         <translation>계속하려면 루트 파티션 추가</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="574"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="573"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="91"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="410"/>
         <source>/root partition requires at least %1 GB</source>
         <translation>/root 파티션에 %1GB 이상 필요</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="579"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="578"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="415"/>
         <source>%2 partition requires at least %1 GB</source>
         <translation>%2 파티션에 %1GB 이상 필요</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="584"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="583"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="420"/>
         <source>Add a logical partition to continue</source>
         <translation>계속하려면 논리적 파티션 추가</translation>
@@ -805,9 +805,9 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="272"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="236"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="442"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="780"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="234"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="440"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="778"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>중요한 데이터를 백업했는지 확인한 다음 설치할 디스크를 선택하세요</translation>
     </message>
@@ -850,10 +850,10 @@
         <location filename="../src/ui/frames/inner/lvm_partition_frame.cpp" line="55"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="48"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="90"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="83"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="199"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="47"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="91"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="669"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="667"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="186"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="25"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="20"/>
@@ -1024,23 +1024,28 @@
         <translation>EFI 부트 로더는 있지만 MBR 디스크가 있으므로 %1을 직접 설치할 수 없다. 아래 솔루션 중 하나를 선택하고 계속하십시오.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="80"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="98"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="232"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="670"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="697"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="97"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="196"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="230"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="668"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="695"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="88"/>
         <source>Ready to Install</source>
         <translation>설치 준비 완료</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="82"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="100"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="231"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="696"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="198"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="229"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="694"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="92"/>
         <source>Make a backup of your important data and then continue</source>
         <translation>중요한 데이터를 백업한 후 계속 진행합니다</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="201"/>
+        <source>Create a backup for system restore, but it will increase the time</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="44"/>
@@ -1595,30 +1600,30 @@
         <translation>IP 주소가 자동으로 구성되었지만 네트워크를 구성할 수도 있습니다.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="188"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="234"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="440"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="777"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="186"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="232"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="438"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="775"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="88"/>
         <source>Create Partitions</source>
         <translation>파티션 만들기</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="229"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="694"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="227"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="692"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="572"/>
         <source>Edit LVM Disk</source>
         <translation>LVM 디스크 편집</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="240"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="449"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="238"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="447"/>
         <source>Simple</source>
         <translation>간편하게</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="241"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="452"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="239"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="450"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="550"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="97"/>
@@ -1626,25 +1631,25 @@
         <translation>상세하게</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="242"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="455"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="240"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="453"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="96"/>
         <source>Full Disk</source>
         <translation>전체 디스크</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="512"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="510"/>
         <source>Start installation</source>
         <translation>설치 시작</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="642"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="640"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
         <translation>대상 디스크는 동적이므로 계속하면 데이터가 손실될 수 있습니다. 먼저 중요한 파일을 백업해 주세요.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="646"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="644"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
         <translation>대상 디스크는 동적 디스크이며 계속 진행하면 포맷됩니다. 먼저 중요한 파일을 백업해 주세요.</translation>
     </message>
@@ -1715,8 +1720,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="128"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="253"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="324"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="214"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="285"/>
         <source>Is it the right timezone? You can change it as well</source>
         <translation>올바른 시간대입니까? 변경할 수도 있습니다.</translation>
     </message>
