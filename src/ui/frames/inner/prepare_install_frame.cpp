@@ -65,12 +65,6 @@ void PrepareInstallFrame::updateDescription(const QStringList& descriptions) {
   for (const QString& description : descriptions) {
     const QString content = prefix + description;
     modified_desc_list.append(content);
-#ifdef QT_DEBUG
-    modified_desc_list.append(content + "--TEST1");
-    modified_desc_list.append(content + "--TEST2");
-    modified_desc_list.append(content + "--TEST3");
-    modified_desc_list.append(content + "--TEST4");
-#endif //QT_DEBUG
   }
   const QString description_text = modified_desc_list.join("\n");
   qDebug() << "description:" << description_text;

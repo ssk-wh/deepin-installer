@@ -345,8 +345,15 @@ void PartitionFramePrivate::initConnections() {
 
   connect(prepare_install_frame_, &PrepareInstallFrame::aborted,
           this, &PartitionFramePrivate::showMainFrame);
-  connect(prepare_install_frame_, &PrepareInstallFrame::finished,
-          this, &PartitionFramePrivate::onPrepareInstallFrameFinished);
+  connect(prepare_install_frame_, &PrepareInstallFrame::finished, this, [=] {
+      if (!GetSettingsBool(KPartitionSkipFullCryptPage) && full_disk_partition_frame_->isEncrypt()) {
+        q_ptr->autoPart();
+        q_ptr->m_proxy->nextFrame();
+      }
+      else {
+        onPrepareInstallFrameFinished();
+      }
+  });
 
   connect(select_bootloader_frame_, &SelectBootloaderFrame::bootloaderUpdated,
           advanced_partition_frame_,
@@ -394,9 +401,10 @@ void PartitionFramePrivate::initConnections() {
   });
 
   connect(full_disk_encrypt_frame_, &Full_Disk_Encrypt_frame::encryptFinished, q_ptr, [=] {
-      q_ptr->autoPart();
+      //      q_ptr->autoPart();
+      //      q_ptr->m_proxy->nextFrame();
       q_ptr->m_proxy->hideChildFrame();
-      q_ptr->m_proxy->nextFrame();
+      showPrepareInstallFrame();
   });
 
   connect(dynamic_disk_warning_frame_, &DynamicDiskWarningFrame::requestCancel, this,
