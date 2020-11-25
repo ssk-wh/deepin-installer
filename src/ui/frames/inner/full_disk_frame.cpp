@@ -79,6 +79,7 @@ FullDiskFrame::~FullDiskFrame() {
 bool FullDiskFrame::validate() const {
     m_errorTip->hide();
     m_diskTooSmallTip->hide();
+    emit enableNextButton(!m_diskTooSmallTip->isVisible());
 
     if (m_delegate->selectedDisks().isEmpty()) {
         m_errorTip->show();
@@ -105,6 +106,7 @@ bool FullDiskFrame::validate() const {
 
         if (device->getByteLength() < root_required_bytes) {
             m_diskTooSmallTip->show();
+            emit enableNextButton(!m_diskTooSmallTip->isVisible());
             qWarning() << QString("MULTIDISK: disk too small:size:{%1}.").arg(device->getByteLength());
             return false;
         }
@@ -112,6 +114,7 @@ bool FullDiskFrame::validate() const {
 
     if (!m_delegate->formatWholeDeviceMultipleDisk()) {
         m_diskTooSmallTip->show();
+        emit enableNextButton(!m_diskTooSmallTip->isVisible());
         qWarning() << "MULTIDISK: Failed to formatWholeDeviceMultipleDisk.";
         return false;
     }
@@ -146,6 +149,13 @@ void FullDiskFrame::changeEvent(QEvent* event) {
     else {
         QFrame::changeEvent(event);
     }
+}
+
+void FullDiskFrame::showEvent(QShowEvent *event)
+{
+    emit enableNextButton(!m_diskTooSmallTip->isVisible());
+
+    QFrame::showEvent(event);
 }
 
 void FullDiskFrame::initConnections() {
@@ -356,6 +366,7 @@ void FullDiskFrame::onDeviceRefreshed() {
       m_disk_layout->setCurrentWidget(m_grid_wrapper);
   }
   m_diskTooSmallTip->hide();
+  emit enableNextButton(!m_diskTooSmallTip->isVisible());
 }
 
 void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,

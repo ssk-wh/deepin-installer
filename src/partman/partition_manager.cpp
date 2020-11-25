@@ -632,7 +632,7 @@ Device::Ptr constructDevice2(int deviceNum)
     Device* device = new Device();
     device->model = "debug device";
     device->path = QString("/dev/debugDevice%1").arg(deviceNum);
-    device->length = 409715200;
+    device->length = 40971520;
     device->sectors = 63;
     device->sector_size = 512;
     device->max_prims = 4;
@@ -650,9 +650,9 @@ Device::Ptr constructDevice2(int deviceNum)
     partition1->busy = false;
     partition1->label = QString("debugDevice%1p%2").arg(deviceNum).arg(partitionNo);
     partition1->start_sector = 2048;
-    partition1->end_sector = 209715219;
+    partition1->end_sector = 20971519;
     partition1->sector_size = 512;
-    partition1->length = 409715200 / 2;
+    partition1->length = 40971520 / 2;
     partition1->freespace = partition1->length / 4;
     partition1->mount_point = "/home/zhangdd";
 
@@ -666,8 +666,8 @@ Device::Ptr constructDevice2(int deviceNum)
     partition2->fs = FsType::Ext4;
     partition2->busy = false;
     partition2->label = QString("debugDevice%1p%2").arg(deviceNum).arg(partitionNo);
-    partition2->start_sector = 209715200;
-    partition2->end_sector = 409715200;
+    partition2->start_sector = 20971520;
+    partition2->end_sector = 40971520;
     partition2->sector_size = 512;
 
     PartitionList partitions;

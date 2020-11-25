@@ -52,9 +52,11 @@ signals:
     void currentDeviceChanged(const Device::Ptr device) const;
     void cryptoStateChanged(bool crypto) const;
     void showDeviceInfomation();
+    void enableNextButton(const bool enable) const;
 
 protected:
     void changeEvent(QEvent* event) override;
+    void showEvent(QShowEvent* event) override;
 
 private:
     void initConnections();

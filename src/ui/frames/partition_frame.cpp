@@ -419,6 +419,10 @@ void PartitionFramePrivate::initConnections() {
   connect(full_disk_partition_frame_, &FullDiskFrame::cryptoStateChanged,
           this, &PartitionFramePrivate::onFullDiskCryptoButtonClicked);
 
+  connect(full_disk_partition_frame_, &FullDiskFrame::enableNextButton, [=](const bool& enable) {
+      nextButton->setEnabled(enable);
+  });
+
   connect(full_disk_delegate_, &FullDiskDelegate::requestAutoInstallFinished, q_ptr, &PartitionFrame::onAutoInstallPrepareFinished);
 
     Q_EMIT full_disk_frame_button_->click();
@@ -598,6 +602,10 @@ bool PartitionFramePrivate::isRawDevice(const QList<Device::Ptr> list) {
 
 void PartitionFramePrivate::onButtonGroupToggled(QAbstractButton *button)
 {
+    // Whenever the installation mode is switched, the next button is set to enable.
+    // Further space capacity judgment is left to the specific installation method.
+    nextButton->setEnabled(true);
+
 #ifdef QT_DEBUG_test
   showPartitionNumberLimitationFrame();
 #else
