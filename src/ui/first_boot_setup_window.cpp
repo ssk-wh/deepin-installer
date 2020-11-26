@@ -373,6 +373,7 @@ void FirstBootSetupWindow::changeEvent(QEvent *event)
             FrameInterface* frame = getFrameInterface(item);
             if (frame) {
                 item->setText(frame->returnFrameName());
+                item->setToolTip(frame->returnFrameName());
             }
         }
     }
@@ -433,6 +434,8 @@ void FirstBootSetupWindow::constructLabelView()
         ++i;
 
         item->setText(tr(frame->returnFrameName().toLatin1().data()));
+        item->setToolTip(frame->returnFrameName());
+
         QVariant framePointer = QVariant::fromValue(frame);
         item->setData(framePointer, FramePointerRole);
         item->setFlags(Qt::ItemFlag::NoItemFlags);
