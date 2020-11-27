@@ -443,11 +443,8 @@ void MainWindow::initConnections() {
       m_frameSelectedListWidget->show();
   });
 
-  //connect(m_repairSystemFrame, &RepairSystemFrame::repair,
-          //qApp, &QApplication::quit);
-  connect(m_repairSystemFrame, &RepairSystemFrame::repair, this, [=]{
-      this->setVisible(false);
-  });
+  connect(m_repairSystemFrame, &RepairSystemFrame::repair,
+          qApp, &QApplication::quit);
 
   // Notify InstallProgressFrame that partition job has finished.
   connect(partition_frame_, &PartitionFrame::autoPartDone,

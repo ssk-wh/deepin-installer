@@ -64,7 +64,6 @@ Depends:
     ${shlibs:Depends},
     ${misc:Depends},
     btrfs-progs,
-    deepin-repair-tools,
     deepin-installer-timezones,
     dosfstools,
     imagemagick,
