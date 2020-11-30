@@ -62,7 +62,7 @@ enable_ntp() {
         msg "set-ntp true"
 
         # 兼容历史安装器和timesysncd服务器同时启动的问题
-        set_ntp_config
+        # set_ntp_config
         msg "setup ntp config"
     fi
 }
