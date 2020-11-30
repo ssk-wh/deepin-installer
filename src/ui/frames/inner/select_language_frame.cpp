@@ -172,6 +172,12 @@ void SelectLanguageFrame::writeConf() {
     } else {
         WriteUserExperience(false);
     }
+
+    if (d->accept_license_->checkState() != Qt::Unchecked) {
+        WriteUserLicenseIsUse(true);
+    } else {
+        WriteUserLicenseIsUse(false);
+    }
 }
 
 bool SelectLanguageFrame::isChecked()

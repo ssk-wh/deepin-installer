@@ -595,6 +595,19 @@ void WriteUserExperience(bool enable) {
     }
 }
 
+void WriteUserLicenseIsUse(bool enable)
+{
+    AppendToConfigFile("DI_USER_USE_LICENSE", enable);
+
+    if (enable) {
+        qInfo() << QString("The user agrees to '%1'")\
+                   .arg("The user license");
+    } else {
+        qInfo() << QString("User cancelled '%1'")\
+                   .arg("The user license");
+    }
+}
+
 void AddConfigFile() {
     QSettings target_settings(kInstallerConfigFile, QSettings::IniFormat);
 

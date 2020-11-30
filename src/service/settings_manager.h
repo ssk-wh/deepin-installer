@@ -182,6 +182,9 @@ void WriteRequiringSwapFile(bool is_required);
 // The user experience configuration options
 void WriteUserExperience(bool checked);
 
+// The user license configuration options
+void WriteUserLicenseIsUse(bool enable);
+
 // Save current settings to /etc/deepin-installer.conf
 // Other settings will be updated later.
 void AddConfigFile();
