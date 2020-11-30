@@ -16,10 +16,11 @@
  */
 
 #include "ui/frames/inner/lvm_partition_frame.h"
+#include "ui/interfaces/frameinterfaceprivate.h"
 
 #include <QPushButton>
+#include <QEvent>
 
-#include "ui/interfaces/frameinterfaceprivate.h"
 
 namespace installer {
 
