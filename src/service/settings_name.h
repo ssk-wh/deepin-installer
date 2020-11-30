@@ -122,6 +122,7 @@ const char kPartitionMinimumDiskSpaceRequired[] =
 const char kPartitionRecommendedDiskSpace[] =
     "disk_recommended_space";
 const char kPartitionRootMiniSpace[] = "partition_root_space_required";
+const char kAutoMountPartitionRootMiniSpace[] = "auto_mount_partition_root_space_required";
 const char kPartitionFullDiskMiniSpace[] = "partition_full_disk_minimum_space";
 const char kPartitionDefaultBootSpace[] = "partition_default_boot_space";
 const char kPartitionDefaultEFISpace[] = "partition_default_efi_space";

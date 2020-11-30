@@ -408,7 +408,7 @@ void NewPartitionFrame::updateSlideSize() {
     if (mem_info.mem_total > 2 *  kGibiByte) {
         swapeSpace = mem_info.mem_total + 2 *  kGibiByte;
     }
-    const int root_required = GetSettingsInt(kPartitionRootMiniSpace);
+    const int root_required = GetSettingsInt(kAutoMountPartitionRootMiniSpace);
     const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace);
     qint64 sumSapce = root_required * kGibiByte + swapeSpace;
 
@@ -588,7 +588,7 @@ void NewPartitionFrame::onSizeSliderValueChanged(qint64 size) {
     if (mem_info.mem_total > 2 *  kGibiByte) {
         swapeSpace = mem_info.mem_total + 2 *  kGibiByte;
     }
-    const int root_required = GetSettingsInt(kPartitionRootMiniSpace);
+    const int root_required = GetSettingsInt(kAutoMountPartitionRootMiniSpace);
     const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace);
     qint64 sumSapce = root_required * kGibiByte + swapeSpace;
 
