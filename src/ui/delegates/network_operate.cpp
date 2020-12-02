@@ -7,11 +7,10 @@ using namespace NetworkManager;
 
 namespace installer {
 
-NetworkOperate::NetworkOperate(NetworkManager::Device::Ptr device, QObject* parent)
+NetworkOperate::NetworkOperate(Device::Ptr device, QObject* parent)
     : QObject(parent)
     , m_device(device)
     , m_connection(nullptr)
-    , m_configMethod(DHCPTYpe::Auto)
 {
     Q_ASSERT(m_device != nullptr);
     m_interfaceName = m_device->interfaceName();
@@ -24,73 +23,41 @@ NetworkOperate::~NetworkOperate()
 
 void NetworkOperate::initNetworkConnection()
 {
-    qDebug() << "initNetworkConnection() the device " << m_device->interfaceName() << " availableConnections:";
-    foreach (Connection::Ptr conn , m_device->availableConnections()) {
-        qDebug() << conn->path();
+    if (!m_connection.isNull()) {
+        return;
     }
 
-    ActiveConnection::Ptr activeConnection = m_device->activeConnection();
-    if (!activeConnection.isNull()) {
-        qInfo() << "initNetworkConnection() the device " << m_device->interfaceName()
-                << " activeConnection:" << activeConnection->path();
-
-        m_connection = findConnectionByUuid(activeConnection->uuid());
-        if (!m_connection.isNull()) {
-            m_connectionSettings = m_connection->settings();
-        }
-    }
-    else {
-        qInfo() << "This device has no active connection";
-
-        Connection::List connections = m_device->availableConnections();
-
-        if (connections.isEmpty()) {
-            if (!createNetworkConnection()) {
-                qInfo() << "initNetworkConnection() create network connection failed";
-            }
-        }
-        else {
-            m_connection = connections.first();
-
-            qInfo() << "initNetworkConnection() activate connection";
-            if (!activateConn()) {
-                qCritical() << "initNetworkConnection() active connection failed";
-            }
-        }
+    if (!createNetworkConnection()) {
+        qCritical() << Q_FUNC_INFO << "Create network connection failed";
+        return;
     }
 
+    ConnectionSettings::Ptr m_connectionSettings;
     if (!m_connection.isNull()) {
         m_connectionSettings = m_connection->settings();
-        m_connectionUuid = m_connection->uuid();
     }
-
-    if (!m_connectionSettings.isNull()) {
-        NetworkManager::Ipv4Setting::Ptr ipv4Setting
-                = m_connectionSettings->setting(Setting::Ipv4).dynamicCast<Ipv4Setting>();
-
-        if (!ipv4Setting.isNull()) {
-            m_configMethod = ipv4Setting->method() == NetworkManager::Ipv4Setting::ConfigMethod::Manual ?
-                        DHCPTYpe::Manual : DHCPTYpe::Auto;
-        }
-    }
-}
-
-Connection::Ptr NetworkOperate::getConnection() const
-{
-    return m_connection;
 }
 
 QString NetworkOperate::getConnectionUuid() const
 {
-    return m_connectionUuid;
+    if (!m_connection.isNull()) {
+        return m_connection->uuid();
+    }
+
+    return QString();
 }
 
 bool NetworkOperate::createNetworkConnection()
 {
-    NetworkManager::ConnectionSettings::Ptr connectionSettings =
-            QSharedPointer<NetworkManager::ConnectionSettings>(
-                new NetworkManager::ConnectionSettings(
-                    NetworkManager::ConnectionSettings::ConnectionType::Wired));
+    if (m_device.isNull()) {
+        qCritical() << Q_FUNC_INFO << "Device is nullptr";
+        return false;
+    }
+
+    ConnectionSettings::Ptr connectionSettings =
+            QSharedPointer<ConnectionSettings>(
+                new ConnectionSettings(
+                    ConnectionSettings::ConnectionType::Wired));
     connectionSettings->setInterfaceName(m_device->interfaceName());
     QString connName = QString("%1-lap").arg(m_device->interfaceName());
     connectionSettings->setId(connName);
@@ -155,29 +122,29 @@ bool NetworkOperate::setIpV4(NetworkSettingInfo info)
 
     qDebug() << "Current setting connection uuid: " << m_connection->uuid();
 
-    NetworkManager::ConnectionSettings::Ptr settings = m_connection->settings();
-    NetworkManager::Ipv4Setting::Ptr ipv4Setting
+    ConnectionSettings::Ptr settings = m_connection->settings();
+    Ipv4Setting::Ptr ipv4Setting
             = settings->setting(Setting::Ipv4).dynamicCast<Ipv4Setting>();
 
-    NetworkManager::IpAddress ipAddress;
+    IpAddress ipAddress;
     ipAddress.setIp(QHostAddress(info.ip));
     ipAddress.setNetmask(QHostAddress(info.mask));
     ipAddress.setGateway(QHostAddress(info.gateway));
     if (info.setIpMode == DHCPTYpe::Manual){
-        ipv4Setting->setMethod(NetworkManager::Ipv4Setting::Manual);
-        ipv4Setting->setAddresses(QList<NetworkManager::IpAddress>() << ipAddress);
+        ipv4Setting->setMethod(Ipv4Setting::Manual);
+        ipv4Setting->setAddresses(QList<IpAddress>() << ipAddress);
         ipv4Setting->setDns(QList<QHostAddress>() << QHostAddress(info.primaryDNS)
                                                   << QHostAddress(info.secondaryDNS));
     }
     else {
-        ipv4Setting->setMethod(NetworkManager::Ipv4Setting::Automatic);
+        ipv4Setting->setMethod(Ipv4Setting::Automatic);
 
-        QList<NetworkManager::IpAddress>().clear();
-        NetworkManager::IpAddress ipAddressAuto;
+        QList<IpAddress>().clear();
+        IpAddress ipAddressAuto;
         ipAddressAuto.setIp(QHostAddress(""));
         ipAddressAuto.setNetmask(QHostAddress(""));
         ipAddressAuto.setGateway(QHostAddress(""));
-        ipv4Setting->setAddresses(QList<NetworkManager::IpAddress>() << ipAddressAuto);
+        ipv4Setting->setAddresses(QList<IpAddress>() << ipAddressAuto);
 
         ipv4Setting->setDns(QList<QHostAddress>());
     }
@@ -218,32 +185,17 @@ bool NetworkOperate::setIpV4(NetworkSettingInfo info)
 
 void NetworkOperate::setDeviceEnable(const QString &devPath, const bool enable)
 {
-    QDBusInterface ddeNetworkMnager(
-              "com.deepin.daemon.Network",
-              "/com/deepin/daemon/Network",
-              "com.deepin.daemon.Network",
-              QDBusConnection::sessionBus());
-
-    QFile ddeSessionDaemon("/usr/lib/deepin-daemon/dde-session-daemon");
-    if (ddeSessionDaemon.exists()) {
-        qInfo() << "setDeviceEnableByDdeDaemonBus() " << devPath << enable;
-        setDeviceEnableByDdeBus(ddeNetworkMnager, devPath, enable);
+    QDBusInterface freedesktopNetworkMnager("org.freedesktop.NetworkManager",
+                                            devPath,
+                                            "org.freedesktop.NetworkManager.Device",
+                                            QDBusConnection::systemBus());
+    if (!freedesktopNetworkMnager.isValid()) {
+        qCritical() << "org.freedesktop.NetworkManager daemon is invalid";
+        return;
     }
-    else {
-        qCritical() << "com.deepin.daemon.Network daemon is not exists";
 
-        QDBusInterface freedesktopNetworkMnager("org.freedesktop.NetworkManager",
-                                           devPath,
-                                           "org.freedesktop.NetworkManager.Device",
-                                           QDBusConnection::systemBus());
-        if (!freedesktopNetworkMnager.isValid()) {
-            qCritical() << "org.freedesktop.NetworkManager daemon is invalid";
-            return;
-        }
-
-        qInfo() << "setDeviceEnableByNetworkManagerDaemonBus() " << devPath << enable;
-        setDeviceEnableByNetworkBus(freedesktopNetworkMnager, devPath, enable);
-    }
+    qInfo() << "setDeviceEnableByNetworkManagerDaemonBus() " << devPath << enable;
+    setDeviceEnableByNetworkBus(freedesktopNetworkMnager, devPath, enable);
 
     if (enable) {
         if (m_connection) {
@@ -288,9 +240,25 @@ bool NetworkOperate::getDeviceEnable(const QString &devPath)
     return enable;
 }
 
-DHCPTYpe NetworkOperate::getDhcp() const
+DHCPTYpe NetworkOperate::getDhcp()
 {
-    return m_configMethod;
+    DHCPTYpe configMethod = DHCPTYpe::Auto;
+
+    if (!m_connection.isNull()) {
+        ConnectionSettings::Ptr connectionSettings = m_connection->settings();
+
+        if (!connectionSettings.isNull()) {
+            Ipv4Setting::Ptr ipv4Setting
+                    = connectionSettings->setting(Setting::Ipv4).dynamicCast<Ipv4Setting>();
+
+            if (!ipv4Setting.isNull()) {
+                configMethod = ipv4Setting->method() == Ipv4Setting::ConfigMethod::Manual ?
+                            DHCPTYpe::Manual : DHCPTYpe::Auto;
+            }
+        }
+    }
+
+    return configMethod;
 }
 
 bool NetworkOperate::activateConn()
@@ -324,22 +292,48 @@ bool NetworkOperate::isIpv4Address(const QString &ip)
 // TODO: only working for manual config, will failed if auto.
 void NetworkOperate::readIpInfo(NetworkSettingInfo& networkSettingInfo)
 {
-    if (!m_connectionSettings) {
-        qCritical() << "Connection settings is nullptr";
+    if (m_connection.isNull()) {
+        qCritical() << Q_FUNC_INFO << "Connection is nullptr";
         return;
     }
 
-    NetworkManager::Ipv4Setting::Ptr ipv4Setting
-            = m_connectionSettings->setting(Setting::Ipv4).staticCast<NetworkManager::Ipv4Setting>();
+    ConnectionSettings::Ptr connectionSettings = m_connection->settings();
 
-    QList<NetworkManager::IpAddress> ipAddressList = ipv4Setting->addresses();
+    if (connectionSettings.isNull()) {
+        qCritical() << Q_FUNC_INFO << "Connection settings is nullptr";
+        return;
+    }
+
+    Ipv4Setting::Ptr ipv4Setting
+            = connectionSettings->setting(Setting::Ipv4).staticCast<Ipv4Setting>();
+
+    if (ipv4Setting.isNull()) {
+        qCritical() << Q_FUNC_INFO << "Ipv4 setting is nullptr";
+        return;
+    }
+
+    DHCPTYpe configMethod = DHCPTYpe::Auto;
+    if (!ipv4Setting.isNull()) {
+        Ipv4Setting::ConfigMethod cm = ipv4Setting->method();
+        switch (cm) {
+        case Ipv4Setting::ConfigMethod::Manual:
+            configMethod = DHCPTYpe::Manual;
+            break;
+        default:
+            configMethod = DHCPTYpe::Auto;
+            break;
+        }
+    }
+
+    QList<IpAddress> ipAddressList = ipv4Setting->addresses();
     if (!ipAddressList.isEmpty()) {
         // Use the first ipaddress of list
-        NetworkManager::IpAddress ipAddress = ipAddressList.first();
+        IpAddress ipAddress = ipAddressList.first();
         networkSettingInfo.ip = ipAddress.ip().toString();
         networkSettingInfo.mask = ipAddress.netmask().toString();
         const QString &gateStr = ipAddress.gateway().toString();
         networkSettingInfo.gateway = isIpv4Address(gateStr) ? gateStr : "";
+        networkSettingInfo.setIpMode = configMethod;
     } else {
         networkSettingInfo.ip = "0.0.0.0";
         networkSettingInfo.mask = "255.255.255.0";

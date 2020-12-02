@@ -753,6 +753,8 @@ private:
 };
 }
 
+QMap<QString, NetworkOperate*> NetworkFrame::m_mapDeviceUdi2NetworkOperate;
+
 NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *parent)
     : FrameInterface(frameProxyInterface, parent)
     , m_nextButton(new QPushButton(::QObject::tr("Next")))
@@ -847,6 +849,16 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     updateTs();
 }
 
+NetworkOperate* NetworkFrame::getNetworkOperateByDeviceUdi(const QString &udi)
+{
+    if (m_mapDeviceUdi2NetworkOperate.contains(udi)) {
+        return m_mapDeviceUdi2NetworkOperate[udi];
+    }
+    else {
+        return nullptr;
+    }
+}
+
 void NetworkFrame::initDeviceWidgetList()
 {
     ClearLayout(m_leftLayout);
@@ -885,7 +897,11 @@ void NetworkFrame::initDeviceWidgetList()
 
         deviceWidget->setDeviceEnable(enable);
         m_buttonList << deviceWidget;
-        m_connectionUuidList << deviceWidget->networkOperate()->getConnectionUuid();
+
+        QString uuid = deviceWidget->networkOperate()->getConnectionUuid();
+        if (!uuid.isEmpty()) {
+            m_connectionUuidList << uuid;
+        }
 
         if (!hasSet) {
             deviceWidget->setChecked(true);
@@ -929,8 +945,9 @@ void NetworkFrame::shockDdeDaemon()
             continue;
         }
 
-        NetworkOperate networkOperate(dev);
-        networkOperate.setDeviceEnable(dev->uni(), true);
+        if (!m_mapDeviceUdi2NetworkOperate.contains(dev->udi())) {
+            m_mapDeviceUdi2NetworkOperate[dev->udi()] = new NetworkOperate(dev);
+        }
     }
 }
 

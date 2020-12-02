@@ -23,6 +23,8 @@ class NetworkFrame : public FrameInterface {
 public:
     explicit NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget* parent = nullptr);
 
+    static NetworkOperate* getNetworkOperateByDeviceUdi(const QString& udi);
+
     QString returnFrameName() const override;
 
     void initDeviceWidgetList();
@@ -36,6 +38,8 @@ protected:
     void showEvent(QShowEvent* event) override;
 
 private:
+    static QMap<QString, NetworkOperate*>       m_mapDeviceUdi2NetworkOperate;
+
     TitleLabel* title_label_ = nullptr;
     CommentLabel* comment_label_ = nullptr;
     QVBoxLayout*                                m_leftLayout;

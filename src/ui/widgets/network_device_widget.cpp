@@ -3,12 +3,14 @@
 #include "ui/widgets/auto_wrap_label.h"
 #include "ui/widgets/ticker_label.h"
 #include "ui/widgets/auto_elide_label.h"
+#include "ui/frames/networkframe.h"
 #include "base/command.h"
 
 #include <QStyleOption>
 #include <QPainter>
 #include <QEvent>
 #include <QPainterPath>
+#include <QtTest/QTest>
 
 namespace installer {
 
@@ -273,7 +275,12 @@ void NetworkDeviceWidget::setDeviceInfo(NetworkManager::Device::Ptr device) {
     setDesc(GetVendorInfo(device->udi()));
 
     m_device = device;
-    m_networkOperate = new NetworkOperate(device);
+
+    m_networkOperate = NetworkFrame::getNetworkOperateByDeviceUdi(device->udi());
+    if (nullptr == m_networkOperate) {
+        qWarning() << "Can't find NetworkOperate ptr for device:" << device->interfaceName();
+        m_networkOperate = new NetworkOperate(device);
+    }
 
     readNetworkSettingInfo();
 }
