@@ -144,7 +144,7 @@ protected:
 
   void onNetworkFinished();
 
-  void onControlPlatformFinished();
+  void onStartRunHooks();
 
   // Run "first_boot_setup.sh" after system_info_frame_ is finished.
   void onTimezoneFinished();

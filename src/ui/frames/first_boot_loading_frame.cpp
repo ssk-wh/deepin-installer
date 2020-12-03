@@ -36,7 +36,7 @@ FirstBootLoadingFrame::FirstBootLoadingFrame(FrameProxyInterface *frameProxyInte
 
 void FirstBootLoadingFrame::init()
 {
-
+    emit startRunHooks();
 }
 
 void FirstBootLoadingFrame::finished()

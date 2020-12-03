@@ -43,6 +43,7 @@ class FirstBootLoadingFrame : public FrameInterface {
 
 signals:
     void closeButtionChange(bool change);
+    void startRunHooks();
 
  protected:
   void changeEvent(QEvent* event) override;

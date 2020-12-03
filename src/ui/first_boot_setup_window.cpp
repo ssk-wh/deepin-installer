@@ -224,8 +224,8 @@ void FirstBootSetupWindow::initConnections() {
     connect(hook_worker_, &FirstBootHookWorker::hookFinished,
             this, &FirstBootSetupWindow::onHookFinished);
 
-    connect(control_platform_frame_, &ControlPlatformFrame::requestFinished, this,
-            &FirstBootSetupWindow::onControlPlatformFinished);
+    connect(loading_frame_, &FirstBootLoadingFrame::startRunHooks, this,
+            &FirstBootSetupWindow::onStartRunHooks);
 
     connect(monitor_mode_shortcut_, &GlobalShortcut::activated,
             multi_head_manager_, &MultiHeadManager::switchXRandRMode);
@@ -524,7 +524,7 @@ void FirstBootSetupWindow::onSystemInfoFinished() {
 void FirstBootSetupWindow::onNetworkFinished()
 {
     if (GetSettingsBool(kSkipControlPlatformPage)) {
-        return onControlPlatformFinished();
+        return onStartRunHooks();
     }
     else {
         stacked_layout_->setCurrentWidget(control_platform_frame_);
@@ -532,7 +532,7 @@ void FirstBootSetupWindow::onNetworkFinished()
     }
 }
 
-void FirstBootSetupWindow::onControlPlatformFinished()
+void FirstBootSetupWindow::onStartRunHooks()
 {
     emit hook_worker_->startHook();
 }
