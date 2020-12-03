@@ -977,7 +977,7 @@ void NetworkFrame::finished()
 
 bool NetworkFrame::shouldDisplay() const
 {
-    return !isPexInstall() && !GetSettingsBool(kSkipNetworkPage);
+    return !GetSettingsBool(kSkipNetworkPage);
 }
 
 void NetworkFrame::showEvent(QShowEvent *event)

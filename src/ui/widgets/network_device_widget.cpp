@@ -10,7 +10,6 @@
 #include <QPainter>
 #include <QEvent>
 #include <QPainterPath>
-#include <QtTest/QTest>
 
 namespace installer {
 
