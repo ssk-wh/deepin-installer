@@ -6,5 +6,7 @@ partition_skip_partition_crypt_page = true
 install_progress_os_type_slide = slide/personal
 system_info_disable_experience = false
 enable_install_nvidia_driver = true
+timezone_force_local_time = true
+timezone_use_local_time_regardless = true
 
 

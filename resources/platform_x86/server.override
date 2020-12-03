@@ -15,4 +15,5 @@ system_info_password_palingrome_length = 4
 recovery_partition_default_size = 20
 system_info_disable_experience = true
 skip_auto_mount = true
-
+timezone_force_local_time = true
+timezone_use_local_time_regardless = true

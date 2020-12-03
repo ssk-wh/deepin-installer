@@ -16,4 +16,5 @@ partition_full_disk_large_legacy_label = "Boot;Swap;Root;_dde_data"
 skip_select_component_page = true
 select_component_default_install_type = ""
 timezone_force_local_time = true
+timezone_use_local_time_regardless = true
 

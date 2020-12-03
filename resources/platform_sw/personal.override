@@ -16,4 +16,6 @@ partition_full_disk_large_legacy_label = "Boot;Swap;Root;_dde_data"
 install_progress_os_type_slide = slide/personal
 system_info_disable_experience = false
 enable_install_nvidia_driver = true
+timezone_force_local_time = true
+timezone_use_local_time_regardless = true
 
