@@ -158,6 +158,8 @@ const char kPartitionFullDiskLargeRootPartRange[] =
 const char KPartitionSkipFullCryptPage[] =
     "partition_skip_partition_crypt_page";
 
+const char kPartitionIsFsckFileSystem[] = "partition_is_fsck_file_system";
+
 // Nvidia 驱动配置选项
 const char KEnableInstallNvidiaDriver[] =
     "enable_install_nvidia_driver";
