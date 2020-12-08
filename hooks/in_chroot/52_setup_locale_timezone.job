@@ -38,6 +38,13 @@ enable_local_rtc() {
     fi
 }
 
+# set timedate
+set_timedate() {
+    local DI_TIMEDATE
+    DI_TIMEDATE=$(installer_get "DI_TIMEDATE")
+    timedatectl set-time "${DI_TIMEDATE}" 
+}
+
 # set ntp
 set_ntp_config() {
     cat > /usr/lib/systemd/system/systemd-timesyncd.service.d/disable-timesyncd-with-installer.conf << EOF
@@ -128,6 +135,7 @@ EOF
   dpkg-reconfigure --frontend noninteractive tzdata
 
   # Set using local time or not
+  set_timedate
   enable_local_rtc
   enable_ntp
   datetime_hctosys

@@ -554,6 +554,12 @@ void WriteTimezone(const QString& timezone) {
   settings.setValue("DI_TIMEZONE", timezone);
 }
 
+void WriteTimedate(const QString &timeDate)
+{
+    QSettings settings(kInstallerConfigFile, QSettings::IniFormat);
+    settings.setValue("DI_TIMEDATE", timeDate);
+}
+
 void WriteUsername(const QString& username) {
   AppendToConfigFile("DI_USERNAME", username);
 

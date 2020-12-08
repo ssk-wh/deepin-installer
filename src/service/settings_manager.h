@@ -150,6 +150,7 @@ void WritePassword(const QString& password);
 void WriteRootPassword(const QString& password);
 void WriteTimezone(const QString& timezone);
 void WriteIsEnableNTP(bool isEnableNTP);
+void WriteTimedate(const QString& timeDate);
 void WriteUsername(const QString& username);
 void WriteFullDiskDeivce(const QString &deviceName);
 void WriteFullDiskEncryptPassword(const QString &password);

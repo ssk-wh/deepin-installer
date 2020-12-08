@@ -205,6 +205,7 @@ void TimezoneFrame::finished() {
 
     WriteTimezone(m_private->timezone_);
     WriteIsEnableNTP(!m_private->m_systemDateFrame->isEnabled());
+    WriteTimedate(m_private->m_systemDateFrame->timedate());
 }
 
 void TimezoneFrame::changeEvent(QEvent* event) {
