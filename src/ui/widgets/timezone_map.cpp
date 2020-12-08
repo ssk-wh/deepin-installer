@@ -60,8 +60,7 @@ TimezoneMap::TimezoneMap(QWidget* parent)
       current_zone_(),
       total_zones_(GetZoneInfoList()),
       nearest_zones_(),
-      m_mapLabelSize(),
-      m_popupPoint()
+      m_mapLabelSize()
 {
   this->setObjectName("timezone_map");
 
@@ -126,7 +125,6 @@ bool TimezoneMap::eventFilter(QObject* watched, QEvent* event) {
             }
             else {
                 popupZoneWindow(e->pos());
-                m_popupPoint = e->pos();
             }
 
             m_mapLabelSize = map_label_->size();
@@ -261,23 +259,7 @@ void TimezoneMap::updateMap() {
     mapPixmap = mapPixmap.scaled(size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     map_label_->setPixmap(mapPixmap);
 
-    if (nearest_zones_.count() > 1){
-        QTimer::singleShot(0, this, [&]{
-            dot_->hide();
-            popup_window_->hide();
-
-            float xRadio = static_cast<float>(map_label_->size().width())
-                           / static_cast<float>(m_mapLabelSize.width());
-            float yRadio = static_cast<float>(map_label_->size().height())
-                           / static_cast<float>(m_mapLabelSize.height());
-
-            popupZoneWindow(QPoint(static_cast<float>(m_popupPoint.x()) * xRadio
-                                   , static_cast<float>(m_popupPoint.y()) * yRadio));
-        });
-    }
-    else {
-        QTimer::singleShot(0, this, &TimezoneMap::remark);
-    }
+    QTimer::singleShot(0, this, &TimezoneMap::remark);
 }
 
 void TimezoneMap::showHistoryTimeZone()
