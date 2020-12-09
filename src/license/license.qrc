@@ -1,13 +1,5 @@
 <RCC>
     <qresource prefix="/license">
-        <file>end-user-license-agreement-community_en_US.txt</file>
-        <file>end-user-license-agreement-community_zh_CN.txt</file>
-        <file>end-user-license-agreement-personal_en_US.txt</file>
-        <file>end-user-license-agreement-personal_zh_CN.txt</file>
-        <file>end-user-license-agreement-professional_en_US.txt</file>
-        <file>end-user-license-agreement-professional_zh_CN.txt</file>
-        <file>end-user-license-agreement-server_en_US.txt</file>
-        <file>end-user-license-agreement-server_zh_CN.txt</file>
         <file>privacy-policy-community_en_US.txt</file>
         <file>privacy-policy-community_zh_CN.txt</file>
         <file>privacy-policy-personal_en_US.txt</file>
@@ -22,5 +14,13 @@
         <file>user-experience-agreement-personal_zh_CN.txt</file>
         <file>user-experience-agreement-professional_en_US.txt</file>
         <file>user-experience-agreement-professional_zh_CN.txt</file>
+        <file>end-user-license-agreement-community_en_US.txt</file>
+        <file>end-user-license-agreement-community_zh_CN.txt</file>
+        <file>end-user-license-agreement-personal_en_US.txt</file>
+        <file>end-user-license-agreement-personal_zh_CN.txt</file>
+        <file>end-user-license-agreement-professional_en_US.txt</file>
+        <file>end-user-license-agreement-professional_zh_CN.txt</file>
+        <file>end-user-license-agreement-server_en_US.txt</file>
+        <file>end-user-license-agreement-server_zh_CN.txt</file>
     </qresource>
 </RCC>

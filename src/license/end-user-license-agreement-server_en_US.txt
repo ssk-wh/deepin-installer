@@ -1,6 +1,6 @@
 End User License Agreement for UnionTech OS Server 
 
-Updated date: July 14, 2020
+Updated date:December 8th, 2020
 
 Please read all rights and limitations stated in this End User License Agreement ("Agreement") carefully before using the UnionTech OS Server software ("software" or "UnionTech UOS"). This is a legal Agreement between you (natural person, legal person or other organizations) and UnionTech Software Technology Co., Ltd. (“UnionTech Software”), as well as its affiliates. By installing, copying and/or otherwise using the software, you signify your assent to and acceptance of the Agreement, and acknowledge that you have read and understood all the terms of the Agreement. If you represent an entity, by installing, copying and/or otherwise using the software, you are deemed to accept these terms on behalf of the entity. If you DO NOT agree any term of this Agreement, please do not install, download or use this software and its relevant services by any other means. The Agreement also applies to the software maintenance, upgrades, support services, etc. provided by UnionTech Software unless they are accompanied by other terms. Please review carefully your Service or Subscription agreement(s) that you may have with UnionTech Software or its authorized distributors regarding services and associated payments.
 Unless being replaced by a new version, the Agreement applies to any version of [UnionTech UOS]UnionTech UOS and its related updates, and any usage of the source code, regardless the way how the software is delivered.

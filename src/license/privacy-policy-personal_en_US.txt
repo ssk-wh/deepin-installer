@@ -1,6 +1,6 @@
 UnionTech Software Privacy Policy
 
-Latest update date: July 23, 2020
+Latest update date:December 8th, 2020
 
 The Privacy Policy sets forth the personal information processed by UnionTech Software as well as its affiliates (including but not limited to Wuhan Deepin Technology Co., Ltd. (hereinafter referred to as “UnionTech Software”or“We”) as well as the way and purpose for processing the personal information. The Privacy Policy applies to the UnionTech OS and the related applications (“UnionTech OS products and services”) that UnionTech Software provides to you, which will be listed and described one by one.
 
@@ -39,10 +39,10 @@ Network Identification Information:
 e.g. your IP address, MAC address, etc.;
 
 Device Information:
-Including your device motherboard information, BIOS information, CPU information, memory information, hard disk information, partition information, network card information, etc.;
+Including your equipment identity, device motherboard information, BIOS information, CPU information, memory information, hard disk information, partition information, network card information, etc.;
 
 Operation System Information:
-Including the operation system software version, the latest update date of the system, system language, system sound effects, power supply, mouse, system theme, wallpaper, launcher, dock, configuration information for hot corners, daily login times and source for each download;
+Including the operation system software type, version, architecture, active status, developer mode status, the latest update date of the system, system language, system sound effects, power supply, mouse, system theme, wallpaper, launcher, dock, configuration information for hot corners, daily login times and source for each download;
 
 Application Software Information:
 For example, the version, installation location, start and exist time of your applications installed in the system.
@@ -54,7 +54,7 @@ Only when you actively enable the corresponding business feature, can informatio
 If you enable the “User Experience Program”, we are authorized to read, record and store the information in your local devices. We will stop collecting such information after “User Experience Program” being disabled by you, including:
 
 1.1.1.Device and System Information
-The device information includes your device motherboard information, BIOS information, CPU information, memory information, hard disk information, partition information, network card information, etc. The system information includes the system software version, the latest update date of the system, system language, daily active users, source for each download and the operation system performance information during runtime.
+The device information includes your device motherboard information, BIOS information, CPU information, memory information, hard disk information, partition information, network card information, hardware information and driver information of the external connecting device, etc.. The system information includes the system software version, the latest update date of the system, system language, daily active users, source for each download and the operation system performance information during runtime, etc..
 
 1.1.2.Application Software Information
 For example, the version, installation location, start and exist time of your applications installed in the system and the performance information during runtime.
@@ -64,10 +64,12 @@ The exception information of the operation system and/or the application during 
 
 1.2Activating the UnionTech OS
 You agree that we collect and use your device and system information to bind your device with the genuine UnionTech OS purchased so that you can enjoy the full UnionTech OS services and protect the UnionTech OS intellectual property rights from malicious infringement at the same time. After the UnionTech OS is activated, when the changes of your device and system information make us believe that your device may have changed or our intellectual property rights may be maliciously violated, we have the right to terminate your continual use of the activated UnionTech OS. 
+
 1.3Union ID Service
 You can register your Union ID in www.chinauos.com and log into the UnionTech OS or the products provided by our partners. You can make synchronization of the UnionTech OS configuration and application software of the UnionTech OS between different devices after login. However, such synchronization will be expired after the Union ID service being disabled by you.
+
 1.3.1.Union ID Registration
-To realize the service feature and meet the relevant regulatory requirement in mainland China, personal mobile number is needed to complete the Union ID registration. Due to the regulatory requirements of mainland China, it will be unavailable for us to provide you with Union ID services if you refuse to provide your mobile number.
+To realize the service feature and meet the relevant regulatory requirement in the P.R.C, personal mobile number is needed to complete the Union ID registration. Due to the regulatory requirements of the P.R.C, it will be unavailable for us to provide you with Union ID services if you refuse to provide your mobile number.
 
 1.3.2.Address Book Synchronization Service
 You can log into your Union ID to synchronize the address book information between different devices under the same Union ID, including friend information and meeting information, including but not limited to your friend list, friend relationship, friend account and remarks information, friend grouping information, friend group information, meeting attendance records and meeting management information. For this purpose, your address book information will be read, including your friend information and meeting information. Your refusal to provide the forging information will not affect the normal operation of other services in the UnionTech OS.
@@ -84,6 +86,9 @@ When you browse and visit the website and platform we provide with the pre-insta
 1.3.6.Application Store Service
 We will collect your device information, system information and application information when you download, install and uninstall applications with the pre-installed application store of the UnionTech OS. You can comment on and/or rate the applications in the application store after login with your Union ID. The comments and/or rating information will be stored in association with your Union ID.
 
+1.3.7.Service and support
+If you leave a message or use the online customer service function through the UnionTech OS service and support, you can choose to upload your device information and system information. Your refusal to upload the above information will not result in the normal provision of other services in the UnionTech OS.
+
 2.Collecting Your Personal Information Automatically When You Use UnionTech OS Products and Services
 When you use some features of the UnionTech OS products and services, we will automatically collect the relevant information, which may include your personal information. Such features include:
 
@@ -91,7 +96,10 @@ When you use some features of the UnionTech OS products and services, we will au
 The desktop AI assistant service is integrated into the UnionTech OS and co-provided by our partners and us. When you input texts via the desktop AI assistant or use the voice notepad feature, our partner will directly collect your voice content to conduct technical analysis and convert it to texts. As for the detailed description for the information shared to the partners, please refer to [Part III] “How We Share, Transfer and Disclose Your Personal Information” in Privacy Policy in detail.
 
 2.2.System Upgrade
-When you upgrade the UnionTech OS products and services, we will collect your device ID, system mainline version, system version number and other information for us to clarify your system information, so as to help you update accurately. The collected information will be anonymized.
+When you upgrade the UnionTech OS products and services, we will collect your equipment information, system information and other information for us to clarify your system information, so as to help you update accurately. The collected information will be anonymized.
+
+2.3.Application Store Service
+In order to better provide you with app store services, when you search, browse, download, update and uninstall application software by using the app store pre installed by UnionTech OS, we will collect the information of your previous operations, usage behavior, device information, system information, store version and application software information. Please note that the above information collected by us will be anonymized.
 
 3.Conducting Internal Audit, Big Data Analysis and Research
 

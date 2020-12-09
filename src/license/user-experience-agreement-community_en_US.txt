@@ -1,6 +1,6 @@
 User Experience Program License Agreement for Deepin OS
 
-Update Date：August 3th, 2020
+Update Date：December 8th, 2020
 
 Welcome to the User Experience Program. The User Experience Program (hereinafter referred to as the “Program”) is a network service developed and operated by UnionTech Software Technology Co., Ltd. ("UnionTech Software") and its affiliated companies (especially Wuhan Deepin Technology Co., Ltd. ("Deepin Technology") ) to facilitate the improvement of user experiences of the Deepin OS. 
 

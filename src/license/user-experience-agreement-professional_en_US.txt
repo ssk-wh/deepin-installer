@@ -1,6 +1,6 @@
 UnionTech OS User Experience Program License Agreement
 
-Update Date：May 13, 2020
+Update Date：December 8th, 2020
 Welcome to the User Experience Program. The User Experience Program (hereinafter referred to as the “Program”) is a network service developed and operated by UnionTech Software Technology Co., Ltd. (hereinafter referred to as “UnionTech Software”) to facilitate the improvement of user experiences of the UnionTech Operation System (including but not limited to the UnionTech desktop operating system and UnionTech server operating system, hereinafter referred to as “UnionTech UOS”). 
 With this service, the hardware, application software and operation system information of the computers running with UnionTech UOS can be collected and analyzed to determine the further improvement for UnionTech UOS operation system. 
 
