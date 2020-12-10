@@ -35,6 +35,7 @@
 #include "ui/widgets/title_label.h"
 #include "ui/widgets/select_button.h"
 #include "service/settings_manager.h"
+#include "service/settings_name.h"
 
 DWIDGET_USE_NAMESPACE
 DGUI_USE_NAMESPACE
@@ -155,7 +156,7 @@ void PrepareInstallFrame::initUI() {
 
   m_selectCreateRecovery = new DCheckBox;
   m_selectCreateRecovery->setCheckable(true);
-  m_selectCreateRecovery->setChecked(true);
+  m_selectCreateRecovery->setChecked(GetSettingsBool(kIfDoRecovery));
 
   abort_button_ = new SelectButton();
   abort_button_->setFixedSize(kButtonWidth, kButtonHeight);

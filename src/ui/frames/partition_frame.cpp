@@ -46,6 +46,8 @@
 #include "ui/widgets/title_label.h"
 #include "ui/widgets/pointer_button.h"
 #include "ui/interfaces/frameinterfaceprivate.h"
+#include "service/settings_manager.h"
+#include "service/settings_name.h"
 
 #include <QButtonGroup>
 #include <QEvent>
@@ -170,7 +172,9 @@ PartitionFrame::~PartitionFrame()
 
 void PartitionFrame::init()
 {
-
+    // Read if_do_recovery in ini config and write DI_IF_DO_RECOVERY to conf for backup shell using.
+    // Then if use checked in PrepareInstallFrame page, DI_IF_DO_RECOVERY will be rewrite.
+    WriteIfDoRecovery(GetSettingsBool(kIfDoRecovery));
 }
 
 void PartitionFrame::finished()
