@@ -193,6 +193,7 @@ const char kInstallProgressOsTypeSlide[] = "install_progress_os_type_slide";
 const char kInstallFailedFeedbackServer[] = "install_failed_feedback_server";
 const char kInstallFailedQRErrMsgLen[] = "install_failed_qr_err_msg_len";
 const char kInstallFailedErrMsgLen[] = "install_failed_err_msg_len";
+const char kInstallFailedQRDisplaySwitch[] = "install_failed_qr_display_switch";
 
 // Misc
 const char kScreenDefaultBrightness[] = "screen_default_brightness";

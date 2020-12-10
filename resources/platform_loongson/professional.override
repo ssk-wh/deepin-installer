@@ -18,4 +18,5 @@ select_component_default_install_type = ""
 timezone_force_local_time = true
 timezone_use_local_time_regardless = true
 partition_is_fsck_file_system = true
+install_failed_qr_display_switch = true
 

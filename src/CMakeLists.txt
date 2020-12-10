@@ -1044,10 +1044,18 @@ add_executable(qr-widget-test
                ui/widgets/qr_widget.h
                ui/utils/widget_util.cpp
                ui/utils/widget_util.h
+               service/screen_adaptation_manager.h
+               service/screen_adaptation_manager.cpp
+               service/settings_manager.cpp
+               service/settings_manager.h
+               service/settings_name.h
+               base/command.h
+               base/command.cpp
                )
 target_link_libraries(qr-widget-test
                       ${Qt_LIBS}
                       ${ZLib_LIBRARIES}
+                      ${DtkWidget_LIBRARIES}
 
                       qrencode
                       )

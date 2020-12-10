@@ -28,6 +28,7 @@
 #include "ui/widgets/title_label.h"
 #include "ui/widgets/pointer_button.h"
 #include "service/settings_manager.h"
+#include "service/settings_name.h"
 
 #include <QEvent>
 #include <QLabel>
@@ -194,13 +195,7 @@ void InstallFailedFramePrivate::initUI()
     content_frame->setBackgroundRole(DPalette::ItemBackground);
     content_frame->setFixedSize(kContentWindowWidth, kContentWindowHeight);
 
-//    QPalette palette = m_plainTextEdit->palette();
-//    palette.setColor(QPalette::Text, QColor(66, 154, 216));
-//    const DPalette &dp = DApplicationHelper::instance()->palette(content_frame);
-//    palette.setColor(QPalette::Base, dp.color(DPalette::ItemBackground));
-//    m_plainTextEdit->setPalette(palette);
-
-    m_plainTextEdit->setStyleSheet("QPlainTextEdit {color: red; background: transparent;}");
+    m_plainTextEdit->setStyleSheet("QPlainTextEdit {color: rgba(66,154,216,1); background: transparent;}");
 
     qr_widget_ = new QRWidget(content_frame);
     qr_widget_->setMargin(kQrMargin);
@@ -238,7 +233,12 @@ void InstallFailedFramePrivate::initUI()
     // Move control_button_ to top-right corner of content area.
     control_button_->move(kContentWindowWidth - kControlButtonSize, 0);
     control_button_->raise();
-    control_button_->show();
+    if (GetSettingsBool(kInstallFailedQRDisplaySwitch)) {
+        control_button_->show();
+    }
+    else {
+        control_button_->hide();
+    }
 
     reboot_button_ = new QPushButton;
     reboot_button_->setFixedSize(kButtonWidth, kButtonHeight);
