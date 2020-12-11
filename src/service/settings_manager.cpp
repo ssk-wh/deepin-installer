@@ -847,6 +847,11 @@ void WriteInstallSuccessed(bool successed)
     AppendToConfigFile("DI_INSTALL_SUCCESSED", successed);
 }
 
+void WriteInstallDurationTime(const QString &installtime)
+{
+    AppendToConfigFile("DI_INSTALL_DURATIONTIME", installtime);
+}
+
 void CustomSetSettingsBool(const char* key, bool boolvalue)
 {
     AppendToConfigFile(key, boolvalue);//AppendToConfigFile(kSystemInfoSetupAfterReboot, after);

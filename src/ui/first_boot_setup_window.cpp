@@ -534,6 +534,18 @@ void FirstBootSetupWindow::onNetworkFinished()
 
 void FirstBootSetupWindow::onStartRunHooks()
 {
+    char installrecord[] = BUILTIN_HOOKS_DIR "/doinstallrecord_first_boot";
+    if (QFile::exists(installrecord)) {
+        QString out, err;
+        bool ok = RunScriptFile({installrecord}, out, err);
+        if (!out.isEmpty()) {
+            qWarning() << installrecord << "OUT:" << out;
+        }
+        if (!err.isEmpty()) {
+            qCritical() << installrecord << "ERR:" << err;
+        }
+    }
+
     emit hook_worker_->startHook();
 }
 

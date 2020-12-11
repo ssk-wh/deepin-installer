@@ -31,11 +31,8 @@ EOF
 write_user_experience() {
 	local value_experience="$1"
 	local value_license="$2"
-	cat > /etc/deepin/deepin-user-experience << EOF
-[ExperiencePlan]
-ExperienceState=$value_experience
-LicenseState=$value_license
-EOF
+	deepin-installer-settings set "/etc/deepin/deepin-user-experience" "ExperiencePlan" "ExperienceState" ${value_experience}
+	deepin-installer-settings set "/etc/deepin/deepin-user-experience" "ExperiencePlan" "LicenseState" ${value_license}
 }
 
 DI_USER_EXPERIENCE=$(installer_get "DI_USER_EXPERIENCE")
