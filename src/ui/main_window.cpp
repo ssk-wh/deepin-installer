@@ -529,12 +529,11 @@ void MainWindow::initPages() {
 
   m_originalFrames = {
       // TODO: move the front new statement over here
-#ifdef QT_DEBUG_TEST
-
-#else
       m_repairSystemFrame,
       privilege_error_frame_,
       select_language_frame_,
+#ifdef QT_DEBUG_TEST
+#else
       disk_space_insufficient_frame_,
       virtual_machine_frame_,
       network_frame_,

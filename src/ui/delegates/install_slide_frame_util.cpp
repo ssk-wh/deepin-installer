@@ -34,45 +34,61 @@ const char kSlideFolder[] = RESOURCES_DIR "/slide";
 }  // namespace
 
 QString GetSlideDir(const QString& locale) {
-  QDir installer_dir(QFile::exists(kSlideFolder) ? kSlideFolder : SOURCE_DIR "/resources/slide");
-  Q_ASSERT(installer_dir.exists());
-  QDir oem_slide_dir(GetOemDir().absoluteFilePath("slide"));
+    QString s_dir;
 
-  QString os_type_slide = GetSettingsString(kInstallProgressOsTypeSlide);
-  QDir os_type_dir(RESOURCES_DIR + QString(QDir::separator()) + os_type_slide);
-  QFileInfo os_type_file(os_type_dir.absoluteFilePath(locale));
+    // 优先级从高到低
+    // oem语言目录
+    QDir oem_slide_dir(GetOemDir().absoluteFilePath("slide") + QDir::separator() + locale);
+    qDebug() << "oem_slide_dir = " << oem_slide_dir.path();
+    if (oem_slide_dir.exists()) {
+        return oem_slide_dir.path();
+    }
 
-  qInfo() << "os_type_slide = " << os_type_slide;
-  qInfo() << "os_type_file = " << os_type_file.absoluteFilePath();
-  if (!os_type_slide.isEmpty() && os_type_file.isDir() && os_type_file.exists())
-  {
-      return os_type_file.absoluteFilePath();
-  }
+    // oem默认目录
+    QDir oem_default_slide_dir(GetOemDir().absoluteFilePath("slide") + QDir::separator()  + QString(kDefaultSlide));
+    qDebug() << "oem_default_slide_dir = " << oem_default_slide_dir.path();
+    if (oem_default_slide_dir.exists()) {
+        return oem_default_slide_dir.path();
+    }
 
-  // Check existence of folders one by one.
-  QFileInfo file_info(oem_slide_dir.absoluteFilePath(locale));
-  if (file_info.isDir() && file_info.exists()) {
-    return file_info.absoluteFilePath();
-  }
+    // 平台语言目录
+    QDir os_type_slide_dir(QString(kSlideFolder) + QDir::separator() + GetOSType() + QDir::separator() + locale);
+    qDebug() << "os_type_slide_dir = " << os_type_slide_dir.path();
+    if (os_type_slide_dir.exists()) {
+        return os_type_slide_dir.path();
+    }
 
-  file_info.setFile(installer_dir.absoluteFilePath(locale));
-  if (file_info.isDir() && file_info.exists()) {
-    return file_info.absoluteFilePath();
-  }
+    // 平台默认目录
+    QDir os_type_default_slide_dir(QString(kSlideFolder) + QDir::separator() + GetOSType() + QDir::separator() + QString(kDefaultSlide));
+    qDebug() << "os_type_default_slide_dir = " << os_type_slide_dir.path();
+    if (os_type_default_slide_dir.exists()) {
+        return os_type_default_slide_dir.path();
+    }
 
-  file_info.setFile(oem_slide_dir.absoluteFilePath(kDefaultSlide));
-  if (file_info.isDir() && file_info.exists()) {
-    return file_info.absoluteFilePath();
-  }
+    // 语言相关
+    QDir slide_dir(QString(kSlideFolder) + QDir::separator() + locale);
+    qDebug() << "slide_dir = " << slide_dir.path();
+    if (slide_dir.exists()) {
+        return slide_dir.path();
 
-  return installer_dir.absoluteFilePath(kDefaultSlide);
+    }
+
+    // 默认目录
+    QDir default_slide_dir(QString(kSlideFolder) + QDir::separator() + QString(kDefaultSlide));
+    qDebug() << "default_slide_dir = " << slide_dir.path();
+    if (default_slide_dir.exists()) {
+        return default_slide_dir.path();
+
+    }
+
+    return QString();
 }
 
 QStringList GetSlideFiles(const QString& locale) {
   QStringList slide_files;
 
   QDir slide_dir(GetSlideDir(locale));
-  Q_ASSERT(slide_dir.exists());
+  qDebug() << "slide_dir = " << slide_dir;
 
   // List all png files in slide folder.
   QString filepath;

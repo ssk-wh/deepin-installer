@@ -37,6 +37,8 @@ QDir GetOemDir();
 
 OSType GetCurrentType();
 
+QString GetOSType();
+
 QString GetCurrentPlatform();
 
 // Read settings value from ini file.

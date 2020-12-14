@@ -138,18 +138,26 @@ QString GetCurrentPlatform() {
     return BUILD_ARCH_MAP[PLATFORM_BUILD_ARCH];
 }
 
-OSType GetCurrentType() {
+
+QString GetOSType()
+{
     QSettings settings("/etc/deepin-version", QSettings::IniFormat);
     settings.beginGroup("Release");
 
 #ifdef QT_DEBUG
-    const QString& type = "Professional";
+    QString type = "Professional";
 #else
-    const QString& type = settings.value("Type", "Desktop").toString();
+    QString type = settings.value("Type", "Community").toString();
 #endif // QT_DEBUG
 
+    return type;
+}
+
+OSType GetCurrentType() {
+    const QString& type = GetOSType();
+
     return QMap<QString, OSType>{
-        { "Desktop", OSType::Community },
+        { "Community", OSType::Community },
         { "Professional", OSType::Professional },
         { "Server", OSType::Server },
         { "Personal", OSType::Personal },
