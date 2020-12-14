@@ -24,6 +24,8 @@
 
 #include "frameproxyinterface.h"
 
+#include <QApplication>
+
 namespace installer {
 enum class FrameType {
     Frame,              // 主页面
@@ -96,6 +98,7 @@ signals:
 protected:
     void showEvent(QShowEvent *event) override {
         emit updateNextButton();
+        qApp->setActiveWindow(this);
         return BaseFrameInterface::showEvent(event);
     }
 
