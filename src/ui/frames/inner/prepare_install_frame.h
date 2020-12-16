@@ -42,6 +42,7 @@ class PrepareInstallFrame : public QFrame {
 
   // Update descriptions of operations.
   void updateDescription(const QStringList& descriptions);
+  void setCreateRecovery(bool isCreate);
 
  signals:
   // Emitted when abort-button is clicked, returning to previous page.

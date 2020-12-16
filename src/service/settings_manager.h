@@ -230,6 +230,9 @@ void WriteFullDiskMode(bool value);
 
 void WriteIfDoRecovery(const bool value);
 
+// 判断是否创建初始化备份
+void WriteIsInitRecovery(bool value);
+
 struct DiskPartitionSetting {
     DiskPartitionSetting();
     QString  root_disk;

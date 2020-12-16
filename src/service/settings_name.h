@@ -180,6 +180,9 @@ const char kEnableRecoveryPartition[] = "enable_recovery_partition";
 const char kRecoveryDefaultSize[] = "recovery_partition_default_size";
 const char kIfDoRecovery[] = "if_do_recovery";
 
+// 无人值守时可以通过改选项控制初始备份是否生成
+const char kIsInitRecvoery[] = "is_init_recovery";
+
 // Install progress page
 const char kInstallProgressPageDisableSlide[] =
     "install_progress_page_disable_slide";

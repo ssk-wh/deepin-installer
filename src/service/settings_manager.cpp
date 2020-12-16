@@ -925,4 +925,8 @@ void WriteIfDoRecovery(const bool value)
     AppendToConfigFile("DI_IF_DO_RECOVERY", value ? "true" : "false");
 }
 
+void WriteIsInitRecovery(bool value) {
+    AppendToConfigFile("DI_IS_INIT_RECOVERY", value);
+}
+
 }  // namespace installer

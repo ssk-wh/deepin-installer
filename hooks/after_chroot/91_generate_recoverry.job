@@ -14,6 +14,11 @@ if [ x${DI_FULLDISK_MODE} != "xtrue" ]; then
     return 0;
 fi
 
+DI_IS_INIT_RECOVERY=$(installer_get "DI_IS_INIT_RECOVERY")
+if [ x${DI_IS_INIT_RECOVERY} != "xtrue" ]; then
+    return 0;
+fi
+
 variable_done_data_var_opt_copy=0
 
 # mount all point

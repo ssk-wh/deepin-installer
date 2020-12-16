@@ -631,6 +631,7 @@ void PartitionFramePrivate::onButtonGroupToggled(QAbstractButton *button)
 
 void PartitionFramePrivate::onNextButtonClicked() {
   WriteFullDiskMode(isFullDiskPartitionMode());
+  prepare_install_frame_->setCreateRecovery(isFullDiskPartitionMode());
 
   if (isSimplePartitionMode()) {
     // Validate simple partition frame.

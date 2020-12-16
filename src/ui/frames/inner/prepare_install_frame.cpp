@@ -56,6 +56,8 @@ PrepareInstallFrame::PrepareInstallFrame(QWidget* parent)
 
   this->initUI();
   this->initConnections();
+  // 无人值守只能是全盘，故不用考虑手动分区的情况
+  WriteIsInitRecovery(GetSettingsBool(kIsInitRecvoery));
 }
 
 void PrepareInstallFrame::updateDescription(const QStringList& descriptions) {
@@ -71,6 +73,15 @@ void PrepareInstallFrame::updateDescription(const QStringList& descriptions) {
   description_edit_->setText(description_text);
 }
 
+void PrepareInstallFrame::setCreateRecovery(bool isCreate)
+{
+    if (!isCreate) {
+        m_selectCreateRecovery->hide();
+    } else {
+        m_selectCreateRecovery->show();
+    }
+}
+
 void PrepareInstallFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     updateTs();
@@ -83,7 +94,8 @@ void PrepareInstallFrame::initConnections() {
     connect(abort_button_, &QPushButton::clicked,
             this, &PrepareInstallFrame::aborted);
     connect(continue_button_, &QPushButton::clicked, this, [=] {
-        WriteIfDoRecovery(m_selectCreateRecovery->isChecked());
+        WriteIsInitRecovery(!m_selectCreateRecovery->isHidden()
+                            && m_selectCreateRecovery->isChecked());
         emit finished();
     });
 }
@@ -149,8 +161,7 @@ void PrepareInstallFrame::initUI() {
   descriptionLayout->addWidget(scroll);
 
   m_selectCreateRecovery = new DCheckBox;
-  m_selectCreateRecovery->setCheckable(true);
-  m_selectCreateRecovery->setChecked(GetSettingsBool(kIfDoRecovery));
+  m_selectCreateRecovery->setChecked(GetSettingsBool(kIsInitRecvoery));
 
   abort_button_ = new SelectButton();
   abort_button_->setFixedSize(kButtonWidth, kButtonHeight);
