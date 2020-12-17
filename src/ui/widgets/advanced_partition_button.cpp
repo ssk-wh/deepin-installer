@@ -122,7 +122,7 @@ void AdvancedPartitionButton::paintEvent(QPaintEvent *event)
     painter.setPen(QPen(text_color));
 
     QFont font;
-    font.setPointSize(kPartitionInfoFontSize);
+    font.setPixelSize(kPartitionInfoFontSize);
     painter.setFont(font);
 
     int text_x = std::max(backgroudRect.x() + kDevicePathLeftMargin, os_rect.right() + kItemRightMargin);
@@ -199,7 +199,7 @@ void AdvancedPartitionButton::paintEvent(QPaintEvent *event)
            backgroudRect.height());
     text = painter.fontMetrics().elidedText(text, Qt::TextElideMode::ElideRight, text_rect.width());
 
-    font.setPointSize(kPartitionInfoFontSize);
+    font.setPixelSize(kPartitionInfoFontSize);
     painter.setFont(font);
     painter.drawText(text_rect, Qt::AlignLeft | Qt::AlignVCenter, text);
 

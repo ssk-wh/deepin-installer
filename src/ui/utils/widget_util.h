@@ -37,13 +37,6 @@ void ClearLayout(QLayout* layout);
 // to transparent. Returns false if failed.
 bool SetChildTransparent(QWidget* root, const QString& child_name);
 
-// Set |widget| to display fullscreen mode on primary screen.
-// QWidget::showFullscreen() might fail to set fullscreen mode.
-void ShowFullscreen(QWidget* widget);
-
-// Resize |widget| to fill |geometry|.
-void ShowFullscreen(QWidget* widget, const QRect& geometry);
-
 // Set popup window background to transparent.
 void SetQComboBoxTransparent(QComboBox* box);
 // DEPRECATED. Not work.

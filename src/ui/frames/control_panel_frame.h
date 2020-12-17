@@ -74,10 +74,6 @@ class ControlPanelFrame : public QFrame {
 
   QTermWidget* term_widget_ = nullptr;
 
-  QTimer* timer_ = nullptr;
-  QString log_file_path_;
-  QString log_content_;
-
  private slots:
   // Highlight current line when position of text cursor is changed.
   void onLogViewerCursorPositionChanged();
@@ -85,9 +81,11 @@ class ControlPanelFrame : public QFrame {
   // Switch pages on tab bar changed to |index|.
   void onTabBarChanged(int index);
 
-  void onTimerTimeout();
+  void readLog();
 
   void onSuicideButtonClicked();
+
+  void primaryGeometryChanged(const QRect &rect);
 };
 
 }  // namespace installer

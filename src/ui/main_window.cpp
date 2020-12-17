@@ -37,6 +37,7 @@
 #include "service/screen_brightness.h"
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
+#include "service/screen_adaptation_manager.h"
 #include "sysinfo/users.h"
 #include "sysinfo/virtual_machine.h"
 #include "third_party/global_shortcut/global_shortcut.h"
@@ -63,6 +64,7 @@
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/pointer_button.h"
 #include "ui/xrandr/multi_head_manager.h"
+#include "ui/widgets/wallpaper_item.h"
 
 Q_DECLARE_METATYPE(installer::FrameInterface*)
 
@@ -152,8 +154,7 @@ void MainWindow::fullscreen() {
     multi_head_manager_->updateWallpaper();
 #endif // !QT_DEBUG
 
-    ShowFullscreen(this);
-    // this->showFullScreen();
+    this->setFixedSize(ScreenAdaptationManager::instance()->primaryAvailableGeometry().size());
 
     if (GetSettingsBool(kPartitionDoAutoPart) || GetSettingsBool("DI_LUPIN")) {
     // In auto-install mode, partitioning is done in hook script.
@@ -452,9 +453,6 @@ void MainWindow::initConnections() {
   connect(partition_frame_, &PartitionFrame::manualPartDone,
           install_progress_frame_, &InstallProgressFrame::runHooks);
 
-  connect(multi_head_manager_, &MultiHeadManager::primaryScreenChanged,
-          this, &MainWindow::onPrimaryScreenChanged);
-
   connect(control_panel_shortcut_, &QShortcut::activated,
           control_panel_frame_, &ControlPanelFrame::toggleVisible);
   connect(monitor_mode_shortcut_, &GlobalShortcut::activated,
@@ -486,6 +484,14 @@ void MainWindow::initConnections() {
   connect(m_repairSystemFrame, &RepairSystemFrame::repair, this, [=] {
     qInfo() << "System repair...";
     this->close();
+  });
+
+  // 主窗口分辨率适配
+  connect(ScreenAdaptationManager::instance(),
+          &ScreenAdaptationManager::primaryAvailableGetometryChanaged,
+          this, [=](const QRect &rect) {
+      this->setFixedSize(rect.size());
+      this->adjustSize();
   });
 }
 
@@ -773,11 +779,6 @@ bool MainWindow::checkBackButtonAvailable(PageId id) {
                              PageId::InstallProgressId,
                          })
             .contains(id);
-}
-
-void MainWindow::onPrimaryScreenChanged(const QRect& geometry) {
-  qDebug() << "onPrimaryScreenChanged()" << geometry;
-  ShowFullscreen(this, geometry);
 }
 
 void MainWindow::updateFrameLabelState(FrameInterface *frame, FrameLabelState state)

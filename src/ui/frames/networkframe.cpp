@@ -189,7 +189,7 @@ public:
                          "{3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])");
 
         QFont font;
-        font.setPointSize(kEditFontSize);
+        font.setPixelSize(kEditFontSize);
 
         for (auto it = m_editList.begin(); it != m_editList.end(); ++it) {
             connect(*it, &DLineEdit::textEdited, this, &NetworkEditWidget::onEditingLineEdit);
@@ -205,7 +205,7 @@ public:
         ipLayout->setSpacing(0);
 
         QFont labelFont;
-        labelFont.setPointSize(kLabelFontSize);
+        labelFont.setPixelSize(kLabelFontSize);
         m_ipLabel = new QLabel(::QObject::tr("IP Address:"));
         m_ipLabel->setFixedSize(kRightViewLabelWidth, 20);
         m_ipLabel->setFont(labelFont);
@@ -288,7 +288,7 @@ public:
         m_switchName->setFixedSize(130, 20);
 
         QFont networkSwitchFont;
-        networkSwitchFont.setPointSize(kNetworkSwitchFontSize);
+        networkSwitchFont.setPixelSize(kNetworkSwitchFontSize);
         m_switchName->setFont(networkSwitchFont);
 
         connect(m_switchButton, &DSwitchButton::checkedChanged, this, &NetworkEditWidget::onSwitchStateChanged);

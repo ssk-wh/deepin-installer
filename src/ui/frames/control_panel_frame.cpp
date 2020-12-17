@@ -61,60 +61,22 @@ const char kInstallerConfigFile[] = "/etc/deepin-installer.conf";
 }  // namespace
 
 ControlPanelFrame::ControlPanelFrame(QWidget* parent)
-    : QFrame(parent),
-      timer_(new QTimer(this)),
-      log_file_path_(GetLogFilepath()),
-      log_content_(){
+    : QFrame(parent){
   this->setObjectName("control_panel_frame");
 
-  timer_->setInterval(kReadLogInterval);
   this->initUI();
   this->initConnections();
+  this->readLog();
 }
 
 void ControlPanelFrame::toggleVisible() {
+#ifndef QT_DEBUG
     if (!GetSettingsBool("system_debug")) {
         return;
     }
-  if (!this->isVisible()) {
-    // Slide in
-    const QRect geom =  ScreenAdaptationManager::instance()->adapterScreenGeometry();
-    this->setMinimumSize(QSize(geom.width() / 2, geom.height() / 2));
-    this->move(0, 0);
-    this->show();
+#endif // QT_DEBUG
+    this->setVisible(!this->isVisible());
     this->raise();
-    QPropertyAnimation* animation = new QPropertyAnimation(this, "pos", this);
-    animation->setStartValue(QPoint(0, 0));
-    animation->setEndValue(QPoint(0, 0));
-    animation->setDuration(300);
-    connect(animation, &QPropertyAnimation::finished,
-            animation, &QPropertyAnimation::deleteLater);
-    animation->start();
-
-    // Read log file immediately.
-    this->onTimerTimeout();
-    timer_->start();
-  } else {
-    // Slide out
-    const int x_orig = this->x();
-    const int x = x_orig - this->width();
-    const int y_orig = this->y();
-    const int y = y_orig;
-    this->move(x_orig, y_orig);
-    this->show();
-    this->raise();
-    QPropertyAnimation* animation = new QPropertyAnimation(this, "pos", this);
-    animation->setStartValue(QPoint(x_orig, y_orig));
-    animation->setEndValue(QPoint(x, y));
-    animation->setDuration(100);
-    connect(animation, &QPropertyAnimation::finished,
-            this, &ControlPanelFrame::hide);
-    connect(animation, &QPropertyAnimation::finished,
-            animation, &QPropertyAnimation::deleteLater);
-    animation->start();
-
-    timer_->stop();
-  }
 }
 
 void ControlPanelFrame::initConnections() {
@@ -125,8 +87,6 @@ void ControlPanelFrame::initConnections() {
           this, &ControlPanelFrame::onTabBarChanged);
   connect(log_viewer_, &QTextEdit::cursorPositionChanged,
           this, &ControlPanelFrame::onLogViewerCursorPositionChanged);
-  connect(timer_, &QTimer::timeout,
-          this, &ControlPanelFrame::onTimerTimeout);
 
   connect(refresh_devices_button_, &QPushButton::clicked,
           this, &ControlPanelFrame::requestRefreshDevices);
@@ -136,6 +96,13 @@ void ControlPanelFrame::initConnections() {
           this, &ControlPanelFrame::requestSimulateSlide);
   connect(suicide_button_, &QPushButton::clicked,
           this, &ControlPanelFrame::onSuicideButtonClicked);
+
+  connect(ScreenAdaptationManager::instance(),
+          &ScreenAdaptationManager::primaryAvailableGetometryChanaged,
+          this, [=](const QRect &rect) {
+      this->setFixedSize(QSize(rect.width() / 2, rect.height() / 2));
+      this->adjustSize();
+  });
 }
 
 void ControlPanelFrame::initUI() {
@@ -264,22 +231,23 @@ void ControlPanelFrame::onTabBarChanged(int index) {
   stacked_widget_->setCurrentIndex(index);
 }
 
-void ControlPanelFrame::onTimerTimeout() {
-  const QString content(ReadFile(log_file_path_));
-  if (content.length() == log_content_.length()) {
-    return;
-  }
-  log_content_ = content;
+void ControlPanelFrame::readLog() {
+  const QString content(ReadFile(GetLogFilepath()));
 
   QTextCursor cursor = log_viewer_->textCursor();
   // Restore vertical position when log content is updated.
   const int pos = log_viewer_->verticalScrollBar()->value();
-  log_viewer_->setPlainText(log_content_);
+  log_viewer_->setPlainText(content);
   log_viewer_->verticalScrollBar()->setValue(pos);
 }
 
 void ControlPanelFrame::onSuicideButtonClicked() {
-  Suicide();
+    Suicide();
+}
+
+void ControlPanelFrame::primaryGeometryChanged(const QRect &rect)
+{
+
 }
 
 }  // namespace installer

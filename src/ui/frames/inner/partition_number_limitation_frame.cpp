@@ -65,7 +65,7 @@ void PartitionNumberLimitationFrame::initUI() {
 
   title_label_ = new QLabel(::QObject::tr("Failed to Create New Partition"));
   QFont font;
-  font.setPointSize(kTitleFontSize);
+  font.setPixelSize(kTitleFontSize);
   title_label_->setFont(font);
   title_label_->setContentsMargins(0, 0, 0, 0);
   title_label_->adjustSize();

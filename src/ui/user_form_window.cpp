@@ -41,7 +41,7 @@ UserFormWindow::~UserFormWindow() {
 }
 
 void UserFormWindow::fullscreen() {
-    ShowFullscreen(this);
+    this->showFullScreen();
 }
 
 void UserFormWindow::nextFrame(){

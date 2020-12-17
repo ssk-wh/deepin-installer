@@ -135,8 +135,6 @@ protected:
   // Handles result of hook worker.
   void onHookFinished(bool ok);
 
-  void onPrimaryScreenChanged(const QRect& geometry);
-
   FrameInterface *getFrameInterface(QStandardItem *item) const;
 
   void onLanguageSelected();

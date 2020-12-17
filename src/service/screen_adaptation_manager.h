@@ -6,36 +6,38 @@
 
 namespace installer {
 
-class ScreenAdaptationManager
+class ScreenAdaptationManager : public QObject
 {
+    Q_OBJECT
 public:
     static ScreenAdaptationManager* instance();
 
 public:
     QPixmap adapterPixmap(const QString &file);
     QPixmap adapterPixmap(const QPixmap &pixmap);
-    QRect adapterScreenGeometry();
-    void adapterWindows(QWidget *wid);
+    QRect primaryGeometry();
+    QRect primaryAvailableGeometry();
+
+Q_SIGNALS:
+    void screenGeometryChanged(const QRect &rect);
+    void primaryGeometryChanged(const QRect &rect);
+    void primaryAvailableGetometryChanaged(const QRect &rect);
 
 private:
-    virtual void init();
-    virtual void adapterWidth(int width);
-    virtual void adapterHeight(int height);
-
-    int getXRandrWidth();
-    int getXRandrWidth(const QString &xrandr);
-    int getXRandrHeight();
-    int getXRandrHeight(const QString &xrandr);
-    bool isAdapterWindows();
+    void setup(const QRect &rect);
+    void initConnection();
+    void adapterWidth(int width);
+    void adapterHeight(int height);
 
 private:
     ScreenAdaptationManager();
     ScreenAdaptationManager(const ScreenAdaptationManager &) = delete;
 
 private:
-    double m_widthZoomRatio = 1;
-    double m_heightZoomRatio = 1;
-    QString m_adaptationResolution;
+    double      m_widthZoomRatio = 1;
+    double      m_heightZoomRatio = 1;
+    QRect       m_oldWindowRect;
+    QRect       m_oldAvailabWindowRect;
 };
 
 

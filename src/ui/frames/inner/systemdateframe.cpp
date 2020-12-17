@@ -502,7 +502,7 @@ void SystemDateFramePrivate::initUI()
     q_ptr->setLayout(mainLayout);
 
     QFont font;
-    font.setPointSize(kDateTimeFontSize);
+    font.setPixelSize(kDateTimeFontSize);
     m_hourEdit->setFont(font);
     m_hourLabel->setFont(font);
     m_minuteEdit->setFont(font);

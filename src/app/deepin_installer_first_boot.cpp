@@ -30,6 +30,7 @@
 
 #include "base/consts.h"
 #include "service/log_manager.h"
+#include "service/settings_name.h"
 #include "service/settings_manager.h"
 #include "sysinfo/users.h"
 #include "ui/delegates/language_delegate.h"
@@ -72,13 +73,11 @@ int main(int argc, char* argv[]) {
   qputenv("LC_ALL", installer::kDefaultLang);
   qputenv("LANG", installer::kDefaultLang);
 
-//  installer::xrandr();
-  Utils::AutoScreenScale();
+  QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+  QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
   DApplication::loadDXcbPlugin();
   DApplication app(argc, argv);
-  app.setAttribute(Qt::AA_UseHighDpiPixmaps);
-  app.setAttribute(Qt::AA_EnableHighDpiScaling);
   app.setApplicationDisplayName("Deepin Installer First Boot");
   app.setApplicationName(" ");
   app.setApplicationVersion(installer::kAppVersion);
@@ -103,6 +102,7 @@ int main(int argc, char* argv[]) {
 #endif // QT_DEBUG
 
   QFont font(app.font());
+  font.setPixelSize(installer::GetSettingsInt(installer::kSystemDefaultFontSize));
   font.setFamily(installer::GetUIDefaultFont());
   app.setFont(font);
 

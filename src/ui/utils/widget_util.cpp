@@ -16,7 +16,6 @@
  */
 
 #include "ui/utils/widget_util.h"
-#include "service/screen_adaptation_manager.h"
 
 #include <QApplication>
 #include <QComboBox>
@@ -79,19 +78,6 @@ bool SetChildTransparent(QWidget* root, const QString& child_name) {
     }
   }
   return false;
-}
-
-void ShowFullscreen(QWidget* widget) {
-  // NOTE(xushaohua): If geometry of primary screen changes too fast, this
-  // function may return false screen geometry.
-    ScreenAdaptationManager::instance()->adapterWindows(widget);
-}
-
-void ShowFullscreen(QWidget* widget, const QRect& geometry) {
-//  qDebug() << "ShowFullscreen()" << geometry;
-//  widget->move(geometry.topLeft());
-//  widget->setFixedSize(geometry.size());
-    ScreenAdaptationManager::instance()->adapterWindows(widget);
 }
 
 void SetQComboBoxTransparent(QComboBox* box) {

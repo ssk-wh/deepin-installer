@@ -41,6 +41,7 @@
 #include "service/power_manager.h"
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
+#include "service/screen_adaptation_manager.h"
 #include "third_party/global_shortcut/global_shortcut.h"
 #include "ui/frames/first_boot_loading_frame.h"
 #include "ui/frames/system_info_frame.h"
@@ -55,6 +56,7 @@
 #include "ui/frames/inner/system_info_keyboard_frame.h"
 #include "ui/frames/control_panel_frame.h"
 #include "ui/frames/confirm_quit_frame.h"
+#include "ui/widgets/wallpaper_item.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -107,8 +109,7 @@ FirstBootSetupWindow::~FirstBootSetupWindow() {
 }
 
 void FirstBootSetupWindow::fullscreen() {
-    ShowFullscreen(this);
-    // this->showFullScreen();
+    this->setFixedSize(ScreenAdaptationManager::instance()->primaryAvailableGeometry().size());
 }
 
 void FirstBootSetupWindow::nextFrame()
@@ -229,8 +230,6 @@ void FirstBootSetupWindow::initConnections() {
 
     connect(monitor_mode_shortcut_, &GlobalShortcut::activated,
             multi_head_manager_, &MultiHeadManager::switchXRandRMode);
-    connect(multi_head_manager_, &MultiHeadManager::primaryScreenChanged,
-            this, &FirstBootSetupWindow::onPrimaryScreenChanged);
     connect(back_button_, &DImageButton::clicked, this, &FirstBootSetupWindow::backPage);
     connect(stacked_layout_, &QStackedLayout::currentChanged, back_button_, &DImageButton::raise);
 
@@ -244,6 +243,14 @@ void FirstBootSetupWindow::initConnections() {
 
     connect(language_frame_, &LanguageFrame::coverMainWindowFrameLabelsView, this, [=] (bool cover) {
         updateFrameLabelPreviousState(!cover);
+    });
+
+    // 主窗口分辨率适配
+    connect(ScreenAdaptationManager::instance(),
+            &ScreenAdaptationManager::primaryAvailableGetometryChanaged,
+            this, [=](const QRect &rect) {
+        this->setFixedSize(rect.size());
+        this->adjustSize();
     });
 }
 
@@ -492,13 +499,6 @@ void FirstBootSetupWindow::onHookFinished(bool ok) {
       qDebug() << SpawnCmd("killall", QStringList() << "lightdm");
     }
   }
-}
-
-void FirstBootSetupWindow::onPrimaryScreenChanged(const QRect& geometry) {
-  qDebug() << "on primary screen changed" << geometry;
-//  this->move(geometry.topLeft());
-//  this->setFixedSize(geometry.size() / devicePixelRatioF());
-  ShowFullscreen(this, geometry);
 }
 
 void FirstBootSetupWindow::onLanguageSelected()

@@ -220,9 +220,6 @@ private:
   // Go next page when current page index is changed in ControlPanelFrame.
   void onCurrentPageChanged(int index);
 
-  // Move main window to primary screen when it is changed to |geometry|.
-  void onPrimaryScreenChanged(const QRect& geometry);
-
   void goNextPage();
   void rebootSystem();
   void shutdownSystem();

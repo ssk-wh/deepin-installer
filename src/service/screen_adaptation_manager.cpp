@@ -1,11 +1,15 @@
 #include "screen_adaptation_manager.h"
 
+#include "settings_manager.h"
+#include "settings_name.h"
+#include "ui/widgets/wallpaper_item.h"
+
 #include <DApplication>
 #include <QDesktopWidget>
 #include <QRect>
 #include <QDebug>
-#include "settings_manager.h"
-#include "settings_name.h"
+#include <QScreen>
+#include <QThread>
 
 DWIDGET_USE_NAMESPACE
 
@@ -38,18 +42,19 @@ QPixmap installer::ScreenAdaptationManager::adapterPixmap(const QPixmap &pixmap)
                          Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
 }
 
-void installer::ScreenAdaptationManager::adapterWindows(QWidget *widget)
+QRect installer::ScreenAdaptationManager::primaryGeometry()
 {
-    widget->setFixedSize(adapterScreenGeometry().size());
-    widget->move(QPoint(adapterScreenGeometry().x(), adapterScreenGeometry().y()));
-//    widget->setGeometry(adapterScreenGeometry());
+    return QApplication::desktop()->screenGeometry();
+}
+
+QRect installer::ScreenAdaptationManager::primaryAvailableGeometry()
+{
+    return QApplication::desktop()->availableGeometry();
 }
 
 
-void installer::ScreenAdaptationManager::init()
+void installer::ScreenAdaptationManager::setup(const QRect &rect)
 {
-    QRect rect = adapterScreenGeometry();
-
     adapterWidth(rect.width());
     adapterHeight(rect.height());
 
@@ -58,6 +63,27 @@ void installer::ScreenAdaptationManager::init()
     qDebug() << "rect() = " << rect;
     qDebug() << "m_widthZoomRatio = " << m_widthZoomRatio;
     qDebug() << "m_heightZoomRatio = " << m_heightZoomRatio;
+}
+
+void installer::ScreenAdaptationManager::initConnection()
+{
+    connect(QGuiApplication::primaryScreen(), &QScreen::availableGeometryChanged,
+            this, &ScreenAdaptationManager::setup);
+    connect(QGuiApplication::primaryScreen(), &QScreen::availableGeometryChanged,
+            this, [=](const QRect &rect) {
+        if (m_oldAvailabWindowRect != rect) {
+            Q_EMIT primaryAvailableGetometryChanaged(rect);
+        }
+
+    });
+
+    connect(QGuiApplication::primaryScreen(), &QScreen::geometryChanged,
+            this, [=](const QRect &rect) {
+        if (m_oldWindowRect != rect) {
+            Q_EMIT primaryGeometryChanged(rect);
+        }
+
+    });
 }
 
 void installer::ScreenAdaptationManager::adapterWidth(int width)
@@ -80,69 +106,9 @@ void installer::ScreenAdaptationManager::adapterHeight(int height)
     }
 }
 
-int installer::ScreenAdaptationManager::getXRandrWidth()
+installer::ScreenAdaptationManager::ScreenAdaptationManager()
 {
-    return getXRandrWidth(m_adaptationResolution);
-}
-
-int installer::ScreenAdaptationManager::getXRandrWidth(const QString &xrandrs)
-{
-    QStringList xrandrlist = xrandrs.split("x");
-    if (xrandrlist.size() != 2) {
-        return XRANDR_INVALID;
-    }
-
-    bool ok = false;
-    int res = xrandrlist.at(0).toInt(&ok);
-    if (ok) {
-        return res;
-    } else {
-        return XRANDR_INVALID;
-    }
-}
-
-int installer::ScreenAdaptationManager::getXRandrHeight()
-{
-    return getXRandrHeight(m_adaptationResolution);
-}
-
-int installer::ScreenAdaptationManager::getXRandrHeight(const QString &xrandrs)
-{
-    QStringList xrandrlist = xrandrs.split("x");
-    if (xrandrlist.size() != 2) {
-        return XRANDR_INVALID;
-    }
-
-    bool ok = false;
-    int res = xrandrlist.at(1).toInt(&ok);
-    if (ok) {
-        return res;
-    } else {
-        return XRANDR_INVALID;
-    }
-}
-
-bool installer::ScreenAdaptationManager::isAdapterWindows()
-{
-    return getXRandrWidth() < QApplication::desktop()->width()
-            && getXRandrHeight() < QApplication::desktop()->height();
-}
-
-QRect installer::ScreenAdaptationManager::adapterScreenGeometry()
-{
-    if (isAdapterWindows()) {
-        QPoint pos = QPoint((QApplication::desktop()->width() - getXRandrWidth()) / 2,
-                (QApplication::desktop()->height() - getXRandrHeight()) / 2);
-        return QRect(pos, QSize(getXRandrWidth(), getXRandrHeight()));
-
-    } else {
-        return QApplication::desktop()->screenGeometry();
-    }
-}
-
-installer::ScreenAdaptationManager::ScreenAdaptationManager():
-    m_adaptationResolution(GetSettingsString(kWindowAdaptationResolution))
-{
-    init();
+    setup(primaryAvailableGeometry());
+    initConnection();
 }
 

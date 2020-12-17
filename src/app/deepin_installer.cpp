@@ -78,12 +78,13 @@ int main(int argc, char* argv[]) {
   // NOTE(xushaohua): "LANG" might not set in some live environment.
   qputenv("LC_ALL", installer::kDefaultLang);
   qputenv("LANG", installer::kDefaultLang);
-  Utils::AutoScreenScale();
+
+  /* 属性的设置一定要在app初始化之前，否则是无效的 */
+  QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+  QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
   DApplication::loadDXcbPlugin();
   DApplication app(argc, argv);
-  app.setAttribute(Qt::AA_UseHighDpiPixmaps);
-  app.setAttribute(Qt::AA_EnableHighDpiScaling);
   app.setApplicationDisplayName("Deepin Installer Reborn");
   app.setApplicationName(" ");
   app.setApplicationVersion(installer::kAppVersion);
@@ -91,6 +92,8 @@ int main(int argc, char* argv[]) {
   app.setWindowIcon(QIcon(":/images/deepin_installer.svg"));
 
   QFont font(app.font());
+  // 设置的字体大小是跟随像素的
+  font.setPixelSize(installer::GetSettingsInt(installer::kSystemDefaultFontSize));
   font.setFamily(installer::GetUIDefaultFont());
   app.setFont(font);
 

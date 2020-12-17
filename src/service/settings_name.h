@@ -21,6 +21,7 @@
 namespace installer {
 
 // Keys used in settings ini file.
+const char kSystemDefaultFontSize[] = "system_default_font_size";
 
 // Pages
 const char kSkipDiskSpaceInsufficientPage[] =

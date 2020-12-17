@@ -333,7 +333,7 @@ void SelectLanguageFramePrivate::initUI() {
     sub_title_label_->setAlignment(Qt::AlignHCenter);
 
     m_languageView = new DListView();
-    m_languageView->setFixedWidth(kListViewWidth - 15);
+    m_languageView->setMinimumWidth(kListViewWidth - 15);
     m_languageView->setFocusPolicy(Qt::TabFocus);
     m_languageView->setEditTriggers(QListView::NoEditTriggers);
     m_languageView->setIconSize(QSize(32, 32));
@@ -351,7 +351,7 @@ void SelectLanguageFramePrivate::initUI() {
     m_languageView->installEventFilter(q);
 
     QScrollArea *languageArea = new QScrollArea;
-    languageArea->setFixedWidth(kListViewWidth);
+    languageArea->setMinimumWidth(kListViewWidth);
     languageArea->setContentsMargins(0, 0, 0, 0);
     languageArea->setWidgetResizable(true);
     languageArea->setFocusPolicy(Qt::TabFocus);
