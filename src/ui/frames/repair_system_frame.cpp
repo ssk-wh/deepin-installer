@@ -306,6 +306,112 @@ void installer::RepairSystemFrame::hideEvent(QHideEvent *event)
     return FrameInterface::hideEvent(event);
 }
 
+bool installer::RepairSystemFrame::focusSwitch()
+{
+    Q_D(RepairSystemFrame);
+
+    if (m_current_focus_widget == nullptr) {
+        this->setCurentFocus(d->nextButton);
+    }
+    else if (d->nextButton == m_current_focus_widget) {
+        this->setCurentFocus(d->m_installerWidget);
+    }
+    else if (d->m_installerWidget == m_current_focus_widget) {
+        this->setCurentFocus(d->m_repairWidget);
+    }
+    else if (d->m_repairWidget == m_current_focus_widget) {
+        this->setCurentFocus(d->nextButton);
+    }
+
+    return true;
+}
+
+bool installer::RepairSystemFrame::doSpace()
+{
+    Q_D(RepairSystemFrame);
+
+    if (d->m_installerWidget == m_current_focus_widget) {
+        d->m_installerWidget->setSelect(true);
+        d->m_repairWidget->setSelect(false);
+        d->nextButton->setEnabled(true);
+        this->setCurentFocus(d->nextButton);
+    } else if (d->m_repairWidget == m_current_focus_widget) {
+        d->m_installerWidget->setSelect(false);
+        d->m_repairWidget->setSelect(true);
+        d->nextButton->setEnabled(true);
+        this->setCurentFocus(d->nextButton);
+    }
+
+    return true;
+}
+
+bool installer::RepairSystemFrame::doSelect()
+{
+    Q_D(RepairSystemFrame);
+
+    if (d->nextButton == m_current_focus_widget) {
+        d->nextButton->click();
+    }
+
+    return true;
+}
+
+bool installer::RepairSystemFrame::directionKey(int keyvalue)
+{
+    Q_D(RepairSystemFrame);
+
+    switch (keyvalue) {
+    case Qt::Key_Up:
+    case Qt::Key_Down:
+        if (d->m_installerWidget == m_current_focus_widget) {
+            this->setCurentFocus(d->m_repairWidget);
+        } else if (d->m_repairWidget == m_current_focus_widget) {
+            this->setCurentFocus(d->m_installerWidget);
+        }
+        break;
+    case Qt::Key_Left:
+        break;
+    case Qt::Key_Right:
+        break;
+    }
+
+    return true;
+}
+
+//void installer::RepairSystemFrame::focalSwitch()
+//{
+//    Q_D(RepairSystemFrame);
+////    d->m_dropdown->setFocusPolicy(Qt::NoFocus);
+////    d->m_titleLabel->setFocusPolicy(Qt::NoFocus);
+////    d->m_commentLabel->setFocusPolicy(Qt::NoFocus);
+////    d->m_repairWidget->setFocusPolicy(Qt::TabFocus);
+////    d->m_installerWidget->setFocusPolicy(Qt::TabFocus);
+////    d->nextButton->setFocusPolicy(Qt::TabFocus);
+////    d->nextButton->setFocus();
+//    this->setStyleSheet("*:focus{border-color: rgb(0, 160, 230);background: rgb(85, 85, 85);}");
+////    d->m_installerWidget->setStyleSheet("*:focus{border-color: rgb(0, 160, 230);background: rgb(85, 85, 85);}");
+////    d->m_dropdown->setStyleSheet("*:focus{border-color: rgb(0, 160, 230);background: rgb(85, 85, 85);}");
+////    d->m_titleLabel->setStyleSheet("*:focus{border-color: rgb(0, 160, 230);background: rgb(85, 85, 85);}");
+////    d->m_dropdown->setStyleSheet("*:focus{border-color: rgb(0, 160, 230);background: rgb(85, 85, 85);}");
+////    this->setTabOrder(d->nextButton, d->m_installerWidget);
+////    this->setTabOrder(d->m_installerWidget, d->m_repairWidget);
+////    this->setTabOrder(d->m_repairWidget, d->nextButton);
+//    if (d->nextButton == this->focusWidget()) {
+//        d->m_installerWidget->setFocus();
+//    }
+//    else if (d->m_installerWidget == this->focusWidget()) {
+//        d->m_repairWidget->setFocus();
+//    }
+
+//    else if (d->m_repairWidget == this->focusWidget()) {
+//        d->nextButton->setFocus();
+//    }
+
+////    else {
+////        d->nextButton->setFocus();
+////    }
+//}
+
 bool installer::RepairSystemFrame::isRepair() const
 {
 #ifdef QT_DEBUG_test

@@ -47,6 +47,87 @@ MultipleDiskInstallationWidget::MultipleDiskInstallationWidget(QWidget *parent)
     initConnections();
 }
 
+bool MultipleDiskInstallationWidget::focusSwitch()
+{
+    return true;
+}
+
+bool MultipleDiskInstallationWidget::doSpace()
+{
+    return true;
+}
+
+bool MultipleDiskInstallationWidget::doSelect()
+{
+    return true;
+}
+
+bool MultipleDiskInstallationWidget::directionKey(int keyvalue)
+{
+    QWidget *leftWrapWidget = this->findChild<QWidget *>("leftWrapWidget");
+    QWidget *rightWrapWidget = this->findChild<QWidget *>("rightWrapWidget");
+
+    switch (keyvalue) {
+    case Qt::Key_Up: {
+            if (leftWrapWidget->hasFocus()) {
+                QModelIndex testindex = m_left_view->currentIndex();
+                if ((testindex.row() - 1) >= 0) {
+                    m_left_view->setCurrentIndex(testindex.siblingAtRow(testindex.row() - 1));
+                }
+            } else {
+                int testindex = m_right_model[m_current_left_index]->selectedIndex();
+                if (testindex == -1) {
+                    m_right_view->setCurrentIndex(m_right_model[m_current_left_index]->index(0, 0));
+                    emit m_right_view->currentSelectedChange(0);
+                } else if((testindex - 1) >= 0) {
+                    m_right_view->setCurrentIndex(m_right_model[m_current_left_index]->index(testindex - 1, 0));
+                    emit m_right_view->currentSelectedChange(testindex - 1);
+                }
+            }
+        }
+        break;
+    case Qt::Key_Down: {
+            if (leftWrapWidget->hasFocus()) {
+                QModelIndex testindex = m_left_view->currentIndex();
+                if ((testindex.row() + 1) < m_left_view->count()) {
+                    m_left_view->setCurrentIndex(testindex.siblingAtRow(testindex.row() + 1));
+                }
+            } else {
+                int testindex = m_right_model[m_current_left_index]->selectedIndex();
+                if (testindex == -1) {
+                    m_right_view->setCurrentIndex(m_right_model[m_current_left_index]->index(0, 0));
+                    emit m_right_view->currentSelectedChange(0);
+                } else if((testindex + 1) < m_right_view->count()) {
+                    m_right_view->setCurrentIndex(m_right_model[m_current_left_index]->index(testindex + 1, 0));
+                    emit m_right_view->currentSelectedChange(testindex + 1);
+                }
+            }
+        }
+        break;
+    case Qt::Key_Left: {
+            leftWrapWidget->setFocus();
+        }
+        break;
+    case Qt::Key_Right: {
+            rightWrapWidget->setFocus();
+        }
+        break;
+    }
+
+    return true;
+}
+
+bool MultipleDiskInstallationWidget::isLeftRightWidgetHasFocus()
+{
+    QWidget *leftWrapWidget = this->findChild<QWidget *>("leftWrapWidget");
+    QWidget *rightWrapWidget = this->findChild<QWidget *>("rightWrapWidget");
+    if(leftWrapWidget->hasFocus() || rightWrapWidget->hasFocus()) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 void MultipleDiskInstallationWidget::initConnections()
 {
     connect(m_left_view->selectionModel(), &QItemSelectionModel::currentChanged,
@@ -62,6 +143,7 @@ void MultipleDiskInstallationWidget::initUI()
 {
     m_left_model = new QStringListModel(getDiskTypes());
     m_left_view = new DListView();
+    m_left_view->setObjectName("LeftListView");
     m_left_view->setFixedWidth(kLeftListViewWidth - 20);
     m_left_view->setItemSize(QSize(kLeftListViewWidth - 20, 46));
     m_left_view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -69,6 +151,7 @@ void MultipleDiskInstallationWidget::initUI()
     m_left_view->setModel(m_left_model);
 
     m_right_view = new DiskInstallationDetailView();
+    m_right_view->setObjectName("RightListView");
     m_right_view->setFixedWidth(kRightListViewWidth);
     m_right_view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_right_view->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
@@ -85,16 +168,20 @@ void MultipleDiskInstallationWidget::initUI()
     leftlayout->setSpacing(0);
     leftlayout->addWidget(m_left_view);
     QWidget *leftWrapWidget = new QWidget;
+    leftWrapWidget->setObjectName("leftWrapWidget");
     leftWrapWidget->setContentsMargins(0, 0, 0, 0);
     leftWrapWidget->setLayout(leftlayout);
+    leftWrapWidget->setStyleSheet("QWidget#leftWrapWidget::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
 
     QHBoxLayout * rightlayout = new QHBoxLayout();
     rightlayout->setContentsMargins(0, 0, 0, 0);
     rightlayout->setSpacing(0);
     rightlayout->addWidget(m_right_view);
     QWidget *rightWrapWidget = new QWidget;
+    rightWrapWidget->setObjectName("rightWrapWidget");
     rightWrapWidget->setContentsMargins(0, 0, 0, 0);
     rightWrapWidget->setLayout(rightlayout);
+    rightWrapWidget->setStyleSheet("QWidget#rightWrapWidget::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
 
     DVerticalLine* verticalLine = new DVerticalLine;
 
@@ -123,6 +210,7 @@ void MultipleDiskInstallationWidget::initUI()
     setFrameRounded(false);
     setContentsMargins(0, 0, 0, 0);
     setLayout(mainLayout);
+    setFocusProxy(leftWrapWidget);
 }
 
 void MultipleDiskInstallationWidget::onDeviceListChanged(const DeviceList& devices)

@@ -56,6 +56,11 @@ protected:
     void changeEvent(QEvent* event) override;
     void hideEvent(QHideEvent* event) override;
 
+    bool focusSwitch() override;
+    bool doSpace() override;
+    bool doSelect() override;
+    bool directionKey(int keyvalue) override;
+
 private:
     bool isRepair() const;
 

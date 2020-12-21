@@ -47,7 +47,7 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
         m_radioBotton->setCheckable(true);
         m_radioBotton->setChecked(false);
         m_radioBotton->installEventFilter(this);
-        m_radioBotton->setFocusPolicy(Qt::TabFocus);
+        //m_radioBotton->setFocusPolicy(Qt::TabFocus);
         m_hLayout->addWidget(m_radioBotton, 0, Qt::AlignLeft | Qt::AlignVCenter);
 
         connect(m_radioBotton, &QRadioButton::clicked, this
@@ -58,7 +58,7 @@ ComponentWidget::ComponentWidget(bool singleSelected, QWidget *parent)
         m_checkBox->setCheckable(true);
         m_checkBox->setChecked(false);
         m_checkBox->installEventFilter(this);
-        m_checkBox->setFocusPolicy(Qt::TabFocus);
+        //m_checkBox->setFocusPolicy(Qt::TabFocus);
         m_hLayout->addWidget(m_checkBox, 0, Qt::AlignLeft | Qt::AlignVCenter);
 
         connect(m_checkBox, &QCheckBox::clicked, this
@@ -123,6 +123,11 @@ void ComponentWidget::setIsTail(bool tail)
 void ComponentWidget::setTitle(const QString &title)
 {
     m_titleLabel->setText(title);
+}
+
+QString ComponentWidget::getTitle()
+{
+    return m_titleLabel->text();
 }
 
 void ComponentWidget::setDesc(const QString &desc)

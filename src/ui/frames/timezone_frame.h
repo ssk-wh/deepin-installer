@@ -80,6 +80,11 @@ class TimezoneFrame : public FrameInterface {
 
   bool eventFilter(QObject *watched, QEvent *event) override;
 
+  bool focusSwitch() override;
+  bool doSpace() override;
+  bool doSelect() override;
+  bool directionKey(int keyvalue) override;
+
 private:
   QScopedPointer<TimezoneFramePrivate> m_private;
 };

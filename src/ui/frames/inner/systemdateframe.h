@@ -41,6 +41,11 @@ public:
     bool validateTimeDate() const;
     void timeDateSetFinished();
 
+    bool focusSwitch();
+    bool doSpace();
+    bool doSelect();
+    bool directionKey(int keyvalue);
+
 signals:
     void finished();
     void cancel();

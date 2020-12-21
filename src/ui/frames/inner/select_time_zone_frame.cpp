@@ -151,10 +151,11 @@ void SelectTimeZoneFrame::initUI()
 
     m_continentModel = new ContinentModel;
     m_continentListView->setModel(m_continentModel);
+    m_continentListView->setObjectName("ContinentListView");
+    m_continentListView->setStyleSheet("QWidget#ContinentListView::item::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
 
     m_timeZoneListView = new DListView;
-
-    m_timeZoneListView->setFocusPolicy(Qt::TabFocus);
+    //m_timeZoneListView->setFocusPolicy(Qt::TabFocus);
     m_timeZoneListView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     m_timeZoneListView->setEditTriggers(QListView::NoEditTriggers);
     m_timeZoneListView->setIconSize(QSize(32, 32));
@@ -171,20 +172,25 @@ void SelectTimeZoneFrame::initUI()
 
     m_timeZoneModel = new QStandardItemModel;
     m_timeZoneListView->setModel(m_timeZoneModel);
+    m_timeZoneListView->setObjectName("TimeZoneListView");
+    m_timeZoneListView->setStyleSheet("QWidget#TimeZoneListView::item::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
 
     QVBoxLayout *leftLayout = new QVBoxLayout;
     leftLayout->setContentsMargins(10, 10, 10, 0);
     leftLayout->setSpacing(0);
     leftLayout->addWidget(m_continentListView);
     QFrame *leftListViewWrap = new QFrame;
+    leftListViewWrap->setObjectName("LeftListViewWrap");
     leftListViewWrap->setContentsMargins(0, 0, 0, 0);
     leftListViewWrap->setLayout(leftLayout);
+    m_listViewWrapOldStyleSheet = leftListViewWrap->styleSheet();
 
     QVBoxLayout *rightLayout = new QVBoxLayout;
     rightLayout->setContentsMargins(10, 10, 10, 0);
     rightLayout->setSpacing(0);
     rightLayout->addWidget(m_timeZoneListView);
     QFrame *rightListViewWrap =  new QFrame;
+    rightListViewWrap->setObjectName("RightListViewWrap");
     rightListViewWrap->setContentsMargins(0, 0, 0, 0);
     rightListViewWrap->setLayout(rightLayout);
 
@@ -222,9 +228,9 @@ void SelectTimeZoneFrame::initUI()
 
 void SelectTimeZoneFrame::initConnections()
 {
-    connect(m_continentListView->selectionModel(), &QItemSelectionModel::currentChanged
+    connect(m_continentListView, &DListView::clicked
             , this, &SelectTimeZoneFrame::onContinentViewSelectedChanged);
-    connect(m_timeZoneListView->selectionModel(), &QItemSelectionModel::currentChanged
+    connect(m_timeZoneListView, &DListView::clicked
             , this, &SelectTimeZoneFrame::onTimeZoneViewSelectedChanged);
 }
 
@@ -256,9 +262,9 @@ void SelectTimeZoneFrame::setSelectItem(QModelIndex index)
     }
 }
 
-void SelectTimeZoneFrame::onContinentViewSelectedChanged(QModelIndex curIndex, QModelIndex preIndex)
+void SelectTimeZoneFrame::onContinentViewSelectedChanged(QModelIndex curIndex/*, QModelIndex preIndex*/)
 {
-    Q_UNUSED(preIndex);
+    //Q_UNUSED(preIndex);
 
     if(!curIndex.isValid()){
         return;
@@ -305,9 +311,9 @@ void SelectTimeZoneFrame::onContinentViewSelectedChanged(QModelIndex curIndex, Q
     }
 }
 
-void SelectTimeZoneFrame::onTimeZoneViewSelectedChanged(QModelIndex curIndex, QModelIndex preIndex)
+void SelectTimeZoneFrame::onTimeZoneViewSelectedChanged(QModelIndex curIndex/*, QModelIndex preIndex*/)
 {
-    Q_UNUSED(preIndex);
+    //Q_UNUSED(preIndex);
 
     if(!curIndex.isValid()){
         return;
@@ -409,6 +415,94 @@ void SelectTimeZoneFrame::onUpdateTimezoneList(const QString &timezone)
     m_timeZoneListView->setCurrentIndex(m_currentTimezoneIndex);
     m_timeZoneListView->selectionModel()->blockSignals(false);
     m_timeZoneListView->scrollTo(m_currentTimezoneIndex, QAbstractItemView::PositionAtTop);
+}
+
+void SelectTimeZoneFrame::setWidgetfocus(bool isfocus)
+{
+    QFrame *testleftListViewWrap = this->findChild<QFrame*>("LeftListViewWrap");
+    QFrame *testrightListViewWrap = this->findChild<QFrame*>("RightListViewWrap");
+
+    if (isfocus) {
+        testleftListViewWrap->setStyleSheet("QWidget#LeftListViewWrap{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
+        m_continentListView->setFocus();
+    } else {
+        m_continentListView->clearFocus();
+        m_timeZoneListView->clearFocus();
+        testleftListViewWrap->setStyleSheet(m_listViewWrapOldStyleSheet);
+        testrightListViewWrap->setStyleSheet(m_listViewWrapOldStyleSheet);
+    }
+}
+
+bool SelectTimeZoneFrame::focusSwitch()
+{
+    return true;
+}
+
+bool SelectTimeZoneFrame::doSpace()
+{
+    if(m_continentListView->hasFocus()){
+        emit m_continentListView->clicked(m_continentListView->currentIndex());
+    } else if (m_timeZoneListView->hasFocus()) {
+        emit m_timeZoneListView->clicked(m_timeZoneListView->currentIndex());
+    }
+    return true;
+}
+
+bool SelectTimeZoneFrame::doSelect()
+{
+    return true;
+}
+
+bool SelectTimeZoneFrame::directionKey(int keyvalue)
+{
+    QFrame *testleftListViewWrap = this->findChild<QFrame*>("LeftListViewWrap");
+    QFrame *testrightListViewWrap = this->findChild<QFrame*>("RightListViewWrap");
+
+    int testindexstep = 0;
+    switch (keyvalue) {
+    case Qt::Key_Up: {
+            testindexstep--;
+        }
+        break;
+    case Qt::Key_Down:{
+            testindexstep++;
+        }
+        break;
+    case Qt::Key_Left: {
+            testrightListViewWrap->setStyleSheet(m_listViewWrapOldStyleSheet);
+            testleftListViewWrap->setStyleSheet("QWidget#LeftListViewWrap{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
+            m_continentListView->setFocus();
+        }
+        break;
+    case Qt::Key_Right: {
+            testrightListViewWrap->setStyleSheet("QWidget#RightListViewWrap{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
+            testleftListViewWrap->setStyleSheet(m_listViewWrapOldStyleSheet);
+            m_timeZoneListView->setFocus();
+        }
+        break;
+    }
+
+    if(m_continentListView->hasFocus()){
+        QModelIndex current = m_continentListView->currentIndex();
+        if (current.isValid()) {
+            if(((current.row() + testindexstep) < 0) || ((current.row() + testindexstep) >= m_continentListView->count())) {
+                return true;
+            } else {
+                m_continentListView->setCurrentIndex(current.siblingAtRow(current.row() + testindexstep));
+            }
+        }
+    } else if (m_timeZoneListView->hasFocus()) {
+        QModelIndex current = m_timeZoneListView->currentIndex();
+        if (current.isValid()) {
+            if(((current.row() + testindexstep) < 0) || ((current.row() + testindexstep) >= m_timeZoneListView->count())) {
+                return true;
+            } else {
+                m_timeZoneListView->setCurrentIndex(current.siblingAtRow(current.row() + testindexstep));
+            }
+        }
+    }
+
+    return true;
 }
 
 }

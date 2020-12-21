@@ -123,6 +123,8 @@ SystemDateFrame::SystemDateFrame(QWidget *parent)
     d_private->initDateTime();
     d_private->initConnection();
     d_private->updateTs();
+
+    this->setFocusProxy(d_private->m_setDateTimeCheckBox);
 }
 
 SystemDateFrame::~SystemDateFrame()
@@ -412,11 +414,95 @@ void SystemDateFrame::timeDateSetFinished()
     emit finished();
 }
 
+bool SystemDateFrame::focusSwitch()
+{
+    return true;
+}
+
+bool SystemDateFrame::doSpace()
+{
+    if (d_private->m_setDateTimeCheckBox->hasFocus()) {
+        d_private->m_setDateTimeCheckBox->setChecked(!d_private->m_setDateTimeCheckBox->isChecked());
+    }
+    return true;
+}
+
+bool SystemDateFrame::doSelect()
+{
+    return true;
+}
+
+bool SystemDateFrame::directionKey(int keyvalue)
+{
+    switch (keyvalue) {
+    case Qt::Key_Up: {
+            if (d_private->m_hourEdit->hasFocus()) {
+
+            } else if (d_private->m_minuteEdit->hasFocus()) {
+
+            } else if (d_private->m_yearEdit->hasFocus()) {
+
+            } else if (d_private->m_monthEdit->hasFocus()) {
+
+            } else if (d_private->m_dayEdit->hasFocus()) {
+
+            }
+        }
+        break;
+    case Qt::Key_Down: {
+
+        }
+        break;
+    case Qt::Key_Left: {
+            if (d_private->m_setDateTimeCheckBox->hasFocus()) {
+            } else if (d_private->m_yearEdit->hasFocus()) {
+                d_private->m_yearEdit->clearFocus();
+                d_private->m_setDateTimeCheckBox->setFocus();
+            } else if (d_private->m_monthEdit->hasFocus()) {
+                d_private->m_monthEdit->clearFocus();
+                d_private->m_yearEdit->setFocus();
+            } else if (d_private->m_dayEdit->hasFocus()) {
+                d_private->m_dayEdit->clearFocus();
+                d_private->m_monthEdit->setFocus();
+            } else if (d_private->m_hourEdit->hasFocus()) {
+                d_private->m_hourEdit->clearFocus();
+                d_private->m_dayEdit->setFocus();
+            } else if (d_private->m_minuteEdit->hasFocus()) {
+                d_private->m_minuteEdit->clearFocus();
+                d_private->m_hourEdit->setFocus();
+            }
+        }
+        break;
+    case Qt::Key_Right: {
+            if (d_private->m_setDateTimeCheckBox->hasFocus()) {
+                d_private->m_setDateTimeCheckBox->clearFocus();
+                d_private->m_yearEdit->setFocus();
+            } else if (d_private->m_yearEdit->hasFocus()) {
+                d_private->m_yearEdit->clearFocus();
+                d_private->m_monthEdit->setFocus();
+            } else if (d_private->m_monthEdit->hasFocus()) {
+                d_private->m_monthEdit->clearFocus();
+                d_private->m_dayEdit->setFocus();
+            } else if (d_private->m_dayEdit->hasFocus()) {
+                d_private->m_dayEdit->clearFocus();
+                d_private->m_hourEdit->setFocus();
+            } else if (d_private->m_hourEdit->hasFocus()) {
+                d_private->m_hourEdit->clearFocus();
+                d_private->m_minuteEdit->setFocus();
+            } else if (d_private->m_minuteEdit->hasFocus()) {
+            }
+        }
+        break;
+    }
+
+    return true;
+}
+
 void SystemDateFramePrivate::initUI()
 {
     m_setDateTimeCheckBox->setCheckable(true);
     m_setDateTimeCheckBox->setChecked(false);
-    m_setDateTimeCheckBox->setFocusPolicy(Qt::NoFocus);
+    //m_setDateTimeCheckBox->setFocusPolicy(Qt::NoFocus);
 
     m_hourEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{1,2}")));
     m_hourEdit->setObjectName("hourEdit");
@@ -424,7 +510,7 @@ void SystemDateFramePrivate::initUI()
     m_hourEdit->setFixedSize(kMonthDayHourMinuteQLineEditWidth, 36);
     m_hourEdit->setAlignment(Qt::AlignHCenter);
     m_hourEdit->setContextMenuPolicy(Qt::NoContextMenu);
-    m_hourEdit->setFocusPolicy(Qt::NoFocus);
+    //m_hourEdit->setFocusPolicy(Qt::NoFocus);
 
     m_minuteEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{1,2}")));
     m_minuteEdit->setObjectName("minuteEdit");
@@ -432,7 +518,7 @@ void SystemDateFramePrivate::initUI()
     m_minuteEdit->setFixedSize(kMonthDayHourMinuteQLineEditWidth, 36);
     m_minuteEdit->setAlignment(Qt::AlignHCenter);
     m_minuteEdit->setContextMenuPolicy(Qt::NoContextMenu);
-    m_minuteEdit->setFocusPolicy(Qt::NoFocus);
+    //m_minuteEdit->setFocusPolicy(Qt::NoFocus);
 
     m_hourLabel->setObjectName("hourLabel");
     m_hourLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
@@ -446,7 +532,7 @@ void SystemDateFramePrivate::initUI()
     m_yearEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_yearEdit->setAlignment(Qt::AlignHCenter);
     m_yearEdit->setContextMenuPolicy(Qt::NoContextMenu);
-    m_yearEdit->setFocusPolicy(Qt::NoFocus);
+    //m_yearEdit->setFocusPolicy(Qt::NoFocus);
 
     m_yearLabel->setObjectName("yearLabel");
     m_yearLabel->setFixedSize(kDateTimeLabelWidth, 36);
@@ -457,7 +543,7 @@ void SystemDateFramePrivate::initUI()
     m_monthEdit->setFixedSize(kMonthDayHourMinuteQLineEditWidth, 36);
     m_monthEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_monthEdit->setContextMenuPolicy(Qt::NoContextMenu);
-    m_monthEdit->setFocusPolicy(Qt::NoFocus);
+    //m_monthEdit->setFocusPolicy(Qt::NoFocus);
 
     m_monthLabel->setObjectName("monthLabel");
     m_monthLabel->setFixedSize(kDateTimeLabelWidth, 36);
@@ -468,7 +554,7 @@ void SystemDateFramePrivate::initUI()
     m_dayEdit->setFixedSize(kMonthDayHourMinuteQLineEditWidth, 36);
     m_dayEdit->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_dayEdit->setContextMenuPolicy(Qt::NoContextMenu);
-    m_dayEdit->setFocusPolicy(Qt::NoFocus);
+    //m_dayEdit->setFocusPolicy(Qt::NoFocus);
 
     m_dayLabel->setObjectName("dayLabel");
     m_dayLabel->setFixedSize(kDateTimeLabelWidth, 36);

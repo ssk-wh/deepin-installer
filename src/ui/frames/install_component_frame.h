@@ -46,7 +46,17 @@ protected:
     bool eventFilter(QObject* watched, QEvent* event) override;
     void showEvent(QShowEvent* event) override;
 
+    bool focusSwitch() override;
+    bool doSpace() override;
+    bool doSelect() override;
+    bool directionKey(int keyvalue) override;
+
 private:
+    void doUpDownKeyForServerWidget(bool isup = true);
+    void doUpDownKeyForComponentWidget(bool isup = true);
+
+private:
+    int m_lastKeyFocusWidget = -1;
     QScopedPointer<SelectInstallComponentFramePrivate> m_private;
 };
 

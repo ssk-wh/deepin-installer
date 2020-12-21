@@ -54,9 +54,18 @@ public:
         return ::QObject::tr("Keyboard Layout");
     }
 
+private:
+    void layoutViewScrolle(int testindex);
+    void variantViewScrolle(int testindex);
+
 protected:
     void changeEvent(QEvent* event) override;
     void showEvent(QShowEvent* event) override;
+
+    bool focusSwitch() override;
+    bool doSpace() override;
+    bool doSelect() override;
+    bool directionKey(int keyvalue) override;
 
 private:
     QScopedPointer<SystemInfoKeyboardFramePrivate> d_private;

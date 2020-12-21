@@ -33,6 +33,9 @@ class SystemInfoAvatarFrame : public QFrame {
   explicit SystemInfoAvatarFrame(QWidget* parent = nullptr);
   ~SystemInfoAvatarFrame();
 
+    bool doSpace();
+    bool directionKey(int keyvalue);
+
  signals:
   // Emitted when an avatar is selected.
   void avatarUpdated(const QString& avatar);

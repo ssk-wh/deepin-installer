@@ -132,6 +132,42 @@ bool FullDiskFrame::isInstallNvidia() const
     return m_installNvidiaCheck->isChecked();
 }
 
+bool FullDiskFrame::focusSwitch()
+{
+    if(m_encryptCheck->hasFocus()) {
+        return true;
+    } else {
+        if(m_diskInstallationWidget->isLeftRightWidgetHasFocus()) {
+            m_encryptCheck->setFocus();
+        } else {
+            m_diskInstallationWidget->setFocus();
+        }
+        return false;
+    }
+}
+
+bool FullDiskFrame::doSpace()
+{
+    if(m_encryptCheck->hasFocus()) {
+        if (m_encryptCheck->checkState() == Qt::Checked) {
+            m_encryptCheck->setCheckState(Qt::Unchecked);
+        } else {
+            m_encryptCheck->setCheckState(Qt::Checked);
+        }
+    }
+    return true;
+}
+
+bool FullDiskFrame::doSelect()
+{
+    return true;
+}
+
+bool FullDiskFrame::directionKey(int keyvalue)
+{
+    return m_diskInstallationWidget->directionKey(keyvalue);
+}
+
 void FullDiskFrame::changeEvent(QEvent* event) {
     if (event->type() == QEvent::LanguageChange) {
         for (auto it = m_trList.begin(); it != m_trList.end(); ++it) {
@@ -191,14 +227,14 @@ void FullDiskFrame::initUI() {
   m_encryptCheck->setObjectName("check_box");
   m_encryptCheck->setCheckable(true);
   m_encryptCheck->setChecked(false);
-  m_encryptCheck->setFocusPolicy(Qt::TabFocus);
+  //m_encryptCheck->setFocusPolicy(Qt::TabFocus);
   addTransLate(m_trList, std::bind(&QCheckBox::setText, m_encryptCheck, std::placeholders::_1), ::QObject::tr("Encrypt This Disk"));
 
   m_installNvidiaCheck = new QCheckBox;
   m_installNvidiaCheck->setObjectName("check_box");
   m_installNvidiaCheck->setCheckable(true);
   m_installNvidiaCheck->setChecked(false);
-  m_installNvidiaCheck->setFocusPolicy(Qt::TabFocus);
+  //m_installNvidiaCheck->setFocusPolicy(Qt::TabFocus);
   m_installNvidiaCheck->setText(::QObject::tr("Install NVIDIA closed source driver"));
 
   m_errorTip = new QLabel;
@@ -296,6 +332,7 @@ void FullDiskFrame::initUI() {
 
   this->setLayout(main_layout);
   this->setContentsMargins(0, 0, 0, 0);
+  this->setFocusProxy(m_diskInstallationWidget);
 }
 
 void FullDiskFrame::repaintDevices() {

@@ -22,6 +22,9 @@
 #ifndef FRAMEINTERFACE_H
 #define FRAMEINTERFACE_H
 
+#include <QApplication>
+#include <QKeyEvent>
+
 #include "frameproxyinterface.h"
 
 #include <QApplication>
@@ -59,7 +62,72 @@ public:
     }
 
 protected:
+    virtual bool focusSwitch() {
+        return false;
+    }
+
+    virtual bool doSpace() {
+        return false;
+    }
+
+    virtual bool doSelect() {
+        return false;
+    }
+
+    virtual bool directionKey(int keyvalue) {
+        return false;
+    }
+
+    void setCurentFocus(QWidget *wid) {
+        if (wid != nullptr) {
+            m_current_focus_widget = wid;
+            //rgb(0, 160, 230) border-color: rgb(255, 160, 230); border:5px solid red;
+            //m_current_focus_widget->setStyleSheet("QWidget:focus{padding: -1;}");
+            m_current_focus_widget->setFocus();
+        }
+    }
+
+    bool isFocus(QWidget *wid) {
+        return wid == m_current_focus_widget;
+    }
+
+    bool eventFilter(QObject *watched, QEvent *event) override {
+        if (event->type() == QEvent::KeyPress) {
+            QKeyEvent *key = dynamic_cast<QKeyEvent*>(event);
+            if (key != nullptr) {
+                int key_value = key->key();
+                switch (key_value) {
+                    case Qt::Key_Tab:    return focusSwitch();
+                    case Qt::Key_Space:  return doSpace();
+                    case Qt::Key_Return: return doSelect();
+                    case Qt::Key_Up:     return directionKey(Qt::Key_Up);
+                    case Qt::Key_Down:   return directionKey(Qt::Key_Down);
+                    case Qt::Key_Left:   return directionKey(Qt::Key_Left);
+                    case Qt::Key_Right:  return directionKey(Qt::Key_Right);
+                    default: return QWidget::eventFilter(watched, event);
+                }
+            } else {
+                return QWidget::eventFilter(watched, event);
+            }
+        } else {
+            return QWidget::eventFilter(watched, event);
+        }
+    }
+
+    void showEvent(QShowEvent *evnet) override {
+        qApp->installEventFilter(this);
+        return QWidget::showEvent(evnet);
+    }
+
+    void hideEvent(QHideEvent *evnet) override {
+        qApp->removeEventFilter(this);
+        m_current_focus_widget = nullptr;
+        return QWidget::hideEvent(evnet);
+    }
+
+protected:
     FrameProxyInterface* m_proxy = nullptr;
+    QWidget *m_current_focus_widget = nullptr;
 
 private:
     FrameType m_frameType;
@@ -73,7 +141,7 @@ public:
     explicit FrameInterface(FrameProxyInterface* inter, QWidget* parent = nullptr)
         : BaseFrameInterface(FrameType::Frame, inter, parent)
     {
-        setFocusPolicy(Qt::TabFocus);
+        //setFocusPolicy(Qt::TabFocus);
     }
 
     virtual ~FrameInterface() {}

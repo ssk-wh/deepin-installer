@@ -52,6 +52,11 @@ class EditPartitionFrame : public ChildFrameInterface {
   // Set partition information at |partition_path|.
   void setPartition(const Partition::Ptr partition);
 
+  bool focusSwitch() override;
+  bool doSpace() override;
+  bool doSelect() override;
+  bool directionKey(int keyvalue) override;
+
  signals:
   void finished();
 

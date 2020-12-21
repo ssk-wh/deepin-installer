@@ -26,9 +26,15 @@ public:
 
     void updateContinentModelData();
     void updateTimezoneModelData();
-    void onContinentViewSelectedChanged(QModelIndex preIndex, QModelIndex curIndex);
-    void onTimeZoneViewSelectedChanged(QModelIndex preIndex, QModelIndex curIndex);
+    void onContinentViewSelectedChanged(QModelIndex preIndex/*, QModelIndex curIndex*/);
+    void onTimeZoneViewSelectedChanged(QModelIndex preIndex/*, QModelIndex curIndex*/);
     void onUpdateTimezoneList(const QString& timezone);
+
+    void setWidgetfocus(bool isfocus = true);
+    bool focusSwitch();
+    bool doSpace();
+    bool doSelect();
+    bool directionKey(int keyvalue);
 
 signals:
     void timezoneUpdated(const QString& timezone);
@@ -51,6 +57,7 @@ private:
     DListView* m_timeZoneListView = nullptr;
     QStandardItemModel* m_timeZoneModel = nullptr;
     QModelIndex m_oldTimezoneIndex;
+    QString m_listViewWrapOldStyleSheet = "";
 };
 
 }

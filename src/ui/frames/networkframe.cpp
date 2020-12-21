@@ -129,11 +129,11 @@ public:
         m_editBtn = new QPushButton(::QObject::tr("Edit"));
         m_editBtn->setEnabled(m_deviceEnable);
         m_editBtn->setFixedSize(kEditSaveButtonWidth, kEditSaveButtonHeight);
-        m_editBtn->setFocusPolicy(Qt::TabFocus);
+        //m_editBtn->setFocusPolicy(Qt::TabFocus);
 
         m_acceptBtn = new QPushButton(::QObject::tr("Confirm"));
         m_acceptBtn->setFixedSize(kEditSaveButtonWidth, kEditSaveButtonHeight);
-        m_acceptBtn->setFocusPolicy(Qt::TabFocus);
+        //m_acceptBtn->setFocusPolicy(Qt::TabFocus);
 
         m_dhcpType = DHCPTYpe::Auto;
 
@@ -781,7 +781,7 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     QScrollArea *leftArea = new QScrollArea;
     leftArea->setContentsMargins(0, 0, 10, 0);
     leftArea->setWidgetResizable(true);
-    leftArea->setFocusPolicy(Qt::NoFocus);
+    //leftArea->setFocusPolicy(Qt::NoFocus);
     leftArea->setFrameStyle(QFrame::NoFrame);
     leftArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     leftArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
@@ -837,7 +837,8 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     layout->addStretch();
 
     m_nextButton->setFixedSize(kNextButtonWidth, kNextButtonHeight);
-    m_nextButton->setFocusPolicy(Qt::TabFocus);
+    //m_nextButton->setFocusPolicy(Qt::TabFocus);
+    m_nextButton->setShortcut(Qt::Key_Return);
     connect(m_nextButton, &QPushButton::clicked, this, &NetworkFrame::saveConf);
 
     layout->addWidget(m_nextButton, 0, Qt::AlignHCenter);

@@ -73,6 +73,7 @@ void PrepareInstallFrame::updateDescription(const QStringList& descriptions) {
   description_edit_->setText(description_text);
 }
 
+
 void PrepareInstallFrame::setCreateRecovery(bool isCreate)
 {
     if (!isCreate) {
@@ -80,6 +81,78 @@ void PrepareInstallFrame::setCreateRecovery(bool isCreate)
     } else {
         m_selectCreateRecovery->show();
     }
+}
+
+bool PrepareInstallFrame::focusSwitch()
+{
+    QScrollArea* testscroll = findChild<QScrollArea*>("scrollarea");
+    if (continue_button_->hasFocus()) {
+        abort_button_->setFocus();
+    } else if (abort_button_->hasFocus()) {
+        if (testscroll != nullptr) {
+            testscroll->setFocus();
+            m_scrollareaStyleSheetold = testscroll->styleSheet();
+            testscroll->setStyleSheet("QWidget#scrollarea{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
+        } else {
+            continue_button_->setFocus();
+        }
+    } else if (testscroll->hasFocus()) {
+        testscroll->setStyleSheet(m_scrollareaStyleSheetold);
+        continue_button_->setFocus();
+    } else {
+        continue_button_->setFocus();
+    }
+
+    return true;
+}
+
+bool PrepareInstallFrame::doSelect()
+{
+    if (continue_button_->hasFocus()) {
+        emit continue_button_->clicked();
+    } else if (abort_button_->hasFocus()) {
+        emit abort_button_->clicked();
+    }
+    return true;
+}
+
+bool PrepareInstallFrame::directionKey(int keyvalue)
+{
+    QScrollArea* testscroll = findChild<QScrollArea*>("scrollarea");
+    switch (keyvalue) {
+    case Qt::Key_Up: {
+             if (testscroll != nullptr) {
+                 if(testscroll->hasFocus()){
+                     int testvalue = testscroll->verticalScrollBar()->value();
+                     if ((testvalue - 20) >= 0) {
+                         testscroll->verticalScrollBar()->setValue(testvalue - 20);
+                     }
+                 }
+            }
+        }
+        break;
+    case Qt::Key_Down: {
+            if (testscroll != nullptr) {
+                if(testscroll->hasFocus()){
+                    int testvalue = testscroll->verticalScrollBar()->value();
+                    if ((testvalue + 20) <= testscroll->verticalScrollBar()->maximum()) {
+                        testscroll->verticalScrollBar()->setValue(testvalue + 20);
+                    }
+                }
+            }
+        }
+        break;
+    case Qt::Key_Left: {
+
+        }
+        break;
+    case Qt::Key_Right: {
+
+        }
+        break;
+    }
+
+    return true;
 }
 
 void PrepareInstallFrame::changeEvent(QEvent* event) {
@@ -139,7 +212,7 @@ void PrepareInstallFrame::initUI() {
   scroll->setWidget(sourceWidget);
   scroll->setObjectName("scrollarea");
   scroll->setWidgetResizable(true);
-  scroll->setFocusPolicy(Qt::TabFocus);
+  //scroll->setFocusPolicy(Qt::TabFocus);
   scroll->setFrameStyle(QFrame::NoFrame);
   scroll->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
   scroll->setContentsMargins(0, 0, 0, 0);
@@ -155,20 +228,20 @@ void PrepareInstallFrame::initUI() {
   pl3.setBrush(QPalette::Base, QBrush(QColor(255, 0, 0, 0)));
   scroll->setPalette(pl3);
 
-  QHBoxLayout* descriptionLayout = new QHBoxLayout();
-  descriptionLayout->setContentsMargins(5, 5, 0, 5);
-  descriptionLayout->setSpacing(0);
-  descriptionLayout->addWidget(scroll);
+//  QHBoxLayout* descriptionLayout = new QHBoxLayout();
+//  descriptionLayout->setContentsMargins(5, 5, 0, 5);
+//  descriptionLayout->setSpacing(0);
+//  descriptionLayout->addWidget(scroll);
 
   m_selectCreateRecovery = new DCheckBox;
   m_selectCreateRecovery->setChecked(GetSettingsBool(kIsInitRecvoery));
 
   abort_button_ = new SelectButton();
   abort_button_->setFixedSize(kButtonWidth, kButtonHeight);
-  abort_button_->setFocusPolicy(Qt::TabFocus);
+  //abort_button_->setFocusPolicy(Qt::TabFocus);
   continue_button_ = new DSuggestButton();
   continue_button_->setFixedSize(kButtonWidth, kButtonHeight);
-  continue_button_->setFocusPolicy(Qt::TabFocus);
+  //continue_button_->setFocusPolicy(Qt::TabFocus);
 
   QHBoxLayout *buttonLayout = new QHBoxLayout;
   buttonLayout->setContentsMargins(0, 0, 0, 0);

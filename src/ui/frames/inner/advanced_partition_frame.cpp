@@ -35,6 +35,7 @@
 #include "ui/delegates/partition_util.h"
 #include "ui/widgets/advanced_partition_button.h"
 #include "ui/utils/widget_util.h"
+#include "ui/frames/inner/select_bootloader_frame.h"
 
 DWIDGET_USE_NAMESPACE
 DGUI_USE_NAMESPACE
@@ -92,6 +93,132 @@ bool AdvancedPartitionFrame::isInstallNvidia() const
 QList<Device::Ptr> AdvancedPartitionFrame::getAllUsedDevice() const
 {
     return delegate_->getAllUsedDevice();
+}
+
+bool AdvancedPartitionFrame::focusSwitch()
+{
+    if (bootloader_button_->isVisible()) {
+        bool testispartionbuttononfocus = false;
+        for (int i = 0; i < partition_button_group_->buttons().size(); i++) {
+            if (partition_button_group_->buttons()[i]->hasFocus()) {
+                testispartionbuttononfocus = true;
+                m_lastPartionButtonOnFocus = i;
+                break;
+            }
+        }
+
+        if (testispartionbuttononfocus) {
+            bootloader_button_->setFocus();
+        }  else {
+            if (bootloader_button_->hasFocus()) {
+                editing_button_->setFocus();
+            } else if (editing_button_->hasFocus()) {
+                return true;
+            } else {
+                if (m_lastPartionButtonOnFocus == -1) {
+                    partition_button_group_->buttons()[0]->setFocus();
+                } else {
+                    partition_button_group_->buttons()[m_lastPartionButtonOnFocus]->setFocus();
+                }
+            }
+        }
+        return false;
+    } else {
+        return true;
+    }
+}
+
+bool AdvancedPartitionFrame::doSpace()
+{
+    for (int i = 0; i < partition_button_group_->buttons().size(); i++) {
+        if (partition_button_group_->buttons()[i]->hasFocus()) {
+            emit partition_button_group_->buttons()[i]->click();
+            emit partition_button_group_->buttons()[i]->toggled(true);//setEditable(true);
+            break;
+        }
+    }
+
+    return true;
+}
+
+bool AdvancedPartitionFrame::doSelect()
+{
+    if (bootloader_button_->hasFocus()) {
+        emit bootloader_button_->clicked();
+    } else if (editing_button_->hasFocus()) {
+        if(editing_button_->isChecked()) {
+            editing_button_->setChecked(false);
+            emit editing_button_->toggled(false);
+        } else {
+            editing_button_->setChecked(true);
+            emit editing_button_->toggled(true);
+        }
+    } else {
+        for (int i = 0; i < partition_button_group_->buttons().size(); i++) {
+            if (partition_button_group_->buttons()[i]->hasFocus()) {
+                PointerButton* testcontrolbutton = partition_button_group_->buttons()[i]->findChild<PointerButton*>("control_button");
+                if (testcontrolbutton != nullptr) {
+                    emit testcontrolbutton->clicked(true);
+                }
+                break;
+            }
+        }
+    }
+    return true;
+}
+
+bool AdvancedPartitionFrame::directionKey(int keyvalue)
+{
+    switch (keyvalue) {
+    case Qt::Key_Up: {
+            bool testishasonfocus = false;
+            for (int i = 0; i < partition_button_group_->buttons().size(); i++) {
+                if (partition_button_group_->buttons()[i]->hasFocus()) {
+                    if ((i - 1) >=0) {
+                        partition_button_group_->buttons()[i-1]->setFocus();
+                    } else {
+                        partition_button_group_->buttons()[partition_button_group_->buttons().size() - 1]->setFocus();
+                    }
+                    testishasonfocus = true;
+                    break;
+                }
+            }
+
+            if (!testishasonfocus) {
+                partition_button_group_->buttons()[0]->setFocus();
+            }
+        }
+        break;
+    case Qt::Key_Down: {
+            bool testishasonfocus = false;
+            for (int i = 0; i < partition_button_group_->buttons().size(); i++) {
+                if (partition_button_group_->buttons()[i]->hasFocus()) {
+                    if ((i + 1) < partition_button_group_->buttons().size()) {
+                        partition_button_group_->buttons()[i+1]->setFocus();
+                    } else {
+                        partition_button_group_->buttons()[0]->setFocus();
+                    }
+                    testishasonfocus = true;
+                    break;
+                }
+            }
+
+            if (!testishasonfocus) {
+                partition_button_group_->buttons()[0]->setFocus();
+            }
+        }
+        break;
+    case Qt::Key_Left: {
+
+        }
+        break;
+    case Qt::Key_Right: {
+
+        }
+        break;
+    }
+
+    return true;
 }
 
 void AdvancedPartitionFrame::setBootloaderPath(const QString& bootloader_path) {
@@ -209,7 +336,7 @@ void AdvancedPartitionFrame::initUI() {
   editing_button_->setFlat(true);
   editing_button_->setCheckable(true);
   editing_button_->setChecked(false);
-  editing_button_->setFocusPolicy(Qt::TabFocus);
+  //editing_button_->setFocusPolicy(Qt::TabFocus);
 
   QHBoxLayout* bottom_layout = new QHBoxLayout();
   bottom_layout->setContentsMargins(15, 10, 15, 10);
@@ -265,7 +392,7 @@ void AdvancedPartitionFrame::initUI() {
   container_policy.setVerticalStretch(100);
   this->setSizePolicy(container_policy);
 
-  this->setFocusPolicy(Qt::TabFocus);
+  //this->setFocusPolicy(Qt::TabFocus);
 }
 
 AdvancedPartitionButton* AdvancedPartitionFrame::getAppropriateButtonForState(

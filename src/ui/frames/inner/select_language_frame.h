@@ -50,6 +50,18 @@ class SelectLanguageFrame : public QFrame {
   bool isChecked();
   void acceptLicense(bool accept) const;
 
+  QWidget* getLanguageView();
+  QWidget* getAcceptlicense();
+  QWidget* getAcceptexperience();
+  QWidget* getLicenselabel();
+  QWidget* getExperiencelabel();
+  QWidget* getPrivacylicenselabel();
+  bool setAcceptlicense();
+  bool setAcceptexperience();
+
+  bool doSelect();
+  bool directionKey(int keyvalue);
+
  signals:
   // Emitted when new language item is selected.
   void timezoneUpdated(const QString& timezone);

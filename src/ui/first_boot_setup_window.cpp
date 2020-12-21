@@ -266,7 +266,7 @@ void FirstBootSetupWindow::initUI() {
 
     close_button_ = new DImageButton(this);
     close_button_->setObjectName("close_button");
-    close_button_->setFocusPolicy(Qt::TabFocus);
+    //close_button_->setFocusPolicy(Qt::TabFocus);
     close_button_->setFixedSize(40, 40);
     close_button_->setNormalPic(":/images/close_normal.svg");
     close_button_->setHoverPic(":/images/close_normal.svg");
@@ -319,7 +319,7 @@ void FirstBootSetupWindow::initUI() {
 
     multi_head_manager_ = new MultiHeadManager(this);
 
-    this->setFocusPolicy(Qt::TabFocus);
+    //this->setFocusPolicy(Qt::TabFocus);
 }
 
 void FirstBootSetupWindow::initPages()

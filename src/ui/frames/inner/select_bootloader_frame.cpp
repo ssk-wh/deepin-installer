@@ -39,6 +39,58 @@ SelectBootloaderFrame::SelectBootloaderFrame(FrameProxyInterface *frameProxyInte
   this->initConnections();
 }
 
+bool SelectBootloaderFrame::focusSwitch()
+{
+    if (list_view_->hasFocus()) {
+        back_button_->setFocus();
+    } else {
+        list_view_->setFocus();
+    }
+    return true;
+}
+
+bool SelectBootloaderFrame::doSpace()
+{
+    return true;
+}
+
+bool SelectBootloaderFrame::doSelect()
+{
+    if (back_button_->hasFocus()) {
+        emit back_button_->clicked();
+    }
+    return true;
+}
+
+bool SelectBootloaderFrame::directionKey(int keyvalue)
+{
+    switch (keyvalue) {
+    case Qt::Key_Up: {
+            if(list_view_->hasFocus()){
+                QModelIndex testindex = list_view_->currentIndex();
+                if ((testindex.row() - 1) >= 0) {
+                    list_view_->setCurrentIndex(testindex.sibling(testindex.row() - 1, 0));
+                }
+            }
+        }
+        break;
+    case Qt::Key_Down: {
+            if(list_view_->hasFocus()){
+                QModelIndex testindex = list_view_->currentIndex();
+                if ((testindex.row() + 1) < list_view_->count()) {
+                    list_view_->setCurrentIndex(testindex.sibling(testindex.row() + 1, 0));
+                }
+            }
+        }
+        break;
+    case Qt::Key_Left:
+        break;
+    case Qt::Key_Right:
+        break;
+    }
+    return true;
+}
+
 void SelectBootloaderFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     title_label_->setText(::QObject::tr("Select location for boot loader"));

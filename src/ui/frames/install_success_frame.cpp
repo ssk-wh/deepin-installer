@@ -102,6 +102,7 @@ void InstallSuccessFramePrivate::initUI()
     comment_layout->addWidget(comment_label_);
 
     reboot_button_->setFixedSize(310, 36);
+    reboot_button_->setShortcut(Qt::Key_Return);
 
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setContentsMargins(0, 0, 0, 0);

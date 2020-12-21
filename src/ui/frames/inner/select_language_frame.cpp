@@ -192,6 +192,168 @@ void SelectLanguageFrame::acceptLicense(bool accept) const
     Q_EMIT d_private->accept_license_->clicked(accept);
 }
 
+QWidget *SelectLanguageFrame::getLanguageView()
+{
+    Q_D(SelectLanguageFrame);
+    return d->m_languageView;
+}
+
+QWidget *SelectLanguageFrame::getAcceptlicense()
+{
+    Q_D(SelectLanguageFrame);
+    return d->accept_license_;
+}
+
+QWidget *SelectLanguageFrame::getAcceptexperience()
+{
+    Q_D(SelectLanguageFrame);
+    return d->accept_experience_;
+}
+
+QWidget *SelectLanguageFrame::getLicenselabel()
+{
+    Q_D(SelectLanguageFrame);
+    return d->license_label_;
+}
+
+QWidget *SelectLanguageFrame::getExperiencelabel()
+{
+    Q_D(SelectLanguageFrame);
+    return d->experience_label_;
+}
+
+QWidget *SelectLanguageFrame::getPrivacylicenselabel()
+{
+    Q_D(SelectLanguageFrame);
+    return d->m_privacy_license_label_;
+}
+
+bool SelectLanguageFrame::setAcceptlicense()
+{
+    Q_D(SelectLanguageFrame);
+    if (d->accept_license_->checkState() == Qt::Unchecked) {
+        d->accept_license_->setCheckState(Qt::Checked);
+        d->onAccpetLicenseChanged(true);
+        return true;
+    } else {
+        d->accept_license_->setCheckState(Qt::Unchecked);
+        d->onAccpetLicenseChanged(false);
+        return false;
+    }
+}
+
+bool SelectLanguageFrame::setAcceptexperience()
+{
+    Q_D(SelectLanguageFrame);
+    if (d->accept_experience_->checkState() == Qt::Unchecked) {
+        d->accept_experience_->setCheckState(Qt::Checked);
+        return true;
+    } else {
+        d->accept_experience_->setCheckState(Qt::Unchecked);
+        return false;
+    }
+}
+
+bool SelectLanguageFrame::doSelect()
+{
+    Q_D(SelectLanguageFrame);
+
+    QModelIndex current = d->localeIndex(d->lang_.locale);
+    if (current.isValid()) {
+        // Update locale on-the-fly.
+        const LanguageItem language_item = d->lang_list_.at(current.row());
+        DStandardItem* item = dynamic_cast<DStandardItem* >(d->m_languageModel->item(current.row()));
+
+        if (item == d->m_lastItem) {
+            return true;
+        }
+
+        item->setCheckState(Qt::Checked);
+
+        if (d->m_lastItem) {
+            d->m_lastItem->setCheckState(Qt::Unchecked);
+        }
+
+        d->m_lastItem = item;
+
+        qDebug() << "language_item.locale = " << language_item.locale;
+        d->updateTranslator(language_item.locale);
+        d->lang_ = language_item;
+        writeConf();
+        emit timezoneUpdated(language_item.timezone);
+        d->onAccpetLicenseChanged(GetSettingsBool(kSystemInfoDisableLicense) || d->accept_license_->isChecked());
+    }
+
+    return true;
+}
+
+bool SelectLanguageFrame::directionKey(int keyvalue)
+{
+    Q_D(SelectLanguageFrame);
+
+    int testindexstep = 0;
+    switch (keyvalue) {
+    case Qt::Key_Up:
+        testindexstep--;
+        break;
+    case Qt::Key_Down:
+        testindexstep++;
+        break;
+    case Qt::Key_Left:
+        return true;
+    case Qt::Key_Right:
+        return true;
+    }
+
+    QModelIndex current = d->m_languageView->currentIndex();//d->localeIndex(d->lang_.locale);
+    if (current.isValid()) {
+        if(((current.row() + testindexstep) < 0) || ((current.row() + testindexstep) >= d->m_languageView->count())) {
+            return true;
+        }
+
+        QScrollArea *testarea = this->findChild<QScrollArea *>("languageArea");
+        double testitemheight = (d->m_languageView->height() * 1.0) / d->m_languageView->count();
+        int testlistviewheight = d->m_languageView->height();
+        int testareaheight = testarea->height();
+        double testareaheightneed = testareaheight - (testlistviewheight % testareaheight);
+        double testcurpage = (current.row() * testitemheight) / testareaheight;
+        double testafterpage = ((current.row() + testindexstep) * testitemheight) / testareaheight;
+
+        if (testafterpage < testcurpage) {
+            int testvaluetouse = testlistviewheight - (d->m_languageView->count() * testitemheight - testcurpage * testareaheight);
+            if (testvaluetouse > testareaheightneed) {
+                double testisdoscroll = d->m_languageView->count() * testitemheight - testafterpage * testareaheight;
+                double testlimit = (testareaheight * (int)(((d->m_languageView->count() * testitemheight) / testareaheight - testcurpage)) + testareaheight);
+                if (testisdoscroll > testlimit) {
+                    int testvalue = testarea->verticalScrollBar()->value() + testareaheight * -1;
+                    testarea->verticalScrollBar()->setValue(testvalue);
+                }
+            } else {
+                int testvalue = testarea->verticalScrollBar()->value() + (testvaluetouse * -1);
+                testarea->verticalScrollBar()->setValue(testvalue);
+            }
+        } else if (testafterpage > testcurpage) {
+            int testvaluetouse = testlistviewheight - (testcurpage * testareaheight);
+            if (testvaluetouse > testareaheightneed) {
+                double testisdoscroll = testafterpage * testareaheight;
+                double testlimit = (testareaheight * (int)(testcurpage) + testareaheight);
+                if (testisdoscroll > testlimit) {
+                    int testvalue = testarea->verticalScrollBar()->value() + testareaheight;
+                    testarea->verticalScrollBar()->setValue(testvalue);
+                }
+            } else {
+                int testvalue = testarea->verticalScrollBar()->value() + testvaluetouse;
+                testarea->verticalScrollBar()->setValue(testvalue);
+            }
+        }
+
+        d->m_languageView->setCurrentIndex(current.siblingAtRow(current.row() + testindexstep));
+        d->lang_ = d->lang_list_.at(current.row() + testindexstep);
+    }
+
+    return true;
+}
+
 void SelectLanguageFrame::changeEvent(QEvent* event) {
     Q_D(SelectLanguageFrame);
 
@@ -206,14 +368,14 @@ void SelectLanguageFrame::changeEvent(QEvent* event) {
 bool SelectLanguageFrame::eventFilter(QObject* obj, QEvent* event) {
     Q_D(SelectLanguageFrame);
 
-    if (event->type() == QEvent::KeyPress && d->accept_license_->isChecked() && !d->lang_.name.isEmpty()) {
+    /*if (event->type() == QEvent::KeyPress && d->accept_license_->isChecked() && !d->lang_.name.isEmpty()) {
         QKeyEvent* key_event = static_cast<QKeyEvent*>(event);
         if (key_event->key() == Qt::Key_Return || key_event->key() == Qt::Key_Enter) {
             // Simulate button click event.
             emit requestApplyLanguage();
             return true;
         }
-    }
+    }*/
 
     if (obj == d->license_label_) {
         switch (event->type()) {
@@ -251,7 +413,7 @@ bool SelectLanguageFrame::eventFilter(QObject* obj, QEvent* event) {
         }
     }
 
-    if (event->type() == QEvent::KeyPress && obj == d->m_languageView) {
+    /*if (event->type() == QEvent::KeyPress && obj == d->m_languageView) {
         QKeyEvent* key = dynamic_cast<QKeyEvent*>(event);
         switch (key->key()) {
             case Qt::Key_Enter:
@@ -263,7 +425,7 @@ bool SelectLanguageFrame::eventFilter(QObject* obj, QEvent* event) {
 
                 break;
         }
-    }
+    }*/
 
     return QObject::eventFilter(obj, event);
 }
@@ -318,7 +480,7 @@ void SelectLanguageFramePrivate::readLanguageSortFile()
 void SelectLanguageFramePrivate::initUI() {
     Q_Q(SelectLanguageFrame);
 
-    q->setFocusPolicy(Qt::TabFocus);
+    //q->setFocusPolicy(Qt::TabFocus);
 
     QLabel* logo_label = new QLabel();
     logo_label->setPixmap(QPixmap(LicenseDelegate::logo()));
@@ -334,7 +496,7 @@ void SelectLanguageFramePrivate::initUI() {
 
     m_languageView = new DListView();
     m_languageView->setMinimumWidth(kListViewWidth - 15);
-    m_languageView->setFocusPolicy(Qt::TabFocus);
+    //m_languageView->setFocusPolicy(Qt::TabFocus);
     m_languageView->setEditTriggers(QListView::NoEditTriggers);
     m_languageView->setIconSize(QSize(32, 32));
     m_languageView->setResizeMode(QListView::Adjust);
@@ -348,13 +510,18 @@ void SelectLanguageFramePrivate::initUI() {
     m_languageView->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     m_languageModel=new QStandardItemModel(m_languageView);
     m_languageView->setModel(m_languageModel);
-    m_languageView->installEventFilter(q);
+    //m_languageView->installEventFilter(q);
+    m_languageView->setStyleSheet("QListView::item::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
+    //QListView:focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}
+    //QListView::item:hover{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}
+    //QListView::item:selected{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}
 
     QScrollArea *languageArea = new QScrollArea;
+    languageArea->setObjectName("languageArea");
     languageArea->setMinimumWidth(kListViewWidth);
     languageArea->setContentsMargins(0, 0, 0, 0);
     languageArea->setWidgetResizable(true);
-    languageArea->setFocusPolicy(Qt::TabFocus);
+    //languageArea->setFocusPolicy(Qt::TabFocus);
     languageArea->setFrameStyle(QFrame::NoFrame);
     languageArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     languageArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -366,22 +533,26 @@ void SelectLanguageFramePrivate::initUI() {
     accept_license_ = new QCheckBox;
     accept_license_->setCheckable(true);
     accept_license_->setChecked(false);
-    accept_license_->setFocusPolicy(Qt::NoFocus);
+    //accept_license_->setFocusPolicy(Qt::NoFocus);
 
     license_label_ = new QLabel;
+    //license_label_->setFocusPolicy(Qt::TabFocus);
     license_label_->setObjectName("LicenseLabel");
-    license_label_->installEventFilter(q);
+    //license_label_->installEventFilter(q);
+    license_label_->setStyleSheet("QLabel::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
 
     m_privacy_license_label_ = new QLabel;
+    //m_privacy_license_label_->setFocusPolicy(Qt::TabFocus);
     m_privacy_license_label_->setObjectName("LicenseLabel");
-    m_privacy_license_label_->installEventFilter(q);
+    //m_privacy_license_label_->installEventFilter(q);
+    m_privacy_license_label_->setStyleSheet("QLabel::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
 
     if (user_license_delegate_->isLicenseDirExists()) {
         oem_and_label_ = new QLabel;
         oem_and_label_->setObjectName("OemAndLabel");
         oem_license_label_ = new QLabel;
         oem_license_label_->setObjectName("LicenseLabel");
-        oem_license_label_->installEventFilter(q);
+        //oem_license_label_->installEventFilter(q);
     }
 
     m_and_label = new QLabel;
@@ -409,11 +580,13 @@ void SelectLanguageFramePrivate::initUI() {
     accept_experience_ = new QCheckBox;
     accept_experience_->setCheckable(true);
     accept_experience_->setChecked(false);
-    accept_experience_->setFocusPolicy(Qt::NoFocus);
+    //accept_experience_->setFocusPolicy(Qt::NoFocus);
 
     experience_label_ = new QLabel;
+    //experience_label_->setFocusPolicy(Qt::TabFocus);
     experience_label_->setObjectName("LicenseLabel");
-    experience_label_->installEventFilter(q);
+    //experience_label_->installEventFilter(q);
+    experience_label_->setStyleSheet("QLabel::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
 
     QHBoxLayout* experience_layout = new QHBoxLayout;
     experience_layout->setMargin(0);
@@ -540,9 +713,9 @@ void SelectLanguageFramePrivate::onLanguageListSelected(const QModelIndex& curre
 
 void SelectLanguageFramePrivate::onAccpetLicenseChanged(bool enable) {
     if (enable) {
-        m_languageView->setFocusPolicy(Qt::NoFocus);
+        //m_languageView->setFocusPolicy(Qt::NoFocus);
     } else {
-        m_languageView->setFocusPolicy(Qt::TabFocus);
+        //m_languageView->setFocusPolicy(Qt::TabFocus);
     }
 
     Q_EMIT q_ptr->coverMainWindowFrameLabelsView(!enable);

@@ -51,6 +51,11 @@ public:
 protected:
     void changeEvent(QEvent* event) override;
 
+    bool focusSwitch() override;
+    bool doSpace() override;
+    bool doSelect() override;
+    bool directionKey(int keyvalue) override;
+
 signals:
     // Emitted when new language item is selected.
     void timezoneUpdated(const QString& timezone);

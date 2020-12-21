@@ -44,6 +44,11 @@ public:
 
     void onShowDeviceInfomation();
 
+    bool focusSwitch() override;
+    bool doSpace() override;
+    bool doSelect() override;
+    bool directionKey(int keyvalue) override;
+
 signals:
     void cancel();
     void encryptFinished();

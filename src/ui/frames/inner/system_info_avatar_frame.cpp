@@ -80,6 +80,7 @@ SystemInfoAvatarFrame::SystemInfoAvatarFrame(QWidget* parent)
     , d_private(new SystemInfoAvatarFramePrivate(this))
 {
     setObjectName("system_info_avatar_frame");
+    this->setFocusProxy(d_private->list_view_);
 }
 
 SystemInfoAvatarFrame::~SystemInfoAvatarFrame()
@@ -101,6 +102,49 @@ void SystemInfoAvatarFrame::writeConf() {
   // } else {
   //   qWarning() << "Invalid avatar: " << avatar;
     // }
+}
+
+bool SystemInfoAvatarFrame::doSpace()
+{
+    return true;
+}
+
+bool SystemInfoAvatarFrame::directionKey(int keyvalue)
+{
+    Q_D(SystemInfoAvatarFrame);
+    d->list_view_->setFocus();
+    switch (keyvalue) {
+    case Qt::Key_Up: {
+
+        }
+        break;
+    case Qt::Key_Down: {
+
+        }
+        break;
+    case Qt::Key_Left: {
+            if (d->list_view_->hasFocus()) {
+                QModelIndex testcureentindex = d->list_view_->currentIndex();
+                if ((testcureentindex.row() - 1) >= 0) {
+                    //d->list_view_->setCurrentIndex(testcureentindex.sibling(testcureentindex.row() - 1, 0));
+                    Q_EMIT d->list_view_->pressed(testcureentindex.sibling(testcureentindex.row() - 1, 0));
+                }
+            }
+        }
+        break;
+    case Qt::Key_Right: {
+            if (d->list_view_->hasFocus()) {
+                QModelIndex testcureentindex = d->list_view_->currentIndex();
+                if ((testcureentindex.row() + 1) < d->list_view_->model()->rowCount()) {
+                    //d->list_view_->setCurrentIndex(testcureentindex.sibling(testcureentindex.row() + 1, 0));
+                    Q_EMIT d->list_view_->pressed(testcureentindex.sibling(testcureentindex.row() + 1, 0));
+                }
+            }
+        }
+        break;
+    }
+
+    return true;
 }
 
 void SystemInfoAvatarFrame::showEvent(QShowEvent *event)

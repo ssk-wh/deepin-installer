@@ -91,6 +91,11 @@ class PartitionFrame : public FrameInterface {
   void changeEvent(QEvent* event) override;
   void showEvent(QShowEvent *event) override;
 
+  bool focusSwitch() override;
+  bool doSpace() override;
+  bool doSelect() override;
+  bool directionKey(int keyvalue) override;
+
   QScopedPointer<PartitionFramePrivate> m_private;
 };
 

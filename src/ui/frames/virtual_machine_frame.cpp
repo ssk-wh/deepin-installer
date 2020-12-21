@@ -90,6 +90,12 @@ void VirtualMachineFrame::paintEvent(QPaintEvent *event)
     return QWidget::paintEvent(event);
 }
 
+bool VirtualMachineFrame::doSelect()
+{
+    m_private->nextButton->click();
+    return true;
+}
+
 VirtualMachineFrame::~VirtualMachineFrame()
 {
 
@@ -121,8 +127,10 @@ QString VirtualMachineFrame::returnFrameName() const
 
 void VirtualMachineFramePrivate::initUI() {
   title_label_ = new TitleLabel(::QObject::tr("Friendly Note"));
+  //title_label_->setFocusPolicy(Qt::NoFocus);
   comment_label_ = new CommentLabel(
       ::QObject::tr("You are installing %1 on a virtual machine which may result in sub-optimal performance. For the best experience, please install %1 on a real machine.").arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : LicenseDelegate::product()));
+  //comment_label_->setFocusPolicy(Qt::NoFocus);
   QHBoxLayout* comment_layout = new QHBoxLayout();
   comment_layout->setContentsMargins(0, 0, 0, 0);
   comment_layout->setSpacing(0);

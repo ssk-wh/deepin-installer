@@ -54,6 +54,8 @@ class VirtualMachineFrame : public FrameInterface {
   void changeEvent(QEvent* event) override;
   void paintEvent(QPaintEvent *event) override;
 
+  bool doSelect() override;
+
  private:
   QScopedPointer<VirtualMachineFramePrivate> m_private;
 };

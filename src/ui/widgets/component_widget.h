@@ -25,6 +25,7 @@ public:
     void setIsHead(bool head);
     void setIsTail(bool tail);
     void setTitle(const QString& title);
+    QString getTitle();
     void setDesc(const QString& desc);
     void setSelected(bool selected);
 

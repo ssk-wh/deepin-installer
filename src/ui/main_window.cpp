@@ -608,7 +608,7 @@ void MainWindow::constructLabelView()
 }
 
 void MainWindow::initUI() {
-    this->setFocusPolicy(Qt::TabFocus);
+    //this->setFocusPolicy(Qt::TabFocus);
   background_label_ = new QLabel(this);
 
   back_button_ = new DImageButton(this);
@@ -624,7 +624,7 @@ void MainWindow::initUI() {
   // TODO: use titleBar implement.
   close_button_ = new DImageButton(this);
   close_button_->setObjectName("close_button");
-  close_button_->setFocusPolicy(Qt::TabFocus);
+  //close_button_->setFocusPolicy(Qt::TabFocus);
   close_button_->setFixedSize(40, 40);
   close_button_->setNormalPic(":/images/close_normal.svg");
   close_button_->setHoverPic(":/images/close_normal.svg");

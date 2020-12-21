@@ -48,6 +48,11 @@ public:
     bool isEncrypt() const;
     bool isInstallNvidia() const;
 
+    bool focusSwitch();
+    bool doSpace();
+    bool doSelect();
+    bool directionKey(int keyvalue);
+
 signals:
     void currentDeviceChanged(const Device::Ptr device) const;
     void cryptoStateChanged(bool crypto) const;

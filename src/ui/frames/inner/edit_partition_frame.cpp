@@ -25,6 +25,7 @@
 #include <QPainter>
 #include <DHorizontalLine>
 #include <QPainterPath>
+#include <QAbstractItemView>
 
 #include "base/file_util.h"
 #include "service/settings_manager.h"
@@ -125,6 +126,96 @@ void EditPartitionFrame::setPartition(const Partition::Ptr partition) {
   mount_point_box_->setCurrentIndex(mp_index);
 
   updateFormatBoxState();
+}
+
+bool EditPartitionFrame::focusSwitch()
+{
+    if (m_current_focus_widget == nullptr) {
+        this->setCurentFocus(ok_button_);
+    } else if (ok_button_ == m_current_focus_widget) {
+        this->setCurentFocus(cancel_button_);
+    } else if (cancel_button_ == m_current_focus_widget) {
+        this->setCurentFocus(fs_box_);
+    } else if (fs_box_ == m_current_focus_widget) {
+        fs_box_->hidePopup();
+        if(mount_point_box_->isVisible()){
+            this->setCurentFocus(mount_point_box_);
+        } else {
+            if (format_check_box_->isVisible()) {
+                this->setCurentFocus(format_check_box_);
+            } else {
+                this->setCurentFocus(ok_button_);
+            }
+        }
+    } else if(mount_point_box_ == m_current_focus_widget) {
+        mount_point_box_->hidePopup();
+        this->setCurentFocus(format_check_box_);
+    } else if (format_check_box_ == m_current_focus_widget) {
+        this->setCurentFocus(ok_button_);
+    }
+    return true;
+}
+
+bool EditPartitionFrame::doSpace()
+{
+    if (fs_box_ == m_current_focus_widget) {
+        fs_box_->showPopup();
+    } else if (mount_point_box_ == m_current_focus_widget) {
+        mount_point_box_->showPopup();
+    } else if (format_check_box_ == m_current_focus_widget) {
+        format_check_box_->setCheckState(Qt::Checked);
+    }
+    return true;
+}
+
+bool EditPartitionFrame::doSelect()
+{
+    if (ok_button_ == m_current_focus_widget) {
+        emit ok_button_->clicked();
+    } else if (cancel_button_ == m_current_focus_widget) {
+        emit cancel_button_->clicked();
+    }
+    return true;
+}
+
+bool EditPartitionFrame::directionKey(int keyvalue)
+{
+    switch (keyvalue) {
+    case Qt::Key_Up: {
+            if (fs_box_ == m_current_focus_widget) {
+                QModelIndex testindex = fs_box_->view()->selectionModel()->currentIndex();
+                if((testindex.row() - 1) >= 0){
+                    fs_box_->view()->selectionModel()->setCurrentIndex(testindex.sibling(testindex.row() - 1, 0), QItemSelectionModel::ClearAndSelect);
+                }
+            } else if (mount_point_box_ == m_current_focus_widget) {
+                QModelIndex testindex = mount_point_box_->view()->selectionModel()->currentIndex();
+                if((testindex.row() - 1) >= 0){
+                    mount_point_box_->view()->selectionModel()->setCurrentIndex(testindex.sibling(testindex.row() - 1, 0), QItemSelectionModel::ClearAndSelect);
+                }
+            }
+        }
+        break;
+    case Qt::Key_Down: {
+            if (fs_box_ == m_current_focus_widget) {
+                QModelIndex testindex = fs_box_->view()->selectionModel()->currentIndex();
+                if((testindex.row() + 1) < fs_box_->count()){
+                    fs_box_->view()->selectionModel()->setCurrentIndex(testindex.sibling(testindex.row() + 1, 0), QItemSelectionModel::ClearAndSelect);
+                }
+            } else if (mount_point_box_ == m_current_focus_widget) {
+                QModelIndex testindex = mount_point_box_->view()->selectionModel()->currentIndex();
+                if((testindex.row() + 1) < mount_point_box_->count()){
+                    mount_point_box_->view()->selectionModel()->setCurrentIndex(testindex.sibling(testindex.row() + 1, 0), QItemSelectionModel::ClearAndSelect);
+                }
+            }
+        }
+        break;
+    case Qt::Key_Left:
+        break;
+    case Qt::Key_Right:
+        break;
+    }
+
+    return true;
 }
 
 void EditPartitionFrame::changeEvent(QEvent* event) {
@@ -281,7 +372,7 @@ void EditPartitionFrame::initUI() {
   format_check_box_ = new QCheckBox();
   format_check_box_->setObjectName("format_check_box");
   format_check_box_->setText(::QObject::tr("Format the partition"));
-  format_check_box_->setFocusPolicy(Qt::TabFocus);
+  //format_check_box_->setFocusPolicy(Qt::TabFocus);
 
   QHBoxLayout* fs_layout =  new QHBoxLayout;
   fs_layout->addStretch();
@@ -299,10 +390,10 @@ void EditPartitionFrame::initUI() {
 
   cancel_button_ = new SelectButton();
   cancel_button_->setFixedSize(QSize(kButtonWidth, kButtonHeight));
-  cancel_button_->setFocusPolicy(Qt::TabFocus);
+  //cancel_button_->setFocusPolicy(Qt::TabFocus);
   ok_button_ = new DSuggestButton();
   ok_button_->setFixedSize(QSize(kButtonWidth, kButtonHeight));
-  ok_button_->setFocusPolicy(Qt::TabFocus);
+  //ok_button_->setFocusPolicy(Qt::TabFocus);
 
   QHBoxLayout *buttonLayout = new QHBoxLayout;
   buttonLayout->setContentsMargins(0, 0, 0, 0);
@@ -409,7 +500,7 @@ void EditPartitionFrame::setupCloseButton()
 {
     // TODO: use titleBar implement.
     m_close_button = new DImageButton(this);
-    m_close_button->setFocusPolicy(Qt::TabFocus);
+    //m_close_button->setFocusPolicy(Qt::TabFocus);
     m_close_button->setFixedSize(40, 40);
     m_close_button->setNormalPic(":/images/close_normal.svg");
     m_close_button->setHoverPic(":/images/close_normal.svg");

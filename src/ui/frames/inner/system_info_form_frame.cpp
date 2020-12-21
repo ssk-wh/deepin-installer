@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2017 ~ 2018 Deepin Technology Co., Ltd.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -233,6 +233,63 @@ void SystemInfoFormFrame::checkNextButtonEnable()
     }
 
     emit requestNextButtonEnable(true);
+}
+
+bool SystemInfoFormFrame::focusSwitch()
+{
+    Q_D(SystemInfoFormFrame);
+    if (d->m_usernameEdit->lineEdit()->hasFocus()) {
+        d->m_hostnameEdit->lineEdit()->setFocus();
+    } else if (d->m_hostnameEdit->lineEdit()->hasFocus()) {
+        d->m_passwordEdit->lineEdit()->setFocus();
+    } else if (d->m_passwordEdit->lineEdit()->hasFocus()) {
+        d->m_passwordCheckEdit->lineEdit()->setFocus();
+    } else if (d->m_passwordCheckEdit->lineEdit()->hasFocus()) {
+        if (d->m_grubPasswordCheck_->isVisible()) {
+            if (d->m_setRootPasswordCheck->isVisible()) {
+                d->m_setRootPasswordCheck->setFocus();
+            } else {
+                d->m_hostnameEdit->lineEdit()->setFocus();
+            }
+        } else if (d->m_setRootPasswordCheck->isVisible()) {
+                d->m_rootPasswordEdit->lineEdit()->setFocus();
+        } else {
+            //d_private->m_hostnameEdit->setFocus();
+            return true;
+        }
+    } else if (d->m_grubPasswordCheck_->hasFocus()) {
+        if (d->m_setRootPasswordCheck->isVisible()) {
+            d->m_setRootPasswordCheck->setFocus();
+        } else {
+            //d_private->m_hostnameEdit->setFocus();
+            return true;
+        }
+    } else if (d->m_setRootPasswordCheck->hasFocus()) {
+        d->m_rootPasswordEdit->lineEdit()->setFocus();
+    } else if (d->m_rootPasswordEdit->lineEdit()->hasFocus()) {
+        d->m_rootPasswordCheckEdit->lineEdit()->setFocus();
+    } else if (d->m_rootPasswordCheckEdit->hasFocus()) {
+        return true;
+    } else {
+        d->m_usernameEdit->lineEdit()->setFocus();
+    }
+
+    return false;
+}
+
+bool SystemInfoFormFrame::doSpace()
+{
+    return true;
+}
+
+bool SystemInfoFormFrame::doSelect()
+{
+    return true;
+}
+
+bool SystemInfoFormFrame::directionKey(int keyvalue)
+{
+    return true;
 }
 
 void SystemInfoFormFrame::updateAvatar(const QString& avatar)
@@ -497,7 +554,7 @@ void SystemInfoFormFramePrivate::initUI()
     m_setRootPasswordCheck = new QCheckBox;
     m_setRootPasswordCheck->setObjectName("RootPasswordCheckBox");
     m_setRootPasswordCheck->setVisible(GetSettingsBool(kSetRootPasswordFromUser));
-    m_setRootPasswordCheck->setFocusPolicy(Qt::TabFocus);
+    //m_setRootPasswordCheck->setFocusPolicy(Qt::TabFocus);
 
     m_rootPasswordLabel = new QLabel;
     m_rootPasswordLabel->setAlignment(Qt::AlignLeft);
@@ -555,7 +612,7 @@ void SystemInfoFormFramePrivate::initUI()
     m_grubPasswordCheck_->setChecked(false);
     m_grubPasswordCheck_->setObjectName("GrubPasswordCheckBox");
     m_grubPasswordCheck_->setVisible(GetSettingsBool(kSystemInfoEnableGrubEditPwd));
-    m_grubPasswordCheck_->setFocusPolicy(Qt::TabFocus);
+    //m_grubPasswordCheck_->setFocusPolicy(Qt::TabFocus);
 
     m_rootUserLabel = new QLabel;
     m_rootUserLabel->setFixedWidth(kHintLabelWidth + 40);

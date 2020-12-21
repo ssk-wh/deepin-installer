@@ -253,6 +253,155 @@ void PartitionFrame::showEvent(QShowEvent *event)
     return FrameInterface::showEvent(event);
 }
 
+bool PartitionFrame::focusSwitch()
+{
+    if (m_current_focus_widget == nullptr) {
+        this->setCurentFocus(m_private->nextButton);
+    } else if (m_private->nextButton == m_current_focus_widget) {
+        if (m_private->prepare_install_frame_->isVisible()) {
+            m_private->prepare_install_frame_->focusSwitch();
+        } else {
+            this->setCurentFocus(m_private->m_buttonGroup);
+        }
+    } else if (m_private->m_buttonGroup == m_current_focus_widget) {
+        if (m_private->advanced_frame_button_->isChecked()) {
+            this->setCurentFocus(m_private->advanced_partition_frame_);
+        } else if (m_private->full_disk_frame_button_->isChecked()) {
+            this->setCurentFocus(m_private->full_disk_partition_frame_);
+        }
+    } else if (m_private->advanced_partition_frame_ == m_current_focus_widget) {
+        if (m_private->edit_partition_frame_->isVisible()) {
+           m_private->edit_partition_frame_->focusSwitch();
+        } else if (m_private->edit_lvm_partition_frame_->isVisible()) {
+           m_private->edit_partition_frame_->focusSwitch();
+        } else if(m_private->new_partition_frame_->isVisible()) {
+            m_private->new_partition_frame_->focusSwitch();
+        } else if(m_private->new_lvm_partition_frame_->isVisible()) {
+            m_private->new_lvm_partition_frame_->focusSwitch();
+        } else if (m_private->select_bootloader_frame_->isVisible()) {
+            m_private->select_bootloader_frame_->focusSwitch();
+        } else {
+            if (m_private->advanced_partition_frame_->focusSwitch()) {
+                this->setCurentFocus(m_private->nextButton);
+            }
+        }
+    } else if (m_private->full_disk_partition_frame_ == m_current_focus_widget) {
+        if (m_private->full_disk_partition_frame_->focusSwitch()) {
+            if (m_private->full_disk_encrypt_frame_->isVisible()) {
+                this->setCurentFocus(m_private->full_disk_encrypt_frame_);
+            } else {
+                this->setCurentFocus(m_private->nextButton);
+            }
+        }
+    } else if(m_private->full_disk_encrypt_frame_ == m_current_focus_widget) {
+        if (m_private->full_disk_encrypt_frame_->isVisible()) {
+            m_private->full_disk_encrypt_frame_->focusSwitch();
+        } else {
+            this->setCurentFocus(m_private->nextButton);
+        }
+    }
+
+    return true;
+}
+
+bool PartitionFrame::doSpace()
+{
+    if (m_private->advanced_partition_frame_ == m_current_focus_widget) {
+        if (m_private->edit_partition_frame_->isVisible()) {
+           m_private->edit_partition_frame_->doSpace();
+        } else if (m_private->edit_lvm_partition_frame_->isVisible()) {
+           m_private->edit_partition_frame_->doSpace();
+        } else if (m_private->new_partition_frame_->isVisible()) {
+            m_private->new_partition_frame_->doSpace();
+        } else if (m_private->new_lvm_partition_frame_->isVisible()) {
+            m_private->new_lvm_partition_frame_->doSpace();
+        } else if (m_private->select_bootloader_frame_->isVisible()) {
+            m_private->select_bootloader_frame_->doSpace();
+        } else {
+            m_private->advanced_partition_frame_->doSpace();
+        }
+    } else if (m_private->full_disk_partition_frame_ == m_current_focus_widget) {
+        m_private->full_disk_partition_frame_->doSpace();
+    }
+    return true;
+}
+
+bool PartitionFrame::doSelect()
+{
+    if (m_private->nextButton == m_current_focus_widget) {
+        if (m_private->prepare_install_frame_->isVisible()) {
+            m_private->prepare_install_frame_->doSelect();
+        } else {
+            emit m_private->nextButton->clicked();
+        }
+    } else if (m_private->advanced_partition_frame_ == m_current_focus_widget) {
+        if (m_private->edit_partition_frame_->isVisible()) {
+           m_private->edit_partition_frame_->doSelect();
+        } else if (m_private->edit_lvm_partition_frame_->isVisible()) {
+           m_private->edit_partition_frame_->doSelect();
+        } else if(m_private->new_partition_frame_->isVisible()) {
+            m_private->new_partition_frame_->doSelect();
+        } else if(m_private->new_lvm_partition_frame_->isVisible()) {
+            m_private->new_lvm_partition_frame_->doSelect();
+        } else if (m_private->select_bootloader_frame_->isVisible()) {
+            m_private->select_bootloader_frame_->doSelect();
+        } else {
+            m_private->advanced_partition_frame_->doSelect();
+        }
+    }
+    return true;
+}
+
+bool PartitionFrame::directionKey(int keyvalue)
+{
+    switch (keyvalue) {
+    case Qt::Key_Up:
+        break;
+    case Qt::Key_Down:
+        break;
+    case Qt::Key_Left: {
+            if (m_private->m_buttonGroup == m_current_focus_widget) {
+                m_private->advanced_frame_button_->setChecked(true);
+                m_private->full_disk_frame_button_->setChecked(false);
+                m_private->partition_stacked_layout_->setCurrentWidget(m_private->advanced_partition_frame_);
+            }
+        }
+        break;
+    case Qt::Key_Right: {
+            if (m_private->m_buttonGroup == m_current_focus_widget) {
+                m_private->advanced_frame_button_->setChecked(false);
+                m_private->full_disk_frame_button_->setChecked(true);
+                m_private->partition_stacked_layout_->setCurrentWidget(m_private->full_disk_partition_frame_);
+            }
+        }
+        break;
+    }
+
+    if (m_private->advanced_partition_frame_ == m_current_focus_widget) {
+        if (m_private->edit_partition_frame_->isVisible()) {
+           m_private->edit_partition_frame_->directionKey(keyvalue);
+        } else if (m_private->edit_lvm_partition_frame_->isVisible()) {
+           m_private->edit_partition_frame_->directionKey(keyvalue);
+        } else if(m_private->new_partition_frame_->isVisible()) {
+            m_private->new_partition_frame_->directionKey(keyvalue);
+        } else if(m_private->new_lvm_partition_frame_->isVisible()) {
+            m_private->new_lvm_partition_frame_->directionKey(keyvalue);
+        } else if (m_private->select_bootloader_frame_->isVisible()) {
+            m_private->select_bootloader_frame_->directionKey(keyvalue);
+        } else {
+            m_private->advanced_partition_frame_->directionKey(keyvalue);
+        }
+    } else if (m_private->full_disk_partition_frame_ == m_current_focus_widget) {
+        m_private->full_disk_partition_frame_->directionKey(keyvalue);
+    } else if (m_private->nextButton == m_current_focus_widget) {
+        if (m_private->prepare_install_frame_->isVisible()) {
+            m_private->prepare_install_frame_->directionKey(keyvalue);
+        }
+    }
+
+    return true;
+}
+
 PartitionFramePrivate::~PartitionFramePrivate()
 {
 
@@ -462,13 +611,13 @@ void PartitionFramePrivate::initUI() {
   m_buttonGroup = new DButtonBox(q_ptr);
   simple_frame_button_ = new DButtonBoxButton(::QObject::tr("Simple"), q_ptr);
   simple_frame_button_->setMinimumWidth(86);
-  simple_frame_button_->setFocusPolicy(Qt::NoFocus);
+  //simple_frame_button_->setFocusPolicy(Qt::NoFocus);
   advanced_frame_button_ = new DButtonBoxButton(::QObject::tr("Advanced"), q_ptr);
   advanced_frame_button_->setMinimumWidth(86);
-  advanced_frame_button_->setFocusPolicy(Qt::NoFocus);
+  //advanced_frame_button_->setFocusPolicy(Qt::NoFocus);
   full_disk_frame_button_ = new DButtonBoxButton(::QObject::tr("Full Disk"), q_ptr);
   full_disk_frame_button_->setMinimumWidth(86);
-  full_disk_frame_button_->setFocusPolicy(Qt::NoFocus);
+  //full_disk_frame_button_->setFocusPolicy(Qt::NoFocus);
 
   if (GetSettingsBool(kPartitionSkipFullDiskPartitionPage)) {
       m_buttonGroup->setButtonList({advanced_frame_button_}, true);
@@ -558,7 +707,7 @@ void PartitionFramePrivate::initUI() {
 
   centerLayout->addLayout(main_layout_);
   q_ptr->setContentsMargins(0, 0, 0, 0);
-  q_ptr->setFocusPolicy(Qt::TabFocus);
+  //q_ptr->setFocusPolicy(Qt::TabFocus);
   q_ptr->setLayout(centerLayout);
 }
 

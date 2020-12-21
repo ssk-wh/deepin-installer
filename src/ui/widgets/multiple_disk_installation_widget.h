@@ -47,6 +47,12 @@ class MultipleDiskInstallationWidget : public DFrame
 public:
     explicit MultipleDiskInstallationWidget(QWidget *parent = nullptr);    
 
+    bool focusSwitch();
+    bool doSpace();
+    bool doSelect();
+    bool directionKey(int keyvalue);
+    bool isLeftRightWidgetHasFocus();
+
 signals:
     void currentDeviceChanged(int type, const Device::Ptr device);
 

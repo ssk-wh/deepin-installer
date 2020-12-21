@@ -28,6 +28,7 @@
 #include <QPainter>
 #include <QPainterPath>
 #include <DPushButton>
+#include <QAbstractItemView>
 
 #include "base/file_util.h"
 #include "sysinfo/proc_meminfo.h"
@@ -164,6 +165,130 @@ void NewPartitionFrame::setPartition(const Partition::Ptr partition) {
   size_slider_->setMinimum(kMinimumPartitionSize);
 }
 
+bool NewPartitionFrame::focusSwitch()
+{
+    if (m_current_focus_widget == nullptr) {
+        this->setCurentFocus(create_button_);
+    } else if (create_button_ == m_current_focus_widget) {
+        this->setCurentFocus(cancel_button_);
+    } else if (cancel_button_ == m_current_focus_widget) {
+        this->setCurentFocus(type_box_);
+    } else if (type_box_ == m_current_focus_widget) {
+        type_box_->hidePopup();
+        this->setCurentFocus(alignment_box_);
+    } else if (alignment_box_ == m_current_focus_widget) {
+        alignment_box_->hidePopup();
+        this->setCurentFocus(fs_box_);
+    } else if (fs_box_ == m_current_focus_widget) {
+        fs_box_->hidePopup();
+        this->setCurentFocus(mount_point_box_);
+    } else if (mount_point_box_ == m_current_focus_widget) {
+        if (mount_point_box_->isVisible()) {
+            mount_point_box_->hidePopup();
+            this->setCurentFocus(size_slider_);
+        } else {
+            this->setCurentFocus(create_button_);
+        }
+    } else if (size_slider_ == m_current_focus_widget) {
+        this->setCurentFocus(create_button_);
+    }
+
+    return true;
+}
+
+bool NewPartitionFrame::doSpace()
+{
+    if (type_box_ == m_current_focus_widget) {
+        type_box_->showPopup();
+    } else if (alignment_box_ == m_current_focus_widget) {
+        alignment_box_->showPopup();
+    } else if (fs_box_ == m_current_focus_widget) {
+        fs_box_->showPopup();
+    } else if (mount_point_box_ == m_current_focus_widget) {
+        mount_point_box_->showPopup();
+    }
+    return true;
+}
+
+bool NewPartitionFrame::doSelect()
+{
+    if (create_button_ == m_current_focus_widget) {
+        emit create_button_->clicked();
+    } else if (cancel_button_ == m_current_focus_widget) {
+        emit cancel_button_->clicked();
+    }
+    return true;
+}
+
+bool NewPartitionFrame::directionKey(int keyvalue)
+{
+    switch (keyvalue) {
+    case Qt::Key_Up: {
+            if (type_box_ == m_current_focus_widget) {
+                QModelIndex testindex = type_box_->view()->selectionModel()->currentIndex();
+                if((testindex.row() - 1) >= 0){
+                    type_box_->view()->selectionModel()->setCurrentIndex(testindex.sibling(testindex.row() - 1, 0), QItemSelectionModel::ClearAndSelect);
+                }
+            } else if (alignment_box_ == m_current_focus_widget) {
+                QModelIndex testindex = alignment_box_->view()->selectionModel()->currentIndex();
+                if((testindex.row() - 1) >= 0){
+                    alignment_box_->view()->selectionModel()->setCurrentIndex(testindex.sibling(testindex.row() - 1, 0), QItemSelectionModel::ClearAndSelect);
+                }
+            } else if (fs_box_ == m_current_focus_widget) {
+                QModelIndex testindex = fs_box_->view()->selectionModel()->currentIndex();
+                if((testindex.row() - 1) >= 0){
+                    fs_box_->view()->selectionModel()->setCurrentIndex(testindex.sibling(testindex.row() - 1, 0), QItemSelectionModel::ClearAndSelect);
+                }
+            } else if (mount_point_box_ == m_current_focus_widget) {
+                QModelIndex testindex = mount_point_box_->view()->selectionModel()->currentIndex();
+                if((testindex.row() - 1) >= 0){
+                    mount_point_box_->view()->selectionModel()->setCurrentIndex(testindex.sibling(testindex.row() - 1, 0), QItemSelectionModel::ClearAndSelect);
+                }
+            } else if (size_slider_ == m_current_focus_widget) {
+                qint64 testvalue = size_slider_->value();
+                if ((testvalue + 1024*1024) <= size_slider_->maximum()) {
+                    size_slider_->setValue(testvalue + 1024*1024);
+                }
+            }
+        }
+        break;
+    case Qt::Key_Down: {
+            if (type_box_ == m_current_focus_widget) {
+                QModelIndex testindex = type_box_->view()->selectionModel()->currentIndex();
+                if((testindex.row() + 1) < type_box_->count()){
+                    type_box_->view()->selectionModel()->setCurrentIndex(testindex.sibling(testindex.row() + 1, 0), QItemSelectionModel::ClearAndSelect);
+                }
+            } else if (alignment_box_ == m_current_focus_widget) {
+                QModelIndex testindex = alignment_box_->view()->selectionModel()->currentIndex();
+                if((testindex.row() + 1) < alignment_box_->count()){
+                    alignment_box_->view()->selectionModel()->setCurrentIndex(testindex.sibling(testindex.row() + 1, 0), QItemSelectionModel::ClearAndSelect);
+                }
+            } else if (fs_box_ == m_current_focus_widget) {
+                QModelIndex testindex = fs_box_->view()->selectionModel()->currentIndex();
+                if((testindex.row() + 1) < fs_box_->count()){
+                    fs_box_->view()->selectionModel()->setCurrentIndex(testindex.sibling(testindex.row() + 1, 0), QItemSelectionModel::ClearAndSelect);
+                }
+            } else if (mount_point_box_ == m_current_focus_widget) {
+                QModelIndex testindex = mount_point_box_->view()->selectionModel()->currentIndex();
+                if((testindex.row() + 1) < mount_point_box_->count()){
+                    mount_point_box_->view()->selectionModel()->setCurrentIndex(testindex.sibling(testindex.row() + 1, 0), QItemSelectionModel::ClearAndSelect);
+                }
+            } else if (size_slider_ == m_current_focus_widget) {
+                qint64 testvalue = size_slider_->value();
+                if ((testvalue - 1024*1024) >= 0) {
+                    size_slider_->setValue(testvalue - 1024*1024);
+                }
+            }
+        }
+        break;
+    case Qt::Key_Left:
+        break;
+    case Qt::Key_Right:
+        break;
+    }
+    return true;
+}
+
 void NewPartitionFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     title_label_->setText(::QObject::tr("Create New Partition"));
@@ -292,6 +417,7 @@ void NewPartitionFrame::initUI() {
   size_slider_->setFixedWidth(mount_point_box_->width());
   size_label_->setFixedWidth(kHintLabelWidth);
   size_slider_->setFixedWidth(kInputWidgetWidth);
+  size_slider_->setStyleSheet("#partition_size_slider:focus{border:2px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
 
   QHBoxLayout* size_layout = new QHBoxLayout;
   size_layout->addStretch();
@@ -316,10 +442,10 @@ void NewPartitionFrame::initUI() {
 
   cancel_button_ = new SelectButton();
   cancel_button_->setFixedWidth(kButtonwidth);
-  cancel_button_->setFocusPolicy(Qt::TabFocus);
+  //cancel_button_->setFocusPolicy(Qt::TabFocus);
   create_button_ = new DSuggestButton();
   create_button_->setFixedWidth(kButtonwidth);
-  create_button_->setFocusPolicy(Qt::TabFocus);
+  //create_button_->setFocusPolicy(Qt::TabFocus);
 
   m_auto_label = new QLabel();
 
@@ -617,7 +743,7 @@ void NewPartitionFrame::setupCloseButton()
 {
     // TODO: use titleBar implement.
     m_close_button = new DImageButton(this);
-    m_close_button->setFocusPolicy(Qt::TabFocus);
+    //m_close_button->setFocusPolicy(Qt::TabFocus);
     m_close_button->setFixedSize(40, 40);
     m_close_button->setNormalPic(":/images/close_normal.svg");
     m_close_button->setHoverPic(":/images/close_normal.svg");

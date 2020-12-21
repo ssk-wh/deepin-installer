@@ -44,6 +44,11 @@ class SelectBootloaderFrame : public ChildFrameInterface {
  public:
   explicit SelectBootloaderFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent = nullptr);
 
+    bool focusSwitch() override;
+    bool doSpace() override;
+    bool doSelect() override;
+    bool directionKey(int keyvalue) override;
+
  signals:
   // Emitted when currently used bootloader path is updated.
   void bootloaderUpdated(const QString& bootloader_path, bool simple_mode);

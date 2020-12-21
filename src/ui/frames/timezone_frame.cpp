@@ -120,6 +120,8 @@ public:
 
   void onSetTimePushButtonClicked();
   void updateTs();
+
+  Q_DECLARE_PUBLIC(TimezoneFrame)
 };
 
 void TimezoneFramePrivate::updateTs()
@@ -249,14 +251,91 @@ void TimezoneFrame::hideEvent(QHideEvent *event)
 
 bool TimezoneFrame::eventFilter(QObject *watched, QEvent *event)
 {
-    if((event->type() == QEvent::KeyPress)){
+    /*if((event->type() == QEvent::KeyPress)){
         QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
         if (keyEvent->key() == Qt::Key_Space){
             return true;
         }
+    }*/
+
+    return FrameInterface::eventFilter(watched, event);
+}
+
+bool TimezoneFrame::focusSwitch()
+{
+    if (m_current_focus_widget == nullptr) {
+        this->setCurentFocus(m_private->nextButton);
+    } else if (m_private->nextButton == m_current_focus_widget) {
+        this->setCurentFocus(m_private->m_mapListButtonGroup);
+    } else if (m_private->m_mapListButtonGroup == m_current_focus_widget) {
+        if (m_private->m_mapOrListStackedLayout->currentWidget() == m_private->timezone_map_) {
+            this->setCurentFocus(m_private->timezone_map_);
+        } else if (m_private->m_mapOrListStackedLayout->currentWidget() == m_private->m_selectTimeZoneFrame) {
+            this->setCurentFocus(m_private->m_selectTimeZoneFrame);
+            m_private->m_selectTimeZoneFrame->setWidgetfocus(true);
+        }
+    } else if (m_private->timezone_map_ == m_current_focus_widget) {
+        this->setCurentFocus(m_private->m_systemDateFrame);
+    } else if (m_private->m_selectTimeZoneFrame == m_current_focus_widget) {
+        m_private->m_selectTimeZoneFrame->setWidgetfocus(false);
+        this->setCurentFocus(m_private->m_systemDateFrame);
+    }  else if (m_private->m_systemDateFrame == m_current_focus_widget) {
+        this->setCurentFocus(m_private->nextButton);
+    }
+    return true;
+}
+
+bool TimezoneFrame::doSpace()
+{
+    if (m_private->m_selectTimeZoneFrame == m_current_focus_widget) {
+        m_private->m_selectTimeZoneFrame->doSpace();
+    } else if (m_private->m_systemDateFrame == m_current_focus_widget) {
+        m_private->m_systemDateFrame->doSpace();
+    }
+    return true;
+}
+
+bool TimezoneFrame::doSelect()
+{
+    if (m_private->nextButton == m_current_focus_widget) {
+        emit m_private->nextButton->clicked();
+    }
+    return true;
+}
+
+bool TimezoneFrame::directionKey(int keyvalue)
+{
+    if (m_private->timezone_map_ == m_current_focus_widget) {
+    } else if(m_private->m_selectTimeZoneFrame == m_current_focus_widget) {
+        m_private->m_selectTimeZoneFrame->directionKey(keyvalue);
+    } else if (m_private->m_systemDateFrame == m_current_focus_widget) {
+        m_private->m_systemDateFrame->directionKey(keyvalue);
+    } else {
+        switch (keyvalue) {
+        case Qt::Key_Up:
+            break;
+        case Qt::Key_Down:
+            break;
+        case Qt::Key_Left: {
+                if (m_private->m_mapListButtonGroup == m_current_focus_widget) {
+                    m_private->m_timezoneMapButton->setChecked(true);
+                    m_private->m_timezoneListButton->setChecked(false);
+                    emit m_private->m_mapListButtonGroup->buttonClicked(m_private->m_timezoneMapButton);
+                }
+            }
+            break;
+        case Qt::Key_Right: {
+                if (m_private->m_mapListButtonGroup == m_current_focus_widget) {
+                    m_private->m_timezoneMapButton->setChecked(false);
+                    m_private->m_timezoneListButton->setChecked(true);
+                    emit m_private->m_mapListButtonGroup->buttonClicked(m_private->m_timezoneListButton);
+                }
+            }
+            break;
+        }
     }
 
-    return QWidget::eventFilter(watched, event);
+    return true;
 }
 
 void TimezoneFramePrivate::initConnections() {
@@ -287,19 +366,20 @@ void TimezoneFramePrivate::initUI() {
   timezone_map_ = new TimezoneMap(q_ptr);
 
   m_mapListButtonGroup = new DButtonBox;
+  m_mapListButtonGroup->setObjectName("MapListButtonGroup");
   m_timezoneMapButton = new DButtonBoxButton("");
   m_timezoneMapButton->setObjectName("timezoneMapButton");
   m_timezoneMapButton->setCheckable(true);
   m_timezoneMapButton->setMinimumWidth(60);
   m_timezoneMapButton->setMaximumHeight(36);
-  m_timezoneMapButton->setFocusPolicy(Qt::NoFocus);
+  //m_timezoneMapButton->setFocusPolicy(Qt::NoFocus);
 
   m_timezoneListButton = new DButtonBoxButton("");
   m_timezoneListButton->setObjectName("timezoneListButton");
   m_timezoneListButton->setCheckable(true);
   m_timezoneListButton->setMinimumWidth(60);
   m_timezoneListButton->setMaximumHeight(36);
-  m_timezoneListButton->setFocusPolicy(Qt::NoFocus);
+  //m_timezoneListButton->setFocusPolicy(Qt::NoFocus);
 
   m_buttonList.append(m_timezoneMapButton);
   m_buttonList.append(m_timezoneListButton);
@@ -345,7 +425,7 @@ void TimezoneFramePrivate::initUI() {
   centerLayout->addWidget(m_timezonePage);
 
   q_ptr->setContentsMargins(0, 0, 0, 0);
-  q_ptr->setFocusPolicy(Qt::TabFocus);
+  //q_ptr->setFocusPolicy(Qt::TabFocus);
 
   updateTs();
 }

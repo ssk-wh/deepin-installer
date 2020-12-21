@@ -30,6 +30,10 @@ public:
     void setCheckedButton(int buttonId);
     void setTitle(const QString &text);
 
+    bool focusSwitch();
+    bool doSelect();
+    bool directionKey(int keyvalue);
+
 signals:
     // Emitted when cancel
     void back();

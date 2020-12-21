@@ -55,6 +55,7 @@ private:
     QLabel* m_titleLabel;
     QLabel* m_bodyLabel;
     QLabel* m_selectIconLabel;
+    QWidget* m_edgeWidget;
     bool    m_isCancelSelect;
 };
 

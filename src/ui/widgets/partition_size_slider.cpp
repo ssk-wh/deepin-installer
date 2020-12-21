@@ -114,7 +114,7 @@ void PartitionSizeSlider::initUI() {
   editor_->setFixedWidth(90);
   // Disable context menu.
   editor_->setContextMenuPolicy(Qt::NoContextMenu);
-  editor_->setFocusPolicy(Qt::TabFocus);
+  //editor_->setFocusPolicy(Qt::TabFocus);
   connect(editor_, &QLineEdit::selectionChanged, this,[=] {
     editor_->setFocus();
   });
@@ -127,7 +127,7 @@ void PartitionSizeSlider::initUI() {
   size_label->setObjectName("size_label");
 
   QHBoxLayout* layout = new QHBoxLayout();
-  layout->setContentsMargins(0, 0, 0, 0);
+  layout->setContentsMargins(0, 1, 0, 1);
   layout->setSpacing(0);
   layout->addWidget(slider_);
   layout->addSpacing(8);

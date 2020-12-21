@@ -116,7 +116,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     m_encryptLbl->setFixedWidth(150);
     m_encryptEdit->setFixedWidth(350);
     m_encryptEdit->setContextMenuPolicy(Qt::ContextMenuPolicy::NoContextMenu);
-    m_encryptEdit->setFocusPolicy(Qt::TabFocus);
+    //m_encryptEdit->setFocusPolicy(Qt::TabFocus);
     m_encryptFrame->setFixedWidth(kContentWidth);
 
     QHBoxLayout *encryptCheckLayout = new QHBoxLayout;
@@ -129,7 +129,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     m_encryptCheckLbl->setFixedWidth(150);
     m_encryptRepeatEdit->setFixedWidth(350);
     m_encryptRepeatEdit->setContextMenuPolicy(Qt::ContextMenuPolicy::NoContextMenu);
-    m_encryptRepeatEdit->setFocusPolicy(Qt::TabFocus);
+    //m_encryptRepeatEdit->setFocusPolicy(Qt::TabFocus);
     m_encryptCheckFrame->setFixedWidth(kContentWidth);
 
     m_layout->addWidget(m_encryptFrame, 0, Qt::AlignHCenter);
@@ -153,10 +153,10 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
 
     // add buttons
     m_cancelBtn->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);
-    m_cancelBtn->setFocusPolicy(Qt::TabFocus);
+    //m_cancelBtn->setFocusPolicy(Qt::TabFocus);
 
     m_confirmBtn->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);
-    m_confirmBtn->setFocusPolicy(Qt::TabFocus);
+    //m_confirmBtn->setFocusPolicy(Qt::TabFocus);
 
     m_layout->addWidget(buttonWrapWidget, 0, Qt::AlignHCenter);
     m_layout->addSpacing(10);
@@ -180,6 +180,43 @@ void Full_Disk_Encrypt_frame::onShowDeviceInfomation()
 {
     updateDiskInfo();
     m_diskPartitionWidget->setDevices(m_diskPartitionDelegate->selectedDevices());
+}
+
+bool Full_Disk_Encrypt_frame::focusSwitch()
+{
+    if (m_current_focus_widget == nullptr) {
+        this->setCurentFocus(m_confirmBtn);
+    } else if(m_confirmBtn == m_current_focus_widget) {
+        this->setCurentFocus(m_cancelBtn);
+    } else if (m_cancelBtn == m_current_focus_widget) {
+        this->setCurentFocus(m_encryptEdit->lineEdit());
+    } else if (m_encryptEdit->lineEdit() == m_current_focus_widget) {
+        this->setCurentFocus(m_encryptRepeatEdit->lineEdit());
+    } else if (m_encryptRepeatEdit->lineEdit() == m_current_focus_widget) {
+        this->setCurentFocus(m_confirmBtn);
+    }
+    return true;
+}
+
+bool Full_Disk_Encrypt_frame::doSpace()
+{
+    return true;
+}
+
+bool Full_Disk_Encrypt_frame::doSelect()
+{
+    if (m_confirmBtn == m_current_focus_widget) {
+        emit m_confirmBtn->clicked();
+    } else if (m_cancelBtn == m_current_focus_widget) {
+        emit m_cancelBtn->clicked();
+    }
+
+    return true;
+}
+
+bool Full_Disk_Encrypt_frame::directionKey(int keyvalue)
+{
+    return true;
 }
 
 void Full_Disk_Encrypt_frame::changeEvent(QEvent *event)
@@ -319,7 +356,7 @@ void Full_Disk_Encrypt_frame::setupCloseButton()
 {
     // TODO: use titleBar implement.
     m_close_button = new DImageButton(this);
-    m_close_button->setFocusPolicy(Qt::TabFocus);
+    //m_close_button->setFocusPolicy(Qt::TabFocus);
     m_close_button->setFixedSize(40, 40);
     m_close_button->setNormalPic(":/images/close_normal.svg");
     m_close_button->setHoverPic(":/images/close_normal.svg");

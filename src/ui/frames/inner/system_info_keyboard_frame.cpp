@@ -175,6 +175,102 @@ bool SystemInfoKeyboardFrame::shouldDisplay() const {
     return !GetSettingsBool(kSkipSystemKeyboardPage);
 }
 
+void SystemInfoKeyboardFrame::layoutViewScrolle(int testindex)
+{
+    QModelIndex current = d_private->m_layoutView->currentIndex();//d->localeIndex(d->lang_.locale);
+    if (current.isValid()) {
+        if(((current.row() + testindex) < 0) || ((current.row() + testindex) >= d_private->m_layoutView->count())) {
+            return;
+        }
+
+        QScrollArea *testarea = this->findChild<QScrollArea *>("LeftSourceScrollArea");
+        double testitemheight = (d_private->m_layoutView->height() * 1.0) / d_private->m_layoutView->count();
+        int testlistviewheight = d_private->m_layoutView->height();
+        int testareaheight = testarea->height();
+        double testareaheightneed = testareaheight - (testlistviewheight % testareaheight);
+        double testcurpage = (current.row() * testitemheight) / testareaheight;
+        double testafterpage = ((current.row() + testindex) * testitemheight) / testareaheight;
+
+        if (testafterpage < testcurpage) {
+            int testvaluetouse = testlistviewheight - (d_private->m_layoutView->count() * testitemheight - testcurpage * testareaheight);
+            if (testvaluetouse > testareaheightneed) {
+                double testisdoscroll = d_private->m_layoutView->count() * testitemheight - testafterpage * testareaheight;
+                double testlimit = (testareaheight * (int)(((d_private->m_layoutView->count() * testitemheight) / testareaheight - testcurpage)) + testareaheight);
+                if (testisdoscroll > testlimit) {
+                    int testvalue = testarea->verticalScrollBar()->value() + testareaheight * -1;
+                    testarea->verticalScrollBar()->setValue(testvalue);
+                }
+            } else {
+                int testvalue = testarea->verticalScrollBar()->value() + (testvaluetouse * -1);
+                testarea->verticalScrollBar()->setValue(testvalue);
+            }
+        } else if (testafterpage > testcurpage) {
+            int testvaluetouse = testlistviewheight - (testcurpage * testareaheight);
+            if (testvaluetouse > testareaheightneed) {
+                double testisdoscroll = testafterpage * testareaheight;
+                double testlimit = (testareaheight * (int)(testcurpage) + testareaheight);
+                if (testisdoscroll > testlimit) {
+                    int testvalue = testarea->verticalScrollBar()->value() + testareaheight;
+                    testarea->verticalScrollBar()->setValue(testvalue);
+                }
+            } else {
+                int testvalue = testarea->verticalScrollBar()->value() + testvaluetouse;
+                testarea->verticalScrollBar()->setValue(testvalue);
+            }
+        }
+
+        d_private->m_layoutView->setCurrentIndex(current.siblingAtRow(current.row() + testindex));
+    }
+}
+
+void SystemInfoKeyboardFrame::variantViewScrolle(int testindex)
+{
+    QModelIndex current = d_private->m_variantView->currentIndex();//d->localeIndex(d->lang_.locale);
+    if (current.isValid()) {
+        if(((current.row() + testindex) < 0) || ((current.row() + testindex) >= d_private->m_variantView->count())) {
+            return;
+        }
+
+        QScrollArea *testarea = this->findChild<QScrollArea *>("RightSourceScrollArea");
+        double testitemheight = (d_private->m_variantView->height() * 1.0) / d_private->m_variantView->count();
+        int testlistviewheight = d_private->m_variantView->height();
+        int testareaheight = testarea->height();
+        double testareaheightneed = testareaheight - (testlistviewheight % testareaheight);
+        double testcurpage = (current.row() * testitemheight) / testareaheight;
+        double testafterpage = ((current.row() + testindex) * testitemheight) / testareaheight;
+
+        if (testafterpage < testcurpage) {
+            int testvaluetouse = testlistviewheight - (d_private->m_variantView->count() * testitemheight - testcurpage * testareaheight);
+            if (testvaluetouse > testareaheightneed) {
+                double testisdoscroll = d_private->m_variantView->count() * testitemheight - testafterpage * testareaheight;
+                double testlimit = (testareaheight * (int)(((d_private->m_variantView->count() * testitemheight) / testareaheight - testcurpage)) + testareaheight);
+                if (testisdoscroll > testlimit) {
+                    int testvalue = testarea->verticalScrollBar()->value() + testareaheight * -1;
+                    testarea->verticalScrollBar()->setValue(testvalue);
+                }
+            } else {
+                int testvalue = testarea->verticalScrollBar()->value() + (testvaluetouse * -1);
+                testarea->verticalScrollBar()->setValue(testvalue);
+            }
+        } else if (testafterpage > testcurpage) {
+            int testvaluetouse = testlistviewheight - (testcurpage * testareaheight);
+            if (testvaluetouse > testareaheightneed) {
+                double testisdoscroll = testafterpage * testareaheight;
+                double testlimit = (testareaheight * (int)(testcurpage) + testareaheight);
+                if (testisdoscroll > testlimit) {
+                    int testvalue = testarea->verticalScrollBar()->value() + testareaheight;
+                    testarea->verticalScrollBar()->setValue(testvalue);
+                }
+            } else {
+                int testvalue = testarea->verticalScrollBar()->value() + testvaluetouse;
+                testarea->verticalScrollBar()->setValue(testvalue);
+            }
+        }
+
+        d_private->m_variantView->setCurrentIndex(current.siblingAtRow(current.row() + testindex));
+    }
+}
+
 QModelIndex SystemInfoKeyboardFramePrivate::getLayoutByName(const QString& name) {
   for (int row = 0; row < layout_list_.length(); ++row) {
     if (layout_list_.at(row).name == name) {
@@ -403,6 +499,73 @@ void SystemInfoKeyboardFrame::showEvent(QShowEvent *event)
     return FrameInterface::showEvent(event);
 }
 
+bool SystemInfoKeyboardFrame::focusSwitch()
+{
+    if (m_current_focus_widget == nullptr) {
+        this->setCurentFocus(d_private->nextButton);
+    } else if (d_private->nextButton == m_current_focus_widget) {
+        this->setCurentFocus(d_private->m_layoutView);
+    } else if (d_private->m_layoutView == m_current_focus_widget) {
+        this->setCurentFocus(d_private->nextButton);
+    } else if (d_private->m_variantView == m_current_focus_widget) {
+        this->setCurentFocus(d_private->nextButton);
+    }
+
+    return true;
+}
+
+bool SystemInfoKeyboardFrame::doSpace()
+{
+    return true;
+}
+
+bool SystemInfoKeyboardFrame::doSelect()
+{
+    if (d_private->nextButton == m_current_focus_widget) {
+        emit d_private->nextButton->clicked();
+    }
+    return true;
+}
+
+bool SystemInfoKeyboardFrame::directionKey(int keyvalue)
+{
+    int testindexstep = 0;
+    switch (keyvalue) {
+    case Qt::Key_Up: {
+            testindexstep--;
+            if (d_private->m_layoutView == m_current_focus_widget) {
+                layoutViewScrolle(testindexstep);
+            } else if (d_private->m_variantView == m_current_focus_widget) {
+                variantViewScrolle(testindexstep);
+            }
+        }
+        break;
+    case Qt::Key_Down: {
+            testindexstep++;
+            if (d_private->m_layoutView == m_current_focus_widget) {
+                layoutViewScrolle(testindexstep);
+            } else if (d_private->m_variantView == m_current_focus_widget) {
+                variantViewScrolle(testindexstep);
+            }
+        }
+        break;
+    case Qt::Key_Left: {
+            if ((d_private->m_layoutView == m_current_focus_widget) || (d_private->m_variantView == m_current_focus_widget)) {
+                this->setCurentFocus(d_private->m_layoutView);
+            }
+        }
+        break;
+    case Qt::Key_Right: {
+            if ((d_private->m_layoutView == m_current_focus_widget) || (d_private->m_variantView == m_current_focus_widget)) {
+                this->setCurentFocus(d_private->m_variantView);
+            }
+        }
+        break;
+    }
+
+    return true;
+}
+
 void SystemInfoKeyboardFramePrivate::initConnections() {
     Q_Q(SystemInfoKeyboardFrame);
 
@@ -430,7 +593,8 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     m_layoutView->setMovement(QListView::Static);
     m_layoutView->setSelectionMode(QListView::NoSelection);
     m_layoutView->setFrameShape(QFrame::NoFrame);
-    m_layoutView->setFocusPolicy(Qt::TabFocus);
+    //m_layoutView->setFocusPolicy(Qt::TabFocus);
+    m_layoutView->setStyleSheet("QWidget#layout_view::item::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
 
     m_variantView->setObjectName("variant_view");
     m_variantView->setFixedWidth(kRightViewWidth);
@@ -449,7 +613,8 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     m_variantView->setMovement(QListView::Static);
     m_variantView->setSelectionMode(QListView::NoSelection);
     m_variantView->setFrameShape(QFrame::NoFrame);
-    m_variantView->setFocusPolicy(Qt::TabFocus);
+    //m_variantView->setFocusPolicy(Qt::TabFocus);
+    m_variantView->setStyleSheet("QWidget#variant_view::item::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
 
     QVBoxLayout *leftLayout = new QVBoxLayout;
     leftLayout->setContentsMargins(5, 5, 15, 0);
@@ -459,8 +624,9 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     leftListViewWrap->setLayout(leftLayout);
 
     QScrollArea *leftSourceScrollArea = new QScrollArea;
+    leftSourceScrollArea->setObjectName("LeftSourceScrollArea");
     leftSourceScrollArea->setWidgetResizable(true);
-    leftSourceScrollArea->setFocusPolicy(Qt::TabFocus);
+    //leftSourceScrollArea->setFocusPolicy(Qt::TabFocus);
     leftSourceScrollArea->setFrameStyle(QFrame::NoFrame);
     leftSourceScrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     leftSourceScrollArea->setContentsMargins(0, 0, 0, 0);
@@ -479,8 +645,9 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     rightListViewWrap->setLayout(rightLayout);
 
     QScrollArea *rightSourceScrollArea = new QScrollArea;
+    rightSourceScrollArea->setObjectName("RightSourceScrollArea");
     rightSourceScrollArea->setWidgetResizable(true);
-    rightSourceScrollArea->setFocusPolicy(Qt::TabFocus);
+    //rightSourceScrollArea->setFocusPolicy(Qt::TabFocus);
     rightSourceScrollArea->setFrameStyle(QFrame::NoFrame);
     rightSourceScrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     rightSourceScrollArea->setContentsMargins(0, 0, 0, 0);

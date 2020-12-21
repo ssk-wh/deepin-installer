@@ -39,6 +39,11 @@ public:
 
     void checkNextButtonEnable();
 
+    bool focusSwitch();
+    bool doSpace();
+    bool doSelect();
+    bool directionKey(int keyvalue);
+
 signals:
     // Emitted when the avatar button is clicked.
     void avatarClicked();

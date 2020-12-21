@@ -7,6 +7,16 @@ QFrame#ComponentWidget {
     border-radius:8px;
 }
 
+QFrame#ComponentWidget:focus {
+    width:250px;
+    height:48px;
+    background:rgba(0,0,0,0.03);
+    border-radius:8px;
+    border:1px solid;
+    border-color:rgb(1, 128, 255);
+    padding:2px 4px;
+}
+
 QFrame#ComponentWidget::hover {
     width:250px;
     height:48px;

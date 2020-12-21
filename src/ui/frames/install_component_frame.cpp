@@ -20,6 +20,7 @@
 #include <QPainter>
 #include <QTimer>
 #include <QMouseEvent>
+#include <QScrollBar>
 
 namespace  {
     const int kBottomSpacing = 60;
@@ -217,12 +218,323 @@ bool SelectInstallComponentFrame::eventFilter(QObject *watched, QEvent *event)
         m_private->setSubTitleLayout();
     }
 
-    return QWidget::eventFilter(watched, event);
+    return FrameInterface::eventFilter(watched, event);
 }
 
 void SelectInstallComponentFrame::showEvent(QShowEvent *event)
 {
     FrameInterface::showEvent(event);
+}
+
+bool SelectInstallComponentFrame::focusSwitch()
+{
+    QFrame *testserverWidget = findChild<QFrame*>("serverWidget");
+    QFrame *testcomponentWidget = findChild<QFrame*>("componentWidget");
+
+    if (m_current_focus_widget == nullptr) {
+        this->setCurentFocus(m_private->nextButton);
+    } else if (m_private->nextButton == m_current_focus_widget) {
+        if(m_lastKeyFocusWidget == -1){
+            this->setCurentFocus(testserverWidget);
+        } else if (m_lastKeyFocusWidget == 0) {
+            this->setCurentFocus(testserverWidget);
+        } else if (m_lastKeyFocusWidget == 1) {
+            this->setCurentFocus(testcomponentWidget);
+        }
+    } else if (testserverWidget == m_current_focus_widget) {
+        m_lastKeyFocusWidget = 0;
+        this->setCurentFocus(m_private->m_selectAllCheckBox);
+    } else if (testcomponentWidget == m_current_focus_widget) {
+        m_lastKeyFocusWidget = 1;
+        this->setCurentFocus(m_private->m_selectAllCheckBox);
+    } else if (m_private->m_selectAllCheckBox == m_current_focus_widget) {
+        this->setCurentFocus(m_private->nextButton);
+    }
+
+    return true;
+}
+
+bool SelectInstallComponentFrame::doSpace()
+{
+    QFrame *testserverWidget = findChild<QFrame*>("serverWidget");
+    QFrame *testcomponentWidget = findChild<QFrame*>("componentWidget");
+
+    if (testserverWidget == m_current_focus_widget) {
+        //点击空格键,在当前获得焦点的项设置边框
+        /*QMap<ComponentWidget*, QSharedPointer<ComponentStruct>>::iterator testiter;
+        for (testiter = m_private->m_componentStructMap.begin(); testiter != m_private->m_componentStructMap.end(); ++testiter) {
+            if (testiter.key()->isSelected()) {
+                testiter.key()->setSelected(false);
+                break;
+            }
+        }
+        for (testiter = m_private->m_componentStructMap.begin(); testiter != m_private->m_componentStructMap.end(); ++testiter) {
+            if (testiter.key()->hasFocus()) {
+                testiter.key()->setSelected(true);
+                emit testiter.key()->clicked();
+                break;
+            }
+        }*/
+    } else if (testcomponentWidget == m_current_focus_widget) {
+        QMap<ComponentWidget*, QSharedPointer<ComponentInfo>>::iterator testiter;
+        for (testiter = m_private->m_componentInfoMap.begin(); testiter != m_private->m_componentInfoMap.end(); ++testiter) {
+            if (testiter.key()->hasFocus()) {
+                if (testiter.key()->isSelected()) {
+                    testiter.key()->setSelected(false);
+                } else {
+                    testiter.key()->setSelected(true);
+                }
+                emit testiter.key()->clicked();
+                break;
+            }
+        }
+    } else if (m_private->m_selectAllCheckBox == m_current_focus_widget) {
+        m_private->m_selectAllCheckBox->setChecked(!m_private->m_selectAllCheckBox->isChecked());
+        m_private->checkAllComponent(m_private->m_selectAllCheckBox->isChecked());
+    }
+    return true;
+}
+
+bool SelectInstallComponentFrame::doSelect()
+{
+    if (m_private->nextButton == m_current_focus_widget) {
+        emit m_private->nextButton->clicked();
+    }
+    return true;
+}
+
+bool SelectInstallComponentFrame::directionKey(int keyvalue)
+{
+    QFrame *testserverWidget = findChild<QFrame*>("serverWidget");
+    QFrame *testcomponentWidget = findChild<QFrame*>("componentWidget");
+
+    switch (keyvalue) {
+    case Qt::Key_Up: {
+            if (testserverWidget == m_current_focus_widget) {
+                doUpDownKeyForServerWidget(true);
+            } else if (testcomponentWidget == m_current_focus_widget) {
+                doUpDownKeyForComponentWidget(true);
+            }
+        }
+        break;
+    case Qt::Key_Down: {
+            if (testserverWidget == m_current_focus_widget) {
+                doUpDownKeyForServerWidget(false);
+            } else if (testcomponentWidget == m_current_focus_widget) {
+                doUpDownKeyForComponentWidget(false);
+            }
+        }
+        break;
+    case Qt::Key_Left: {
+            if ((testserverWidget == m_current_focus_widget) || (testcomponentWidget == m_current_focus_widget)) {
+                this->setCurentFocus(testserverWidget);
+            }
+        }
+        break;
+    case Qt::Key_Right: {
+            if ((testserverWidget == m_current_focus_widget) || (testcomponentWidget == m_current_focus_widget)) {
+                this->setCurentFocus(testcomponentWidget);
+            }
+        }
+        break;
+    }
+
+    return true;
+}
+
+void SelectInstallComponentFrame::doUpDownKeyForServerWidget(bool isup)
+{
+    int testcurrentindex = -1;
+    ComponentWidget* testComponentWidget = nullptr;
+    QList<QSharedPointer<ComponentStruct>> serverList = ComponentInstallManager::Instance()->list();
+    QMap<ComponentWidget*, QSharedPointer<ComponentStruct>>::iterator testiter;
+    for (testiter = m_private->m_componentStructMap.begin(); testiter != m_private->m_componentStructMap.end(); ++testiter) {
+        if (testiter.key()->hasFocus()) {
+            testComponentWidget = testiter.key();
+            break;
+        }
+    }
+
+    if (testComponentWidget == nullptr) {
+        testcurrentindex = 0;
+    } else {
+        for (int i = 0; i < serverList.size(); i++) {
+            QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(serverList.at(i));
+            if (!testComponentWidget->getTitle().compare(tsPair.first)) {
+                testcurrentindex = i;
+                break;
+            }
+        }
+    }
+
+    QPair<QString, QString> tsPair;
+    if (isup) {
+        if ((testcurrentindex != -1) && ((testcurrentindex - 1) >= 0)) {
+            tsPair = ComponentInstallManager::Instance()->updateTs(serverList.at(testcurrentindex - 1));
+        } else {
+            tsPair = ComponentInstallManager::Instance()->updateTs(serverList.at(serverList.size() - 1));
+        }
+    } else {
+        if ((testcurrentindex != -1) && ((testcurrentindex + 1) < serverList.size())) {
+            tsPair = ComponentInstallManager::Instance()->updateTs(serverList.at(testcurrentindex + 1));
+        } else {
+            tsPair = ComponentInstallManager::Instance()->updateTs(serverList.at(0));
+        }
+    }
+
+    for (testiter = m_private->m_componentStructMap.begin(); testiter != m_private->m_componentStructMap.end(); ++testiter) {
+        if (testiter.key()->isSelected()) {
+            testiter.key()->setSelected(false);
+            break;
+        }
+    }
+
+    for (testiter = m_private->m_componentStructMap.begin(); testiter != m_private->m_componentStructMap.end(); ++testiter) {
+        if (!testiter.key()->getTitle().compare(tsPair.first)) {
+            testiter.key()->setFocus();
+            testiter.key()->setSelected(true);
+            emit testiter.key()->clicked();
+            break;
+        }
+    }
+
+    /*DIScrollArea *testarea = this->findChild<DIScrollArea *>("comp_ScrollArea");
+    double testitemheight = (d->m_extraComponentListWidget->height() * 1.0) / extra.size();
+    int testlistviewheight = d->m_extraComponentListWidget->height();
+    int testareaheight = testarea->height();
+    double testareaheightneed = testareaheight - (testlistviewheight % testareaheight);
+    double testcurpage = (testcurrentindex * testitemheight) / testareaheight;
+    double testafterpage = ((testcurrentindex + 1) * testitemheight) / testareaheight;
+
+    if (testafterpage < testcurpage) {
+        int testvaluetouse = testlistviewheight - (extra.size() * testitemheight - testcurpage * testareaheight);
+        if (testvaluetouse > testareaheightneed) {
+            double testisdoscroll = extra.size() * testitemheight - testafterpage * testareaheight;
+            double testlimit = (testareaheight * (int)(((extra.size() * testitemheight) / testareaheight - testcurpage)) + testareaheight);
+            if (testisdoscroll > testlimit) {
+                int testvalue = testarea->verticalScrollBar()->value() + testareaheight * -1;
+                testarea->verticalScrollBar()->setValue(testvalue);
+            }
+        } else {
+            int testvalue = testarea->verticalScrollBar()->value() + (testvaluetouse * -1);
+            testarea->verticalScrollBar()->setValue(testvalue);
+        }
+    } else if (testafterpage > testcurpage) {
+        int testvaluetouse = testlistviewheight - (testcurpage * testareaheight);
+        if (testvaluetouse > testareaheightneed) {
+            double testisdoscroll = testafterpage * testareaheight;
+            double testlimit = (testareaheight * (int)(testcurpage) + testareaheight);
+            if (testisdoscroll > testlimit) {
+                int testvalue = testarea->verticalScrollBar()->value() + testareaheight;
+                testarea->verticalScrollBar()->setValue(testvalue);
+            }
+        } else {
+            int testvalue = testarea->verticalScrollBar()->value() + testvaluetouse;
+            testarea->verticalScrollBar()->setValue(testvalue);
+        }
+    }*/
+}
+
+void SelectInstallComponentFrame::doUpDownKeyForComponentWidget(bool isup)
+{
+    int testindexstep = 0;
+    int testcurrentindex = -1;
+    ComponentWidget* testComponentWidget = nullptr;
+    QList<QSharedPointer<ComponentInfo>> extra;
+    QMap<ComponentWidget*, QSharedPointer<ComponentStruct>>::iterator testiter;
+    for (testiter = m_private->m_componentStructMap.begin(); testiter != m_private->m_componentStructMap.end(); ++testiter) {
+        if (testiter.key()->isSelected()) {
+            extra = testiter->data()->extra();
+            break;
+        }
+    }
+
+    QMap<ComponentWidget*, QSharedPointer<ComponentInfo>>::iterator testiter_info;
+    for (testiter_info = m_private->m_componentInfoMap.begin(); testiter_info != m_private->m_componentInfoMap.end(); ++testiter_info) {
+        if (testiter_info.key()->hasFocus()) {
+            testComponentWidget = testiter_info.key();
+            break;
+        }
+    }
+
+    if (testComponentWidget == nullptr) {
+        testcurrentindex = 0;
+    } else {
+        for (int i = 0; i < extra.size(); i++) {
+            QPair<QString, QString> tsPair = ComponentInstallManager::Instance()->updateTs(extra.at(i));
+            if (!testComponentWidget->getTitle().compare(tsPair.first)) {
+                testcurrentindex = i;
+                break;
+            }
+        }
+    }
+
+    QPair<QString, QString> tsPair;
+
+    if (isup) {
+        if ((testcurrentindex != -1) && ((testcurrentindex - 1) >= 0)) {
+            tsPair = ComponentInstallManager::Instance()->updateTs(extra.at(testcurrentindex - 1));
+        } else {
+            tsPair = ComponentInstallManager::Instance()->updateTs(extra.at(extra.size() - 1));
+        }
+        testindexstep--;
+    } else {
+        if ((testcurrentindex != -1) && ((testcurrentindex + 1) < extra.size())) {
+            tsPair = ComponentInstallManager::Instance()->updateTs(extra.at(testcurrentindex + 1));
+        } else {
+            tsPair = ComponentInstallManager::Instance()->updateTs(extra.at(0));
+        }
+        testindexstep++;
+    }
+
+    for (testiter_info = m_private->m_componentInfoMap.begin(); testiter_info != m_private->m_componentInfoMap.end(); ++testiter_info) {
+        if (!testiter_info.key()->getTitle().compare(tsPair.first)) {
+            testiter_info.key()->setFocus();
+            break;
+        }
+    }
+
+    if (testcurrentindex != -1) {
+        if(((testcurrentindex + testindexstep) < 0) || ((testcurrentindex + testindexstep) >= extra.size())) {
+            return;
+        }
+
+        DIScrollArea *testarea = this->findChild<DIScrollArea *>("comp_ScrollArea");
+        double testitemheight = (m_private->m_extraComponentListWidget->height() * 1.0) / extra.size();
+        int testlistviewheight = m_private->m_extraComponentListWidget->height();
+        int testareaheight = testarea->height();
+        double testareaheightneed = testareaheight - (testlistviewheight % testareaheight);
+        double testcurpage = (testcurrentindex * testitemheight) / testareaheight;
+        double testafterpage = ((testcurrentindex + testindexstep) * testitemheight) / testareaheight;
+
+        if (testafterpage < testcurpage) {
+            int testvaluetouse = testlistviewheight - (extra.size() * testitemheight - testcurpage * testareaheight);
+            if (testvaluetouse > testareaheightneed) {
+                double testisdoscroll = extra.size() * testitemheight - testafterpage * testareaheight;
+                double testlimit = (testareaheight * (int)(((extra.size() * testitemheight) / testareaheight - testcurpage)) + testareaheight);
+                if (testisdoscroll > testlimit) {
+                    int testvalue = testarea->verticalScrollBar()->value() + testareaheight * -1;
+                    testarea->verticalScrollBar()->setValue(testvalue);
+                }
+            } else {
+                int testvalue = testarea->verticalScrollBar()->value() + (testvaluetouse * -1);
+                testarea->verticalScrollBar()->setValue(testvalue);
+            }
+        } else if (testafterpage > testcurpage) {
+            int testvaluetouse = testlistviewheight - (testcurpage * testareaheight);
+            if (testvaluetouse > testareaheightneed) {
+                double testisdoscroll = testafterpage * testareaheight;
+                double testlimit = (testareaheight * (int)(testcurpage) + testareaheight);
+                if (testisdoscroll > testlimit) {
+                    int testvalue = testarea->verticalScrollBar()->value() + testareaheight;
+                    testarea->verticalScrollBar()->setValue(testvalue);
+                }
+            } else {
+                int testvalue = testarea->verticalScrollBar()->value() + testvaluetouse;
+                testarea->verticalScrollBar()->setValue(testvalue);
+            }
+        }
+    }
 }
 
 void SelectInstallComponentFrame::resizeEvent(QResizeEvent *event)
@@ -293,6 +605,7 @@ void SelectInstallComponentFramePrivate::initUI()
     m_serverScrollArea = new DIScrollArea;
     m_serverScrollArea->setFrameShape(QFrame::Shape::NoFrame);
     m_serverScrollArea->setWidget(m_baseComponentListWidget);
+    m_serverScrollArea->setObjectName("server_ScrollArea");
 
     m_componentLayout = new QVBoxLayout;
     m_componentLayout->setSpacing(kItemSpacing);
@@ -305,6 +618,7 @@ void SelectInstallComponentFramePrivate::initUI()
     m_compScrollArea = new DIScrollArea;
     m_compScrollArea->setFrameShape(QFrame::Shape::NoFrame);
     m_compScrollArea->setWidget(m_extraComponentListWidget);
+    m_compScrollArea->setObjectName("comp_ScrollArea");
 
     QVBoxLayout* serverTypeLayout = new QVBoxLayout;
     serverTypeLayout->setContentsMargins(kItemSpacing, kItemSpacing, kItemSpacing, kItemSpacing);
@@ -322,7 +636,7 @@ void SelectInstallComponentFramePrivate::initUI()
     m_selectAllCheckBox->setChecked(false);
     m_selectAllCheckBox->setFont(font);
     m_selectAllCheckBox->setText(::QObject::tr("Select All"));
-    m_selectAllCheckBox->setFocusPolicy(Qt::NoFocus);
+    //m_selectAllCheckBox->setFocusPolicy(Qt::NoFocus);
 
     connect(m_selectAllCheckBox, &QCheckBox::clicked, this, [&] {
         checkAllComponent(m_selectAllCheckBox->isChecked());
@@ -339,7 +653,7 @@ void SelectInstallComponentFramePrivate::initUI()
     m_selectAllFrame->setObjectName("selectAllFrame");
     m_selectAllFrame->setFixedHeight(30);
     m_selectAllFrame->setLayout(allCheckLayout);
-    m_selectAllFrame->installEventFilter(this);
+    //m_selectAllFrame->installEventFilter(this);
     m_selectAllFrame->hide();
 
     QFrame* serverWidget = new QFrame;
@@ -347,6 +661,8 @@ void SelectInstallComponentFramePrivate::initUI()
     serverWidget->setContentsMargins(0, 0, 0, 0);
     serverWidget->setLayout(serverTypeLayout);
     serverWidget->setFixedWidth(kListViewWidth);
+    serverWidget->setObjectName("serverWidget");
+    serverWidget->setStyleSheet("QWidget#serverWidget::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
 
     componentLayout->addSpacing(kItemSpacing);
     componentLayout->addWidget(m_selectAllFrame);
@@ -355,6 +671,8 @@ void SelectInstallComponentFramePrivate::initUI()
     componentWidget->setContentsMargins(0, 0, 0, 0);
     componentWidget->setLayout(componentLayout);
     componentWidget->setFixedWidth(kListViewWidth);
+    componentWidget->setObjectName("componentWidget");
+    componentWidget->setStyleSheet("QWidget#componentWidget::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
 
     DVerticalLine* dVerticalLine = new DVerticalLine;
 
@@ -372,7 +690,8 @@ void SelectInstallComponentFramePrivate::initUI()
     frame->setFrameRounded(true);
     frame->setContentsMargins(1, 1, 1, 1);
     frame->setLayout(hLayout);
-    frame->installEventFilter(q_ptr);
+    frame->setObjectName("server_component_Widget");
+    //frame->installEventFilter(q_ptr);
 
     centerLayout->setSpacing(0);
     centerLayout->setMargin(0);
@@ -421,7 +740,7 @@ void SelectInstallComponentFramePrivate::onServerTypeClicked()
         QString id = it->get()->Id;
         ComponentWidget* compWdg = new ComponentWidget(false);
         compWdg->setSelected(it->get()->Selected);
-        compWdg->setFocusPolicy(Qt::NoFocus);
+        //compWdg->setFocusPolicy(Qt::NoFocus);
 
         m_componentLayout->addWidget(compWdg);
 

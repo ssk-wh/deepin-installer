@@ -69,6 +69,7 @@ public:
     }
 
     LanguageFrame*       q_ptr                   = nullptr;
+    Q_DECLARE_PUBLIC(LanguageFrame)
     QStackedLayout*      m_frame_layout          = nullptr;
     UserAgreementDelegate* m_user_license_delegate = nullptr;
     SelectLanguageFrame* m_select_language_frame = nullptr;
@@ -116,6 +117,133 @@ void LanguageFrame::changeEvent(QEvent *event)
     else {
         FrameInterface::changeEvent(event);
     }
+}
+
+bool LanguageFrame::focusSwitch()
+{
+    Q_D(LanguageFrame);
+
+    if (m_current_focus_widget == nullptr) {
+        if(d->nextButton->isEnabled()){
+            this->setCurentFocus(d->nextButton);
+        } else {
+            this->setCurentFocus(d->m_select_language_frame->getLanguageView());
+        }
+    } else if (d->nextButton == m_current_focus_widget) {
+        this->setCurentFocus(d->m_select_language_frame->getLanguageView());
+    } else if (d->m_select_language_frame->getLanguageView() == m_current_focus_widget) {
+        this->setCurentFocus(d->m_select_language_frame->getAcceptexperience());
+    } else if (d->m_select_language_frame->getAcceptexperience() == m_current_focus_widget) {
+        this->setCurentFocus(d->m_select_language_frame->getExperiencelabel());
+    } else if (d->m_select_language_frame->getExperiencelabel() == m_current_focus_widget) {
+        if (d->nextButton->isVisible()) {
+            this->setCurentFocus(d->m_select_language_frame->getAcceptlicense());
+        } else {
+            return d->m_user_experience_frame->focusSwitch();
+        }
+    } else if (d->m_select_language_frame->getAcceptlicense() == m_current_focus_widget) {
+        this->setCurentFocus(d->m_select_language_frame->getLicenselabel());
+    } else if (d->m_select_language_frame->getLicenselabel() == m_current_focus_widget) {
+        if (d->nextButton->isVisible()) {
+            this->setCurentFocus(d->m_select_language_frame->getPrivacylicenselabel());
+        } else {
+            return d->m_user_license_frame->focusSwitch();
+        }
+    } else if (d->m_select_language_frame->getPrivacylicenselabel() == m_current_focus_widget) {
+        if (d->nextButton->isVisible()) {
+            if(d->nextButton->isEnabled()){
+                this->setCurentFocus(d->nextButton);
+            } else {
+                this->setCurentFocus(d->m_select_language_frame->getLanguageView());
+            }
+        } else {
+            return d->m_privacy_license_frame->focusSwitch();
+        }
+    }
+
+    return true;
+}
+
+bool LanguageFrame::doSpace()
+{
+    Q_D(LanguageFrame);
+
+    if (m_current_focus_widget == nullptr) {
+    } else if (d->m_select_language_frame->getAcceptexperience() == m_current_focus_widget) {
+        if (d->nextButton->isVisible()) {
+            if (d->m_select_language_frame->setAcceptexperience()) {
+                this->setCurentFocus(d->nextButton);
+            }
+        }
+    } else if (d->m_select_language_frame->getAcceptlicense() == m_current_focus_widget) {
+        if (d->nextButton->isVisible()) {
+            if (d->m_select_language_frame->setAcceptlicense()) {
+                this->setCurentFocus(d->nextButton);
+            }
+        }
+    }
+
+    return true;
+}
+
+bool LanguageFrame::doSelect()
+{
+    Q_D(LanguageFrame);
+
+    if (m_current_focus_widget == nullptr) {
+    } else if (d->nextButton == m_current_focus_widget) {
+        d->nextButton->click();
+    } else if (d->m_select_language_frame->getLanguageView() == m_current_focus_widget) {
+        return d->m_select_language_frame->doSelect();
+    } else if (d->m_select_language_frame->getLicenselabel() == m_current_focus_widget) {
+        if (d->nextButton->isVisible()) {
+            d->m_select_language_frame->requestShowUserLicense();
+        } else {
+            return d->m_user_license_frame->doSelect();
+        }
+    } else if (d->m_select_language_frame->getExperiencelabel() == m_current_focus_widget) {
+        if (d->nextButton->isVisible()) {
+            d->m_select_language_frame->requestShowUserExperience();
+        } else {
+            return d->m_user_experience_frame->doSelect();
+        }
+    } else if (d->m_select_language_frame->getPrivacylicenselabel() == m_current_focus_widget) {
+        if (d->nextButton->isVisible()) {
+            d->m_select_language_frame->requestPrivacyLicense();
+        } else {
+            return d->m_privacy_license_frame->doSelect();
+        }
+    }
+
+    return true;
+}
+
+bool LanguageFrame::directionKey(int keyvalue)
+{
+    Q_D(LanguageFrame);
+
+    if (m_current_focus_widget == nullptr) {
+    } else if (d->nextButton == m_current_focus_widget) {
+    } else if (d->m_select_language_frame->getLanguageView() == m_current_focus_widget) {
+        d->m_select_language_frame->directionKey(keyvalue);
+    } else if (d->m_select_language_frame->getLicenselabel() == m_current_focus_widget) {
+        if (d->nextButton->isVisible()) {
+        } else {
+            d->m_user_license_frame->directionKey(keyvalue);
+        }
+    } else if (d->m_select_language_frame->getExperiencelabel() == m_current_focus_widget) {
+        if (d->nextButton->isVisible()) {
+        } else {
+            d->m_user_experience_frame->directionKey(keyvalue);
+        }
+    } else if (d->m_select_language_frame->getPrivacylicenselabel() == m_current_focus_widget) {
+        if (d->nextButton->isVisible()) {
+        } else {
+            d->m_privacy_license_frame->directionKey(keyvalue);
+        }
+    }
+
+    return true;
 }
 
 void LanguageFrame::init() {

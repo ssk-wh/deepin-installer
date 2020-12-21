@@ -53,6 +53,11 @@ class AdvancedPartitionFrame : public QFrame {
 
   QList<Device::Ptr> getAllUsedDevice() const;
 
+  bool focusSwitch();
+  bool doSpace();
+  bool doSelect();
+  bool directionKey(int keyvalue);
+
  signals:
   void requestEditPartitionFrame(const Partition::Ptr partition);
   void requestNewPartitionFrame(const Partition::Ptr partition);
@@ -124,6 +129,8 @@ class AdvancedPartitionFrame : public QFrame {
 
   // To hold all error labels.
   QVector<AdvancedPartitionErrorLabel*> error_labels_;
+
+  int m_lastPartionButtonOnFocus = -1;
 
 protected slots:
   // Clear error message list and hide message container.

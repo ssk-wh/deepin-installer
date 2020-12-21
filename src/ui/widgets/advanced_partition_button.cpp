@@ -102,6 +102,13 @@ void AdvancedPartitionButton::paintEvent(QPaintEvent *event)
         painter.fillRect(backgroudRect, QColor(245,245,245));
     }
 
+    if (hasFocus()) {
+        painter.setPen(QColor(1, 128, 255));
+        painter.fillRect(backgroudRect, QColor(245,245,245));
+        painter.drawRoundedRect(rect().x() + kItemSpace, rect().y() + kItemSpace, rect().width() - 2 * kItemSpace - 2, rect().height() - kItemSpace - 2, 5.0, 5.0);
+        painter.setPen(Qt::NoPen);
+    }
+
     // Draw OS icon.
     const QPixmap os_icon = installer::renderPixmap(GetOsTypeIcon(partition_->os));
     const qreal ratio = qApp->devicePixelRatio();
@@ -222,7 +229,7 @@ void AdvancedPartitionButton::initUI() {
   control_button_->setObjectName("control_button");
   control_button_->setFlat(true);
   control_button_->setFixedSize(kBtnSize, kBtnSize);
-  control_button_->setFocusPolicy(Qt::TabFocus);
+  //control_button_->setFocusPolicy(Qt::TabFocus);
 
   setContentsMargins(0, 0, 0, 0);
   setFixedWidth(kMainWindowWidth);

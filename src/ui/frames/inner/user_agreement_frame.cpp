@@ -51,20 +51,20 @@ void UserAgreementFrame::initUI()
     m_subTitle->setObjectName("user_agreement_subtitle");
 
     m_buttonBox = new DButtonBox;
-    m_buttonBox->setFocusPolicy(Qt::NoFocus);
+    //m_buttonBox->setFocusPolicy(Qt::NoFocus);
     m_chineseButton = new DButtonBoxButton("中文");
     m_chineseButton->setObjectName("chineseButton");
     m_chineseButton->setCheckable(true);
     m_chineseButton->setFixedWidth(75);
     m_chineseButton->setFixedHeight(36);
-    m_chineseButton->setFocusPolicy(Qt::NoFocus);
+    //m_chineseButton->setFocusPolicy(Qt::NoFocus);
 
     m_englishButton = new DButtonBoxButton("English");
     m_englishButton->setObjectName("englishButton");
     m_englishButton->setCheckable(true);
     m_englishButton->setFixedWidth(75);
     m_englishButton->setFixedHeight(36);
-    m_englishButton->setFocusPolicy(Qt::NoFocus);
+    //m_englishButton->setFocusPolicy(Qt::NoFocus);
 
     m_btnlist.append(m_chineseButton);
     m_btnlist.append(m_englishButton);
@@ -108,7 +108,7 @@ void UserAgreementFrame::initUI()
     m_sourceScrollArea->setWidget(sourceWidget);
     m_sourceScrollArea->setObjectName("scrollarea");
     m_sourceScrollArea->setWidgetResizable(true);
-    m_sourceScrollArea->setFocusPolicy(Qt::TabFocus);
+    //m_sourceScrollArea->setFocusPolicy(Qt::TabFocus);
     m_sourceScrollArea->setFrameStyle(QFrame::NoFrame);
     m_sourceScrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     m_sourceScrollArea->setContentsMargins(0, 0, 0, 0);
@@ -137,7 +137,7 @@ void UserAgreementFrame::initUI()
 
     m_back = new QPushButton;
     m_back->setFixedSize(310, 36);
-    m_back->setFocusPolicy(Qt::TabFocus);
+    //m_back->setFocusPolicy(Qt::TabFocus);
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins(0, 0, 0, 0);
@@ -194,6 +194,55 @@ void UserAgreementFrame::updateLicenseText()
 void UserAgreementFrame::setTitle(const QString &text)
 {
     m_subTitle->setText(text);
+}
+
+bool UserAgreementFrame::focusSwitch()
+{
+    return true;
+}
+
+bool UserAgreementFrame::doSelect()
+{
+    emit back();
+    return true;
+}
+
+bool UserAgreementFrame::directionKey(int keyvalue)
+{
+    switch (keyvalue) {
+    case Qt::Key_Up: {
+            int testvalue = m_sourceScrollArea->verticalScrollBar()->value();
+            m_sourceScrollArea->verticalScrollBar()->setValue(testvalue - 20);
+        }
+        break;
+    case Qt::Key_Down: {
+            int testvalue = m_sourceScrollArea->verticalScrollBar()->value();
+            m_sourceScrollArea->verticalScrollBar()->setValue(testvalue + 20);
+        }
+        break;
+    case Qt::Key_Left: {
+        QString zh_cn_li = QString(":/license/end-user-license-agreement-%1_zh_CN.txt")\
+                .arg(installer::LicenseDelegate::OSType());
+        QString en_us_li = QString(":/license/end-user-license-agreement-%1_en_US.txt")\
+                .arg(installer::LicenseDelegate::OSType());
+            setUserAgreement(en_us_li, zh_cn_li);
+            setCheckedButton(kChineseToggleButtonId);
+            updateLicenseText();
+        }
+        break;
+    case Qt::Key_Right: {
+        QString zh_cn_li = QString(":/license/end-user-license-agreement-%1_zh_CN.txt")\
+                .arg(installer::LicenseDelegate::OSType());
+        QString en_us_li = QString(":/license/end-user-license-agreement-%1_en_US.txt")\
+                .arg(installer::LicenseDelegate::OSType());
+            setUserAgreement(zh_cn_li, en_us_li);
+            setCheckedButton(kEnglishToggleButtonId);
+            updateLicenseText();
+        }
+        break;
+    }
+
+   return true;
 }
 
 void UserAgreementFrame::setUserAgreement(const QString &primaryFileName, const QString &secondaryFileName)

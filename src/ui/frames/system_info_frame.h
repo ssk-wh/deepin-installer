@@ -55,6 +55,11 @@ class SystemInfoFrame : public FrameInterface {
 protected:
   void changeEvent(QEvent *event);
 
+  bool focusSwitch() override;
+  bool doSpace() override;
+  bool doSelect() override;
+  bool directionKey(int keyvalue) override;
+
 private:
     QScopedPointer<SystemInfoFramePrivate> m_private;
 };

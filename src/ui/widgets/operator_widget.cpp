@@ -114,7 +114,8 @@ void installer::OperatorWidget::showEvent(QShowEvent *event)
 
 void installer::OperatorWidget::initUi()
 {
-    setContentsMargins(kMargin, kMargin, kMargin, kMargin);
+    //setContentsMargins(kMargin, kMargin, kMargin, kMargin);
+    setContentsMargins(0, 0, 0, 0);
 
     QFont font;
     font.setWeight(QFont::DemiBold);
@@ -144,7 +145,19 @@ void installer::OperatorWidget::initUi()
     mainLayout->addWidget(m_selectIconLabel, 0, Qt::AlignRight);
     mainLayout->addSpacing(10);
 
-    setLayout(mainLayout);
+    m_edgeWidget = new QWidget;
+    m_edgeWidget->setObjectName("edgewidget");
+    m_edgeWidget->setContentsMargins(kMargin, kMargin, kMargin, kMargin);
+    m_edgeWidget->setLayout(mainLayout);
+    QHBoxLayout* testwidgetLayout = new QHBoxLayout;
+    testwidgetLayout->setContentsMargins(0, 0, 0, 0);
+    testwidgetLayout->setSpacing(0);
+    testwidgetLayout->addWidget(m_edgeWidget);
+    setLayout(testwidgetLayout);
+    m_edgeWidget->setStyleSheet("QWidget#edgewidget:focus{border:1px solid; border-color: rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
+
+    this->setFocusProxy(m_edgeWidget);
+    //setLayout(mainLayout);
 }
 
 void installer::OperatorWidget::initConnection()

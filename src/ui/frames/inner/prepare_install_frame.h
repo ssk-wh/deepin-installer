@@ -44,6 +44,10 @@ class PrepareInstallFrame : public QFrame {
   void updateDescription(const QStringList& descriptions);
   void setCreateRecovery(bool isCreate);
 
+  bool focusSwitch();
+  bool doSelect();
+  bool directionKey(int keyvalue);
+
  signals:
   // Emitted when abort-button is clicked, returning to previous page.
   void aborted();
@@ -65,6 +69,7 @@ class PrepareInstallFrame : public QFrame {
   SelectButton* abort_button_ = nullptr;
   DSuggestButton* continue_button_ = nullptr;
   QLabel* description_edit_ = nullptr;
+  QString m_scrollareaStyleSheetold = "";
   DCheckBox* m_selectCreateRecovery = nullptr;
 };
 
