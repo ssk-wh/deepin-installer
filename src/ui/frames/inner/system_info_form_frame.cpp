@@ -62,8 +62,10 @@ const int kSetRootPasswordCheckBoxWidth = 520;
 const int kSetRootPasswordCheckBoxHeight = 20;
 
 const int kMainWindowWidth = 520;
-const int kHintLabelWidth = 140;
-const int kInputWidgetWidth = 340;
+const int kHintLabelWidth = 150;
+const int kInputWidgetWidth = 300;
+
+const int kLevelWidgetWidth = 60;
 }//namespace
 
 class SystemInfoFormFramePrivate : public QObject
@@ -79,6 +81,7 @@ public:
 private:
     void initConnections();
     void initUI();
+    void updatePasswdLevel();
     void updateTex();
     void initBoolvariable();
 
@@ -152,6 +155,9 @@ private:
 
     std::vector<DLineEdit*> m_editList;
 
+    // 密码等级显示控件
+    QLabel* m_passwdLevelLabel = nullptr;
+    QLabel* m_rootPasswdLevelLabel = nullptr;
 };
 
 SystemInfoFormFrame::SystemInfoFormFrame(QWidget* parent) : QFrame(parent)
@@ -175,6 +181,7 @@ bool SystemInfoFormFrame::validateUserInfo()
     Q_D(SystemInfoFormFrame);
     d->tooltip_->hide();
 
+    bool reset = false;
     QString msg;
     if (!d->validateUsername(msg)) {
         d->tooltip_->setText(msg);
@@ -202,14 +209,28 @@ bool SystemInfoFormFrame::validateUserInfo()
             d->tooltip_->showBottom(d->m_rootPasswordCheckEdit);
         }
         else{
-            return true;
+            reset = true;
         }
     }
     else {
-        return true;
+        reset = true;
     }
 
-    return false;
+//    if (reset) {
+//        // 处理密码强度为低时的确认处理逻辑，目前创建用户界面不涉及回退动作，故只确认一次
+//        static bool repeatFlag = true;
+//        if (repeatFlag && PwqualityManager::instance()->passwdLevel(d->m_passwordEdit->text())
+//                == PasswdLevel::LowerLevel) {
+//            d->tooltip_->setText(tr("Password strength is low, please press the next button again to confirm."));
+//            d->tooltip_->showBottom(d->m_passwordEdit);
+//            repeatFlag = false;
+//            return false;
+//        }
+
+//        return reset;
+//    }
+
+    return reset;
 }
 
 void SystemInfoFormFrame::checkNextButtonEnable()
@@ -468,6 +489,7 @@ void SystemInfoFormFramePrivate::initUI()
     usernameLayout->setSpacing(0);
     usernameLayout->addWidget(m_usernameLabel, 0, Qt::AlignLeft | Qt::AlignVCenter);
     usernameLayout->addWidget(m_usernameEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
+    usernameLayout->addStretch();
     QFrame *usernameFrame = new QFrame;
     usernameFrame->setLayout(usernameLayout);
     m_usernameLabel->setFixedWidth(kHintLabelWidth);
@@ -499,11 +521,19 @@ void SystemInfoFormFramePrivate::initUI()
     hostnameLayout->setSpacing(0);
     hostnameLayout->addWidget(m_hostnameLabel, 0, Qt::AlignLeft | Qt::AlignVCenter);
     hostnameLayout->addWidget(m_hostnameEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
+    hostnameLayout->addStretch();
     QFrame *hostnameFrame = new QFrame;
     hostnameFrame->setLayout(hostnameLayout);
     m_hostnameLabel->setFixedWidth(kHintLabelWidth);
     m_hostnameEdit->setFixedWidth(kInputWidgetWidth);
     hostnameFrame->setFixedWidth(kMainWindowWidth);
+
+    // 密码等级空间初始化
+    m_passwdLevelLabel = new QLabel;
+    m_passwdLevelLabel->setFixedWidth(kLevelWidgetWidth);
+
+    m_rootPasswdLevelLabel = new QLabel;
+    m_rootPasswdLevelLabel->setFixedWidth(kLevelWidgetWidth);
 
     m_passwordLabel = new QLabel;
     m_passwordLabel->setAlignment(Qt::AlignLeft);
@@ -517,6 +547,7 @@ void SystemInfoFormFramePrivate::initUI()
     passwordLayout->setSpacing(0);
     passwordLayout->addWidget(m_passwordLabel, 0, Qt::AlignLeft | Qt::AlignVCenter);
     passwordLayout->addWidget(m_passwordEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
+    passwordLayout->addWidget(m_passwdLevelLabel, 0, Qt::AlignRight | Qt::AlignVCenter);
     QFrame *passwordFrame = new QFrame;
     passwordFrame->setLayout(passwordLayout);
     m_passwordLabel->setFixedWidth(kHintLabelWidth);
@@ -545,6 +576,7 @@ void SystemInfoFormFramePrivate::initUI()
     passwordCheckLayout->setSpacing(0);
     passwordCheckLayout->addWidget(m_passwordCheckLabel, 0, Qt::AlignLeft | Qt::AlignVCenter);
     passwordCheckLayout->addWidget(m_passwordCheckEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
+    passwordCheckLayout->addStretch();
     QFrame *passwordCheckFrame = new QFrame;
     passwordCheckFrame->setLayout(passwordCheckLayout);
     m_passwordCheckLabel->setFixedWidth(kHintLabelWidth);
@@ -568,6 +600,7 @@ void SystemInfoFormFramePrivate::initUI()
     rootPasswordLayout->setSpacing(0);
     rootPasswordLayout->addWidget(m_rootPasswordLabel, 0, Qt::AlignLeft | Qt::AlignVCenter);
     rootPasswordLayout->addWidget(m_rootPasswordEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
+    rootPasswordLayout->addWidget(m_rootPasswdLevelLabel, 0, Qt::AlignRight | Qt::AlignVCenter);
     m_rootPasswordFrame = new QFrame;
     m_rootPasswordFrame->setLayout(rootPasswordLayout);
     m_rootPasswordLabel->setFixedWidth(kHintLabelWidth);
@@ -590,6 +623,7 @@ void SystemInfoFormFramePrivate::initUI()
     rootPasswordCheckLayout->setSpacing(0);
     rootPasswordCheckLayout->addWidget(m_rootPasswordCheckLabel, 0, Qt::AlignLeft | Qt::AlignVCenter);
     rootPasswordCheckLayout->addWidget(m_rootPasswordCheckEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
+    rootPasswordCheckLayout->addStretch();
     m_rootPasswordCheckFrame = new QFrame;
     m_rootPasswordCheckFrame->setLayout(rootPasswordCheckLayout);
     m_rootPasswordCheckLabel->setFixedWidth(kHintLabelWidth);
@@ -615,11 +649,11 @@ void SystemInfoFormFramePrivate::initUI()
     //m_grubPasswordCheck_->setFocusPolicy(Qt::TabFocus);
 
     m_rootUserLabel = new QLabel;
-    m_rootUserLabel->setFixedWidth(kHintLabelWidth + 40);
+    m_rootUserLabel->setFixedWidth(kHintLabelWidth);
 
     DLineEdit* rootUser = new DLineEdit;
     rootUser->setEnabled(false);
-    rootUser->setFixedWidth(kInputWidgetWidth - 45);
+    rootUser->setFixedWidth(kInputWidgetWidth);
     rootUser->setContextMenuPolicy(Qt::NoContextMenu);
     rootUser->lineEdit()->setPlaceholderText("root");
 
@@ -627,7 +661,7 @@ void SystemInfoFormFramePrivate::initUI()
     rootUserFrameLayout->setContentsMargins(0, 0, 0, 0);
     rootUserFrameLayout->setSpacing(0);
     rootUserFrameLayout->addWidget(m_rootUserLabel, 0, Qt::AlignLeft | Qt::AlignVCenter);
-    rootUserFrameLayout->addWidget(rootUser, 0, Qt::AlignLeft);
+    rootUserFrameLayout->addWidget(rootUser, 0, Qt::AlignLeft | Qt::AlignVCenter);
     rootUserFrameLayout->addStretch();
 
     m_rootUserFrame= new QFrame;
@@ -670,7 +704,7 @@ void SystemInfoFormFramePrivate::initUI()
     area->setWidget(content);
     area->setWidgetResizable(true);
     area->setFrameStyle(QScrollArea::NoFrame);
-    area->setFixedWidth(kMainWindowWidth + 50);
+    area->setFixedWidth(kMainWindowWidth + 10);
     area->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     area->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -702,6 +736,40 @@ void SystemInfoFormFramePrivate::initUI()
     updateTex();
 }
 
+void SystemInfoFormFramePrivate::updatePasswdLevel()
+{
+    QMap<PasswdLevel, QString> mapPasswdLevel = {
+        {LowerLevel, QObject::tr("Weak")},
+        {MediumLevel, QObject::tr("Medium")},
+        {HigherLevel, QObject::tr("Strong")}};
+
+    QMap<PasswdLevel, QColor> mapPasswdLevelColor = {
+        {LowerLevel, QColor("#ff5736")},        // 红色
+        {MediumLevel, QColor("#f7a11b")},       // 橙色
+        {HigherLevel, QColor("#3ec500")}};      // 绿色
+
+
+    if (!m_passwordEdit->text().isEmpty()) {
+        QPalette palette;
+        palette.setColor(QPalette::Text, mapPasswdLevelColor[PwqualityManager::instance()->passwdLevel(m_passwordEdit->text())]);
+        m_passwdLevelLabel->setPalette(palette);
+        m_passwdLevelLabel->setText(mapPasswdLevel[PwqualityManager::instance()->passwdLevel(m_passwordEdit->text())]);
+
+    } else {
+        m_passwdLevelLabel->setText("");
+    }
+
+    if (!m_rootPasswordEdit->text().isEmpty()) {
+        QPalette palette;
+        palette.setColor(QPalette::Text, mapPasswdLevelColor[PwqualityManager::instance()->passwdLevel(m_rootPasswordEdit->text())]);
+        m_rootPasswdLevelLabel->setPalette(palette);
+        m_rootPasswdLevelLabel->setText(mapPasswdLevel[PwqualityManager::instance()->passwdLevel(m_rootPasswordEdit->text())]);
+
+    } else {
+        m_rootPasswdLevelLabel->setText("");
+    }
+}
+
 void SystemInfoFormFramePrivate::updateTex()
 {
     m_usernameEdit->lineEdit()->setPlaceholderText(::QObject::tr("Username"));
@@ -726,6 +794,8 @@ void SystemInfoFormFramePrivate::updateTex()
     m_grubPasswordCheck_->setText(::QObject::tr("Use that password to edit boot menu"));
     m_setRootPasswordCheck->setText(::QObject::tr("Enable root user"));
     tooltip_->setText("");
+
+    updatePasswdLevel();
 }
 
 void SystemInfoFormFramePrivate::initBoolvariable()
@@ -1035,6 +1105,7 @@ void SystemInfoFormFramePrivate::onHostnameEditingFinished()
 void SystemInfoFormFramePrivate::onPasswordEdited()
 {
     m_isPasswordEdited_ = true;
+    updatePasswdLevel();
 }
 
 void SystemInfoFormFramePrivate::onPasswordEditingFinished()
@@ -1073,6 +1144,7 @@ void SystemInfoFormFramePrivate::onPassword2EditingFinished()
 void SystemInfoFormFramePrivate::onRootPasswordEdited()
 {
     m_isRootPasswordEdited = true;
+    updatePasswdLevel();
 }
 
 void SystemInfoFormFramePrivate::onRootPasswordEditingFinished()

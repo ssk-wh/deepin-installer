@@ -145,7 +145,7 @@ QString GetOSType()
     settings.beginGroup("Release");
 
 #ifdef QT_DEBUG
-    QString type = "Professional";
+    QString type = "Server";
 #else
     QString type = settings.value("Type", "Community").toString();
 #endif // QT_DEBUG

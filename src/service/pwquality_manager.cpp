@@ -48,9 +48,8 @@ void installer::PwqualityManager::setup()
 //    }
 
 //    m_palindromeChecked = GetSettingsBool(kSystemInfoPasswordPalindromeCheck);
-//    m_palindromeLength = GetSettingsInt(kSystemInfoPasswordPalindromeLength);
+    //    m_palindromeLength = GetSettingsInt(kSystemInfoPasswordPalindromeLength);
 }
-
 
 installer::PwqualityManager *installer::PwqualityManager::instance()
 {
@@ -157,3 +156,38 @@ bool installer::PwqualityManager::oem_special_char(const QString &text)
 
     return true;
 }
+
+installer::PasswdLevel installer::PwqualityManager::passwdLevel(const QString &passwd)
+{
+    PasswdLevel level = LowerLevel;
+
+    // 依次获取密码等级中的高和中，剩余情况为低
+    if (passwdStrength(passwd) >= 3 && passwd.size() >= 8) {
+        level = HigherLevel;
+
+    }  else if (passwdStrength(passwd) >= 2 && passwd.size() >= 6) {
+        level = MediumLevel;
+    }
+
+    qDebug() << "passwdLevel = " << level;
+
+    return level;
+}
+
+int installer::PwqualityManager::passwdStrength(const QString &passwd)
+{
+    QStringList validatePolicyList = GetSettingsString(kSystemInfoPasswordValidate).split(";");
+    qDebug() << "passwdStrength = " << validatePolicyList;
+    int reset = int(std::count_if(validatePolicyList.cbegin(), validatePolicyList.cend(),
+                      [=](const QString& policy) {
+                          for (const QChar& c : policy) {
+                              if (passwd.contains(c)) {
+                                  return true;
+                              }
+                          }
+                          return false;
+                      }));
+
+    return reset;
+}
+

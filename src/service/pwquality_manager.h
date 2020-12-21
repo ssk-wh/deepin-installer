@@ -22,6 +22,8 @@
 //#include <pwquality.h>
 #include <QString>
 #include <QScopedPointer>
+#include <QMap>
+#include <QObject>
 
 namespace installer {
 
@@ -39,6 +41,12 @@ enum class ValidateState {
     DictError
 };
 
+enum PasswdLevel {
+    LowerLevel = 1,
+    MediumLevel,
+    HigherLevel
+};
+
 class PwqualityManager {
 public:
     static PwqualityManager* instance();
@@ -53,12 +61,15 @@ public:
     bool oem_upper_case(const QString &text);
     bool oem_special_char(const QString &text);
 
+    PasswdLevel passwdLevel(const QString &passwd);
+
 private:
     PwqualityManager();
     PwqualityManager(const PwqualityManager&) = delete;
 
     void init();
     void setup();
+    int passwdStrength(const QString &passwd);
 
 private:
 //    struct ScopedPointerCustomDeleter{
