@@ -906,7 +906,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="246"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="121"/>
         <source>Start</source>
-        <translation>Iniciar</translation>
+        <translation>Início</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="176"/>
@@ -1045,7 +1045,7 @@
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="201"/>
         <source>Create a backup for system restore, but it will increase the time</source>
-        <translation type="unfinished"/>
+        <translation>Cria uma cópia de segurança para o restauro do sistema, mas aumentará o tempo</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="44"/>

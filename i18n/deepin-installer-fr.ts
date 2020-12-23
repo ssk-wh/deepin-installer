@@ -1047,7 +1047,7 @@ Veuillez sélectionner l&apos;une des solutions ci-dessous et continuer.</transl
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="201"/>
         <source>Create a backup for system restore, but it will increase the time</source>
-        <translation type="unfinished"/>
+        <translation>Créer une sauvegarde pour la restauration du système, mais cela augmentera le temps</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="44"/>

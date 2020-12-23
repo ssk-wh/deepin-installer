@@ -1045,7 +1045,7 @@
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="201"/>
         <source>Create a backup for system restore, but it will increase the time</source>
-        <translation type="unfinished"/>
+        <translation>Crea un backup per il ripristino del sistema, ma il tempo di elaborazione aumenterà di conseguenza</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="44"/>

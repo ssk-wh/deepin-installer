@@ -489,7 +489,7 @@
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="35"/>
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="92"/>
         <source>Cancel</source>
-        <translation>Storno</translation>
+        <translation>Zrušit</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="63"/>
@@ -1045,7 +1045,7 @@
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="201"/>
         <source>Create a backup for system restore, but it will increase the time</source>
-        <translation type="unfinished"/>
+        <translation>Vytvořit zálohu pro možnost obnovení systému – doba instalace se ale protáhne</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="44"/>
@@ -1462,7 +1462,7 @@
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="19"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="75"/>
         <source>Click the button below and then remove the installation media immediately</source>
-        <translation>Klikněte na níže uvedené tlačítko a poté hned odeberte instalační médium</translation>
+        <translation>Klepněte na níže uvedené tlačítko a poté hned odeberte instalační médium</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="86"/>

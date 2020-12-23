@@ -5,6 +5,7 @@
 # 
 # Translators:
 # Gorzy Gorup <gorupgorazd@gmail.com>, 2017
+# Arnold Marko <arnold.marko@gmail.com>, 2020
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-02 17:33+0800\n"
 "PO-Revision-Date: 2017-02-06 02:09+0000\n"
-"Last-Translator: Gorzy Gorup <gorupgorazd@gmail.com>, 2017\n"
+"Last-Translator: Arnold Marko <arnold.marko@gmail.com>, 2020\n"
 "Language-Team: Slovenian (https://www.transifex.com/linuxdeepin/teams/3976/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -919,7 +920,7 @@ msgstr "Azija/Barnaul"
 
 #: system-config-date-timezones.h:225
 msgid "Asia/Beijing"
-msgstr ""
+msgstr "Azija/Peking"
 
 #: system-config-date-timezones.h:226
 msgid "Asia/Beirut"
@@ -935,7 +936,7 @@ msgstr "Azija/Brunej"
 
 #: system-config-date-timezones.h:229
 msgid "Asia/Chengdu"
-msgstr ""
+msgstr "Azija/Čengdu"
 
 #: system-config-date-timezones.h:230
 msgid "Asia/Chita"
@@ -947,7 +948,7 @@ msgstr "Azija/Čoibalsan"
 
 #: system-config-date-timezones.h:232
 msgid "Asia/Chongqing"
-msgstr ""
+msgstr "Azija/Čongšing"
 
 #: system-config-date-timezones.h:233
 msgid "Asia/Colombo"
@@ -1075,7 +1076,7 @@ msgstr "Azija/Muškat"
 
 #: system-config-date-timezones.h:264
 msgid "Asia/Nanjing"
-msgstr ""
+msgstr "Azija/Nandžing"
 
 #: system-config-date-timezones.h:265
 msgid "Asia/Nicosia"
@@ -1115,7 +1116,7 @@ msgstr "Azija/Katar"
 
 #: system-config-date-timezones.h:274
 msgid "Asia/Qostanay"
-msgstr ""
+msgstr "Azija/Kostanaj"
 
 #: system-config-date-timezones.h:275
 msgid "Asia/Qyzylorda"
@@ -1199,11 +1200,11 @@ msgstr "Azija/Vladivostok"
 
 #: system-config-date-timezones.h:295
 msgid "Asia/Wuhan"
-msgstr ""
+msgstr "Azija/Vuhan"
 
 #: system-config-date-timezones.h:296
 msgid "Asia/Xian"
-msgstr ""
+msgstr "Asia/Šijan"
 
 #: system-config-date-timezones.h:297
 msgid "Asia/Yakutsk"

@@ -612,7 +612,7 @@
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="88"/>
         <source>Tuning system</source>
-        <translation>正在調整系統</translation>
+        <translation>優化系統配置</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="66"/>
@@ -823,7 +823,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="274"/>
         <source>Repeat Password</source>
-        <translation>再輸入一次密碼</translation>
+        <translation>重複密碼</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="277"/>
@@ -1137,7 +1137,7 @@
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="265"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="557"/>
         <source>Repeat password</source>
-        <translation>再輸入一次密碼</translation>
+        <translation>重複密碼</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="654"/>
@@ -1636,7 +1636,7 @@
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="96"/>
         <source>Full Disk</source>
-        <translation>全硬碟</translation>
+        <translation>全盤安裝</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="510"/>
@@ -1780,12 +1780,12 @@
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="223"/>
         <source>System Disk</source>
-        <translation>系統磁碟機</translation>
+        <translation>系統盤</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="223"/>
         <source>Data Disk</source>
-        <translation>數據磁碟機</translation>
+        <translation>資料盤</translation>
     </message>
     <message>
         <location filename="../src/ui/widgets/network_device_widget.cpp" line="264"/>

@@ -1141,7 +1141,7 @@ msgstr "亞洲/首爾"
 
 #: system-config-date-timezones.h:280
 msgid "Asia/Shanghai"
-msgstr "亞洲/上海市"
+msgstr "亞洲/上海"
 
 #: system-config-date-timezones.h:281
 msgid "Asia/Singapore"
