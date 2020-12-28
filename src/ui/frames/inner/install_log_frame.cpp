@@ -14,7 +14,6 @@ installer::InstallLogFrame::InstallLogFrame(QFrame *parent) :
     QFrame(parent)
 {   
     QFont font;
-    font.setPixelSize(11);
     QPalette palette;
     palette.setColor(QPalette::Text, QColor(66, 154, 216));
     m_installLog = new QPlainTextEdit(this);

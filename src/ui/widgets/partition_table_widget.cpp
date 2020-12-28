@@ -24,7 +24,6 @@ PartitionTableWarningWidget::PartitionTableWarningWidget(QWidget *parent)
     m_titleLabel->setMinimumWidth(KQLabelWidth);
 
     QFont titleFont;
-    titleFont.setPixelSize(kTitleFont);
     m_titleLabel->setFont(titleFont);
 
     m_descLabel = new QLabel;
@@ -34,7 +33,6 @@ PartitionTableWarningWidget::PartitionTableWarningWidget(QWidget *parent)
     m_descLabel->adjustSize();
 
     QFont descFont;
-    descFont.setPixelSize(kDescFont);
     m_descLabel->setFont(descFont);
 
     m_vLayout = new QVBoxLayout;

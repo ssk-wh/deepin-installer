@@ -49,15 +49,13 @@ namespace installer {
 
 namespace {
     int kSystemDateTimeFrameWidth = 691;
-    int kMonthDayHourMinuteQLineEditWidth = 38;
+    int kMonthDayHourMinuteQLineEditWidth = 40;
     int kDateTimeLabelWidth = 45;
     int kYearQLineEditWidth = 55;
     int kMaxIncrementYear = 30;
 
     int kDateTimeItemInnerSpacing = 1;
     int kDateTimeItemExternalSpacing = 2;
-
-    int kDateTimeFontSize = 10; // 10pt
 }
 
 class SystemDateFramePrivate : public QObject{
@@ -588,7 +586,6 @@ void SystemDateFramePrivate::initUI()
     q_ptr->setLayout(mainLayout);
 
     QFont font;
-    font.setPixelSize(kDateTimeFontSize);
     m_hourEdit->setFont(font);
     m_hourLabel->setFont(font);
     m_minuteEdit->setFont(font);

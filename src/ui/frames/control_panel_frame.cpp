@@ -186,7 +186,6 @@ void ControlPanelFrame::initUI() {
 
   term_widget_ = new QTermWidget;
   QFont term_font = this->font();
-  term_font.setPixelSize(14);
   term_font.setFamily("Monospace");
   term_widget_->setTerminalFont(term_font);
   // Hide scroll bar.

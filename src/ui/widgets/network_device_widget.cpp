@@ -85,7 +85,6 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     m_deviceName->adjustSize();
 
     QFont titleFont;
-    titleFont.setPixelSize(kTitleFont);
     m_deviceName->setFont(titleFont);
 
     m_descLabel = new AutoElideLabel;
@@ -94,7 +93,6 @@ NetworkDeviceWidget::NetworkDeviceWidget(QWidget *parent)
     m_descLabel->adjustSize();
 
     QFont descFont;
-    descFont.setPixelSize(kDescFont);
     m_descLabel->setFont(descFont);
 
     m_vLayout = new QVBoxLayout;

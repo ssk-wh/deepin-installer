@@ -167,10 +167,8 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
     int widgetIndex = 0;
 
     QFont font;
-    font.setPixelSize(kPartitionNameFont);
 
     QFont mountfont;
-    mountfont.setPixelSize(kPartitionMounLabFont);
 
     int indexNum(0);
 

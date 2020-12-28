@@ -88,7 +88,6 @@ void TooltipPin::paintEvent(QPaintEvent* event) {
 
   // Then draw text.
   QFont label_font;
-  label_font.setPixelSize(12);
   const QFontMetrics label_font_metrics(label_font);
   const int label_length = label_font_metrics.width(this->text());
   painter.setPen(QPen(Qt::black));

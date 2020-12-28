@@ -51,7 +51,7 @@ const int kControlButtonLeftMargin = 520;
 
 const int kItemRightMargin = 3;
 
-const int kPartitionInfoFontSize = 9; // 9pt
+const int kPartitionInfoFontSize = 12;
 }  // namespace
 
 AdvancedPartitionButton::AdvancedPartitionButton(const Partition::Ptr partition,
