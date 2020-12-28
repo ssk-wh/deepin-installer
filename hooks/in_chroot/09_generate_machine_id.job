@@ -18,17 +18,14 @@
 
 # try to fix systemd machine-id config at first boot
 # No need to save machine ID, regenerate.
-generate_machine_id() {
-    if [ -f "/etc/machine-id" ];then
-        rm /etc/machine-id
-    fi
 
+# 解决SP1版本/etc/machine-id相同的问题
+if [ -e /var/lib/dbus/machine-id ];then
+    rm -rf /var/lib/dbus/machine-id
+fi
+
+if [ -e /etc/machine-id ];then
+    rm -rf /etc/machine-id
     systemd-machine-id-setup
-    chmod 644 /etc/machine-id
-}
+fi
 
-# if [ x$(installer_get "system_info_setup_after_reboot") != "xtrue" ]; then
-generate_machine_id
-#fi
-
-return 0
