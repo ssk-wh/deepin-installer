@@ -181,6 +181,7 @@ main() {
   cleanup_first_boot
   remove_component_packages
   setup_default_target
+  update_grub_local  # 处理gurb汉化问题
   uninstall_packages # 这必须是最后一步！
   sync
 }
