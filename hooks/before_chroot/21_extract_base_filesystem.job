@@ -33,9 +33,3 @@ unsquashfs -d /target -f -p $CORES \
   error "unsquashfs failed, ${BASE_MODULE}"
 sync 
 echo 3 > /proc/sys/vm/drop_caches
-
-if ! is_loongson; then
-  return 0
-fi
-
-cp -f /tmp/installer/before_chroot/10_linux /target/etc/grub.d/
