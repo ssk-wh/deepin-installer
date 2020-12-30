@@ -929,4 +929,9 @@ void WriteIsInitRecovery(bool value) {
     AppendToConfigFile("DI_IS_INIT_RECOVERY", value);
 }
 
+void WriteSystemDataMountPoint(const QString &value)
+{
+    AppendToConfigFile("DI_DATA_MOUNT_POINT", value);
+}
+
 }  // namespace installer

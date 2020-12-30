@@ -348,6 +348,7 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
             policy.usage      = jsonObject["usage"].toString();
             policy.alignStart = jsonObject["alignStart"].toBool();
             policy.device     = jsonObject["device"].toString();
+            policy.isDataPartition = jsonObject["isDataPartition"].toBool();
             if (policy.mountPoint == kLinuxSwapMountPoint) {
                 policy.mountPoint = "";
             }
@@ -356,13 +357,29 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
    }
 
     // Change data disk configuration.
+    QString system_data_mount_point;
+    // 提前写入占位符，防止json中没有配置数据分区
+    WriteSystemDataMountPoint("NO_DATA_MOUNT_POINT_PLACEHOLDER");
     for (int i = 0; i < policy_list.length(); i++) {
         FullDiskPolicy & policy = policy_list[i];
+
+        // 计算数据分区挂载点位置，以json中配置的第一个数据分区的mountPoint为优先级最高
+        // 其中判断policy.label == _dde_data 是为了向老版本兼容
+        if (system_data_mount_point.isEmpty()
+                && (policy.isDataPartition || policy.label == "_dde_data")) {
+            system_data_mount_point = policy.mountPoint;
+            WriteSystemDataMountPoint(system_data_mount_point);
+        }
+
+        // 如果json的device字段没有配置，则根据配置或者界面选择的设备设置，否则使用json中的device字段
+        // 默认json的device字段为空
         if (device_path_list.length() > 1
-            && policy.mountPoint == QString("/data")) {
+            && policy.device.isEmpty()
+            && policy.isDataPartition) {
+
             policy.device = device_path_list.at(1);
         }
-        else {
+        else if (policy.device.isEmpty()){
             policy.device = device_path_list.at(0);
         }
     }

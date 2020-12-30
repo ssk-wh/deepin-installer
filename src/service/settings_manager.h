@@ -180,6 +180,8 @@ void WritePartitionInfo(const QString& root_disk,
                         const QString& boot_partition,
                         const QString& mount_points);
 
+void WriteSystemDataMountPoint(const QString &value);
+
 // Whether swap file is required. Swap file is created in before_chroot/.
 void WriteRequiringSwapFile(bool is_required);
 

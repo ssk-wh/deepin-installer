@@ -49,6 +49,7 @@
         "label": "_dde_data",
         "usage": "100%",
         "alignStart": true,
+        "isDataPartition": true,
         "device": "",
         "platform": [ "x86", "arm", "sw", "loongson"]
     }

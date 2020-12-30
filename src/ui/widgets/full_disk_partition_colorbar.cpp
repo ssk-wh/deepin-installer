@@ -4,6 +4,8 @@
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/partition_color_label.h"
 #include "ui/widgets/auto_elide_label.h"
+#include "service/settings_manager.h"
+#include "service/settings_name.h"
 
 #include <QPainter>
 #include <QPainterPath>
@@ -48,6 +50,8 @@ static QColor GetPartitionColor(const Partition::Ptr& partition) {
     if (partition->mount_point.length() > 0 &&
         PART_NAME_COLOR_NAME_MAP.find(partition->mount_point) != PART_NAME_COLOR_NAME_MAP.end()) {
         color = PART_NAME_COLOR_NAME_MAP[partition->mount_point];
+    } else if (partition->label == "_dde_data") {
+        return PART_NAME_COLOR_NAME_MAP["/data"];
     }
     else {
         color = PART_NAME_COLOR_NAME_MAP[QString(":%1").arg(partition->label.toLower())];

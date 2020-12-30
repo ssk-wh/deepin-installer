@@ -29,6 +29,7 @@ struct FullDiskPolicy {
         QString       usage;
         QString       device;
         bool          alignStart;
+        bool          isDataPartition = false;
         qint64        startSector;
         qint64        endSector;
         qint64        sectors;
