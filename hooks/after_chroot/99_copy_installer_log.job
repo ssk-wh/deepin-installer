@@ -17,9 +17,9 @@
 #
 # Backup log to disk.
 
+/tmp/installer/hook_manager.sh /tmp/installer/before_chroot/11_mount_target.job
 if [ -f /var/log/deepin-installer.log ]; then
   install -v -Dm600 /var/log/deepin-installer.log \
     /target/var/log/deepin-installer.log
 fi
-
-return 0
+/tmp/installer/hook_manager.sh /tmp/installer/after_chroot/90_unmount.job
