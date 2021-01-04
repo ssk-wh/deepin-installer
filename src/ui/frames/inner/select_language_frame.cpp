@@ -538,13 +538,13 @@ void SelectLanguageFramePrivate::initUI() {
     license_label_ = new QLabel;
     //license_label_->setFocusPolicy(Qt::TabFocus);
     license_label_->setObjectName("LicenseLabel");
-    //license_label_->installEventFilter(q);
+    license_label_->installEventFilter(q);
     license_label_->setStyleSheet("QLabel::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
 
     m_privacy_license_label_ = new QLabel;
     //m_privacy_license_label_->setFocusPolicy(Qt::TabFocus);
     m_privacy_license_label_->setObjectName("LicenseLabel");
-    //m_privacy_license_label_->installEventFilter(q);
+    m_privacy_license_label_->installEventFilter(q);
     m_privacy_license_label_->setStyleSheet("QLabel::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
 
     if (user_license_delegate_->isLicenseDirExists()) {
@@ -552,7 +552,7 @@ void SelectLanguageFramePrivate::initUI() {
         oem_and_label_->setObjectName("OemAndLabel");
         oem_license_label_ = new QLabel;
         oem_license_label_->setObjectName("LicenseLabel");
-        //oem_license_label_->installEventFilter(q);
+        oem_license_label_->installEventFilter(q);
     }
 
     m_and_label = new QLabel;
@@ -585,7 +585,7 @@ void SelectLanguageFramePrivate::initUI() {
     experience_label_ = new QLabel;
     //experience_label_->setFocusPolicy(Qt::TabFocus);
     experience_label_->setObjectName("LicenseLabel");
-    //experience_label_->installEventFilter(q);
+    experience_label_->installEventFilter(q);
     experience_label_->setStyleSheet("QLabel::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
 
     QHBoxLayout* experience_layout = new QHBoxLayout;
