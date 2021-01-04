@@ -3,12 +3,14 @@
 
 #include "partman/device.h"
 #include "ui/interfaces/frameinterface.h"
+#include "service/settings_manager.h"
 
 #include <QWidget>
 #include <DLineEdit>
 #include <DPasswordEdit>
 #include <DImageButton>
 #include <DSuggestButton>
+#include <pwd.h>
 
 DWIDGET_USE_NAMESPACE
 
@@ -52,6 +54,10 @@ public:
 signals:
     void cancel();
     void encryptFinished();
+
+public:
+    QString passwd();
+    void getFinalDiskResolution(FinalFullDiskResolution& resolution);
 
 protected:
     void changeEvent(QEvent *event) override;

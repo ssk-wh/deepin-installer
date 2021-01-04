@@ -552,6 +552,20 @@ void PartitionFramePrivate::initConnections() {
   connect(full_disk_encrypt_frame_, &Full_Disk_Encrypt_frame::encryptFinished, q_ptr, [=] {
       //      q_ptr->autoPart();
       //      q_ptr->m_proxy->nextFrame();
+      if (full_disk_partition_frame_->isEncrypt()) {
+          WriteFullDiskEncryptPassword(full_disk_encrypt_frame_->passwd());
+      } else {
+          WriteFullDiskEncryptPassword("");
+      }
+
+      FinalFullDiskResolution resolution;
+      full_disk_encrypt_frame_->getFinalDiskResolution(resolution);
+      FinalFullDiskOptionList& option_list = resolution.option_list;
+      for (FinalFullDiskOption& option : option_list) {
+          option.encrypt = full_disk_partition_frame_->isEncrypt();
+      }
+      WriteFullDiskResolution(resolution);
+
       q_ptr->m_proxy->hideChildFrame();
       showPrepareInstallFrame();
   });

@@ -1,17 +1,16 @@
 #include "full_disk_encrypt_frame.h"
 
 #include "base/file_util.h"
-#include "../../../partman/device.h"
-#include "../../widgets/rounded_progress_bar.h"
-#include "../../widgets/nav_button.h"
-#include "../../widgets/line_edit.h"
-#include "../../utils/widget_util.h"
-#include "../../widgets/title_label.h"
-#include "../../../service/settings_manager.h"
-#include "../../widgets/system_info_tip.h"
+#include "partman/device.h"
+#include "ui/widgets/rounded_progress_bar.h"
+#include "ui/widgets/nav_button.h"
+#include "ui/widgets/line_edit.h"
+#include "ui/utils/widget_util.h"
+#include "ui/widgets/title_label.h"
+#include "ui/widgets/system_info_tip.h"
 #include "ui/delegates/partition_util.h"
 #include "ui/utils/keyboardmonitor.h"
-#include "../../widgets/full_disk_partition_colorbar.h"
+#include "ui/widgets/full_disk_partition_colorbar.h"
 #include "ui/delegates/full_disk_delegate.h"
 #include "ui/widgets/select_button.h"
 
@@ -278,17 +277,15 @@ void Full_Disk_Encrypt_frame::onNextBtnClicked()
         return;
     }
 
-    WriteFullDiskEncryptPassword(m_encryptEdit->text());
-
-    FinalFullDiskResolution resolution;
-    m_diskPartitionDelegate->getFinalDiskResolution(resolution);
-    FinalFullDiskOptionList& option_list = resolution.option_list;
-    for (FinalFullDiskOption& option : option_list) {
-        option.encrypt = true;
-    }
-    WriteFullDiskResolution(resolution);
-
     emit encryptFinished();
+}
+
+QString Full_Disk_Encrypt_frame::passwd() {
+    return m_encryptEdit->text();
+}
+
+void Full_Disk_Encrypt_frame::getFinalDiskResolution(FinalFullDiskResolution& resolution) {
+    m_diskPartitionDelegate->getFinalDiskResolution(resolution);
 }
 
 void Full_Disk_Encrypt_frame::onEncryptUpdated(bool checked)
