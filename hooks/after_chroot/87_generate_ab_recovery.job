@@ -73,8 +73,8 @@ do_generate()
 EOF
 
   # Write udev hideen
-  echo "# hide rootb" >> /target/etc/udev/rules.d/80-udisks2.rules
-  echo "ENV{ID_FS_UUID}==\"${backup_uuid}\", ENV{UDISKS_IGNORE}=\"1\"" >> /target/etc/udev/rules.d/80-udisks2.rules
+  echo "# hide rootb" >> /target/etc/udev/rules.d/80-udisks-installer.rules
+  echo "ENV{ID_FS_UUID}==\"${backup_uuid}\", ENV{UDISKS_IGNORE}=\"1\"" >> /target/etc/udev/rules.d/80-udisks-installer.rules
 }
 
 do_output_error()
