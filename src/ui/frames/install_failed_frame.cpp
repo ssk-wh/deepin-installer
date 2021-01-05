@@ -55,13 +55,28 @@ const int kContentWindowHeight = 226;
 const int kQrMargin = 8;
 const int kQrWindowSize = 142;
 
-const int kControlButtonSize = 20;
+const int kControlButtonSize = 36;
 
 const int kButtonWidth = 200;
 const int kButtonHeight = 36;
 
 const int kCommentLabelWidth = 363;
 }  // namespace
+
+class PlainTextEdit : public QPlainTextEdit
+{
+    Q_OBJECT
+public:
+    PlainTextEdit(QWidget *parent=nullptr)
+        : QPlainTextEdit(parent)
+    {
+    }
+
+    void setViewportMargins(int left, int top, int right, int bottom)
+    {
+        QPlainTextEdit::setViewportMargins(left, top, right, bottom);
+    }
+};
 
 class InstallFailedFramePrivate : public QObject
 {
@@ -75,7 +90,7 @@ public:
     QPushButton *saveLogButton ;
     QRWidget *qr_widget_;
     DFrame* qrParentWidget;
-    QPlainTextEdit *m_plainTextEdit ;
+    PlainTextEdit *m_plainTextEdit ;
     QPushButton *control_button_ ;
     QStackedLayout* stacked_layout;
 
@@ -179,7 +194,7 @@ void InstallFailedFramePrivate::initUI()
     comment_layout->setSpacing(0);
     comment_layout->addWidget(comment_label_);
 
-    m_plainTextEdit = new QPlainTextEdit;
+    m_plainTextEdit = new PlainTextEdit;
     m_plainTextEdit->setFrameShape(QFrame::NoFrame);
     m_plainTextEdit->setObjectName("plainTextEdit");
     m_plainTextEdit->setContextMenuPolicy(Qt::NoContextMenu);
@@ -187,9 +202,11 @@ void InstallFailedFramePrivate::initUI()
     m_plainTextEdit->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     m_plainTextEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_plainTextEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_plainTextEdit->setWordWrapMode(QTextOption::WrapAnywhere);
+    m_plainTextEdit->setViewportMargins(0, 0, kControlButtonSize + 10, 0);
 
     DFrame *content_frame = new DFrame();
-    content_frame->setContentsMargins(1, 1, 1, 1);
+    content_frame->setContentsMargins(0, 0, 0, 0);
     content_frame->setObjectName("content_frame");
     content_frame->setFrameRounded(true);
     content_frame->setBackgroundRole(DPalette::ItemBackground);
@@ -217,7 +234,7 @@ void InstallFailedFramePrivate::initUI()
     stacked_layout->setAlignment(qr_widget_, Qt::AlignCenter);
 
     QHBoxLayout* switchLayout = new QHBoxLayout;
-    switchLayout->setContentsMargins(5, 5, 5, 5);
+    switchLayout->setContentsMargins(5, 5, 0, 5);
     switchLayout->setSpacing(0);
     switchLayout->addLayout(stacked_layout);
 
@@ -226,12 +243,11 @@ void InstallFailedFramePrivate::initUI()
     control_button_ = new QPushButton(content_frame);
     control_button_->setFocusPolicy(Qt::TabFocus);
     control_button_->setObjectName("control_button");
-    control_button_->setFlat(true);
     control_button_->setFixedSize(kControlButtonSize, kControlButtonSize);
     control_button_->setIcon(QIcon(installer::renderPixmap(":/images/failed_qr.svg")));
     control_button_->setIconSize(QSize(kControlButtonSize, kControlButtonSize));
     // Move control_button_ to top-right corner of content area.
-    control_button_->move(kContentWindowWidth - kControlButtonSize, 0);
+    control_button_->move(kContentWindowWidth - kControlButtonSize - 10, 10);
     control_button_->raise();
     if (GetSettingsBool(kInstallFailedQRDisplaySwitch)) {
         control_button_->show();
