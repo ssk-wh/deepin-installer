@@ -63,6 +63,8 @@ const int kMainFrameHeight = 500;
 const int kHintLabelWidth = 80;
 const int kHintLabelInputWidgetSpacing = 10;
 const int kInputWidgetWidth = 310;
+
+const int kWarningLabelWidth = 480;
 }  // namespace
 
 NewPartitionFrame::NewPartitionFrame(FrameProxyInterface* frameProxyInterface, AdvancedPartitionDelegate* delegate,
@@ -448,6 +450,9 @@ void NewPartitionFrame::initUI() {
   //create_button_->setFocusPolicy(Qt::TabFocus);
 
   m_auto_label = new QLabel();
+  m_auto_label->setFixedWidth(kWarningLabelWidth);
+  m_auto_label->setAlignment(Qt::AlignCenter);
+  m_auto_label->setWordWrap(true);
 
   QHBoxLayout* bt_layout = new QHBoxLayout;
   bt_layout->addStretch();
@@ -459,13 +464,12 @@ void NewPartitionFrame::initUI() {
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
   layout->addSpacing(30);
-  layout->addStretch();
-  layout->addWidget(title_label_, 0, Qt::AlignCenter);
+  layout->addWidget(title_label_, 0, Qt::AlignCenter | Qt::AlignTop);
   layout->addSpacing(kMainLayoutSpacing);
 
-  layout->addWidget(content_frame, 0, Qt::AlignHCenter);
-  layout->addSpacing(54);
-  layout->addWidget(m_auto_label, 0, Qt::AlignHCenter);
+  layout->addWidget(content_frame, 0, Qt::AlignHCenter | Qt::AlignTop);
+  layout->addStretch();
+  layout->addWidget(m_auto_label, 0, Qt::AlignHCenter | Qt::AlignBottom);
   layout->addSpacing(8);
   layout->addLayout(bt_layout);
   layout->addSpacing(20);
@@ -529,33 +533,42 @@ void NewPartitionFrame::updateSlideSize() {
     // Set default size for auto mount.
     // NOTE(huzhengming): partition size might be less than |default_size|.
     // Its value will also be checked in AdvancedPartitionFrame.
+    size_slider_->setMinimum(0);
+    size_slider_->blockSignals(true);
+    size_slider_->setValue(0);
+    size_slider_->blockSignals(false);
+
     static const MemInfo mem_info = GetMemInfo();
     qint64 swapeSpace =  mem_info.mem_total * 2;
     if (mem_info.mem_total > 2 *  kGibiByte) {
         swapeSpace = mem_info.mem_total + 2 *  kGibiByte;
     }
-    const int root_required = GetSettingsInt(kAutoMountPartitionRootMiniSpace);
+
+    const int root_required = GetSettingsInt(kPartitionRootMiniSpace);
+    const int root_recommended = GetSettingsInt(kAutoMountPartitionRootMiniSpace);
     const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace);
-    qint64 sumSapce = root_required * kGibiByte + swapeSpace;
 
-    PartitionTableType table = delegate_->findDevice(partition_->device_path)->table;
+    auto calcSpace = [=] (int val) {
+        qint64 sumSapce = val * kGibiByte + swapeSpace;
 
-    if (table == PartitionTableType::GPT && !partition_->is_lvm) {
-        sumSapce += efi_recommended * kMebiByte;
-    }
+        if (delegate_->findDevice(partition_->device_path)->table
+                == PartitionTableType::GPT && !partition_->is_lvm) {
+            sumSapce += efi_recommended * kMebiByte;
+        }
 
-    size_slider_->setMinimum(0);
-    size_slider_->blockSignals(true);
-    size_slider_->setValue(0);
-    size_slider_->blockSignals(false);
-    sumSapce = sumSapce / kGibiByte;
-    sumSapce = sumSapce  * kGibiByte;
-    const qint64 default_size = sumSapce + kGibiByte;
-    QString msg = "";
-    if (default_size > size_slider_->value() * kMebiByte + offset_logical) {
-        msg = ::QObject::tr("Unable to mount automatically, as it requires at least %1 GB")
-              .arg(QString::number(default_size / kGibiByte));
-       create_button_->setEnabled(false);
+        // Ensure that disk space is calculated in GB.
+        sumSapce = sumSapce / kGibiByte * kGibiByte;
+
+        return sumSapce + kGibiByte;
+    };
+
+    QString msg;
+    if (calcSpace(root_required) > size_slider_->value() * kMebiByte + offset_logical) {
+        msg = ::QObject::tr("Unable to mount automatically, as it requires at least %1 GB."
+                            " More than %2 GB is preferred.")
+              .arg(QString::number(calcSpace(root_required) / kGibiByte))
+              .arg(QString::number(calcSpace(root_recommended) / kGibiByte));
+        create_button_->setEnabled(false);
     } else {
         create_button_->setEnabled(true);
     }
@@ -714,25 +727,34 @@ void NewPartitionFrame::onSizeSliderValueChanged(qint64 size) {
     if (mem_info.mem_total > 2 *  kGibiByte) {
         swapeSpace = mem_info.mem_total + 2 *  kGibiByte;
     }
-    const int root_required = GetSettingsInt(kAutoMountPartitionRootMiniSpace);
+
+    const int root_required = GetSettingsInt(kPartitionRootMiniSpace);
+    const int root_recommended = GetSettingsInt(kAutoMountPartitionRootMiniSpace);
     const int efi_recommended = GetSettingsInt(kPartitionDefaultEFISpace);
-    qint64 sumSapce = root_required * kGibiByte + swapeSpace;
 
-    PartitionTableType table = delegate_->findDevice(partition_->device_path)->table;
+    auto calcSpace = [=] (int val) {
+        qint64 sumSapce = val * kGibiByte + swapeSpace;
 
-    if (table == PartitionTableType::GPT && !partition_->is_lvm) {
-        sumSapce += efi_recommended * kMebiByte;
-    }
-    sumSapce = sumSapce / kGibiByte;
-    sumSapce = sumSapce  * kGibiByte;
-    const qint64 default_size = sumSapce + kGibiByte;
-    QString msg = "";
-    if (default_size > size + offset_logical) {
-        msg = ::QObject::tr("Unable to mount automatically, as it requires at least %1 GB")
-              .arg(QString::number(default_size / kGibiByte));
+        if (delegate_->findDevice(partition_->device_path)->table
+                == PartitionTableType::GPT && !partition_->is_lvm) {
+            sumSapce += efi_recommended * kMebiByte;
+        }
+
+        // Ensure that disk space is calculated in GB.
+        sumSapce = sumSapce / kGibiByte * kGibiByte;
+
+        return sumSapce + kGibiByte;
+    };
+
+    QString msg;
+    if (calcSpace(root_required) > size + offset_logical) {
+        msg = ::QObject::tr("Unable to mount automatically, as it requires at least %1 GB."
+                            " More than %2 GB is preferred.")
+                .arg(QString::number(calcSpace(root_required) / kGibiByte))
+                .arg(QString::number(calcSpace(root_recommended) / kGibiByte));
        create_button_->setEnabled(false);
     } else {
-        create_button_->setEnabled(true);
+       create_button_->setEnabled(true);
     }
 
     m_auto_label->setText(msg);
