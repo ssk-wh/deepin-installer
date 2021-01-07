@@ -88,7 +88,8 @@ MainWindow::MainWindow(QWidget* parent)
       current_page_(PageId::NullId),
       log_file_(),
       //auto_install_(false),
-      m_showPastFrame(false)
+      m_showPastFrame(false),
+      m_setOverrideCursor(false)
 {
     this->setObjectName("main_window");
 
@@ -105,6 +106,8 @@ MainWindow::MainWindow(QWidget* parent)
 
     SetBrightness(GetSettingsInt(kScreenDefaultBrightness));
     WriteDisplayPort(getenv("DISPLAY"));
+
+    qApp->installEventFilter(this);
 
     for (auto it = m_frames.begin(); it != m_frames.end();) {
         if ((*it)->shouldDisplay()) {
@@ -375,6 +378,21 @@ bool MainWindow::eventFilter(QObject *target, QEvent *event)
                 || mouseEvent->button() == Qt::MouseButton::MiddleButton) {
                 return true;
             }
+        }
+    }
+
+    if (event->type() == QEvent::MouseMove) {
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
+        if (rect().contains(mouseEvent->globalPos())) {
+            if (mouseEvent->globalPos().x() < 5 || mouseEvent->globalPos().y() < 5) {
+                setCursor();
+            }
+            else{
+                resetCursor();
+            }
+        }
+        else {
+            resetCursor();
         }
     }
 
@@ -841,6 +859,22 @@ FrameInterface *MainWindow::getFrameInterface(QStandardItem *item) const
     }
 
     return nullptr;
+}
+
+void MainWindow::setCursor()
+{
+    if (!m_setOverrideCursor) {
+        QApplication::setOverrideCursor(QCursor(Qt::ArrowCursor));
+        m_setOverrideCursor = true;
+    }
+}
+
+void MainWindow::resetCursor()
+{
+    if (m_setOverrideCursor) {
+        QApplication::restoreOverrideCursor();
+        m_setOverrideCursor = false;
+    }
 }
 
 void MainWindow::onCurrentPageChanged(int index) {

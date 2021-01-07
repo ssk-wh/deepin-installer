@@ -153,6 +153,9 @@ private:
 
   FrameInterface* getFrameInterface(QStandardItem *item) const;
 
+  void setCursor();
+  void resetCursor();
+
   QLabel* background_label_ = nullptr;
   DImageButton* back_button_ = nullptr;
   DImageButton* close_button_ = nullptr;
@@ -213,6 +216,8 @@ private:
     QWidget* m_frameLabelsViewCoverWidget = nullptr;
     QStandardItemModel* m_frameLabelsModel = nullptr;
     QMap<FrameInterface*, DStandardItem*> m_frameModelItemMap;
+
+    bool m_setOverrideCursor = false;
 
     static const int FramePointerRole = Dtk::UserRole + 1;
 

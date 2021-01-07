@@ -73,7 +73,8 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
     : DMainWindow(parent),
       hook_worker_thread_(new QThread(this)),
       hook_worker_(new FirstBootHookWorker()),
-      m_showPastFrame(false)
+      m_showPastFrame(false),
+      m_setOverrideCursor(false)
 {
   this->setObjectName("first_boot_setup_window");
   SettingCustom::Instance()->setSettingsBool(kSystemInfoSetupAfterReboot, false);
@@ -91,6 +92,8 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
   titleBar->installEventFilter(this);
   titlebar()->setMenuVisible(false);
   titlebar()->setFullScreenButtonVisible(false);
+
+  qApp->installEventFilter(this);
 
   Q_ASSERT(m_frames.count() > 0);
   m_frames.first()->init();
@@ -423,6 +426,21 @@ bool FirstBootSetupWindow::eventFilter(QObject *target, QEvent *event)
         }
     }
 
+    if (event->type() == QEvent::MouseMove) {
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
+        if (rect().contains(mouseEvent->globalPos())) {
+            if (mouseEvent->globalPos().x() < 5 || mouseEvent->globalPos().y() < 5) {
+                setCursor();
+            }
+            else{
+                resetCursor();
+            }
+        }
+        else {
+            resetCursor();
+        }
+    }
+
     return DMainWindow::eventFilter(target, event);
 }
 
@@ -480,6 +498,22 @@ void FirstBootSetupWindow::registerShortcut() {
       qWarning() << "Failed to register global shortcut of Ctrl+Alt+P";
     }
   }
+}
+
+void FirstBootSetupWindow::setCursor()
+{
+    if (!m_setOverrideCursor) {
+        QApplication::setOverrideCursor(QCursor(Qt::ArrowCursor));
+        m_setOverrideCursor = true;
+    }
+}
+
+void FirstBootSetupWindow::resetCursor()
+{
+    if (m_setOverrideCursor) {
+        QApplication::restoreOverrideCursor();
+        m_setOverrideCursor = false;
+    }
 }
 
 void FirstBootSetupWindow::onHookFinished(bool ok) {

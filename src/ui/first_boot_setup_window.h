@@ -90,6 +90,9 @@ protected:
 
   void registerShortcut();
 
+  void setCursor();
+  void resetCursor();
+
   DImageButton*          back_button_         = nullptr;
   DImageButton*          close_button_        = nullptr;
   QLabel*                background_label_    = nullptr;
@@ -128,6 +131,8 @@ protected:
   QShortcut* control_panel_shortcut_ = nullptr;
 
   ControlPanelFrame* control_panel_frame_ = nullptr;
+
+  bool m_setOverrideCursor = false;
 
   static const int FramePointerRole = Dtk::UserRole + 1;
 
