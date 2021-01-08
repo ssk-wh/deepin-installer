@@ -464,20 +464,20 @@
         <translation>Boş alan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="59"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="70"/>
         <source>Shut Down</source>
         <translation>Kapat</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="72"/>
         <source>You can experience it after configuring user information in next system startup.</source>
         <translation>Bir sonraki sistem başlangıcında kullanıcı bilgilerini yapılandırdıktan sonra deneyimleyebilirsiniz.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="62"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="73"/>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="227"/>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="312"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="309"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="304"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="96"/>
@@ -492,26 +492,26 @@
         <translation>İptal</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="63"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="74"/>
         <source>Shut down</source>
         <translation>Kapat</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="68"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="121"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="50"/>
         <source>Abort Installation</source>
         <translation>Kurulumu İptal Et</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="70"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="63"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="103"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="55"/>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
         <translation>Kurulum sırasında yapacağınız işlemler etkili olmaz, kurulumu iptal etmek mi sürdürmek mi istersiniz?</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="71"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="98"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
@@ -525,7 +525,7 @@
         <translation>Devam</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="72"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="65"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="43"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="61"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="23"/>
@@ -553,10 +553,10 @@
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="414"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="190"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="378"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="760"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="1045"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="757"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="1042"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="239"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="946"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="960"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="137"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="260"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="133"/>
@@ -592,7 +592,7 @@
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="99"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="131"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="89"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="106"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="190"/>
         <source>Exit</source>
@@ -769,9 +769,9 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="228"/>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="313"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="310"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="134"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="341"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="338"/>
         <location filename="../src/ui/frames_cli/install_component_frame.h" line="73"/>
         <location filename="../src/ui/frames_cli/install_success_frame.h" line="69"/>
         <location filename="../src/ui/frames_cli/language_frame.h" line="75"/>
@@ -784,12 +784,12 @@
         <translation>Onayla</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="268"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="267"/>
         <source>Please input password</source>
         <translation>Lütfen parolayı yazın</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="275"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="274"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="935"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="174"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="314"/>
@@ -797,22 +797,22 @@
         <translation>Parola ile onayı aynı değil</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="308"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="305"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="177"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="231"/>
         <source>Encrypt This Disk</source>
         <translation>Bu Diski Şifrele</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="309"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="306"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="238"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="605"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="948"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="619"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="962"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Önemli verileri yedeklediğinizden emin olduktan sonra kurulum yapılacak diski seçin</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="310"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="307"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="539"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="709"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="716"/>
@@ -821,12 +821,12 @@
         <translation>Parola</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="311"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="308"/>
         <source>Repeat Password</source>
         <translation>Parola Onayı</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="314"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="311"/>
         <source>Take care of your password, otherwise, all your data will be lost</source>
         <translation>Parolanıza dikkat edin, aksi takdirde tüm verileriniz kaybolacaktır</translation>
     </message>
@@ -849,11 +849,11 @@
     <message>
         <location filename="../src/ui/frames/inner/lvm_partition_frame.cpp" line="56"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="48"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="90"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="89"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="278"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="99"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="143"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="837"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="851"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="186"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="25"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="20"/>
@@ -1031,8 +1031,8 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="177"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="275"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="234"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="838"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="865"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="852"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="879"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="88"/>
         <source>Ready to Install</source>
         <translation>Kuruluma Hazır</translation>
@@ -1041,7 +1041,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="179"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="277"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="233"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="864"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="878"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="92"/>
         <source>Make a backup of your important data and then continue</source>
         <translation>Önemli verilerin yedeğini aldıktan sonra devam edin</translation>
@@ -1325,32 +1325,32 @@
         <translation>Klavye Düzeni</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="90"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="88"/>
         <source>Change time</source>
         <translation>Zamanı değiştir</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="91"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="89"/>
         <source>hr</source>
         <translation>sa</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="92"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="90"/>
         <source>min</source>
         <translation>dak</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="93"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="91"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="92"/>
         <source>M</source>
         <translation>A</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="93"/>
         <source>D</source>
         <translation>G</translation>
     </message>
@@ -1393,7 +1393,7 @@
         <translation>Tümünü Seç</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="20"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="76"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="77"/>
@@ -1401,14 +1401,18 @@
         <translation>Kurulum Başarısız</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="88"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="103"/>
+        <source>Sorry for the trouble. Please take photos of the below error log, or save it to an external disk, or scan the QR code, and send the log to us. We will help solve your issue.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="21"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="78"/>
         <source>Sorry for the trouble. Please take a photo to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
         <translation>Üzgünüz. Lütfen bize hata günlüğünü göndermek için fotoğraf çekin veya günlüğü harici bir diske kaydedin. Sorunun çözülmesine yardımcı olacağız.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="90"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="107"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="183"/>
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="36"/>
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="89"/>
@@ -1475,42 +1479,42 @@
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="129"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="340"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="337"/>
         <source>Edit</source>
         <translation>Düzenle</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="151"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="343"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="619"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="340"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="616"/>
         <source>IP Address</source>
         <translation>İP Adresi</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="152"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="344"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="620"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="341"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="617"/>
         <source>Netmask</source>
         <translation>Ağ Maskesi</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="153"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="345"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="621"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="342"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="618"/>
         <source>Gateway</source>
         <translation>Ağ Geçidi</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="154"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="346"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="622"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="343"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="619"/>
         <source>Primary DNS</source>
         <translation>Birinci DNS</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="155"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="347"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="623"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="344"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="620"/>
         <source>Secondary DNS</source>
         <translation>İkinci DNS</translation>
     </message>
@@ -1522,112 +1526,112 @@
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="167"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="235"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="330"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="233"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="327"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="211"/>
         <source>Gateway:</source>
         <translation>Ağ Geçidi:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="168"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="248"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="331"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="246"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="328"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="212"/>
         <source>Primary DNS:</source>
         <translation>Birinci DNS:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="169"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="332"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="329"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="213"/>
         <source>Secondary DNS:</source>
         <translation>İkincil DNS:</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="209"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="328"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="207"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="325"/>
         <source>IP Address:</source>
         <translation>İP Adresi:</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="166"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="222"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="329"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="220"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="326"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="210"/>
         <source>Netmask:</source>
         <translation>Ağ maskesi:</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="273"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="271"/>
         <source>DHCP:</source>
         <translation>DHCP:</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="280"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="334"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="278"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="331"/>
         <source>Auto</source>
         <translation>Otomatik</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="281"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="335"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="279"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="332"/>
         <source>Manual</source>
         <translation>Elle</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="503"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="500"/>
         <source>Illegal %1, please have a check.</source>
         <translation>Geçersiz %1, lütfen kontrol edin.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="520"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="517"/>
         <source>IP address error: illegal IP address, please have a check.</source>
         <translation>İP adresi hatası: İP adresi hatalı, lütfen denetleyin.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="534"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="531"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
         <translation>Ağ maskesi sorunu: ağ maskesi uygun değil, kontrol et.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="766"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="957"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="1043"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="763"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="954"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="1040"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="177"/>
         <source>Configure Network</source>
         <translation>Ağı Yapılandır</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="767"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="1044"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="764"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="1041"/>
         <source>IP address has been auto-configured, but you can configure the network as well</source>
         <translation>IP adresi otomatik olarak yapılandırıldı, ancak ağı da yapılandırabilirsiniz</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="190"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="236"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="603"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="945"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="617"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="959"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="88"/>
         <source>Create Partitions</source>
         <translation>Bölümler Oluştur</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="231"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="862"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="876"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="572"/>
         <source>Edit LVM Disk</source>
         <translation>LVM Diski Düzenle</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="242"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="612"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="626"/>
         <source>Simple</source>
         <translation>Basit</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="243"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="615"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="629"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="550"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="97"/>
@@ -1636,24 +1640,24 @@
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="244"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="618"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="632"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="96"/>
         <source>Full Disk</source>
         <translation>Tüm Disk</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="675"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="689"/>
         <source>Start installation</source>
         <translation>Kurulumu başlat</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="810"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="824"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
         <translation>Hedef disk dinamiktir ve devam ederseniz verileriniz kaybolabilir. Lütfen önce önemli dosyalarınızın yedeğini alın.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="814"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="828"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
         <translation>Hedef disk dinamiktir ve ilerlerken biçimlendirilir. Lütfen önce önemli dosyalarınızın yedeğini alın.</translation>
     </message>
@@ -1790,20 +1794,20 @@
         <translation>Veri Diski</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/network_device_widget.cpp" line="265"/>
-        <location filename="../src/ui/widgets/network_device_widget.cpp" line="308"/>
+        <location filename="../src/ui/widgets/network_device_widget.cpp" line="263"/>
+        <location filename="../src/ui/widgets/network_device_widget.cpp" line="306"/>
         <source>Ethernet</source>
         <translation>Ethernet</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/network_device_widget.cpp" line="268"/>
-        <location filename="../src/ui/widgets/network_device_widget.cpp" line="311"/>
+        <location filename="../src/ui/widgets/network_device_widget.cpp" line="266"/>
+        <location filename="../src/ui/widgets/network_device_widget.cpp" line="309"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/network_device_widget.cpp" line="271"/>
-        <location filename="../src/ui/widgets/network_device_widget.cpp" line="314"/>
+        <location filename="../src/ui/widgets/network_device_widget.cpp" line="269"/>
+        <location filename="../src/ui/widgets/network_device_widget.cpp" line="312"/>
         <source>Unknown device</source>
         <translation>Bilinmeyen aygıt</translation>
     </message>
@@ -2033,7 +2037,7 @@
 <context>
     <name>installer::NetworkEditWidget</name>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="260"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="258"/>
         <source>Secondary DNS:</source>
         <translation>İkincil DNS:</translation>
     </message>

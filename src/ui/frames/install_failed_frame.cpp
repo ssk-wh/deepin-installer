@@ -100,7 +100,9 @@ public:
     {
         title_label_->setText(::QObject::tr("Installation Failed"));
         comment_label_->setText(
-            ::QObject::tr("Sorry for the trouble. Please take a photo to send us the error log, or save the log to an external disk. We will help solve the issue."));
+            ::QObject::tr("Sorry for the trouble. Please take photos of the below error log,"
+                          " or save it to an external disk, or scan the QR code, and send the log to us."
+                          " We will help solve your issue."));
         reboot_button_->setText(::QObject::tr("Exit"));
         saveLogButton->setText(::QObject::tr("Save Log"));
     }

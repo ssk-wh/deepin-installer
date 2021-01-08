@@ -464,20 +464,20 @@
         <translation>སྤྱོད་ཆོག་པའི་བར་སྟོང་།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="59"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="70"/>
         <source>Shut Down</source>
         <translation>རྩིས་འཁོར་གློག་གསོད།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="61"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="72"/>
         <source>You can experience it after configuring user information in next system startup.</source>
         <translation>ཐེངས་རྗེས་མར་ཁ་ཕྱེ་རྗེས། སྤྱོད་མཁན་གྱི་ཆ་འཕྲིན་སྡེབ་སྒྲིག་ཚར་བ་དང་རྒྱུད་ཁོངས་ཀྱི་བཀོལ་སྤྱོད་འདི་ཉིད་སྤྱོད་ཆོག</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="62"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="73"/>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="227"/>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="312"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="309"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="304"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="96"/>
@@ -492,26 +492,26 @@
         <translation>འདོར་བ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="63"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="74"/>
         <source>Shut down</source>
         <translation>རྩིས་འཁོར་གློག་གསོད།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="68"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="61"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="121"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="50"/>
         <source>Abort Installation</source>
         <translation>སྒྲིག་འཇུག་མཚམས་འཇོག་པ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="70"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="63"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="103"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="55"/>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
         <translation>ཐེངས་འདིའི་སྒྲིག་འཇུག་བརྒྱུད་རིམ་ཁྲོད་ཁྱོད་ཀྱིས་བྱས་པའི་འབྲེལ་ཡོད་བཀོལ་སྤྱོད་དག་གོ་མི་ཆོད་པས། སྒྲིག་འཇུག་མཚམས་འཇོག་པའམ་མུ་མཐུད་དེ་སྒྲིག་འཇུག་བྱེད་དགོས་སམ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="71"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="98"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
@@ -525,7 +525,7 @@
         <translation>མུ་མཐུད་སྒྲིག་འཇུག་བྱེད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="72"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="65"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="43"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="61"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="23"/>
@@ -553,10 +553,10 @@
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="414"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="190"/>
         <location filename="../src/ui/frames/language_frame.cpp" line="378"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="760"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="1045"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="757"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="1042"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="239"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="946"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="960"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="137"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="260"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="133"/>
@@ -592,7 +592,7 @@
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="99"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="131"/>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="89"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="106"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="190"/>
         <source>Exit</source>
@@ -769,9 +769,9 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="228"/>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="313"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="310"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="134"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="341"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="338"/>
         <location filename="../src/ui/frames_cli/install_component_frame.h" line="73"/>
         <location filename="../src/ui/frames_cli/install_success_frame.h" line="69"/>
         <location filename="../src/ui/frames_cli/language_frame.h" line="75"/>
@@ -784,12 +784,12 @@
         <translation>ཆོག</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="268"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="267"/>
         <source>Please input password</source>
         <translation>གསང་ཨང་ནང་འཇུག་བྱེད་རོགས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="275"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="274"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="935"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="174"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="314"/>
@@ -797,22 +797,22 @@
         <translation>ནང་འཇུག་བྱས་པའི་གསང་ཨང་གཅིག་པ་མ་རེད་འདུག</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="308"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="305"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="177"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="231"/>
         <source>Encrypt This Disk</source>
         <translation>ཚང་མར་གསང་ཨང་བཟོ་བ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="309"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="306"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="238"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="605"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="948"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="619"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="962"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>ཁྱོད་ཀྱིས་གཞི་གྲངས་གལ་ཆེན་གྲབས་ཉར་བྱས་ཡོད་པ་གཏན་ཁེལ་བྱས་རྗེས། སྒྲིག་འཇུག་བྱེད་སའི་སྡུད་སྡེར་འདེམས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="310"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="307"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="539"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="709"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="716"/>
@@ -821,12 +821,12 @@
         <translation>གསང་ཨང་།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="311"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="308"/>
         <source>Repeat Password</source>
         <translation>གསང་ཨང་བསྐྱར་ཟློས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="314"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="311"/>
         <source>Take care of your password, otherwise, all your data will be lost</source>
         <translation>ཁྱེད་ཀྱི་གསང་ཨང་བདག་གཉེར་འོས་འཚམ་གནང་རོགས། གསང་ཨང་བོར་བརླག་བྱུང་ཚེ་ཁྱེད་ཀྱི་གཞི་གྲངས་ཚང་མ་བོར་བརླག་བྱུང་སྲིད།</translation>
     </message>
@@ -849,11 +849,11 @@
     <message>
         <location filename="../src/ui/frames/inner/lvm_partition_frame.cpp" line="56"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="48"/>
-        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="90"/>
+        <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="89"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="278"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="99"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="143"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="837"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="851"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="186"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="25"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="20"/>
@@ -1031,8 +1031,8 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="177"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="275"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="234"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="838"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="865"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="852"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="879"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="88"/>
         <source>Ready to Install</source>
         <translation>སྒྲིག་འཇུག་བྱེད་གྲབས་བྱེད་པ།</translation>
@@ -1041,7 +1041,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="179"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="277"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="233"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="864"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="878"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="92"/>
         <source>Make a backup of your important data and then continue</source>
         <translation>གཞི་གྲངས་གལ་ཆེན་གྲབས་ཉར་གནང་རྗེས། གཤམ་གྱི་བཀོལ་སྤྱོད་གནང་རྒྱུ།</translation>
@@ -1325,32 +1325,32 @@
         <translation>མཐེབ་གཞོང་བཀོད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="90"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="88"/>
         <source>Change time</source>
         <translation>ལག་ཐབས་ཀྱིས་དུས་ཚོད་སྒྲིག་འགོད་བྱེད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="91"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="89"/>
         <source>hr</source>
         <translation>ཆུ་ཚོད།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="92"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="90"/>
         <source>min</source>
         <translation>སྐར་མ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="93"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="91"/>
         <source>Y</source>
         <translation>ལོ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="94"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="92"/>
         <source>M</source>
         <translation>ཟླ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="95"/>
+        <location filename="../src/ui/frames/inner/systemdateframe.cpp" line="93"/>
         <source>D</source>
         <translation>ཚེས།</translation>
     </message>
@@ -1393,7 +1393,7 @@
         <translation>ཡོངས་འདེམས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="86"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="20"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="76"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="77"/>
@@ -1401,14 +1401,18 @@
         <translation>སྒྲིག་འཇུག་མ་ཐུབ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="88"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="103"/>
+        <source>Sorry for the trouble. Please take photos of the below error log, or save it to an external disk, or scan the QR code, and send the log to us. We will help solve your issue.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="21"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="78"/>
         <source>Sorry for the trouble. Please take a photo to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
         <translation>སྐུ་ཉིད་ལ་ཐུགས་སུན་བཟོས་པར་དགོང་དག་ཞུ། གཤམ་གསལ་ནི་ཉིན་ཐོ་ནོར་བ་རེད། པར་བླངས་ནས་ནོར་འཁྲུལ་ང་ཚོར་ལྡོག་སྐྱེལ་གནང་ཆོག་ལ། ཉིན་ཐོ་ནོར་བ་དེ་ཕྱི་རོལ་གསོག་ཉར་སྒྲིག་ཆས་ནང་ཉར་ཆོག འདི་ལྟར་ང་ཚོས་ཁྱེད་ཀྱི་གནད་དོན་ཐག་གཅོད་སྔར་ལྷག་བྱེད་ཐུབ། </translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_failed_frame.cpp" line="90"/>
+        <location filename="../src/ui/frames/install_failed_frame.cpp" line="107"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="183"/>
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="36"/>
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="89"/>
@@ -1475,42 +1479,42 @@
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="129"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="340"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="337"/>
         <source>Edit</source>
         <translation>རྩོམ་སྒྲིག</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="151"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="343"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="619"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="340"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="616"/>
         <source>IP Address</source>
         <translation>IP གནས་ཡུལ།</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="152"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="344"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="620"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="341"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="617"/>
         <source>Netmask</source>
         <translation>བུ་དྲ་ཡིབ་ཨང་།</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="153"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="345"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="621"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="342"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="618"/>
         <source>Gateway</source>
         <translation>དྲ་སྒོ།</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="154"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="346"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="622"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="343"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="619"/>
         <source>Primary DNS</source>
         <translation>DNSགཙོ་བོ།</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="155"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="347"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="623"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="344"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="620"/>
         <source>Secondary DNS</source>
         <translation>གྲབས་ཉར་DNS</translation>
     </message>
@@ -1522,112 +1526,112 @@
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="167"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="235"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="330"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="233"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="327"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="211"/>
         <source>Gateway:</source>
         <translation>དྲ་སྒོ།</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="168"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="248"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="331"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="246"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="328"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="212"/>
         <source>Primary DNS:</source>
         <translation>སྔོན་འདེམས་DNS</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="169"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="332"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="329"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="213"/>
         <source>Secondary DNS:</source>
         <translation>DNSཕལ་པ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="209"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="328"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="207"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="325"/>
         <source>IP Address:</source>
         <translation>IPགནས་ཡུལ།</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="166"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="222"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="329"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="220"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="326"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="210"/>
         <source>Netmask:</source>
         <translation>བུ་དྲ་ཡིབ་ཨང་།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="273"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="271"/>
         <source>DHCP:</source>
         <translation>DHCP:</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="280"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="334"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="278"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="331"/>
         <source>Auto</source>
         <translation>རང་འགུལ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="281"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="335"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="279"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="332"/>
         <source>Manual</source>
         <translation>ལག་ཐབས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="503"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="500"/>
         <source>Illegal %1, please have a check.</source>
         <translation>%1ཁྲིམས་འགལ་རེད་འདུག་པས། ཁྱོད་ཀྱི་ནང་འཇུག་བྱས་པར་ཞིབ་བཤེར་བྱེད་རོགས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="520"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="517"/>
         <source>IP address error: illegal IP address, please have a check.</source>
         <translation>IPགནས་ཡུལ་ནོར་་འདུག་ཅིང་IPགནས་ཡུལ་ཁྲིམས་འགལ་རེད་འདུག་པས། ཁྱོད་ཀྱི་ནང་འཇུག་བྱས་པར་ཞིབ་བཤེར་བྱེད་རོགས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="534"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="531"/>
         <source>Netmask error: illegal netmask, please have a check.</source>
         <translation>བུ་དྲ་ཡིབ་ཨང་ནོར་འདུག་ཅིང་བུ་དྲ་ཡིབ་ཨང་ཁྲིམས་འགལ་རེད་འདུག་པས། ཁྱོད་ཀྱི་ནང་འཇུག་བྱས་པར་ཞིབ་བཤེར་བྱེད་རོགས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="766"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="957"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="1043"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="763"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="954"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="1040"/>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="177"/>
         <source>Configure Network</source>
         <translation>དྲ་རྒྱ་སྡེབ་སྒྲིག</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="767"/>
-        <location filename="../src/ui/frames/networkframe.cpp" line="1044"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="764"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="1041"/>
         <source>IP address has been auto-configured, but you can configure the network as well</source>
         <translation>ཁྱེད་ལ་རང་འགུལ་ངང་IPས་གནས་ཐོབ་ཡོད་མོད། ཁྱེད་ཀྱིས་དྲ་རྒྱའི་སྡེབ་སྒྲིག་བཟོ་བཅོས་བྱས་ཆོག</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="190"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="236"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="603"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="945"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="617"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="959"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="88"/>
         <source>Create Partitions</source>
         <translation>སྲ་སྡེར་ཁུལ་ཚན།</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="231"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="862"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="876"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="572"/>
         <source>Edit LVM Disk</source>
         <translation>གཏན་ཚིགས་བམ་པོ་སྡེབ་སྒྲིག</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="242"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="612"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="626"/>
         <source>Simple</source>
         <translation>སྟབས་བདེ།</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="243"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="615"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="629"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="550"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="97"/>
@@ -1636,24 +1640,24 @@
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="244"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="618"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="632"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="96"/>
         <source>Full Disk</source>
         <translation>ཆ་ཚང་སྒྲིག་འཇུག</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="675"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="689"/>
         <source>Start installation</source>
         <translation>སྒྲིག་འཇུག་བྱེད་འགོ་ཚུགས་པ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="810"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="824"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
         <translation>དམིགས་ཡུལ་སྡུད་སྡེར་ནི་འགུལ་རྣམ་སྡུད་སྡེར་ཡིན་པས། མུ་མཐུད་སྒྲིག་འཇུག་བྱས་ཚེ། ཁྱེད་ཀྱི་གཞི་གྲངས་བོར་སྲིད།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="814"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="828"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
         <translation>དམིགས་ཡུལ་སྡུད་སྡེར་ནི་འགུལ་རྣམ་སྡུད་སྡེར་ཡིན་པས། མུ་མཐུད་སྒྲིག་འཇུག་བྱས་ན་ཁྱེད་ཀྱི་སྡུད་སྡེར་རྣམ་གཞག་བཟོ་སྲིད་པས། ཁྱེད་ཀྱི་གཞི་གྲངས་གྲབས་ཉར་བྱ་རྒྱུ།</translation>
     </message>
@@ -1790,20 +1794,20 @@
         <translation>གཞི་གྲངས་སྡེར།</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/network_device_widget.cpp" line="265"/>
-        <location filename="../src/ui/widgets/network_device_widget.cpp" line="308"/>
+        <location filename="../src/ui/widgets/network_device_widget.cpp" line="263"/>
+        <location filename="../src/ui/widgets/network_device_widget.cpp" line="306"/>
         <source>Ethernet</source>
         <translation>ཨེ་ཐེར་དྲ་རྒྱ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/network_device_widget.cpp" line="268"/>
-        <location filename="../src/ui/widgets/network_device_widget.cpp" line="311"/>
+        <location filename="../src/ui/widgets/network_device_widget.cpp" line="266"/>
+        <location filename="../src/ui/widgets/network_device_widget.cpp" line="309"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/network_device_widget.cpp" line="271"/>
-        <location filename="../src/ui/widgets/network_device_widget.cpp" line="314"/>
+        <location filename="../src/ui/widgets/network_device_widget.cpp" line="269"/>
+        <location filename="../src/ui/widgets/network_device_widget.cpp" line="312"/>
         <source>Unknown device</source>
         <translation>རྒྱུས་མེད་པའི་སྒྲིག་ཆས།</translation>
     </message>
@@ -2033,7 +2037,7 @@
 <context>
     <name>installer::NetworkEditWidget</name>
     <message>
-        <location filename="../src/ui/frames/networkframe.cpp" line="260"/>
+        <location filename="../src/ui/frames/networkframe.cpp" line="258"/>
         <source>Secondary DNS:</source>
         <translation>DNSཕལ་པ།</translation>
     </message>
