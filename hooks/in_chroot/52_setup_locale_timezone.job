@@ -140,6 +140,8 @@ EOF
   enable_ntp
   datetime_hctosys
 
+  touch -c /usr/share/applications/*
+
   # Check locale
   if ls /usr/share/i18n/locales | grep -q "\<${LOCALE}\>"; then
     msg "${LOCALE} is available"
