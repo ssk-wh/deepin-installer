@@ -88,6 +88,8 @@ public:
      void initConnections();
      void initUI();
 
+     void setupDiskEncrypt(bool flag);
+
      // Check current partition mode is simple mode or not.
      bool isSimplePartitionMode();
      bool isFullDiskPartitionMode();
@@ -592,19 +594,7 @@ void PartitionFramePrivate::initConnections() {
   connect(full_disk_encrypt_frame_, &Full_Disk_Encrypt_frame::encryptFinished, q_ptr, [=] {
       //      q_ptr->autoPart();
       //      q_ptr->m_proxy->nextFrame();
-      if (full_disk_partition_frame_->isEncrypt()) {
-          WriteFullDiskEncryptPassword(full_disk_encrypt_frame_->passwd());
-      } else {
-          WriteFullDiskEncryptPassword("");
-      }
-
-      FinalFullDiskResolution resolution;
-      full_disk_encrypt_frame_->getFinalDiskResolution(resolution);
-      FinalFullDiskOptionList& option_list = resolution.option_list;
-      for (FinalFullDiskOption& option : option_list) {
-          option.encrypt = full_disk_partition_frame_->isEncrypt();
-      }
-      WriteFullDiskResolution(resolution);
+      setupDiskEncrypt(full_disk_partition_frame_->isEncrypt()); // 设置全盘分区场景下的全盘加密
 
       q_ptr->m_proxy->hideChildFrame();
       showPrepareInstallFrame();
@@ -770,6 +760,24 @@ void PartitionFramePrivate::initUI() {
   q_ptr->setLayout(centerLayout);
 }
 
+// 设置是否启用全盘加密
+void PartitionFramePrivate::setupDiskEncrypt(bool flag)
+{
+    if (flag) {
+        WriteFullDiskEncryptPassword(full_disk_encrypt_frame_->passwd());
+    } else {
+        WriteFullDiskEncryptPassword("");
+    }
+
+    FinalFullDiskResolution resolution;
+    full_disk_encrypt_frame_->getFinalDiskResolution(resolution);
+    FinalFullDiskOptionList& option_list = resolution.option_list;
+    for (FinalFullDiskOption& option : option_list) {
+        option.encrypt = flag;
+    }
+    WriteFullDiskResolution(resolution);
+}
+
 bool PartitionFramePrivate::isFullDiskPartitionMode() {
   return full_disk_frame_button_->isChecked();
 }
@@ -817,8 +825,10 @@ void PartitionFramePrivate::onButtonGroupToggled(QAbstractButton *button)
 #ifdef QT_DEBUG_test
   showPartitionNumberLimitationFrame();
 #else
+    bool isDiskEncrypt = false;
     if (button == full_disk_frame_button_){
         qDebug() << "on fulldisk button toggled";
+        isDiskEncrypt = full_disk_partition_frame_->isEncrypt();
         if (!GetSettingsBool(kPartitionSkipFullDiskPartitionPage)) {
             partition_stacked_layout_->setCurrentWidget(full_disk_partition_frame_);
         }
@@ -834,6 +844,8 @@ void PartitionFramePrivate::onButtonGroupToggled(QAbstractButton *button)
         advanced_delegate_->refreshVisual();
         partition_stacked_layout_->setCurrentWidget(advanced_partition_frame_);
     }
+
+    setupDiskEncrypt(isDiskEncrypt);  // 设置手动分区和全盘分区切换时清理全盘加密资源
 #endif // QT_DEBUG
 }
 
