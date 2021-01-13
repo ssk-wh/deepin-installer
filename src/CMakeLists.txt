@@ -839,6 +839,23 @@ target_link_libraries(deepin-installer-first-boot
                       #pwquality
                       )
 
+# 用户处理安装器初始，目前主要是和plymouth界面配置，
+# 用于设置启动背景, 防止高分辨率安装器启动慢的情况下，plymouth歪屏
+# 将设置背景的模块分离出来，主要是防止安装器主界面启动时间是受后续业务逻辑修改而导致的不确定性
+add_executable(deepin-installer-init
+    app/deepin_installer_init.cpp
+
+    ui/widgets/wallpaper_item.h
+    ui/widgets/wallpaper_item.cpp
+
+    service/settings_manager.h
+    service/settings_manager.cpp
+
+    base/command.h
+    base/command.cpp
+)
+target_link_libraries(deepin-installer-init ${LINK_LIBS})
+
 add_executable(deepin-installer-user-form
                app/deepin_installer_user_form.cpp
                ${BASE_FILES}
@@ -972,311 +989,6 @@ target_link_libraries(deepin-installer-xrandr-switchy
                       ${X11RandR_LIBRARIES}
                       )
 
-# Unsquashfs progress
-#add_executable(deepin-installer-unsquashfs-progress
-#
-#               app/unsquashfs_progress.cpp
-#               ${BASE_FILES}
-#               )
-#target_link_libraries(deepin-installer-unsquashfs-progress ${QtCore_LIBS})
-
-
-# test reboot system
-add_executable(reboot-system
-               app/reboot_system.cpp
-
-               ${BASE_FILES}
-               service/power_manager.cpp
-               service/power_manager.h
-               )
-target_link_libraries(reboot-system ${QtCore_LIBS})
-
-# Combobox test
-add_executable(combobox-test
-               ui/tests/combobox_test.cpp
-
-               ${BASE_FILES}
-               ui/utils/widget_util.cpp
-               ui/utils/widget_util.h
-               ui/widgets/table_combo_box.cpp
-               ui/widgets/table_combo_box.h
-
-               service/settings_manager.cpp
-               service/settings_manager.h
-               service/settings_name.h
-               service/screen_adaptation_manager.h
-               service/screen_adaptation_manager.cpp
-
-               ui/images/images.qrc
-               ui/styles/styles.qrc
-               license/license.qrc
-               )
-target_link_libraries(combobox-test ${LINK_LIBS})
-
-
-# locale manager test
-add_executable(locale-manager-test
-               service/timezone_manager_test.cpp
-
-               ${BASE_FILES}
-
-               service/backend/wifi_inspect_worker.cpp
-               service/backend/wifi_inspect_worker.h
-               service/backend/geoip_request_worker.cpp
-               service/backend/geoip_request_worker.h
-               service/timezone_manager.cpp
-               service/timezone_manager.h
-               service/settings_manager.cpp
-               service/settings_manager.h
-
-               ${SYSINFO_FILES}
-               )
-target_link_libraries(locale-manager-test ${LINK_LIBS})
-
-
-# QR widget test
-add_executable(qr-widget-test
-               ui/tests/qr_widget_test.cpp
-
-               base/file_util.cpp
-               base/file_util.h
-               third_party/zlib_wrapper/zip_util.cpp
-               third_party/zlib_wrapper/zip_util.h
-               ui/widgets/qr_widget.cpp
-               ui/widgets/qr_widget.h
-               ui/utils/widget_util.cpp
-               ui/utils/widget_util.h
-               service/screen_adaptation_manager.h
-               service/screen_adaptation_manager.cpp
-               service/settings_manager.cpp
-               service/settings_manager.h
-               service/settings_name.h
-               base/command.h
-               base/command.cpp
-               )
-target_link_libraries(qr-widget-test
-                      ${Qt_LIBS}
-                      ${ZLib_LIBRARIES}
-                      ${DtkWidget_LIBRARIES}
-
-                      qrencode
-                      )
-
-# progress bar test
-add_executable(qprogressbar_test
-               ui/tests/progressbar_test.cpp
-               ui/widgets/rounded_progress_bar.cpp
-               ui/widgets/rounded_progress_bar.h
-               )
-target_link_libraries(qprogressbar_test ${Qt_LIBS})
-
-# spinner test
-add_executable(spinner-test
-               ui/tests/spinner_test.cpp
-
-               ui/widgets/spinner_label.cpp
-               ui/widgets/spinner_label.h
-
-               ui/widgets/spinner/spinner.qrc
-               )
-target_link_libraries(spinner-test ${Qt_LIBS})
-
-
-# system info tip test
-add_executable(system_info_tip_test
-               ui/tests/system_info_tip_test.cpp
-
-               ui/widgets/system_info_tip.cpp
-               ui/widgets/system_info_tip.h
-
-               ${BASE_FILES}
-               ui/images/images.qrc
-               ui/styles/styles.qrc
-               license/license.qrc
-               )
-target_link_libraries(system_info_tip_test ${Qt_LIBS})
-
-# timezone frame test
-add_executable(timezone-frame-test
-               ui/tests/timezone_frame_test/timezone_frame_test.cpp
-
-               ${BASE_FILES}
-
-               service/settings_manager.cpp
-               service/settings_manager.h
-               service/settings_name.h
-               service/timezone_manager.cpp
-               service/timezone_manager.h
-               service/backend/geoip_request_worker.cpp
-               service/backend/geoip_request_worker.h
-               service/backend/wifi_inspect_worker.cpp
-               service/backend/wifi_inspect_worker.h
-               service/language_manager.h
-               service/language_manager.cpp
-               service/screen_adaptation_manager.h
-               service/screen_adaptation_manager.cpp
-
-               partman/os_prober.cpp
-               partman/os_prober.h
-               partman/structs.cpp
-               partman/structs.h
-
-               sysinfo/machine.cpp
-               sysinfo/machine.h
-               sysinfo/timezone.cpp
-               sysinfo/timezone.h
-               sysinfo/users.cpp
-               sysinfo/users.h
-
-               ui/utils/widget_util.h
-               ui/utils/widget_util.cpp
-
-               ui/interfaces/frameinterface.h
-               ui/interfaces/frameproxyinterface.h
-               ui/interfaces/frameinterfaceprivate.h
-
-               ui/delegates/popup_menu_delegate.cpp
-               ui/delegates/popup_menu_delegate.h
-               ui/delegates/timezone_map_util.cpp
-               ui/delegates/timezone_map_util.h
-               ui/frames/consts.h
-               ui/frames/timezone_frame.cpp
-               ui/frames/timezone_frame.h
-               ui/frames/inner/systemdateframe.h
-               ui/frames/inner/systemdateframe.cpp
-               ui/frames/inner/select_time_zone_frame.h
-               ui/frames/inner/select_time_zone_frame.cpp
-               ui/views/disk_installation_view.h
-               ui/views/disk_installation_view.cpp
-               ui/models/continent_model.h
-               ui/models/continent_model.cpp
-               ui/views/frameless_list_view.h
-               ui/views/frameless_list_view.cpp
-               ui/delegates/frameless_list_delegate.cpp
-               ui/delegates/frameless_list_delegate.h
-               ui/delegates/disk_installation_delegate.h
-               ui/delegates/disk_installation_delegate.cpp
-               ui/widgets/comment_label.cpp
-               ui/widgets/comment_label.h
-               ui/widgets/flat_button.cpp
-               ui/widgets/flat_button.h
-               ui/widgets/nav_button.cpp
-               ui/widgets/nav_button.h
-               ui/widgets/pointer_button.cpp
-               ui/widgets/pointer_button.h
-               ui/widgets/popup_menu.cpp
-               ui/widgets/popup_menu.h
-               ui/widgets/timezone_map.cpp
-               ui/widgets/timezone_map.h
-               ui/widgets/title_label.cpp
-               ui/widgets/title_label.h
-               ui/widgets/tooltip_pin.cpp
-               ui/widgets/tooltip_pin.h
-               ui/widgets/time_date_line_edit.h
-               ui/widgets/time_date_line_edit.cpp
-
-               ui/images/images.qrc
-               ui/styles/styles.qrc
-               license/license.qrc
-               )
-target_link_libraries(timezone-frame-test
-                      ${Qt_LIBS}
-                      ${DtkWidget_LIBRARIES}
-                      )
-
-add_executable(ctl-btn-test
-               ui/tests/ctl_btn_test.cpp
-
-               base/file_util.cpp
-               base/file_util.h
-               ui/widgets/pointer_button.cpp
-               ui/widgets/pointer_button.h
-               ui/utils/widget_util.cpp
-               ui/utils/widget_util.h
-
-               base/command.h
-               base/command.cpp
-               service/settings_manager.h
-               service/settings_manager.cpp
-               service/screen_adaptation_manager.h
-               service/screen_adaptation_manager.cpp
-
-               ui/images/images.qrc
-               ui/styles/styles.qrc
-               license/license.qrc
-               )
-target_link_libraries(ctl-btn-test ${LINK_LIBS})
-
-add_executable(partition-util-test
-               ui/tests/partition_util_test.cpp
-               )
-target_link_libraries(partition-util-test ${Qt_LIBS})
-
-# Unittest
-add_executable(deepin-installer-tests
-               app/unittest_main.cpp
-
-               ${BASE_FILES}
-               ${PARTMAN_FILES}
-               ${SYSINFO_FILES}
-               ${UNITTEST_FILES}
-
-               service/settings_manager.cpp
-               service/settings_manager.h
-
-               ui/delegates/installer_args_parser.cpp
-               ui/delegates/installer_args_parser.h
-               ui/delegates/install_slide_frame_util.cpp
-               ui/delegates/install_slide_frame_util.h
-               ui/delegates/timezone_map_util.cpp
-               ui/delegates/timezone_map_util.h
-               ui/delegates/partition_util.h
-               ui/delegates/partition_util.cpp
-
-               ui/delegates/componentinstallmanager.h
-               ui/delegates/componentinstallmanager.cpp
-               )
-target_link_libraries(deepin-installer-tests
-                      ${LINK_LIBS}
-                      gtest
-                      )
-
-# Unittest with root privilege
-add_executable(deepin-installer-root-tests
-               app/root_unittest_main.cpp
-
-               ${BASE_FILES}
-               ${PARTMAN_FILES}
-               ${SYSINFO_FILES}
-               ${ROOT_UNITTEST_FILES}
-               ui/delegates/partition_util.h
-               ui/delegates/partition_util.cpp
-               service/settings_manager.cpp
-               service/settings_manager.h
-               )
-target_link_libraries(deepin-installer-root-tests
-                      ${LINK_LIBS}
-                      gtest
-                      )
-
-
-# Unsuqashfs progress window test
-add_definitions("-DUNSQUASHFS_SH=\"${CMAKE_CURRENT_SOURCE_DIR}/misc/unsquashfs_gui/unsquashfs.sh\"")
-add_executable(unsquashfs_gui
-
-               ui/tests/unsquashfs_gui/unsquashfs_gui.cpp
-               ui/tests/unsquashfs_gui/unsquashfs_progress_window.cpp
-               ui/tests/unsquashfs_gui/unsquashfs_progress_window.h
-
-               ${BASE_FILES}
-               ui/tests/unsquashfs_gui/worker.cpp
-               ui/tests/unsquashfs_gui/worker.h
-               )
-target_link_libraries(unsquashfs_gui ${Qt_LIBS})
-
-## tests
-#add_test(NAME deepin-installler-tests COMMAND $<TARGET_FILE:deepin-installer-tests>)
-
 ## Installation
 install(PROGRAMS
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-auto-install
@@ -1298,6 +1010,7 @@ install(TARGETS
         deepin-installer-simpleini
         deepin-installer-unsquashfs
         deepin-installer-user-form
+        deepin-installer-init
         DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
         )
 

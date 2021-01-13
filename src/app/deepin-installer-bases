@@ -19,3 +19,5 @@
 
 #/usr/bin/kwin_no_scale &
 #sleep 5
+
+/usr/bin/deepin-installer-init & # 设置安装器的背景，适配高分辨率下plymouth出现歪屏的情况

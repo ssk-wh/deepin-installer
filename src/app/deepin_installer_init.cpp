@@ -15,28 +15,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef INSTALLER_WALLPAPER_ITEM_H
-#define INSTALLER_WALLPAPER_ITEM_H
+// Main program of installer.
 
-#include <QLabel>
-#include <QRect>
+#include "ui/widgets/wallpaper_item.h"
 
-namespace installer {
+#include <QApplication>
+#include <QDesktopWidget>
 
-// Displays background image on one screen.
-class WallpaperItem : public QLabel {
+using namespace installer;
 
-public:
-    WallpaperItem(const QRect &rect = QRect(), QWidget* parent = nullptr);
+int main(int argc, char* argv[]) {
+    QApplication app(argc, argv);
+    app.setApplicationDisplayName("Deepin Installer init");
+    app.setApplicationName("deepin-installer");
 
-protected:
-    void resizeEvent(QResizeEvent *event) override;
+    WallpaperItem *background = new WallpaperItem;
+    background->setFixedSize(QApplication::desktop()->availableGeometry().size());
+    background->show();
+    background->lower();
 
-private:
-    void initUI();
-    void update(const QSize &size);
-};
-
-} // namespace installer
-
-#endif  // INSTALLER_WALLPAPER_ITEM_H
+    return app.exec();
+}

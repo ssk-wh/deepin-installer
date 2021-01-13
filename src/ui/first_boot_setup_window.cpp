@@ -229,9 +229,6 @@ void FirstBootSetupWindow::initConnections() {
 
     connect(loading_frame_, &FirstBootLoadingFrame::startRunHooks, this,
             &FirstBootSetupWindow::onStartRunHooks);
-
-    connect(monitor_mode_shortcut_, &GlobalShortcut::activated,
-            multi_head_manager_, &MultiHeadManager::switchXRandRMode);
     connect(back_button_, &DImageButton::clicked, this, &FirstBootSetupWindow::backPage);
     connect(stacked_layout_, &QStackedLayout::currentChanged, back_button_, &DImageButton::raise);
 
@@ -318,8 +315,6 @@ void FirstBootSetupWindow::initUI() {
 
     control_panel_frame_ = new ControlPanelFrame(this);
     control_panel_frame_->hide();
-
-    multi_head_manager_ = new MultiHeadManager(this);
 
     //this->setFocusPolicy(Qt::TabFocus);
 }

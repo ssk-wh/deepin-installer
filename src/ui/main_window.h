@@ -53,7 +53,6 @@ class ConfirmQuitFrame;
 class ControlPanelFrame;
 class DiskSpaceInsufficientFrame;
 class InstallProgressFrame;
-class MultiHeadManager;
 class PageIndicator;
 class PartitionFrame;
 class PartitionTableWarningFrame;
@@ -174,7 +173,6 @@ private:
   SystemInfoFrame* system_info_frame_ = nullptr;
   TimezoneFrame* timezone_frame_ = nullptr;
   VirtualMachineFrame* virtual_machine_frame_ = nullptr;
-  MultiHeadManager* multi_head_manager_ = nullptr;
   SelectInstallComponentFrame* m_selectComponentFrame = nullptr;
   InstallResultsFrame* m_installResultsFrame = nullptr;
   ShadowWidget* shadow_widget = nullptr;

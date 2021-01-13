@@ -34,6 +34,7 @@ prepare_lightdm_deepin_installer_mode() {
 if [ x${SYSTEM_CHECK_MODE} != "xtrue" ]; then
 cat > "${CONF_FILE}" <<EOF
 [Seat:*]
+display-setup-script=/usr/bin/deepin-installer-bases
 greeter-setup-script=/usr/bin/deepin-installer-first-boot
 EOF
 

@@ -152,10 +152,6 @@ void MainWindow::fullscreen() {
     qApp->installTranslator(translator);
   }
 
-#ifndef QT_DEBUG
-    multi_head_manager_->updateWallpaper();
-#endif // !QT_DEBUG
-
     this->setFixedSize(ScreenAdaptationManager::instance()->primaryAvailableGeometry().size());
 
     if (GetSettingsBool(kPartitionDoAutoPart) || GetSettingsBool("DI_LUPIN")) {
@@ -472,8 +468,6 @@ void MainWindow::initConnections() {
 
   connect(control_panel_shortcut_, &QShortcut::activated,
           control_panel_frame_, &ControlPanelFrame::toggleVisible);
-  connect(monitor_mode_shortcut_, &GlobalShortcut::activated,
-          multi_head_manager_, &MultiHeadManager::switchXRandRMode);
   connect(brightness_increase_shortcut_, &QShortcut::activated,
           IncreaseBrightness);
   connect(brithtness_decrease_shortcut_, &QShortcut::activated,
@@ -692,7 +686,6 @@ void MainWindow::initUI() {
   control_panel_frame_ = new ControlPanelFrame(this);
   control_panel_frame_->hide();
 
-  multi_head_manager_ = new MultiHeadManager(this);
   back_button_->raise();
 
   shadow_widget->hide();

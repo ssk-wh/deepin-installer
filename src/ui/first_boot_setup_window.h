@@ -48,7 +48,6 @@ enum class FrameLabelState{
 
 class FirstBootLoadingFrame;
 class FirstBootHookWorker;
-class MultiHeadManager;
 class SystemInfoFrame;
 class TimezoneFrame;
 class LanguageFrame;
@@ -108,7 +107,6 @@ protected:
 
   // Shortcut used to switch mirror modes.
   GlobalShortcut*   monitor_mode_shortcut_ = nullptr;
-  MultiHeadManager* multi_head_manager_    = nullptr;
 
   QVBoxLayout* m_frameSelectedLayout = nullptr;
 

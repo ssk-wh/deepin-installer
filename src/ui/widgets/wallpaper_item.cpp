@@ -15,39 +15,43 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "ui/widgets/wallpaper_item.h"
-
-#include <QDebug>
-
+#include "wallpaper_item.h"
 #include "service/settings_manager.h"
-#include "ui/utils/xutil.h"
+
+#include <QApplication>
+#include <QDesktopWidget>
+#include <QResizeEvent>
 
 namespace installer {
 
-WallpaperItem::WallpaperItem(const QRect& background_geometry,
-                             QWidget* parent) :
-    QLabel(parent),
-    background_geometry_(background_geometry) {
-  this->setObjectName("wallpaper_item");
+WallpaperItem::WallpaperItem(const QRect &rect, QWidget* parent) :
+    QLabel(parent){
 
-  this->initUI();
+    this->setWindowFlags(Qt::FramelessWindowHint | Qt::CustomizeWindowHint);
+    this->setAttribute(Qt::WA_TranslucentBackground, true);
+    this->setAttribute(Qt::WA_TransparentForMouseEvents, true);
+    this->setObjectName("wallpaper_item");
+    this->initUI();
+}
+
+void WallpaperItem::resizeEvent(QResizeEvent *event)
+{
+    update(event->size());
 }
 
 void WallpaperItem::initUI() {
-  const QSize window_size = background_geometry_.size();
-  this->setFixedSize(window_size);
-  this->move(background_geometry_.topLeft());
-  this->setWindowFlags(Qt::FramelessWindowHint | Qt::CustomizeWindowHint);
-  this->setAttribute(Qt::WA_TranslucentBackground, true);
-  this->setAttribute(Qt::WA_TransparentForMouseEvents, true);
-  utils::SetWindowTypeHint(this, utils::X11WindowType::Desktop);
-  utils::SkipTaskbarPager(this);
+    QRect rect = QApplication::desktop()->availableGeometry();
+    move(rect.topLeft());
+    update(rect.size());
+}
 
-  const QString image_path = GetWindowBackground();
-  const QPixmap orig_pixmap(image_path);
-  const QPixmap pixmap = orig_pixmap.scaled(window_size,
-                                            Qt::KeepAspectRatioByExpanding);
-  this->setPixmap(pixmap);
+void WallpaperItem::update(const QSize &size)
+{
+    const QString image_path = GetWindowBackground();
+    const QPixmap orig_pixmap(image_path);
+    const QPixmap pixmap = orig_pixmap.scaled(size,
+                                              Qt::KeepAspectRatioByExpanding);
+    this->setPixmap(pixmap);
 }
 
 }  // namespace installer
