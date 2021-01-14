@@ -55,7 +55,10 @@ class SwapWarnningFrame : public DDialog {
   void initConnections();
   void initUI();
   void setupCloseButton();
+  void setCursor();
+  void resetCursor();
 
+  bool m_setOverrideCursor = false;
   CommentLabel *comment_label_ = nullptr;
   SelectButton* continue_button_ = nullptr;
   DSuggestButton* abort_button_ = nullptr;
