@@ -19,6 +19,7 @@
 #define INSTALLER_UI_MAIN_WINDOW_H
 
 #include "ui/interfaces/frameproxyinterface.h"
+#include "ui/utils/mouse_shape.h"
 
 #include <QWidget>
 #include <QHash>
@@ -153,9 +154,6 @@ private:
 
   FrameInterface* getFrameInterface(QStandardItem *item) const;
 
-  void setCursor();
-  void resetCursor();
-
   QLabel* background_label_ = nullptr;
   DImageButton* back_button_ = nullptr;
   DImageButton* close_button_ = nullptr;
@@ -217,7 +215,7 @@ private:
     QStandardItemModel* m_frameLabelsModel = nullptr;
     QMap<FrameInterface*, DStandardItem*> m_frameModelItemMap;
 
-    bool m_setOverrideCursor = false;
+    MouseShape m_mouseShape;
 
     static const int FramePointerRole = Dtk::UserRole + 1;
 

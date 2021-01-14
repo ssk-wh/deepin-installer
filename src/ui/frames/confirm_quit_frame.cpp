@@ -41,7 +41,6 @@ namespace installer {
 
 ConfirmQuitFrame::ConfirmQuitFrame(QWidget* parent)
     : DDialog(parent)
-    , m_setOverrideCursor(false)
 {
     setObjectName("confirm_quit_frame");
 
@@ -145,22 +144,6 @@ void ConfirmQuitFrame::setupCloseButton()
     m_close_button->hide();
 }
 
-void ConfirmQuitFrame::setCursor()
-{
-    if (!m_setOverrideCursor) {
-        QApplication::setOverrideCursor(QCursor(Qt::ArrowCursor));
-        m_setOverrideCursor = true;
-    }
-}
-
-void ConfirmQuitFrame::resetCursor()
-{
-    if (m_setOverrideCursor) {
-        QApplication::restoreOverrideCursor();
-        m_setOverrideCursor = false;
-    }
-}
-
 bool ConfirmQuitFrame::eventFilter(QObject *watched, QEvent *event)
 {
     if (event->type() == QEvent::MouseButtonPress) {
@@ -178,10 +161,10 @@ bool ConfirmQuitFrame::eventFilter(QObject *watched, QEvent *event)
         QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
         if (closeButtonRect.contains(mouseEvent->globalPos())) {
             qDebug() << "contains mouse pos:" << mouseEvent->globalPos();
-            resetCursor();
+            m_mouseShape.resetCursor();
         }
         else {
-            setCursor();
+            m_mouseShape.setCursor(Qt::ArrowCursor);
         }
     }
 
@@ -192,7 +175,7 @@ void ConfirmQuitFrame::showEvent(QShowEvent *event)
 {
     qApp->installEventFilter(this);
 
-    setCursor();
+    m_mouseShape.setCursor(Qt::ArrowCursor);
 
     return DDialog::showEvent(event);
 }
@@ -201,7 +184,7 @@ void ConfirmQuitFrame::hideEvent(QHideEvent *event)
 {
     qApp->removeEventFilter(this);
 
-    resetCursor();
+    m_mouseShape.resetCursor();
 
     return DDialog::hideEvent(event);
 }

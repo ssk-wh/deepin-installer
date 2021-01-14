@@ -18,6 +18,8 @@
 #ifndef INSTALLER_UI_FRAMES_SWAP_WARNNING_FRAME_H
 #define INSTALLER_UI_FRAMES_SWAP_WARNNING_FRAME_H
 
+#include "ui/utils/mouse_shape.h"
+
 #include <DSuggestButton>
 #include <DDialog>
 #include <DImageButton>
@@ -55,10 +57,8 @@ class SwapWarnningFrame : public DDialog {
   void initConnections();
   void initUI();
   void setupCloseButton();
-  void setCursor();
-  void resetCursor();
 
-  bool m_setOverrideCursor = false;
+  MouseShape m_mouseShape;
   CommentLabel *comment_label_ = nullptr;
   SelectButton* continue_button_ = nullptr;
   DSuggestButton* abort_button_ = nullptr;

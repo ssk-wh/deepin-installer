@@ -19,6 +19,7 @@
 #define INSTALLER_UI_SETUP_WINDOW_H
 
 #include "ui/interfaces/frameproxyinterface.h"
+#include "ui/utils/mouse_shape.h"
 
 #include <QFrame>
 #include <DMainWindow>
@@ -90,9 +91,6 @@ protected:
 
   void registerShortcut();
 
-  void setCursor();
-  void resetCursor();
-
   DImageButton*          back_button_         = nullptr;
   DImageButton*          close_button_        = nullptr;
   QLabel*                background_label_    = nullptr;
@@ -132,7 +130,7 @@ protected:
 
   ControlPanelFrame* control_panel_frame_ = nullptr;
 
-  bool m_setOverrideCursor = false;
+  MouseShape m_mouseShape;
 
   static const int FramePointerRole = Dtk::UserRole + 1;
 

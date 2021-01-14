@@ -449,6 +449,8 @@ set(UI_FILES
     ui/utils/xutil.h
     ui/utils/keyboardmonitor.h
     ui/utils/keyboardmonitor.cpp
+    ui/utils/mouse_shape.h
+    ui/utils/mouse_shape.cpp
 
     ui/views/frameless_list_view.cpp
     ui/views/frameless_list_view.h

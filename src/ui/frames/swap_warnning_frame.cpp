@@ -40,7 +40,6 @@ namespace installer {
 
 SwapWarnningFrame::SwapWarnningFrame(QWidget* parent)
     : DDialog(parent)
-    , m_setOverrideCursor(false)
 {
     setObjectName("swap_warnning_frame");
 
@@ -99,7 +98,7 @@ void SwapWarnningFrame::showEvent(QShowEvent *event)
 {
     qApp->installEventFilter(this);
 
-    setCursor();
+    m_mouseShape.setCursor(Qt::ArrowCursor);
 
     return DDialog::showEvent(event);
 }
@@ -108,7 +107,7 @@ void SwapWarnningFrame::hideEvent(QHideEvent *event)
 {
     qApp->removeEventFilter(this);
 
-    resetCursor();
+    m_mouseShape.resetCursor();
 
     return DDialog::hideEvent(event);
 }
@@ -159,22 +158,6 @@ void SwapWarnningFrame::setupCloseButton()
     m_close_button->setNormalPic(":/images/close_normal.svg");
     m_close_button->setHoverPic(":/images/close_normal.svg");
     m_close_button->setPressPic(":/images/close_normal.svg");
-}
-
-void SwapWarnningFrame::setCursor()
-{
-    if (!m_setOverrideCursor) {
-        QApplication::setOverrideCursor(QCursor(Qt::ArrowCursor));
-        m_setOverrideCursor = true;
-    }
-}
-
-void SwapWarnningFrame::resetCursor()
-{
-    if (m_setOverrideCursor) {
-        QApplication::restoreOverrideCursor();
-        m_setOverrideCursor = false;
-    }
 }
 
 }  // namespace installer

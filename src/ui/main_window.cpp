@@ -88,8 +88,7 @@ MainWindow::MainWindow(QWidget* parent)
       current_page_(PageId::NullId),
       log_file_(),
       //auto_install_(false),
-      m_showPastFrame(false),
-      m_setOverrideCursor(false)
+      m_showPastFrame(false)
 {
     this->setObjectName("main_window");
 
@@ -385,14 +384,14 @@ bool MainWindow::eventFilter(QObject *target, QEvent *event)
         QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
         if (rect().contains(mouseEvent->globalPos())) {
             if (mouseEvent->globalPos().x() < 5 || mouseEvent->globalPos().y() < 5) {
-                setCursor();
+                m_mouseShape.setCursor(Qt::ArrowCursor);
             }
             else{
-                resetCursor();
+                m_mouseShape.resetCursor();
             }
         }
         else {
-            resetCursor();
+            m_mouseShape.resetCursor();
         }
     }
 
@@ -859,22 +858,6 @@ FrameInterface *MainWindow::getFrameInterface(QStandardItem *item) const
     }
 
     return nullptr;
-}
-
-void MainWindow::setCursor()
-{
-    if (!m_setOverrideCursor) {
-        QApplication::setOverrideCursor(QCursor(Qt::ArrowCursor));
-        m_setOverrideCursor = true;
-    }
-}
-
-void MainWindow::resetCursor()
-{
-    if (m_setOverrideCursor) {
-        QApplication::restoreOverrideCursor();
-        m_setOverrideCursor = false;
-    }
 }
 
 void MainWindow::onCurrentPageChanged(int index) {
