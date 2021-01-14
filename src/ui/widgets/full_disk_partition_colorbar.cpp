@@ -19,6 +19,8 @@ const int kPartitionLabelSpace = 10;
 const int kPartitionNameFont = 14;
 const int kPartitionMounLabFont = 12;
 
+const int kMountPointMaxSize = 6;
+
 static const QMap<QString, QString> PART_NAME_COLOR_NAME_MAP{
     { QString("/boot"), QString("#C100AB") },
     { QString("/boot/efi"), QString("#F6C000") },
@@ -190,9 +192,16 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
         partNameLable->setFont(font);
         partNameLable->setFixedWidth(75);
         partNameLable->setAlignment(Qt::AlignmentFlag::AlignLeft | Qt::AlignmentFlag::AlignBottom);
-        partNameLable->setText(GetPartitionDisplayText(partition));
+
+        // 挂载点的路径超过6位的后面显示...
+        // 通过tip的方式显示全部的路径字符
+        QString text = GetPartitionDisplayText(partition).size() > kMountPointMaxSize ?
+                    QString("%1...").arg(GetPartitionDisplayText(partition).left(kMountPointMaxSize))
+                  : GetPartitionDisplayText(partition);
+
+        partNameLable->setText(text);
         partNameLable->setStyleSheet("QLabel{color:#363636} ");
-        tooltipString.append(partNameLable->text());
+        tooltipString.append(GetPartitionDisplayText(partition));
         layout->addSpacing(2);
         layout->addWidget(partNameLable);
 
