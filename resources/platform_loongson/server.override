@@ -30,5 +30,8 @@ timezone_force_local_time = true
 timezone_use_local_time_regardless = true
 partition_is_fsck_file_system = true
 install_failed_qr_display_switch = true
+#system_info_password_monotonous_length = 3
+#system_info_password_continuous_length = 3
+#system_info_password_validate = "1234567890;abcdefghijklmnopqrstuvwxyz;ABCDEFGHIJKLMNOPQRSTUVWXYZ;~!@#$%^&*-+=`|\\(){}[]:;\"'<>,.?/"
 
 

@@ -959,6 +959,16 @@ bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, Q
         return false;
     }
 
+    if (PwqualityManager::instance()->passwdMonotonous(passwordEdit->text())) {
+        msg = ::QObject::tr("The new password contains no longer than %1 monotonous character sequences").arg(GetSettingsInt(kSystemInfoPasswordMonotonousLength));
+        return false;
+    }
+
+    if (PwqualityManager::instance()->passwdContinuous(passwordEdit->text())) {
+        msg = ::QObject::tr("The new password contains no more than %1 consecutive characters of the same character").arg(GetSettingsInt(kSystemInfoPasswordContinuousLength));
+        return false;
+    }
+
     if (!PwqualityManager::instance()->oem_lower_case(passwordEdit->text())) {
         msg = ::QObject::tr("Password must contain lowercase letters").arg(palingrome);
         return false;

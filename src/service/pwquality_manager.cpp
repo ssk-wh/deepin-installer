@@ -48,7 +48,9 @@ void installer::PwqualityManager::setup()
 //    }
 
 //    m_palindromeChecked = GetSettingsBool(kSystemInfoPasswordPalindromeCheck);
-    //    m_palindromeLength = GetSettingsInt(kSystemInfoPasswordPalindromeLength);
+//    m_palindromeLength = GetSettingsInt(kSystemInfoPasswordPalindromeLength);
+    m_monotonousLength = GetSettingsInt(kSystemInfoPasswordMonotonousLength);
+    m_continuousLength = GetSettingsInt(kSystemInfoPasswordContinuousLength);
 }
 
 installer::PwqualityManager *installer::PwqualityManager::instance()
@@ -189,5 +191,82 @@ int installer::PwqualityManager::passwdStrength(const QString &passwd)
                       }));
 
     return reset;
+}
+
+bool installer::PwqualityManager::passwdMonotonous(const QString &passwd)
+{
+    qDebug() << "m_monotonousLength = " << m_monotonousLength;
+    // 过滤长度为0的情况
+    if (m_monotonousLength == 0) {
+        return false;
+    }
+
+    // 按单调字符长度截取密码
+    QStringList list;
+    for (int pos = 0; pos < passwd.size() + 1 - m_monotonousLength; pos++) {
+        list.append(passwd.mid(pos, m_monotonousLength));
+    }
+
+    // 依次处理每次截取的密码串判断是否是单调加1的字符串
+    for (QString str : list) {
+        /* 过滤掉尾部长度不符合要求的字符串 */
+        if (str.length() < m_monotonousLength) {
+            continue;
+        }
+
+        /* 单调加1字符串：统计 字符串中前后字符之间差为1的次数是 = 单调字符长度 - 1 */
+        QChar ch = str[0];
+        if (std::count_if(str.cbegin() + 1, str.cend(),
+                          [&](const QChar& policy) {
+                              if (policy.toLatin1() - ch.toLatin1() == 1) {
+                                  ch = policy;
+                                  return true;
+                              }
+                              return false;
+            }) == (m_monotonousLength - 1)) {
+
+            return true;
+        }
+    }
+
+    return false;
+}
+
+bool installer::PwqualityManager::passwdContinuous(const QString &passwd)
+{
+    qDebug() << "m_continuousLength = " << m_continuousLength;
+    // 过滤长度为0的情况
+    if (m_continuousLength == 0) {
+        return false;
+    }
+
+    // 按单调字符长度截取密码
+    QStringList list;
+    for (int pos = 0; pos < passwd.size() + 1 - m_continuousLength; pos++) {
+        list.append(passwd.mid(pos, m_continuousLength));
+    }
+
+    // 依次处理每次截取的密码串判断每个子串是否是相同字符
+    for (QString str : list) {
+        /* 过滤掉尾部长度不符合要求的字符串 */
+        if (str.length() < m_continuousLength) {
+            continue;
+        }
+
+        /* 统计字符串是否都相等 */
+        QChar ch = str[0];
+        if (std::count_if(str.cbegin(), str.cend(),
+                          [&](const QChar& policy) {
+                              if (policy == ch) {
+                                  return true;
+                              }
+                              return false;
+            }) == m_continuousLength) {
+
+            return true;
+        }
+    }
+
+    return false;
 }
 

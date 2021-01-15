@@ -55,6 +55,8 @@ public:
     QString palindromeChecked(const QString &text);
     QString dictChecked(const QString &text);
     bool lengthChecked(const QString &text);
+    bool passwdMonotonous(const QString &passwd);
+    bool passwdContinuous(const QString &passwd);
 
     bool oem_lower_case(const QString &text);
     bool oem_require_number(const QString &text);
@@ -83,7 +85,9 @@ private:
     bool m_dictChecked = false;
     QString m_dictPath = "";
     bool m_palindromeChecked = false;
-    int  m_palindromeLength = 1;
+    int m_palindromeLength = 1;
+    int m_monotonousLength = 0;
+    int m_continuousLength = 0;
 };
 
 }  // namespace installer

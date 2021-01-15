@@ -170,6 +170,8 @@ PASSWORD_MIN_LENGTH=$(installer_get "system_info_password_min_len")
 PASSWORD_MAX_LENGTH=$(installer_get "system_info_password_max_len")
 VALIDATE_POLICY="${POLICY}"
 VALIDATE_REQUIRED=$(installer_get "system_info_password_validate_required")
+VALIDATE_CONTINUOUS=$(installer_get "system_info_password_continuous_length")
+VALIDATE_=$(installer_get "system_info_password_validate_required")
 EOF
 
 if [ x$(installer_get "system_info_setup_after_reboot") != "xtrue" ]; then
