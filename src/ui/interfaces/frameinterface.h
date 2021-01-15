@@ -28,6 +28,7 @@
 #include "frameproxyinterface.h"
 
 #include <QApplication>
+#include "service/settings_manager.h"
 
 namespace installer {
 enum class FrameType {
@@ -93,25 +94,24 @@ protected:
 
     bool eventFilter(QObject *watched, QEvent *event) override {
         if (event->type() == QEvent::KeyPress) {
-            QKeyEvent *key = dynamic_cast<QKeyEvent*>(event);
-            if (key != nullptr) {
-                int key_value = key->key();
-                switch (key_value) {
-                    case Qt::Key_Tab:    return focusSwitch();
-                    case Qt::Key_Space:  return doSpace();
-                    case Qt::Key_Return: return doSelect();
-                    case Qt::Key_Up:     return directionKey(Qt::Key_Up);
-                    case Qt::Key_Down:   return directionKey(Qt::Key_Down);
-                    case Qt::Key_Left:   return directionKey(Qt::Key_Left);
-                    case Qt::Key_Right:  return directionKey(Qt::Key_Right);
-                    default: return QWidget::eventFilter(watched, event);
+            if (!SettingCustom::Instance()->getSettingsBool("ControlPanelShow")) {
+                QKeyEvent *key = dynamic_cast<QKeyEvent*>(event);
+                if (key != nullptr) {
+                    int key_value = key->key();
+                    switch (key_value) {
+                        case Qt::Key_Tab:    return focusSwitch();
+                        case Qt::Key_Space:  return doSpace();
+                        case Qt::Key_Return: return doSelect();
+                        case Qt::Key_Up:     return directionKey(Qt::Key_Up);
+                        case Qt::Key_Down:   return directionKey(Qt::Key_Down);
+                        case Qt::Key_Left:   return directionKey(Qt::Key_Left);
+                        case Qt::Key_Right:  return directionKey(Qt::Key_Right);
+                        default: return QWidget::eventFilter(watched, event);
+                    }
                 }
-            } else {
-                return QWidget::eventFilter(watched, event);
             }
-        } else {
-            return QWidget::eventFilter(watched, event);
         }
+        return QWidget::eventFilter(watched, event);
     }
 
     void showEvent(QShowEvent *evnet) override {

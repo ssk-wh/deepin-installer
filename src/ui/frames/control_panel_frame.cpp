@@ -75,6 +75,7 @@ void ControlPanelFrame::toggleVisible() {
         return;
     }
 #endif // QT_DEBUG
+    SettingCustom::Instance()->setSettingsBool("ControlPanelShow", !this->isVisible());
     this->setVisible(!this->isVisible());
     this->raise();
 }
