@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# lexross <mais@techie.com>, 2017
+# ba56da5c479245883255d97580e861b5_327de87 <cc1517672f7d7ecc8d2a76b655e9f30b_134975>, 2017
 # 66ada94cf86a03c2c3f9f194dbecd078_17bc4ce <7656a543ffb124c2d89ced497eaf8ae9_468705>, 2017
 # Sami G.-D., 2017
 # Charles Monzat <c.monzat@laposte.net>, 2017
