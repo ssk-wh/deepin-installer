@@ -119,6 +119,13 @@ void LanguageFrame::changeEvent(QEvent *event)
     }
 }
 
+void LanguageFrame::showEvent(QShowEvent *event)
+{
+    Q_D(LanguageFrame);
+    this->setCurentFocus(d->m_select_language_frame->getLanguageView());
+    return FrameInterface::showEvent(event);
+}
+
 bool LanguageFrame::focusSwitch()
 {
     Q_D(LanguageFrame);
@@ -132,12 +139,24 @@ bool LanguageFrame::focusSwitch()
     } else if (d->nextButton == m_current_focus_widget) {
         this->setCurentFocus(d->m_select_language_frame->getLanguageView());
     } else if (d->m_select_language_frame->getLanguageView() == m_current_focus_widget) {
-        this->setCurentFocus(d->m_select_language_frame->getAcceptexperience());
+        if (d->m_select_language_frame->getAcceptexperience()->isVisible()) {
+            this->setCurentFocus(d->m_select_language_frame->getAcceptexperience());
+        } else if (d->m_select_language_frame->getAcceptlicense()->isVisible()) {
+            this->setCurentFocus(d->m_select_language_frame->getAcceptlicense());
+        }
     } else if (d->m_select_language_frame->getAcceptexperience() == m_current_focus_widget) {
         this->setCurentFocus(d->m_select_language_frame->getExperiencelabel());
     } else if (d->m_select_language_frame->getExperiencelabel() == m_current_focus_widget) {
         if (d->nextButton->isVisible()) {
-            this->setCurentFocus(d->m_select_language_frame->getAcceptlicense());
+            if (d->m_select_language_frame->getAcceptlicense()->isVisible()) {
+                this->setCurentFocus(d->m_select_language_frame->getAcceptlicense());
+            } else {
+                if(d->nextButton->isEnabled()){
+                    this->setCurentFocus(d->nextButton);
+                } else {
+                    this->setCurentFocus(d->m_select_language_frame->getLanguageView());
+                }
+            }
         } else {
             return d->m_user_experience_frame->focusSwitch();
         }
