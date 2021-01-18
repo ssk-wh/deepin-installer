@@ -99,6 +99,7 @@ class NewPartitionFrame : public ChildFrameInterface {
 
   // To memorize slider value.
   qint64 last_slider_value_;
+  bool m_isComboBoxPopupShow = false;
 
  private slots:
   // Append operations to |delegate| when create_button_ is clicked.

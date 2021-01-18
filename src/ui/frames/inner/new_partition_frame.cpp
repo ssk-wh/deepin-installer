@@ -200,21 +200,49 @@ bool NewPartitionFrame::focusSwitch()
 
 bool NewPartitionFrame::doSpace()
 {
-    if (type_box_ == m_current_focus_widget) {
-        type_box_->showPopup();
-    } else if (alignment_box_ == m_current_focus_widget) {
-        alignment_box_->showPopup();
-    } else if (fs_box_ == m_current_focus_widget) {
-        fs_box_->showPopup();
-    } else if (mount_point_box_ == m_current_focus_widget) {
-        mount_point_box_->showPopup();
-    }
+//    if (type_box_ == m_current_focus_widget) {
+//        type_box_->showPopup();
+//    } else if (alignment_box_ == m_current_focus_widget) {
+//        alignment_box_->showPopup();
+//    } else if (fs_box_ == m_current_focus_widget) {
+//        fs_box_->showPopup();
+//    } else if (mount_point_box_ == m_current_focus_widget) {
+//        mount_point_box_->showPopup();
+//    }
     return true;
 }
 
 bool NewPartitionFrame::doSelect()
 {
-    if (create_button_ == m_current_focus_widget) {
+    if (type_box_ == m_current_focus_widget) {
+        if (m_isComboBoxPopupShow) {
+            type_box_->hidePopup();
+        } else {
+            type_box_->showPopup();
+        }
+        m_isComboBoxPopupShow = !m_isComboBoxPopupShow;
+    } else if (alignment_box_ == m_current_focus_widget) {
+        if (m_isComboBoxPopupShow) {
+            alignment_box_->hidePopup();
+        } else {
+            alignment_box_->showPopup();
+        }
+        m_isComboBoxPopupShow = !m_isComboBoxPopupShow;
+    } else if (fs_box_ == m_current_focus_widget) {
+        if (m_isComboBoxPopupShow) {
+            fs_box_->hidePopup();
+        } else {
+            fs_box_->showPopup();
+        }
+        m_isComboBoxPopupShow = !m_isComboBoxPopupShow;
+    } else if (mount_point_box_ == m_current_focus_widget) {
+        if (m_isComboBoxPopupShow) {
+            mount_point_box_->hidePopup();
+        } else {
+            mount_point_box_->showPopup();
+        }
+        m_isComboBoxPopupShow = !m_isComboBoxPopupShow;
+    } else if (create_button_ == m_current_focus_widget) {
         emit create_button_->clicked();
     } else if (cancel_button_ == m_current_focus_widget) {
         emit cancel_button_->clicked();
