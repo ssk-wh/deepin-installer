@@ -170,11 +170,18 @@ void NewPartitionFrame::setPartition(const Partition::Ptr partition) {
 
 bool NewPartitionFrame::focusSwitch()
 {
+    QLineEdit *testedit = size_slider_->findChild<QLineEdit*>("editor");
+    if (testedit->hasFocus()) {
+        if (size_slider_ != m_current_focus_widget) {
+            this->setCurentFocus(size_slider_);
+        }
+    }
+
     if (m_current_focus_widget == nullptr) {
-        this->setCurentFocus(create_button_);
-    } else if (create_button_ == m_current_focus_widget) {
         this->setCurentFocus(cancel_button_);
     } else if (cancel_button_ == m_current_focus_widget) {
+        this->setCurentFocus(create_button_);
+    } else if (create_button_ == m_current_focus_widget) {
         this->setCurentFocus(type_box_);
     } else if (type_box_ == m_current_focus_widget) {
         type_box_->hidePopup();
@@ -190,10 +197,10 @@ bool NewPartitionFrame::focusSwitch()
             mount_point_box_->hidePopup();
             this->setCurentFocus(size_slider_);
         } else {
-            this->setCurentFocus(create_button_);
+            this->setCurentFocus(cancel_button_);
         }
     } else if (size_slider_ == m_current_focus_widget) {
-        this->setCurentFocus(create_button_);
+        this->setCurentFocus(cancel_button_);
     }
 
     return true;
