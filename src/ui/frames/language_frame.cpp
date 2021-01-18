@@ -130,6 +130,33 @@ bool LanguageFrame::focusSwitch()
 {
     Q_D(LanguageFrame);
 
+    if (d->m_select_language_frame->getLanguageView()->hasFocus()) {
+        if (d->m_select_language_frame->getLanguageView() != m_current_focus_widget) {
+            this->setCurentFocus(d->m_select_language_frame->getLanguageView());
+        }
+    } else if (d->m_select_language_frame->getAcceptexperience()->hasFocus()) {
+        if (d->m_select_language_frame->getAcceptexperience() != m_current_focus_widget) {
+            this->setCurentFocus(d->m_select_language_frame->getAcceptexperience());
+        }
+    } else if (d->m_select_language_frame->getExperiencelabel()->hasFocus()) {
+        if (d->m_select_language_frame->getExperiencelabel() != m_current_focus_widget) {
+            this->setCurentFocus(d->m_select_language_frame->getExperiencelabel());
+        }
+    } else if (d->m_select_language_frame->getAcceptlicense()->hasFocus()) {
+        if (d->m_select_language_frame->getAcceptlicense() != m_current_focus_widget) {
+            this->setCurentFocus(d->m_select_language_frame->getAcceptlicense());
+        }
+    } else if(d->m_select_language_frame->getLicenselabel()->hasFocus()) {
+        if (d->m_select_language_frame->getLicenselabel() != m_current_focus_widget) {
+            this->setCurentFocus(d->m_select_language_frame->getLicenselabel());
+        }
+    } else if(d->m_select_language_frame->getPrivacylicenselabel()->hasFocus()) {
+        if (d->m_select_language_frame->getPrivacylicenselabel() != m_current_focus_widget) {
+            this->setCurentFocus(d->m_select_language_frame->getPrivacylicenselabel());
+        }
+    }
+
+
     if (m_current_focus_widget == nullptr) {
         if(d->nextButton->isEnabled()){
             this->setCurentFocus(d->nextButton);
@@ -209,11 +236,18 @@ bool LanguageFrame::doSelect()
 {
     Q_D(LanguageFrame);
 
+    if (d->m_select_language_frame->getLanguageView()->hasFocus()) {
+        if (d->m_select_language_frame->getLanguageView() != m_current_focus_widget) {
+            this->setCurentFocus(d->m_select_language_frame->getLanguageView());
+        }
+    }
+
     if (m_current_focus_widget == nullptr) {
     } else if (d->nextButton == m_current_focus_widget) {
         d->nextButton->click();
     } else if (d->m_select_language_frame->getLanguageView() == m_current_focus_widget) {
-        return d->m_select_language_frame->doSelect();
+        d->m_select_language_frame->doSelect();
+        return focusSwitch();
     } else if (d->m_select_language_frame->getLicenselabel() == m_current_focus_widget) {
         if (d->nextButton->isVisible()) {
             d->m_select_language_frame->requestShowUserLicense();
@@ -333,6 +367,8 @@ void LanguageFramePrivate::showUserLicense() {
     m_frame_layout->setCurrentWidget(m_user_license_frame);
 
     nextButton->hide();
+
+    q_ptr->setCurentFocus(m_select_language_frame->getLicenselabel());
 }
 
 void LanguageFramePrivate::showLanguage() {
@@ -368,6 +404,8 @@ void LanguageFramePrivate::showUserExperience()
     m_frame_layout->setCurrentWidget(m_user_experience_frame);
 
     nextButton->hide();
+
+    q_ptr->setCurentFocus(m_select_language_frame->getExperiencelabel());
 }
 
 void LanguageFramePrivate::showPrivacyLicense()
@@ -390,6 +428,8 @@ void LanguageFramePrivate::showPrivacyLicense()
     m_frame_layout->setCurrentWidget(m_privacy_license_frame);
 
     nextButton->hide();
+
+    q_ptr->setCurentFocus(m_select_language_frame->getPrivacylicenselabel());
 }
 
 void LanguageFramePrivate::setupTs()
