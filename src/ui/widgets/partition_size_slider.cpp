@@ -127,7 +127,7 @@ void PartitionSizeSlider::initUI() {
   size_label->setObjectName("size_label");
 
   QHBoxLayout* layout = new QHBoxLayout();
-  layout->setContentsMargins(0, 1, 0, 1);
+  layout->setContentsMargins(0, 2, 0, 2);
   layout->setSpacing(0);
   layout->addWidget(slider_);
   layout->addSpacing(8);

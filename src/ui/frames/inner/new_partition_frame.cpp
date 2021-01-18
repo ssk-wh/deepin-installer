@@ -29,6 +29,7 @@
 #include <QPainterPath>
 #include <DPushButton>
 #include <QAbstractItemView>
+#include <QLineEdit>
 
 #include "base/file_util.h"
 #include "sysinfo/proc_meminfo.h"
@@ -242,6 +243,13 @@ bool NewPartitionFrame::doSelect()
             mount_point_box_->showPopup();
         }
         m_isComboBoxPopupShow = !m_isComboBoxPopupShow;
+    } else if (size_slider_ == m_current_focus_widget) {
+        QLineEdit *testedit = size_slider_->findChild<QLineEdit*>("editor");
+        if (!testedit->hasFocus()) {
+            testedit->setFocus();
+        } else {
+            testedit->clearFocus();
+        }
     } else if (create_button_ == m_current_focus_widget) {
         emit create_button_->clicked();
     } else if (cancel_button_ == m_current_focus_widget) {
