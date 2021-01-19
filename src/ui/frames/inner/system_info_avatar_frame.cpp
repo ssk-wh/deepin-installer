@@ -112,7 +112,6 @@ bool SystemInfoAvatarFrame::doSpace()
 bool SystemInfoAvatarFrame::directionKey(int keyvalue)
 {
     Q_D(SystemInfoAvatarFrame);
-    d->list_view_->setFocus();
     switch (keyvalue) {
     case Qt::Key_Up: {
 
@@ -123,22 +122,18 @@ bool SystemInfoAvatarFrame::directionKey(int keyvalue)
         }
         break;
     case Qt::Key_Left: {
-            if (d->list_view_->hasFocus()) {
-                QModelIndex testcureentindex = d->list_view_->currentIndex();
-                if ((testcureentindex.row() - 1) >= 0) {
-                    //d->list_view_->setCurrentIndex(testcureentindex.sibling(testcureentindex.row() - 1, 0));
-                    Q_EMIT d->list_view_->pressed(testcureentindex.sibling(testcureentindex.row() - 1, 0));
-                }
+            QModelIndex testcureentindex = d->list_view_->currentIndex();
+            if ((testcureentindex.row() - 1) >= 0) {
+                QModelIndex testcureentindex_temp = testcureentindex.sibling(testcureentindex.row() - 1, testcureentindex.column());
+                Q_EMIT d->list_view_->pressed(testcureentindex_temp);
             }
         }
         break;
     case Qt::Key_Right: {
-            if (d->list_view_->hasFocus()) {
-                QModelIndex testcureentindex = d->list_view_->currentIndex();
-                if ((testcureentindex.row() + 1) < d->list_view_->model()->rowCount()) {
-                    //d->list_view_->setCurrentIndex(testcureentindex.sibling(testcureentindex.row() + 1, 0));
-                    Q_EMIT d->list_view_->pressed(testcureentindex.sibling(testcureentindex.row() + 1, 0));
-                }
+            QModelIndex testcureentindex = d->list_view_->currentIndex();
+            if ((testcureentindex.row() + 1) < d->list_view_->model()->rowCount()) {
+                QModelIndex testcureentindex_temp = testcureentindex.sibling(testcureentindex.row() + 1, testcureentindex.column());
+                Q_EMIT d->list_view_->pressed(testcureentindex_temp);
             }
         }
         break;

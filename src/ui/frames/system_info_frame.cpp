@@ -67,7 +67,7 @@ public:
 
     QHBoxLayout* bottom_layout_ = nullptr;
     QStackedLayout* stacked_layout_ = nullptr;
-    SystemInfoAvatarFrame* avatar_frame_ = nullptr;
+    //SystemInfoAvatarFrame* avatar_frame_ = nullptr;
     SystemInfoFormFrame* form_frame_ = nullptr;
 
     // To mark current page before switching to timezone page.
@@ -101,6 +101,7 @@ SystemInfoFrame::SystemInfoFrame(FrameProxyInterface* frameProxyInterface, QWidg
   m_private->initConnections();
 
   m_private->showFormPage();
+  this->setCurentFocus(m_private->form_frame_);
 }
 
 SystemInfoFrame::~SystemInfoFrame()
@@ -110,14 +111,14 @@ SystemInfoFrame::~SystemInfoFrame()
 
 void SystemInfoFrame::init() {
   // Read default avatar explicitly.
-  m_private->avatar_frame_->readConf();
+  //m_private->avatar_frame_->readConf();
 
   m_private->form_frame_->readConf();
 }
 
 void SystemInfoFrame::finished() {
   // Notify sub-pages to save settings.
-  m_private->avatar_frame_->writeConf();
+  //m_private->avatar_frame_->writeConf();
   m_private->form_frame_->writeConf();
 }
 
@@ -146,18 +147,14 @@ bool SystemInfoFrame::focusSwitch()
         if (m_private->nextButton->isEnabled()) {
             this->setCurentFocus(m_private->nextButton);
         } else {
-            this->setCurentFocus(m_private->avatar_frame_);
+            this->setCurentFocus(m_private->form_frame_);
         }
     } else if(m_private->nextButton == m_current_focus_widget) {
-        this->setCurentFocus(m_private->avatar_frame_);
-    } else if (m_private->avatar_frame_ == m_current_focus_widget) {
         this->setCurentFocus(m_private->form_frame_);
     } else if (m_private->form_frame_ == m_current_focus_widget) {
         if (m_private->form_frame_->focusSwitch()) {
             if (m_private->nextButton->isEnabled()) {
                 this->setCurentFocus(m_private->nextButton);
-            } else {
-                this->setCurentFocus(m_private->avatar_frame_);
             }
         }
     }
@@ -166,6 +163,9 @@ bool SystemInfoFrame::focusSwitch()
 
 bool SystemInfoFrame::doSpace()
 {
+    if (m_private->form_frame_ == m_current_focus_widget) {
+        m_private->form_frame_->doSpace();
+    }
     return true;
 }
 
@@ -179,9 +179,7 @@ bool SystemInfoFrame::doSelect()
 
 bool SystemInfoFrame::directionKey(int keyvalue)
 {
-    if (m_private->avatar_frame_ == m_current_focus_widget) {
-        m_private->avatar_frame_->directionKey(keyvalue);
-    } else if (m_private->form_frame_ == m_current_focus_widget) {
+    if (m_private->form_frame_ == m_current_focus_widget) {
         m_private->form_frame_->directionKey(keyvalue);
     }
 
@@ -192,10 +190,10 @@ void SystemInfoFramePrivate::initConnections() {
   connect(form_frame_, &SystemInfoFormFrame::systemInfoFormDone, this, [=] {
       emit nextButton->clicked();
   });
-  connect(avatar_frame_, &SystemInfoAvatarFrame::finished,
-          this, &SystemInfoFramePrivate::showFormPage);
-  connect(avatar_frame_, &SystemInfoAvatarFrame::avatarUpdated,
-          form_frame_, &SystemInfoFormFrame::updateAvatar);
+//  connect(avatar_frame_, &SystemInfoAvatarFrame::finished,
+//          this, &SystemInfoFramePrivate::showFormPage);
+//  connect(avatar_frame_, &SystemInfoAvatarFrame::avatarUpdated,
+//          form_frame_, &SystemInfoFormFrame::updateAvatar);
 
   // Save settings when finished signal is emitted.
   connect(form_frame_, &SystemInfoFormFrame::avatarClicked,
@@ -205,13 +203,13 @@ void SystemInfoFramePrivate::initConnections() {
 }
 
 void SystemInfoFramePrivate::initUI() {
-  avatar_frame_ = new SystemInfoAvatarFrame();
+  //avatar_frame_ = new SystemInfoAvatarFrame();
   form_frame_ = new SystemInfoFormFrame();
 
   stacked_layout_ = new QStackedLayout();
   stacked_layout_->setContentsMargins(0, 0, 0, 0);
   stacked_layout_->setSpacing(0);
-  stacked_layout_->addWidget(avatar_frame_);
+  //stacked_layout_->addWidget(avatar_frame_);
   stacked_layout_->addWidget(form_frame_);
 
   centerLayout->addLayout(stacked_layout_);
@@ -237,7 +235,7 @@ void SystemInfoFramePrivate::restoreLastPage() {
 
 void SystemInfoFramePrivate::showAvatarPage() {
   if (!GetSettingsBool(kSystemInfoDisableAvatorPage)) {
-    stacked_layout_->setCurrentWidget(avatar_frame_);
+    //stacked_layout_->setCurrentWidget(avatar_frame_);
     updateHeadBar();
   }
 }

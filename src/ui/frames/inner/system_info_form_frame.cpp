@@ -259,7 +259,9 @@ void SystemInfoFormFrame::checkNextButtonEnable()
 bool SystemInfoFormFrame::focusSwitch()
 {
     Q_D(SystemInfoFormFrame);
-    if (d->m_usernameEdit->lineEdit()->hasFocus()) {
+    if(d->m_avatarButton_->hasFocus()) {
+        d->m_usernameEdit->lineEdit()->setFocus();
+    } else if (d->m_usernameEdit->lineEdit()->hasFocus()) {
         d->m_hostnameEdit->lineEdit()->setFocus();
     } else if (d->m_hostnameEdit->lineEdit()->hasFocus()) {
         d->m_passwordEdit->lineEdit()->setFocus();
@@ -267,39 +269,48 @@ bool SystemInfoFormFrame::focusSwitch()
         d->m_passwordCheckEdit->lineEdit()->setFocus();
     } else if (d->m_passwordCheckEdit->lineEdit()->hasFocus()) {
         if (d->m_grubPasswordCheck_->isVisible()) {
-            if (d->m_setRootPasswordCheck->isVisible()) {
-                d->m_setRootPasswordCheck->setFocus();
-            } else {
-                d->m_hostnameEdit->lineEdit()->setFocus();
-            }
+            d->m_grubPasswordCheck_->setFocus();
         } else if (d->m_setRootPasswordCheck->isVisible()) {
-                d->m_rootPasswordEdit->lineEdit()->setFocus();
+            d->m_setRootPasswordCheck->setFocus();
         } else {
-            //d_private->m_hostnameEdit->setFocus();
+            d->m_passwordCheckEdit->lineEdit()->clearFocus();
+            d->m_avatarButton_->setFocus();
             return true;
         }
     } else if (d->m_grubPasswordCheck_->hasFocus()) {
-        if (d->m_setRootPasswordCheck->isVisible()) {
-            d->m_setRootPasswordCheck->setFocus();
+            d->m_grubPasswordCheck_->clearFocus();
+            d->m_avatarButton_->setFocus();
+            return true;
+    } else if (d->m_setRootPasswordCheck->hasFocus()) {
+        if (d->m_rootPasswordEdit->lineEdit()->isVisible()) {
+            d->m_rootPasswordEdit->lineEdit()->setFocus();
         } else {
-            //d_private->m_hostnameEdit->setFocus();
+            d->m_setRootPasswordCheck->clearFocus();
+            d->m_avatarButton_->setFocus();
             return true;
         }
-    } else if (d->m_setRootPasswordCheck->hasFocus()) {
-        d->m_rootPasswordEdit->lineEdit()->setFocus();
     } else if (d->m_rootPasswordEdit->lineEdit()->hasFocus()) {
         d->m_rootPasswordCheckEdit->lineEdit()->setFocus();
     } else if (d->m_rootPasswordCheckEdit->hasFocus()) {
+        d->m_rootPasswordCheckEdit->clearFocus();
+        d->m_avatarButton_->setFocus();
         return true;
     } else {
-        d->m_usernameEdit->lineEdit()->setFocus();
+        d->m_avatarButton_->setFocus();
     }
 
-    return false;
+    return true;
 }
 
 bool SystemInfoFormFrame::doSpace()
 {
+    Q_D(SystemInfoFormFrame);
+    if (d->m_grubPasswordCheck_->hasFocus()) {
+        d->m_grubPasswordCheck_->setChecked(!d->m_grubPasswordCheck_->isChecked());
+    } else if (d->m_setRootPasswordCheck->hasFocus()) {
+        d->m_setRootPasswordCheck->setChecked(!d->m_setRootPasswordCheck->isChecked());
+        d->onSetRootPasswordCheckChanged(d->m_setRootPasswordCheck->isChecked());
+    }
     return true;
 }
 
@@ -310,6 +321,10 @@ bool SystemInfoFormFrame::doSelect()
 
 bool SystemInfoFormFrame::directionKey(int keyvalue)
 {
+    Q_D(SystemInfoFormFrame);
+    if(d->m_avatarButton_->hasFocus()) {
+        d->m_avatarButton_->directionKey(keyvalue);
+    }
     return true;
 }
 
@@ -366,7 +381,7 @@ void SystemInfoFormFrame::showEvent(QShowEvent* event)
     Q_D(SystemInfoFormFrame);
 
     QFrame::showEvent(event);
-    d->m_usernameEdit->setFocus();
+    d->m_avatarButton_->setFocus();
     d->tooltip_->hide();
     d->updateDevice();
 
