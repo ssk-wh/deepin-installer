@@ -172,6 +172,7 @@ bool NewPartitionFrame::focusSwitch()
 {
     QLineEdit *testedit = size_slider_->findChild<QLineEdit*>("editor");
     if (testedit->hasFocus()) {
+        testedit->clearFocus();
         if (size_slider_ != m_current_focus_widget) {
             this->setCurentFocus(size_slider_);
         }

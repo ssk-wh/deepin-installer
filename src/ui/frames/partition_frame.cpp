@@ -265,11 +265,31 @@ bool PartitionFrame::focusSwitch()
         }
     } else if (m_private->m_buttonGroup == m_current_focus_widget) {
         if (m_private->advanced_frame_button_->isChecked()) {
-            this->setCurentFocus(m_private->advanced_partition_frame_);
+            //this->setCurentFocus(m_private->advanced_partition_frame_);
+            if (m_private->edit_partition_frame_->isVisible()) {
+               m_private->edit_partition_frame_->focusSwitch();
+            } else if (m_private->edit_lvm_partition_frame_->isVisible()) {
+               m_private->edit_partition_frame_->focusSwitch();
+            } else if(m_private->new_partition_frame_->isVisible()) {
+                m_private->new_partition_frame_->focusSwitch();
+            } else if(m_private->new_lvm_partition_frame_->isVisible()) {
+                m_private->new_lvm_partition_frame_->focusSwitch();
+            } else if (m_private->select_bootloader_frame_->isVisible()) {
+                m_private->select_bootloader_frame_->focusSwitch();
+            } else {
+                if (m_private->advanced_partition_frame_->focusSwitch()) {
+                    this->setCurentFocus(m_private->nextButton);
+                }
+            }
         } else if (m_private->full_disk_frame_button_->isChecked()) {
-            this->setCurentFocus(m_private->full_disk_partition_frame_);
+            //this->setCurentFocus(m_private->full_disk_partition_frame_);
+            if (m_private->full_disk_encrypt_frame_->isVisible()) {
+                this->setCurentFocus(m_private->full_disk_encrypt_frame_);
+            } else {
+                this->setCurentFocus(m_private->nextButton);
+            }
         }
-    } else if (m_private->advanced_partition_frame_ == m_current_focus_widget) {
+    }/* else if (m_private->advanced_partition_frame_ == m_current_focus_widget) {
         if (m_private->edit_partition_frame_->isVisible()) {
            m_private->edit_partition_frame_->focusSwitch();
         } else if (m_private->edit_lvm_partition_frame_->isVisible()) {
@@ -293,7 +313,7 @@ bool PartitionFrame::focusSwitch()
                 this->setCurentFocus(m_private->nextButton);
             }
         }
-    } else if(m_private->full_disk_encrypt_frame_ == m_current_focus_widget) {
+    } */else if(m_private->full_disk_encrypt_frame_ == m_current_focus_widget) {
         if (m_private->full_disk_encrypt_frame_->isVisible()) {
             m_private->full_disk_encrypt_frame_->focusSwitch();
         } else {
@@ -306,7 +326,7 @@ bool PartitionFrame::focusSwitch()
 
 bool PartitionFrame::doSpace()
 {
-    if (m_private->advanced_partition_frame_ == m_current_focus_widget) {
+    if (m_private->advanced_frame_button_->isChecked()/*m_private->advanced_partition_frame_ == m_current_focus_widget*/) {
         if (m_private->edit_partition_frame_->isVisible()) {
            m_private->edit_partition_frame_->doSpace();
         } else if (m_private->edit_lvm_partition_frame_->isVisible()) {
@@ -320,7 +340,7 @@ bool PartitionFrame::doSpace()
         } else {
             m_private->advanced_partition_frame_->doSpace();
         }
-    } else if (m_private->full_disk_partition_frame_ == m_current_focus_widget) {
+    } else if (m_private->full_disk_frame_button_->isChecked()/*m_private->full_disk_partition_frame_ == m_current_focus_widget*/) {
         m_private->full_disk_partition_frame_->doSpace();
     }
     return true;
@@ -334,7 +354,7 @@ bool PartitionFrame::doSelect()
         } else {
             emit m_private->nextButton->clicked();
         }
-    } else if (m_private->advanced_partition_frame_ == m_current_focus_widget) {
+    } else if (m_private->advanced_frame_button_->isChecked()/*m_private->advanced_partition_frame_ == m_current_focus_widget*/) {
         if (m_private->edit_partition_frame_->isVisible()) {
            m_private->edit_partition_frame_->doSelect();
         } else if (m_private->edit_lvm_partition_frame_->isVisible()) {
@@ -377,7 +397,7 @@ bool PartitionFrame::directionKey(int keyvalue)
         break;
     }
 
-    if (m_private->advanced_partition_frame_ == m_current_focus_widget) {
+    if (m_private->advanced_frame_button_->isChecked()/*m_private->advanced_partition_frame_ == m_current_focus_widget*/) {
         if (m_private->edit_partition_frame_->isVisible()) {
            m_private->edit_partition_frame_->directionKey(keyvalue);
         } else if (m_private->edit_lvm_partition_frame_->isVisible()) {
@@ -391,7 +411,7 @@ bool PartitionFrame::directionKey(int keyvalue)
         } else {
             m_private->advanced_partition_frame_->directionKey(keyvalue);
         }
-    } else if (m_private->full_disk_partition_frame_ == m_current_focus_widget) {
+    } else if (m_private->full_disk_frame_button_->isChecked()/*m_private->full_disk_partition_frame_ == m_current_focus_widget*/) {
         m_private->full_disk_partition_frame_->directionKey(keyvalue);
     } else if (m_private->nextButton == m_current_focus_widget) {
         if (m_private->prepare_install_frame_->isVisible()) {
