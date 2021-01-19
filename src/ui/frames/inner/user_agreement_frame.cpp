@@ -79,8 +79,9 @@ void UserAgreementFrame::initUI()
     buttonLayout->addStretch();
     buttonLayout->addWidget(m_buttonBox, 0, Qt::AlignHCenter);
 
-    QWidget* buttonBoxWidget = new QWidget;
-    buttonBoxWidget->setLayout(buttonLayout);
+    m_buttonBoxWidget = new QWidget;
+    m_buttonBoxWidget->setLayout(buttonLayout);
+    m_buttonBoxWidget->setStyleSheet("QWidget::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
 
     m_sourceLbl = new QLabel(this);
     m_sourceLbl->setObjectName("user_agreement_sourceLbl");
@@ -117,6 +118,7 @@ void UserAgreementFrame::initUI()
     m_sourceScrollArea->setContextMenuPolicy(Qt::NoContextMenu);
     m_sourceScrollArea->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     m_sourceScrollArea->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    m_sourceScrollArea->setStyleSheet("QScrollArea::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
 
     QScroller::grabGesture(m_sourceScrollArea, QScroller::TouchGesture);
     m_sourceScrollArea->setFixedWidth(540);
@@ -147,7 +149,7 @@ void UserAgreementFrame::initUI()
     mainLayout->addWidget(m_logoLbl, 0, Qt::AlignHCenter);
     mainLayout->addWidget(m_subTitle, 0, Qt::AlignHCenter);
     mainLayout->addSpacing(10);
-    mainLayout->addWidget(buttonBoxWidget, 0, Qt::AlignHCenter);
+    mainLayout->addWidget(m_buttonBoxWidget, 0, Qt::AlignHCenter);
     mainLayout->addWidget(m_bgGroup, 0, Qt::AlignHCenter);
     mainLayout->addSpacing(19);
     mainLayout->addWidget(m_back, 0, Qt::AlignHCenter);
@@ -198,12 +200,23 @@ void UserAgreementFrame::setTitle(const QString &text)
 
 bool UserAgreementFrame::focusSwitch()
 {
+    if (m_buttonBoxWidget->hasFocus()) {
+        m_sourceScrollArea->setFocus();
+    } else if (m_sourceScrollArea->hasFocus()) {
+        m_back->setFocus();
+    } else if (m_back->hasFocus()) {
+        m_buttonBoxWidget->setFocus();
+    } else {
+        m_back->setFocus();
+    }
     return true;
 }
 
 bool UserAgreementFrame::doSelect()
 {
-    emit back();
+    if (m_back->hasFocus()) {
+        emit back();
+    }
     return true;
 }
 
@@ -211,33 +224,41 @@ bool UserAgreementFrame::directionKey(int keyvalue)
 {
     switch (keyvalue) {
     case Qt::Key_Up: {
-            int testvalue = m_sourceScrollArea->verticalScrollBar()->value();
-            m_sourceScrollArea->verticalScrollBar()->setValue(testvalue - 20);
+            if (m_sourceScrollArea->hasFocus()) {
+                int testvalue = m_sourceScrollArea->verticalScrollBar()->value();
+                m_sourceScrollArea->verticalScrollBar()->setValue(testvalue - 20);
+            }
         }
         break;
     case Qt::Key_Down: {
-            int testvalue = m_sourceScrollArea->verticalScrollBar()->value();
-            m_sourceScrollArea->verticalScrollBar()->setValue(testvalue + 20);
+            if (m_sourceScrollArea->hasFocus()) {
+                int testvalue = m_sourceScrollArea->verticalScrollBar()->value();
+                m_sourceScrollArea->verticalScrollBar()->setValue(testvalue + 20);
+            }
         }
         break;
     case Qt::Key_Left: {
-        QString zh_cn_li = QString(":/license/end-user-license-agreement-%1_zh_CN.txt")\
-                .arg(installer::LicenseDelegate::OSType());
-        QString en_us_li = QString(":/license/end-user-license-agreement-%1_en_US.txt")\
-                .arg(installer::LicenseDelegate::OSType());
-            setUserAgreement(en_us_li, zh_cn_li);
-            setCheckedButton(kChineseToggleButtonId);
-            updateLicenseText();
+            if (m_buttonBoxWidget->hasFocus()) {
+                QString zh_cn_li = QString(":/license/end-user-license-agreement-%1_zh_CN.txt")\
+                        .arg(installer::LicenseDelegate::OSType());
+                QString en_us_li = QString(":/license/end-user-license-agreement-%1_en_US.txt")\
+                        .arg(installer::LicenseDelegate::OSType());
+                    setUserAgreement(en_us_li, zh_cn_li);
+                    setCheckedButton(kChineseToggleButtonId);
+                    updateLicenseText();
+            }
         }
         break;
     case Qt::Key_Right: {
-        QString zh_cn_li = QString(":/license/end-user-license-agreement-%1_zh_CN.txt")\
-                .arg(installer::LicenseDelegate::OSType());
-        QString en_us_li = QString(":/license/end-user-license-agreement-%1_en_US.txt")\
-                .arg(installer::LicenseDelegate::OSType());
-            setUserAgreement(zh_cn_li, en_us_li);
-            setCheckedButton(kEnglishToggleButtonId);
-            updateLicenseText();
+            if (m_buttonBoxWidget->hasFocus()) {
+                QString zh_cn_li = QString(":/license/end-user-license-agreement-%1_zh_CN.txt")\
+                        .arg(installer::LicenseDelegate::OSType());
+                QString en_us_li = QString(":/license/end-user-license-agreement-%1_en_US.txt")\
+                        .arg(installer::LicenseDelegate::OSType());
+                    setUserAgreement(zh_cn_li, en_us_li);
+                    setCheckedButton(kEnglishToggleButtonId);
+                    updateLicenseText();
+            }
         }
         break;
     }
