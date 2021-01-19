@@ -219,12 +219,16 @@ bool LanguageFrame::doSpace()
         if (d->nextButton->isVisible()) {
             if (d->m_select_language_frame->setAcceptexperience()) {
                 this->setCurentFocus(d->nextButton);
+            } else {
+                this->setCurentFocus(d->m_select_language_frame->getLanguageView());
             }
         }
     } else if (d->m_select_language_frame->getAcceptlicense() == m_current_focus_widget) {
         if (d->nextButton->isVisible()) {
             if (d->m_select_language_frame->setAcceptlicense()) {
                 this->setCurentFocus(d->nextButton);
+            } else {
+                this->setCurentFocus(d->m_select_language_frame->getLanguageView());
             }
         }
     }
