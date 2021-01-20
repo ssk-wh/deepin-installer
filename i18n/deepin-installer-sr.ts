@@ -928,7 +928,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="567"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="751"/>
         <source>Unable to mount automatically, as it requires at least %1 GB. More than %2 GB is preferred.</source>
-        <translation type="unfinished"/>
+        <translation>Самомонтирање није успрело. За радњу је потребно најмање %1 GB, а пожељно је више од %2 GB.</translation>
     </message>
     <message>
         <source>Unable to mount automatically, as it requires at least %1 GB</source>
@@ -1120,17 +1120,17 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="742"/>
         <source>Weak</source>
-        <translation type="unfinished"/>
+        <translation>Слаба</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="743"/>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Средња</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="744"/>
         <source>Strong</source>
-        <translation type="unfinished"/>
+        <translation>Јака</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="484"/>
@@ -1418,7 +1418,7 @@
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="103"/>
         <source>Sorry for the trouble. Please take photos of the below error log, or save it to an external disk, or scan the QR code, and send the log to us. We will help solve your issue.</source>
-        <translation type="unfinished"/>
+        <translation>Извините због непријатности. Усликајте записник испод или га сачувајте на спољашњи диск или очитајте QR код и пошаљете нам записник грешака. Потрудићемо се да решимо Ваш проблем.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="21"/>

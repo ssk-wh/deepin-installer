@@ -928,7 +928,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="567"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="751"/>
         <source>Unable to mount automatically, as it requires at least %1 GB. More than %2 GB is preferred.</source>
-        <translation type="unfinished"/>
+        <translation>En az %1 GB gerektirdiğinden otomatik olarak eklenemiyor. %2 GB&apos;den fazlası tercih edilir.</translation>
     </message>
     <message>
         <source>Unable to mount automatically, as it requires at least %1 GB</source>
@@ -1418,7 +1418,7 @@
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="103"/>
         <source>Sorry for the trouble. Please take photos of the below error log, or save it to an external disk, or scan the QR code, and send the log to us. We will help solve your issue.</source>
-        <translation type="unfinished"/>
+        <translation>Sorun için üzgünüm. Lütfen aşağıdaki hata günlüğünün fotoğraflarını çekin veya harici bir diske kaydedin veya QR kodunu tarayın ve günlüğü bize gönderin. Sorununuzu çözmenize yardımcı olacağız.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="21"/>

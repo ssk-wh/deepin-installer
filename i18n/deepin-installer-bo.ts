@@ -928,7 +928,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="567"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="751"/>
         <source>Unable to mount automatically, as it requires at least %1 GB. More than %2 GB is preferred.</source>
-        <translation type="unfinished"/>
+        <translation>མིག་སྔར་རང་སྒྲིག་བྱ་ཐབས་བྲལ་འདུག རང་སྒྲིག་ལ་ཉུང་མཐར་ཡང་བར་སྟོང་1 GBདགོས་པས། བར་སྟོང་%2 GBཡན་ཡོད་དགོས།</translation>
     </message>
     <message>
         <source>Unable to mount automatically, as it requires at least %1 GB</source>
@@ -1049,7 +1049,7 @@
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="280"/>
         <source>Create a backup for system restore, but it will increase the time</source>
-        <translation type="unfinished"/>
+        <translation>འགོ་ཚུགས་གྲབས་ཉར་བཟོས་ཚེ། བཟོ་ཐོན་སྒྲིག་འགོད་སོར་ཆུད་བདེ་ཡོང་སྲིད། ཡིན་ནའང་སྒྲིག་འཇུག་བྱེད་པའི་དུས་ཚོད་རིང་དུ་གཏོང་སྲིད།</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="96"/>
@@ -1120,17 +1120,17 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="742"/>
         <source>Weak</source>
-        <translation type="unfinished"/>
+        <translation>དྲག་ཚད་དམའ་བ།</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="743"/>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>དྲག་ཚད་འབྲིང་བ།</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="744"/>
         <source>Strong</source>
-        <translation type="unfinished"/>
+        <translation>དྲག་ཚད་མཐོ་བ།</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="484"/>
@@ -1418,7 +1418,7 @@
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="103"/>
         <source>Sorry for the trouble. Please take photos of the below error log, or save it to an external disk, or scan the QR code, and send the log to us. We will help solve your issue.</source>
-        <translation type="unfinished"/>
+        <translation>སྐུ་ཉིད་ལ་ཐུགས་སུན་བཟོས་པར་དགོང་དག་ཞུ། གཤམ་གསལ་ནི་ཉིན་ཐོ་ནོར་བ་རེད། གཤམ་གྱི་ཉིན་ཐོ་པར་བླངས་པའམ་ཕྱི་རོལ་གསོག་ཉར་སྒྲིག་ཆས་ནང་ཉར་ཆོག་ལ། རྩ་གཉིས་ཨང་བཤེར་གྱི་པར་རིས་མནན་ནས་ནོར་འཁྲུལ་ལྡོག་སྐྱེལ་གནང་ཆོག འདི་ལྟར་ང་ཚོས་ཁྱེད་ཀྱི་གནད་དོན་ཐག་གཅོད་སྔར་ལྷག་བྱེད་ཐུབ། </translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="21"/>

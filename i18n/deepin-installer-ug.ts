@@ -928,7 +928,7 @@
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="567"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="751"/>
         <source>Unable to mount automatically, as it requires at least %1 GB. More than %2 GB is preferred.</source>
-        <translation type="unfinished"/>
+        <translation>ھازىر ئاپتوماتىك ئورنىتىشقا ئامالسىز ، ئاپتوماتىك ئورنىتىش بوشلۇقى كەم دېگەندە% 1 GB غا ئېھتىياجلىق، %2 GB دىن ئارتۇق بوشلۇق بولۇشنى تەۋسىيە قىلىمىز.</translation>
     </message>
     <message>
         <source>Unable to mount automatically, as it requires at least %1 GB</source>
@@ -1120,17 +1120,17 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="742"/>
         <source>Weak</source>
-        <translation type="unfinished"/>
+        <translation>سىجىللىقى تۆۋەن</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="743"/>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>سىجىللىقىنى ئوتتوراھال</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="744"/>
         <source>Strong</source>
-        <translation type="unfinished"/>
+        <translation>سىجىللىقى يۇقىرى</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="484"/>
@@ -1418,7 +1418,7 @@
     <message>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="103"/>
         <source>Sorry for the trouble. Please take photos of the below error log, or save it to an external disk, or scan the QR code, and send the log to us. We will help solve your issue.</source>
-        <translation type="unfinished"/>
+        <translation>قولايسىزلىق كەلتۈرگەنلىكىمىز ئۈچۈن كەچۈرۈم سورايمىز ، تۆۋەندىكىسى خاتالىق خاتىرىسى. رەسىمگە تارتىپ بىزگە خاتالىق ئۇچۇرىنى قايتۇرۇڭ ياكى خاتالىق خاتىرىسىنى سىرتقى ساقلاش ئۈسكۈنىسىدە ساقلىۋېلىڭ، ئىككىلىك كودنى چېكىپ خاتالىق ئۇچۇرىنى ئىنكاس قىلسىڭىزمۇ بولىدۇ، بۇنداق بولغاندا بىز بۇ مەسىلىنى تېخىمۇ ياخشى ھەل قىلالايمىز.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="21"/>

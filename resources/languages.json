@@ -194,5 +194,15 @@
     "local_name": "català",
     "locale": "ca_ES",
     "timezone": ""
+  },{
+    "name": "Tibetan",
+    "local_name": "བོད་སྐད་",
+    "locale": "bo",
+    "timezone": "Asia/Shanghai"
+  },{
+    "name": "Uygur",
+    "local_name": "ئۇيغۇر تىلى",
+    "locale": "ug",
+    "timezone": "Asia/Shanghai"
   }
 ]
