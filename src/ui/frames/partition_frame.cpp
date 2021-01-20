@@ -145,6 +145,7 @@ public:
      DButtonBoxButton* full_disk_frame_button_ = nullptr;
      DButtonBoxButton* simple_frame_button_ = nullptr;
      DButtonBoxButton* advanced_frame_button_ = nullptr;
+     QWidget* m_buttonBoxWidget = nullptr;
 
      PartitionModel* partition_model_ = nullptr;
      AdvancedPartitionDelegate* advanced_delegate_ = nullptr;
@@ -261,9 +262,9 @@ bool PartitionFrame::focusSwitch()
         if (m_private->prepare_install_frame_->isVisible()) {
             m_private->prepare_install_frame_->focusSwitch();
         } else {
-            this->setCurentFocus(m_private->m_buttonGroup);
+            this->setCurentFocus(m_private->m_buttonBoxWidget);
         }
-    } else if (m_private->m_buttonGroup == m_current_focus_widget) {
+    } else if (m_private->m_buttonBoxWidget == m_current_focus_widget) {
         if (m_private->advanced_frame_button_->isChecked()) {
             //this->setCurentFocus(m_private->advanced_partition_frame_);
             if (m_private->edit_partition_frame_->isVisible()) {
@@ -282,28 +283,7 @@ bool PartitionFrame::focusSwitch()
                 }
             }
         } else if (m_private->full_disk_frame_button_->isChecked()) {
-            //this->setCurentFocus(m_private->full_disk_partition_frame_);
-            if (m_private->full_disk_encrypt_frame_->isVisible()) {
-                this->setCurentFocus(m_private->full_disk_encrypt_frame_);
-            } else {
-                this->setCurentFocus(m_private->nextButton);
-            }
-        }
-    }/* else if (m_private->advanced_partition_frame_ == m_current_focus_widget) {
-        if (m_private->edit_partition_frame_->isVisible()) {
-           m_private->edit_partition_frame_->focusSwitch();
-        } else if (m_private->edit_lvm_partition_frame_->isVisible()) {
-           m_private->edit_partition_frame_->focusSwitch();
-        } else if(m_private->new_partition_frame_->isVisible()) {
-            m_private->new_partition_frame_->focusSwitch();
-        } else if(m_private->new_lvm_partition_frame_->isVisible()) {
-            m_private->new_lvm_partition_frame_->focusSwitch();
-        } else if (m_private->select_bootloader_frame_->isVisible()) {
-            m_private->select_bootloader_frame_->focusSwitch();
-        } else {
-            if (m_private->advanced_partition_frame_->focusSwitch()) {
-                this->setCurentFocus(m_private->nextButton);
-            }
+            this->setCurentFocus(m_private->full_disk_partition_frame_);
         }
     } else if (m_private->full_disk_partition_frame_ == m_current_focus_widget) {
         if (m_private->full_disk_partition_frame_->focusSwitch()) {
@@ -313,7 +293,7 @@ bool PartitionFrame::focusSwitch()
                 this->setCurentFocus(m_private->nextButton);
             }
         }
-    } */else if(m_private->full_disk_encrypt_frame_ == m_current_focus_widget) {
+    } else if(m_private->full_disk_encrypt_frame_ == m_current_focus_widget) {
         if (m_private->full_disk_encrypt_frame_->isVisible()) {
             m_private->full_disk_encrypt_frame_->focusSwitch();
         } else {
@@ -380,7 +360,7 @@ bool PartitionFrame::directionKey(int keyvalue)
     case Qt::Key_Down:
         break;
     case Qt::Key_Left: {
-            if (m_private->m_buttonGroup == m_current_focus_widget) {
+            if (m_private->m_buttonBoxWidget == m_current_focus_widget) {
                 m_private->advanced_frame_button_->setChecked(true);
                 m_private->full_disk_frame_button_->setChecked(false);
                 m_private->partition_stacked_layout_->setCurrentWidget(m_private->advanced_partition_frame_);
@@ -388,7 +368,7 @@ bool PartitionFrame::directionKey(int keyvalue)
         }
         break;
     case Qt::Key_Right: {
-            if (m_private->m_buttonGroup == m_current_focus_widget) {
+            if (m_private->m_buttonBoxWidget == m_current_focus_widget) {
                 m_private->advanced_frame_button_->setChecked(false);
                 m_private->full_disk_frame_button_->setChecked(true);
                 m_private->partition_stacked_layout_->setCurrentWidget(m_private->full_disk_partition_frame_);
@@ -668,6 +648,10 @@ void PartitionFramePrivate::initUI() {
   button_layout->addWidget(m_buttonGroup, 0, Qt::AlignCenter);
   button_layout->addStretch();
 
+  m_buttonBoxWidget = new QWidget;
+  m_buttonBoxWidget->setStyleSheet("QWidget::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
+  m_buttonBoxWidget->setLayout(button_layout);
+
   partition_stacked_layout_ = new QStackedLayout();
   partition_stacked_layout_->setContentsMargins(0, 0, 0, 0);
   partition_stacked_layout_->setSpacing(0);
@@ -718,7 +702,8 @@ void PartitionFramePrivate::initUI() {
   layout->addSpacing(kMainLayoutSpacing);
   layout->addLayout(comment_layout);
   layout->addSpacing(kMainLayoutSpacing);
-  layout->addLayout(button_layout);
+  //layout->addLayout(button_layout);
+  layout->addWidget(m_buttonBoxWidget, 0, Qt::AlignCenter);
   layout->addSpacing(20 + kMainLayoutSpacing);
   layout->addLayout(partition_stacked_wrapper_layout);
   layout->addLayout(next_layout);
@@ -984,6 +969,7 @@ void PartitionFramePrivate::showMainFrame() {
 
   main_layout_->setCurrentWidget(main_frame_);
 
+  q_ptr->setCurentFocus(m_buttonBoxWidget);
   emit q_ptr->coverMainWindowFrameLabelsView(false);
 }
 
