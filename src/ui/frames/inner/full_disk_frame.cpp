@@ -137,10 +137,18 @@ bool FullDiskFrame::focusSwitch()
     if(m_encryptCheck->hasFocus()) {
         return true;
     } else {
-        if(m_diskInstallationWidget->isLeftRightWidgetHasFocus()) {
-            m_encryptCheck->setFocus();
-        } else {
-            m_diskInstallationWidget->setFocus();
+        if (m_disk_layout->currentWidget() == m_diskInstallationWidget) {
+            if(m_diskInstallationWidget->isLeftRightWidgetHasFocus()) {
+                m_encryptCheck->setFocus();
+            } else {
+                m_diskInstallationWidget->setFocus();
+            }
+        } else if (m_disk_layout->currentWidget() == m_grid_wrapper) {
+            if(m_grid_wrapper->hasFocus()) {
+                m_encryptCheck->setFocus();
+            } else {
+                m_grid_wrapper->setFocus();
+            }
         }
         return false;
     }
@@ -154,18 +162,27 @@ bool FullDiskFrame::doSpace()
         } else {
             m_encryptCheck->setCheckState(Qt::Checked);
         }
+    } else if (m_grid_wrapper->hasFocus()) {
+        m_button_group->buttons().at(0)->toggle();
     }
     return true;
 }
 
 bool FullDiskFrame::doSelect()
 {
+    if (m_grid_wrapper->hasFocus()) {
+        m_button_group->buttons().at(0)->toggle();
+    }
     return true;
 }
 
 bool FullDiskFrame::directionKey(int keyvalue)
 {
-    return m_diskInstallationWidget->directionKey(keyvalue);
+    if (m_diskInstallationWidget->isLeftRightWidgetHasFocus()) {
+        return m_diskInstallationWidget->directionKey(keyvalue);
+    } else {
+        return true;
+    }
 }
 
 void FullDiskFrame::changeEvent(QEvent* event) {
@@ -284,6 +301,7 @@ void FullDiskFrame::initUI() {
   m_grid_wrapper->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Expanding);
   m_grid_wrapper->setObjectName("grid_wrapper");
   m_grid_wrapper->setLayout(m_grid_layout);
+  m_grid_wrapper->setStyleSheet("QWidget#grid_wrapper::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
   m_install_tip->setParent(m_grid_wrapper);
 
   m_diskInstallationWidget = new MultipleDiskInstallationWidget();

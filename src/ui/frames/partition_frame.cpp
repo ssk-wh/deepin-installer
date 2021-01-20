@@ -348,6 +348,8 @@ bool PartitionFrame::doSelect()
         } else {
             m_private->advanced_partition_frame_->doSelect();
         }
+    } else if (m_private->full_disk_frame_button_->isChecked()/*m_private->full_disk_partition_frame_ == m_current_focus_widget*/) {
+        m_private->full_disk_partition_frame_->doSelect();
     }
     return true;
 }
