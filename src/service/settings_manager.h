@@ -39,6 +39,8 @@ OSType GetCurrentType();
 
 QString GetOSType();
 
+QString GetDiskPolicyArgs();
+
 QString GetCurrentPlatform();
 
 // Read settings value from ini file.

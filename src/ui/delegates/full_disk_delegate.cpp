@@ -300,20 +300,6 @@ uint FullDiskDelegate::getSwapSize() const
 bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
 {
     resetOperations();
-    selected_devices.clear();
-    if (selectedDisks().isEmpty()) {
-        qWarning() << Q_FUNC_INFO << "select Disk is Empty";
-        return false;
-    }
-
-    const QStringList& device_path_list = selected_disks;
-    for (QString device_path : device_path_list) {
-        int device_index = DeviceIndex(virtual_devices_, device_path);
-        if (device_index == -1) {
-            qWarning() << Q_FUNC_INFO << "not find device: " << device_path;
-            return false;
-        }
-    }
 
     PartitionTableType table;
     table = IsEfiEnabled() ? PartitionTableType::GPT : PartitionTableType::MsDos;
@@ -321,6 +307,7 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
     FullDiskOption   disk_option;
     FullDiskPolicyList & policy_list = disk_option.policy_list;
 
+    QStringList device_path_list;
     // Get All policies from json file.
     {
         const QByteArray& policyStr{ GetFullDiskInstallPolicy() };
@@ -353,8 +340,29 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
                 policy.mountPoint = "";
             }
             policy_list.push_back(policy);
+
+            if (!policy.device.isEmpty() && device_path_list.indexOf(policy.device) == -1) {
+                device_path_list.append(policy.device);
+            }
         }
-   }
+    }
+
+    if (device_path_list.isEmpty()) {
+        device_path_list = selected_disks;
+    }
+
+    if (device_path_list.isEmpty()) {
+        qWarning() << Q_FUNC_INFO << "select Disk is Empty";
+        return false;
+    }
+
+    for (QString device_path : device_path_list) {
+        int device_index = DeviceIndex(virtual_devices_, device_path);
+        if (device_index == -1) {
+            qWarning() << Q_FUNC_INFO << "not find device: " << device_path;
+            return false;
+        }
+    }
 
     // Change data disk configuration.
     QString system_data_mount_point;
@@ -384,6 +392,7 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
         }
     }
 
+    selected_devices.clear();
     // Format every disks one by one.
     for (const QString& device_path : device_path_list) {
         int device_index = DeviceIndex(virtual_devices_, device_path);
@@ -502,11 +511,13 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
                 root_size_count++;
                 const QString root_size_str = GetSettingsString(kPartitionFullDiskRootPartitionUsage);
                 partitionSize = ParsePartitionSize(root_size_str, device->getByteLength());
+                qDebug() << "zdd test1: partitionSize" << partitionSize << " ||| "<< policy.mountPoint << policy.sectors << policy.label;
             }
 
             root_range = getRootPartitionSizeRange();
             partitionSize = std::max(partitionSize, root_range.min_size_bytes);
             partitionSize = std::min(partitionSize, root_range.max_size_bytes);
+            qDebug() << "zdd test2: partitionSize" << partitionSize << " ||| "<< policy.mountPoint << policy.sectors << policy.label;
         }
 
         if (partitionSize < 1) {
@@ -560,6 +571,8 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
             continue;
         }
 
+        qDebug() << "zdd test: " << policy.mountPoint << policy.sectors
+                 << policy.label;
         // alignStart is always true ,since policies are sorted by start_sector
         if (!createPartition(unallocated, policy.partitionType, true, policy.filesystem,
                     policy.mountPoint, policy.sectors,policy.label)) {
@@ -715,7 +728,6 @@ void FullDiskDelegate::onDeviceRefreshed(const DeviceList &devices)
 
     if (deviceList.size() == 0) {
         qWarning() << Q_FUNC_INFO << "not found system disk, please check!";
-        return;//这里的return不知是否会导致安装进度暂停，
     } else {
         addSystemDisk(deviceList.first()->path);
         qDebug()<<"add system disk path :"<< deviceList.first()->path;
@@ -736,8 +748,8 @@ const SizeRange FullDiskDelegate::getRootPartitionSizeRange()
     const QString root_range_str = GetSettingsString(kPartitionFullDiskLargeRootPartRange);
     const QStringList root_ranges = root_range_str.split(":", QString::SkipEmptyParts);
 
-    int min_root_size_gib { 0 };
-    int max_root_size_gib { 0 };
+    int min_root_size_gib { GetSettingsInt(kPartitionRootMiniSpace) };
+    int max_root_size_gib { GetSettingsInt(kPartitionRootMiniSpace) };
 
     if (root_ranges.length() > 0) {
         min_root_size_gib = root_ranges[0].toInt();

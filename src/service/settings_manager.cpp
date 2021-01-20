@@ -33,6 +33,7 @@
 #include <random>
 #include <DSysInfo>
 #include <QDBusInterface>
+#include <QRegExp>
 
 #include "base/consts.h"
 #include "service/settings_name.h"
@@ -145,7 +146,7 @@ QString GetOSType()
     settings.beginGroup("Release");
 
 #ifdef QT_DEBUG
-    QString type = "Server";
+    QString type = "Professional";
 #else
     QString type = settings.value("Type", "Community").toString();
 #endif // QT_DEBUG
@@ -162,6 +163,31 @@ OSType GetCurrentType() {
         { "Server", OSType::Server },
         { "Personal", OSType::Personal },
     }[type];
+}
+
+QString GetDiskPolicyArgs() {
+    QFile cmd_file("/proc/cmdline");
+    cmd_file.open(QIODevice::ReadOnly);
+    if (!cmd_file.isOpen()) {
+        qWarning() << "GetDiskPolicyArgs: Failed to open file. /proc/cmdline";
+        return QString();
+    }
+
+    QRegExp exp("full-disk-policy=[1-9]");
+    QString info = cmd_file.readAll();
+    if (exp.indexIn(info) == -1) {
+       return QString();
+    }
+    QStringList args = exp.capturedTexts().join("").split("=");
+    if (args.size() != 2) {
+        qWarning() << QString("GetDiskPolicyArgs: Unknown command parameters:%1. /proc/cmdline")
+                      .arg(info);
+        return QString();
+    }
+
+    qInfo() << QString("GetDiskPolicyArgs:%1.  /proc/cmdline")
+                  .arg(args.at(1));
+    return args.at(1);
 }
 
 bool isPexInstall() {
@@ -336,15 +362,15 @@ QString GetWindowBackground() {
 }
 
 QByteArray GetFullDiskInstallPolicy() {
-    // NOTE(justforlxz): 先从oem目录查找
-    QSettings settings("/etc/deepin-version", QSettings::IniFormat);
-    settings.beginGroup("Release");
-    const QString& type = settings.value("Type", "Desktop").toString();
-
+    const QString& type = GetOSType();
+    const QString& policy_args = GetDiskPolicyArgs();
 
     const QStringList list {
+        QString("%1/disk_policy/full_disk_policy_%2.json").arg(GetOemDir().path())
+                .arg(policy_args.toLower()),
         QString("%1/full_disk_policy_%2.json").arg(GetOemDir().path()).arg(type.toLower()),
         QString("%1/full_disk_policy.json").arg(GetOemDir().path()),
+        QString(RESOURCES_DIR "/disk_policy/full_disk_policy_%2.json").arg(policy_args.toLower()),
         QString(RESOURCES_DIR "/override/full_disk_policy_%1.json").arg(type.toLower()),
         QString(RESOURCES_DIR "/full_disk_policy_%1.json").arg(type.toLower()),
         QString(RESOURCES_DIR "/full_disk_policy.json")
@@ -662,6 +688,12 @@ void AddConfigFile() {
     const QString oem_file = GetOemDir().absoluteFilePath(kOemSettingsFilename);
     if (QFile::exists(oem_file)) {
         settingsList << oem_file;
+    }
+
+    const QString policy_file = QString("%1/disk_policy/settings_%2.ini")
+            .arg(GetOemDir().path(), GetDiskPolicyArgs());
+    if (QFile::exists(policy_file)) {
+        settingsList << policy_file;
     }
 
     for (const QString& file : settingsList) {
