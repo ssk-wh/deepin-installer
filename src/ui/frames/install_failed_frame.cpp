@@ -144,6 +144,12 @@ void InstallFailedFrame::updateMessage()
     if (GetCurrentType() == OSType::Server) {
         d->qr_widget_->setQRPic(":/images/qr_code_server.svg");
     }
+    else if (GetCurrentType() == OSType::Community) {
+        d->qr_widget_->setText("https://bbs.deepin.org/post/209377");
+    }
+    else if (GetCurrentType() == OSType::Personal) {
+        d->qr_widget_->setText("https://bbs.chinauos.com/post/5032");
+    }
     else {
         if (encoded_msg.isEmpty()) {
             // If encoded_msg if empty, qr_widget will generate a rectangle filled with

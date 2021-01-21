@@ -16,3 +16,4 @@ partition_full_disk_large_legacy_label = "Boot;Swap;Root;_dde_data"
 enable_install_nvidia_driver = true
 timezone_force_local_time = true
 timezone_use_local_time_regardless = true
+install_failed_qr_display_switch = true
