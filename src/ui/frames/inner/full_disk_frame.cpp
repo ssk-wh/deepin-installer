@@ -140,14 +140,22 @@ bool FullDiskFrame::focusSwitch()
         if (m_disk_layout->currentWidget() == m_diskInstallationWidget) {
             if(m_diskInstallationWidget->isLeftRightWidgetHasFocus()) {
                 if(m_diskInstallationWidget->focusSwitch()) {
-                    m_encryptCheck->setFocus();
+                    if(m_encryptCheck->isVisible()) {
+                        m_encryptCheck->setFocus();
+                    } else {
+                        return true;
+                    }
                 }
             } else {
                 m_diskInstallationWidget->setFocus();
             }
         } else if (m_disk_layout->currentWidget() == m_grid_wrapper) {
             if(m_grid_wrapper->hasFocus()) {
-                m_encryptCheck->setFocus();
+                if (m_encryptCheck->isVisible()) {
+                    m_encryptCheck->setFocus();
+                } else {
+                    return true;
+                }
             } else {
                 m_grid_wrapper->setFocus();
             }
