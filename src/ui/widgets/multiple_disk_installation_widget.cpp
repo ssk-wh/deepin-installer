@@ -49,6 +49,14 @@ MultipleDiskInstallationWidget::MultipleDiskInstallationWidget(QWidget *parent)
 
 bool MultipleDiskInstallationWidget::focusSwitch()
 {
+    QWidget *leftWrapWidget = this->findChild<QWidget *>("leftWrapWidget");
+    if (leftWrapWidget->hasFocus()) {
+        QModelIndex testindex = m_left_view->currentIndex();
+        if ((testindex.row() + 1) < m_left_view->count()) {
+            m_left_view->setCurrentIndex(testindex.siblingAtRow(testindex.row() + 1));
+            return false;
+        }
+    }
     return true;
 }
 
