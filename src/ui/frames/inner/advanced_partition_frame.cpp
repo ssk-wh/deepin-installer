@@ -97,7 +97,7 @@ QList<Device::Ptr> AdvancedPartitionFrame::getAllUsedDevice() const
 
 bool AdvancedPartitionFrame::focusSwitch()
 {
-    if (bootloader_button_->isVisible()) {
+    if (bootloader_button_->isVisible() || editing_button_->isVisible()) {
         bool testispartionbuttononfocus = false;
         for (int i = 0; i < partition_button_group_->buttons().size(); i++) {
             if (partition_button_group_->buttons()[i]->hasFocus()) {
@@ -108,7 +108,11 @@ bool AdvancedPartitionFrame::focusSwitch()
         }
 
         if (testispartionbuttononfocus) {
-            bootloader_button_->setFocus();
+            if (bootloader_button_->isVisible()) {
+                bootloader_button_->setFocus();
+            } else if (editing_button_->isVisible()) {
+                editing_button_->setFocus();
+            }
         }  else {
             if (bootloader_button_->hasFocus()) {
                 editing_button_->setFocus();
