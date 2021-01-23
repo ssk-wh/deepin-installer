@@ -23,16 +23,15 @@
 // * get ini-file section-name key
 // * get ini-file key
 
-#include <stdio.h>
+#include "sysinfo/csettings.h"
 
+#include <stdio.h>
 #include <QCoreApplication>
 #include <QCommandLineOption>
 #include <QCommandLineParser>
 #include <QFile>
-
-#include "third_party/simpleini/SimpleIni.h"
-
-namespace {
+#include <QDebug>
+#include <QTextCodec>
 
 const char kAppVersion[] = "0.0.1";
 const char kAppDesc[] = "Get/set configuration in a ini file.";
@@ -49,8 +48,6 @@ enum class CommandType {
   Set,
   Invalid,
 };
-
-}  // namespace
 
 int main(int argc, char* argv[]) {
   QCoreApplication app(argc, argv);
@@ -120,32 +117,13 @@ int main(int argc, char* argv[]) {
     }
   }
 
-  CSimpleIniA settings;
-  settings.SetUnicode(false);
-  settings.LoadFile(ini_file.toStdString().c_str());
+  section = section.isEmpty() ? kDefaultSection : section;
+  installer::CSettings settings(ini_file);
   if (command == CommandType::Get) {
-    const char* val;
-    if (section.isEmpty()) {
-      val = settings.GetValue(kDefaultSection, key.toStdString().c_str(), NULL);
-    } else {
-      val = settings.GetValue(section.toStdString().c_str(),
-                              key.toStdString().c_str(),
-                              NULL);
-    }
     // Print value to stdout.
-    fprintf(stdout, "%s", val);
-
+      qInfo() << settings.value(section, key);
   } else if (command == CommandType::Set) {
-    if (section.isEmpty()) {
-      settings.SetValue(kDefaultSection,
-                        key.toStdString().c_str(),
-                        value.toStdString().c_str());
-    } else {
-      settings.SetValue(section.toStdString().c_str(),
-                        key.toStdString().c_str(),
-                        value.toStdString().c_str());
-    }
-    settings.SaveFile(ini_file.toStdString().c_str());
+      settings.setValue(section, key, value);
   }
 
   return kExitOk;

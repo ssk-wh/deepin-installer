@@ -545,7 +545,7 @@ void FirstBootSetupWindow::onNetworkFinished()
 
 void FirstBootSetupWindow::onStartRunHooks()
 {
-    char installrecord[] = BUILTIN_HOOKS_DIR "/doinstallrecord_first_boot";
+    char installrecord[] = BUILTIN_HOOKS_DIR "/doinstallrecord_first_boot.sh";
     if (QFile::exists(installrecord)) {
         QString out, err;
         bool ok = RunScriptFile({installrecord}, out, err);

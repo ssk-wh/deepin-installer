@@ -364,7 +364,7 @@ void InstallProgressFramePrivate::onHooksErrorOccurred() {
     slide_frame_->stopSlide();
     WriteInstallSuccessed(false);
 
-    char installrecord[] = BUILTIN_HOOKS_DIR "/doinstallrecord";
+    char installrecord[] = BUILTIN_HOOKS_DIR "/doinstallrecord.sh";
     if (QFile::exists(installrecord)) {
         QString out, err;
         bool ok = RunScriptFile({installrecord}, out, err);
@@ -393,7 +393,7 @@ void InstallProgressFramePrivate::onHooksFinished() {
     onProgressUpdate(100);
     WriteInstallSuccessed(true);
 
-    char installrecord[] = BUILTIN_HOOKS_DIR "/doinstallrecord";
+    char installrecord[] = BUILTIN_HOOKS_DIR "/doinstallrecord.sh";
     if (QFile::exists(installrecord)) {
         QString out, err;
         bool ok = RunScriptFile({installrecord}, out, err);

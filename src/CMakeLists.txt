@@ -34,8 +34,8 @@ if (CMAKE_BUILD_TYPE MATCHES Debug)
 else()
   # -Wl, -O2 Enable linker optimizations
   #-Wl, --gc-sections Remove unused code resulting from -fdsta-sections and -ffunction-sections
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O2 -Wl,-O1 -Wl,--gc-sections")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2 -Wl,-O1 -Wl,--gc-sections -Wno-unused-result")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O2 -Wl,-O1 -Wl,--gc-sections -fPIE -pie")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2 -Wl,-O1 -Wl,--gc-sections -Wno-unused-result -fPIE -pie")
 endif()
 
 # Install default_settings.ini based on current architecture.
@@ -123,7 +123,6 @@ include_directories(AFTER ${UDisk2_INCLUDE_DIRS})
 add_subdirectory(third_party/global_shortcut)
 add_subdirectory(third_party/googletest)
 add_subdirectory(third_party/qrencode)
-add_subdirectory(third_party/simpleini)
 add_subdirectory(third_party/timezones)
 add_subdirectory(third_party/zlib_wrapper)
 
@@ -791,6 +790,7 @@ target_include_directories(deepin-installer-cli PUBLIC
                ${KF5_QT_INCLUDE_DIRS}
 )
 
+set_property(TARGET deepin-installer-cli PROPERTY LINK_FLAGS "-no-pie")
 target_link_libraries(deepin-installer-cli ${LINK_LIBS} ncurses++w ncursesw panelw ${KF5_QT_LIBRARIES}
     #pwquality
     )
@@ -804,12 +804,11 @@ add_executable(deepin-installer-settings
 target_link_libraries(deepin-installer-settings ${QtCore_LIBS})
 
 add_executable(deepin-installer-simpleini
-               app/deepin_installer_simpleini.cpp)
+               app/deepin_installer_simpleini.cpp
+               sysinfo/csettings.h
+               sysinfo/csettings.cpp)
 
-target_link_libraries(deepin-installer-simpleini
-                      ${QtCore_LIBS}
-                      simpleini)
-
+target_link_libraries(deepin-installer-simpleini ${QtCore_LIBS})
 
 # Reboot setup
 add_executable(deepin-installer-first-boot
