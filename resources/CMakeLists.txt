@@ -39,6 +39,10 @@ execute_process(COMMAND uname -m
                 OUTPUT_VARIABLE INSTALLER_BUILD_ARCH)
 message("build arch: ${INSTALLER_BUILD_ARCH}")
 
+if (${INSTALLER_BUILD_ARCH} MATCHES "loongarch64")
+    set(INSTALLER_BUILD_ARCH "mips")
+endif()
+
 if (${INSTALLER_BUILD_ARCH} MATCHES "x86")
     file(GLOB OVERRIDE ${CMAKE_CURRENT_SOURCE_DIR}/platform_x86/*)
   install(FILES ${OVERRIDE}
