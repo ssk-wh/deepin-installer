@@ -529,12 +529,11 @@ void SystemInfoFramePrivate::initConnection()
     connect(m_le_password_confirm, &NCursesWindowBase::outFoucs, [this]{qDebug() << "m_le_password_confirm outFoucs test";});
 
     connect(m_NcursesCheckBox, &NcursesCheckBox::signal_SelectChange, this, [=]{qDebug() << "select change";});
-    connect(q, &SystemInfoFrame::createRoot, this, [=]{qDebug() << "create user:";});
+    connect(q, &SystemInfoFrame::createRoot, this, [=]{
+        if (GetSettingsBool(kSystemIsZF)) qDebug() << "create user:";}
+    );
     connect(m_le_username, &NCursesLineEdit::textChanged, this, [=](const QString &name){
-        qDebug() << "user name: " << name;
-    });
-    connect(m_le_password, &NCursesLineEdit::textChanged, this, [=](const QString &name){
-        qDebug() << "user password: " << name;
+        if (GetSettingsBool(kSystemIsZF)) qDebug() << "user name: " << name;
     });
 #endif // QT_DEBUG
 }

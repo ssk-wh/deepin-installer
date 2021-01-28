@@ -227,6 +227,9 @@ const char kForceLegacyInstallationMode[] = "force_legacy_installation_mode";
 // xrandr
 const char kWindowAdaptationResolution[] = "window_adaptation_resolution";
 
+// 装发配置选项，用于隔离装发需求
+const char kSystemIsZF[] = "system_is_zf";
+
 }  // namespace installer
 
 #endif  // INSTALLER_SERVICE_SETTINGS_NAME_H

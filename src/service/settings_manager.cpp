@@ -599,7 +599,7 @@ void WriteUsername(const QString& username) {
 
   // add user info log
   if (!username.isEmpty()) {
-    qInfo() << "create user: " << username;
+      if (GetSettingsBool(kSystemIsZF)) qInfo() << "create user: " << username;
   }
 }
 
