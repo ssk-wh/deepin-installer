@@ -12,7 +12,6 @@ usr/bin/deepin-installer-both
 usr/bin/deepin-installer-bases
 usr/bin/deepin-installer-init
 usr/bin/deepin-installer-xrandr
-usr/bin/deepin-installer-settings
 usr/bin/deepin-installer-simpleini
 usr/bin/deepin-installer-unsquashfs
 usr/bin/deepin-installer-user-form

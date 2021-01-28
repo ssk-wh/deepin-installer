@@ -65,9 +65,9 @@ debug() {
 installer_get() {
   local key="$1"
   [ -z "${CONF_FILE}" ] && exit "CONF_FILE is not defined"
-  which deepin-installer-settings 1>/dev/null || \
-    exit "deepin-installer-settings not found!"
-  deepin-installer-settings get "${CONF_FILE}" "${key}"
+  which deepin-installer-simpleini 1>/dev/null || \
+    exit "deepin-installer-simpleini not found!"
+  deepin-installer-simpleini get "${CONF_FILE}" "${key}"
 }
 
 update_local() {
@@ -90,9 +90,9 @@ installer_set() {
   local key="$1"
   local value="$2"
   [ -z "${CONF_FILE}" ] && exit "CONF_FILE is not defined"
-  which deepin-installer-settings 1>/dev/null || \
-    exit "deepin-installer-settings not found!"
-  deepin-installer-settings set "${CONF_FILE}" "${key}" "${value}"
+  which deepin-installer-simpleini 1>/dev/null || \
+    exit "deepin-installer-simpleini not found!"
+  deepin-installer-simpleini set "${CONF_FILE}" "${key}" "${value}"
 }
 
 # Check whether current platform is loongson or not.

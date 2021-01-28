@@ -797,11 +797,6 @@ add_dependencies(deepin-installer-cli installer-qm-update)
 
 
 # Set/get ini files.
-add_executable(deepin-installer-settings
-               app/deepin_installer_settings.cpp)
-
-target_link_libraries(deepin-installer-settings ${QtCore_LIBS})
-
 add_executable(deepin-installer-simpleini
                app/deepin_installer_simpleini.cpp
                sysinfo/csettings.h
@@ -1007,7 +1002,6 @@ install(TARGETS
         deepin-installer-cli
         deepin-installer-first-boot
         deepin-installer-oem
-        deepin-installer-settings
         deepin-installer-simpleini
         deepin-installer-unsquashfs
         deepin-installer-user-form
