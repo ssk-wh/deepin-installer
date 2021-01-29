@@ -79,8 +79,14 @@ uninstall_packages() {
   add_uninstall_package "imagemagick*"
 
   local list=$(installer_get "DI_UNINSTALL_PACKAGES")
-  apt-get -y purge ${list}
-  # apt autoremove -y   // 屏蔽代码解决磁盘加密时选择非图形组建安装系统成功后，系统无法重启问题。根因：由于cryptsetup被apt autoremove 卸载导致无法启动
+
+  # 增加system_module_debug判断，用于隔离安装包超时逻辑的修改
+  local module=$(installer_get "system_module_debug")
+  if [ "x$module" != "xtrue" ]; then
+    apt-get -y purge ${list}
+    # apt autoremove -y   // 屏蔽代码解决磁盘加密时选择非图形组建安装系统成功后，系统无法重启问题。根因：由于cryptsetup被apt autoremove 卸载导致无法启动
+  fi
+
 }
 
 # Replace lightdm.conf with lightdm.conf.real.

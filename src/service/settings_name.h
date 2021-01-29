@@ -230,6 +230,12 @@ const char kWindowAdaptationResolution[] = "window_adaptation_resolution";
 // 装发配置选项，用于隔离装发需求
 const char kSystemIsZF[] = "system_is_zf";
 
+// 用于系统执行命令的超时时间
+const char kSystemTimeout[] = "system_timeout";
+
+// 用于隔离还未发布的修改
+const char kSystemModuleDebug[] = "system_module_debug";
+
 }  // namespace installer
 
 #endif  // INSTALLER_SERVICE_SETTINGS_NAME_H

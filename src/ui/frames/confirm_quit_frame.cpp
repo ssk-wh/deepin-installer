@@ -73,6 +73,19 @@ void ConfirmQuitFrame::updateTsForSuccessPage()
     abort_button_->setText(::QObject::tr("Shut down"));
 }
 
+void ConfirmQuitFrame::setPackageInfo(const QString &log)
+{
+    // 清理弹窗
+    setTitle(::QObject::tr(""));
+    clearButtons();
+    abort_button_->hide();
+
+    // 重新设置弹窗布局和文案
+    insertButton(1, continue_button_, true);
+    comment_label_->setText(log);
+    continue_button_->setText(tr("Enter the system"));
+}
+
 void ConfirmQuitFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     updateTs();
@@ -156,11 +169,9 @@ bool ConfirmQuitFrame::eventFilter(QObject *watched, QEvent *event)
     if (event->type() == QEvent::MouseMove) {
         QPoint tl = mapToGlobal(rect().topRight());
         QRect closeButtonRect(tl.x() - 40, tl.y(), 40, 40);
-        qDebug() << "closeButtonRect:" << closeButtonRect;
 
         QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
         if (closeButtonRect.contains(mouseEvent->globalPos())) {
-            qDebug() << "contains mouse pos:" << mouseEvent->globalPos();
             m_mouseShape.resetCursor();
         }
         else {

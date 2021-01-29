@@ -28,7 +28,6 @@ if (CMAKE_BUILD_TYPE MATCHES Debug)
   #    "-fsanitize-memory-track-origins -fPIC -pie -fno-omit-frame-pointer")
 
 #  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wimplicit-fallthrough=1")
-
   # Enable Qt builtin debug mode
   add_definitions("-DQT_MESSAGELOGCONTEXT")
 else()
@@ -815,6 +814,9 @@ add_executable(deepin-installer-first-boot
                app/deepin_installer_first_boot.cpp
                ui/first_boot_setup_window.cpp
                ui/first_boot_setup_window.h
+
+               ui/models/package_manager_model.h
+               ui/models/package_manager_model.cpp
 
                service/pwquality_manager.h
                service/pwquality_manager.cpp

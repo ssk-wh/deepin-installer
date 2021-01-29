@@ -57,6 +57,7 @@
 #include "ui/frames/control_panel_frame.h"
 #include "ui/frames/confirm_quit_frame.h"
 #include "ui/widgets/wallpaper_item.h"
+#include "ui/models/package_manager_model.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -497,6 +498,14 @@ void FirstBootSetupWindow::registerShortcut() {
 void FirstBootSetupWindow::onHookFinished(bool ok) {
   if (!ok) {
     qCritical() << "First boot hook failed!";
+  }
+
+  if (!PackageRemoveModel::instance()->start()) {
+      QString log = PackageRemoveModel::instance()->getErr();
+      qWarning() << log;
+      // 如果卸载包有错误，则重新设置弹窗后显示
+      confirm_quit_frame_->setPackageInfo(log);
+      confirm_quit_frame_->display();
   }
 
   if (QFile::exists("/usr/sbin/lightdm")) {
