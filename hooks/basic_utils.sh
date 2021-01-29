@@ -144,5 +144,14 @@ is_arm64() {
 }
 
 install_package() {
-  DEBIAN_FRONTEND="noninteractive" apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" --no-install-recommends --allow-unauthenticated install $@
+#  DEBIAN_FRONTEND="noninteractive" apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" --no-install-recommends --allow-unauthenticated install $@
+  for i in $@;
+  do
+    DEBIAN_FRONTEND="noninteractive" apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" --no-install-recommends --allow-unauthenticated install $i
+    if [ $? -eq 0 ]; then
+      echo "succeed"
+    else
+      echo "Install Failed : $i"
+    fi
+  done
 }
