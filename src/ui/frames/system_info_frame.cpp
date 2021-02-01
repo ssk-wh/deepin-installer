@@ -144,17 +144,19 @@ void SystemInfoFrame::changeEvent(QEvent *event)
 bool SystemInfoFrame::focusSwitch()
 {
     if (m_current_focus_widget == nullptr) {
-        if (m_private->nextButton->isEnabled()) {
-            this->setCurentFocus(m_private->nextButton);
-        } else {
+        if (m_private->nextButton == m_current_focus_widget) {
             this->setCurentFocus(m_private->form_frame_);
+        } else {
+            this->setCurentFocus(m_private->nextButton);
         }
     } else if(m_private->nextButton == m_current_focus_widget) {
         this->setCurentFocus(m_private->form_frame_);
     } else if (m_private->form_frame_ == m_current_focus_widget) {
-        if (m_private->form_frame_->focusSwitch()) {
+        if (!m_private->form_frame_->focusSwitch()) {
             if (m_private->nextButton->isEnabled()) {
                 this->setCurentFocus(m_private->nextButton);
+            } else {
+                this->setCurentFocus(m_private->form_frame_);
             }
         }
     }

@@ -169,6 +169,9 @@ SystemInfoFormFrame::SystemInfoFormFrame(QWidget* parent) : QFrame(parent)
     d_private->updateTex();
     d_private->initConnections();
 
+    Q_D(SystemInfoFormFrame);
+    this->setFocusProxy(d->m_avatarButton_);
+
     KeyboardMonitor::instance()->start();
 }
 
@@ -274,27 +277,23 @@ bool SystemInfoFormFrame::focusSwitch()
             d->m_setRootPasswordCheck->setFocus();
         } else {
             d->m_passwordCheckEdit->lineEdit()->clearFocus();
-            d->m_avatarButton_->setFocus();
-            return true;
+            return false;
         }
     } else if (d->m_grubPasswordCheck_->hasFocus()) {
             d->m_grubPasswordCheck_->clearFocus();
-            d->m_avatarButton_->setFocus();
-            return true;
+            return false;
     } else if (d->m_setRootPasswordCheck->hasFocus()) {
         if (d->m_rootPasswordEdit->lineEdit()->isVisible()) {
             d->m_rootPasswordEdit->lineEdit()->setFocus();
         } else {
             d->m_setRootPasswordCheck->clearFocus();
-            d->m_avatarButton_->setFocus();
-            return true;
+            return false;
         }
     } else if (d->m_rootPasswordEdit->lineEdit()->hasFocus()) {
         d->m_rootPasswordCheckEdit->lineEdit()->setFocus();
     } else if (d->m_rootPasswordCheckEdit->hasFocus()) {
         d->m_rootPasswordCheckEdit->clearFocus();
-        d->m_avatarButton_->setFocus();
-        return true;
+        return false;
     } else {
         d->m_avatarButton_->setFocus();
     }
