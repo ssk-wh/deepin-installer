@@ -117,6 +117,7 @@ bool AdvancedPartitionFrame::focusSwitch()
             if (bootloader_button_->hasFocus()) {
                 editing_button_->setFocus();
             } else if (editing_button_->hasFocus()) {
+                editing_button_->clearFocus();
                 return true;
             } else {
                 if (m_lastPartionButtonOnFocus == -1) {

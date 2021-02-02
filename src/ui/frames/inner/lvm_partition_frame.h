@@ -34,6 +34,11 @@ class LvmPartitionFrame : public AdvancedPartitionFrame {
   LvmPartitionFrame(AdvancedPartitionDelegate* delegate_,
                      QWidget* parent = nullptr);
   void updateLayout(QHBoxLayout* layout, QString text);
+
+  void setLastButtonFocus();
+  bool isLastButtonHasFocus();
+  void clickLastButton();
+
  signals:
   // Emitted when abort-button is clicked, returning to previous page.
   void aborted();

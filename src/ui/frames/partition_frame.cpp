@@ -258,46 +258,59 @@ bool PartitionFrame::focusSwitch()
 {
     if (m_current_focus_widget == nullptr) {
         this->setCurentFocus(m_private->nextButton);
-    } else if (m_private->nextButton == m_current_focus_widget) {
-        if (m_private->prepare_install_frame_->isVisible()) {
-            m_private->prepare_install_frame_->focusSwitch();
-        } else {
-            this->setCurentFocus(m_private->m_buttonBoxWidget);
+    } else if (m_private->lvm_partition_frame_->isVisible()) {
+        //当LVM分区编辑界面显示时，限制键盘事件在LVM分区界面里处理
+        if (m_private->lvm_partition_frame_->isLastButtonHasFocus()) {
+            this->setCurentFocus(m_private->nextButton);
+        } else if (m_private->nextButton == m_current_focus_widget) {
+            this->setCurentFocus(m_private->lvm_partition_frame_);
+            m_private->lvm_partition_frame_->focusSwitch();
+        } else if (m_private->lvm_partition_frame_->focusSwitch()) {
+            m_private->lvm_partition_frame_->setLastButtonFocus();
         }
-    } else if (m_private->m_buttonBoxWidget == m_current_focus_widget) {
-        if (m_private->advanced_frame_button_->isChecked()) {
-            //this->setCurentFocus(m_private->advanced_partition_frame_);
-            if (m_private->edit_partition_frame_->isVisible()) {
-               m_private->edit_partition_frame_->focusSwitch();
-            } else if (m_private->edit_lvm_partition_frame_->isVisible()) {
-               m_private->edit_partition_frame_->focusSwitch();
-            } else if(m_private->new_partition_frame_->isVisible()) {
-                m_private->new_partition_frame_->focusSwitch();
-            } else if(m_private->new_lvm_partition_frame_->isVisible()) {
-                m_private->new_lvm_partition_frame_->focusSwitch();
-            } else if (m_private->select_bootloader_frame_->isVisible()) {
-                m_private->select_bootloader_frame_->focusSwitch();
+    } else {
+        if (m_private->nextButton == m_current_focus_widget) {
+            if (m_private->prepare_install_frame_->isVisible()) {
+                m_private->prepare_install_frame_->focusSwitch();
             } else {
-                if (m_private->advanced_partition_frame_->focusSwitch()) {
+                this->setCurentFocus(m_private->m_buttonBoxWidget);
+            }
+        } else if (m_private->m_buttonBoxWidget == m_current_focus_widget) {
+            //焦点落在分区模式切换控件上，被选中的按钮确定当前属于哪种分区模式
+            if (m_private->advanced_frame_button_->isChecked()) {
+                if (m_private->edit_partition_frame_->isVisible()) {
+                    m_private->edit_partition_frame_->focusSwitch();
+                } else if (m_private->edit_lvm_partition_frame_->isVisible()) {
+                    m_private->edit_partition_frame_->focusSwitch();
+                } else if(m_private->new_partition_frame_->isVisible()) {
+                    m_private->new_partition_frame_->focusSwitch();
+                } else if(m_private->new_lvm_partition_frame_->isVisible()) {
+                    m_private->new_lvm_partition_frame_->focusSwitch();
+                } else if (m_private->select_bootloader_frame_->isVisible()) {
+                    m_private->select_bootloader_frame_->focusSwitch();
+                } else {
+                    if (m_private->advanced_partition_frame_->focusSwitch()) {
+                        this->setCurentFocus(m_private->nextButton);
+                    }
+                }
+            } else if (m_private->full_disk_frame_button_->isChecked()) {
+                this->setCurentFocus(m_private->full_disk_partition_frame_);
+            }
+        } else if (m_private->full_disk_partition_frame_ == m_current_focus_widget) {
+            //当前处于全盘分区界面
+            if (m_private->full_disk_partition_frame_->focusSwitch()) {
+                if (m_private->full_disk_encrypt_frame_->isVisible()) {
+                    this->setCurentFocus(m_private->full_disk_encrypt_frame_);
+                } else {
                     this->setCurentFocus(m_private->nextButton);
                 }
             }
-        } else if (m_private->full_disk_frame_button_->isChecked()) {
-            this->setCurentFocus(m_private->full_disk_partition_frame_);
-        }
-    } else if (m_private->full_disk_partition_frame_ == m_current_focus_widget) {
-        if (m_private->full_disk_partition_frame_->focusSwitch()) {
+        } else if(m_private->full_disk_encrypt_frame_ == m_current_focus_widget) {
             if (m_private->full_disk_encrypt_frame_->isVisible()) {
-                this->setCurentFocus(m_private->full_disk_encrypt_frame_);
+                m_private->full_disk_encrypt_frame_->focusSwitch();
             } else {
                 this->setCurentFocus(m_private->nextButton);
             }
-        }
-    } else if(m_private->full_disk_encrypt_frame_ == m_current_focus_widget) {
-        if (m_private->full_disk_encrypt_frame_->isVisible()) {
-            m_private->full_disk_encrypt_frame_->focusSwitch();
-        } else {
-            this->setCurentFocus(m_private->nextButton);
         }
     }
 
@@ -306,22 +319,28 @@ bool PartitionFrame::focusSwitch()
 
 bool PartitionFrame::doSpace()
 {
-    if (m_private->advanced_frame_button_->isChecked()/*m_private->advanced_partition_frame_ == m_current_focus_widget*/) {
-        if (m_private->edit_partition_frame_->isVisible()) {
-           m_private->edit_partition_frame_->doSpace();
-        } else if (m_private->edit_lvm_partition_frame_->isVisible()) {
-           m_private->edit_partition_frame_->doSpace();
-        } else if (m_private->new_partition_frame_->isVisible()) {
-            m_private->new_partition_frame_->doSpace();
-        } else if (m_private->new_lvm_partition_frame_->isVisible()) {
-            m_private->new_lvm_partition_frame_->doSpace();
-        } else if (m_private->select_bootloader_frame_->isVisible()) {
-            m_private->select_bootloader_frame_->doSpace();
-        } else {
-            m_private->advanced_partition_frame_->doSpace();
+    if (m_private->lvm_partition_frame_->isVisible()) {
+        //相应LVM分区界面的空格事件
+        m_private->lvm_partition_frame_->doSpace();
+    }else {
+        if (m_private->advanced_frame_button_->isChecked()) {
+            //当前处于手动分区界面
+            if (m_private->edit_partition_frame_->isVisible()) {
+                m_private->edit_partition_frame_->doSpace();
+            } else if (m_private->edit_lvm_partition_frame_->isVisible()) {
+                m_private->edit_partition_frame_->doSpace();
+            } else if (m_private->new_partition_frame_->isVisible()) {
+                m_private->new_partition_frame_->doSpace();
+            } else if (m_private->new_lvm_partition_frame_->isVisible()) {
+                m_private->new_lvm_partition_frame_->doSpace();
+            } else if (m_private->select_bootloader_frame_->isVisible()) {
+                m_private->select_bootloader_frame_->doSpace();
+            } else {
+                m_private->advanced_partition_frame_->doSpace();
+            }
+        } else if (m_private->full_disk_frame_button_->isChecked()) {
+            m_private->full_disk_partition_frame_->doSpace();
         }
-    } else if (m_private->full_disk_frame_button_->isChecked()/*m_private->full_disk_partition_frame_ == m_current_focus_widget*/) {
-        m_private->full_disk_partition_frame_->doSpace();
     }
     return true;
 }
@@ -334,22 +353,32 @@ bool PartitionFrame::doSelect()
         } else {
             emit m_private->nextButton->clicked();
         }
-    } else if (m_private->advanced_frame_button_->isChecked()/*m_private->advanced_partition_frame_ == m_current_focus_widget*/) {
-        if (m_private->edit_partition_frame_->isVisible()) {
-           m_private->edit_partition_frame_->doSelect();
-        } else if (m_private->edit_lvm_partition_frame_->isVisible()) {
-           m_private->edit_partition_frame_->doSelect();
-        } else if(m_private->new_partition_frame_->isVisible()) {
-            m_private->new_partition_frame_->doSelect();
-        } else if(m_private->new_lvm_partition_frame_->isVisible()) {
-            m_private->new_lvm_partition_frame_->doSelect();
-        } else if (m_private->select_bootloader_frame_->isVisible()) {
-            m_private->select_bootloader_frame_->doSelect();
+    } else {
+        if (m_private->lvm_partition_frame_->isVisible()) {
+            if (m_private->lvm_partition_frame_->isLastButtonHasFocus()) {
+                m_private->lvm_partition_frame_->clickLastButton();
+            } else {
+                m_private->lvm_partition_frame_->doSelect();
+            }
         } else {
-            m_private->advanced_partition_frame_->doSelect();
+            if (m_private->advanced_frame_button_->isChecked()) {
+                if (m_private->edit_partition_frame_->isVisible()) {
+                    m_private->edit_partition_frame_->doSelect();
+                } else if (m_private->edit_lvm_partition_frame_->isVisible()) {
+                    m_private->edit_partition_frame_->doSelect();
+                } else if(m_private->new_partition_frame_->isVisible()) {
+                    m_private->new_partition_frame_->doSelect();
+                } else if(m_private->new_lvm_partition_frame_->isVisible()) {
+                    m_private->new_lvm_partition_frame_->doSelect();
+                } else if (m_private->select_bootloader_frame_->isVisible()) {
+                    m_private->select_bootloader_frame_->doSelect();
+                } else {
+                    m_private->advanced_partition_frame_->doSelect();
+                }
+            } else if (m_private->full_disk_frame_button_->isChecked()) {
+                m_private->full_disk_partition_frame_->doSelect();
+            }
         }
-    } else if (m_private->full_disk_frame_button_->isChecked()/*m_private->full_disk_partition_frame_ == m_current_focus_widget*/) {
-        m_private->full_disk_partition_frame_->doSelect();
     }
     return true;
 }
@@ -362,42 +391,51 @@ bool PartitionFrame::directionKey(int keyvalue)
     case Qt::Key_Down:
         break;
     case Qt::Key_Left: {
-            if (m_private->m_buttonBoxWidget == m_current_focus_widget) {
-                m_private->advanced_frame_button_->setChecked(true);
-                m_private->full_disk_frame_button_->setChecked(false);
-                m_private->partition_stacked_layout_->setCurrentWidget(m_private->advanced_partition_frame_);
+            if (!m_private->lvm_partition_frame_->isVisible()) {
+                //这里处理当LVM界面显示的时候，按下键盘左右键，界面会跳转到其他界面的bug
+                if (m_private->m_buttonBoxWidget == m_current_focus_widget) {
+                    m_private->advanced_frame_button_->setChecked(true);
+                    m_private->full_disk_frame_button_->setChecked(false);
+                    m_private->partition_stacked_layout_->setCurrentWidget(m_private->advanced_partition_frame_);
+                }
             }
         }
         break;
     case Qt::Key_Right: {
-            if (m_private->m_buttonBoxWidget == m_current_focus_widget) {
-                m_private->advanced_frame_button_->setChecked(false);
-                m_private->full_disk_frame_button_->setChecked(true);
-                m_private->partition_stacked_layout_->setCurrentWidget(m_private->full_disk_partition_frame_);
+            if (!m_private->lvm_partition_frame_->isVisible()) {
+                if (m_private->m_buttonBoxWidget == m_current_focus_widget) {
+                    m_private->advanced_frame_button_->setChecked(false);
+                    m_private->full_disk_frame_button_->setChecked(true);
+                    m_private->partition_stacked_layout_->setCurrentWidget(m_private->full_disk_partition_frame_);
+                }
             }
         }
         break;
     }
 
-    if (m_private->advanced_frame_button_->isChecked()/*m_private->advanced_partition_frame_ == m_current_focus_widget*/) {
-        if (m_private->edit_partition_frame_->isVisible()) {
-           m_private->edit_partition_frame_->directionKey(keyvalue);
-        } else if (m_private->edit_lvm_partition_frame_->isVisible()) {
-           m_private->edit_partition_frame_->directionKey(keyvalue);
-        } else if(m_private->new_partition_frame_->isVisible()) {
-            m_private->new_partition_frame_->directionKey(keyvalue);
-        } else if(m_private->new_lvm_partition_frame_->isVisible()) {
-            m_private->new_lvm_partition_frame_->directionKey(keyvalue);
-        } else if (m_private->select_bootloader_frame_->isVisible()) {
-            m_private->select_bootloader_frame_->directionKey(keyvalue);
-        } else {
-            m_private->advanced_partition_frame_->directionKey(keyvalue);
-        }
-    } else if (m_private->full_disk_frame_button_->isChecked()/*m_private->full_disk_partition_frame_ == m_current_focus_widget*/) {
-        m_private->full_disk_partition_frame_->directionKey(keyvalue);
-    } else if (m_private->nextButton == m_current_focus_widget) {
-        if (m_private->prepare_install_frame_->isVisible()) {
-            m_private->prepare_install_frame_->directionKey(keyvalue);
+    if (m_private->lvm_partition_frame_->isVisible()) {
+        m_private->lvm_partition_frame_->directionKey(keyvalue);
+    } else {
+        if (m_private->advanced_frame_button_->isChecked()) {
+            if (m_private->edit_partition_frame_->isVisible()) {
+                m_private->edit_partition_frame_->directionKey(keyvalue);
+            } else if (m_private->edit_lvm_partition_frame_->isVisible()) {
+                m_private->edit_partition_frame_->directionKey(keyvalue);
+            } else if(m_private->new_partition_frame_->isVisible()) {
+                m_private->new_partition_frame_->directionKey(keyvalue);
+            } else if(m_private->new_lvm_partition_frame_->isVisible()) {
+                m_private->new_lvm_partition_frame_->directionKey(keyvalue);
+            } else if (m_private->select_bootloader_frame_->isVisible()) {
+                m_private->select_bootloader_frame_->directionKey(keyvalue);
+            } else {
+                m_private->advanced_partition_frame_->directionKey(keyvalue);
+            }
+        } else if (m_private->full_disk_frame_button_->isChecked()) {
+            m_private->full_disk_partition_frame_->directionKey(keyvalue);
+        } else if (m_private->nextButton == m_current_focus_widget) {
+            if (m_private->prepare_install_frame_->isVisible()) {
+                m_private->prepare_install_frame_->directionKey(keyvalue);
+            }
         }
     }
 

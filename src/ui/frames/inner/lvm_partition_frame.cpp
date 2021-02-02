@@ -51,6 +51,21 @@ void LvmPartitionFrame::updateLayout(QHBoxLayout* layout, QString text) {
     LanguageManager::translator(m_lastButton, &QPushButton::setText, TranslatorType::BackButton);
 }
 
+void LvmPartitionFrame::setLastButtonFocus()
+{
+    m_lastButton->setFocus();
+}
+
+bool LvmPartitionFrame::isLastButtonHasFocus()
+{
+    return m_lastButton->hasFocus();
+}
+
+void LvmPartitionFrame::clickLastButton()
+{
+    emit m_lastButton->clicked();
+}
+
 void LvmPartitionFrame::changeEvent(QEvent *event) {
     if (event->type() == QEvent::LanguageChange) {
         m_lastButton->setText(::QObject::tr("Back"));
