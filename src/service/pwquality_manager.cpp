@@ -61,11 +61,13 @@ installer::PwqualityManager *installer::PwqualityManager::instance()
 
 installer::ValidateState installer::PwqualityManager::checked(const QString &text)
 {
+    Q_UNUSED(text);
     return ValidateState::Ok;
 }
 
 QString installer::PwqualityManager::palindromeChecked(const QString &text)
 {
+    Q_UNUSED(text);
 //    if (m_palindromeChecked) {
 //        QStringList list;
 //        for (int pos = 0; pos < text.size() + 1 - m_palindromeLength; pos++) {
@@ -89,6 +91,7 @@ QString installer::PwqualityManager::palindromeChecked(const QString &text)
 
 QString installer::PwqualityManager::dictChecked(const QString &text)
 {
+    Q_UNUSED(text);
 //    int code = pwquality_check(m_pwqualitySetting.get(),
 //                               text.toStdString().c_str(),
 //                               NULL, NULL, NULL);
@@ -101,6 +104,7 @@ QString installer::PwqualityManager::dictChecked(const QString &text)
 
 bool installer::PwqualityManager::lengthChecked(const QString &text)
 {
+    Q_UNUSED(text);
 //    pwquality_set_int_value(m_pwqualitySetting.get(), PWQ_SETTING_MIN_LENGTH, 6);
     // ...
 

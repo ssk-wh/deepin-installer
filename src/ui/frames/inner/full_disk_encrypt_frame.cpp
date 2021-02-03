@@ -252,13 +252,8 @@ void Full_Disk_Encrypt_frame::initConnections()
     connect(m_confirmBtn, &QPushButton::clicked, this, &Full_Disk_Encrypt_frame::onNextBtnClicked);
     connect(m_encryptEdit, &DLineEdit::textChanged, m_errTip, &SystemInfoTip::hide);
     connect(m_encryptRepeatEdit, &DLineEdit::textChanged, m_errTip, &SystemInfoTip::hide);
-    connect(KeyboardMonitor::instance(), &KeyboardMonitor::capslockStatusChanged, this, &Full_Disk_Encrypt_frame::updateEditCapsLockState);
 
-    connect(m_close_button, &DImageButton::clicked, this, &Full_Disk_Encrypt_frame::cancel);
-#ifdef QT_DEBUG
-    connect(m_close_button, &DImageButton::clicked, this, []{qDebug() << "close button!";});
-#endif // QT_DEBUG
-
+    connect(m_close_button, &DIconButton::clicked, this, &Full_Disk_Encrypt_frame::cancel);
 }
 
 void Full_Disk_Encrypt_frame::onNextBtnClicked()
@@ -311,12 +306,6 @@ void Full_Disk_Encrypt_frame::updateText()
     m_tilabel->setText(::QObject::tr("Take care of your password, otherwise, all your data will be lost"));
 }
 
-void Full_Disk_Encrypt_frame::updateEditCapsLockState(bool on) {
-    for (DLineEdit *edit : m_editList) {
-//        edit->setCapsLockVisible(on && edit->hasFocus());
-    }
-}
-
 void Full_Disk_Encrypt_frame::updateDiskInfo(int index)
 {
     Device::Ptr device(m_diskinfo[index].m_device);
@@ -352,10 +341,9 @@ void Full_Disk_Encrypt_frame::updateDiskInfo()
 void Full_Disk_Encrypt_frame::setupCloseButton()
 {
     // TODO: use titleBar implement.
-    m_close_button = new DImageButton(this);
-    //m_close_button->setFocusPolicy(Qt::TabFocus);
+    m_close_button = new DIconButton(this);
     m_close_button->setFixedSize(40, 40);
-    m_close_button->setNormalPic(":/images/close_normal.svg");
-    m_close_button->setHoverPic(":/images/close_normal.svg");
-    m_close_button->setPressPic(":/images/close_normal.svg");
+    m_close_button->setIconSize(QSize(40, 40));
+    m_close_button->setIcon(QIcon(":/images/close_normal.svg"));
+    m_close_button->setFlat(true);
 }

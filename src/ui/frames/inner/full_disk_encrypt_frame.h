@@ -8,7 +8,7 @@
 #include <QWidget>
 #include <DLineEdit>
 #include <DPasswordEdit>
-#include <DImageButton>
+#include <DIconButton>
 #include <DSuggestButton>
 #include <pwd.h>
 
@@ -68,7 +68,6 @@ private:
     void onNextBtnClicked();
     void onEncryptUpdated(bool checked);
     void updateText();
-    void updateEditCapsLockState(bool on);
     void updateDiskInfo(int index);
     void updateDiskInfo();
     void setupCloseButton();
@@ -91,7 +90,7 @@ private:
     QList<DLineEdit*> m_editList;
     FullDiskPartitionWidget *m_diskPartitionWidget;
     FullDiskDelegate *m_diskPartitionDelegate;
-    DImageButton* m_close_button = nullptr;
+    DIconButton* m_close_button = nullptr;
 
 };
 }

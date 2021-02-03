@@ -28,13 +28,18 @@ if (CMAKE_BUILD_TYPE MATCHES Debug)
   #    "-fsanitize-memory-track-origins -fPIC -pie -fno-omit-frame-pointer")
 
 #  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wimplicit-fallthrough=1")
-  # Enable Qt builtin debug mode
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O2 -fPIE")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2 -Wno-unused-result \
+    -Wno-switch-default -Wno-padded -Wno-unused-function -Wno-reorder -fPIE")
+
+# Enable Qt builtin debug mode
   add_definitions("-DQT_MESSAGELOGCONTEXT")
 else()
   # -Wl, -O2 Enable linker optimizations
   #-Wl, --gc-sections Remove unused code resulting from -fdsta-sections and -ffunction-sections
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O2 -Wl,-O1 -Wl,--gc-sections -fPIE -pie")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2 -Wl,-O1 -Wl,--gc-sections -Wno-unused-result -fPIE -pie")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2 -Wl,-O1 -Wl,--gc-sections -Wno-unused-result \
+      -Wno-switch-default -Wno-padded -Wno-unused-function -Wno-reorder -Werror -fPIE -pie")
 endif()
 
 # Install default_settings.ini based on current architecture.
@@ -623,8 +628,6 @@ set(CLI_UI_FILES
     ui/frames_cli/system_info_frame.cpp
     ui/frames_cli/install_component_frame.h
     ui/frames_cli/install_component_frame.cpp
-    ui/frames_cli/install_failed_frame.h
-    ui/frames_cli/install_failed_frame.cpp
     ui/frames_cli/install_process_frame.h
     ui/frames_cli/install_process_frame.cpp
     ui/frames_cli/install_success_frame.h

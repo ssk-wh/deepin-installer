@@ -949,7 +949,7 @@ void PartitionFramePrivate::onManualPartDone(bool ok, const DeviceList& devices)
 
 void PartitionFramePrivate::onPrepareInstallFrameFinished() {
     // First, update boot flag.
-    bool found_boot;
+    bool found_boot = false;
     if (isSimplePartitionMode()) {
         found_boot = simple_partition_delegate_->setBootFlag();
     } else if (isFullDiskPartitionMode() && !full_disk_partition_frame_->isEncrypt()){

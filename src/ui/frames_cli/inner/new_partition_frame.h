@@ -45,8 +45,8 @@ class NewPartitionFrame : public FrameInterfacePrivate {
   void setPartition(const Partition::Ptr partition);
   void show() override;
   void hide() override;
-  void updateTs();
-  void layout();
+  void updateTs() override;
+  void layout() override;
   virtual void onKeyPress(int keycode) override;
  signals:
   void finished();
@@ -61,7 +61,7 @@ protected:
 
  private:
   void initConnections();
-  void initUI();
+  void initUI() override;
 
 
   // Update current slider size based on mount point and filesystem type.

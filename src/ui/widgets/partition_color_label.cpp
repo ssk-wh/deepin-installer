@@ -3,8 +3,8 @@
 #include <QPainter>
 
 PartitionColorLabel::PartitionColorLabel(QColor color, QWidget *parent)
-    : m_color(color)
-    , QWidget(parent)
+    : QWidget(parent)
+    , m_color(color)
 {
     setFixedSize(10, 10);
 }

@@ -929,7 +929,7 @@ bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, Q
         return false;
     }
     case ValidatePasswordState::StrongError: {
-        msg = ::QObject::tr("Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&*()[]{}\|/?,.<>)");
+        msg = ::QObject::tr("Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&*()[]{}\\|/?,.<>)");
         return false;
     }
     case ValidatePasswordState::TooShortError:
@@ -1037,7 +1037,7 @@ bool SystemInfoFormFramePrivate::validatePassword2(DPasswordEdit *passwordEdit, 
 
 void SystemInfoFormFramePrivate::systemInfoFrameFinish()
 {
-    Q_Q(SystemInfoFormFrame);
+//    Q_Q(SystemInfoFormFrame);
 
     tooltip_->hide();
 

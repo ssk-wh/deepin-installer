@@ -76,7 +76,6 @@ void PartitionNumberLimitationFrame::initUI() {
   m_commentLab1->setText(::QObject::tr("You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk"));
 
   QString strCancel = ::QObject::tr("Back");
-  int buttonHeight = 3;
   int buttonWidth = strCancel.length() + 4;
 
   cancel_button_ = new NcursesButton(this, strCancel, 3, 14, begy() + height() - 5, begx() + (width() - buttonWidth) / 2 );

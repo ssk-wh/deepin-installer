@@ -82,10 +82,8 @@ private:
 
 //    QScopedPointer<pwquality_settings_t, ScopedPointerCustomDeleter> m_pwqualitySetting;
 
-    bool m_dictChecked = false;
+//    bool m_dictChecked = false;
     QString m_dictPath = "";
-    bool m_palindromeChecked = false;
-    int m_palindromeLength = 1;
     int m_monotonousLength = 0;
     int m_continuousLength = 0;
 };

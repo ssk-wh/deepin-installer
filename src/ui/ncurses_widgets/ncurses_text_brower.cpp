@@ -7,9 +7,7 @@ namespace installer {
 NcursesTextBrower::NcursesTextBrower(NCursesWindowBase *parent, int lines, int cols, int beginY, int beginX)
     : NCursesWindowBase (parent, lines, cols, beginY, beginX),
       m_currLine(0),
-      m_reserveY(0),
-      m_reserveX(1)
-
+      m_reserveY(0)
 {
     bkgd(parent->getbkgd());
 //    scrollok(true);
@@ -56,7 +54,7 @@ void NcursesTextBrower::appendItemText(const QString &text)
      iswchar = true;
 #endif // QT_DEBUG
 
-    int lineCharNum = lineCharNum = width();
+    int lineCharNum = width();
 
     if (!input.isEmpty()) {
 

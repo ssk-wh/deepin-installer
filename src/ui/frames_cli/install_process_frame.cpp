@@ -200,7 +200,6 @@ InstallProcessFrame::~InstallProcessFrame()
 
 bool InstallProcessFrame::init()
 {
-    Q_D(InstallProcessFrame);
     if (m_currState == FRAME_STATE_NOT_START) {
         m_private->layout();
         m_currState = FRAME_STATE_RUNNING;

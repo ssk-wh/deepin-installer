@@ -25,8 +25,8 @@ InstallComponentFramePrivate::InstallComponentFramePrivate(NCursesWindowBase *pa
       m_basicenvironmentlist(nullptr),
       m_extrachoiceslist(nullptr),
       m_selectallextra(nullptr),
-      m_isshow(false),
-      m_localeString("")
+      m_localeString(""),
+      m_isshow(false)
 {
     initUI();
     initConnection();
@@ -378,7 +378,6 @@ ComponentFrame::~ComponentFrame()
 
 bool ComponentFrame::init()
 {
-    Q_D(InstallComponentFrame);
     if (m_currState == FRAME_STATE_NOT_START) {
         //d->initInfoList();
         m_private->layout();

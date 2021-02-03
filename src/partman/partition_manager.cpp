@@ -274,7 +274,7 @@ void PartitionManager::doManualPart(const OperationList& operations) {
     }
     // Update mount point of real partitions.
     std::map<QString, Partition::Ptr> mountMap;
-    for (const Operation::Ptr operation : real_operations) {
+    for (const Operation::Ptr& operation : real_operations) {
         if (!operation->new_partition || !operation->orig_partition) continue;
         if ((operation->type == OperationType::Create) ||
             (operation->type == OperationType::Format) ||
@@ -301,8 +301,7 @@ void PartitionManager::doManualPart(const OperationList& operations) {
                 });
 
             if (it != mountMap.cend()) {
-                const auto [mountPoint, p] = *it;
-                partition->mount_point     = p->mount_point;
+                partition->mount_point = it->second->mount_point;
             }
         }
     }
@@ -571,7 +570,6 @@ DeviceList ScanVgDevices(PartitionList & partitionList)
     device->read_only = false;
     device->table = PartitionTableType::GPT;
 
-    int partitionNo = 1;
     LvPartition* partition1 = new LvPartition();
     partition1->device_path = device->path;
     partition1->path = QString("%1/lv1").arg(device->path);
@@ -604,7 +602,6 @@ Device::Ptr constructDevice1(int deviceNum)
     device->read_only = true;
     device->table = PartitionTableType::MsDos;
 
-    int partitionNo = 1;
     Partition* partition1 = new Partition();
     partition1->device_path = device->path;
     partition1->path = QString("%1p-1").arg(device->path);

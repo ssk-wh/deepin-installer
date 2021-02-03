@@ -31,7 +31,7 @@ namespace installer {
 
 namespace {
 // Minimum size of new partition is 100 Mib.
-const qint64 kMinimumPartitionSizeCli = 100 * kMebiByte;
+//const qint64 kMinimumPartitionSizeCli = 100 * kMebiByte;
 }  // namespace
 
 /*PrepareInstallFrame::PrepareInstallFrame(NCursesWindowBase* parent, int lines, int cols, int beginY, int beginX, AdvancedPartitionDelegate* delegate)
@@ -92,11 +92,6 @@ void PrepareInstallFrame::initUI() {
   m_commentLabel->setText(::QObject::tr("Make a backup of your important data and then continue"));
 
   //QStringList opt(delegate_->getOptDescriptions());
-
-  bool iswchar = false;
-  if (installer::ReadLocale() == "zh_CN") {
-      iswchar = true;
-  }
 
   QString strBack = ::QObject::tr("Back");
   QString strContinue = ::QObject::tr("Continue");

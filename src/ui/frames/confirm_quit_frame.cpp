@@ -104,7 +104,7 @@ void ConfirmQuitFrame::initConnections() {
       emit quitConfirmed();
   });
 
-  connect(m_close_button, &DImageButton::clicked,
+  connect(m_close_button, &DIconButton::clicked,
           this, [=] {
       emit quitCancelled();
   });
@@ -127,8 +127,8 @@ void ConfirmQuitFrame::initUI() {
 
   QPixmap pixmap = installer::renderPixmap(":/images/interaction_warning.svg");
   const auto ratio = devicePixelRatioF();
-  pixmap = pixmap.scaled(48 * ratio, 48 * ratio, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-  setIconPixmap(pixmap);
+  pixmap = pixmap.scaled(static_cast<int>(48 * ratio), static_cast<int>(48 * ratio), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+  setIcon(QIcon(pixmap));
 
   setTitle(::QObject::tr("Abort Installation"));
 
@@ -147,12 +147,12 @@ void ConfirmQuitFrame::initUI() {
 
 void ConfirmQuitFrame::setupCloseButton()
 {
-    m_close_button = new DImageButton(this);
+    m_close_button = new DIconButton(this);
     //m_close_button->setFocusPolicy(Qt::TabFocus);
     m_close_button->setFixedSize(40, 40);
-    m_close_button->setNormalPic(":/images/close_normal.svg");
-    m_close_button->setHoverPic(":/images/close_normal.svg");
-    m_close_button->setPressPic(":/images/close_normal.svg");
+    m_close_button->setIconSize(QSize(40, 40));
+    m_close_button->setIcon(QIcon(":/images/close_normal.svg"));
+    m_close_button->setFlat(true);
 
     m_close_button->hide();
 }

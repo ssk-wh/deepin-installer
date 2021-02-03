@@ -40,7 +40,7 @@ namespace installer {
 namespace {
 
 // Read log file each 1000ms.
-const int kReadLogInterval = 1000;
+//const int kReadLogInterval = 1000;
 
 const int kWindowWidth = 860;
 const int kWindowHeight = 480;

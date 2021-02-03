@@ -103,11 +103,6 @@ void SaveLogFramePrivate::initConnection()
     connect(m_pNextButton, &NcursesButton::clicked, this, &SaveLogFramePrivate::doNextBtnClicked);
 }
 
-bool SaveLogFramePrivate::validate()
-{
-
-}
-
 void SaveLogFramePrivate::show()
 {
     if(!m_isshow) {

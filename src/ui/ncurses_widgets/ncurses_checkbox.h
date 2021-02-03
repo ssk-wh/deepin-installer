@@ -15,11 +15,11 @@ class NcursesCheckBox : public NCursesWindowBase
 public:
     NcursesCheckBox(NCursesWindowBase* parent, const QString& text, int lines, int cols, int beginY, int beginX);
     NcursesCheckBox(NCursesWindowBase* parent, int lines, int cols, int beginY, int beginX);
-    virtual ~NcursesCheckBox();
+    virtual ~NcursesCheckBox() override;
     virtual void show() override;
     virtual void hide() override;
     virtual void setFocus(bool foucs) override;
-    virtual void resizew(int newLines, int newColumns);
+    virtual void resizew(int newLines, int newColumns) override;
     void setText(const QString &title = "", const QString& text = "");
     void setSelect(bool select);
     bool isSelect(){ return m_select; }

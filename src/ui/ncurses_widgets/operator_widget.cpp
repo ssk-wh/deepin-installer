@@ -25,9 +25,6 @@ void installer::OperatorWidget::setDesc(const QString &text)
 
 void installer::OperatorWidget::move(int y, int x)
 {
-    int margs = 1;
-    int begy = y - margs;
-    int begx = x - margs;
     m_titleLab->mvwin(y, x);
     y += m_titleLab->height();
     m_descLab->mvwin(y, x);

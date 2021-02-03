@@ -13,7 +13,6 @@ TimeZoneFramePrivate::TimeZoneFramePrivate(TimeZoneFrame *parent, int lines, int
       q_ptr(qobject_cast<TimeZoneFrame*>(parent)),
       m_currentContinentIndex(0),
       m_currentTimezoneIndex(0),
-//      m_localeString(""),
       m_isshow(false)
 {
     initUI();
@@ -46,8 +45,6 @@ void TimeZoneFramePrivate::updateTs()
 //        return;
 //    }
 //    m_localeString = installer::ReadLocale();
-
-    Q_Q(TimeZoneFrame);
 
     box(ACS_VLINE, ACS_HLINE);
     printTitle(::QObject::tr("Select Timezone"), width());

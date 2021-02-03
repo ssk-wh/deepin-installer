@@ -49,13 +49,13 @@ public:
 
     void updatePic();
 
+    DDropdown *q_ptr;
+    Q_DECLARE_PUBLIC(DDropdown)
+
     QMenu       *menu       = nullptr;
     QLabel      *text       = nullptr;
     QLabel      *dropdown   = nullptr;
     ButtonStatus m_state    = ButtonStatus::Normal;
-
-    DDropdown *q_ptr;
-    Q_DECLARE_PUBLIC(DDropdown)
 };
 
 DDropdown::DDropdown(QWidget *parent)
@@ -105,8 +105,6 @@ DDropdown::DDropdown(QWidget *parent)
         d->menu->move(center);
         d->menu->exec();
     });
-
-    DThemeManager::instance()->registerWidget(this);
 }
 
 DDropdown::~DDropdown()
@@ -216,7 +214,7 @@ void DDropdownPrivate::updatePic()
         dropdown->setPixmap(installer::renderPixmap(":/images/dropdown_arrow-press.svg"));
         break;
     default:
-        qCritical() << "invalid DDropdown state";
+        qCritical() << "Invalid DDropdown state";
         break;
     }
 }

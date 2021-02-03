@@ -41,7 +41,7 @@ public:
     virtual void onKeyPress(int keyCode) override;
     virtual void keyEventTriger(int keycode) override;
     ePartitionMode GetParMode(){ return m_parMode; }
-    void setIsShow(bool isshow){ m_isshow = isshow; }
+    void setIsShow(bool isshow) override { m_isshow = isshow; }
     void setcurrentchoicetype(int type){ m_currentchoicetype = type; }
     void doBackBtnClicked();
     void doNextBtnClicked();

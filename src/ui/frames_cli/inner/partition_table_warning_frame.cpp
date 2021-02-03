@@ -107,8 +107,6 @@ void PartitionTableWarningFrame::initUI() {
 
   QString strCancel = ::QObject::tr("Cancel");
   QString strCreate = ::QObject::tr("Create");
-  int buttonHeight = 3;
-  int buttonWidth = std::max(strCancel.length(), strCreate.length()) + 4;
 
   create_button_ = new NcursesButton(this, strCreate, 3, 14, begy() + height() - 5, begx() + width() - 20);
   cancel_button_ = new NcursesButton(this, strCancel, 3, 14, begy() + height() - 5, begx() + 5);

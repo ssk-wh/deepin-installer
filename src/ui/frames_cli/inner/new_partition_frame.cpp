@@ -172,8 +172,6 @@ void NewPartitionFrame::initUI() {
 
   QString strCreate = ::QObject::tr("Create");
   QString strCancel = ::QObject::tr("Back");
-  int buttonHeight = 3;
-  int buttonWidth = std::max(strCancel.length(), strCreate.length()) + 4;
   //cancel_button_ = new NcursesButton(this, strCancel, buttonHeight, 14, begy() + height() - buttonHeight - 2, begx() + 5);
 
   //title_label_ = new NcursesLabel(this, 1, 1, begy(), begx());
@@ -366,9 +364,7 @@ void NewPartitionFrame::backHandle()
 }
 
 void NewPartitionFrame::updateSlideSize() {
-  const int fs_index = fs_box_->getCurrentIndex();
   const FsType fs_type = GetFsTypeByName(fs_box_->getCurrenItem());
-  const int mp_index = mount_point_box_->getCurrentIndex();
   const QString mount_point = mount_point_box_->getCurrenItem();
 
   // If fs_type is special, no need to display mount-point box.

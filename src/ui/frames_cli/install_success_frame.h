@@ -14,7 +14,7 @@ class InstallSuccessFramePrivate : public FrameInterfacePrivate
     Q_OBJECT
 public:
     InstallSuccessFramePrivate(NCursesWindowBase* parent, int lines, int cols, int beginY, int beginX);
-    ~InstallSuccessFramePrivate();
+    ~InstallSuccessFramePrivate() override;
 
     // FrameInterfacePrivate interface
 public:
@@ -48,8 +48,8 @@ private:
     QString m_installFailedTitle;
     QString m_installFailedInfoTitle;
     QString m_installFailedInfoDes;
-    bool m_isshow;
     int m_currentchoicetype = -1;//-1-main page 0-Save Log page
+    bool m_isshow;
 };
 
 class InstallSuccessFrame : public FrameInterface
@@ -57,7 +57,7 @@ class InstallSuccessFrame : public FrameInterface
     Q_OBJECT
 public:
     InstallSuccessFrame(FrameInterface* parent);
-    virtual ~InstallSuccessFrame();
+    virtual ~InstallSuccessFrame() override;
 
     // FrameInterface interface
 public:

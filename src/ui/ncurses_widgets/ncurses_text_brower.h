@@ -10,7 +10,7 @@ class NcursesTextBrower : public NCursesWindowBase
 {
 public:
     NcursesTextBrower(NCursesWindowBase* parent, int lines, int cols, int beginY, int beginX);
-    virtual ~NcursesTextBrower(){}
+    virtual ~NcursesTextBrower() override {}
     void setText(const QString &text);
     void appendText(const QString& text);
     void appendItemText(const QString& text);
@@ -28,7 +28,6 @@ private:
     QScopedPointer<NCursesFramedPad> m_pad;
     int m_currLine;
     int m_reserveY;
-    int m_reserveX;
 };
 
 

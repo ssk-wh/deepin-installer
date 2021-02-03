@@ -168,10 +168,6 @@ void InstallProgressSlideFrame::updateSlideImage() {
 
 void InstallProgressSlideFrame::updateSlidePixmap()
 {
-    const int buttonWidth = m_backButton->width();
-    constexpr int buttonSpacing = 20;
-    const int width = this->width() - (buttonWidth + buttonSpacing) * 2;
-
     container_label_->setPixmap(ScreenAdaptationManager::instance()->adapterPixmap(m_cachePixmap));
 }
 

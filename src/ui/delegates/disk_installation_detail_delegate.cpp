@@ -44,7 +44,6 @@ const int kSelectedLeftMargin = 366;
 // Right margin of selected item, used to locate background image.
 const int kSelectedRightMargin = 2;
 // Size of bottom border.
-const int kBorderBottom = 10;
 const int kItemRightMargin = 10;
 const QString kDriverIcon = ":/images/drive-harddisk-64px.svg";
 const QString kDriverInstallIcon = GetUosAndDeepinLogo128();

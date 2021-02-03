@@ -36,6 +36,9 @@ protected:
     void rightHandle() override;
 
 private:
+    TimeZoneFrame *q_ptr = nullptr;
+    Q_DECLARE_PUBLIC(TimeZoneFrame)
+
     //QString m_title;
     NcursesLabel* m_instructions;
     NcursesListView* m_continentView;
@@ -44,9 +47,6 @@ private:
     int m_currentTimezoneIndex;
     //QString m_localeString;
     bool m_isshow;
-
-    TimeZoneFrame *q_ptr = nullptr;
-    Q_DECLARE_PUBLIC(TimeZoneFrame)
 };
 
 class TimeZoneFrame : public FrameInterface

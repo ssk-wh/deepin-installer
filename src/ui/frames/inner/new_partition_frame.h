@@ -19,7 +19,7 @@
 #define INSTALLER_UI_FRAMES_INNER_NEW_PARTITION_FRAME_H
 
 #include <QFrame>
-#include <DImageButton>
+#include <DIconButton>
 #include <DSuggestButton>
 
 class QLabel;
@@ -95,7 +95,7 @@ class NewPartitionFrame : public ChildFrameInterface {
   MountPointModel* mount_point_model_ = nullptr;
   PartitionTypeModel* type_model_ = nullptr;
   Partition::Ptr partition_;
-  DImageButton* m_close_button = nullptr;
+  DIconButton* m_close_button = nullptr;
 
   // To memorize slider value.
   qint64 last_slider_value_;

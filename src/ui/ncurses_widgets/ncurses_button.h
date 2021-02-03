@@ -11,14 +11,14 @@ class NcursesButton : public NCursesWindowBase
     Q_OBJECT
 public:
     NcursesButton(NCursesWindowBase* parent, QString text, int lines, int cols, int beginY, int beginX, bool box = true, bool shadow = true);
-    virtual ~NcursesButton(){}
+    virtual ~NcursesButton() override{}
     void show() override;
     void setText(const QString& text);
     void setEnable(bool enable);
     void onKeyPress(int keyCode) override;
     QString text() const;
     void resetBackground();
-    void drawFoucs();
+    void drawFoucs() override;
 
 signals:
     void clicked();

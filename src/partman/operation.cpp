@@ -55,7 +55,7 @@ QDebug& operator<<(QDebug& debug, const OperationType& op_type) {
       type = "Resize";
       break;
     }
-    case OperationType::Invalid: {
+    default: {
       type = "Invalid";
       break;
     }

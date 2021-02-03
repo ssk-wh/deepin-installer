@@ -52,7 +52,7 @@ class AdvancedPartitionDelegate : public partition::Delegate {
   bool unFormatPartition(const Partition::Ptr partition);
 
   ValidateStates validate() const override;
-  bool isPartitionTableMatch(const QString &device_path) const;
+  bool isPartitionTableMatch(const QString &device_path) const override;
   bool m_islvm;
   static Install_Lvm_Status install_Lvm_Status;
   static QStringList mountPoints_AdvancedPartition;

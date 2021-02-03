@@ -36,8 +36,8 @@ QStringList AdvancedPartitionDelegate::mountPoints_AdvancedPartition;
 bool AdvancedPartitionDelegate::swapOk = false;
 
 AdvancedPartitionDelegate::AdvancedPartitionDelegate(QObject* parent)
-    : m_islvm(false),
-      partition::Delegate(parent)
+    : partition::Delegate(parent),
+      m_islvm(false)
     {
   this->setObjectName("advanced_partition_delegate");
 }
@@ -459,10 +459,9 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
     Device::Ptr    root_device;
     Device::Ptr    boot_device;
     Partition::Ptr efi_partition;
-    bool is_lvm = false;
     // Check use-specified partitions with mount point.
-    for (const Device::Ptr device : devices) {
-        for (const Partition::Ptr partition : device->partitions) {
+    for (const Device::Ptr &device : devices) {
+        for (const Partition::Ptr &partition : device->partitions) {
             if (!partition->mount_point.isEmpty()) {
                 // Add used partitions to mount_point list.
                 const QString record(QString("%1=%2").arg(partition->path).arg(partition->mount_point));
@@ -477,10 +476,6 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
                     bootloader_path_ = partition->device_path;
                     boot_device = device;
                 }
-            }
-
-            if (partition->is_lvm) {
-                is_lvm = true;
             }
 
             if (partition->fs == FsType::EFI && esp_path != partition->path) {

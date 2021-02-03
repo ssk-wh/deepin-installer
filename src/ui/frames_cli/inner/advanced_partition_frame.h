@@ -33,7 +33,7 @@ public:
     bool validate() override;
     void show() override;
     void hide() override;
-    void setIsShow(bool isshow){ m_isshow = isshow; }
+    void setIsShow(bool isshow) override { m_isshow = isshow; }
     void onDeviceRefreshed(const DeviceList& devices);
     void setMsgHeadLable(QString& msg);
     void setErrorLable(QStringList& error);

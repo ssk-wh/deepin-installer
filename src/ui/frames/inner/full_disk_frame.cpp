@@ -98,12 +98,6 @@ bool FullDiskFrame::validate() const {
         const qint64 root_required = GetSettingsInt(kPartitionFullDiskMiniSpace);
         const qint64 root_required_bytes = kGibiByte * root_required;
 
-#ifdef QT_DEBUG
-        const bool debug_test = true;
-#else
-        const bool debug_test = false;
-#endif // QT_DEBUG
-
         if (device->getByteLength() < root_required_bytes) {
             m_diskTooSmallTip->show();
             emit enableNextButton(!m_diskTooSmallTip->isVisible());

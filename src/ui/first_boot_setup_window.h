@@ -23,7 +23,7 @@
 
 #include <QFrame>
 #include <DMainWindow>
-#include <DImageButton>
+#include <DIconButton>
 #include <DListView>
 
 DWIDGET_USE_NAMESPACE
@@ -63,7 +63,7 @@ class FirstBootSetupWindow : public DMainWindow, public FrameProxyInterface {
 
  public:
   explicit FirstBootSetupWindow(QWidget* parent = nullptr);
-  ~FirstBootSetupWindow();
+  ~FirstBootSetupWindow() override;
 
   // Show fullscreen.
   void fullscreen();
@@ -90,8 +90,8 @@ protected:
 
   void registerShortcut();
 
-  DImageButton*          back_button_         = nullptr;
-  DImageButton*          close_button_        = nullptr;
+  DIconButton*           back_button_         = nullptr;
+  DIconButton*           close_button_        = nullptr;
   QLabel*                background_label_    = nullptr;
   SystemInfoFrame*       system_info_frame_   = nullptr;
   TimezoneFrame*         timezone_frame_      = nullptr;

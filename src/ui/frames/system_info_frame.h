@@ -51,7 +51,7 @@ class SystemInfoFrame : public FrameInterface {
   QString returnFrameName() const override;
 
 protected:
-  void changeEvent(QEvent *event);
+  void changeEvent(QEvent *event) override;
 
   bool focusSwitch() override;
   bool doSpace() override;

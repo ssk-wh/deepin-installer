@@ -44,8 +44,8 @@ class PartitionTableWarningFrame : public FrameInterfacePrivate {
 
   void show() override;
   void hide() override;
-  void updateTs();
-  void layout();
+  void updateTs() override;
+  void layout() override;
   void onKeyPress(int keycode) override;
 
   void rebootSystem();
@@ -64,7 +64,7 @@ protected:
 
  private:
   void initConnections();
-  void initUI();
+  void initUI() override;
 
 
   //NcursesLabel* title_label_ = nullptr;

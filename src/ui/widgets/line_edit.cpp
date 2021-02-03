@@ -57,11 +57,11 @@ LineEdit::LineEdit(const QString& icon, QWidget* parent)
     m_caseIndicateLabel->setPixmap(installer::renderPixmap(":/images/capslock.svg"));
     m_caseIndicateLabel->hide();
 
-    m_switchPasswdModeBtn = new DImageButton(this);
+    m_switchPasswdModeBtn = new DIconButton(this);
     m_switchPasswdModeBtn->setFixedSize(12, 12);
-    m_switchPasswdModeBtn->setNormalPic(":/images/password_show_normal.svg");
-    m_switchPasswdModeBtn->setHoverPic(":/images/password_show_hover.svg");
-    m_switchPasswdModeBtn->setPressPic(":/images/password_show_press.svg");
+    m_switchPasswdModeBtn->setIconSize(QSize(12, 12));
+    m_switchPasswdModeBtn->setIcon(QIcon(":/images/password_show_normal.svg"));
+    m_switchPasswdModeBtn->setFlat(true);
     m_switchPasswdModeBtn->hide();
     m_switchPasswdModeBtn->installEventFilter(this);
 
@@ -161,16 +161,12 @@ bool LineEdit::eventFilter(QObject *watched, QEvent *event)
             if (m_lineEdit->echoMode() == QLineEdit::Normal){
                 m_lineEdit->setEchoMode(QLineEdit::Password);
 
-                m_switchPasswdModeBtn->setNormalPic(":/images/password_show_normal.svg");
-                m_switchPasswdModeBtn->setHoverPic(":/images/password_show_hover.svg");
-                m_switchPasswdModeBtn->setPressPic(":/images/password_show_press.svg");
+                m_switchPasswdModeBtn->setIcon(QIcon(":/images/password_show_normal.svg"));
             }
             else {
                 m_lineEdit->setEchoMode(QLineEdit::Normal);
 
-                m_switchPasswdModeBtn->setNormalPic(":/images/password_hide_normal.svg");
-                m_switchPasswdModeBtn->setHoverPic(":/images/password_hide_hover.svg");
-                m_switchPasswdModeBtn->setPressPic(":/images/password_hide_press.svg");
+                m_switchPasswdModeBtn->setIcon(QIcon(":/images/password_hide_normal.svg"));
             }
         }
     }

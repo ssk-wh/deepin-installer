@@ -26,7 +26,7 @@ public:
         curs_set(0);
     }
 
-    virtual ~FrameInterfacePrivate(){}
+    virtual ~FrameInterfacePrivate() override {}
     virtual bool validate()
     {
         return true;
@@ -105,13 +105,12 @@ public:
     {
         QString strBack  = ::QObject::tr("Back");
         QString strNext  = ::QObject::tr("Next");
-        int buttonHeight = 3;
-        int buttonWidth  = 2;
-        if (installer::ReadLocale() == "zh_CN") {
-            buttonWidth = (std::max(strNext.length(), strBack.length()) * 2 + 4 * 2);
-        } else {
-            buttonWidth = (std::max(strNext.length(), strBack.length()) + 4);
-        }
+        //        int buttonWidth  = 2;
+        //        if (installer::ReadLocale() == "zh_CN") {
+        //            buttonWidth = (std::max(strNext.length(), strBack.length()) * 2 + 4 * 2);
+        //        } else {
+        //            buttonWidth = (std::max(strNext.length(), strBack.length()) + 4);
+        //        }
 
         if (m_pBackButton != nullptr) {
             m_pBackButton->erase();

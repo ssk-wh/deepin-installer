@@ -38,7 +38,7 @@ QDebug& operator<<(QDebug& debug, const PartitionType& partition_type) {
       type = "Extended";
       break;
     }
-    case PartitionType::Unallocated: {
+    default: {
       type = "Unallocated";
       break;
     }
@@ -90,14 +90,14 @@ Partition::Partition()
       fs(FsType::Empty),
       os(OsType::Empty),
       busy(false),
+      is_lvm(false),
       sector_size(0),
       length(-1),
       freespace(-1),
       start_sector(-1),
       end_sector(-1),
       mount_point(),
-      flags(),
-      is_lvm(false)
+      flags()
 {}
 
 Partition::Partition(const Partition &partition)
@@ -111,14 +111,14 @@ Partition::Partition(const Partition &partition)
       fs(partition.fs),
       os(partition.os),
       busy(partition.busy),
+      is_lvm(partition.is_lvm),
       sector_size(partition.sector_size),
       length(partition.length),
       freespace(partition.freespace),
       start_sector(partition.start_sector),
       end_sector(partition.end_sector),
       mount_point(partition.mount_point),
-      flags(partition.flags),
-      is_lvm(partition.is_lvm) {
+      flags(partition.flags) {
 }
 
 Partition::~Partition() {

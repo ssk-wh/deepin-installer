@@ -115,7 +115,7 @@ bool SpawnCmd(const QString& cmd, const QStringList& args,
 
 bool SpawnCmd(const QString& cmd, const QStringList& args,
               QString& output, QString& err, int tryCount) {
-    uint loop_num = 0;
+    int loop_num = 0;
     while (loop_num++ < tryCount) {
         bool result = SpawnCmd(cmd, args, output, err);
         if (result) {

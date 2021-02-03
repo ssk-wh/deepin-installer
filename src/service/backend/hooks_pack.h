@@ -27,6 +27,7 @@ enum class HookType {
   BeforeChroot,
   InChroot,
   AfterChroot,
+  Invalid
 };
 
 struct HooksPack {

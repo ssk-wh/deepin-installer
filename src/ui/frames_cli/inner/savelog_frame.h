@@ -29,7 +29,6 @@ public:
     void layout() override;
     void updateTs() override;
     void initConnection();
-    bool validate() override;
     void show() override;
     void hide() override;
     virtual void onKeyPress(int keycode) override;

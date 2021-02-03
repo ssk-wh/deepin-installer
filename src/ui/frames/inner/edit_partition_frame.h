@@ -19,7 +19,7 @@
 #define INSTALLER_UI_FRAMES_INNER_EDIT_PARTITION_FRAME_H
 
 #include <QFrame>
-#include <DImageButton>
+#include <DIconButton>
 #include <DSuggestButton>
 
 class QCheckBox;
@@ -92,7 +92,7 @@ class EditPartitionFrame : public ChildFrameInterface {
   FsModel* fs_model_ = nullptr;
   MountPointModel* mount_point_model_ = nullptr;
   Partition::Ptr partition_;
-  DImageButton* m_close_button = nullptr;
+  DIconButton* m_close_button = nullptr;
 
  private slots:
   // Hide mount_point_box_ when specific fs is selected

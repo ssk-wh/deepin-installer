@@ -567,7 +567,7 @@ bool SystemInfoKeyboardFrame::directionKey(int keyvalue)
 }
 
 void SystemInfoKeyboardFramePrivate::initConnections() {
-    Q_Q(SystemInfoKeyboardFrame);
+//    Q_Q(SystemInfoKeyboardFrame);
 
     connect(m_layoutView->selectionModel(), &QItemSelectionModel::currentChanged,
             this, &SystemInfoKeyboardFramePrivate::onLayoutViewSelectionChanged);

@@ -14,10 +14,10 @@
 namespace installer {
 
 const int kColorBarWidth = 543;
-const int kPartitionLabelSpace = 10;
+//const int kPartitionLabelSpace = 10;
 
-const int kPartitionNameFont = 14;
-const int kPartitionMounLabFont = 12;
+//const int kPartitionNameFont = 14;
+//const int kPartitionMounLabFont = 12;
 
 const int kMountPointMaxSize = 6;
 

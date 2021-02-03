@@ -17,7 +17,7 @@ class LicenceFramePrivate : public FrameInterfacePrivate
     Q_OBJECT
 public:
     LicenceFramePrivate(NCursesWindowBase* parent, int lines, int cols, int beginY, int beginX);
-    ~LicenceFramePrivate();
+    ~LicenceFramePrivate() override;
 
     // FrameInterfacePrivate interface
 public:
@@ -45,9 +45,8 @@ private:
     NcursesCheckBox*   m_NcursesCheckBox;
     NcursesLabel*      m_errorInfoLabel;
     QString            m_localeString;
-    bool               m_isshow;
-
     QString            m_show_license;
+    bool               m_isshow;
 };
 
 class LicenceFrame : public FrameInterface
@@ -56,7 +55,7 @@ class LicenceFrame : public FrameInterface
 
 public:
     LicenceFrame(FrameInterface* parent);
-    virtual ~LicenceFrame();
+    virtual ~LicenceFrame() override;
 
     // FrameInterface interface
 public:

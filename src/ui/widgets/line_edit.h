@@ -18,7 +18,7 @@
 #ifndef INSTALLER_UI_WIDGETS_LINE_EDIT_H
 #define INSTALLER_UI_WIDGETS_LINE_EDIT_H
 
-#include <DImageButton>
+#include <DIconButton>
 #include <QLineEdit>
 
 DWIDGET_USE_NAMESPACE
@@ -73,7 +73,7 @@ private:
     QLabel* image_label_  = nullptr;
     QLineEdit* m_lineEdit = nullptr;
     QLabel* m_caseIndicateLabel = nullptr;
-    DImageButton* m_switchPasswdModeBtn = nullptr;
+    DIconButton* m_switchPasswdModeBtn = nullptr;
 };
 
 }  // namespace installer

@@ -20,7 +20,7 @@ public:
     bool validate() override;
     void show() override;
     void keyHandle() override;
-    void setIsShow(bool isshow){ m_isshow = isshow; }
+    void setIsShow(bool isshow) override { m_isshow = isshow; }
 
 private:
     NcursesButton* m_quitBtn;

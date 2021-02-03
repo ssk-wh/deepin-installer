@@ -17,8 +17,8 @@ namespace {
     const int kNetworkDeviceWidgetWidth = 227;
     const int kNetworkDeviceWidgetHeight = 64;
     const int KQLabelWidth = 155;
-    const int kTitleFont = 12; // 12pt
-    const int kDescFont = 10; // 10pt
+//    const int kTitleFont = 12; // 12pt
+//    const int kDescFont = 10; // 10pt
 
     const int kBusInfoPos = 4; // ex. /sys/devices/pci0000:00/0000:00:19.0/net/eno1
 }

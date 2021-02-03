@@ -45,7 +45,7 @@ namespace {
     const int kButtonHeight = 36;
 
     const int kDescriptionWidth = 538;
-    const int kDescriptionHeight = 308;
+//    const int kDescriptionHeight = 308;
 }
 
 namespace installer {

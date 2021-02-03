@@ -20,7 +20,7 @@ namespace  {
     const int kXrandrHeight_624 = 624;
     const int kXrandrHeight_864 = 864;
     const int kXrandrHeight_480 = 480;
-    const int XRANDR_INVALID = 999999;
+//    const int XRANDR_INVALID = 999999;
 }
 
 installer::ScreenAdaptationManager *installer::ScreenAdaptationManager::instance()

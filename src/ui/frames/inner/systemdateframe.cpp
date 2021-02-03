@@ -63,6 +63,9 @@ class SystemDateFramePrivate : public QObject{
 public:
     SystemDateFramePrivate(SystemDateFrame* parent) : q_ptr(qobject_cast<SystemDateFrame*>(parent)) {}
 
+    SystemDateFrame* q_ptr;
+    Q_DECLARE_PUBLIC(SystemDateFrame)
+
     DCheckBox *m_setDateTimeCheckBox = new DCheckBox;
     TimeDateLineEdit* m_hourEdit = new TimeDateLineEdit;
     TimeDateLineEdit* m_minuteEdit = new TimeDateLineEdit;
@@ -77,9 +80,6 @@ public:
     QLabel* m_dayLabel = new QLabel;
 
     int m_maxYear = 9999;
-
-    SystemDateFrame* q_ptr;
-    Q_DECLARE_PUBLIC(SystemDateFrame)
 
     void initUI();
     void initConnection();
@@ -354,7 +354,7 @@ bool SystemDateFramePrivate::validateYear(const QString& str) const
         return false;
     }
 
-    if(str.toUInt() > m_maxYear){
+    if(str.toUInt() > static_cast<uint>(m_maxYear)){
         return false;
     }
 
@@ -396,7 +396,7 @@ bool SystemDateFramePrivate::validateDay(const QString& str) const
 
 void SystemDateFrame::timeDateSetFinished()
 {
-    Q_D(SystemDateFrame);
+//    Q_D(SystemDateFrame);
 
 #if 0 // 更改到timezone_frame中writeConf完成
     QProcess process;
@@ -605,7 +605,7 @@ void SystemDateFramePrivate::initUI()
 
 void SystemDateFramePrivate::initConnection()
 {
-    Q_Q(SystemDateFrame);
+//    Q_Q(SystemDateFrame);
 
     connect(m_setDateTimeCheckBox, &DCheckBox::stateChanged, this, [=] {
         m_hourEdit->setEnabled(m_setDateTimeCheckBox->isChecked());

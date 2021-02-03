@@ -11,8 +11,8 @@ namespace {
     const int kPartitionTableWarningWidgetWidth = 470;
     const int kPartitionTableWarningWidgetMinHeight = 98;
     const int KQLabelWidth = 402;
-    const int kTitleFont = 14; // 14pt
-    const int kDescFont = 12; // 12pt
+//    const int kTitleFont = 14; // 14pt
+//    const int kDescFont = 12; // 12pt
 }
 
 PartitionTableWarningWidget::PartitionTableWarningWidget(QWidget *parent)

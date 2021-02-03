@@ -50,7 +50,7 @@ using namespace installer;
 // 4 partitions are displays at each row.
 const int kDiskColumns = 4;
 const int kWindowWidth = 600;
-const int kWindowHeight = 500;
+//const int kWindowHeight = 500;
 const int kScrollAreaMinHeigh = 250;
 
 const int kButtonWidth = 197;
@@ -152,7 +152,7 @@ void SaveInstallFailedLogFrame::startDeviceWatch(bool enable) {
 
     m_diskManager->setWatchChanges(enable);
     m_deviceMap.clear();
-    for (const QString& path : m_diskManager->blockDevices()) {
+    for (const QString& path : DDiskManager::blockDevices({})) {
         onBlockDeviceAdded(path);
     }
 }

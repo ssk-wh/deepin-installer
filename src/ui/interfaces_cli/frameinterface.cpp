@@ -26,7 +26,6 @@ void FrameInterface::addChildFrame(FrameInterface* childFrame)
 
 void FrameInterface::start()
 {
-    auto currThreadId = QThread::currentThreadId();
     while (true) {
         QString currFrame = getFrameName();
         if (m_currState == FRAME_STATE_ABORT

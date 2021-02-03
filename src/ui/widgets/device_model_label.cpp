@@ -25,7 +25,7 @@ namespace installer {
 
 namespace {
 
-const int kFontSize = 14;
+//const int kFontSize = 14;
 const int kTextLeftMargin = 40;
 const int kLineLeftMargin = 30;
 

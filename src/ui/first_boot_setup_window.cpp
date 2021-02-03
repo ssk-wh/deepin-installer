@@ -213,7 +213,7 @@ void FirstBootSetupWindow::onCloseEvent()
 }
 
 void FirstBootSetupWindow::initConnections() {
-    connect(close_button_, &DImageButton::clicked, this, &FirstBootSetupWindow::onCloseEvent);
+    connect(close_button_, &DIconButton::clicked, this, &FirstBootSetupWindow::onCloseEvent);
 
     connect(confirm_quit_frame_, &ConfirmQuitFrame::quitCancelled, this, [=](){
                confirm_quit_frame_->close();
@@ -230,8 +230,8 @@ void FirstBootSetupWindow::initConnections() {
 
     connect(loading_frame_, &FirstBootLoadingFrame::startRunHooks, this,
             &FirstBootSetupWindow::onStartRunHooks);
-    connect(back_button_, &DImageButton::clicked, this, &FirstBootSetupWindow::backPage);
-    connect(stacked_layout_, &QStackedLayout::currentChanged, back_button_, &DImageButton::raise);
+    connect(back_button_, &DIconButton::clicked, this, &FirstBootSetupWindow::backPage);
+    connect(stacked_layout_, &QStackedLayout::currentChanged, back_button_, &DIconButton::raise);
 
     connect(m_frameLabelsView, &DListView::clicked, this, &FirstBootSetupWindow::onFrameLabelsViewClicked);
 
@@ -255,22 +255,18 @@ void FirstBootSetupWindow::initConnections() {
 }
 
 void FirstBootSetupWindow::initUI() {
-    back_button_ = new DImageButton(this);
+    back_button_ = new DIconButton(this);
     back_button_->setFixedSize(48, 38);
     back_button_->move(20, 20);
-    back_button_->setNormalPic(":/images/back_normal.svg");
-    back_button_->setHoverPic(":/images/back_hover.svg");
-    back_button_->setPressPic(":/images/back_pressed.svg");
-    back_button_->setDisabledPic(":/images/back_disabled.svg");
+    back_button_->setIcon(QIcon(":/images/back_normal.svg"));
     back_button_->hide();
 
-    close_button_ = new DImageButton(this);
+    close_button_ = new DIconButton(this);
     close_button_->setObjectName("close_button");
-    //close_button_->setFocusPolicy(Qt::TabFocus);
     close_button_->setFixedSize(40, 40);
-    close_button_->setNormalPic(":/images/close_normal.svg");
-    close_button_->setHoverPic(":/images/close_normal.svg");
-    close_button_->setPressPic(":/images/close_normal.svg");
+    close_button_->setIconSize(QSize(40, 40));
+    close_button_->setIcon(QIcon(":/images/close_normal.svg"));
+    close_button_->setFlat(true);
 
     stacked_layout_ = new QStackedLayout;
     stacked_layout_->setContentsMargins(0, 0, 0, 0);
@@ -573,6 +569,7 @@ void FirstBootSetupWindow::backPage()
 
 void FirstBootSetupWindow::updateBackButtonVisible(QWidget* page)
 {
+    Q_UNUSED(page);
     // TODO: this function will be delete later
 }
 

@@ -18,7 +18,7 @@ class InstallComponentFramePrivate : public FrameInterfacePrivate
     Q_OBJECT
 public:
     InstallComponentFramePrivate(NCursesWindowBase* parent, int lines, int cols, int beginY, int beginX);
-    ~InstallComponentFramePrivate();
+    ~InstallComponentFramePrivate() override;
 
     // FrameInterfacePrivate interface
 public:
@@ -59,7 +59,7 @@ class ComponentFrame : public FrameInterface
     Q_OBJECT
 public:
     ComponentFrame(FrameInterface* parent);
-    virtual ~ComponentFrame();
+    virtual ~ComponentFrame() override;
 
     // FrameInterface interface
 public:

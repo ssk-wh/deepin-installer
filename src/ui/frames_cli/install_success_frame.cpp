@@ -11,14 +11,14 @@ namespace installer {
 InstallSuccessFramePrivate::InstallSuccessFramePrivate(NCursesWindowBase *parent, int lines, int cols, int beginY, int beginX)
     : FrameInterfacePrivate(parent, lines, cols, beginY, beginX),
       m_installresultTextBrower(nullptr),
-      m_isshow(false),
-      m_currentchoicetype(-1),
       m_installSuccessTitle(::QObject::tr("Successfully Installed")),
       m_installSuccessInfoTitle(::QObject::tr("Done")),
       m_installSuccessInfoDes(::QObject::tr("Successfully Installed")),
       m_installSuccessInfoTodo(::QObject::tr("Click the button below and then remove the installation media immediately")),
       m_installFailedInfoTitle(::QObject::tr("Installation Failed")),
-      m_installFailedInfoDes(::QObject::tr("Sorry for the trouble. Please take a photo to send us the error log, or save the log to an external disk. We will help solve the issue."))
+      m_installFailedInfoDes(::QObject::tr("Sorry for the trouble. Please take a photo to send us the error log, or save the log to an external disk. We will help solve the issue.")),
+      m_currentchoicetype(-1),
+      m_isshow(false)
 {
     initUI();
     initConnection();

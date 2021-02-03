@@ -80,8 +80,6 @@ int main(int argc, char* argv[])
 
     installer::ComponentInstallManager::Instance();
 
-    auto currThreadId = QThread::currentThreadId();
-
     installer::MainWindow main_window;
     main_window.setLogFile(args_parser.getLogFile());
     //QThread thread;

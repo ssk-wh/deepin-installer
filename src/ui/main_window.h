@@ -24,7 +24,7 @@
 #include <QWidget>
 #include <QHash>
 #include <QMap>
-#include <DImageButton>
+#include <DIconButton>
 #include <DListView>
 #include <DMainWindow>
 
@@ -154,8 +154,8 @@ private:
   FrameInterface* getFrameInterface(QStandardItem *item) const;
 
   QLabel* background_label_ = nullptr;
-  DImageButton* back_button_ = nullptr;
-  DImageButton* close_button_ = nullptr;
+  DIconButton* back_button_ = nullptr;
+  DIconButton* close_button_ = nullptr;
   PageIndicator* page_indicator_ = nullptr;
   // All of frame pages are stored in this layout.
   // And they are referenced by id in |pages_|.

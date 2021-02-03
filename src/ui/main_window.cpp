@@ -417,7 +417,7 @@ void MainWindow::changeEvent(QEvent *event)
 }
 
 void MainWindow::initConnections() {
-  connect(close_button_, &DImageButton::clicked, this, &MainWindow::onCloseEvent);
+  connect(close_button_, &DIconButton::clicked, this, &MainWindow::onCloseEvent);
 
   connect(confirm_quit_frame_, &ConfirmQuitFrame::quitCancelled, this, [=](){
              confirm_quit_frame_->close();
@@ -622,24 +622,20 @@ void MainWindow::initUI() {
     //this->setFocusPolicy(Qt::TabFocus);
   background_label_ = new QLabel(this);
 
-  back_button_ = new DImageButton(this);
+  back_button_ = new DIconButton(this);
   back_button_->setObjectName("back_button");
   back_button_->setFixedSize(48, 38);
   back_button_->move(20, 20);
   back_button_->hide();
-  back_button_->setNormalPic(":/images/back_normal.svg");
-  back_button_->setHoverPic(":/images/back_hover.svg");
-  back_button_->setPressPic(":/images/back_pressed.svg");
-  back_button_->setDisabledPic(":/images/back_disabled.svg");
+  back_button_->setIcon(QIcon(":/images/back_normal.svg"));
 
   // TODO: use titleBar implement.
-  close_button_ = new DImageButton(this);
+  close_button_ = new DIconButton(this);
   close_button_->setObjectName("close_button");
-  //close_button_->setFocusPolicy(Qt::TabFocus);
   close_button_->setFixedSize(40, 40);
-  close_button_->setNormalPic(":/images/close_normal.svg");
-  close_button_->setHoverPic(":/images/close_normal.svg");
-  close_button_->setPressPic(":/images/close_normal.svg");
+  close_button_->setIconSize(QSize(40, 40));
+  close_button_->setIcon(QIcon(":/images/close_normal.svg"));
+  close_button_->setFlat(true);
 
   stacked_layout_ = new QStackedLayout();
   stacked_layout_->setContentsMargins(0, 0, 0, 0);
@@ -855,7 +851,6 @@ FrameInterface *MainWindow::getFrameInterface(QStandardItem *item) const
 
 void MainWindow::onCurrentPageChanged(int index) {
   // Ignore null id.
-    int a = index;
   const PageId id = static_cast<PageId>(index + 1);
   this->setCurrentPage(id);
 }

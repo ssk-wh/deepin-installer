@@ -47,6 +47,8 @@ DCORE_USE_NAMESPACE
 
 void dump(int signo)
 {
+    Q_UNUSED(signo);
+
         char buf[1024];
         char cmd[1024];
         FILE *fh;
@@ -59,7 +61,10 @@ void dump(int signo)
         fclose(fh);
         if(buf[strlen(buf) - 1] == '\n')
                 buf[strlen(buf) - 1] = '\0';
-        snprintf(cmd, sizeof(cmd), "gdb %s %d", buf, getpid());
+
+        int offset = 0;
+        offset += snprintf(cmd + offset, sizeof(cmd) - static_cast<size_t>(offset), "gdb %s", buf);
+        offset += snprintf(cmd + offset, sizeof(cmd) - static_cast<size_t>(offset), " %d", getpid());
         system(cmd);
 
         exit(0);
@@ -76,7 +81,6 @@ int main(int argc, char* argv[]) {
   QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
   QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
-  DApplication::loadDXcbPlugin();
   DApplication app(argc, argv);
   app.setApplicationDisplayName("Deepin Installer First Boot");
   app.setApplicationName(" ");

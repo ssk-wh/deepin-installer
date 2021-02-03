@@ -46,8 +46,6 @@ bool AddExecutable(const QString& path, bool recursive) {
 
 // Returns a list of sorted hook scripts with |hook_type|.
 QStringList ListHooks(HookType hook_type) {
-  // Absolute file path to hooks.
-  QStringList hooks;
   QString folder_name;
   switch (hook_type) {
     case HookType::BeforeChroot: {
@@ -64,8 +62,20 @@ QStringList ListHooks(HookType hook_type) {
       folder_name = kAfterChrootDir;
       break;
     }
+
+    default: {
+      qCritical() << "Invalid hook type";
+      break;
+    }
   }
 
+  if (folder_name.isEmpty()) {
+      qCritical() << "The list of hook script path are empty";
+      return QStringList();
+  }
+
+  // Absolute file path to hooks.
+  QStringList hooks;
   const QStringList name_filter = { "*.job" };
   const QDir::Filters dir_filter = QDir::Files | QDir::NoDotAndDotDot;
   QDir builtin_dir(QDir(kTargetHooksDir).absoluteFilePath(folder_name));

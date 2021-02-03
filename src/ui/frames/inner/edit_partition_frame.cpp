@@ -303,10 +303,7 @@ void EditPartitionFrame::initConnections() {
   connect(ok_button_, &QPushButton::clicked,
           this, &EditPartitionFrame::onOkButtonClicked);
 
-  connect(m_close_button, &DImageButton::clicked, [this]{Q_EMIT cancel_button_->click();});
-#ifdef QT_DEBUG
-  connect(m_close_button, &DImageButton::clicked, [this]{qDebug() << "close button!";});
-#endif // QT_DEBUG
+  connect(m_close_button, &DIconButton::clicked, [this]{Q_EMIT cancel_button_->click();});
 }
 
 void EditPartitionFrame::initUI() {
@@ -499,12 +496,11 @@ void EditPartitionFrame::onOkButtonClicked() {
 void EditPartitionFrame::setupCloseButton()
 {
     // TODO: use titleBar implement.
-    m_close_button = new DImageButton(this);
-    //m_close_button->setFocusPolicy(Qt::TabFocus);
+    m_close_button = new DIconButton(this);
     m_close_button->setFixedSize(40, 40);
-    m_close_button->setNormalPic(":/images/close_normal.svg");
-    m_close_button->setHoverPic(":/images/close_normal.svg");
-    m_close_button->setPressPic(":/images/close_normal.svg");
+    m_close_button->setIconSize(QSize(40, 40));
+    m_close_button->setIcon(QIcon(":/images/close_normal.svg"));
+    m_close_button->setFlat(true);
 }
 
 }  // namespace installer

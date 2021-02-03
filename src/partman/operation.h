@@ -45,7 +45,7 @@ class Operation {
   Operation(OperationType type,
             const Partition::Ptr orig_partition,
             const Partition::Ptr new_partition);
-  ~Operation();
+  virtual ~Operation();
   void umount(const Partition::Ptr partition);
   void umount(const Device::Ptr device);
 

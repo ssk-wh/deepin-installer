@@ -97,7 +97,6 @@ void InstallerMessageOutputWithOutStd(QtMsgType msg_type,
     static QMutex mutex;
     mutex.lock();
 
-
     const QByteArray& msg_ref(msg.toLocal8Bit());
     const QString filename = QFileInfo(context.file).fileName();
     const QByteArray& filename_ref(filename.toLocal8Bit());

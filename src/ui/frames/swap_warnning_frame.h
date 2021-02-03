@@ -22,7 +22,7 @@
 
 #include <DSuggestButton>
 #include <DDialog>
-#include <DImageButton>
+#include <DIconButton>
 
 DWIDGET_USE_NAMESPACE
 
@@ -63,7 +63,7 @@ class SwapWarnningFrame : public DDialog {
   SelectButton* continue_button_ = nullptr;
   DSuggestButton* abort_button_ = nullptr;
 
-  DImageButton *m_close_button = nullptr;
+  DIconButton *m_close_button = nullptr;
 };
 
 }  // namespace installer

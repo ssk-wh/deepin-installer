@@ -46,8 +46,8 @@ class PrepareInstallFrame : public FrameInterfacePrivate {
   // Reset partition information at |partition_path|.
   void show() override;
   void hide() override;
-  void updateTs();
-  void layout();
+  void updateTs() override;
+  void layout() override;
   virtual void onKeyPress(int keycode) override;
  signals:
   void finished(bool isOK);
@@ -62,7 +62,7 @@ protected:
 
  private:
   void initConnections();
-  void initUI();
+  void initUI() override;
 
 
   NcursesLabel* m_titleLabel_ = nullptr;

@@ -523,10 +523,10 @@ void SystemInfoFramePrivate::initConnection()
     });
 
 #ifdef QT_DEBUG
-    connect(m_le_username, &NCursesWindowBase::outFoucs, [this]{qDebug() << "m_le_username outFoucs test";});
-    connect(m_le_hostname, &NCursesWindowBase::outFoucs, [this]{qDebug() << "m_le_hostname outFoucs test";});
-    connect(m_le_password, &NCursesWindowBase::outFoucs, [this]{qDebug() << "m_le_password outFoucs test";});
-    connect(m_le_password_confirm, &NCursesWindowBase::outFoucs, [this]{qDebug() << "m_le_password_confirm outFoucs test";});
+    connect(m_le_username, &NCursesWindowBase::outFoucs, [=]{qDebug() << "m_le_username outFoucs test";});
+    connect(m_le_hostname, &NCursesWindowBase::outFoucs, [=]{qDebug() << "m_le_hostname outFoucs test";});
+    connect(m_le_password, &NCursesWindowBase::outFoucs, [=]{qDebug() << "m_le_password outFoucs test";});
+    connect(m_le_password_confirm, &NCursesWindowBase::outFoucs, [=]{qDebug() << "m_le_password_confirm outFoucs test";});
 
     connect(m_NcursesCheckBox, &NcursesCheckBox::signal_SelectChange, this, [=]{qDebug() << "select change";});
     connect(q, &SystemInfoFrame::createRoot, this, [=]{

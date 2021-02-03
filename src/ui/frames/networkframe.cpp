@@ -58,10 +58,6 @@ namespace {
 
     const int kLineEditWidth = 168;
     const int kLineEditHeight = 36;
-
-    const int kNetworkSwitchFontSize = 14;
-    const int kLabelFontSize = 12;
-    const int kEditFontSize = 10;
 }
 
 static uint coverMask(const QString &source)

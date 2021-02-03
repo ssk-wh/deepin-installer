@@ -28,7 +28,6 @@ namespace installer {
 namespace {
     const int kHintLabelWidth = 390;
     const int kHintLabelHeight = 100;
-    const int kTitleFontSize = 24; // 24pt
     const int kWarningLabelSize = 30;
 }
 

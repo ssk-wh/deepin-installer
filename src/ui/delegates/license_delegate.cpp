@@ -3,6 +3,7 @@
 #include "service/settings_manager.h"
 
 #include <DSysInfo>
+#include <QDebug>
 
 DCORE_USE_NAMESPACE
 
@@ -13,6 +14,10 @@ QString installer::LicenseDelegate::licenseTitle()
         case OSType::Professional: return QObject::tr("End User License Agreement for UnionTech OS Desktop Professional");
         case OSType::Community: return QObject::tr("End User License Agreement for Deepin OS");
         case OSType::Server: return QObject::tr("End User License Agreement for UnionTech OS Server");
+        default: {
+            qCritical() << "Invalid current OS type";
+            return QObject::tr("End User License Agreement for Deepin OS");
+        }
     }
 }
 
@@ -67,6 +72,10 @@ QString installer::LicenseDelegate::OSType()
         case OSType::Community: return "community";
         case OSType::Server: return "server";
         case OSType::Personal: return "personal";
+        default: {
+            qCritical() << "Invalid current OS type";
+            return "community";
+        }
     }
 }
 

@@ -28,7 +28,7 @@ public:
     bool validate() override;
     void show() override;
     void hide() override;
-    virtual void onKeyPress(int keyCode);
+    virtual void onKeyPress(int keyCode) override;
 
     // Handles error state
     void onHooksErrorOccurred();

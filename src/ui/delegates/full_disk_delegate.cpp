@@ -195,11 +195,11 @@ void FullDiskDelegate::onManualPartDone(const DeviceList& devices) {
   Device::Ptr root_device;
 
   // Check use-specified partitions with mount point.
-  for (const Device::Ptr device : devices) {
+  for (const Device::Ptr &device : devices) {
       //删除 lvm  逻辑卷时会出现设备为空的情况
       if (!device) continue;
 
-    for (const Partition::Ptr partition : device->partitions) {
+    for (const Partition::Ptr &partition : device->partitions) {
       if (!partition->mount_point.isEmpty()) {
         // Add in-used partitions to mount_point list.
         const QString record(QString("%1=%2").arg(partition->path)
@@ -290,11 +290,11 @@ uint FullDiskDelegate::getSwapSize() const
 
     qDebug() << "system memory is: " << total_bytes << by;
 
-    uint size = qRound(sqrt(by) + qRound(by));
+    int size = qRound(sqrt(by) + qRound(by));
 
     // Limit swap to 16G
     // see: https://tower.im/teams/9487/todos/232339/
-    return std::min(static_cast<uint>(16), size);
+    return std::min(static_cast<uint>(16), static_cast<uint>(size));
 }
 
 bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
@@ -457,8 +457,6 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
         adjust_start_offset_sector += sectors;
     }
 
-    // total bytes used by policy
-    const qint64 policy_total_bytes = lastDeviceLenght * device->sector_size;
     SizeRange root_range;
 
     FullDiskPolicyList& policy_list = option.policy_list;

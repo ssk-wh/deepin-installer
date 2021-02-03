@@ -28,9 +28,9 @@ LvPartition::LvPartition() : m_initOk(false) {
 }
 
 LvPartition::LvPartition(const LvPartition &partition)
-    : m_initOk(partition.m_initOk),    
-    m_vgName(partition.m_vgName),
-    Partition(partition) {
+    : Partition(partition),
+    m_initOk(partition.m_initOk),
+    m_vgName(partition.m_vgName) {
     is_lvm = true;
 }
 
