@@ -36,7 +36,8 @@ Build-Depends:
     fbterm,
     kbd,
     libncurses-dev,
-    libncursesw5-dev
+    libncursesw5-dev,
+    libdeepin-pw-check-dev
 Standards-Version: 3.9.8
 Homepage: http://www.deepin.org
 
@@ -78,7 +79,9 @@ Depends:
     kbd,
     fbterm,
     dde-account-faces,
-    dde-qt5integration
+    dde-qt5integration,
+    libdeepin-pw-check,
+    deepin-pw-check
 Description: Release version of deepin installer
  New version of deepin-installer, rewritten with Qt5.
 

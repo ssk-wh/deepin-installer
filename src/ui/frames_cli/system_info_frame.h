@@ -38,7 +38,7 @@ protected:
 private:
     bool validateUsername(QString& msg);
     bool validateHostname(QString& msg);
-    bool validatePassword(NCursesLineEdit *passwordEdit, QString& msg);
+    bool validatePassword(const QString &user, const QString &passwd, QString& msg);
     bool validatePassword2(NCursesLineEdit* passwordEdit, NCursesLineEdit* passwordCheckEdit, QString& msg);
     void showError(const QString &msg);
 

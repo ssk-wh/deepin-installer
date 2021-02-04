@@ -4,7 +4,7 @@
 #include "sysinfo/validate_hostname.h"
 #include "sysinfo/validate_username.h"
 #include "sysinfo/validate_password.h"
-#include "service/pwquality_manager.h"
+#include "service/password_manager.h"
 
 namespace installer {
 
@@ -23,7 +23,7 @@ bool SystemInfoFramePrivate::validate()
                 break;
             }
 
-            if (!validatePassword(m_le_password, msg)) {
+            if (!validatePassword(m_le_username->text(), m_le_password->text(), msg)) {
                 break;
             }
             else if (!validatePassword2(m_le_password, m_le_password_confirm, msg)) {
@@ -216,95 +216,9 @@ bool SystemInfoFramePrivate::validateUsername(QString &msg)
         return true;
 }
 
-bool SystemInfoFramePrivate::validatePassword(NCursesLineEdit *passwordEdit, QString &msg)
+bool SystemInfoFramePrivate::validatePassword(const QString &user, const QString &passwd, QString &msg)
 {
-#ifndef QT_DEBUG
-    const bool strong_pwd_check = GetSettingsBool(kSystemInfoPasswordStrongCheck);
-#else
-    const bool strong_pwd_check = true;
-#endif // !QT_DEBUG
-
-    int min_len = 1;
-    int max_len = 16;
-
-    if (strong_pwd_check) {
-        if (passwordEdit->text().toLower() == m_le_username->text().toLower()) {
-            msg = ::QObject::tr("The password should be different from the username");
-            return false;
-        }
-        min_len = GetSettingsInt(kSystemInfoPasswordMinLen);
-        max_len = GetSettingsInt(kSystemInfoPasswordMaxLen);
-    }
-
-    const QStringList validate = GetSettingsStringList(kSystemInfoPasswordValidate);
-    const int required_num{ GetSettingsInt(kSystemInfoPasswordValidateRequired) };
-    ValidatePasswordState state = ValidatePassword(
-        passwordEdit->text(), min_len, max_len, strong_pwd_check, validate, required_num);
-
-    switch (state) {
-    case ValidatePasswordState::EmptyError: {
-        msg = ::QObject::tr("The password cannot be empty​");
-        return false;
-    }
-    case ValidatePasswordState::StrongError: {
-        msg = ::QObject::tr("Please input a password longer than %1 characters and "
-                 "shorter than %2 characters")
-                .arg(min_len)
-                .arg(max_len);
-        return false;
-    }
-    case ValidatePasswordState::TooShortError: {
-        msg = ::QObject::tr("Password must have at least 8 characters");
-        return false;
-    }
-    case ValidatePasswordState::TooLongError: {
-        msg = ::QObject::tr("Please input a password longer than %1 characters and "
-                 "shorter than %2 characters")
-                .arg(min_len)
-                .arg(max_len);
-        return false;
-    }
-    case ValidatePasswordState::Ok: {
-        // Pass
-        break;
-    }
-    default:
-        break;
-    }
-
-    QString dict = PwqualityManager::instance()->dictChecked(passwordEdit->text());
-    if (!dict.isEmpty()) {
-        msg = ::QObject::tr("Password must not contain common words and combinations").arg(dict);
-        return false;
-    }
-
-    QString palingrome = PwqualityManager::instance()->palindromeChecked(passwordEdit->text());
-    if (!palingrome.isEmpty()) {
-        msg = ::QObject::tr("Password must not contain more than 4 palindrome characters").arg(palingrome);
-        return false;
-    }
-
-    if (!PwqualityManager::instance()->oem_lower_case(passwordEdit->text())) {
-        msg = ::QObject::tr("Password must contain lowercase letters").arg(palingrome);
-        return false;
-    }
-
-    if (!PwqualityManager::instance()->oem_upper_case(passwordEdit->text())) {
-        msg = ::QObject::tr("Password must contain capital letters").arg(palingrome);
-        return false;
-    }
-
-    if (!PwqualityManager::instance()->oem_special_char(passwordEdit->text())) {
-        msg = ::QObject::tr("Password must contain special characters").arg(palingrome);
-        return false;
-    }
-
-    if (!PwqualityManager::instance()->oem_require_number(passwordEdit->text())) {
-        msg = ::QObject::tr("Passwords must contain numbers").arg(palingrome);
-        return false;
-    }
-
-    return true;
+    return PasswordManager::instance()->checked(user, passwd, msg);
 }
 
 
@@ -506,7 +420,7 @@ void SystemInfoFramePrivate::initConnection()
 
     connect(m_le_password, &NCursesLineEdit::outFoucs, [this]{
         QString msg;
-        if (!validatePassword(m_le_password, msg)){
+        if (!validatePassword(m_le_username->text(), m_le_password->text(), msg)){
             showError(msg);
         } else {
             showError(QString());

@@ -21,9 +21,8 @@
 #include "base/file_util.h"
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
-#include "service/pwquality_manager.h"
+#include "service/password_manager.h"
 #include "sysinfo/validate_hostname.h"
-#include "sysinfo/validate_password.h"
 #include "sysinfo/validate_username.h"
 #include "ui/frames/consts.h"
 #include "ui/utils/keyboardmonitor.h"
@@ -88,7 +87,7 @@ private:
     // Validate line-edit. If failed, write tooltip to |msg| and returns false.
     bool validateUsername(QString& msg);
     bool validateHostname(QString& msg);
-    bool validatePassword(DPasswordEdit* passwordEdit, QString& msg);
+    bool validatePassword(const QString &user, const QString &passwd, QString& msg);
     bool validatePassword2(DPasswordEdit* passwordEdit, DPasswordEdit* passwordCheckEdit, QString& msg);
 
     void updateCapsLockState();
@@ -194,7 +193,7 @@ bool SystemInfoFormFrame::validateUserInfo()
         d->tooltip_->setText(msg);
         d->tooltip_->showBottom(d->m_hostnameEdit);
     }
-    else if (!d->validatePassword(d->m_passwordEdit, msg)) {
+    else if (!d->validatePassword(d->m_usernameEdit->text(), d->m_passwordEdit->text(), msg)) {
         d->tooltip_->setText(msg);
         d->tooltip_->showBottom(d->m_passwordEdit);
     }
@@ -203,7 +202,7 @@ bool SystemInfoFormFrame::validateUserInfo()
         d->tooltip_->showBottom(d->m_passwordCheckEdit);
     }
     else if (d->m_setRootPasswordCheck->isChecked()) {
-        if (!d->validatePassword(d->m_rootPasswordEdit, msg)) {
+        if (!d->validatePassword("root", d->m_rootPasswordEdit->text(), msg)) {
             d->tooltip_->setText(msg);
             d->tooltip_->showBottom(d->m_rootPasswordEdit);
         }
@@ -355,6 +354,7 @@ void SystemInfoFormFrame::writeConf()
     WriteUsername(d->m_usernameEdit->text());
     WriteHostname(d->m_hostnameEdit->text());
     WritePassword(d->m_passwordEdit->text());
+    WritePasswdLevel(PasswordManager::instance()->passwdLevel(d->m_passwordEdit->text()));
 
     if (d->m_setRootPasswordCheck->isChecked()) {
         WriteRootPassword(d->m_rootPasswordEdit->text());
@@ -762,23 +762,20 @@ void SystemInfoFormFramePrivate::updatePasswdLevel()
         {MediumLevel, QColor("#f7a11b")},       // 橙色
         {HigherLevel, QColor("#3ec500")}};      // 绿色
 
-
     if (!m_passwordEdit->text().isEmpty()) {
         QPalette palette;
-        palette.setColor(QPalette::Text, mapPasswdLevelColor[PwqualityManager::instance()->passwdLevel(m_passwordEdit->text())]);
+        palette.setColor(QPalette::Text, mapPasswdLevelColor[PasswordManager::instance()->passwdLevel(m_passwordEdit->text())]);
         m_passwdLevelLabel->setPalette(palette);
-        m_passwdLevelLabel->setText(mapPasswdLevel[PwqualityManager::instance()->passwdLevel(m_passwordEdit->text())]);
-        WritePasswdLevel(PwqualityManager::instance()->passwdLevel(m_passwordEdit->text()));//记录设置的密码等级
-
+        m_passwdLevelLabel->setText(mapPasswdLevel[PasswordManager::instance()->passwdLevel(m_passwordEdit->text())]);
     } else {
         m_passwdLevelLabel->setText("");
     }
 
     if (!m_rootPasswordEdit->text().isEmpty()) {
         QPalette palette;
-        palette.setColor(QPalette::Text, mapPasswdLevelColor[PwqualityManager::instance()->passwdLevel(m_rootPasswordEdit->text())]);
+        palette.setColor(QPalette::Text, mapPasswdLevelColor[PasswordManager::instance()->passwdLevel(m_rootPasswordEdit->text())]);
         m_rootPasswdLevelLabel->setPalette(palette);
-        m_rootPasswdLevelLabel->setText(mapPasswdLevel[PwqualityManager::instance()->passwdLevel(m_rootPasswordEdit->text())]);
+        m_rootPasswdLevelLabel->setText(mapPasswdLevel[PasswordManager::instance()->passwdLevel(m_rootPasswordEdit->text())]);
 
     } else {
         m_rootPasswdLevelLabel->setText("");
@@ -898,98 +895,11 @@ bool SystemInfoFormFramePrivate::validateHostname(QString& msg)
     return true;
 }
 
-bool SystemInfoFormFramePrivate::validatePassword(DPasswordEdit *passwordEdit, QString& msg)
+bool SystemInfoFormFramePrivate::validatePassword(const QString &user,
+                                                  const QString &passwd,
+                                                  QString& msg)
 {
-#ifndef QT_DEBUG
-    const bool strong_pwd_check = GetSettingsBool(kSystemInfoPasswordStrongCheck);
-#else
-    const bool strong_pwd_check = true;
-#endif // !QT_DEBUG
-
-    int min_len = 1;
-    int max_len = 16;
-
-    if (strong_pwd_check) {
-        if (passwordEdit->text().toLower() == m_usernameEdit->text().toLower()) {
-            msg = ::QObject::tr("The password should be different from the username");
-            return false;
-        }
-        min_len = GetSettingsInt(kSystemInfoPasswordMinLen);
-        max_len = GetSettingsInt(kSystemInfoPasswordMaxLen);
-    }
-
-    const QStringList validate = GetSettingsStringList(kSystemInfoPasswordValidate);
-    const int required_num{ GetSettingsInt(kSystemInfoPasswordValidateRequired) };
-    ValidatePasswordState state = ValidatePassword(
-        passwordEdit->text(), min_len, max_len, strong_pwd_check, validate, required_num);
-
-    switch (state) {
-    case ValidatePasswordState::EmptyError: {
-        msg = ::QObject::tr("The password cannot be empty​");
-        return false;
-    }
-    case ValidatePasswordState::StrongError: {
-        msg = ::QObject::tr("Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&*()[]{}\\|/?,.<>)");
-        return false;
-    }
-    case ValidatePasswordState::TooShortError:
-    case ValidatePasswordState::TooLongError: {
-        msg = ::QObject::tr("Password must be between %1 and %2 characters")
-                .arg(min_len)
-                .arg(max_len);
-        return false;
-    }
-    case ValidatePasswordState::Ok: {
-        // Pass
-        break;
-    }
-    default:
-        break;
-    }
-
-    QString dict = PwqualityManager::instance()->dictChecked(passwordEdit->text());
-    if (!dict.isEmpty()) {
-        msg = ::QObject::tr("Password must not contain common words and combinations").arg(dict);
-        return false;
-    }
-
-    QString palingrome = PwqualityManager::instance()->palindromeChecked(passwordEdit->text());
-    if (!palingrome.isEmpty()) {
-        msg = ::QObject::tr("Password must not contain more than 4 palindrome characters").arg(palingrome);
-        return false;
-    }
-
-    if (PwqualityManager::instance()->passwdMonotonous(passwordEdit->text())) {
-        msg = ::QObject::tr("The new password contains no longer than %1 monotonous character sequences").arg(GetSettingsInt(kSystemInfoPasswordMonotonousLength));
-        return false;
-    }
-
-    if (PwqualityManager::instance()->passwdContinuous(passwordEdit->text())) {
-        msg = ::QObject::tr("The new password contains no more than %1 consecutive characters of the same character").arg(GetSettingsInt(kSystemInfoPasswordContinuousLength));
-        return false;
-    }
-
-    if (!PwqualityManager::instance()->oem_lower_case(passwordEdit->text())) {
-        msg = ::QObject::tr("Password must contain lowercase letters").arg(palingrome);
-        return false;
-    }
-
-    if (!PwqualityManager::instance()->oem_upper_case(passwordEdit->text())) {
-        msg = ::QObject::tr("Password must contain capital letters").arg(palingrome);
-        return false;
-    }
-
-    if (!PwqualityManager::instance()->oem_special_char(passwordEdit->text())) {
-        msg = ::QObject::tr("Password must contain special characters").arg(palingrome);
-        return false;
-    }
-
-    if (!PwqualityManager::instance()->oem_require_number(passwordEdit->text())) {
-        msg = ::QObject::tr("Passwords must contain numbers").arg(palingrome);
-        return false;
-    }
-
-    return true;
+    return PasswordManager::instance()->checked(user, passwd, msg);
 }
 
 void SystemInfoFormFramePrivate::updateCapsLockState()
@@ -1138,7 +1048,7 @@ void SystemInfoFormFramePrivate::onPasswordEditingFinished()
     if (m_isPasswordEdited_) {
         m_isPasswordEdited_ = false;
         QString msg;
-        if (!validatePassword(m_passwordEdit, msg)) {
+        if (!validatePassword(m_usernameEdit->text(), m_passwordEdit->text(), msg)) {
             tooltip_->setText(msg);
             tooltip_->showBottom(m_passwordEdit);
         }
@@ -1155,7 +1065,7 @@ void SystemInfoFormFramePrivate::onPassword2EditingFinished()
     if (m_isPassword2Edited_) {
         m_isPassword2Edited_ = false;
         QString msg;
-        if (!validatePassword(m_passwordEdit, msg)) {
+        if (!validatePassword(m_usernameEdit->text(), m_passwordEdit->text(), msg)) {
             tooltip_->setText(msg);
             tooltip_->showBottom(m_passwordEdit);
         }
@@ -1177,7 +1087,7 @@ void SystemInfoFormFramePrivate::onRootPasswordEditingFinished()
     if (m_isRootPasswordEdited) {
         m_isRootPasswordEdited = false;
         QString msg;
-        if (!validatePassword(m_rootPasswordEdit, msg)) {
+        if (!validatePassword("root", m_rootPasswordEdit->text(), msg)) {
             tooltip_->setText(msg);
             tooltip_->showBottom(m_rootPasswordEdit);
         }
@@ -1194,7 +1104,7 @@ void SystemInfoFormFramePrivate::onRootPasswordCheckEditingFinished()
     if (m_isRootPasswordCheckEdited) {
         m_isRootPasswordCheckEdited = false;
         QString msg;
-        if (!validatePassword(m_rootPasswordEdit, msg)) {
+        if (!validatePassword("root", m_rootPasswordEdit->text(), msg)) {
             tooltip_->setText(msg);
             tooltip_->showBottom(m_rootPasswordEdit);
         }

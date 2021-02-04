@@ -735,6 +735,7 @@ set(LINK_LIBS
     qrencode
     zlib_wrapper
     Xi
+    deepin_pw_check
     )
 
 # Main executable
@@ -751,8 +752,8 @@ add_executable(deepin-installer
                ui/main_window.cpp
                ui/main_window.h
 
-               service/pwquality_manager.h
-               service/pwquality_manager.cpp
+               service/password_manager.h
+               service/password_manager.cpp
 
                ${BASE_FILES}
                ${PARTMAN_FILES}
@@ -778,8 +779,8 @@ add_executable(deepin-installer-cli
               ui/main_window_cli.h
               ui/main_window_cli.cpp
 
-              service/pwquality_manager.h
-              service/pwquality_manager.cpp
+              service/password_manager.h
+              service/password_manager.cpp
 
               ${CLI_UI_FILES}
               ${BASE_FILES}
@@ -821,8 +822,8 @@ add_executable(deepin-installer-first-boot
                ui/models/package_manager_model.h
                ui/models/package_manager_model.cpp
 
-               service/pwquality_manager.h
-               service/pwquality_manager.cpp
+               service/password_manager.h
+               service/password_manager.cpp
 
                ${BASE_FILES}
                ${PARTMAN_FILES}
@@ -871,8 +872,8 @@ add_executable(deepin-installer-user-form
                service/language_manager.cpp
                service/log_manager.h
                service/log_manager.cpp
-               service/pwquality_manager.h
-               service/pwquality_manager.cpp
+               service/password_manager.h
+               service/password_manager.cpp
                service/screen_adaptation_manager.h
                service/screen_adaptation_manager.cpp
 

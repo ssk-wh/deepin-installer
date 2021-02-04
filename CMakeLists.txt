@@ -8,6 +8,7 @@ include(Dart)
 #include(CTest)
 
 # Import folders
+add_subdirectory(i18n)
 add_subdirectory(data)
 add_subdirectory(docs)
 add_subdirectory(hooks)
@@ -15,3 +16,5 @@ add_subdirectory(check_hooks)
 add_subdirectory(resources)
 add_subdirectory(src)
 add_subdirectory(tools)
+
+
