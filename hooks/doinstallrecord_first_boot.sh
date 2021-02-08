@@ -21,10 +21,10 @@ if [ x${DI_USER_EXPERIENCE} == "xtrue" ]; then
    DI_PASSWDLEVEL=$(installer_get "DI_PASSWDLEVEL")
 
    #采集是否同意体验计划
-   deepin-installer-simpleini set "/etc/deepin/deepin-user-experience" "ExperiencePlan" "ExperienceState" ${DI_USER_EXPERIENCE}
+   deepin-installer-settings set "/etc/deepin/deepin-user-experience" "ExperiencePlan" "ExperienceState" ${DI_USER_EXPERIENCE}
 
    #采集是否同意许可协议
-   deepin-installer-simpleini set "/etc/deepin/deepin-user-experience" "ExperiencePlan" "LicenseState" ${DI_USER_USE_LICENSE}
+   deepin-installer-settings set "/etc/deepin/deepin-user-experience" "ExperiencePlan" "LicenseState" ${DI_USER_USE_LICENSE}
 
    #采集安装方式
    if [ x${partition_do_auto_part} == "xtrue" ]; then

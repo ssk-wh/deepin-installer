@@ -17,11 +17,11 @@
 #
 
 # Disable disk-mount plugin.
-deepin-installer-simpleini set \
+deepin-installer-settings set \
   "$HOME/.config/dde-file-manager/dde-file-manager.conf" \
   "advance.mount.auto_mount" value false
 
-deepin-installer-simpleini set \
+deepin-installer-settings set \
   "$HOME/.config/deepin/dde-file-manager/dde-file-manager.conf" \
   "advance.mount.auto_mount" value false
 

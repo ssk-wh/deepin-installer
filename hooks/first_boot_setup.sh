@@ -27,8 +27,6 @@ CONF_FILE=/etc/deepin-installer.conf
 . ./basic_utils.sh
 . ./doinstallrecord_first_boot.sh
 . ./in_chroot/03_setup_user_experience.job
-#. ./in_chroot/09_generate_machine_id.job
-. ./in_chroot/33_setup_lightdm_auto_login.job
 . ./in_chroot/34_setup_livefs.job
 . ./in_chroot/51_setup_keyboard.job
 . ./in_chroot/52_setup_locale_timezone.job
@@ -160,8 +158,6 @@ main() {
   [ -f "${CONF_FILE}" ] || error "deepin-installer.conf not found"
   cat "${CONF_FILE}" | grep -v "PASSWORD" | grep -v "password"
 
-  # generate_machine_id
-  setup_lightdm_auto_login
   setup_keyboard
   setup_locale_timezone
   setup_livefs
@@ -185,6 +181,7 @@ main() {
   cleanup_oem_license
   update-grub && update-initramfs -u
   cleanup_first_boot
+  setup_lightdm_auto_login
   remove_component_packages
   setup_default_target
   update_grub_local  # 处理gurb汉化问题

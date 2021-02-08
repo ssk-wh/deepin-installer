@@ -30,8 +30,6 @@
 #include <QCommandLineOption>
 #include <QCommandLineParser>
 #include <QFile>
-#include <QDebug>
-#include <QTextCodec>
 
 const char kAppVersion[] = "0.0.1";
 const char kAppDesc[] = "Get/set configuration in a ini file.";
@@ -50,81 +48,81 @@ enum class CommandType {
 };
 
 int main(int argc, char* argv[]) {
-  QCoreApplication app(argc, argv);
-  app.setApplicationVersion(kAppVersion);
+    QCoreApplication app(argc, argv);
+    app.setApplicationVersion(kAppVersion);
 
-  QCommandLineParser parser;
-  parser.setApplicationDescription(kAppDesc);
-  parser.addHelpOption();
-  parser.addVersionOption();
-  parser.addPositionalArgument("command", "Set or get value", "get/set");
-  parser.addPositionalArgument("ini-file", "Absolute path to ini file");
-  parser.addPositionalArgument("section",
+    QCommandLineParser parser;
+    parser.setApplicationDescription(kAppDesc);
+    parser.addHelpOption();
+    parser.addVersionOption();
+    parser.addPositionalArgument("command", "Set or get value", "get/set");
+    parser.addPositionalArgument("ini-file", "Absolute path to ini file");
+    parser.addPositionalArgument("section",
                                "Section name in ini file",
                                "[section]");
-  parser.addPositionalArgument("key", "Key name");
-  parser.addPositionalArgument("value", "Value to be set", "[value]");
+    parser.addPositionalArgument("key", "Key name");
+    parser.addPositionalArgument("value", "Value to be set", "[value]");
 
-  if (!parser.parse(app.arguments())) {
+    if (!parser.parse(app.arguments())) {
     // Show help and exit.
-    parser.showHelp(kExitErr);
-  }
-
-  const QStringList pos_args = parser.positionalArguments();
-
-  if (pos_args.length() < 3 || pos_args.length() > 5) {
-    parser.showHelp(kExitErr);
-  }
-
-  CommandType command = CommandType::Invalid;
-  if (pos_args.at(0) == kCommandGet) {
-    command = CommandType::Get;
-  } else if (pos_args.at(0) == kCommandSet) {
-    command = CommandType::Set;
-  } else {
-    parser.showHelp(kExitErr);
-  }
-
-  const QString ini_file = pos_args.at(1);
-  if ((command == CommandType::Get) && (!QFile::exists(ini_file))) {
-    fprintf(stderr, "File not found! %s\n", ini_file.toStdString().c_str());
-    return kExitErr;
-  }
-
-  QString section;
-  QString key;
-  QString value;
-  if (command == CommandType::Get) {
-    if (pos_args.length() == 3) {
-      key = pos_args.at(2);
-    } else if (pos_args.length() == 4) {
-      // Section name is optional.
-      section = pos_args.at(2);
-      key = pos_args.at(3);
-    } else {
-      parser.showHelp(kExitErr);
+        parser.showHelp(kExitErr);
     }
-  } else if (command == CommandType::Set) {
-    if (pos_args.length() == 4) {
-      key = pos_args.at(2);
-      value = pos_args.at(3);
-    } else if (pos_args.length() == 5) {
-      section = pos_args.at(2);
-      key = pos_args.at(3);
-      value = pos_args.at(4);
-    } else {
-      parser.showHelp(kExitErr);
+
+    const QStringList pos_args = parser.positionalArguments();
+
+    if (pos_args.length() < 3 || pos_args.length() > 5) {
+        parser.showHelp(kExitErr);
     }
-  }
 
-  section = section.isEmpty() ? kDefaultSection : section;
-  installer::CSettings settings(ini_file);
-  if (command == CommandType::Get) {
-    // Print value to stdout.
-      qInfo() << settings.value(section, key);
-  } else if (command == CommandType::Set) {
-      settings.setValue(section, key, value);
-  }
+    CommandType command = CommandType::Invalid;
+    if (pos_args.at(0) == kCommandGet) {
+        command = CommandType::Get;
+    } else if (pos_args.at(0) == kCommandSet) {
+        command = CommandType::Set;
+    } else {
+        parser.showHelp(kExitErr);
+    }
 
-  return kExitOk;
+    const QString ini_file = pos_args.at(1);
+    if ((command == CommandType::Get) && (!QFile::exists(ini_file))) {
+        fprintf(stderr, "File not found! %s\n", ini_file.toStdString().c_str());
+        return kExitErr;
+    }
+
+    QString section;
+    QString key;
+    QString value;
+    if (command == CommandType::Get) {
+        if (pos_args.length() == 3) {
+            key = pos_args.at(2);
+        } else if (pos_args.length() == 4) {
+            // Section name is optional.
+            section = pos_args.at(2);
+            key = pos_args.at(3);
+        } else {
+            parser.showHelp(kExitErr);
+        }
+    } else if (command == CommandType::Set) {
+        if (pos_args.length() == 4) {
+            key = pos_args.at(2);
+            value = pos_args.at(3);
+        } else if (pos_args.length() == 5) {
+            section = pos_args.at(2);
+            key = pos_args.at(3);
+            value = pos_args.at(4);
+        } else {
+            parser.showHelp(kExitErr);
+        }
+    }
+
+    section = section.isEmpty() ? kDefaultSection : section;
+    installer::CSettings settings(ini_file);
+    if (command == CommandType::Get) {
+        // Print value to stdout.
+        fprintf(stdout, "%s", settings.value(section, key).toStdString().c_str());
+    } else if (command == CommandType::Set) {
+        settings.setValue(section, key, value);
+    }
+
+    return kExitOk;
 }

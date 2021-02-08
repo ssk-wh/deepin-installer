@@ -3,6 +3,7 @@
 #include <QFile>
 #include <QDebug>
 #include <QRegExp>
+#include <QSettings>
 
 installer::CSettings::CSettings(const QString &file)
     :m_file(file)
@@ -12,23 +13,45 @@ installer::CSettings::CSettings(const QString &file)
 
 void installer::CSettings::setValue(const QString &daemon, const QString &key, const QString &value)
 {
-    QRegExp exp(QString("^[ ]{0,}[#]{0,}[ ]{0,}%1$").arg(key)); // 匹配key是否被注释或者已经存在文件中
+    setData(QString("[%1]").arg(daemon), key, value);
+}
+
+void installer::CSettings::setData(const QString &daemon, const QString &key, const QString &value)
+{
+    bool is_find = false;
+    QRegExp exp(QString("^[#]{1,}[ ]{0,}%1$").arg(key)); // 匹配key是否被注释
     for (SettingInfo& d : m_data) {
-        if (d.daemon == QString("[%1]").arg(daemon)) {
+        if (d.daemon == daemon) {
             QMap<QString, QString> tmp;
             for (QString k : d.data.keys()) {
-                if (k.contains(exp)) {
-                    tmp[key] = value;  // 处理key被注释的情况
+                if (k == key) {
+                    tmp[k] = value;                 // 更新key
+                }
+                else if (k.contains(exp)) {
+                    tmp[key] = value;               // 处理key被注释的情况
+
                 } else {
-                    tmp[k] = d.data.value(k);
+                    tmp[k] = d.data.value(k);       // 填充剩余的key-value
                 }
             }
-            if (!tmp.keys().contains(key)) {
-                tmp[key] = value;     //  处理ini文件中不存在的key
+
+            if (tmp.keys().indexOf(key) == -1) {
+                tmp[key] = value;                   // 处理key不在daemon下的情况
             }
+
             d.data = tmp;
+            is_find = true;
+
             break;                    //  减少循环次数
         }
+    }
+
+    // 处理daemon不在文件中的情况
+    if (!is_find) {
+        SettingInfo d;
+        d.daemon = daemon;
+        d.data[key] = value;
+        m_data.push_back(d);
     }
 
     write();
@@ -51,14 +74,18 @@ QString installer::CSettings::value(const QString &daemon, const QString &key)
 
 QString installer::CSettings::key(const QString &text)
 {
-    QStringList list = text.split("=", QString::SkipEmptyParts);
-    return list.isEmpty() ? QString() : list.at(0);
+    int pos = text.indexOf("=");
+    // 剔除掉key中前后空格
+    return text.left(pos).trimmed();
 }
 
 QString installer::CSettings::value(const QString &text)
 {
-    QStringList list = text.split("=", QString::SkipEmptyParts);
-    return list.size() != 2 ? QString() : list.at(1);
+    int pos = text.indexOf("=") + 1;
+    // 剔除掉value中空格和引号
+    return text.right(text.size() - pos).trimmed()\
+            .remove(QRegExp("\""))\
+            .remove(QRegExp("\n")).trimmed();
 }
 
 QString installer::CSettings::toString(const QVector<SettingInfo> &data)
@@ -84,7 +111,7 @@ QString installer::CSettings::toString(const QVector<SettingInfo> &data)
 void installer::CSettings::read()
 {
     QFile f(m_file);
-    if (!f.open(QIODevice::ReadOnly)) {
+    if (!f.open(QIODevice::ReadWrite)) {
         qCritical() << "Failed to open file. " << m_file;
         return;
     }
@@ -129,6 +156,8 @@ void installer::CSettings::read()
         }
     }
 
+    f.close();  // 设置打开文件标志为ReadWrite，在close文件时，如果文件不存在则文件会被创建
+
     /* 保存最后一次循环的key-value */
     if (!info.data.isEmpty()) {
         m_data.append(info);
@@ -146,11 +175,12 @@ void installer::CSettings::write()
 
     QByteArray text = toString(m_data).toUtf8();
     f.write(text);
+    f.close();
 }
 
 bool installer::CSettings::isDaemon(const QString &text)
 {
-    return text.contains("[") && text.contains("]") && !text.contains("#");
+    return text.contains("[") && text.contains("]") && !text.contains("#") && !text.contains("=");
 }
 
 bool installer::CSettings::isData(const QString &text)

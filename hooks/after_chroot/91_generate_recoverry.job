@@ -42,20 +42,6 @@ if [ -d /target/${DATA_MOUNT_POINT} ];then
     variable_done_data_var_opt_copy=1
 fi
 
-chroot /target deepin-installer-simpleini set "/etc/deepin-installer.conf" "system_check_mode" "false"
-
-CONF_FILE=/target/etc/lightdm/lightdm.conf
-cp ${CONF_FILE} /tmp/lightdm.conf
-cat > "${CONF_FILE}" <<EOF
-[Seat:*]
-greeter-setup-script=/usr/bin/deepin-installer-first-boot
-EOF
-
-if [ x${DI_SYSTEM_CHECK_MODE} == "xtrue" ]; then
-    DI_SI_USER=$(chroot /target deepin-installer-simpleini get "/etc/deepin-installer.conf" "DI_SI_USER")
-    chroot /target userdel -rf ${DI_SI_USER}
-fi
-
 # umount all point
 /tmp/installer/hook_manager.sh /tmp/installer/after_chroot/90_unmount.job
 
@@ -95,21 +81,6 @@ md5sum system.dim > system.md5
 
 cd /
 umount -R /target/recovery
-
-# mount all point
-/tmp/installer/hook_manager.sh /tmp/installer/before_chroot/11_mount_target.job
-/tmp/installer/hook_manager.sh /tmp/installer/before_chroot/41_setup_mount_points.job
-
-chroot /target deepin-installer-simpleini set /etc/deepin-installer.conf system_check_mode ${DI_SYSTEM_CHECK_MODE}
-
-cp /tmp/lightdm.conf ${CONF_FILE}
-
-if [ x${DI_SYSTEM_CHECK_MODE} == "xtrue" ]; then
-    /tmp/installer/hook_manager.sh /tmp/installer/in_chroot/48_setup_check_mode_user.job
-fi
-
-# umount all point
-/tmp/installer/hook_manager.sh /tmp/installer/after_chroot/90_unmount.job
 
 sync
 

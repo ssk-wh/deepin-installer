@@ -66,9 +66,9 @@ debug() {
 installer_get() {
   local key="$1"
   [ -z "${CONF_FILE}" ] && exit "CONF_FILE is not defined"
-  which deepin-installer-simpleini 1>/dev/null || \
-    exit "deepin-installer-simpleini not found!"
-  deepin-installer-simpleini get "${CONF_FILE}" "${key}"
+  which deepin-installer-settings 1>/dev/null || \
+    exit "deepin-installer-settings not found!"
+  deepin-installer-settings get "${CONF_FILE}" "${key}"
 }
 
 installer_record_set(){
@@ -102,9 +102,9 @@ installer_set() {
   local key="$1"
   local value="$2"
   [ -z "${CONF_FILE}" ] && exit "CONF_FILE is not defined"
-  which deepin-installer-simpleini 1>/dev/null || \
-    exit "deepin-installer-simpleini not found!"
-  deepin-installer-simpleini set "${CONF_FILE}" "${key}" "${value}"
+  which deepin-installer-settings 1>/dev/null || \
+    exit "deepin-installer-settings not found!"
+  deepin-installer-settings set "${CONF_FILE}" "${key}" "${value}"
 }
 
 # Check whether current platform is loongson or not.
@@ -166,4 +166,16 @@ install_package() {
       echo "Install Failed : $i"
     fi
   done
+}
+
+setup_lightdm_auto_login() {
+  if [ x$(installer_get "lightdm_enable_auto_login") != "xtrue" ]; then
+    return 0
+  fi
+
+  local USERNAME
+  USERNAME=$(installer_get "DI_USERNAME")
+  [ -f /etc/lightdm/lightdm.conf ] || warn_exit "lightdm.conf not found!"
+  deepin-installer-simpleini set /etc/lightdm/lightdm.conf \
+    "Seat:*" "autologin-user" "${USERNAME}"
 }

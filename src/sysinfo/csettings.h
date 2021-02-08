@@ -30,6 +30,7 @@ private:
     QString key(const QString &text);
     QString value(const QString &text);
     QString toString(const QVector<SettingInfo>& data);
+    void setData(const QString & daemon,const QString &key, const QString &value);
 
 private:
     QVector<SettingInfo> m_data;
