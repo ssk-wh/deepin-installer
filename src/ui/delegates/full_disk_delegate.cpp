@@ -366,8 +366,6 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
 
     // Change data disk configuration.
     QString system_data_mount_point;
-    // 提前写入占位符，防止json中没有配置数据分区
-    WriteSystemDataMountPoint("NO_DATA_MOUNT_POINT_PLACEHOLDER");
     for (int i = 0; i < policy_list.length(); i++) {
         FullDiskPolicy & policy = policy_list[i];
 

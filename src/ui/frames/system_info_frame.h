@@ -29,9 +29,7 @@ class QStackedLayout;
 
 namespace installer {
 
-class SystemInfoAvatarFrame;
 class SystemInfoFormFrame;
-class SystemInfoKeyboardFrame;
 class SystemInfoFramePrivate;
 
 // Provides a form to let use input username, password and hostname,

@@ -95,13 +95,6 @@ void SystemInfoAvatarFrame::readConf() {
 }
 
 void SystemInfoAvatarFrame::writeConf() {
-  Q_D(SystemInfoAvatarFrame);
-  // const QString avatar = d->current_avatar_button_->avatar();
-  // if (IsValidAvatar(avatar)) {
-  //   WriteAvatar(avatar);
-  // } else {
-  //   qWarning() << "Invalid avatar: " << avatar;
-    // }
 }
 
 bool SystemInfoAvatarFrame::doSpace()
@@ -224,11 +217,7 @@ void SystemInfoAvatarFramePrivate::initUI() {
 
 void SystemInfoAvatarFramePrivate::initConnections() {
   // Return to previous page when chosen_avatar_button is clicked.
-  Q_Q(SystemInfoAvatarFrame);
-  // connect(current_avatar_button_, &QPushButton::clicked,
-  //         q, &SystemInfoAvatarFrame::finished);
-  connect(list_view_, &QListView::pressed,
-          this, &SystemInfoAvatarFramePrivate::onListViewPressed);
+  connect(list_view_, &QListView::pressed, this, &SystemInfoAvatarFramePrivate::onListViewPressed);
 }
 
 void SystemInfoAvatarFramePrivate::onListViewPressed(const QModelIndex& index) {
@@ -237,7 +226,6 @@ void SystemInfoAvatarFramePrivate::onListViewPressed(const QModelIndex& index) {
   Q_Q(SystemInfoAvatarFrame);
 
   if (IsValidAvatar(avatar)) {
-    // current_avatar_button_->updateIcon(avatar);
     emit q->avatarUpdated(avatar);
   } else {
     qWarning() << "Invalid avatar:" << avatar;

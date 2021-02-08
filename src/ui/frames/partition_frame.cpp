@@ -166,6 +166,8 @@ PartitionFrame::PartitionFrame(FrameProxyInterface* frameProxyInterface, QWidget
 
     m_private->initUI();
     m_private->initConnections();
+    // 提前写入占位符，防止json中没有配置数据分区, 和手动分区屏蔽fstab写记录
+    WriteSystemDataMountPoint("NO_DATA_MOUNT_POINT_PLACEHOLDER");
 }
 
 PartitionFrame::~PartitionFrame()
