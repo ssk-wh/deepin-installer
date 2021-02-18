@@ -251,6 +251,9 @@ struct DiskPartitionSetting {
 void WriteDiskPartitionSetting(const DiskPartitionSetting& setting);
 
 void WriteNecuresCliInstallMode(bool mode);
+
+// 记录设置的密码等级
+void WritePasswdLevel(const int &level);
 }  // namespace installer
 
 #endif  // INSTALLER_SETTINGS_MANAGER_H

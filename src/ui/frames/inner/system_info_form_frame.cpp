@@ -768,6 +768,7 @@ void SystemInfoFormFramePrivate::updatePasswdLevel()
         palette.setColor(QPalette::Text, mapPasswdLevelColor[PwqualityManager::instance()->passwdLevel(m_passwordEdit->text())]);
         m_passwdLevelLabel->setPalette(palette);
         m_passwdLevelLabel->setText(mapPasswdLevel[PwqualityManager::instance()->passwdLevel(m_passwordEdit->text())]);
+        WritePasswdLevel(PwqualityManager::instance()->passwdLevel(m_passwordEdit->text()));//记录设置的密码等级
 
     } else {
         m_passwdLevelLabel->setText("");

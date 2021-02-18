@@ -18,6 +18,7 @@ if [ x${DI_USER_EXPERIENCE} == "xtrue" ]; then
    DI_CRYPT_PASSWD=$(installer_get "DI_CRYPT_PASSWD")
    DI_LOCALE=$(installer_get "DI_LOCALE")
    DI_TIMEZONE=$(installer_get "DI_TIMEZONE")
+   DI_PASSWDLEVEL=$(installer_get "DI_PASSWDLEVEL")
 
    #采集是否同意体验计划
    deepin-installer-simpleini set "/etc/deepin/deepin-user-experience" "ExperiencePlan" "ExperienceState" ${DI_USER_EXPERIENCE}
@@ -75,7 +76,7 @@ if [ x${DI_USER_EXPERIENCE} == "xtrue" ]; then
    fi
 
    #采集设置的密码强度信息
-   installer_record_set "PasswordStrength"
+   installer_record_set "ExperiencePlan" "PasswordStrength" ${DI_PASSWDLEVEL}
 
    sync
 else

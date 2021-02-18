@@ -971,4 +971,10 @@ void WriteSystemDataMountPoint(const QString &value)
     AppendToConfigFile("DI_DATA_MOUNT_POINT", value);
 }
 
+// 记录设置的密码等级
+void WritePasswdLevel(const int &level)
+{
+    AppendToConfigFile("DI_PASSWDLEVEL", level);
+}
+
 }  // namespace installer
