@@ -887,9 +887,14 @@ void WriteInstallSuccessed(bool successed)
     AppendToConfigFile("DI_INSTALL_SUCCESSED", successed);
 }
 
-void WriteInstallDurationTime(const QString &installtime)
+void WriteInstallStartTime(const QString& starttime)
 {
-    AppendToConfigFile("DI_INSTALL_DURATIONTIME", installtime);
+    AppendToConfigFile("DI_INSTALL_STARTTIME", starttime);
+}
+
+void WriteInstallEndTime(const QString& endtime)
+{
+    AppendToConfigFile("DI_INSTALL_ENDTIME", endtime);
 }
 
 void CustomSetSettingsBool(const char* key, bool boolvalue)

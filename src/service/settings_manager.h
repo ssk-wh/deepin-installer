@@ -169,7 +169,8 @@ void WriteComponentLanguage(const QString& packages);
 void WriteIsMinimalGraphicsSystem(const bool isMinimalGraphicsSystem);
 void WriteIsMinimalCharacterSystem(const bool isMinimalCharacterSystem);
 void WriteInstallSuccessed(bool successed);
-void WriteInstallDurationTime(const QString& installtime);
+void WriteInstallStartTime(const QString& starttime);
+void WriteInstallEndTime(const QString& endtime);
 void CustomSetSettingsBool(const char* key, bool boolvalue);
 // Write disk info.
 //  * |root_disk|, device path to install system into, like /dev/sda;

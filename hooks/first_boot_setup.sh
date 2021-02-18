@@ -25,7 +25,7 @@
 CONF_FILE=/etc/deepin-installer.conf
 
 . ./basic_utils.sh
-
+. ./doinstallrecord_first_boot.sh
 . ./in_chroot/03_setup_user_experience.job
 #. ./in_chroot/09_generate_machine_id.job
 . ./in_chroot/33_setup_lightdm_auto_login.job

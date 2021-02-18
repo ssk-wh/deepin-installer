@@ -28,6 +28,7 @@ export APT_OPTIONS='-y -o Dpkg::Options::="--force-confdef" \
 # Absolute path to config file.
 # Do not read from/write to this file, call installer_get/installer_set instead.
 CONF_FILE=/etc/deepin-installer.conf
+EXPERIENCE_FILE=/etc/deepin/deepin-user-experience
 
 # Print error message and exit
 error() {
@@ -68,6 +69,17 @@ installer_get() {
   which deepin-installer-simpleini 1>/dev/null || \
     exit "deepin-installer-simpleini not found!"
   deepin-installer-simpleini get "${CONF_FILE}" "${key}"
+}
+
+installer_record_set(){
+   #chroot /target
+   local recordsession="$1"
+   local recordkey="$2"
+   local recordvalue="$3"
+   [ -z "${EXPERIENCE_FILE}" ] && exit "EXPERIENCE_FILE is not defined"
+   which deepin-installer-settings 1>/dev/null || \
+     exit "deepin-installer-settings not found!"
+   deepin-installer-settings set "${EXPERIENCE_FILE}" "${recordsession}" "${recordkey}" "${recordvalue}"
 }
 
 update_local() {

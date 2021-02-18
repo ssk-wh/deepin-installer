@@ -112,7 +112,6 @@ public:
     QTimer* simulation_timer_ = nullptr;
 
     std::list<std::pair<std::function<void (QString)>, QString>> m_trList;
-    QDateTime m_installStartTime;
 };
 
 InstallProgressFrame::InstallProgressFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
@@ -151,7 +150,8 @@ void InstallProgressFrame::startSlide() {
     d->slide_frame_->startSlide(disable_slide, disable_animation, duration);
 
     //todo:ji lu kai shi an zhaung shi jian
-    d->m_installStartTime = QDateTime::currentDateTime();
+    QString teststarttime = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
+    WriteInstallStartTime(teststarttime);
 }
 
 void InstallProgressFrame::init()
@@ -354,56 +354,26 @@ void InstallProgressFramePrivate::updateProgressBar(int progress) {
 }
 
 void InstallProgressFramePrivate::onHooksErrorOccurred() {
-    QDateTime installFinishTime = QDateTime::currentDateTime();
-    QTime m_time;
-    m_time.setHMS(0, 0, 0, 0); //初始化数据，时 分 秒 毫秒
-    QString testtimeused = m_time.addSecs(m_installStartTime.secsTo(installFinishTime)).toString("hh:mm:ss");//计算时间差(秒)，将时间差加入m_time，格式化输出
-    WriteInstallDurationTime(testtimeused);
+    QString testendtime = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
+    WriteInstallEndTime(testendtime);
 
     failed_ = true;
     slide_frame_->stopSlide();
     WriteInstallSuccessed(false);
-
-    char installrecord[] = BUILTIN_HOOKS_DIR "/doinstallrecord.sh";
-    if (QFile::exists(installrecord)) {
-        QString out, err;
-        bool ok = RunScriptFile({installrecord}, out, err);
-        if (!out.isEmpty()) {
-            qWarning() << installrecord << "OUT:" << out;
-        }
-        if (!err.isEmpty()) {
-            qCritical() << installrecord << "ERR:" << err;
-        }
-    }
 
     Q_Q(InstallProgressFrame);
     q->m_proxy->nextFrame();
 }
 
 void InstallProgressFramePrivate::onHooksFinished() {
-    QDateTime installFinishTime = QDateTime::currentDateTime();
-    QTime m_time;
-    m_time.setHMS(0, 0, 0, 0); //初始化数据，时 分 秒 毫秒
-    QString testtimeused = m_time.addSecs(m_installStartTime.secsTo(installFinishTime)).toString("hh:mm:ss");//计算时间差(秒)，将时间差加入m_time，格式化输出
-    WriteInstallDurationTime(testtimeused);
+    QString testendtime = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
+    WriteInstallEndTime(testendtime);
 
     failed_ = false;
 
     // Set progress value to 100 explicitly.
     onProgressUpdate(100);
     WriteInstallSuccessed(true);
-
-    char installrecord[] = BUILTIN_HOOKS_DIR "/doinstallrecord.sh";
-    if (QFile::exists(installrecord)) {
-        QString out, err;
-        bool ok = RunScriptFile({installrecord}, out, err);
-        if (!out.isEmpty()) {
-            qWarning() << installrecord << "OUT:" << out;
-        }
-        if (!err.isEmpty()) {
-            qCritical() << installrecord << "ERR:" << err;
-        }
-    }
 
     QTimer::singleShot(kRetainingInterval,
                        this, &InstallProgressFramePrivate::onRetainingTimerTimeout);
