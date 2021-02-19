@@ -31,6 +31,7 @@ public:
     FullDiskPartitionWidget(QWidget* parent=nullptr);
     void setDevice(const Device::Ptr device);
     void setDevices(const DeviceList& devices);
+    void clearView();
 
 private:
     FullDiskPartitionColorBar *m_fullDiskPartitionColorBar;

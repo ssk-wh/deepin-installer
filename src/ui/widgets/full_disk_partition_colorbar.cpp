@@ -102,6 +102,7 @@ FullDiskPartitionWidget::FullDiskPartitionWidget(QWidget* parent)
     :QWidget(parent)
 {
     m_fullDiskPartitionColorBar = new FullDiskPartitionColorBar(this);
+    m_fullDiskPartitionColorBar->setObjectName("m_fullDiskPartitionColorBar");
     m_fullDiskPartitionColorBar->setFixedHeight(20);
 
     m_labelLayout = new DFlowLayout(this);
@@ -110,7 +111,7 @@ FullDiskPartitionWidget::FullDiskPartitionWidget(QWidget* parent)
     //m_labelLayout->setHorizontalSpacing(kPartitionLabelSpace);
 
     m_mainLayout = new QVBoxLayout;
-    m_mainLayout->addWidget(m_fullDiskPartitionColorBar, 0, Qt::AlignHCenter);
+    m_mainLayout->addWidget(m_fullDiskPartitionColorBar, 0, Qt::AlignHCenter | Qt::AlignTop);
     m_mainLayout->setContentsMargins(0, 0, 0, 0);
     m_mainLayout->setSpacing(0);
 
@@ -156,12 +157,9 @@ void FullDiskPartitionWidget::setDevices(const DeviceList& devices)
     setDevice(new_device);
 }
 
-void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
+// Clear the partition information labels and hide the color bar in the widget.
+void FullDiskPartitionWidget::clearView()
 {
-    m_fullDiskPartitionColorBar->setDevice(device);
-
-    const PartitionList& partitions = device->partitions;
-
     for (QWidget *w : m_labelLayoutWidgets) {
         ClearLayout(w->layout());
         w->layout()->deleteLater();
@@ -170,12 +168,21 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
     }
 
     m_labelLayoutWidgets.clear();
+
+    m_fullDiskPartitionColorBar->hide();
+}
+
+void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
+{
+    clearView();
+
+    m_fullDiskPartitionColorBar->setDevice(device);
+    m_fullDiskPartitionColorBar->show();
+
+    const PartitionList& partitions = device->partitions;
     int widgetIndex = 0;
-
     QFont font;
-
     QFont mountfont;
-
     int indexNum(0);
 
     for (Partition::Ptr partition : partitions) {

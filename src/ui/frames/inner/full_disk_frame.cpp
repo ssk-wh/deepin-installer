@@ -329,12 +329,14 @@ void FullDiskFrame::initUI() {
   scroll_frame->setMaximumHeight(530);
 
   m_diskPartitionWidget = new FullDiskPartitionWidget;
+  m_diskPartitionWidget->setObjectName("m_diskPartitionWidget");
   m_diskPartitionWidget->setMinimumHeight(100);
 
   QVBoxLayout* main_layout = new QVBoxLayout();
   main_layout->setContentsMargins(0, 0, 0, 0);
-  main_layout->addSpacing(0);
+  main_layout->setSpacing(0);
   main_layout->addWidget(scroll_frame, 0, Qt::AlignHCenter);
+  main_layout->addSpacing(10);
   main_layout->addWidget(m_diskPartitionWidget, 0, Qt::AlignHCenter);
   main_layout->addStretch();
 
@@ -470,11 +472,16 @@ void FullDiskFrame::onCurrentDeviceChanged(int type, const Device::Ptr device)
     else {
         qWarning() << QString("MULTIDISK:invalid type:{%1}").arg(type);
     }
+
+    // If validate device failed, then clear last device partition info in the widget.
     if(!validate()) {
-       qWarning() << QString("MULTIDISK:validate FAILED:{%1}").arg(m_delegate->selectedDisks().join(","));
+        qWarning() << QString("MULTIDISK:validate FAILED:{%1}").arg(m_delegate->selectedDisks().join(","));
+        m_diskPartitionWidget->clearView();
     }
-    m_diskPartitionWidget->setDevices(m_delegate->selectedDevices());
-    emit showDeviceInfomation();
+    else {
+        m_diskPartitionWidget->setDevices(m_delegate->selectedDevices());
+        emit showDeviceInfomation();
+    }
 }
 
 void FullDiskFrame::installNvidiaStateChanged(bool install_nvidia)
