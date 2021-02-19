@@ -65,20 +65,20 @@ QString GetSlideDir(const QString& locale) {
         return os_type_default_slide_dir.path();
     }
 
-    // 语言相关
-    QDir slide_dir(QString(kSlideFolder) + QDir::separator() + locale);
+    // 默认平台语言相关
+    QString default_os = "Default";
+    QDir slide_dir(QString(kSlideFolder) + QDir::separator() + default_os + QDir::separator() + locale);
     qDebug() << "slide_dir = " << slide_dir.path();
     if (slide_dir.exists()) {
         return slide_dir.path();
 
     }
 
-    // 默认目录
-    QDir default_slide_dir(QString(kSlideFolder) + QDir::separator() + QString(kDefaultSlide));
+    // 默认平台默认目录
+    QDir default_slide_dir(QString(kSlideFolder) + QDir::separator() + default_os + QDir::separator() + QString(kDefaultSlide));
     qDebug() << "default_slide_dir = " << slide_dir.path();
     if (default_slide_dir.exists()) {
         return default_slide_dir.path();
-
     }
 
     return QString();
