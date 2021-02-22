@@ -333,9 +333,9 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
       }
 
       // Check whether efi filesystem exists.
-      if ((install_Lvm_Status == Install_Lvm_Status::Lvm_Format_Pv && !bootPartition.isNull() && boot_device->table == PartitionTableType::GPT)
+      if (GetCurrentPlatform() != "sw" && ((install_Lvm_Status == Install_Lvm_Status::Lvm_Format_Pv && !bootPartition.isNull() && boot_device->table == PartitionTableType::GPT)
               ||(!root_device.isNull() && root_device->device_type == DeviceType::NormalDevice && root_device->table == PartitionTableType::GPT)
-              ||!this->isMBRPreferred()) {
+              ||!this->isMBRPreferred())) {
         // program looks for root dir, if root dir exists, then it looks for efi dir
         // so, if found_efi is true, then found_root must be true
         if (found_efi) {
@@ -381,7 +381,7 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
                   continue;
               }
 
-              if (device->table == PartitionTableType::GPT) {
+              if (device->table == PartitionTableType::GPT && GetCurrentPlatform() != "sw") {
                   if (efiPartition.isNull()) {
                       continue;
                   }
@@ -505,9 +505,9 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
         }
     }
 
-  if ((!boot_device.isNull() && boot_device->device_type == DeviceType::NormalDevice && boot_device->table == PartitionTableType::GPT)
+  if (GetCurrentPlatform() != "sw" && ((!boot_device.isNull() && boot_device->device_type == DeviceType::NormalDevice && boot_device->table == PartitionTableType::GPT)
           || (!root_device.isNull() && root_device->device_type == DeviceType::NormalDevice && root_device->table == PartitionTableType::GPT)
-          || !IsMBRPreferred(realDevices())) {
+          || !IsMBRPreferred(realDevices()))) {
     // Enable EFI mode. First check newly created EFI partition-> If not found,
     // check existing EFI partition->
     settings_.uefi_required = true;

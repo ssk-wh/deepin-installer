@@ -436,7 +436,7 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
     int root_size_count { 0 };
     int percent100_count { 0 };
 
-    if (IsEfiEnabled() && option.is_system_disk) {
+    if (IsEfiEnabled() && option.is_system_disk && GetCurrentPlatform() != "sw") {
         const qint64 uefiSize =
             ParsePartitionSize("300Mib", lastDeviceLenght * device->sector_size);
         if (!createPrimaryPartition(unallocated, PartitionType::Normal, true, FsType::EFI,

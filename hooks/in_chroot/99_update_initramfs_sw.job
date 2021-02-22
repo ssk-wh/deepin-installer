@@ -26,7 +26,7 @@ if [ ! -d /media/cdrom/live/platform ]; then
   return 1
 fi
 
-SYSTEM_NAME=$(cat /proc/cpuinfo | grep "system type" | awk '{print $4}')
+SYSTEM_NAME=$(cat /proc/cpuinfo | grep "system type" | awk 'NR == 1 {print $4}')
 case `uname -r` in
   *-tembin-s41)
     SYSTEM_NAME=${SYSTEM_NAME}-s41
@@ -39,6 +39,9 @@ esac
 msg "CPUTYPE=$SYSTEM_NAME"
 
 SRCPATH=/media/cdrom/live/platform/$SYSTEM_NAME
+
+[ -d $SRCPATH ] || \
+SRCPATH=/media/cdrom/live/platform/default
 
 [ -d $SRCPATH/live/boot ] && \
   rm -rf /boot/* && cp -rvf $SRCPATH/live/boot/* /boot/
