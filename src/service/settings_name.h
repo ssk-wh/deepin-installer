@@ -236,6 +236,9 @@ const char kSystemTimeout[] = "system_timeout";
 // 用于隔离还未发布的修改
 const char kSystemModuleDebug[] = "system_module_debug";
 
+// 用户控制用户体验计划的勾选
+const char kSystemEnableUserExperience[] = "system_enable_user_experience";
+
 }  // namespace installer
 
 #endif  // INSTALLER_SERVICE_SETTINGS_NAME_H
