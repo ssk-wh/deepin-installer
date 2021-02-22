@@ -249,7 +249,7 @@ QStringList GetSettingsStringList(const QString& key) {
     return QStringList();
   }
 
-  return value.toString().split(';');
+  return value.toString().split(';', QString::SkipEmptyParts);
 }
 
 QVariant GetSettingsValue(const QString& key) {
