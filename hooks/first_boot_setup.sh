@@ -154,6 +154,21 @@ update-grub
 fi
 }
 
+encryp_log() {
+    local LOG_FILE="/var/log/deepin-installer-first-boot.log"
+
+    ## 加密后配置阶段的日志中用户名
+    local USER_NAME=$(installer_get "DI_USERNAME")
+    local ENCRYP_USERNAME="***=***"
+    sed -i "s/${USER_NAME}/${ENCRYP_USERNAME}/g" ${LOG_FILE}
+
+    ## 加密用户UUID
+    local USER_UUID=$(id -u ${USER_NMAE})
+    echo ${USER_UUID}
+    local ENCRYP_UUID="***==***"
+    sed -i "s/${USER_UUID}/${ENCRYP_UUID}/g" ${LOG_FILE}
+}
+
 main() {
   [ -f "${CONF_FILE}" ] || error "deepin-installer.conf not found"
   cat "${CONF_FILE}" | grep -v "PASSWORD" | grep -v "password"
@@ -185,6 +200,7 @@ main() {
   remove_component_packages
   setup_default_target
   update_grub_local  # 处理gurb汉化问题
+  encryp_log         # 加密日志中敏感字符
   uninstall_packages # 这必须是最后一步！
   sync
 }
