@@ -43,7 +43,9 @@
 #include "ui/views/frameless_list_view.h"
 #include "ui/widgets/title_label.h"
 #include "ui/widgets/comment_label.h"
+#include "ui/widgets/tip_list_view.h"
 #include "ui/interfaces/frameinterfaceprivate.h"
+
 
 DWIDGET_USE_NAMESPACE
 
@@ -124,8 +126,8 @@ private:
     QString m_currentLocale;
     XkbConfig xkb_config_;
 
-    DListView* m_layoutView = new DListView;
-    DListView* m_variantView = new DListView;
+    DListView* m_layoutView = new TipListView;
+    DListView* m_variantView = new TipListView;
 
     // The user last checked item.
     DStandardItem* m_lastItem = nullptr;
