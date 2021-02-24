@@ -218,7 +218,7 @@ bool LanguageFrame::doSpace()
     } else if (d->m_select_language_frame->getAcceptexperience() == m_current_focus_widget) {
         if (d->nextButton->isVisible()) {
             if (d->m_select_language_frame->setAcceptexperience()) {
-                this->setCurentFocus(d->nextButton);
+                this->setCurentFocus(d->m_select_language_frame->getAcceptlicense());
             } else {
                 this->setCurentFocus(d->m_select_language_frame->getLanguageView());
             }
