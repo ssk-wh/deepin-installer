@@ -240,6 +240,9 @@ void TimezoneFrame::showEvent(QShowEvent* event) {
           m_private->timezone_map_->hideMark();
       }
   });
+
+  this->setCurentFocus(m_private->nextButton);
+
 }
 
 void TimezoneFrame::hideEvent(QHideEvent *event)

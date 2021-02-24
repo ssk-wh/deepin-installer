@@ -498,6 +498,8 @@ void SystemInfoKeyboardFrame::showEvent(QShowEvent *event)
         }
     }
 
+    this->setCurentFocus(d_private->nextButton);
+
     return FrameInterface::showEvent(event);
 }
 
