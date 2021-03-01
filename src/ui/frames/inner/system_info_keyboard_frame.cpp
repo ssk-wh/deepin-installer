@@ -54,8 +54,8 @@ namespace installer {
 namespace {
 
 const int kLayoutWidth = 556;
-const int kLeftViewWidth = 190 - 20 - 1;
-const int kRightViewWidth = kLayoutWidth - 190 - 1 - 20 - 1;
+const int kLeftViewWidth = 177;
+const int kRightViewWidth = kLayoutWidth - kLeftViewWidth - 6;
 
 }  // namespace
 
@@ -583,14 +583,14 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     m_layoutView->setObjectName("layout_view");
     m_layoutModel = new QStandardItemModel(m_layoutView);
     m_layoutView->setModel(m_layoutModel);
-    m_layoutView->setFixedWidth(kLeftViewWidth);
-    m_layoutView->setItemSize(QSize(kLeftViewWidth, 40));
+    //m_layoutView->setFixedWidth(kLeftViewWidth);
+    //m_layoutView->setItemSize(QSize(kLeftViewWidth, 40));
     m_layoutView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_layoutView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_layoutView->setContextMenuPolicy(Qt::NoContextMenu);
     m_layoutView->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     m_layoutView->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-    m_layoutView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+    //m_layoutView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     m_layoutView->setEditTriggers(QListView::NoEditTriggers);
     m_layoutView->setIconSize(QSize(32, 32));
     m_layoutView->setResizeMode(QListView::Adjust);
@@ -601,16 +601,16 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     m_layoutView->setStyleSheet("QWidget#layout_view::item::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
 
     m_variantView->setObjectName("variant_view");
-    m_variantView->setFixedWidth(kRightViewWidth);
+    //m_variantView->setFixedWidth(kRightViewWidth);
     m_variantModel = new QStandardItemModel(m_variantView);
     m_variantView->setModel(m_variantModel);
-    m_variantView->setItemSize(QSize(kRightViewWidth, 40));
+    //m_variantView->setItemSize(QSize(kRightViewWidth, 40));
     m_variantView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_variantView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_variantView->setContextMenuPolicy(Qt::NoContextMenu);
     m_variantView->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     m_variantView->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-    m_variantView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+    //m_variantView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     m_variantView->setEditTriggers(QListView::NoEditTriggers);
     m_variantView->setIconSize(QSize(32, 32));
     m_variantView->setResizeMode(QListView::Adjust);
@@ -621,11 +621,13 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     m_variantView->setStyleSheet("QWidget#variant_view::item::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
 
     QVBoxLayout *leftLayout = new QVBoxLayout;
-    leftLayout->setContentsMargins(5, 5, 15, 0);
+    leftLayout->setContentsMargins(10, 10, 10, 0);
     leftLayout->setSpacing(0);
     leftLayout->addWidget(m_layoutView);
     QFrame *leftListViewWrap = new QFrame;
     leftListViewWrap->setLayout(leftLayout);
+    leftListViewWrap->setMinimumWidth(kLeftViewWidth);
+    leftListViewWrap->setMaximumWidth(kLeftViewWidth);
 
     QScrollArea *leftSourceScrollArea = new QScrollArea;
     leftSourceScrollArea->setObjectName("LeftSourceScrollArea");
@@ -640,13 +642,17 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     leftSourceScrollArea->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     leftSourceScrollArea->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     leftSourceScrollArea->setWidget(leftListViewWrap);
+    leftSourceScrollArea->setMinimumWidth(kLeftViewWidth);
+    leftSourceScrollArea->setMaximumWidth(kLeftViewWidth);
 
     QVBoxLayout *rightLayout = new QVBoxLayout;
-    rightLayout->setContentsMargins(5, 5, 15, 0);
+    rightLayout->setContentsMargins(10, 10, 10, 0);
     rightLayout->setSpacing(0);
     rightLayout->addWidget(m_variantView);
     QFrame *rightListViewWrap =  new QFrame;
     rightListViewWrap->setLayout(rightLayout);
+    rightListViewWrap->setMinimumWidth(kRightViewWidth);
+    rightListViewWrap->setMaximumWidth(kRightViewWidth);
 
     QScrollArea *rightSourceScrollArea = new QScrollArea;
     rightSourceScrollArea->setObjectName("RightSourceScrollArea");
@@ -665,13 +671,13 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     DVerticalLine* dVerticalLine = new DVerticalLine;
 
     QHBoxLayout* keyboard_layout = new QHBoxLayout();
-    keyboard_layout->setContentsMargins(0, 0, 0, 0);
+    keyboard_layout->setContentsMargins(1, 1, 1, 1);
     keyboard_layout->setSpacing(0);
-    keyboard_layout->addStretch();
-    keyboard_layout->addWidget(leftSourceScrollArea, 0, Qt::AlignRight);
+    //keyboard_layout->addStretch();
+    keyboard_layout->addWidget(leftSourceScrollArea, 0, Qt::AlignHCenter);
     keyboard_layout->addWidget(dVerticalLine);
-    keyboard_layout->addWidget(rightSourceScrollArea, 0, Qt::AlignLeft);
-    keyboard_layout->addStretch();
+    keyboard_layout->addWidget(rightSourceScrollArea, 0, Qt::AlignHCenter);
+    //keyboard_layout->addStretch();
 
     DFrame* keyboard_wrapper = new DFrame;
     keyboard_wrapper->setObjectName("keyboard_wrapper");

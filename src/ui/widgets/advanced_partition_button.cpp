@@ -38,7 +38,7 @@ const int kMainWindowHeight = 50;
 const int kBtnSize = 25;
 const int kItemSpace = 4;
 
-const int kOsIconLeftMargin = 1;
+const int kOsIconLeftMargin = 5;
 const int kDevicePathLeftMargin = 31;
 const int kDiskSizeLeftMarin = 141;
 const int kDiskPercentLeftMarin = 218;

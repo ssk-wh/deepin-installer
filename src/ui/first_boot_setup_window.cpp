@@ -306,6 +306,7 @@ void FirstBootSetupWindow::initUI() {
     DBackgroundGroup* bgGroup = new DBackgroundGroup;
     bgGroup->setContentsMargins(10, 10, 10, 10);
     bgGroup->setLayout(mainLayout);
+    bgGroup->setItemSpacing(2);
 
     setContentsMargins(0, 0, 0, 0);
     setCentralWidget(bgGroup);
@@ -346,9 +347,16 @@ void FirstBootSetupWindow::initPages()
     m_frameLabelsView->setItemSize(QSize(kLeftViewItemWidth, kLeftViewItemHeight + kLeftViewItemSpacing));
     m_frameLabelsModel = new QStandardItemModel();
     m_frameLabelsView->setModel(m_frameLabelsModel);
+    m_frameLabelsView->setItemMargins(QMargins(10,0,0,0));
 
     m_frameSelectedLayout->addSpacing(60);
+    QSpacerItem *testvSpacer_1 = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Expanding);
+    testvSpacer_1->setAlignment(Qt::AlignVCenter);
+    QSpacerItem *testvSpacer_2 = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Expanding);
+    testvSpacer_2->setAlignment(Qt::AlignVCenter);
+    m_frameSelectedLayout->addSpacerItem(testvSpacer_1);
     m_frameSelectedLayout->addWidget(m_frameLabelsView, 0, Qt::AlignHCenter);
+    m_frameSelectedLayout->addSpacerItem(testvSpacer_2);
 
     constructLabelView();
 
@@ -465,6 +473,9 @@ void FirstBootSetupWindow::constructLabelView()
         m_frameLabelsModel->appendRow(item);
         m_frameModelItemMap[frame] = item;
     }
+
+    m_frameLabelsView->setMinimumHeight((kLeftViewItemHeight * m_frameLabelsModel->rowCount()) + (kLeftViewItemSpacing * m_frameLabelsModel->rowCount()) + kLeftViewItemSpacing);
+    m_frameLabelsView->setMaximumHeight((kLeftViewItemHeight * m_frameLabelsModel->rowCount()) + (kLeftViewItemSpacing * m_frameLabelsModel->rowCount()) + kLeftViewItemSpacing);
 }
 
 void FirstBootSetupWindow::showExtFrameFullscreen(BaseFrameInterface *childFrameInterface)

@@ -12,7 +12,7 @@
 #include "service/screen_adaptation_manager.h"
 
 #define NEXTBTN_WIDTH 310
-#define NEXTBTN_HEIGHT 36
+#define NEXTBTN_HEIGHT 38
 
 namespace installer {
 
@@ -34,8 +34,8 @@ public:
         centerLayout->setSpacing(0);
 
         QVBoxLayout* mainLayout = new QVBoxLayout;
-        mainLayout->setContentsMargins(0, 0, 0, 0);
-        mainLayout->setSpacing(0);
+        mainLayout->setContentsMargins(0, 0, 0, 10);
+        mainLayout->setSpacing(7);
         mainLayout->addLayout(centerLayout);
 
         nextButton->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);

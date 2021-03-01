@@ -600,7 +600,8 @@ void SystemDateFramePrivate::initUI()
 
     setObjectName("systemDateFramePrivate");
     q_ptr->setMaximumWidth(kSystemDateTimeFrameWidth);
-    q_ptr->setMaximumHeight(40);
+    q_ptr->setMaximumHeight(36);
+    q_ptr->setMinimumHeight(36);
 }
 
 void SystemDateFramePrivate::initConnection()

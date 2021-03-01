@@ -664,9 +664,11 @@ void PartitionFramePrivate::initUI() {
   //simple_frame_button_->setFocusPolicy(Qt::NoFocus);
   advanced_frame_button_ = new DButtonBoxButton(::QObject::tr("Advanced"), q_ptr);
   advanced_frame_button_->setMinimumWidth(86);
+  advanced_frame_button_->setStyleSheet("QWidget::checked{ color:rgb(255,255,255); }");
   //advanced_frame_button_->setFocusPolicy(Qt::NoFocus);
   full_disk_frame_button_ = new DButtonBoxButton(::QObject::tr("Full Disk"), q_ptr);
   full_disk_frame_button_->setMinimumWidth(86);
+  full_disk_frame_button_->setStyleSheet("QWidget::checked{ color:rgb(255,255,255); }");
   //full_disk_frame_button_->setFocusPolicy(Qt::NoFocus);
 
   if (GetSettingsBool(kPartitionSkipFullDiskPartitionPage)) {
@@ -685,7 +687,8 @@ void PartitionFramePrivate::initUI() {
   button_layout->addStretch();
 
   m_buttonBoxWidget = new QWidget;
-  m_buttonBoxWidget->setStyleSheet("QWidget::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
+  m_buttonBoxWidget->setObjectName("buttonBoxWidget");
+  m_buttonBoxWidget->setStyleSheet("QWidget#buttonBoxWidget::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
   m_buttonBoxWidget->setLayout(button_layout);
 
   partition_stacked_layout_ = new QStackedLayout();

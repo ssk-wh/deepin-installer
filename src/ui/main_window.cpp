@@ -73,8 +73,8 @@ DWIDGET_USE_NAMESPACE
 namespace {
     const int kLeftViewWidth = 200;
     const int kLeftViewItemWidth = 180;
-    const int kLeftViewItemHeight = 36;
-    const int kLeftViewItemSpacing = 10;
+    const int kLeftViewItemHeight = 39;
+    const int kLeftViewItemSpacing = 9;
 }
 
 namespace installer {
@@ -578,9 +578,16 @@ void MainWindow::initPages() {
   m_frameLabelsView->setItemSize(QSize(kLeftViewItemWidth, kLeftViewItemHeight + kLeftViewItemSpacing));
   m_frameLabelsModel = new QStandardItemModel();
   m_frameLabelsView->setModel(m_frameLabelsModel);
+  m_frameLabelsView->setItemMargins(QMargins(10,0,0,0));
 
-  m_frameSelectedLayout->addSpacing(60);
+  //m_frameSelectedLayout->addSpacing(60);
+  QSpacerItem *testvSpacer_1 = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Expanding);
+  testvSpacer_1->setAlignment(Qt::AlignVCenter);
+  QSpacerItem *testvSpacer_2 = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Expanding);
+  testvSpacer_2->setAlignment(Qt::AlignVCenter);
+  m_frameSelectedLayout->addSpacerItem(testvSpacer_1);
   m_frameSelectedLayout->addWidget(m_frameLabelsView, 0, Qt::AlignHCenter);
+  m_frameSelectedLayout->addSpacerItem(testvSpacer_2);
 
   constructLabelView();
 }
@@ -590,7 +597,7 @@ void MainWindow::constructLabelView()
     m_frameLabelsModel->clear();
 
     int i = 1;
-    for (FrameInterface* frame : m_originalFrames){
+    for (FrameInterface* frame : m_originalFrames) {
         if (!frame->shouldDisplay() || frame->frameType() != FrameType::Frame){
             continue;
         }
@@ -612,9 +619,13 @@ void MainWindow::constructLabelView()
         action->setVisible(false);
         item->setActionList(Qt::Edge::RightEdge, {action});
 
+
         m_frameLabelsModel->appendRow(item);
         m_frameModelItemMap[frame] = item;
     }
+
+    m_frameLabelsView->setMinimumHeight((kLeftViewItemHeight * m_frameLabelsModel->rowCount()) + (kLeftViewItemSpacing * m_frameLabelsModel->rowCount()));
+    m_frameLabelsView->setMaximumHeight((kLeftViewItemHeight * m_frameLabelsModel->rowCount()) + (kLeftViewItemSpacing * m_frameLabelsModel->rowCount()));
 }
 
 void MainWindow::initUI() {
@@ -669,12 +680,13 @@ void MainWindow::initUI() {
   mainLayout->setSpacing(0);
 
   mainLayout->addWidget(m_frameSelectedListWidget);
-  mainLayout->addSpacing(1);
+  //mainLayout->addSpacing(2);
   mainLayout->addWidget(contentWidget);
 
   DBackgroundGroup* bgGroup = new DBackgroundGroup;
   bgGroup->setContentsMargins(10, 10, 10, 10);
   bgGroup->setLayout(mainLayout);
+  bgGroup->setItemSpacing(2);
 
   setContentsMargins(0, 0, 0, 0);
   setCentralWidget(bgGroup);

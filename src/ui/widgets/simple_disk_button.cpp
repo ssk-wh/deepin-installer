@@ -76,18 +76,21 @@ void SimpleDiskButton::initUI() {
   layout->setSpacing(0);
   layout->addStretch();
   layout->addWidget(os_label_, 0, Qt::AlignHCenter);
-  layout->addSpacing(6);
+  layout->addSpacing(3);
   layout->addWidget(path_label, 0, Qt::AlignHCenter);
-  layout->addSpacing(6);
+  layout->addSpacing(3);
   layout->addWidget(model_label, 0, Qt::AlignHCenter);
-  layout->addSpacing(6);
+  layout->addSpacing(3);
   layout->addWidget(size_label, 0, Qt::AlignHCenter);
   layout->addStretch();
 
   this->setLayout(layout);
 
   this->setCheckable(true);
-  this->setFixedSize(kButtonWidth, kButtonHeight);
+  //this->setFixedSize(kButtonWidth, kButtonHeight);
+  this->setMaximumSize(kButtonWidth, kButtonHeight);
+  this->setMinimumSize(kButtonWidth - 20, kButtonHeight - 20);
+
 }
 
 }  // namespace installer

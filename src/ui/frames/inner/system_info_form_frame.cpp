@@ -555,6 +555,7 @@ void SystemInfoFormFramePrivate::initUI()
     m_passwordEdit->setEchoMode(QLineEdit::Password);
     m_passwordEdit->lineEdit()->setReadOnly(GetSettingsBool(kSystemInfoLockPassword));
     m_passwordEdit->setContextMenuPolicy(Qt::NoContextMenu);
+    m_passwordEdit->layout()->setSpacing(7);
 
     QHBoxLayout *passwordLayout = new QHBoxLayout;
     passwordLayout->setContentsMargins(0, 0, 0, 0);
@@ -570,10 +571,11 @@ void SystemInfoFormFramePrivate::initUI()
 
     m_passwordCheckLabel = new QLabel;
     m_passwordCheckLabel->setAlignment(Qt::AlignLeft);
-    m_passwordCheckEdit = new DPasswordEdit;;
+    m_passwordCheckEdit = new DPasswordEdit;
     m_passwordCheckEdit->setEchoMode(QLineEdit::Password);
     m_passwordCheckEdit->lineEdit()->setReadOnly(m_passwordEdit->lineEdit()->isReadOnly());
     m_passwordCheckEdit->setContextMenuPolicy(Qt::NoContextMenu);
+    m_passwordCheckEdit->layout()->setSpacing(7);
 
     str = GetSettingsString(kSystemInfoDefaultPassword);
     if (!str.isEmpty()) {

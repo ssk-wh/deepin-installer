@@ -370,18 +370,21 @@ void TimezoneFramePrivate::initUI() {
 
   m_mapListButtonGroup = new DButtonBox;
   m_mapListButtonGroup->setObjectName("MapListButtonGroup");
+  m_mapListButtonGroup->setContentsMargins(0, 0, 0, 0);
   m_timezoneMapButton = new DButtonBoxButton("");
   m_timezoneMapButton->setObjectName("timezoneMapButton");
   m_timezoneMapButton->setCheckable(true);
   m_timezoneMapButton->setMinimumWidth(60);
-  m_timezoneMapButton->setMaximumHeight(36);
+  m_timezoneMapButton->setMinimumHeight(38);
+  m_timezoneMapButton->setMaximumHeight(38);
   //m_timezoneMapButton->setFocusPolicy(Qt::NoFocus);
 
   m_timezoneListButton = new DButtonBoxButton("");
   m_timezoneListButton->setObjectName("timezoneListButton");
   m_timezoneListButton->setCheckable(true);
   m_timezoneListButton->setMinimumWidth(60);
-  m_timezoneListButton->setMaximumHeight(36);
+  m_timezoneListButton->setMinimumHeight(38);
+  m_timezoneListButton->setMaximumHeight(38);
   //m_timezoneListButton->setFocusPolicy(Qt::NoFocus);
 
   m_buttonList.append(m_timezoneMapButton);
@@ -404,6 +407,8 @@ void TimezoneFramePrivate::initUI() {
   m_upLayout->addLayout(buttonLayout);
 
   m_mapOrListStackedLayout = new QStackedLayout;
+  m_mapOrListStackedLayout->setMargin(0);
+  m_mapOrListStackedLayout->setSpacing(0);
   m_selectTimeZoneFrame = new SelectTimeZoneFrame;
   m_mapOrListStackedLayout->addWidget(timezone_map_);
   m_mapOrListStackedLayout->addWidget(m_selectTimeZoneFrame);
