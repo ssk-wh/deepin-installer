@@ -24,12 +24,13 @@ installer::InstallLogFrame::InstallLogFrame(QFrame *parent) :
     m_installLog->setPalette(palette);
     m_installLog->setFont(font);
     m_installLog->setReadOnly(true);
-    m_installLog->setStyleSheet("QFrame{background:rgba(0,0,0,0.1);}");
+    m_installLog->setStyleSheet("QPlainTextEdit{background-color: rgba(0, 0, 0, 0.1);"
+                                "border-radius:8px;}");
 
     QVBoxLayout* main_layout = new QVBoxLayout;
     main_layout->addWidget(m_installLog, 0, Qt::AlignHCenter);
 
-    setLayout(main_layout);
+    this->setLayout(main_layout);
 }
 
 void installer::InstallLogFrame::setLogPath(const QString &path)
@@ -54,6 +55,11 @@ void installer::InstallLogFrame::setLogPath(const QString &path)
         m_installLog->moveCursor(QTextCursor::End);
         file.close();
     });
+}
+
+void installer::InstallLogFrame::updateSize(const QSize &size)
+{
+    m_installLog->setFixedSize(size.width() - 50, size.height() - 50);
 }
 
 void installer::InstallLogFrame::showEvent(QShowEvent *event)

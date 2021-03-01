@@ -5,7 +5,7 @@
 
 namespace {
     const int kInstallLogWidth = 530;
-    const int kInstallLogHeight = 302;
+    const int kInstallLogHeight = 335;
 }
 
 class QPlainTextEdit;
@@ -19,6 +19,7 @@ class InstallLogFrame : public QFrame
 public:
     explicit InstallLogFrame(QFrame *parent = nullptr);
     void setLogPath(const QString &);
+    void updateSize(const QSize &size);
 
 protected:
     void showEvent(QShowEvent *event) override;

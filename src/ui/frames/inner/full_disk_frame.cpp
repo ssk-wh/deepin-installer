@@ -343,9 +343,10 @@ void FullDiskFrame::initUI() {
   QHBoxLayout* h_layout = new QHBoxLayout();
   h_layout->addWidget(m_encryptCheck);
   h_layout->addWidget(m_installNvidiaCheck);
+  main_layout->addSpacing(20);
   main_layout->addLayout(h_layout);
+  main_layout->addSpacing(20);
   main_layout->setAlignment(h_layout, Qt::AlignHCenter);
-  main_layout->addSpacing(10);
   main_layout->addWidget(m_errorTip, 0, Qt::AlignHCenter);
   main_layout->addWidget(m_diskTooSmallTip, 0, Qt::AlignHCenter);
   main_layout->addSpacing(10);

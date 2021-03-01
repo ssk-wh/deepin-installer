@@ -76,8 +76,15 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
         diskLbl->setFixedSize(QSize(50, 50));
         diskLbl->setPixmap(installer::renderPixmap(":/images/drive-harddisk-64px.svg").scaledToHeight(50));
         m_diskinfo[i].m_diskLbl = diskLbl;
-        m_diskinfo[i].m_devicePathLbl = new QLabel();
-        m_diskinfo[i].m_deviceSizeLbl = new QLabel();
+        m_diskinfo[i].m_devicePathLbl = new QLabel(this);
+        m_diskinfo[i].m_devicePathLbl->setStyleSheet("QLabel{font-size: 14px;"
+                                                     "text-align: center;"
+                                                     "color: #001a2e;}");
+
+        m_diskinfo[i].m_deviceSizeLbl = new QLabel(this);
+        m_diskinfo[i].m_deviceSizeLbl->setStyleSheet("QLabel{font-size: 12px;"
+                                                     "text-align: center;"
+                                                     "color: #526a7f;}");
         QVBoxLayout *diskInfoLayout = new QVBoxLayout;
         diskInfoLayout->setMargin(0);
         diskInfoLayout->setSpacing(0);
@@ -103,7 +110,13 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
 
     // add encrypt input
     m_encryptLbl->setAlignment(Qt::AlignLeft);
-    m_encryptCheckLbl->setAlignment(Qt::AlignLeft);
+    m_encryptLbl->setFixedSize(150, 36);
+
+    m_encryptEdit->layout()->setContentsMargins(0, 0, 0, 0);
+    m_encryptEdit->layout()->setSpacing(10);
+    m_encryptEdit->setContentsMargins(0, 0, 0, 0);
+    m_encryptEdit->setFixedSize(350, 36);
+    m_encryptEdit->setContextMenuPolicy(Qt::ContextMenuPolicy::NoContextMenu);
 
     QHBoxLayout *encryptLayout = new QHBoxLayout;
     encryptLayout->setContentsMargins(0, 0, 0, 0);
@@ -112,11 +125,18 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     encryptLayout->addWidget(m_encryptEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
     m_encryptFrame = new QFrame;
     m_encryptFrame->setLayout(encryptLayout);
-    m_encryptLbl->setFixedWidth(150);
-    m_encryptEdit->setFixedWidth(350);
-    m_encryptEdit->setContextMenuPolicy(Qt::ContextMenuPolicy::NoContextMenu);
-    //m_encryptEdit->setFocusPolicy(Qt::TabFocus);
     m_encryptFrame->setFixedWidth(kContentWidth);
+
+    m_encryptCheckLbl->setAlignment(Qt::AlignLeft);
+    m_encryptCheckLbl->setFixedSize(150, 36);
+
+    m_encryptRepeatEdit->layout()->setContentsMargins(0, 0, 0, 0);
+    m_encryptRepeatEdit->layout()->setSpacing(10);
+    m_encryptRepeatEdit->setContentsMargins(0, 0, 0, 0);
+    m_encryptRepeatEdit->setFixedSize(350, 36);
+    m_encryptRepeatEdit->setFixedSize(350, 36);
+    m_encryptRepeatEdit->setContextMenuPolicy(Qt::ContextMenuPolicy::NoContextMenu);
+    //m_encryptRepeatEdit->setFocusPolicy(Qt::TabFocus);
 
     QHBoxLayout *encryptCheckLayout = new QHBoxLayout;
     encryptCheckLayout->setContentsMargins(0, 0, 0, 0);
@@ -125,20 +145,12 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     encryptCheckLayout->addWidget(m_encryptRepeatEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
     m_encryptCheckFrame = new QFrame;
     m_encryptCheckFrame->setLayout(encryptCheckLayout);
-    m_encryptCheckLbl->setFixedWidth(150);
-    m_encryptRepeatEdit->setFixedWidth(350);
-    m_encryptRepeatEdit->setContextMenuPolicy(Qt::ContextMenuPolicy::NoContextMenu);
-    //m_encryptRepeatEdit->setFocusPolicy(Qt::TabFocus);
     m_encryptCheckFrame->setFixedWidth(kContentWidth);
 
     m_layout->addWidget(m_encryptFrame, 0, Qt::AlignHCenter);
     m_layout->addSpacing(10);
     m_layout->addWidget(m_encryptCheckFrame, 0, Qt::AlignHCenter);
-
     m_layout->addStretch();
-
-    m_tilabel->setFixedWidth(kContentWidth);
-    m_tilabel->setWordWrap(true);
     m_layout->addWidget(m_tilabel, 0, Qt::AlignHCenter);
 
     QHBoxLayout *buttonLayout = new QHBoxLayout;
@@ -157,8 +169,9 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     m_confirmBtn->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);
     //m_confirmBtn->setFocusPolicy(Qt::TabFocus);
 
+    m_layout->addWidget(m_frameSubLbl, 0, Qt::AlignHCenter);
     m_layout->addWidget(buttonWrapWidget, 0, Qt::AlignHCenter);
-    m_layout->addSpacing(10);
+    m_layout->addSpacing(20);
 
     setLayout(m_layout);
     setContentsMargins(0, 0, 0, 0);
@@ -342,8 +355,8 @@ void Full_Disk_Encrypt_frame::setupCloseButton()
 {
     // TODO: use titleBar implement.
     m_close_button = new DIconButton(this);
-    m_close_button->setFixedSize(40, 40);
-    m_close_button->setIconSize(QSize(40, 40));
+    m_close_button->setFixedSize(50, 50);
+    m_close_button->setIconSize(QSize(50, 50));
     m_close_button->setIcon(QIcon(":/images/close_normal.svg"));
     m_close_button->setFlat(true);
 }

@@ -148,6 +148,7 @@ void InstallProgressFrame::startSlide() {
 
     Q_D(InstallProgressFrame);
     d->slide_frame_->startSlide(disable_slide, disable_animation, duration);
+    d->m_installerLog->updateSize(d->slide_frame_->size());
 
     //todo:ji lu kai shi an zhaung shi jian
     QString teststarttime = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
@@ -313,6 +314,7 @@ void InstallProgressFramePrivate::initUI() {
     centerLayout->addWidget(title_label_, 0, Qt::AlignHCenter);
     centerLayout->addSpacing(kMainLayoutSpacing);    
     centerLayout->addLayout(m_progressAndLogLayout);
+    centerLayout->addSpacing(20);
     centerLayout->addWidget(m_installerLogShowButton, 0, Qt::AlignHCenter);
     centerLayout->addSpacing(5);
     centerLayout->addWidget(tooltip_frame, 0, Qt::AlignHCenter | Qt::AlignBottom);
