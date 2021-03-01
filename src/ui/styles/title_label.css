@@ -2,10 +2,11 @@
 
 QLabel[title=true] {
   width:96px;
-  height:36px;
+  height:25px;
   font-size:24px;
 /*  font-family:SourceHanSansSC-Bold,SourceHanSansSC;*/
   font-weight:bold;
   color:rgba(0,26,46,1);
-  line-height:36px;
+  line-height:30px;
+  padding-top:30px;
 }

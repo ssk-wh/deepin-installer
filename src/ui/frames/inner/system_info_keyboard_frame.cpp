@@ -683,11 +683,8 @@ void SystemInfoKeyboardFramePrivate::initUI() {
     keyboard_size_policy.setVerticalStretch(1);
     keyboard_wrapper->setSizePolicy(keyboard_size_policy);
 
-    centerLayout->setContentsMargins(0, 0, 0, 0);
-    centerLayout->setSpacing(0);
-    centerLayout->addSpacing(30);
     centerLayout->addWidget(m_titleLabel, 0, Qt::AlignCenter);
-    centerLayout->addSpacing(20);
+    centerLayout->addSpacing(kMainLayoutSpacing);
     centerLayout->addWidget(m_guideLabel, 0, Qt::AlignCenter);
     centerLayout->addSpacing(15);
     centerLayout->addWidget(keyboard_wrapper, 0, Qt::AlignHCenter);

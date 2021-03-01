@@ -8,6 +8,8 @@
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/title_label.h"
 #include "base/command.h"
+#include "service/screen_adaptation_manager.h"
+#include "ui/frames/consts.h"
 
 #include <QDebug>
 #include <QDir>
@@ -752,14 +754,20 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     : FrameInterface(frameProxyInterface, parent)
     , m_nextButton(new QPushButton(::QObject::tr("Next")))
 {
+    setContentsMargins(0, 0, 0, 0);
+
     QVBoxLayout *layout = new QVBoxLayout;
-    layout->setMargin(0);
-    layout->setSpacing(10);
+
+    int topMargin = ScreenAdaptationManager::instance()->getMainWindowTopMargin();
+    layout->setContentsMargins(0, topMargin, 0, 0);
+    layout->setSpacing(0);
 
     title_label_ = new TitleLabel(::QObject::tr("Configure Network"));
+    title_label_->setAlignment(Qt::AlignHCenter);
+    layout->addSpacing(kMainLayoutSpacing);
     comment_label_ = new CommentLabel(::QObject::tr("IP address has been auto-configured, but you can configure the network as well"));
 
-    layout->addWidget(title_label_, 0, Qt::AlignHCenter);
+    layout->addWidget(title_label_, 0, Qt::AlignHCenter | Qt::AlignTop);
     layout->addWidget(comment_label_, 0, Qt::AlignHCenter);
 
     // 左侧布局

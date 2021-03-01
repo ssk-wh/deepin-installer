@@ -650,6 +650,7 @@ void PartitionFramePrivate::initUI() {
   dynamic_disk_warning_frame_ = new DynamicDiskWarningFrame(q_ptr);
 
   title_label_ = new TitleLabel(::QObject::tr("Create Partitions"));
+  title_label_->setObjectName("title_label_");
   comment_label_ = new CommentLabel(
       ::QObject::tr("Make sure you have backed up important data, then select the disk to install"));
   QHBoxLayout* comment_layout = new QHBoxLayout();

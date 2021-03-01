@@ -16,10 +16,12 @@ DWIDGET_USE_NAMESPACE
 namespace  {
     const int kXrandrWidth_832 = 832;
     const int kXrandrWidth_1024 = 1024;
+    const int kXrandrWidth_1920 = 1920;
 
     const int kXrandrHeight_624 = 624;
     const int kXrandrHeight_864 = 864;
     const int kXrandrHeight_480 = 480;
+    const int kXrandrHeight_1080 = 1080;
 //    const int XRANDR_INVALID = 999999;
 }
 
@@ -50,6 +52,30 @@ QRect installer::ScreenAdaptationManager::primaryGeometry()
 QRect installer::ScreenAdaptationManager::primaryAvailableGeometry()
 {
     return QApplication::desktop()->availableGeometry();
+}
+
+int installer::ScreenAdaptationManager::getMainWindowTopMargin()
+{
+    qInfo() << "primary geometry:" << primaryGeometry();
+
+    if (primaryGeometry().width() >= kXrandrWidth_1920
+            && primaryGeometry().height() >= kXrandrHeight_1080) {
+        return 90;
+    }
+
+    return 0;
+}
+
+int installer::ScreenAdaptationManager::getChildWindowTopMargin()
+{
+    qInfo() << "primary geometry:" << primaryGeometry();
+
+    if (primaryGeometry().width() >= kXrandrWidth_1920
+            && primaryGeometry().height() >= kXrandrHeight_1080) {
+        return 20;
+    }
+
+    return 0;
 }
 
 

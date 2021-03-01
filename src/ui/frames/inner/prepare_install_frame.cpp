@@ -265,7 +265,6 @@ void PrepareInstallFrame::initUI() {
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
   layout->setSpacing(0);
-  layout->addSpacing(30);
   layout->addWidget(title_label_, 0, Qt::AlignHCenter);
   layout->addWidget(comment_label_, 0, Qt::AlignHCenter);
   layout->addStretch();

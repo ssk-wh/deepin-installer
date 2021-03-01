@@ -17,6 +17,8 @@ public:
     QPixmap adapterPixmap(const QPixmap &pixmap);
     QRect primaryGeometry();
     QRect primaryAvailableGeometry();
+    int getMainWindowTopMargin();
+    int getChildWindowTopMargin();
 
 Q_SIGNALS:
     void screenGeometryChanged(const QRect &rect);

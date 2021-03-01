@@ -27,6 +27,7 @@
 #include "ui/views/frameless_list_view.h"
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/title_label.h"
+#include "service/screen_adaptation_manager.h"
 
 namespace installer {
 
@@ -152,10 +153,12 @@ void SelectBootloaderFrame::initUI() {
   buttonWrapWidget->setLayout(buttonLayout);
 
   QVBoxLayout* layout = new QVBoxLayout();
-  layout->setContentsMargins(0, 0, 0, 0);
-  layout->setSpacing(kMainLayoutSpacing);
-  layout->addStretch();
+
+  int topMargin = ScreenAdaptationManager::instance()->getChildWindowTopMargin();
+  layout->setContentsMargins(0, topMargin, 0, 0);
+  layout->setSpacing(0);
   layout->addWidget(title_label_, 0, Qt::AlignCenter);
+  layout->addSpacing(kMainLayoutSpacing);
   layout->addLayout(comment_layout);
   layout->addStretch();
   layout->addSpacing(40);

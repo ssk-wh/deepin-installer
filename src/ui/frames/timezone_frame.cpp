@@ -399,7 +399,6 @@ void TimezoneFramePrivate::initUI() {
   m_upLayout = new QVBoxLayout();
   m_upLayout->setContentsMargins(0, 0, 0, 0);
   m_upLayout->setSpacing(kMainLayoutSpacing);
-  m_upLayout->addSpacing(kMainLayoutSpacing);
   m_upLayout->addWidget(title_label_, 0, Qt::AlignCenter);
   m_upLayout->addWidget(comment_label_, 0, Qt::AlignCenter);
   m_upLayout->addLayout(buttonLayout);

@@ -693,8 +693,6 @@ void SelectInstallComponentFramePrivate::initUI()
     frame->setObjectName("server_component_Widget");
     //frame->installEventFilter(q_ptr);
 
-    centerLayout->setSpacing(0);
-    centerLayout->setMargin(0);
     centerLayout->addWidget(m_selectPageLabel, 0, Qt::AlignCenter);
     centerLayout->addWidget(m_selectPromptLabel, 0, Qt::AlignCenter);
     centerLayout->addSpacing(55);

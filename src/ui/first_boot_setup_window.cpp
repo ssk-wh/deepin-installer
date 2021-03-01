@@ -263,8 +263,8 @@ void FirstBootSetupWindow::initUI() {
 
     close_button_ = new DIconButton(this);
     close_button_->setObjectName("close_button");
-    close_button_->setFixedSize(40, 40);
-    close_button_->setIconSize(QSize(40, 40));
+    close_button_->setFixedSize(50, 50);
+    close_button_->setIconSize(QSize(50, 50));
     close_button_->setIcon(QIcon(":/images/close_normal.svg"));
     close_button_->setFlat(true);
 
@@ -387,8 +387,8 @@ void FirstBootSetupWindow::changeEvent(QEvent *event)
 void FirstBootSetupWindow::resizeEvent(QResizeEvent *event)
 {
     if (close_button_) {
-      const int marginSize = this->layout()->margin();
-      close_button_->move(width() - close_button_->width() - marginSize, marginSize);
+      qInfo() << "Layout margin:" << layout()->margin();
+      close_button_->move(width() - close_button_->width() - 10, 0);
       close_button_->raise();
     }
 

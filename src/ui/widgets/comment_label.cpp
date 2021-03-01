@@ -16,8 +16,9 @@
  */
 
 #include "ui/widgets/comment_label.h"
-
 #include "base/file_util.h"
+
+#include <QFont>
 
 namespace installer {
 
@@ -33,6 +34,10 @@ CommentLabel::CommentLabel(const QString& text, QWidget* parent)
   setFixedWidth(540);
   setAlignment(Qt::AlignCenter);
   setWordWrap(true);
+
+  QPalette pe = palette();
+  pe.setColor(QPalette::Text, QColor("#526a7f"));
+  setPalette(pe);
 }
 
 }  // namespace installer

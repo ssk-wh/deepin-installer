@@ -9,6 +9,7 @@
 
 #include "frameinterface.h"
 #include "service/language_manager.h"
+#include "service/screen_adaptation_manager.h"
 
 #define NEXTBTN_WIDTH 310
 #define NEXTBTN_HEIGHT 36
@@ -28,10 +29,13 @@ public:
         , frameInterface(parent)
         , nextButton(new QPushButton)
     {
-        centerLayout->setContentsMargins(0, 0, 0, 0);
+        int topMargin = ScreenAdaptationManager::instance()->getMainWindowTopMargin();
+        centerLayout->setContentsMargins(0, topMargin, 0, 0);
         centerLayout->setSpacing(0);
 
         QVBoxLayout* mainLayout = new QVBoxLayout;
+        mainLayout->setContentsMargins(0, 0, 0, 0);
+        mainLayout->setSpacing(0);
         mainLayout->addLayout(centerLayout);
 
         nextButton->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);

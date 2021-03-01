@@ -48,6 +48,7 @@
 #include "ui/widgets/title_label.h"
 #include "ui/widgets/di_scrollarea.h"
 #include "ui/widgets/select_button.h"
+#include "service/screen_adaptation_manager.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -507,8 +508,10 @@ void NewPartitionFrame::initUI() {
   bt_layout->addStretch();
 
   QVBoxLayout* layout = new QVBoxLayout();
-  layout->setContentsMargins(0, 0, 0, 0);
-  layout->addSpacing(30);
+
+  int topMargin = ScreenAdaptationManager::instance()->getChildWindowTopMargin();
+  layout->setContentsMargins(0, topMargin, 0, 0);
+  layout->addSpacing(0);
   layout->addWidget(title_label_, 0, Qt::AlignCenter | Qt::AlignTop);
   layout->addSpacing(kMainLayoutSpacing);
 

@@ -346,8 +346,7 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     shadow_widget->setFixedSize(event->size());
 
     if (close_button_) {
-      const int marginSize = this->layout()->margin();
-      close_button_->move(width() - close_button_->width() - marginSize, marginSize);
+      close_button_->move(width() - close_button_->width() - 10, 0);
       close_button_->raise();
     }
 
@@ -632,8 +631,8 @@ void MainWindow::initUI() {
   // TODO: use titleBar implement.
   close_button_ = new DIconButton(this);
   close_button_->setObjectName("close_button");
-  close_button_->setFixedSize(40, 40);
-  close_button_->setIconSize(QSize(40, 40));
+  close_button_->setFixedSize(50, 50);
+  close_button_->setIconSize(QSize(50, 50));
   close_button_->setIcon(QIcon(":/images/close_normal.svg"));
   close_button_->setFlat(true);
 
@@ -647,6 +646,7 @@ void MainWindow::initUI() {
   vbox_layout->addLayout(stacked_layout_);
 
   QWidget* contentWidget = new QWidget;
+  contentWidget->setObjectName("contentWidget");
   contentWidget->setContentsMargins(0, 0, 0, 0);
   contentWidget->setLayout(vbox_layout);
 
@@ -756,7 +756,7 @@ void MainWindow::setWindowIcon(const QString &path)
         windowLabel->move(QPoint(x() + marginSize, y() + marginSize));
 
         // 设置任务栏窗口图标
-        return QMainWindow::setWindowIcon(QIcon(path));
+        return QMainWindow::setWindowIcon(QIcon(""));
     }
 }
 

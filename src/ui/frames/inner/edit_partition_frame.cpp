@@ -41,6 +41,7 @@
 #include "ui/widgets/table_combo_box.h"
 #include "ui/widgets/title_label.h"
 #include "ui/widgets/select_button.h"
+#include "service/screen_adaptation_manager.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -419,9 +420,10 @@ void EditPartitionFrame::initUI() {
   buttonWrapWidget->setLayout(buttonLayout);
 
   QVBoxLayout* layout = new QVBoxLayout();
-  layout->setContentsMargins(0, 0, 0, 0);
+
+  int topMargin = ScreenAdaptationManager::instance()->getChildWindowTopMargin();
+  layout->setContentsMargins(0, topMargin, 0, 0);
   layout->setSpacing(0);
-  layout->addSpacing(kMainLayoutSpacing);
   layout->addWidget(title_label_, 0, Qt::AlignHCenter);
   layout->addWidget(os_label_, 0, Qt::AlignHCenter);
   layout->addSpacing(20);
