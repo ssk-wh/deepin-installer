@@ -33,6 +33,12 @@ elseif(${INSTALLER_BUILD_ARCH} MATCHES "aarch64")
       DESTINATION  ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources/slide
       PATTERN "CMakeLists.txt" EXCLUDE
   )
+elseif(${INSTALLER_BUILD_ARCH} MATCHES "loongarch64")
+  install(
+      DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/
+      DESTINATION  ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources/slide
+      PATTERN "CMakeLists.txt" EXCLUDE
+  )
 else()
   message(FATAL_ERROR "Not supportted architecture: ${INSTALLER_BUILD_ARCH}")
 endif ()

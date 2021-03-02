@@ -1,0 +1,40 @@
+#!/bin/bash
+#
+# Copyright (C) 2017 ~ 2018 Deepin Technology Co., Ltd.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+# Install grub to disk. Only used in x86 based platforms
+
+if ! is_loongarch; then
+  return 0
+fi
+
+# 处理grub.cfg
+TAGER_BOOT_GRUB=/target/boot/efi/boot/EFI/
+USB_EFI_FILE=/usr/lib/live/mount/medium/EFI/BOOT/BOOTLOONGARCH.EFI
+CDROM_EFI_FILE=/run/live/medium/EFI/BOOT/BOOTLOONGARCH.EFI
+mkdir ${TAGER_BOOT_GRUB} -p 
+cp -f /target/boot/grub.cfg ${TAGER_BOOT_GRUB}
+if [ -f $USB_EFI_FILE ];then
+	cp -fr $USB_EFI_FILE /target/boot/efi/EFI/BOOT/
+fi
+if [ -f $CDROM_EFI_FILE ];then
+	cp -fr $CDROM_EFI_FILE /target/boot/efi/EFI/BOOT/
+fi
+sed -i '/load_video/s/^/#/g' /target/boot/efi/boot/EFI/grub.cfg
+sed -i '/insmod gzio/s/^/#/g' /target/boot/efi/boot/EFI/grub.cfg
+echo "update loongarch bootloader!"
+

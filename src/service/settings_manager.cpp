@@ -134,6 +134,7 @@ QString GetCurrentPlatform() {
     QMap<QString, QString> BUILD_ARCH_MAP{ { "x86_64",  "x86" },
                                            { "sw_64",   "sw" },
                                            { "mips64", "loongson" },
+                                           { "loongarch64", "loongarch64" },
                                            { "aarch64", "arm" } };
 
     return BUILD_ARCH_MAP[PLATFORM_BUILD_ARCH];
@@ -665,13 +666,8 @@ void AddConfigFile() {
         case OSType::Personal: prefix = "personal"; break;
     }
 
-    QMap<QString, QString> BUILD_ARCH_MAP{ { "x86_64",  "x86" },
-                                           { "sw_64",   "sw" },
-                                           { "mips64", "loongson" },
-                                           { "aarch64", "arm" } };
-
 #ifdef QT_DEBUG
-    const QString& arch = BUILD_ARCH_MAP[PLATFORM_BUILD_ARCH];
+    const QString& arch = GetCurrentPlatform();
     QString        override_settings(RESOURCES_DIR +
                               QString("/platform_%1/%2.override").arg(arch).arg(prefix));
 #else

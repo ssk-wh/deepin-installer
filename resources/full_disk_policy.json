@@ -5,7 +5,7 @@
         "usage": "1536Mib",
         "alignStart": true,
         "device": "",
-        "platform": [ "loongson" , "x86", "arm"]
+        "platform": [ "loongson" , "x86", "arm", "loongarch64" ]
     },
     {
         "filesystem": "ext4",
@@ -23,7 +23,7 @@
         "usage": "swap-size",
         "alignStart": false,
         "device": "",
-        "platform": [ "x86", "sw", "loongson", "arm" ]
+        "platform": [ "x86", "sw", "loongson", "arm", "loongarch64" ]
     },
     {
         "filesystem": "recovery",
@@ -32,7 +32,7 @@
         "usage": "backup-size",
         "alignStart": false,
         "device": "",
-        "platform": [ "x86", "sw", "loongson", "arm" ]
+        "platform": [ "x86", "sw", "loongson", "arm", "loongarch64" ]
     },
     {
         "filesystem": "ext4",
@@ -41,7 +41,7 @@
         "usage": "root-size",
         "alignStart": true,
         "device": "",
-        "platform": [ "x86", "sw", "loongson", "arm" ]
+        "platform": [ "x86", "sw", "loongson", "arm", "loongarch64" ]
     },
     {
         "filesystem": "ext4",
@@ -50,7 +50,7 @@
         "usage": "root-size",
         "alignStart": true,
         "device": "",
-        "platform": [ "x86", "sw", "loongson", "arm" ]
+        "platform": [ "x86", "sw", "loongson", "arm", "loongarch64" ]
     },
     {
         "filesystem": "ext4",
@@ -60,6 +60,6 @@
         "alignStart": true,
         "isDataPartition": true,
         "device": "",
-        "platform": [ "x86", "sw", "loongson", "arm" ]
+        "platform": [ "x86", "sw", "loongson", "arm", "loongarch64" ]
     }
 ]

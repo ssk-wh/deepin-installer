@@ -39,10 +39,6 @@ execute_process(COMMAND uname -m
                 OUTPUT_VARIABLE INSTALLER_BUILD_ARCH)
 message("build arch: ${INSTALLER_BUILD_ARCH}")
 
-if (${INSTALLER_BUILD_ARCH} MATCHES "loongarch64")
-    set(INSTALLER_BUILD_ARCH "mips")
-endif()
-
 if (${INSTALLER_BUILD_ARCH} MATCHES "x86")
     file(GLOB OVERRIDE ${CMAKE_CURRENT_SOURCE_DIR}/platform_x86/*)
   install(FILES ${OVERRIDE}
@@ -53,6 +49,10 @@ elseif(${INSTALLER_BUILD_ARCH} MATCHES "sw")
     DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources/override)
 elseif(${INSTALLER_BUILD_ARCH} MATCHES "mips")
     file(GLOB OVERRIDE ${CMAKE_CURRENT_SOURCE_DIR}/platform_loongson/*)
+    install(FILES ${OVERRIDE}
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources/override)
+elseif(${INSTALLER_BUILD_ARCH} MATCHES "loongarch64")
+    file(GLOB OVERRIDE ${CMAKE_CURRENT_SOURCE_DIR}/platform_loongarch64/*)
     install(FILES ${OVERRIDE}
     DESTINATION ${CMAKE_INSTALL_PREFIX}/share/deepin-installer/resources/override)
 elseif (${INSTALLER_BUILD_ARCH} MATCHES "aarch64")
