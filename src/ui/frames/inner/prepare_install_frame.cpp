@@ -98,11 +98,21 @@ bool PrepareInstallFrame::focusSwitch()
         }
     } else if (testscroll->hasFocus()) {
         testscroll->setStyleSheet(m_scrollareaStyleSheetold);
+        m_selectCreateRecovery->setFocus();
+    } else if (m_selectCreateRecovery->hasFocus()) {
         continue_button_->setFocus();
     } else {
         continue_button_->setFocus();
     }
 
+    return true;
+}
+
+bool PrepareInstallFrame::doSpace()
+{
+    if (m_selectCreateRecovery->hasFocus()) {
+        m_selectCreateRecovery->setChecked(!m_selectCreateRecovery->isChecked());
+    }
     return true;
 }
 

@@ -326,7 +326,10 @@ bool PartitionFrame::doSpace()
     if (m_private->lvm_partition_frame_->isVisible()) {
         //相应LVM分区界面的空格事件
         m_private->lvm_partition_frame_->doSpace();
-    }else {
+    } else if (m_private->prepare_install_frame_->isVisible()) {
+        // 处理准备安装界面的空格事件处理
+        m_private->prepare_install_frame_->doSpace();
+    } else {
         if (m_private->advanced_frame_button_->isChecked()) {
             //当前处于手动分区界面
             if (m_private->edit_partition_frame_->isVisible()) {

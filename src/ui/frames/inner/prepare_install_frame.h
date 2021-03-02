@@ -45,6 +45,7 @@ class PrepareInstallFrame : public QFrame {
   void setCreateRecovery(bool isCreate);
 
   bool focusSwitch();
+  bool doSpace();
   bool doSelect();
   bool directionKey(int keyvalue);
 
