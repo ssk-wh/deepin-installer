@@ -186,16 +186,20 @@ bool NewPartitionFrame::focusSwitch()
         this->setCurentFocus(type_box_);
     } else if (type_box_ == m_current_focus_widget) {
         type_box_->hidePopup();
+        m_isComboBoxPopupShow = false;
         this->setCurentFocus(alignment_box_);
     } else if (alignment_box_ == m_current_focus_widget) {
         alignment_box_->hidePopup();
+        m_isComboBoxPopupShow = false;
         this->setCurentFocus(fs_box_);
     } else if (fs_box_ == m_current_focus_widget) {
         fs_box_->hidePopup();
+        m_isComboBoxPopupShow = false;
         this->setCurentFocus(mount_point_box_);
     } else if (mount_point_box_ == m_current_focus_widget) {
         if (mount_point_box_->isVisible()) {
             mount_point_box_->hidePopup();
+            m_isComboBoxPopupShow = false;
             this->setCurentFocus(size_slider_);
         } else {
             this->setCurentFocus(cancel_button_);
