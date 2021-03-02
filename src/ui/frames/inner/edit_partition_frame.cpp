@@ -138,6 +138,7 @@ bool EditPartitionFrame::focusSwitch()
         this->setCurentFocus(fs_box_);
     } else if (fs_box_ == m_current_focus_widget) {
         fs_box_->hidePopup();
+        m_isComboBoxPopupShow = false;
         if(mount_point_box_->isVisible()){
             this->setCurentFocus(mount_point_box_);
         } else {
@@ -149,6 +150,7 @@ bool EditPartitionFrame::focusSwitch()
         }
     } else if(mount_point_box_ == m_current_focus_widget) {
         mount_point_box_->hidePopup();
+        m_isComboBoxPopupShow = false;
         this->setCurentFocus(format_check_box_);
     } else if (format_check_box_ == m_current_focus_widget) {
         this->setCurentFocus(ok_button_);
@@ -158,19 +160,33 @@ bool EditPartitionFrame::focusSwitch()
 
 bool EditPartitionFrame::doSpace()
 {
-    if (fs_box_ == m_current_focus_widget) {
-        fs_box_->showPopup();
-    } else if (mount_point_box_ == m_current_focus_widget) {
-        mount_point_box_->showPopup();
-    } else if (format_check_box_ == m_current_focus_widget) {
-        format_check_box_->setCheckState(Qt::Checked);
-    }
+//    if (fs_box_ == m_current_focus_widget) {
+//        fs_box_->showPopup();
+//    } else if (mount_point_box_ == m_current_focus_widget) {
+//        mount_point_box_->showPopup();
+//    } else if (format_check_box_ == m_current_focus_widget) {
+//        format_check_box_->setCheckState(Qt::Checked);
+//    }
     return true;
 }
 
 bool EditPartitionFrame::doSelect()
 {
-    if (ok_button_ == m_current_focus_widget) {
+    if (fs_box_ == m_current_focus_widget) {
+        if (m_isComboBoxPopupShow) {
+            fs_box_->hidePopup();
+        } else {
+            fs_box_->showPopup();
+        }
+        m_isComboBoxPopupShow = !m_isComboBoxPopupShow;
+    } else if (mount_point_box_ == m_current_focus_widget) {
+        if (m_isComboBoxPopupShow) {
+            mount_point_box_->hidePopup();
+        } else {
+            mount_point_box_->showPopup();
+        }
+        m_isComboBoxPopupShow = !m_isComboBoxPopupShow;
+    } else if (ok_button_ == m_current_focus_widget) {
         emit ok_button_->clicked();
     } else if (cancel_button_ == m_current_focus_widget) {
         emit cancel_button_->clicked();

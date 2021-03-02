@@ -93,6 +93,7 @@ class EditPartitionFrame : public ChildFrameInterface {
   MountPointModel* mount_point_model_ = nullptr;
   Partition::Ptr partition_;
   DIconButton* m_close_button = nullptr;
+  bool m_isComboBoxPopupShow = false;
 
  private slots:
   // Hide mount_point_box_ when specific fs is selected
