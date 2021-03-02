@@ -580,8 +580,6 @@ void SelectLanguageFramePrivate::initUI() {
     accept_experience_ = new QCheckBox;
     accept_experience_->setCheckable(true);
     accept_experience_->setChecked(false);
-    Qt::CheckState default_state = GetSettingsBool(kSystemEnableUserExperience) ? Qt::Unchecked : Qt::Checked;
-    accept_experience_->setCheckState(default_state);
     //accept_experience_->setFocusPolicy(Qt::NoFocus);
 
     experience_label_ = new QLabel;

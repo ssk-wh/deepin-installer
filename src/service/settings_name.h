@@ -42,6 +42,7 @@ const char kSkipSystemKeyboardPage[] = "skip_system_keyboard_page";
 
 // System Language List
 const char kSelectLanguageDefaultLocale[] = "select_language_default_locale";
+// 用户控制用户体验计划的勾选
 const char kSystemDefaultUserExperience[] = "system_default_user_experience";
 
 // Repair System
@@ -235,9 +236,6 @@ const char kSystemTimeout[] = "system_timeout";
 
 // 用于隔离还未发布的修改
 const char kSystemModuleDebug[] = "system_module_debug";
-
-// 用户控制用户体验计划的勾选
-const char kSystemEnableUserExperience[] = "system_enable_user_experience";
 
 }  // namespace installer
 

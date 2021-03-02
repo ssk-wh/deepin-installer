@@ -7,5 +7,6 @@ enable_install_nvidia_driver = true
 timezone_force_local_time = true
 timezone_use_local_time_regardless = true
 install_failed_qr_display_switch = true
+system_info_disable_experience = true
 
 
