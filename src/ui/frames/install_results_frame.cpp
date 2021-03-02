@@ -115,6 +115,21 @@ void InstallResultsFrame::showEvent(QShowEvent *event)
     return FrameInterface::showEvent(event);
 }
 
+bool InstallResultsFrame::doSelect()
+{
+    if (m_private->save_failedLog_frame_->isVisible()) {
+        m_private->save_failedLog_frame_->doSelect();
+    } else {
+        if (m_private->m_installSuccessFrame->isVisible()) {
+            m_private->m_installSuccessFrame->doSelect();
+        } else if (m_private->m_installFailedFrame->isVisible()) {
+            m_private->m_installFailedFrame->doSelect();
+        }
+    }
+
+    return true;
+}
+
 InstallResultsFrame::~InstallResultsFrame()
 {
 
@@ -140,12 +155,14 @@ void InstallResultsFramePrivate::initConnection()
     });
     connect(m_installFailedFrame, &InstallFailedFrame::showSaveLogFrame, this, [=] {
         save_failedLog_frame_->startDeviceWatch(true);
+        m_installFailedFrame->setButtonFocusPolicyUseTab(false);
         q_ptr->m_proxy->showChildFrame(save_failedLog_frame_);
     });
     connect(m_installFailedFrame, &InstallFailedFrame::finished, this, [=] {
         emit q_ptr->failedFinished();
     });
     connect(save_failedLog_frame_, &SaveInstallFailedLogFrame::requestBack, this, [=] {
+        m_installFailedFrame->setButtonFocusPolicyUseTab(true);
         q_ptr->m_proxy->hideChildFrame();
     });
 }

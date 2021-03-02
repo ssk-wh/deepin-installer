@@ -32,6 +32,9 @@ class InstallFailedFrame : public QFrame {
   explicit InstallFailedFrame(QWidget* parent = nullptr);
   ~InstallFailedFrame() override;
 
+  void setButtonFocusPolicyUseTab(bool isuse);
+  bool doSelect();
+
  signals:
   // Emitted when reboot button is clocked.
   void finished();

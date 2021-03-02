@@ -47,6 +47,7 @@ public:
 
     void startDeviceWatch(bool enable);
 
+    bool doSelect() override;
 signals:
     void requestBack() const;
 

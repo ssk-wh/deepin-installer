@@ -67,6 +67,15 @@ InstallSuccessFrame::~InstallSuccessFrame()
 
 }
 
+bool InstallSuccessFrame::doSelect()
+{
+    Q_D(InstallSuccessFrame);
+    if (d->reboot_button_) {
+        emit d->reboot_button_->click();
+    }
+    return true;
+}
+
 void InstallSuccessFrame::changeEvent(QEvent *event)
 {
     Q_D(InstallSuccessFrame);

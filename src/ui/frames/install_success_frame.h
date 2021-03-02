@@ -35,6 +35,7 @@ public:
     explicit InstallSuccessFrame(QWidget* parent = nullptr);
     ~InstallSuccessFrame() override;
 
+    bool doSelect();
 signals:
  // Emitted when reboot button is clicked.
  void finished();

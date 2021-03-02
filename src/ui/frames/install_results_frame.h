@@ -52,6 +52,7 @@ public:
 
 protected:
     void showEvent(QShowEvent *event) override;
+    bool doSelect() override;
 
 signals:
     void successFinished();

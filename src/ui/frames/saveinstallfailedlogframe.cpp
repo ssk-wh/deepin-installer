@@ -60,11 +60,15 @@ SaveInstallFailedLogFrame::SaveInstallFailedLogFrame(FrameProxyInterface *frameP
     : ChildFrameInterface(frameProxyInterface, parent)
 {
     m_title = new QLabel;
+    m_title->setFocusPolicy(Qt::NoFocus);
     m_subTitle = new CommentLabel;
+    m_subTitle->setFocusPolicy(Qt::NoFocus);
     m_partitionGridLayout = new QGridLayout;
     m_button_group = new QButtonGroup;
     QScrollArea* area = new  QScrollArea;
+    area->setFocusPolicy(Qt::NoFocus);
     QWidget* widget = new QWidget;
+    widget->setFocusPolicy(Qt::NoFocus);
     widget->setObjectName("grid_wrapper");
     widget->setLayout(m_partitionGridLayout);
 
@@ -93,8 +97,10 @@ SaveInstallFailedLogFrame::SaveInstallFailedLogFrame(FrameProxyInterface *frameP
 
     m_saveBtn = new QPushButton;
     m_saveBtn->setFixedSize(kButtonWidth, kButtonHeight);
+    m_saveBtn->setFocusPolicy(Qt::TabFocus);
     m_backBtn = new QPushButton;
     m_backBtn->setFixedSize(kButtonWidth, kButtonHeight);
+    m_backBtn->setFocusPolicy(Qt::TabFocus);
 
     QHBoxLayout *buttonLayout = new QHBoxLayout;
     buttonLayout->setContentsMargins(0, 0, 0, 0);
@@ -176,6 +182,19 @@ void SaveInstallFailedLogFrame::paintEvent(QPaintEvent *event)
     painter.fillRect(rect(), Qt::white);
 
     return QWidget::paintEvent(event);
+}
+
+bool SaveInstallFailedLogFrame::doSelect()
+{
+    if (m_saveBtn->hasFocus()) {
+        emit m_saveBtn->clicked();
+    }
+
+    if (m_backBtn->hasFocus()) {
+        emit m_backBtn->clicked();
+    }
+
+    return true;
 }
 
 void SaveInstallFailedLogFrame::updateTs()

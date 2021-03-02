@@ -127,6 +127,33 @@ InstallFailedFrame::~InstallFailedFrame()
 
 }
 
+void InstallFailedFrame::setButtonFocusPolicyUseTab(bool isuse)
+{
+    if (isuse) {
+        d_private->control_button_->setFocusPolicy(Qt::TabFocus);
+        d_private->reboot_button_->setFocusPolicy(Qt::TabFocus);
+        d_private->saveLogButton->setFocusPolicy(Qt::TabFocus);
+    } else {
+        d_private->control_button_->setFocusPolicy(Qt::NoFocus);
+        d_private->reboot_button_->setFocusPolicy(Qt::NoFocus);
+        d_private->saveLogButton->setFocusPolicy(Qt::NoFocus);
+    }
+}
+
+bool InstallFailedFrame::doSelect()
+{
+    Q_D(InstallFailedFrame);
+    if (d->control_button_->hasFocus()) {
+        emit d->control_button_->click();
+    } else if (d->reboot_button_->hasFocus()) {
+        emit d->reboot_button_->click();
+    } else if (d->saveLogButton->hasFocus()) {
+        emit d->saveLogButton->click();
+    }
+
+    return true;
+}
+
 void InstallFailedFrame::updateMessage()
 {
     Q_D(InstallFailedFrame);
@@ -192,10 +219,12 @@ void InstallFailedFramePrivate::initConnections()
 void InstallFailedFramePrivate::initUI()
 {
     QLabel *status_label = new QLabel();
+    status_label->setFocusPolicy(Qt::NoFocus);
     status_label->setPixmap(installer::renderPixmap(":/images/fail.svg"));
     title_label_ = new TitleLabel("");
 
     comment_label_ = new CommentLabel;
+    comment_label_->setFocusPolicy(Qt::NoFocus);
     comment_label_->setFixedWidth(kCommentLabelWidth);
     QHBoxLayout* comment_layout = new QHBoxLayout();
     comment_layout->setContentsMargins(0, 0, 0, 0);
@@ -203,6 +232,7 @@ void InstallFailedFramePrivate::initUI()
     comment_layout->addWidget(comment_label_);
 
     m_plainTextEdit = new PlainTextEdit;
+    m_plainTextEdit->setFocusPolicy(Qt::NoFocus);
     m_plainTextEdit->setFrameShape(QFrame::NoFrame);
     m_plainTextEdit->setObjectName("plainTextEdit");
     m_plainTextEdit->setContextMenuPolicy(Qt::NoContextMenu);
@@ -214,6 +244,7 @@ void InstallFailedFramePrivate::initUI()
     m_plainTextEdit->setViewportMargins(0, 0, kControlButtonSize + 10, 0);
 
     DFrame *content_frame = new DFrame();
+    content_frame->setFocusPolicy(Qt::NoFocus);
     content_frame->setContentsMargins(0, 0, 0, 0);
     content_frame->setObjectName("content_frame");
     content_frame->setFrameRounded(true);
@@ -223,6 +254,7 @@ void InstallFailedFramePrivate::initUI()
     m_plainTextEdit->setStyleSheet("QPlainTextEdit {color: rgba(66,154,216,1); background: transparent;}");
 
     qr_widget_ = new QRWidget(content_frame);
+    qr_widget_->setFocusPolicy(Qt::NoFocus);
     qr_widget_->setMargin(kQrMargin);
     qr_widget_->setFixedSize(kQrWindowSize, kQrWindowSize);
 
@@ -232,6 +264,7 @@ void InstallFailedFramePrivate::initUI()
     qrLayout->addWidget(qr_widget_, 0, Qt::AlignCenter);
 
     qrParentWidget = new DFrame;
+    qrParentWidget->setFocusPolicy(Qt::NoFocus);
     qrParentWidget->setFrameShape(QFrame::Shape::NoFrame);
     qrParentWidget->setLayout(qrLayout);
 
@@ -278,6 +311,7 @@ void InstallFailedFramePrivate::initUI()
     buttonLayout->addSpacing(10);
     buttonLayout->addWidget(saveLogButton, 0, Qt::AlignHCenter | Qt::AlignRight);
     QWidget *buttonWrapWidget = new QWidget;
+    buttonWrapWidget->setFocusPolicy(Qt::NoFocus);
     buttonWrapWidget->setLayout(buttonLayout);
 
     QVBoxLayout *layout = new QVBoxLayout();
