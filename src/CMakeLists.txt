@@ -30,7 +30,7 @@ if (CMAKE_BUILD_TYPE MATCHES Debug)
 #  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wimplicit-fallthrough=1")
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O2 -fPIE")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2 -Wno-unused-result \
-    -Wno-switch-default -Wno-padded -Wno-unused-function -Wno-reorder -fPIE")
+    -Wno-switch-default -Wno-padded -Wno-unused-function -Wno-reorder -Werror -fPIE -pie")
 
 # Enable Qt builtin debug mode
   add_definitions("-DQT_MESSAGELOGCONTEXT")
@@ -39,7 +39,7 @@ else()
   #-Wl, --gc-sections Remove unused code resulting from -fdsta-sections and -ffunction-sections
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O2 -Wl,-O1 -Wl,--gc-sections -fPIE -pie")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2 -Wl,-O1 -Wl,--gc-sections -Wno-unused-result \
-      -Wno-switch-default -Wno-padded -Wno-unused-function -Wno-reorder -Werror -fPIE -pie")
+      -Wno-switch-default -Wno-padded -Wno-unused-function -Wno-reorder -fPIE -pie")
 endif()
 
 # Install default_settings.ini based on current architecture.
