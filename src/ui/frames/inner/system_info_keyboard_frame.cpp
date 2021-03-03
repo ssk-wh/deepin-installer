@@ -722,6 +722,10 @@ void SystemInfoKeyboardFramePrivate::onLayoutViewSelectionChanged(
 
     // Scroll to top of variant view.
     m_variantView->scrollToTop();
+
+    if (m_layoutView != q_ptr->m_current_focus_widget) {
+        q_ptr->setCurentFocus(m_layoutView);
+    }
 }
 
 void SystemInfoKeyboardFramePrivate::onVariantViewSelected(
@@ -761,6 +765,10 @@ void SystemInfoKeyboardFramePrivate::onVariantViewSelected(
         if (!SetXkbLayout(layout, variant)) {
             qWarning() << "SetXkbLayout() failed!" << layout << variant;
         }
+    }
+
+    if (m_variantView != q_ptr->m_current_focus_widget) {
+        q_ptr->setCurentFocus(m_variantView);
     }
 }
 
