@@ -265,6 +265,8 @@ void Full_Disk_Encrypt_frame::initConnections()
     connect(m_confirmBtn, &QPushButton::clicked, this, &Full_Disk_Encrypt_frame::onNextBtnClicked);
     connect(m_encryptEdit, &DLineEdit::textChanged, m_errTip, &SystemInfoTip::hide);
     connect(m_encryptRepeatEdit, &DLineEdit::textChanged, m_errTip, &SystemInfoTip::hide);
+    connect(m_encryptEdit, &DLineEdit::focusChanged, this, &Full_Disk_Encrypt_frame::encryptEditOnFocus);
+    connect(m_encryptRepeatEdit, &DLineEdit::focusChanged, this, &Full_Disk_Encrypt_frame::encryptRepeatEditOnFocus);
 
     connect(m_close_button, &DIconButton::clicked, this, &Full_Disk_Encrypt_frame::cancel);
 }
@@ -359,4 +361,18 @@ void Full_Disk_Encrypt_frame::setupCloseButton()
     m_close_button->setIconSize(QSize(50, 50));
     m_close_button->setIcon(QIcon(":/images/close_normal.svg"));
     m_close_button->setFlat(true);
+}
+
+void Full_Disk_Encrypt_frame::encryptEditOnFocus(bool ison)
+{
+    if (ison) {
+        this->setCurentFocus(m_encryptEdit->lineEdit());
+    }
+}
+
+void Full_Disk_Encrypt_frame::encryptRepeatEditOnFocus(bool ison)
+{
+    if (ison) {
+        this->setCurentFocus(m_encryptRepeatEdit->lineEdit());
+    }
 }

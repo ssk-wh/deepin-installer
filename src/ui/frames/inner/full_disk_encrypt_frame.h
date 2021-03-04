@@ -71,6 +71,8 @@ private:
     void updateDiskInfo(int index);
     void updateDiskInfo();
     void setupCloseButton();
+    void encryptEditOnFocus(bool ison);
+    void encryptRepeatEditOnFocus(bool ison);
 
 private:
     QVBoxLayout *m_layout;
