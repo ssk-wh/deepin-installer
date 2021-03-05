@@ -109,41 +109,57 @@ class NetworkEditWidget : public QWidget
 public:
     explicit NetworkEditWidget (QWidget* parent = nullptr) : QWidget(parent) {
         m_switch = new QWidget;
+        m_switch->setFocusPolicy(Qt::NoFocus);
         m_switchButton =  new DSwitchButton;
+        m_switchButton->setFocusPolicy(Qt::TabFocus);
         m_switchButton->setEnabled(false);
         m_deviceEnable = false;
         m_connectTypeWidget = new QWidget;
+        m_connectTypeWidget->setFocusPolicy(Qt::NoFocus);
         m_dhcpTypeWidget = new QComboBox;
+        m_dhcpTypeWidget->setFocusPolicy(Qt::TabFocus);
         m_dhcpTypeWidget->setEnabled(false);
         m_ipWidget = new QWidget;
+        m_ipWidget->setFocusPolicy(Qt::NoFocus);
         m_maskWidget = new QWidget;
+        m_maskWidget->setFocusPolicy(Qt::NoFocus);
         m_gatewayWidget = new QWidget;
+        m_gatewayWidget->setFocusPolicy(Qt::NoFocus);
         m_primaryDNSWidget = new QWidget;
+        m_primaryDNSWidget->setFocusPolicy(Qt::NoFocus);
         m_secondaryDNSWidget = new QWidget;
+        m_secondaryDNSWidget->setFocusPolicy(Qt::NoFocus);
 
         m_device = nullptr;
         m_networkOperate = nullptr;
 
         m_editBtn = new QPushButton(::QObject::tr("Edit"));
+        m_editBtn->setFocusPolicy(Qt::TabFocus);
         m_editBtn->setEnabled(m_deviceEnable);
         m_editBtn->setFixedSize(kEditSaveButtonWidth, kEditSaveButtonHeight);
         //m_editBtn->setFocusPolicy(Qt::TabFocus);
 
         m_acceptBtn = new QPushButton(::QObject::tr("Confirm"));
+        m_acceptBtn->setFocusPolicy(Qt::TabFocus);
         m_acceptBtn->setFixedSize(kEditSaveButtonWidth, kEditSaveButtonHeight);
         //m_acceptBtn->setFocusPolicy(Qt::TabFocus);
 
         m_dhcpType = DHCPTYpe::Auto;
 
         m_ipv4Edit = new DLineEdit;
+        m_ipv4Edit->setFocusPolicy(Qt::TabFocus);
         m_ipv4Edit->setObjectName("IP Address");
         m_maskEdit = new DLineEdit;
+        m_maskEdit->setFocusPolicy(Qt::TabFocus);
         m_maskEdit->setObjectName("Netmask");
         m_gatewayEdit = new DLineEdit;
+        m_gatewayEdit->setFocusPolicy(Qt::TabFocus);
         m_gatewayEdit->setObjectName("Gateway");
         m_primaryDNSEdit = new DLineEdit;
+        m_primaryDNSEdit->setFocusPolicy(Qt::TabFocus);
         m_primaryDNSEdit->setObjectName("Primary DNS");
         m_secondaryDNSEdit = new DLineEdit;
+        m_secondaryDNSEdit->setFocusPolicy(Qt::TabFocus);
         m_secondaryDNSEdit->setObjectName("Secondary DNS");
 
         m_ipv4Edit->lineEdit()->setPlaceholderText(::QObject::tr("IP Address"));
@@ -153,6 +169,7 @@ public:
         m_secondaryDNSEdit->lineEdit()->setPlaceholderText(::QObject::tr("Secondary DNS"));
 
         m_errorTip = new SystemInfoTip(this);
+        m_errorTip->setFocusPolicy(Qt::NoFocus);
         m_errorTip->hide();
 
         QVBoxLayout* mainLayout = new QVBoxLayout;
@@ -203,6 +220,7 @@ public:
 
         QFont labelFont;
         m_ipLabel = new QLabel(::QObject::tr("IP Address:"));
+        m_ipLabel->setFocusPolicy(Qt::NoFocus);
         m_ipLabel->setFixedSize(kRightViewLabelWidth, 20);
         m_ipLabel->setFont(labelFont);
 
@@ -216,6 +234,7 @@ public:
         maskLayout->setSpacing(0);
 
         m_maskLabel = new QLabel(::QObject::tr("Netmask:"));
+        m_maskLabel->setFocusPolicy(Qt::NoFocus);
         m_maskLabel->setFixedSize(kRightViewLabelWidth, 20);
         m_maskLabel->setFont(labelFont);
 
@@ -229,6 +248,7 @@ public:
         gatewayLayout->setSpacing(0);
 
         m_gatewayLable = new QLabel(::QObject::tr("Gateway:"));
+        m_gatewayLable->setFocusPolicy(Qt::NoFocus);
         m_gatewayLable->setFixedSize(kRightViewLabelWidth, 20);
         m_gatewayLable->setFont(labelFont);
 
@@ -242,6 +262,7 @@ public:
         dnsLayout->setSpacing(0);
 
         m_primaryDNSLabel = new QLabel(::QObject::tr("Primary DNS:"));
+        m_primaryDNSLabel->setFocusPolicy(Qt::NoFocus);
         m_primaryDNSLabel->setFixedSize(kRightViewLabelWidth, 20);
         m_primaryDNSLabel->setFont(labelFont);
 
@@ -267,6 +288,7 @@ public:
         dhcpLayout->setSpacing(0);
 
         QLabel* dhcpName = new QLabel(::QObject::tr("DHCP:"));
+        dhcpName->setFocusPolicy(Qt::NoFocus);
         dhcpName->setFont(labelFont);
         dhcpName->setFixedSize(53, 20);
         dhcpLayout->addWidget(dhcpName, 0, Qt::AlignLeft | Qt::AlignHCenter);
@@ -281,6 +303,7 @@ public:
         m_connectTypeWidget->setLayout(dhcpLayout);
         // If has not any devices, label must have default name.
         m_switchName = new QLabel("Network Switch");
+        m_switchName->setFocusPolicy(Qt::NoFocus);
         m_switchName->setFixedSize(130, 20);
 
         QFont networkSwitchFont;
@@ -426,6 +449,8 @@ public:
         m_errorTip->hide();
 
         m_switchButton->setEnabled(false);
+
+        m_ipv4Edit->setFocus();
     }
 
     void saveConfigInfo()
@@ -711,6 +736,9 @@ public:
         return m_deviceEnable;
     }
 
+    QPushButton* getEditBtn(){ return  m_editBtn; }
+    QPushButton* getAcceptBtn(){ return  m_acceptBtn; }
+
 private:
     QWidget* m_switch;
     QLabel* m_switchName;
@@ -763,9 +791,11 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     layout->setSpacing(0);
 
     title_label_ = new TitleLabel(::QObject::tr("Configure Network"));
+    title_label_->setFocusPolicy(Qt::NoFocus);
     title_label_->setAlignment(Qt::AlignHCenter);
     layout->addSpacing(kMainLayoutSpacing);
     comment_label_ = new CommentLabel(::QObject::tr("IP address has been auto-configured, but you can configure the network as well"));
+    comment_label_->setFocusPolicy(Qt::NoFocus);
 
     layout->addWidget(title_label_, 0, Qt::AlignHCenter | Qt::AlignTop);
     layout->addWidget(comment_label_, 0, Qt::AlignHCenter);
@@ -776,10 +806,12 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     m_leftLayout->setSpacing(0);
 
     QFrame *leftFrame = new QFrame;
+    leftFrame->setFocusPolicy(Qt::NoFocus);
     leftFrame->setContentsMargins(0, 0, 0, 0);
     leftFrame->setLayout(m_leftLayout);
 
     QScrollArea *leftArea = new QScrollArea;
+    leftArea->setFocusPolicy(Qt::NoFocus);
     leftArea->setContentsMargins(0, 0, 10, 0);
     leftArea->setWidgetResizable(true);
     //leftArea->setFocusPolicy(Qt::NoFocus);
@@ -798,6 +830,7 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     leftLayout->addWidget(leftArea);
 
     QFrame *leftWidget = new QFrame;
+    leftWidget->setFocusPolicy(Qt::NoFocus);
     leftWidget->setContentsMargins(0, 0, 0, 0);
     leftWidget->setFixedSize(kLeftViewWidth, kViewHeight);
     leftWidget->setLayout(leftLayout);
@@ -808,15 +841,18 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     rightLayout->setSpacing(0);
 
     m_currentNetworkEditWidget = new NetworkEditWidget;
+    leftWidget->setFocusPolicy(Qt::NoFocus);
     rightLayout->addWidget(m_currentNetworkEditWidget);
     rightLayout->addStretch();
 
     QFrame *rightWidget = new QFrame;
+    rightWidget->setFocusPolicy(Qt::NoFocus);
     rightWidget->setContentsMargins(0, 0, 0, 0);
     rightWidget->setFixedSize(kRightWidth, kViewHeight);
     rightWidget->setLayout(rightLayout);
 
     DVerticalLine* dVerticalLine = new DVerticalLine;
+    comment_label_->setFocusPolicy(Qt::NoFocus);
 
     QHBoxLayout* centerLayout = new QHBoxLayout;
     centerLayout->setContentsMargins(0, 0, 0, 0);
@@ -829,6 +865,7 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     centerLayout->addStretch();
 
     DFrame *frame = new DFrame;
+    frame->setFocusPolicy(Qt::NoFocus);
     frame->setFrameRounded(true);
     frame->setContentsMargins(1, 1, 1, 1);
     frame->setLayout(centerLayout);
@@ -838,8 +875,8 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     layout->addStretch();
 
     m_nextButton->setFixedSize(kNextButtonWidth, kNextButtonHeight);
-    //m_nextButton->setFocusPolicy(Qt::TabFocus);
-    m_nextButton->setShortcut(Qt::Key_Return);
+    m_nextButton->setFocusPolicy(Qt::TabFocus);
+    //m_nextButton->setShortcut(Qt::Key_Return);
     connect(m_nextButton, &QPushButton::clicked, this, &NetworkFrame::saveConf);
 
     layout->addWidget(m_nextButton, 0, Qt::AlignHCenter);
@@ -847,6 +884,7 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     setLayout(layout);
 
     m_buttonBox = new DButtonBox;
+    m_buttonBox->setFocusPolicy(Qt::TabFocus);
 
     updateTs();
 }
@@ -886,6 +924,7 @@ void NetworkFrame::initDeviceWidgetList()
 
         // TODO: use shared pointer defend memory leak.
         NetworkDeviceWidget* deviceWidget = new NetworkDeviceWidget(this);
+        deviceWidget->setFocusPolicy(Qt::TabFocus);
         deviceWidget->setCheckable(true);
         deviceWidget->setDeviceInfo(dev);
 
@@ -989,7 +1028,20 @@ void NetworkFrame::showEvent(QShowEvent *event)
     m_currentNetworkEditWidget->initWidgetState();
     initDeviceWidgetList();
 
+    m_nextButton->setFocus();
     FrameInterface::showEvent(event);
+}
+
+bool NetworkFrame::doSelect()
+{
+    if (m_currentNetworkEditWidget->getEditBtn()->hasFocus()) {
+        emit m_currentNetworkEditWidget->getEditBtn()->clicked();
+    } else if (m_currentNetworkEditWidget->getAcceptBtn()->hasFocus()) {
+        emit m_currentNetworkEditWidget->getAcceptBtn()->clicked();
+    } else if (m_nextButton->hasFocus()) {
+        emit m_nextButton->clicked();
+    }
+     return true;
 }
 
 void NetworkFrame::saveConf()

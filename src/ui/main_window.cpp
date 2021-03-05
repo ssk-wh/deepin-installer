@@ -507,40 +507,53 @@ void MainWindow::initConnections() {
 
 void MainWindow::initPages() {
   confirm_quit_frame_ = new ConfirmQuitFrame(this);
+  confirm_quit_frame_->setFocusPolicy(Qt::NoFocus);
   confirm_quit_frame_->hide();
 
   m_repairSystemFrame = new RepairSystemFrame(this);
+  m_repairSystemFrame->setFocusPolicy(Qt::NoFocus);
   stacked_layout_->addWidget(m_repairSystemFrame);
 
   select_language_frame_ = new LanguageFrame(this);
+  select_language_frame_->setFocusPolicy(Qt::NoFocus);
   stacked_layout_->addWidget(select_language_frame_);
 
   disk_space_insufficient_frame_ = new DiskSpaceInsufficientFrame(this);
+  disk_space_insufficient_frame_->setFocusPolicy(Qt::NoFocus);
 
   install_progress_frame_ = new InstallProgressFrame(this);
+  install_progress_frame_->setFocusPolicy(Qt::NoFocus);
   stacked_layout_->addWidget(install_progress_frame_);
 
   partition_frame_ = new PartitionFrame(this);
+  partition_frame_->setFocusPolicy(Qt::NoFocus);
   stacked_layout_->addWidget(partition_frame_);
 
   privilege_error_frame_ = new PrivilegeErrorFrame(this);
+  privilege_error_frame_->setFocusPolicy(Qt::NoFocus);
 
   system_info_frame_ = new SystemInfoFrame(this);
+  system_info_frame_->setFocusPolicy(Qt::NoFocus);
   stacked_layout_->addWidget(system_info_frame_);
 
   timezone_frame_ = new TimezoneFrame(this);
+  timezone_frame_->setFocusPolicy(Qt::NoFocus);
   stacked_layout_->addWidget(timezone_frame_);
 
   virtual_machine_frame_ = new VirtualMachineFrame(this);
+  virtual_machine_frame_->setFocusPolicy(Qt::NoFocus);
   stacked_layout_->addWidget(virtual_machine_frame_);
 
   m_selectComponentFrame = new SelectInstallComponentFrame(this);
+  m_selectComponentFrame->setFocusPolicy(Qt::NoFocus);
   stacked_layout_->addWidget(m_selectComponentFrame);
 
   m_installResultsFrame = new InstallResultsFrame(this);
+  m_installResultsFrame->setFocusPolicy(Qt::NoFocus);
   stacked_layout_->addWidget(m_installResultsFrame);
 
   network_frame_ = new NetworkFrame(this);
+  network_frame_->setFocusPolicy(Qt::NoFocus);
   stacked_layout_->addWidget(network_frame_);
 
   m_originalFrames = {
@@ -573,6 +586,7 @@ void MainWindow::initPages() {
   }
 
   m_frameLabelsView = new DListView(this);
+  m_frameLabelsView->setFocusPolicy(Qt::NoFocus);
   m_frameLabelsView->viewport()->installEventFilter(this);
   m_frameLabelsView->setResizeMode(QListView::Adjust);
   m_frameLabelsView->setItemSize(QSize(kLeftViewItemWidth, kLeftViewItemHeight + kLeftViewItemSpacing));
@@ -631,8 +645,10 @@ void MainWindow::constructLabelView()
 void MainWindow::initUI() {
     //this->setFocusPolicy(Qt::TabFocus);
   background_label_ = new QLabel(this);
+  background_label_->setFocusPolicy(Qt::NoFocus);
 
   back_button_ = new DIconButton(this);
+  back_button_->setFocusPolicy(Qt::NoFocus);
   back_button_->setObjectName("back_button");
   back_button_->setFixedSize(48, 38);
   back_button_->move(20, 20);
@@ -657,6 +673,7 @@ void MainWindow::initUI() {
   vbox_layout->addLayout(stacked_layout_);
 
   QWidget* contentWidget = new QWidget;
+  contentWidget->setFocusPolicy(Qt::NoFocus);
   contentWidget->setObjectName("contentWidget");
   contentWidget->setContentsMargins(0, 0, 0, 0);
   contentWidget->setLayout(vbox_layout);
@@ -666,11 +683,13 @@ void MainWindow::initUI() {
   m_frameSelectedLayout->setSpacing(0);
 
   m_frameSelectedListWidget = new QWidget;
+  m_frameSelectedListWidget->setFocusPolicy(Qt::NoFocus);
   m_frameSelectedListWidget->setObjectName("frameSelectedListWidget");
   m_frameSelectedListWidget->setLayout(m_frameSelectedLayout);
   m_frameSelectedListWidget->setFixedWidth(kLeftViewWidth);
 
   m_frameLabelsViewCoverWidget = new QWidget(m_frameSelectedListWidget);
+  m_frameLabelsViewCoverWidget->setFocusPolicy(Qt::NoFocus);
   m_frameLabelsViewCoverWidget->setObjectName("frameLabelsViewCoverWidget");
   m_frameLabelsViewCoverWidget->setStyleSheet("{background-color: rgba(255, 255, 255, 0.5);}");
   m_frameLabelsViewCoverWidget->hide();
@@ -684,6 +703,7 @@ void MainWindow::initUI() {
   mainLayout->addWidget(contentWidget);
 
   DBackgroundGroup* bgGroup = new DBackgroundGroup;
+  bgGroup->setFocusPolicy(Qt::NoFocus);
   bgGroup->setContentsMargins(10, 10, 10, 10);
   bgGroup->setLayout(mainLayout);
   bgGroup->setItemSpacing(2);
@@ -692,11 +712,13 @@ void MainWindow::initUI() {
   setCentralWidget(bgGroup);
 
   control_panel_frame_ = new ControlPanelFrame(this);
+  control_panel_frame_->setFocusPolicy(Qt::NoFocus);
   control_panel_frame_->hide();
 
   back_button_->raise();
 
   shadow_widget->hide();
+  shadow_widget->setFocusPolicy(Qt::NoFocus);
 }
 
 void MainWindow::registerShortcut() {

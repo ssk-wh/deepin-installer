@@ -36,6 +36,7 @@ signals:
 protected:
     bool event(QEvent *event) override;
     void showEvent(QShowEvent* event) override;
+    bool doSelect() override;
 
 private:
     static QMap<QString, NetworkOperate*>       m_mapDeviceUdi2NetworkOperate;
