@@ -85,11 +85,3 @@ Depends:
 Description: Release version of deepin installer
  New version of deepin-installer, rewritten with Qt5.
 
-Package: deepin-installer-oem
-Architecture: any
-Depends:
-    ${shlibs:Depends},
-    ${misc:Depends},
-    deepin-installer
-Description: OEM tool
- OEM tool for deepin-installer

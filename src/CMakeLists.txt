@@ -863,149 +863,12 @@ add_executable(deepin-installer-init
 )
 target_link_libraries(deepin-installer-init ${LINK_LIBS})
 
-add_executable(deepin-installer-user-form
-               app/deepin_installer_user_form.cpp
-               ${BASE_FILES}
-
-               service/settings_manager.cpp
-               service/settings_manager.h
-               service/settings_name.h
-               service/language_manager.h
-               service/language_manager.cpp
-               service/log_manager.h
-               service/log_manager.cpp
-               service/password_manager.h
-               service/password_manager.cpp
-               service/screen_adaptation_manager.h
-               service/screen_adaptation_manager.cpp
-
-               sysinfo/keyboard.cpp
-               sysinfo/keyboard.h
-               sysinfo/users.cpp
-               sysinfo/users.h
-               sysinfo/validate_hostname.cpp
-               sysinfo/validate_hostname.h
-               sysinfo/validate_password.cpp
-               sysinfo/validate_password.h
-               sysinfo/validate_username.cpp
-               sysinfo/validate_username.h
-
-               ui/user_form_window.cpp
-               ui/user_form_window.h
-               ui/interfaces/frameproxyinterface.h
-               ui/interfaces/frameinterface.h
-               ui/interfaces/frameinterfaceprivate.h
-               ui/delegates/avatar_list_delegate.cpp
-               ui/delegates/avatar_list_delegate.h
-               ui/delegates/frameless_list_delegate.cpp
-               ui/delegates/frameless_list_delegate.h
-               ui/frames/system_info_frame.cpp
-               ui/frames/system_info_frame.h
-               ui/frames/inner/system_info_avatar_frame.cpp
-               ui/frames/inner/system_info_avatar_frame.h
-               ui/frames/inner/system_info_form_frame.cpp
-               ui/frames/inner/system_info_form_frame.h
-               ui/frames/inner/system_info_keyboard_frame.cpp
-               ui/frames/inner/system_info_keyboard_frame.h
-               ui/models/keyboard_layout_model.cpp
-               ui/models/keyboard_layout_model.h
-               ui/models/keyboard_layout_variant_model.cpp
-               ui/models/keyboard_layout_variant_model.h
-               ui/views/frameless_list_view.cpp
-               ui/views/frameless_list_view.h
-               ui/views/pointer_list_view.cpp
-               ui/views/pointer_list_view.h
-               ui/widgets/avatar_button.cpp
-               ui/widgets/avatar_button.h
-               ui/widgets/comment_label.cpp
-               ui/widgets/comment_label.h
-               ui/widgets/flat_button.cpp
-               ui/widgets/flat_button.h
-               ui/widgets/line_edit.cpp
-               ui/widgets/line_edit.h
-               ui/widgets/nav_button.cpp
-               ui/widgets/nav_button.h
-               ui/widgets/pointer_button.cpp
-               ui/widgets/pointer_button.h
-               ui/widgets/system_info_tip.cpp
-               ui/widgets/system_info_tip.h
-               ui/widgets/title_label.cpp
-               ui/widgets/title_label.h
-               ui/widgets/di_scrollarea.h
-               ui/widgets/di_scrollarea.cpp
-               ui/widgets/caps_lock_line_edit.h
-               ui/widgets/caps_lock_line_edit.cpp
-               ui/widgets/tip_list_view.h
-               ui/widgets/tip_list_view.cpp
-               ui/utils/widget_util.cpp
-               ui/utils/widget_util.h
-               ui/utils/xutil.cpp
-               ui/utils/xutil.h
-               ui/utils/keyboardmonitor.h
-               ui/utils/keyboardmonitor.cpp
-
-               ui/images/images.qrc
-               ui/styles/styles.qrc
-               license/license.qrc
-               )
-target_link_libraries(deepin-installer-user-form ${LINK_LIBS}
-    #pwquality
-    )
-
-#target_include_directories(deepin-installer-user-form PUBLIC
-               #${pwquality_INCLUDE_DIRS}
-#)
-
-# deepin-installer-oem
-add_executable(deepin-installer-oem
-               app/deepin_installer_oem.cpp
-               oem/oem_window.cpp
-               oem/oem_window.h
-
-               service/settings_name.h
-               service/system_language.cpp
-               service/system_language.h
-               service/settings_manager.cpp
-               service/settings_manager.h
-
-               ${BASE_FILES}
-               ${OEM_FILES}
-               ${SYSINFO_FILES}
-               )
-target_link_libraries(deepin-installer-oem ${LINK_LIBS})
-
-add_executable(deepin-installer-unsquashfs
-
-               app/deepin_installer_unsquashfs.cpp
-               ${BASE_FILES}
-               )
-target_link_libraries(deepin-installer-unsquashfs ${Qt_LIBS})
-
-# xrandr-switchy
-add_executable(deepin-installer-xrandr-switchy
-               ui/tests/xrandr_switchy.cpp
-
-               ${BASE_FILES}
-               ui/xrandr/xrandr_wrapper.cpp
-               ui/xrandr/xrandr_wrapper.h
-               )
-target_link_libraries(deepin-installer-xrandr-switchy
-                      ${QtCore_LIBS}
-
-                      ${X11_LIBRARIES}
-                      ${X11EXT_LIBRARIES}
-                      ${X11TST_LIBRARIES}
-                      ${X11RandR_LIBRARIES}
-                      )
-
 ## Installation
 install(PROGRAMS
-        ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-auto-install
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-first-boot-pkexec
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-pkexec
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-both
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-bases
-        ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-xrandr
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-cli-install
         DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
         )
@@ -1013,12 +876,9 @@ install(PROGRAMS
 install(TARGETS
         deepin-installer
         deepin-installer-cli
-        deepin-installer-first-boot
-        deepin-installer-oem
+        deepin-installer-first-boot    
         deepin-installer-settings
         deepin-installer-simpleini
-        deepin-installer-unsquashfs
-        deepin-installer-user-form
         deepin-installer-init
         DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
         )
