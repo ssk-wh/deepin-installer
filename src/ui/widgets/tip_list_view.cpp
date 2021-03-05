@@ -24,15 +24,17 @@
 installer::TipListView::TipListView(QWidget *parent):
     DListView(parent)
 {
-    setMouseTracking(true);  // QWidget类型的控件需要在构造函数调用setMouseTracking，才会响应mouseMoveEvent事件
+    setMouseTracking(true);         // QWidget类型的控件需要在构造函数调用setMouseTracking，才会响应mouseMoveEvent事件
+    setItemSize(QSize(47, 47));     // 默认的item的大小，如果需要tip显示的位置正确，则需要设置item的width
 }
 
 void installer::TipListView::mouseMoveEvent(QMouseEvent *event)
-{
+{  
     QModelIndex index = this->indexAt(event->pos());
     // 计算tip显示的位置，统一转换成全局位置
-    int posX = mapToGlobal(this->pos()).x() + (this->itemSize().width() / 2);
-    int posY = mapToGlobal(this->pos()).y() + (this->itemSize().height() * index.row()) + 6;
+
+    int posX = mapToGlobal(this->pos()).x() + (this->width() / 2);
+    int posY = mapToGlobal(this->pos()).y() + (this->itemSize().width() * index.row()) + 6;
     QToolTip::showText(QPoint(posX, posY), index.data().toString()); // 显示tip
 
     return DListView::mouseMoveEvent(event);
