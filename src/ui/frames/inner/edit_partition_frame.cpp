@@ -176,17 +176,19 @@ bool EditPartitionFrame::doSelect()
     if (fs_box_ == m_current_focus_widget) {
         if (m_isComboBoxPopupShow) {
             fs_box_->hidePopup();
+            m_isComboBoxPopupShow = false;
         } else {
             fs_box_->showPopup();
+            m_isComboBoxPopupShow = true;
         }
-        m_isComboBoxPopupShow = !m_isComboBoxPopupShow;
     } else if (mount_point_box_ == m_current_focus_widget) {
         if (m_isComboBoxPopupShow) {
             mount_point_box_->hidePopup();
+            m_isComboBoxPopupShow = false;
         } else {
             mount_point_box_->showPopup();
+            m_isComboBoxPopupShow = true;
         }
-        m_isComboBoxPopupShow = !m_isComboBoxPopupShow;
     } else if (ok_button_ == m_current_focus_widget) {
         emit ok_button_->clicked();
     } else if (cancel_button_ == m_current_focus_widget) {
@@ -321,6 +323,9 @@ void EditPartitionFrame::initConnections() {
           this, &EditPartitionFrame::onOkButtonClicked);
 
   connect(m_close_button, &DIconButton::clicked, [this]{Q_EMIT cancel_button_->click();});
+
+  connect(fs_box_, &TableComboBox::signalMousePress, this, &EditPartitionFrame::onFsboxMousePress);
+  connect(mount_point_box_, &TableComboBox::signalMousePress, this, &EditPartitionFrame::onMountpointboxMousePress);
 }
 
 void EditPartitionFrame::initUI() {
@@ -509,6 +514,18 @@ void EditPartitionFrame::onOkButtonClicked() {
   removeOsProberDataByPath(partition_->path);
 
   emit this->finished();
+}
+
+void EditPartitionFrame::onFsboxMousePress()
+{
+    this->setCurentFocus(fs_box_);
+    m_isComboBoxPopupShow = true;
+}
+
+void EditPartitionFrame::onMountpointboxMousePress()
+{
+    this->setCurentFocus(mount_point_box_);
+    m_isComboBoxPopupShow = true;
 }
 
 void EditPartitionFrame::setupCloseButton()

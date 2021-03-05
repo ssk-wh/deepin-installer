@@ -113,6 +113,12 @@ class NewPartitionFrame : public ChildFrameInterface {
 
   // Update last_slider_value_ when it is updated.
   void onSizeSliderValueChanged(qint64 size);
+
+  // ComboBox list pop slot
+  void onTypeboxMousePress();
+  void onAlignmentboxMousePress();
+  void onFsboxMousePress();
+  void onMountpointboxMousePress();
 };
 
 }  // namespace installer

@@ -30,6 +30,12 @@ class TableComboBox : public QComboBox {
     explicit TableComboBox(QWidget* parent = nullptr);
 
     void setHeight(int height);
+
+protected:
+    void mousePressEvent(QMouseEvent *e) override;
+
+signals:
+    void signalMousePress();
 };
 
 }  // namespace installer

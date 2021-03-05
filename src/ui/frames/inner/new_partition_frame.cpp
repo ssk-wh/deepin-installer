@@ -231,31 +231,35 @@ bool NewPartitionFrame::doSelect()
     if (type_box_ == m_current_focus_widget) {
         if (m_isComboBoxPopupShow) {
             type_box_->hidePopup();
+            m_isComboBoxPopupShow = false;
         } else {
             type_box_->showPopup();
+            m_isComboBoxPopupShow = true;
         }
-        m_isComboBoxPopupShow = !m_isComboBoxPopupShow;
     } else if (alignment_box_ == m_current_focus_widget) {
         if (m_isComboBoxPopupShow) {
             alignment_box_->hidePopup();
+            m_isComboBoxPopupShow = false;
         } else {
             alignment_box_->showPopup();
+            m_isComboBoxPopupShow = true;
         }
-        m_isComboBoxPopupShow = !m_isComboBoxPopupShow;
     } else if (fs_box_ == m_current_focus_widget) {
         if (m_isComboBoxPopupShow) {
             fs_box_->hidePopup();
+            m_isComboBoxPopupShow = false;
         } else {
             fs_box_->showPopup();
+            m_isComboBoxPopupShow = true;
         }
-        m_isComboBoxPopupShow = !m_isComboBoxPopupShow;
     } else if (mount_point_box_ == m_current_focus_widget) {
         if (m_isComboBoxPopupShow) {
             mount_point_box_->hidePopup();
+            m_isComboBoxPopupShow = false;
         } else {
             mount_point_box_->showPopup();
+            m_isComboBoxPopupShow = true;
         }
-        m_isComboBoxPopupShow = !m_isComboBoxPopupShow;
     } else if (size_slider_ == m_current_focus_widget) {
         QLineEdit *testedit = size_slider_->findChild<QLineEdit*>("editor");
         if (!testedit->hasFocus()) {
@@ -393,6 +397,11 @@ void NewPartitionFrame::initConnections() {
           this, &NewPartitionFrame::onCreateButtonClicked);
 
   connect(m_close_button, &DIconButton::clicked, [this]{Q_EMIT cancel_button_->click();});
+
+  connect(type_box_, &TableComboBox::signalMousePress, this, &NewPartitionFrame::onTypeboxMousePress);
+  connect(alignment_box_, &TableComboBox::signalMousePress, this, &NewPartitionFrame::onAlignmentboxMousePress);
+  connect(fs_box_, &TableComboBox::signalMousePress, this, &NewPartitionFrame::onFsboxMousePress);
+  connect(mount_point_box_, &TableComboBox::signalMousePress, this, &NewPartitionFrame::onMountpointboxMousePress);
 }
 
 void NewPartitionFrame::initUI() {
@@ -807,6 +816,30 @@ void NewPartitionFrame::onSizeSliderValueChanged(qint64 size) {
 
     m_auto_label->setText(msg);
   }
+}
+
+void NewPartitionFrame::onTypeboxMousePress()
+{
+    this->setCurentFocus(type_box_);
+    m_isComboBoxPopupShow = true;
+}
+
+void NewPartitionFrame::onAlignmentboxMousePress()
+{
+    this->setCurentFocus(alignment_box_);
+    m_isComboBoxPopupShow = true;
+}
+
+void NewPartitionFrame::onFsboxMousePress()
+{
+    this->setCurentFocus(fs_box_);
+    m_isComboBoxPopupShow = true;
+}
+
+void NewPartitionFrame::onMountpointboxMousePress()
+{
+    this->setCurentFocus(mount_point_box_);
+    m_isComboBoxPopupShow = true;
 }
 
 void NewPartitionFrame::setupCloseButton()

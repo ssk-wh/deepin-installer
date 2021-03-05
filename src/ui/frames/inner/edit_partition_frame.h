@@ -103,6 +103,10 @@ class EditPartitionFrame : public ChildFrameInterface {
   void onMountPointChanged(int index);
 
   void onOkButtonClicked();
+
+  // ComboBox list pop slot
+  void onFsboxMousePress();
+  void onMountpointboxMousePress();
 };
 
 }  // namespace installer

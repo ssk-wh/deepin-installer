@@ -34,4 +34,10 @@ void TableComboBox::setHeight(int height)
     view()->parentWidget()->setFixedHeight(height);
 }
 
+void TableComboBox::mousePressEvent(QMouseEvent *e)
+{
+    emit signalMousePress();
+    QComboBox::mousePressEvent(e);
+}
+
 }  // namespace installer
