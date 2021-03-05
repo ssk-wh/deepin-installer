@@ -121,7 +121,7 @@ FullDiskPartitionWidget::FullDiskPartitionWidget(QWidget* parent)
     widget->setContentsMargins(0, 0, 0, 0);
     widget->setLayout(m_labelLayout);
 
-    m_mainLayout->addSpacing(2);
+    m_mainLayout->addSpacing(1);
     m_mainLayout->addWidget(widget, 0, Qt::AlignHCenter);
 
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
@@ -209,7 +209,7 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
         partNameLable->setText(text);
         partNameLable->setStyleSheet("QLabel{color:#363636} ");
         tooltipString.append(GetPartitionDisplayText(partition));
-        layout->addSpacing(2);
+        layout->addSpacing(1);
         layout->addWidget(partNameLable);
 
         QLabel *partSize = new QLabel();

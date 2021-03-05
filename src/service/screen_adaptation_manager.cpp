@@ -44,11 +44,6 @@ QPixmap installer::ScreenAdaptationManager::adapterPixmap(const QPixmap &pixmap)
                          Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
 }
 
-QRect installer::ScreenAdaptationManager::primaryGeometry()
-{
-    return QApplication::desktop()->screenGeometry();
-}
-
 QRect installer::ScreenAdaptationManager::primaryAvailableGeometry()
 {
     return QApplication::desktop()->availableGeometry();
@@ -56,10 +51,10 @@ QRect installer::ScreenAdaptationManager::primaryAvailableGeometry()
 
 int installer::ScreenAdaptationManager::getMainWindowTopMargin()
 {
-    qInfo() << "primary geometry:" << primaryGeometry();
+    qInfo() << "primary geometry:" << primaryAvailableGeometry();
 
-    if (primaryGeometry().width() >= kXrandrWidth_1920
-            && primaryGeometry().height() >= kXrandrHeight_1080) {
+    if (primaryAvailableGeometry().width() >= kXrandrWidth_1920
+            && primaryAvailableGeometry().height() >= kXrandrHeight_1080) {
         return 90;
     }
 
@@ -68,10 +63,8 @@ int installer::ScreenAdaptationManager::getMainWindowTopMargin()
 
 int installer::ScreenAdaptationManager::getChildWindowTopMargin()
 {
-    qInfo() << "primary geometry:" << primaryGeometry();
-
-    if (primaryGeometry().width() >= kXrandrWidth_1920
-            && primaryGeometry().height() >= kXrandrHeight_1080) {
+    if (primaryAvailableGeometry().width() >= kXrandrWidth_1920
+            && primaryAvailableGeometry().height() >= kXrandrHeight_1080) {
         return 20;
     }
 

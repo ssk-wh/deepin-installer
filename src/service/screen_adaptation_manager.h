@@ -15,7 +15,6 @@ public:
 public:
     QPixmap adapterPixmap(const QString &file);
     QPixmap adapterPixmap(const QPixmap &pixmap);
-    QRect primaryGeometry();
     QRect primaryAvailableGeometry();
     int getMainWindowTopMargin();
     int getChildWindowTopMargin();
