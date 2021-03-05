@@ -58,7 +58,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     setupCloseButton();
 
     m_layout->setContentsMargins(0, 0, 0, 0);
-    m_layout->setSpacing(10);
+    m_layout->setSpacing(5);
     m_errTip->hide();
     setObjectName("FullDiskEncryptFrame");
     m_layout->addStretch();
@@ -73,8 +73,8 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     hboxlayout->addStretch();
     for(int i = 0; i < FULL_DISK_DISK_MAX_COUNT; i++) {
         QLabel *diskLbl = new QLabel;
-        diskLbl->setFixedSize(QSize(50, 50));
-        diskLbl->setPixmap(installer::renderPixmap(":/images/drive-harddisk-64px.svg").scaledToHeight(50));
+        diskLbl->setFixedSize(QSize(40, 40));
+        diskLbl->setPixmap(installer::renderPixmap(":/images/drive-harddisk-64px.svg").scaled(40, 40));
         m_diskinfo[i].m_diskLbl = diskLbl;
         m_diskinfo[i].m_devicePathLbl = new QLabel(this);
         m_diskinfo[i].m_devicePathLbl->setStyleSheet("QLabel{font-size: 14px;"
@@ -89,9 +89,9 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
         diskInfoLayout->setMargin(0);
         diskInfoLayout->setSpacing(0);
         diskInfoLayout->addWidget(m_diskinfo[i].m_diskLbl, 0, Qt::AlignHCenter);
-        diskInfoLayout->addSpacing(6);
+        diskInfoLayout->addSpacing(4);
         diskInfoLayout->addWidget(m_diskinfo[i].m_devicePathLbl, 0, Qt::AlignHCenter);
-        diskInfoLayout->addSpacing(6);
+        diskInfoLayout->addSpacing(4);
         diskInfoLayout->addWidget(m_diskinfo[i].m_deviceSizeLbl, 0, Qt::AlignHCenter);
         hboxlayout->addLayout(diskInfoLayout);
     }
