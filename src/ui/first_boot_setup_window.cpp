@@ -347,7 +347,7 @@ void FirstBootSetupWindow::initPages()
     m_frameLabelsView->setItemSize(QSize(kLeftViewItemWidth, kLeftViewItemHeight + kLeftViewItemSpacing));
     m_frameLabelsModel = new QStandardItemModel();
     m_frameLabelsView->setModel(m_frameLabelsModel);
-    m_frameLabelsView->setItemMargins(QMargins(10,0,0,0));
+    m_frameLabelsView->setItemMargins(QMargins(10,0,10,0));
 
     m_frameSelectedLayout->addSpacing(60);
     QSpacerItem *testvSpacer_1 = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Expanding);

@@ -78,8 +78,6 @@
         <file>password_12.svg</file>
         <file>warning.svg</file>
         <file>windows.svg</file>
-        <file>success.svg</file>
-        <file>fail.svg</file>
         <file>back_normal.svg</file>
         <file>back_hover.svg</file>
         <file>back_pressed.svg</file>
@@ -163,5 +161,7 @@
         <file>dcc_deepin_logo_164px.svg</file>
         <file>ethernet.svg</file>
         <file>qr_code_server.svg</file>
+        <file>fail.svg</file>
+        <file>success.svg</file>
     </qresource>
 </RCC>

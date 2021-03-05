@@ -39,18 +39,31 @@ const QString kDriverInstallIcon = GetUosAndDeepinLogo128();
 }  // namespace
 
 SimpleDiskButton::SimpleDiskButton(const Device::Ptr device, QWidget* parent)
-  : PointerButton(parent),
+  : QPushButton(parent),
     device_(device),
     selected_(false) {
   this->setObjectName("simple_disk_button");
   this->setFixedSize(kButtonWidth, kButtonHeight);
   this->setCheckable(true);
   this->initUI();
+
+  m_labelStyleSheetBackup = path_label->styleSheet();
 }
 
 void SimpleDiskButton::setSelected(bool selected) {
     selected_ = selected;
     os_label_->setPixmap(installer::renderPixmap(selected ? kDriverInstallIcon : kDriverIcon));
+
+    if (selected) {
+        path_label->setStyleSheet("QLabel {color: white;}");
+        model_label->setStyleSheet("QLabel {color: white;}");
+        size_label->setStyleSheet("QLabel {color: white;}");
+    }
+    else {
+        path_label->setStyleSheet(m_labelStyleSheetBackup);
+        model_label->setStyleSheet(m_labelStyleSheetBackup);
+        size_label->setStyleSheet(m_labelStyleSheetBackup);
+    }
 }
 
 void SimpleDiskButton::initUI() {
@@ -59,15 +72,15 @@ void SimpleDiskButton::initUI() {
   os_label_->setFixedSize(kOsIconWidth, kOsIconHeight);
   os_label_->setPixmap(installer::renderPixmap(kDriverIcon));
 
-  QLabel* path_label = new QLabel();
+  path_label = new QLabel();
   path_label->setObjectName("path_label");
   path_label->setText(device_->path);
 
-  QLabel* model_label = new QLabel();
+  model_label = new QLabel();
   model_label->setObjectName("model_label");
   model_label->setText(device_->model);
 
-  QLabel* size_label = new QLabel();
+  size_label = new QLabel();
   size_label->setObjectName("size_label");
   size_label->setText(QString("%1 GB").arg(ToGigByte(device_->getByteLength())));
 

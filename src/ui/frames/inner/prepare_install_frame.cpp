@@ -45,7 +45,7 @@ namespace {
     const int kButtonHeight = 36;
 
     const int kDescriptionWidth = 538;
-//    const int kDescriptionHeight = 308;
+    const int kDescriptionHeight = 308;
 }
 
 namespace installer {
@@ -218,13 +218,13 @@ void PrepareInstallFrame::initUI() {
   sourceWidget->setLayout(sourceLayout);
 
   QScrollArea* scroll = new QScrollArea(this);
-  scroll->setFixedWidth(kDescriptionWidth);
+  scroll->setFixedSize(kDescriptionWidth, kDescriptionHeight);
   scroll->setWidget(sourceWidget);
   scroll->setObjectName("scrollarea");
   scroll->setWidgetResizable(true);
   //scroll->setFocusPolicy(Qt::TabFocus);
   scroll->setFrameStyle(QFrame::NoFrame);
-  scroll->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+  scroll->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
   scroll->setContentsMargins(0, 0, 0, 0);
   scroll->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
   scroll->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);

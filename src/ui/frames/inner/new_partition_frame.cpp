@@ -370,8 +370,7 @@ void NewPartitionFrame::changeEvent(QEvent* event) {
     create_button_->setText(::QObject::tr("Create"));
 
     if (m_close_button) {
-        const int marginSize = this->layout()->margin();
-        m_close_button->move(width() - m_close_button->width() - marginSize, marginSize);
+        m_close_button->move(width() - m_close_button->width(), 0);
         m_close_button->raise();
         m_close_button->show();
     }
@@ -858,8 +857,8 @@ void NewPartitionFrame::setupCloseButton()
 {
     // TODO: use titleBar implement.
     m_close_button = new DIconButton(this);
-    m_close_button->setFixedSize(40, 40);
-    m_close_button->setIconSize(QSize(40, 40));
+    m_close_button->setFixedSize(50, 50);
+    m_close_button->setIconSize(QSize(50, 50));
     m_close_button->setIcon(QIcon(":/images/close_normal.svg"));
     m_close_button->setFlat(true);
 }

@@ -142,7 +142,7 @@ void SelectTimeZoneFrame::initUI()
 {
     m_continentListView = new DListView;
     m_continentListView->setMinimumWidth(kContinentListViewWidth);
-    m_continentListView->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
+    m_continentListView->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Expanding);
     m_continentListView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_continentListView->setContextMenuPolicy(Qt::NoContextMenu);
     m_continentListView->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
@@ -164,7 +164,7 @@ void SelectTimeZoneFrame::initUI()
     m_timeZoneListView->setSelectionMode(QListView::NoSelection);
     m_timeZoneListView->setFrameShape(QFrame::NoFrame);
     m_timeZoneListView->setMinimumWidth(kTimeZoneListViewWidth);
-    m_timeZoneListView->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
+    m_timeZoneListView->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Expanding);
     m_timeZoneListView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_timeZoneListView->setContextMenuPolicy(Qt::NoContextMenu);
     m_timeZoneListView->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);

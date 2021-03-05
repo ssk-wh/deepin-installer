@@ -18,14 +18,14 @@
 #ifndef INSTALLER_UI_WIDGETS_SIMPLE_DISK_BUTTON_H
 #define INSTALLER_UI_WIDGETS_SIMPLE_DISK_BUTTON_H
 
-#include "ui/widgets/pointer_button.h"
-class QLabel;
+#include <QPushButton>
+#include <QLabel>
 
 #include "partman/device.h"
 
 namespace installer {
 
-class SimpleDiskButton : public PointerButton {
+class SimpleDiskButton : public QPushButton {
   Q_OBJECT
  public:
   SimpleDiskButton(const Device::Ptr device, QWidget* parent = nullptr);
@@ -43,6 +43,12 @@ class SimpleDiskButton : public PointerButton {
 
   const Device::Ptr device_;
   QLabel* os_label_ = nullptr;
+
+  QString m_labelStyleSheetBackup;
+  QLabel* model_label = nullptr;
+  QLabel* size_label = nullptr;
+  QLabel* path_label = nullptr;
+
   bool selected_ = false;
 };
 
