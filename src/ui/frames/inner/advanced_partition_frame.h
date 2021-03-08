@@ -130,7 +130,7 @@ class AdvancedPartitionFrame : public QFrame {
   // To hold all error labels.
   QVector<AdvancedPartitionErrorLabel*> error_labels_;
 
-  int m_lastPartionButtonOnFocus = -1;
+  int m_lastPartionButtonOnFocus = 0;
 
 protected slots:
   // Clear error message list and hide message container.

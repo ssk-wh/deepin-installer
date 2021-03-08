@@ -104,6 +104,8 @@ bool AdvancedPartitionFrame::focusSwitch()
                 testispartionbuttononfocus = true;
                 m_lastPartionButtonOnFocus = i;
                 break;
+            } else {
+                m_lastPartionButtonOnFocus = 0;
             }
         }
 
@@ -120,11 +122,7 @@ bool AdvancedPartitionFrame::focusSwitch()
                 editing_button_->clearFocus();
                 return true;
             } else {
-                if (m_lastPartionButtonOnFocus == -1) {
-                    partition_button_group_->buttons()[0]->setFocus();
-                } else {
-                    partition_button_group_->buttons()[m_lastPartionButtonOnFocus]->setFocus();
-                }
+                partition_button_group_->buttons()[m_lastPartionButtonOnFocus]->setFocus();
             }
         }
         return false;
