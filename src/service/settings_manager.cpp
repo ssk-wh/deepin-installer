@@ -977,4 +977,42 @@ void WritePasswdLevel(const int &level)
     AppendToConfigFile("DI_PASSWDLEVEL", level);
 }
 
+void ScanNetDevice()
+{
+    QDir work_dir = QDir("/sys/bus/pci/devices");
+
+    for (QString device : work_dir.entryList()) {
+        // 过滤虚拟设备
+        if ((device == ".") || (device == "..")) {
+            continue;
+        }
+
+        // 读取设备文件
+        QFile file(QString("%1/%2/uevent").arg(work_dir.path(), device));
+
+        if (!file.open(QIODevice::ReadOnly)) {
+            qWarning() << "failed file open. " << file.fileName();
+            continue;
+        }
+
+        // 设备文件需要使用qt的流方式读取，否则atEnd()无法正常终止循环
+        QTextStream in(&file);
+        QString line = in.readLine();
+        while (!line.isNull()) {
+            line = in.readLine();
+            if (line.contains("PCI_ID=")) {
+                QStringList pci_id = line.remove("PCI_ID=").split(":", QString::SkipEmptyParts);
+                QString pci_type= pci_id.isEmpty() ? QString() : "PCI";
+                QString vendor_id = (pci_id.size() == 2) ? pci_id.at(0) : QString();
+                QString device_id = (pci_id.size() == 2) ? pci_id.at(1) : QString();
+
+                AppendToConfigFile(QString("DI_VENDOR_%1_DEVICE_%2_%3").arg(vendor_id, device_id, pci_type), "true");
+            }
+        }
+
+        file.close();
+    }
+
+}
+
 }  // namespace installer

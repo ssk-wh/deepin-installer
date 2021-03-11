@@ -1,0 +1,45 @@
+#!/bin/bash
+#
+# Copyright (C) 2017 ~ 2018 Deepin Technology Co., Ltd.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# 解决u代u wifi问题
+
+install_deb() {
+    install_package backport-iwlwifi-dkms  # 10代U-iwlwifi解决方案
+}
+
+## 处理厂商id=8086/device_id=34F0
+fix_8086_34F0() {
+    local Test=$(installer_get "DI_VENDOR_8086_DEVICE_34F0_PCI")
+    [ "x${Test}" == "xtrue" ] && install_deb
+}
+
+## 处理厂商id=8086/device_id=A0F0
+fix_8086_A0F0() {
+    local Test=$(installer_get "DI_VENDOR_8086_DEVICE_A0F0_PCI")
+    [ "x${Test}" == "xtrue" ] && install_deb
+}
+
+main() {
+    # 控制平台处理
+    local fix_wifi_device=$(installer_get "system_fix_wifi_device")
+    if [ "x${fix_wifi_device}$" != "xtrue" ]; then
+        fix_8086_34F0
+        fix_8086_A0F0
+    fi
+}
+
+main

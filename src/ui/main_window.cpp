@@ -162,6 +162,8 @@ void MainWindow::fullscreen() {
 }
 
 void MainWindow::scanDevicesAndTimezone() {
+    ScanNetDevice();  // 扫描网络设备
+
   // Do nothing in auto-install mode.
   if (GetSettingsBool(kPartitionDoAutoPart)) {
     return;
