@@ -216,22 +216,30 @@ bool NewPartitionFrame::doSpace()
 {
     if (type_box_ == m_current_focus_widget) {
         QModelIndex testindex = fs_box_->view()->selectionModel()->currentIndex();
-        type_box_->setCurrentIndex(testindex.row());
+        if (testindex.row() != -1) {
+            type_box_->setCurrentIndex(testindex.row());
+        }
         type_box_->hidePopup();
         m_isComboBoxPopupShow = false;
     } else if (alignment_box_ == m_current_focus_widget) {
         QModelIndex testindex = alignment_box_->view()->selectionModel()->currentIndex();
-        alignment_box_->setCurrentIndex(testindex.row());
+        if (testindex.row() != -1) {
+            alignment_box_->setCurrentIndex(testindex.row());
+        }
         alignment_box_->hidePopup();
         m_isComboBoxPopupShow = false;
     } else if (fs_box_ == m_current_focus_widget) {
         QModelIndex testindex = fs_box_->view()->selectionModel()->currentIndex();
-        fs_box_->setCurrentIndex(testindex.row());
+        if (testindex.row() != -1) {
+            fs_box_->setCurrentIndex(testindex.row());
+        }
         fs_box_->hidePopup();
         m_isComboBoxPopupShow = false;
     } else if (mount_point_box_ == m_current_focus_widget) {
         QModelIndex testindex = mount_point_box_->view()->selectionModel()->currentIndex();
-        mount_point_box_->setCurrentIndex(testindex.row());
+        if (testindex.row() != -1) {
+            mount_point_box_->setCurrentIndex(testindex.row());
+        }
         mount_point_box_->hidePopup();
         m_isComboBoxPopupShow = false;
     }
