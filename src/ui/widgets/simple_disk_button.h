@@ -38,6 +38,8 @@ class SimpleDiskButton : public QPushButton {
   // Set whether current partition is selected.
   void setSelected(bool selected);
 
+  void setupToolTip();
+
  private:
   void initUI();
 

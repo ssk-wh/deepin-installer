@@ -234,16 +234,6 @@ void FullDiskFrame::initConnections() {
 void FullDiskFrame::initUI() {
   m_button_group = new QButtonGroup(this);
 
-  QLabel* tip_icon = new QLabel();
-  tip_icon->setPixmap(installer::renderPixmap(":/images/install_icon.svg"));
-  m_tip_label = new QLabel(::QObject::tr("Install here"));
-  m_tip_label->setObjectName("tip_label");
-  m_tip_label->setFixedHeight(18);
-  QPalette palette;
-  palette.setColor(QPalette::Text, QColor("#ff8000"));
-  m_tip_label->setPalette(palette);
-  addTransLate(m_trList, std::bind(&QLabel::setText, m_tip_label, std::placeholders::_1), ::QObject::tr("Install here"));
-
   m_encryptCheck = new QCheckBox;
   m_encryptCheck->setObjectName("check_box");
   m_encryptCheck->setCheckable(true);
@@ -277,19 +267,26 @@ void FullDiskFrame::initUI() {
       m_diskTooSmallTip->setText(msg.arg(min_size).arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : LicenseDelegate::product()).arg(recommend_size));
   }, ::QObject::tr("You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended"));
 
-  QHBoxLayout* tip_layout = new QHBoxLayout();
+  QLabel* tip_icon = new QLabel;
+  tip_icon->setPixmap(installer::renderPixmap(":/images/install_icon.svg"));
+
+  QPalette palette;
+  palette.setColor(QPalette::Text, QColor("#ff8000"));
+  m_tip_label = new QLabel(::QObject::tr("Install here"));
+  m_tip_label->setObjectName("tip_label");
+  m_tip_label->setPalette(palette);
+  addTransLate(m_trList, std::bind(&QLabel::setText, m_tip_label, std::placeholders::_1), ::QObject::tr("Install here"));
+
+  QHBoxLayout* tip_layout = new QHBoxLayout;
   tip_layout->setContentsMargins(0, 0, 0, 0);
   tip_layout->setSpacing(0);
-  tip_layout->addStretch();
   tip_layout->addWidget(tip_icon, 0, Qt::AlignVCenter);
   tip_layout->addWidget(m_tip_label, 0, Qt::AlignVCenter);
-  tip_layout->addStretch();
 
-  m_install_tip = new QFrame();
+  m_install_tip = new QFrame(this);
   m_install_tip->setObjectName("install_tip");
   m_install_tip->setContentsMargins(0, 0, 0, 0);
   // Same width as SimplePartitionButton.
-  m_install_tip->setFixedWidth(220);
   m_install_tip->setLayout(tip_layout);
   m_install_tip->hide();
 
@@ -306,7 +303,6 @@ void FullDiskFrame::initUI() {
   m_grid_wrapper->setObjectName("grid_wrapper");
   m_grid_wrapper->setLayout(m_grid_layout);
   m_grid_wrapper->setStyleSheet("QWidget#grid_wrapper::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
-  m_install_tip->setParent(m_grid_wrapper);
 
   m_diskInstallationWidget = new MultipleDiskInstallationWidget();
 
@@ -316,16 +312,17 @@ void FullDiskFrame::initUI() {
   m_disk_layout->addWidget(m_grid_wrapper);
   m_disk_layout->addWidget(m_diskInstallationWidget);
 
-  QHBoxLayout* hDiskLayout = new QHBoxLayout;
-  hDiskLayout->setContentsMargins(0, 0, 0, 0);
-  hDiskLayout->setSpacing(0);
-  hDiskLayout->addLayout(m_disk_layout);
+  QVBoxLayout* vDiskLayout = new QVBoxLayout;
+  vDiskLayout->setContentsMargins(0, 0, 0, 0);
+  vDiskLayout->setSpacing(0);
+  vDiskLayout->addLayout(m_disk_layout);
+  vDiskLayout->addWidget(m_install_tip, 0, Qt::AlignHCenter);
 
   DFrame* scroll_frame = new DFrame();
   scroll_frame->setFrameRounded(true);
   scroll_frame->setObjectName("scroll_frame");
   scroll_frame->setContentsMargins(0, 0, 0, 0);
-  scroll_frame->setLayout(hDiskLayout);
+  scroll_frame->setLayout(vDiskLayout);
   scroll_frame->setMaximumHeight(530);
 
   m_diskPartitionWidget = new FullDiskPartitionWidget;
@@ -336,10 +333,8 @@ void FullDiskFrame::initUI() {
   main_layout->setContentsMargins(0, 0, 0, 0);
   main_layout->setSpacing(2);
   main_layout->addWidget(scroll_frame, 0, Qt::AlignHCenter);
-  main_layout->addSpacing(10);
   main_layout->addWidget(m_diskPartitionWidget, 0, Qt::AlignHCenter);
   main_layout->addStretch();
-
   QHBoxLayout* h_layout = new QHBoxLayout();
   h_layout->addWidget(m_encryptCheck);
   h_layout->addWidget(m_installNvidiaCheck);
@@ -386,7 +381,7 @@ void FullDiskFrame::repaintDevices() {
       qWarning() << "Partition on device is busy!" << device->path;
       continue;
     }
-    SimpleDiskButton* button = new SimpleDiskButton(device);
+    SimpleDiskButton* button = new SimpleDiskButton(device, this);
 
     m_button_group->addButton(button);
     m_grid_layout->addWidget(button, row, column, Qt::AlignHCenter);
@@ -413,8 +408,8 @@ void FullDiskFrame::repaintDevices() {
 
 void FullDiskFrame::showInstallTip(QAbstractButton* button) {
   // Move install_tip to bottom of button
-  const QPoint pos = button->pos();
-  m_install_tip->move(pos.x(), pos.y());
+//  const QPoint pos = button->pos();
+//  m_install_tip->move(pos.x() + this->width() / 2/* - button->width() / 2*/, pos.y());
   m_install_tip->show();
 }
 
