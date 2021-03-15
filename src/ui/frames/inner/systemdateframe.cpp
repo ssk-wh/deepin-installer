@@ -189,8 +189,6 @@ bool SystemDateFrame::validateTimeDate() const
 
 void SystemDateFramePrivate::onYearEditingFinished()
 {
-    Q_Q(SystemDateFrame);
-    q->setFocus();
     if(!validateYear(m_yearEdit->text())){
         m_yearEdit->setText(QString::number(QDate::currentDate().year()));
     }
@@ -200,8 +198,6 @@ void SystemDateFramePrivate::onYearEditingFinished()
 
 void SystemDateFramePrivate::onMonthEditingFinished()
 {
-    Q_Q(SystemDateFrame);
-    q->setFocus();
     if(!validateMonth(m_monthEdit->text())){
         m_monthEdit->setText(QString::number(QDate::currentDate().month()));
     }
@@ -211,8 +207,6 @@ void SystemDateFramePrivate::onMonthEditingFinished()
 
 void SystemDateFramePrivate::onDayEditingFinished()
 {
-    Q_Q(SystemDateFrame);
-    q->setFocus();
     if(!validateDay(m_dayEdit->text())){
         m_dayEdit->setText(QString::number(QDate::currentDate().day()));
     }
@@ -220,8 +214,6 @@ void SystemDateFramePrivate::onDayEditingFinished()
 
 void SystemDateFramePrivate::onHourEditingFinished()
 {
-    Q_Q(SystemDateFrame);
-    q->setFocus();
     if (!check24Hour(m_hourEdit->text())) {
         m_hourEdit->setText(QString::number(0));
     } else if(!validateHour(m_hourEdit->text())){
@@ -231,8 +223,6 @@ void SystemDateFramePrivate::onHourEditingFinished()
 
 void SystemDateFramePrivate::onMinuteEditingFinished()
 {
-    Q_Q(SystemDateFrame);
-    q->setFocus();
     if(!validateMinute(m_minuteEdit->text())){
         m_minuteEdit->setText(QString::number(QTime::currentTime().minute()));
     }
@@ -427,6 +417,7 @@ bool SystemDateFrame::doSpace()
 
 bool SystemDateFrame::doSelect()
 {
+    setFocus();
     return true;
 }
 

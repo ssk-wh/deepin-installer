@@ -300,7 +300,9 @@ bool TimezoneFrame::doSpace()
 
 bool TimezoneFrame::doSelect()
 {
-    if (m_private->nextButton == m_current_focus_widget) {
+    if (m_private->m_systemDateFrame == m_current_focus_widget) {
+        m_private->m_systemDateFrame->doSelect();
+    } else if (m_private->nextButton == m_current_focus_widget) {
         emit m_private->nextButton->clicked();
     }
     return true;
