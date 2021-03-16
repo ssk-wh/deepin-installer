@@ -125,7 +125,6 @@ include_directories(AFTER ${X11RandR_INCLUDE_DIRS})
 include_directories(AFTER ${UDisk2_INCLUDE_DIRS})
 
 add_subdirectory(third_party/global_shortcut)
-add_subdirectory(third_party/googletest)
 add_subdirectory(third_party/qrencode)
 add_subdirectory(third_party/timezones)
 add_subdirectory(third_party/zlib_wrapper)

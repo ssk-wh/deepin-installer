@@ -16,5 +16,6 @@ add_subdirectory(check_hooks)
 add_subdirectory(resources)
 add_subdirectory(src)
 add_subdirectory(tools)
+add_subdirectory(tests)
 
 
