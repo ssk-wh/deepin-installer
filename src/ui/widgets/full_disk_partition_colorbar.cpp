@@ -13,7 +13,11 @@
 
 namespace installer {
 
+#ifdef QT_DEBUG
+const int kColorBarWidth = 500;  // 本地测试时，构建分区详情为三行的情况，防止三行显示被遮挡
+#else
 const int kColorBarWidth = 543;
+#endif //QT_DEBUG
 //const int kPartitionLabelSpace = 10;
 
 //const int kPartitionNameFont = 14;

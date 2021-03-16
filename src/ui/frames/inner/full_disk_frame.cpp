@@ -330,11 +330,11 @@ void FullDiskFrame::initUI() {
 
   m_diskPartitionWidget = new FullDiskPartitionWidget;
   m_diskPartitionWidget->setObjectName("m_diskPartitionWidget");
-  m_diskPartitionWidget->setMinimumHeight(75);
+  m_diskPartitionWidget->setMinimumHeight(85);
 
   QVBoxLayout* main_layout = new QVBoxLayout();
   main_layout->setContentsMargins(0, 0, 0, 0);
-  main_layout->setSpacing(0);
+  main_layout->setSpacing(2);
   main_layout->addWidget(scroll_frame, 0, Qt::AlignHCenter);
   main_layout->addSpacing(10);
   main_layout->addWidget(m_diskPartitionWidget, 0, Qt::AlignHCenter);
@@ -343,9 +343,9 @@ void FullDiskFrame::initUI() {
   QHBoxLayout* h_layout = new QHBoxLayout();
   h_layout->addWidget(m_encryptCheck);
   h_layout->addWidget(m_installNvidiaCheck);
-  main_layout->addSpacing(20);
+  main_layout->addSpacing(10);
   main_layout->addLayout(h_layout);
-  main_layout->addSpacing(20);
+  main_layout->addSpacing(10);
   main_layout->setAlignment(h_layout, Qt::AlignHCenter);
   main_layout->addWidget(m_errorTip, 0, Qt::AlignHCenter);
   main_layout->addWidget(m_diskTooSmallTip, 0, Qt::AlignHCenter);

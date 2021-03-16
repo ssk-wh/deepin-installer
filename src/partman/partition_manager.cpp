@@ -540,13 +540,13 @@ DeviceList ScanDevices(bool enable_os_prober) {
       // add a MBR disk which has not any partitions.
       devices << constructDevice1(deviceNum);
 
-      // add a MBR disk which has two partitions.
-      ++deviceNum;
-      devices << constructDevice2(deviceNum);
+//      // add a MBR disk which has two partitions.
+//      ++deviceNum;
+//      devices << constructDevice2(deviceNum);
 
-      // add a GPT disk which has four partitions and one of the partitions is working.
-      ++deviceNum;
-      devices << constructDevice3(deviceNum);
+//      // add a GPT disk which has four partitions and one of the partitions is working.
+//      ++deviceNum;
+//      devices << constructDevice3(deviceNum);
   #endif // QT_DEBUG
 
   QCollator collator;
