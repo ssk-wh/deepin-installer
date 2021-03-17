@@ -74,8 +74,6 @@ uninstall_packages() {
     add_uninstall_package "wireshark-common"
   fi
 
-  add_uninstall_package "imagemagick*"
-
   local list=$(installer_get "DI_UNINSTALL_PACKAGES")
 
   # 增加system_module_debug判断，用于隔离安装包超时逻辑的修改
