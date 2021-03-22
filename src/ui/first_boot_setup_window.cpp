@@ -349,14 +349,7 @@ void FirstBootSetupWindow::initPages()
     m_frameLabelsView->setModel(m_frameLabelsModel);
     m_frameLabelsView->setItemMargins(QMargins(10,0,10,0));
 
-    m_frameSelectedLayout->addSpacing(60);
-    QSpacerItem *testvSpacer_1 = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Expanding);
-    testvSpacer_1->setAlignment(Qt::AlignVCenter);
-    QSpacerItem *testvSpacer_2 = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Expanding);
-    testvSpacer_2->setAlignment(Qt::AlignVCenter);
-    m_frameSelectedLayout->addSpacerItem(testvSpacer_1);
-    m_frameSelectedLayout->addWidget(m_frameLabelsView, 0, Qt::AlignHCenter);
-    m_frameSelectedLayout->addSpacerItem(testvSpacer_2);
+    m_frameSelectedLayout->addWidget(m_frameLabelsView, 0, Qt::AlignHCenter | Qt::AlignVCenter);
 
     constructLabelView();
 
@@ -474,8 +467,7 @@ void FirstBootSetupWindow::constructLabelView()
         m_frameModelItemMap[frame] = item;
     }
 
-    m_frameLabelsView->setMinimumHeight((kLeftViewItemHeight * m_frameLabelsModel->rowCount()) + (kLeftViewItemSpacing * m_frameLabelsModel->rowCount()) + kLeftViewItemSpacing);
-    m_frameLabelsView->setMaximumHeight((kLeftViewItemHeight * m_frameLabelsModel->rowCount()) + (kLeftViewItemSpacing * m_frameLabelsModel->rowCount()) + kLeftViewItemSpacing);
+    m_frameLabelsView->setFixedHeight((kLeftViewItemHeight + kLeftViewItemSpacing) * m_frameLabelsModel->rowCount());
 }
 
 void FirstBootSetupWindow::showExtFrameFullscreen(BaseFrameInterface *childFrameInterface)
