@@ -71,14 +71,13 @@ private:
     void repaintDevices();
 
     // Show install_tip at bottom of |button|.
-    void showInstallTip(QAbstractButton* button);
+    void showInstallTip(bool isshow);
 
-    // Show install_tip at bottom of |button|.
-    //  void showInstallTip(QAbstractButton* button);
 
     FullDiskDelegate* m_delegate     = nullptr;
     QButtonGroup*     m_button_group = nullptr;
     QFrame*           m_install_tip  = nullptr;
+    QLabel*           m_tip_icon     = nullptr;
     QLabel*           m_tip_label    = nullptr;
     QGridLayout*      m_grid_layout  = nullptr;
     QFrame*           m_grid_wrapper = nullptr;

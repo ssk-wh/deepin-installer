@@ -167,7 +167,9 @@ bool FullDiskFrame::doSpace()
             m_encryptCheck->setCheckState(Qt::Checked);
         }
     } else if (m_grid_wrapper->hasFocus()) {
-        m_button_group->buttons().at(0)->toggle();
+        if(m_button_group->buttons().size() > 0) {
+            m_button_group->buttons().at(0)->toggle();
+        }
     }
     return true;
 }
@@ -175,7 +177,9 @@ bool FullDiskFrame::doSpace()
 bool FullDiskFrame::doSelect()
 {
     if (m_grid_wrapper->hasFocus()) {
-        m_button_group->buttons().at(0)->toggle();
+        if(m_button_group->buttons().size() > 0) {
+            m_button_group->buttons().at(0)->toggle();
+        }
     }
     return true;
 }
@@ -197,7 +201,10 @@ void FullDiskFrame::changeEvent(QEvent* event) {
         m_installNvidiaCheck->setText(::QObject::tr("Install NVIDIA closed source driver"));
         m_encryptCheck->setText(::QObject::tr("Encrypt This Disk"));
         m_errorTip->setText(::QObject::tr("Please select a disk to start installation"));
-        m_tip_label->setText(::QObject::tr("Install here"));
+
+        if ( !m_tip_label->text().isEmpty() ) {
+            showInstallTip(true);
+        }
 
         int min_size = GetSettingsInt(kPartitionFullDiskMiniSpace);
         int recommend_size = GetSettingsInt(kPartitionRecommendedDiskSpace);
@@ -267,12 +274,12 @@ void FullDiskFrame::initUI() {
       m_diskTooSmallTip->setText(msg.arg(min_size).arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : LicenseDelegate::product()).arg(recommend_size));
   }, ::QObject::tr("You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended"));
 
-  QLabel* tip_icon = new QLabel;
-  tip_icon->setPixmap(installer::renderPixmap(":/images/install_icon.svg"));
+  m_tip_icon = new QLabel;
+  m_tip_icon->setPixmap(installer::renderPixmap(":/images/install_icon.svg"));
 
   QPalette palette;
   palette.setColor(QPalette::Text, QColor("#ff8000"));
-  m_tip_label = new QLabel(::QObject::tr("Install here"));
+  m_tip_label = new QLabel("");
   m_tip_label->setObjectName("tip_label");
   m_tip_label->setPalette(palette);
   addTransLate(m_trList, std::bind(&QLabel::setText, m_tip_label, std::placeholders::_1), ::QObject::tr("Install here"));
@@ -280,7 +287,7 @@ void FullDiskFrame::initUI() {
   QHBoxLayout* tip_layout = new QHBoxLayout;
   tip_layout->setContentsMargins(0, 0, 0, 0);
   tip_layout->setSpacing(0);
-  tip_layout->addWidget(tip_icon, 0, Qt::AlignVCenter);
+  tip_layout->addWidget(m_tip_icon, 0, Qt::AlignVCenter);
   tip_layout->addWidget(m_tip_label, 0, Qt::AlignVCenter);
 
   m_install_tip = new QFrame(this);
@@ -288,7 +295,7 @@ void FullDiskFrame::initUI() {
   m_install_tip->setContentsMargins(0, 0, 0, 0);
   // Same width as SimplePartitionButton.
   m_install_tip->setLayout(tip_layout);
-  m_install_tip->hide();
+  showInstallTip(false);
 
   m_grid_layout = new QGridLayout();
   m_grid_layout->setSpacing(0);
@@ -365,7 +372,7 @@ void FullDiskFrame::repaintDevices() {
   }
 
   // Hide tooltip frame
-  m_install_tip->hide();
+  showInstallTip(false);
 
   // Draw partitions.
   int row = 0, column = 0;
@@ -392,6 +399,7 @@ void FullDiskFrame::repaintDevices() {
       column = 0;
       row += 1 ;
     }
+    break;
   }
 
   // Add place holder. It is used for install_tip
@@ -406,22 +414,25 @@ void FullDiskFrame::repaintDevices() {
   m_grid_wrapper->adjustSize();
 }
 
-void FullDiskFrame::showInstallTip(QAbstractButton* button) {
-  // Move install_tip to bottom of button
-//  const QPoint pos = button->pos();
-//  m_install_tip->move(pos.x() + this->width() / 2/* - button->width() / 2*/, pos.y());
-  m_install_tip->show();
+void FullDiskFrame::showInstallTip(bool isshow) {
+    if (isshow) {
+        m_tip_icon->show();
+        m_tip_label->setText(::QObject::tr("Install here"));
+    } else {
+        m_tip_icon->hide();
+        m_tip_label->setText("");
+    }
 }
 
 void FullDiskFrame::onDeviceRefreshed() {
   this->repaintDevices();
   m_delegate->removeAllSelectedDisks();
-  if (m_delegate->virtualDevices().size() > 1) {
-      m_disk_layout->setCurrentWidget(m_diskInstallationWidget);
-  }
-  else {
+//  if (m_delegate->virtualDevices().size() > 1) {
+//      m_disk_layout->setCurrentWidget(m_diskInstallationWidget);
+//  }
+//  else {
       m_disk_layout->setCurrentWidget(m_grid_wrapper);
-  }
+//  }
   m_diskTooSmallTip->hide();
   emit enableNextButton(!m_diskTooSmallTip->isVisible());
 }
@@ -439,7 +450,7 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
     part_button->setSelected(false);
   } else {
     // Hide tooltip.
-    m_install_tip->hide();
+    showInstallTip(false);
 
     m_delegate->addSystemDisk(part_button->device()->path);
     const QString path = part_button->device()->path;
