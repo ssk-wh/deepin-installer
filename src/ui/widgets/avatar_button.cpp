@@ -50,22 +50,4 @@ void AvatarButton::updateIcon(const QString& icon) {
   this->update();
 }
 
-void AvatarButton::paintEvent(QPaintEvent* event) {
-  Q_UNUSED(event);
-  QPainter painter(this);
-
-  const QRect ellipse_rect((width() - kIconSize) / 2, (height() - kIconSize) /2,
-                           kIconSize, kIconSize);
-  QPainterPath path;
-  path.addEllipse(ellipse_rect);
-  painter.setRenderHint(QPainter::Antialiasing);
-  // Scale image.
-  painter.setRenderHint(QPainter::SmoothPixmapTransform);
-  painter.setClipPath(path);
-
-  painter.drawPixmap(ellipse_rect, m_iconPixmap);
-
-  painter.end();
-}
-
 }  // namespace installer

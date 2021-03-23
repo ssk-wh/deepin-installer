@@ -35,9 +35,6 @@ class AvatarButton : public FlatButton {
   void updateIcon(const QString& icon);
   QString avatar() const { return icon_; }
 
- protected:
-  void paintEvent(QPaintEvent* event) override;
-
  private:
   QString icon_;
   QPixmap m_iconPixmap;

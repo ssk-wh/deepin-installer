@@ -23,7 +23,10 @@
 
 namespace installer {
 
-PointerListView::PointerListView(QWidget* parent) : QListView(parent) {
+PointerListView::PointerListView(QWidget* parent)
+    : QListView(parent)
+    , m_isMousePressed(false)
+{
   this->setObjectName("pointer_list_view");
   this->setMouseTracking(true);
 }
@@ -40,7 +43,24 @@ void PointerListView::mouseMoveEvent(QMouseEvent* event) {
       setCursor(QCursor(Qt::ArrowCursor));
     }
   }
-  QListView::mouseMoveEvent(event);
+
+  if (!m_isMousePressed) {
+      QListView::mouseMoveEvent(event);
+  }
+}
+
+void PointerListView::mousePressEvent(QMouseEvent *event)
+{
+    m_isMousePressed = true;
+
+    QListView::mousePressEvent(event);
+}
+
+void PointerListView::mouseReleaseEvent(QMouseEvent *event)
+{
+    m_isMousePressed = false;
+
+    QListView::mouseReleaseEvent(event);
 }
 
 }  // namespace installer

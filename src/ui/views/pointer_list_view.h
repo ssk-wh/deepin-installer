@@ -31,6 +31,11 @@ class PointerListView : public QListView {
 
  protected:
   void mouseMoveEvent(QMouseEvent* event) override;
+  void mousePressEvent(QMouseEvent* event) override;
+  void mouseReleaseEvent(QMouseEvent* event) override;
+
+private:
+  bool m_isMousePressed = false;
 };
 
 }  // namespace installer
