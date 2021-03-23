@@ -221,16 +221,26 @@ void SystemInfoAvatarFramePrivate::initConnections() {
 }
 
 void SystemInfoAvatarFramePrivate::onListViewPressed(const QModelIndex& index) {
+    if (!index.isValid()) {
+        qCritical() << "Invalid model index";
+        return;
+    }
+
+    if (index.row() >= list_view_->model()->rowCount()) {
+        qCritical() << "Index row isn't less than model count";
+        return;
+    }
+
   list_view_->setCurrentIndex(index);
   const QString avatar = index.model()->data(index).toString();
   Q_Q(SystemInfoAvatarFrame);
 
   if (IsValidAvatar(avatar)) {
     emit q->avatarUpdated(avatar);
+    m_currentIndex = index.row();
   } else {
     qWarning() << "Invalid avatar:" << avatar;
   }
-  emit q->finished();
 }
 
 }  // namespace installer

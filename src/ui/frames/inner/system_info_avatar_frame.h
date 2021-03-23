@@ -40,8 +40,6 @@ class SystemInfoAvatarFrame : public QFrame {
   // Emitted when an avatar is selected.
   void avatarUpdated(const QString& avatar);
 
-  void finished();
-
  public slots:
   // Read default avatar and emit avatarUpdated() signal.
   void readConf();
