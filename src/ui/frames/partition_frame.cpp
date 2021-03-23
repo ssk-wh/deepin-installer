@@ -156,6 +156,7 @@ public:
      SimplePartitionDelegate* simple_partition_delegate_ = nullptr;
 
      QHBoxLayout* next_layout = nullptr;
+     bool m_isOnButtonBoxWidget = false;
 };
 
 PartitionFrame::PartitionFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
@@ -278,6 +279,7 @@ bool PartitionFrame::focusSwitch()
                 m_private->prepare_install_frame_->focusSwitch();
             } else {
                 this->setCurentFocus(m_private->m_buttonBoxWidget);
+                m_private->m_isOnButtonBoxWidget = true;
             }
         } else if (m_private->m_buttonBoxWidget == m_current_focus_widget) {
             //焦点落在分区模式切换控件上，被选中的按钮确定当前属于哪种分区模式
@@ -295,12 +297,24 @@ bool PartitionFrame::focusSwitch()
                 } else {
                     if (m_private->advanced_partition_frame_->focusSwitch()) {
                         this->setCurentFocus(m_private->nextButton);
+                    } else {
+                        m_private->m_isOnButtonBoxWidget = false;
                     }
                 }
             } else if (m_private->full_disk_frame_button_->isChecked()) {
-                this->setCurentFocus(m_private->full_disk_partition_frame_);
+                //this->setCurentFocus(m_private->full_disk_partition_frame_);
+                //当前处于全盘分区界面
+                if (m_private->full_disk_partition_frame_->focusSwitch()) {
+                    if (m_private->full_disk_encrypt_frame_->isVisible()) {
+                        this->setCurentFocus(m_private->full_disk_encrypt_frame_);
+                    } else {
+                        this->setCurentFocus(m_private->nextButton);
+                    }
+                } else {
+                    m_private->m_isOnButtonBoxWidget = false;
+                }
             }
-        } else if (m_private->full_disk_partition_frame_ == m_current_focus_widget) {
+        }/*else if (m_private->full_disk_partition_frame_ == m_current_focus_widget) {
             //当前处于全盘分区界面
             if (m_private->full_disk_partition_frame_->focusSwitch()) {
                 if (m_private->full_disk_encrypt_frame_->isVisible()) {
@@ -309,7 +323,7 @@ bool PartitionFrame::focusSwitch()
                     this->setCurentFocus(m_private->nextButton);
                 }
             }
-        } else if(m_private->full_disk_encrypt_frame_ == m_current_focus_widget) {
+        } */else if(m_private->full_disk_encrypt_frame_ == m_current_focus_widget) {
             if (m_private->full_disk_encrypt_frame_->isVisible()) {
                 m_private->full_disk_encrypt_frame_->focusSwitch();
             } else {
@@ -400,7 +414,8 @@ bool PartitionFrame::directionKey(int keyvalue)
     case Qt::Key_Left: {
             if (!m_private->lvm_partition_frame_->isVisible()) {
                 //这里处理当LVM界面显示的时候，按下键盘左右键，界面会跳转到其他界面的bug
-                if (m_private->m_buttonBoxWidget == m_current_focus_widget) {
+                //if (m_private->m_buttonBoxWidget == m_current_focus_widget) {
+                if ( m_private->m_isOnButtonBoxWidget ) {
                     m_private->advanced_frame_button_->setChecked(true);
                     m_private->full_disk_frame_button_->setChecked(false);
                     m_private->partition_stacked_layout_->setCurrentWidget(m_private->advanced_partition_frame_);
@@ -410,7 +425,8 @@ bool PartitionFrame::directionKey(int keyvalue)
         break;
     case Qt::Key_Right: {
             if (!m_private->lvm_partition_frame_->isVisible()) {
-                if (m_private->m_buttonBoxWidget == m_current_focus_widget) {
+                //if (m_private->m_buttonBoxWidget == m_current_focus_widget) {
+                if ( m_private->m_isOnButtonBoxWidget ) {
                     m_private->advanced_frame_button_->setChecked(false);
                     m_private->full_disk_frame_button_->setChecked(true);
                     m_private->partition_stacked_layout_->setCurrentWidget(m_private->full_disk_partition_frame_);
