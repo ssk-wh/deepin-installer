@@ -19,6 +19,9 @@ public:
     int getMainWindowTopMargin();
     int getChildWindowTopMargin();
 
+    double getWidthZoomRatio() const;
+    double getHeightZoomRatio() const;
+
 Q_SIGNALS:
     void screenGeometryChanged(const QRect &rect);
     void primaryGeometryChanged(const QRect &rect);

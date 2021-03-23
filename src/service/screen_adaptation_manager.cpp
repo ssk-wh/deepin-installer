@@ -41,7 +41,7 @@ QPixmap installer::ScreenAdaptationManager::adapterPixmap(const QPixmap &pixmap)
 {
     return pixmap.scaled(pixmap.size().width() / m_widthZoomRatio,
                          pixmap.size().height() / m_heightZoomRatio,
-                         Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+                         Qt::KeepAspectRatio, Qt::SmoothTransformation);
 }
 
 QRect installer::ScreenAdaptationManager::primaryAvailableGeometry()
@@ -69,6 +69,16 @@ int installer::ScreenAdaptationManager::getChildWindowTopMargin()
     }
 
     return 0;
+}
+
+double installer::ScreenAdaptationManager::getWidthZoomRatio() const
+{
+    return m_widthZoomRatio;
+}
+
+double installer::ScreenAdaptationManager::getHeightZoomRatio() const
+{
+    return m_heightZoomRatio;
 }
 
 
