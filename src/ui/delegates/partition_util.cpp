@@ -176,6 +176,7 @@ DeviceList FilterInstallerDevice(const DeviceList& devices)
     }
 
     const QString installer_device_path(GetInstallerDevicePath());
+    qDebug() << "installer_device_path = " << installer_device_path;
     for (const Device::Ptr device : devices) {
         if (ignored_list.contains(device->path)) {
             qInfo() << QString("IgnoreDevices::Device:{%1} is ignored!").arg(device->path);
@@ -254,7 +255,8 @@ QString GetInstallerDevicePath() {
 
   for (const MountItem& item : list) {
     if (item.mount == casper_path || item.mount == live_path) {
-      return item.path;
+        // 如果是软链接文件则返回文件所对应的实体文件，否则返回文件本身
+        return QFileInfo(item.path).isSymLink() ? QFileInfo(item.path).symLinkTarget() : item.path;
     }
   }
 
