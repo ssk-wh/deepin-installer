@@ -163,12 +163,16 @@ bool EditPartitionFrame::doSpace()
 {
     if (fs_box_ == m_current_focus_widget) {
         QModelIndex testindex = fs_box_->view()->selectionModel()->currentIndex();
-        fs_box_->setCurrentIndex(testindex.row());
+        if (testindex.row() != -1) {
+            fs_box_->setCurrentIndex(testindex.row());
+        }
         fs_box_->hidePopup();
         m_isComboBoxPopupShow = false;
     } else if (mount_point_box_ == m_current_focus_widget) {
         QModelIndex testindex = mount_point_box_->view()->selectionModel()->currentIndex();
-        mount_point_box_->setCurrentIndex(testindex.row());
+        if (testindex.row() != -1) {
+            mount_point_box_->setCurrentIndex(testindex.row());
+        }
         mount_point_box_->hidePopup();
         m_isComboBoxPopupShow = false;
     } else if (format_check_box_ == m_current_focus_widget) {

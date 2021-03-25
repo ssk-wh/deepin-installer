@@ -399,7 +399,6 @@ void FullDiskFrame::repaintDevices() {
       column = 0;
       row += 1 ;
     }
-    break;
   }
 
   // Add place holder. It is used for install_tip
@@ -427,12 +426,12 @@ void FullDiskFrame::showInstallTip(bool isshow) {
 void FullDiskFrame::onDeviceRefreshed() {
   this->repaintDevices();
   m_delegate->removeAllSelectedDisks();
-//  if (m_delegate->virtualDevices().size() > 1) {
-//      m_disk_layout->setCurrentWidget(m_diskInstallationWidget);
-//  }
-//  else {
+  if (m_delegate->virtualDevices().size() > 1) {
+      m_disk_layout->setCurrentWidget(m_diskInstallationWidget);
+  }
+  else {
       m_disk_layout->setCurrentWidget(m_grid_wrapper);
-//  }
+  }
   m_diskTooSmallTip->hide();
   emit enableNextButton(!m_diskTooSmallTip->isVisible());
 }
