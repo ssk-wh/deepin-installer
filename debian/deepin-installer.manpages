@@ -1,0 +1,12 @@
+debian/deepin-installer-bases.1
+debian/deepin-installer-both.1
+debian/deepin-installer-cli-install.1
+debian/deepin-installer-cli.1
+debian/deepin-installer-first-boot-pkexec.1
+debian/deepin-installer-first-boot.1
+debian/deepin-installer-init.1
+debian/deepin-livecd-relaunch.1
+debian/deepin-installer-pkexec.1
+debian/deepin-installer-settings.1
+debian/deepin-installer-simpleini.1
+debian/deepin-installer.1
