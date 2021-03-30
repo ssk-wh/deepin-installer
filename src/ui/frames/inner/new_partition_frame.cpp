@@ -196,11 +196,15 @@ bool NewPartitionFrame::focusSwitch()
     } else if (fs_box_ == m_current_focus_widget) {
         fs_box_->hidePopup();
         m_isComboBoxPopupShow = false;
-        this->setCurentFocus(mount_point_box_);
-    } else if (mount_point_box_ == m_current_focus_widget) {
         if (mount_point_box_->isVisible()) {
-            mount_point_box_->hidePopup();
-            m_isComboBoxPopupShow = false;
+            this->setCurentFocus(mount_point_box_);
+        } else if (size_slider_->isVisible()) {
+            this->setCurentFocus(size_slider_);
+        }
+    } else if (mount_point_box_ == m_current_focus_widget) {
+        mount_point_box_->hidePopup();
+        m_isComboBoxPopupShow = false;
+        if (size_slider_->isVisible()) {
             this->setCurentFocus(size_slider_);
         } else {
             this->setCurentFocus(cancel_button_);

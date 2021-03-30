@@ -142,17 +142,19 @@ bool EditPartitionFrame::focusSwitch()
         m_isComboBoxPopupShow = false;
         if(mount_point_box_->isVisible()){
             this->setCurentFocus(mount_point_box_);
+        } else if (format_check_box_->isVisible() && format_check_box_->isEnabled()) {
+            this->setCurentFocus(format_check_box_);
         } else {
-            if (format_check_box_->isVisible()) {
-                this->setCurentFocus(format_check_box_);
-            } else {
-                this->setCurentFocus(ok_button_);
-            }
+            this->setCurentFocus(ok_button_);
         }
     } else if(mount_point_box_ == m_current_focus_widget) {
         mount_point_box_->hidePopup();
         m_isComboBoxPopupShow = false;
-        this->setCurentFocus(format_check_box_);
+        if (format_check_box_->isVisible() && format_check_box_->isEnabled()) {
+            this->setCurentFocus(format_check_box_);
+        } else {
+            this->setCurentFocus(ok_button_);
+        }
     } else if (format_check_box_ == m_current_focus_widget) {
         this->setCurentFocus(ok_button_);
     }
@@ -176,7 +178,7 @@ bool EditPartitionFrame::doSpace()
         mount_point_box_->hidePopup();
         m_isComboBoxPopupShow = false;
     } else if (format_check_box_ == m_current_focus_widget) {
-        format_check_box_->setCheckState(Qt::Checked);
+        format_check_box_->setChecked(!format_check_box_->isChecked());
     }
     return true;
 }
