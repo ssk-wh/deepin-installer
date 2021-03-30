@@ -118,6 +118,8 @@ public:
      void showDynamicDiskFrame();
      void showPrepareInstallFrame();
 
+     bool isEncrypt();
+
      PartitionFrame* q_ptr=nullptr;
 
      AdvancedPartitionFrame* advanced_partition_frame_ = nullptr;
@@ -203,7 +205,7 @@ void PartitionFrame::autoPart() {
         return;
     }
 
-    if (m_private->full_disk_partition_frame_->isEncrypt()) {
+    if (m_private->isEncrypt()) {
         WriteFullDiskMode(true);
         m_private->partition_model_->autoPart();
     }
@@ -466,7 +468,7 @@ PartitionFramePrivate::~PartitionFramePrivate()
 void PartitionFramePrivate::initConnections() {
   disconnect(nextButton, nullptr, nullptr, nullptr);
   connect(nextButton, &QPushButton::clicked, this, [=] {
-       if (partition_stacked_layout_->currentWidget() == full_disk_partition_frame_ && full_disk_partition_frame_->isEncrypt()) {
+       if (partition_stacked_layout_->currentWidget() == full_disk_partition_frame_ && this->isEncrypt()) {
            showEncryptFrame();
        }
        else {
@@ -551,7 +553,7 @@ void PartitionFramePrivate::initConnections() {
   connect(prepare_install_frame_, &PrepareInstallFrame::aborted,
           this, &PartitionFramePrivate::showMainFrame);
   connect(prepare_install_frame_, &PrepareInstallFrame::finished, this, [=] {
-      if (!GetSettingsBool(KPartitionSkipFullCryptPage) && full_disk_partition_frame_->isEncrypt()) {
+      if (!GetSettingsBool(KPartitionSkipFullCryptPage) && this->isEncrypt()) {
         q_ptr->autoPart();
         q_ptr->m_proxy->nextFrame();
       }
@@ -608,7 +610,7 @@ void PartitionFramePrivate::initConnections() {
   connect(full_disk_encrypt_frame_, &Full_Disk_Encrypt_frame::encryptFinished, q_ptr, [=] {
       //      q_ptr->autoPart();
       //      q_ptr->m_proxy->nextFrame();
-      setupDiskEncrypt(full_disk_partition_frame_->isEncrypt()); // 设置全盘分区场景下的全盘加密
+      setupDiskEncrypt(this->isEncrypt()); // 设置全盘分区场景下的全盘加密
 
       q_ptr->m_proxy->hideChildFrame();
       showPrepareInstallFrame();
@@ -846,7 +848,7 @@ void PartitionFramePrivate::onButtonGroupToggled(QAbstractButton *button)
     bool isDiskEncrypt = false;
     if (button == full_disk_frame_button_){
         qDebug() << "on fulldisk button toggled";
-        isDiskEncrypt = full_disk_partition_frame_->isEncrypt();
+        isDiskEncrypt = this->isEncrypt();
         if (!GetSettingsBool(kPartitionSkipFullDiskPartitionPage)) {
             partition_stacked_layout_->setCurrentWidget(full_disk_partition_frame_);
         }
@@ -968,7 +970,7 @@ void PartitionFramePrivate::onPrepareInstallFrameFinished() {
     bool found_boot = false;
     if (isSimplePartitionMode()) {
         found_boot = simple_partition_delegate_->setBootFlag();
-    } else if (isFullDiskPartitionMode() && !full_disk_partition_frame_->isEncrypt()){
+    } else if (isFullDiskPartitionMode() && !this->isEncrypt()){
         found_boot = full_disk_delegate_->setBootFlag();
     } else if (AdvancedPartitionDelegate::install_Lvm_Status != Install_Lvm_Status::Lvm_Install) {
         found_boot = advanced_delegate_->setBootFlag();
@@ -985,7 +987,7 @@ void PartitionFramePrivate::onPrepareInstallFrameFinished() {
     OperationList operations;
     if (isSimplePartitionMode()) {
         operations = simple_partition_delegate_->operations();
-    } else if (isFullDiskPartitionMode() && !full_disk_partition_frame_->isEncrypt()) {
+    } else if (isFullDiskPartitionMode() && !this->isEncrypt()) {
         operations = full_disk_delegate_->operations();
     } else if (AdvancedPartitionDelegate::install_Lvm_Status != Install_Lvm_Status::Lvm_Install){
         operations = advanced_delegate_->operations();
@@ -996,7 +998,7 @@ void PartitionFramePrivate::onPrepareInstallFrameFinished() {
     }
 
     // full disk encrypt operations is empty.
-    if (isFullDiskPartitionMode() && full_disk_partition_frame_->isEncrypt()) {
+    if (isFullDiskPartitionMode() && this->isEncrypt()) {
         q_ptr->m_proxy->nextFrame();
     }
     else if (operations.isEmpty()) {
@@ -1109,7 +1111,7 @@ void PartitionFramePrivate::showSelectBootloaderFrame() {
 void PartitionFramePrivate::showEncryptFrame()
 {
     if (full_disk_partition_frame_->validate()) {
-        if (!GetSettingsBool(KPartitionSkipFullCryptPage) && full_disk_partition_frame_->isEncrypt()) {
+        if (!GetSettingsBool(KPartitionSkipFullCryptPage) && this->isEncrypt()) {
             q_ptr->m_proxy->showChildFrame(full_disk_encrypt_frame_);
         }
         else {
@@ -1145,6 +1147,11 @@ void PartitionFramePrivate::showPrepareInstallFrame()
     main_layout_->setCurrentWidget(prepare_install_frame_);
 
     emit q_ptr->coverMainWindowFrameLabelsView(true);
+}
+
+bool PartitionFramePrivate::isEncrypt()
+{
+    return isFullDiskPartitionMode() && full_disk_partition_frame_->isEncrypt();
 }
 
 }  // namespace installer
