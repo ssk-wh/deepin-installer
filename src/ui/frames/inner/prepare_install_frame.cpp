@@ -98,7 +98,11 @@ bool PrepareInstallFrame::focusSwitch()
         }
     } else if (testscroll->hasFocus()) {
         testscroll->setStyleSheet(m_scrollareaStyleSheetold);
-        m_selectCreateRecovery->setFocus();
+        if (m_selectCreateRecovery->isVisible()) {
+            m_selectCreateRecovery->setFocus();
+        } else {
+            continue_button_->setFocus();
+        }
     } else if (m_selectCreateRecovery->hasFocus()) {
         continue_button_->setFocus();
     } else {
