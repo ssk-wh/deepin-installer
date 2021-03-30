@@ -37,14 +37,14 @@ const int kItemSpace = 10;
 const int kOsIconLeftMargin = 10;
 // Left margin of text content.
 const int kTextLeftMargin = 40;
-const int kDiskSizeLeftMarin = 173;
-const int kDiskPercentLeftMarin = 250;
+const int kDiskSizeLeftMarin = 160;
+const int kDiskPercentLeftMarin = 285;
 const int kDiskPercentHeight = 6;
-const int kSelectedLeftMargin = 366;
+const int kSelectedLeftMargin = 380;
 // Right margin of selected item, used to locate background image.
 const int kSelectedRightMargin = 2;
 // Size of bottom border.
-const int kItemRightMargin = 10;
+const int kItemRightMargin = 6;
 const QString kDriverIcon = ":/images/drive-harddisk-64px.svg";
 const QString kDriverInstallIcon = GetUosAndDeepinLogo128();
 
