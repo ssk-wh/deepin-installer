@@ -129,9 +129,12 @@ QDir GetOemDir() {
   return QDir(g_oem_dir);
 }
 
-
 QString GetCurrentPlatform() {
     QMap<QString, QString> BUILD_ARCH_MAP{ { "x86_64",  "x86" },
+                                           { "i386", "x86" },
+                                           { "i686", "x86" },
+                                           { "amd64", "x86" },
+                                           { "x86", "x86" },
                                            { "sw_64",   "sw" },
                                            { "mips64", "loongson" },
                                            { "loongarch64", "loongarch64" },
