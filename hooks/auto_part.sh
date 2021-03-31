@@ -106,15 +106,17 @@ get_max_capacity_device(){
 
 # Create new partition table.
 new_part_table(){
-  if [ $EFI ] || [ is_sw ] ; then
+  if [ "x$EFI" == "xtrue" ] || is_sw ; then
     local part_table="gpt"
   else
     local part_table="msdos"
   fi
 
-
+  echo "part_table=${part_table}"
   parted -s "$DEVICE" mktable "$part_table" ||\
     error "Failed to create $part_table partition on $DEVICE!"
+
+  echo "new part table: $DEVICE = $part_table"
 }
 
 umount_devices(){
