@@ -26,15 +26,41 @@ fi
 TAGER_BOOT_GRUB=/target/boot/efi/boot/EFI/
 USB_EFI_FILE=/usr/lib/live/mount/medium/EFI/BOOT/BOOTLOONGARCH.EFI
 CDROM_EFI_FILE=/run/live/medium/EFI/BOOT/BOOTLOONGARCH.EFI
+SYS_EFI_FILE=/EFI/BOOT/BOOTLOONGARCH.EFI
 mkdir ${TAGER_BOOT_GRUB} -p 
 cp -f /target/boot/grub.cfg ${TAGER_BOOT_GRUB}
+if [ -f $SYS_EFI_FILE ];then
+	echo "[START]====[SYS]======COPY BOOTLOONGARCH FILE ======"
+	cp -fvr $SYS_EFI_FILE	/target/boot/efi/EFI/BOOT/
+	if [ $? -ne 0 ];then
+		echo [ERROR]:COPY FAILD
+		exit 1
+	fi
+	echo "[END]=====[SYS]=====COPY BOOTLOONGARCH FILE ======"
+fi
 if [ -f $USB_EFI_FILE ];then
-	cp -fr $USB_EFI_FILE /target/boot/efi/EFI/BOOT/
+	echo "[START]====[USB]======COPY BOOTLOONGARCH FILE ======"
+	cp -fvr $USB_EFI_FILE /target/boot/efi/EFI/BOOT/
+	if [ $? -ne 0 ];then
+		echo [ERROR]:COPY FAILD
+		exit 1
+	fi
+	echo "[END]=====[USB]=====COPY BOOTLOONGARCH FILE ======"
 fi
 if [ -f $CDROM_EFI_FILE ];then
-	cp -fr $CDROM_EFI_FILE /target/boot/efi/EFI/BOOT/
+	echo "[START]====[CDROM]======COPY BOOTLOONGARCH FILE ======"
+	cp -fvr $CDROM_EFI_FILE /target/boot/efi/EFI/BOOT/
+	if [ $? -ne 0 ];then
+		echo [ERROR]:COPY FAILD
+		exit 1
+	fi
+	echo "[END]=====[CDROM]=====COPY BOOTLOONGARCH FILE ======"
+fi
+
+if [ !  -f "/target/boot/efi/EFI/BOOT/BOOTLOONGARCH.EFI" ];then
+		echo [ERROR]:COPY BOOTLOONGARCH  FAILD!
+		exit 1
 fi
 sed -i '/load_video/s/^/#/g' /target/boot/efi/boot/EFI/grub.cfg
 sed -i '/insmod gzio/s/^/#/g' /target/boot/efi/boot/EFI/grub.cfg
 echo "update loongarch bootloader!"
-
