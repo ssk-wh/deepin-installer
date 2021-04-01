@@ -98,8 +98,6 @@
         <file>manual_press.svg</file>
         <file>continent_arrow.svg</file>
         <file>done_inactive.svg</file>
-        <file>backPicture.svg</file>
-        <file>nextPicture.svg</file>
         <file>NO_inactive1.svg</file>
         <file>NO_inactive2.svg</file>
         <file>NO_inactive3.svg</file>
@@ -163,5 +161,7 @@
         <file>qr_code_server.svg</file>
         <file>fail.svg</file>
         <file>success.svg</file>
+        <file>nextPicture.svg</file>
+        <file>backPicture.svg</file>
     </qresource>
 </RCC>

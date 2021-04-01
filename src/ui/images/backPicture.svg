@@ -1,3 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="12" height="22" viewBox="0 0 12 22">
-  <polyline fill="none" stroke="#536076" stroke-linecap="round" stroke-width="2.4" points="35 40 27 31 35 22 35 22" transform="translate(-25 -20)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+  <g fill="none" fill-rule="evenodd">
+    <rect width="22" height="22"/>
+    <polyline stroke="#536076" stroke-linecap="round" stroke-width="2.4" points="14 20 6 11 14 2 14 2"/>
+  </g>
 </svg>
