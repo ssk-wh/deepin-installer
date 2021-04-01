@@ -16,6 +16,7 @@ declare -A pseudofs_types=([anon_inodefs]=1
                            [devtmpfs]=1
                            [dlmfs]=1
                            [fuse.gvfs-fuse-daemon]=1
+                           [fuse.gvfsd-fuse]=1
                            [fusectl]=1
                            [hugetlbfs]=1
                            [mqueue]=1
