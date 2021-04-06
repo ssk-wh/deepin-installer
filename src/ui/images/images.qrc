@@ -161,7 +161,7 @@
         <file>qr_code_server.svg</file>
         <file>fail.svg</file>
         <file>success.svg</file>
-        <file>nextPicture.svg</file>
         <file>backPicture.svg</file>
+        <file>nextPicture.svg</file>
     </qresource>
 </RCC>
