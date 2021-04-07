@@ -27,6 +27,7 @@
 #include <QTimer>
 #include <QMouseEvent>
 
+#include "service/screen_adaptation_manager.h"
 #include "base/file_util.h"
 #include "../utils/widget_util.h"
 #include "service/settings_manager.h"
@@ -155,7 +156,7 @@ void TimezoneMap::initUI() {
   Q_ASSERT(this->parentWidget());
   // Set parent widget of dot_ to TimezoneFrame.
   dot_ = new QLabel(this);
-  const QPixmap dot_pixmap = installer::renderPixmap(kDotFile);
+  const QPixmap dot_pixmap = ScreenAdaptationManager::instance()->adapterPixmap(kDotFile);
   Q_ASSERT(!dot_pixmap.isNull());
   dot_->setPixmap(dot_pixmap);
   dot_->setFixedSize(dot_pixmap.size() / devicePixelRatioF());
