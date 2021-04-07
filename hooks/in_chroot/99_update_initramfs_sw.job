@@ -40,7 +40,7 @@ msg "CPUTYPE=$SYSTEM_NAME"
 
 SRCPATH=/media/cdrom/live/platform/$SYSTEM_NAME
 
-[ -d $SRCPATH ] || \
+[ -d $SYSTEM_NAME ] && \
 SRCPATH=/media/cdrom/live/platform/default
 
 [ -d $SRCPATH/live/boot ] && \
