@@ -3,7 +3,7 @@
     <name>ConfirmQuitFrame</name>
     <message>
         <source>Enter the system</source>
-        <translation type="unfinished"/>
+        <translation>Enter the system</translation>
     </message>
 </context>
 <context>
@@ -1334,11 +1334,27 @@
     </message>
     <message>
         <source>Uninstall failed package list:</source>
-        <translation type="unfinished"/>
+        <translation>Uninstall failed package list:</translation>
     </message>
     <message>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
         <translation>密码应至少包含小写字母、大写字母、数字、符号（%2）中的%1种</translation>
+    </message>
+    <message>
+        <source>Password must not contain more than %1 palindrome characters</source>
+        <translation>密码不得含有连续%1个以上的回文字符</translation>
+    </message>
+    <message>
+        <source>Do not use common words and combinations as password</source>
+        <translation>密码不能是常见单词及组合</translation>
+    </message>
+    <message>
+        <source>Create a strong password please</source>
+        <translation>密码过于简单，请增加密码复杂度</translation>
+    </message>
+    <message>
+        <source>It does not meet password rules</source>
+        <translation>密码不符合安全要求</translation>
     </message>
 </context>
 <context>

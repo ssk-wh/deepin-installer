@@ -58,6 +58,9 @@ private:
     QString m_passwdValidateRequired;      // 密码强度配置
     QString m_passwdMaxLength;             // 密码最大长度配置
     QString m_passwdMinLength;             // 密码最小长度配置
+    QString m_passwdPalindrome;            // 密码回文长度配置
+    QString m_passwdContinuousLength;      // 密码连续字符长度配置
+    QString m_passwdMonotonousLength;      // 密码单调字符长度配置
 };
 
 }  // namespace installer

@@ -3,7 +3,7 @@
     <name>ConfirmQuitFrame</name>
     <message>
         <source>Enter the system</source>
-        <translation type="unfinished"/>
+        <translation>Entrar no sistema</translation>
     </message>
 </context>
 <context>
@@ -822,7 +822,7 @@
     </message>
     <message>
         <source>The password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">O campo da senha não pode ser deixado em branco</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
@@ -1330,15 +1330,31 @@
     </message>
     <message>
         <source>The password cannot be empty​</source>
-        <translation>A senha não pode ficar em branco</translation>
+        <translation>O campo da senha não pode ser deixado em branco</translation>
     </message>
     <message>
         <source>Uninstall failed package list:</source>
-        <translation type="unfinished"/>
+        <translation>Uninstall failed package list:</translation>
     </message>
     <message>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
-        <translation type="unfinished"/>
+        <translation>A senha deve conter pelo menos %1 dos quatro tipos de caracteres disponíveis: letras maiúsculas, letras minúsculas, números e símbolos (%2)</translation>
+    </message>
+    <message>
+        <source>Password must not contain more than %1 palindrome characters</source>
+        <translation>A senha não deve conter mais do que %1 caracteres palíndromos</translation>
+    </message>
+    <message>
+        <source>Do not use common words and combinations as password</source>
+        <translation>A senha não pode conter palavras comuns e combinações</translation>
+    </message>
+    <message>
+        <source>Create a strong password please</source>
+        <translation>Crie uma senha forte</translation>
+    </message>
+    <message>
+        <source>It does not meet password rules</source>
+        <translation>Não atende às regras de senha</translation>
     </message>
 </context>
 <context>

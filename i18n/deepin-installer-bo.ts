@@ -3,7 +3,7 @@
     <name>ConfirmQuitFrame</name>
     <message>
         <source>Enter the system</source>
-        <translation type="unfinished"/>
+        <translation>Enter the system</translation>
     </message>
 </context>
 <context>
@@ -786,7 +786,7 @@
     </message>
     <message>
         <source>Username can only contain lowercase letters, numbers and symbols (_-)</source>
-        <translation>སྤྱོད་མཁན་མིང་ནི་དབྱིན་ཡིག་ཆུང་བྲིས་དང་། ཨང་ཀི། ཡང་ན་དམིགས་བསལ་མཚོན་རྟགས་ཡིན་དགོས།</translation>
+        <translation>སྤྱོད་མཁན་མིང་ནི་དབྱིན་ཡིག་ཆུང་བྲིས་དང་། ཨང་ཀི། ཡང་ན་དམིགས་བསལ་མཚོན་རྟགས་ཡིན་དགོས། (_-)</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
@@ -822,7 +822,7 @@
     </message>
     <message>
         <source>The password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">གསང་ཨང་སྟོང་པ་ཡིན་མི་རུང་།</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
@@ -1334,11 +1334,27 @@
     </message>
     <message>
         <source>Uninstall failed package list:</source>
-        <translation type="unfinished"/>
+        <translation>Uninstall failed package list:</translation>
     </message>
     <message>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
-        <translation type="unfinished"/>
+        <translation>གསང་ཨང་ནི་ཡིག་ཆེན་དང་། ཡིག་ཆུང་། ཨང་ཀི། མཚོན་རྟགས་བཅས་རིགས་（%2）ནང་ནས་ཉུང་མཐར་རིགས་%1དགོས།</translation>
+    </message>
+    <message>
+        <source>Password must not contain more than %1 palindrome characters</source>
+        <translation>གསང་ཨང་ནང་བསྟུད་མར་ཟུང་ལྡན་གྱི་ཡིག་རྟགས་%1ཡན་ཡོད་མི་ཆོག </translation>
+    </message>
+    <message>
+        <source>Do not use common words and combinations as password</source>
+        <translation>གསང་ཨང་ནི་རྒྱུན་མཐོང་གི་མིང་དང་ཚིག་གྲུབ་ཡིན་མི་ཆོག </translation>
+    </message>
+    <message>
+        <source>Create a strong password please</source>
+        <translation>གསང་ཨང་སྟབས་བདེ་དྲགས་པས། གསང་ཨང་རྙོག་འཛིང་ཆེ་རུ་གཏོང་།</translation>
+    </message>
+    <message>
+        <source>It does not meet password rules</source>
+        <translation>གསང་ཨང་བདེ་འཇགས་ཀྱི་བླང་བྱ་དང་མི་འཚམ་པ།</translation>
     </message>
 </context>
 <context>

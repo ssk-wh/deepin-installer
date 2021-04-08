@@ -38,6 +38,9 @@ void installer::PasswordManager::init()
     m_passwdValidateRequired = GetSettingsString(kSystemInfoPasswordValidateRequired);
     m_passwdMaxLength = GetSettingsString(kSystemInfoPasswordMaxLen);
     m_passwdMinLength = GetSettingsString(kSystemInfoPasswordMinLen);
+    m_passwdPalindrome = GetSettingsString(kSystemInfoPasswordPalindromeLength);
+    m_passwdContinuousLength = GetSettingsString(kSystemInfoPasswordContinuousLength);
+    m_passwdMonotonousLength = GetSettingsString(kSystemInfoPasswordMonotonousLength);
 }
 
 void installer::PasswordManager::setup()
@@ -54,10 +57,18 @@ void installer::PasswordManager::setup()
                        QString("PASSWORD_MAX_LENGTH=%1").arg(m_passwdMaxLength),
                        QString("VALIDATE_POLICY=\"%1\"").arg(m_passwdValidatePolicy),
                        QString("VALIDATE_REQUIRED=%1").arg(m_passwdValidateRequired),
+                       QString("PALINDROME_NUM=%1").arg(m_passwdPalindrome),
+                       QString("CONSECUTIVE_SAME_CHARACTER_NUM=%1").arg(m_passwdContinuousLength),
+                       QString("MONOTONE_CHARACTER_NUM=%1").arg(m_passwdMonotonousLength),
                   };
 
         /* 更新密码配置 */
         file.write(list.join("\n").toUtf8() + "\n");
+        file.close();
+
+        QString out;
+        installer::SpawnCmd(cmd, QStringList(), out);
+        qDebug() << "SpawnCmd " << cmd << ": " << out;
 
     } else {
         qWarning() << "failed file open. " << info;
@@ -75,6 +86,8 @@ bool installer::PasswordManager::checked(const QString &user, const QString &pas
     bool reset = true;
 
     PW_ERROR_TYPE type = deepin_pw_check(user.toStdString().c_str(), passwd.toStdString().c_str(), 0, nullptr);
+    qDebug() << "password checked: " << err_to_string(type);
+
     switch (type) {
         case PW_NO_ERR:break;
 
@@ -97,57 +110,29 @@ bool installer::PasswordManager::checked(const QString &user, const QString &pas
         } break;
 
         case PW_ERR_PALINDROME: {
-            info = err_to_string(type);
+            info = ::QObject::tr("Password must not contain more than %1 palindrome characters").arg(m_passwdPalindrome);
             reset = false;
         } break;
 
         case PW_ERR_WORD: {
-            info = err_to_string(type);
+            info = ::QObject::tr("Do not use common words and combinations as password");
             reset = false;
         } break;
 
-        case PW_ERR_PW_REPEAT: {
-            info = err_to_string(type);     // 密码重复需求：安装器没有需求文案
-            reset = false;
-        } break;
-
-        case PW_ERR_PW_MONOTONE: {
-            info = err_to_string(type);     // 密码单调：安装器没有需求文案
-            reset = false;
-        } break;
-
+        case PW_ERR_PW_MONOTONE:
         case PW_ERR_PW_CONSECUTIVE_SAME: {
-            info = err_to_string(type);     // 密码连续重复字符需求：安装器没有需求文案
+            info = ::QObject::tr("Create a strong password please");     // 密码连续重复字符需求：安装器没有需求文案
             reset = false;
         } break;
 
-        case PW_ERR_PW_FIRST_UPPERM: {
-            info = err_to_string(type);     // 安装器没有需求文案
-            reset = false;
-        } break;
-
-        case PW_ERR_PARA: {
-            info = err_to_string(type);     // 安装器没有需求文案
-            reset = false;
-        } break;
-
-        case PW_ERR_INTERNAL: {
-            info = err_to_string(type);     // 安装器没有需求文案
-            reset = false;
-        } break;
-
-        case PW_ERR_USER: {
-            info = err_to_string(type);     // 安装器没有需求文案
-            reset = false;
-        } break;
-
-        case PW_ERR_MAX: {
-            info = err_to_string(type);     // 安装器没有需求文案
-            reset = false;
-        } break;
-
+        case PW_ERR_PW_REPEAT:
+        case PW_ERR_PW_FIRST_UPPERM:
+        case PW_ERR_PARA:
+        case PW_ERR_INTERNAL:
+        case PW_ERR_USER:
+        case PW_ERR_MAX:
         default: {
-            info = err_to_string(type);     // 安装器没有需求文案
+            info = ::QObject::tr("It does not meet password rules");
             reset = false;
         } break;
     }

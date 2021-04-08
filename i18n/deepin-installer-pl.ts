@@ -3,7 +3,7 @@
     <name>ConfirmQuitFrame</name>
     <message>
         <source>Enter the system</source>
-        <translation type="unfinished"/>
+        <translation>Wejdź do systemu</translation>
     </message>
 </context>
 <context>
@@ -602,7 +602,7 @@
     </message>
     <message>
         <source>Unable to mount automatically, as it requires at least %1 GB. More than %2 GB is preferred.</source>
-        <translation type="unfinished"/>
+        <translation>Nie można zainstalować automatycznie, ponieważ wymaga co najmniej %1 GB. Preferowane jest więcej niż %2 GB. </translation>
     </message>
     <message>
         <source>Unable to mount automatically, as it requires at least %1 GB</source>
@@ -678,7 +678,7 @@
     </message>
     <message>
         <source>Create a backup for system restore, but it will increase the time</source>
-        <translation type="unfinished"/>
+        <translation>Utwórz kopię zapasową w celu przywrócenia systemu, ale wydłuży to czas</translation>
     </message>
     <message>
         <source>Select location for boot loader</source>
@@ -726,15 +726,15 @@
     </message>
     <message>
         <source>Weak</source>
-        <translation type="unfinished"/>
+        <translation>Słaby</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Średnie</translation>
     </message>
     <message>
         <source>Strong</source>
-        <translation type="unfinished"/>
+        <translation>Silny</translation>
     </message>
     <message>
         <source>Username</source>
@@ -786,11 +786,11 @@
     </message>
     <message>
         <source>Username can only contain lowercase letters, numbers and symbols (_-)</source>
-        <translation type="unfinished"/>
+        <translation>Nazwa użytkownika może zawierać tylko małe litery, cyfry i symbole (_-)</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Hasło musi zawierać duże i małe litery, cyfry i symbole (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;) </translation>
     </message>
     <message>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
@@ -822,11 +822,11 @@
     </message>
     <message>
         <source>The password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Hasło nie może być puste</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Hasło musi zawierać wielkie litery, małe litery, cyfry i symbole</translation>
     </message>
     <message>
         <source>Password must contain letters, numbers and symbols</source>
@@ -922,7 +922,7 @@
     </message>
     <message>
         <source>Sorry for the trouble. Please take photos of the below error log, or save it to an external disk, or scan the QR code, and send the log to us. We will help solve your issue.</source>
-        <translation type="unfinished"/>
+        <translation>Przepraszam za problem. Zrób zdjęcia poniższego dziennika błędów lub zapisz go na dysku zewnętrznym lub zeskanuj kod QR i wyślij do nas dziennik. Pomożemy rozwiązać Twój problem.</translation>
     </message>
     <message>
         <source>Sorry for the trouble. Please take a photo to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
@@ -1334,10 +1334,26 @@
     </message>
     <message>
         <source>Uninstall failed package list:</source>
-        <translation type="unfinished"/>
+        <translation>Odinstaluj nieudaną listę pakietów:</translation>
     </message>
     <message>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
+        <translation>Hasło powinno zawierać co najmniej %1 z czterech dostępnych typów znaków: małe litery, duże litery, cyfry i symbole (%2)</translation>
+    </message>
+    <message>
+        <source>Password must not contain more than %1 palindrome characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do not use common words and combinations as password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create a strong password please</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>It does not meet password rules</source>
         <translation type="unfinished"/>
     </message>
 </context>

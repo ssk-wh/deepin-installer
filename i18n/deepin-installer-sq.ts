@@ -3,7 +3,7 @@
     <name>ConfirmQuitFrame</name>
     <message>
         <source>Enter the system</source>
-        <translation type="unfinished"/>
+        <translation>Hyni në sistem</translation>
     </message>
 </context>
 <context>
@@ -822,7 +822,7 @@
     </message>
     <message>
         <source>The password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Fjalëkalimi s’mund të jetë i zbrazët</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
@@ -1334,11 +1334,27 @@
     </message>
     <message>
         <source>Uninstall failed package list:</source>
-        <translation type="unfinished"/>
+        <translation>Listë paketash me dështim çinstalimi:</translation>
     </message>
     <message>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalimi duhet të përmbajë paktën %1 shenja nga katër llojet e mundshëm të shenjave: shkronja të vogla, shkronja të mëdha, numra, dhe simbole (%2)</translation>
+    </message>
+    <message>
+        <source>Password must not contain more than %1 palindrome characters</source>
+        <translation>Fjalëkalimi s’duhet të përmbajë më tepër se %1 shenja palindromike</translation>
+    </message>
+    <message>
+        <source>Do not use common words and combinations as password</source>
+        <translation>Mos përdorni si fjalëkalim fjalë të rëndomta dhe kombinime</translation>
+    </message>
+    <message>
+        <source>Create a strong password please</source>
+        <translation>Ju lutemi, krijonin një fjalëkalim të fuqishëm</translation>
+    </message>
+    <message>
+        <source>It does not meet password rules</source>
+        <translation>Nuk pajtohet me rregullat për fjalëkalime</translation>
     </message>
 </context>
 <context>

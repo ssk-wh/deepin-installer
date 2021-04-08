@@ -3,7 +3,7 @@
     <name>ConfirmQuitFrame</name>
     <message>
         <source>Enter the system</source>
-        <translation type="unfinished"/>
+        <translation>Entrar al sistema</translation>
     </message>
 </context>
 <context>
@@ -602,7 +602,7 @@
     </message>
     <message>
         <source>Unable to mount automatically, as it requires at least %1 GB. More than %2 GB is preferred.</source>
-        <translation type="unfinished"/>
+        <translation>No se puede montar automáticamente, ya que requiere al menos %1 GB. Se prefiere más de %2 GB.</translation>
     </message>
     <message>
         <source>Unable to mount automatically, as it requires at least %1 GB</source>
@@ -822,7 +822,7 @@
     </message>
     <message>
         <source>The password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">La contraseña no puede estar vacía</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
@@ -922,7 +922,7 @@
     </message>
     <message>
         <source>Sorry for the trouble. Please take photos of the below error log, or save it to an external disk, or scan the QR code, and send the log to us. We will help solve your issue.</source>
-        <translation type="unfinished"/>
+        <translation>Disculpe las molestias. Por favor, haz fotos del registro de errores que aparece a continuación, o guárdalo en un disco externo, o escanea el código QR, y envíanos el registro. Le ayudaremos a resolver su problema.</translation>
     </message>
     <message>
         <source>Sorry for the trouble. Please take a photo to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
@@ -1334,10 +1334,26 @@
     </message>
     <message>
         <source>Uninstall failed package list:</source>
-        <translation type="unfinished"/>
+        <translation>Lista de paquetes fallidos de desinstalación:</translation>
     </message>
     <message>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
+        <translation>La contraseña debe contener al menos %1 de los cuatro tipos de caracteres disponibles: letras minúsculas, letras mayúsculas, números y símbolos (%2)</translation>
+    </message>
+    <message>
+        <source>Password must not contain more than %1 palindrome characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do not use common words and combinations as password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create a strong password please</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>It does not meet password rules</source>
         <translation type="unfinished"/>
     </message>
 </context>

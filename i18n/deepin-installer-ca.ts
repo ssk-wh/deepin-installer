@@ -3,7 +3,7 @@
     <name>ConfirmQuitFrame</name>
     <message>
         <source>Enter the system</source>
-        <translation type="unfinished"/>
+        <translation>Entreu al sistema</translation>
     </message>
 </context>
 <context>
@@ -690,7 +690,7 @@
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation>Ho he llegit i ho he acceptat:</translation>
+        <translation>Ho he llegit i ho accepto:</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
@@ -822,7 +822,7 @@
     </message>
     <message>
         <source>The password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">La contrasenya no pot estar en blanc.</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
@@ -938,7 +938,7 @@
     </message>
     <message>
         <source>Installing</source>
-        <translation>S&apos;està instal·lant</translation>
+        <translation>S&apos;instal·la</translation>
     </message>
     <message>
         <source>Show log</source>
@@ -1334,10 +1334,26 @@
     </message>
     <message>
         <source>Uninstall failed package list:</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat desinstal·lar la llista de paquets:</translation>
     </message>
     <message>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
+        <translation>La contrasenya ha de contenir almenys &amp;1 dels quatre tipus de caràcters disponibles: lletres minúscules, majúscules, números i símbols (%2).</translation>
+    </message>
+    <message>
+        <source>Password must not contain more than %1 palindrome characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do not use common words and combinations as password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create a strong password please</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>It does not meet password rules</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -3,7 +3,7 @@
     <name>ConfirmQuitFrame</name>
     <message>
         <source>Enter the system</source>
-        <translation type="unfinished"/>
+        <translation>Увійти до системи</translation>
     </message>
 </context>
 <context>
@@ -822,7 +822,7 @@
     </message>
     <message>
         <source>The password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Пароль не може бути порожнім</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
@@ -1334,11 +1334,27 @@
     </message>
     <message>
         <source>Uninstall failed package list:</source>
-        <translation type="unfinished"/>
+        <translation>Список пакунків, які не вдалося вилучити:</translation>
     </message>
     <message>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
-        <translation type="unfinished"/>
+        <translation>Пароль має складатися із символів принаймні %1 з чотирьох доступних типів символів: малих літер англійської абетки, великих літер англійської абетки, цифр та символів пунктуації (%2)</translation>
+    </message>
+    <message>
+        <source>Password must not contain more than %1 palindrome characters</source>
+        <translation>Пароль не повинен містити понад %1 паліндромних символів</translation>
+    </message>
+    <message>
+        <source>Do not use common words and combinations as password</source>
+        <translation>Не використовуйте загальновживані слова та їхні поєднання як пароль</translation>
+    </message>
+    <message>
+        <source>Create a strong password please</source>
+        <translation>Будь ласка, створіть складний пароль</translation>
+    </message>
+    <message>
+        <source>It does not meet password rules</source>
+        <translation>Пароль не відповідає правилам щодо паролів</translation>
     </message>
 </context>
 <context>

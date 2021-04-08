@@ -3,7 +3,7 @@
     <name>ConfirmQuitFrame</name>
     <message>
         <source>Enter the system</source>
-        <translation type="unfinished"/>
+        <translation>Entra nel Sistema</translation>
     </message>
 </context>
 <context>
@@ -822,7 +822,7 @@
     </message>
     <message>
         <source>The password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">La password non può essere vuota</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
@@ -1334,10 +1334,26 @@
     </message>
     <message>
         <source>Uninstall failed package list:</source>
-        <translation type="unfinished"/>
+        <translation>Elenco dei pacchetti non disinstallati:</translation>
     </message>
     <message>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
+        <translation>La password deve contenere almeno %1 dei quattro tipi di caratteri disponibili: lettere minuscole, maiuscole, numeri e simboli (%2)</translation>
+    </message>
+    <message>
+        <source>Password must not contain more than %1 palindrome characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do not use common words and combinations as password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create a strong password please</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>It does not meet password rules</source>
         <translation type="unfinished"/>
     </message>
 </context>

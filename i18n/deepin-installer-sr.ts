@@ -3,7 +3,7 @@
     <name>ConfirmQuitFrame</name>
     <message>
         <source>Enter the system</source>
-        <translation type="unfinished"/>
+        <translation>Уђи у систем</translation>
     </message>
 </context>
 <context>
@@ -758,7 +758,7 @@
     </message>
     <message>
         <source>Create Accounts</source>
-        <translation>Нправи налоге</translation>
+        <translation>Нaправи налоге</translation>
     </message>
     <message>
         <source>Fill in the username, computer name and your password</source>
@@ -822,7 +822,7 @@
     </message>
     <message>
         <source>The password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Лозинка не може бити празна</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
@@ -1334,11 +1334,27 @@
     </message>
     <message>
         <source>Uninstall failed package list:</source>
-        <translation type="unfinished"/>
+        <translation>Неуспешно деинсталирање, списак пакета:</translation>
     </message>
     <message>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
-        <translation type="unfinished"/>
+        <translation>Лозика треба да садржи најмање %1 од понуђених врста карактера: мала слова, велика слова, бројеви, симболи (%2)</translation>
+    </message>
+    <message>
+        <source>Password must not contain more than %1 palindrome characters</source>
+        <translation>Лозинка не сме садржати више од %1 палиндромна карактера</translation>
+    </message>
+    <message>
+        <source>Do not use common words and combinations as password</source>
+        <translation>Немојте користити уобичајене речи и комбинације као лозинку</translation>
+    </message>
+    <message>
+        <source>Create a strong password please</source>
+        <translation>Направите јаку лозинку</translation>
+    </message>
+    <message>
+        <source>It does not meet password rules</source>
+        <translation>Не испуњава правила за лозинке</translation>
     </message>
 </context>
 <context>

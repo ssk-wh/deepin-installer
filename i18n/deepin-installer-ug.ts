@@ -3,7 +3,7 @@
     <name>ConfirmQuitFrame</name>
     <message>
         <source>Enter the system</source>
-        <translation type="unfinished"/>
+        <translation>سىستېمىغا كىرىش</translation>
     </message>
 </context>
 <context>
@@ -822,7 +822,7 @@
     </message>
     <message>
         <source>The password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">پارول قۇرۇق قالسا بولمايدۇ</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
@@ -1334,11 +1334,27 @@
     </message>
     <message>
         <source>Uninstall failed package list:</source>
-        <translation type="unfinished"/>
+        <translation>قاچىلاش مەغلۇپ بولغان بوغچا تىزىملىكىنى ئۆچۈرۈش:</translation>
     </message>
     <message>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
-        <translation type="unfinished"/>
+        <translation>پارول چوقۇم  چوڭ ھەرپ، كىچىك ھەرپ، سان ۋە بەلگە  (%2) ئىچىدىكى %1 تۈردىن تەركىب تېپىشى كېرەك</translation>
+    </message>
+    <message>
+        <source>Password must not contain more than %1 palindrome characters</source>
+        <translation>پارولدا ئۇدا %1 تىن ئارتۇق قايتما ھەرپ-بەلگە بولسا بولمايدۇ</translation>
+    </message>
+    <message>
+        <source>Do not use common words and combinations as password</source>
+        <translation>پارولدا دائىم ئۇچرايدىغان ئاددىي سۆز ۋە سۆز بىرىكمىلىرى بولسا بولمايدۇ</translation>
+    </message>
+    <message>
+        <source>Create a strong password please</source>
+        <translation>پارول بەك ئاددىي، مۇرەككەپرەك بېكىتىڭ</translation>
+    </message>
+    <message>
+        <source>It does not meet password rules</source>
+        <translation>پارول بىخەتەرلىك تەلىپىگە ئۇيغۇن كەلمەيدۇ</translation>
     </message>
 </context>
 <context>

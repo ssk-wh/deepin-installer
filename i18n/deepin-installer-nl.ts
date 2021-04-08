@@ -3,7 +3,7 @@
     <name>ConfirmQuitFrame</name>
     <message>
         <source>Enter the system</source>
-        <translation type="unfinished"/>
+        <translation>Kiezen voor systeem</translation>
     </message>
 </context>
 <context>
@@ -822,7 +822,7 @@
     </message>
     <message>
         <source>The password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Voer een wachtwoord in</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
@@ -1334,11 +1334,27 @@
     </message>
     <message>
         <source>Uninstall failed package list:</source>
-        <translation type="unfinished"/>
+        <translation>Mislukte pakketlijst deïnstalleren:</translation>
     </message>
     <message>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
-        <translation type="unfinished"/>
+        <translation>Het wachtwoord moet minimaal %1 tekens bevatten: kleine letters, hoofdletters, getallen en symbolen (%2)</translation>
+    </message>
+    <message>
+        <source>Password must not contain more than %1 palindrome characters</source>
+        <translation>Het wachtwoord mag niet meer dan %1 palindroomtekens bevatten</translation>
+    </message>
+    <message>
+        <source>Do not use common words and combinations as password</source>
+        <translation>Het wachtwoord mag geen gebruikelijk(e) woord of woordcombinatie zijn</translation>
+    </message>
+    <message>
+        <source>Create a strong password please</source>
+        <translation>Kies een sterk wachtwoord</translation>
+    </message>
+    <message>
+        <source>It does not meet password rules</source>
+        <translation>Het wachtwoord voldoet niet aan de vereisten</translation>
     </message>
 </context>
 <context>

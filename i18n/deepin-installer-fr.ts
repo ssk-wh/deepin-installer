@@ -3,7 +3,7 @@
     <name>ConfirmQuitFrame</name>
     <message>
         <source>Enter the system</source>
-        <translation type="unfinished"/>
+        <translation>Entrer dans le système </translation>
     </message>
 </context>
 <context>
@@ -158,7 +158,7 @@
     </message>
     <message>
         <source>Load Balancer</source>
-        <translation>Équilibreur de charge</translation>
+        <translation>Répartition de charge</translation>
     </message>
     <message>
         <source>Load balancing support for network traffic.</source>
@@ -370,7 +370,7 @@
     </message>
     <message>
         <source>Shut Down</source>
-        <translation>Éteindre</translation>
+        <translation>Arrêter</translation>
     </message>
     <message>
         <source>You can experience it after configuring user information in next system startup.</source>
@@ -824,7 +824,7 @@ Veuillez sélectionner l&apos;une des solutions ci-dessous et continuer.</transl
     </message>
     <message>
         <source>The password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Le mot de passe ne peut pas être vide</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
@@ -1328,7 +1328,7 @@ Veuillez sélectionner l&apos;une des solutions ci-dessous et continuer.</transl
     </message>
     <message>
         <source>Welcome to install UOS</source>
-        <translation>Bienvenue pour installer UOS</translation>
+        <translation>Bienvenue dans l&apos;installateur d&apos;UOS</translation>
     </message>
     <message>
         <source>The password cannot be empty​</source>
@@ -1336,10 +1336,26 @@ Veuillez sélectionner l&apos;une des solutions ci-dessous et continuer.</transl
     </message>
     <message>
         <source>Uninstall failed package list:</source>
-        <translation type="unfinished"/>
+        <translation>Désinstaller la liste des packages ayant échoué :</translation>
     </message>
     <message>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
+        <translation>Le mot de passe doit contenir au moins %1 des quatre types de caractères disponibles : lettres minuscules, lettres majuscules, chiffres et symboles (%2)</translation>
+    </message>
+    <message>
+        <source>Password must not contain more than %1 palindrome characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do not use common words and combinations as password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create a strong password please</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>It does not meet password rules</source>
         <translation type="unfinished"/>
     </message>
 </context>

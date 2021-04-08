@@ -3,7 +3,7 @@
     <name>ConfirmQuitFrame</name>
     <message>
         <source>Enter the system</source>
-        <translation type="unfinished"/>
+        <translation>Entrar no sistema</translation>
     </message>
 </context>
 <context>
@@ -822,7 +822,7 @@
     </message>
     <message>
         <source>The password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">A palavra-passe não pode estar em branco</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
@@ -1334,11 +1334,27 @@
     </message>
     <message>
         <source>Uninstall failed package list:</source>
-        <translation type="unfinished"/>
+        <translation>Lista de pacotes com falha na desinstalação</translation>
     </message>
     <message>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
-        <translation type="unfinished"/>
+        <translation>A palavra-passe deve conter pelo menos %1 dos quatro tipos de caracteres disponíveis: letras minúsculas, letras maiúsculas, números, e símbolos (%2)</translation>
+    </message>
+    <message>
+        <source>Password must not contain more than %1 palindrome characters</source>
+        <translation>A palavra-passe não deve conter mais de %1 caracteres palíndromo</translation>
+    </message>
+    <message>
+        <source>Do not use common words and combinations as password</source>
+        <translation>Não utilize palavras e combinações comuns como palavra-passe</translation>
+    </message>
+    <message>
+        <source>Create a strong password please</source>
+        <translation>Crie uma palavra-passe forte</translation>
+    </message>
+    <message>
+        <source>It does not meet password rules</source>
+        <translation>Não cumpre as regras de palavra-passe</translation>
     </message>
 </context>
 <context>

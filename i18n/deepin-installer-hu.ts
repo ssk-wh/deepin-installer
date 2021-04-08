@@ -3,7 +3,7 @@
     <name>ConfirmQuitFrame</name>
     <message>
         <source>Enter the system</source>
-        <translation type="unfinished"/>
+        <translation>Belépés a rendszerbe</translation>
     </message>
 </context>
 <context>
@@ -822,7 +822,7 @@
     </message>
     <message>
         <source>The password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">A jelszó nem lehet üres</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
@@ -1334,11 +1334,27 @@
     </message>
     <message>
         <source>Uninstall failed package list:</source>
-        <translation type="unfinished"/>
+        <translation>A sikertelen csomaglisták eltávolítása:</translation>
     </message>
     <message>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
-        <translation type="unfinished"/>
+        <translation>A jelszónak tartalmaznia kell a rendelkezésre álló négy karaktertípus közül legalább %1-et: kisbetűk, nagybetűk, számok és szimbólumok (%2)</translation>
+    </message>
+    <message>
+        <source>Password must not contain more than %1 palindrome characters</source>
+        <translation>A jelszó legfeljebb %1 palindróm karaktert tartalmazhat</translation>
+    </message>
+    <message>
+        <source>Do not use common words and combinations as password</source>
+        <translation>Ne használjon jelszóként gyakori szavakat és kombinációkat</translation>
+    </message>
+    <message>
+        <source>Create a strong password please</source>
+        <translation>Kérjük hozzon létre egy erős jelszót</translation>
+    </message>
+    <message>
+        <source>It does not meet password rules</source>
+        <translation>Nem felel meg a jelszavakra vonatkozó szabályoknak</translation>
     </message>
 </context>
 <context>
