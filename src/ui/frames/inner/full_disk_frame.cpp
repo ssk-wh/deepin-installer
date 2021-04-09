@@ -282,7 +282,6 @@ void FullDiskFrame::initUI() {
   m_tip_label = new QLabel("");
   m_tip_label->setObjectName("tip_label");
   m_tip_label->setPalette(palette);
-  addTransLate(m_trList, std::bind(&QLabel::setText, m_tip_label, std::placeholders::_1), ::QObject::tr("Install here"));
 
   QHBoxLayout* tip_layout = new QHBoxLayout;
   tip_layout->setContentsMargins(0, 0, 0, 0);
@@ -447,16 +446,15 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
   if (!checked) {
     // Deselect previous button.
     part_button->setSelected(false);
-  } else {
-    // Hide tooltip.
     showInstallTip(false);
+  } else {    
 
     m_delegate->addSystemDisk(part_button->device()->path);
     const QString path = part_button->device()->path;
     qDebug() << "selected device path:" << path;
     part_button->setSelected(true);
     // Show install-tip at bottom of current checked button.
-    this->showInstallTip(part_button);
+    showInstallTip(true);
 
     if(!validate()) {
        qWarning() << QString("MULTIDISK:validate FAILED:{%1}").arg(m_delegate->selectedDisks().join(","));
