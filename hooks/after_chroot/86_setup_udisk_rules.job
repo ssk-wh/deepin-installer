@@ -1,0 +1,39 @@
+#!/bin/bash
+
+setup_udisks_rules() {
+    local UDISK_FILE="/target/etc/udev/rules.d/80-udisks-installer.rules"
+
+    # 隐藏efi分区
+    EFI_ID=$(lsblk -o UUID,MOUNTPOINT -f | grep -i /target/boot/efi$ | awk '{print $1}')
+    if [ -n "$EFI_ID" ]; then
+        echo "# hide efi" >> ${UDISK_FILE}
+        echo "ENV{ID_FS_UUID}==\"${EFI_ID}\", ENV{UDISKS_IGNORE}=\"1\"" >> ${UDISK_FILE}
+    fi
+
+    # 隐藏boot分区
+    BOOT_ID=$(lsblk -o UUID,MOUNTPOINT -f | grep -i /target/boot$ | awk '{print $1}')
+    if [ -n "$BOOT_ID" ]; then
+        echo "# hide boot" >> ${UDISK_FILE}
+        echo "ENV{ID_FS_UUID}==\"${BOOT_ID}\", ENV{UDISKS_IGNORE}=\"1\"" >> ${UDISK_FILE}
+    fi
+
+    # 隐藏recovery分区
+    RECOVERY_ID=$(lsblk -o UUID,MOUNTPOINT -f | grep -i /target/recovery$ | awk '{print $1}')
+    if [ -n "$RECOVERY_ID" ]; then
+        echo "# hide recovery" >> ${UDISK_FILE}
+        echo "ENV{ID_FS_UUID}==\"${RECOVERY_ID}\", ENV{UDISKS_IGNORE}=\"1\"" >> ${UDISK_FILE}
+    fi
+
+    # 隐藏rootb分区
+    ROOTB_ID=$(blkid -o value -s UUID /target/dev/disk/by-label/Rootb)
+    if [ -n "$ROOTB_ID" ]; then
+        echo "# hide rootb" >> ${UDISK_FILE}
+        echo "ENV{ID_FS_UUID}==\"${ROOTB_ID}\", ENV{UDISKS_IGNORE}=\"1\"" >> ${UDISK_FILE}
+    fi
+
+    # 隐藏swap分区
+    echo "# hide swap" >> ${UDISK_FILE}
+    echo "ENV{ID_FS_TYPE}==\"swap\", ENV{UDISKS_IGNORE}=\"1\"" >> ${UDISK_FILE}
+}
+
+setup_udisks_rules

@@ -40,16 +40,10 @@ installer_set DI_RECOVERY_PATH $(df -h | grep /recovery$ | awk '{print $1}')
 
 # 备份boot的UUID
 echo $(lsblk -o UUID,MOUNTPOINT -f | grep -i /boot$ | awk '{print $1}') > /target/recovery/backup/boot.info
-echo "# hide boot" >> /target/etc/udev/rules.d/80-udisks-installer.rules
-if cat /target/recovery/backup/boot.info | grep '[0-9a-f]\{8\}\(\-[0-9a-f]\{4\}\)\{3\}\-[0-9a-f]\{12\}' ; then
-    echo "ENV{ID_FS_UUID}==\"$(cat /target/recovery/backup/boot.info)\", ENV{UDISKS_IGNORE}=\"1\"" >> /target/etc/udev/rules.d/80-udisks-installer.rules
-fi
 
 # 备份efi的UUID
 if [ x${DI_UEFI} = xtrue ]; then
     echo $(lsblk -o UUID,MOUNTPOINT -f | grep -i /boot/efi$ | awk '{print $1}') > /target/recovery/backup/efi.info
-    echo "# hide efi" >> /target/etc/udev/rules.d/80-udisks-installer.rules
-    echo "ENV{ID_FS_UUID}==\"$(cat /target/recovery/backup/efi.info)\", ENV{UDISKS_IGNORE}=\"1\"" >> /target/etc/udev/rules.d/80-udisks-installer.rules
 fi
 
 # 备份系统的UUID
@@ -57,14 +51,5 @@ echo $(lsblk -o UUID,MOUNTPOINT -f | grep /target$ | awk '{print $1}') > /target
 
 # 备份data的UUID
 echo $(lsblk -o UUID,MOUNTPOINT -f | grep ${DATA_MOUNT_POINT} | awk '{print $1}') > /target/recovery/backup/_dde_data.info
-
-# Write udev hideen
-echo "# hide recovery" >> /target/etc/udev/rules.d/80-udisks-installer.rules
-if cat /target/etc/deepin/system-recovery.conf | grep '[0-9a-f]\{8\}\(\-[0-9a-f]\{4\}\)\{3\}\-[0-9a-f]\{12\}' ; then
-    echo "ENV{ID_FS_UUID}==\"$(lsblk -o UUID,MOUNTPOINT -f | grep -i /target/recovery$ | awk '{print $1}')\", ENV{UDISKS_IGNORE}=\"1\"" >> /target/etc/udev/rules.d/80-udisks-installer.rules
-fi
-
-echo "# hide swap" >> /target/etc/udev/rules.d/80-udisks-installer.rules
-echo "ENV{ID_FS_TYPE}==\"swap\", ENV{UDISKS_IGNORE}=\"1\"" >> /target/etc/udev/rules.d/80-udisks-installer.rules
 
 return $?
