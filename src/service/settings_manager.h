@@ -35,6 +35,8 @@ namespace installer {
 // Get absolute path to oem/ folder. Note that oem folder may not exist.
 QDir GetOemDir();
 
+QString GetOemLicenseDir();
+
 OSType GetCurrentType();
 
 QString GetOSType();

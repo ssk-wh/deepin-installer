@@ -353,9 +353,9 @@ void LanguageFramePrivate::initConnect() {
 }
 
 void LanguageFramePrivate::showUserLicense() {
-    QString zh_cn_li = QString(":/license/end-user-license-agreement-%1_zh_CN.txt")\
+    QString zh_cn_li = QString(GetOemLicenseDir() + "/end-user-license-agreement-%1_zh_CN.txt")\
             .arg(installer::LicenseDelegate::OSType());
-    QString en_us_li = QString(":/license/end-user-license-agreement-%1_en_US.txt")\
+    QString en_us_li = QString(GetOemLicenseDir() + "/end-user-license-agreement-%1_en_US.txt")\
             .arg(installer::LicenseDelegate::OSType());
 
     qDebug() << "zh_cn_li = " << zh_cn_li;
@@ -389,9 +389,9 @@ void LanguageFramePrivate::showOemUserLicense() {
 
 void LanguageFramePrivate::showUserExperience()
 {
-    QString zh_cn_ue = QString(":/license/user-experience-agreement-%1_zh_CN.txt")\
+    QString zh_cn_ue = QString(GetOemLicenseDir() + "/user-experience-agreement-%1_zh_CN.txt")\
             .arg(installer::LicenseDelegate::OSType());
-    QString en_us_ue = QString(":/license/user-experience-agreement-%1_en_US.txt")\
+    QString en_us_ue = QString(GetOemLicenseDir() + "/user-experience-agreement-%1_en_US.txt")\
             .arg(installer::LicenseDelegate::OSType());
 
 
@@ -414,9 +414,9 @@ void LanguageFramePrivate::showUserExperience()
 
 void LanguageFramePrivate::showPrivacyLicense()
 {
-    QString zh_pl_li = QString(":/license/privacy-policy-%1_zh_CN.txt")\
+    QString zh_pl_li = QString(GetOemLicenseDir() + "/privacy-policy-%1_zh_CN.txt")\
             .arg(installer::LicenseDelegate::OSType());
-    QString en_pl_li = QString(":/license/privacy-policy-%1_en_US.txt")\
+    QString en_pl_li = QString(GetOemLicenseDir() + "/privacy-policy-%1_en_US.txt")\
             .arg(installer::LicenseDelegate::OSType());
 
     qDebug() << "zh_pl_li = " << zh_pl_li;

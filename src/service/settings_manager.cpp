@@ -129,6 +129,11 @@ QDir GetOemDir() {
   return QDir(g_oem_dir);
 }
 
+QString GetOemLicenseDir() {
+    QString oem_license_dir = GetOemDir().path() + "/licenses";
+    return  QFileInfo(oem_license_dir).exists() ? oem_license_dir : RESOURCES_DIR"/licenses";
+}
+
 QString GetCurrentPlatform() {
     QMap<QString, QString> BUILD_ARCH_MAP{ { "x86_64",  "x86" },
                                            { "i386", "x86" },
@@ -150,7 +155,7 @@ QString GetOSType()
     settings.beginGroup("Release");
 
 #ifdef QT_DEBUG
-    QString type = "Server";
+    QString type = "Professional";
 #else
     QString type = settings.value("Type", "Community").toString();
 #endif // QT_DEBUG

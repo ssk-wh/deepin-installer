@@ -563,14 +563,12 @@ set(UI_FILES
 
     ui/images/images.qrc
     ui/styles/styles.qrc
-    license/license.qrc
 
     # Required by SpinnerLabel.
     ui/widgets/spinner/spinner.qrc
     )
 
 set(CLI_UI_FILES
-    license/license.qrc
     ui/interfaces_cli/frameinterface.h
     ui/interfaces_cli/frameinterface.cpp
     ui/interfaces_cli/frameinterfaceprivate.h
