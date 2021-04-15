@@ -61,6 +61,4 @@ if [ !  -f "/target/boot/efi/EFI/BOOT/BOOTLOONGARCH.EFI" ];then
 		echo [ERROR]:COPY BOOTLOONGARCH  FAILD!
 		exit 1
 fi
-sed -i '/load_video/s/^/#/g' /target/boot/efi/boot/EFI/grub.cfg
-sed -i '/insmod gzio/s/^/#/g' /target/boot/efi/boot/EFI/grub.cfg
 echo "update loongarch bootloader!"
