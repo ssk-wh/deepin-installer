@@ -30,19 +30,19 @@
     </message>
     <message>
         <source>Format %1 partition as %2 (mountpoint), type: %3</source>
-        <translation>% 1 بۆلەكنى% 2 (ئورنىتىش نۇقتىسى) قىلىپ فورماتلاڭ ،% 3 نى كىرگۈزۈش</translation>
+        <translation>%1 بۆلەكنى%2 (ئورنىتىش نۇقتىسى) قىلىپ فورماتلاڭ ،%3 نى كىرگۈزۈش</translation>
     </message>
     <message>
         <source>Use %1 partition as %2 (mountpoint)</source>
-        <translation>% 1 بۆلەكنى% 2 قىلىپ ئىشلىتىش (ئورنىتىش نۇقتىسى)</translation>
+        <translation>%1 بۆلەكنى%2 قىلىپ ئىشلىتىش (ئورنىتىش نۇقتىسى)</translation>
     </message>
     <message>
         <source>Format %1 and create %2 new partition table</source>
-        <translation>% 1 نى تولۇق فورماتلاپ ،% 2 فورماتىدا يېڭى رايون جەدۋىلى قۇرۇش</translation>
+        <translation>%1 نى تولۇق فورماتلاپ ،%2 فورماتىدا يېڭى رايون جەدۋىلى قۇرۇش</translation>
     </message>
     <message>
         <source>Adjust the size of %1 partition</source>
-        <translation>بۆلەكنىڭ چوڭ-كىچىكلىكىنى تەڭشەش% 1</translation>
+        <translation>بۆلەكنىڭ چوڭ-كىچىكلىكىنى تەڭشەش%1</translation>
     </message>
     <message>
         <source>Core</source>
@@ -418,7 +418,7 @@
     </message>
     <message>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
-        <translation>% 2 نى ئورنىتىش ئۈچۈن كەم دېگەندە% 1 GB لىق دىسكا بوشلۇقى تەلەپ قىلىنىدۇ. تېخىمۇ ياخشى ئىشلىتىش ئۈچۈن% 3 GB ياكى ئۇنىڭدىن يۇقىرى بۆلۈشىڭىزنى تەۋسىيە قىلىمىز</translation>
+        <translation>%2 نى ئورنىتىش ئۈچۈن كەم دېگەندە%1 GB لىق دىسكا بوشلۇقى تەلەپ قىلىنىدۇ. تېخىمۇ ياخشى ئىشلىتىش ئۈچۈن%3 GB ياكى ئۇنىڭدىن يۇقىرى بۆلۈشىڭىزنى تەۋسىيە قىلىمىز</translation>
     </message>
     <message>
         <source>Insufficient Disk Space</source>
@@ -482,7 +482,7 @@
     </message>
     <message>
         <source>/boot partition requires at least %1 MB</source>
-        <translation>قوزغىتىش رايونى كەم دېگەندە% 1 MB دىسكا بوشلۇقى تەلەپ قىلىدۇ</translation>
+        <translation>قوزغىتىش رايونى كەم دېگەندە%1 MB دىسكا بوشلۇقى تەلەپ قىلىدۇ</translation>
     </message>
     <message>
         <source>To create lvm, /boot partition is required</source>
@@ -494,7 +494,7 @@
     </message>
     <message>
         <source>/efi partition requires at least %1 MB</source>
-        <translation>efi رايونى كەم دېگەندە% 1 MB دىسكا بوشلۇقى تەلەپ قىلىدۇ</translation>
+        <translation>efi رايونى كەم دېگەندە%1 MB دىسكا بوشلۇقى تەلەپ قىلىدۇ</translation>
     </message>
     <message>
         <source>Add a root partition to continue</source>
@@ -502,11 +502,11 @@
     </message>
     <message>
         <source>/root partition requires at least %1 GB</source>
-        <translation>يىلتىز رايونى كەم دېگەندە% 1 GB دىسكا بوشلۇقى تەلەپ قىلىدۇ</translation>
+        <translation>يىلتىز رايونى كەم دېگەندە%1 GB دىسكا بوشلۇقى تەلەپ قىلىدۇ</translation>
     </message>
     <message>
         <source>%2 partition requires at least %1 GB</source>
-        <translation>% 2 رايون كەم دېگەندە% 1 GB دىسكا بوشلۇقى تەلەپ قىلىدۇ</translation>
+        <translation>%2 رايون كەم دېگەندە%1 GB دىسكا بوشلۇقى تەلەپ قىلىدۇ</translation>
     </message>
     <message>
         <source>Add a logical partition to continue</source>
@@ -602,11 +602,11 @@
     </message>
     <message>
         <source>Unable to mount automatically, as it requires at least %1 GB. More than %2 GB is preferred.</source>
-        <translation>ھازىر ئاپتوماتىك ئورنىتىشقا ئامالسىز ، ئاپتوماتىك ئورنىتىش بوشلۇقى كەم دېگەندە% 1 GB غا ئېھتىياجلىق، %2 GB دىن ئارتۇق بوشلۇق بولۇشنى تەۋسىيە قىلىمىز.</translation>
+        <translation>ھازىر ئاپتوماتىك ئورنىتىشقا ئامالسىز ، ئاپتوماتىك ئورنىتىش بوشلۇقى كەم دېگەندە%1 GB غا ئېھتىياجلىق، %2 GB دىن ئارتۇق بوشلۇق بولۇشنى تەۋسىيە قىلىمىز.</translation>
     </message>
     <message>
         <source>Unable to mount automatically, as it requires at least %1 GB</source>
-        <translation type="vanished">ھازىر ئاپتوماتىك ئورنىتىشقا ئامالسىز ، ئاپتوماتىك ئورنىتىش بوشلۇقى كەم دېگەندە% 1 GB غا ئېھتىياجلىق</translation>
+        <translation type="vanished">ھازىر ئاپتوماتىك ئورنىتىشقا ئامالسىز ، ئاپتوماتىك ئورنىتىش بوشلۇقى كەم دېگەندە%1 GB غا ئېھتىياجلىق</translation>
     </message>
     <message>
         <source>Formatting...</source>
@@ -798,7 +798,7 @@
     </message>
     <message>
         <source>Please input a username longer than %1 characters and shorter than %2 characters</source>
-        <translation>ئۇزۇنلۇقى% 1 دىن يۇقىرى ،% 2 دىن تۆۋەن بولغان ئىشلەتكۈچى نامىنى كىرگۈزۈڭ</translation>
+        <translation>ئۇزۇنلۇقى%1 دىن يۇقىرى ،%2 دىن تۆۋەن بولغان ئىشلەتكۈچى نامىنى كىرگۈزۈڭ</translation>
     </message>
     <message>
         <source>Please input computer name</source>
@@ -814,7 +814,7 @@
     </message>
     <message>
         <source>Please input a computer name longer than %1 characters and shorter than %2 characters</source>
-        <translation>ئۇزۇنلۇقى% 1 دىن يۇقىرى ،% 2 دىن تۆۋەن بولغان كومپيۇتېر نامىنى كىرگۈزۈڭ</translation>
+        <translation>ئۇزۇنلۇقى%1 دىن يۇقىرى ،%2 دىن تۆۋەن بولغان كومپيۇتېر نامىنى كىرگۈزۈڭ</translation>
     </message>
     <message>
         <source>The password should be different from the username</source>
@@ -834,7 +834,7 @@
     </message>
     <message>
         <source>Password must be between %1 and %2 characters</source>
-        <translation>مەخپىي نومۇرنىڭ ئۇزۇنلۇقى چوقۇم% 1 دىن% 2 ھەرپ ئارىلىقىدا بولۇشى كېرەك</translation>
+        <translation>مەخپىي نومۇرنىڭ ئۇزۇنلۇقى چوقۇم%1 دىن%2 ھەرپ ئارىلىقىدا بولۇشى كېرەك</translation>
     </message>
     <message>
         <source>Password must not contain common words and combinations</source>
@@ -1026,7 +1026,7 @@
     </message>
     <message>
         <source>Illegal %1, please have a check.</source>
-        <translation>% 1 قانۇنسىز ، كىرگۈزگەنلىرىڭىزنى تەكشۈرۈپ بېقىڭ.</translation>
+        <translation>%1 قانۇنسىز ، كىرگۈزگەنلىرىڭىزنى تەكشۈرۈپ بېقىڭ.</translation>
     </message>
     <message>
         <source>IP address error: illegal IP address, please have a check.</source>
@@ -1134,7 +1134,7 @@
     </message>
     <message>
         <source>You are installing %1 on a virtual machine which may result in sub-optimal performance. For the best experience, please install %1 on a real machine.</source>
-        <translation>مەۋھۇم ماشىنا ئىشلىتىۋاتقانلىقىڭىز بايقالدى. مەۋھۇم ماشىنىدا ئىشلەتسىڭىز سىستېمىنىڭ ئىقتىدارى ۋە مەشغۇلات ھۇزۇرىغا تەسىر كۆرسىتىدۇ.% 1 نى ئوڭۇشلۇق ئىشلىتىش ئۈچۈن ، ئۇنى ھەقىقىي مۇھىتتا ئورنىتىشىڭىزنى تەۋسىيە قىلىمىز</translation>
+        <translation>مەۋھۇم ماشىنا ئىشلىتىۋاتقانلىقىڭىز بايقالدى. مەۋھۇم ماشىنىدا ئىشلەتسىڭىز سىستېمىنىڭ ئىقتىدارى ۋە مەشغۇلات ھۇزۇرىغا تەسىر كۆرسىتىدۇ.%1 نى ئوڭۇشلۇق ئىشلىتىش ئۈچۈن ، ئۇنى ھەقىقىي مۇھىتتا ئورنىتىشىڭىزنى تەۋسىيە قىلىمىز</translation>
     </message>
     <message>
         <source>%1 %2 (recommended)</source>
@@ -1190,11 +1190,11 @@
     </message>
     <message>
         <source>%1 error found, fix to continue installation</source>
-        <translation>% 1 خاتالىق بايقالدى ، ئوڭشىغاندىن كېيىن قاچىلاشنى داۋاملاشتۇرالايسىز</translation>
+        <translation>%1 خاتالىق بايقالدى ، ئوڭشىغاندىن كېيىن قاچىلاشنى داۋاملاشتۇرالايسىز</translation>
     </message>
     <message>
         <source>Please input a password longer than %1 characters and shorter than %2 characters</source>
-        <translation type="vanished">ئۇزۇنلۇقى% 1 دىن يۇقىرى ،% 2 دىن تۆۋەن بولغان مەخپىي نومۇر كىرگۈزۈڭ</translation>
+        <translation type="vanished">ئۇزۇنلۇقى%1 دىن يۇقىرى ،%2 دىن تۆۋەن بولغان مەخپىي نومۇر كىرگۈزۈڭ</translation>
     </message>
     <message>
         <source>Password must have at least 8 characters</source>

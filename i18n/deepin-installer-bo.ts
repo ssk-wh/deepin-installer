@@ -418,7 +418,7 @@
     </message>
     <message>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
-        <translation>%2སྒྲིག་འཇུག་བྱེད་པར་ཉུང་མཐར་ཡང་སྡུད་སྡེར་གྱི་བར་སྟོང་1 GBདགོས་པས། སྔར་བས་བེད་སྤྱོད་ལེགས་པ་ཡོང་ཆེད། ཁྱོད་ཀྱིས་%3 GBཡན་དབྱེ་རྒྱུའི་གྲོས་འགོ་འདོན་གྱི་ཡིན།</translation>
+        <translation>%2སྒྲིག་འཇུག་བྱེད་པར་ཉུང་མཐར་ཡང་སྡུད་སྡེར་གྱི་བར་སྟོང་%1 GBདགོས་པས། སྔར་བས་བེད་སྤྱོད་ལེགས་པ་ཡོང་ཆེད། ཁྱོད་ཀྱིས་%3 GBཡན་དབྱེ་རྒྱུའི་གྲོས་འགོ་འདོན་གྱི་ཡིན།</translation>
     </message>
     <message>
         <source>Insufficient Disk Space</source>
