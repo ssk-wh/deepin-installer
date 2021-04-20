@@ -208,7 +208,10 @@ void FullDiskFrame::changeEvent(QEvent* event) {
 
         int min_size = GetSettingsInt(kPartitionFullDiskMiniSpace);
         int recommend_size = GetSettingsInt(kPartitionRecommendedDiskSpace);
-        m_diskTooSmallTip->setText(::QObject::tr("You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended").arg(min_size).arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : LicenseDelegate::product()).arg(recommend_size));
+        m_diskTooSmallTip->setText(::QObject::tr("You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended")
+                                   .arg(min_size)
+                                   .arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : LicenseDelegate::product())
+                                   .arg(recommend_size));
     }
     else {
         QFrame::changeEvent(event);
@@ -263,16 +266,14 @@ void FullDiskFrame::initUI() {
   m_diskTooSmallTip = new QLabel;
   m_diskTooSmallTip->setObjectName("msg_label");
   m_diskTooSmallTip->setFixedWidth(kWindowWidth);
-  m_diskTooSmallTip->setFixedHeight(40);
-//  m_diskTooSmallTip->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
   m_diskTooSmallTip->setWordWrap(true);
   m_diskTooSmallTip->setAlignment(Qt::AlignCenter);
   m_diskTooSmallTip->hide();
-  addTransLate(m_trList, [ = ] (const QString& msg) {
-      int min_size = GetSettingsInt(kPartitionFullDiskMiniSpace);
-      int recommend_size = GetSettingsInt(kPartitionRecommendedDiskSpace);
-      m_diskTooSmallTip->setText(msg.arg(min_size).arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : LicenseDelegate::product()).arg(recommend_size));
-  }, ::QObject::tr("You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended"));
+
+  QHBoxLayout* tipLayout = new QHBoxLayout();
+  tipLayout->setContentsMargins(0, 0, 0, 0);
+  tipLayout->setSpacing(0);
+  tipLayout->addWidget(m_diskTooSmallTip);
 
   m_tip_icon = new QLabel;
   m_tip_icon->setPixmap(installer::renderPixmap(":/images/install_icon.svg"));
@@ -349,7 +350,7 @@ void FullDiskFrame::initUI() {
   main_layout->addSpacing(10);
   main_layout->setAlignment(h_layout, Qt::AlignHCenter);
   main_layout->addWidget(m_errorTip, 0, Qt::AlignHCenter);
-  main_layout->addWidget(m_diskTooSmallTip, 0, Qt::AlignHCenter);
+  main_layout->addLayout(tipLayout);
   main_layout->addSpacing(10);
 
   m_encryptCheck->setVisible(!GetSettingsBool(KPartitionSkipFullCryptPage));

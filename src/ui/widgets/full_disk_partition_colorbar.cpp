@@ -174,11 +174,14 @@ void FullDiskPartitionWidget::clearView()
     m_labelLayoutWidgets.clear();
 
     m_fullDiskPartitionColorBar->hide();
+
+    hide();
 }
 
 void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
 {
     clearView();
+    setVisible(!device->partitions.isEmpty());
 
     m_fullDiskPartitionColorBar->setDevice(device);
     m_fullDiskPartitionColorBar->show();
@@ -254,8 +257,6 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
         m_labelLayout->insertWidget(widgetIndex, labelsWrapWidget);
         ++widgetIndex;
     }
-
-    setVisible(!device->partitions.isEmpty());
 }
 
 }
