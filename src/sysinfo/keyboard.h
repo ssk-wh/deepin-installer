@@ -32,6 +32,7 @@ typedef QList<XkbModel> XkbModelList;
 
 struct XkbLayoutVariant {
   QString name = "";
+  QString layout_name = "";
   QString description = "";
   QString short_description = "";
   QStringList language_list;

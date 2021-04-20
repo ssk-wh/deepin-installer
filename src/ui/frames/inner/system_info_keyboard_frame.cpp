@@ -282,12 +282,13 @@ QModelIndex SystemInfoKeyboardFramePrivate::getLayoutByName(const QString& name)
   return QModelIndex();
 }
 
-QString SystemInfoKeyboardFramePrivate::getLayoutName(const QModelIndex& index) {
-  if (index.isValid()) {
-    return layout_list_.at(index.row()).name;
-  } else {
-    return QString();
-  }
+QString SystemInfoKeyboardFramePrivate::getLayoutName(const QModelIndex &index) {
+    if (!index.isValid()) {
+      return QString();
+    }
+
+    // 获取每个键盘布局对应的语系名
+    return variant_list_.at(index.row()).layout_name;
 }
 
 void SystemInfoKeyboardFramePrivate::initLayout(const QString& locale) {
@@ -301,16 +302,6 @@ void SystemInfoKeyboardFramePrivate::initLayout(const QString& locale) {
   m_lastChangedItem = nullptr;
   m_lastItemVar = nullptr;
   m_lastItemRow = -1;
-
-  // Append layout to its variant list.
-  for (XkbLayout& layout : layout_list_) {
-    XkbLayoutVariant variant;
-    variant.name = layout.name;
-    variant.description = layout.description;
-    variant.short_description = layout.short_description;
-    variant.language_list = layout.language_list;
-    layout.variant_list.prepend(variant);
-  }
 
   // Sort layout list by description.
   // Perform localized comparison.
@@ -453,14 +444,13 @@ void SystemInfoKeyboardFramePrivate::readConf() {
 
 void SystemInfoKeyboardFramePrivate::writeConf() {
 
-    const QModelIndex layout_index = m_layoutView->currentIndex();
-    const QString layout = getLayoutName(layout_index);
     const QModelIndex variant_index = m_variantView->currentIndex();
     const QString variant = getVariantName(variant_index);
+    const QString layout = getLayoutName(variant_index);
 
     // Model name of keyboard is empty. Variant name might be empty.
     // The first row in variant list is the default layout.
-    if (variant_index.row() == 0) {
+    if (variant == layout) {
         WriteKeyboard("", layout, "");
     } else {
         WriteKeyboard("", layout, variant);
@@ -740,8 +730,8 @@ void SystemInfoKeyboardFramePrivate::onVariantViewSelected(
             (m_layoutModel->item(m_layoutView->currentIndex().row()));
 
     const QModelIndex layout_index = m_layoutView->currentIndex();
-    const QString layout = getLayoutName(layout_index);
     const QString variant = getVariantName(current);
+    const QString layout = getLayoutName(current);
     QString description;
 
     // The first row in variant list is the default layout.

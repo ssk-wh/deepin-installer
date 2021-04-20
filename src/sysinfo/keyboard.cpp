@@ -39,7 +39,8 @@ const char kXkbBaseRule[] = "/usr/share/X11/xkb/rules/base.xml";
 
 // Get localized |description|.
 QString GetLocalDesc(const QString& description) {
-  return QString(dgettext(kXkbDomain, description.toLocal8Bit().constData()));
+    QString s_text = QString(dgettext(kXkbDomain, description.toLocal8Bit().constData()));
+    return s_text;
 }
 
 // Read modelList node.
@@ -108,7 +109,7 @@ void ReadLayoutConfigItem(const QDomNode& root, XkbLayout& xkb_layout) {
     if (prop.nodeName() == "name") {
       xkb_layout.name = prop.toElement().text();
     } else if (prop.nodeName() == "description") {
-      xkb_layout.description = GetLocalDesc(prop.toElement().text());
+      xkb_layout.description = prop.toElement().text();
     } else if (prop.nodeName() == "shortDescription") {
       xkb_layout.short_description = prop.toElement().text();
     } else if (prop.nodeName() == "languageList") {
@@ -182,6 +183,38 @@ XkbConfig GetXkbConfig(const QString& locale) {
     return config;
   }
 
+
+  XkbConfig reset;
+  XKbLayoutVariantList variant_list;
+  for (XkbLayout& layout : config.layout_list) {
+      XkbLayoutVariant variant;
+      variant.name = layout.name;
+      variant.layout_name = layout.name;
+      variant.description = GetLocalDesc(layout.description);
+      variant.short_description = layout.short_description;
+      variant.language_list = layout.language_list;
+      layout.variant_list.prepend(variant);
+
+      // 保存键盘布局
+      for (XkbLayoutVariant& var : layout.variant_list) {
+           var.layout_name = layout.name;
+      }
+
+      if (layout.description == "Taiwanese") {
+          variant_list = layout.variant_list;
+      } else {
+          reset.layout_list.append(layout);
+      }
+  }
+
+  // 合并台湾语和汉语
+  for (XkbLayout& layout : reset.layout_list) {
+      if (layout.description == "Chinese") {
+          layout.variant_list += variant_list;
+      }
+      layout.description = GetLocalDesc(layout.description);
+  }
+
   // NOTE(xushaohua): Do not read extra keyboard layout list currently.
 //  if (!ReadConfig(kXkbExtraRule, config)) {
 //    qWarning() << "Failed to read xkb config file" << kXkbExtraRule;
@@ -189,7 +222,7 @@ XkbConfig GetXkbConfig(const QString& locale) {
 
   (void) setlocale(LC_ALL, kDefaultLang);
 
-  return config;
+  return reset;
 }
 
 bool SetXkbLayout(const QString& layout) {
