@@ -4,6 +4,8 @@
 
 . "/deepin-installer/basic_utils.sh"
 
+SI_USER=$(installer_get "system_info_si_user")
+
 if [ ! -f "/tmp/in_check.file" ];
 then
     echo "Not enter in_check!!" >> /var/log/deepin-installer.log
@@ -30,7 +32,7 @@ if [ ! -f "/boot/efi/SI_FAILED" ];then
     touch /boot/efi/SI_SUCCESS
     setNetworkBoot
     # remove check mode files and test user
-    userdel -rf ${DI_SI_USER}
+    userdel -rf ${SI_USER}
     rm -rf /deepin-installer
     reboot
 fi

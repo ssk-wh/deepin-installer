@@ -1,19 +1,9 @@
 #!/bin/bash
 
 setup_check_mode_user() {
-    local USERNAME=$(installer_get "DI_SI_USER")
-    local PASSWORD=$(installer_get "DI_SI_PASSWORD")
-    local GROUP=$(installer_get "DI_SI_GROUP")
-
-    if [ -z ${USERNAME} ];then
-        USERNAME=test
-        installer_set "DI_SI_USER" "test"
-    fi
-
-    if [ -z ${PASSWORD} ];then
-        PASSWORD=test
-        installer_set "DI_SI_PASSWORD" "test"
-    fi
+    local USERNAME=$(installer_get "system_info_si_user")
+    local PASSWORD=$(installer_get "system_info_si_password")
+    local GROUP=$(installer_get "system_info_si_group")
 
     chroot /target useradd -m -G sudo ${GROUP} ${USERNAME}
     chroot /target echo ${USERNAME}:${PASSWORD}|chpasswd
@@ -26,6 +16,17 @@ autologin-user=${USERNAME}
 user-session=deepin
 display-setup-script=/deepin-installer/lightdm-start.sh
 display-stopped-script=/deepin-installer/lightdm-stop.sh
+EOF
+
+## 创建审核模式自启动脚本
+mkdir -p /target/home/${USERNAME}/.config/autostart/
+cat > /target/home/${USERNAME}/.config/autostart/check_test.desktop << EOF
+[Desktop Entry]
+Exec=/deepin-installer/check_start.sh
+Name=check mode
+StartupNotify=false
+Terminal=false
+Type=Application
 EOF
 }
 

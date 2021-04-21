@@ -10,9 +10,9 @@ if [ -d "/deepin-installer/in_check/" ];then
         chmod +x $i
         $i
         if [ $? != 0 ]; then
-            echo ${DI_SI_PASSWORD}|sudo -S touch /boot/efi/SI_FAILED
+            echo ${system_info_si_password}|sudo -S touch /boot/efi/SI_FAILED
             setNetworkBoot
-            echo ${DI_SI_PASSWORD}|sudo reboot
+            echo ${system_info_si_password}|sudo reboot
         fi
     done
 fi

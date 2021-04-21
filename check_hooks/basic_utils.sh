@@ -22,10 +22,7 @@ installer_set() {
     deepin-installer-settings set "${CONF_FILE}" "${key}" "${value}"
 }
 
-DI_SI_USER=$(installer_get "DI_SI_USER")
-DI_SI_PASSWORD=$(installer_get "DI_SI_PASSWORD")
-
 setNetworkBoot() {
     NETWORK_EFI=$(efibootmgr |grep -i network |awk -F'*' '{print $1}' |sed 's#Boot##')
-    echo ${DI_SI_PASSWORD}|sudo -S efibootmgr -n ${NETWORK_EFI}
+    echo ${system_info_si_password}|sudo -S efibootmgr -n ${NETWORK_EFI}
 }
