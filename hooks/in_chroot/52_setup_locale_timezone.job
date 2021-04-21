@@ -40,9 +40,13 @@ enable_local_rtc() {
 
 # set timedate
 set_timedate() {
-    local DI_TIMEDATE
-    DI_TIMEDATE=$(installer_get "DI_TIMEDATE")
-    timedatectl set-time "${DI_TIMEDATE}" 
+    local DI_IS_ENABLE_NTP
+    DI_IS_ENABLE_NTP=$(installer_get "DI_IS_ENABLE_NTP")
+    if [[ x"${DI_IS_ENABLE_NTP}" != xtrue ]]; then
+        local DI_TIMEDATE
+        DI_TIMEDATE=$(installer_get "DI_TIMEDATE")
+        timedatectl set-time "${DI_TIMEDATE}"
+    fi
 }
 
 # set ntp
