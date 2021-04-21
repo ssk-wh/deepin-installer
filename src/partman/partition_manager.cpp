@@ -279,7 +279,10 @@ void PartitionManager::doManualPart(const OperationList& operations) {
         if ((operation->type == OperationType::Create) ||
             (operation->type == OperationType::Format) ||
             (operation->type == OperationType::MountPoint)) {
-            mountMap[operation->new_partition->mount_point] = operation->new_partition;
+            // 过滤空挂载点的分区
+            if (!operation->new_partition->mount_point.isEmpty()) {
+                mountMap[operation->new_partition->mount_point] = operation->new_partition;
+            }
         }
 
         if (operation->type == OperationType::Delete) {
@@ -292,12 +295,15 @@ void PartitionManager::doManualPart(const OperationList& operations) {
         if (!device) continue;
         ok_devices.append(device);
         for (Partition::Ptr partition : device->partitions) {
+            qDebug() << "Test partition: " << partition;
             auto it = std::find_if(
                 mountMap.cbegin(), mountMap.cend(),
                 [=](std::pair<QString, Partition::Ptr> pair) {
                     return (pair.second->device_path == partition->device_path) &&
                            (partition->start_sector == pair.second->start_sector) &&
-                           (partition->end_sector == pair.second->end_sector);
+                           (partition->end_sector == pair.second->end_sector)
+                            // 过滤空挂载点的分区
+                            && !pair.second->mount_point.isEmpty();
                 });
 
             if (it != mountMap.cend()) {

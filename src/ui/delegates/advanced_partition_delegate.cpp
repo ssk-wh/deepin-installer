@@ -460,8 +460,12 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
     Device::Ptr    boot_device;
     Partition::Ptr efi_partition;
     // Check use-specified partitions with mount point.
+
     for (const Device::Ptr &device : devices) {
-        for (const Partition::Ptr &partition : device->partitions) {
+        if (device.isNull()) continue;
+        for (const Partition::Ptr &partition : device->partitions) {            
+            if (partition.isNull()) continue;
+            qDebug() << "partition mount" << partition->mount_point;
             if (!partition->mount_point.isEmpty()) {
                 // Add used partitions to mount_point list.
                 const QString record(QString("%1=%2").arg(partition->path).arg(partition->mount_point));
@@ -471,13 +475,11 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
                     root_path   = partition->path;
                     root_device = device;
                 }
-
                 if (partition->mount_point == kMountPointBoot && bootloader_path_ == "") {
                     bootloader_path_ = partition->device_path;
                     boot_device = device;
                 }
             }
-
             if (partition->fs == FsType::EFI && esp_path != partition->path) {
                 // NOTE(lxz): maybe we shoud check efi freespcae
                 esp_path = partition->path;                
@@ -486,22 +488,24 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
     }
 
     // Find this device efi partition
-    for (Partition::Ptr partition : root_device->partitions) {
-        if (!root_device) continue;
-        if (!partition->is_lvm && partition->fs == FsType::EFI && esp_path != partition->path) {
-            // NOTE(lxz): maybe we shoud check efi freespcae
-            esp_path = partition->path;
-            break;
+    if (!root_device.isNull()) {
+        for (Partition::Ptr partition : root_device->partitions) {
+            if (partition.isNull()) continue;
+            if (!partition->is_lvm && partition->fs == FsType::EFI && esp_path != partition->path) {
+                // NOTE(lxz): maybe we shoud check efi freespcae
+                esp_path = partition->path;
+                break;
+            }
         }
-    }
 
-    // Check linux-swap.
-   for (Partition::Ptr partition : root_device->partitions) {
-        if (!root_device) continue;
-        if (partition->fs == FsType::LinuxSwap) {
-            found_swap = true;
-            const QString record(QString("%1=swap").arg(partition->path));
-            mount_points.append(record);
+        // Check linux-swap.
+       for (Partition::Ptr partition : root_device->partitions) {
+            if (partition.isNull()) continue;
+            if (partition->fs == FsType::LinuxSwap) {
+                found_swap = true;
+                const QString record(QString("%1=swap").arg(partition->path));
+                mount_points.append(record);
+            }
         }
     }
 
