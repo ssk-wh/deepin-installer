@@ -40,13 +40,16 @@ enable_local_rtc() {
 
 # set timedate
 set_timedate() {
-    local DI_IS_ENABLE_NTP
-    DI_IS_ENABLE_NTP=$(installer_get "DI_IS_ENABLE_NTP")
-    if [[ x"${DI_IS_ENABLE_NTP}" != xtrue ]]; then
-        local DI_TIMEDATE
-        DI_TIMEDATE=$(installer_get "DI_TIMEDATE")
-        timedatectl set-time "${DI_TIMEDATE}"
+    local IS_ENABLE_NTP
+    local TIMEDATE
+    IS_ENABLE_NTP=$(installer_get "DI_IS_ENABLE_NTP")
+    if [[ x"${IS_ENABLE_NTP}" != xtrue ]]; then
+        TIMEDATE=$(installer_get "DI_TIMEDATE")
+    else
+        TIMEDATE=$(date "+%Y-%m-%d %H:%M:%S")
     fi
+
+    timedatectl set-time "${TIMEDATE}"
 }
 
 # set ntp
@@ -139,8 +142,8 @@ EOF
   dpkg-reconfigure --frontend noninteractive tzdata
 
   # Set using local time or not
-  set_timedate
   enable_local_rtc
+  set_timedate
   enable_ntp
   datetime_hctosys
 
