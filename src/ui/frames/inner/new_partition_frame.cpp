@@ -219,7 +219,7 @@ bool NewPartitionFrame::focusSwitch()
 bool NewPartitionFrame::doSpace()
 {
     if (type_box_ == m_current_focus_widget) {
-        QModelIndex testindex = fs_box_->view()->selectionModel()->currentIndex();
+        QModelIndex testindex = type_box_->view()->selectionModel()->currentIndex();
         if (testindex.row() != -1) {
             type_box_->setCurrentIndex(testindex.row());
         }
