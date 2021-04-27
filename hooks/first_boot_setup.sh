@@ -155,18 +155,24 @@ fi
 }
 
 encryp_log() {
-    local LOG_FILE="/var/log/deepin-installer-first-boot.log"
+    local INSTALL_LOG="/var/log/deepin-installer.log"
+    local FIRST_BOOT_LOG="/var/log/deepin-installer-first-boot.log"
 
     ## 加密后配置阶段的日志中用户名
     local USER_NAME=$(installer_get "DI_USERNAME")
     local ENCRYP_USERNAME="***=***"
-    sed -i "s/${USER_NAME}/${ENCRYP_USERNAME}/g" ${LOG_FILE}
+    sed -i "s/${USER_NAME}/${ENCRYP_USERNAME}/g" ${FIRST_BOOT_LOG}
 
     ## 加密用户UUID
     local USER_UUID=$(id -u ${USER_NMAE})
     echo ${USER_UUID}
     local ENCRYP_UUID="***==***"
-    sed -i "s/${USER_UUID}/${ENCRYP_UUID}/g" ${LOG_FILE}
+    sed -i "s/${USER_UUID}/${ENCRYP_UUID}/g" ${FIRST_BOOT_LOG}
+
+    ## 去掉磁盘UUID
+    local SRC_UUID="UUID="
+    sed -i "/${SRC_UUID}/d" ${INSTALL_LOG}
+    sed -i "/${SRC_UUID}/d" ${FIRST_BOOT_LOG}
 }
 
 main() {
