@@ -45,35 +45,11 @@
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
-void dump(int signo)
-{
-    Q_UNUSED(signo);
-
-        char buf[1024];
-        char cmd[1024];
-        FILE *fh;
-
-        snprintf(buf, sizeof(buf), "/proc/%d/cmdline", getpid());
-        if(!(fh = fopen(buf, "r")))
-                exit(0);
-        if(!fgets(buf, sizeof(buf), fh))
-                exit(0);
-        fclose(fh);
-        if(buf[strlen(buf) - 1] == '\n')
-                buf[strlen(buf) - 1] = '\0';
-
-        int offset = 0;
-        offset += snprintf(cmd + offset, sizeof(cmd) - static_cast<size_t>(offset), "gdb %s", buf);
-        offset += snprintf(cmd + offset, sizeof(cmd) - static_cast<size_t>(offset), " %d", getpid());
-        system(cmd);
-
-        exit(0);
-}
-
 int main(int argc, char* argv[]) {
-#ifdef QT_DEBUG
-  signal(SIGSEGV, &dump);
-#endif // QT_DEBUG
+  //for qt5platform-plugins load DPlatformIntegration or DPlatformIntegrationParent
+  if (!QString(qgetenv("XDG_CURRENT_DESKTOP")).toLower().startsWith("deepin")){
+    setenv("XDG_CURRENT_DESKTOP", "Deepin", 1);
+  }
 
   qputenv("LC_ALL", installer::kDefaultLang);
   qputenv("LANG", installer::kDefaultLang);
