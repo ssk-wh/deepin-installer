@@ -197,12 +197,12 @@
   },{
     "name": "Tibetan",
     "local_name": "བོད་སྐད་",
-    "locale": "bo",
+    "locale": "bo_CN",
     "timezone": "Asia/Shanghai"
   },{
     "name": "Uygur",
     "local_name": "ئۇيغۇر تىلى",
-    "locale": "ug",
+    "locale": "ug_CN",
     "timezone": "Asia/Shanghai"
   }
 ]
