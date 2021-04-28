@@ -156,7 +156,14 @@ void TimezoneMap::initUI() {
   Q_ASSERT(this->parentWidget());
   // Set parent widget of dot_ to TimezoneFrame.
   dot_ = new QLabel(this);
-  const QPixmap dot_pixmap = ScreenAdaptationManager::instance()->adapterPixmap(kDotFile);
+  QPixmap dot_pixmap;
+  if (ScreenAdaptationManager::instance()->is4KScreen()) {
+    dot_pixmap = installer::renderPixmap(kDotFile);
+  }
+  else {
+    dot_pixmap = ScreenAdaptationManager::instance()->adapterPixmap(kDotFile);
+  }
+
   Q_ASSERT(!dot_pixmap.isNull());
   dot_->setPixmap(dot_pixmap);
   dot_->setFixedSize(dot_pixmap.size() / devicePixelRatioF());
@@ -256,8 +263,16 @@ void TimezoneMap::remark() {
 }
 
 void TimezoneMap::updateMap() {
-    QPixmap mapPixmap = installer::renderPixmap(kTimezoneMapFile);
-    mapPixmap = mapPixmap.scaled(size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    QPixmap mapPixmap;
+
+    if (ScreenAdaptationManager::instance()->is4KScreen()) {
+      mapPixmap = ScreenAdaptationManager::instance()->adapterPixmap(kTimezoneMapFile);
+    }
+    else {
+      mapPixmap = installer::renderPixmap(kTimezoneMapFile);
+    }
+
+    mapPixmap = mapPixmap.scaled(QSize(size().width() - 100, size().height()), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     map_label_->setPixmap(mapPixmap);
 
     QTimer::singleShot(0, this, &TimezoneMap::remark);

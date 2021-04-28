@@ -18,6 +18,7 @@ public:
     QRect primaryAvailableGeometry();
     int getMainWindowTopMargin();
     int getChildWindowTopMargin();
+    bool is4KScreen();
 
     double getWidthZoomRatio() const;
     double getHeightZoomRatio() const;
@@ -32,6 +33,7 @@ private:
     void initConnection();
     void adapterWidth(int width);
     void adapterHeight(int height);
+    void getCurrentScreenResolution();
 
 private:
     ScreenAdaptationManager();
@@ -42,6 +44,7 @@ private:
     double      m_heightZoomRatio = 1;
     QRect       m_oldWindowRect;
     QRect       m_oldAvailabWindowRect;
+    QPoint      m_currentScreenResolution;
 };
 
 

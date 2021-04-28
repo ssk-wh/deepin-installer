@@ -3,6 +3,7 @@
 #include "settings_manager.h"
 #include "settings_name.h"
 #include "ui/widgets/wallpaper_item.h"
+#include "base/command.h"
 
 #include <DApplication>
 #include <QDesktopWidget>
@@ -17,12 +18,13 @@ namespace  {
     const int kXrandrWidth_832 = 832;
     const int kXrandrWidth_1024 = 1024;
     const int kXrandrWidth_1920 = 1920;
+    const int kXrandrWidth_3840 = 3840;
 
     const int kXrandrHeight_624 = 624;
     const int kXrandrHeight_864 = 864;
     const int kXrandrHeight_480 = 480;
     const int kXrandrHeight_1080 = 1080;
-//    const int XRANDR_INVALID = 999999;
+    const int kXrandrHeight_2160 = 2160;
 }
 
 installer::ScreenAdaptationManager *installer::ScreenAdaptationManager::instance()
@@ -69,6 +71,16 @@ int installer::ScreenAdaptationManager::getChildWindowTopMargin()
     }
 
     return 0;
+}
+
+bool installer::ScreenAdaptationManager::is4KScreen()
+{
+    if (m_currentScreenResolution.x() >= kXrandrWidth_3840
+            && m_currentScreenResolution.y() >= kXrandrHeight_2160) {
+        return true;
+    }
+
+    return false;
 }
 
 double installer::ScreenAdaptationManager::getWidthZoomRatio() const
@@ -135,9 +147,50 @@ void installer::ScreenAdaptationManager::adapterHeight(int height)
     }
 }
 
+void installer::ScreenAdaptationManager::getCurrentScreenResolution()
+{
+    QString xrandrResult;
+    qInfo() << SpawnCmd("xrandr", QStringList(), xrandrResult);
+
+    QTextStream stream(&xrandrResult);
+    QString line;
+    while (stream.readLineInto(&line)) {
+        if (line.contains("Screen") && line.contains("current")) {
+            const QStringList list1 {
+                line.simplified().split(",")
+            };
+
+            if (list1.count() > 2) {
+                const QStringList list2 {
+                    list1.at(1).simplified().split(" ")
+                };
+
+                if (list2.count() > 3) {
+                    bool ok1, ok2;
+                    int width = list2.at(1).toInt(&ok1);
+                    int height = list2.at(3).toInt(&ok2);
+
+                    if (ok1 && ok2) {
+                        qInfo() << QString("Current screen resolution is:(%1, %2)").arg(width).arg(height);
+                        m_currentScreenResolution = QPoint(width, height);
+
+                        return;
+                    }
+                }
+            }
+
+            break;
+        }
+    }
+
+    m_currentScreenResolution = QPoint();
+}
+
 installer::ScreenAdaptationManager::ScreenAdaptationManager()
 {
     setup(primaryAvailableGeometry());
     initConnection();
+
+    getCurrentScreenResolution();
 }
 
