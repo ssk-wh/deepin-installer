@@ -602,11 +602,11 @@
     </message>
     <message>
         <source>Unable to mount automatically, as it requires at least %1 GB. More than %2 GB is preferred.</source>
-        <translation>མིག་སྔར་རང་སྒྲིག་བྱ་ཐབས་བྲལ་འདུག རང་སྒྲིག་ལ་ཉུང་མཐར་ཡང་བར་སྟོང་1 GBདགོས་པས། བར་སྟོང་%2 GBཡན་ཡོད་དགོས།</translation>
+        <translation>མིག་སྔར་རང་སྒྲིག་བྱ་ཐབས་བྲལ་འདུག རང་སྒྲིག་ལ་ཉུང་མཐར་ཡང་བར་སྟོང་%1 GBདགོས་པས། བར་སྟོང་%2 GBཡན་ཡོད་དགོས།</translation>
     </message>
     <message>
         <source>Unable to mount automatically, as it requires at least %1 GB</source>
-        <translation type="vanished">མིག་སྔར་རང་སྒྲིག་བྱ་ཐབས་བྲལ་འདུག རང་སྒྲིག་ལ་ཉུང་མཐར་ཡང་བར་སྟོང་1 GBདགོས།</translation>
+        <translation type="vanished">མིག་སྔར་རང་སྒྲིག་བྱ་ཐབས་བྲལ་འདུག རང་སྒྲིག་ལ་ཉུང་མཐར་ཡང་བར་སྟོང་%1 GBདགོས།</translation>
     </message>
     <message>
         <source>Formatting...</source>

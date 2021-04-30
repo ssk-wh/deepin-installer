@@ -50,7 +50,7 @@
     </message>
     <message>
         <source>Core packages for server OS.</source>
-        <translation>Packages de base pour le système d&apos;exploitation serveur.</translation>
+        <translation>Paquets de base pour le système d&apos;exploitation serveur.</translation>
     </message>
     <message>
         <source>Base</source>
@@ -98,7 +98,7 @@
     </message>
     <message>
         <source>Provides most package groups for custom selection, covering minimum to maximum installation.</source>
-        <translation>Fournit la plupart des groupes de packages pour une sélection personnalisée, couvrant une installation minimale à maximale.</translation>
+        <translation>Fournit la plupart des groupes de paquets pour une sélection personnalisée, couvrant une installation minimale à maximale.</translation>
     </message>
     <message>
         <source>Debugging Tools</source>
@@ -106,7 +106,7 @@
     </message>
     <message>
         <source>Provide debugging package for program function and performance.</source>
-        <translation>Fournir un package de débogage pour la fonction et les performances du programme.</translation>
+        <translation>Fournir un paquet de débogage pour la fonction et les performances du programme.</translation>
     </message>
     <message>
         <source>Applications with GUI</source>
@@ -114,7 +114,7 @@
     </message>
     <message>
         <source>Commonly used server application packages in graphical user interface.</source>
-        <translation>Packages d&apos;applications serveur couramment utilisés dans l&apos;interface utilisateur graphique.</translation>
+        <translation>Paquets d&apos;applications serveur couramment utilisés dans l&apos;interface utilisateur graphique.</translation>
     </message>
     <message>
         <source>Development Tools</source>
@@ -122,7 +122,7 @@
     </message>
     <message>
         <source>Development tool packages in multiple programming languages.</source>
-        <translation>Packs d&apos;outils de développement dans plusieurs langages de programmation.</translation>
+        <translation>Suite d&apos;outils de développement dans plusieurs langages de programmation.</translation>
     </message>
     <message>
         <source>Directory Client</source>
@@ -194,7 +194,7 @@
     </message>
     <message>
         <source>Packages for monitoring and diagnosing hardware devices, system programs, and applications.</source>
-        <translation>Packages pour la surveillance et le diagnostic des périphériques matériels, des programmes système et des applications.</translation>
+        <translation>Paquets pour la surveillance et le diagnostic des périphériques matériels, des programmes système et des applications.</translation>
     </message>
     <message>
         <source>Security Tools</source>
@@ -202,7 +202,7 @@
     </message>
     <message>
         <source>Packages for integrity and trust verification.</source>
-        <translation>Packages pour la vérification de l&apos;intégrité et de la confiance.</translation>
+        <translation>Paquets pour la vérification de l&apos;intégrité et de la confiance.</translation>
     </message>
     <message>
         <source>Web Server</source>
@@ -543,7 +543,7 @@ Pour obtenir de meilleures performances, %3 Go ou plus est recommandé</translat
     </message>
     <message>
         <source>Encrypt This Disk</source>
-        <translation>Crypter ce disque</translation>
+        <translation>Chiffrer ce disque</translation>
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
@@ -591,7 +591,7 @@ Pour obtenir de meilleures performances, %3 Go ou plus est recommandé</translat
     </message>
     <message>
         <source>Start</source>
-        <translation>Commencer</translation>
+        <translation>Début</translation>
     </message>
     <message>
         <source>End</source>
@@ -1336,7 +1336,7 @@ Veuillez sélectionner l&apos;une des solutions ci-dessous et continuer.</transl
     </message>
     <message>
         <source>Uninstall failed package list:</source>
-        <translation>Désinstaller la liste des packages ayant échoué :</translation>
+        <translation>Désinstaller la liste des paquets ayant échoué :</translation>
     </message>
     <message>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
@@ -1344,19 +1344,19 @@ Veuillez sélectionner l&apos;une des solutions ci-dessous et continuer.</transl
     </message>
     <message>
         <source>Password must not contain more than %1 palindrome characters</source>
-        <translation type="unfinished"/>
+        <translation>Le mot de passe ne doit pas contenir plus de %1 caractères palindrome</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation type="unfinished"/>
+        <translation>N&apos;utilisez pas de mots et de combinaisons courants comme mot de passe</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation type="unfinished"/>
+        <translation>Créer un mot de passe fort, s&apos;il vous plaît</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"/>
+        <translation>Il ne répond pas aux règles de mot de passe</translation>
     </message>
 </context>
 <context>
