@@ -167,6 +167,16 @@ is_arm64() {
   esac
 }
 
+# Check whether graphics card is integrated or not.
+is_loongson_integrated_graphics() {
+    local ret=$(lshw -c video | grep "driver=loongson-drm")
+    if [ ! -z "${ret}" ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
 install_package() {
 #  DEBIAN_FRONTEND="noninteractive" apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" --no-install-recommends --allow-unauthenticated install $@
   for i in $@;

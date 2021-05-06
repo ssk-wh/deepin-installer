@@ -93,6 +93,12 @@ else
     detect_vmware || UNUSED_PKGS+=("open-vm-tools*")
 fi
 
+if ! is_loongson_integrated_graphics; then
+    msg "Don't uninstall org.deepin.contacts"
+else
+    UNUSED_PKGS+=("org.deepin.contacts")
+fi
+
 # Check package existence.
 declare -a EXISTING_UNUSED_PKGS
 for pkg in ${UNUSED_PKGS[@]}; do
