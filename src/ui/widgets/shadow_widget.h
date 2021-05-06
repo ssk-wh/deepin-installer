@@ -4,7 +4,6 @@
 #include <QWidget>
 #include <QResizeEvent>
 
-class QStackedLayout;
 class QVBoxLayout;
 
 namespace installer {
@@ -18,14 +17,10 @@ public:
     void setContent(BaseFrameInterface* inter);
     void eraseContent();
 
-protected:
-    void paintEvent(QPaintEvent* event) override;
-
 private:
     BaseFrameInterface* m_childFrameInterface;
-    QStackedLayout* m_centerLayout;
-
-    QWidget* m_widget;
+    QVBoxLayout* m_centerLayout;
+    QWidget* m_centerWidget;
 };
 }
 #endif // PARTITION_SHADOW_WIDGET_H

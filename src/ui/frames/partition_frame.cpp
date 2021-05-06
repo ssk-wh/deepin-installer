@@ -520,15 +520,19 @@ void PartitionFramePrivate::initConnections() {
 
   connect(edit_partition_frame_, &EditPartitionFrame::finished, this, [=] {
       q_ptr->m_proxy->hideChildFrame();
+      q_ptr->repaint();
   });
   connect(edit_lvm_partition_frame_, &EditPartitionFrame::finished, this, [=] {
       q_ptr->m_proxy->hideChildFrame();
+      q_ptr->repaint();
   });
   connect(new_partition_frame_, &NewPartitionFrame::finished, this, [=] {
       q_ptr->m_proxy->hideChildFrame();
+      q_ptr->repaint();
   });
   connect(new_lvm_partition_frame_, &NewPartitionFrame::finished, this, [=] {
       q_ptr->m_proxy->hideChildFrame();
+      q_ptr->repaint();
   });
 
   connect(new_table_warning_frame_, &NewTableWarningFrame::canceled,
@@ -569,6 +573,7 @@ void PartitionFramePrivate::initConnections() {
           advanced_delegate_, &AdvancedPartitionDelegate::setBootloaderPath);
   connect(select_bootloader_frame_, &SelectBootloaderFrame::finished, this, [=] {
       q_ptr->m_proxy->hideChildFrame();
+      q_ptr->repaint();
   });
   connect(advanced_delegate_, &AdvancedPartitionDelegate::deviceRefreshed,
           select_bootloader_frame_, &SelectBootloaderFrame::deviceRefreshed);
@@ -605,6 +610,7 @@ void PartitionFramePrivate::initConnections() {
 
   connect(full_disk_encrypt_frame_, &Full_Disk_Encrypt_frame::cancel, this, [=] {
       q_ptr->m_proxy->hideChildFrame();
+      q_ptr->repaint();
   });
 
   connect(full_disk_encrypt_frame_, &Full_Disk_Encrypt_frame::encryptFinished, q_ptr, [=] {
@@ -613,6 +619,7 @@ void PartitionFramePrivate::initConnections() {
       setupDiskEncrypt(this->isEncrypt()); // 设置全盘分区场景下的全盘加密
 
       q_ptr->m_proxy->hideChildFrame();
+      q_ptr->repaint();
       showPrepareInstallFrame();
   });
 

@@ -82,7 +82,6 @@ namespace installer {
 MainWindow::MainWindow(QWidget* parent)
     : DMainWindow(parent),
       FrameProxyInterface(),
-      shadow_widget(new ShadowWidget),
       pages_(),
       prev_page_(PageId::NullId),
       current_page_(PageId::NullId),
@@ -325,16 +324,16 @@ void MainWindow::showChildFrame(BaseFrameInterface* childFrameInterface)
         return;
     }
     shadow_widget->setContent(childFrameInterface);
-    shadow_widget->setParent(this);
-    shadow_widget->setGeometry(rect());
+    shadow_widget->setAttribute(Qt::WA_ShowModal, true);
     shadow_widget->raise();
     shadow_widget->show();
+    shadow_widget->repaint();
+    repaint();
 }
 
 void MainWindow::hideChildFrame() const
 {
-    shadow_widget->eraseContent();
-    shadow_widget->hide();
+    shadow_widget->close();
 }
 
 void MainWindow::showExtFrameFullscreen(BaseFrameInterface* childFrameInterface)
@@ -711,8 +710,8 @@ void MainWindow::initUI() {
 
   back_button_->raise();
 
+  shadow_widget = new ShadowWidget(this);
   shadow_widget->hide();
-  shadow_widget->setFocusPolicy(Qt::NoFocus);
 }
 
 void MainWindow::registerShortcut() {
