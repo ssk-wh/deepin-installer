@@ -496,7 +496,9 @@ void SelectLanguageFramePrivate::initUI() {
 
     m_languageView = new DListView();
     m_languageView->setMinimumWidth(kListViewWidth - 15);
+    m_languageView->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
     //m_languageView->setFocusPolicy(Qt::TabFocus);
+    m_languageView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     m_languageView->setEditTriggers(QListView::NoEditTriggers);
     m_languageView->setIconSize(QSize(32, 32));
     m_languageView->setResizeMode(QListView::Adjust);
@@ -516,9 +518,17 @@ void SelectLanguageFramePrivate::initUI() {
     //QListView::item:hover{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}
     //QListView::item:selected{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}
 
+    QVBoxLayout *languageViewLayout = new QVBoxLayout;
+    languageViewLayout->setContentsMargins(10, 10, 15, 10);
+    languageViewLayout->setSpacing(0);
+    languageViewLayout->addWidget(m_languageView);
+    QFrame *languageViewWrap = new QFrame;
+    languageViewWrap->setLayout(languageViewLayout);
+
     QScrollArea *languageArea = new QScrollArea;
     languageArea->setObjectName("languageArea");
     languageArea->setMinimumWidth(kListViewWidth);
+    languageArea->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
     languageArea->setContentsMargins(0, 0, 0, 0);
     languageArea->setWidgetResizable(true);
     //languageArea->setFocusPolicy(Qt::TabFocus);
@@ -528,7 +538,7 @@ void SelectLanguageFramePrivate::initUI() {
     languageArea->setContextMenuPolicy(Qt::NoContextMenu);
     languageArea->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     languageArea->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-    languageArea->setWidget(m_languageView);
+    languageArea->setWidget(languageViewWrap);
 
     accept_license_ = new QCheckBox;
     accept_license_->setCheckable(true);
