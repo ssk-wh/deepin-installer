@@ -6,12 +6,13 @@
 . "/usr/share/deepin-installer/hooks/basic_utils.sh"
 
 if [ -d "/deepin-installer/before_check/" ];then
-    for i in /deepin-installer/before_check/*; do
+    JOBS=$(ls /deepin-installer/before_check/*.job)
+    for i in $JOBS; do
         chmod +x $i
         $i
         if [ $? != 0 ]; then
             echo "Check Mode faild: $i" >> /var/log/deepin-installer.log
-            touch /boot/efi/SI_FAILED
+            touch /boot/SI_FAILED
             setNetworkBoot
             reboot
         fi

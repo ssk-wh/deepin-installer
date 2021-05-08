@@ -6,11 +6,12 @@
 touch /tmp/in_check.file
 
 if [ -d "/deepin-installer/in_check/" ];then
-    for i in /deepin-installer/in_check/*; do
+    JOBS=$(ls /deepin-installer/in_check/*.job)
+    for i in $JOBS; do
         chmod +x $i
         $i
         if [ $? != 0 ]; then
-            echo ${system_info_si_password}|sudo -S touch /boot/efi/SI_FAILED
+            echo ${system_info_si_password}|sudo -S touch /boot/SI_FAILED
             setNetworkBoot
             echo ${system_info_si_password}|sudo reboot
         fi
