@@ -129,21 +129,15 @@ private:
     DListView* m_layoutView = new TipListView;
     DListView* m_variantView = new TipListView;
 
-    // The user last checked item.
-    DStandardItem* m_lastItem = nullptr;
-    DStandardItem* m_lastItemVar = nullptr;
-
+    // The user last checked layout item.
     QModelIndex m_lastMode;
+    // The user last checked layout variant item.
     QModelIndex m_lastModeVar;
 
     // Keyboard layout list sorted by description.
     XkbLayoutList layout_list_;
     XKbLayoutVariantList variant_list_;
     XkbModelList model_list;
-
-    // The user last checked both left and right view item.
-    DStandardItem* m_lastChangedItem = nullptr;
-    int m_lastItemRow = -1;
 };
 
 SystemInfoKeyboardFrame::SystemInfoKeyboardFrame(FrameProxyInterface *parent)
@@ -298,10 +292,6 @@ void SystemInfoKeyboardFramePrivate::initLayout(const QString& locale) {
   layout_list_ = xkb_config_.layout_list;
 
   m_layoutModel->clear();
-  m_lastItem = nullptr;
-  m_lastChangedItem = nullptr;
-  m_lastItemVar = nullptr;
-  m_lastItemRow = -1;
 
   // Sort layout list by description.
   // Perform localized comparison.
@@ -471,20 +461,39 @@ void SystemInfoKeyboardFrame::changeEvent(QEvent* event) {
 void SystemInfoKeyboardFrame::showEvent(QShowEvent *event)
 {
     Q_D(SystemInfoKeyboardFrame);
-    QStringList localeList;
-    localeList << ReadLocale() << GetSettingsString(kSelectLanguageDefaultLocale);
 
-    for (const QString& locale : localeList) {
-        int index = locale.indexOf('_');
-        if (index >= 0){
-            const QModelIndex modelIndex = d->getLayoutByName(locale.mid(index + 1).toLower());
-            if (modelIndex.isValid()) {
-                d->m_layoutView->setCurrentIndex(modelIndex);
-                break;
+    DStandardItem* tmpItem = nullptr;
+    DStandardItem* tmpVarItem = nullptr;
+
+    if (d->m_lastMode.isValid() && d->m_lastModeVar.isValid()) {
+        tmpItem = dynamic_cast<DStandardItem* >(d->m_layoutModel->item(d->m_lastMode.row()));
+        tmpVarItem = dynamic_cast<DStandardItem* >(d->m_variantModel->item(d->m_lastModeVar.row()));
+    }
+
+    if (tmpItem != nullptr && tmpVarItem != nullptr) {
+        qInfo() << "Set last checked layout and variant when page show";
+
+        tmpItem->setCheckState(Qt::Checked);
+        tmpVarItem->setCheckState(Qt::Checked);
+    }
+    else {
+        qInfo() << "Set layout and variant from locale or setting file when page show";
+
+        QStringList localeList;
+        localeList << ReadLocale() << GetSettingsString(kSelectLanguageDefaultLocale);
+
+        for (const QString& locale : localeList) {
+            int index = locale.indexOf('_');
+            if (index >= 0){
+                const QModelIndex modelIndex = d->getLayoutByName(locale.mid(index + 1).toLower());
+                if (modelIndex.isValid()) {
+                    d->m_layoutView->setCurrentIndex(modelIndex);
+                    break;
+                }
             }
-        }
-        else{
-            qWarning() << "invalid locale:" << locale;
+            else{
+                qWarning() << "invalid locale:" << locale;
+            }
         }
     }
 
@@ -725,9 +734,6 @@ void SystemInfoKeyboardFramePrivate::onVariantViewSelected(
     if (item != nullptr) {
         item->setCheckState(Qt::Checked);
     }
-
-    m_lastChangedItem = dynamic_cast<DStandardItem* >
-            (m_layoutModel->item(m_layoutView->currentIndex().row()));
 
     const QModelIndex layout_index = m_layoutView->currentIndex();
     const QString variant = getVariantName(current);
