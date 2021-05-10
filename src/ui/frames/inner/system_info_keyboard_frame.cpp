@@ -101,6 +101,14 @@ private:
     // Read xkb layout list with |locale|.
     void initLayout(const QString& locale);
 
+    // Clear user last checked keyboard layout and variant model index,
+    // because keyboard layout and variant must be keep up with language
+    // when user checked different language.
+    void resetLastCheckedModelIndex();
+
+    // Update keyboard layout and variant by read locale or setting file.
+    void updateViewCheckedByLocale();
+
     // Get variant list at |index|.
     XKbLayoutVariantList getVariantList(const QModelIndex& index);
 
@@ -311,6 +319,32 @@ void SystemInfoKeyboardFramePrivate::initLayout(const QString& locale) {
   m_layoutView->update();
 }
 
+void SystemInfoKeyboardFramePrivate::resetLastCheckedModelIndex()
+{
+    m_lastMode = QModelIndex();
+    m_lastModeVar = QModelIndex();
+}
+
+void SystemInfoKeyboardFramePrivate::updateViewCheckedByLocale()
+{
+    QStringList localeList;
+    localeList << ReadLocale() << GetSettingsString(kSelectLanguageDefaultLocale);
+
+    for (const QString& locale : localeList) {
+        int index = locale.indexOf('_');
+        if (index >= 0){
+            const QModelIndex modelIndex = getLayoutByName(locale.mid(index + 1).toLower());
+            if (modelIndex.isValid()) {
+                m_layoutView->setCurrentIndex(modelIndex);
+                break;
+            }
+        }
+        else{
+            qWarning() << "invalid locale:" << locale;
+        }
+    }
+}
+
 XKbLayoutVariantList SystemInfoKeyboardFramePrivate::getVariantList(
     const QModelIndex& index) {
   if (index.isValid()) {
@@ -453,6 +487,12 @@ void SystemInfoKeyboardFrame::changeEvent(QEvent* event) {
     if (event->type() == QEvent::LanguageChange) {
         d->updateTs();
         d->initLayout(ReadLocale());
+
+        // Clear user last checked keyboard layout and variant model index
+        // when user change language, and then update keyboard layout view
+        // and variant view by read locale or setting file.
+        d->resetLastCheckedModelIndex();
+        d->updateViewCheckedByLocale();
     } else {
         FrameInterface::changeEvent(event);
     }
@@ -479,22 +519,7 @@ void SystemInfoKeyboardFrame::showEvent(QShowEvent *event)
     else {
         qInfo() << "Set layout and variant from locale or setting file when page show";
 
-        QStringList localeList;
-        localeList << ReadLocale() << GetSettingsString(kSelectLanguageDefaultLocale);
-
-        for (const QString& locale : localeList) {
-            int index = locale.indexOf('_');
-            if (index >= 0){
-                const QModelIndex modelIndex = d->getLayoutByName(locale.mid(index + 1).toLower());
-                if (modelIndex.isValid()) {
-                    d->m_layoutView->setCurrentIndex(modelIndex);
-                    break;
-                }
-            }
-            else{
-                qWarning() << "invalid locale:" << locale;
-            }
-        }
+        d->updateViewCheckedByLocale();
     }
 
     this->setCurentFocus(d_private->nextButton);
