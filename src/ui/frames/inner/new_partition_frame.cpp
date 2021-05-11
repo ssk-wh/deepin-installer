@@ -545,14 +545,14 @@ void NewPartitionFrame::initUI() {
   layout->setContentsMargins(0, topMargin, 0, 0);
   layout->addSpacing(0);
   layout->addWidget(title_label_, 0, Qt::AlignCenter | Qt::AlignTop);
-  layout->addSpacing(kMainLayoutSpacing);
+  layout->addSpacing(10);
 
   layout->addWidget(content_frame, 0, Qt::AlignHCenter | Qt::AlignTop);
   layout->addStretch();
   layout->addWidget(m_auto_label, 0, Qt::AlignHCenter | Qt::AlignBottom);
-  layout->addSpacing(8);
+  layout->addSpacing(5);
   layout->addLayout(bt_layout);
-  layout->addSpacing(20);
+  layout->addSpacing(10);
 
   this->setLayout(layout);
   this->setContentsMargins(0, 0, 0, 0);
