@@ -717,7 +717,7 @@ void BeforeInstallHook()
 {
     const QString subPath = "/hooks/before_install/";
     QStringList jobList;
-    const QStringList pathList{kDeepinOemCandidateDir, kDeepinOemDir, kUbuntuOemDir, kDebugOemDir};
+    const QString pathList = installer::GetOemDir().path();
     QStringList nameFilters;
 
     QString objPath = "/tmp/installer/";
