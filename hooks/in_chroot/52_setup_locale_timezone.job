@@ -46,7 +46,9 @@ set_timedate() {
     if [[ x"${IS_ENABLE_NTP}" != xtrue ]]; then
         TIMEDATE=$(installer_get "DI_TIMEDATE")
     else
-        TIMEDATE=$(date "+%Y-%m-%d %H:%M:%S")
+        # 1031之后由于系统关机时系统时间会被同步到rtc中，所以在设置时间的时候需要在没有时区干扰的情况下同步rtc时间为系统时间，防止每次安装系统后系统时间+8
+        TIMEDATE=$rtc_date
+        echo "rtc_date="$rtc_date
     fi
 
     timedatectl set-time "${TIMEDATE}"
@@ -134,6 +136,9 @@ EOF
     msg "Timezone is not available, Fall back to Asia/Shanghai"
     DI_TIMEZONE="Asia/Shanghai"
   fi
+
+  # 在没有设置时区之前记录rtc时间，此时系统处于+0时区，系统时间=rtc时间
+  rtc_date=$(date "+%Y-%m-%d %H:%M:%S")
 
   msg "Set timezone to ${DI_TIMEZONE}"
   echo "${DI_TIMEZONE}" > /etc/timezone
