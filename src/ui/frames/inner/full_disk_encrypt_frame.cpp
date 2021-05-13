@@ -31,7 +31,7 @@ using namespace installer;
 
 namespace {
     const int kMainFrameWidth = 600;
-    const int kMainFrameHeight = 500;
+    const int kMainFrameHeight = 550;
 
     const int kContentWidth = 500;
     const int kFullDiskEncryptTitelFont=24;
@@ -43,7 +43,6 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     , m_layout(new QVBoxLayout(this))
     , m_frameLbl(new TitleLabel(""))
     , m_frameSubLbl(new QLabel)
-    , m_tilabel(new QLabel)
     , m_encryptLbl(new QLabel)
     , m_encryptCheckLbl(new QLabel)
     , m_encryptEdit(new DPasswordEdit)
@@ -104,9 +103,9 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     spacingBar->setFixedHeight(2);
     spacingBar->setFixedWidth(kContentWidth);
 
-    m_layout->addSpacing(10);
+    m_layout->addSpacing(5);
     m_layout->addWidget(spacingBar, 0, Qt::AlignHCenter);
-    m_layout->addSpacing(10);
+    m_layout->addSpacing(5);
 
     // add encrypt input
     m_encryptLbl->setAlignment(Qt::AlignLeft);
@@ -151,7 +150,6 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     m_layout->addSpacing(10);
     m_layout->addWidget(m_encryptCheckFrame, 0, Qt::AlignHCenter);
     m_layout->addStretch();
-    m_layout->addWidget(m_tilabel, 0, Qt::AlignHCenter);
 
     QHBoxLayout *buttonLayout = new QHBoxLayout;
     buttonLayout->setContentsMargins(0, 0, 0, 0);
@@ -169,9 +167,18 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     m_confirmBtn->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);
     //m_confirmBtn->setFocusPolicy(Qt::TabFocus);
 
-    m_layout->addWidget(m_frameSubLbl, 0, Qt::AlignHCenter);
+    m_frameSubLbl->setAlignment(Qt::AlignCenter);
+    m_frameSubLbl->setWordWrap(true);
+    m_frameSubLbl->adjustSize();
+
+    QHBoxLayout* tipLayout = new QHBoxLayout();
+    tipLayout->setContentsMargins(0, 0, 0, 0);
+    tipLayout->setSpacing(0);
+    tipLayout->addWidget(m_frameSubLbl);
+
+    m_layout->addLayout(tipLayout);
     m_layout->addWidget(buttonWrapWidget, 0, Qt::AlignHCenter);
-    m_layout->addSpacing(20);
+    m_layout->addSpacing(10);
 
     setLayout(m_layout);
     setContentsMargins(0, 0, 0, 0);
@@ -313,12 +320,13 @@ void Full_Disk_Encrypt_frame::onEncryptUpdated(bool checked)
 void Full_Disk_Encrypt_frame::updateText()
 {
     m_frameLbl->setText(::QObject::tr("Encrypt This Disk"));
-    m_frameSubLbl->setText(::QObject::tr("Make sure you have backed up important data, then select the disk to install"));
+    m_frameSubLbl->setText(::QObject::tr("Take care of your password, otherwise, all your data will be lost")
+                           + "\n"
+                           + ::QObject::tr("Make sure you have backed up important data, then select the disk to install"));
     m_encryptLbl->setText(::QObject::tr("Password").append(" :"));
     m_encryptCheckLbl->setText(::QObject::tr("Repeat Password").append(" :"));
     m_cancelBtn->setText(::QObject::tr("Cancel"));
     m_confirmBtn->setText(::QObject::tr("Confirm"));
-    m_tilabel->setText(::QObject::tr("Take care of your password, otherwise, all your data will be lost"));
 }
 
 void Full_Disk_Encrypt_frame::updateDiskInfo(int index)

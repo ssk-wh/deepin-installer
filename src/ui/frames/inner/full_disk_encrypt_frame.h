@@ -78,7 +78,6 @@ private:
     QVBoxLayout *m_layout;
     TitleLabel *m_frameLbl;
     QLabel *m_frameSubLbl;
-    QLabel *m_tilabel;
     FullDiskDiskInfo  m_diskinfo[FULL_DISK_DISK_MAX_COUNT];
     QLabel *m_encryptLbl;
     QLabel *m_encryptCheckLbl;
