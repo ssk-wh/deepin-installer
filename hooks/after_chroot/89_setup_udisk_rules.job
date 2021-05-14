@@ -34,6 +34,15 @@ setup_udisks_rules() {
     # 隐藏swap分区
     echo "# hide swap" >> ${UDISK_FILE}
     echo "ENV{ID_FS_TYPE}==\"swap\", ENV{UDISKS_IGNORE}=\"1\"" >> ${UDISK_FILE}
+
+    # 隐藏加密磁盘
+    ROOT_DISK=$(installer_get "DI_ROOT_DISK")   # 获取目标系统的系统盘
+    ROOT_DISK=${ROOT_DISK#/dev/}                # 获取目标系统的系统盘号
+    LUKS_ID=$(lsblk -o UUID,NAME,FSTYPE -f | grep -i crypto_luks | grep $ROOT_DISK | awk '{print $1}')
+    if [ -n "$LUKS_ID" ]; then
+        echo "# hide luks_cryt" >> ${UDISK_FILE}
+        echo "ENV{ID_FS_UUID}==\"${LUKS_ID}\", ENV{UDISKS_IGNORE}=\"1\"" >> ${UDISK_FILE}
+    fi
 }
 
 setup_udisks_rules
