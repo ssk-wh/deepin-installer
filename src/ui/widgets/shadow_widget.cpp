@@ -42,6 +42,7 @@ void ShadowWidget::eraseContent()
 {
     if (m_childFrameInterface) {
         m_centerLayout->removeWidget(m_childFrameInterface);
+        m_childFrameInterface->setParent(nullptr);
     }
 
     m_childFrameInterface = nullptr;
