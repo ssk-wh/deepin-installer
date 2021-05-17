@@ -60,7 +60,7 @@ const qint64 kMinimumPartitionSize = 100 * kMebiByte;
 const int kButtonwidth = 197;
 
 const int kMainFrameWidth = 560;
-const int kMainFrameHeight = 500;
+const int kMainFrameHeight = 520;
 
 const int kHintLabelWidth = 80;
 const int kHintLabelInputWidgetSpacing = 10;
@@ -543,6 +543,8 @@ void NewPartitionFrame::initUI() {
 
   int topMargin = ScreenAdaptationManager::instance()->getChildWindowTopMargin();
   layout->setContentsMargins(0, topMargin, 0, 0);
+  layout->setSpacing(0);
+
   layout->addSpacing(0);
   layout->addWidget(title_label_, 0, Qt::AlignCenter | Qt::AlignTop);
   layout->addSpacing(10);
