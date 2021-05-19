@@ -26,6 +26,11 @@ if [ x${DI_NECURESCLIINSTALL_MODE} != "xtrue" ]; then
 fi
 
 
+reload_conf() {
+    loacl allow=$1
+    dbus-send --system --type=method_call --print-reply --dest=com.deepin.daemon.Accounts /com/deepin/daemon/Accounts com.deepin.daemon.Accounts.EnablePasswdChangedHandler boolean:$allow
+}
+
 # Override default settings for user.
 customize_user() {
   local DI_USERNAME USER_CONF
@@ -53,7 +58,9 @@ customize_user() {
 }
 
 if [ x$(installer_get "system_info_setup_after_reboot") != xtrue ]; then
+   reload_conf false   # 传false的时候,是system-daemon不会更新那些用户设置
    customize_user
+   reload_conf true    # 传true的时候,是会重新加载一遍配置,并会根据passwd的变化去更新
 fi
 
 return 0
