@@ -717,7 +717,7 @@ void BeforeInstallHook()
 {
     const QString subPath = "/hooks/before_install/";
     QStringList jobList;
-    const QString pathList = installer::GetOemDir().path();
+    const QString oemdirpath = installer::GetOemDir().path();
     QStringList nameFilters;
 
     QString objPath = "/tmp/installer/";
@@ -729,29 +729,27 @@ void BeforeInstallHook()
     //all type file
     nameFilters << "*";
 
-    for (int i = 0; i < pathList.size(); i++) {
-        QString path = pathList.at(i) + subPath;
-        QDir dir(path);
-        QStringList files = dir.entryList(nameFilters, QDir::Files|QDir::Executable, QDir::Name);
-        foreach (const QString& f, files) {
-            const QString fileName = path + f;
-            QFile file(objPath + f);
-            if (file.exists()) {
-                file.remove();
-            }
-            if (!QFile::copy(fileName, objPath + f)) {
-                qCritical() << "copy " << fileName << " to " << objPath << " failed!";
-            }
-
+    QString path = oemdirpath + subPath;
+    QDir dir(path);
+    QStringList files = dir.entryList(nameFilters, QDir::Files|QDir::Executable, QDir::Name);
+    foreach (const QString& f, files) {
+        const QString fileName = path + f;
+        QFile file(objPath + f);
+        if (file.exists()) {
+            file.remove();
         }
+        if (!QFile::copy(fileName, objPath + f)) {
+            qCritical() << "copy " << fileName << " to " << objPath << " failed!";
+        }
+
     }
 
     //TODO
     //Splicing according to the actual situation
     const QString hookManager = "/usr/share/deepin-installer/hooks/hook_manager.sh";
-    QDir dir(objPath);
-    QStringList files = dir.entryList(nameFilters, QDir::Files|QDir::Executable, QDir::Name);
-    foreach (const QString job, files) {
+    QDir objdir(objPath);
+    QStringList objfiles = objdir.entryList(nameFilters, QDir::Files|QDir::Executable, QDir::Name);
+    foreach (const QString job, objfiles) {
         if (!SpawnCmd(hookManager, {objPath + job})) {
             qCritical() << "hook_manager.sh " << job << " failed";
             return;
