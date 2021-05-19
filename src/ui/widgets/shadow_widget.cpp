@@ -42,10 +42,25 @@ void ShadowWidget::eraseContent()
 {
     if (m_childFrameInterface) {
         m_centerLayout->removeWidget(m_childFrameInterface);
-        m_childFrameInterface->setParent(nullptr);
     }
 
     m_childFrameInterface = nullptr;
+}
+
+void ShadowWidget::showEvent(QShowEvent *event)
+{
+    if ( m_childFrameInterface != nullptr ) {
+        m_childFrameInterface->show();
+    }
+    return QWidget::showEvent(event);
+}
+
+void ShadowWidget::closeEvent(QCloseEvent *event)
+{
+    if ( m_childFrameInterface != nullptr ) {
+        m_childFrameInterface->close();
+    }
+    return QWidget::closeEvent(event);
 }
 
 }
