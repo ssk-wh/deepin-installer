@@ -161,8 +161,7 @@ QString TimezoneFrame::returnFrameName() const
 void TimezoneFrame::init() {
   // Policy:
   //    * Read default timezone from settings.
-  //    * Scan wifi spot.
-  //    * Send http request to get geo ip.
+  //    * Scan wifi spot or send http request to get geo ip.
   //    * Or wait for user to choose timezone on map.
 
   // Read timezone from settings.
@@ -188,21 +187,24 @@ void TimezoneFrame::updateTimezoneBasedOnLanguage(const QString& timezone) {
       m_private->timezone_source_ == TimezoneSource::Language) {
     if (IsTimezoneInTab(timezone)) {
       m_private->timezone_source_ = TimezoneSource::Language;
+      m_private->timezone_ = timezone;
+      emit timezoneUpdated(m_private->timezone_);
+
+      WriteTimezone(m_private->timezone_);
     }
   } else {
     qDebug() << "Ignores language default timezone:" << timezone;
+
+    // Trigger the translation of the time zone list update.
+    emit timezoneUpdated("");
   }
-
-  m_private->timezone_ = timezone;
-  emit timezoneUpdated(m_private->timezone_);
-
 }
 
 void TimezoneFrame::finished() {
     // Validate timezone before writing to settings file.
     if (!IsTimezoneInTab(m_private->timezone_)) {
-    qWarning() << "Invalid timezone:" << m_private->timezone_;
-    m_private->timezone_ = kDefaultTimezone;
+        qWarning() << "Invalid timezone:" << m_private->timezone_;
+        m_private->timezone_ = kDefaultTimezone;
     }
 
     WriteTimezone(m_private->timezone_);

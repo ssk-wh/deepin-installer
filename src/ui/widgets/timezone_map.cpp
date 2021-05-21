@@ -77,8 +77,13 @@ const QString TimezoneMap::getTimezone() const {
 }
 
 void TimezoneMap::setTimezone(const QString& timezone) {
-  setTimezoneData(timezone);
-  QTimer::singleShot(0, this, &TimezoneMap::updateMap);
+    if (!timezone.isEmpty()) {
+        setTimezoneData(timezone);
+        QTimer::singleShot(0, this, &TimezoneMap::updateMap);
+    }
+    else {
+        qWarning() << "Timezone is empty";
+    }
 }
 
 void TimezoneMap::setTimezoneData(const QString& timezone) {

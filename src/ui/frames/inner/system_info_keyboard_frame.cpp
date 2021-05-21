@@ -493,6 +493,8 @@ void SystemInfoKeyboardFrame::changeEvent(QEvent* event) {
         // and variant view by read locale or setting file.
         d->resetLastCheckedModelIndex();
         d->updateViewCheckedByLocale();
+
+        finished();
     } else {
         FrameInterface::changeEvent(event);
     }
