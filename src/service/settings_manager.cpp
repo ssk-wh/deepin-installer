@@ -718,7 +718,7 @@ void BeforeInstallHook()
     const QString subPath = "/hooks/before_install/";
     QStringList jobList;
     const QString oemdirpath = installer::GetOemDir().path();
-    QStringList nameFilters;
+    QStringList nameFilters {"*.job"};
 
     QString objPath = "/tmp/installer/";
     QDir objDir(objPath);
@@ -726,12 +726,11 @@ void BeforeInstallHook()
         objDir.mkpath(objPath);
     }
 
-    //all type file
-    nameFilters << "*";
-
     QString path = oemdirpath + subPath;
+    qDebug() << "before installer job path:" << path;
     QDir dir(path);
-    QStringList files = dir.entryList(nameFilters, QDir::Files|QDir::Executable, QDir::Name);
+    QStringList const files = dir.entryList(nameFilters, QDir::Files);
+    qDebug() << "before installer job list:" << files;
     foreach (const QString& f, files) {
         const QString fileName = path + f;
         QFile file(objPath + f);
@@ -748,7 +747,7 @@ void BeforeInstallHook()
     //Splicing according to the actual situation
     const QString hookManager = "/usr/share/deepin-installer/hooks/hook_manager.sh";
     QDir objdir(objPath);
-    QStringList objfiles = objdir.entryList(nameFilters, QDir::Files|QDir::Executable, QDir::Name);
+    QStringList objfiles = objdir.entryList(nameFilters, QDir::Files);
     foreach (const QString job, objfiles) {
         if (!SpawnCmd(hookManager, {objPath + job})) {
             qCritical() << "hook_manager.sh " << job << " failed";
