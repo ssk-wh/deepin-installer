@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 . ./basic_utils.sh
 
 DI_USER_EXPERIENCE=$(installer_get "DI_USER_EXPERIENCE")

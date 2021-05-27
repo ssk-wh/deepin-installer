@@ -26,7 +26,6 @@ CONF_FILE=/etc/deepin-installer.conf
 
 . ./basic_utils.sh
 . ./doinstallrecord_first_boot.sh
-. ./in_chroot/03_setup_user_experience.job
 . ./in_chroot/34_setup_livefs.job
 . ./in_chroot/51_setup_keyboard.job
 . ./in_chroot/52_setup_locale_timezone.job
@@ -81,8 +80,9 @@ uninstall_packages() {
   # 增加system_module_debug判断，用于隔离安装包超时逻辑的修改
   local module=$(installer_get "system_module_debug")
   if [ "x$module" != "xtrue" ]; then
-    apt-get -y purge ${list}
-    # apt autoremove -y   // 屏蔽代码解决磁盘加密时选择非图形组建安装系统成功后，系统无法重启问题。根因：由于cryptsetup被apt autoremove 卸载导致无法启动
+      # 加密卸载包的输出日志，由于安装器会将自身卸载，所以为了保证日志完整性，卸载阶段的日志需要加密后追加到后配置日志中
+      apt-get -y purge ${list} | base64  >> /var/log/deepin-installer-first-boot.log
+      # apt autoremove -y  // 屏蔽代码解决磁盘加密时选择非图形组建安装系统成功后，系统无法重启问题。根因：由于cryptsetup被apt autoremove 卸载导致无法启动
   fi
 
 }
@@ -154,31 +154,37 @@ update-grub
 fi
 }
 
-encryp_log() {
+## 解决系统还原后，安装器日志没有或者不全问题
+backup_log() {
     local INSTALL_LOG="/var/log/deepin-installer.log"
+    local RECOVERY_LOG="/recovery/deepin-installer.log"
+
+    if [ ! -f "$RECOVERY_LOG" ]; then
+        encryption_file $INSTALL_LOG        # 加密日志
+        install -v -Dm600 $INSTALL_LOG $RECOVERY_LOG
+    fi
+}
+recovery_log() {
+    local INSTALL_LOG="/var/log/deepin-installer.log"
+    local RECOVERY_LOG="/recovery/deepin-installer.log"
+    if [ -f "$RECOVERY_LOG" ]; then
+        install -v -Dm600 /recovery/deepin-installer.log /var/log/deepin-installer.log
+    fi
+}
+
+setup_log() {
     local FIRST_BOOT_LOG="/var/log/deepin-installer-first-boot.log"
 
-    ## 加密后配置阶段的日志中用户名
-    local USER_NAME=$(installer_get "DI_USERNAME")
-    local ENCRYP_USERNAME="***=***"
-    sed -i "s/${USER_NAME}/${ENCRYP_USERNAME}/g" ${FIRST_BOOT_LOG}
-
-    ## 加密用户UUID
-    local USER_UUID=$(id -u ${USER_NMAE})
-    echo ${USER_UUID}
-    local ENCRYP_UUID="***==***"
-    sed -i "s/${USER_UUID}/${ENCRYP_UUID}/g" ${FIRST_BOOT_LOG}
-
-    ## 去掉磁盘UUID
-    local SRC_UUID="UUID="
-    sed -i "/${SRC_UUID}/d" ${INSTALL_LOG}
-    sed -i "/${SRC_UUID}/d" ${FIRST_BOOT_LOG}
+    recovery_log                        # 还原安装日志
+    backup_log                          # 备份安装日志
+    encryption_file $FIRST_BOOT_LOG     # 加密first boot日志
 }
+
 
 main() {
   [ -f "${CONF_FILE}" ] || error "deepin-installer.conf not found"
   cat "${CONF_FILE}" | grep -v "PASSWORD" | grep -v "password"
-
+  recovery_log
   setup_keyboard
   setup_locale_timezone
   setup_livefs
@@ -201,8 +207,8 @@ main() {
   remove_component_packages
   setup_default_target
   update_grub_local  # 处理gurb汉化问题
-  encryp_log         # 加密日志中敏感字符
-  uninstall_packages # 这必须是最后一步！
+  setup_log          # 加密日志中敏感字符
+  uninstall_packages # 这一步必须是最后一步
   sync
 }
 
