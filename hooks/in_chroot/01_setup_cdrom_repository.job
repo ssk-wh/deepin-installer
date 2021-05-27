@@ -16,13 +16,16 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+# 本地仓库的路径
+LOC_REPO_PATH="/media/cdrom/dists"
+
 # add cdrom to sources.list
-[ ! -d /media/cdrom/dists ] && warn_exit "/media/cdrom is not a debian repository. Skipped."
+[ ! -d $LOC_REPO_PATH ] && warn_exit "/media/cdrom is not a debian repository. Skipped."
 
 # commented source.list to let apt-get just using cdrom repo.
 sed -i 's/^/#/g' /etc/apt/sources.list
 
-dir=$(ls -l /media/cdrom/dists | awk '/^d/ {print $NF}')
+dir=$(find  $LOC_REPO_PATH -name "Release" | xargs awk -F '[ :]+' '/Codename/{print $2}')
 for name in $dir
 do
     # ident the cdrom first.
