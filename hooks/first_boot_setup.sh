@@ -150,7 +150,6 @@ set superusers="${USERNAME}"
 password_pbkdf2 ${USERNAME} ${GRUB_PASSWORD}
 P_EOF
 EOF
-update-grub
 fi
 }
 
@@ -203,12 +202,11 @@ main() {
 
   sync
   cleanup_oem_license
-  update-grub && update-initramfs -u
+  update_grub_local && update-initramfs -u
   cleanup_first_boot
   setup_lightdm_auto_login
   remove_component_packages
   setup_default_target
-  update_grub_local  # 处理gurb汉化问题
   setup_log          # 加密日志中敏感字符
   uninstall_packages # 这一步必须是最后一步
   sync
