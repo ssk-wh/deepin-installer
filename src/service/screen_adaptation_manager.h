@@ -18,6 +18,7 @@ public:
     QRect primaryAvailableGeometry();
     int getMainWindowTopMargin();
     int getChildWindowTopMargin();
+    int adapterHeightMargin(int height, int Margin = 55);
     bool is4KScreen();
 
     double getWidthZoomRatio() const;

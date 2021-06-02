@@ -73,6 +73,16 @@ int installer::ScreenAdaptationManager::getChildWindowTopMargin()
     return 0;
 }
 
+int installer::ScreenAdaptationManager::adapterHeightMargin(int height, int Margin)
+{
+    // 屏幕高度在700以上的， 按原始高度显示，否则为无法显示全的情况下对部分内容较少的控件进行缩放
+    if (primaryAvailableGeometry().height() >= 700) {
+        return height;
+    }
+
+    return height - Margin;
+}
+
 bool installer::ScreenAdaptationManager::is4KScreen()
 {
     if (m_currentScreenResolution.x() >= kXrandrWidth_3840

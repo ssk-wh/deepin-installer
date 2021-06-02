@@ -26,7 +26,7 @@
 #include <QPainterPath>
 
 namespace  {
-    const int kMargin = 5;
+    const int kMargin = 2;
 }
 
 installer::OperatorWidget::OperatorWidget(QWidget *parent):
@@ -143,7 +143,7 @@ void installer::OperatorWidget::initUi()
     mainLayout->setSpacing(0);
     mainLayout->addLayout(textLayout);
     mainLayout->addWidget(m_selectIconLabel, 0, Qt::AlignRight);
-    mainLayout->addSpacing(10);
+    mainLayout->addSpacing(0);
 
     m_edgeWidget = new QWidget;
     m_edgeWidget->setObjectName("edgewidget");

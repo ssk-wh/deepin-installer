@@ -34,6 +34,7 @@
 #include "ui/widgets/partition_table_widget.h"
 #include "ui/widgets/operator_widget.h"
 #include "ui/delegates/license_delegate.h"
+#include "service/screen_adaptation_manager.h"
 
 #include <QDebug>
 #include <QEvent>
@@ -45,7 +46,7 @@ DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
 namespace {
-    const int kTitleCommentWidth = 384;
+    const int kTitleCommentWidth = 580;
     const int kWarningLabelSize = 30;
     const int kWarnItemWidth = 558;
     const int kWarnItemHeight = 100;
@@ -164,7 +165,7 @@ void PartitionTableWarningFrame::initUI() {
                             .arg(::QObject::tr("Continuing installation will format your disk")));
 
   m_warningWidget3 = new OperatorWidget;
-  m_warningWidget3->setFixedSize(kWarnItemWidth, kWarnItemHeight);
+  m_warningWidget3->setFixedSize(kWarnItemWidth,  ScreenAdaptationManager::instance()->adapterHeightMargin(kWarnItemHeight));
   m_warningWidget3->setSelectIcon(":/images/select_blue.svg");
   m_warningWidget3->setTitle(QString("%1").arg(::QObject::tr("Cancel")));
 //  m_warningWidget3->setBody(QString("1.%1")
@@ -197,7 +198,7 @@ void PartitionTableWarningFrame::initUI() {
   layout->addSpacing(kMainLayoutSpacing);
   layout->addStretch();
   layout->addWidget(next_button_, 0, Qt::AlignHCenter);
-  layout->addSpacing(10);
+  layout->addSpacing(5);
 
   setLayout(layout);
   setContentsMargins(0, 0, 0, 0);
