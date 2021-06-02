@@ -31,6 +31,11 @@ for i in $(cat /proc/mounts | awk '{print $2}' | grep -e ^$target | sort -r); do
   umount -v $i
 done
 
+SWAP_MOUNTPOIN=$(installer_get "DI_SWAP_MOUNTPOINT")
+if [ -n "$SWAP_MOUNTPOIN" ]; then
+    swapoff $SWAP_MOUNTPOIN
+fi
+
 sync
 
 return 0

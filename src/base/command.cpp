@@ -16,7 +16,6 @@
  */
 
 #include "base/command.h"
-#include "service/settings_manager.h"
 
 #include <QDebug>
 #include <QDir>
@@ -45,7 +44,8 @@ bool RunScriptFile(const QStringList& args) {
   return SpawnCmd("/bin/bash", args);
 }
 
-bool RunScriptFile(const QStringList& args, QString& output, QString& err) {
+// mode 参数的默认值是为了保持历史逻辑不变
+bool RunScriptFile(const QStringList& args, QString& output, QString& err, QProcess::ProcessChannelMode mode) {
   Q_ASSERT(!args.isEmpty());
   if (args.isEmpty()) {
     qCritical() << "RunScriptFile() arg is empty!";
@@ -60,30 +60,38 @@ bool RunScriptFile(const QStringList& args, QString& output, QString& err) {
   }
 
   // TODO(xushaohua): Remove bash
-  return SpawnCmd("/bin/bash", args, output, err);
+  return SpawnCmd("/bin/bash", args, output, err, mode);
 }
 
 bool SpawnCmd(const QString& cmd, const QStringList& args) {
-    QString out, err;
-    return SpawnCmd(cmd, args, out, err);
+  QString err, out;
+  // Merge stdout and stderr of subprocess with main process.
+#ifdef QT_DEBUG// Absolute path to installer config file.
+  QSettings settings("/tmp/deepin-installer.conf", QSettings::IniFormat);
+#else
+  QSettings settings("/etc/deepin-installer.conf", QSettings::IniFormat);
+#endif // QT_DEBUG
+
+  QProcess::ProcessChannelMode mode = QProcess::ForwardedChannels;
+  if (settings.contains("DI_NECURESCLIINSTALL_MODE")
+          && settings.value("DI_NECURESCLIINSTALL_MODE").toBool()) {
+    mode = QProcess::MergedChannels;
+  }
+
+  return SpawnCmd(cmd, args, err, out, mode);
 }
 
 bool SpawnCmd(const QString& cmd, const QStringList& args, QString& output) {
-    QString err;
-    return SpawnCmd(cmd, args, output, err);
+  QString err;
+  return SpawnCmd(cmd, args, output, err);
 }
 
 bool SpawnCmd(const QString& cmd, const QStringList& args,
-              QString& output, QString& err) {
+              QString& output, QString& err, QProcess::ProcessChannelMode mode) {
     QProcess process;
     process.setProgram(cmd);
     process.setArguments(args);
-
-    if (GetSettingsBool("DI_NECURESCLIINSTALL_MODE")) {
-        process.setProcessChannelMode(QProcess::MergedChannels);
-    } else {
-        process.setProcessChannelMode(QProcess::ForwardedChannels);
-    }
+    process.setProcessChannelMode(mode);
 
     process.start();
     // Wait for process to finish without timeout.

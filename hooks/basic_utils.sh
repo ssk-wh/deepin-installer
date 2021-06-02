@@ -205,11 +205,11 @@ setup_lightdm_auto_login() {
 encryption_file() {
     local file=$1
     cat $file | base64 > $file.tmp
-    mv $file.tmp $file
+    mv $file.tmp $file && chmod 600 $file
 }
 
 decryption_file() {
     local file=$1
     cat $file | base64 -d > $file.tmp
-    mv $file.tmp $file
+    mv $file.tmp $file  && chmod 600 $file
 }

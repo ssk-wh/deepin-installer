@@ -41,7 +41,8 @@ FirstBootHookWorker::FirstBootHookWorker(QObject* parent) : QObject(parent) {
 
 void FirstBootHookWorker::doStartHook() {
   QString out, err;
-  const bool ok = RunScriptFile({kFirstBootHookFile}, out, err);
+  // QProcess::ForwardedChannel 可以保证后配置脚本的日志换行输出
+  const bool ok = RunScriptFile({kFirstBootHookFile}, out, err, QProcess::ForwardedChannels);
   if (!out.isEmpty()) {
     qWarning() << kFirstBootHookFile << "OUT:" << out;
   }

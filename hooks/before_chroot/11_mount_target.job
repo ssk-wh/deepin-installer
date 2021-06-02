@@ -106,14 +106,15 @@ mount_points=$(echo ${DI_MOUNTPOINTS//;/ })
 for i in $(echo "${mount_points}"); do
   mountpoint=$(echo $i | cut -d'=' -f1)
   mountpath=$(echo $i | cut -d'=' -f2)
-  if [ $mountpath != "/" ] && [ $mountpath != "swap" ] && [ $mountpath != "/boot/efi" ]; then
+  if [ "$mountpath" != "/" ] && [ "$mountpath" != "swap" ] && [ "$mountpath" != "/boot/efi" ]; then
     msg "mount ${mountpoint} -> ${mountpath}"
     mkdir -pv ${target}${mountpath}
     mount $mountpoint ${target}${mountpath} || \
       error "Failed to mount ${mountpoint}"
-  elif [ $mountpath == "swap" ]; then
+  elif [ "$mountpath" == "swap" ]; then
     msg "Detect swap partition, try swapon it first"
     swapon $mountpoint || true
+    installer_set DI_SWAP_MOUNTPOINT "$mountpoint"
   fi
 done
 

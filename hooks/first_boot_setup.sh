@@ -161,7 +161,9 @@ backup_log() {
 
     if [ ! -f "$RECOVERY_LOG" ]; then
         encryption_file $INSTALL_LOG        # 加密日志
-        install -v -Dm600 $INSTALL_LOG $RECOVERY_LOG
+        if [ -d /recovery ]; then
+            install -v -Dm600 $INSTALL_LOG $RECOVERY_LOG
+        fi
     fi
 }
 recovery_log() {
