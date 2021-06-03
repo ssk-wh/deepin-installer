@@ -145,23 +145,6 @@ bool ChrootCopyHooks() {
     return false;
   }
 
-  if (GetSettingsBool("system_check_mode")) {
-      // copy check mode hooks files
-      if (!CopyFolder(BUILTIN_CHECK_HOOKS_DIR, kChrootCheckModeHooksDir)) {
-          qCritical() << "Copy check mode hooks folder failed";
-          return false;
-      }
-
-      // copy check mode hooks files
-      const QString check_mode_oem_dir = GetOemCheckHooksDir();
-      if (QDir(check_mode_oem_dir).exists()) {
-          if (!CopyFolder(check_mode_oem_dir, kChrootCheckModeHooksDir)) {
-              qCritical() << "Copy oem check mode hooks folder failed";
-              return false;
-          }
-      }
-  }
-
   // Add executable permissions
   if (!AddExecutable(kChrootTargetHooksDir, true)) {
     qCritical() << "Failed to add executable permissions to hooks:"

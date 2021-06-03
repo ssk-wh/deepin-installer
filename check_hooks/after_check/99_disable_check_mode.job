@@ -1,12 +1,18 @@
 #!/bin/bash
 
 . "/deepin-installer/basic_utils.sh"
-. "/usr/share/deepin-installer/hooks/basic_utils.sh"
 
 deepin-installer-settings set /etc/deepin-installer.conf system_check_mode false
 
-CONF_FILE=/etc/lightdm/lightdm.conf
-cat > "${CONF_FILE}" <<EOF
+cat > "${LIGHTD_CONF_FILE}" <<EOF
 [Seat:*]
+display-setup-script=/usr/bin/deepin-installer-bases
 greeter-setup-script=/usr/bin/deepin-installer-first-boot
 EOF
+
+## 解决服务器上设置审核模式后，重启进入后配置无法自动切换到tty7
+BAK_LIGHTDM_FILE=/etc/lightdm/lightdm.conf.real
+if [ -f /etc/lightdm/lightdm.conf.real ]; then
+    echo "[LightDM]" >> "${LIGHTD_CONF_FILE}"
+    grep -r "minimum-vt" "$BAK_LIGHTDM_FILE" >> "${LIGHTD_CONF_FILE}"
+fi

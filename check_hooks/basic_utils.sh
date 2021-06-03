@@ -3,6 +3,7 @@
 # Absolute path to config file.
 # Do not read from/write to this file, call installer_get/installer_set instead.
 CONF_FILE=/etc/deepin-installer.conf
+LIGHTD_CONF_FILE=/etc/lightdm/lightdm.conf
 
 installer_get() {
     local key="$1"
@@ -22,7 +23,17 @@ installer_set() {
     deepin-installer-settings set "${CONF_FILE}" "${key}" "${value}"
 }
 
+SI_USERNAME=$(installer_get "system_info_si_user")
+SI_PASSWORD=$(installer_get "system_info_si_password")
+
 setNetworkBoot() {
     NETWORK_EFI=$(efibootmgr |grep -i network |awk -F'*' '{print $1}' |sed 's#Boot##')
     echo ${system_info_si_password}|sudo -S efibootmgr -n ${NETWORK_EFI}
 }
+
+# 使用sudo权限执行审核模式的过程的函数，该函数可以将脚本执行日志写入到安装器日志中
+exec_check() {
+    local cmd=$@
+    echo "${SI_PASSWORD}" | sudo -S bash /deepin-installer/command.sh $cmd
+}
+
