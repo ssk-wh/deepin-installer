@@ -29,6 +29,8 @@ bool RebootSystemWithMagicKey();
 // Shutdown system by calling `systemctl poweroff` `
 bool ShutdownSystem();
 
+bool PoweroffSystem();
+
 // Shutdown system by sending magic key to kernel.
 bool ShutdownSystemWithMagicKey();
 

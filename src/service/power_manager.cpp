@@ -24,6 +24,7 @@ namespace installer {
 
 namespace {
 
+const char kSystemShutdown[] =  "/sbin/shutdown";
 const char kSystemCtlCmd[] = "systemctl";
 const char kSysReqTriggerFile[] = "/proc/sysrq-trigger";
 
@@ -38,6 +39,10 @@ bool RebootSystemWithMagicKey() {
 }
 
 bool ShutdownSystem() {
+  return SpawnCmd(kSystemShutdown, {"-h", "now"});
+}
+
+bool PoweroffSystem() {
   return SpawnCmd(kSystemCtlCmd, {"poweroff"});
 }
 

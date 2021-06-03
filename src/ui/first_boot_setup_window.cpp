@@ -720,8 +720,8 @@ void FirstBootSetupWindow::shutdownSystem()
         qWarning() << "ShutdownSystem() failed!";
     }
 
-    if (!ShutdownSystemWithMagicKey()) {
-        qWarning() << "ShutdownSystemWithMagicKey() failed!";
+    if (!PoweroffSystem()) {
+        qWarning() << "PoweroffSystem() failed!";
     }
 }
 
