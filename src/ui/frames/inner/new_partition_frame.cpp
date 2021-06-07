@@ -768,7 +768,7 @@ void NewPartitionFrame::onCreateButtonClicked() {
 
   } else {
       delegate_->createPartition(partition_, partition_type, align_start, fs_type,
-                                 mount_point, total_sectors);      
+                                 mount_point, total_sectors, QString(), false);
   }
 
   delegate_->refreshVisual();

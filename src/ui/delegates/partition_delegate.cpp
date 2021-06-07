@@ -283,7 +283,8 @@ bool Delegate::createPartition(const Partition::Ptr partition,
                                FsType               fs_type,
                                const QString&       mount_point,
                                qint64               total_sectors,
-                               const QString&       label)
+                               const QString&       label,
+                               bool flag)
 {
     Device::Ptr device = findDevice(partition->device_path);
 
@@ -303,7 +304,7 @@ bool Delegate::createPartition(const Partition::Ptr partition,
 
     if (partition_type == PartitionType::Normal) {
         return createPrimaryPartition(partition, partition_type, align_start, fs_type,
-                                      mount_point, total_sectors, label);
+                                      mount_point, total_sectors, label, flag);
     }
     else if (partition_type == PartitionType::Logical) {
         return createLogicalPartition(partition, align_start, fs_type, mount_point,
@@ -451,7 +452,8 @@ bool Delegate::createPrimaryPartition(const Partition::Ptr partition,
                                       FsType               fs_type,
                                       const QString&       mount_point,
                                       qint64               total_sectors,
-                                      const QString&       label)
+                                      const QString&       label,
+                                      bool flag)
 {
     // Policy:
     // * If new primary partition is contained in or intersected with
@@ -549,6 +551,9 @@ bool Delegate::createPrimaryPartition(const Partition::Ptr partition,
         else {
             new_partition->start_sector = partition->start_sector;
         }
+        // Align to nearest MebiBytes.
+        if (!flag) AlignPartition(new_partition);
+
         new_partition->end_sector =
             qMin(partition->end_sector, total_sectors + new_partition->start_sector);
     }
@@ -562,10 +567,13 @@ bool Delegate::createPrimaryPartition(const Partition::Ptr partition,
             new_partition->start_sector =
                 qMax(partition->start_sector, partition->end_sector - total_sectors);
         }
+
+        if (!flag) AlignPartition(new_partition);
     }
 
-    // Align to nearest MebiBytes.
-    AlignPartition(new_partition);
+
+    if (flag) AlignPartition(new_partition);
+
 
     // Check partition sector range.
     // Also check whether partition size is less than 1MiB or not.
