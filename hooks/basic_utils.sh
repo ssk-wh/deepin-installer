@@ -213,3 +213,77 @@ decryption_file() {
     cat $file | base64 -d > $file.tmp
     mv $file.tmp $file  && chmod 600 $file
 }
+
+add_start_option() {
+    local arch_info=$@
+    local bootloader_id=$(installer_get "system_bootloader_id")
+    local start_option=$(installer_get "system_startup_option")
+
+    ## 基础启动项,默认UOS
+    grub-install $arch_info --efi-directory=/boot/efi --bootloader-id="${bootloader_id}" --recheck \
+        || error "grub-install failed with $arch_info" "${bootloader_id}"
+
+    ## 附加启动项
+    if [ -n "$start_option" ]; then
+        [ -d /boot/efi/EFI/${start_option} ] || mkdir -p /boot/efi/EFI/${start_option}
+        cp -vf /boot/efi/EFI/${bootloader_id}/* /boot/efi/EFI/${start_option}
+        grub-install $arch_info --efi-directory=/boot/efi --bootloader-id="${start_option}" --recheck \
+            || error "grub-install failed with $arch_info"  "${start_option}"
+    fi
+
+    # Copy signed grub efi file.
+    [ -d /boot/efi/EFI/ubuntu ] || mkdir -p /boot/efi/EFI/ubuntu
+    cp -vf /boot/efi/EFI/${BOOTLOADER_ID}/grub* /boot/efi/EFI/ubuntu/
+    [ -d /boot/efi/EFI/boot ] || mkdir -p /boot/efi/EFI/boot
+    cp -vf /boot/efi/EFI/${BOOTLOADER_ID}/grub* /boot/efi/EFI/boot/
+
+    # Backup fallback efi first.
+    fallback_efi=/boot/efi/EFI/boot/bootaa64.efi
+    fallback_efi_bak="${fallback_efi}-$(date +%s).bak"
+    [ -f "${fallback_efi}" ] && cp "${fallback_efi}" "${fallback_efi_bak}"
+    # Override fallback efi with shim.
+    if ls /boot/efi/EFI/${BOOTLOADER_ID}/shim* 1>/dev/null 2>&1; then
+      cp -vf /boot/efi/EFI/${BOOTLOADER_ID}/shim*.efi "${fallback_efi}"
+    else
+      cp -vf /boot/efi/EFI/${BOOTLOADER_ID}/grubaa64.efi "${fallback_efi}"
+    fi
+}
+
+fix_boot_order(){
+  command -v efibootmgr >/dev/null 2>&1 || \
+    warn "Require efibootmgr installed but not found. Skip"
+  return
+
+  local bootinfo=$(efibootmgr)
+  echo "bootinfo: ${bootinfo}"
+  IFS=$'\n'
+  for line in $bootinfo;do
+    case $line in
+      Boot[0-9A-F][0-9A-F][0-9A-F][0-9A-F]\*\ "${BOOTLOADER_ID}")
+        line="${line%%\**}"
+        default_bootid="${line##Boot}"
+      ;;
+    esac
+  done
+
+  [ -z ${default_bootid} ] && warn_exit "No ${BOOTLOADER_ID} found, exit..."
+
+  declare -a orderids
+  for line in $bootinfo;do
+    case $line in
+      Boot[0-9A-F][0-9A-F][0-9A-F][0-9A-F]\*\ "${BOOTLOADER_ID}")
+        ;;
+
+      Boot[0-9A-F][0-9A-F][0-9A-F][0-9A-F]\*\ ?*)
+        line="${line%%\**}"
+        orderids[${#orderids[@]}]="${line##Boot}"
+        ;;
+    esac
+  done
+
+  local cmdargs=${default_bootid}
+  for arg in ${orderids[@]}; do
+    cmdargs=${cmdargs}","${arg}
+  done
+  efibootmgr -o ${cmdargs}
+}

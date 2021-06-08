@@ -22,13 +22,6 @@ if ! is_arm64; then
   return 0
 fi
 
-config_item() {
-  if [ -f /etc/default/grub ]; then
-    . /etc/default/grub || return
-  fi
-  eval echo "\$$1"
-}
-
 export DEBIAN_FRONTEND="noninteractive"
 
 DI_BOOTLOADER=$(installer_get "DI_BOOTLOADER")
@@ -36,6 +29,7 @@ DI_CUR_RESOLUTION=$(installer_get "DI_CUR_RESOLUTION")
 DI_HOST_DEV=$(installer_get "DI_HOST_DEV")
 DI_LUPIN=$(installer_get "DI_LUPIN")
 DI_UEFI=$(installer_get "DI_UEFI")
+BOOTLOADER_ID=$(installer_get "system_bootloader_id")
 
 # if no DI_BOOTLOADER, treat as not installing bootloader
 [ -z ${DI_BOOTLOADER} ] && \
@@ -55,22 +49,6 @@ if [ x${BOOT} = xuefi ]; then
   value=$(od -An -t u1 "${SB}" 2>/dev/null | sed s/[[:space:]]//g)
   [ x${value} = x1 ] && echo "uefi-secure-boot detected"
 fi
-
-case ${BOOT} in
-  #"legacy")
-  #  if [ -e /etc/deepin-version ]; then
-  #    _version=$(grep '^Version=' /etc/deepin-version | cut -d '=' -f2)
-  #    _type=$(grep '^Type=' /etc/deepin-version | cut -d '=' -f2)
-  #    BOOTLOADER_ID="Deepin ${_type} ${_version}"
-  #  fi
-  #  ;;
-  "uefi")
-    BOOTLOADER_ID="$(config_item GRUB_DISTRIBUTOR | tr A-Z a-z | cut -d' ' -f1)"
-    ;;
-esac
-
-#BOOTLOADER_ID="${BOOTLOADER_ID:-deepin}"
-BOOTLOADER_ID="UOS"
 
 case ${BOOT} in
   #"legacy")
@@ -96,48 +74,14 @@ case ${BOOT} in
     # try to get efi architecture
     if [ x$(cat /sys/firmware/efi/fw_platform_size 2>/dev/null) = 'x32' ]; then
       install_package grub-efi-arm
-      grub-install --target=arm-efi --efi-directory=/boot/efi \
-        --bootloader-id="${BOOTLOADER_ID}" --recheck || \
-        error "grub-install failed with efi! ${BOOTLOADER_ID}"
+      add_start_option --target=arm-efi  --recheck # 增加系统启动选项
 
-      # Copy signed grub efi file.
-      [ -d /boot/efi/EFI/ubuntu ] || mkdir -p /boot/efi/EFI/ubuntu
-      cp -vf /boot/efi/EFI/${BOOTLOADER_ID}/grub* /boot/efi/EFI/ubuntu/
-      [ -d /boot/efi/EFI/boot ] || mkdir -p /boot/efi/EFI/boot
-      cp -vf /boot/efi/EFI/${BOOTLOADER_ID}/grub* /boot/efi/EFI/boot/
-      # Backup fallback efi first.
-      fallback_efi=/boot/efi/EFI/boot/bootaa64.efi
-      fallback_efi_bak="${fallback_efi}-$(date +%s).bak"
-      [ -f "${fallback_efi}" ] && cp "${fallback_efi}" "${fallback_efi_bak}"
-      # Override fallback efi with shim.
-      cp -vf /boot/efi/EFI/${BOOTLOADER_ID}/shim*.efi "${fallback_efi}"
     else
       # Clover efi loader cannot use grub.efi correctly,
       # so we may patch grub or use grub.efi.signed.
       #install_package shim-signed grub-efi-amd64-signed efibootmgr
       install_package efibootmgr grub-efi-arm64 grub-efi-arm64-bin
-
-      # uefi-secure-boot options is enabled by default
-      grub-install --target=arm64-efi --uefi-secure-boot \
-        --efi-directory=/boot/efi --bootloader-id="${BOOTLOADER_ID}" \
-        --recheck || error "grub-install failed with efi64 ${BOOTLOADER_ID}"
-
-      # Copy signed grub efi file.
-      [ -d /boot/efi/EFI/ubuntu ] || mkdir -p /boot/efi/EFI/ubuntu
-      cp -vf /boot/efi/EFI/${BOOTLOADER_ID}/grub* /boot/efi/EFI/ubuntu/
-      [ -d /boot/efi/EFI/boot ] || mkdir -p /boot/efi/EFI/boot
-      cp -vf /boot/efi/EFI/${BOOTLOADER_ID}/grub* /boot/efi/EFI/boot/
-
-      # Backup fallback efi first.
-      fallback_efi=/boot/efi/EFI/boot/bootaa64.efi
-      fallback_efi_bak="${fallback_efi}-$(date +%s).bak"
-      [ -f "${fallback_efi}" ] && cp "${fallback_efi}" "${fallback_efi_bak}"
-      # Override fallback efi with shim.
-      if ls /boot/efi/EFI/${BOOTLOADER_ID}/shim* 1>/dev/null 2>&1; then
-        cp -vf /boot/efi/EFI/${BOOTLOADER_ID}/shim*.efi "${fallback_efi}"
-      else
-        cp -vf /boot/efi/EFI/${BOOTLOADER_ID}/grubaa64.efi "${fallback_efi}"
-      fi
+      add_start_option --target=arm64-efi --uefi-secure-boot  --recheck # 增加系统启动选项
     fi
 
     ;;
@@ -150,45 +94,6 @@ case ${BOOT} in
 do_symlinks = no" | tee /etc/kernel-img.conf
     ;;
 esac
-
-fix_boot_order(){
-  command -v efibootmgr >/dev/null 2>&1 || \
-    warn "Require efibootmgr installed but not found. Skip"
-  return
-
-  local bootinfo=$(efibootmgr)
-  echo "bootinfo: ${bootinfo}"
-  IFS=$'\n'
-  for line in $bootinfo;do
-    case $line in
-      Boot[0-9A-F][0-9A-F][0-9A-F][0-9A-F]\*\ "${BOOTLOADER_ID}")
-        line="${line%%\**}"
-        default_bootid="${line##Boot}"
-      ;;
-    esac
-  done
-
-  [ -z ${default_bootid} ] && warn_exit "No ${BOOTLOADER_ID} found, exit..."
-
-  declare -a orderids
-  for line in $bootinfo;do
-    case $line in
-      Boot[0-9A-F][0-9A-F][0-9A-F][0-9A-F]\*\ "${BOOTLOADER_ID}")
-        ;;
-
-      Boot[0-9A-F][0-9A-F][0-9A-F][0-9A-F]\*\ ?*)
-        line="${line%%\**}"
-        orderids[${#orderids[@]}]="${line##Boot}"
-        ;;
-    esac
-  done
-
-  local cmdargs=${default_bootid}
-  for arg in ${orderids[@]}; do
-    cmdargs=${cmdargs}","${arg}
-  done
-  efibootmgr -o ${cmdargs}
-}
 
 case ${BOOT} in
   uefi*)

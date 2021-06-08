@@ -19,5 +19,6 @@ timezone_use_local_time_regardless = true
 partition_is_fsck_file_system = true
 install_failed_qr_display_switch = true
 system_info_disable_experience = true
+system_startup_option="deepin"
 
 
