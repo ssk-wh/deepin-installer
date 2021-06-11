@@ -27,7 +27,8 @@ namespace installer {
 WallpaperItem::WallpaperItem(const QRect &rect, QWidget* parent) :
     QLabel(parent){
 
-    this->setWindowFlags(Qt::FramelessWindowHint | Qt::CustomizeWindowHint);
+    // 增加Qt::X11BypassWindowManagerHint参数， 防止kwin崩溃后，背景窗口会盖住主窗口
+    this->setWindowFlags(Qt::FramelessWindowHint | Qt::CustomizeWindowHint | Qt::X11BypassWindowManagerHint);
     this->setAttribute(Qt::WA_TranslucentBackground, true);
     this->setAttribute(Qt::WA_TransparentForMouseEvents, true);
     this->setObjectName("wallpaper_item");

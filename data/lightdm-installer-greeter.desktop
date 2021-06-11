@@ -2,4 +2,4 @@
 Name=Deepin Installer Greeter
 Name=deepin-installer greeter for lightdm
 Type=Application
-Exec=deepin-installer-pkexec
+Exec=/usr/bin/true

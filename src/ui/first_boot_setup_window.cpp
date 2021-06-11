@@ -88,6 +88,11 @@ FirstBootSetupWindow::FirstBootSetupWindow(QWidget *parent)
   initConnections();
 
   setWindowFlags(windowFlags() & ~Qt::WindowCloseButtonHint & ~Qt::WindowMinMaxButtonsHint);
+
+#ifndef QT_DEBUG
+    setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint);  // 设置窗口不受窗管管控，本地debug调试的时候不生效
+#endif // QT_DEBUG
+
   DTitlebar* titleBar = titlebar();
   titleBar->installEventFilter(this);
   titlebar()->setMenuVisible(false);

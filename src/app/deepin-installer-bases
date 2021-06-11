@@ -19,5 +19,13 @@
 
 #/usr/bin/kwin_no_scale &
 #sleep 5
+init() {
+    sleep 5                        # 延时启动背景窗口，保证窗口不会因为kwin导致的闪屏
+    /usr/bin/deepin-installer-init # 设置安装器的背景，适配高分辨率下plymouth出现歪屏的情况
+}
 
-/usr/bin/deepin-installer-init & # 设置安装器的背景，适配高分辨率下plymouth出现歪屏的情况
+# 启动窗管，解决部分机型上界面花屏问题, 窗管启动失败不影响安装器本身程序的启动
+kwin_x11 -platform dde-kwin-xcb || true &
+
+# 后台启动背景窗口的初始化，保证背景的启动过程不会降低安装器主窗口启动的时间
+# init &

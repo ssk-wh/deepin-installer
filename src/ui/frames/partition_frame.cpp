@@ -24,7 +24,6 @@
 #include "ui/delegates/full_disk_delegate.h"
 #include "ui/delegates/simple_partition_delegate.h"
 #include "ui/frames/dynamic_disk_warning_frame.h"
-#include "ui/frames/swap_warnning_frame.h"
 #include "ui/delegates/partition_util.h"
 #include "ui/frames/consts.h"
 #include "ui/frames/inner/advanced_partition_frame.h"
@@ -912,8 +911,7 @@ void PartitionFramePrivate::onNextButtonClicked() {
     dynamic_disk_warning_frame_->setWarningTip(::QObject::tr("The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first."));
     static bool isFirstWarning = true;
     if (isFirstWarning && !AdvancedPartitionDelegate::swapOk && AdvancedPartitionDelegate::install_Lvm_Status != Install_Lvm_Status::Lvm_Format_Pv) {
-        SwapWarnningFrame swapWarnningFrame;
-        swapWarnningFrame.display();
+        Q_EMIT q_ptr->showSwapWanring();
         isFirstWarning = false;
         qApp->setActiveWindow(q_ptr);
         return;
@@ -1040,7 +1038,7 @@ void PartitionFramePrivate::showMainFrame() {
       advanced_delegate_->onDeviceRefreshed(advanced_delegate_->realDevices());
       partition_stacked_layout_->setCurrentWidget(advanced_partition_frame_);
       main_layout_->setCurrentWidget(main_frame_);
-      title_label_->setText(::QObject::tr("Create Partitions"));     
+      title_label_->setText(::QObject::tr("Create Partitions"));
       nextButton->setText(::QObject::tr("Next"));
       comment_label_->setText(
           ::QObject::tr("Make sure you have backed up important data, then select the disk to install"));

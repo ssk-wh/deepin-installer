@@ -30,7 +30,9 @@
 #include <DStandardItem>
 #include <DBackgroundGroup>
 #include <DTitlebar>
+#include <QWindow>
 
+#include "ui/frames/swap_warnning_frame.h"
 #include "ui/interfaces/frameinterface.h"
 #include "base/file_util.h"
 #include "service/power_manager.h"
@@ -98,6 +100,10 @@ MainWindow::MainWindow(QWidget* parent)
     DTitlebar* titleBar = titlebar();
     titleBar->installEventFilter(this);
     setWindowFlags(windowFlags() & ~Qt::WindowCloseButtonHint & ~Qt::WindowMinMaxButtonsHint);
+
+#ifndef QT_DEBUG
+    setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint);  // 设置窗口不受窗管管控，本地debug调试的时候不生效
+#endif // QT_DEBUG
 
     titlebar()->setMenuVisible(false);
     titlebar()->setFullScreenButtonVisible(false);
@@ -437,8 +443,12 @@ void MainWindow::initConnections() {
   connect(disk_space_insufficient_frame_, &DiskSpaceInsufficientFrame::abortInstall,
           this, &MainWindow::shutdownSystem);
 
+  connect(partition_frame_, &PartitionFrame::showSwapWanring,
+          this, &MainWindow::showSwapWanring);
+
   connect(partition_frame_, &PartitionFrame::reboot,
           this, &MainWindow::rebootSystem);
+
   connect(partition_frame_, &PartitionFrame::coverMainWindowFrameLabelsView, this, [=] (bool cover) {
       updateFrameLabelPreviousState(!cover);
   });
@@ -732,6 +742,13 @@ void MainWindow::registerShortcut() {
 
   brightness_increase_shortcut_ = new QShortcut(QKeySequence("Ctrl+="), this);
   brithtness_decrease_shortcut_ = new QShortcut(QKeySequence("Ctrl+-"), this);
+}
+
+void MainWindow::showSwapWanring()
+{
+    // 设置swap弹窗的父控件为主窗口， 保证swap显示居中
+    SwapWarnningFrame swap(this);
+    swap.display();
 }
 
 void MainWindow::saveLogFile() {

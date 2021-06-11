@@ -45,6 +45,9 @@ ConfirmQuitFrame::ConfirmQuitFrame(QWidget* parent)
     setObjectName("confirm_quit_frame");
 
     setWindowFlags(windowFlags() & ~Qt::WindowCloseButtonHint);
+#ifndef QT_DEBUG
+    setWindowFlags(windowFlags() & ~Qt::Dialog);    // 配合主窗口中设置Qt::X11BypassWindowManagerHint 时使用，在本地debug模式下不设置
+#endif
 
     initUI();
     initConnections();

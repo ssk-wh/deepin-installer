@@ -137,6 +137,8 @@ private:
   void constructLabelView();
   void registerShortcut();
 
+  void showSwapWanring();
+
   // Copy log file if needed.
   void saveLogFile();
 
