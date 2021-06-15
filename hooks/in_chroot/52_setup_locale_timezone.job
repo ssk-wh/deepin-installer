@@ -44,6 +44,7 @@ set_timedate() {
     local TIMEDATE
     IS_ENABLE_NTP=$(installer_get "DI_IS_ENABLE_NTP")
     if [[ x"${IS_ENABLE_NTP}" != xtrue ]]; then
+
         TIMEDATE=$(installer_get "DI_TIMEDATE")
     else
         # 1031之后由于系统关机时系统时间会被同步到rtc中，所以在设置时间的时候需要在没有时区干扰的情况下同步rtc时间为系统时间，防止每次安装系统后系统时间+8
@@ -51,35 +52,21 @@ set_timedate() {
         echo "rtc_date="$rtc_date
     fi
 
+    timedatectl set-ntp false  # 先禁止时间同步服务， 防止时间设置不生效
     timedatectl set-time "${TIMEDATE}"
 }
 
-# set ntp
-set_ntp_config() {
-    cat > /usr/lib/systemd/system/systemd-timesyncd.service.d/disable-timesyncd-with-installer.conf << EOF
-
-[Unit]
-# Don't run timesyncd if installer is installed
-ConditionFileIsExecutable=!/usr/bin/deepin-installer
-EOF
-}
 enable_ntp() {
     local DI_IS_ENABLE_NTP
     DI_IS_ENABLE_NTP=$(installer_get "DI_IS_ENABLE_NTP")
-    if [[ x"${DI_IS_ENABLE_NTP}" = xtrue ]]; then
-        # 处理timesyncd服务器的配置文件，使得在安装器运行阶段ntp服务器可以被启动
-        rm -fr /usr/lib/systemd/system/systemd-timesyncd.service.d/disable-timesyncd-with-installer.conf
-        msg "rm ntp config"
-
+    if [[ x"${DI_IS_ENABLE_NTP}" = xtrue ]]; then      
         # 启动ntp服务，设置开启时间同步属性
-        systemctl enable systemd-timesyncd.service
-        systemctl start systemd-timesyncd.service
         timedatectl set-ntp true
-        msg "set-ntp true"
-
-        # 兼容历史安装器和timesysncd服务器同时启动的问题
-        # set_ntp_config
-        msg "setup ntp config"
+        msg "timedatectl set-ntp true"
+    else
+        # 手动设置时间时，关闭ntp服务
+        timedatectl set-ntp false
+        msg "timedatectl set-ntp false"
     fi
 }
 
