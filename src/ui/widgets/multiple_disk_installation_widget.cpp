@@ -24,6 +24,7 @@
 #include <DFrame>
 #include <DVerticalLine>
 #include <QListView>
+#include <QScrollBar>
 
 #include "ui/widgets/multiple_disk_installation_widget.h"
 #include "ui/views/disk_installation_detail_view.h"
@@ -156,6 +157,10 @@ void MultipleDiskInstallationWidget::initUI()
     m_left_view->setItemSize(QSize(kLeftListViewWidth - 20, 46));
     m_left_view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_left_view->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_left_view->setContextMenuPolicy(Qt::NoContextMenu);
+    m_left_view->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    m_left_view->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    m_left_view->setEditTriggers(QListView::NoEditTriggers);
     m_left_view->setModel(m_left_model);
 
     m_right_view = new DiskInstallationDetailView();
