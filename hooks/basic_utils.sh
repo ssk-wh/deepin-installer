@@ -233,19 +233,19 @@ add_start_option() {
 
     # Copy signed grub efi file.
     [ -d /boot/efi/EFI/ubuntu ] || mkdir -p /boot/efi/EFI/ubuntu
-    cp -vf /boot/efi/EFI/${BOOTLOADER_ID}/grub* /boot/efi/EFI/ubuntu/
+    cp -vf /boot/efi/EFI/${bootloader_id}/grub* /boot/efi/EFI/ubuntu/
     [ -d /boot/efi/EFI/boot ] || mkdir -p /boot/efi/EFI/boot
-    cp -vf /boot/efi/EFI/${BOOTLOADER_ID}/grub* /boot/efi/EFI/boot/
+    cp -vf /boot/efi/EFI/${bootloader_id}/grub* /boot/efi/EFI/boot/
 
     # Backup fallback efi first.
     fallback_efi=/boot/efi/EFI/boot/bootaa64.efi
     fallback_efi_bak="${fallback_efi}-$(date +%s).bak"
     [ -f "${fallback_efi}" ] && cp "${fallback_efi}" "${fallback_efi_bak}"
     # Override fallback efi with shim.
-    if ls /boot/efi/EFI/${BOOTLOADER_ID}/shim* 1>/dev/null 2>&1; then
-      cp -vf /boot/efi/EFI/${BOOTLOADER_ID}/shim*.efi "${fallback_efi}"
+    if ls /boot/efi/EFI/${bootloader_id}/shim* 1>/dev/null 2>&1; then
+      cp -vf /boot/efi/EFI/${bootloader_id}/shim*.efi "${fallback_efi}"
     else
-      cp -vf /boot/efi/EFI/${BOOTLOADER_ID}/grubaa64.efi "${fallback_efi}"
+      cp -vf /boot/efi/EFI/${bootloader_id}/grubaa64.efi "${fallback_efi}"
     fi
 }
 
