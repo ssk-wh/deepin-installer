@@ -6,9 +6,9 @@ setup_check_mode_user() {
     local GROUP=$(installer_get "system_info_si_group")
 
     chroot /target useradd -m -G sudo ${GROUP} ${USERNAME}
-    chroot /target passwd "${USERNAME}" << "EOF"
-"${PASSWORD}"
-"${PASSWORD}"
+    chroot /target passwd "${USERNAME}" << EOF
+${PASSWORD}
+${PASSWORD}
 EOF
 
 
