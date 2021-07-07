@@ -33,12 +33,19 @@ fix_8086_A0F0() {
     [ "x${Test}" == "xtrue" ] && install_deb
 }
 
+## 处理厂商id=8086/device_id=9DF0
+fix_8086_9DF0() {
+    local Test=$(installer_get "DI_VENDOR_8086_DEVICE_9DF0_PCI")
+    [ "x${Test}" == "xtrue" ] && install_deb
+}
+
 main() {
     # 控制平台处理
     local fix_wifi_device=$(installer_get "system_fix_wifi_device")
     if [ "x${fix_wifi_device}$" != "xtrue" ]; then
         fix_8086_34F0
         fix_8086_A0F0
+        fix_8086_9DF0
     fi
 }
 
