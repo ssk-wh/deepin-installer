@@ -27,6 +27,8 @@ TableComboBox::TableComboBox(QWidget* parent) : QComboBox(parent) {
     // Same as PartitionSizeSlider.
     setFixedSize(310, 36);
     view()->parentWidget()->setFixedWidth(310);
+    //设置下拉后的整个下拉窗体样式
+    this->setStyleSheet("QComboBox QAbstractItemView {border:none;}");
 }
 
 void TableComboBox::setHeight(int height)
