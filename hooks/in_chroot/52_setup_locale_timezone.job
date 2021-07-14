@@ -61,6 +61,7 @@ enable_ntp() {
     DI_IS_ENABLE_NTP=$(installer_get "DI_IS_ENABLE_NTP")
     if [[ x"${DI_IS_ENABLE_NTP}" = xtrue ]]; then      
         # 启动ntp服务，设置开启时间同步属性
+        rm -fr /usr/lib/systemd/system/systemd-timesyncd.service.d/disable-timesyncd-with-installer.conf
         timedatectl set-ntp true
         msg "timedatectl set-ntp true"
     else
