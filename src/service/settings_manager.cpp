@@ -834,7 +834,18 @@ void WriteFullDiskResolution(const FinalFullDiskResolution& resolution)
     for (int i = 0; i < resolution.option_list.length(); i++) {
         valueList << resolution.option_list.at(i).device;
     }
-    AppendToConfigFile("DI_FULLDISK_MULTIDISK_DEVICE", valueList.join(kFullDiskResolutionDeviceSeparator));
+
+    qDebug() << "DI_FULLDISK_MULTIDISK_DEVICE old=" << GetSettingsStringList("DI_FULLDISK_MULTIDISK_DEVICE");
+    if (valueList.isEmpty()) {
+        // 无人值守，重新设置一遍该值，防止在无人值守的时候没有配置DI_FULLDISK_MULTIDISK_DEVICE选项，导致系统安装报错
+        QString devices = GetSettingsString("DI_FULLDISK_MULTIDISK_DEVICE");
+        AppendToConfigFile("DI_FULLDISK_MULTIDISK_DEVICE", devices);
+
+    } else {
+        // 非无人值守，通过界面设置设备
+        AppendToConfigFile("DI_FULLDISK_MULTIDISK_DEVICE", valueList.join(kFullDiskResolutionDeviceSeparator));
+    }
+    qDebug() << "DI_FULLDISK_MULTIDISK_DEVICE new=" << GetSettingsStringList("DI_FULLDISK_MULTIDISK_DEVICE");
 
     QString labelKey { "" };
     QStringList labelValueList;
