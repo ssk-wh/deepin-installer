@@ -1,10 +1,15 @@
 [Unit]
 Description=Launch installer in normal mode
-#ConditionKernelCommandLine=!auto-deepin-installer
+DefaultDependencies=no
+ConditionKernelCommandLine=|livecd-installer
+ConditionKernelCommandLine=|auto-deepin-installer
+Conflicts=shutdown.target
+Wants=systemd-udevd.service systemd-udev-trigger.service
+After=basic.target
 
 [Service]
 Type=forking
-ExecStart=/usr/bin/deepin-installer-both
+ExecStart=/usr/bin/deepin-installer-start
 User=root
 [Install]
-WantedBy=deepin-installer.target
+WantedBy=basic.target

@@ -36,13 +36,13 @@ parse_cmdline() {
 }
 
 parse_cmdline
-/usr/bin/deepin-installer-xrandr
+
 if [ x"$cli_mode" = xtrue ]; then
     systemctl stop lightdm
     chvt 2
     systemctl restart deepin-installer-cli
 else
-    if [ $auto_install_mode eq 1 ]; then
+    if [ $auto_install_mode -eq 1 ]; then
        /usr/lib/live/config/1081-deepin-auto-install
     else
        /usr/lib/live/config/1082-deepin-livecd true

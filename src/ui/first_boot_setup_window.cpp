@@ -566,6 +566,8 @@ void FirstBootSetupWindow::onHookFinished(bool ok) {
             RebootSystem();
         }
         qDebug() << SpawnCmd("killall", QStringList() << "lightdm");
+    } else {
+        qApp->quit();
     }
 }
 

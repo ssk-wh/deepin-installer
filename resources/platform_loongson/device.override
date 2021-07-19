@@ -1,0 +1,23 @@
+[General]
+
+# 分区
+system_recovery_base_size=4
+disk_minimum_space_required = 8
+partition_full_disk_minimum_space = 8
+partition_root_space_required = ４
+partition_full_disk_large_root_part_range = "4:4"
+partition_full_disk_large_disk_threshold = ８
+partition_enable_swap_file = false
+
+# Disable slide show
+install_progress_page_disable_slide = false
+install_progress_page_disable_slide_animation = true
+skip_virtual_machine_page = true
+system_info_disable_experience = true
+
+# 分区
+system_recovery_base_size=4
+disk_minimum_space_required = 8
+partition_full_disk_minimum_space = 6
+partition_root_space_required = 4
+partition_enable_swap_file=false

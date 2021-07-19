@@ -65,7 +65,7 @@ class FullDiskDelegate : public partition::Delegate{
   explicit FullDiskDelegate(QObject* parent = nullptr);
 
   // add System disk
-  void addSystemDisk(const QString & device_path);
+  void addSystemDisk(const QString &device_path);
 
   // add Data disk
   void addDataDisk(const QString & device_path);

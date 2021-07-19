@@ -81,6 +81,12 @@ int main(int argc, char* argv[]) {
   installer::RedirectLog(log_file);
 #endif // QT_DEBUG
 
+  // 判断是否是烧录系统情况下的后配置流程
+  if (!installer::GetSettingsString("system_installer_start_mode").isEmpty()) {
+      installer::DeleteConfigFile();
+      installer::AddConfigFile();
+  }
+
   QFont font(app.font());
   font.setPixelSize(installer::GetSettingsInt(installer::kSystemDefaultFontSize));
   font.setFamily(installer::GetUIDefaultFont());

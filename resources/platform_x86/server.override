@@ -1,9 +1,6 @@
 [General]
 skip_select_component_page = false
 skip_network_page = false
-select_language_default_locale = zh_CN
-timezone_default = Asia/Shanghai
-partition_skip_simple_partition_page = true
 set_root_password_from_user = true
 partition_default_button = 1
 partition_full_disk_large_root_part_range = "20:150"
@@ -20,4 +17,6 @@ timezone_use_local_time_regardless = true
 install_failed_qr_display_switch = true
 system_info_password_monotonous_length = 3
 system_info_password_continuous_length = 3
+system_recovery_base_size=20
+select_component_default_install_type = "Basic-Server-Environment"
 

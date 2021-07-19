@@ -151,13 +151,13 @@ QString GetCurrentPlatform() {
 
 QString GetOSType()
 {
-    QSettings settings("/etc/deepin-version", QSettings::IniFormat);
-    settings.beginGroup("Release");
+    QSettings settings("/etc/os-version", QSettings::IniFormat);
+    settings.beginGroup("Version");
 
 #ifdef QT_DEBUG
     QString type = "Professional";
 #else
-    QString type = settings.value("Type", "Community").toString();
+    QString type = settings.value("EditionName", "Community").toString();
 #endif // QT_DEBUG
 
     return type;
@@ -171,6 +171,7 @@ OSType GetCurrentType() {
         { "Professional", OSType::Professional },
         { "Server", OSType::Server },
         { "Personal", OSType::Personal },
+        { "Device", OSType::Device }
     }[type];
 }
 
@@ -678,6 +679,8 @@ void AddConfigFile() {
         case OSType::Professional: prefix = "professional"; break;
         case OSType::Server: prefix = "server"; break;
         case OSType::Personal: prefix = "personal"; break;
+        case OSType::Device:prefix = "device";break;
+        default: prefix = "community";break;
     }
 
 #ifdef QT_DEBUG

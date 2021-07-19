@@ -287,3 +287,28 @@ fix_boot_order(){
   done
   efibootmgr -o ${cmdargs}
 }
+
+init_backup() {
+    echo "init_backup"
+}
+
+init_checkmode() {
+    echo "init_checkmode"
+}
+
+init_firstboot() {
+    echo "init_firstboot"
+    local CONF_FILE=/etc/lightdm/lightdm.conf
+    local TEMP_CONF_FILE=/etc/lightdm/lightdm.conf.real
+    if [ -f "${CONF_FILE}" ]; then
+        install -v -m644 "${CONF_FILE}" "${TEMP_CONF_FILE}"
+    fi
+
+    cat > "${CONF_FILE}" <<EOF
+[Seat:*]
+display-setup-script=/usr/bin/deepin-installer-bases
+greeter-setup-script=/usr/bin/deepin-installer-first-boot
+EOF
+}
+
+

@@ -29,7 +29,8 @@ namespace installer {
         Community,
         Professional,
         Server,
-        Personal
+        Personal,
+        Device
     };
 
 // Get absolute path to oem/ folder. Note that oem folder may not exist.

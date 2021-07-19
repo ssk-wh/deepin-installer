@@ -1,0 +1,30 @@
+[General]
+partition_skip_partition_crypt_page = true
+partition_enable_swap_file = false
+partition_force_swap_file_in_simple_page = false
+partition_supported_fs = "ext4;ext3;ext2;efi;linux-swap;xfs;lvm2 pv;btrfs"
+partition_enable_os_prober = false
+partition_boot_on_first_partition = true
+partition_prefer_logical_partition = false
+partition_full_disk_small_legacy_policy = "/boot:ext4:1:1536;swap:linux-swap:1537:swap-size;/:ext4::100%"
+partition_full_disk_large_legacy_policy = "/boot:ext4:1:1536;swap:linux-swap:1537:swap-size;/:ext4::75%;:ext4::100%"
+partition_full_disk_small_legacy_label = "Boot;Swap;Root"
+partition_full_disk_large_legacy_label = "Boot;Swap;Root;_dde_data"
+skip_select_component_page = true
+timezone_force_local_time = true
+timezone_use_local_time_regardless = true
+partition_is_fsck_file_system = true
+install_failed_qr_display_switch = true
+
+# Disable slide show
+install_progress_page_disable_slide = false
+install_progress_page_disable_slide_animation = true
+skip_virtual_machine_page = true
+system_info_disable_experience = true
+
+# 分区
+system_recovery_base_size=4
+disk_minimum_space_required = 8
+partition_full_disk_minimum_space = 8
+partition_root_space_required = 4
+partition_enable_swap_file=false

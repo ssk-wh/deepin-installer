@@ -1,0 +1,20 @@
+[General]
+
+skip_select_component_page = true
+timezone_force_local_time = true
+timezone_use_local_time_regardless = true
+install_failed_qr_display_switch = true
+system_fix_wifi_device = true
+
+# Disable slide show
+install_progress_page_disable_slide = false
+install_progress_page_disable_slide_animation = true
+skip_virtual_machine_page = true
+system_info_disable_experience = true
+
+# 分区
+system_recovery_base_size=4
+disk_minimum_space_required = 8
+partition_full_disk_minimum_space = 8
+partition_root_space_required = 4
+partition_enable_swap_file=false

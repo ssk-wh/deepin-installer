@@ -1,6 +1,4 @@
 [General]
-select_language_default_locale = zh_CN
-timezone_default = Asia/Shanghai
 partition_skip_simple_partition_page = true
 partition_skip_partition_crypt_page = true
 partition_enable_swap_file = false
@@ -31,4 +29,6 @@ timezone_use_local_time_regardless = true
 install_failed_qr_display_switch = true
 system_info_password_monotonous_length = 3
 system_info_password_continuous_length = 3
+system_recovery_base_size=20
+select_component_default_install_type = "Basic-Server-Environment"
 

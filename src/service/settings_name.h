@@ -240,6 +240,11 @@ const char kSystemModuleDebug[] = "system_module_debug";
 // 设置后配置执行脚本的超时时间
 const char kSystemFirstBootTimeout[] = "system_first_boot_timeout";
 
+// recovery分区的基础大小
+const char kSystemRecoveryBaseSize[] = "system_recovery_base_size";
+
+const char kSystemIsCreateEFI[] = "system_is_create_efi";
+
 }  // namespace installer
 
 #endif  // INSTALLER_SERVICE_SETTINGS_NAME_H

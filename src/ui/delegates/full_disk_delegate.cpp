@@ -94,7 +94,7 @@ bool FullDiskDelegate::formatWholeDevice(const QString& device_path,
   qint64         lastDeviceLenght{ device->length };
   Partition::Ptr unallocated = device->partitions.last();
 
-  if (device->table == PartitionTableType::GPT) {
+  if (device->table == PartitionTableType::GPT && GetSettingsBool(kSystemIsCreateEFI)) {
       // 首先创建EFI分区
       const qint64 uefiSize =
           ParsePartitionSize("300Mib", lastDeviceLenght * device->sector_size);
@@ -436,7 +436,7 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
     int root_size_count { 0 };
     int percent100_count { 0 };
 
-    if (IsEfiEnabled() && option.is_system_disk && GetCurrentPlatform() != "sw") {
+    if (IsEfiEnabled() && option.is_system_disk && GetCurrentPlatform() != "sw" && GetSettingsBool(kSystemIsCreateEFI)) {
         const qint64 uefiSize =
             ParsePartitionSize("300Mib", lastDeviceLenght * device->sector_size);
         if (!createPrimaryPartition(unallocated, PartitionType::Normal, true, FsType::EFI,
@@ -484,36 +484,25 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
             partitionSize = ParsePartitionSize(swap_size_str,length);
         }
 
-        if (policy.usage == "backup-size") {
+        else if (policy.usage == "backup-size") {
             //恢复分区大小=总分区大小的2%+10GB
-            qint64  backSize = length * 2 / 100 / kGibiByte + 10;
+            qint64  backSize = length * 2 / 100 / kGibiByte + GetSettingsInt(kSystemRecoveryBaseSize);
             const QString backup_size_str = QString("%1gib").arg(backSize);
             partitionSize = ParsePartitionSize(backup_size_str,length);
-         }
 
-        if (policy.usage == "server-backup-size") {
-            //恢复分区大小=总分区大小的2%+20GB
-            qint64  backSize = length * 2 / 100 / kGibiByte + 20;
-            const QString backup_size_str = QString("%1gib").arg(backSize);
-            partitionSize = ParsePartitionSize(backup_size_str,length);
-        }
-
-        if (policy.usage == "100%") {
+        } else if (policy.usage == "100%") {
             percent100_count++;
-        }
 
-        if (policy.mountPoint == kMountPointRoot || policy.label == kFullDiskPolicyRootb) {
-            if (policy.usage == kFullDiskPolicyUsageRootSize) {
-                root_size_count++;
-                const QString root_size_str = GetSettingsString(kPartitionFullDiskRootPartitionUsage);
-                partitionSize = ParsePartitionSize(root_size_str, device->getByteLength());
-                qDebug() << "zdd test1: partitionSize" << partitionSize << " ||| "<< policy.mountPoint << policy.sectors << policy.label;
-            }
+        } else if (policy.usage == kFullDiskPolicyUsageRootSize) {
+            // root_siez 大小一般为磁盘的20%,并且在partition_full_disk_large_root_part_range配置的范围内
+            const QString root_size_str = GetSettingsString(kPartitionFullDiskRootPartitionUsage);
+            partitionSize = ParsePartitionSize(root_size_str, device->getByteLength());
+
 
             root_range = getRootPartitionSizeRange();
             partitionSize = std::max(partitionSize, root_range.min_size_bytes);
             partitionSize = std::min(partitionSize, root_range.max_size_bytes);
-            qDebug() << "zdd test2: partitionSize" << partitionSize << " ||| "<< policy.mountPoint << policy.sectors << policy.label;
+
         }
 
         if (partitionSize < 1) {
@@ -545,6 +534,10 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
 
         if (is_primary) {
             primary_count++;
+        }
+
+        if (policy.mountPoint == kMountPointRoot || policy.label == kFullDiskPolicyRootb) {
+            root_size_count++;
         }
     }
 
@@ -595,11 +588,12 @@ void FullDiskDelegate::removeAllSelectedDisks()
     selected_disks.clear();
 }
 
-void FullDiskDelegate::addSystemDisk(const QString & device_path)
+void FullDiskDelegate::addSystemDisk(const QString &device_path)
 {
     selected_devices.clear();
     selected_disks.clear();
     selected_disks.append(device_path);
+
 
     qInfo() << Q_FUNC_INFO << "add system disk: " << device_path;
 }
