@@ -41,7 +41,7 @@ class ConfirmQuitFrame : public DDialog {
   void updateTs();
   void updateTsForSuccessPage();
 
-  void setPackageInfo(const QString &log);
+  void setLogInfo(const QString &log);
 
  signals:
   // Emitted when cancel-button is clicked.

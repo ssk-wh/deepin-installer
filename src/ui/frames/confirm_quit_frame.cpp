@@ -76,7 +76,7 @@ void ConfirmQuitFrame::updateTsForSuccessPage()
     abort_button_->setText(::QObject::tr("Shut down"));
 }
 
-void ConfirmQuitFrame::setPackageInfo(const QString &log)
+void ConfirmQuitFrame::setLogInfo(const QString &log)
 {
     // 清理弹窗
     setTitle(::QObject::tr(""));
@@ -86,7 +86,7 @@ void ConfirmQuitFrame::setPackageInfo(const QString &log)
     // 重新设置弹窗布局和文案
     insertButton(1, continue_button_, true);
     comment_label_->setText(log);
-    continue_button_->setText(tr("Enter the system"));
+    continue_button_->setText(tr("Continue"));
 }
 
 void ConfirmQuitFrame::changeEvent(QEvent* event) {

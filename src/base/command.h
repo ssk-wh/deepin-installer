@@ -29,13 +29,16 @@ namespace installer {
 // Returns true if |args[0]| executed and exited with 0.
 // |output| and |err| are content of stdout and stderr.
 bool RunScriptFile(const QStringList& args);
-bool RunScriptFile(const QStringList& args, QString& output, QString& err, QProcess::ProcessChannelMode mode = QProcess::SeparateChannels);
+bool RunScriptFile(const QStringList& args, QString& output, QString& err,
+                   QProcess::ProcessChannelMode mode = QProcess::SeparateChannels,
+                   int timeout = -1);
 
 // Run |cmd| with |args| in background and returns its result.
 bool SpawnCmd(const QString& cmd, const QStringList& args);
 bool SpawnCmd(const QString& cmd, const QStringList& args, QString& output);
 bool SpawnCmd(const QString& cmd, const QStringList& args, QString& output,
-              QString& err, QProcess::ProcessChannelMode mode = QProcess::SeparateChannels);
+              QString& err, QProcess::ProcessChannelMode mode = QProcess::SeparateChannels,
+              int timeout = -1);
 
 bool SpawnCmd(const QString& cmd, const QStringList& args, QString& output,
               QString& err, int tryCount);

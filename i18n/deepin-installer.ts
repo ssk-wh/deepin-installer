@@ -5,7 +5,18 @@
     <name>ConfirmQuitFrame</name>
     <message>
         <source>Enter the system</source>
-        <translation>Enter the system</translation>
+        <translation type="vanished">Enter the system</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation type="unfinished">Continue</translation>
+    </message>
+</context>
+<context>
+    <name>FirstBootSetupWindow</name>
+    <message>
+        <source>Tuning System Failed</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

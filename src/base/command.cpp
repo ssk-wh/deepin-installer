@@ -45,22 +45,22 @@ bool RunScriptFile(const QStringList& args) {
 }
 
 // mode 参数的默认值是为了保持历史逻辑不变
-bool RunScriptFile(const QStringList& args, QString& output, QString& err, QProcess::ProcessChannelMode mode) {
-  Q_ASSERT(!args.isEmpty());
-  if (args.isEmpty()) {
-    qCritical() << "RunScriptFile() arg is empty!";
-    return false;
-  }
+bool RunScriptFile(const QStringList& args, QString& output, QString& err, QProcess::ProcessChannelMode mode, int timeout) {
+    Q_ASSERT(!args.isEmpty());
+    if (args.isEmpty()) {
+        qCritical() << "RunScriptFile() arg is empty!";
+        return false;
+    }
 
-  // Change working directory.
-  const QString current_dir(QFileInfo(args.at(0)).absolutePath());
-  if (!QDir::setCurrent(current_dir)) {
-    qCritical() << "Failed to change working directory:" << current_dir;
-    return false;
-  }
+    // Change working directory.
+    const QString current_dir(QFileInfo(args.at(0)).absolutePath());
+    if (!QDir::setCurrent(current_dir)) {
+        qCritical() << "Failed to change working directory:" << current_dir;
+        return false;
+    }
 
-  // TODO(xushaohua): Remove bash
-  return SpawnCmd("/bin/bash", args, output, err, mode);
+    // TODO(xushaohua): Remove bash
+    return SpawnCmd("/bin/bash", args, output, err, mode, timeout);
 }
 
 bool SpawnCmd(const QString& cmd, const QStringList& args) {
@@ -87,7 +87,8 @@ bool SpawnCmd(const QString& cmd, const QStringList& args, QString& output) {
 }
 
 bool SpawnCmd(const QString& cmd, const QStringList& args,
-              QString& output, QString& err, QProcess::ProcessChannelMode mode) {
+              QString& output, QString& err, QProcess::ProcessChannelMode mode,
+              int timeout) {
     QProcess process;
     process.setProgram(cmd);
     process.setArguments(args);
@@ -95,7 +96,7 @@ bool SpawnCmd(const QString& cmd, const QStringList& args,
 
     process.start();
     // Wait for process to finish without timeout.
-    process.waitForFinished(-1);
+    process.waitForFinished(timeout);
     output += process.readAllStandardOutput();
     err += process.readAllStandardError();
 

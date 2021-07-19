@@ -237,6 +237,9 @@ const char kSystemTimeout[] = "system_timeout";
 // 用于隔离还未发布的修改
 const char kSystemModuleDebug[] = "system_module_debug";
 
+// 设置后配置执行脚本的超时时间
+const char kSystemFirstBootTimeout[] = "system_first_boot_timeout";
+
 }  // namespace installer
 
 #endif  // INSTALLER_SERVICE_SETTINGS_NAME_H

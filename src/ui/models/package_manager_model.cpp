@@ -52,6 +52,7 @@ bool PackageRemoveModel::removePacakge(const QString &file)
     QStringList args = {"-y", "purge", file};
 
     QProcess* process = new QProcess;
+    process->setProcessChannelMode(QProcess::ForwardedChannels);
     process->setProgram(program);
     process->setArguments(args);
     process->start();

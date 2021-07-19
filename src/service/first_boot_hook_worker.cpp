@@ -18,6 +18,8 @@
 #include "service/first_boot_hook_worker.h"
 #include "base/command.h"
 #include "service/settings_manager.h"
+#include "service/log_manager.h"
+#include "service/settings_name.h"
 
 #include <QDebug>
 
@@ -40,17 +42,11 @@ FirstBootHookWorker::FirstBootHookWorker(QObject* parent) : QObject(parent) {
 }
 
 void FirstBootHookWorker::doStartHook() {
-  QString out, err;
-  // QProcess::ForwardedChannel 可以保证后配置脚本的日志换行输出
-  const bool ok = RunScriptFile({kFirstBootHookFile}, out, err, QProcess::ForwardedChannels);
-  if (!out.isEmpty()) {
-    qWarning() << kFirstBootHookFile << "OUT:" << out;
-  }
-  if (!err.isEmpty()) {
-    qCritical() << kFirstBootHookFile << "ERR:" << err;
-  }
-
-  emit this->hookFinished(ok);
+    QString out, err;
+    // QProcess::ForwardedOutputChannel 将正常日志输出到合并到程序的标准输出中
+    int timeout = GetSettingsInt(kSystemFirstBootTimeout);
+    const bool ok = RunScriptFile({kFirstBootHookFile}, out, err, QProcess::ForwardedChannels, timeout);
+    emit this->hookFinished(ok);
 }
 
 void FirstBootHookWorker::updateComponentUninstallPackages()

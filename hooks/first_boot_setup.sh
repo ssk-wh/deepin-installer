@@ -63,28 +63,21 @@ detect_btrfs() {
 
 # Purge packages
 uninstall_packages() {
-  if detect_btrfs; then
-   add_uninstall_package "deepin-installer"
-   add_uninstall_package "tshark wireshark-common"
-  else
-    add_uninstall_package "deepin-installer"
-    add_uninstall_package "btrfs-tools"
-    add_uninstall_package "tshark"
-    add_uninstall_package "wireshark-common"
-  fi
+    if detect_btrfs; then
+        add_uninstall_package "deepin-installer"
+        add_uninstall_package "tshark wireshark-common"
+    else
+        add_uninstall_package "deepin-installer"
+        add_uninstall_package "btrfs-tools"
+        add_uninstall_package "tshark"
+        add_uninstall_package "wireshark-common"
+    fi
 
-  add_uninstall_package "imagemagick*"
-
-  local list=$(installer_get "DI_UNINSTALL_PACKAGES")
-
-  # 增加system_module_debug判断，用于隔离安装包超时逻辑的修改
-  local module=$(installer_get "system_module_debug")
-  if [ "x$module" != "xtrue" ]; then
-      # 加密卸载包的输出日志，由于安装器会将自身卸载，所以为了保证日志完整性，卸载阶段的日志需要加密后追加到后配置日志中
-      apt-get -y purge ${list} | base64  >> /var/log/deepin-installer-first-boot.log
-      # apt autoremove -y  // 屏蔽代码解决磁盘加密时选择非图形组建安装系统成功后，系统无法重启问题。根因：由于cryptsetup被apt autoremove 卸载导致无法启动
-  fi
-
+    add_uninstall_package "imagemagick*"
+    local list=$(installer_get "DI_UNINSTALL_PACKAGES")
+    # 加密卸载包的输出日志，由于安装器会将自身卸载，所以为了保证日志完整性，卸载阶段的日志需要加密后追加到后配置日志中
+    apt-get -y purge ${list} | base64  >> /var/log/deepin-installer-first-boot.log
+    # apt autoremove -y  // 屏蔽代码解决磁盘加密时选择非图形组建安装系统成功后，系统无法重启问题。根因：由于cryptsetup被apt autoremove 卸载导致无法启动
 }
 
 # Replace lightdm.conf with lightdm.conf.real.
@@ -185,6 +178,10 @@ setup_log() {
 main() {
   [ -f "${CONF_FILE}" ] || error "deepin-installer.conf not found"
   cat "${CONF_FILE}" | grep -v "PASSWORD" | grep -v "password"
+
+  cleanup_first_boot
+  setup_lightdm_auto_login
+
   recovery_log
   setup_keyboard
   setup_locale_timezone
@@ -203,8 +200,6 @@ main() {
   sync
   cleanup_oem_license
   update_grub_local && update-initramfs -u
-  cleanup_first_boot
-  setup_lightdm_auto_login
   remove_component_packages
   setup_default_target
   setup_log          # 加密日志中敏感字符

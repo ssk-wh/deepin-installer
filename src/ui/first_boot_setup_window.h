@@ -90,6 +90,8 @@ protected:
 
   void registerShortcut();
 
+  void showFailedLog();
+
   DIconButton*           back_button_         = nullptr;
   DIconButton*           close_button_        = nullptr;
   QLabel*                background_label_    = nullptr;
@@ -132,7 +134,7 @@ protected:
 
   static const int FramePointerRole = Dtk::UserRole + 1;
 
-  private slots:
+private slots:
   // Handles result of hook worker.
   void onHookFinished(bool ok);
 
