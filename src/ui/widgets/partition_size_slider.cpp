@@ -21,7 +21,6 @@
 #include <QRegExpValidator>
 #include <QLabel>
 #include <QLineEdit>
-#include <QSlider>
 #include <QPainter>
 #include <QPainterPath>
 
@@ -95,7 +94,7 @@ void PartitionSizeSlider::setValue(qint64 size) {
 }
 
 void PartitionSizeSlider::initConnection() {
-  connect(slider_, &QSlider::valueChanged,
+  connect(slider_, &DSlider::valueChanged,
           this, &PartitionSizeSlider::onSliderValueChanged);
   connect(editor_, &QLineEdit::textChanged,
           this, &PartitionSizeSlider::onEditorTextChanged);
@@ -104,7 +103,7 @@ void PartitionSizeSlider::initConnection() {
 }
 
 void PartitionSizeSlider::initUI() {
-  slider_ = new QSlider(Qt::Horizontal);
+  slider_ = new DSlider(Qt::Horizontal);
   slider_->setObjectName("slider");
   slider_->setMinimum(0);
 

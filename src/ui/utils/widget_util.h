@@ -24,6 +24,7 @@
 class QComboBox;
 class QMenu;
 class QLayout;
+class QStandardItem;
 
 namespace installer {
 
@@ -46,6 +47,8 @@ void SetQMenuTransparent(QMenu* menu);
 void WidgetTreeWalk(QWidget* root);
 
 const QPixmap renderPixmap(const QString &path);
+
+void SetItemTextAndTooltip(QStandardItem *item, const QString& itemtext, const int& textwidth);
 
 template <typename T>
 void addTransLate(T &t, std::function<void (QString)> function, const QString &tr) {

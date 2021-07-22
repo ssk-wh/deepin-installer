@@ -47,7 +47,11 @@ void AutoElideLabel::setText(const QString &text)
 
     QFontMetrics fontWidth(font());
     QString elideNote = fontWidth.elidedText(m_originalText, Qt::ElideRight, width());
-
+    // 如果存在字符省略，则设置控件的工具提示
+    if (elideNote.indexOf("…") != -1) {
+        setToolTip(text);
+        m_isTextElided = true;
+    }
     QLabel::setText(elideNote);
 }
 

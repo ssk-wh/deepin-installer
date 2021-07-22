@@ -409,15 +409,20 @@ void MainWindow::changeEvent(QEvent *event)
 {
     if (event->type() == QEvent::LanguageChange) {
         for (int i = 0; i < m_frameLabelsModel->rowCount(); ++i) {
-            QStandardItem* item = m_frameLabelsModel->item(i);
+            DStandardItem* item =  dynamic_cast<DStandardItem*>(m_frameLabelsModel->item(i));
             FrameInterface* frame = getFrameInterface(item);
             if (frame) {
-                item->setText(frame->returnFrameName());
-                item->setToolTip(frame->returnFrameName());
+                QImage testimage_1(QString(":/images/NO_inactive%1.svg").arg(i+1));
+                QImage testimage_2(":/images/done_inactive.svg");
+                // 因为没有设置自定义的spacing，所以使用的是item的默认spacing，这里通过dstyleditemdelegate源码得知默认的spacing为DStyle::PM_ContentsSpacing
+                int itemimagewidth = m_frameLabelsView->itemSize().width()
+                        - testimage_1.width() - testimage_2.width()
+                        - m_frameLabelsView->itemMargins().left() - m_frameLabelsView->itemMargins().right()
+                        - (DStyleHelper(qApp->style()).pixelMetric(DStyle::PM_ContentsSpacing) * 2);
+                SetItemTextAndTooltip(item, frame->returnFrameName(), itemimagewidth);
             }
         }
-    }
-    else {
+    } else {
         QWidget::changeEvent(event);
     }
 }
@@ -604,6 +609,7 @@ void MainWindow::initPages() {
   m_frameLabelsModel = new QStandardItemModel();
   m_frameLabelsView->setModel(m_frameLabelsModel);
   m_frameLabelsView->setItemMargins(QMargins(10,0,10,0));
+  m_frameLabelsView->setTextElideMode(Qt::ElideNone);//这个是禁用listview提供的字符省略方案
 
   m_frameSelectedLayout->addWidget(m_frameLabelsView, 0, Qt::AlignHCenter | Qt::AlignVCenter);
 
@@ -625,8 +631,14 @@ void MainWindow::constructLabelView()
         item->setIcon(QIcon(pixPathTemplate.arg(i)));
         ++i;
 
-        item->setText(tr(frame->returnFrameName().toLatin1().data()));
-        item->setToolTip(frame->returnFrameName());
+        QImage testimage_1(pixPathTemplate.arg(i));
+        QImage testimage_2(":/images/done_inactive.svg");
+        // 因为没有设置自定义的spacing，所以使用的是item的默认spacing，这里通过dstyleditemdelegate源码得知默认的spacing为DStyle::PM_ContentsSpacing
+        int itemimagewidth = m_frameLabelsView->itemSize().width()
+                - testimage_1.width() - testimage_2.width()
+                - m_frameLabelsView->itemMargins().left() - m_frameLabelsView->itemMargins().right()
+                - (DStyleHelper(qApp->style()).pixelMetric(DStyle::PM_ContentsSpacing) * 2);
+        SetItemTextAndTooltip(item, frame->returnFrameName(), itemimagewidth);
 
         QVariant framePointer = QVariant::fromValue(frame);
         item->setData(framePointer, FramePointerRole);

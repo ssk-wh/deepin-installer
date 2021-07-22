@@ -28,6 +28,7 @@
 #include <QApplication>
 #include <QPixmap>
 #include <QCryptographicHash>
+#include <QStandardItem>
 
 namespace installer {
 
@@ -122,6 +123,19 @@ const QPixmap renderPixmap(const QString &path) {
     PIXMAP_CACHE[md5] = { qApp->devicePixelRatio(), pixmap };
 
     return pixmap;
+}
+
+void SetItemTextAndTooltip(QStandardItem *item, const QString& itemtext, const int& textwidth)
+{
+    // 字符省略号思路的来源是AutoElideLabel控件
+    QFontMetrics fontWidth(item->font());
+    QString elideNote = fontWidth.elidedText(itemtext, Qt::ElideRight, textwidth);
+    item->setText(elideNote);
+    if (elideNote.indexOf("…") != -1) {
+        item->setToolTip(itemtext);
+    } else {
+        item->setToolTip("");
+    }
 }
 
 }  // namespace installer

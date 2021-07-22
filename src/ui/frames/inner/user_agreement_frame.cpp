@@ -57,6 +57,7 @@ void UserAgreementFrame::initUI()
     m_chineseButton->setCheckable(true);
     m_chineseButton->setFixedWidth(75);
     m_chineseButton->setFixedHeight(36);
+    m_chineseButton->setStyleSheet("#chineseButton:checked{background:rgb(1, 128, 255); color:rgb(255, 255, 255);}");
     //m_chineseButton->setFocusPolicy(Qt::NoFocus);
 
     m_englishButton = new DButtonBoxButton("English");
@@ -64,6 +65,7 @@ void UserAgreementFrame::initUI()
     m_englishButton->setCheckable(true);
     m_englishButton->setFixedWidth(75);
     m_englishButton->setFixedHeight(36);
+    m_englishButton->setStyleSheet("#englishButton:checked{background:rgb(1, 128, 255); color:rgb(255, 255, 255);}");
     //m_englishButton->setFocusPolicy(Qt::NoFocus);
 
     m_btnlist.append(m_chineseButton);
@@ -239,11 +241,6 @@ bool UserAgreementFrame::directionKey(int keyvalue)
         break;
     case Qt::Key_Left: {
             if (m_buttonBoxWidget->hasFocus()) {
-                QString zh_cn_li = QString(":/license/end-user-license-agreement-%1_zh_CN.txt")\
-                        .arg(installer::LicenseDelegate::OSType());
-                QString en_us_li = QString(":/license/end-user-license-agreement-%1_en_US.txt")\
-                        .arg(installer::LicenseDelegate::OSType());
-                    setUserAgreement(en_us_li, zh_cn_li);
                     setCheckedButton(kChineseToggleButtonId);
                     updateLicenseText();
             }
@@ -251,11 +248,6 @@ bool UserAgreementFrame::directionKey(int keyvalue)
         break;
     case Qt::Key_Right: {
             if (m_buttonBoxWidget->hasFocus()) {
-                QString zh_cn_li = QString(":/license/end-user-license-agreement-%1_zh_CN.txt")\
-                        .arg(installer::LicenseDelegate::OSType());
-                QString en_us_li = QString(":/license/end-user-license-agreement-%1_en_US.txt")\
-                        .arg(installer::LicenseDelegate::OSType());
-                    setUserAgreement(zh_cn_li, en_us_li);
                     setCheckedButton(kEnglishToggleButtonId);
                     updateLicenseText();
             }

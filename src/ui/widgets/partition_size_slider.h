@@ -19,8 +19,9 @@
 #define INSTALLER_UI_PARTITION_SIZE_SLIDER_H
 
 #include <QFrame>
+#include <DSlider>
+DWIDGET_USE_NAMESPACE
 class QLineEdit;
-class QSlider;
 
 namespace installer {
 
@@ -63,7 +64,7 @@ class PartitionSizeSlider : public QFrame {
   void initConnection();
   void initUI();
 
-  QSlider* slider_ = nullptr;
+  DSlider* slider_ = nullptr;
   QLineEdit* editor_ = nullptr;
 
   qint64 maximum_size_;

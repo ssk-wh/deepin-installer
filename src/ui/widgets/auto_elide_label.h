@@ -32,9 +32,11 @@ public:
 
     QString text() const;
     void setText(const QString& text);
+    bool isTextElided(){ return m_isTextElided; }
 
 private:
     QString m_originalText;
+    bool m_isTextElided = false;
 };
 
 }

@@ -380,8 +380,14 @@ void FirstBootSetupWindow::changeEvent(QEvent *event)
             QStandardItem* item = m_frameLabelsModel->item(i);
             FrameInterface* frame = getFrameInterface(item);
             if (frame) {
-                item->setText(frame->returnFrameName());
-                item->setToolTip(frame->returnFrameName());
+                QImage testimage_1(QString(":/images/NO_inactive%1.svg").arg(i+1));
+                QImage testimage_2(":/images/done_inactive.svg");
+                // 因为没有设置自定义的spacing，所以使用的是item的默认spacing，这里通过dstyleditemdelegate源码得知默认的spacing为DStyle::PM_ContentsSpacing
+                int itemimagewidth = m_frameLabelsView->itemSize().width()
+                        - testimage_1.width() - testimage_2.width()
+                        - m_frameLabelsView->itemMargins().left() - m_frameLabelsView->itemMargins().right()
+                        - (DStyleHelper(qApp->style()).pixelMetric(DStyle::PM_ContentsSpacing) * 2);
+                SetItemTextAndTooltip(item, frame->returnFrameName(), itemimagewidth);
             }
         }
     }
@@ -456,8 +462,14 @@ void FirstBootSetupWindow::constructLabelView()
         item->setIcon(QIcon(pixPathTemplate.arg(i)));
         ++i;
 
-        item->setText(tr(frame->returnFrameName().toLatin1().data()));
-        item->setToolTip(frame->returnFrameName());
+        QImage testimage_1(pixPathTemplate.arg(i));
+        QImage testimage_2(":/images/done_inactive.svg");
+        // 因为没有设置自定义的spacing，所以使用的是item的默认spacing，这里通过dstyleditemdelegate源码得知默认的spacing为DStyle::PM_ContentsSpacing
+        int itemimagewidth = m_frameLabelsView->itemSize().width()
+                - testimage_1.width() - testimage_2.width()
+                - m_frameLabelsView->itemMargins().left() - m_frameLabelsView->itemMargins().right()
+                - (DStyleHelper(qApp->style()).pixelMetric(DStyle::PM_ContentsSpacing) * 2);
+        SetItemTextAndTooltip(item, frame->returnFrameName(), itemimagewidth);
 
         QVariant framePointer = QVariant::fromValue(frame);
         item->setData(framePointer, FramePointerRole);

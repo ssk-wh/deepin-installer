@@ -107,7 +107,23 @@ void EditPartitionFrame::setPartition(const Partition::Ptr partition) {
   os_label_->setPixmap(QPixmap(GetOsTypeLargeIcon(partition->os)));
   name_label_->setText(GetPartitionLabelAndPath(partition));
   usage_label_->setText(GetPartitionUsage(partition));
-  usage_bar_->setValue(GetPartitionUsageValue(partition));
+
+  // 对返回的字符串做解析，根据"/"前后数值对的确定磁盘使用量的进度显示
+  QString usagetext = GetPartitionUsage(partition);
+  if(usagetext.indexOf("M") != -1) {
+      usagetext = usagetext.left(usagetext.indexOf("M"));
+  } else if(usagetext.indexOf("G") != -1) {
+      usagetext = usagetext.left(usagetext.indexOf("G"));
+  } else {
+    usagetext = "0/3";
+  }
+  QStringList usagetextlist = usagetext.split("/");
+  usage_bar_->setRange(0, usagetextlist.at(1).toInt());
+  if(usagetextlist.at(0).toInt() > 0) {
+    usage_bar_->setValue(usagetextlist.at(0).toInt());
+  } else {
+    usage_bar_->setValue(0);
+  }
 
   // Update fs list.
   fs_model_->setShowUnknown(partition->fs == FsType::Unknown);

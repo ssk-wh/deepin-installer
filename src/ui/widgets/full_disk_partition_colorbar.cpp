@@ -202,16 +202,16 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
 
         QString tooltipString;
 
-        QLabel *partNameLable = new QLabel();
+        AutoElideLabel *partNameLable = new AutoElideLabel();
         partNameLable->setFont(font);
         partNameLable->setFixedWidth(75);
         partNameLable->setAlignment(Qt::AlignmentFlag::AlignLeft | Qt::AlignmentFlag::AlignBottom);
 
         // 挂载点的路径超过6位的后面显示...
         // 通过tip的方式显示全部的路径字符
-        QString text = GetPartitionDisplayText(partition).size() > kMountPointMaxSize ?
+        QString text = GetPartitionDisplayText(partition)/*.size() > kMountPointMaxSize ?
                     QString("%1...").arg(GetPartitionDisplayText(partition).left(kMountPointMaxSize))
-                  : GetPartitionDisplayText(partition);
+                  : GetPartitionDisplayText(partition)*/;
 
         partNameLable->setText(text);
         partNameLable->setStyleSheet("QLabel{color:#363636} ");
@@ -219,7 +219,7 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
         layout->addSpacing(1);
         layout->addWidget(partNameLable);
 
-        QLabel *partSize = new QLabel();
+        AutoElideLabel *partSize = new AutoElideLabel();
         partSize->setFont(mountfont);
         partSize->setFixedWidth(42);
         partSize->setAlignment(Qt::AlignmentFlag::AlignRight | Qt::AlignmentFlag::AlignBottom);
@@ -240,9 +240,11 @@ void FullDiskPartitionWidget::setDevice(const Device::Ptr device)
         fileSysType->setStyleSheet("QLabel{color:#526A7F} ");        
         layout->addWidget(fileSysType);
 
-        partNameLable->setToolTip(tooltipString);
-        partSize->setToolTip(tooltipString);
-        fileSysType->setToolTip(tooltipString);
+        if(partNameLable->isTextElided() || partSize->isTextElided() || fileSysType->isTextElided()) {
+            partNameLable->setToolTip(tooltipString);
+            partSize->setToolTip(tooltipString);
+            fileSysType->setToolTip(tooltipString);
+        }
 
         if (indexNum % 3 != 2 ) {
             layout->addSpacing(25);
