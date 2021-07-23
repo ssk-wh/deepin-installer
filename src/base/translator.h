@@ -14,7 +14,7 @@ enum class TranslatorType {
 
 static const std::map<installer::TranslatorType, QString> TS_MAP{
     { installer::TranslatorType::NextButton, ::QObject::tr("Next") },
-    { installer::TranslatorType::BackButton, ::QObject::tr("Back") },
+    { installer::TranslatorType::BackButton, ::QObject::tr("Back", "button") },
     { installer::TranslatorType::SelectLanguageSubTitle, ::QObject::tr("Select system language") },
 };
 

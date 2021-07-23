@@ -172,7 +172,7 @@ void UserAgreementFrame::initConnect()
 
 void UserAgreementFrame::updateText()
 {
-    LanguageManager::translator(m_back, &QPushButton::setText, TranslatorType::BackButton);
+    m_back->setText(::QObject::tr("Back", "button"));
 }
 
 void UserAgreementFrame::toggleLicense(QAbstractButton* button)

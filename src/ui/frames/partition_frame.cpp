@@ -930,7 +930,7 @@ void PartitionFramePrivate::onNextButtonClicked() {
 
     if (AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_Format_Pv) {
        emit prepare_install_frame_->finished();
-       lvm_partition_frame_->updateLayout(next_layout, ::QObject::tr("Back"));
+       lvm_partition_frame_->updateLayout(next_layout, ::QObject::tr("Back", "button"));
        nextButton->setText(::QObject::tr("Ready to Install"));
        emit q_ptr->coverMainWindowFrameLabelsView(false);
     }

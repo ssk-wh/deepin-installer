@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Bruce Lee <daemul72@gmail.com>, 2020
+# JungHee Lee <daemul72@gmail.com>, 2020
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-02 17:33+0800\n"
+"POT-Creation-Date: 2021-07-27 19:51+0800\n"
 "PO-Revision-Date: 2017-02-06 02:09+0000\n"
-"Last-Translator: Bruce Lee <daemul72@gmail.com>, 2020\n"
+"Last-Translator: JungHee Lee <daemul72@gmail.com>, 2020\n"
 "Language-Team: Korean (https://www.transifex.com/linuxdeepin/teams/3976/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -442,220 +442,220 @@ msgid "America/Glace_Bay"
 msgstr "아메리카/그레이스_베이"
 
 #: system-config-date-timezones.h:106
-msgid "America/Godthab"
-msgstr "아메리카/고드호브"
-
-#: system-config-date-timezones.h:107
 msgid "America/Goose_Bay"
 msgstr "아메리카/구스_베이"
 
-#: system-config-date-timezones.h:108
+#: system-config-date-timezones.h:107
 msgid "America/Grand_Turk"
 msgstr "아메리카/그랜드투르크"
 
-#: system-config-date-timezones.h:109
+#: system-config-date-timezones.h:108
 msgid "America/Grenada"
 msgstr "아메리카/그레나다"
 
-#: system-config-date-timezones.h:110
+#: system-config-date-timezones.h:109
 msgid "America/Guadeloupe"
 msgstr "아메리카/과들루프"
 
-#: system-config-date-timezones.h:111
+#: system-config-date-timezones.h:110
 msgid "America/Guatemala"
 msgstr "아메리카/과테말라"
 
-#: system-config-date-timezones.h:112
+#: system-config-date-timezones.h:111
 msgid "America/Guayaquil"
 msgstr "아메리카/과야킬"
 
-#: system-config-date-timezones.h:113
+#: system-config-date-timezones.h:112
 msgid "America/Guyana"
 msgstr "아메리카/가이아나"
 
-#: system-config-date-timezones.h:114
+#: system-config-date-timezones.h:113
 msgid "America/Halifax"
 msgstr "아메리카/핼리팩스"
 
-#: system-config-date-timezones.h:115
+#: system-config-date-timezones.h:114
 msgid "America/Havana"
 msgstr "아메리카/아바나"
 
-#: system-config-date-timezones.h:116
+#: system-config-date-timezones.h:115
 msgid "America/Hermosillo"
 msgstr "아메리카/에르모시요"
 
-#: system-config-date-timezones.h:117
+#: system-config-date-timezones.h:116
 msgid "America/Indiana/Indianapolis"
 msgstr "아메리카/인디애나/인디애나폴리스"
 
-#: system-config-date-timezones.h:118
+#: system-config-date-timezones.h:117
 msgid "America/Indiana/Knox"
 msgstr "아메리카/인디애나/녹스"
 
-#: system-config-date-timezones.h:119
+#: system-config-date-timezones.h:118
 msgid "America/Indiana/Marengo"
 msgstr "아메리카/인디애나/마렝고"
 
-#: system-config-date-timezones.h:120
+#: system-config-date-timezones.h:119
 msgid "America/Indiana/Petersburg"
 msgstr "아메리카/인디애나/피터스버그"
 
-#: system-config-date-timezones.h:121
+#: system-config-date-timezones.h:120
 msgid "America/Indiana/Tell_City"
 msgstr "아메리카/인디애나/텔_시티"
 
-#: system-config-date-timezones.h:122
+#: system-config-date-timezones.h:121
 msgid "America/Indiana/Vevay"
 msgstr "아메리카/인디애나/비베이"
 
-#: system-config-date-timezones.h:123
+#: system-config-date-timezones.h:122
 msgid "America/Indiana/Vincennes"
 msgstr "아메리카/인디아나/빈센느"
 
-#: system-config-date-timezones.h:124
+#: system-config-date-timezones.h:123
 msgid "America/Indiana/Winamac"
 msgstr "아메리카/인디애나/위맥"
 
-#: system-config-date-timezones.h:125
+#: system-config-date-timezones.h:124
 msgid "America/Inuvik"
 msgstr "아메리카/이누빅"
 
-#: system-config-date-timezones.h:126
+#: system-config-date-timezones.h:125
 msgid "America/Iqaluit"
 msgstr "아메리카/이칼루이트"
 
-#: system-config-date-timezones.h:127
+#: system-config-date-timezones.h:126
 msgid "America/Jamaica"
 msgstr "아메리카/자메이카"
 
-#: system-config-date-timezones.h:128
+#: system-config-date-timezones.h:127
 msgid "America/Juneau"
 msgstr "아메리카/주노"
 
-#: system-config-date-timezones.h:129
+#: system-config-date-timezones.h:128
 msgid "America/Kentucky/Louisville"
 msgstr "아메리카/켄터키/루이빌"
 
-#: system-config-date-timezones.h:130
+#: system-config-date-timezones.h:129
 msgid "America/Kentucky/Monticello"
 msgstr "아메리카/켄터키/몬티첼로"
 
-#: system-config-date-timezones.h:131
+#: system-config-date-timezones.h:130
 msgid "America/Kralendijk"
 msgstr "아메리카/크레렌디아크"
 
-#: system-config-date-timezones.h:132
+#: system-config-date-timezones.h:131
 msgid "America/La_Paz"
 msgstr "아메리카/라파즈"
 
-#: system-config-date-timezones.h:133
+#: system-config-date-timezones.h:132
 msgid "America/Lima"
 msgstr "아메리카/리마"
 
-#: system-config-date-timezones.h:134
+#: system-config-date-timezones.h:133
 msgid "America/Los_Angeles"
 msgstr "아메리카/로스앤젤레스"
 
-#: system-config-date-timezones.h:135
+#: system-config-date-timezones.h:134
 msgid "America/Lower_Princes"
 msgstr "아메리카/로어_프린세스"
 
-#: system-config-date-timezones.h:136
+#: system-config-date-timezones.h:135
 msgid "America/Maceio"
 msgstr "아메리카/마세이오"
 
-#: system-config-date-timezones.h:137
+#: system-config-date-timezones.h:136
 msgid "America/Managua"
 msgstr "아메리카/마누아"
 
-#: system-config-date-timezones.h:138
+#: system-config-date-timezones.h:137
 msgid "America/Manaus"
 msgstr "아메리카/마나우스"
 
-#: system-config-date-timezones.h:139
+#: system-config-date-timezones.h:138
 msgid "America/Marigot"
 msgstr "아메리카/마리고트"
 
-#: system-config-date-timezones.h:140
+#: system-config-date-timezones.h:139
 msgid "America/Martinique"
 msgstr "아메리카/마르티니크"
 
-#: system-config-date-timezones.h:141
+#: system-config-date-timezones.h:140
 msgid "America/Matamoros"
 msgstr "아메리카/마타모로스"
 
-#: system-config-date-timezones.h:142
+#: system-config-date-timezones.h:141
 msgid "America/Mazatlan"
 msgstr "아메리카/마사틀란"
 
-#: system-config-date-timezones.h:143
+#: system-config-date-timezones.h:142
 msgid "America/Menominee"
 msgstr "아메리카/메노미니"
 
-#: system-config-date-timezones.h:144
+#: system-config-date-timezones.h:143
 msgid "America/Merida"
 msgstr "아메리카/메리다"
 
-#: system-config-date-timezones.h:145
+#: system-config-date-timezones.h:144
 msgid "America/Metlakatla"
 msgstr "아메리카/메트라카트라"
 
-#: system-config-date-timezones.h:146
+#: system-config-date-timezones.h:145
 msgid "America/Mexico_City"
 msgstr "아메리카/멕시코_시티"
 
-#: system-config-date-timezones.h:147
+#: system-config-date-timezones.h:146
 msgid "America/Miquelon"
 msgstr "아메리카/미클론"
 
-#: system-config-date-timezones.h:148
+#: system-config-date-timezones.h:147
 msgid "America/Moncton"
 msgstr "아메리카/멍크턴"
 
-#: system-config-date-timezones.h:149
+#: system-config-date-timezones.h:148
 msgid "America/Monterrey"
 msgstr "아메리카/몬테레이"
 
-#: system-config-date-timezones.h:150
+#: system-config-date-timezones.h:149
 msgid "America/Montevideo"
 msgstr "아메리카/몬테비데오"
 
-#: system-config-date-timezones.h:151
+#: system-config-date-timezones.h:150
 msgid "America/Montserrat"
 msgstr "아메리카/몬트세라트"
 
-#: system-config-date-timezones.h:152
+#: system-config-date-timezones.h:151
 msgid "America/Nassau"
 msgstr "아메리카/나소"
 
-#: system-config-date-timezones.h:153
+#: system-config-date-timezones.h:152
 msgid "America/New_York"
 msgstr "아메리카/뉴욕"
 
-#: system-config-date-timezones.h:154
+#: system-config-date-timezones.h:153
 msgid "America/Nipigon"
 msgstr "아메리카/니피곤"
 
-#: system-config-date-timezones.h:155
+#: system-config-date-timezones.h:154
 msgid "America/Nome"
 msgstr "아메리카/놈"
 
-#: system-config-date-timezones.h:156
+#: system-config-date-timezones.h:155
 msgid "America/Noronha"
 msgstr "아메리카/노로냐"
 
-#: system-config-date-timezones.h:157
+#: system-config-date-timezones.h:156
 msgid "America/North_Dakota/Beulah"
 msgstr "아메리카/노스_다코타/베울라"
 
-#: system-config-date-timezones.h:158
+#: system-config-date-timezones.h:157
 msgid "America/North_Dakota/Center"
 msgstr "아메리카/노스다코타/센터"
 
-#: system-config-date-timezones.h:159
+#: system-config-date-timezones.h:158
 msgid "America/North_Dakota/New_Salem"
 msgstr "아메리카/노스다코타/뉴_새엄"
+
+#: system-config-date-timezones.h:159
+msgid "America/Nuuk"
+msgstr ""
 
 #: system-config-date-timezones.h:160
 msgid "America/Ojinaga"
@@ -1274,473 +1274,469 @@ msgid "Australia/Broken_Hill"
 msgstr "오스트레일리아/브로큰_힐"
 
 #: system-config-date-timezones.h:314
-msgid "Australia/Currie"
-msgstr "오스트레일리아/커리"
-
-#: system-config-date-timezones.h:315
 msgid "Australia/Darwin"
 msgstr "오스트레일리아/다윈"
 
-#: system-config-date-timezones.h:316
+#: system-config-date-timezones.h:315
 msgid "Australia/Eucla"
 msgstr "오스트레일리아/유클라"
 
-#: system-config-date-timezones.h:317
+#: system-config-date-timezones.h:316
 msgid "Australia/Hobart"
 msgstr "오스트레일리아/호바트"
 
-#: system-config-date-timezones.h:318
+#: system-config-date-timezones.h:317
 msgid "Australia/Lindeman"
 msgstr "오스트레일리아/린드먼"
 
-#: system-config-date-timezones.h:319
+#: system-config-date-timezones.h:318
 msgid "Australia/Lord_Howe"
 msgstr "오스트레일리아/로어드_하우"
 
-#: system-config-date-timezones.h:320
+#: system-config-date-timezones.h:319
 msgid "Australia/Melbourne"
 msgstr "오스트레일리아/멜버른"
 
-#: system-config-date-timezones.h:321
+#: system-config-date-timezones.h:320
 msgid "Australia/Perth"
 msgstr "오스트레일리아/퍼스"
 
-#: system-config-date-timezones.h:322
+#: system-config-date-timezones.h:321
 msgid "Australia/Sydney"
 msgstr "오스트레일리아/시드니"
 
-#: system-config-date-timezones.h:323
+#: system-config-date-timezones.h:322
 msgid "Europe/Amsterdam"
 msgstr "유럽/암스테르담"
 
-#: system-config-date-timezones.h:324
+#: system-config-date-timezones.h:323
 msgid "Europe/Andorra"
 msgstr "유럽/안도라"
 
-#: system-config-date-timezones.h:325
+#: system-config-date-timezones.h:324
 msgid "Europe/Astrakhan"
 msgstr "유럽/아스트라한"
 
-#: system-config-date-timezones.h:326
+#: system-config-date-timezones.h:325
 msgid "Europe/Athens"
 msgstr "유럽/아테네"
 
-#: system-config-date-timezones.h:327
+#: system-config-date-timezones.h:326
 msgid "Europe/Belgrade"
 msgstr "유럽/베오그라드"
 
-#: system-config-date-timezones.h:328
+#: system-config-date-timezones.h:327
 msgid "Europe/Berlin"
 msgstr "유럽/베를린"
 
-#: system-config-date-timezones.h:329
+#: system-config-date-timezones.h:328
 msgid "Europe/Bratislava"
 msgstr "유럽/브라티슬라바"
 
-#: system-config-date-timezones.h:330
+#: system-config-date-timezones.h:329
 msgid "Europe/Brussels"
 msgstr "유럽/브뤼셀"
 
-#: system-config-date-timezones.h:331
+#: system-config-date-timezones.h:330
 msgid "Europe/Bucharest"
 msgstr "유럽/부쿠레슈티"
 
-#: system-config-date-timezones.h:332
+#: system-config-date-timezones.h:331
 msgid "Europe/Budapest"
 msgstr "유럽/부다페스트"
 
-#: system-config-date-timezones.h:333
+#: system-config-date-timezones.h:332
 msgid "Europe/Busingen"
 msgstr "유럽/뷔징겐"
 
-#: system-config-date-timezones.h:334
+#: system-config-date-timezones.h:333
 msgid "Europe/Chisinau"
 msgstr "유럽/키시나우"
 
-#: system-config-date-timezones.h:335
+#: system-config-date-timezones.h:334
 msgid "Europe/Copenhagen"
 msgstr "유럽/코펜하겐"
 
-#: system-config-date-timezones.h:336
+#: system-config-date-timezones.h:335
 msgid "Europe/Dublin"
 msgstr "유럽/더블린"
 
-#: system-config-date-timezones.h:337
+#: system-config-date-timezones.h:336
 msgid "Europe/Gibraltar"
 msgstr "유럽/지브롤터"
 
-#: system-config-date-timezones.h:338
+#: system-config-date-timezones.h:337
 msgid "Europe/Guernsey"
 msgstr "유럽/건지섬"
 
-#: system-config-date-timezones.h:339
+#: system-config-date-timezones.h:338
 msgid "Europe/Helsinki"
 msgstr "유럽/헬싱키"
 
-#: system-config-date-timezones.h:340
+#: system-config-date-timezones.h:339
 msgid "Europe/Isle_of_Man"
 msgstr "유럽/아일오브맨"
 
-#: system-config-date-timezones.h:341
+#: system-config-date-timezones.h:340
 msgid "Europe/Istanbul"
 msgstr "유럽/이스탄불"
 
-#: system-config-date-timezones.h:342
+#: system-config-date-timezones.h:341
 msgid "Europe/Jersey"
 msgstr "유럽/저지"
 
-#: system-config-date-timezones.h:343
+#: system-config-date-timezones.h:342
 msgid "Europe/Kaliningrad"
 msgstr "유럽/칼리닌그라드"
 
-#: system-config-date-timezones.h:344
+#: system-config-date-timezones.h:343
 msgid "Europe/Kiev"
 msgstr "유럽/키예프"
 
-#: system-config-date-timezones.h:345
+#: system-config-date-timezones.h:344
 msgid "Europe/Kirov"
 msgstr "유럽/키로프"
 
-#: system-config-date-timezones.h:346
+#: system-config-date-timezones.h:345
 msgid "Europe/Lisbon"
 msgstr "유럽/리스본"
 
-#: system-config-date-timezones.h:347
+#: system-config-date-timezones.h:346
 msgid "Europe/Ljubljana"
 msgstr "유럽/류블랴나"
 
-#: system-config-date-timezones.h:348
+#: system-config-date-timezones.h:347
 msgid "Europe/London"
 msgstr "유럽/런던"
 
-#: system-config-date-timezones.h:349
+#: system-config-date-timezones.h:348
 msgid "Europe/Luxembourg"
 msgstr "유럽/룩셈부르크"
 
-#: system-config-date-timezones.h:350
+#: system-config-date-timezones.h:349
 msgid "Europe/Madrid"
 msgstr "유럽/마드리드"
 
-#: system-config-date-timezones.h:351
+#: system-config-date-timezones.h:350
 msgid "Europe/Malta"
 msgstr "유럽/몰타"
 
-#: system-config-date-timezones.h:352
+#: system-config-date-timezones.h:351
 msgid "Europe/Mariehamn"
 msgstr "유럽/마리에함"
 
-#: system-config-date-timezones.h:353
+#: system-config-date-timezones.h:352
 msgid "Europe/Minsk"
 msgstr "유럽/민스크"
 
-#: system-config-date-timezones.h:354
+#: system-config-date-timezones.h:353
 msgid "Europe/Monaco"
 msgstr "유럽/모나코"
 
-#: system-config-date-timezones.h:355
+#: system-config-date-timezones.h:354
 msgid "Europe/Moscow"
 msgstr "유럽/모스크바"
 
-#: system-config-date-timezones.h:356
+#: system-config-date-timezones.h:355
 msgid "Europe/Oslo"
 msgstr "유럽/오슬로"
 
-#: system-config-date-timezones.h:357
+#: system-config-date-timezones.h:356
 msgid "Europe/Paris"
 msgstr "유럽/파리"
 
-#: system-config-date-timezones.h:358
+#: system-config-date-timezones.h:357
 msgid "Europe/Podgorica"
 msgstr "유럽/포드고리차"
 
-#: system-config-date-timezones.h:359
+#: system-config-date-timezones.h:358
 msgid "Europe/Prague"
 msgstr "유럽/프라하"
 
-#: system-config-date-timezones.h:360
+#: system-config-date-timezones.h:359
 msgid "Europe/Riga"
 msgstr "유럽/리가"
 
-#: system-config-date-timezones.h:361
+#: system-config-date-timezones.h:360
 msgid "Europe/Rome"
 msgstr "유럽/로마"
 
-#: system-config-date-timezones.h:362
+#: system-config-date-timezones.h:361
 msgid "Europe/Samara"
 msgstr "유럽/사마라"
 
-#: system-config-date-timezones.h:363
+#: system-config-date-timezones.h:362
 msgid "Europe/San_Marino"
 msgstr "유럽/산마리노"
 
-#: system-config-date-timezones.h:364
+#: system-config-date-timezones.h:363
 msgid "Europe/Sarajevo"
 msgstr "유럽/사라예보"
 
-#: system-config-date-timezones.h:365
+#: system-config-date-timezones.h:364
 msgid "Europe/Saratov"
 msgstr "유럽/사라토프"
 
-#: system-config-date-timezones.h:366
+#: system-config-date-timezones.h:365
 msgid "Europe/Simferopol"
 msgstr "유럽/심페로폴"
 
-#: system-config-date-timezones.h:367
+#: system-config-date-timezones.h:366
 msgid "Europe/Skopje"
 msgstr "유럽/스코페"
 
-#: system-config-date-timezones.h:368
+#: system-config-date-timezones.h:367
 msgid "Europe/Sofia"
 msgstr "유럽/소피아"
 
-#: system-config-date-timezones.h:369
+#: system-config-date-timezones.h:368
 msgid "Europe/Stockholm"
 msgstr "유럽/스톡홀름"
 
-#: system-config-date-timezones.h:370
+#: system-config-date-timezones.h:369
 msgid "Europe/Tallinn"
 msgstr "유럽/탈린"
 
-#: system-config-date-timezones.h:371
+#: system-config-date-timezones.h:370
 msgid "Europe/Tirane"
 msgstr "유럽/티라네"
 
-#: system-config-date-timezones.h:372
+#: system-config-date-timezones.h:371
 msgid "Europe/Ulyanovsk"
 msgstr "유럽/울야노프스크"
 
-#: system-config-date-timezones.h:373
+#: system-config-date-timezones.h:372
 msgid "Europe/Uzhgorod"
 msgstr "유럽/우즈고로드"
 
-#: system-config-date-timezones.h:374
+#: system-config-date-timezones.h:373
 msgid "Europe/Vaduz"
 msgstr "유럽/파두츠"
 
-#: system-config-date-timezones.h:375
+#: system-config-date-timezones.h:374
 msgid "Europe/Vatican"
 msgstr "유럽/바티칸"
 
-#: system-config-date-timezones.h:376
+#: system-config-date-timezones.h:375
 msgid "Europe/Vienna"
 msgstr "유럽/비엔나"
 
-#: system-config-date-timezones.h:377
+#: system-config-date-timezones.h:376
 msgid "Europe/Vilnius"
 msgstr "유럽/빌니우스"
 
-#: system-config-date-timezones.h:378
+#: system-config-date-timezones.h:377
 msgid "Europe/Volgograd"
 msgstr "유럽/볼고그라드"
 
-#: system-config-date-timezones.h:379
+#: system-config-date-timezones.h:378
 msgid "Europe/Warsaw"
 msgstr "유럽/바르샤바"
 
-#: system-config-date-timezones.h:380
+#: system-config-date-timezones.h:379
 msgid "Europe/Zagreb"
 msgstr "유럽/자그레브"
 
-#: system-config-date-timezones.h:381
+#: system-config-date-timezones.h:380
 msgid "Europe/Zaporozhye"
 msgstr "유럽/자포로제"
 
-#: system-config-date-timezones.h:382
+#: system-config-date-timezones.h:381
 msgid "Europe/Zurich"
 msgstr "유럽/취리히"
 
-#: system-config-date-timezones.h:383
+#: system-config-date-timezones.h:382
 msgid "Indian/Antananarivo"
 msgstr "인도양/안타나나리보"
 
-#: system-config-date-timezones.h:384
+#: system-config-date-timezones.h:383
 msgid "Indian/Chagos"
 msgstr "인도양/차고스"
 
-#: system-config-date-timezones.h:385
+#: system-config-date-timezones.h:384
 msgid "Indian/Christmas"
 msgstr "인도양/크리스마스"
 
-#: system-config-date-timezones.h:386
+#: system-config-date-timezones.h:385
 msgid "Indian/Cocos"
 msgstr "인도양/코코스"
 
-#: system-config-date-timezones.h:387
+#: system-config-date-timezones.h:386
 msgid "Indian/Comoro"
 msgstr "인도양/코모로"
 
-#: system-config-date-timezones.h:388
+#: system-config-date-timezones.h:387
 msgid "Indian/Kerguelen"
 msgstr "인도양/케르기엘렌"
 
-#: system-config-date-timezones.h:389
+#: system-config-date-timezones.h:388
 msgid "Indian/Mahe"
 msgstr "인도양/마헤"
 
-#: system-config-date-timezones.h:390
+#: system-config-date-timezones.h:389
 msgid "Indian/Maldives"
 msgstr "인도양/몰디브"
 
-#: system-config-date-timezones.h:391
+#: system-config-date-timezones.h:390
 msgid "Indian/Mauritius"
 msgstr "인도양/모리셔스"
 
-#: system-config-date-timezones.h:392
+#: system-config-date-timezones.h:391
 msgid "Indian/Mayotte"
 msgstr "인도양/마요트"
 
-#: system-config-date-timezones.h:393
+#: system-config-date-timezones.h:392
 msgid "Indian/Reunion"
 msgstr "인도양/레위니옹"
 
-#: system-config-date-timezones.h:394
+#: system-config-date-timezones.h:393
 msgid "Pacific/Apia"
 msgstr "태평양/아피아"
 
-#: system-config-date-timezones.h:395
+#: system-config-date-timezones.h:394
 msgid "Pacific/Auckland"
 msgstr "태평양/오클랜드"
 
-#: system-config-date-timezones.h:396
+#: system-config-date-timezones.h:395
 msgid "Pacific/Bougainville"
 msgstr "태평양/부건빌"
 
-#: system-config-date-timezones.h:397
+#: system-config-date-timezones.h:396
 msgid "Pacific/Chatham"
 msgstr "태평양/채텀"
 
-#: system-config-date-timezones.h:398
+#: system-config-date-timezones.h:397
 msgid "Pacific/Chuuk"
 msgstr "태평양/추크"
 
-#: system-config-date-timezones.h:399
+#: system-config-date-timezones.h:398
 msgid "Pacific/Easter"
 msgstr "태평양/이스터"
 
-#: system-config-date-timezones.h:400
+#: system-config-date-timezones.h:399
 msgid "Pacific/Efate"
 msgstr "태평양/에파테"
 
-#: system-config-date-timezones.h:401
+#: system-config-date-timezones.h:400
 msgid "Pacific/Enderbury"
 msgstr "태평양/엔더베리"
 
-#: system-config-date-timezones.h:402
+#: system-config-date-timezones.h:401
 msgid "Pacific/Fakaofo"
 msgstr "태평양/파카포"
 
-#: system-config-date-timezones.h:403
+#: system-config-date-timezones.h:402
 msgid "Pacific/Fiji"
 msgstr "태평양/피지"
 
-#: system-config-date-timezones.h:404
+#: system-config-date-timezones.h:403
 msgid "Pacific/Funafuti"
 msgstr "태평양/푸나푸티"
 
-#: system-config-date-timezones.h:405
+#: system-config-date-timezones.h:404
 msgid "Pacific/Galapagos"
 msgstr "태평양/갈라파고스"
 
-#: system-config-date-timezones.h:406
+#: system-config-date-timezones.h:405
 msgid "Pacific/Gambier"
 msgstr "태평양/갬비어"
 
-#: system-config-date-timezones.h:407
+#: system-config-date-timezones.h:406
 msgid "Pacific/Guadalcanal"
 msgstr "태평양/과달카날"
 
-#: system-config-date-timezones.h:408
+#: system-config-date-timezones.h:407
 msgid "Pacific/Guam"
 msgstr "태평양/괌"
 
-#: system-config-date-timezones.h:409
+#: system-config-date-timezones.h:408
 msgid "Pacific/Honolulu"
 msgstr "태평양/호놀룰루"
 
-#: system-config-date-timezones.h:410
+#: system-config-date-timezones.h:409
 msgid "Pacific/Kiritimati"
 msgstr "태평양/키리티마티"
 
-#: system-config-date-timezones.h:411
+#: system-config-date-timezones.h:410
 msgid "Pacific/Kosrae"
 msgstr "태평양/코스레"
 
-#: system-config-date-timezones.h:412
+#: system-config-date-timezones.h:411
 msgid "Pacific/Kwajalein"
 msgstr "태평양/콰자레인"
 
-#: system-config-date-timezones.h:413
+#: system-config-date-timezones.h:412
 msgid "Pacific/Majuro"
 msgstr "태평양/마주로"
 
-#: system-config-date-timezones.h:414
+#: system-config-date-timezones.h:413
 msgid "Pacific/Marquesas"
 msgstr "태평양/마퀘사스"
 
-#: system-config-date-timezones.h:415
+#: system-config-date-timezones.h:414
 msgid "Pacific/Midway"
 msgstr "태평양/미드웨이"
 
-#: system-config-date-timezones.h:416
+#: system-config-date-timezones.h:415
 msgid "Pacific/Nauru"
 msgstr "태평양/나우루"
 
-#: system-config-date-timezones.h:417
+#: system-config-date-timezones.h:416
 msgid "Pacific/Niue"
 msgstr "태평양/니우에"
 
-#: system-config-date-timezones.h:418
+#: system-config-date-timezones.h:417
 msgid "Pacific/Norfolk"
 msgstr "태평양/노퍽"
 
-#: system-config-date-timezones.h:419
+#: system-config-date-timezones.h:418
 msgid "Pacific/Noumea"
 msgstr "태평양/누메아"
 
-#: system-config-date-timezones.h:420
+#: system-config-date-timezones.h:419
 msgid "Pacific/Pago_Pago"
 msgstr "태평양/파고_파고"
 
-#: system-config-date-timezones.h:421
+#: system-config-date-timezones.h:420
 msgid "Pacific/Palau"
 msgstr "태평양/팔라우"
 
-#: system-config-date-timezones.h:422
+#: system-config-date-timezones.h:421
 msgid "Pacific/Pitcairn"
 msgstr "태평양/핏케언"
 
-#: system-config-date-timezones.h:423
+#: system-config-date-timezones.h:422
 msgid "Pacific/Pohnpei"
 msgstr "태평양/폰페이"
 
-#: system-config-date-timezones.h:424
+#: system-config-date-timezones.h:423
 msgid "Pacific/Port_Moresby"
 msgstr "태평양/포트_모르즈비"
 
-#: system-config-date-timezones.h:425
+#: system-config-date-timezones.h:424
 msgid "Pacific/Rarotonga"
 msgstr "태평양/라로통가"
 
-#: system-config-date-timezones.h:426
+#: system-config-date-timezones.h:425
 msgid "Pacific/Saipan"
 msgstr "태평양/사이판"
 
-#: system-config-date-timezones.h:427
+#: system-config-date-timezones.h:426
 msgid "Pacific/Tahiti"
 msgstr "태평양/타히티"
 
-#: system-config-date-timezones.h:428
+#: system-config-date-timezones.h:427
 msgid "Pacific/Tarawa"
 msgstr "태평양/타라와"
 
-#: system-config-date-timezones.h:429
+#: system-config-date-timezones.h:428
 msgid "Pacific/Tongatapu"
 msgstr "태평양/통가타푸"
 
-#: system-config-date-timezones.h:430
+#: system-config-date-timezones.h:429
 msgid "Pacific/Wake"
 msgstr "태평양/웨이크"
 
-#: system-config-date-timezones.h:431
+#: system-config-date-timezones.h:430
 msgid "Pacific/Wallis"
 msgstr "태평양/월리스"

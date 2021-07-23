@@ -202,7 +202,7 @@ void SaveInstallFailedLogFrame::updateTs()
     m_title->setText(::QObject::tr("Save Log"));
     m_subTitle->setText(::QObject::tr("Save the error log to a removable device"));
     m_saveBtn->setText(::QObject::tr("Save as"));
-    m_backBtn->setText(::QObject::tr("Back"));
+    m_backBtn->setText(::QObject::tr("Back", "button"));
 }
 
 void SaveInstallFailedLogFrame::refreshDevices()

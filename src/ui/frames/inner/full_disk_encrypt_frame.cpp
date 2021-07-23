@@ -325,8 +325,8 @@ void Full_Disk_Encrypt_frame::updateText()
                            + ::QObject::tr("Make sure you have backed up important data, then select the disk to install"));
     m_encryptLbl->setText(::QObject::tr("Password").append(" :"));
     m_encryptCheckLbl->setText(::QObject::tr("Repeat Password").append(" :"));
-    m_cancelBtn->setText(::QObject::tr("Cancel"));
-    m_confirmBtn->setText(::QObject::tr("Confirm"));
+    m_cancelBtn->setText(::QObject::tr("Cancel", "button"));
+    m_confirmBtn->setText(::QObject::tr("Confirm", "button"));
 }
 
 void Full_Disk_Encrypt_frame::updateDiskInfo(int index)

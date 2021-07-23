@@ -288,7 +288,7 @@ void PrepareInstallFrame::updateTs()
     title_label_->setText(::QObject::tr("Ready to Install"));
     comment_label_->setText(
         ::QObject::tr("Make a backup of your important data and then continue"));
-    abort_button_->setText(::QObject::tr("Back"));
+    abort_button_->setText(::QObject::tr("Back", "button"));
     continue_button_->setText(::QObject::tr("Continue"));
     m_selectCreateRecovery->setText(::QObject::tr("Create a backup for system restore, but it will increase the time"));
 }

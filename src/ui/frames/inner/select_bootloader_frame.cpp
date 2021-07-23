@@ -97,7 +97,7 @@ void SelectBootloaderFrame::changeEvent(QEvent* event) {
     title_label_->setText(::QObject::tr("Select location for boot loader"));
     comment_label_->setText(
         ::QObject::tr("If you do not understand the settings, please select the recommended one"));
-    back_button_->setText(::QObject::tr("Back"));
+    back_button_->setText(::QObject::tr("Back", "button"));
   } else {
     QWidget::changeEvent(event);
   }
@@ -141,7 +141,7 @@ void SelectBootloaderFrame::initUI() {
   list_model_ = new BootloaderListModel(this);
   list_view_->setModel(list_model_);
 
-  back_button_ = new QPushButton(::QObject::tr("Back"));
+  back_button_ = new QPushButton(::QObject::tr("Back", "button"));
   back_button_->setFixedSize(310, 36);
 
   QHBoxLayout *buttonLayout = new QHBoxLayout;

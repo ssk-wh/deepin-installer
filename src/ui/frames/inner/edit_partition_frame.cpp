@@ -271,8 +271,8 @@ void EditPartitionFrame::changeEvent(QEvent* event) {
     fs_label_->setText(::QObject::tr("File system"));
     mount_point_label_->setText(::QObject::tr("Mount point"));
     format_check_box_->setText(::QObject::tr("Format the partition"));
-    cancel_button_->setText(::QObject::tr("Cancel"));
-    ok_button_->setText(::QObject::tr("Confirm"));
+    cancel_button_->setText(::QObject::tr("Cancel", "button"));
+    ok_button_->setText(::QObject::tr("Confirm", "button"));
 
     if (m_close_button) {
         m_close_button->move(width() - m_close_button->width(), 0);

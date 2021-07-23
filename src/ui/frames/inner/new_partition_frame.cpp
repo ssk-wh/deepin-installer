@@ -378,8 +378,8 @@ void NewPartitionFrame::changeEvent(QEvent* event) {
     size_label_->setText(::QObject::tr("Size"));
     alignment_box_->clear();
     alignment_box_->addItems({::QObject::tr("Start"), ::QObject::tr("End")});
-    cancel_button_->setText(::QObject::tr("Cancel"));
-    create_button_->setText(::QObject::tr("Create"));
+    cancel_button_->setText(::QObject::tr("Cancel", "button"));
+    create_button_->setText(::QObject::tr("Create", "button"));
 
     if (m_close_button) {
         m_close_button->move(width() - m_close_button->width(), 0);
