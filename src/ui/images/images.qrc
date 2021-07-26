@@ -163,5 +163,6 @@
         <file>success.svg</file>
         <file>backPicture.svg</file>
         <file>nextPicture.svg</file>
+        <file>distribution_logo.svg</file>
     </qresource>
 </RCC>

@@ -47,7 +47,6 @@ namespace installer {
 namespace {
 
 // Absolute path to oem dir.
-QString g_oem_dir;
 
 const char kLocaleKey[] = "DI_LOCALE";
 const char kComponentUninstallPackages[] = "DI_COMPONENT_UNINSTALL";
@@ -113,20 +112,21 @@ QStringList ListAvatarFiles(const QString& dir_name) {
 }  // namespace
 
 QDir GetOemDir() {
-  if (g_oem_dir.isEmpty()) {
+    QString g_oem_dir;
     if (QDir(kDebugOemDir).exists()) {
-      g_oem_dir = kDebugOemDir;
+        g_oem_dir = kDebugOemDir;
     } else if (QDir(kUbuntuOemDir).exists()) {
-      g_oem_dir = kUbuntuOemDir;
+        g_oem_dir = kUbuntuOemDir;
     } else if (QDir(kDeepinOemDir).exists()) {
-      g_oem_dir = kDeepinOemDir;
+        g_oem_dir = kDeepinOemDir;
     } else if (QDir(kDeepinOemCandidateDir).exists()) {
-      g_oem_dir = kDeepinOemCandidateDir;
+        g_oem_dir = kDeepinOemCandidateDir;
     } else {
-      g_oem_dir = kDeepinOemCandidateDir2;
+        g_oem_dir = kDeepinOemCandidateDir2;
     }
-  }
-  return QDir(g_oem_dir);
+
+    qDebug() << "OEM_DIR=" << g_oem_dir;
+    return QDir(g_oem_dir);
 }
 
 QString GetOemLicenseDir() {
@@ -352,6 +352,12 @@ QString GetVendorLogo() {
   }
 
   oem_file = GetOemDir().absoluteFilePath("vendor.png");
+  qDebug() << "oem_file = " << oem_file;
+  if (QFile::exists(oem_file)) {
+    return oem_file;
+  }
+
+  oem_file = GetOemDir().absoluteFilePath("vendor.svg");
   qDebug() << "oem_file = " << oem_file;
   if (QFile::exists(oem_file)) {
     return oem_file;
