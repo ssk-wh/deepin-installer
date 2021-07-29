@@ -96,7 +96,10 @@ bool SpawnCmd(const QString& cmd, const QStringList& args,
 
     process.start();
     // Wait for process to finish without timeout.
-    process.waitForFinished(timeout);
+    if (!process.waitForFinished(timeout)) {
+        return false;
+    }
+
     output += process.readAllStandardOutput();
     err += process.readAllStandardError();
 
