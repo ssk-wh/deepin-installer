@@ -10,7 +10,7 @@
 <context>
     <name>FirstBootSetupWindow</name>
     <message>
-        <location filename="../src/ui/first_boot_setup_window.cpp" line="510"/>
+        <location filename="../src/ui/first_boot_setup_window.cpp" line="523"/>
         <source>Tuning System Failed</source>
         <translation>Не вдалося підлаштувати систему</translation>
     </message>
@@ -98,7 +98,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="291"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="100"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="144"/>
-        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="173"/>
+        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="175"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="933"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="205"/>
         <source>Back</source>
@@ -575,7 +575,12 @@
         <translation>Ви зможете скористатися цим після налаштовування даних користувача під час наступного запуску системи.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="75"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="76"/>
+        <source>Shut down</source>
+        <comment>button</comment>
+        <translation>Вимкнути</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="96"/>
@@ -590,9 +595,8 @@
         <translation>Скасувати</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="76"/>
         <source>Shut down</source>
-        <translation>Вимкнути</translation>
+        <translation type="vanished">Вимкнути</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="39"/>
@@ -771,14 +775,14 @@
         <translation>Додайте логічний розділ, щоб продовжити</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="254"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="343"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="270"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="359"/>
         <source>Edit Disk</source>
         <translation>Редагувати диск</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="255"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="388"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="271"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="404"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="376"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="462"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="195"/>
@@ -787,8 +791,8 @@
         <translation>Файлова система</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="256"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="384"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="272"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="400"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="377"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="477"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="201"/>
@@ -797,13 +801,14 @@
         <translation>Точка монтування</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="257"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="404"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="273"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="420"/>
         <source>Format the partition</source>
         <translation>Форматувати розділ</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="258"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="75"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="274"/>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="328"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="381"/>
         <source>Cancel</source>
@@ -811,7 +816,7 @@
         <translation>Скасувати</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="259"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="275"/>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="329"/>
         <source>Confirm</source>
         <comment>button</comment>

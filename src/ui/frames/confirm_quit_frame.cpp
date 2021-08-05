@@ -72,8 +72,8 @@ void ConfirmQuitFrame::updateTsForSuccessPage()
     setTitle(::QObject::tr("Shut Down"));
     comment_label_->setText(
         ::QObject::tr("You can experience it after configuring user information in next system startup."));
-    continue_button_->setText(::QObject::tr("Cancel"));
-    abort_button_->setText(::QObject::tr("Shut down"));
+    continue_button_->setText(::QObject::tr("Cancel", "button"));
+    abort_button_->setText(::QObject::tr("Shut down", "button"));
 }
 
 void ConfirmQuitFrame::setLogInfo(const QString &log)

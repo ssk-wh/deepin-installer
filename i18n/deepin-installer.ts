@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" sourcelanguage="en" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="en" sourcelanguage="en">
 <context>
     <name>ConfirmQuitFrame</name>
     <message>
@@ -10,7 +12,7 @@
 <context>
     <name>FirstBootSetupWindow</name>
     <message>
-        <location filename="../src/ui/first_boot_setup_window.cpp" line="510"/>
+        <location filename="../src/ui/first_boot_setup_window.cpp" line="523"/>
         <source>Tuning System Failed</source>
         <translation>Tuning System Failed</translation>
     </message>
@@ -98,7 +100,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="291"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="100"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="144"/>
-        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="173"/>
+        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="175"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="933"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="205"/>
         <source>Back</source>
@@ -575,7 +577,12 @@
         <translation>You can experience it after configuring user information in next system startup.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="75"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="76"/>
+        <source>Shut down</source>
+        <comment>button</comment>
+        <translation>Shut down</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="96"/>
@@ -590,9 +597,8 @@
         <translation>Cancel</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="76"/>
         <source>Shut down</source>
-        <translation>Shut down</translation>
+        <translation type="vanished">Shut down</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="39"/>
@@ -771,14 +777,14 @@
         <translation>Add a logical partition to continue</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="254"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="343"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="270"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="359"/>
         <source>Edit Disk</source>
         <translation>Edit Disk</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="255"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="388"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="271"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="404"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="376"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="462"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="195"/>
@@ -787,8 +793,8 @@
         <translation>File system</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="256"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="384"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="272"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="400"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="377"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="477"/>
         <location filename="../src/ui/frames_cli/inner/new_partition_frame.cpp" line="201"/>
@@ -797,13 +803,14 @@
         <translation>Mount point</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="257"/>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="404"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="273"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="420"/>
         <source>Format the partition</source>
         <translation>Format the partition</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="258"/>
+        <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="75"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="274"/>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="328"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="381"/>
         <source>Cancel</source>
@@ -811,7 +818,7 @@
         <translation>Cancel</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="259"/>
+        <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="275"/>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="329"/>
         <source>Confirm</source>
         <comment>button</comment>
