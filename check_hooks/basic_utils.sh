@@ -37,3 +37,12 @@ exec_check() {
     echo "${SI_PASSWORD}" | sudo -S bash /deepin-installer/command.sh $cmd
 }
 
+# 判断是否存在桌面
+is_desktopexist() {
+    HSASTARTDDE=$(dpkg -l | grep dde-desktop)
+    if [ -z "${HSASTARTDDE}" ]; then
+        return 1
+    else
+        return 0
+    fi
+}

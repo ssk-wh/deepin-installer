@@ -2,8 +2,6 @@
 
 . "/deepin-installer/basic_utils.sh"
 
-deepin-installer-settings set /etc/deepin-installer.conf system_check_mode false
-
 cat > "${LIGHTD_CONF_FILE}" <<EOF
 [Seat:*]
 display-setup-script=/usr/bin/deepin-installer-bases
