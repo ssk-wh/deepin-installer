@@ -24,7 +24,7 @@ installer::InstallLogFrame::InstallLogFrame(QFrame *parent) :
     m_installLog->setPalette(palette);
     m_installLog->setFont(font);
     m_installLog->setReadOnly(true);
-    m_installLog->setStyleSheet("QPlainTextEdit{background-color: rgba(0, 0, 0, 0.1);"
+    m_installLog->setStyleSheet("QPlainTextEdit{background-color: rgba(0, 0, 0, 0.03);"
                                 "border-radius:8px;}");
 
     QVBoxLayout* main_layout = new QVBoxLayout;
