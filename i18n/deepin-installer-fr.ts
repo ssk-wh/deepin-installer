@@ -91,12 +91,14 @@
     </message>
     <message>
         <location filename="../src/base/translator.h" line="17"/>
+        <location filename="../src/ui/frames/inner/lvm_partition_frame.cpp" line="51"/>
         <location filename="../src/ui/frames/inner/lvm_partition_frame.cpp" line="71"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="47"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="88"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="291"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="100"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="144"/>
+        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="173"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="933"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="205"/>
         <source>Back</source>
@@ -575,7 +577,6 @@
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="75"/>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="328"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="96"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="89"/>
@@ -804,6 +805,7 @@ Pour obtenir de meilleures performances, %3 Go ou plus est recommandé</translat
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="258"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="328"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="381"/>
         <source>Cancel</source>
         <comment>button</comment>
@@ -811,6 +813,7 @@ Pour obtenir de meilleures performances, %3 Go ou plus est recommandé</translat
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="259"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="329"/>
         <source>Confirm</source>
         <comment>button</comment>
         <translation>Confirmer</translation>
@@ -863,7 +866,6 @@ Pour obtenir de meilleures performances, %3 Go ou plus est recommandé</translat
         <translation>Répéter le mot de passe</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="329"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="142"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="359"/>
         <location filename="../src/ui/frames_cli/install_component_frame.h" line="73"/>

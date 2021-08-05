@@ -656,7 +656,7 @@ msgstr "Amerika/Şimali_Dakota/Nyu_Salem"
 
 #: system-config-date-timezones.h:159
 msgid "America/Nuuk"
-msgstr ""
+msgstr "Amerika/Nuuk"
 
 #: system-config-date-timezones.h:160
 msgid "America/Ojinaga"

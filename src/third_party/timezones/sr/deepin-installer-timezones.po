@@ -5,7 +5,7 @@
 # 
 # Translators:
 # 6c3b2b347a094abfca79c825414ae290, 2018
-# Марко Пејовић <markopejovic@tutanota.com>, 2020
+# Марко Пејовић <markopejovic@tutanota.com>, 2021
 # 
 #, fuzzy
 msgid ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-27 19:51+0800\n"
 "PO-Revision-Date: 2017-02-06 02:09+0000\n"
-"Last-Translator: Марко Пејовић <markopejovic@tutanota.com>, 2020\n"
+"Last-Translator: Марко Пејовић <markopejovic@tutanota.com>, 2021\n"
 "Language-Team: Serbian (https://www.transifex.com/linuxdeepin/teams/3976/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -656,7 +656,7 @@ msgstr "Америка/Северна_Дакота/Њу_Сејлем"
 
 #: system-config-date-timezones.h:159
 msgid "America/Nuuk"
-msgstr ""
+msgstr "Америка/Нук"
 
 #: system-config-date-timezones.h:160
 msgid "America/Ojinaga"
