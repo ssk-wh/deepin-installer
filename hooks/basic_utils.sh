@@ -94,7 +94,7 @@ update_local() {
 # update grub config by locale
 update_grub_local() {
     update_local
-    is_sw || /usr/sbin/update-grub
+    [ -x /usr/sbin/update-grub ] && /usr/sbin/update-grub
 }
 
 # Set value in conf file. Section name is ignored.
