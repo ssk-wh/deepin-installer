@@ -208,6 +208,10 @@ void PartitionFrame::autoPart() {
         WriteFullDiskMode(true);
         m_private->partition_model_->autoPart();
     }
+    else if (GetSettingsBool("DI_SAVE_DATA")) {
+        m_private->setupDiskEncrypt(false);
+        m_private->partition_model_->autoPart();
+    }
     else {
         m_private->full_disk_delegate_->setAutoInstall(true);
         scanDevices();
@@ -556,7 +560,7 @@ void PartitionFramePrivate::initConnections() {
   connect(prepare_install_frame_, &PrepareInstallFrame::aborted,
           this, &PartitionFramePrivate::showMainFrame);
   connect(prepare_install_frame_, &PrepareInstallFrame::finished, this, [=] {
-      if (!GetSettingsBool(KPartitionSkipFullCryptPage) && this->isEncrypt()) {
+      if ((!GetSettingsBool(KPartitionSkipFullCryptPage) && this->isEncrypt()) || GetSettingsBool("DI_SAVE_DATA")) {
         q_ptr->autoPart();
         q_ptr->m_proxy->nextFrame();
       }

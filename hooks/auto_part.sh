@@ -81,6 +81,8 @@ format_part(){
       mkfs.ntfs --fast -L "$part_label" "$part_path";;
     linux-swap)
       mkswap "$part_path";;
+    swap)
+      mkswap "$part_path";;
     ext4)
       if is_loongson || is_sw; then
         mkfs.ext4 -O ^64bit -F -L "$part_label" "$part_path"
@@ -226,8 +228,9 @@ create_part(){
   else
     let LVM_NUM++
     echo "{LVM_NUM:{${LVM_NUM},label:{${label:-LVM_NUM}} vg_name:{${VG_NAME}}"
-    lvcreate --wipesignatures y -n"${label:-LVM_NUM}" -L"$part_size" "$VG_NAME" ||\
-    error "Failed to create logical volume ${label:-LVM_NUM} on $VG_NAME!"
+    lvcreate --wipesignatures y -n"${label:-LVM_NUM}" -L"$part_size" "$VG_NAME" --yes ||\
+    	error "Failed to create logical volume ${label:-LVM_NUM} on $VG_NAME!"  
+
     part_path="/dev/$VG_NAME/${label:-LVM_NUM}"
   fi
 
@@ -291,6 +294,62 @@ create_part(){
   esac || error "Failed to set boot flag on $part_path!"
 
   flush_message
+}
+
+delete_part() {
+    local DEVICE=$1
+    local NUM=$2
+    parted -s $DEVICE rm $NUM
+}
+
+get_part_path() {
+    local DEVICE=$1
+    local LABEL=$2
+    local PART_PATH=$(lsblk -lf $DEVICE | grep $LABEL | awk '{print $1}')
+    if [ ! -n "$PART_PATH" ]; then
+	 echo ""
+    else
+        echo "/dev/$PART_PATH"
+    fi
+}
+get_part_number() {
+    local PART_PATH=$1
+    echo "${PART_PATH##*[a-zA-Z]}"
+}
+
+get_part_fstype() {
+    local DEVICE=$1
+    local LABEL=$2
+    local PART_LABEL=$(lsblk -o FSTYPE,LABEL $DEVICE | grep $LABEL | awk '{print $1}')
+    if [ ! -n "$PART_LABEL" ]; then
+	 echo ""
+    else
+        echo "$PART_LABEL"
+    fi
+}
+
+set_data_mountpoint() {
+    is_service && installer_set DI_DATA_MOUNT_POINT "/deepin/userdata"
+    is_service || installer_set DI_DATA_MOUNT_POINT "/data"
+}
+
+get_part_mountpoint() {
+    local LABEL=$1
+    if [ "x$LABEL" = "xEFI" ]; then
+        echo "/boot/efi"
+    elif [ "x$LABEL" = "xBoot" ]; then
+        echo "/boot"
+    elif [ "x$LABEL" = "xBackup" ];then
+        echo "/recovery"
+    elif [ "x$LABEL" = "xSWAP" ];then
+	 echo "swap"
+    elif [ "x$LABEL" = "xRoota" ];then
+        echo "/"
+    elif [ "x$LABEL" = "x_dde_data" ];then
+        echo "$(installer_get DI_DATA_MOUNT_POINT)"
+    else
+        echo ""
+    fi
 }
 
 main(){
@@ -357,6 +416,7 @@ main(){
         create_part ${part_policy_array[$i]} ${part_label_array[$i]}
     done
     index=index+1
+
   done
 
   echo "MOUNTPOINTS:{${MP_LIST}}"
@@ -377,12 +437,61 @@ main(){
   installer_set DI_FULLDISK_MODE "true"
 }
 
+sava_data() {
+
+  local PART_DEVICE=$(installer_get "DI_FULLDISK_MULTIDISK_DEVICE")
+  local part_device_array=(${PART_DEVICE//;/ })
+
+  for j in "${part_device_array[@]}"; do
+    DEVICE="${j}"
+    # 获取磁盘分区label
+    part_labels=$(lsblk -o LABEL -lnf $DEVICE | grep [a-z/A-Z] | xargs)
+    IFS=" "
+    local part_labels_arr=(${part_labels})
+    for j in "${part_labels_arr[@]}"; do
+        local p_label=$j
+        local p_path=$(get_part_path $DEVICE $p_label)
+        local p_fs=$(get_part_fstype $DEVICE $p_label)
+        local p_mountpoint=$(get_part_mountpoint $p_label)
+        echo "part_info: $p_label;$p_path;$p_fs;$p_mountpoint"
+        if [ "x$p_label" != "x_dde_data" && "x$p_label" != "xSWAP" ]; then
+            format_part "$p_path" "$p_fs" "$p_label" ||\
+              error "Failed to create $p_fs filesystem on $p_path!"
+        fi
+        if [ "x$p_label" = "xRoota" ];then
+	     installer_set "DI_ROOT_PARTITION" "$p_path"
+        fi
+        [ -n "$p_mountpoint" ] && MP_LIST="${MP_LIST+$MP_LIST;}$p_path=$p_mountpoint"
+    done
+  done
+
+  echo "MOUNTPOINTS:{${MP_LIST}}"
+  echo "ROOT_DISK:{${part_device_array[0]}}"
+
+  installer_set DI_MOUNTPOINTS "$MP_LIST"
+
+  check_efi_mode
+  if $EFI; then
+    installer_set DI_UEFI "true"
+  else
+    installer_set DI_BOOTLOADER "${part_device_array[0]}"
+  fi
+
+  installer_set DI_ROOT_DISK "${part_device_array[0]}"
+  installer_set DI_FULLDISK_MODE "true"
+}
+
 . ./basic_utils.sh
 
 DI_CUSTOM_PARTITION_SCRIPT=$(installer_get DI_CUSTOM_PARTITION_SCRIPT)
+SAVE_DATA=$(installer_get DI_SAVE_DATA)
+echo "SAVE_DATA=$SAVE_DATA"
 if [ -f "$DI_CUSTOM_PARTITION_SCRIPT" ]; then
   echo "Call custom partition script($DI_CUSTOM_PARTITION_SCRIPT)..."
   bash "$DI_CUSTOM_PARTITION_SCRIPT"
+elif [ "x$SAVE_DATA" = "xtrue" ]; then
+  sava_data
 else
   main
 fi
+

@@ -311,4 +311,14 @@ greeter-setup-script=/usr/bin/deepin-installer-first-boot
 EOF
 }
 
+is_service() {
+    local type=$(cat /etc/os-version | grep EditionName=)
+    type="${type##EditionName=}"
+    if [ "x$type" = "xServer" ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
 
