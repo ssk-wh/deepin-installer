@@ -201,15 +201,16 @@ void PartitionFrame::autoPart() {
     if (GetSettingsBool("DI_LUPIN")) {
         emit finished();
         emit autoPartDone(true);
-        return;
     }
-
-    if (m_private->isEncrypt()) {
+    else if (m_private->isEncrypt()) {
         WriteFullDiskMode(true);
         m_private->partition_model_->autoPart();
     }
-    else if (GetSettingsBool("DI_SAVE_DATA")) {
+    else if (m_private->full_disk_delegate_->isLvm()) {
         m_private->setupDiskEncrypt(false);
+        m_private->partition_model_->autoPart();
+    }
+    else if (GetSettingsBool("DI_SAVE_DATA")) {
         m_private->partition_model_->autoPart();
     }
     else {
@@ -233,7 +234,12 @@ void PartitionFrame::onAutoInstallPrepareFinished(bool finished)
 
     OperationList list = m_private->full_disk_delegate_->operations();
 
-    m_private->partition_model_->manualPart(list);
+    if (m_private->full_disk_delegate_->isLvm()) {
+        m_private->setupDiskEncrypt(false);
+        m_private->partition_model_->autoPart();
+    } else {
+        m_private->partition_model_->manualPart(list);
+    }
 }
 
 void PartitionFrame::changeEvent(QEvent* event) {
@@ -560,7 +566,7 @@ void PartitionFramePrivate::initConnections() {
   connect(prepare_install_frame_, &PrepareInstallFrame::aborted,
           this, &PartitionFramePrivate::showMainFrame);
   connect(prepare_install_frame_, &PrepareInstallFrame::finished, this, [=] {
-      if ((!GetSettingsBool(KPartitionSkipFullCryptPage) && this->isEncrypt()) || GetSettingsBool("DI_SAVE_DATA")) {
+      if ((!GetSettingsBool(KPartitionSkipFullCryptPage) && this->isEncrypt()) || GetSettingsBool("DI_SAVE_DATA") || full_disk_delegate_->isLvm()) {
         q_ptr->autoPart();
         q_ptr->m_proxy->nextFrame();
       }

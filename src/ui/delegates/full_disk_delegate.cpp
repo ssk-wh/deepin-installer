@@ -304,7 +304,7 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
     PartitionTableType table;
     table = IsEfiEnabled() ? PartitionTableType::GPT : PartitionTableType::MsDos;
 
-    FullDiskOption   disk_option;
+    FullDiskOption disk_option;
     FullDiskPolicyList & policy_list = disk_option.policy_list;
 
     QStringList device_path_list;
@@ -336,6 +336,7 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
             policy.alignStart = jsonObject["alignStart"].toBool();
             policy.device     = jsonObject["device"].toString();
             policy.isDataPartition = jsonObject["isDataPartition"].toBool();
+            policy.isLvm      = jsonObject["isLvm"].toBool();
             if (policy.mountPoint == kLinuxSwapMountPoint) {
                 policy.mountPoint = "";
             }
@@ -389,6 +390,8 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
             policy.device = device_path_list.at(0);
         }
     }
+
+    m_FullDiskPolicyList = policy_list;
 
     selected_devices.clear();
     // Format every disks one by one.
@@ -634,6 +637,7 @@ void FullDiskDelegate::getFinalDiskResolution(FinalFullDiskResolution& resolutio
         policy.size = (op->new_partition->end_sector - op->new_partition->start_sector) *
                 op->new_partition->sector_size;
         policy.device = op->new_partition->device_path;
+        policy.isLvm = this->isLvm(op->new_partition->mount_point);
 
         if (option.policy_list.length() > 0
             && option.policy_list.last().device != policy.device) {
@@ -654,6 +658,29 @@ void FullDiskDelegate::getFinalDiskResolution(FinalFullDiskResolution& resolutio
 void FullDiskDelegate::setAutoInstall(bool autoinstall)
 {
     m_autoInstall = autoinstall;
+}
+
+bool FullDiskDelegate::isLvm(const QString &mountPoint)
+{
+    for (int i = 0; i < m_FullDiskPolicyList.size(); i++) {
+        if (m_FullDiskPolicyList.at(i).mountPoint == mountPoint) {
+            return m_FullDiskPolicyList.at(i).isLvm;
+        }
+    }
+
+    return false;
+}
+
+bool FullDiskDelegate::isLvm()
+{
+    for (int i = 0; i < m_FullDiskPolicyList.size(); i++) {
+        qDebug() << "m_FullDiskPolicyList: " << m_FullDiskPolicyList.at(i).label << "  " << m_FullDiskPolicyList.at(i).isLvm;
+        if (m_FullDiskPolicyList.at(i).isLvm) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 void FullDiskDelegate::onDeviceRefreshed(const DeviceList &devices)

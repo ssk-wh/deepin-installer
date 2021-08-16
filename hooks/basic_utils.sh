@@ -321,4 +321,42 @@ is_service() {
     fi
 }
 
+create_primary_part() {
+    local DEV=$1
+    local PART_TYPE=$2
+    local PART_SIZE=$3
+
+    fdisk $DEV << EOF
+n
+$PART_TYPE
+
+
++${PART_SIZE}M
+w
+EOF
+}
+
+create_logical_part() {
+    local DEV=$1
+    local PART_SIZE=$2
+
+    fdisk $DEV << EOF
+n
+l
+
++${PART_SIZE}M
+w
+EOF
+}
+
+setup_part() {
+    local DEV=$1
+    local PART_TYPE=$2
+    local PART_SIZE=$3
+    if [ "x$PART_TYPE" = "xlogical" ]; then
+        create_logical_part $DEV $PART_SIZE
+    else
+        create_primary_part $@
+    fi
+}
 

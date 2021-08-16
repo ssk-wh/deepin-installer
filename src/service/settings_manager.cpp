@@ -34,6 +34,7 @@
 #include <DSysInfo>
 #include <QDBusInterface>
 #include <QRegExp>
+#include <QUuid>
 
 #include "base/consts.h"
 #include "service/settings_name.h"
@@ -831,14 +832,11 @@ void WriteIsEnableNTP(bool isEnableNTP)
 
 void WriteFullDiskResolution(const FinalFullDiskResolution& resolution)
 {
-    const char kFullDiskResolutionDeviceSeparator[] = ";";
-    QString key { "" };
     QStringList valueList;
     for (int i = 0; i < resolution.option_list.length(); i++) {
         valueList << resolution.option_list.at(i).device;
     }
 
-    qDebug() << "DI_FULLDISK_MULTIDISK_DEVICE old=" << GetSettingsStringList("DI_FULLDISK_MULTIDISK_DEVICE");
     if (valueList.isEmpty()) {
         // 无人值守，重新设置一遍该值，防止在无人值守的时候没有配置DI_FULLDISK_MULTIDISK_DEVICE选项，导致系统安装报错
         QString devices = GetSettingsString("DI_FULLDISK_MULTIDISK_DEVICE");
@@ -846,38 +844,72 @@ void WriteFullDiskResolution(const FinalFullDiskResolution& resolution)
 
     } else {
         // 非无人值守，通过界面设置设备
-        AppendToConfigFile("DI_FULLDISK_MULTIDISK_DEVICE", valueList.join(kFullDiskResolutionDeviceSeparator));
+        AppendToConfigFile("DI_FULLDISK_MULTIDISK_DEVICE", valueList.join(";"));
     }
-    qDebug() << "DI_FULLDISK_MULTIDISK_DEVICE new=" << GetSettingsStringList("DI_FULLDISK_MULTIDISK_DEVICE");
 
-    QString labelKey { "" };
-    QStringList labelValueList;
     for (int i = 0; i < resolution.option_list.length(); i++) {
         const FinalFullDiskOption& op = resolution.option_list[i];
-        key = QString("DI_FULLDISK_MULTIDISK_POLICY_%1").arg(i);
-        labelKey = QString("DI_FULLDISK_MULTIDISK_LABEL_%1").arg(i);
-        valueList.clear();
-        labelValueList.clear();
+        QString key = QString("DI_FULLDISK_MULTIDISK_POLICY_%1").arg(i);
+        QString labelKey = QString("DI_FULLDISK_MULTIDISK_LABEL_%1").arg(i);
+        QString ext_key = QString("DI_FULLDISK_MULTIDISK_EXTSIZE_%1").arg(i);
 
-        if (i > 0 && op.encrypt) {
-            valueList << QString("luks_crypt%1:crypto_luks::100%").arg(i);
-            labelValueList << QString("luks_crypt%1").arg(i);
-        }
+        // 占位符
+        QString placeholder = "%1";
+
+        int AvaLVMSize = 0;
+        int AvaExtSize = 0;
+
+        QString vg_info = QString("");
+        QString vg_labe_info = QString("");
+
+        QStringList partInfoList = {placeholder};
+        QStringList labelValueList = {placeholder};      
+
         for (int j = 0; j < op.policy_list.length(); j++) {
             const FinalFullDiskPolicy& policy = op.policy_list[j];
-            valueList << QString("%1:%2:%3:%4")
+            QString info = QString("%1:%2:%3:%4")
                     .arg(policy.mountPoint)
                     .arg(policy.filesystem)
                     .arg(policy.offset/kMebiByte)
                     .arg(policy.size/kMebiByte);
-            labelValueList << policy.label;
-            if (op.encrypt && 0 == i && policy.mountPoint == "/boot") {
-                valueList << QString("luks_crypt%1:crypto_luks::100%").arg(i);
-                labelValueList << QString("luks_crypt%1").arg(i);
+
+            if (policy.mountPoint == "/boot" || policy.mountPoint == "/boot/efi") {
+                // 全盘加密信息左边插入 - 普通分区
+                partInfoList.insert(partInfoList.indexOf(placeholder), info);
+                labelValueList.insert(labelValueList.indexOf(placeholder), policy.label);
+
+            } else if (op.encrypt) {
+                // 全盘加密信息右边插入 - lvm分区
+                partInfoList.append(info);
+                labelValueList.append(policy.label);
+
+                vg_info = QString("luks_crypt%1:crypto_luks::100%").arg(i);
+                vg_labe_info = QString("luks_crypt%1").arg(i);
+
             }
+            else if (policy.isLvm) {
+                // lvm分区信息右边插入 - lvm分区
+                partInfoList.append(info);
+                labelValueList.append(policy.label);
+
+                AvaLVMSize += policy.size/kMebiByte;
+                // vg name需要唯一，防止多盘情况下两次安装出现名字重复导致分区失败
+                vg_info = QString("%1_%2:lvm_type::%3").arg(QUuid::createUuid().toString().remove("{").remove("}"), \
+                                                            QString::number(i), QString::number(AvaLVMSize));
+                vg_labe_info = QString("%1_%2").arg(QUuid::createUuid().toString(), QString::number(i));
+            }
+            else {
+                // 全盘加密信息左边插入 - 普通分区
+                AvaExtSize += policy.size/kMebiByte;
+                partInfoList.insert(partInfoList.indexOf(placeholder), info);
+                labelValueList.insert(labelValueList.indexOf(placeholder), policy.label);
+            }
+
         }
-        AppendToConfigFile(key, valueList.join(kFullDiskResolutionDeviceSeparator));
-        AppendToConfigFile(labelKey, labelValueList.join(kFullDiskResolutionDeviceSeparator));
+
+        AppendToConfigFile(ext_key, QString::number(AvaExtSize));
+        AppendToConfigFile(key, partInfoList.join(";").arg(vg_info));
+        AppendToConfigFile(labelKey, labelValueList.join(";").arg(vg_labe_info));
     }
     WriteFullDiskMode(true);
 }

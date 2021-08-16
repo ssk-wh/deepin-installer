@@ -129,42 +129,58 @@ umount_devices(){
   [ -d /target ] && umount -R /target
 }
 
+get_next_part_start_pos() {
+    local dev_info=$1
+    # 计算分区信息
+    local offset=$(fdisk -l $dev_info | grep  "^$dev_info" | wc -l)
+        PART_NUM=$offset
+    if [ $offset = '0' ]; then
+        offset=2048
+    else
+        local end=$(expr $(fdisk -l $dev_info -o END | sed -n '$p') + 1)
+        offset=$end
+    fi
+
+    echo $offset
+}
+
+get_system_disk_extend_size() {
+    local size=$(installer_get "DI_FULLDISK_MULTIDISK_EXTSIZE_0")
+    echo $((size * 2048))
+}
+
 # Create partition.
-create_part(){
+create_part() {
   local part="$1"
   local label="$2"
+  local dev=$3
   local swap_size part_path part_mp part_fs _part_fs part_start part_end mapper_name
 
   let PART_NUM++
   echo "============PART_NUM: $PART_NUM============"
 
-  echo "PART:{${part}},label:{${label}}}"
-
-  # Create extended partition.
-  if ((PART_NUM == 4)) && ! ($EFI || $LVM); then
-    echo "Create extended partition..."
-    parted -s "$DEVICE" mkpart extended "${LAST_END}Mib" 100% ||\
-      error "Failed to create extended partition on $DEVICE!"
-    let PART_NUM++
-    echo "============PART_NUM: $PART_NUM============"
-    PART_TYPE="logical"
-  fi
+  echo "PART:{${part}},label:{${label}}"
 
   # Get partition info.
   [[ "$part" =~ ^(.*):(.*):(.*):(.*)$ ]] || error "Bad partition info!"
   part_mp="${BASH_REMATCH[1]}"
   part_fs="${BASH_REMATCH[2]}"
   part_size="${BASH_REMATCH[4]}"
+  part_start=$(get_next_part_start_pos $dev)
+  # Create extended partition.
+  if ((PART_NUM == 2)) && (! ($EFI || $LVM)) && \
+    [ "x$part_fs" != "xlvm_type" ] && [ "x$part_fs" != "xcrypto_luks" ]; then
+    echo "Create extended partition..."
+    part_end=$((part_start + $(get_system_disk_extend_size)))
+    parted -s "$DEVICE" mkpart extended "${part_start}s" "${part_end}s" ||\
+      error "Failed to create extended partition on $DEVICE!"
+    #setup_part $dev "extended" $(get_system_disk_extend_size)
+    let PART_NUM=5
+    echo "============PART_NUM: $PART_NUM============"
+    PART_TYPE="logical"
+  fi
   if ! $LVM; then
-    part_start="${BASH_REMATCH[3]}"
-    if [ -z "$part_start" ]; then
-      if [ "$PART_TYPE" = "logical" ]; then
-        part_start=$((LAST_END + 1))
-      else
-        part_start="$LAST_END"
-      fi
-    fi
-    AVL_SIZE=$((DEVICE_SIZE - 1 - part_start))
+    AVL_SIZE=$((DEVICE_SIZE - 1 - part_start / 2048))
   else
     [[ "$(vgs -ovg_free --readonly --units m $VG_NAME)" =~ ([0-9]+) ]] &&\
       AVL_SIZE="${BASH_REMATCH[1]}"
@@ -173,34 +189,12 @@ create_part(){
   echo "Avaiable size: $AVL_SIZE"
 
   if [[ "$part_size" =~ %$ ]]; then
-    part_size=$((AVL_SIZE * ${part_size%\%} / 100))
-  elif [ "$part_size" = swap-size ]; then
-    swap_size=$(installer_get DI_SWAP_SIZE)
-    if ((swap_size > 0)); then
-      part_size=$((swap_size * 1024))
-    else
-      part_size=1024
-    fi
-  fi
-
-  echo "Calculated partition size: $part_size"
-  if [ ${part_size} -gt ${AVL_SIZE} ] && [ ${AVL_SIZE} -gt 0 ]; then
+      part_size=$((AVL_SIZE * ${part_size%\%} / 100))
+  elif [ ${part_size} -gt ${AVL_SIZE} ] && [ ${AVL_SIZE} -gt 0 ]; then
       echo "adjuest part_size:${part_size}=>${AVL_SIZE}"
       part_size=${AVL_SIZE}
   fi
-
-  # Check root partition size.
-  if $LARGE && [ "$part_mp" = '/' ] &&\
-  [[ "$(installer_get partition_full_disk_large_root_part_range)" =~ ^([0-9]+):([0-9]+)$ ]]; then
-    local root_min=$((BASH_REMATCH[1] * 1024)) root_max=$((BASH_REMATCH[2] * 1024))
-
-    echo "Arrange root partition size based on the restriction rules, root_min: $root_min root_max: $root_max"
-
-    part_size=$((part_size < root_min ? root_min : part_size))
-    part_size=$((part_size > root_max ? root_max : part_size))
-  fi
-
-  echo "part: $part_mp, $part_fs, $part_start, $part_size"
+  echo "Calculated partition size: $part_size"
 
   # Create new partition.
   if ! $LVM; then
@@ -209,24 +203,36 @@ create_part(){
         _part_fs=fat32;;
       crypto_luks)
         _part_fs='';;
+      lvm_type)
+        _part_fs=''
+        PART_TYPE="primary"
+        [ ! EFI ] && [ $PART_NUM -gt 4 ] && PART_NUM=3
+        ;;
       recovery)
         _part_fs=ext4;;
       *)
         printf -v _part_fs '%q' "$part_fs";;
     esac
-    part_end=$((part_start + part_size))
-    if parted -s "$DEVICE" mkpart "$PART_TYPE" $_part_fs "${part_start}Mib" "${part_end}Mib"; then
+
+    # 分区最小对齐
+    part_end=$((part_start + part_size * 2048))
+    part_end=$(((part_end + 256) / 512 * 512))       # 四舍五入对齐
+    part_start=$(((part_start + 512) / 512 * 512))   # 向上对齐
+
+    echo "part: $part_mp, $part_fs, $part_start, $part_end"
+    if parted -s "$DEVICE" mkpart "$PART_TYPE" $_part_fs "${part_start}s" "${part_end}s"; then
+    #if setup_part $dev $PART_TYPE $part_size ; then
       if [[ "$DEVICE" =~ [0-9]$ ]]; then
         part_path="${DEVICE}p${PART_NUM}"
       else
         part_path="${DEVICE}${PART_NUM}"
       fi
-      LAST_END="$part_end"
     else
       error "Failed to create partition $part_mp!"
     fi
   else
     let LVM_NUM++
+    part_size=$((part_size - 2))  # LVM需要额外的2Mib空间
     echo "{LVM_NUM:{${LVM_NUM},label:{${label:-LVM_NUM}} vg_name:{${VG_NAME}}"
     lvcreate --wipesignatures y -n"${label:-LVM_NUM}" -L"$part_size" "$VG_NAME" --yes ||\
     	error "Failed to create logical volume ${label:-LVM_NUM} on $VG_NAME!"  
@@ -270,6 +276,14 @@ create_part(){
       } || error "Failed to create volume group: $VG_NAME!"
       declare -g LVM="true"
       ;;
+    lvm_type)
+      {
+        VG_NAME=$part_mp
+        pvcreate "$part_path" -ffy &&\
+        vgcreate "$VG_NAME" "$part_path"
+      } || error "Failed to create volume group: $VG_NAME!"
+      declare -g LVM="true"
+      ;;
     *)
       format_part "$part_path" "$part_fs" "$label" ||\
         error "Failed to create $part_fs filesystem on $part_path!"
@@ -300,6 +314,32 @@ delete_part() {
     local DEVICE=$1
     local NUM=$2
     parted -s $DEVICE rm $NUM
+}
+
+delete_lvm() {
+    local DEVICE=$1
+    local vg_path="/dev/$(pvdisplay -c | grep -i "$DEVICE" | awk -F ":" '{print $2}')"
+    local pv_name=$(pvdisplay -c | grep -i "$DEVICE" | awk -F ":" '{print $1}')
+    echo "vg_path=$vg_path; pv_name=$pv_name"
+    if [ -n "$pv_name" ]; then
+        if [ -f "$vg_path" ]; then
+            for lv_name in $vg_path/*
+            do
+                lvremove -f $lv_name
+            done
+        fi
+        vgremove -f $vg_path
+	pvremove -f $pv_name
+    fi
+}
+
+delete_crypt_lvm() {
+    local DEVICE=$1
+    local luks_crypt=$(lsblk -l $DEVICE | grep luks_crypt)
+    if [ -n "$luks_crypt" ]; then
+        DEVICE="/dev/mapper/$luks_crypt"
+    fi
+    delete_lvm $DEVICE
 }
 
 get_part_path() {
@@ -391,7 +431,7 @@ main(){
      EFI="false"
      CRYPT="false"
      LVM="false"
-
+     partprobe "$DEVICE"
      if [ "$DEVICE" = auto_max ]; then
         get_max_capacity_device
      fi
@@ -406,6 +446,8 @@ main(){
     echo "POLICY:{${PART_POLICY}}"
     echo "LABEL:{${PART_LABEL}}"
 
+    delete_lvm "$DEVICE"
+    delete_crypt_lvm "$DEVICE"
     new_part_table "$DEVICE"
 
     local part_policy_array=(${PART_POLICY//;/ })
@@ -413,7 +455,7 @@ main(){
     echo "policy#:${#part_policy_array[@]} label:${#part_label_array[@]}"
 
     for i in "${!part_policy_array[@]}"; do
-        create_part ${part_policy_array[$i]} ${part_label_array[$i]}
+        create_part ${part_policy_array[$i]} ${part_label_array[$i]} $DEVICE
     done
     index=index+1
 

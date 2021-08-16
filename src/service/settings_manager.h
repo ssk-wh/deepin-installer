@@ -217,6 +217,7 @@ struct FinalFullDiskPolicy {
     QString       device;
     qint64        offset;
     qint64        size;
+    bool          isLvm;
 };
 
 typedef QList<FinalFullDiskPolicy> FinalFullDiskPolicyList;
