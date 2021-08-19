@@ -52,10 +52,6 @@ class ConfirmQuitFrame : public DDialog {
 
  protected:
   void changeEvent(QEvent* event) override;
-  void mouseMoveEvent(QMouseEvent *event) override;
-  bool eventFilter(QObject *watched, QEvent *event) override;
-  void showEvent(QShowEvent *event) override;
-  void hideEvent(QHideEvent *event) override;
   void resizeEvent(QResizeEvent *event) override;
 
  private:

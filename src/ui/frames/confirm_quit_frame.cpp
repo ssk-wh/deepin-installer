@@ -55,7 +55,8 @@ ConfirmQuitFrame::ConfirmQuitFrame(QWidget* parent)
 
 void ConfirmQuitFrame::display()
 {
-    exec();
+    setModal(true);
+    show();
 }
 
 void ConfirmQuitFrame::updateTs()
@@ -137,10 +138,8 @@ void ConfirmQuitFrame::initUI() {
 
   addContent(comment_label_, Qt::AlignTop | Qt::AlignHCenter);
 
-  int index = 1;
-  insertButton(index, continue_button_, true);
-  ++index;
-  insertButton(index, abort_button_);
+  insertButton(1, continue_button_, true);
+  insertButton(2, abort_button_);
 
   setContentsMargins(0, 0, 0, 0);
   setFixedSize(kCloseDialogWidth, kCloseDialogHeight);
@@ -160,49 +159,6 @@ void ConfirmQuitFrame::setupCloseButton()
     m_close_button->hide();
 }
 
-bool ConfirmQuitFrame::eventFilter(QObject *watched, QEvent *event)
-{
-    if (event->type() == QEvent::MouseButtonPress) {
-        QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
-        if (mouseEvent->button() == Qt::MouseButton::RightButton) {
-            return true;
-        }
-    }
-
-    if (event->type() == QEvent::MouseMove) {
-        QPoint tl = mapToGlobal(rect().topRight());
-        QRect closeButtonRect(tl.x() - 40, tl.y(), 40, 40);
-
-        QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
-        if (closeButtonRect.contains(mouseEvent->globalPos())) {
-            m_mouseShape.resetCursor();
-        }
-        else {
-            m_mouseShape.setCursor(Qt::ArrowCursor);
-        }
-    }
-
-    return DDialog::eventFilter(watched, event);
-}
-
-void ConfirmQuitFrame::showEvent(QShowEvent *event)
-{
-    qApp->installEventFilter(this);
-
-    m_mouseShape.setCursor(Qt::ArrowCursor);
-
-    return DDialog::showEvent(event);
-}
-
-void ConfirmQuitFrame::hideEvent(QHideEvent *event)
-{
-    qApp->removeEventFilter(this);
-
-    m_mouseShape.resetCursor();
-
-    return DDialog::hideEvent(event);
-}
-
 void ConfirmQuitFrame::resizeEvent(QResizeEvent *event)
 {
     if (m_close_button != nullptr) {
@@ -213,16 +169,6 @@ void ConfirmQuitFrame::resizeEvent(QResizeEvent *event)
     }
 
     DDialog::resizeEvent(event);
-}
-
-void ConfirmQuitFrame::mouseMoveEvent(QMouseEvent *event) {
-    if (event->buttons() & Qt::LeftButton)
-    {
-        /*移动中的鼠标位置相对于初始位置的相对位置.*/
-        QPoint relativePos = this->pos();
-        /*然后移动窗体即可.*/
-        this->move(relativePos);
-    }
 }
 
 }  // namespace installer
