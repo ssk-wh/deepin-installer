@@ -75,6 +75,9 @@ setup_username_password_hostname() {
   if [ -z "${DI_PASSWORD}" ]; then
       msg "set password to empty"
       passwd -d "${DI_USERNAME}"
+  elif [ "x$(installer_get "system_info_password_encryption")" = "xtrue" ]; then
+      REAL_PASSWORD=$(echo "${DI_PASSWORD}" | base64 -d)
+      /usr/bin/setup-user-info ${DI_USERNAME} ${REAL_PASSWORD}
   else
     REAL_PASSWORD=$(echo "${DI_PASSWORD}" | base64 -d)
     echo "${DI_USERNAME}:${REAL_PASSWORD}" | chpasswd

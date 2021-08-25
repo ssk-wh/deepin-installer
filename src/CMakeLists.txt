@@ -863,6 +863,11 @@ add_executable(deepin-installer-init
 )
 target_link_libraries(deepin-installer-init ${LINK_LIBS})
 
+add_executable(setup-user-info
+    app/setup_user_info.cpp
+)
+target_link_libraries(setup-user-info ${LINK_LIBS})
+
 ## Installation
 install(PROGRAMS
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-first-boot-pkexec
@@ -881,6 +886,7 @@ install(TARGETS
         deepin-installer-settings
         deepin-installer-simpleini
         deepin-installer-init
+        setup-user-info
         DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
         )
 
