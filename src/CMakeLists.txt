@@ -28,18 +28,21 @@ if (CMAKE_BUILD_TYPE MATCHES Debug)
   #    "-fsanitize-memory-track-origins -fPIC -pie -fno-omit-frame-pointer")
 
 #  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wimplicit-fallthrough=1")
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O2 -fPIE")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O2 -z now -z noexecstack -D_FORTIFY_SOURCE=2 -fstack-protector-all -fPIE")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2 -Wno-unused-result \
-    -Wno-switch-default -Wno-padded -Wno-unused-function -Wno-reorder -Werror -fPIE -pie")
+    -Wno-switch-default -Wno-padded -Wno-unused-function -Wno-reorder -Werror -z now  \
+    -z noexecstack -D_FORTIFY_SOURCE=2 -fstack-protector-all -fPIE -pie")
 
 # Enable Qt builtin debug mode
   add_definitions("-DQT_MESSAGELOGCONTEXT")
 else()
   # -Wl, -O2 Enable linker optimizations
   #-Wl, --gc-sections Remove unused code resulting from -fdsta-sections and -ffunction-sections
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O2 -Wl,-O1 -Wl,--gc-sections -fPIE -pie")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O2 -Wl,-O1 -Wl,--gc-sections \
+      -z now -z noexecstack -D_FORTIFY_SOURCE=2 -fstack-protector-all -fPIE -pie")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2 -Wl,-O1 -Wl,--gc-sections -Wno-unused-result \
-      -Wno-switch-default -Wno-padded -Wno-unused-function -Wno-reorder -fPIE -pie")
+      -Wno-switch-default -Wno-padded -Wno-unused-function -Wno-reorder \
+      -z now -z noexecstack -D_FORTIFY_SOURCE=2 -fstack-protector-all -fPIE -pie")
 endif()
 
 # Install default_settings.ini based on current architecture.
