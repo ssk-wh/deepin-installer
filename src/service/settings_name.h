@@ -135,6 +135,8 @@ const char kPartitionSupportedFs[] = "partition_supported_fs";
 const char kPartitionDefaultFs[] = "partition_default_fs";
 const char kServerPartitionDefaultFs[] = "server_partition_default_fs";
 const char kPartitionDoAutoPart[] = "partition_do_auto_part";
+const char kPartitionDoAutoPartCrypt[] = "partition_do_auto_part_crypt";
+const char kDiskCryptPassword[] = "disk_crypt_password";
 const char kPartitionMountPoints[] = "partition_mount_points";
 const char kPartitionFormattedMountPoints[] =
     "partition_formatted_mount_points";

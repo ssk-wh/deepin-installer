@@ -720,6 +720,10 @@ void AddConfigFile() {
 
 void WriteFullDiskEncryptPassword(const QString &password)
 {
+    if (password.isEmpty()) {
+        qInfo() << "Encrypt password is empty";
+    }
+
     AppendToConfigFile("DI_CRYPT_PASSWD", password);
 }
 
