@@ -35,6 +35,8 @@ namespace {
 
     const int kContentWidth = 500;
     const int kFullDiskEncryptTitelFont=24;
+
+    const int kMaxPasswordLength = 24;
 }
 
 Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxyInterface
@@ -116,6 +118,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     m_encryptEdit->setContentsMargins(0, 0, 0, 0);
     m_encryptEdit->setFixedSize(350, 36);
     m_encryptEdit->setContextMenuPolicy(Qt::ContextMenuPolicy::NoContextMenu);
+    m_encryptEdit->lineEdit()->setMaxLength(kMaxPasswordLength);
 
     QHBoxLayout *encryptLayout = new QHBoxLayout;
     encryptLayout->setContentsMargins(0, 0, 0, 0);
@@ -136,6 +139,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     m_encryptRepeatEdit->setFixedSize(350, 36);
     m_encryptRepeatEdit->setContextMenuPolicy(Qt::ContextMenuPolicy::NoContextMenu);
     //m_encryptRepeatEdit->setFocusPolicy(Qt::TabFocus);
+    m_encryptRepeatEdit->lineEdit()->setMaxLength(kMaxPasswordLength);
 
     QHBoxLayout *encryptCheckLayout = new QHBoxLayout;
     encryptCheckLayout->setContentsMargins(0, 0, 0, 0);
