@@ -567,6 +567,10 @@ void FirstBootSetupWindow::onHookFinished(bool ok) {
         }
         qDebug() << SpawnCmd("killall", QStringList() << "lightdm");
     }
+    else {
+        qApp->quit();
+        qDebug() << SpawnCmd("systemctl", QStringList() << "stop" << "lightdm");
+    }
 }
 
 void FirstBootSetupWindow::onLanguageSelected()

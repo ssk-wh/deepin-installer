@@ -152,13 +152,13 @@ QString GetCurrentPlatform() {
 
 QString GetOSType()
 {
-    QSettings settings("/etc/os-version", QSettings::IniFormat);
-    settings.beginGroup("Version");
+    QSettings settings("/etc/deepin-version", QSettings::IniFormat);
+    settings.beginGroup("Release");
 
 #ifdef QT_DEBUG
     QString type = "Professional";
 #else
-    QString type = settings.value("EditionName", "Community").toString();
+    QString type = settings.value("Type", "Community").toString();
 #endif // QT_DEBUG
 
     return type;
