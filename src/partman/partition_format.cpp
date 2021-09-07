@@ -112,8 +112,8 @@ class Ext4Formater : public PartitionFormater {
               args << QStringList{ "-L", label() };
           }
 
-          const MachineArch arch = GetMachineArch();
-          if (arch == MachineArch::LOONGSON || arch == MachineArch::SW) {
+          QString arch = GetCurrentPlatform();
+          if (arch == "loongson" || arch == "sw" || arch == "loongarch64") {
               args << QStringList{ "-O ^64bit" };
           }
 
