@@ -1,5 +1,4 @@
 [General]
-partition_skip_partition_crypt_page = true
 skip_select_component_page = true
 timezone_force_local_time = true
 timezone_use_local_time_regardless = true

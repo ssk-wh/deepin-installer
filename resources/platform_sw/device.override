@@ -1,7 +1,6 @@
 [General]
 
 partition_skip_simple_partition_page = true
-partition_skip_partition_crypt_page = true
 partition_enable_swap_file = false
 partition_force_swap_file_in_simple_page = false
 partition_supported_fs = "ext4;ext3;ext2;efi;linux-swap;xfs;lvm2 pv;btrfs"
