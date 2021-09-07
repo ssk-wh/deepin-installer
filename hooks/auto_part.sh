@@ -265,9 +265,13 @@ create_part() {
       [[ -n ${CRYPT_INFO} ]] && CRYPT_INFO+=";"
       CRYPT_INFO+="$part_path:$mapper_name"
 
+      local crypt_algorithm=$(installer_get disk_crypt_algorithm)
+
+      msg "cryptsetup ${crypt_algorithm} -v luksFormat "$part_path""
+
       {
-        echo -n "$DI_CRYPT_PASSWD" | cryptsetup -v luksFormat "$part_path" &&\
-        echo -n "$DI_CRYPT_PASSWD" | cryptsetup open "$part_path" "$mapper_name"
+        echo "$DI_CRYPT_PASSWD" | cryptsetup ${crypt_algorithm} -v luksFormat "$part_path" &&\
+        echo "$DI_CRYPT_PASSWD" | cryptsetup open "$part_path" "$mapper_name"
       } || error "Failed to create luks partition($part_path)!"
 
       {
