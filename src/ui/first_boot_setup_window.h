@@ -55,7 +55,8 @@ class NetworkFrame;
 class ControlPlatformFrame;
 class SystemInfoKeyboardFrame;
 class ControlPanelFrame;
-class ConfirmQuitFrame;
+class ShadowWidget;
+class WarnningFrame;
 
 // Main window of deepin_installer_first_boot.
 class FirstBootSetupWindow : public DMainWindow, public FrameProxyInterface {
@@ -70,6 +71,7 @@ class FirstBootSetupWindow : public DMainWindow, public FrameProxyInterface {
 
   void nextFrame() override;
   void exitInstall(bool reboot = false) override;
+  void showChildFrame(BaseFrameInterface* childFrameInterface) override;
   void hideChildFrame() const override;
 
   // Set the icon in the upper left corner of the window. The size of the icon is recommended: 32px.
@@ -102,7 +104,9 @@ protected:
   ControlPlatformFrame*  control_platform_frame_ = nullptr;
   QStackedLayout*        stacked_layout_      = nullptr;
   SystemInfoKeyboardFrame* m_keyboardFrame    = nullptr;
-  ConfirmQuitFrame*      confirm_quit_frame_  = nullptr;
+  ShadowWidget*          shadow_widget = nullptr;
+  WarnningFrame*        optimize_failed_frame_  = nullptr;
+  WarnningFrame*        confirm_quit_frame_  = nullptr;
 
   QThread*             hook_worker_thread_ = nullptr;
   FirstBootHookWorker* hook_worker_        = nullptr;

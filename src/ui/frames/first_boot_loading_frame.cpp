@@ -24,6 +24,7 @@
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/spinner_label.h"
 #include "ui/widgets/title_label.h"
+#include "ui/frames/inner/install_log_frame.h"
 
 namespace installer {
 
@@ -59,6 +60,16 @@ bool FirstBootLoadingFrame::allowPrevious() const
     return false;
 }
 
+void FirstBootLoadingFrame::showLogFrame(const QString &logfilepath)
+{
+    comment_label_->hide();
+    spinner_label_->stop();
+    spinner_label_->hide();
+    m_installLogFrame->showLogWithoutTimer(logfilepath);
+    m_installLogFrame->updateSize(QSize(this->width(), this->height() - comment_label_->height() - spinner_label_->height()));
+    m_installLogFrame->show();
+}
+
 void FirstBootLoadingFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     title_label_->setText(::QObject::tr("Tuning system"));
@@ -86,8 +97,9 @@ void FirstBootLoadingFrame::initConnections() {
 
 void FirstBootLoadingFrame::initUI() {
   title_label_ = new TitleLabel(::QObject::tr("Tuning system"));
-  comment_label_ = new CommentLabel(
-      ::QObject::tr("Applying changes to your system, please wait..."));
+  comment_label_ = new CommentLabel(::QObject::tr("Applying changes to your system, please wait..."));
+  m_installLogFrame = new InstallLogFrame();
+  m_installLogFrame->hide();
   spinner_label_ = new SpinnerLabel();
 
   QVBoxLayout* layout = new QVBoxLayout();
@@ -96,6 +108,7 @@ void FirstBootLoadingFrame::initUI() {
   layout->addStretch();
   layout->addWidget(title_label_, 0, Qt::AlignCenter);
   layout->addWidget(comment_label_, 0, Qt::AlignCenter);
+  layout->addWidget(m_installLogFrame, 0, Qt::AlignCenter);
   layout->addSpacing(15);
   layout->addWidget(spinner_label_, 0, Qt::AlignCenter);
   layout->addStretch();

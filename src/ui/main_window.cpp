@@ -32,7 +32,6 @@
 #include <DTitlebar>
 #include <QWindow>
 
-#include "ui/frames/swap_warnning_frame.h"
 #include "ui/interfaces/frameinterface.h"
 #include "base/file_util.h"
 #include "service/power_manager.h"
@@ -45,7 +44,6 @@
 #include "third_party/global_shortcut/global_shortcut.h"
 #include "ui/delegates/language_delegate.h"
 #include "ui/delegates/main_window_util.h"
-#include "ui/frames/confirm_quit_frame.h"
 #include "ui/frames/control_panel_frame.h"
 #include "ui/frames/disk_space_insufficient_frame.h"
 #include "ui/frames/install_progress_frame.h"
@@ -62,6 +60,7 @@
 #include "ui/frames/repair_system_frame.h"
 #include "ui/frames/inner/system_info_keyboard_frame.h"
 #include "ui/frames/networkframe.h"
+#include "ui/frames/warnning_frame.h"
 
 #include "ui/utils/widget_util.h"
 #include "ui/widgets/pointer_button.h"
@@ -402,7 +401,7 @@ bool MainWindow::eventFilter(QObject *target, QEvent *event)
 
 void MainWindow::onCloseEvent()
 {
-    confirm_quit_frame_->display();
+    showChildFrame(confirm_quit_frame_);
 }
 
 void MainWindow::changeEvent(QEvent *event)
@@ -430,11 +429,11 @@ void MainWindow::changeEvent(QEvent *event)
 void MainWindow::initConnections() {
   connect(close_button_, &DIconButton::clicked, this, &MainWindow::onCloseEvent);
 
-  connect(confirm_quit_frame_, &ConfirmQuitFrame::quitCancelled, this, [=](){
-             confirm_quit_frame_->close();
+  connect(confirm_quit_frame_, &WarnningFrame::quitCanceled, this, [=](){
+             hideChildFrame();
              qApp->setActiveWindow(this);
           });
-  connect(confirm_quit_frame_, &ConfirmQuitFrame::quitConfirmed,
+  connect(confirm_quit_frame_, &WarnningFrame::quitEntered,
           this, &MainWindow::shutdownSystem);
 
   connect(control_panel_frame_, &ControlPanelFrame::currentPageChanged,
@@ -447,9 +446,6 @@ void MainWindow::initConnections() {
 
   connect(disk_space_insufficient_frame_, &DiskSpaceInsufficientFrame::abortInstall,
           this, &MainWindow::shutdownSystem);
-
-  connect(partition_frame_, &PartitionFrame::showSwapWanring,
-          this, &MainWindow::showSwapWanring);
 
   connect(partition_frame_, &PartitionFrame::reboot,
           this, &MainWindow::rebootSystem);
@@ -498,7 +494,10 @@ void MainWindow::initConnections() {
           , &MainWindow::setCloseButtonVisible);
   connect(m_installResultsFrame, &InstallResultsFrame::updateQuitFrameTs, this, [=] (bool result) {
       if (result) {
-          confirm_quit_frame_->updateTsForSuccessPage();
+          confirm_quit_frame_->setTitle("Shut Down");
+          confirm_quit_frame_->setComment("You can experience it after configuring user information in next system startup.");
+          confirm_quit_frame_->setCancelButtonText("Cancel");
+          confirm_quit_frame_->setEnterButtonText("Shut Down");
       }
   });
 
@@ -522,7 +521,11 @@ void MainWindow::initConnections() {
 }
 
 void MainWindow::initPages() {
-  confirm_quit_frame_ = new ConfirmQuitFrame(this);
+  confirm_quit_frame_ = new WarnningFrame(this);
+  confirm_quit_frame_->setTitle("Abort Installation");
+  confirm_quit_frame_->setComment("Relevant operations you made in the installation process will not take effect, abort or continue installation?");
+  confirm_quit_frame_->setCancelButtonText("Continue");
+  confirm_quit_frame_->setEnterButtonText("Abort");
   confirm_quit_frame_->setFocusPolicy(Qt::NoFocus);
   confirm_quit_frame_->hide();
 
@@ -754,13 +757,6 @@ void MainWindow::registerShortcut() {
 
   brightness_increase_shortcut_ = new QShortcut(QKeySequence("Ctrl+="), this);
   brithtness_decrease_shortcut_ = new QShortcut(QKeySequence("Ctrl+-"), this);
-}
-
-void MainWindow::showSwapWanring()
-{
-    // 设置swap弹窗的父控件为主窗口， 保证swap显示居中
-    SwapWarnningFrame swap(this);
-    swap.display();
 }
 
 void MainWindow::saveLogFile() {

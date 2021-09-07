@@ -27,6 +27,7 @@ namespace installer {
 class CommentLabel;
 class SpinnerLabel;
 class TitleLabel;
+class InstallLogFrame;
 
 // Display loading animation after SystemInfoFrame in first-boot-setup window.
 class FirstBootLoadingFrame : public FrameInterface {
@@ -40,6 +41,7 @@ class FirstBootLoadingFrame : public FrameInterface {
     bool shouldDisplay() const override;
     QString returnFrameName() const override;
     bool allowPrevious() const override;
+    void showLogFrame(const QString &logfilepath);
 
 signals:
     void closeButtionChange(bool change);
@@ -61,6 +63,7 @@ signals:
   TitleLabel* title_label_ = nullptr;
   CommentLabel* comment_label_ = nullptr;
   SpinnerLabel* spinner_label_ = nullptr;
+  InstallLogFrame *m_installLogFrame = nullptr;
 };
 
 }  // namespace installer

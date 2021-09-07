@@ -59,9 +59,10 @@
 #include "ui/frames/control_platform_frame.h"
 #include "ui/frames/inner/system_info_keyboard_frame.h"
 #include "ui/frames/control_panel_frame.h"
-#include "ui/frames/confirm_quit_frame.h"
+#include "ui/frames/warnning_frame.h"
 #include "ui/widgets/wallpaper_item.h"
 #include "ui/widgets/title_label.h"
+#include "ui/widgets/shadow_widget.h"
 #include "ui/models/package_manager_model.h"
 
 DWIDGET_USE_NAMESPACE
@@ -190,9 +191,22 @@ void FirstBootSetupWindow::exitInstall(bool reboot)
 
 }
 
+void FirstBootSetupWindow::showChildFrame(BaseFrameInterface *childFrameInterface)
+{
+    if (shadow_widget->isVisible()) {
+        return;
+    }
+    shadow_widget->setContent(childFrameInterface);
+    shadow_widget->setAttribute(Qt::WA_ShowModal, true);
+    shadow_widget->raise();
+    shadow_widget->show();
+    shadow_widget->repaint();
+    repaint();
+}
+
 void FirstBootSetupWindow::hideChildFrame() const
 {
-
+    shadow_widget->close();
 }
 
 void FirstBootSetupWindow::setWindowIcon(const QString &path)
@@ -219,17 +233,22 @@ void FirstBootSetupWindow::setWindowIcon(const QString &path)
 
 void FirstBootSetupWindow::onCloseEvent()
 {
-    confirm_quit_frame_->display();
+    showChildFrame(confirm_quit_frame_);
 }
 
 void FirstBootSetupWindow::initConnections() {
     connect(close_button_, &DIconButton::clicked, this, &FirstBootSetupWindow::onCloseEvent);
 
-    connect(confirm_quit_frame_, &ConfirmQuitFrame::quitCancelled, this, [=](){
-               confirm_quit_frame_->close();
+    connect(optimize_failed_frame_, &WarnningFrame::quitEntered, this, [=](){
+        hideChildFrame();
+        qApp->setActiveWindow(this);
+     });
+
+    connect(confirm_quit_frame_, &WarnningFrame::quitCanceled, this, [=](){
+               hideChildFrame();
                qApp->setActiveWindow(this);
             });
-    connect(confirm_quit_frame_, &ConfirmQuitFrame::quitConfirmed,
+    connect(confirm_quit_frame_, &WarnningFrame::quitEntered,
             this, &FirstBootSetupWindow::shutdownSystem);
 
     connect(loading_frame_, &FirstBootLoadingFrame::closeButtionChange, this
@@ -325,12 +344,28 @@ void FirstBootSetupWindow::initUI() {
     control_panel_frame_->hide();
 
     //this->setFocusPolicy(Qt::TabFocus);
+    shadow_widget = new ShadowWidget(this);
+    shadow_widget->hide();
 }
 
 void FirstBootSetupWindow::initPages()
 {
-    confirm_quit_frame_ = new ConfirmQuitFrame(this);
+    optimize_failed_frame_ = new WarnningFrame(this);
+    optimize_failed_frame_->useTitle(false);
+    optimize_failed_frame_->useCancelButton(false);
+    optimize_failed_frame_->setComment("If an unknown fault occurs, the system may not be affected. The system will continue to be installed. If you cannot log in to the system after the installation, reinstall the system");
+    optimize_failed_frame_->setEnterButtonText("OK");
+    optimize_failed_frame_->setFocusPolicy(Qt::NoFocus);
+    optimize_failed_frame_->hide();
+
+    confirm_quit_frame_ = new WarnningFrame(this);
+    confirm_quit_frame_->setTitle("Abort Installation");
+    confirm_quit_frame_->setComment("Relevant operations you made in the installation process will not take effect, abort or continue installation?");
+    confirm_quit_frame_->setCancelButtonText("Continue");
+    confirm_quit_frame_->setEnterButtonText("Abort");
+    confirm_quit_frame_->setFocusPolicy(Qt::NoFocus);
     confirm_quit_frame_->hide();
+
     language_frame_ = new LanguageFrame(this);
     m_keyboardFrame = new SystemInfoKeyboardFrame(this);
     system_info_frame_ = new SystemInfoFrame(this);
@@ -403,6 +438,8 @@ void FirstBootSetupWindow::changeEvent(QEvent *event)
 
 void FirstBootSetupWindow::resizeEvent(QResizeEvent *event)
 {
+    shadow_widget->setFixedSize(event->size());
+
     if (close_button_) {
       qInfo() << "Layout margin:" << layout()->margin();
       close_button_->move(width() - close_button_->width() - 10, 0);
@@ -518,39 +555,9 @@ void FirstBootSetupWindow::registerShortcut() {
 
 void FirstBootSetupWindow::showFailedLog()
 {
-    if (GetSettingsBool(kSystemModuleDebug)) {
-        // 当前界面需求没有明确，暂时实现了个临时界面，待正式需求下发后再实现具体界面
-        TitleLabel* title_label = new TitleLabel(tr("Tuning System Failed"));
-
-        QString text;
-        QFile logFile(installer::GetLogFilepath());
-        if (logFile.open(QIODevice::ReadOnly)) {
-            text = logFile.readAll();
-        }
-
-        QPalette palette;
-        palette.setColor(QPalette::Text, QColor(66, 154, 216));
-        QPlainTextEdit *logTextEdit = new QPlainTextEdit(this);
-        logTextEdit->insertPlainText(text);
-        logTextEdit->setContextMenuPolicy(Qt::NoContextMenu);
-        logTextEdit->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-        logTextEdit->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-        logTextEdit->setPalette(palette);
-        logTextEdit->setReadOnly(true);
-        logTextEdit->setStyleSheet("QPlainTextEdit{background-color: rgba(0, 0, 0, 0.1);"
-                                    "border-radius:8px;}");
-
-        QVBoxLayout *v_layout = new QVBoxLayout(this);
-        v_layout->addWidget(title_label, 0, Qt::AlignCenter);
-        v_layout->addWidget(logTextEdit);
-        QFrame *frame = new QFrame(this);
-        frame->setLayout(v_layout);
-
-        stacked_layout_->addWidget(frame);
-        stacked_layout_->setCurrentWidget(frame);
-        close_button_->show();
-        QEventLoop().exec();
-    }
+    loading_frame_->showLogFrame(installer::GetLogFilepath());
+    close_button_->show();
+    showChildFrame(optimize_failed_frame_);
 }
 
 void FirstBootSetupWindow::onHookFinished(bool ok) {
@@ -769,6 +776,7 @@ void FirstBootSetupWindow::updateFrameLabelPreviousState(bool allow)
 
 void FirstBootSetupWindow::shutdownSystem()
 {
+    hideChildFrame();
     if (!ShutdownSystem()) {
         qWarning() << "ShutdownSystem() failed!";
     }

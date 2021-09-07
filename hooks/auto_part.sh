@@ -503,6 +503,9 @@ sava_data() {
         if [ "x$p_label" = "xRoota" ];then
 	     installer_set "DI_ROOT_PARTITION" "$p_path"
         fi
+        if [ "x$p_label" = "xEFI" ]; then
+             installer_set DI_BOOTLOADER "$p_path"
+        fi
         [ -n "$p_mountpoint" ] && MP_LIST="${MP_LIST+$MP_LIST;}$p_path=$p_mountpoint"
     done
   done
@@ -515,8 +518,6 @@ sava_data() {
   check_efi_mode
   if $EFI; then
     installer_set DI_UEFI "true"
-  else
-    installer_set DI_BOOTLOADER "${part_device_array[0]}"
   fi
 
   installer_set DI_ROOT_DISK "${part_device_array[0]}"

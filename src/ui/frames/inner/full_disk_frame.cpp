@@ -27,6 +27,7 @@
 #include <QStackedLayout>
 #include <DSysInfo>
 #include <DFrame>
+#include <QProcess>
 
 #include "base/file_util.h"
 #include "partman/device.h"
@@ -121,14 +122,31 @@ bool FullDiskFrame::isEncrypt() const
     return m_encryptCheck->isChecked();
 }
 
+bool FullDiskFrame::isEnSaveData() const
+{
+    return m_saveDataCheck->isChecked();
+}
+
 bool FullDiskFrame::isInstallNvidia() const
 {
     return m_installNvidiaCheck->isChecked();
 }
 
+void FullDiskFrame::showSaveDataCheck(bool isshow)
+{
+    m_saveDataCheck->setVisible(isshow);
+}
+
 bool FullDiskFrame::focusSwitch()
 {
-    if(m_encryptCheck->hasFocus()) {
+    if (m_saveDataCheck->hasFocus()) {
+        if (m_encryptCheck->isVisible() && m_encryptCheck->isEnabled()) {
+            m_encryptCheck->setFocus();
+            return false;
+        } else {
+            return true;
+        }
+    } else if (m_encryptCheck->hasFocus()) {
         return true;
     } else {
         if (m_disk_layout->currentWidget() == m_diskInstallationWidget) {
@@ -145,8 +163,8 @@ bool FullDiskFrame::focusSwitch()
             }
         } else if (m_disk_layout->currentWidget() == m_grid_wrapper) {
             if(m_grid_wrapper->hasFocus()) {
-                if (m_encryptCheck->isVisible()) {
-                    m_encryptCheck->setFocus();
+                if (m_saveDataCheck->isVisible()) {
+                    m_saveDataCheck->setFocus();
                 } else {
                     return true;
                 }
@@ -160,7 +178,16 @@ bool FullDiskFrame::focusSwitch()
 
 bool FullDiskFrame::doSpace()
 {
-    if(m_encryptCheck->hasFocus()) {
+    if (m_saveDataCheck->hasFocus()) {
+        if (m_saveDataCheck->checkState() == Qt::Checked) {
+            m_saveDataCheck->setCheckState(Qt::Unchecked);
+            m_encryptCheck->setEnabled(true);
+        } else {
+            m_saveDataCheck->setCheckState(Qt::Checked);
+            m_encryptCheck->setCheckState(Qt::Unchecked);
+            m_encryptCheck->setEnabled(false);
+        }
+    } else if(m_encryptCheck->hasFocus()) {
         if (m_encryptCheck->checkState() == Qt::Checked) {
             m_encryptCheck->setCheckState(Qt::Unchecked);
         } else {
@@ -239,10 +266,18 @@ void FullDiskFrame::initConnections() {
           m_diskInstallationWidget, &MultipleDiskInstallationWidget::onDeviceListChanged);
   connect(m_diskInstallationWidget, &MultipleDiskInstallationWidget::currentDeviceChanged,
           this, &FullDiskFrame::onCurrentDeviceChanged);
+  connect(m_saveDataCheck, &QCheckBox::clicked, this, &FullDiskFrame::saveDataStateChanged);
 }
 
 void FullDiskFrame::initUI() {
   m_button_group = new QButtonGroup(this);
+
+  m_saveDataCheck = new QCheckBox;
+  m_saveDataCheck->setObjectName("check_box");
+  m_saveDataCheck->setCheckable(true);
+  m_saveDataCheck->setChecked(false);
+  m_saveDataCheck->hide();
+  addTransLate(m_trList, std::bind(&QCheckBox::setText, m_saveDataCheck, std::placeholders::_1), ::QObject::tr("Save User Data"));
 
   m_encryptCheck = new QCheckBox;
   m_encryptCheck->setObjectName("check_box");
@@ -343,6 +378,7 @@ void FullDiskFrame::initUI() {
   main_layout->addWidget(m_diskPartitionWidget, 0, Qt::AlignHCenter);
   main_layout->addStretch();
   QHBoxLayout* h_layout = new QHBoxLayout();
+  h_layout->addWidget(m_saveDataCheck);
   h_layout->addWidget(m_encryptCheck);
   h_layout->addWidget(m_installNvidiaCheck);
   main_layout->addSpacing(10);
@@ -423,6 +459,34 @@ void FullDiskFrame::showInstallTip(bool isshow) {
     }
 }
 
+bool FullDiskFrame::isExistDataPart(Device::Ptr device)
+{
+    bool existdata = false;
+    //获取Device::ptr结构解析里面是否存在data分区
+    for (int i = 0; i < device->partitions.size(); i++) {
+       if (!device->partitions[i]->label.compare("_dde_data")) {
+           existdata = true;
+           break;
+       }
+    }
+    return existdata;
+}
+
+bool FullDiskFrame::isFullDiskEncrypt(Device::Ptr device)
+{
+    QString cmd = QString("lsblk -f | grep crypto_LUKS | grep %1").arg(device->path.right(device->path.length() - device->path.lastIndexOf("/") - 1));
+    QProcess testprocess;
+    testprocess.start("/bin/bash",{"-c", cmd});
+    testprocess.waitForFinished();
+    QString cryptodevices = testprocess.readAll();
+    qWarning() << "cryptodevices = " << cryptodevices;
+    if (cryptodevices.compare("")) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 void FullDiskFrame::onDeviceRefreshed() {
   this->repaintDevices();
   m_delegate->removeAllSelectedDisks();
@@ -463,6 +527,18 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
 
     m_diskPartitionWidget->setDevices(m_delegate->selectedDevices());
     emit showDeviceInfomation();
+
+    // 设置显示保留用户数据勾选控件
+    Device::Ptr checkdevice = part_button->device();
+    if (m_saveDataCheck->isVisible()) {
+        return;
+    } else {
+        bool testexistdata = isExistDataPart(checkdevice);
+        bool testfulldiskencrypt = isFullDiskEncrypt(checkdevice);
+        if(testexistdata && (!testfulldiskencrypt)) {
+            emit showSaveDataPopWidget();
+        }
+    }
   }
 }
 
@@ -487,11 +563,35 @@ void FullDiskFrame::onCurrentDeviceChanged(int type, const Device::Ptr device)
         m_diskPartitionWidget->setDevices(m_delegate->selectedDevices());
         emit showDeviceInfomation();
     }
+
+    // 设置显示保留用户数据勾选控件
+    if (m_saveDataCheck->isVisible()) {
+        return;
+    } else {
+        bool testexistdata = isExistDataPart(device);
+        bool testfulldiskencrypt = isFullDiskEncrypt(device);
+        if(testexistdata && (!testfulldiskencrypt)) {
+            emit showSaveDataPopWidget();
+        }
+    }
 }
 
 void FullDiskFrame::installNvidiaStateChanged(bool install_nvidia)
 {
     WriteEnableNvidiaDriver(install_nvidia);
+}
+
+void FullDiskFrame::saveDataStateChanged(bool savedata)
+{
+    if (savedata) {
+        m_encryptCheck->setChecked(false);
+        m_encryptCheck->setEnabled(false);
+    } else {
+        m_encryptCheck->setEnabled(true);
+    }
+
+    m_saveDataCheck->setChecked(savedata);
+    WriteSaveUserData(savedata);
 }
 
 }  // namespace installer

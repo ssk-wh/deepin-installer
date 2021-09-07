@@ -40,6 +40,7 @@
 #include "ui/frames/inner/select_bootloader_frame.h"
 #include "ui/frames/inner/simple_partition_frame.h"
 #include "ui/frames/inner/full_disk_encrypt_frame.h"
+#include "ui/frames/warnning_frame.h"
 #include "ui/models/partition_model.h"
 #include "ui/widgets/comment_label.h"
 #include "ui/widgets/title_label.h"
@@ -118,6 +119,7 @@ public:
      void showPrepareInstallFrame();
 
      bool isEncrypt();
+     bool isEnSaveData();
 
      PartitionFrame* q_ptr=nullptr;
 
@@ -138,6 +140,8 @@ public:
      SimplePartitionFrame* simple_partition_frame_ = nullptr;
      Full_Disk_Encrypt_frame* full_disk_encrypt_frame_ = nullptr;
      DynamicDiskWarningFrame* dynamic_disk_warning_frame_ = nullptr;
+     WarnningFrame*   save_data_pop_widget = nullptr;
+     WarnningFrame*   swap_warnning_frame = nullptr;
 
      TitleLabel* title_label_ = nullptr;
      CommentLabel* comment_label_ = nullptr;
@@ -210,7 +214,8 @@ void PartitionFrame::autoPart() {
         m_private->setupDiskEncrypt(false);
         m_private->partition_model_->autoPart();
     }
-    else if (GetSettingsBool("DI_SAVE_DATA")) {
+    else if (m_private->isEnSaveData()) {
+        m_private->setupDiskEncrypt(false);
         m_private->partition_model_->autoPart();
     }
     else {
@@ -566,7 +571,7 @@ void PartitionFramePrivate::initConnections() {
   connect(prepare_install_frame_, &PrepareInstallFrame::aborted,
           this, &PartitionFramePrivate::showMainFrame);
   connect(prepare_install_frame_, &PrepareInstallFrame::finished, this, [=] {
-      if ((!GetSettingsBool(KPartitionSkipFullCryptPage) && this->isEncrypt()) || GetSettingsBool("DI_SAVE_DATA") || full_disk_delegate_->isLvm()) {
+      if ((!GetSettingsBool(KPartitionSkipFullCryptPage) && this->isEncrypt()) || this->isEnSaveData() || full_disk_delegate_->isLvm()) {
         q_ptr->autoPart();
         q_ptr->m_proxy->nextFrame();
       }
@@ -648,7 +653,29 @@ void PartitionFramePrivate::initConnections() {
       nextButton->setEnabled(enable);
   });
 
+  connect(full_disk_partition_frame_, &FullDiskFrame::showSaveDataPopWidget, this, [=] {
+     q_ptr->m_proxy->showChildFrame(save_data_pop_widget);
+  });
+
   connect(full_disk_delegate_, &FullDiskDelegate::requestAutoInstallFinished, q_ptr, &PartitionFrame::onAutoInstallPrepareFinished);
+
+  connect(swap_warnning_frame, &WarnningFrame::quitEntered, this, [=] {
+      q_ptr->m_proxy->hideChildFrame();
+      q_ptr->repaint();
+  });
+
+  connect(save_data_pop_widget, &WarnningFrame::quitEntered, this, [=] {
+      full_disk_partition_frame_->saveDataStateChanged(true);
+      full_disk_partition_frame_->showSaveDataCheck(true);
+      q_ptr->m_proxy->hideChildFrame();
+      q_ptr->repaint();
+  });
+  connect(save_data_pop_widget, &WarnningFrame::quitCanceled,this, [=] {
+      full_disk_partition_frame_->saveDataStateChanged(false);
+      full_disk_partition_frame_->showSaveDataCheck(false);
+      q_ptr->m_proxy->hideChildFrame();
+      q_ptr->repaint();
+  });
 
     Q_EMIT full_disk_frame_button_->click();
 }
@@ -675,6 +702,19 @@ void PartitionFramePrivate::initUI() {
   full_disk_encrypt_frame_ = new Full_Disk_Encrypt_frame(q_ptr->m_proxy, full_disk_delegate_);
 
   dynamic_disk_warning_frame_ = new DynamicDiskWarningFrame(q_ptr);
+
+  save_data_pop_widget = new WarnningFrame(nullptr);
+  save_data_pop_widget->useTitle(false);
+  save_data_pop_widget->setComment("/data/home is detected. If data is not saved, the directory will be formatted. Please confirm whether to format or retain the directory.");
+  save_data_pop_widget->setEnterButtonText("Save");
+  save_data_pop_widget->setCancelButtonText("Format");
+  save_data_pop_widget->hide();
+
+  swap_warnning_frame = new WarnningFrame(q_ptr->m_proxy);
+  swap_warnning_frame->useCancelButton(false);
+  swap_warnning_frame->setTitle("Friendly Note");
+  swap_warnning_frame->setComment("No swap partition created, which may affect system performance");
+  swap_warnning_frame->hide();
 
   title_label_ = new TitleLabel(::QObject::tr("Create Partitions"));
   title_label_->setObjectName("title_label_");
@@ -921,7 +961,7 @@ void PartitionFramePrivate::onNextButtonClicked() {
     dynamic_disk_warning_frame_->setWarningTip(::QObject::tr("The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first."));
     static bool isFirstWarning = true;
     if (isFirstWarning && !AdvancedPartitionDelegate::swapOk && AdvancedPartitionDelegate::install_Lvm_Status != Install_Lvm_Status::Lvm_Format_Pv) {
-        Q_EMIT q_ptr->showSwapWanring();
+        q_ptr->m_proxy->showChildFrame(swap_warnning_frame);
         isFirstWarning = false;
         qApp->setActiveWindow(q_ptr);
         return;
@@ -1167,6 +1207,11 @@ void PartitionFramePrivate::showPrepareInstallFrame()
 bool PartitionFramePrivate::isEncrypt()
 {
     return isFullDiskPartitionMode() && full_disk_partition_frame_->isEncrypt();
+}
+
+bool PartitionFramePrivate::isEnSaveData()
+{
+    return isFullDiskPartitionMode() && full_disk_partition_frame_->isEnSaveData();
 }
 
 }  // namespace installer

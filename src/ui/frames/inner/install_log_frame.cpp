@@ -57,6 +57,23 @@ void installer::InstallLogFrame::setLogPath(const QString &path)
     });
 }
 
+void installer::InstallLogFrame::showLogWithoutTimer(const QString &path)
+{
+    QFile file(path);
+    if (file.open(QIODevice::ReadOnly)) {
+        QString text = file.readAll();
+        m_installLog->insertPlainText(text);
+        m_installLog->setContextMenuPolicy(Qt::NoContextMenu);
+        m_installLog->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+        m_installLog->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+        m_installLog->setReadOnly(true);
+        m_installLog->moveCursor(QTextCursor::End);
+        file.close();
+    } else {
+        qDebug() << "Failed to open the log file. file: " << path;
+    }
+}
+
 void installer::InstallLogFrame::updateSize(const QSize &size)
 {
     m_installLog->setFixedSize(size.width() - 50, size.height() - 50);

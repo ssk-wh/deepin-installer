@@ -46,7 +46,10 @@ public:
 
     bool validate() const;
     bool isEncrypt() const;
+    bool isEnSaveData() const;
     bool isInstallNvidia() const;
+
+    void showSaveDataCheck(bool isshow);
 
     bool focusSwitch();
     bool doSpace();
@@ -58,6 +61,7 @@ signals:
     void cryptoStateChanged(bool crypto) const;
     void showDeviceInfomation();
     void enableNextButton(const bool enable) const;
+    void showSaveDataPopWidget();
 
 protected:
     void changeEvent(QEvent* event) override;
@@ -72,6 +76,12 @@ private:
 
     // Show install_tip at bottom of |button|.
     void showInstallTip(bool isshow);
+
+    // 判断是磁盘中否存在/data分区
+    bool isExistDataPart(Device::Ptr device);
+
+    // 判断否是全盘加密
+    bool isFullDiskEncrypt(Device::Ptr device);
 
 
     FullDiskDelegate* m_delegate     = nullptr;
@@ -89,12 +99,14 @@ private:
     MultipleDiskInstallationWidget* m_diskInstallationWidget = nullptr;
     QStackedLayout*      m_disk_layout  = nullptr;
     std::list<std::pair<std::function<void (QString)>, QString>> m_trList;
+    QCheckBox*        m_saveDataCheck = nullptr;
 
 public slots:
     void onDeviceRefreshed();
     void onPartitionButtonToggled(QAbstractButton* button, bool checked);
     void onCurrentDeviceChanged(int type, const Device::Ptr device);
     void installNvidiaStateChanged(bool install_nvidia);
+    void saveDataStateChanged(bool savedata);
 };
 
 }  // namespace installer

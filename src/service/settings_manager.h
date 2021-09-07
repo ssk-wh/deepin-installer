@@ -260,6 +260,9 @@ void WriteNecuresCliInstallMode(bool mode);
 
 // 记录设置的密码等级
 void WritePasswdLevel(const int &level);
+
+// 设置保留用户数据标志
+void WriteSaveUserData(bool issave);
 }  // namespace installer
 
 #endif  // INSTALLER_SETTINGS_MANAGER_H

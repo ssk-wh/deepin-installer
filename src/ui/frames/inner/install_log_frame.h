@@ -19,6 +19,7 @@ class InstallLogFrame : public QFrame
 public:
     explicit InstallLogFrame(QFrame *parent = nullptr);
     void setLogPath(const QString &);
+    void showLogWithoutTimer(const QString &);
     void updateSize(const QSize &size);
 
 protected:

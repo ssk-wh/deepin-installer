@@ -49,7 +49,6 @@ enum class FrameLabelState{
 };
 
 class FrameInterface;
-class ConfirmQuitFrame;
 class ControlPanelFrame;
 class DiskSpaceInsufficientFrame;
 class InstallProgressFrame;
@@ -67,7 +66,7 @@ class ShadowWidget;
 class RepairSystemFrame;
 class SystemInfoKeyboardFrame;
 class NetworkFrame;
-
+class WarnningFrame;
 // MainWindow is a fullscreen window of deepin-installer.
 // All of ui frames are placed in MainWindow.
 // It does following jobs:
@@ -137,8 +136,6 @@ private:
   void constructLabelView();
   void registerShortcut();
 
-  void showSwapWanring();
-
   // Copy log file if needed.
   void saveLogFile();
 
@@ -164,7 +161,7 @@ private:
   QStackedLayout* stacked_layout_ = nullptr;
   QVBoxLayout* m_frameSelectedLayout = nullptr;
 
-  ConfirmQuitFrame* confirm_quit_frame_ = nullptr;
+  WarnningFrame* confirm_quit_frame_ = nullptr;
   ControlPanelFrame* control_panel_frame_ = nullptr;
   RepairSystemFrame* m_repairSystemFrame = nullptr;
   DiskSpaceInsufficientFrame* disk_space_insufficient_frame_ = nullptr;

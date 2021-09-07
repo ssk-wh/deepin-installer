@@ -76,8 +76,6 @@ class PartitionFrame : public FrameInterface {
   // Emitted when requesting reboot system.
   void reboot();
 
-  void showSwapWanring();
-
   // Emitted when partition job is done.
   void autoPartDone(bool ok);
   void manualPartDone(bool ok);

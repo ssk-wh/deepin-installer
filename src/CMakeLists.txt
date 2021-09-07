@@ -424,6 +424,8 @@ set(UI_FILES
     ui/frames/install_results_frame.cpp
     ui/frames/repair_system_frame.h
     ui/frames/repair_system_frame.cpp
+    ui/frames/warnning_frame.h
+    ui/frames/warnning_frame.cpp
 
     ui/models/bootloader_list_model.cpp
     ui/models/bootloader_list_model.h

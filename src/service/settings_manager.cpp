@@ -1068,4 +1068,9 @@ void ScanNetDevice()
 
 }
 
+void WriteSaveUserData(bool issave)
+{
+    AppendToConfigFile("DI_SAVE_DATA", issave);
+}
+
 }  // namespace installer
