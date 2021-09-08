@@ -199,6 +199,7 @@ main() {
 
   sync
   cleanup_oem_license
+  update_disk_cryption_passwd
   update_grub_local && update-initramfs -u
   remove_component_packages
   setup_default_target

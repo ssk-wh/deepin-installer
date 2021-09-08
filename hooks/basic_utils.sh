@@ -360,3 +360,30 @@ setup_part() {
     fi
 }
 
+chech_use_crypt(){
+  local DI_CRYPT_PASSWD=$(installer_get DI_CRYPT_PASSWD)
+  if [ -n "$DI_CRYPT_PASSWD" ]; then
+    installer_set DI_CRYPT_PASSWD "NULL"
+  fi
+
+  local DI_NEW_CRYPT_PASSWD=$(installer_get DI_NEW_CRYPT_PASSWD)
+  if [ -n "$DI_NEW_CRYPT_PASSWD" ]; then
+    installer_set DI_NEW_CRYPT_PASSWD "NULL"
+  fi
+}
+
+update_disk_cryption_passwd(){
+    local crypt_part="/dev/$(lsblk -lf $DI_ROOT_DISK -o NAME,FSTYPE | grep -E "crypto_LUKS" | awk '{print $1}')"
+    local old_passwd=$(installer_get DI_CRYPT_PASSWD)
+    local new_passwd=$(installer_get DI_NEW_CRYPT_PASSWD)
+
+    if [ -n "$new_passwd" ] && [ -n "$old_passwd" ]; then
+        cryptsetup luksAddKey $crypt_part << EOF
+$old_passwd
+$new_passwd
+$new_passwd
+EOF
+        echo -n "$old_passwd" | cryptsetup luksRemoveKey $crypt_part
+    fi
+    chech_use_crypt  # 清空配置文件中的密码
+}

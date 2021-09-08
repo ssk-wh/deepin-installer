@@ -20,7 +20,7 @@
 # Partition policy is defined in settings.ini.
 declare -i  DEVICE_SIZE AVL_SIZE PART_NUM=0 LVM_NUM=0 LAST_END=1
 declare CRYPT_INFO DEVICE PART_POLICY PART_LABEL MP_LIST VG_NAME="vg0" PART_TYPE="primary" \
-        LARGE="false" EFI="false" CRYPT="false" LVM="false"
+        LARGE="false" EFI="false" LVM="false"
 
 # Check device capacity of $DEVICE.
 check_device_size(){
@@ -45,14 +45,6 @@ check_efi_mode(){
   local force_efi=$(installer_get force_efi_mode)
   if [ x"$force_efi" = "xtrue" ];then
     declare -g EFI=true
-  fi
-}
-
-chech_use_crypt(){
-  DI_CRYPT_PASSWD=$(installer_get DI_CRYPT_PASSWD)
-  if [ -n "$DI_CRYPT_PASSWD" ]; then
-    declare -g CRYPT=true
-    installer_set DI_CRYPT_PASSWD "NULL"
   fi
 }
 
@@ -259,7 +251,6 @@ create_part() {
       mapper_name="$part_mp"
       part_mp="/dev/mapper/$mapper_name"
 
-
       installer_set DI_CRYPT_ROOT "true"
 
       [[ -n ${CRYPT_INFO} ]] && CRYPT_INFO+=";"
@@ -270,6 +261,7 @@ create_part() {
       msg "cryptsetup ${crypt_algorithm} -v luksFormat "$part_path""
 
       {
+        DI_CRYPT_PASSWD=$(installer_get DI_CRYPT_PASSWD)
         echo "$DI_CRYPT_PASSWD" | cryptsetup ${crypt_algorithm} -v luksFormat "$part_path" &&\
         echo "$DI_CRYPT_PASSWD" | cryptsetup open "$part_path" "$mapper_name"
       } || error "Failed to create luks partition($part_path)!"
@@ -416,8 +408,6 @@ main(){
   local part_device_array=(${PART_DEVICE//;/ })
   declare -i index=0
 
-  chech_use_crypt
-
   for j in "${part_device_array[@]}"; do
      DEVICE="${j}"
      VG_NAME="vg${index}"
@@ -433,7 +423,6 @@ main(){
      PART_TYPE="primary"
      LARGE="false"
      EFI="false"
-     CRYPT="false"
      LVM="false"
      partprobe "$DEVICE"
      if [ "$DEVICE" = auto_max ]; then

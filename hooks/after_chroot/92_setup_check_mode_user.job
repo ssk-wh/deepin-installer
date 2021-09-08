@@ -35,6 +35,28 @@ setup_workspace() {
     fi
 }
 
+skip_disk_crypt() {
+    local DI_CRYPT_PASSWD=$(installer_get "DI_CRYPT_PASSWD")
+    local DI_ROOT_DISK=$(installer_get "DI_ROOT_DISK")
+
+    local boot_uuid=$(lsblk -f $DI_ROOT_DISK -o UUID,MOUNTPOINT | grep -E "/target/boot$" | awk '{print $1}')
+    local crypt_path="/dev/$(lsblk -lf $DI_ROOT_DISK -o NAME,FSTYPE | grep -E "crypto_LUKS" | awk '{print $1}')"
+    local crypt_uuid=$(lsblk -f $DI_ROOT_DISK -o UUID,FSTYPE | grep -E "crypto_LUKS" | awk '{print $1}')
+    echo "disk cyrpt info: boot_uuid=$boot_uuid  crypt_path=$crypt_path  crypt_uuid=$crypt_uuid"
+
+    if [ -n "$crypt_uuid" ]; then
+        local key_file=/target/boot/keyfile
+        local cryp_conf_file=/target/etc/crypttab
+        dd if=/dev/urandom of=$key_file bs=1024 count=4
+        chmod 0400 $key_file
+        echo -n "$DI_CRYPT_PASSWD" | cryptsetup -v luksAddKey $crypt_path $key_file
+        mv $cryp_conf_file ${cryp_conf_file}.real
+        echo "luks_crypt0 UUID=$crypt_uuid /dev/disk/by-uuid/$boot_uuid:/keyfile luks,keyscript=/lib/cryptsetup/scripts/passdev" > $cryp_conf_file
+        chroot /target /usr/sbin/update-initramfs -u
+        cat $cryp_conf_file
+    fi
+}
+
 
 # User will delete when run check_hooks/lightdm_stop.sh
 if [ x$(installer_get "system_check_mode") == "xtrue" ]; then
@@ -43,6 +65,7 @@ if [ x$(installer_get "system_check_mode") == "xtrue" ]; then
     /tmp/installer/hook_manager.sh /tmp/installer/before_chroot/41_setup_mount_points.job
     setup_workspace
     setup_check_mode_user
+    skip_disk_crypt
     # umount all point
     /tmp/installer/hook_manager.sh /tmp/installer/after_chroot/90_unmount.job
 fi
