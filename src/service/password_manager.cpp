@@ -121,7 +121,7 @@ bool installer::PasswordManager::checked(const QString &user, const QString &pas
 
         case PW_ERR_PW_MONOTONE:
         case PW_ERR_PW_CONSECUTIVE_SAME: {
-            info = ::QObject::tr("Create a strong password please");     // 密码连续重复字符需求：安装器没有需求文案
+            info = ::QObject::tr("No more than %1 consecutive or repeated characters please").arg(m_passwdContinuousLength);
             reset = false;
         } break;
 

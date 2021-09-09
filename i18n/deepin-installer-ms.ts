@@ -1,933 +1,933 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ms" version="2.1">
 <context>
     <name>QObject</name>
     <message>
         <source>Create extended partition %1</source>
-        <translation>Kibővített partíció létrehozása %1</translation>
+        <translation>Cipta sekatan tambahan %1</translation>
     </message>
     <message>
         <source>Create new partition %1, type: %2</source>
-        <translation>Új partíció létrehozása %1, típus: %2</translation>
+        <translation>Cipta sekatan baharu %1, jenis: %2</translation>
     </message>
     <message>
         <source>Create new partition %1 as %2 (mountpoint), type: %3</source>
-        <translation>Új partíció %1 létrehozása %2 (csatolási pont), típus: %3</translation>
+        <translation>Cipta sekatan baharu %1 sebagai %2 (titik lekap), jenis: %3</translation>
     </message>
     <message>
         <source>Delete %1 partition</source>
-        <translation>%1 partíció törlése</translation>
+        <translation>Padam sekatan %1</translation>
     </message>
     <message>
         <source>Format %1 partition, type: %2</source>
-        <translation>%1 partíció formázása, típus: %2</translation>
+        <translation>Format sekatan %1, jenis: %2</translation>
     </message>
     <message>
         <source>Format %1 partition as %2 (mountpoint), type: %3</source>
-        <translation>%1 partíció formázása %2 (csatolási pont), típus: %3</translation>
+        <translation>Format sekatan %1 sebagai %2 (titik lekap), jenis: %3</translation>
     </message>
     <message>
         <source>Use %1 partition as %2 (mountpoint)</source>
-        <translation>%1 partíció használata %2 (csatolási pont)</translation>
+        <translation>Guna sekatan %1 sebagai %2 (titik lekap)</translation>
     </message>
     <message>
         <source>Format %1 and create %2 new partition table</source>
-        <translation>%1 formázása és %2 új partíciós tábla létrehozása</translation>
+        <translation>Format %1 dan cipta jadual sekatan baharu %2</translation>
     </message>
     <message>
         <source>Adjust the size of %1 partition</source>
-        <translation>%1 partíció méretének beállítása</translation>
+        <translation>Laras saiz bagi sekatan %1</translation>
     </message>
     <message>
         <source>Core</source>
-        <translation>Mag</translation>
+        <translation>Teras</translation>
     </message>
     <message>
         <source>Core packages for server OS.</source>
-        <translation>Szerver operációs rendszer mag szintű csomagjai.</translation>
+        <translation>Pakej teras untuk OS pelayan.</translation>
     </message>
     <message>
         <source>Base</source>
-        <translation>Alap</translation>
+        <translation>Asas</translation>
     </message>
     <message>
         <source>Base packages for server OS.</source>
-        <translation>Szerver operációs rendszer alapcsomagjai.</translation>
+        <translation>Pakej asas untuk OS pelayan.</translation>
     </message>
     <message>
         <source>Basic Server Environment</source>
-        <translation>Alapszintű kiszolgálói környezet</translation>
+        <translation>Persekitaran Pelayan Asas</translation>
     </message>
     <message>
         <source>Applies to standard common service environments, such as Web services and database services.</source>
-        <translation>A szokásos általános szolgáltatási környezetekre vonatkozik, például a webszolgáltatásokra és az adatbázis-szolgáltatásokra.</translation>
+        <translation>Terapkan persekitaran perkhidmatan umum piawai, seperti perkhidmatan sesawang dan perkhidmatan pangkalan data.</translation>
     </message>
     <message>
         <source>Applies to IaaS environments, such as virtualization, containers, and clouds.</source>
-        <translation>Az IaaS környezetekre vonatkozik, például virtualizációra, tárolókra és felhőkre.</translation>
+        <translation>Terapkan persekitaran IaaS, seperti pemayaan, bekas, dan awan.</translation>
     </message>
     <message>
         <source>Big Data</source>
-        <translation>Nagy adat</translation>
+        <translation>Data Raya</translation>
     </message>
     <message>
         <source>Applies to servers that provide parallel processing of massive data.</source>
-        <translation>Olyan szerverekre vonatkozik, amelyek hatalmas adatok párhuzamos feldolgozását biztosítják.</translation>
+        <translation>Terapkan kepada pelayan yang menyediakan pemprosesan data leluasa.</translation>
     </message>
     <message>
         <source>Server Environment with GUI</source>
-        <translation>Szerver környezet grafikus felülettel</translation>
+        <translation>Persekitaran Pelayan dengan GUI</translation>
     </message>
     <message>
         <source>Operates the services and applications on the graphical user interface.</source>
-        <translation>A grafikus felhasználói felületen üzemelteti a szolgáltatásokat és az alkalmazásokat.</translation>
+        <translation>Operasi perkhidmatan dan aplikasi melalui antara muka pengguna bergrafik.</translation>
     </message>
     <message>
         <source>Custom Installation</source>
-        <translation>Egyéni telepítés</translation>
+        <translation>Pemasangan Suai</translation>
     </message>
     <message>
         <source>Provides most package groups for custom selection, covering minimum to maximum installation.</source>
-        <translation>Biztosítja a legtöbb csomagcsoportot az egyéni kiválasztáshoz, amely lefedi a minimális és maximális telepítést.</translation>
+        <translation>Sediakan kebanyakan kumpulan pakej untuk pemilihan suai, meliputi pemasangan minimum hingga maksimum.</translation>
     </message>
     <message>
         <source>Debugging Tools</source>
-        <translation>Hibakeresési eszközök</translation>
+        <translation>Alatan Penyahpepijatan</translation>
     </message>
     <message>
         <source>Provide debugging package for program function and performance.</source>
-        <translation>Adjon hibakeresési csomagot a program funkcióihoz és teljesítményéhez.</translation>
+        <translation>Sediakan pakej penyahpepijatan untuk fungsi dan prestasi program.</translation>
     </message>
     <message>
         <source>Applications with GUI</source>
-        <translation>Alkalmazások grafikus felülettel</translation>
+        <translation>Aplikasi dengan GUI</translation>
     </message>
     <message>
         <source>Commonly used server application packages in graphical user interface.</source>
-        <translation>Gyakran használt kiszolgálóalkalmazás csomagok grafikus felhasználói felületen.</translation>
+        <translation>Pakej aplikasi pelayan yang biasa digunakan dalam antara muka pengguna bergrafik.</translation>
     </message>
     <message>
         <source>Development Tools</source>
-        <translation>Fejlesztői eszközök</translation>
+        <translation>Alatan Pembangunan</translation>
     </message>
     <message>
         <source>Development tool packages in multiple programming languages.</source>
-        <translation>Fejlesztőeszköz csomagok több programozási nyelven.</translation>
+        <translation>Pakej alat pembangunan dalam pelbagai bahasa pengaturcaraan.</translation>
     </message>
     <message>
         <source>Directory Client</source>
-        <translation>Mappa kiszolgáló</translation>
+        <translation>Klien Direktori</translation>
     </message>
     <message>
         <source>Clients for integration into a network managed by a directory service.</source>
-        <translation>Ügyfelek a címtárszolgáltatás által kezelt hálózatba történő integráláshoz.</translation>
+        <translation>Klien untuk disepadu masuk ke dalam rangkaian terurus oleh satu perkhidmatan direktori.</translation>
     </message>
     <message>
         <source>Domain Name Service</source>
-        <translation>Tartomány név szolgáltatás</translation>
+        <translation>Perkhidmatan Nama Domain</translation>
     </message>
     <message>
         <source>Environments for running the domain name service (DNS).</source>
-        <translation>Környezetek a tartománynév szolgáltatás (DNS) futtatásához.</translation>
+        <translation>Persekitaran untuk menjalankan perkhidmatan nama domain (DNS).</translation>
     </message>
     <message>
         <source>File and Storage Server</source>
-        <translation>Fájl és tárolószerver</translation>
+        <translation>Pelayan Fail dan Storan</translation>
     </message>
     <message>
         <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
-        <translation>CIFS, SMB, NFS, iSCSI, iSER, és iSNS hálózati tárolószerver.</translation>
+        <translation>Pelayan storan rangkaian CIFS, SMB, NFS, iSCSI, iSER, dan iSNS.</translation>
     </message>
     <message>
         <source>Graphics Creation Tools</source>
-        <translation>Grafika létrehozó eszközök</translation>
+        <translation>Alatan Penciptaan Grafik</translation>
     </message>
     <message>
         <source>Software for creating and editing images.</source>
-        <translation>Szoftver képek létrehozására és szerkesztésére.</translation>
+        <translation>Perisian untuk mencipta dan menyunting imej.</translation>
     </message>
     <message>
         <source>Load Balancer</source>
-        <translation>Terheléselosztás</translation>
+        <translation>Pengimbang Beban</translation>
     </message>
     <message>
         <source>Load balancing support for network traffic.</source>
-        <translation>Terheléselosztási támogatása a hálózati forgalom számára.</translation>
+        <translation>Sokongan imbangan beban untuk trafik rangkaian.</translation>
     </message>
     <message>
         <source>MariaDB Database Server</source>
-        <translation>MariaDB adatbázis kiszolgáló</translation>
+        <translation>Pelayan Pangkalan Data MairaDB</translation>
     </message>
     <message>
         <source>The MariaDB SQL database server, and associated packages.</source>
-        <translation>A MariaDB SQL adatbázis-kiszolgáló és a kapcsolódó csomagok.</translation>
+        <translation>Pelayan pangkalan data SQL MariaDB, dan pakej-pakej berkaitan.</translation>
     </message>
     <message>
         <source>E-mail Server</source>
-        <translation>E-mail szerver</translation>
+        <translation>Pelayan E-mel</translation>
     </message>
     <message>
         <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
-        <translation>Lehetővé teszi a rendszer számára, hogy SMTP és / vagy IMAP e-mail szerverként működjön.</translation>
+        <translation>Membolehkan sistem bertindak sebagai pelayan e-mel SMTP dan/atau IMAP.</translation>
     </message>
     <message>
         <source>Network File System Client</source>
-        <translation>Hálózati fájlrendszer kliens</translation>
+        <translation>Klien Sistem Fail Rangkaian</translation>
     </message>
     <message>
         <source>Environments for network storage devices.</source>
-        <translation>Környezetek hálózati tárolóeszközökhöz.</translation>
+        <translation>Persekitaran untuk peranti storan rangkaian.</translation>
     </message>
     <message>
         <source>Performance Tools</source>
-        <translation>Teljesítményeszközök</translation>
+        <translation>Alatan Prestasi</translation>
     </message>
     <message>
         <source>Packages for monitoring and diagnosing hardware devices, system programs, and applications.</source>
-        <translation>Csomagok hardvereszközök, rendszerprogramok és alkalmazások megfigyeléséhez és diagnosztizálásához.</translation>
+        <translation>Pakej untuk memantau dan mendiagnosis peranti perkakasan, program sistem, dan aplikasi.</translation>
     </message>
     <message>
         <source>Security Tools</source>
-        <translation>Biztonsági eszközök</translation>
+        <translation>Alatan Keselamatan</translation>
     </message>
     <message>
         <source>Packages for integrity and trust verification.</source>
-        <translation>Csomagok az integritás és a megbízhatóság ellenőrzéséhez.</translation>
+        <translation>Pakej untuk integriti dan pengesahan kepercayaan.</translation>
     </message>
     <message>
         <source>Web Server</source>
-        <translation>Web szerver</translation>
+        <translation>Pelayan Sesawang</translation>
     </message>
     <message>
         <source>Provides Java servlets and Web common service components.</source>
-        <translation>Java szervleteket és általános webszolgáltatási összetevőket biztosít.</translation>
+        <translation>Sediakan servlet Java dan komponen perkhidmatan umum Sesawang.</translation>
     </message>
     <message>
         <source>Guest Agents</source>
-        <translation>Vendég ügynökök</translation>
+        <translation>Ejen-Ejen Tetamu</translation>
     </message>
     <message>
         <source>Agents used when running under a hypervisor.</source>
-        <translation>Az ügynökök által használva, Hypervisor futtatása alatt.</translation>
+        <translation>Ejen-ejen yang digunakan ketika dijalankan bawah satu hipervisor.</translation>
     </message>
     <message>
         <source>Virtualization Client</source>
-        <translation>Virtualizációs kliens</translation>
+        <translation>Klien Pemayaan</translation>
     </message>
     <message>
         <source>Clients for installing and managing virtualization instances.</source>
-        <translation>Ügyfelek a virtualizációs példányok telepítéséhez és kezeléséhez.</translation>
+        <translation>Klien untuk memasang dan mengurus tika-tika pemayaan.</translation>
     </message>
     <message>
         <source>Virtualization Hypervisor</source>
-        <translation>Virtualizációs Hypervisor</translation>
+        <translation>Hipervisor Pemayaan</translation>
     </message>
     <message>
         <source>Smallest possible virtualization host installation.</source>
-        <translation>A lehető legkisebb virtualizációs állomás telepítése.</translation>
+        <translation>Pemasangan hos pemayaan yang sekecil mungkin.</translation>
     </message>
     <message>
         <source>Virtualization Tools</source>
-        <translation>Virtualizációs eszközök</translation>
+        <translation>Alatan Pemayaan</translation>
     </message>
     <message>
         <source>Tools for offline virtual image management.</source>
-        <translation>Eszközök offline virtuális képkezeléshez.</translation>
+        <translation>Alatan untuk pengurusan imej maya luar talian.</translation>
     </message>
     <message>
         <source>Virtualization Platform</source>
-        <translation>Virtualizációs platform</translation>
+        <translation>Platform Pemayaan</translation>
     </message>
     <message>
         <source>Provides an interface for acessing and controlling virtualized guests and containers.</source>
-        <translation>Felületet biztosít a virtualizált vendégek és tárolók eléréséhez és vezérléséhez.</translation>
+        <translation>Sediakan antara muka untuk mencapai dan mengawal tetamu dan bekas maya.</translation>
     </message>
     <message>
         <source>High Availability</source>
-        <translation>Magas rendelkezésreállás</translation>
+        <translation>Ketersediaan Tinggi</translation>
     </message>
     <message>
         <source>Infrastructure for highly available services and/or shared storage.</source>
-        <translation>Infrastruktúra a rendkívül elérhető szolgáltatásokhoz és / vagy megosztott tárhelyhez.</translation>
+        <translation>Infrastruktur untuk perkhidmatan dan/atau storan terkongsi dengan tahap tersedia yang tinggi.</translation>
     </message>
     <message>
         <source>InfiniBand Support</source>
-        <translation>InfiniBand támogatás</translation>
+        <translation>Sokongan InfiniBand</translation>
     </message>
     <message>
         <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
-        <translation>A fürtözés és a hálózati csatlakozás támogatására tervezett szoftver, RDMA alapú InfiniBand és iWARP eszközökkel.</translation>
+        <translation>Perisian yang direka untuk menyokong penggugusan dan kesambungan grid melalui InfiniBand berasaskan-RDMA dan fabrik-fabrik iWARP.</translation>
     </message>
     <message>
         <source>Large Systems Performance</source>
-        <translation>Nagy rendszer teljesítmény</translation>
+        <translation>Prestasi Sistem-Sistem Besar</translation>
     </message>
     <message>
         <source>Performance support tools for large systems.</source>
-        <translation>Teljesítménytámogató eszközök nagy rendszerek számára.</translation>
+        <translation>Alatan sokongan prestasi untuk sistem-sistem berskala besar.</translation>
     </message>
     <message>
         <source>Platform Development</source>
-        <translation>Platform fejlesztés</translation>
+        <translation>Pembangunan Platform</translation>
     </message>
     <message>
         <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
-        <translation>Javasolt fejlesztési fejlécek és könyvtárak az UOS® rendszeren futó alkalmazások fejlesztéséhez.</translation>
+        <translation>Pengepala dan pustaka-pustaka pembangunan disarankan untuk membangunkan aplikasi-aplikasi bagi menjalankan UOS.</translation>
     </message>
     <message>
         <source>Internet Applications</source>
-        <translation>Internetes alkalmazások</translation>
+        <translation>Aplikasi-Aplikasi Internet</translation>
     </message>
     <message>
         <source>Email, chat, and video conferencing software.</source>
-        <translation>Email, csevegő és videókonferencia alkalmazások</translation>
+        <translation>Perisian emel, sembang dan sidang video.</translation>
     </message>
     <message>
         <source>Virtualization Toolset</source>
-        <translation>Virtualizációs eszközkészlet</translation>
+        <translation>Set Alat Pemayaan</translation>
     </message>
     <message>
         <source>Toolset for virtualization enviroment (host and guest).</source>
-        <translation>Eszközkészlet a virtualizációs környezethez (host és vendég).</translation>
+        <translation>Set alat untuk persekitaran pemayaan (hos dan tetamu).</translation>
     </message>
     <message>
         <source>PostgreSQL Database Server</source>
-        <translation>PostgreSQL adatbázis szerver</translation>
+        <translation>Pelayan Pangkalan Data PostgreSQL</translation>
     </message>
     <message>
         <source>The PostgreSQL SQL database server, and associated packages.</source>
-        <translation>PostgreSQL SQL adatbázis szerver és a kapcsolódó csomagok.</translation>
+        <translation>Pelayan pangkalan data SQL PostgreSQL, dan pakej-pakej berkaitan.</translation>
     </message>
     <message>
         <source>End User License Agreement for UnionTech OS Desktop Home</source>
-        <translation>Végfelhasználói licencszerződés az UnionTech operációs rendszer Otthoni asztal környezetéhez</translation>
+        <translation>Perjanjian Lesen Pengguna Akhir untuk UnionTech OS Desktop Home</translation>
     </message>
     <message>
         <source>End User License Agreement for UnionTech OS Desktop Professional</source>
-        <translation>Végfelhasználói licencszerződés az UnionTech operációs rendszer Hivatali környezetéhez</translation>
+        <translation>Perjanjian Lesen Pengguna Akhir untuk UnionTech OS Desktop Professional</translation>
     </message>
     <message>
         <source>End User License Agreement for Deepin OS</source>
-        <translation>Végfelhasználói licencszerződés az Deepin® operációs rendszer Otthoni asztal környezetéhez</translation>
+        <translation>Perjanjian Lesen Pengguna Akhir untuk Deepin OS</translation>
     </message>
     <message>
         <source>End User License Agreement for UnionTech OS Server</source>
-        <translation>Végfelhasználói licencszerződés az UnionTech operációs rendszer szerver környezetéhez</translation>
+        <translation>Perjanjian Lesen Pengguna Akhir untuk UnionTech OS Server</translation>
     </message>
     <message>
         <source>Deepin OS User Experience Program License Agreement</source>
-        <translation>A Deepin® operációs rendszer  felhasználói élmény program licencszerződése</translation>
+        <translation>Perjanjian Lesen Program Pengalaman Pengguna Deepin OS</translation>
     </message>
     <message>
         <source>UnionTech OS User Experience Program License Agreement</source>
-        <translation>Az UnionTech operációs rendszer felhasználói élmény program licencszerződése</translation>
+        <translation>Perjanjian Lesen Program Pengalaman Pengguna UnionTech OS</translation>
     </message>
     <message>
         <source>Deepin OS Privacy Policy</source>
-        <translation>A Deepin® operációs rendszer adatvédelmi irányelvei</translation>
+        <translation>Dasar Persendirian Deepin OS</translation>
     </message>
     <message>
         <source>UnionTech Software Privacy Policy</source>
-        <translation>UnionTech szoftver adatvédelmi irányelvei</translation>
+        <translation>Dasar Persendirian Perisian UnionTech</translation>
     </message>
     <message>
         <source>Deepin</source>
-        <translation>Deepin®</translation>
+        <translation>Deepin</translation>
     </message>
     <message>
         <source>UnionTech OS</source>
-        <translation>UnionTech operációs rendszer</translation>
+        <translation>UnionTech OS</translation>
     </message>
     <message>
         <source>UOS</source>
-        <translation>UOS®</translation>
+        <translation>UOS</translation>
     </message>
     <message>
         <source>Do not use this partition</source>
-        <translation>Ne használja ezt a partíciót</translation>
+        <translation>Jangan guna sekatan ini</translation>
     </message>
     <message>
         <source>Swap partition</source>
-        <translation>Cserehely partíció</translation>
+        <translation>Sekatan silih</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation>Ismeretlen</translation>
+        <translation>Tidak diketahui</translation>
     </message>
     <message>
         <source>Freespace</source>
-        <translation>Üres hely</translation>
+        <translation>Ruang bebas</translation>
     </message>
     <message>
         <source>Shut Down</source>
-        <translation>Leállítás</translation>
+        <translation>Matikan</translation>
     </message>
     <message>
         <source>You can experience it after configuring user information in next system startup.</source>
-        <translation>A felhasználói adatok konfigurálása után a következő rendszerindításkor tapasztalhatja meg.</translation>
+        <translation>Anda boleh mengalaminya setelah mengkonfigur maklumat pengguna ketika permulaan sistem berikutnya.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Mégsem</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <source>Shut down</source>
-        <translation>Leállítás</translation>
+        <translation>Matikan</translation>
     </message>
     <message>
         <source>Abort Installation</source>
-        <translation>Telepítés megszakítása</translation>
+        <translation>Henti Paksa Pemasangan</translation>
     </message>
     <message>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
-        <translation>A telepítési folyamat során végrehajtott releváns műveletek nem lépnek érvénybe, megszakítja vagy folytatja a telepítést?</translation>
+        <translation>Operasi berkaitan yang anda buat dalam proses pemasangan tidak akan berkesan, henti paksa atau teruskan pemasangan?</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation>Folytatás</translation>
+        <translation>Teruskan</translation>
     </message>
     <message>
         <source>Abort</source>
-        <translation>Megszakítás</translation>
+        <translation>Henti Paksa</translation>
     </message>
     <message>
         <source>Set Control Region</source>
-        <translation>Vezérlő régió beállítása</translation>
+        <translation>Tetapkan Wilayah Kawalan</translation>
     </message>
     <message>
         <source>Set the region for UOS EndPoint Management Platform</source>
-        <translation>Állítsa be az UOS® végponti menedzsment platform régióját</translation>
+        <translation>Tetapkan wilayah untuk Platform Pengurusan Titik Akhir UOS</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation>Következő</translation>
+        <translation>Berikutnya</translation>
     </message>
     <message>
         <source>Server Address</source>
-        <translation>Szervercím</translation>
+        <translation>Alamat Pelayan</translation>
     </message>
     <message>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
-        <translation>Legalább %1 GB lemezterületre van szüksége a %2 telepítéséhez. A jobb teljesítmény érdekében legalább %3 GB ajánlott</translation>
+        <translation>Anda memerlukan sekurang-kurangnya %1 GB ruang cakera untuk memasang %2. Untuk prestasi lebih baik, sebanyak %3 GB atau lebih disarankan</translation>
     </message>
     <message>
         <source>Insufficient Disk Space</source>
-        <translation>Nincs elegendő lemezterület</translation>
+        <translation>Ruang Cakera Tidak Mencukupi</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation>Kilépés</translation>
+        <translation>Keluar</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation>Figyelem</translation>
+        <translation>Amaran</translation>
     </message>
     <message>
         <source>Tuning system</source>
-        <translation>A rendszer finomhangolása</translation>
+        <translation>Penalaan sistem</translation>
     </message>
     <message>
         <source>Applying changes to your system, please wait...</source>
-        <translation>Változások végrehajtása a rendszeren, kérjük várjon ...</translation>
+        <translation>Melaksanakan perubahan pada sistem anda, tunggu sebentar...</translation>
     </message>
     <message>
         <source>Change boot loader</source>
-        <translation>Rendszerbetöltő módosítása</translation>
+        <translation>Ubah pemuat but</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation>Kész</translation>
+        <translation>Selesai</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Törlés</translation>
+        <translation>Padam</translation>
     </message>
     <message>
         <source>Install NVIDIA closed source driver</source>
-        <translation>Telepítse az NVIDIA zárt forráskódú illesztőprogramot</translation>
+        <translation>Pasang pemacu sumber tertutup NVIDIA</translation>
     </message>
     <message>
         <source>%1 error found, fix to continue installation or switch to simple mode</source>
-        <translation>%1 hiba található, javítsa ki a telepítés folytatásához, vagy váltson egyszerű módra</translation>
+        <translation>%1 ralat ditemui, baiki untuk teruskan pemasangan atau beralih ke mod ringkas</translation>
     </message>
     <message>
         <source>%1 errors found, fix to continue installation or switch to simple mode</source>
-        <translation>%1 hiba található, javítsa ki a telepítés folytatásához, vagy váltson egyszerű módra</translation>
+        <translation>%1 ralat ditemui, baiki untuk teruskan pemasangan atau beralih ke mod ringkas</translation>
     </message>
     <message>
         <source>%1 errors found, fix to continue installation</source>
-        <translation>%1 hiba található, javítsa ki a telepítés folytatásához</translation>
+        <translation>%1 ralat ditemui, baiki untuk teruskan pemasangan</translation>
     </message>
     <message>
         <source>The partition filesystem type of /boot directory can only be %1 </source>
-        <translation>A /boot könyvtárat tartalmazó  partíció fájlrendszer típusa csak %1 lehet</translation>
+        <translation>Jenis sistem fail sekatan bagi direktori /boot hanya boleh jadi %1</translation>
     </message>
     <message>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
-        <translation>A merevlemez első partíciójában kell lennie a /boot könyvtárnak</translation>
+        <translation>Sekatan bagi direktori /boot patut merupakan sekatan pertama pada cakera keras</translation>
     </message>
     <message>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
-        <translation>A /boot/efi könyvtár partíciójának a merevlemez első partíciójának kell lennie</translation>
+        <translation>Sekatan bagi direktori /boot/efi patut merupakan sekatan pertama pada cakera keras</translation>
     </message>
     <message>
         <source>/boot partition requires at least %1 MB</source>
-        <translation>A /boot partícióhoz legalább %1 MB szükséges</translation>
+        <translation>Sekatan /boot memerlukan sekurang-kurangnya %1 MB</translation>
     </message>
     <message>
         <source>To create lvm, /boot partition is required</source>
-        <translation>Az lvm létrehozásához a /boot partícióra van szükség</translation>
+        <translation>Untuk mencipta lvm, sekatan /boot diperlukan</translation>
     </message>
     <message>
         <source>Add an EFI partition to continue</source>
-        <translation>A folytatáshoz hozzon létre egy EFI partíciót</translation>
+        <translation>Tambah satu sekatan EFI untuk teruskan</translation>
     </message>
     <message>
         <source>/efi partition requires at least %1 MB</source>
-        <translation>A /efi partícióhoz legalább %1 MB szükséges</translation>
+        <translation>Sekatan /efi memerlukan sekurang-kurangnya %1 MB</translation>
     </message>
     <message>
         <source>Add a root partition to continue</source>
-        <translation>A folytatáshoz hozzon létre egy gyökérpartíciót</translation>
+        <translation>Tambah sekatan root untuk teruskan</translation>
     </message>
     <message>
         <source>/root partition requires at least %1 GB</source>
-        <translation>A /root partícióhoz legalább %1 GB szükséges</translation>
+        <translation>Sekatan /root memerlukan sekurang-kurangnya %1 GB</translation>
     </message>
     <message>
         <source>%2 partition requires at least %1 GB</source>
-        <translation>A %2 partícióhoz legalább %1 GB szükséges</translation>
+        <translation>Sekatan %2 memerlukan sekurang-kurangnya %1 GB</translation>
     </message>
     <message>
         <source>Add a logical partition to continue</source>
-        <translation>Adjon hozzá egy logikai partíciót a folytatáshoz</translation>
+        <translation>Tambah sekatan logikal untuk teruskan</translation>
     </message>
     <message>
         <source>Edit Disk</source>
-        <translation>Lemez szerkesztése</translation>
+        <translation>Sunting Cakera</translation>
     </message>
     <message>
         <source>File system</source>
-        <translation>Fájlrendszer</translation>
+        <translation>Sistem fail</translation>
     </message>
     <message>
         <source>Mount point</source>
-        <translation>Csatolási pont</translation>
+        <translation>Titik lekap</translation>
     </message>
     <message>
         <source>Format the partition</source>
-        <translation>Partíció formázása</translation>
+        <translation>Format sekatan</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Megerősítés</translation>
+        <translation>Sahkan</translation>
     </message>
     <message>
         <source>Please input password</source>
-        <translation>Kérjük adja meg a jelszavát</translation>
+        <translation>Sila masukkan kata laluan</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation>A jelszavak nem egyeznek</translation>
+        <translation>Kata laluan tidak sepadan</translation>
     </message>
     <message>
         <source>Encrypt This Disk</source>
-        <translation>A lemez titkosítása</translation>
+        <translation>Sulitkan Cakera Ini</translation>
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install</source>
-        <translation>Győződjön meg róla, hogy minden adatáról készített biztonsági mentést, majd válassza ki a lemezt a telepítéshez</translation>
+        <translation>Pastikan anda telah menyandar data penting anda, kemudian pilih cakera yang hendak dipasangkan</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Jelszó</translation>
+        <translation>Kata laluan</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation>Jelszó ismétlése</translation>
+        <translation>Ulang Kata Laluan</translation>
     </message>
     <message>
         <source>Take care of your password, otherwise, all your data will be lost</source>
-        <translation>Vigyázzon a jelszavára, különben minden adata elvész</translation>
+        <translation>Hati-hati dengan kata laluan anda, jika bermasalah atau terlupa, semua data anda akan hilang</translation>
     </message>
     <message>
         <source>Please select a disk to start installation</source>
-        <translation>Kérjük válasszon egy lemezt a telepítés indításához</translation>
+        <translation>Sila pilih satu cakera untuk pemasangan</translation>
     </message>
     <message>
         <source>Install here</source>
-        <translation>Telepítés ide</translation>
+        <translation>Pasang di sini</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Vissza</translation>
+        <translation>Undur</translation>
     </message>
     <message>
         <source>Create New Partition</source>
-        <translation>Új partíció létrehozása</translation>
+        <translation>Cipta Sekatan Baharu</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation>Típus</translation>
+        <translation>Jenis</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation>Hely</translation>
+        <translation>Lokasi</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>Méret</translation>
+        <translation>Saiz</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation>Indítás</translation>
+        <translation>Mula</translation>
     </message>
     <message>
         <source>End</source>
-        <translation>Befejezés</translation>
+        <translation>Tamat</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation>Létrehozás</translation>
+        <translation>Cipta</translation>
     </message>
     <message>
         <source>Unable to mount automatically, as it requires at least %1 GB. More than %2 GB is preferred.</source>
-        <translation>Nem sikerült automatikusan csatlakoztatni, mivel ehhez legalább %1 GB szükséges. A javasolt méret több, mint %2 GB. </translation>
+        <translation>Tidak boleh lekap secara automatik, kerana ia memerlukan sekurang-kurangnya %1 GB. %2 GB ke atas adalah lebih baik.</translation>
     </message>
     <message>
         <source>Formatting...</source>
-        <translation>Formázás...</translation>
+        <translation>Memformat...</translation>
     </message>
     <message>
         <source>Format Warning</source>
-        <translation>Formázási figyelmeztetés</translation>
+        <translation>Amaran Format</translation>
     </message>
     <message>
         <source>Continuing installation will format the whole disk, please make a backup of all your data. If you do not know what you are doing, please do not continue</source>
-        <translation>A telepítés folytatása az egész lemezt formázza, kérjük készítsen biztonsági másolatot az összes adatáról. Ha nem tudja mit csinál, kérjük ne folytassa</translation>
+        <translation>Meneruskan pemasangan akan memformat keseluruhan cakera, sila pastikan menyandar semua data anda. Jika anda tidak tahu apa yang anda lakukan, jangan diteruskan</translation>
     </message>
     <message>
         <source>Scan disks</source>
-        <translation>Lemezek ellenőrzése</translation>
+        <translation>Imbas cakera</translation>
     </message>
     <message>
         <source>Scanning disks, please wait...</source>
-        <translation>Lemezek ellenőrzése, kérjük várjon...</translation>
+        <translation>Mengimbas cakera, tunggu sebentar...</translation>
     </message>
     <message>
         <source>Failed to Create New Partition</source>
-        <translation>Az új partíció létrehozása sikertelen</translation>
+        <translation>Gagal Mencipta Sekatan Baharu</translation>
     </message>
     <message>
         <source>You should delete a primary partition before creating a new one, as there can only be four primary partitions on an MBR disk</source>
-        <translation>Új létrehozása előtt törölnie kell egy elsődleges partíciót, mivel az MBR lemezen csak négy elsődleges partíció lehet</translation>
+        <translation>Anda patut memadam satu sekatan utama sebelum mencipta satu sekatan baharu, kerana hanya boleh ada empat sekatan utama di dalam cakera MBR</translation>
     </message>
     <message>
         <source>You should delete a primary partition before creating a logical one, or move the existing logical partition to the end of the disk</source>
-        <translation>Törölnie kell egy elsődleges partíciót egy logikai létrehozása előtt, vagy a meglévő logikai partíciót a lemez végére kell áthelyeznie</translation>
+        <translation>Anda patut memadam satu sekatan utama sebelum mencipta yang logikal, atau mengalih sekatan logikal sedia ada di penghujung cakera</translation>
     </message>
     <message>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install the system directly. Please select one of the below solutions and continue.</source>
-        <translation>Ön EFI boot betöltővel rendelkezik, de MBR lemezzel, így nem tudja közvetlenül telepíteni a rendszert. Kérjük, válassza az alábbi megoldások egyikét, és folytassa.</translation>
+        <translation>Anda mempunyai pemuat but EFI dalam cakera MBR, maka anda tidak boleh memasang sistem secara terus. Sila pilih salah satu penyelesaian di bawah dan teruskan.</translation>
     </message>
     <message>
         <source>Disable UEFI</source>
-        <translation>UEFI letiltása</translation>
+        <translation>Lumpuhkan UEFI</translation>
     </message>
     <message>
         <source>Reboot, enter BIOS, and disable UEFI</source>
-        <translation>Indítsa újra a számítógépet, lépjen be a BIOS-ba, és tiltsa le az UEFI-t</translation>
+        <translation>But semula, masuk ke BIOS, dan lumpuhkan UEFI</translation>
     </message>
     <message>
         <source>Exit BIOS, and install %1 again</source>
-        <translation>Lépjen ki a BIOS-ból, és telepítse újra a % 1-t</translation>
+        <translation>Keluar dari BIOS, dan pasang %1 sekali lagi</translation>
     </message>
     <message>
         <source>Make sure you have backed up all data before proceeding</source>
-        <translation>Győződjön meg róla, hogy minden adatáról készített biztonsági mentést mielőtt folytatná</translation>
+        <translation>Pastikan anda telah menyandar semua data  anda, sebelum meneruskan operasi</translation>
     </message>
     <message>
         <source>Continuing installation will format your disk</source>
-        <translation>A telepítés folytatása formázni fogja a lemezt</translation>
+        <translation>Teruskan pemasangan akan memformat cakera anda</translation>
     </message>
     <message>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install %1 directly. Please select one of the below solutions and continue.</source>
-        <translation>Ön EFI rendszerindítóval rendelkezik, de MBR lemezzel, így nem tudja közvetlenül telepíteni a %1 alkalmazást. Kérjük válassza az alábbi megoldások egyikét, és folytassa.</translation>
+        <translation>Anda mempunyai pemuat but EFI dalam cakera MBR, maka anda tidak boleh memasang %1 secara terus. Sila pilih salah satu penyelesaian di bawah dan teruskan.</translation>
     </message>
     <message>
         <source>Ready to Install</source>
-        <translation>Telepítésre kész</translation>
+        <translation>Sedia di Pasang</translation>
     </message>
     <message>
         <source>Make a backup of your important data and then continue</source>
-        <translation>Készítsen mentést a fontos adatairól, majd folytassa</translation>
+        <translation>Sandar dahulu data penting anda, kemudian teruskan</translation>
     </message>
     <message>
         <source>Create a backup for system restore, but it will increase the time</source>
-        <translation>Készítsen biztonsági másolatot a rendszer visszaállításához, azonban ez megnöveli az időt</translation>
+        <translation>Cipta satu sandar untuk pemulihan sistem, tetapi ia mengambil masa</translation>
     </message>
     <message>
         <source>Select location for boot loader</source>
-        <translation>Telepítési hely kiválasztása a rendszerbetöltőhöz</translation>
+        <translation>Pilih lokasi untuk pemuat but</translation>
     </message>
     <message>
         <source>If you do not understand the settings, please select the recommended one</source>
-        <translation>Ha nem érti a beállításokat, kérjük válassza ki az ajánlott beállításokat</translation>
+        <translation>Jika anda tidak memahami tetapan, sila pilih yang disarankan</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation>Elolvastam és egyetértek a</translation>
+        <translation>Saya sudah baca dan bersetuju dengan</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation>Végfelhasználói Szerződés</translation>
+        <translation>Perjanjian Lesen Pengguna Akhir</translation>
     </message>
     <message>
         <source>and</source>
-        <translation>és</translation>
+        <translation>dan</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation>Adatvédelmi irányelv</translation>
+        <translation>Dasar Persendirian</translation>
     </message>
     <message>
         <source>Agree to the</source>
-        <translation>Egyetértek a</translation>
+        <translation>Bersetuju dengan</translation>
     </message>
     <message>
         <source>Select Language</source>
-        <translation>Nyelv kiválasztása</translation>
+        <translation>Pilih Bahasa</translation>
     </message>
     <message>
         <source>Unable to create new partition, please select one of the existing partitions!</source>
-        <translation>Az új partíciót nem lehet létrehozni. kérjük válasszon a már létező partíciók közül!</translation>
+        <translation>Tidak boleh cipta sekatan baharu, sila pilih salah satu dari sekatan sedia ada!</translation>
     </message>
     <message>
         <source>Please select one of the partitions to install!</source>
-        <translation>Válasszon ki egy partíciót a telepítéshez!</translation>
+        <translation>Sila pilih salah satu sekatan untuk dipasang!</translation>
     </message>
     <message>
         <source>Windows will not boot if you install %1 on Windows disk, please confirm to continue</source>
-        <translation>A Windows nem indul el, ha %1-et a Windows lemezre telepíti, kérjük erősítse meg a folytatást</translation>
+        <translation>Windows tidak akan membut jika anda memasang %1 dalam cakera Windows, sila sahkan untuk teruskan</translation>
     </message>
     <message>
         <source>Weak</source>
-        <translation>Gyenge</translation>
+        <translation>Lemah</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation>Közepes</translation>
+        <translation>Sederhana</translation>
     </message>
     <message>
         <source>Strong</source>
-        <translation>Erős</translation>
+        <translation>Kuat</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Felhasználónév</translation>
+        <translation>Nama pengguna</translation>
     </message>
     <message>
         <source>Computer name</source>
-        <translation>Számítógépnév</translation>
+        <translation>Nama komputer</translation>
     </message>
     <message>
         <source>Repeat password</source>
-        <translation>Jelszó ismétlése</translation>
+        <translation>Ulang kata laluan</translation>
     </message>
     <message>
         <source>Root password</source>
-        <translation>Rendszergazdai jelszó</translation>
+        <translation>Kata laluan root</translation>
     </message>
     <message>
         <source>Repeat root password</source>
-        <translation>Rendszergazdai jelszó ismétlése</translation>
+        <translation>Ulang kata laluan root</translation>
     </message>
     <message>
         <source>Create Accounts</source>
-        <translation>Felhasználói fiókok létrehozása</translation>
+        <translation>Cipta Akaun</translation>
     </message>
     <message>
         <source>Fill in the username, computer name and your password</source>
-        <translation>Adja meg a felhasználónevet, számítógépnevet és a jelszavát</translation>
+        <translation>Sila isi nama pengguna, nama komputer dan kata laluan anda</translation>
     </message>
     <message>
         <source>Add fingerprint password in Control Center &gt; Accounts to unlock and authenticate</source>
-        <translation>Adjon hozzá ujjlenyomat jelszót a Vezérlőközpont&gt; Fiókok a feloldásához és hitelesítéséhez menüpont alatt</translation>
+        <translation>Tambah kata laluan cap jari melalui Pusat Kawalan &gt; Akaun untuk buka dan sahihkan</translation>
     </message>
     <message>
         <source>Use that password to edit boot menu</source>
-        <translation>Jelszó használata a rendszerindítási menü szerkesztéséhez</translation>
+        <translation>Guna kata laluan tersebut untuk menyunting menu but</translation>
     </message>
     <message>
         <source>Enable root user</source>
-        <translation>Rendszergazdai felhasználó engedélyezése</translation>
+        <translation>Benarkan pengguna root</translation>
     </message>
     <message>
         <source>This username already exists</source>
-        <translation>A felhasználónév már létezik</translation>
+        <translation>Nama pengguna ini telah wujud</translation>
     </message>
     <message>
         <source>The first letter must be in lowercase</source>
-        <translation>Az első betűnek kis betűnek kell lennie</translation>
+        <translation>Abjad pertama mesti dalam huruf kecil</translation>
     </message>
     <message>
         <source>Username can only contain lowercase letters, numbers and symbols (_-)</source>
-        <translation>A felhasználónév csak kisbetűket, számokat és szimbólumokat tartalmazhat (_-)</translation>
+        <translation>Nama pengguna hanya boleh mengandungi abjad berhuruf kecil, angka dan simbol (_-)</translation>
     </message>
     <message>
         <source>Username must contain English letters (lowercase), numbers or special symbols (_-)</source>
-        <translation>A felhasználónévnek tartalmaznia kell angol betűket (kisbetűk), számokat vagy speciális szimbólumokat (_-)</translation>
+        <translation>Nama pengguna mesti mengandungi abjad bahasa Inggeris (huruf kecil), nombor atau simbol khas (_-)</translation>
     </message>
     <message>
         <source>Please input a username longer than %1 characters and shorter than %2 characters</source>
-        <translation>Kérjük adjon meg egy felhasználónevet ami hosszabb mint %1 karakter és rövidebb mint %2 karakter</translation>
+        <translation>Sila masukkan nama pengguna lebih dari %1 aksara dan kurang dari %2 aksara</translation>
     </message>
     <message>
         <source>Please input computer name</source>
-        <translation>Kérjük adja meg a számítógép nevét</translation>
+        <translation>Sila masukkan nama komputer</translation>
     </message>
     <message>
         <source>Computer name is invalid</source>
-        <translation>Érvénytelen számítógépnév</translation>
+        <translation>Nama komputer tidak sah</translation>
     </message>
     <message>
         <source>Computer name already exists, please input another one</source>
-        <translation>Ez a számítógép név már létezik, kérjük adjon meg egy másik nevet</translation>
+        <translation>Nama komputer sudah wujud, sila masukkan yang lain</translation>
     </message>
     <message>
         <source>Please input a computer name longer than %1 characters and shorter than %2 characters</source>
-        <translation>Kérjük adjon meg egy számítógép nevet ami hosszabb mint %1 karakter és rövidebb mint %2 karakter</translation>
+        <translation>Sila masukkan nama komputer lebih dari %1 aksara dan kurang dari %2 aksara</translation>
     </message>
     <message>
         <source>Password must be between %1 and %2 characters</source>
-        <translation>A jelszónak %1 és %2 karakter között kell lennie</translation>
+        <translation>Kata laluan mesti antara %1 hingga %2 aksara</translation>
     </message>
     <message>
         <source>Set Keyboard Layout</source>
-        <translation>Billentyűzetkiosztás beállítása</translation>
+        <translation>Tetapkan Bentangan Papan Kekunci</translation>
     </message>
     <message>
         <source>Select a proper keyboard layout</source>
-        <translation>Válassza ki a megfelelő billentyűzetkiosztást</translation>
+        <translation>Pilih satu bentangan papan kekunci yang sesuai</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
-        <translation>Billentyűzetkiosztás</translation>
+        <translation>Bentangan Papan Kekunci</translation>
     </message>
     <message>
         <source>Change time</source>
-        <translation>Idő módosítása</translation>
+        <translation>Ubah waktu</translation>
     </message>
     <message>
         <source>hr</source>
-        <translation>ó</translation>
+        <translation>j</translation>
     </message>
     <message>
         <source>min</source>
-        <translation>p</translation>
+        <translation>min</translation>
     </message>
     <message>
         <source>Y</source>
-        <translation>É</translation>
+        <translation>T</translation>
     </message>
     <message>
         <source>M</source>
-        <translation>Hó.</translation>
+        <translation>B</translation>
     </message>
     <message>
         <source>D</source>
-        <translation>N</translation>
+        <translation>H</translation>
     </message>
     <message>
         <source>Select Components</source>
-        <translation>Összetevők kiválasztása</translation>
+        <translation>Pilih Komponen</translation>
     </message>
     <message>
         <source>Basic Environment</source>
-        <translation>Alapszintű környezet</translation>
+        <translation>Persekitaran Asas</translation>
     </message>
     <message>
         <source>Select the components according to your needs</source>
-        <translation>Válassza ki az összetevőket az Ön igényeinek megfelelően</translation>
+        <translation>Pilih komponen berdasarkan keperluan anda</translation>
     </message>
     <message>
         <source>Add-Ons</source>
-        <translation>Kiegészítők</translation>
+        <translation>Tambahan</translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation>Összes kiválasztása</translation>
+        <translation>Pilih Semua</translation>
     </message>
     <message>
         <source>Installation Failed</source>
-        <translation>Sikertelen telepítés</translation>
+        <translation>Pemasangan Gagal</translation>
     </message>
     <message>
         <source>Sorry for the trouble. Please take photos of the below error log, or save it to an external disk, or scan the QR code, and send the log to us. We will help solve your issue.</source>
-        <translation>Elnézést kérünk a kellemetlenségekért. Készítsen egy fényképeket az alábbi hibanaplóról, vagy mentse el egy külső lemezre, vagy olvassa be a QR-kódot, és küldje el nekünk a naplót. Mi segítünk megoldani a problémát.</translation>
+        <translation>Maaf atas masalah yang berlaku, Sila ambil gambar log ralat di bawah, atau simpan log ke dalam cakera luar, atau imbas kod QR, dan hantar kepada kami log tersebut. Kami akan cuba menyelesaikan masalah anda.</translation>
     </message>
     <message>
         <source>Sorry for the trouble. Please take a photo to send us the error log, or save the log to an external disk. We will help solve the issue.</source>
-        <translation>Elnézést a kellemetlenségekért. Kérjük készítsen egy fényképet a hibanapló elküldéséhez, vagy mentse a naplót egy külső lemezre. Mi segítünk a probléma megoldásában.</translation>
+        <translation>Maaf atas masalah yang berlaku, Sila ambil gambar dan hantar kepada kami log ralat tersebut, atau simpan log ke dalam cakera luar. Kami akan cuba menyelesaikan masalah ini.</translation>
     </message>
     <message>
         <source>Save Log</source>
-        <translation>Napló mentése</translation>
+        <translation>Simpan Log</translation>
     </message>
     <message>
         <source>Install</source>
-        <translation>Telepítés</translation>
+        <translation>Pasang</translation>
     </message>
     <message>
         <source>Installing</source>
-        <translation>Telepítés</translation>
+        <translation>Memasang</translation>
     </message>
     <message>
         <source>Show log</source>
-        <translation>Napló mutatása</translation>
+        <translation>Tunjuk log</translation>
     </message>
     <message>
         <source>Hide log</source>
-        <translation>Napló elrejtése</translation>
+        <translation>Sembunyi log</translation>
     </message>
     <message>
         <source>Reboot Now</source>
-        <translation>Újraindítás most</translation>
+        <translation>But Semula Sekarang</translation>
     </message>
     <message>
         <source>Successfully Installed</source>
-        <translation>A telepítés sikeresen megtörtént</translation>
+        <translation>Pemasangan Berjaya</translation>
     </message>
     <message>
         <source>Click the button below and then remove the installation media immediately</source>
-        <translation>Kattintson az alábbi gombra, majd azonnal távolítsa el a telepítési adathordozót</translation>
+        <translation>Klik butang di bawah dan kemudian terus tanggalkan media pemasangan</translation>
     </message>
     <message>
         <source>Reboot to discover and enjoy system features</source>
-        <translation>Indítsa újra, hogy felfedezze és élvezze a rendszer funkcióit</translation>
+        <translation>But semula untuk terokai dan menikmati ciri-ciri sistem</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>Szerkesztés</translation>
+        <translation>Sunting</translation>
     </message>
     <message>
         <source>IP Address</source>
-        <translation>IP cím</translation>
+        <translation>Alamat IP</translation>
     </message>
     <message>
         <source>Netmask</source>
-        <translation>Alhálózati maszk</translation>
+        <translation>Topeng Internet</translation>
     </message>
     <message>
         <source>Gateway</source>
-        <translation>Átjáró</translation>
+        <translation>Get Laluan</translation>
     </message>
     <message>
         <source>Primary DNS</source>
-        <translation>Elsődleges DNS</translation>
+        <translation>DNS Utama</translation>
     </message>
     <message>
         <source>Secondary DNS</source>
-        <translation>Másodlagos DNS</translation>
+        <translation>DNS Kedua</translation>
     </message>
     <message>
         <source>IP:</source>
@@ -935,23 +935,23 @@
     </message>
     <message>
         <source>Gateway:</source>
-        <translation>Átjáró:</translation>
+        <translation>Get Laluan:</translation>
     </message>
     <message>
         <source>Primary DNS:</source>
-        <translation>Elsődleges DNS:</translation>
+        <translation>DNS Utama:</translation>
     </message>
     <message>
         <source>Secondary DNS:</source>
-        <translation>Másodlagos DNS:</translation>
+        <translation>DNS Kedua:</translation>
     </message>
     <message>
         <source>IP Address:</source>
-        <translation>IP cím:</translation>
+        <translation>Alamat IP:</translation>
     </message>
     <message>
         <source>Netmask:</source>
-        <translation>Alhálózati maszk:</translation>
+        <translation>Topeng Internet:</translation>
     </message>
     <message>
         <source>DHCP:</source>
@@ -959,99 +959,99 @@
     </message>
     <message>
         <source>Auto</source>
-        <translation>Automatikus</translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <source>Manual</source>
-        <translation>Kézi</translation>
+        <translation>Manual</translation>
     </message>
     <message>
         <source>Illegal %1, please have a check.</source>
-        <translation>%1 nem megengedett, kérjük ellenőrizze.</translation>
+        <translation>%1 tidak sah, sila periksa sekali lagi.</translation>
     </message>
     <message>
         <source>IP address error: illegal IP address, please have a check.</source>
-        <translation>IP címhiba: nem megengedett IP cím, kérjük ellenőrizze.</translation>
+        <translation>Ralat alamat IP: alamat IP tidak sah, sila semak balik.</translation>
     </message>
     <message>
         <source>Netmask error: illegal netmask, please have a check.</source>
-        <translation>Alhálózati maszk hiba: nem megengedett alhálózati maszk, kérjük ellenőrizze.</translation>
+        <translation>Ralat topeng internet: topeng internet tidak sah, sila semak semula.</translation>
     </message>
     <message>
         <source>Configure Network</source>
-        <translation>Hálózat beállítása</translation>
+        <translation>Konfigur Rangkaian</translation>
     </message>
     <message>
         <source>IP address has been auto-configured, but you can configure the network as well</source>
-        <translation>Az IP címet automatikusan konfigurálták, de beállíthatja a hálózatot is</translation>
+        <translation>Alamat IP telah diauto-konfigur, tetapi anda boleh konfigur rangkaian juga</translation>
     </message>
     <message>
         <source>Create Partitions</source>
-        <translation>Partíciók létrehozása</translation>
+        <translation>Cipta Sekatan</translation>
     </message>
     <message>
         <source>Edit LVM Disk</source>
-        <translation>LVM lemez szerkesztése</translation>
+        <translation>Sunting Cakera LVM</translation>
     </message>
     <message>
         <source>Simple</source>
-        <translation>Egyszerű</translation>
+        <translation>Ringkas</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation>Kibővített</translation>
+        <translation>Lanjutan</translation>
     </message>
     <message>
         <source>Full Disk</source>
-        <translation>Teljes lemez</translation>
+        <translation>Cakera Penuh</translation>
     </message>
     <message>
         <source>Start installation</source>
-        <translation>Telepítés elindítása</translation>
+        <translation>Mulakan pemasangan</translation>
     </message>
     <message>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
-        <translation>A céllemez dinamikus, és az adatok elveszhetnek, ha folytatja. Kérjük először készítsen biztonsági másolatot a fontos fájljairól.</translation>
+        <translation>Cakera sasaran bersifat dinamik, dan data anda mungkin hilang jika diteruskan. Sila menyandar fail-fail penting anda terlebih dahulu.</translation>
     </message>
     <message>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
-        <translation>A céllemez dinamikus, amelyet formázni fog, ha folytatja. Kérjük először készítsen biztonsági másolatot a fontos fájljairól.</translation>
+        <translation>Cakera sasaran bersifat dinamik yang akan diformatkan jika diteruskan. Sila menyandar fail-fail penting anda terlebih dahulu.</translation>
     </message>
     <message>
         <source>System Setup</source>
-        <translation>Rendszer beállítások</translation>
+        <translation>Persediaan Sistem</translation>
     </message>
     <message>
         <source>Choose an option for your system</source>
-        <translation>Válasszon egy lehetőséget a rendszeréhez</translation>
+        <translation>Pilih satu pilihan untuk sistem anda</translation>
     </message>
     <message>
         <source>Install the system in your installation media.</source>
-        <translation>Telepítse a rendszert a telepítési adathordozóra.</translation>
+        <translation>Pasang sistem dalam media pemasangan anda.</translation>
     </message>
     <message>
         <source>Repair</source>
-        <translation>Javítás</translation>
+        <translation>Baiki</translation>
     </message>
     <message>
         <source>Use recovery tools to fix system issues.</source>
-        <translation>A rendszerproblémák kijavításához használja helyreállítási eszközöket.</translation>
+        <translation>Guna alatan pemulihan untuk membaiki isu-isu sistem.</translation>
     </message>
     <message>
         <source>Save the error log to a removable device</source>
-        <translation>Mentse a hibanaplót egy cserélhető eszközre</translation>
+        <translation>Simpan log ralat dalam sebuah peranti mudah alih</translation>
     </message>
     <message>
         <source>Save as</source>
-        <translation>Mentés másként</translation>
+        <translation>Simpan sebagai</translation>
     </message>
     <message>
         <source>Friendly Note</source>
-        <translation>Barátságos megjegyzés</translation>
+        <translation>Peringatan Mesra</translation>
     </message>
     <message>
         <source>No swap partition created, which may affect system performance</source>
-        <translation>Nincs létrehozva cserepartíció, ami befolyásolhatja a rendszer teljesítményét</translation>
+        <translation>Tiada sekatan silih dicipta, yang mana boleh menjejaskan prestasi sistem</translation>
     </message>
     <message>
         <source>OK</source>
@@ -1059,143 +1059,143 @@
     </message>
     <message>
         <source>Select Timezone</source>
-        <translation>Időzóna kiválasztása</translation>
+        <translation>Pilih Zon Waktu</translation>
     </message>
     <message>
         <source>Is it the right timezone? You can change it as well</source>
-        <translation>Ez a megfelelő időzóna? Megváltoztathatja azt is</translation>
+        <translation>Adakah zon waktu betul? Anda boleh mengubahnya</translation>
     </message>
     <message>
         <source>Map</source>
-        <translation>Térkép</translation>
+        <translation>Peta</translation>
     </message>
     <message>
         <source>List</source>
-        <translation>Lista</translation>
+        <translation>Senarai</translation>
     </message>
     <message>
         <source>You are installing %1 on a virtual machine which may result in sub-optimal performance. For the best experience, please install %1 on a real machine.</source>
-        <translation>%1 telepítése egy virtuális gépre, ami nem optimális teljesítményt eredményezhet. A legjobb élmény érdekében telepítse a %1 szoftvert egy valós gépre.</translation>
+        <translation>Anda telah memasang %1 secara maya yang boleh mengakibatkan prestasi bawah-optimum. Untuk menikmati pengalaman terbaik, sila pasang %1 dalam komputer fizikal.</translation>
     </message>
     <message>
         <source>%1 %2 (recommended)</source>
-        <translation>%1 %2 (ajánlott)</translation>
+        <translation>%1 %2 (disarankan)</translation>
     </message>
     <message>
         <source>Do not use</source>
-        <translation>Ne használja</translation>
+        <translation>Jangan guna</translation>
     </message>
     <message>
         <source>auto mount</source>
-        <translation>automatikus csatolás</translation>
+        <translation>auto lekap</translation>
     </message>
     <message>
         <source>Logical Partition</source>
-        <translation>Logikai partíció</translation>
+        <translation>Sekatan Logikal</translation>
     </message>
     <message>
         <source>Primary Partition</source>
-        <translation>Elsődleges partíció</translation>
+        <translation>Sekatan Utama</translation>
     </message>
     <message>
         <source>To be formatted</source>
-        <translation>Formázásra kerül</translation>
+        <translation>Akan diformat</translation>
     </message>
     <message>
         <source>System Disk</source>
-        <translation>Rendszerlemez</translation>
+        <translation>Cakera Sistem</translation>
     </message>
     <message>
         <source>Data Disk</source>
-        <translation>Adatlemez</translation>
+        <translation>Cakera Data</translation>
     </message>
     <message>
         <source>Ethernet</source>
-        <translation>Vezetékes hálózat</translation>
+        <translation>Ethernet</translation>
     </message>
     <message>
         <source>WLAN</source>
-        <translation>Vezeték nélküli hálózat</translation>
+        <translation>WLAN</translation>
     </message>
     <message>
         <source>Unknown device</source>
-        <translation>Ismeretlen eszköz</translation>
+        <translation>Peranti tidak diketahui</translation>
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the disk to install.</source>
-        <translation>Győződjön meg arról, hogy készített biztonsági másolatot a fontos adatokról, majd válassza ki a telepítendő lemezt.</translation>
+        <translation>Pastikan anda telah menyandar data penting, kemudian pilih cakera yang hendak dipasangkan.</translation>
     </message>
     <message>
         <source>Insert key: create partition. Delete key: delete partition.</source>
-        <translation>Insert billentyű: partíció létrehozása. Delete billentyű: partíció törlése.</translation>
+        <translation>Kekunci Insert: cipta sekatan. Kekunci Delete: padam sekatan.</translation>
     </message>
     <message>
         <source>%1 error found, fix to continue installation</source>
-        <translation>%1 hiba található, javítsa a telepítés folytatásához</translation>
+        <translation>%1 ralat ditemui, baiki untuk teruskan pemasangan</translation>
     </message>
     <message>
         <source>Create Root Account</source>
-        <translation>Rendszergazdai fiókok létrehozása</translation>
+        <translation>Cipta Akaun Root</translation>
     </message>
     <message>
         <source>Password:</source>
-        <translation>Jelszó:</translation>
+        <translation>Kata Laluan:</translation>
     </message>
     <message>
         <source>System Disk:</source>
-        <translation>Rendszer lemez:</translation>
+        <translation>Cakera Sistem:</translation>
     </message>
     <message>
         <source>Data Disk:</source>
-        <translation>Adat lemez:</translation>
+        <translation>Cakera Data:</translation>
     </message>
     <message>
         <source>Primary partition</source>
-        <translation>Elsődleges partíció</translation>
+        <translation>Sekatan utama</translation>
     </message>
     <message>
         <source>Logical partition</source>
-        <translation>Logikai partíció</translation>
+        <translation>Sekatan logikal</translation>
     </message>
     <message>
         <source>You have an EFI boot loader but an MBR disk, thus you cannot install UOS directly. Please select one of the below solutions and continue.</source>
-        <translation>Ön EFI rendszerindítóval rendelkezik, de MBR lemezzel, így nem tudja közvetlenül telepíteni az UOS®-t. Kérjük válassza az alábbi megoldások egyikét, és folytassa.</translation>
+        <translation>Anda mempunyai pemuat but EFI dalam cakera MBR, maka anda tidak boleh memasang UOS secara terus. Sila pilih salah satu penyelesaian di bawah dan teruskan.</translation>
     </message>
     <message>
         <source>Exit BIOS, and install UOS again</source>
-        <translation>Lépjen ki a BIOS-ból, és telepítse újra az UOS®-t</translation>
+        <translation>Keluar dari BIOS, dan pasang UOS sekali lagi</translation>
     </message>
     <message>
         <source>Select the components according to your needs.</source>
-        <translation>Válassza ki az összetevőket az Ön igényeinek megfelelően.</translation>
+        <translation>Pilih komponen berdasarkan keperluan anda.</translation>
     </message>
     <message>
         <source>Select Item</source>
-        <translation>Elem kiválasztása</translation>
+        <translation>Pilih Item</translation>
     </message>
     <message>
         <source>Change Field</source>
-        <translation>Mező módosítása</translation>
+        <translation>Ubah Bidang</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation>Kiválaszt</translation>
+        <translation>Pilih</translation>
     </message>
     <message>
         <source>Select Keyboard Layout</source>
-        <translation>Billentyűzetkiosztás kiválasztása</translation>
+        <translation>Pilih Bentangan Papan Kekunci</translation>
     </message>
     <message>
         <source>Choose a language used in the installation process, which will also be the default system language.</source>
-        <translation>Válassza ki a telepítés során használt nyelvet, amely egyben az alapértelmezett rendszernyelv is.</translation>
+        <translation>Pilih bahasa yang digunakan dalam proses pemasangan, yang juga menjadi bahasa sistem lalai.</translation>
     </message>
     <message>
         <source>Please agree to the license</source>
-        <translation>Kérjük fogadja el a licensz feltételeket</translation>
+        <translation>Pastikan anda menyetujui lesen</translation>
     </message>
     <message>
         <source>UOS Software End User License Agreement</source>
-        <translation>UOS® szoftver végfelhasználói licencszerződés</translation>
+        <translation>Perjanjian Lesen Pengguna Akhir Perisian UOS</translation>
     </message>
     <message>
         <source>%1 %2 %3 %4</source>
@@ -1203,116 +1203,116 @@
     </message>
     <message>
         <source>Configure Ethernet according to your needs, but you can skip it as well.</source>
-        <translation>Konfigurálja a vezetékes hálózatot igényei szerint, de ezt ki is hagyhatja.</translation>
+        <translation>Konfigur Ethernet berdasarkan keperluan anda, tetapi anda boleh langkau dahulu.</translation>
     </message>
     <message>
         <source>Set the IP address, gateway, netmask, DNS please.</source>
-        <translation>Kérjük állítsa be az IP címet, az átjárót, a hálózati maszkot, a DNS-t.</translation>
+        <translation>Tetapkan alamat IP, get laluan, topeng Internet, DNS juga.</translation>
     </message>
     <message>
         <source>Network connection error, check the configuration please</source>
-        <translation>Hálózati csatlakozási hiba, kérjük ellenőrizze a beállításokat</translation>
+        <translation>Ralat sambungan rangkaian, sila periksa konfigurasi</translation>
     </message>
     <message>
         <source>Configure Now</source>
-        <translation>Beállítás most</translation>
+        <translation>Konfigur Sekarang</translation>
     </message>
     <message>
         <source>Skip</source>
-        <translation>Kihagyás</translation>
+        <translation>Langkau</translation>
     </message>
     <message>
         <source>e.g., 255.255.255.0</source>
-        <translation>pl., 255.255.255.0</translation>
+        <translation>cth., 255.255.255.0</translation>
     </message>
     <message>
         <source>e.g., 192.168.30.30</source>
-        <translation>pl., 192.168.30.30</translation>
+        <translation>cth., 192.168.30.30</translation>
     </message>
     <message>
         <source>Make sure you have backed up important data, then select the partition mode.</source>
-        <translation>Győződjön meg arról, hogy készített biztonsági másolatot a fontos adatokról, majd válassza a partíciós módot.</translation>
+        <translation>Pastikan anda telah menyandar data penting, kemudian pilih mod sekatan.</translation>
     </message>
     <message>
         <source>Partition mode</source>
-        <translation>Partíciós mód</translation>
+        <translation>Mod sekatan</translation>
     </message>
     <message>
         <source>Set Root Password</source>
-        <translation>Rendszergazdai jelszó beállítása</translation>
+        <translation>Tetapkan Kata Laluan Root</translation>
     </message>
     <message>
         <source>If you check &quot;Set as root password&quot;, the root password is the same as the password, otherwise, you need to set it separately.</source>
-        <translation>Ha bejelöli a &quot;Beállítás rendszergazdai jelszóként&quot; lehetőséget, akkor a rendszergazda jelszó megegyezik a jelszóval, egyéb esetben külön kell beállítania.</translation>
+        <translation>Jika anda menanda &quot;Tetapkan sebagai kata laluan root&quot;, kata laluan root adalah sama dengan kata laluan, melainkan, anda menetapkannya secara berasingan.</translation>
     </message>
     <message>
         <source>Your root password should be different from the user password, please take care of them.</source>
-        <translation>A rendszergazdai jelszónak különböznie kell a felhasználói jelszótól, kérjük vigyázzon rájuk.</translation>
+        <translation>Kata laluan root anda mesti berbeza dengan kata laluan pengguna, anda perlu lebih berhati-hati.</translation>
     </message>
     <message>
         <source>Is it the right timezone? You can change it as well.</source>
-        <translation>Ez a megfelelő időzóna? Megváltoztathatja azt is.</translation>
+        <translation>Adakah zon waktu betul? Anda boleh mengubahnya.</translation>
     </message>
     <message>
         <source>Select system language</source>
-        <translation>Válassza ki az operációs rendszer nyelvét</translation>
+        <translation>Pilih bahasa sistem</translation>
     </message>
     <message>
         <source>Welcome to install UOS</source>
-        <translation>Üdvözli az UOS® telepítő</translation>
+        <translation>Selamata datang ke pemasangan UOS</translation>
     </message>
     <message>
         <source>The password cannot be empty​</source>
-        <translation>A jelszó nem lehet üres</translation>
+        <translation>Kata laluan tidak boleh kosong</translation>
     </message>
     <message>
         <source>Uninstall failed package list:</source>
-        <translation>A sikertelen csomaglisták eltávolítása:</translation>
+        <translation>Senarai pakej gagal dinyahpasang:</translation>
     </message>
     <message>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
-        <translation>A jelszónak tartalmaznia kell a rendelkezésre álló négy karaktertípus közül legalább %1-et: kisbetűk, nagybetűk, számok és szimbólumok (%2)</translation>
+        <translation>Kata laluan seharusnya mengandungi sekurang-kurangnya %1 daripada empat jenis aksara berikut: abjad berhuruf kecil, abjad berhuruf besar, angka, dan simbol (%2)</translation>
     </message>
     <message>
         <source>Password must not contain more than %1 palindrome characters</source>
-        <translation>A jelszó legfeljebb %1 palindróm karaktert tartalmazhat</translation>
+        <translation>Kata laluan tidak boleh mengandungi lebih daripada %1 aksara palindrom</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation>Ne használjon jelszóként gyakori szavakat és kombinációkat</translation>
+        <translation>Jangan guna perkataan dan gabungan umum sebagai kata laluan</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation>Nem felel meg a jelszavakra vonatkozó szabályoknak</translation>
+        <translation>Tidak menepati peraturan kata laluan</translation>
     </message>
     <message>
         <source>No more than %1 consecutive or repeated characters please</source>
-        <translation>Kérjük legfeljebb %1 egymást követő, vagy ismétlődő karaktert használjon</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cloud and Virtualization</source>
-        <translation>Felhő és Virtualizáció</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::ConfirmQuitFrame</name>
     <message>
         <source>Enter the system</source>
-        <translation>Belépés a rendszerbe</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>installer::NetworkEditWidget</name>
     <message>
         <source>Secondary DNS:</source>
-        <translation>Másodlagos DNS:</translation>
+        <translation>DNS Kedua:</translation>
     </message>
 </context>
 <context>
     <name>installer::RepairSystemFramePrivate</name>
     <message>
         <source>Start</source>
-        <translation>Indítás</translation>
+        <translation>Mula</translation>
     </message>
 </context>
 </TS>

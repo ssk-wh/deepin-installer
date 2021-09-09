@@ -12,6 +12,7 @@ set(CREATE_TS_DIR
 find_program(LUPDATE_EXECUTABLE lupdate)
 execute_process(
     COMMAND ${LUPDATE_EXECUTABLE} -source-language en
+    -no-obsolete
     -recursive ${CREATE_TS_DIR}
     -ts ${CMAKE_SOURCE_DIR}/i18n/deepin-installer.ts)
 

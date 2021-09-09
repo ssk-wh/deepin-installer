@@ -287,7 +287,7 @@ QPair<QString, QString> ComponentInstallManager::updateTs(const QString& id) con
     {"core", {::QObject::tr("Core"), ::QObject::tr("Core packages for server OS.")}},
     {"base", {::QObject::tr("Base"), ::QObject::tr("Base packages for server OS.")}},
     {"Basic-Server-Environment", {::QObject::tr("Basic Server Environment"), ::QObject::tr("Applies to standard common service environments, such as Web services and database services.")}},
-    {"Cloud-and-Virtualzalition", {::QObject::tr("Cloud and Virtualzalition"), ::QObject::tr("Applies to IaaS environments, such as virtualization, containers, and clouds.")}},
+    {"Cloud-and-Virtualzalition", {::QObject::tr("Cloud and Virtualization"), ::QObject::tr("Applies to IaaS environments, such as virtualization, containers, and clouds.")}},
     {"Big-Data", {::QObject::tr("Big Data"), ::QObject::tr("Applies to servers that provide parallel processing of massive data.")}},
     {"Server-Environment-with-GUI", {::QObject::tr("Server Environment with GUI"), ::QObject::tr("Operates the services and applications on the graphical user interface.")}},
     {"Custom-Installation", {::QObject::tr("Custom Installation"), ::QObject::tr("Provides most package groups for custom selection, covering minimum to maximum installation.")}},
