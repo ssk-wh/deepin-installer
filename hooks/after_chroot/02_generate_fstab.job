@@ -37,6 +37,13 @@ readonly GENFSTAB="${HOOKS_DIR}/after_chroot/genfstab"
 umount -v /target/media/cdrom
 "${GENFSTAB}" -p -U /target > /target/etc/fstab
 
+lsblk -f -o FSTYPE,UUID |
+while read -r type uuid; do
+    if [ "x$type" = "xswap" ] && [ $(grep -c swap /target/etc/fstab) -eq 0 ]; then
+        printf '%s\t%-10s\t%-10s\t%-10s\t0 0\n\n' "UUID=${uuid}" 'none' 'swap' 'defaults,pri=-2' >> /target/etc/fstab
+    fi
+done
+
 if [ -d /target/${DATA_MOUNT_POINT} ];then
   sed -i '$!N;/\n.*home/!P;D' /target/etc/fstab
   sed -i '/home/d' /target/etc/fstab
