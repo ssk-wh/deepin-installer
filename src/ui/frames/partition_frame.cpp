@@ -210,7 +210,7 @@ void PartitionFrame::autoPart() {
         WriteFullDiskMode(true);
         m_private->partition_model_->autoPart();
     }
-    else if (m_private->full_disk_delegate_->isLvm()) {
+    else if (m_private->full_disk_delegate_->isLvm() && !GetSettingsBool(kPartitionDoAutoPart)) {
         m_private->setupDiskEncrypt(false);
         m_private->partition_model_->autoPart();
     }
