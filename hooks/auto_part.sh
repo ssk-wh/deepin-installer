@@ -225,11 +225,11 @@ create_part() {
   else
     let LVM_NUM++
     part_size=$((part_size - 2))  # LVM需要额外的2Mib空间
-    echo "{LVM_NUM:{${LVM_NUM},label:{${label:-LVM_NUM}} vg_name:{${VG_NAME}}"
-    lvcreate --wipesignatures y -n"${label:-LVM_NUM}" -L"$part_size" "$VG_NAME" --yes ||\
-    	error "Failed to create logical volume ${label:-LVM_NUM} on $VG_NAME!"  
+    echo "{LVM_NUM:{${LVM_NUM},label:{${label:-LVM_NUM${LVM_NUM}}} vg_name:{${VG_NAME}}"
+    lvcreate --wipesignatures y -n"${label:-LVM_NUM${LVM_NUM}}" -L"$part_size" "$VG_NAME" --yes ||\
+    	error "Failed to create logical volume ${label:-LVM_NUM${LVM_NUM}} on $VG_NAME!"  
 
-    part_path="/dev/$VG_NAME/${label:-LVM_NUM}"
+    part_path="/dev/$VG_NAME/${label:-LVM_NUM${LVM_NUM}}"
   fi
 
   flush_message
@@ -448,7 +448,7 @@ main(){
     echo "policy#:${#part_policy_array[@]} label:${#part_label_array[@]}"
 
     for i in "${!part_policy_array[@]}"; do
-        create_part ${part_policy_array[$i]} ${part_label_array[$i]} $DEVICE
+        create_part "${part_policy_array[$i]}" "${part_label_array[$i]}" "${DEVICE}"
     done
     index=index+1
 
