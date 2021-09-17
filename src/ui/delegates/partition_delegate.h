@@ -101,6 +101,7 @@ public:
                                  const QString&       mount_point,
                                  qint64               total_sectors,
                                  const QString&       label = QString(),
+                                 bool                 isLvm = false,
                                  bool flag = true);
 
     virtual bool createLogicalPartition(const Partition::Ptr partition,
@@ -116,7 +117,9 @@ public:
                                         FsType               fs_type,
                                         const QString&       mount_point,
                                         qint64               total_sectors,
-                                        const QString&       label = QString(), bool flag = true);
+                                        const QString&       label = QString(),
+                                        bool                 isLvm = false,
+                                        bool flag = true);
 
     virtual void deletePartition(const Partition::Ptr partition);
 

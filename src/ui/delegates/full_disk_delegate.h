@@ -82,8 +82,6 @@ class FullDiskDelegate : public partition::Delegate{
 
   void setAutoInstall(bool autoinstall);
 
-  // 通过分区挂载点返回分区是否配置成lvm
-  bool isLvm(const QString &mountPoint);
   // 返回分区是否配置了lvm分区
   bool isLvm();
 

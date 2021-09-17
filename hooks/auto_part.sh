@@ -198,7 +198,7 @@ create_part() {
       lvm_type)
         _part_fs=''
         PART_TYPE="primary"
-        [ ! EFI ] && [ $PART_NUM -gt 4 ] && PART_NUM=3
+        [ "x$EFI" != "xtrue" ] && [ $PART_NUM -gt 4 ] && PART_NUM=3
         ;;
       recovery)
         _part_fs=ext4;;

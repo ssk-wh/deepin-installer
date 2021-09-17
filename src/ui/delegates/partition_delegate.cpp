@@ -284,6 +284,7 @@ bool Delegate::createPartition(const Partition::Ptr partition,
                                const QString&       mount_point,
                                qint64               total_sectors,
                                const QString&       label,
+                               bool                 isLvm,
                                bool flag)
 {
     Device::Ptr device = findDevice(partition->device_path);
@@ -304,7 +305,7 @@ bool Delegate::createPartition(const Partition::Ptr partition,
 
     if (partition_type == PartitionType::Normal) {
         return createPrimaryPartition(partition, partition_type, align_start, fs_type,
-                                      mount_point, total_sectors, label, flag);
+                                      mount_point, total_sectors, label, isLvm, flag);
     }
     else if (partition_type == PartitionType::Logical) {
         return createLogicalPartition(partition, align_start, fs_type, mount_point,
@@ -453,6 +454,7 @@ bool Delegate::createPrimaryPartition(const Partition::Ptr partition,
                                       const QString&       mount_point,
                                       qint64               total_sectors,
                                       const QString&       label,
+                                      bool                 isLvm,
                                       bool flag)
 {
     // Policy:
@@ -524,13 +526,16 @@ bool Delegate::createPrimaryPartition(const Partition::Ptr partition,
     new_partition->fs          = fs_type;
     new_partition->mount_point = mount_point;
     new_partition->label       = label;
+    new_partition->is_lvm      = isLvm;
 
-    int partition_number = AllocPrimaryPartitionNumber(device);
-    if (partition_number < 0) {
-        qCritical() << "Failed to allocate primary partition number!";
-        return false;
+    if (device->device_type == DeviceType::VGDevice || !new_partition->is_lvm) {
+        int partition_number = AllocPrimaryPartitionNumber(device);
+        if (partition_number < 0) {
+            qCritical() << "Failed to allocate primary partition number!";
+            return false;
+        }
+        new_partition->changeNumber(partition_number);
     }
-    new_partition->changeNumber(partition_number);
 
     if (fs_type == FsType::Recovery) {
         // Hide recovery partition

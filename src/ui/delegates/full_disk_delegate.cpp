@@ -426,6 +426,7 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
     operation->applyToVisual(device);
 
     int            primary_count { 0 };
+    bool           hasVG = false;
     const uint     swapSize{ getSwapSize() };
     qint64         startSector{ 0 };
     qint64         endSector { device->length - 1 };
@@ -531,11 +532,17 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
         }
 
         bool is_primary = ((device->table == PartitionTableType::GPT) ||
-                           (primary_count < (device->max_prims - 1)));
+                           (primary_count < (device->max_prims - 1))  ||
+                           policy.isLvm);
         policy.partitionType =
             is_primary ? PartitionType::Normal : PartitionType::Logical;
 
-        if (is_primary) {
+        if (policy.isLvm && !hasVG) {
+            hasVG = true;
+            primary_count++;
+        }
+
+        if (!policy.isLvm && is_primary) {
             primary_count++;
         }
 
@@ -567,7 +574,7 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
                  << policy.label;
         // alignStart is always true ,since policies are sorted by start_sector
         if (!createPartition(unallocated, policy.partitionType, true, policy.filesystem,
-                    policy.mountPoint, policy.sectors,policy.label)) {
+                    policy.mountPoint, policy.sectors,policy.label, policy.isLvm)) {
             return false;
         }
 
@@ -637,7 +644,7 @@ void FullDiskDelegate::getFinalDiskResolution(FinalFullDiskResolution& resolutio
         policy.size = (op->new_partition->end_sector - op->new_partition->start_sector) *
                 op->new_partition->sector_size;
         policy.device = op->new_partition->device_path;
-        policy.isLvm = this->isLvm(op->new_partition->mount_point);
+        policy.isLvm = op->new_partition->is_lvm;
 
         if (option.policy_list.length() > 0
             && option.policy_list.last().device != policy.device) {
@@ -658,17 +665,6 @@ void FullDiskDelegate::getFinalDiskResolution(FinalFullDiskResolution& resolutio
 void FullDiskDelegate::setAutoInstall(bool autoinstall)
 {
     m_autoInstall = autoinstall;
-}
-
-bool FullDiskDelegate::isLvm(const QString &mountPoint)
-{
-    for (int i = 0; i < m_FullDiskPolicyList.size(); i++) {
-        if (m_FullDiskPolicyList.at(i).mountPoint == mountPoint) {
-            return m_FullDiskPolicyList.at(i).isLvm;
-        }
-    }
-
-    return false;
 }
 
 bool FullDiskDelegate::isLvm()
