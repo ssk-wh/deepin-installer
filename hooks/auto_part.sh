@@ -378,7 +378,7 @@ get_part_mountpoint() {
     elif [ "x$LABEL" = "xBackup" ];then
         echo "/recovery"
     elif [ "x$LABEL" = "xSWAP" ];then
-	 echo "swap"
+	      echo "swap"
     elif [ "x$LABEL" = "xRoota" ];then
         echo "/"
     elif [ "x$LABEL" = "x_dde_data" ];then
@@ -415,7 +415,7 @@ main(){
 
      DEVICE_SIZE=0
      AVL_SIZE=0
-     PART_NUM=0
+     #PART_NUM=0
      LVM_NUM=0
      LAST_END=1
 
@@ -438,14 +438,19 @@ main(){
     PART_LABEL=$(installer_get ${policy_name_label}${index})
     echo "POLICY:{${PART_POLICY}}"
     echo "LABEL:{${PART_LABEL}}"
-
-    delete_lvm "$DEVICE"
-    delete_crypt_lvm "$DEVICE"
-    new_part_table "$DEVICE"
-
     local part_policy_array=(${PART_POLICY//;/ })
     local part_label_array=(${PART_LABEL//;/ })
     echo "policy#:${#part_policy_array[@]} label:${#part_label_array[@]}"
+
+    if [ x$(installer_get "multi_system_eanble") = "xtrue" ]; then
+      echo "multi_system is true"
+      PART_NUM=$(installer_get DI_PART_NUM)
+    else
+      PART_NUM=0
+      delete_lvm "$DEVICE"
+      delete_crypt_lvm "$DEVICE"
+      new_part_table "$DEVICE"
+    fi
 
     for i in "${!part_policy_array[@]}"; do
         create_part "${part_policy_array[$i]}" "${part_label_array[$i]}" "${DEVICE}"
@@ -496,9 +501,9 @@ sava_data() {
         if [ "x$p_label" = "xRoota" ];then
 	     installer_set "DI_ROOT_PARTITION" "$p_path"
         fi
-        if [ "x$p_label" = "xEFI" ]; then
-             installer_set DI_BOOTLOADER "$p_path"
-        fi
+        #if [ "x$p_label" = "xEFI" ]; then
+        #     installer_set DI_BOOTLOADER "$p_path"
+        #fi
         [ -n "$p_mountpoint" ] && MP_LIST="${MP_LIST+$MP_LIST;}$p_path=$p_mountpoint"
     done
   done
@@ -511,6 +516,12 @@ sava_data() {
   check_efi_mode
   if $EFI; then
     installer_set DI_UEFI "true"
+  fi
+
+  # 寻找EFI
+  local part_path=$(fdisk -l -o Device,Type | grep ${part_device_array[0]##*/} | grep EFI | awk '{print $1}')
+  if [ -n $part_path ]; then
+    installer_set "DI_BOOTLOADER" $part_path
   fi
 
   installer_set DI_ROOT_DISK "${part_device_array[0]}"

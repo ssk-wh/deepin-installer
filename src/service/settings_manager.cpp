@@ -740,21 +740,24 @@ void BeforeInstallHook()
         objDir.mkpath(objPath);
     }
 
-    QString path = oemdirpath + subPath;
-    qDebug() << "before installer job path:" << path;
-    QDir dir(path);
-    QStringList const files = dir.entryList(nameFilters, QDir::Files);
-    qDebug() << "before installer job list:" << files;
-    foreach (const QString& f, files) {
-        const QString fileName = path + f;
-        QFile file(objPath + f);
-        if (file.exists()) {
-            file.remove();
-        }
-        if (!QFile::copy(fileName, objPath + f)) {
-            qCritical() << "copy " << fileName << " to " << objPath << " failed!";
-        }
+    QStringList pathlist = {"/usr/share/deepin-installer/hooks/before_install/", oemdirpath + subPath};
 
+    for (int i =0; i< pathlist.size(); i++) {
+        QString path = pathlist.at(i);
+        qDebug() << "before installer job path:" << path;
+        QDir dir(path);
+        QStringList const files = dir.entryList(nameFilters, QDir::Files);
+        qDebug() << "before installer job list:" << files;
+        foreach (const QString& f, files) {
+            const QString fileName = path + f;
+            QFile file(objPath + f);
+            if (file.exists()) {
+                file.remove();
+            }
+            if (!QFile::copy(fileName, objPath + f)) {
+                qCritical() << "copy " << fileName << " to " << objPath << " failed!";
+            }
+        }
     }
 
     //TODO

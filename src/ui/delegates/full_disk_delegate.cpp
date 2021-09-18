@@ -434,13 +434,22 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
     Partition::Ptr unallocated = device->partitions.last();
 
     const qint64 oneMebiByteSector = 1 * kMebiByte / device->sector_size;
-    startSector = oneMebiByteSector;
-    lastDeviceLenght -= oneMebiByteSector;
+    if ( GetSettingsBool("multi_system_eanble") ){
+        qint64 startSectorfromshell = GetSettingsString("DI_INSTALL_STARTPOS").toLongLong();
+        startSector = startSectorfromshell / kKibiByte / 2 ;
+        device->partitions[0]->start_sector = startSector;
+        lastDeviceLenght -= startSectorfromshell;
+        qWarning() << "lastDeviceLenght is : " << lastDeviceLenght << "DI_INSTALL_STARTPOS is : " << startSectorfromshell << "startSector is : " << startSector << "device->sector_size is : " << device->sector_size;
+    } else {
+        startSector = oneMebiByteSector;
+        lastDeviceLenght -= oneMebiByteSector;
+    }
+
     qint64 adjust_start_offset_sector = startSector;
     int root_size_count { 0 };
     int percent100_count { 0 };
 
-    if (IsEfiEnabled() && option.is_system_disk && GetCurrentPlatform() != "sw" && GetSettingsBool(kSystemIsCreateEFI)) {
+    if (IsEfiEnabled() && option.is_system_disk && GetCurrentPlatform() != "sw" && GetSettingsBool(kSystemIsCreateEFI) && !GetSettingsBool("multi_system_eanble")) {
         const qint64 uefiSize =
             ParsePartitionSize("300Mib", lastDeviceLenght * device->sector_size);
         if (!createPrimaryPartition(unallocated, PartitionType::Normal, true, FsType::EFI,

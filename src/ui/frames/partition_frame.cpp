@@ -249,6 +249,10 @@ void PartitionFrame::onAutoInstallPrepareFinished(bool finished)
         m_private->setupDiskEncrypt(false);
         m_private->partition_model_->autoPart();
     }
+    else if (GetSettingsBool(kMultiSystemEanble)) {
+        m_private->setupDiskEncrypt(false);
+        m_private->partition_model_->autoPart();
+    }
     else {
         m_private->partition_model_->manualPart(list);
     }
@@ -579,10 +583,13 @@ void PartitionFramePrivate::initConnections() {
           this, &PartitionFramePrivate::showMainFrame);
   connect(prepare_install_frame_, &PrepareInstallFrame::finished, this, [=] {
       if ((!GetSettingsBool(KPartitionSkipFullCryptPage) && this->isEncrypt()) || this->isEnSaveData() || full_disk_delegate_->isLvm()) {
-        q_ptr->autoPart();
-        q_ptr->m_proxy->nextFrame();
-      }
-      else {
+          q_ptr->autoPart();
+          q_ptr->m_proxy->nextFrame();
+      } else if (GetSettingsBool(kMultiSystemEanble)) {
+          setupDiskEncrypt(false);
+          partition_model_->autoPart();
+          q_ptr->m_proxy->nextFrame();
+      } else {
         onPrepareInstallFrameFinished();
       }
   });
