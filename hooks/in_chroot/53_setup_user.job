@@ -62,14 +62,15 @@ setup_username_password_hostname() {
 
   msg "====== User info ======"
   msg "create user: ${DI_USERNAME}"
-  if [[ -d /home/${DI_USERNAME} ]]; then
-      mv /home/${DI_USERNAME} /home/${DI_USERNAME}_recoverry
-      userdel ${DI_USERNAME}
-  fi
-  groupdel ${DI_USERNAME}
-  groupdel ${DI_USERNAME}
 
-  useradd -U -m --skel /etc/skel --shell /bin/bash ${DI_USERNAME}
+  local cmd_argc="-U -m --skel /etc/skel --shell /bin/bash"
+  if [[ -d /home/${DI_USERNAME} ]]; then
+      cmd_argc="-U --shell /bin/bash"
+  fi
+
+  useradd $cmd_argc ${DI_USERNAME}
+   # 补全原用户目录
+  rsync -a --ignore-existing /etc/skel/ /home/${DI_USERNAME}
 
   # Update password.
   if [ -z "${DI_PASSWORD}" ]; then
@@ -142,10 +143,6 @@ EOF
 
   hostnamectl set-hostname ${DI_HOSTNAME}
 
-if [[ -d /home/${DI_USERNAME}_recoverry ]]; then
-   rm -rf /home/${DI_USERNAME}
-   mv /home/${DI_USERNAME}_recoverry /home/${DI_USERNAME}
-fi
 }
 
 # Setup in in_chroot, used in first boot setup phrase,

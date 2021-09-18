@@ -387,3 +387,24 @@ EOF
     fi
     chech_use_crypt  # 清空配置文件中的密码
 }
+
+save_old_user_data() {
+    local WORK_DIR="/home"
+    local USERNAME=$(installer_get DI_USERNAME)
+    local DIR_LISTS=$(ls $WORK_DIR | grep -v "^${USERNAME}$" \
+        | xargs -I {} echo $WORK_DIR/{} | xargs echo)
+
+    local DEBUG_FLAG=$(installer_get system_debug)
+    local CMD_ARGS="-a --progress --remove-source-files"
+
+    if [ "x$DEBUG_FLAG" != "xtrue"  ]; then
+        CMD_ARGS="-a --remove-source-files"
+    fi
+
+    echo "DIR_LISTS=$DIR_LISTS"
+    if [ -n "$DIR_LISTS" ]; then
+        rsync $CMD_ARGS $DIR_LISTS $WORK_DIR/.old_user_data
+        chown root:root $WORK_DIR/.old_user_data -R
+        rm -fr $DIR_LISTS
+    fi
+}
