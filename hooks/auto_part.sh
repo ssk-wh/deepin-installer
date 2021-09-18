@@ -150,6 +150,9 @@ create_part() {
   local dev=$3
   local swap_size part_path part_mp part_fs _part_fs part_start part_end mapper_name
 
+  echo "label:{${label}}"
+  [[ "${label}" == "null" ]] && label=""
+
   let PART_NUM++
   echo "============PART_NUM: $PART_NUM============"
 
@@ -390,6 +393,17 @@ get_part_mountpoint() {
     fi
 }
 
+proc_empty_str() {
+    local str="$1"
+    while [[ "${str}" =~ ";;" ]]
+    do
+        str=$(echo "${str}" | sed 's/;;/;null;/g')
+    done
+    [[ "${str}" =~ \;$ ]] && str=${str}null
+    [[ "${str}" =~ ^\; ]] && str=null${str}
+    echo ${str}
+}
+
 main(){
   # Based on the following process:
   #  * Umount devices.
@@ -440,8 +454,13 @@ main(){
     PART_LABEL=$(installer_get ${policy_name_label}${index})
     echo "POLICY:{${PART_POLICY}}"
     echo "LABEL:{${PART_LABEL}}"
+
     local part_policy_array=(${PART_POLICY//;/ })
-    local part_label_array=(${PART_LABEL//;/ })
+    local part_label_array=$(proc_empty_str ${PART_LABEL})
+    part_label_array=(${part_label_array//;/ })
+
+    echo "policy:{${part_policy_array[@]}}"
+    echo "label:{${part_label_array[@]}}"
     echo "policy#:${#part_policy_array[@]} label:${#part_label_array[@]}"
 
     if [ x$(installer_get "multi_system_eanble") = "xtrue" ]; then
