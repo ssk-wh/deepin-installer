@@ -2,7 +2,7 @@
         "filesystem": "ext4",
         "mountPoint": "/boot",
         "label": "Boot",
-        "usage": "1536Mib",
+        "usage": "512Mib",
         "alignStart": true,
         "device": "",
         "platform": [ "loongson" , "x86", "arm", "loongarch64" ]
