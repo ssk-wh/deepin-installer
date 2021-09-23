@@ -239,12 +239,13 @@ void PartitionFrame::onAutoInstallPrepareFinished(bool finished)
 
     OperationList list = m_private->full_disk_delegate_->operations();
 
-    if (m_private->full_disk_delegate_->isLvm()) {
-        m_private->setupDiskEncrypt(false);
-        m_private->partition_model_->autoPart();
-    } else if (GetSettingsBool(kPartitionDoAutoPartCrypt)) {
+    if (GetSettingsBool(kPartitionDoAutoPartCrypt)) {
         m_private->setupDiskEncrypt(true);
         WriteFullDiskEncryptPassword(GetSettingsString(kDiskCryptPassword));
+        m_private->partition_model_->autoPart();
+    }
+    else if (m_private->full_disk_delegate_->isLvm()) {
+        m_private->setupDiskEncrypt(false);
         m_private->partition_model_->autoPart();
     }
     else {
