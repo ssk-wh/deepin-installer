@@ -276,7 +276,6 @@ void FullDiskFrame::initUI() {
   m_saveDataCheck->setObjectName("check_box");
   m_saveDataCheck->setCheckable(true);
   m_saveDataCheck->setChecked(false);
-  m_saveDataCheck->hide();
   addTransLate(m_trList, std::bind(&QCheckBox::setText, m_saveDataCheck, std::placeholders::_1), ::QObject::tr("Save User Data"));
 
   m_encryptCheck = new QCheckBox;
@@ -529,15 +528,10 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
     emit showDeviceInfomation();
 
     // 设置显示保留用户数据勾选控件
-    Device::Ptr checkdevice = part_button->device();
-    if (m_saveDataCheck->isVisible()) {
-        return;
-    } else {
-        bool testexistdata = isExistDataPart(checkdevice);
-        bool testfulldiskencrypt = isFullDiskEncrypt(checkdevice);
-        if(testexistdata && (!testfulldiskencrypt)) {
-            emit showSaveDataPopWidget();
-        }
+    bool testexistdata = isExistDataPart(part_button->device());
+    bool testfulldiskencrypt = isFullDiskEncrypt(part_button->device());
+    if(testexistdata && (!testfulldiskencrypt)) {
+        emit showSaveDataPopWidget();
     }
   }
 }
@@ -565,14 +559,10 @@ void FullDiskFrame::onCurrentDeviceChanged(int type, const Device::Ptr device)
     }
 
     // 设置显示保留用户数据勾选控件
-    if (m_saveDataCheck->isVisible()) {
-        return;
-    } else {
-        bool testexistdata = isExistDataPart(device);
-        bool testfulldiskencrypt = isFullDiskEncrypt(device);
-        if(testexistdata && (!testfulldiskencrypt)) {
-            emit showSaveDataPopWidget();
-        }
+    bool testexistdata = isExistDataPart(device);
+    bool testfulldiskencrypt = isFullDiskEncrypt(device);
+    if(testexistdata && (!testfulldiskencrypt)) {
+        emit showSaveDataPopWidget();
     }
 }
 

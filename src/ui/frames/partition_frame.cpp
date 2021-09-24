@@ -117,6 +117,7 @@ public:
      void showEncryptFrame();
      void showDynamicDiskFrame();
      void showPrepareInstallFrame();
+     void ShowSaveDataPopWidget();
 
      bool isEncrypt();
      bool isEnSaveData();
@@ -659,9 +660,7 @@ void PartitionFramePrivate::initConnections() {
       nextButton->setEnabled(enable);
   });
 
-  connect(full_disk_partition_frame_, &FullDiskFrame::showSaveDataPopWidget, this, [=] {
-     q_ptr->m_proxy->showChildFrame(save_data_pop_widget);
-  });
+  connect(full_disk_partition_frame_, &FullDiskFrame::showSaveDataPopWidget, this, &PartitionFramePrivate::ShowSaveDataPopWidget);
 
   connect(full_disk_delegate_, &FullDiskDelegate::requestAutoInstallFinished, q_ptr, &PartitionFrame::onAutoInstallPrepareFinished);
 
@@ -671,19 +670,6 @@ void PartitionFramePrivate::initConnections() {
   });
 
   connect(swap_warnning_frame, &WarnningFrame::quitCanceled, this, [=] {
-      q_ptr->m_proxy->hideChildFrame();
-      q_ptr->repaint();
-  });
-
-  connect(save_data_pop_widget, &WarnningFrame::quitEntered, this, [=] {
-      full_disk_partition_frame_->saveDataStateChanged(true);
-      full_disk_partition_frame_->showSaveDataCheck(true);
-      q_ptr->m_proxy->hideChildFrame();
-      q_ptr->repaint();
-  });
-  connect(save_data_pop_widget, &WarnningFrame::quitCanceled,this, [=] {
-      full_disk_partition_frame_->saveDataStateChanged(false);
-      full_disk_partition_frame_->showSaveDataCheck(false);
       q_ptr->m_proxy->hideChildFrame();
       q_ptr->repaint();
   });
@@ -713,13 +699,6 @@ void PartitionFramePrivate::initUI() {
   full_disk_encrypt_frame_ = new Full_Disk_Encrypt_frame(q_ptr->m_proxy, full_disk_delegate_);
 
   dynamic_disk_warning_frame_ = new DynamicDiskWarningFrame(q_ptr);
-
-  save_data_pop_widget = new WarnningFrame(nullptr);
-  save_data_pop_widget->setTitle("Keep User Data");
-  save_data_pop_widget->setComment("The \"/data/home\" directory is found. If you do not keep it, the data saved in it by previous users will be lost. Keep or delete it?");
-  save_data_pop_widget->setEnterButtonText("Keep");
-  save_data_pop_widget->setCancelButtonText("Delete");
-  save_data_pop_widget->hide();
 
   swap_warnning_frame = new WarnningFrame(q_ptr->m_proxy);
   swap_warnning_frame->useCancelButton(false);
@@ -1213,6 +1192,29 @@ void PartitionFramePrivate::showPrepareInstallFrame()
     main_layout_->setCurrentWidget(prepare_install_frame_);
 
     emit q_ptr->coverMainWindowFrameLabelsView(true);
+}
+
+void PartitionFramePrivate::ShowSaveDataPopWidget()
+{
+    if ( save_data_pop_widget == nullptr ) {
+        save_data_pop_widget = new WarnningFrame(nullptr);
+        save_data_pop_widget->useTitle(false);
+        save_data_pop_widget->setComment("/data/home is detected. If data is not saved, the directory will be formatted. Please confirm whether to format or retain the directory.");
+        save_data_pop_widget->setEnterButtonText("Save");
+        save_data_pop_widget->setCancelButtonText("Format");
+        save_data_pop_widget->hide();
+        connect(save_data_pop_widget, &WarnningFrame::quitEntered, this, [=] {
+            full_disk_partition_frame_->saveDataStateChanged(true);
+            q_ptr->m_proxy->hideChildFrame();
+            q_ptr->repaint();
+        });
+        connect(save_data_pop_widget, &WarnningFrame::quitCanceled,this, [=] {
+            full_disk_partition_frame_->saveDataStateChanged(false);
+            q_ptr->m_proxy->hideChildFrame();
+            q_ptr->repaint();
+        });
+        q_ptr->m_proxy->showChildFrame(save_data_pop_widget);
+    }
 }
 
 bool PartitionFramePrivate::isEncrypt()
