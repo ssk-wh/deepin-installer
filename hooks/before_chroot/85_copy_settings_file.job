@@ -16,6 +16,16 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+copy_X11_screen_conf() {
+    local default_screen_conf="/usr/share/X11/xorg.conf.d/default_screen.conf"
+    local dst="/target/${default_screen_conf}"
+    if [ -f $default_screen_conf ]; then
+        cp -vrf $default_screen_conf $dst
+    fi
+}
+
+copy_X11_screen_conf
+
 # Copy /etc/deepin-installer.conf to /target
 
 if [ -f "${CONF_FILE}" ]; then

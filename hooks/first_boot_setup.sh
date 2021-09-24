@@ -174,12 +174,19 @@ setup_log() {
     encryption_file $FIRST_BOOT_LOG     # 加密first boot日志
 }
 
+clenup_X11_screen_conf() {
+    local default_screen_conf="/usr/share/X11/xorg.conf.d/default_screen.conf"
+    if [ -f $default_screen_conf ]; then
+        rm -vrf $default_screen_conf
+    fi
+}
 
 main() {
   [ -f "${CONF_FILE}" ] || error "deepin-installer.conf not found"
   cat "${CONF_FILE}" | grep -v "PASSWORD" | grep -v "password"
 
   cleanup_first_boot
+  clenup_X11_screen_conf
   setup_lightdm_auto_login
 
   recovery_log

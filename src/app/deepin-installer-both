@@ -35,6 +35,31 @@ parse_cmdline() {
   done
 }
 
+# Step1: generate default_screen.conf
+# Step2: copy default_screen.conf to real system (in before_chroot 85_copy_settings_file.job)
+# Step3: clean up. (in first_boot_setup.sh)
+generate_default_screen_resolution() {
+    local x11_conf_dir="/usr/share/X11/xorg.conf.d/"
+    if [ ! -d $x11_conf_dir ]; then
+        echo "$x11_conf_dir not exists"
+        return 0;
+    fi
+
+    local default_screen_conf=$x11_conf_dir"default_screen.conf"
+    if [ -f $default_screen_conf ]; then
+        rm -rvf $default_screen_conf
+    fi
+
+    cat > "${default_screen_conf}" <<EOF
+Section "Screen"
+    Identifier "Screen0"
+    SubSection "Display"
+        Modes "1920x1080"
+    EndSubSection
+EndSection
+EOF
+}
+
 parse_cmdline
 
 if [ x"$cli_mode" = xtrue ]; then
@@ -42,6 +67,7 @@ if [ x"$cli_mode" = xtrue ]; then
     chvt 2
     systemctl restart deepin-installer-cli
 else
+    generate_default_screen_resolution
     if [ $auto_install_mode -eq 1 ]; then
        /usr/lib/live/config/1081-deepin-auto-install
     else
