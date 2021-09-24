@@ -670,6 +670,11 @@ void PartitionFramePrivate::initConnections() {
       q_ptr->repaint();
   });
 
+  connect(swap_warnning_frame, &WarnningFrame::quitCanceled, this, [=] {
+      q_ptr->m_proxy->hideChildFrame();
+      q_ptr->repaint();
+  });
+
   connect(save_data_pop_widget, &WarnningFrame::quitEntered, this, [=] {
       full_disk_partition_frame_->saveDataStateChanged(true);
       full_disk_partition_frame_->showSaveDataCheck(true);
@@ -710,10 +715,10 @@ void PartitionFramePrivate::initUI() {
   dynamic_disk_warning_frame_ = new DynamicDiskWarningFrame(q_ptr);
 
   save_data_pop_widget = new WarnningFrame(nullptr);
-  save_data_pop_widget->useTitle(false);
-  save_data_pop_widget->setComment("/data/home is detected. If data is not saved, the directory will be formatted. Please confirm whether to format or retain the directory.");
-  save_data_pop_widget->setEnterButtonText("Save");
-  save_data_pop_widget->setCancelButtonText("Format");
+  save_data_pop_widget->setTitle("Keep User Data");
+  save_data_pop_widget->setComment("The \"/data/home\" directory is found. If you do not keep it, the data saved in it by previous users will be lost. Keep or delete it?");
+  save_data_pop_widget->setEnterButtonText("Keep");
+  save_data_pop_widget->setCancelButtonText("Delete");
   save_data_pop_widget->hide();
 
   swap_warnning_frame = new WarnningFrame(q_ptr->m_proxy);

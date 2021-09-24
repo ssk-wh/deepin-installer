@@ -33,6 +33,8 @@ public:
     void useComment(bool isuse);
     void useEnterButton(bool isuse);
     void useCancelButton(bool isuse);
+    void setEnterButtonStyle(const QString &buttonstyle);
+    void setCancelButtonStyle(const QString &buttonstyle);
 
     bool focusSwitch() override;
     bool doSpace() override;
@@ -40,6 +42,7 @@ public:
     bool directionKey(int keyvalue) override;
 
 signals:
+    void quitclosed();
     void quitEntered();
     void quitCanceled();
 
@@ -55,6 +58,7 @@ private:
 
 private:
     QPushButton *m_icoButton = nullptr;
+    QPushButton *m_closeButton = nullptr;
     QString m_titleText = "";
     QString m_commentText = "";
     QString m_enterButtonText = "";

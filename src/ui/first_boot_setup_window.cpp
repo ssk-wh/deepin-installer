@@ -243,6 +243,10 @@ void FirstBootSetupWindow::initConnections() {
         hideChildFrame();
         qApp->setActiveWindow(this);
      });
+    connect(optimize_failed_frame_, &WarnningFrame::quitCanceled, this, [=](){
+        hideChildFrame();
+        qApp->setActiveWindow(this);
+     });
 
     connect(confirm_quit_frame_, &WarnningFrame::quitCanceled, this, [=](){
                hideChildFrame();
@@ -353,8 +357,8 @@ void FirstBootSetupWindow::initPages()
     optimize_failed_frame_ = new WarnningFrame(this);
     optimize_failed_frame_->useTitle(false);
     optimize_failed_frame_->useCancelButton(false);
-    optimize_failed_frame_->setComment("If an unknown fault occurs, the system may not be affected. The system will continue to be installed. If you cannot log in to the system after the installation, reinstall the system");
-    optimize_failed_frame_->setEnterButtonText("OK");
+    optimize_failed_frame_->setComment("An unknown problem has occurred, which may not affect the system running. Please click \"Skip\" to continue the installation. If you cannot enter the system later, please try to reinstall.");
+    optimize_failed_frame_->setEnterButtonText("Skip");
     optimize_failed_frame_->setFocusPolicy(Qt::NoFocus);
     optimize_failed_frame_->hide();
 
@@ -364,6 +368,7 @@ void FirstBootSetupWindow::initPages()
     confirm_quit_frame_->setCancelButtonText("Continue");
     confirm_quit_frame_->setEnterButtonText("Abort");
     confirm_quit_frame_->setFocusPolicy(Qt::NoFocus);
+    confirm_quit_frame_->setEnterButtonStyle("QPushButton{ color:#FF5736;  border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:10px; padding:2px 4px; background-color:rgba(0, 0, 0, 0.05); } QPushButton:focus{ padding: -1; }");
     confirm_quit_frame_->hide();
 
     language_frame_ = new LanguageFrame(this);
@@ -564,8 +569,7 @@ void FirstBootSetupWindow::onHookFinished(bool ok) {
     if (!ok) {
         this->showFailedLog();
     }
-
-    if (QFile::exists("/usr/sbin/lightdm")) {
+    else if (QFile::exists("/usr/sbin/lightdm")) {
         qDebug() << SpawnCmd("systemctl", QStringList() << "restart" << "lightdm");
     }
     else if (!changeToTTY(2)) {

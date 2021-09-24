@@ -17,7 +17,7 @@ ShadowWidget::ShadowWidget(QWidget* parent)
     m_centerLayout->setContentsMargins(0, 0, 0, 0);
     m_centerWidget = new QWidget(this);
     m_centerWidget->setObjectName("centerWidget");
-    m_centerWidget->setStyleSheet("QWidget#centerWidget{ background-color:rgba(0, 0, 0, 125); }");
+    m_centerWidget->setStyleSheet("QWidget#centerWidget{ background-color:rgba(0, 0, 0, 0.3); }");
     m_centerWidget->setLayout(m_centerLayout);
     QVBoxLayout *m_Layout = new QVBoxLayout;
     m_Layout->setContentsMargins(0, 0, 0, 0);
