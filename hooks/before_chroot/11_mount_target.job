@@ -156,26 +156,18 @@ EOF
 fi
 
 if [ -d /target/${DATA_MOUNT_POINT}/ ];then
-    [ -d /target/${DATA_MOUNT_POINT}/home ] && chown -hR root:root /target/${DATA_MOUNT_POINT}/home
     mkdir -p /target/${DATA_MOUNT_POINT}/home
     mkdir -p /target/home
     mount --bind /target/${DATA_MOUNT_POINT}/home /target/home || error "Faild to mount /target/home"
 
-    # 通过/target下面是否有opt来判断是否是旧的data分区中的opt目录
-    [ -d /target/${DATA_MOUNT_POINT}/opt ] && [ ! -d /target/opt ] \
-        && rm -fr /target/${DATA_MOUNT_POINT}/opt
     mkdir -p /target/${DATA_MOUNT_POINT}/opt
     mkdir -p /target/opt
     mount --bind /target/${DATA_MOUNT_POINT}/opt /target/opt || error "Faild to mount /target/opt"
 
-    [ -d /target/${DATA_MOUNT_POINT}/root ] && [ ! -d /target/root ] \
-        && rm -fr /target/${DATA_MOUNT_POINT}/root
     mkdir -p /target/root
     mkdir -p /target/${DATA_MOUNT_POINT}/root
     mount --bind /target/${DATA_MOUNT_POINT}/root /target/root || error "Faild to mount /target/root"
 
-    [ -d /target/${DATA_MOUNT_POINT}/var ] && [ ! -d /target/var ] \
-        && rm -fr /target/${DATA_MOUNT_POINT}/var
     mkdir -p /target/var
     mkdir -p /target/${DATA_MOUNT_POINT}/var
     mount --bind /target/${DATA_MOUNT_POINT}/var /target/var || error "Failed to mount /target/var"

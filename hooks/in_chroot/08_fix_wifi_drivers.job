@@ -42,7 +42,7 @@ fix_8086_9DF0() {
 main() {
     # 控制平台处理
     local fix_wifi_device=$(installer_get "system_fix_wifi_device")
-    if [ "x${fix_wifi_device}$" != "xtrue" ]; then
+    if [ "x${fix_wifi_device}" != "xtrue" ]; then
         fix_8086_34F0
         fix_8086_A0F0
         fix_8086_9DF0

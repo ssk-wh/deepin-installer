@@ -82,6 +82,19 @@ installer_record_set(){
    deepin-installer-settings set "${EXPERIENCE_FILE}" "${recordsession}" "${recordkey}" "${recordvalue}"
 }
 
+# Set value in conf file. Section name is ignored.
+installer_set() {
+  local key="$1"
+  local value="$2"
+  local workspace=$3
+  local CONF_F=$workspace/${CONF_FILE}
+
+  [ -z "${CONF_F}" ] && exit "$CONF_F is not defined"
+  which deepin-installer-settings 1>/dev/null || \
+    exit "deepin-installer-settings not found!"
+  deepin-installer-settings set "${CONF_F}" "${key}" "${value}"
+}
+
 update_local() {
     local DI_LOCALE=$(installer_get "DI_LOCALE")
     DI_LOCALE=${DI_LOCALE:-en_US}
@@ -95,16 +108,6 @@ update_local() {
 update_grub_local() {
     update_local
     [ -x /usr/sbin/update-grub ] && /usr/sbin/update-grub
-}
-
-# Set value in conf file. Section name is ignored.
-installer_set() {
-  local key="$1"
-  local value="$2"
-  [ -z "${CONF_FILE}" ] && exit "CONF_FILE is not defined"
-  which deepin-installer-settings 1>/dev/null || \
-    exit "deepin-installer-settings not found!"
-  deepin-installer-settings set "${CONF_FILE}" "${key}" "${value}"
 }
 
 # Check whether current platform is loongson or not.
@@ -387,18 +390,24 @@ chech_use_crypt(){
 }
 
 update_disk_cryption_passwd(){
-    local crypt_part="/dev/$(lsblk -lf $DI_ROOT_DISK -o NAME,FSTYPE | grep -E "crypto_LUKS" | awk '{print $1}')"
     local old_passwd=$(installer_get DI_CRYPT_PASSWD)
     local new_passwd=$(installer_get DI_NEW_CRYPT_PASSWD)
+    local PART_DEVICE=$(installer_get "DI_FULLDISK_MULTIDISK_DEVICE")
+    local part_device_array=(${PART_DEVICE//;/ })
 
-    if [ -n "$new_passwd" ] && [ -n "$old_passwd" ]; then
-        cryptsetup luksAddKey $crypt_part << EOF
+    for(( i=0;i<${#part_device_array[@]};i++ )) do
+        local device=${part_device_array[i]}
+        local crypt_part="/dev/$(lsblk -lf $device -o NAME,FSTYPE | grep -E "crypto_LUKS" | awk '{print $1}')"
+        if [ -n "$new_passwd" ] && [ -n "$old_passwd" ]; then
+            cryptsetup luksAddKey $crypt_part << EOF
 $old_passwd
 $new_passwd
 $new_passwd
 EOF
-        echo -n "$old_passwd" | cryptsetup luksRemoveKey $crypt_part
-    fi
+            echo -n "$old_passwd" | cryptsetup luksRemoveKey $crypt_part
+        fi
+    done
+
     chech_use_crypt  # 清空配置文件中的密码
 }
 
@@ -420,5 +429,50 @@ save_old_user_data() {
         rsync $CMD_ARGS $DIR_LISTS $WORK_DIR/.old_user_data
         chown root:root $WORK_DIR/.old_user_data -R
         rm -fr $DIR_LISTS
+    fi
+}
+
+skip_disk_crypt() {
+    local workspace=$1
+    local DI_CRYPT_PASSWD=$(installer_get "DI_CRYPT_PASSWD")
+    local DI_ROOT_DISK=$(installer_get "DI_ROOT_DISK")
+    local boot_uuid=$(lsblk -f $DI_ROOT_DISK -o UUID,MOUNTPOINT | grep -E "/target/boot$" | awk '{print $1}')
+
+    local cryp_conf_file=$workspace/etc/crypttab
+    local PART_DEVICE=$(installer_get "DI_FULLDISK_MULTIDISK_DEVICE")
+    local part_device_array=(${PART_DEVICE//;/ })
+
+    for(( i=0;i<${#part_device_array[@]};i++ )) do
+        local device=${part_device_array[i]}
+        # 获取全盘加密的分区设备文件
+        local crypt_path="/dev/$(lsblk -lf $device -o NAME,FSTYPE | grep -E "crypto_LUKS" | awk '{print $1}')"
+        # 获取全盘加密的分区uuid
+        local crypt_uuid=$(lsblk -f $device -o UUID,FSTYPE | grep -E "crypto_LUKS" | awk '{print $1}')
+        echo "disk cyrpt info: device=$device  boot_uuid=$boot_uuid  crypt_path=$crypt_path  crypt_uuid=$crypt_uuid"
+
+        if [ -n "$crypt_uuid" ]; then
+            local luks_name=luks_crypt${i}
+            local key_file=$workspace/etc/deepin/crypt_keyfile_${i}.key
+
+            # 使用随机数创建的密钥文件
+            dd if=/dev/urandom of=$key_file bs=1024 count=4
+            chmod 0400 $key_file
+            # 添加密钥文件到加密设备中
+            echo -n "$DI_CRYPT_PASSWD" | cryptsetup -v luksAddKey $crypt_path $key_file
+            # 备份原始的加密配置文件，方便后续清理
+            [ -f ${cryp_conf_file}.real ] || mv $cryp_conf_file ${cryp_conf_file}.real
+            # 生成keyfile配置
+            echo "$luks_name UUID=$crypt_uuid /etc/deepin/crypt_keyfile_${i}.key luks,initramfs" >> $cryp_conf_file
+        fi
+    done
+    cat $cryp_conf_file
+
+    if [ -n "$DI_CRYPT_PASSWD" ]; then
+        local crypt_initramfs=$workspace/etc/cryptsetup-initramfs/conf-hook
+        [ -f ${crypt_initramfs}.real ] || mv $crypt_initramfs ${crypt_initramfs}.real
+        # 配置自定义keyfile的位置
+        echo "KEYFILE_PATTERN=/etc/deepin/crypt_keyfile_*.key" >> $crypt_initramfs
+        cat $crypt_initramfs
+        chroot $workspace /usr/sbin/update-initramfs -u
     fi
 }

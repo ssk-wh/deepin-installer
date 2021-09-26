@@ -63,6 +63,8 @@ format_part(){
 
   yes |\
   case "$part_fs_" in
+    vfat)
+      mkfs.vfat -F32 -n "$part_label" "$part_path";;
     fat32)
       mkfs.vfat -F32 -n "$part_label" "$part_path";;
     efi)
@@ -481,6 +483,8 @@ sava_data() {
 
   local PART_DEVICE=$(installer_get "DI_FULLDISK_MULTIDISK_DEVICE")
   local part_device_array=(${PART_DEVICE//;/ })
+  local ROOT_DISK="${part_device_array[0]}"
+  local LEN=${#part_device_array[@]}
 
   for j in "${part_device_array[@]}"; do
     DEVICE="${j}"
@@ -494,16 +498,21 @@ sava_data() {
         local p_fs=$(get_part_fstype $DEVICE $p_label)
         local p_mountpoint=$(get_part_mountpoint $p_label)
         echo "part_info: $p_label;$p_path;$p_fs;$p_mountpoint"
-        if [ "x$p_label" != "x_dde_data" && "x$p_label" != "xSWAP" ]; then
+        if [ "x$p_label" != "x_dde_data" ] && [ "x$p_label" != "xSWAP" ]; then
             format_part "$p_path" "$p_fs" "$p_label" ||\
               error "Failed to create $p_fs filesystem on $p_path!"
         fi
         if [ "x$p_label" = "xRoota" ];then
 	     installer_set "DI_ROOT_PARTITION" "$p_path"
         fi
-        #if [ "x$p_label" = "xEFI" ]; then
-        #     installer_set DI_BOOTLOADER "$p_path"
-        #fi
+
+        # 系统和数据盘里都有data分区时，只挂载数据盘里的分区，清理掉系统盘的挂载点
+        [ $LEN -eq 2 ] && [ "x$ROOT_DISK" = "x$DEVICE" ] && [ "x$p_label" = "x_dde_data" ] \
+            && p_mountpoint=""
+        # 系统和数据盘里都全盘安装过系统时，只挂载系统盘里除data分区以外的分区，清理掉数据盘中除data分区以外的分区的挂载点
+        [ $LEN -eq 2 ] && [ "x$ROOT_DISK" != "x$DEVICE" ] && [ "x$p_label" != "x_dde_data" ] \
+            && p_mountpoint=""
+
         [ -n "$p_mountpoint" ] && MP_LIST="${MP_LIST+$MP_LIST;}$p_path=$p_mountpoint"
     done
   done
@@ -519,12 +528,12 @@ sava_data() {
   fi
 
   # 寻找EFI
-  local part_path=$(fdisk -l -o Device,Type | grep ${part_device_array[0]##*/} | grep EFI | awk '{print $1}')
+  local part_path="$(lsblk -lf $ROOT_DISK -o NAME,FSTYPE | grep -E "EFI" | awk '{print $1}')"
   if [ -n $part_path ]; then
-    installer_set "DI_BOOTLOADER" $part_path
+    installer_set "DI_BOOTLOADER" "/dev/$part_path"
   fi
 
-  installer_set DI_ROOT_DISK "${part_device_array[0]}"
+  installer_set DI_ROOT_DISK "$ROOT_DISK"
   installer_set DI_FULLDISK_MODE "true"
 }
 

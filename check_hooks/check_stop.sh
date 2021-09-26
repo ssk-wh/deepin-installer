@@ -3,10 +3,12 @@
 . "/deepin-installer/basic_utils.sh"
 
 clean_disk_cryption() {
-    local key_file=/boot/keyfile
+    local crypt_initramfs=$workspace/etc/cryptsetup-initramfs/conf-hook
     local cryp_conf_file=/etc/crypttab
+    local key_file=/etc/deepin/crypt_keyfile_*.key
 
-    mv ${cryp_conf_file}.real ${cryp_conf_file}
+    [ -f ${crypt_initramfs}.real ] && mv ${crypt_initramfs}.real ${crypt_initramfs}
+    [ -f ${cryp_conf_file}.real ] && mv ${cryp_conf_file}.real ${cryp_conf_file}
     rm -fr $key_file
     /usr/sbin/update-initramfs -u
 }
@@ -18,6 +20,6 @@ clean_check_mode() {
     installer_set "system_check_mode" "false"
 }
 
-clean_disk_cryption
+[ -n "$(installer_get "DI_CRYPT_PASSWD")" ] && clean_disk_cryption
 clean_check_mode
 reboot
