@@ -237,7 +237,21 @@ add_start_option() {
     [ -d /boot/efi/EFI/boot ] || mkdir -p /boot/efi/EFI/boot
     cp -vf /boot/efi/EFI/${bootloader_id}/grub* /boot/efi/EFI/boot/
 
-    # Backup fallback efi first.
+    # 32bit机型默认的efi引导文件
+    fallback_efi=/boot/efi/EFI/boot/bootia32.efi
+    fallback_efi_bak="${fallback_efi}-$(date +%s).bak"
+    [ -f "${fallback_efi}" ] && cp "${fallback_efi}" "${fallback_efi_bak}"
+    # Override fallback efi with shim.
+    cp -vf /boot/efi/EFI/${bootloader_id}/shim*.efi "${fallback_efi}"
+
+    # x86的64bit机型默认的efi引导文件
+    fallback_efi=/boot/efi/EFI/boot/bootx64.efi
+    fallback_efi_bak="${fallback_efi}-$(date +%s).bak"
+    [ -f "${fallback_efi}" ] && cp "${fallback_efi}" "${fallback_efi_bak}"
+    # Override fallback efi with shim.
+    cp -vf /boot/efi/EFI/${bootloader_id}/shim*.efi "${fallback_efi}"
+
+    # arm64的64bit机型默认的efi引导文件
     fallback_efi=/boot/efi/EFI/boot/bootaa64.efi
     fallback_efi_bak="${fallback_efi}-$(date +%s).bak"
     [ -f "${fallback_efi}" ] && cp "${fallback_efi}" "${fallback_efi_bak}"
