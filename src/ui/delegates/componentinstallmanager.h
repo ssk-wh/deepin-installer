@@ -124,6 +124,8 @@ public:
     QPair<QString, QString> updateTs(QSharedPointer<ComponentInfo> info) const;
 
     QStringList integrateList(QList<QSharedPointer<ComponentInfo>> list, const QStringList& packageList) const;
+    // Take the intersection of two lists, keep the order according to the first list.
+    QStringList integrateList(const QStringList& list1, const QStringList& list2) const;
 
     void togglePackageWarning();
 

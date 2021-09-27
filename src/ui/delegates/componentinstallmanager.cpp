@@ -69,10 +69,13 @@ void ComponentInstallManager::readStandartSortFile()
 
 QStringList ComponentInstallManager::getComponentSortList(QSharedPointer<ComponentStruct> componentStruct)
 {
-    for (auto it : m_standartSort) {
-        if(it.first == componentStruct->id()){
-            return it.second;
-        }
+    // Traverse m_standartSort looking for items matching componentStruct->id().
+    auto it = std::find_if(m_standartSort.begin(), m_standartSort.end(), [=] (const QPair<QString, QStringList>& pair) {
+        return pair.first == componentStruct->id();
+    });
+
+    if (it != m_standartSort.end()) {
+        return it->second;
     }
 
     return QStringList();
@@ -123,7 +126,7 @@ QStringList ComponentInstallManager::GetAvailablePackages() const {
         qWarning() << Q_FUNC_INFO << "all package is empty!";
     }
 
-    return QSet<QString>(packagesList & allPack.toSet()).toList();
+    return integrateList(allPack, packagesList.toList());
 }
 
 QSharedPointer<ComponentStruct> ComponentInstallManager::findComponentById(const QString &id)
@@ -214,15 +217,17 @@ ComponentInstallManager::ComponentInstallManager(bool showWarning, QObject *pare
 }
 
 QStringList ComponentInstallManager::integrateList(QList<QSharedPointer<ComponentInfo>> list, const QStringList& packageList) const {
-    const QSet<QString> packagesList{ packageList.toSet() };
-    QSet<QString>       result;
+    QStringList       result;
     for (QSharedPointer<ComponentInfo> info : list) {
         if (!info->Selected) continue;
-        for (QSharedPointer<ComponentInfo> l : m_packageList) {
-            if (l->Id == info->Id) {
-                result += QSet<QString>(l->PackageList.toSet() & packagesList);
-                break;
-            }
+
+        // Traverse m_packageList looking for items matching info->Id.
+        auto it = std::find_if(m_packageList.begin(), m_packageList.end(), [=] (const QSharedPointer<ComponentInfo>& l) {
+            return l->Id == info->Id;
+        });
+
+        if (it != m_packageList.end()) {
+            result += integrateList((*it)->PackageList, packageList);
         }
     }
 
@@ -230,7 +235,20 @@ QStringList ComponentInstallManager::integrateList(QList<QSharedPointer<Componen
         qWarning() << Q_FUNC_INFO << "package list is empty!";
     }
 
-    return result.toList();
+    return result;
+}
+
+QStringList ComponentInstallManager::integrateList(const QStringList &list1, const QStringList &list2) const
+{
+    QStringList tmpList;
+
+    for (auto it : list1) {
+        if (list2.contains(it)) {
+            tmpList << it;
+        }
+    }
+
+    return tmpList;
 }
 
 QStringList ComponentInstallManager::packageListByComponentStruct(QSharedPointer<ComponentStruct> componentStruct) const {
@@ -245,22 +263,26 @@ QStringList ComponentInstallManager::uninstallPackageListByComponentStruct(QShar
     QList<QSharedPointer<ComponentInfo>> uninstallList = componentStruct->uninstall();
     QSet<QString>       result;
     for (QSharedPointer<ComponentInfo> info : uninstallList) {
-        for (QSharedPointer<ComponentInfo> i : m_packageList) {
-            if (info->Id == i->Id) {
-                result += QSet<QString>(i->PackageList.toSet());
-                break;
-            }
+        // Traverse m_packageList looking for items matching info->Id.
+        auto it = std::find_if(m_packageList.begin(), m_packageList.end(), [=] (const QSharedPointer<ComponentInfo>& i) {
+            return  info->Id == i->Id;
+        });
+
+        if (it != m_packageList.end()) {
+            result += QSet<QString>((*it)->PackageList.toSet());
         }
     }
 
     if (isMinimalGhaphicInstall) {
         QList<QSharedPointer<ComponentInfo>> choiceUninstallList = componentStruct->choiceUninstall();
         for (QSharedPointer<ComponentInfo> info : choiceUninstallList) {
-            for (QSharedPointer<ComponentInfo> i : m_packageList) {
-                if (info->Id == i->Id) {
-                    result += QSet<QString>(i->PackageList.toSet());
-                    break;
-                }
+            // Traverse m_packageList looking for items matching info->Id.
+            auto it = std::find_if(m_packageList.begin(), m_packageList.end(), [=] (const QSharedPointer<ComponentInfo>& i) {
+                return info->Id == i->Id;
+            });
+
+            if (it != m_packageList.end()) {
+                result += QSet<QString>((*it)->PackageList.toSet());
             }
         }
     }
@@ -270,13 +292,13 @@ QStringList ComponentInstallManager::uninstallPackageListByComponentStruct(QShar
 
 QStringList ComponentInstallManager::loadStructForLanguage(const QString &lang) const
 {
-    for (QSharedPointer<ComponentInfo> i : m_packageList) {
-        if (i->Id == lang) {
-            return GetAvailablePackages()
-                .toSet()
-                .intersect(i->PackageList.toSet())
-                .toList();
-        }
+    // Traverse m_packageList looking for items matching lang.
+    auto it = std::find_if(m_packageList.begin(), m_packageList.end(), [=] (const QSharedPointer<ComponentInfo>& i) {
+        return i->Id == lang;
+    });
+
+    if (it != m_packageList.end()) {
+        return integrateList((*it)->PackageList, GetAvailablePackages());
     }
 
     return QStringList();
