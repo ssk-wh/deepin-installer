@@ -910,6 +910,9 @@ void Delegate::updateMountPoint(const Partition::Ptr partition,
         operations_.append(operation);
         operation->applyToVisual(device);
     }
+    else {
+        partition->mount_point = "";
+    }
 }
 
 bool Delegate::reCalculateExtPartBoundary(PartitionAction       action,
