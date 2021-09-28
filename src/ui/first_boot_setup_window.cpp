@@ -358,7 +358,7 @@ void FirstBootSetupWindow::initPages()
     optimize_failed_frame_->useTitle(false);
     optimize_failed_frame_->useCancelButton(false);
     optimize_failed_frame_->setComment("An unknown problem has occurred, which may not affect the system running. Please click \"Skip\" to continue the installation. If you cannot enter the system later, please try to reinstall.");
-    optimize_failed_frame_->setEnterButtonText("Skip");
+    optimize_failed_frame_->setEnterButtonText(" Skip ");
     optimize_failed_frame_->setFocusPolicy(Qt::NoFocus);
     optimize_failed_frame_->hide();
 

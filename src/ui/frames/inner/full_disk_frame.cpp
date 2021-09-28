@@ -132,9 +132,9 @@ bool FullDiskFrame::isInstallNvidia() const
     return m_installNvidiaCheck->isChecked();
 }
 
-void FullDiskFrame::showSaveDataCheck(bool isshow)
+void FullDiskFrame::setSaveDataCheckEnabel(bool isenabel)
 {
-    m_saveDataCheck->setVisible(isshow);
+    m_saveDataCheck->setEnabled(isenabel);
 }
 
 bool FullDiskFrame::focusSwitch()
@@ -276,6 +276,7 @@ void FullDiskFrame::initUI() {
   m_saveDataCheck->setObjectName("check_box");
   m_saveDataCheck->setCheckable(true);
   m_saveDataCheck->setChecked(false);
+  m_saveDataCheck->setEnabled(false);
   addTransLate(m_trList, std::bind(&QCheckBox::setText, m_saveDataCheck, std::placeholders::_1), ::QObject::tr("Save User Data"));
 
   m_encryptCheck = new QCheckBox;
@@ -531,6 +532,7 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
     bool testexistdata = isExistDataPart(part_button->device());
     bool testfulldiskencrypt = isFullDiskEncrypt(part_button->device());
     if(testexistdata && (!testfulldiskencrypt)) {
+        m_saveDataCheck->setEnabled(true);
         emit showSaveDataPopWidget();
     }
   }
@@ -562,6 +564,7 @@ void FullDiskFrame::onCurrentDeviceChanged(int type, const Device::Ptr device)
     bool testexistdata = isExistDataPart(device);
     bool testfulldiskencrypt = isFullDiskEncrypt(device);
     if(testexistdata && (!testfulldiskencrypt)) {
+        m_saveDataCheck->setEnabled(true);
         emit showSaveDataPopWidget();
     }
 }

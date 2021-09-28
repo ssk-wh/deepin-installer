@@ -62,11 +62,10 @@ bool FirstBootLoadingFrame::allowPrevious() const
 
 void FirstBootLoadingFrame::showLogFrame(const QString &logfilepath)
 {
-    comment_label_->hide();
     spinner_label_->stop();
     spinner_label_->hide();
     m_installLogFrame->showLogWithoutTimer(logfilepath);
-    m_installLogFrame->updateSize(QSize(this->width(), this->height() - comment_label_->height() - spinner_label_->height()));
+    m_installLogFrame->updateSize(QSize(this->width(), this->height() - spinner_label_->height()));
     m_installLogFrame->show();
 }
 

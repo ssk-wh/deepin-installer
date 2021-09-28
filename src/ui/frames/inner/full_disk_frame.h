@@ -49,7 +49,7 @@ public:
     bool isEnSaveData() const;
     bool isInstallNvidia() const;
 
-    void showSaveDataCheck(bool isshow);
+    void setSaveDataCheckEnabel(bool isenabel);
 
     bool focusSwitch();
     bool doSpace();
