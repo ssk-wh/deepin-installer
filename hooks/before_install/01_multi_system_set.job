@@ -119,12 +119,12 @@ main() {
   if [ ${is_fulldiskinstall} -gt 3 ]; then
     # 删除全盘安装的分区
     echo "the last is fulldiskinstall"
-    local device_todo_names=$(lsblk -f -o NAME | grep $device_todo | awk '{print $1}')
+    local device_todo_names=$(lsblk -lf -o NAME | grep $device_todo | awk '{print $1}')
     device_todo_names=(${device_todo_names//\n/})
     local device_todo_namesnum=${#device_todo_names[@]}
     for (( name_index=$device_todo_namesnum;name_index>=0; )); do
         let name_index--
-        local name_label=$(lsblk -f -o NAME,LABEL | grep ${device_todo_names[$name_index]##*-} | awk '{print $2}')
+        local name_label=$(lsblk -f -o NAME,LABEL | grep ${device_todo_names[$name_index]} | awk '{print $2}')
         # 删除分区
         parted -s $dev_info rm $name_index
         if [ x$name_label = "xBoot" ]; then
@@ -150,7 +150,7 @@ main() {
   if [[ "$dev_info" =~ [0-9]$ ]]; then
     part_path="${dev_info}p1"
   else
-    part_path=$(fdisk -l -o Device,Type | grep $device_todo | grep EFI | awk '{print $1}')
+    part_path=$(fdisk -l $dev_info -o Device,Type | grep EFI | awk '{print $1}')
   fi
 
   installer_set "DI_BOOTLOADER" $part_path

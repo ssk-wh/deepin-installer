@@ -65,7 +65,7 @@ void FirstBootLoadingFrame::showLogFrame(const QString &logfilepath)
     spinner_label_->stop();
     spinner_label_->hide();
     m_installLogFrame->showLogWithoutTimer(logfilepath);
-    m_installLogFrame->updateSize(QSize(this->width(), this->height() - spinner_label_->height()));
+    m_installLogFrame->updateSize(QSize(this->width(), this->height() - title_label_->height() - spinner_label_->height() - kMainLayoutSpacing));
     m_installLogFrame->show();
 }
 

@@ -460,21 +460,23 @@ void FullDiskFrame::showInstallTip(bool isshow) {
 }
 
 bool FullDiskFrame::isExistDataPart(Device::Ptr device)
-{
-    bool existdata = false;
-    //获取Device::ptr结构解析里面是否存在data分区
-    for (int i = 0; i < device->partitions.size(); i++) {
-       if (!device->partitions[i]->label.compare("_dde_data")) {
-           existdata = true;
-           break;
-       }
+{    
+    QString cmd = QString("lsblk -f %1 | grep _dde_data").arg(device->path);
+    QProcess testprocess;
+    testprocess.start("/bin/bash",{"-c", cmd});
+    testprocess.waitForFinished();
+    QString dataindevices = testprocess.readAll();
+    qWarning() << "dataindevices = " << dataindevices;
+    if (dataindevices.compare("")) {
+        return true;
+    } else {
+        return false;
     }
-    return existdata;
 }
 
 bool FullDiskFrame::isFullDiskEncrypt(Device::Ptr device)
 {
-    QString cmd = QString("lsblk -f | grep crypto_LUKS | grep %1").arg(device->path.right(device->path.length() - device->path.lastIndexOf("/") - 1));
+    QString cmd = QString("lsblk -f %1 | grep crypto_LUKS").arg(device->path);
     QProcess testprocess;
     testprocess.start("/bin/bash",{"-c", cmd});
     testprocess.waitForFinished();
