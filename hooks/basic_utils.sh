@@ -324,6 +324,7 @@ init_firstboot() {
     cat > "${CONF_FILE}" <<EOF
 [Seat:*]
 display-setup-script=/usr/bin/deepin-installer-bases
+greeter-session=lightdm-installer-greeter
 greeter-setup-script=/usr/bin/deepin-installer-first-boot
 EOF
 }
