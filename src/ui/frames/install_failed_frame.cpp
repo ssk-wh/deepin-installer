@@ -178,19 +178,12 @@ void InstallFailedFrame::updateMessage()
         d->qr_widget_->setText("https://bbs.chinauos.com/post/5032");
     }
     else {
-        if (encoded_msg.isEmpty()) {
-            // If encoded_msg if empty, qr_widget will generate a rectangle filled with
-            // red color, which is not what we expect.
-            encoded_msg = EncodeErrorMsg("Error: failed to read log");
-        }
-        QString tmp = "https://service.chinauos.com?"
+        QString tmp = "https://service.chinauos.com/front/home?"
                       "DeviceInfo=CpuInfo;GpuInfo;MemorySize;DiskSize;MainboardInfo"
                       "&DeepinInstallerVersion="
                       "&FailedType="
                       "&FailedLocation="
-                      "&FailedReason="
-                      "&ErrorMsg=";
-        tmp.append(encoded_msg);
+                      "&FailedReason=";
         d->qr_widget_->setText(tmp);
     }
 }
