@@ -459,9 +459,9 @@ void FullDiskFrame::showInstallTip(bool isshow) {
     }
 }
 
-bool FullDiskFrame::isExistDataPart(Device::Ptr device)
+bool FullDiskFrame::isExistDataPart(const QString &devicepath)
 {    
-    QString cmd = QString("lsblk -f %1 | grep _dde_data").arg(device->path);
+    QString cmd = QString("lsblk -f %1 | grep _dde_data").arg(devicepath);
     QProcess testprocess;
     testprocess.start("/bin/bash",{"-c", cmd});
     testprocess.waitForFinished();
@@ -474,9 +474,9 @@ bool FullDiskFrame::isExistDataPart(Device::Ptr device)
     }
 }
 
-bool FullDiskFrame::isFullDiskEncrypt(Device::Ptr device)
+bool FullDiskFrame::isFullDiskEncrypt(const QString &devicepath)
 {
-    QString cmd = QString("lsblk -f %1 | grep crypto_LUKS").arg(device->path);
+    QString cmd = QString("lsblk -f %1 | grep crypto_LUKS").arg(devicepath);
     QProcess testprocess;
     testprocess.start("/bin/bash",{"-c", cmd});
     testprocess.waitForFinished();
@@ -486,6 +486,19 @@ bool FullDiskFrame::isFullDiskEncrypt(Device::Ptr device)
         return true;
     } else {
         return false;
+    }
+}
+
+void FullDiskFrame::setSaveDataCheckboxStat(const QString &devicepath)
+{
+    bool testexistdata = isExistDataPart(devicepath);
+    bool testfulldiskencrypt = isFullDiskEncrypt(devicepath);
+    if(testexistdata && (!testfulldiskencrypt)) {
+        m_saveDataCheck->setEnabled(true);
+        emit showSaveDataPopWidget();
+    } else {
+        m_saveDataCheck->setChecked(false);
+        m_saveDataCheck->setEnabled(false);
     }
 }
 
@@ -517,6 +530,10 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
   } else {    
 
     m_delegate->addSystemDisk(part_button->device()->path);
+
+    // 设置保留用户数据勾选控件
+    setSaveDataCheckboxStat(part_button->device()->path);
+
     const QString path = part_button->device()->path;
     qDebug() << "selected device path:" << path;
     part_button->setSelected(true);
@@ -529,14 +546,6 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
 
     m_diskPartitionWidget->setDevices(m_delegate->selectedDevices());
     emit showDeviceInfomation();
-
-    // 设置显示保留用户数据勾选控件
-    bool testexistdata = isExistDataPart(part_button->device());
-    bool testfulldiskencrypt = isFullDiskEncrypt(part_button->device());
-    if(testexistdata && (!testfulldiskencrypt)) {
-        m_saveDataCheck->setEnabled(true);
-        emit showSaveDataPopWidget();
-    }
   }
 }
 
@@ -547,6 +556,9 @@ void FullDiskFrame::onCurrentDeviceChanged(int type, const Device::Ptr device)
     }
     else if(static_cast<int>(DiskModelType::DataDisk) == type){
         m_delegate->addDataDisk(device->path);
+
+        // 设置保留用户数据勾选控件
+        setSaveDataCheckboxStat(device->path);
     }
     else {
         qWarning() << QString("MULTIDISK:invalid type:{%1}").arg(type);
@@ -560,14 +572,6 @@ void FullDiskFrame::onCurrentDeviceChanged(int type, const Device::Ptr device)
     else {
         m_diskPartitionWidget->setDevices(m_delegate->selectedDevices());
         emit showDeviceInfomation();
-    }
-
-    // 设置显示保留用户数据勾选控件
-    bool testexistdata = isExistDataPart(device);
-    bool testfulldiskencrypt = isFullDiskEncrypt(device);
-    if(testexistdata && (!testfulldiskencrypt)) {
-        m_saveDataCheck->setEnabled(true);
-        emit showSaveDataPopWidget();
     }
 }
 

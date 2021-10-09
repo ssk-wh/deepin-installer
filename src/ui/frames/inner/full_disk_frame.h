@@ -78,11 +78,13 @@ private:
     void showInstallTip(bool isshow);
 
     // 判断是磁盘中否存在/data分区
-    bool isExistDataPart(Device::Ptr device);
+    bool isExistDataPart(const QString &devicepath);
 
     // 判断否是全盘加密
-    bool isFullDiskEncrypt(Device::Ptr device);
+    bool isFullDiskEncrypt(const QString &devicepath);
 
+    // 设置保留用户数据勾选控件
+    void setSaveDataCheckboxStat(const QString &devicepath);
 
     FullDiskDelegate* m_delegate     = nullptr;
     QButtonGroup*     m_button_group = nullptr;
