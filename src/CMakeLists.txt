@@ -866,10 +866,13 @@ add_executable(deepin-installer-init
 )
 target_link_libraries(deepin-installer-init ${LINK_LIBS})
 
-add_executable(setup-user-info
-    app/setup_user_info.cpp
+add_executable(command-execute-agent
+    app/command_execute_agent.cpp
+
+    base/command.h
+    base/command.cpp
 )
-target_link_libraries(setup-user-info ${LINK_LIBS})
+target_link_libraries(command-execute-agent ${LINK_LIBS})
 
 ## Installation
 install(PROGRAMS
@@ -889,7 +892,7 @@ install(TARGETS
         deepin-installer-settings
         deepin-installer-simpleini
         deepin-installer-init
-        setup-user-info
+        command-execute-agent
         DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
         )
 

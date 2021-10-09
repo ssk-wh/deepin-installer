@@ -265,11 +265,19 @@ create_part() {
 
       msg "cryptsetup ${crypt_algorithm} -v luksFormat "$part_path""
 
-      {
-        DI_CRYPT_PASSWD=$(installer_get DI_CRYPT_PASSWD)
-        echo "$DI_CRYPT_PASSWD" | cryptsetup ${crypt_algorithm} -v luksFormat "$part_path" &&\
-        echo "$DI_CRYPT_PASSWD" | cryptsetup open "$part_path" "$mapper_name"
-      } || error "Failed to create luks partition($part_path)!"
+      DI_CRYPT_PASSWD=$(installer_get DI_CRYPT_PASSWD)
+
+      if [ "x$(installer_get "all_password_encryption")" = "xtrue" ]; then
+          {
+              command-execute-agent "$DI_CRYPT_PASSWD" "echo \"%1\" | cryptsetup ${crypt_algorithm} -v luksFormat \"$part_path\"" &&\
+              command-execute-agent "$DI_CRYPT_PASSWD" "echo \"%1\" | cryptsetup open \"$part_path\" \"$mapper_name\""
+          } || error "Failed to create luks partition($part_path)!"
+      else
+          {
+              echo "$DI_CRYPT_PASSWD" | cryptsetup ${crypt_algorithm} -v luksFormat "$part_path" &&\
+              echo "$DI_CRYPT_PASSWD" | cryptsetup open "$part_path" "$mapper_name"
+          } || error "Failed to create luks partition($part_path)!"
+      fi
 
       {
         pvcreate "$part_mp" -ffy &&\
