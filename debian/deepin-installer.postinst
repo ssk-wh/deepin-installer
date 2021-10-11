@@ -34,6 +34,12 @@ generate_locale() {
 
 }
 
+generate_extral_locales() {
+  localedef --no-archive -i zh_CN -c -f GB2312 -A /usr/share/locale/locale.alias zh_CN
+  localedef --no-archive -i zh_CN -c -f GB18030 -A /usr/share/locale/locale.alias zh_CN.GB18030
+  localedef --no-archive -i zh_CN -c -f GBK -A /usr/share/locale/locale.alias zh_CN.GBK
+}
+
 # Bluring image from $1 to $2
 blur_image() {
   local SRC=$1
@@ -74,6 +80,7 @@ generate_background_image() {
 case "$1" in
   configure)
     generate_locale
+    generate_extral_locales
     generate_background_image
     # Update initramfs to include current boot scripts.
     update-initramfs -u

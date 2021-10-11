@@ -101,13 +101,6 @@ setup_locale_timezone() {
   # generate user selected locale.
   sed -i "s/# \(${LOCALE}[\. ]UTF-8.*$\)/\1/g" /etc/locale.gen
 
-  # For non-x86 platform, also enables non-UTF8 charset.
-  if ! is_x86 && test x${LOCALE} = xzh_CN; then
-    sed -i "s/# \(${LOCALE}\.GBK.*$\)/\1/g" /etc/locale.gen
-    sed -i "s/# \(${LOCALE}\.GB18030.*$\)/\1/g" /etc/locale.gen
-    sed -i "s/# \(${LOCALE}\.GB2312.*$\)/\1/g" /etc/locale.gen
-  fi
-
   # 获取/etc/locale.gen locale值
   LANG=${LOCALE}.UTF-8
   if [ $(grep -c "${LOCALE}\.UTF-8" /etc/locale.gen) -eq 0 ]; then
@@ -121,6 +114,20 @@ EOF
 
   # Re-generate localisation files.
   /usr/sbin/locale-gen
+
+  # Enable extral zh_CN charsets.
+  if test x${LOCALE} = xzh_CN; then
+    local LOCALE_DIR=/usr/lib/locale
+    sed -i "s/# \(${LOCALE}\.GBK.*$\)/\1/g" /etc/locale.gen
+    sed -i "s/# \(${LOCALE}\.GB18030.*$\)/\1/g" /etc/locale.gen
+    sed -i "s/# \(${LOCALE}\ GB2312.*$\)/\1/g" /etc/locale.gen
+    # Use pre-compiled locale archives
+    for P_LOCALE in ${LOCALE_DIR}/{zh_CN,zh_CN.gb18030,zh_CN.gbk}; do
+      localedef --add-to-archive ${P_LOCALE}
+    done
+  else
+    rm -rf ${LOCALE_DIR}/{zh_CN,zh_CN.gb18030,zh_CN.gbk}
+  fi
 
   echo "Check timezone ${DI_TIMEZONE}"
   if cat /usr/share/zoneinfo/zone.tab | grep -v '^#' | awk '{print $3}' | \
