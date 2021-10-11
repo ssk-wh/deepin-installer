@@ -382,7 +382,7 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
         // 默认json的device字段为空
         if (device_path_list.length() > 1
             && policy.device.isEmpty()
-            && policy.isDataPartition) {
+            && (policy.isDataPartition || policy.label == "_dde_data")) {
 
             policy.device = device_path_list.at(1);
         }
