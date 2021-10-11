@@ -103,11 +103,27 @@ void WarnningFrame::setCancelButtonStyle(const QString &buttonstyle)
 bool WarnningFrame::focusSwitch()
 {
     if (m_current_focus_widget == nullptr) {
-        this->setCurentFocus(m_cancelButton);
+        if (m_cancelButton->isVisible()) {
+            this->setCurentFocus(m_cancelButton);
+        } else if (m_enterButton->isVisible()) {
+            this->setCurentFocus(m_enterButton);
+        } else {
+            this->setCurentFocus(m_closeButton);
+        }
     } else if (m_cancelButton == m_current_focus_widget) {
-        this->setCurentFocus(m_enterButton);
+        if (m_enterButton->isVisible()) {
+            this->setCurentFocus(m_enterButton);
+        } else {
+            this->setCurentFocus(m_closeButton);
+        }
     } else if (m_enterButton == m_current_focus_widget) {
-        this->setCurentFocus(m_cancelButton);
+        this->setCurentFocus(m_closeButton);
+    } else if (m_closeButton == m_current_focus_widget) {
+        if (m_cancelButton->isVisible()) {
+            this->setCurentFocus(m_cancelButton);
+        } else if (m_enterButton->isVisible()) {
+            this->setCurentFocus(m_enterButton);
+        }
     }
 
     return true;
@@ -120,7 +136,9 @@ bool WarnningFrame::doSpace()
 
 bool WarnningFrame::doSelect()
 {
-    if (m_cancelButton == m_current_focus_widget) {
+    if (m_closeButton == m_current_focus_widget) {
+        emit m_closeButton->clicked();
+    } else if (m_cancelButton == m_current_focus_widget) {
         emit m_cancelButton->clicked();
     } else if (m_enterButton == m_current_focus_widget) {
         emit m_enterButton->clicked();
@@ -157,7 +175,7 @@ void WarnningFrame::showEvent(QShowEvent *event)
     m_commentLabel->setText(::QObject::tr(m_commentText.toLatin1()));
     m_enterButton->setText(::QObject::tr(m_enterButtonText.toLatin1()));
     m_cancelButton->setText(::QObject::tr(m_cancelButtonText.toLatin1()));
-    this->setCurentFocus(m_cancelButton);
+    this->clearFocus();
     return ChildFrameInterface::showEvent(event);
 }
 
@@ -202,7 +220,8 @@ void WarnningFrame::initUI()
 
     m_closeButton = new QPushButton(this);
     m_closeButton->setFocusPolicy(Qt::NoFocus);
-    m_closeButton->setStyleSheet("QPushButton{border:none; background-color:rgba(255, 255, 255, 0);}");
+    m_closeButton->setStyleSheet("QPushButton{border:none; border-radius:10px; background-color:rgba(0, 0, 0, 0);} \
+                            QPushButton:hover{border:none; border-radius:10px; background-color:rgba(0, 0, 0, 0.05);}");
     m_closeButton->setFixedSize(32 * ratio, 32 * ratio);
     m_closeButton->setIconSize(QSize(50, 50));
     m_closeButton->setIcon(QIcon(":/images/close_normal.svg"));
@@ -237,20 +256,19 @@ void WarnningFrame::initUI()
     m_enterButtonText = "OK";
     m_cancelButtonText = "Cancel";
 
-    // border-radius:5px; padding:2px 4px;
-    // color:#414D68;line-height:30px;background-color:rgba(0, 0, 0, 0.03);
     m_enterButton = new QPushButton(this);
     m_enterButton->setFocusPolicy(Qt::NoFocus);
     m_enterButton->setText(::QObject::tr("OK"));
     m_enterButton->setFixedSize(179, 36);
-    m_enterButton->setStyleSheet("QPushButton{ color:#414D68; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:10px; padding:2px 4px; background-color:rgba(0, 0, 0, 0.05); } QPushButton:focus{ padding: -1; }}");
-
+    m_enterButton->setStyleSheet("QPushButton{ color:#414D68; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:10px; background-color:rgba(0, 0, 0, 0.05); } \
+                            QPushButton:hover{ color:#414D68; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:10px; background-color:rgba(0, 0, 0, 0.1); }");
 
     m_cancelButton = new QPushButton(this);
     m_cancelButton->setFocusPolicy(Qt::NoFocus);
     m_cancelButton->setText(::QObject::tr("Cancel"));
     m_cancelButton->setFixedSize(179, 36);
-    m_cancelButton->setStyleSheet("QPushButton{ color:#414D68; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:10px; padding:2px 4px; background-color:rgba(0, 0, 0, 0.05); } QPushButton:focus{ padding: -1; }");
+    m_cancelButton->setStyleSheet("QPushButton{ color:#414D68; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:10px; background-color:rgba(0, 0, 0, 0.05); } \
+                             QPushButton:hover{ color:#414D68; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:10px; background-color:rgba(0, 0, 0, 0.1); }");
 
     m_buttonGroupLayout = new QHBoxLayout(this);
     m_buttonGroupLayout->setContentsMargins(0, 0, 0, 0);
