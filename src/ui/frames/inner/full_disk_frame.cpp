@@ -226,6 +226,7 @@ void FullDiskFrame::changeEvent(QEvent* event) {
             it->first(qApp->translate("QObject", it->second.toUtf8()));
         }
         m_installNvidiaCheck->setText(::QObject::tr("Install NVIDIA closed source driver"));
+        m_saveDataCheck->setText(::QObject::tr("Save User Data"));
         m_encryptCheck->setText(::QObject::tr("Encrypt This Disk"));
         m_errorTip->setText(::QObject::tr("Please select a disk to start installation"));
 
@@ -553,6 +554,10 @@ void FullDiskFrame::onCurrentDeviceChanged(int type, const Device::Ptr device)
 {
     if (static_cast<int>(DiskModelType::SystemDisk) == type) {
         m_delegate->addSystemDisk(device->path);
+
+        // 当切换系统盘的选择时，“保留用户数据”勾选控件状态置为不可用
+        saveDataStateChanged(false);
+        m_saveDataCheck->setEnabled(false);
     }
     else if(static_cast<int>(DiskModelType::DataDisk) == type){
         m_delegate->addDataDisk(device->path);
