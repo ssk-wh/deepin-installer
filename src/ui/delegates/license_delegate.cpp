@@ -47,10 +47,10 @@ QString installer::LicenseDelegate::logo()
 {
     switch (GetCurrentType()) {
         case OSType::Community: return ":/images/dcc_deepin_logo_164px.svg";
-        case OSType::Professional: return ":/images/distribution_logo";
-        case OSType::Personal: return ":/images/logo.svg";
+        case OSType::Professional:
+        case OSType::Personal:
         case OSType::Server:
-        default: return installer::GetVendorLogo();
+        default: return ":/images/distribution_logo";
     }
 }
 
