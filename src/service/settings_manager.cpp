@@ -158,7 +158,7 @@ QString GetOSType()
 #ifdef QT_DEBUG
     QString type = "Professional";
 #else
-    QString type = settings.value("Type", "Community").toString();
+    QString type = settings.value("Type", "Desktop").toString();
 #endif // QT_DEBUG
 
     return type;
@@ -168,7 +168,7 @@ OSType GetCurrentType() {
     const QString& type = GetOSType();
 
     return QMap<QString, OSType>{
-        { "Community", OSType::Community },
+        { "Desktop", OSType::Community },
         { "Professional", OSType::Professional },
         { "Server", OSType::Server },
         { "Personal", OSType::Personal },

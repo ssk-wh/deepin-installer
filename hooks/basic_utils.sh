@@ -219,24 +219,16 @@ decryption_file() {
 
 add_start_option() {
     local arch_info=$@
-    local bootloader_id=$(installer_get "system_bootloader_id")
-    local start_option=$(installer_get "system_startup_option")
+    local bootloader_id=$(installer_get "system_startup_option")
 
     ## 基础启动项,默认UOS
     grub-install $arch_info --efi-directory=/boot/efi --bootloader-id="${bootloader_id}" --recheck \
         || error "grub-install failed with $arch_info" "${bootloader_id}"
 
-    ## 附加启动项
-    if [ -n "$start_option" ]; then
-        [ -d /boot/efi/EFI/${start_option} ] || mkdir -p /boot/efi/EFI/${start_option}
-        cp -vf /boot/efi/EFI/${bootloader_id}/* /boot/efi/EFI/${start_option}
-        grub-install $arch_info --efi-directory=/boot/efi --bootloader-id="${start_option}" --recheck \
-            || error "grub-install failed with $arch_info"  "${start_option}"
-    fi
-
     # Copy signed grub efi file.
-    [ -d /boot/efi/EFI/ubuntu ] || mkdir -p /boot/efi/EFI/ubuntu
-    cp -vf /boot/efi/EFI/${bootloader_id}/grub* /boot/efi/EFI/ubuntu/
+    is_community || [ -d /boot/efi/EFI/ubuntu ] || mkdir -p /boot/efi/EFI/ubuntu
+    is_community || cp -vf /boot/efi/EFI/${bootloader_id}/grub* /boot/efi/EFI/ubuntu/
+
     [ -d /boot/efi/EFI/boot ] || mkdir -p /boot/efi/EFI/boot
     cp -vf /boot/efi/EFI/${bootloader_id}/grub* /boot/efi/EFI/boot/
 
@@ -248,21 +240,25 @@ add_start_option() {
     cp -vf /boot/efi/EFI/${bootloader_id}/shim*.efi "${fallback_efi}"
 
     # x86的64bit机型默认的efi引导文件
-    fallback_efi=/boot/efi/EFI/boot/bootx64.efi
-    fallback_efi_bak="${fallback_efi}-$(date +%s).bak"
-    [ -f "${fallback_efi}" ] && cp "${fallback_efi}" "${fallback_efi_bak}"
-    # Override fallback efi with shim.
-    cp -vf /boot/efi/EFI/${bootloader_id}/shim*.efi "${fallback_efi}"
+    if is_x86; then
+        fallback_efi=/boot/efi/EFI/boot/bootx64.efi
+        fallback_efi_bak="${fallback_efi}-$(date +%s).bak"
+        [ -f "${fallback_efi}" ] && cp "${fallback_efi}" "${fallback_efi_bak}"
+        # Override fallback efi with shim.
+        cp -vf /boot/efi/EFI/${bootloader_id}/shim*.efi "${fallback_efi}"
+    fi
 
     # arm64的64bit机型默认的efi引导文件
-    fallback_efi=/boot/efi/EFI/boot/bootaa64.efi
-    fallback_efi_bak="${fallback_efi}-$(date +%s).bak"
-    [ -f "${fallback_efi}" ] && cp "${fallback_efi}" "${fallback_efi_bak}"
-    # Override fallback efi with shim.
-    if ls /boot/efi/EFI/${bootloader_id}/shim* 1>/dev/null 2>&1; then
-      cp -vf /boot/efi/EFI/${bootloader_id}/shim*.efi "${fallback_efi}"
-    else
-      cp -vf /boot/efi/EFI/${bootloader_id}/grubaa64.efi "${fallback_efi}"
+    if is_arm64; then
+        fallback_efi=/boot/efi/EFI/boot/bootaa64.efi
+        fallback_efi_bak="${fallback_efi}-$(date +%s).bak"
+        [ -f "${fallback_efi}" ] && cp "${fallback_efi}" "${fallback_efi_bak}"
+        # Override fallback efi with shim.
+        if ls /boot/efi/EFI/${bootloader_id}/shim* 1>/dev/null 2>&1; then
+            cp -vf /boot/efi/EFI/${bootloader_id}/shim*.efi "${fallback_efi}"
+        else
+            cp -vf /boot/efi/EFI/${bootloader_id}/grubaa64.efi "${fallback_efi}"
+        fi
     fi
 }
 
@@ -330,9 +326,19 @@ EOF
 }
 
 is_service() {
-    local type=$(cat /etc/os-version | grep EditionName=)
-    type="${type##EditionName=}"
+    local type=$(cat /etc/deepin-version | grep Type=)
+    type="${type##Type=}"
     if [ "x$type" = "xServer" ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+is_community() {
+    local type=$(cat /etc/deepin-version | grep Type=)
+    type="${type##Type=}"
+    if [ "x$type" = "xDesktop" ]; then
         return 0
     else
         return 1
