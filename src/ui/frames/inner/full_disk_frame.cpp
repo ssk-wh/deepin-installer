@@ -490,11 +490,16 @@ bool FullDiskFrame::isFullDiskEncrypt(const QString &devicepath)
     }
 }
 
-void FullDiskFrame::setSaveDataCheckboxStat(const QString &devicepath)
+void FullDiskFrame::setSaveDataCheckboxStat(const Device::Ptr device)
 {
-    bool testexistdata = isExistDataPart(devicepath);
-    bool testfulldiskencrypt = isFullDiskEncrypt(devicepath);
-    if(testexistdata && (!testfulldiskencrypt)) {
+    // 检测磁盘格式和引导模式是否一致
+    PartitionTableType currenttable = IsEfiEnabled() ? PartitionTableType::GPT : PartitionTableType::MsDos;
+
+    qWarning() << "device table : " << device->table << " currenttable : " << currenttable;
+
+    bool testexistdata = isExistDataPart(device->path);
+    bool testfulldiskencrypt = isFullDiskEncrypt(device->path);
+    if(testexistdata && (!testfulldiskencrypt) && (device->table == currenttable)) {
         m_saveDataCheck->setEnabled(true);
         emit showSaveDataPopWidget();
     } else {
@@ -533,7 +538,7 @@ void FullDiskFrame::onPartitionButtonToggled(QAbstractButton* button,
     m_delegate->addSystemDisk(part_button->device()->path);
 
     // 设置保留用户数据勾选控件
-    setSaveDataCheckboxStat(part_button->device()->path);
+    setSaveDataCheckboxStat(part_button->device());
 
     const QString path = part_button->device()->path;
     qDebug() << "selected device path:" << path;
@@ -563,7 +568,7 @@ void FullDiskFrame::onCurrentDeviceChanged(int type, const Device::Ptr device)
         m_delegate->addDataDisk(device->path);
 
         // 设置保留用户数据勾选控件
-        setSaveDataCheckboxStat(device->path);
+        setSaveDataCheckboxStat(device);
     }
     else {
         qWarning() << QString("MULTIDISK:invalid type:{%1}").arg(type);

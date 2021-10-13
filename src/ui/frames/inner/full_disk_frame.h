@@ -84,7 +84,7 @@ private:
     bool isFullDiskEncrypt(const QString &devicepath);
 
     // 设置保留用户数据勾选控件
-    void setSaveDataCheckboxStat(const QString &devicepath);
+    void setSaveDataCheckboxStat(const Device::Ptr device);
 
     FullDiskDelegate* m_delegate     = nullptr;
     QButtonGroup*     m_button_group = nullptr;
