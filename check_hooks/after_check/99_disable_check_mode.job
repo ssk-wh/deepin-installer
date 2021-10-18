@@ -5,8 +5,8 @@
 cat > "${LIGHTD_CONF_FILE}" <<EOF
 [Seat:*]
 display-setup-script=/usr/bin/deepin-installer-bases
-greeter-session=lightdm-installer-greeter
 greeter-setup-script=/usr/bin/deepin-installer-first-boot
+greeter-session=lightdm-gtk-greeter
 EOF
 
 ## 解决服务器上设置审核模式后，重启进入后配置无法自动切换到tty7
