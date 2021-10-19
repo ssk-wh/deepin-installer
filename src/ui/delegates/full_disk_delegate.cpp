@@ -307,7 +307,7 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
     FullDiskOption disk_option;
     FullDiskPolicyList & policy_list = disk_option.policy_list;
 
-    QStringList device_path_list;
+    QStringList device_path_list = selected_disks;
     // Get All policies from json file.
     {
         const QByteArray& policyStr{ GetFullDiskInstallPolicy() };
@@ -341,15 +341,7 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
                 policy.mountPoint = "";
             }
             policy_list.push_back(policy);
-
-            if (!policy.device.isEmpty() && device_path_list.indexOf(policy.device) == -1) {
-                device_path_list.append(policy.device);
-            }
         }
-    }
-
-    if (device_path_list.isEmpty()) {
-        device_path_list = selected_disks;
     }
 
     if (device_path_list.isEmpty()) {
@@ -389,6 +381,8 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
         else if (policy.device.isEmpty()){
             policy.device = device_path_list.at(0);
         }
+
+        qDebug() << "Json config info:" << "Label:" << policy.label << "device:" << policy.device;
     }
 
     m_FullDiskPolicyList = policy_list;
@@ -402,6 +396,7 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
         device->partitions.clear();
         device->table = table;
 
+        qInfo() << "scan device info: " << device->path << device->length;
         disk_option.is_system_disk = device->path == device_path_list.at(0);
         if (!formatWholeDeviceV2(device, disk_option)) {
             selected_devices.clear();
@@ -415,7 +410,8 @@ bool FullDiskDelegate::formatWholeDeviceMultipleDisk()
 struct  FullDiskPolicyComparator {
     bool operator()(const FullDiskPolicy& a, const FullDiskPolicy& b)
     {
-            return a.startSector < b.startSector;
+        // (b.label != "SWAP" && b.label != "Backup") ||
+        return  (a.startSector < b.startSector);
     }
 };
 
@@ -533,10 +529,14 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
             policy.startSector = policy.endSector - policy.sectors + 1;
             endSector -= policy.sectors;
         }
+        qDebug() << "device legth: " << lastDeviceLenght
+                 << ". policy.label=" << policy.label << ":" << policy.sectors;
 
         lastDeviceLenght -= policy.sectors;
         if (lastDeviceLenght < 0) {
-            qDebug() << QString("FULLDISK:size out of range. please check your configuration file");
+            qDebug() << QString("FULLDISK:size out of range. please check your configuration file. lastDeviceLenght= ")
+                     << lastDeviceLenght
+                     << ". policy.label=" << policy.label << ":" << policy.sectors;
             return false;
         }
 
@@ -558,6 +558,8 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
         if (policy.mountPoint == kMountPointRoot || policy.label == kFullDiskPolicyRootb) {
             root_size_count++;
         }
+
+        qInfo() << "FullDiskPolicy start sector old info: " << policy.label << ": " << policy.startSector;
     }
 
     // Adjust partition size for root partition if it is system disk
@@ -571,10 +573,11 @@ bool FullDiskDelegate::formatWholeDeviceV2(const Device::Ptr& device, FullDiskOp
     adjustFullDiskPolicy(device, option, adjust);
 
     // sort all policies
-    qSort(begin, end, FullDiskPolicyComparator());
+    qSort(policy_list.begin(), policy_list.end(), FullDiskPolicyComparator());
 
     const FullDiskPolicyList& const_policy_list = option.policy_list;
     for (const FullDiskPolicy& policy : const_policy_list) {
+        qInfo() << "FullDiskPolicy start sector new info: " << policy.label << ": " << policy.startSector;
         if (policy.device != device->path) {
             continue;
         }

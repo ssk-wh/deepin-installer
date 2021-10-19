@@ -377,11 +377,6 @@ get_part_fstype() {
     fi
 }
 
-set_data_mountpoint() {
-    is_service && installer_set DI_DATA_MOUNT_POINT "/deepin/userdata"
-    is_service || installer_set DI_DATA_MOUNT_POINT "/data"
-}
-
 get_part_mountpoint() {
     local LABEL=$1
     if [ "x$LABEL" = "xEFI" ]; then
@@ -525,7 +520,8 @@ sava_data() {
         local p_fs=$(get_part_fstype $DEVICE $p_label)
         local p_mountpoint=$(get_part_mountpoint $p_label)
         echo "part_info: $p_label;$p_path;$p_fs;$p_mountpoint"
-        if [ "x$p_label" != "x_dde_data" ] && [ "x$p_label" != "xSWAP" ]; then
+        if [ "x$LABEL" = "xEFI" ] && [ "x$LABEL" = "xBoot" ] && [ "x$LABEL" = "xBackup" ] \
+                && [ "x$LABEL" = "xRoota" ] && [ "x$LABEL" = "xRootb" ]; then
             format_part "$p_path" "$p_fs" "$p_label" ||\
               error "Failed to create $p_fs filesystem on $p_path!"
         fi
