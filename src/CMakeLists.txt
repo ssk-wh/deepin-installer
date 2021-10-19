@@ -247,6 +247,8 @@ set(SERVICE_FILES
     service/language_manager.cpp
     service/screen_adaptation_manager.h
     service/screen_adaptation_manager.cpp
+    service/multiscreenmanager.h
+    service/multiscreenmanager.cpp
     )
 
 set(SYSINFO_FILES

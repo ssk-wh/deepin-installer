@@ -69,6 +69,9 @@ class FirstBootSetupWindow : public DMainWindow, public FrameProxyInterface {
   // Show fullscreen.
   void fullscreen();
 
+  void setScreen(QScreen *screen);
+  void updateGeometry();
+
   void nextFrame() override;
   void exitInstall(bool reboot = false) override;
   void showChildFrame(BaseFrameInterface* childFrameInterface) override;
@@ -135,6 +138,8 @@ protected:
   ControlPanelFrame* control_panel_frame_ = nullptr;
 
   MouseShape m_mouseShape;
+
+  QScreen* m_screen = nullptr;
 
   static const int FramePointerRole = Dtk::UserRole + 1;
 

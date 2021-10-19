@@ -28,7 +28,9 @@
 #include <string.h>
 #include <unistd.h>
 #include <DToolTip>
+#include <QScreen>
 
+#include "service/multiscreenmanager.h"
 #include "ui/delegates/componentinstallmanager.h"
 #include "base/consts.h"
 #include "service/log_manager.h"
@@ -119,16 +121,18 @@ int main(int argc, char* argv[]) {
   }
 
   installer::ComponentInstallManager::Instance();
-  installer::MainWindow main_window;
-  app.installEventFilter(&main_window);
-  main_window.setLogFile(args_parser.getLogFile());
 
-  main_window.setWindowIcon(":/images/deepin-installer-32px.svg");
+  installer::MainWindow *main_window = new installer::MainWindow;
+  app.installEventFilter(main_window);
+  main_window->setLogFile(args_parser.getLogFile());
+
+  main_window->setWindowIcon(":/images/deepin-installer-32px.svg");
   // Notify background thread to scan device info.
-  main_window.scanDevicesAndTimezone();
-  main_window.fullscreen();
-
-  main_window.show();
+  main_window->scanDevicesAndTimezone();
+  main_window->setup();
+  // 安装器的主界面输出到主屏，由启动初始化阶段的脚本克隆到其他屏幕
+  main_window->setScreen(app.primaryScreen());
+  main_window->show();
 
   return app.exec();
 }

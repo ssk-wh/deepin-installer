@@ -80,8 +80,11 @@ class MainWindow : public DMainWindow, public FrameProxyInterface {
  public:
   explicit MainWindow(QWidget* parent = nullptr);
 
-  // Show fullscreen.
-  void fullscreen();
+  // 设置主程序的翻译和无人值守分区
+  void setup();
+
+  void setScreen(QScreen *screen);
+  void updateGeometry();
 
   // Notify background thread to scan disk devices if needed.
   // And read current timezone.
@@ -213,6 +216,8 @@ private:
     QMap<FrameInterface*, DStandardItem*> m_frameModelItemMap;
 
     MouseShape m_mouseShape;
+
+    QScreen* m_screen = nullptr;
 
     static const int FramePointerRole = Dtk::UserRole + 1;
 

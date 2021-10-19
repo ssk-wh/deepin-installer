@@ -27,7 +27,9 @@
 #include <signal.h>
 #include <string.h>
 #include <unistd.h>
+#include <QScreen>
 
+#include "service/multiscreenmanager.h"
 #include "base/consts.h"
 #include "service/log_manager.h"
 #include "service/settings_name.h"
@@ -46,60 +48,58 @@ DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
 int main(int argc, char* argv[]) {
-  //for qt5platform-plugins load DPlatformIntegration or DPlatformIntegrationParent
-  if (!QString(qgetenv("XDG_CURRENT_DESKTOP")).toLower().startsWith("deepin")){
-    setenv("XDG_CURRENT_DESKTOP", "Deepin", 1);
-  }
+    //for qt5platform-plugins load DPlatformIntegration or DPlatformIntegrationParent
+    if (!QString(qgetenv("XDG_CURRENT_DESKTOP")).toLower().startsWith("deepin")){
+        setenv("XDG_CURRENT_DESKTOP", "Deepin", 1);
+    }
 
-  qputenv("LC_ALL", installer::kDefaultLang);
-  qputenv("LANG", installer::kDefaultLang);
+    qputenv("LC_ALL", installer::kDefaultLang);
+    qputenv("LANG", installer::kDefaultLang);
 
-  QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-  QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
-  DApplication app(argc, argv);
-  app.setApplicationDisplayName("Deepin Installer First Boot");
-  app.setApplicationName(" ");
-  app.setApplicationVersion(installer::kAppVersion);
-  app.setOrganizationDomain(installer::kOrganizationDomain);
-  app.setWindowIcon(QIcon(":/images/deepin_installer.svg"));
+    DApplication app(argc, argv);
+    app.setApplicationDisplayName("Deepin Installer First Boot");
+    app.setApplicationName(" ");
+    app.setApplicationVersion(installer::kAppVersion);
+    app.setOrganizationDomain(installer::kOrganizationDomain);
+    app.setWindowIcon(QIcon(":/images/deepin_installer.svg"));
 
-  const char kLogFileName[] = "deepin-installer-first-boot.log";
-  QString log_file;
-  if (!installer::HasRootPrivilege())
-  {
-    qCritical() << "Root privilege is required!";
-    log_file = QString("/tmp/%1").arg(kLogFileName);
-  }
-  else
-  {
-    log_file = QString("/var/log/%1").arg(kLogFileName);
-  }
-  // Initialize log service.
-#ifdef QT_DEBUG_test
-#else
-  installer::RedirectLog(log_file);
-#endif // QT_DEBUG
+    const char kLogFileName[] = "deepin-installer-first-boot.log";
+    QString log_file;
+    if (!installer::HasRootPrivilege()) {
+        qCritical() << "Root privilege is required!";
+        log_file = QString("/tmp/%1").arg(kLogFileName);
+    }
+    else {
+        log_file = QString("/var/log/%1").arg(kLogFileName);
+    }
+    // Initialize log service.
+    #ifdef QT_DEBUG_test
+    #else
+    installer::RedirectLog(log_file);
+    #endif // QT_DEBUG
 
-  // 判断是否是烧录系统情况下的后配置流程
-  if (!installer::GetSettingsString("system_installer_start_mode").isEmpty()) {
-      installer::DeleteConfigFile();
-      installer::AddConfigFile();
-  }
+    // 判断是否是烧录系统情况下的后配置流程
+    if (!installer::GetSettingsString("system_installer_start_mode").isEmpty()) {
+        installer::DeleteConfigFile();
+        installer::AddConfigFile();
+    }
 
-  QFont font(app.font());
-  font.setPixelSize(installer::GetSettingsInt(installer::kSystemDefaultFontSize));
-  font.setFamily(installer::GetUIDefaultFont());
-  app.setFont(font);
+    QFont font(app.font());
+    font.setPixelSize(installer::GetSettingsInt(installer::kSystemDefaultFontSize));
+    font.setFamily(installer::GetUIDefaultFont());
+    app.setFont(font);
 
-  installer::KeyboardMonitor::instance()->setNumlockStatus(installer::KeyboardMonitor::instance()->isNumlockOn());
+    installer::KeyboardMonitor::instance()->setNumlockStatus(installer::KeyboardMonitor::instance()->isNumlockOn());
 
-  installer::FirstBootSetupWindow window;
-  app.installEventFilter(&window);
-  window.setWindowIcon(":/images/deepin-installer-32px.svg");
+    installer::FirstBootSetupWindow* main_window = new installer::FirstBootSetupWindow;
+    app.installEventFilter(main_window);
+    main_window->setWindowIcon(":/images/deepin-installer-32px.svg");
+    // 安装器的主界面输出到主屏，由启动初始化阶段的脚本克隆到其他屏幕
+    main_window->setScreen(app.primaryScreen());
+    main_window->show();
 
-  window.fullscreen();
-  window.show();
-
-  return app.exec();
+    return app.exec();
 }

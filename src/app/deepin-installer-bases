@@ -24,6 +24,72 @@ init() {
     /usr/bin/deepin-installer-init # 设置安装器的背景，适配高分辨率下plymouth出现歪屏的情况
 }
 
+# 获取活动屏幕输出个数
+monitors_cnt() {
+    local out=`xrandr --listactivemonitors | grep ^Monitors:`
+    out=${out##Monitors:}
+    echo ${out:-0}
+}
+
+# 获取主屏幕
+monitors_primary() {
+    local out=`xrandr | grep 'connected primary' | awk '{print $1}'`
+    echo $out
+}
+
+# 获取其他屏幕数据列表
+monitors_othe_list() {
+    local out=`xrandr | grep ' connected ' | grep -v 'connected primary' | awk '{print $1}'`
+    echo $out
+}
+
+# 处理1k情况，安装器最高以1k显示
+monitors_mode_1k() {
+    local mode="1920x1080"
+    local cnt=`xrandr -q | awk '{print $1}' | grep -E [0-9]+x[0-9]+ | grep $mode | wc -l`
+    if [ $cnt -eq $(monitors_cnt) ]; then
+        echo $mode
+    else
+        echo ""
+    fi
+}
+
+# 获取所有屏幕共同支持的显示模式
+monitors_mode() {
+   local mode_1k=$(monitors_mode_1k)
+   local list=`xrandr -q | awk '{print $1}' | grep -E [0-9]+x[0-9]+`
+   ## 如果支持1k，最以1k屏显示
+   if [ -n "$mode_1k" ]; then
+       echo $mode_1k
+   else
+       for line in $list; do
+           local cnt=`xrandr -q | awk '{print $1}' | grep -E [0-9]+x[0-9]+ | grep $line | wc -l`
+           if [ $cnt -eq $(monitors_cnt) ]; then
+               echo $line
+               return;
+           fi
+       done
+
+       # 最低的默认分辨率，防止如果所有分辨率都不满足的情况下使用800x600
+       echo "800x600"
+   fi
+}
+
+# 处理设置屏幕
+setup_monitors() {
+    local cnt=$(monitors_cnt)
+    if [ $cnt -gt 1 ]; then
+        echo $(monitors_primary) | xargs -I {} xrandr --output {} --mode $(monitors_mode)                                  # 设置主屏分辨率
+        echo $(monitors_othe_list) | xargs -I {} xrandr --output $(monitors_primary) --same-as {} --mode $(monitors_mode)  # 克隆模式
+        echo $(monitors_othe_list) | xargs -I {} xrandr --output {} --mode $(monitors_mode)                                # 设置多屏共同支持的最大分辨率
+    else
+        echo "Single output"
+    fi
+}
+
+## 处理多屏的情况，安装器以克隆模式运行多屏的情况
+setup_monitors
+
 # 启动窗管，解决部分机型上界面花屏问题, 窗管启动失败不影响安装器本身程序的启动
 kwin_x11 -platform dde-kwin-xcb || true &
 

@@ -31,6 +31,8 @@
 #include <DBackgroundGroup>
 #include <DTitlebar>
 #include <QWindow>
+#include <QScreen>
+#include <QObject>
 
 #include "ui/interfaces/frameinterface.h"
 #include "base/file_util.h"
@@ -143,27 +145,50 @@ MainWindow::MainWindow(QWidget* parent)
     }
 }
 
-void MainWindow::fullscreen() {
-  if (GetSettingsBool(kPartitionDoAutoPart)) {
-    // Read default locale from settings.ini and go to InstallProgressFrame.
-    // 当配置了页面跳过和自动安装时，对于磁盘空间检测的异常需要有异常提示界面
-    // current_page_ = PageId::PartitionId;
+void MainWindow::setup() {
+    if (GetSettingsBool(kPartitionDoAutoPart)) {
+        // Read default locale from settings.ini and go to InstallProgressFrame.
+        // 当配置了页面跳过和自动安装时，对于磁盘空间检测的异常需要有异常提示界面
+        // current_page_ = PageId::PartitionId;
 
-    // Set language.
-    QTranslator* translator = new QTranslator(this);
-    const QString locale(ReadLocale());
-    translator->load(GetLocalePath(locale));
-    qApp->installTranslator(translator);
-  }
-
-    this->setFixedSize(ScreenAdaptationManager::instance()->primaryAvailableGeometry().size());
+        // Set language.
+        QTranslator* translator = new QTranslator(this);
+        const QString locale(ReadLocale());
+        translator->load(GetLocalePath(locale));
+        qApp->installTranslator(translator);
+    }
 
     if (GetSettingsBool(kPartitionDoAutoPart) || GetSettingsBool("DI_LUPIN")) {
-    // In auto-install mode, partitioning is done in hook script.
-    // So notify InstallProgressFrame to run hooks directly.
-    partition_frame_->autoPart();
-  }
+        // In auto-install mode, partitioning is done in hook script.
+        // So notify InstallProgressFrame to run hooks directly.
+        partition_frame_->autoPart();
+    }
 }
+
+void MainWindow::setScreen(QScreen *screen)
+{
+    if (screen == m_screen)
+        return;
+
+    if (m_screen) {
+        disconnect(m_screen, &QScreen::geometryChanged, this, &MainWindow::updateGeometry);
+    }
+
+    if (screen) {
+        connect(screen, &QScreen::geometryChanged, this, &MainWindow::updateGeometry);
+    }
+
+    m_screen = screen;
+
+    if (m_screen)
+        updateGeometry();
+}
+
+void MainWindow::updateGeometry()
+{
+    setGeometry(m_screen->geometry());
+}
+
 
 void MainWindow::scanDevicesAndTimezone() {
     ScanNetDevice();  // 扫描网络设备
@@ -513,13 +538,13 @@ void MainWindow::initConnections() {
     this->close();
   });
 
-  // 主窗口分辨率适配
-  connect(ScreenAdaptationManager::instance(),
-          &ScreenAdaptationManager::primaryAvailableGetometryChanaged,
-          this, [=](const QRect &rect) {
-      this->setFixedSize(rect.size());
-      this->adjustSize();
-  });
+//  // 主窗口分辨率适配
+//  connect(ScreenAdaptationManager::instance(),
+//          &ScreenAdaptationManager::primaryAvailableGetometryChanaged,
+//          this, [=](const QRect &rect) {
+//      this->setFixedSize(rect.size());
+//      this->adjustSize();
+//  });
 }
 
 void MainWindow::initPages() {

@@ -38,6 +38,7 @@
 #include <QPlainTextEdit>
 #include <QEventLoop>
 #include <QScrollBar>
+#include <QScreen>
 
 #include "base/thread_util.h"
 #include "service/first_boot_hook_worker.h"
@@ -276,14 +277,6 @@ void FirstBootSetupWindow::initConnections() {
 
     connect(language_frame_, &LanguageFrame::coverMainWindowFrameLabelsView, this, [=] (bool cover) {
         updateFrameLabelPreviousState(!cover);
-    });
-
-    // 主窗口分辨率适配
-    connect(ScreenAdaptationManager::instance(),
-            &ScreenAdaptationManager::primaryAvailableGetometryChanaged,
-            this, [=](const QRect &rect) {
-        this->setFixedSize(rect.size());
-        this->adjustSize();
     });
 }
 
@@ -830,6 +823,30 @@ void FirstBootSetupWindow::updateFrameLabelState(FrameInterface *frame, FrameLab
         qWarning() << "invalid state value";
         break;
     }
+}
+
+void FirstBootSetupWindow::setScreen(QScreen *screen)
+{
+    if (screen == m_screen)
+        return;
+
+    if (m_screen) {
+        disconnect(m_screen, &QScreen::geometryChanged, this, &FirstBootSetupWindow::updateGeometry);
+    }
+
+    if (screen) {
+        connect(screen, &QScreen::geometryChanged, this, &FirstBootSetupWindow::updateGeometry);
+    }
+
+    m_screen = screen;
+
+    if (m_screen)
+        updateGeometry();
+}
+
+void FirstBootSetupWindow::updateGeometry()
+{
+    setGeometry(m_screen->geometry());
 }
 
 }  // namespace installer
