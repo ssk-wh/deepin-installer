@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="en" sourcelanguage="en">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" sourcelanguage="en" version="2.1">
 <context>
     <name>ConfirmQuitFrame</name>
     <message>
@@ -715,12 +713,16 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="674"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="678"/>
+        <source>The partition of %1 directory should be the first partition on the hard disk, and starts at the beginning of the disk</source>
+        <translation>The partition of %1 directory should be the first partition on the hard disk, and starts at the beginning of the disk</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="381"/>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
         <translation>The partition of /boot directory should be the first partition on hard disk</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="678"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="385"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
         <translation>The partition of /boot/efi directory should be the first partition on hard disk</translation>

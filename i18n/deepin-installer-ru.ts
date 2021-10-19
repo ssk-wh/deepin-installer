@@ -65,8 +65,8 @@
         <location filename="../src/ui/frames/language_frame.cpp" line="441"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="783"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="1098"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="266"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1097"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="272"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1089"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="110"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="184"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="133"/>
@@ -91,7 +91,7 @@
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="100"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="175"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="988"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="980"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="205"/>
         <source>Back</source>
         <comment>button</comment>
@@ -103,334 +103,334 @@
         <translation>Выберите язык системы</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Core</source>
         <translation>Ядро</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Core packages for server OS.</source>
         <translation>Пакеты ядра для серверной ОС.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Base</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Base packages for server OS.</source>
         <translation>Базовые пакеты для серверных ОС.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Basic Server Environment</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Applies to standard common service environments, such as Web services and database services.</source>
         <translation>Применяется к стандартным средам общих служб, таким как веб-службы и службы баз данных.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Applies to IaaS environments, such as virtualization, containers, and clouds.</source>
         <translation>Применяется в средах IaaS, таких как виртуализация, контейнеры и облака.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Cloud and Virtualization</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Big Data</source>
         <translation>Большие Данные</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Applies to servers that provide parallel processing of massive data.</source>
         <translation>Применяется к серверам, которые обеспечивают параллельную обработку массивных данных.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="341"/>
         <source>Server Environment with GUI</source>
         <translation>Серверная Cреда с графическим интерфейсом</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="341"/>
         <source>Operates the services and applications on the graphical user interface.</source>
         <translation>Управляет сервисами и приложениями на графическом интерфейсе пользователя.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Custom Installation</source>
         <translation>Выборочная Установка</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Provides most package groups for custom selection, covering minimum to maximum installation.</source>
         <translation>Предоставляет большинство групп пакетов для пользовательского выбора, охватывающих минимальную или максимальную установку.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Debugging Tools</source>
         <translation>Инструменты Отладки</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Provide debugging package for program function and performance.</source>
         <translation>Предоставить пакет отладки для функции и производительности программы.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Applications with GUI</source>
         <translation>Приложения с графическим интерфейсом</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Commonly used server application packages in graphical user interface.</source>
         <translation>Обычно используемые пакеты серверных приложений в графическом интерфейсе пользователя.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Development Tools</source>
         <translation>Инструменты Разработки</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Development tool packages in multiple programming languages.</source>
         <translation>Пакеты инструментов разработки на нескольких языках программирования.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Directory Client</source>
         <translation>Клиентский Каталог</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Clients for integration into a network managed by a directory service.</source>
         <translation>Клиенты для интеграции в сеть, управляемую службой каталогов.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>Domain Name Service</source>
         <translation>Служба Доменных Имен</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>Environments for running the domain name service (DNS).</source>
         <translation>Среда для запуска службы доменных имен (DNS).</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>File and Storage Server</source>
         <translation>Файловый Сервер и Сервер Хранения</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
         <translation>Сервер сетевого хранения CIFS, SMB, NFS, iSCSI, iSER и iSNS.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>Graphics Creation Tools</source>
         <translation>Инструменты для Создания Графики</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>Software for creating and editing images.</source>
         <translation>Программное обеспечение для создания и редактирования изображений.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Load Balancer</source>
         <translation>Балансировщик Нагрузки</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Load balancing support for network traffic.</source>
         <translation>Поддержка балансировки нагрузки для сетевого трафика.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>MariaDB Database Server</source>
         <translation>Сервер Базы Данных MariaDB</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>The MariaDB SQL database server, and associated packages.</source>
         <translation>Клиент базы данных MariaDB SQL и связанные с ним пакеты.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>E-mail Server</source>
         <translation>Почтовый Сервер</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
         <translation>Позволяет системе работать в качестве сервера электронной почты SMTP и/или IMAP.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>Network File System Client</source>
         <translation>Клиент Сетевой Файловой Системы</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>Environments for network storage devices.</source>
         <translation>Среды для сетевых устройств хранения.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>Performance Tools</source>
         <translation>Инструменты Производительности</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>Packages for monitoring and diagnosing hardware devices, system programs, and applications.</source>
         <translation>Пакеты для мониторинга и диагностики аппаратных устройств, системных программ и приложений.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>Security Tools</source>
         <translation>Инструменты Безопасности</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>Packages for integrity and trust verification.</source>
         <translation>Пакеты для проверки целостности и доверия.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>Web Server</source>
         <translation>Веб Сервер</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>Provides Java servlets and Web common service components.</source>
         <translation>Предоставляет Java-сервлеты и компоненты веб-общих служб.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>Guest Agents</source>
         <translation>Гостевые Агенты</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>Agents used when running under a hypervisor.</source>
         <translation>Агенты, используемые при работе под гипервизором.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>Virtualization Client</source>
         <translation>Клиент Виртуализации</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>Clients for installing and managing virtualization instances.</source>
         <translation>Клиенты для установки и управления экземплярами виртуализации.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>Virtualization Hypervisor</source>
         <translation>Гипервизор Виртуализации</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>Smallest possible virtualization host installation.</source>
         <translation>Наименьше-возможная установка хоста виртуализации.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>Virtualization Tools</source>
         <translation>Инструменты Виртуализации</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>Tools for offline virtual image management.</source>
         <translation>Инструменты для автономного управления виртуальными образами.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
         <source>Virtualization Platform</source>
         <translation>Платформа Виртуализации</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
         <source>Provides an interface for acessing and controlling virtualized guests and containers.</source>
         <translation>Предоставляет интерфейс для доступа и управления виртуализированными гостями и контейнерами.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
         <source>High Availability</source>
         <translation>Высокая Доступность</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
         <source>Infrastructure for highly available services and/or shared storage.</source>
         <translation>Инфраструктура для высокодоступных услуг и/или общего хранилища.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>InfiniBand Support</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
         <translation>Программное обеспечение, разработанное для поддержки кластеризации и подключения к сетке с использованием основанных на RDMA матриц InfiniBand и iWARP.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>Large Systems Performance</source>
         <translation>Большие Производительные Системы</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>Performance support tools for large systems.</source>
         <translation>Инструменты поддержки производительности для больших систем.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
         <source>Platform Development</source>
         <translation>Платформа для Разработки</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
         <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
         <translation>Рекомендуемые заголовки для разработки и библиотеки для разработки приложений для выполнения в UOS.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
         <source>Internet Applications</source>
         <translation>Интернет-Приложения</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
         <source>Email, chat, and video conferencing software.</source>
         <translation>Электронная почта, чат и программное обеспечение для видеоконференций.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
         <source>Virtualization Toolset</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
         <source>Toolset for virtualization enviroment (host and guest).</source>
         <translation>Набор инструментов для среды виртуализации (хост и гость).</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="342"/>
         <source>PostgreSQL Database Server</source>
         <translation>Сервер Баз Данных PostgreSQL</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="342"/>
         <source>The PostgreSQL SQL database server, and associated packages.</source>
         <translation>Сервер базы данных PostgreSQL SQL и связанные с ним пакеты.</translation>
     </message>
@@ -478,7 +478,7 @@
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="60"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="240"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="241"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
@@ -600,7 +600,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="56"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="238"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="239"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
         <translation>Для установки %2 требуется не менее %1 ГБ дискового пространства. Для хорошей производительности рекомендуется использовать %3 ГБ или более</translation>
     </message>
@@ -635,7 +635,7 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="96"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="89"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="170"/>
-        <location filename="../src/ui/frames/warnning_frame.cpp" line="198"/>
+        <location filename="../src/ui/frames/warnning_frame.cpp" line="268"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="108"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="128"/>
@@ -646,14 +646,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="55"/>
-        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="75"/>
-        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="98"/>
         <source>Tuning system</source>
         <translation>Настройка системы</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="100"/>
+        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="99"/>
         <source>Applying changes to your system, please wait...</source>
         <translation>Применение изменений для вашей системы, пожалуйста, ждите...</translation>
     </message>
@@ -683,7 +683,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="245"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="386"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="228"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="294"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="295"/>
         <source>Install NVIDIA closed source driver</source>
         <translation>Установить проприентарный драйвер NVIDIA</translation>
     </message>
@@ -713,12 +713,16 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="674"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="678"/>
+        <source>The partition of %1 directory should be the first partition on the hard disk, and starts at the beginning of the disk</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="381"/>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
         <translation>Раздел /boot должен быть первым разделом на жестком диске</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="678"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="385"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
         <translation>Раздел /boot/efi должен быть первым разделом на жестком диске</translation>
@@ -826,8 +830,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="326"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="229"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="287"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="230"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="288"/>
         <source>Encrypt This Disk</source>
         <translation>Зашифровать этот диск</translation>
     </message>
@@ -838,9 +842,9 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="329"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="265"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="727"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1099"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="271"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="719"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1091"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Убедитесь, что вы создали резервную копию важных данных, затем выберите диск для установки</translation>
     </message>
@@ -859,18 +863,19 @@
         <translation>Повторите Пароль</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="230"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="299"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="231"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="300"/>
         <source>Please select a disk to start installation</source>
         <translation>Пожалуйста, выберите диск, чтобы начать установку</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="280"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="229"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="281"/>
         <source>Save User Data</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="455"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="456"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="239"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="181"/>
@@ -1031,9 +1036,9 @@
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="191"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="288"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="261"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="989"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1016"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="267"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="981"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1008"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="88"/>
         <source>Ready to Install</source>
         <translation>Готов к Установке</translation>
@@ -1041,8 +1046,8 @@
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="193"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="290"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="260"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1015"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="266"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1007"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="92"/>
         <source>Make a backup of your important data and then continue</source>
         <translation>Сделайте резервную копию ваших важных данных и затем продолжайте</translation>
@@ -1554,30 +1559,30 @@
         <translation>IP-адрес был настроен автоматически, но Вы также можете настроить сеть</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="201"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="263"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="724"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1096"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="202"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="269"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="716"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1088"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="88"/>
         <source>Create Partitions</source>
         <translation>Создать Разделы</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="258"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1013"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1005"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="572"/>
         <source>Edit LVM Disk</source>
         <translation>Редактировать LVM Диск</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="269"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="734"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="275"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="726"/>
         <source>Simple</source>
         <translation>Простой</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="270"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="737"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="276"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="729"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="550"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="97"/>
@@ -1585,25 +1590,25 @@
         <translation>Расширенный</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="271"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="741"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="277"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="733"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="96"/>
         <source>Full Disk</source>
         <translation>Весь Диск</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="804"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="796"/>
         <source>Start installation</source>
         <translation>Начало установки</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="962"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="954"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
         <translation>Целевой диск является динамическим, и ваши данные могут быть потеряны при продолжении. Пожалуйста, сначала сделайте резервную копию ваших важных файлов.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="966"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="958"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
         <translation>Целевой диск является динамическим, и будет отформатирован, если продолжить. Пожалуйста, сначала сделайте резервную копию ваших важных файлов.</translation>
     </message>
@@ -1662,7 +1667,7 @@
     <message>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="133"/>
-        <location filename="../src/ui/frames/warnning_frame.cpp" line="186"/>
+        <location filename="../src/ui/frames/warnning_frame.cpp" line="261"/>
         <source>OK</source>
         <translation>ОК</translation>
     </message>

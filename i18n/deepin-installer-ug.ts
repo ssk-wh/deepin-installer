@@ -65,8 +65,8 @@
         <location filename="../src/ui/frames/language_frame.cpp" line="441"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="783"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="1098"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="266"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1097"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="272"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1089"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="110"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="184"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="133"/>
@@ -91,7 +91,7 @@
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="100"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="175"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="988"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="980"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="205"/>
         <source>Back</source>
         <comment>button</comment>
@@ -103,334 +103,334 @@
         <translation>تىل تاللاڭ</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Core</source>
         <translation>يادرو بۆلەك</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Core packages for server OS.</source>
         <translation>مۇلازىمېتىر مەشغۇلات سىستېمىسىنىڭ يادرولۇق بۆلەك يۇمشاق دېتال بولىقى.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Base</source>
         <translation>ئاساسى بۆلەك</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Base packages for server OS.</source>
         <translation>مۇلازىمېتىر مەشغۇلات سىستېمىسىنىڭ ئاساسى بۆلەك يۇمشاق دېتال بولىقى.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Basic Server Environment</source>
         <translation>ئادەتتىكى مۇلازىمېتىر مۇھىتى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Applies to standard common service environments, such as Web services and database services.</source>
         <translation>تور مۇلازىمىتى ۋە ساندان مۇلازىمىتى قاتارلىق قېلىپلاشقان ئورتاق مۇلازىمەت مۇھىتىغا ماس كېلىدۇ.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Applies to IaaS environments, such as virtualization, containers, and clouds.</source>
         <translation>مۇلازىمەت سۈپىتىدە مەۋھۇملاشتۇرۇش ، قاچىلاش ئەسۋابى ، بۇلۇت ۋە باشقا ئۇل ئەسلىھەلەرنىڭ مەشغۇلات مۇھىتىغا ماس كېلىدۇ.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Cloud and Virtualization</source>
         <translation>بۇلۇت ۋە مەۋھۇملاشتۇرۇش</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Big Data</source>
         <translation>بۈيۈك مەلۇمات</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Applies to servers that provide parallel processing of massive data.</source>
         <translation>كەڭ كۆلەمدە سانلىق مەلۇماتلارنى پاراللېل بىر تەرەپ قىلىدىغان مۇلازىمېتىرلارغا ماس كېلىدۇ.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="341"/>
         <source>Server Environment with GUI</source>
         <translation>گرافىكلىق مۇلازىمېتىر مۇھىتى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="341"/>
         <source>Operates the services and applications on the graphical user interface.</source>
         <translation>گرافىكلىق ئىشلەتكۈچى كۆرۈنمە يۈزى، تەمىنلەنگەن مۇلازىمەت ۋە قوللىنىشچان پروگراممىلار ئىجرا بولىدۇ.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Custom Installation</source>
         <translation>خاسلاشتۇرۇپ قاچىلاش</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Provides most package groups for custom selection, covering minimum to maximum installation.</source>
         <translation>كۆپىنچە يۇمشاق دېتاللارنىڭ ئورالما گۇرۇپپىلىرىنىڭ خاسلاشتۇرۇش تاللانمىلىرى بىلەن تەمىنلەيدۇ ، ئەڭ كىچىكىدىن ئەڭ چوڭ قاچىلاشنى ئۆز ئىچىگە ئالىدۇ.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Debugging Tools</source>
         <translation>تەڭشەش-سىناش قورالى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Provide debugging package for program function and performance.</source>
         <translation>پروگرامما ئىقتىدارىنى تەڭشەش-سىناش يۇمشاق دېتال بولىقى بىلەن تەمىنلەيدۇ.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Applications with GUI</source>
         <translation>گرافىكلىق كۆرۈنمە يۈزى قوللىنىشچان پروگراممىسى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Commonly used server application packages in graphical user interface.</source>
         <translation>گرافىكلىق كۆرۈنمە يۈزىدە كۆپ ئىشلىتىلىدىغان مۇلازىمېتىر قوللىنىشچان يۇمشاق دېتال بولىقى.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Development Tools</source>
         <translation>ئېچىش قورالى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Development tool packages in multiple programming languages.</source>
         <translation>كۆپ خىل پروگرامما تىلى ئۈچۈن ئېچىش قورال يۇمشاق دېتالى توپلىمى.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Directory Client</source>
         <translation>مۇندەرىجە تېرمىنالى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Clients for integration into a network managed by a directory service.</source>
         <translation>مۇندەرىجە مۇلازىمىتى ئارقىلىق تورنى باشقۇرىدىغان تېرمىنال پروگراممىسى.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>Domain Name Service</source>
         <translation>دائىرە نامى مۇلازىمىتى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>Environments for running the domain name service (DNS).</source>
         <translation>دائىرە نامى مۇلازىمىتى (DNS) نىڭ مەشغۇلات مۇھىتىنى ئۈستىگە ئېلىش ئۈچۈن ئىشلىتىلىدۇ.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>File and Storage Server</source>
         <translation>ھۆججەت ۋە ساقلاش مۇلازىمىتىرى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
         <translation>CIFS, SMB, NFS, iSCSI, iSER ۋە iSNS تور ساقلاش مۇلازىمېتىرلىرى.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>Graphics Creation Tools</source>
         <translation>گرافىك ھاسىللاش قورالى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>Software for creating and editing images.</source>
         <translation>رەسىم ھاسىللاش ۋە تەھرىرلەش يۇمشاق دېتال بوغچىسى.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Load Balancer</source>
         <translation>مەنپىي ئېشىش تەڭپۇڭلاشتۇرۇغىچىسى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Load balancing support for network traffic.</source>
         <translation>مۇلازىمېتىر تورىنىڭ مەنپىي يۈكىنى تەڭپۇڭلاشتۇرۇپ باشقۇرىدىغان يۇمشاق دېتال بولىقى.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>MariaDB Database Server</source>
         <translation>MariaDB ساندان مۇلازىمېتىرى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>The MariaDB SQL database server, and associated packages.</source>
         <translation>MariaDB SQL ساندان مۇلازىمېتىرىنىڭ ئۆلچەملىك زاپچاسلىرى ۋە مۇناسىۋەتلىك يۇمشاق دېتال بوغچىسى.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>E-mail Server</source>
         <translation>ئېلېكترونلۇق خەت مۇلازىمىتىرى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
         <translation>SMTP ۋە IMAP قاتارلىق ئېلېكترونلۇق خەت مۇلازىمەتلىرىنىڭ مەشغۇلات مۇھىتىنى ئۈستىگە ئېلىشقا ئىشلىتىلىدۇ</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>Network File System Client</source>
         <translation>تور ھۆججەت سىستېمىسى تېرمىنالى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>Environments for network storage devices.</source>
         <translation>تور ساقلاش ئۈسكۈنىلىرىنىڭ مەشغۇلات مۇھىتىنى ئىشلىتىدۇ.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>Performance Tools</source>
         <translation>ئىقتىدار قورالى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>Packages for monitoring and diagnosing hardware devices, system programs, and applications.</source>
         <translation>قاتتىق دېتال ئۈسكۈنىلىرى ، سىستېما پروگراممىلىرى ۋە قوللىنىشچان پروگراممىلارنى نازارەت قىلىش ۋە دىئاگنوز قويۇش يۇمشاق دېتال بوغچىسى بىلەن تەمىنلەيدۇ.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>Security Tools</source>
         <translation>بىخەتەرلىك قورالى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>Packages for integrity and trust verification.</source>
         <translation>مۇكەممەللىك ۋە ئىشەنچلىكىنى دەلىللەش يۇمشاق دېتال بولىقى.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>Web Server</source>
         <translation>Web مۇلازىمېتىرى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>Provides Java servlets and Web common service components.</source>
         <translation>تور مۇلازىمېتىر ماتورى ۋە تور ئورتاق مۇلازىمەت زاپچاسلىرى بىلەن تەمىنلەيدۇ.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>Guest Agents</source>
         <translation>مەۋھۇم كومپيۇتېر ۋاكالەتچىسى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>Agents used when running under a hypervisor.</source>
         <translation>Hypervisor دا ئىجرا بولغاندا ئىشلىتىلىدىغان ۋاكالەتچى بولىقى.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>Virtualization Client</source>
         <translation>مەۋھۇملاشتۇرۇلغان تېرمىنال</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>Clients for installing and managing virtualization instances.</source>
         <translation>مەۋھۇملاشتۇرۇلغان ھادىسىلەرنى ئورنىتىش ۋە باشقۇرۇش تېرمىنالى.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>Virtualization Hypervisor</source>
         <translation>مەۋھۇملاشتۇرۇلغان Hypervisor</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>Smallest possible virtualization host installation.</source>
         <translation>مەۋھۇملاشتۇرغۇچى كومپيۇتېرنى كىچىكلىتىپ قويۇپ ئورنىتىش.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>Virtualization Tools</source>
         <translation>مەۋھۇملاشتۇرۇش قورالى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>Tools for offline virtual image management.</source>
         <translation>تورسىز مەۋھۇملاشتۇرۇلغان كومپيۇتېردا رەسىم باشقۇرۇش قورالى.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
         <source>Virtualization Platform</source>
         <translation>مەۋھۇملاشتۇرۇلغان سۇپا</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
         <source>Provides an interface for acessing and controlling virtualized guests and containers.</source>
         <translation>مەۋھۇم كومپيۇتېر ۋە قاچىلاش ئەسۋابىنى زىيارەت قىلىش ۋە كونترول قىلىش ئېغىزى بىلەن تەمىنلەيدۇ.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
         <source>High Availability</source>
         <translation>يۇقىرى ئۈنۈمدە ئىشلەتكىلى بولىدۇ</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
         <source>Infrastructure for highly available services and/or shared storage.</source>
         <translation>يۇقىرى ئۈنۈملۈك مۇلازىمەت / ياكى ئورتاق ساقلىنىدىغان ئۇل ئەسلىھە.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>InfiniBand Support</source>
         <translation>InfiniBand قوللاش</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
         <translation>گۇرۇپپىلارنى قوللايدىغان ياكى RDMA InfiniBand ۋە iWARP تالالىق ئوپتىك تور ئۇلىنىشىنى ئىشلىتىدىغان يۇمشاق دېتال.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>Large Systems Performance</source>
         <translation>چوڭ سىستېما ئىقتىدارى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>Performance support tools for large systems.</source>
         <translation>چوڭ سىستېمىلارنىڭ ئىقتىدار قوللاش قوراللىرى.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
         <source>Platform Development</source>
         <translation>سۇپا ئېچىش</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
         <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
         <translation>UOS دا ئىجرا قىلىنىدىغان پروگراممىلارنى ئېچىش ئۈچۈن ماۋزۇ ۋە پىروگرامما ئامبىرى بىلەن تەمىنلەيدۇ.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
         <source>Internet Applications</source>
         <translation>ئىنتېرنېت قوللىنىشچان پروگراممىسى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
         <source>Email, chat, and video conferencing software.</source>
         <translation>ئېلېكترونلۇق خەت ، پاراڭلىشىش ۋە سىن يىغىنى يۇمشاق دېتالى.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
         <source>Virtualization Toolset</source>
         <translation>مەۋھۇملاشتۇرۇش قوراللار توپلىمى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
         <source>Toolset for virtualization enviroment (host and guest).</source>
         <translation>مەۋھۇملاشتۇرۇلغان مەشغۇلات مۇھىتى (ساھىبخانا ۋە خېرىدار كومپيۇتېرى) تەلەپ قىلغان يۇمشاق دېتال بوغچىسى.</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="342"/>
         <source>PostgreSQL Database Server</source>
         <translation>PostgreSQL ساندان مۇلازىمېتىرى</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="342"/>
         <source>The PostgreSQL SQL database server, and associated packages.</source>
         <translation>MariaDB SQL ساندان مۇلازىمېتىرىنىڭ ئۆلچەملىك زاپچاسلىرى ۋە مۇناسىۋەتلىك يۇمشاق دېتال بوغچىسى.</translation>
     </message>
@@ -478,7 +478,7 @@
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="60"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="240"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="241"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
@@ -600,7 +600,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="56"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="238"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="239"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
         <translation>%2 نى ئورنىتىش ئۈچۈن كەم دېگەندە%1 GB لىق دىسكا بوشلۇقى تەلەپ قىلىنىدۇ. تېخىمۇ ياخشى ئىشلىتىش ئۈچۈن%3 GB ياكى ئۇنىڭدىن يۇقىرى بۆلۈشىڭىزنى تەۋسىيە قىلىمىز</translation>
     </message>
@@ -635,7 +635,7 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="96"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="89"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="170"/>
-        <location filename="../src/ui/frames/warnning_frame.cpp" line="198"/>
+        <location filename="../src/ui/frames/warnning_frame.cpp" line="268"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="108"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="128"/>
@@ -646,14 +646,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="55"/>
-        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="75"/>
-        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="98"/>
         <source>Tuning system</source>
         <translation>سىستېما سەپلىمىسىنى ئەلالاشتۇرۇش</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="100"/>
+        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="99"/>
         <source>Applying changes to your system, please wait...</source>
         <translation>سىستېما تەڭشىكىنى يېڭىلاڭ ، ساقلاپ تۇرۇڭ ...</translation>
     </message>
@@ -683,7 +683,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="245"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="386"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="228"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="294"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="295"/>
         <source>Install NVIDIA closed source driver</source>
         <translation>توپلاشتۇرۇلغان NVIDIA يېپىق مەنبە قوزغاتقۇچ</translation>
     </message>
@@ -713,12 +713,16 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="674"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="678"/>
+        <source>The partition of %1 directory should be the first partition on the hard disk, and starts at the beginning of the disk</source>
+        <translation>%1 مۇندەرىجە بار ئورۇن دىسكىنىڭ 1-رايونى، يەنە كېلىپ دىسكىنىڭ باشلىنىش قىسمىدا</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="381"/>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
         <translation>/boot مۇندەرىجىسى جايلاشقان رايون قاتتىق دىسكىنىڭ بىرىنچى بۆلىكى بولۇشى كېرەك</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="678"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="385"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
         <translation>/boot/efi مۇندەرىجىسى جايلاشقان رايون قاتتىق دىسكىنىڭ بىرىنچى بۆلىكى بولۇشى كېرەك</translation>
@@ -826,8 +830,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="326"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="229"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="287"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="230"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="288"/>
         <source>Encrypt This Disk</source>
         <translation>پۈتۈن دىسكىنى پاروللاش</translation>
     </message>
@@ -838,9 +842,9 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="329"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="265"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="727"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1099"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="271"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="719"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1091"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>مۇھىم سانلىق مەلۇماتلارنى زاپاسلىغانلىقىڭىزنى جەزملەشتۈرۈڭ ، ئاندىن قاچىلايدىغان دىسكىنى تاللاڭ</translation>
     </message>
@@ -859,18 +863,19 @@
         <translation>پارولنى ئەسلىگە قايتۇرۇش</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="230"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="299"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="231"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="300"/>
         <source>Please select a disk to start installation</source>
         <translation>بىر دىسكىنى تاللاپ قاچىلاڭ</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="280"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="229"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="281"/>
         <source>Save User Data</source>
         <translation>ئىشلەتكۈچى سانلىق مەلۇماتىنى ساقلاش</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="455"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="456"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="239"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="181"/>
@@ -1031,9 +1036,9 @@
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="191"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="288"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="261"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="989"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1016"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="267"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="981"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1008"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="88"/>
         <source>Ready to Install</source>
         <translation>قاچىلاشقا تەييارلىنىش</translation>
@@ -1041,8 +1046,8 @@
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="193"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="290"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="260"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1015"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="266"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1007"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="92"/>
         <source>Make a backup of your important data and then continue</source>
         <translation>مۇھىم سانلىق مەلۇماتلارنى زاپاسلاڭ ، ئاندىن تۆۋەندىكى مەشغۇلاتلارنى جەزملەشتۈرۈڭ</translation>
@@ -1554,30 +1559,30 @@
         <translation>IP ئادرېس ئاپتوماتىك تەڭشەلدى، ئەمما تور سەپلىمىسىنى قولدا ئۆزگەرتەلەيسىز</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="201"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="263"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="724"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1096"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="202"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="269"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="716"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1088"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="88"/>
         <source>Create Partitions</source>
         <translation>دىسكىنى رايونغا ئايرىش</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="258"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1013"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1005"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="572"/>
         <source>Edit LVM Disk</source>
         <translation>لوگىكىلىق دىسكىنى سەپلەش</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="269"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="734"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="275"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="726"/>
         <source>Simple</source>
         <translation>ئاددىي</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="270"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="737"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="276"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="729"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="550"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="97"/>
@@ -1585,25 +1590,25 @@
         <translation>قولدا قاچىلاش</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="271"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="741"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="277"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="733"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="96"/>
         <source>Full Disk</source>
         <translation>پۈتۈن دىسكىغا قاچىلاش</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="804"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="796"/>
         <source>Start installation</source>
         <translation>قاچىلاشنى باشلاش</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="962"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="954"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
         <translation>نىشان دىسكا ھەرىكەتچان دىسكا بولۇپ، قاچىلاشنى داۋاملاشتۇرسىڭىز، سانلىق مەلۇماتلىرىڭىز يوقاپ كېتىدۇ. سانلىق مەلۇماتلىرىڭىزنى زاپاسلاڭ.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="966"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="958"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
         <translation>نىشان دىسكا ھەرىكەتچان دىسكا بولۇپ ، كېيىنكى مەشغۇلاتلار دىسكىنى فورماتلايدۇ. سانلىق مەلۇماتلىرىڭىزنى زاپاسلاڭ.</translation>
     </message>
@@ -1662,7 +1667,7 @@
     <message>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="133"/>
-        <location filename="../src/ui/frames/warnning_frame.cpp" line="186"/>
+        <location filename="../src/ui/frames/warnning_frame.cpp" line="261"/>
         <source>OK</source>
         <translation>ماقۇل</translation>
     </message>
@@ -2012,7 +2017,7 @@
     <message>
         <location filename="../src/service/password_manager.cpp" line="101"/>
         <source>Password must be between %1 and %2 characters</source>
-        <translation>مەخپىي نومۇرنىڭ ئۇزۇنلۇقى چوقۇم%1 دىن%2 ھەرپ ئارىلىقىدا بولۇشى كېرەك</translation>
+        <translation>پارولنىڭ ئۇزۇنلۇقى چوقۇم%1 دىن%2 ھەرپ ئارىلىقىدا بولۇشى كېرەك</translation>
     </message>
     <message>
         <location filename="../src/service/password_manager.cpp" line="108"/>

@@ -6,8 +6,8 @@
 # Translators:
 # Matheus Campagnol <mate175@gmail.com>, 2017
 # Paulo Schopf, 2019
-# Alex, 2020
-# Raphael Miquelis <raphaelmiquelis@gmail.com>, 2021
+# Raphael Miquelis <raphaelmiquelis@gmail.com>, 2020
+# Alex, 2021
 # 
 #, fuzzy
 msgid ""
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-02 17:33+0800\n"
 "PO-Revision-Date: 2017-02-06 02:09+0000\n"
-"Last-Translator: Raphael Miquelis <raphaelmiquelis@gmail.com>, 2021\n"
+"Last-Translator: Alex, 2021\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/linuxdeepin/teams/3976/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -446,7 +446,7 @@ msgstr "América/Glace_Bay"
 
 #: system-config-date-timezones.h:106
 msgid "America/Godthab"
-msgstr "América/Godthab"
+msgstr "América / Nuuk"
 
 #: system-config-date-timezones.h:107
 msgid "America/Goose_Bay"
@@ -1278,7 +1278,7 @@ msgstr "Austrália/Broken_Hill"
 
 #: system-config-date-timezones.h:314
 msgid "Australia/Currie"
-msgstr "Austrália/Currie"
+msgstr "Austrália / Currie"
 
 #: system-config-date-timezones.h:315
 msgid "Australia/Darwin"

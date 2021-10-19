@@ -65,8 +65,8 @@
         <location filename="../src/ui/frames/language_frame.cpp" line="441"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="783"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="1098"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="266"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1097"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="272"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1089"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="110"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="184"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="133"/>
@@ -91,7 +91,7 @@
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="100"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="175"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="988"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="980"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="205"/>
         <source>Back</source>
         <comment>button</comment>
@@ -103,334 +103,334 @@
         <translation>མ་ལག་གི་སྐད་ཡིག་འདེམས་རོགས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Core</source>
         <translation>ལྷུ་ལག་གཙོ་བོ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="287"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
         <source>Core packages for server OS.</source>
         <translation>ཞབས་ཞུ་ཆས་OSཡི་ལྟེ་བའི་ལྷུ་ལག་མཉེན་ཆས་ཁུག</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Base</source>
         <translation>གཞི་རྩའི་ལྷུ་ལག</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="288"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
         <source>Base packages for server OS.</source>
         <translation>ཞབས་ཞུ་ཆས་OSཡི་གཞི་རྩའི་ལྷུ་ལག་མཉེན་ཆས་ཁུག</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Basic Server Environment</source>
         <translation>རྒྱུན་གཏན་ཞབས་ཞུ་ཆས་ཀྱི་ཁོར་ཡུག</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="289"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
         <source>Applies to standard common service environments, such as Web services and database services.</source>
         <translation>རྒྱུན་གཏན་ཞབས་ཞུ་ཆས་ཀྱི་ཁོར་ཡུག་ལ་སྤྱད་འཐུས། དཔེར་ན། Webཞབས་ཞུ་དང་། གཞི་གྲངས་མཛོད་ཀྱི་ཞབས་ཞུ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Applies to IaaS environments, such as virtualization, containers, and clouds.</source>
         <translation>རྟོག་བཟོ་ཅན་དང་། སྣོད་ཆས། སྤྲིན་སོགས་རྨང་གཞིའི་སྒྲིག་བཀོད་སྟེ་ཞབས་ཞུའི་བཀོལ་སྤྱོད་ཁོར་ཡུག་ལ་སྤྱད་འཐུས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="290"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Cloud and Virtualization</source>
         <translation>སྤྲིན་དང་རྟོག་བཟོ་ཅན།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Big Data</source>
         <translation>གཞི་གྲངས་ཆེན་མོ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="291"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
         <source>Applies to servers that provide parallel processing of massive data.</source>
         <translation>གཞི་གྲངས་འབོར་ཆེན་མཉམ་དུ་ཐག་གཅོད་བྱེད་པའི་ཞབས་ཞུ་འཕྲུལ་ཆས་ལ་སྤྱོད་འཚམ་པ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="341"/>
         <source>Server Environment with GUI</source>
         <translation>རིས་དབྱིབས་རྣམ་པའི་ཞབས་ཞུ་འཕྲུལ་ཆས་ཀྱི་ཁོར་ཡུག</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="292"/>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="341"/>
         <source>Operates the services and applications on the graphical user interface.</source>
         <translation>རིས་དབྱིབས་རྣམ་པའི་སྤྱོད་མཁན་གྱི་མཐུད་ངོས་བརྒྱུད་དེ་མཁོ་འདོན་བྱས་པའི་ཞབས་ཞུ་དང་། ཉེར་སྤྱོད་ལྟར་བཀོལ་སྤྱོད་བྱེད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Custom Installation</source>
         <translation>རང་སྒྲུབ་སྒྲིག་འཇུག</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="293"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
         <source>Provides most package groups for custom selection, covering minimum to maximum installation.</source>
         <translation>མཉེན་ཆས་ཐུམ་བུ་མང་ཆེ་ཤས་ཀྱི་རང་སྒྲུབ་གདམ་གསེས་མཁོ་འདོན་དང་། སྒྲིག་འཇུག་ཆུང་ཤོས་ནས་ཆེ་ཤོས་བར་ཁྱབ་པ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Debugging Tools</source>
         <translation>སྙོམ་སྒྲིག་ཡོ་བྱད།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="294"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
         <source>Provide debugging package for program function and performance.</source>
         <translation>བྱ་རིམ་གྱི་རྩོལ་ནུས་དང་ནུས་པར་སྙོམ་སྒྲིག་ཚོད་ལྟ་བྱེད་པའི་མཉེན་ཆས་ཐུམ་བུ་མཁོ་འདོན་བྱེད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Applications with GUI</source>
         <translation>རིས་དབྱིབས་མཐུད་ངོས་ཉེར་སྤྱོད།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="295"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
         <source>Commonly used server application packages in graphical user interface.</source>
         <translation>རིས་དབྱིབས་རྣམ་པའི་མཐུད་ངོས་ཁྲོད་རྒྱུན་དུ་སྤྱོད་པའི་ཞབས་ཞུ་འཕྲུལ་ཆས་ཀྱི་ཉེར་སྤྱོད་བྱ་རིམ་གྱི་མཉེན་ཆས་ཐུམ་བུ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Development Tools</source>
         <translation>གསར་སྤེལ་ཡོ་བྱད།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="296"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
         <source>Development tool packages in multiple programming languages.</source>
         <translation>བྱ་རིམ་སྐད་བརྡ་སྣ་མང་གི་གསར་སྤེལ་ཡོ་བྱད་ཀྱི་མཉེན་ཆས་ཐུམ་བུའི་ཚོགས་སྤྱི།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Directory Client</source>
         <translation>དཀར་ཆག་གི་མཁོ་མཁན་ཕྱོགས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="297"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="319"/>
         <source>Clients for integration into a network managed by a directory service.</source>
         <translation>དཀར་ཆག་སྤྱད་དེ་དོ་དམ་དྲ་རྒྱར་ཞབས་ཞུ་སྒྲུབ་པའི་མཁོ་མཁན་ཕྱོགས་ལ་སྤྱོད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>Domain Name Service</source>
         <translation>ཁོངས་མིང་ཞབས་ཞུ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="298"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
         <source>Environments for running the domain name service (DNS).</source>
         <translation>ཁོངས་མིང་ཞབས་ཞུ་（DNS）འཁུར་བའི་འཁོར་སྐྱོད་ཁོར་ཡུག་ལ་སྤྱོད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>File and Storage Server</source>
         <translation>ཡིག་ཆ་དང་ཉར་གསོག་ཞབས་ཞུ་འཕྲུལ་ཆས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="299"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="321"/>
         <source>CIFS, SMB, NFS, iSCSI, iSER, and iSNS network storage server.</source>
         <translation>CIFSདང་། SMB NFS  iSCSI  iSER  iSNSབཅས་དྲ་རྒྱའི་ཞབས་ཞུ་འཕྲུལ་ཆས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>Graphics Creation Tools</source>
         <translation>རིས་དབྱིབས་སྐྱེད་སྒྲུབ་ཡོ་བྱད།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="300"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="322"/>
         <source>Software for creating and editing images.</source>
         <translation>སྐྱེད་སྒྲུབ་དང་བརྙན་རིས་རྩོམ་སྒྲིག་གི་མཉེན་ཆས་ཐུམ་བུའི་ཚོགས་སྤྱི།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Load Balancer</source>
         <translation>ཁུར་པོ་དོ་སྙོམ་ཆས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="301"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="323"/>
         <source>Load balancing support for network traffic.</source>
         <translation>ཞབས་ཞུའི་དྲ་རྒྱའི་ཐེགས་ཚད་ལ་བསྟུན་ནས་དོ་སྙོམས་དོ་དམ་བྱེད་པའི་མཉེན་ཆས་ཁུག་འདོན་པ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>MariaDB Database Server</source>
         <translation>MariaDBགཞི་གྲངས་མཛོད་ཀྱི་ཞབས་ཞུ་འཕྲུལ་ཆས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="302"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="324"/>
         <source>The MariaDB SQL database server, and associated packages.</source>
         <translation>MariaDB SQLགཞི་གྲངས་མཛོད་ཀྱི་ཞབས་ཞུ་འཕྲུལ་ཆས་ཀྱི་ཚད་ལྡན་སྒྲིག་ལྷུ་དང་དེ་འབྲེལ་མཉེན་ཆས་ཐུམ་བུ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>E-mail Server</source>
         <translation>གློག་རྡུལ་སྦྲག་སྐུར་གྱི་ཞབས་ཞུ་འཕྲུལ་ཆས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="303"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="325"/>
         <source>Allows the system to act as a SMTP and/or IMAP e-mail server.</source>
         <translation>SMTP、IMAPསོགས་འཁུར་བའི་གློག་རྡུལ་སྦྲག་སྐུར་ཞབས་ཞུར་སྤྱོད་པའི་འཁོར་སྐྱོད་ཁོར་ཡུག</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>Network File System Client</source>
         <translation>དྲ་རྒྱའི་ཡིག་ཆ་ཡི་རྒྱུད་ཁོངས་མཁོ་མཁན་ཕྱོགས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="304"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="326"/>
         <source>Environments for network storage devices.</source>
         <translation>དྲ་རྒྱའི་ཉར་གསོག་སྒྲིག་ཆས་སྤྱོད་པའི་འཁོར་སྐྱོད་ཁོར་ཡུག</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>Performance Tools</source>
         <translation>གཤིས་ནུས་ཡོ་བྱད།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="305"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="327"/>
         <source>Packages for monitoring and diagnosing hardware devices, system programs, and applications.</source>
         <translation>ལྟ་ཞིབ་ཚོད་འཛིན་དང་། སྲ་ཆས་བརྟག་དཔྱད། རྒྱུད་ཁོངས་བྱ་རིམ། ཉེར་སྤྱོད་བྱ་རིམ་བཅས་མཁོ་འདོན་བྱེད་པའི་མཉེན་ཆས་ཐུམ་བུའི་ཚོགས་སྤྱི།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>Security Tools</source>
         <translation>བདེ་འཇགས་ཀྱི་ཡོ་བྱད།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="306"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="328"/>
         <source>Packages for integrity and trust verification.</source>
         <translation>ཆ་ཚང་རང་བཞིན་དང་ཡིད་རྟོན་རུང་བའི་ར་སྤྲོད་ལ་སྤྱོད་པའི་མཉེན་ཆས་ཐུམ་བུ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>Web Server</source>
         <translation>Webཞབས་ཞུ་འཕྲུལ་ཆས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="307"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="329"/>
         <source>Provides Java servlets and Web common service components.</source>
         <translation>Webཞབས་ཞུ་འཕྲུལ་ཆས་ཀྱི་སྒུལ་བྱེད་འཕྲུལ་འཁོར་དང་Webརྒྱུན་སྤྱོད་ཞབས་ཞུའི་སྒྲིག་ལྷུ་མཁོ་འདོན།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>Guest Agents</source>
         <translation>རྟོག་བཟོ་འཕྲུལ་ཆས་ཀྱི་ལས་ཚབ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="308"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="330"/>
         <source>Agents used when running under a hypervisor.</source>
         <translation>Hypervisorཁྲོད་འཁོར་སྐྱོད་བྱེད་སྐབས་སྤྱོད་པའི་ལས་ཚབ་མཉེན་ཆས་ཐུམ་བུ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>Virtualization Client</source>
         <translation>རྟོན་བཟོ་ཅན་གྱི་མཁོ་མཁན་ཕྱོགས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="309"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="331"/>
         <source>Clients for installing and managing virtualization instances.</source>
         <translation>རྟོག་བཟོའི་དོན་རྐྱེན་སྒྲིག་འཇུག་དང་དོ་དམ་བྱེད་པའི་མཁོ་མཁན་ཕྱོགས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>Virtualization Hypervisor</source>
         <translation>རྟོག་བཟོ་ཅན་Hypervisor</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="310"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="332"/>
         <source>Smallest possible virtualization host installation.</source>
         <translation>རྟོག་བཟོའི་རྩིས་འཁོར་ཨ་མའི་སྒྲིག་འཇུག་ཆུས་ཤོས་ཅན།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>Virtualization Tools</source>
         <translation>རྟོག་བཟོའི་ཡོ་བྱད།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="311"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="333"/>
         <source>Tools for offline virtual image management.</source>
         <translation>སྐུད་བྲལ་རྟོག་བཟོ་འཕྲུལ་ཆས་ཀྱི་ཤེལ་བརྙན་དོ་དམ་བྱེད་པའི་ཡོ་བྱད།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
         <source>Virtualization Platform</source>
         <translation>རྟོག་བཟོའི་ལས་སྟེགས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="334"/>
         <source>Provides an interface for acessing and controlling virtualized guests and containers.</source>
         <translation>རྟོག་བཟོ་འཕྲུལ་ཆས་དང་སྣོད་ཆས་མཁོ་འདོན་བྱེད་པའི་ལྟ་སྤྱོད་དང་། ཚོད་འཛིན་མཐུད་ཁ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
         <source>High Availability</source>
         <translation>མཐོ་ཚད་སྤྱོད་རུང་བ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="335"/>
         <source>Infrastructure for highly available services and/or shared storage.</source>
         <translation>མཐོ་ཚད་སྤྱོད་རུང་བའི་ཞབས་ཞུ་དང་ （ཡང་ན་）མཉམ་སྤྱོད་ཉར་གསོག་གི་གཞི་རྩའི་སྒྲིག་འགོད་ལ་སྤྱོད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>InfiniBand Support</source>
         <translation>InfiniBandརྒྱབ་སྐྱོར།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="314"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="336"/>
         <source>Software designed for supporting clustering and grid connectivity using RDMA-based InfiniBand and iWARP fabrics.</source>
         <translation>ཚོ་འདུས་རྒྱབ་སྐྱོར་རམ་RDMA InfiniBandདང་iWARPའོད་འདྲེན་གློག་སྐུད་དྲ་རྒྱའི་སྦྲེལ་མཐུད་རང་བཞིན་ལ་སྤྱོད་པའི་མཉེན་ཆས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>Large Systems Performance</source>
         <translation>མ་ལག་ཆེན་མོའི་ནུས་པ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="315"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="337"/>
         <source>Performance support tools for large systems.</source>
         <translation>རྒྱུད་ཁོངས་ཆེ་གྲས་ཀྱི་ནུས་པར་སྤྱོད་པའི་རྒྱབ་སྐྱོར་ཡོ་བྱད།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
         <source>Platform Development</source>
         <translation>སྟེགས་བུ་གསར་སྤེལ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="316"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="338"/>
         <source>Recommended development headers and libraries for developing applications to run on UOS.</source>
         <translation>UOSགསར་སྤེལ་ཁྲོད་འཁོར་སྐྱོད་བྱེད་པའི་ཉེར་སྤྱོད་བྱ་རིམ་ལ་ཁ་བྱང་དང་བྱ་རིམ་མཛོད་མཁོ་འདོན་བྱེད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
         <source>Internet Applications</source>
         <translation>དྲ་བའི་ཉེར་སྤྱོད་བྱ་རིམ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="317"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="339"/>
         <source>Email, chat, and video conferencing software.</source>
         <translation>གློག་རྡུལ་ཡིག་སྒམ་དང་། གླེང་མོལ། བརྙན་ཟློས་ཚོགས་འདུའི་མཉེན་ཆས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
         <source>Virtualization Toolset</source>
         <translation>རྟོག་བཟོའི་ཡོ་བྱད་ཚོགས་སྤྱི།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="318"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="340"/>
         <source>Toolset for virtualization enviroment (host and guest).</source>
         <translation>རྟོག་བཟོའི་འཁོར་སྐྱོད་ཁོར་ཡུག（གནས་བདག་འཕྲུལ་འཁོར་དང་མཁོ་མཁན་འཕྲུལ་ཆས་）ལ་མཁོ་བའི་ཚོགས་སྤྱིའི་མཉེན་ཆས་ཐུམ་བུ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="342"/>
         <source>PostgreSQL Database Server</source>
         <translation>PostgreSQLགཞི་གྲངས་མཛོད་ཀྱི་ཞབས་ཞུ་འཕྲུལ་ཆས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="320"/>
+        <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="342"/>
         <source>The PostgreSQL SQL database server, and associated packages.</source>
         <translation>PostgreSQLགཞི་གྲངས་མཛོད་ཀྱི་ཞབས་ཞུ་འཕྲུལ་ཆས་ཀྱི་ཚད་ལྡན་སྒྲིག་ལྷུ་དང་འབྲེལ་ཡོད་མཉེན་ཆས་ཐུམ་བུ།</translation>
     </message>
@@ -478,7 +478,7 @@
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="60"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="240"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="241"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
@@ -600,7 +600,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="56"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="238"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="239"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
         <translation>%2སྒྲིག་འཇུག་བྱེད་པར་ཉུང་མཐར་ཡང་སྡུད་སྡེར་གྱི་བར་སྟོང་%1 GBདགོས་པས། སྔར་བས་བེད་སྤྱོད་ལེགས་པ་ཡོང་ཆེད། ཁྱོད་ཀྱིས་%3 GBཡན་དབྱེ་རྒྱུའི་གྲོས་འགོ་འདོན་གྱི་ཡིན།</translation>
     </message>
@@ -635,7 +635,7 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="96"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="89"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="170"/>
-        <location filename="../src/ui/frames/warnning_frame.cpp" line="198"/>
+        <location filename="../src/ui/frames/warnning_frame.cpp" line="268"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="108"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="128"/>
@@ -646,14 +646,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="55"/>
-        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="75"/>
-        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="98"/>
         <source>Tuning system</source>
         <translation>རྒྱུད་ཁོངས་ཀྱི་སྒྲིག་འགོད་ལེགས་སྒྱུར།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="77"/>
-        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="100"/>
+        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="76"/>
+        <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="99"/>
         <source>Applying changes to your system, please wait...</source>
         <translation>རྒྱུད་ཁོངས་ཀྱི་སྒྲིག་འགོད་གསར་སྒྱུར་བྱེད་བཞིན་ཡོད་པས། ཏོག་ཙམ་སྒུག་རོགས།</translation>
     </message>
@@ -683,7 +683,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="245"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="386"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="228"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="294"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="295"/>
         <source>Install NVIDIA closed source driver</source>
         <translation>འདུས་གྲུབ་NVIDIAཁུངས་མེད་སྐུལ་འདེད།</translation>
     </message>
@@ -713,12 +713,16 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="674"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="678"/>
+        <source>The partition of %1 directory should be the first partition on the hard disk, and starts at the beginning of the disk</source>
+        <translation>%1 དཀར་ཆག་གནས་སའི་དབྱེ་ཁུལ་ནི་སྲ་སྡེར་གྱི་དབྱེ་ཁུལ་དང་པོར་ཡིན་དགོས་པ་མ་ཟད། སྡུད་སྡེར་གྱི་ཐོག་མ་ཡིན་དགོས།</translation>
+    </message>
+    <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="381"/>
         <source>The partition of /boot directory should be the first partition on hard disk</source>
         <translation>/boot དཀར་ཆག་ཡོད་སའི་ཁུལ་ཚན་ནི་སྲ་སྡེར་གྱི་ཁུལ་ཚན་དང་པོ་དེ་ཡིན་དགོས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="678"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="385"/>
         <source>The partition of /boot/efi directory should be the first partition on hard disk</source>
         <translation>/boot/efi དཀར་ཆག་ཡོད་སའི་ཁུལ་ཚན་ནི་སྲ་སྡེར་གྱི་ཁུལ་ཚན་དང་པོ་དེ་ཡིན་དགོས།</translation>
@@ -826,8 +830,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="326"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="229"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="287"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="230"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="288"/>
         <source>Encrypt This Disk</source>
         <translation>ཚང་མར་གསང་ཨང་བཟོ་བ།</translation>
     </message>
@@ -838,9 +842,9 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="329"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="265"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="727"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1099"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="271"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="719"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1091"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>ཁྱོད་ཀྱིས་གཞི་གྲངས་གལ་ཆེན་གྲབས་ཉར་བྱས་ཡོད་པ་གཏན་ཁེལ་བྱས་རྗེས། སྒྲིག་འཇུག་བྱེད་སའི་སྡུད་སྡེར་འདེམས།</translation>
     </message>
@@ -859,18 +863,19 @@
         <translation>གསང་ཨང་བསྐྱར་ཟློས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="230"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="299"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="231"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="300"/>
         <source>Please select a disk to start installation</source>
         <translation>སྡུད་སྡེར་ཞིག་བདམས་ནས་སྒྲིག་འཇུག་གནང་དང་།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="280"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="229"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="281"/>
         <source>Save User Data</source>
         <translation>སྤྱོད་མཁན་གྱི་གཞི་གྲངས་ཉར་ཚགས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="455"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="456"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="239"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="181"/>
@@ -1031,9 +1036,9 @@
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="191"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="288"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="261"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="989"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1016"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="267"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="981"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1008"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="88"/>
         <source>Ready to Install</source>
         <translation>སྒྲིག་འཇུག་བྱེད་གྲབས་བྱེད་པ།</translation>
@@ -1041,8 +1046,8 @@
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="193"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="290"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="260"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1015"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="266"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1007"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="92"/>
         <source>Make a backup of your important data and then continue</source>
         <translation>གཞི་གྲངས་གལ་ཆེན་གྲབས་ཉར་གནང་རྗེས། གཤམ་གྱི་བཀོལ་སྤྱོད་གནང་རྒྱུ།</translation>
@@ -1554,30 +1559,30 @@
         <translation>ཁྱེད་ལ་རང་འགུལ་ངང་IPས་གནས་ཐོབ་ཡོད་མོད། ཁྱེད་ཀྱིས་དྲ་རྒྱའི་སྡེབ་སྒྲིག་བཟོ་བཅོས་བྱས་ཆོག</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="201"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="263"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="724"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1096"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="202"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="269"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="716"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1088"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="88"/>
         <source>Create Partitions</source>
         <translation>སྲ་སྡེར་ཁུལ་ཚན།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="258"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1013"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1005"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="572"/>
         <source>Edit LVM Disk</source>
         <translation>གཏན་ཚིགས་བམ་པོ་སྡེབ་སྒྲིག</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="269"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="734"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="275"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="726"/>
         <source>Simple</source>
         <translation>སྟབས་བདེ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="270"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="737"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="276"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="729"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="550"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="97"/>
@@ -1585,25 +1590,25 @@
         <translation>ལག་ཐབས་སྒྲིག་འཇུག</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="271"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="741"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="277"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="733"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="96"/>
         <source>Full Disk</source>
         <translation>ཆ་ཚང་སྒྲིག་འཇུག</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="804"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="796"/>
         <source>Start installation</source>
         <translation>སྒྲིག་འཇུག་བྱེད་འགོ་ཚུགས་པ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="962"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="954"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
         <translation>དམིགས་ཡུལ་སྡུད་སྡེར་ནི་འགུལ་རྣམ་སྡུད་སྡེར་ཡིན་པས། མུ་མཐུད་སྒྲིག་འཇུག་བྱས་ཚེ། ཁྱེད་ཀྱི་གཞི་གྲངས་བོར་སྲིད།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="966"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="958"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
         <translation>དམིགས་ཡུལ་སྡུད་སྡེར་ནི་འགུལ་རྣམ་སྡུད་སྡེར་ཡིན་པས། མུ་མཐུད་སྒྲིག་འཇུག་བྱས་ན་ཁྱེད་ཀྱི་སྡུད་སྡེར་རྣམ་གཞག་བཟོ་སྲིད་པས། ཁྱེད་ཀྱི་གཞི་གྲངས་གྲབས་ཉར་བྱ་རྒྱུ།</translation>
     </message>
@@ -1662,7 +1667,7 @@
     <message>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="133"/>
-        <location filename="../src/ui/frames/warnning_frame.cpp" line="186"/>
+        <location filename="../src/ui/frames/warnning_frame.cpp" line="261"/>
         <source>OK</source>
         <translation>ཆོག</translation>
     </message>

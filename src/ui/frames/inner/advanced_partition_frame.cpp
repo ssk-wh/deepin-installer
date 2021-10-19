@@ -368,8 +368,6 @@ void AdvancedPartitionFrame::initUI() {
   QVBoxLayout* main_layout = new QVBoxLayout();
   main_layout->setContentsMargins(0, 0, 0, 0);
   main_layout->setSpacing(0);
-  main_layout->addWidget(msg_container_frame_, 0, Qt::AlignHCenter);
-  main_layout->addSpacing(8);
   QHBoxLayout* upLayout = new QHBoxLayout();
   upLayout->addWidget(scroll_area_);
   main_layout->addLayout(upLayout);
@@ -566,6 +564,9 @@ void AdvancedPartitionFrame::showErrorMessage(ValidateState state) {
   AdvancedPartitionErrorLabel* error_label =
       new AdvancedPartitionErrorLabel();
   error_label->setObjectName(kLastErrMsgLabel);
+  error_label->setAlignment(Qt::AlignLeft);
+  error_label->setWordWrap(true);
+  error_label->adjustSize();
 
   error_labels_.append(error_label);
 
@@ -573,7 +574,7 @@ void AdvancedPartitionFrame::showErrorMessage(ValidateState state) {
   const QString text = this->validateStateToText(state);
   error_label->setText(text);
   error_label->show();
-  error_label->setFixedHeight(kErrorMsgLabelHeight);
+
   msg_layout_->addWidget(error_label);
 
   connect(error_label, &AdvancedPartitionErrorLabel::entered,
@@ -671,12 +672,12 @@ QString AdvancedPartitionFrame::validateStateToText(ValidateState state) {
                 "can only be %1 ").arg(fs_name);
     }
     case ValidateState::BootPartNumberInvalid: {
-      return ::QObject::tr("The partition of /boot directory should be "
-                "the first partition on hard disk");
+      return ::QObject::tr("The partition of %1 directory should be the first partition on the hard disk"
+                           ", and starts at the beginning of the disk").arg("/boot");
     }
     case ValidateState::EfiPartNumberinvalid: {
-      return ::QObject::tr("The partition of /boot/efi directory should be "
-                "the first partition on hard disk");
+      return ::QObject::tr("The partition of %1 directory should be the first partition on the hard disk"
+                           ", and starts at the beginning of the disk").arg("/boot/efi");
     }
     case ValidateState::BootTooSmall: {
       const int boot_recommended = GetSettingsInt(kPartitionDefaultBootSpace);
