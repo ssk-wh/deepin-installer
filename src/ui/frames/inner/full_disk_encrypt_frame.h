@@ -62,6 +62,7 @@ public:
 protected:
     void changeEvent(QEvent *event) override;
     void paintEvent(QPaintEvent *event) override;
+    void hideEvent(QHideEvent *event) override;
 
 private:
     void initConnections();
@@ -75,6 +76,7 @@ private:
     void encryptRepeatEditOnFocus(bool ison);
 
 private:
+    QString m_passwd;
     QVBoxLayout *m_layout;
     TitleLabel *m_frameLbl;
     QLabel *m_frameSubLbl;

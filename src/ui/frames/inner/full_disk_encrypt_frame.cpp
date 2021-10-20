@@ -270,6 +270,14 @@ void Full_Disk_Encrypt_frame::paintEvent(QPaintEvent *event)
     return QWidget::paintEvent(event);
 }
 
+void Full_Disk_Encrypt_frame::hideEvent(QHideEvent *event)
+{
+    m_encryptEdit->clear();
+    m_encryptRepeatEdit->clear();
+
+    return ChildFrameInterface::hideEvent(event);
+}
+
 void Full_Disk_Encrypt_frame::initConnections()
 {
     connect(m_cancelBtn, &QPushButton::clicked, this, &Full_Disk_Encrypt_frame::cancel);
@@ -298,11 +306,13 @@ void Full_Disk_Encrypt_frame::onNextBtnClicked()
         return;
     }
 
+    m_passwd = m_encryptEdit->text();
+
     emit encryptFinished();
 }
 
 QString Full_Disk_Encrypt_frame::passwd() {
-    return m_encryptEdit->text();
+    return m_passwd;
 }
 
 void Full_Disk_Encrypt_frame::getFinalDiskResolution(FinalFullDiskResolution& resolution) {
