@@ -512,9 +512,6 @@ bool IsEfiEnabled() {
 }
 
 bool IsMBRPreferred(const DeviceList& devices) {
-    if (GetCurrentPlatform() == "sw"){
-     	return true;
-    }
     return !IsEfiEnabled();
 }
 
