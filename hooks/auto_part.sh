@@ -39,13 +39,10 @@ check_device_size(){
 
 # Check boot mode is UEFI or not.
 check_efi_mode(){
-  if [ -d "/sys/firmware/efi" ]; then
-    declare -g EFI=true
-  fi
+  is_sw && declare -g EFI=true
+  [ -d "/sys/firmware/efi" ] && declare -g EFI=true
   local force_efi=$(installer_get force_efi_mode)
-  if [ x"$force_efi" = "xtrue" ];then
-    declare -g EFI=true
-  fi
+  [ x"$force_efi" = "xtrue" ] && declare -g EFI=true
 }
 
 # Flush kernel message.
@@ -491,6 +488,8 @@ main(){
 #  # Write boot method.
   if $EFI; then
     installer_set DI_UEFI "true"
+
+    is_sw && installer_set DI_BOOTLOADER "${part_device_array[0]}"
   else
     installer_set DI_BOOTLOADER "${part_device_array[0]}"
   fi
