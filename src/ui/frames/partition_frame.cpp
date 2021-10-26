@@ -98,7 +98,6 @@ public:
 
      void onButtonGroupToggled(QAbstractButton *button);
      void onNextButtonClicked();
-     void onFullDiskCryptoButtonClicked(bool encrypto);
 
      // Write partitioning settings to conf file and emit manualPartDone() signal.
      void onManualPartDone(bool ok, const DeviceList& devices);
@@ -660,9 +659,6 @@ void PartitionFramePrivate::initConnections() {
   connect(full_disk_partition_frame_, &FullDiskFrame::showDeviceInfomation,
           full_disk_encrypt_frame_, &Full_Disk_Encrypt_frame::onShowDeviceInfomation);
 
-  connect(full_disk_partition_frame_, &FullDiskFrame::cryptoStateChanged,
-          this, &PartitionFramePrivate::onFullDiskCryptoButtonClicked);
-
   connect(full_disk_partition_frame_, &FullDiskFrame::enableNextButton, [=](const bool& enable) {
       nextButton->setEnabled(enable);
   });
@@ -981,12 +977,6 @@ void PartitionFramePrivate::onNextButtonClicked() {
        nextButton->setText(::QObject::tr("Ready to Install"));
        emit q_ptr->coverMainWindowFrameLabelsView(false);
     }
-}
-
-void PartitionFramePrivate::onFullDiskCryptoButtonClicked(bool encrypto)
-{
-//    nextButton->setText(encrypto ? ::QObject::tr("Next") :
-//                                   ::QObject::tr("Start installation"));
 }
 
 void PartitionFramePrivate::onManualPartDone(bool ok, const DeviceList& devices) {

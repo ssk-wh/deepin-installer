@@ -475,6 +475,28 @@ bool FullDiskFrame::isExistDataPart(const QString &devicepath)
     }
 }
 
+bool FullDiskFrame::isSystemDisk(const QString &devicepath)
+{
+    QString cmd = QString("lsblk -o LABEL -lnf %1 | grep [a-z/A-Z] | xargs").arg(devicepath);
+    QProcess testprocess;
+    testprocess.start("/bin/bash",{"-c", cmd});
+    testprocess.waitForFinished();
+    QString devicelabels = testprocess.readAll();
+    qWarning() << "devicelabels = " << devicelabels;
+    QStringList devicelabelslist = devicelabels.split(" ");
+
+    int sysytemdisknums = 0;
+
+    if (devicelabelslist.contains("Roota"))
+        sysytemdisknums++;
+
+    if (sysytemdisknums == 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 bool FullDiskFrame::isFullDiskEncrypt(const QString &devicepath)
 {
     QString cmd = QString("lsblk -f %1 | grep crypto_LUKS").arg(devicepath);
@@ -490,21 +512,33 @@ bool FullDiskFrame::isFullDiskEncrypt(const QString &devicepath)
     }
 }
 
-void FullDiskFrame::setSaveDataCheckboxStat(const Device::Ptr device)
+void FullDiskFrame::setSaveDataCheckboxStat(const Device::Ptr device,  const int type)
 {
-    // 检测磁盘格式和引导模式是否一致
-    PartitionTableType currenttable = IsEfiEnabled() ? PartitionTableType::GPT : PartitionTableType::MsDos;
-
-    qWarning() << "device table : " << device->table << " currenttable : " << currenttable;
+    // 判断是否是一个系统盘
+    bool testissystemdisk = false;
+    if (static_cast<int>(DiskModelType::SystemDisk) == type) {
+        testissystemdisk = isSystemDisk(device->path);
+    } else if (static_cast<int>(DiskModelType::DataDisk) == type) {
+        testissystemdisk = isSystemDisk(m_delegate->selectedDisks().at(0));
+    }
 
     bool testexistdata = isExistDataPart(device->path);
     bool testfulldiskencrypt = isFullDiskEncrypt(device->path);
-    if(testexistdata && (!testfulldiskencrypt) && (device->table == currenttable)) {
-        m_saveDataCheck->setEnabled(true);
+
+    // 检测磁盘格式和引导模式是否一致
+    PartitionTableType currenttable = IsEfiEnabled() ? PartitionTableType::GPT : PartitionTableType::MsDos;
+    qWarning() << "device table : " << device->table << " currenttable : " << currenttable;
+
+    // 存在data分区并且在选择系统盘时所选盘存在系统分区
+    // 或者存在data分区并且选择数据盘时，选择的系统盘存在系统分区
+    if ( testexistdata && (!testfulldiskencrypt) && (device->table == currenttable) && testissystemdisk ) {
+        m_saveDataCheck->setEnabled(!m_encryptCheck->isChecked());
         emit showSaveDataPopWidget();
     } else {
         m_saveDataCheck->setChecked(false);
         m_saveDataCheck->setEnabled(false);
+        m_encryptCheck->setEnabled(true);
+        WriteSaveUserData(false);
     }
 }
 
@@ -559,20 +593,16 @@ void FullDiskFrame::onCurrentDeviceChanged(int type, const Device::Ptr device)
 {
     if (static_cast<int>(DiskModelType::SystemDisk) == type) {
         m_delegate->addSystemDisk(device->path);
-
-        // 当切换系统盘的选择时，“保留用户数据”勾选控件状态置为不可用
-        saveDataStateChanged(false);
-        m_saveDataCheck->setEnabled(false);
     }
     else if(static_cast<int>(DiskModelType::DataDisk) == type){
         m_delegate->addDataDisk(device->path);
-
-        // 设置保留用户数据勾选控件
-        setSaveDataCheckboxStat(device);
     }
     else {
         qWarning() << QString("MULTIDISK:invalid type:{%1}").arg(type);
     }
+
+    // 设置保留用户数据勾选控件
+    setSaveDataCheckboxStat(device, type);
 
     // If validate device failed, then clear last device partition info in the widget.
     if(!validate()) {
@@ -601,6 +631,23 @@ void FullDiskFrame::saveDataStateChanged(bool savedata)
 
     m_saveDataCheck->setChecked(savedata);
     WriteSaveUserData(savedata);
+}
+
+void FullDiskFrame::cryptoStateChanged(bool crypto)
+{
+    if (crypto) {
+        m_saveDataCheck->setChecked(false);
+        m_saveDataCheck->setEnabled(false);
+        WriteSaveUserData(false);
+    } else {
+        // 当撤销“全盘加密”的勾选状态时，“保留用户数据”的可用状态根据重新判断所选的系统盘和数据盘确定
+        DeviceList testdevicelist = m_delegate->selectedDevices();
+        for (int i = 0; i < testdevicelist.size(); i++) {
+            setSaveDataCheckboxStat(testdevicelist.at(i), i);
+        }
+    }
+
+    m_encryptCheck->setChecked(crypto);
 }
 
 }  // namespace installer

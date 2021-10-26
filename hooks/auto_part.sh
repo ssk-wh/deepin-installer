@@ -550,7 +550,7 @@ sava_data() {
   fi
 
   # 寻找EFI
-  local part_path=$(fdisk -l -o Device,Type | grep -E 'EFI|"$ROOT_DISK"' | awk '{print $1}')
+  local part_path=$(fdisk -l -o Device,Type | grep $ROOT_DISK | grep EFI | awk '{print $1}')
   if [ -n $part_path ]; then
     installer_set "DI_BOOTLOADER" $part_path
   fi

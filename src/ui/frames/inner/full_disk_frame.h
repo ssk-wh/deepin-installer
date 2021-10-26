@@ -58,7 +58,6 @@ public:
 
 signals:
     void currentDeviceChanged(const Device::Ptr device) const;
-    void cryptoStateChanged(bool crypto) const;
     void showDeviceInfomation();
     void enableNextButton(const bool enable) const;
     void showSaveDataPopWidget();
@@ -80,11 +79,14 @@ private:
     // 判断是磁盘中否存在/data分区
     bool isExistDataPart(const QString &devicepath);
 
+    // 判断是否是一个系统盘
+    bool isSystemDisk(const QString &devicepath);
+
     // 判断否是全盘加密
     bool isFullDiskEncrypt(const QString &devicepath);
 
     // 设置保留用户数据勾选控件
-    void setSaveDataCheckboxStat(const Device::Ptr device);
+    void setSaveDataCheckboxStat(const Device::Ptr device, const int type = 0);
 
     FullDiskDelegate* m_delegate     = nullptr;
     QButtonGroup*     m_button_group = nullptr;
@@ -109,6 +111,7 @@ public slots:
     void onCurrentDeviceChanged(int type, const Device::Ptr device);
     void installNvidiaStateChanged(bool install_nvidia);
     void saveDataStateChanged(bool savedata);
+    void cryptoStateChanged(bool crypto);
 };
 
 }  // namespace installer
