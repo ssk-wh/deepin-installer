@@ -244,7 +244,7 @@ void PartitionFrame::onAutoInstallPrepareFinished(bool finished)
         WriteFullDiskEncryptPassword(GetSettingsString(kDiskCryptPassword));
         m_private->partition_model_->autoPart();
     }
-    else if (m_private->full_disk_delegate_->isLvm()) {
+    else if (m_private->isFullDiskPartitionMode() && m_private->full_disk_delegate_->isLvm()) {
         m_private->setupDiskEncrypt(false);
         m_private->partition_model_->autoPart();
     }
@@ -936,7 +936,7 @@ void PartitionFramePrivate::onNextButtonClicked() {
     if (!advanced_partition_frame_->validate()) {
       return;
     }
-  } else if (AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_Install) {
+  } else {
     // Validate advanced partition frame.
     if (!lvm_partition_frame_->validate()) {
       return;
@@ -1016,7 +1016,7 @@ void PartitionFramePrivate::onPrepareInstallFrameFinished() {
         found_boot = full_disk_delegate_->setBootFlag();
     } else if (AdvancedPartitionDelegate::install_Lvm_Status != Install_Lvm_Status::Lvm_Install) {
         found_boot = advanced_delegate_->setBootFlag();
-    } else if (AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_Install) {
+    } else {
         found_boot = lvm_delegate_->setBootFlag();
     }
 
@@ -1033,7 +1033,7 @@ void PartitionFramePrivate::onPrepareInstallFrameFinished() {
         operations = full_disk_delegate_->operations();
     } else if (AdvancedPartitionDelegate::install_Lvm_Status != Install_Lvm_Status::Lvm_Install){
         operations = advanced_delegate_->operations();
-    } else if (AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_Install){
+    } else {
         //注意一定要先添加老分区操作，否则会产生不可预料的后果
         operations = lvm_delegate_->m_oldOperationList;
         operations.append(lvm_delegate_->operations());
@@ -1113,7 +1113,7 @@ void PartitionFramePrivate::showNewTableWarningFrame(const QString& device_path)
     return;
   } else if (AdvancedPartitionDelegate::install_Lvm_Status != Install_Lvm_Status::Lvm_Install) {
     devices = advanced_delegate_->realDevices();
-  } else if (AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_Install) {
+  } else {
     devices = lvm_delegate_->realDevices();
   }
 
@@ -1179,7 +1179,7 @@ void PartitionFramePrivate::showPrepareInstallFrame()
         descriptions = full_disk_delegate_->getOptDescriptions();
     } else if (AdvancedPartitionDelegate::install_Lvm_Status != Install_Lvm_Status::Lvm_Install) {
       descriptions = advanced_delegate_->getOptDescriptions();
-    } else if (AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_Install) {
+    } else {
       descriptions = lvm_delegate_->getOptDescriptions();
     }
 
