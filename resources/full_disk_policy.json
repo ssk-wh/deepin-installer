@@ -5,16 +5,7 @@
         "usage": "512Mib",
         "alignStart": true,
         "device": "",
-        "platform": [ "loongson" , "x86", "arm", "loongarch64" ]
-    },
-    {
-        "filesystem": "ext4",
-        "mountPoint": "/boot",
-        "label": "Boot",
-        "usage": "3072Mib",
-        "alignStart": true,
-        "device": "",
-        "platform": [ "sw" ]
+        "platform": [ "x86" , "sw" , "loongson" , "arm", "loongarch64" ]
     },
     {
         "filesystem": "linux-swap",
