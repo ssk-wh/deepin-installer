@@ -21,6 +21,7 @@ install_progress_page_disable_slide = false
 install_progress_page_disable_slide_animation = true
 skip_virtual_machine_page = true
 system_info_disable_experience = true
+partition_skip_partition_crypt_page = true
 
 # 分区
 system_recovery_base_size=4
@@ -28,3 +29,4 @@ disk_minimum_space_required = 8
 partition_full_disk_minimum_space = 8
 partition_root_space_required = 4
 partition_enable_swap_file=false
+
