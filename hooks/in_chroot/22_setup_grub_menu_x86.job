@@ -25,19 +25,7 @@ if ! is_x86; then
   return 0
 fi
 
-GRUB_CONF=/etc/default/grub
 GRUB_NEED_UPDATE=false
-
-GRUB_TIMEOUT=$(installer_get "grub_timeout")
-if [ -n "${GRUB_TIMEOUT}" ]; then
-  # Update timeout of boot menu.
-  if grep -q "^GRUB_TIMEOUT=" "${GRUB_CONF}"; then
-    sed -i "${GRUB_CONF}" -e "s/^\(GRUB_TIMEOUT\)=.*/\1=${GRUB_TIMEOUT}/g"
-  else
-    echo "GRUB_TIMEOUT=${GRUB_TIMEOUT}" >> "${GRUB_CONF}"
-  fi
-  GRUB_NEED_UPDATE=true
-fi
 
 GRUB_BLOCK_WINDOWS=$(installer_get "grub_block_windows")
 if [ x"${GRUB_BLOCK_WINDOWS}" = "xtrue" ]; then
