@@ -63,11 +63,13 @@ void WarnningFrame::useEnterButton(bool isuse)
     if (m_enterButton->isVisible() && m_cancelButton->isVisible()) {
         setMaximumWidth(kWarnningDialogWidth);
         setMinimumWidth(kWarnningDialogWidth);
+        m_commentLabel->setFixedWidth(kWarnningDialogWidth - 40);
         m_enterButton->setFixedSize(179, 36);
         m_cancelButton->setFixedSize(179, 36);
     } else {
         setMaximumWidth(kWarnningDialogSmallWidth);
         setMinimumWidth(kWarnningDialogSmallWidth);
+        m_commentLabel->setFixedWidth(kWarnningDialogSmallWidth - 40);
         m_enterButton->setFixedSize(159, 36);
         m_cancelButton->setFixedSize(159, 36);
     }
@@ -80,11 +82,13 @@ void WarnningFrame::useCancelButton(bool isuse)
     if (m_enterButton->isVisible() && m_cancelButton->isVisible()) {
         setMaximumWidth(kWarnningDialogWidth);
         setMinimumWidth(kWarnningDialogWidth);
+        m_commentLabel->setFixedWidth(kWarnningDialogWidth - 40);
         m_enterButton->setFixedSize(179, 36);
         m_cancelButton->setFixedSize(179, 36);
     } else {
         setMaximumWidth(kWarnningDialogSmallWidth);
         setMinimumWidth(kWarnningDialogSmallWidth);
+        m_commentLabel->setFixedWidth(kWarnningDialogSmallWidth - 40);
         m_enterButton->setFixedSize(360, 36);
         m_cancelButton->setFixedSize(360, 36);
     }
@@ -248,7 +252,7 @@ void WarnningFrame::initUI()
     m_commentLabel = new CommentLabel(this);
     m_commentLabel->setFocusPolicy(Qt::NoFocus);
     m_commentLabel->setStyleSheet("QLabel{color:rgba(0, 0, 0, 0.6);}");
-    m_commentLabel->setFixedWidth(380);
+    m_commentLabel->setFixedWidth(kWarnningDialogWidth - 40);
     m_commentLabel->setWordWrap(true);
     m_commentLabel->setAlignment(Qt::AlignCenter);
     m_commentLabel->setContentsMargins(10,0,10,0);
@@ -260,15 +264,17 @@ void WarnningFrame::initUI()
     m_enterButton->setFocusPolicy(Qt::NoFocus);
     m_enterButton->setText(::QObject::tr("OK"));
     m_enterButton->setFixedSize(179, 36);
-    m_enterButton->setStyleSheet("QPushButton{ color:#414D68; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:10px; background-color:rgba(0, 0, 0, 0.05); } \
-                            QPushButton:hover{ color:#414D68; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:10px; background-color:rgba(0, 0, 0, 0.1); }");
+    m_enterButton->setStyleSheet("QPushButton{ color:#414D68; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(230, 230, 230); } \
+                            QPushButton:hover{ color:#414D68; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(205, 205, 205); } \
+                          QPushButton:pressed{ color:#0081FF; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(188, 196, 208); }");
 
     m_cancelButton = new QPushButton(this);
     m_cancelButton->setFocusPolicy(Qt::NoFocus);
     m_cancelButton->setText(::QObject::tr("Cancel"));
     m_cancelButton->setFixedSize(179, 36);
-    m_cancelButton->setStyleSheet("QPushButton{ color:#414D68; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:10px; background-color:rgba(0, 0, 0, 0.05); } \
-                             QPushButton:hover{ color:#414D68; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:10px; background-color:rgba(0, 0, 0, 0.1); }");
+    m_cancelButton->setStyleSheet("QPushButton{ color:#414D68; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(230, 230, 230); } \
+                             QPushButton:hover{ color:#414D68; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(205, 205, 205); } \
+                           QPushButton:pressed{ color:#0081FF; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(188, 196, 208); }");
 
     m_buttonGroupLayout = new QHBoxLayout(this);
     m_buttonGroupLayout->setContentsMargins(0, 0, 0, 0);

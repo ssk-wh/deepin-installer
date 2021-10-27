@@ -362,8 +362,9 @@ void FirstBootSetupWindow::initPages()
     confirm_quit_frame_->setCancelButtonText("Continue");
     confirm_quit_frame_->setEnterButtonText("Abort");
     confirm_quit_frame_->setFocusPolicy(Qt::NoFocus);
-    confirm_quit_frame_->setEnterButtonStyle("QPushButton{ color:#FF5736; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:10px; background-color:rgba(0, 0, 0, 0.05); } \
-                                        QPushButton:hover{ color:#FF5736; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:10px; background-color:rgba(0, 0, 0, 0.1); }");
+    confirm_quit_frame_->setEnterButtonStyle("QPushButton{ color:#FF5736; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(230, 230, 230); } \
+                                        QPushButton:hover{ color:#FF5736; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(205, 205, 205); } \
+                                      QPushButton:pressed{ color:#FF5736; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(188, 196, 208); }");
     confirm_quit_frame_->hide();
 
     language_frame_ = new LanguageFrame(this);

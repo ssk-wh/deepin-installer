@@ -524,8 +524,9 @@ void MainWindow::initConnections() {
           confirm_quit_frame_->setComment("You can experience it after configuring user information in next system startup.");
           confirm_quit_frame_->setCancelButtonText("Cancel");
           confirm_quit_frame_->setEnterButtonText("Shut Down");
-          confirm_quit_frame_->setEnterButtonStyle("QPushButton{ color:#414D68; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:10px; background-color:rgba(0, 0, 0, 0.05); } \
-                                              QPushButton:hover{ color:#414D68; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:10px; background-color:rgba(0, 0, 0, 0.1); }");
+          confirm_quit_frame_->setEnterButtonStyle("QPushButton{ color:#414D68; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(230, 230, 230); } \
+                                              QPushButton:hover{ color:#414D68; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(205, 205, 205); } \
+                                            QPushButton:pressed{ color:#0081FF; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(188, 196, 208); }");
       }
   });
 
@@ -555,8 +556,9 @@ void MainWindow::initPages() {
   confirm_quit_frame_->setCancelButtonText("Continue");
   confirm_quit_frame_->setEnterButtonText("Abort");
   confirm_quit_frame_->setFocusPolicy(Qt::NoFocus);
-  confirm_quit_frame_->setEnterButtonStyle("QPushButton{ color:#FF5736; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:10px; background-color:rgba(0, 0, 0, 0.05); } \
-                                      QPushButton:hover{ color:#FF5736; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:10px; background-color:rgba(0, 0, 0, 0.1); }" );
+  confirm_quit_frame_->setEnterButtonStyle("QPushButton{ color:#FF5736; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(230, 230, 230); } \
+                                      QPushButton:hover{ color:#FF5736; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(205, 205, 205); } \
+                                    QPushButton:pressed{ color:#A40020; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(188, 196, 208); }");
   confirm_quit_frame_->hide();
 
   m_repairSystemFrame = new RepairSystemFrame(this);

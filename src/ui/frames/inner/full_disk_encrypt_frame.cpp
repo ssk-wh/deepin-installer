@@ -24,7 +24,7 @@
 #include <QPainterPath>
 #include <QDebug>
 
-#define NEXTBTN_WIDTH 240
+#define NEXTBTN_WIDTH 197
 #define NEXTBTN_HEIGHT 36
 
 using namespace installer;
@@ -33,7 +33,7 @@ namespace {
     const int kMainFrameWidth = 600;
     const int kMainFrameHeight = 550;
 
-    const int kContentWidth = 500;
+    const int kContentWidth = 537;
     const int kFullDiskEncryptTitelFont=24;
 
     const int kMaxPasswordLength = 24;
@@ -58,24 +58,29 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     // add close button
     setupCloseButton();
 
-    m_layout->setContentsMargins(0, 0, 0, 0);
-    m_layout->setSpacing(5);
+    m_layout->setContentsMargins(0, 25, 0, 20);
+    m_layout->setSpacing(0);
     m_errTip->hide();
     setObjectName("FullDiskEncryptFrame");
-    m_layout->addStretch();
 
     // add encrypt label
-    QFont font;
-    font.setPixelSize(kFullDiskEncryptTitelFont);
-    m_frameLbl->setFont(font);
+    //QFont font;
+    //font.setPixelSize(kFullDiskEncryptTitelFont);
+    //m_frameLbl->setFont(font);
     m_layout->addWidget(m_frameLbl, 0, Qt::AlignHCenter);
+    m_frameLbl->setStyleSheet("QLabel{ font-size:24px; font-weight:bold; text-align:center; color:#001A2E; }");
+
+    m_layout->addSpacing(20);
 
     QHBoxLayout * hboxlayout = new QHBoxLayout();
-    hboxlayout->addStretch();
+    hboxlayout->setContentsMargins(0, 0, 0, 0);
+    hboxlayout->setSpacing(100);
     for(int i = 0; i < FULL_DISK_DISK_MAX_COUNT; i++) {
         QLabel *diskLbl = new QLabel;
-        diskLbl->setFixedSize(QSize(40, 40));
-        diskLbl->setPixmap(installer::renderPixmap(":/images/drive-harddisk-64px.svg").scaled(40, 40));
+        diskLbl->setMinimumSize(48, 48);
+        diskLbl->setMaximumSize(48, 48);
+        diskLbl->setScaledContents(true);
+        diskLbl->setPixmap(QPixmap(":/images/drive-harddisk-48px.svg"));
         m_diskinfo[i].m_diskLbl = diskLbl;
         m_diskinfo[i].m_devicePathLbl = new QLabel(this);
         m_diskinfo[i].m_devicePathLbl->setStyleSheet("QLabel{font-size: 14px;"
@@ -86,103 +91,108 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
         m_diskinfo[i].m_deviceSizeLbl->setStyleSheet("QLabel{font-size: 12px;"
                                                      "text-align: center;"
                                                      "color: #526a7f;}");
+        RoundedProgressBar *usage_bar_ = new RoundedProgressBar;
+        usage_bar_->setFixedSize(62, 6);
+        m_diskinfo[i].usage_bar_ = usage_bar_;
+
         QVBoxLayout *diskInfoLayout = new QVBoxLayout;
-        diskInfoLayout->setMargin(0);
+        diskInfoLayout->setContentsMargins(0, 0, 0, 0);
         diskInfoLayout->setSpacing(0);
         diskInfoLayout->addWidget(m_diskinfo[i].m_diskLbl, 0, Qt::AlignHCenter);
-        diskInfoLayout->addSpacing(4);
         diskInfoLayout->addWidget(m_diskinfo[i].m_devicePathLbl, 0, Qt::AlignHCenter);
-        diskInfoLayout->addSpacing(4);
         diskInfoLayout->addWidget(m_diskinfo[i].m_deviceSizeLbl, 0, Qt::AlignHCenter);
+        diskInfoLayout->addSpacing(3);
+        diskInfoLayout->addWidget(m_diskinfo[i].usage_bar_, 0, Qt::AlignHCenter);
+
         hboxlayout->addLayout(diskInfoLayout);
     }
-    hboxlayout->addStretch();
-    m_layout->addLayout(hboxlayout);
+    QWidget *hboxlayoutwidget = new QWidget(this);
+    hboxlayoutwidget->setContentsMargins(0, 0, 0, 0);
+    hboxlayoutwidget->setLayout(hboxlayout);
+    m_layout->addWidget(hboxlayoutwidget, 0, Qt::AlignHCenter);
+
+    m_layout->addSpacing(20);
+
+    m_diskPartitionWidget->setFixedWidth(kContentWidth);
     m_layout->addWidget(m_diskPartitionWidget, 0, Qt::AlignHCenter);
+
+    m_layout->addSpacing(20);
 
     // add round progress bar
     RoundedProgressBar* spacingBar = new RoundedProgressBar;
     spacingBar->setFixedHeight(2);
-    spacingBar->setFixedWidth(kContentWidth);
-
-    m_layout->addSpacing(5);
+    spacingBar->setFixedWidth(kContentWidth);    
     m_layout->addWidget(spacingBar, 0, Qt::AlignHCenter);
-    m_layout->addSpacing(5);
+
+    m_layout->addSpacing(20);
 
     // add encrypt input
     m_encryptLbl->setAlignment(Qt::AlignLeft);
-    m_encryptLbl->setFixedSize(150, 36);
 
     m_encryptEdit->layout()->setContentsMargins(0, 0, 0, 0);
     m_encryptEdit->layout()->setSpacing(10);
     m_encryptEdit->setContentsMargins(0, 0, 0, 0);
-    m_encryptEdit->setFixedSize(350, 36);
+    m_encryptEdit->setFixedSize(308, 36);
     m_encryptEdit->setContextMenuPolicy(Qt::ContextMenuPolicy::NoContextMenu);
     m_encryptEdit->lineEdit()->setMaxLength(kMaxPasswordLength);
 
     QHBoxLayout *encryptLayout = new QHBoxLayout;
     encryptLayout->setContentsMargins(0, 0, 0, 0);
-    encryptLayout->setSpacing(0);
+    encryptLayout->setSpacing(10);
     encryptLayout->addWidget(m_encryptLbl, 0, Qt::AlignLeft | Qt::AlignVCenter);
     encryptLayout->addWidget(m_encryptEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
     m_encryptFrame = new QFrame;
     m_encryptFrame->setLayout(encryptLayout);
-    m_encryptFrame->setFixedWidth(kContentWidth);
 
     m_encryptCheckLbl->setAlignment(Qt::AlignLeft);
-    m_encryptCheckLbl->setFixedSize(150, 36);
 
     m_encryptRepeatEdit->layout()->setContentsMargins(0, 0, 0, 0);
     m_encryptRepeatEdit->layout()->setSpacing(10);
     m_encryptRepeatEdit->setContentsMargins(0, 0, 0, 0);
-    m_encryptRepeatEdit->setFixedSize(350, 36);
-    m_encryptRepeatEdit->setFixedSize(350, 36);
+    m_encryptRepeatEdit->setFixedSize(308, 36);
     m_encryptRepeatEdit->setContextMenuPolicy(Qt::ContextMenuPolicy::NoContextMenu);
-    //m_encryptRepeatEdit->setFocusPolicy(Qt::TabFocus);
     m_encryptRepeatEdit->lineEdit()->setMaxLength(kMaxPasswordLength);
 
     QHBoxLayout *encryptCheckLayout = new QHBoxLayout;
     encryptCheckLayout->setContentsMargins(0, 0, 0, 0);
-    encryptCheckLayout->setSpacing(0);
+    encryptCheckLayout->setSpacing(10);
     encryptCheckLayout->addWidget(m_encryptCheckLbl, 0, Qt::AlignLeft | Qt::AlignVCenter);
     encryptCheckLayout->addWidget(m_encryptRepeatEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
     m_encryptCheckFrame = new QFrame;
     m_encryptCheckFrame->setLayout(encryptCheckLayout);
-    m_encryptCheckFrame->setFixedWidth(kContentWidth);
 
-    m_layout->addWidget(m_encryptFrame, 0, Qt::AlignHCenter);
-    m_layout->addSpacing(10);
-    m_layout->addWidget(m_encryptCheckFrame, 0, Qt::AlignHCenter);
-    m_layout->addStretch();
+    QVBoxLayout *encryptlayouts = new QVBoxLayout;
+    encryptlayouts->setContentsMargins(0, 0, 0, 0);
+    encryptlayouts->setSpacing(20);
+    encryptlayouts->addWidget(m_encryptFrame);
+    encryptlayouts->addWidget(m_encryptCheckFrame);
+    QWidget *encryptwidgets = new QWidget(this);
+    encryptwidgets->setLayout(encryptlayouts);
+    m_layout->addWidget(encryptwidgets, 0, Qt::AlignHCenter);
+
+    m_layout->addSpacing(16);
+
+    m_frameSubLbl->setContentsMargins(0,0,0,0);
+    m_frameSubLbl->setFixedWidth(kContentWidth);
+    m_frameSubLbl->setAlignment(Qt::AlignCenter);
+    m_frameSubLbl->setWordWrap(true);
+    m_frameSubLbl->adjustSize();
+    m_layout->addWidget(m_frameSubLbl, 0, Qt::AlignHCenter | Qt::AlignBottom);
+
+    m_layout->addSpacing(16);
 
     QHBoxLayout *buttonLayout = new QHBoxLayout;
     buttonLayout->setContentsMargins(0, 0, 0, 0);
-    buttonLayout->setSpacing(0);
+    buttonLayout->setSpacing(20);
     buttonLayout->addWidget(m_cancelBtn, 0, Qt::AlignHCenter | Qt::AlignRight);
-    buttonLayout->addSpacing(10);
     buttonLayout->addWidget(m_confirmBtn, 0, Qt::AlignHCenter | Qt::AlignLeft);
     QWidget *buttonWrapWidget = new QWidget;
     buttonWrapWidget->setLayout(buttonLayout);
 
     // add buttons
     m_cancelBtn->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);
-    //m_cancelBtn->setFocusPolicy(Qt::TabFocus);
-
     m_confirmBtn->setFixedSize(NEXTBTN_WIDTH, NEXTBTN_HEIGHT);
-    //m_confirmBtn->setFocusPolicy(Qt::TabFocus);
-
-    m_frameSubLbl->setAlignment(Qt::AlignCenter);
-    m_frameSubLbl->setWordWrap(true);
-    m_frameSubLbl->adjustSize();
-
-    QHBoxLayout* tipLayout = new QHBoxLayout();
-    tipLayout->setContentsMargins(0, 0, 0, 0);
-    tipLayout->setSpacing(0);
-    tipLayout->addWidget(m_frameSubLbl);
-
-    m_layout->addLayout(tipLayout);
-    m_layout->addWidget(buttonWrapWidget, 0, Qt::AlignHCenter);
-    m_layout->addSpacing(10);
+    m_layout->addWidget(buttonWrapWidget, 0, Qt::AlignHCenter | Qt::AlignBottom);
 
     setLayout(m_layout);
     setContentsMargins(0, 0, 0, 0);
@@ -346,11 +356,22 @@ void Full_Disk_Encrypt_frame::updateText()
 void Full_Disk_Encrypt_frame::updateDiskInfo(int index)
 {
     Device::Ptr device(m_diskinfo[index].m_device);
+    DeviceSize devicesize = humanReadableDeviceSize(device);
+    QString devicesizestring = humanReadableDeviceSizeString(devicesize);
     m_diskinfo[index].m_devicePathLbl->setText(device->path);
-    m_diskinfo[index].m_deviceSizeLbl->setText(QString("%1 GB").arg(ToGigByte(device->getByteLength())));
+    m_diskinfo[index].m_deviceSizeLbl->setText(devicesizestring);
+    if (devicesize.length < kGibiByte) {
+        m_diskinfo[index].usage_bar_->setRange(0, ToMebiByte(devicesize.length));
+        m_diskinfo[index].usage_bar_->setValue(ToMebiByte(devicesize.used));
+    } else {
+        m_diskinfo[index].usage_bar_->setRange(0, ToGigByte(devicesize.length));
+        m_diskinfo[index].usage_bar_->setValue(ToGigByte(devicesize.used));
+    }
     m_diskinfo[index].m_diskLbl->show();
     m_diskinfo[index].m_devicePathLbl->show();
     m_diskinfo[index].m_deviceSizeLbl->show();
+    m_diskinfo[index].usage_bar_->show();
+
 }
 
 void Full_Disk_Encrypt_frame::updateDiskInfo()
@@ -358,11 +379,11 @@ void Full_Disk_Encrypt_frame::updateDiskInfo()
     int i = 0;
     const QStringList& disks = m_diskPartitionDelegate->selectedDisks();
     for (const QString& disk: disks) {
-          int index = DeviceIndex(m_diskPartitionDelegate->virtualDevices(), disk);
+          int index = DeviceIndex(m_diskPartitionDelegate->realDevices(), disk);
           if (index < 0) {
               continue;
           }
-          const Device::Ptr device = m_diskPartitionDelegate->virtualDevices().at(index);
+          const Device::Ptr device = m_diskPartitionDelegate->realDevices().at(index);
           m_diskinfo[i].m_device = device;
           updateDiskInfo(i);
           i++;
@@ -371,6 +392,7 @@ void Full_Disk_Encrypt_frame::updateDiskInfo()
         m_diskinfo[i].m_diskLbl->hide();
         m_diskinfo[i].m_devicePathLbl->hide();        
         m_diskinfo[i].m_deviceSizeLbl->hide();
+        m_diskinfo[i].usage_bar_->hide();
         i++;
     }
 }
@@ -396,5 +418,41 @@ void Full_Disk_Encrypt_frame::encryptRepeatEditOnFocus(bool ison)
 {
     if (ison) {
         this->setCurentFocus(m_encryptRepeatEdit->lineEdit());
+    }
+}
+
+//读取磁盘使用量数据
+const Full_Disk_Encrypt_frame::DeviceSize Full_Disk_Encrypt_frame::humanReadableDeviceSize(const Device::Ptr &device)
+{
+    DeviceSize size { 0, 0 };
+    size.length = device->getByteLength();
+    if (size.length < 0) {
+        size.length = 0;
+    }
+
+    for ( Partition::Ptr partition : device->partitions ) {
+        if (partition->type == PartitionType::Extended
+                || partition->type == PartitionType::Unallocated) {
+            continue;
+        }
+        if (partition->length > 0 && partition->freespace > 0
+                && (partition->freespace < partition->length)) {
+            size.used += partition->length - partition->freespace;
+        }
+    }
+    return size;
+}
+
+//获得磁盘使用量的字符串表示
+const QString Full_Disk_Encrypt_frame::humanReadableDeviceSizeString(const Full_Disk_Encrypt_frame::DeviceSize &size)
+{
+    if (size.length < kGibiByte) {
+        return QString("%1/%2 M")
+              .arg(ToMebiByte(size.used))
+              .arg(ToMebiByte(size.length));
+    } else {
+        return QString("%1/%2 G")
+              .arg(ToGigByte(size.used))
+              .arg(ToGigByte(size.length));
     }
 }

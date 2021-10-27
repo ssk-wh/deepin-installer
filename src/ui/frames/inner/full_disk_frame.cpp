@@ -382,6 +382,7 @@ void FullDiskFrame::initUI() {
   h_layout->addWidget(m_saveDataCheck);
   h_layout->addWidget(m_encryptCheck);
   h_layout->addWidget(m_installNvidiaCheck);
+  h_layout->setSpacing(91);
   main_layout->addSpacing(10);
   main_layout->addLayout(h_layout);
   main_layout->addSpacing(10);

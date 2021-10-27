@@ -35,11 +35,18 @@ struct FullDiskDiskInfo {
     QLabel* m_devicePathLbl;
     QLabel* m_deviceModelLbl;
     QLabel* m_deviceSizeLbl;
+    RoundedProgressBar* usage_bar_;
 };
 
 class Full_Disk_Encrypt_frame : public ChildFrameInterface
 {
     Q_OBJECT
+
+    struct DeviceSize {
+        qint64 length;
+        qint64 used;
+    };
+
 public:
     explicit Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxyInterface
                                      , FullDiskDelegate * delegate, QWidget *parent = nullptr);
@@ -74,6 +81,8 @@ private:
     void setupCloseButton();
     void encryptEditOnFocus(bool ison);
     void encryptRepeatEditOnFocus(bool ison);
+    const DeviceSize humanReadableDeviceSize(const Device::Ptr & device);
+    const QString humanReadableDeviceSizeString(const DeviceSize & size);
 
 private:
     QString m_passwd;

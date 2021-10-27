@@ -111,7 +111,8 @@ FullDiskPartitionWidget::FullDiskPartitionWidget(QWidget* parent)
 
     m_labelLayout = new DFlowLayout(this);
     m_labelLayout->setFlow(DFlowLayout::Flow::LeftToRight);
-    m_labelLayout->setContentsMargins(0, 0, 0, 0);
+    m_labelLayout->setContentsMargins(0, 3, 0, 3);
+    m_labelLayout->setSpacing(0);
     //m_labelLayout->setHorizontalSpacing(kPartitionLabelSpace);
 
     m_mainLayout = new QVBoxLayout;
