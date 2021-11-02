@@ -186,7 +186,8 @@ void MainWindow::setScreen(QScreen *screen)
 
 void MainWindow::updateGeometry()
 {
-    setGeometry(m_screen->geometry());
+    setGeometry(m_screen->availableGeometry());
+    setFixedSize(m_screen->availableSize());
 }
 
 

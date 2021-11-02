@@ -846,7 +846,8 @@ void FirstBootSetupWindow::setScreen(QScreen *screen)
 
 void FirstBootSetupWindow::updateGeometry()
 {
-    setGeometry(m_screen->geometry());
+    setGeometry(m_screen->availableGeometry());
+    setFixedSize(m_screen->availableSize());
 }
 
 }  // namespace installer
