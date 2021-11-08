@@ -345,6 +345,12 @@ is_community() {
     fi
 }
 
+system_name() {
+    local name=$(cat /etc/os-version | grep SystemName=)
+    name="${name##SystemName=}"
+    echo "$name"
+}
+
 create_primary_part() {
     local DEV=$1
     local PART_TYPE=$2

@@ -69,9 +69,9 @@ default 0
 timeout 3
 showmenu 0
 
-title UnionTech OS Desktop 20
-    kernel /dev/fs/ext2@wd0a/vmlinuz-4.19.0-loongson-3-desktop
-    initrd /dev/fs/ext2@wd0a/initrd.img-4.19.0-loongson-3-desktop
+title $(system_name)
+    kernel /dev/fs/ext2@wd0a/vmlinuz-$(uname -r)
+    initrd /dev/fs/ext2@wd0a/initrd.img-$(uname -r)
     args console=tty loglevel=0 quiet splash root=UUID=${ROOT_UUID} locales=zh_CN.UTF-8
 EOF
 
