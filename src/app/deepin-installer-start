@@ -5,7 +5,6 @@
 start_checkmode() {
     echo "start checkmode..."
     init_checkmode
-    #systemctl restart lightdm
 }
 
 start_backup() {
@@ -18,7 +17,6 @@ start_firstboot() {
     echo "start first boot..."
     init_firstboot
     systemctl disable deepin-installer
-    systemctl restart lightdm
 }
 
 start_system() {

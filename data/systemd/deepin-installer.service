@@ -6,6 +6,7 @@ ConditionKernelCommandLine=|auto-deepin-installer
 Conflicts=shutdown.target
 Wants=systemd-udevd.service systemd-udev-trigger.service
 After=basic.target
+Before=lightdm.service
 
 [Service]
 Type=forking

@@ -73,6 +73,5 @@ else
     else
        /usr/lib/live/config/1082-deepin-livecd true
     fi
-    systemctl restart lightdm
 fi
 
