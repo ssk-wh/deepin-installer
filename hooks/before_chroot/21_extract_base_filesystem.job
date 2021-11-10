@@ -29,7 +29,7 @@ readonly BASE_MODULE="${LIVE_FILESYSTEM}/filesystem.squashfs"
 
 CORES=${CORES:-$(cat /proc/cpuinfo |grep "processor" | wc -l)}
 unsquashfs -d /target -f -p $CORES \
-  "${BASE_MODULE}" 1>/dev/null || \
+  "${BASE_MODULE}" > /dev/shm/unsquashfs_progress || \
   error "unsquashfs failed, ${BASE_MODULE}"
 sync 
 echo 3 > /proc/sys/vm/drop_caches

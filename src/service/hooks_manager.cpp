@@ -49,9 +49,13 @@ const int kReadUnsquashfsInterval = 5000;
 
 int ReadProgressValue(const QString& file) {
   if (QFile::exists(file)) {
-    const QString val(ReadFile(file));
-    if (!val.isEmpty()) {
-      return val.toInt();
+    QString val(ReadFile(file));
+    int len = val.lastIndexOf(QRegExp("%"));                  // 从进度文件的结尾获取进度子串的位置
+    val = val.mid(len - 3, 3).replace(QRegExp("[% ]"), "");   // 截取进度子串，并转换成纯数字字符串
+    bool ok = false;
+    int rel = val.toInt(&ok);
+    if (ok) {
+      return rel;
     }
   }
   return 0;
@@ -218,7 +222,10 @@ void HooksManager::handleRunHooks() {
 
 void HooksManager::handleReadUnsquashfsTimeout() {
   // Read progress value and notify UI thread.
-  const int val = ReadProgressValue(kUnsquashfsProgressFile);
+  static int offset = 0;
+  int val = ReadProgressValue(kUnsquashfsProgressFile);
+  val = ((val + (offset+=2)) < 100) ?  val + offset : 100;  // 增加偏移量，用于保证进度增长平滑
+  qDebug() << "ReadProgressValue: " << val;
   const int progress = kBeforeChrootStartVal +
       (kBeforeChrootEndVal - kBeforeChrootStartVal) * val / 100;
   if (hooks_pack_ && hooks_pack_->type == HookType::BeforeChroot) {
