@@ -556,8 +556,8 @@ bool Delegate::createPrimaryPartition(const Partition::Ptr partition,
         else {
             new_partition->start_sector = partition->start_sector;
         }
-        // Align to nearest MebiBytes.
-        if (!flag) AlignPartition(new_partition);
+        // Align to nearest MebiBytes.        
+        if (!flag && (mount_point != kMountPointBoot) && (fs_type != FsType::EFI)) AlignPartition(new_partition);
 
         new_partition->end_sector =
             qMin(partition->end_sector, total_sectors + new_partition->start_sector);
@@ -573,7 +573,7 @@ bool Delegate::createPrimaryPartition(const Partition::Ptr partition,
                 qMax(partition->start_sector, partition->end_sector - total_sectors);
         }
 
-        if (!flag) AlignPartition(new_partition);
+        if (!flag && (mount_point != kMountPointBoot) && (fs_type != FsType::EFI)) AlignPartition(new_partition);
     }
 
 
