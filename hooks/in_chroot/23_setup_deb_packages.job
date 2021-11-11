@@ -22,8 +22,8 @@
 OEM_DEB="${OEM_DIR}/deb"
 if [[ $(ls "${OEM_DEB}"/*.deb 2>/dev/null) ]]; then
   ls "${OEM_DEB}"
-  dpkg -i "${OEM_DEB}/"*.deb || warn "Failed to install oem deb packages"
-  # TODO(xushaohua): Call apt-get -f install
+  DEBIAN_FRONTEND="noninteractive"
+  apt-get -y dist-upgrade -o Dpkg::Options::="--force-confnew" "${OEM_DEB}/"*.deb || warn "Failed to install oem deb packages"
 fi
 
 UNINSTALLED_PKGS=$(installer_get "package_uninstalled_packages" | sed "s/;/ /g")
