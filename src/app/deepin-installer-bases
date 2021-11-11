@@ -96,10 +96,11 @@ print_log() {
 
 # 处理设置屏幕
 setup_monitors() {
+    # 设置主屏幕，兼容都是dpi输出且输出屏幕位置重合的情况,兼容无主屏输出的情况
+    monitors_list | xargs -d" " -I {} xrandr --output {} --auto --primary || xrandr
+
     local cnt=$(monitors_cnt)
     if [ $cnt -gt 1 ]; then
-        # 设置主屏幕，兼容都是dpi输出且输出屏幕位置重合的情况,已经无主屏输出（主屏被拔的情况）
-        monitors_list | xargs -d" " -I {} xrandr --output {} --auto --primary
         # 设置主屏分辨率
         monitors_primary | xargs -d" " -I {} xrandr --output {} --mode $(monitors_mode)
         # 克隆模式
