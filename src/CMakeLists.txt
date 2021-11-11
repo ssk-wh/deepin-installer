@@ -13,37 +13,19 @@ if (NOT CMAKE_BUILD_TYPE)
 endif()
 
 if (CMAKE_BUILD_TYPE MATCHES Debug)
-#   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -Wall -Werror -Wextra")
-  # -fno-rtti, Disable real-time type information
-  # -fno-exceptions Disable exceptions
-  # -fsanitize=address Enable memory sanitize plugin
-  #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -Werror -Wextra -fno-exceptions")
-  #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-implicit-fallthrough")
-  # -fsanitize=address, Enable memory address sanitizer.
-  #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address")
-  # -fsanitize=leak, Enable memory leak sanitizer.
-  # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=leak")
-  # -fsanitize=memory, Enable detecting uninitited memory sanitizer.
-  #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=memory "
-  #    "-fsanitize-memory-track-origins -fPIC -pie -fno-omit-frame-pointer")
-
-#  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wimplicit-fallthrough=1")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O2 -z now -z noexecstack -D_FORTIFY_SOURCE=1 -fstack-protector-all \
-        -fPIE -fstack-protector-strong -pie -fPIC -z lazy")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2 -Wno-unused-result -Wno-switch-default -Wno-padded \
-        -Wno-unused-function -Wno-reorder -Werror -z now -z noexecstack -D_FORTIFY_SOURCE=1 -fstack-protector-all \
-        -fPIE -pie -fstack-protector-strong -fPIC -z lazy")
+    # 默认优化编译参数
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O2 ")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2 -Wno-unused-result -Wno-switch-default -Wno-padded")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-unused-function -Wno-reorder -Werror")
+    # 安全编译参数
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -z noexecstack -pie -fPIC -z relro -z now -fstack-protector-all")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -z noexecstack -pie -fPIC -z relro -z now -fstack-protector-all")
 
 # Enable Qt builtin debug mode
   add_definitions("-DQT_MESSAGELOGCONTEXT")
 else()
-  # -Wl, -O2 Enable linker optimizations
-  #-Wl, --gc-sections Remove unused code resulting from -fdsta-sections and -ffunction-sections
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O2 -Wl,-O1 -Wl,--gc-sections -z now -z noexecstack -D_FORTIFY_SOURCE=1 \
-        -fstack-protector-all -fPIE -pie -fstack-protector-strong -fPIC -z lazy")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2 -Wl,-O1 -Wl,--gc-sections -Wno-unused-result \
-        -Wno-switch-default -Wno-padded -Wno-unused-function -Wno-reorder -z now -z noexecstack -D_FORTIFY_SOURCE=1 \
-        -fstack-protector-all -fPIE -pie -fstack-protector-strong -fPIC -z lazy")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -z noexecstack -pie -fPIC -z relro -z now -fstack-protector-all")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -z noexecstack -pie -fPIC -z relro -z now -fstack-protector-all")
 endif()
 
 # Install default_settings.ini based on current architecture.
