@@ -969,13 +969,13 @@ void PartitionFramePrivate::onNextButtonClicked() {
     return;
   }
 
-    showPrepareInstallFrame();
-
-    if (AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_Format_Pv) {
-       emit prepare_install_frame_->finished();
+    if ((partition_stacked_layout_->currentWidget() == advanced_partition_frame_ )
+            && (AdvancedPartitionDelegate::install_Lvm_Status == Install_Lvm_Status::Lvm_Format_Pv)) {
        lvm_partition_frame_->updateLayout(next_layout, ::QObject::tr("Back", "button"));
        nextButton->setText(::QObject::tr("Ready to Install"));
-       emit q_ptr->coverMainWindowFrameLabelsView(false);
+       emit prepare_install_frame_->finished();   // 该信号会触发显示lvm的界面
+    } else {
+       showPrepareInstallFrame();
     }
 }
 
@@ -1040,7 +1040,7 @@ void PartitionFramePrivate::onPrepareInstallFrameFinished() {
     }
 
     // full disk encrypt operations is empty.
-    if (isFullDiskPartitionMode() && this->isEncrypt()) {
+    if (isFullDiskPartitionMode()) {
         q_ptr->m_proxy->nextFrame();
     }
     else if (operations.isEmpty()) {

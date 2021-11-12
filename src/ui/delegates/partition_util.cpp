@@ -486,6 +486,9 @@ qreal GetPartitionUsageValue(const Partition::Ptr partition) {
 }
 
 bool IsEfiEnabled() {
+#ifdef QT_DEBUG
+    return false;
+#endif
     // NOTE(justforlxz): 龙芯有PMON固件的bug，不支持UEFI但是反馈给内核是支持的
     if (QFile::exists("/proc/boardinfo")) {
         QFile file("/proc/boardinfo");
