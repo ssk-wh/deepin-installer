@@ -222,6 +222,7 @@ void FirstBootSetupWindow::setWindowIcon(const QString &path)
         QLabel *windowLabel = new QLabel;
         windowLabel->setFixedSize(iconSize, iconSize);
         windowLabel->setPixmap(pixmap);
+        windowLabel->setScaledContents(true);
         windowLabel->setParent(this);
         windowLabel->raise();
         windowLabel->setVisible(true);

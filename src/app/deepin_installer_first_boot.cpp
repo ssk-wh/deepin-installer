@@ -96,7 +96,7 @@ int main(int argc, char* argv[]) {
 
     installer::FirstBootSetupWindow* main_window = new installer::FirstBootSetupWindow;
     app.installEventFilter(main_window);
-    main_window->setWindowIcon(":/images/deepin-installer-32px.svg");
+    main_window->setWindowIcon(":/images/deepin-installer-64px.svg");
     // 安装器的主界面输出到主屏，由启动初始化阶段的脚本克隆到其他屏幕
     main_window->setScreen(app.primaryScreen());
     main_window->show();

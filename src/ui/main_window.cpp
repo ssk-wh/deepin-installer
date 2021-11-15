@@ -831,6 +831,7 @@ void MainWindow::setWindowIcon(const QString &path)
 
         QLabel *windowLabel = new QLabel;
         windowLabel->setFixedSize(iconSize, iconSize);
+        windowLabel->setScaledContents(true);
         windowLabel->setPixmap(pixmap);
         windowLabel->setParent(this);
         windowLabel->raise();

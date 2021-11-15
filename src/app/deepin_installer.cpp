@@ -126,7 +126,7 @@ int main(int argc, char* argv[]) {
   app.installEventFilter(main_window);
   main_window->setLogFile(args_parser.getLogFile());
 
-  main_window->setWindowIcon(":/images/deepin-installer-32px.svg");
+  main_window->setWindowIcon(":/images/deepin-installer-64px.svg");
   // Notify background thread to scan device info.
   main_window->scanDevicesAndTimezone();
   main_window->setup();

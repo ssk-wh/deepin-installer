@@ -33,8 +33,8 @@
 #include "ui/utils/widget_util.h"
 
 namespace {
-    const int kAnimationWidth = 412;
-    const int kAnimationHeight = 232;
+    const int kAnimationWidth = 840;
+    const int kAnimationHeight = 540;
     const int kMaxButtonSize = 62;
     const int kMinButtonSize = 42;
 }
@@ -99,13 +99,8 @@ void InstallProgressSlideFrame::initConnections() {
 
 void InstallProgressSlideFrame::initUI() {
   m_animationContainer = new QWidget;
-  m_animationContainer->setMinimumSize(QSize(kAnimationWidth, kAnimationHeight));
   container_label_ = new QLabel(m_animationContainer);
-
-  if (!GetSlideFiles(ReadLocale()).isEmpty()) {
-     m_animationContainer->setFixedSize(ScreenAdaptationManager::instance()->adapterPixmap(GetSlideFiles(ReadLocale()).at(0)).size());
-     container_label_->setFixedSize(ScreenAdaptationManager::instance()->adapterPixmap(GetSlideFiles(ReadLocale()).at(0)).size());
-  }
+  container_label_->setScaledContents(true);
 
   m_backButton = new DIconButton(this);
   m_backButton->setIcon(QIcon(":/images/backPicture.svg"));
@@ -117,6 +112,9 @@ void InstallProgressSlideFrame::initUI() {
 
   double ratio = std::max(ScreenAdaptationManager::instance()->getWidthZoomRatio()
                           , ScreenAdaptationManager::instance()->getHeightZoomRatio());
+
+  m_animationContainer->setFixedSize(static_cast<int>(kAnimationWidth / ratio), static_cast<int>(kAnimationHeight / ratio));
+  container_label_->setFixedSize(static_cast<int>(kAnimationWidth / ratio), static_cast<int>(kAnimationHeight / ratio));
 
   int buttonSize = static_cast<int>(static_cast<double>(kMaxButtonSize) / ratio);
   if (buttonSize < kMinButtonSize) {

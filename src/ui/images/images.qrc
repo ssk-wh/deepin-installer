@@ -164,5 +164,6 @@
         <file>backPicture.svg</file>
         <file>nextPicture.svg</file>
         <file>distribution_logo.svg</file>
+        <file>deepin-installer-64px.svg</file>
     </qresource>
 </RCC>
