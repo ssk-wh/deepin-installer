@@ -1040,7 +1040,7 @@ void PartitionFramePrivate::onPrepareInstallFrameFinished() {
     }
 
     // full disk encrypt operations is empty.
-    if (isFullDiskPartitionMode()) {
+    if (isEncrypt()) {
         q_ptr->m_proxy->nextFrame();
     }
     else if (operations.isEmpty()) {
@@ -1049,7 +1049,7 @@ void PartitionFramePrivate::onPrepareInstallFrameFinished() {
     }
     else {
         partition_model_->manualPart(operations);
-        if (AdvancedPartitionDelegate::install_Lvm_Status != Install_Lvm_Status::Lvm_Format_Pv) {
+        if (isFullDiskPartitionMode() || AdvancedPartitionDelegate::install_Lvm_Status != Install_Lvm_Status::Lvm_Format_Pv) {
             q_ptr->m_proxy->nextFrame();
         } else {
             lvm_delegate_->m_oldOperationList = operations;
