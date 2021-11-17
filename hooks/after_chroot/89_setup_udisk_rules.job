@@ -24,6 +24,29 @@ setup_udisks_rules() {
         echo "ENV{ID_FS_UUID}==\"${RECOVERY_ID}\", ENV{UDISKS_IGNORE}=\"1\"" >> ${UDISK_FILE}
     fi
 
+    # 处理roota 根分区规则
+    # ## 设置根分区为linux filesystem,防止sw平台上根分区为引导出现问题
+    # ## udev中存在一条默认规则：当磁盘格式是gpt，分区类型为EFI的磁盘会被隐藏，
+    # ## 所以当系统是uefi引导时，sw平台手动创建根分区为第一个分区，默认该分区的类型是EFI类型，故会被隐藏
+    local ROOT_DEVICE=$(installer_get DI_ROOT_DISK)
+    local ROOT_NUM="${ROOT_DEVICE##/dev/}"
+    local MULTIPLE_PART=$(lsblk -lfo NAME $ROOT_DEVICE | grep -i "${ROOT_NUM}[p]2" | awk '{print $1}')
+    if [ ! -n "$EFI_ID" ] && [ ! -n "$BOOT_ID" ]; then
+        echo "# Roota rule debug"
+        echo "# fdisk ${ROOT_DEVICE} t 20 $/dev/{MULTIPLE_PART}"
+        [ -n "$MULTIPLE_PART" ] && fdisk ${ROOT_DEVICE} << EOF
+t
+1
+20
+w
+EOF
+        [ -n "$MULTIPLE_PART" ] || fdisk ${ROOT_DEVICE} << EOF
+t
+20
+w
+EOF
+    fi
+
     # 隐藏rootb分区
     local ROOTB_ID=$(blkid -o value -s UUID /target/dev/disk/by-label/Rootb)
     if [ -n "$ROOTB_ID" ]; then
