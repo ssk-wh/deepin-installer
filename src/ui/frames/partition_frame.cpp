@@ -120,6 +120,7 @@ public:
 
      bool isEncrypt();
      bool isEnSaveData();
+     bool isLvm();
 
      PartitionFrame* q_ptr=nullptr;
 
@@ -210,7 +211,7 @@ void PartitionFrame::autoPart() {
         WriteFullDiskMode(true);
         m_private->partition_model_->autoPart();
     }
-    else if (m_private->full_disk_delegate_->isLvm() && !GetSettingsBool(kPartitionDoAutoPart)) {
+    else if (m_private->isLvm()) {
         m_private->setupDiskEncrypt(false);
         m_private->partition_model_->autoPart();
     }
@@ -244,7 +245,7 @@ void PartitionFrame::onAutoInstallPrepareFinished(bool finished)
         WriteFullDiskEncryptPassword(GetSettingsString(kDiskCryptPassword));
         m_private->partition_model_->autoPart();
     }
-    else if (m_private->isFullDiskPartitionMode() && m_private->full_disk_delegate_->isLvm()) {
+    else if (m_private->isLvm()) {
         m_private->setupDiskEncrypt(false);
         m_private->partition_model_->autoPart();
     }
@@ -581,7 +582,12 @@ void PartitionFramePrivate::initConnections() {
   connect(prepare_install_frame_, &PrepareInstallFrame::aborted,
           this, &PartitionFramePrivate::showMainFrame);
   connect(prepare_install_frame_, &PrepareInstallFrame::finished, this, [=] {
-      if ((!GetSettingsBool(KPartitionSkipFullCryptPage) && this->isEncrypt()) || this->isEnSaveData() || full_disk_delegate_->isLvm()) {
+      // TODO: this->isEncrypt() == true ==> !GetSettingsBool(KPartitionSkipFullCryptPage) == true
+      // so can delete !GetSettingsBool(KPartitionSkipFullCryptPage).
+      // Another place to be modified is function PartitionFramePrivate::showEncryptFrame().
+      if ((!GetSettingsBool(KPartitionSkipFullCryptPage) && this->isEncrypt())
+              || this->isEnSaveData()
+              || this->isLvm()) {
           q_ptr->autoPart();
           q_ptr->m_proxy->nextFrame();
       } else if (GetSettingsBool(kMultiSystemEanble)) {
@@ -1157,6 +1163,7 @@ void PartitionFramePrivate::showEncryptFrame()
             q_ptr->m_proxy->showChildFrame(full_disk_encrypt_frame_);
         }
         else {
+            // TODO: code can nerver get here.
             q_ptr->autoPart();
             onPrepareInstallFrameFinished();
         }
@@ -1222,6 +1229,11 @@ bool PartitionFramePrivate::isEncrypt()
 bool PartitionFramePrivate::isEnSaveData()
 {
     return isFullDiskPartitionMode() && full_disk_partition_frame_->isEnSaveData();
+}
+
+bool PartitionFramePrivate::isLvm()
+{
+    return isFullDiskPartitionMode() && full_disk_delegate_->isLvm();
 }
 
 }  // namespace installer
