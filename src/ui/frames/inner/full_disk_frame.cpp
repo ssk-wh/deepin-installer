@@ -624,6 +624,7 @@ void FullDiskFrame::installNvidiaStateChanged(bool install_nvidia)
 void FullDiskFrame::saveDataStateChanged(bool savedata)
 {
     if (savedata) {
+        m_saveDataCheck->setEnabled(true);
         m_encryptCheck->setChecked(false);
         m_encryptCheck->setEnabled(false);
     } else {
