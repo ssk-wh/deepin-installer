@@ -60,7 +60,7 @@ QString GetSlideDir(const QString& locale) {
 
     // 平台默认目录
     QDir os_type_default_slide_dir(QString(kSlideFolder) + QDir::separator() + GetOSType() + QDir::separator() + QString(kDefaultSlide));
-    qDebug() << "os_type_default_slide_dir = " << os_type_slide_dir.path();
+    qDebug() << "os_type_default_slide_dir = " << os_type_default_slide_dir.path();
     if (os_type_default_slide_dir.exists()) {
         return os_type_default_slide_dir.path();
     }
