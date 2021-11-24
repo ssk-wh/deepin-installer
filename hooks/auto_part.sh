@@ -519,14 +519,14 @@ sava_data() {
         local p_fs=$(get_part_fstype $DEVICE $p_label)
         local p_mountpoint=$(get_part_mountpoint $p_label)
         echo "part_info: $p_label;$p_path;$p_fs;$p_mountpoint"
-        if [ "x$LABEL" = "xEFI" ] && [ "x$LABEL" = "xBoot" ] && [ "x$LABEL" = "xBackup" ] \
-                && [ "x$LABEL" = "xRoota" ] && [ "x$LABEL" = "xRootb" ]; then
+        if [ "x$p_label" = "xEFI" ] || [ "x$p_label" = "xBoot" ] || [ "x$p_label" = "xBackup" ] \
+                || [ "x$p_label" = "xRoota" ] || [ "x$p_label" = "xRootb" ]; then
             format_part "$p_path" "$p_fs" "$p_label" ||\
               error "Failed to create $p_fs filesystem on $p_path!"
         fi
-        if [ "x$p_label" = "xRoota" ];then
-	     installer_set "DI_ROOT_PARTITION" "$p_path"
-        fi
+
+        [ "x$p_label" = "xBoot" ] && installer_set "DI_BOOTLOADER" "$p_path"
+        [ "x$p_label" = "xRoota" ] && installer_set "DI_ROOT_PARTITION" "$p_path"
 
         # 系统和数据盘里都有data分区时，只挂载数据盘里的分区，清理掉系统盘的挂载点
         [ $LEN -eq 2 ] && [ "x$ROOT_DISK" = "x$DEVICE" ] && [ "x$p_label" = "x_dde_data" ] \
@@ -551,7 +551,7 @@ sava_data() {
 
   # 寻找EFI
   local part_path=$(fdisk -l -o Device,Type | grep $ROOT_DISK | grep EFI | awk '{print $1}')
-  if [ -n $part_path ]; then
+  if [ -n "$part_path" ]; then
     installer_set "DI_BOOTLOADER" $part_path
   fi
 

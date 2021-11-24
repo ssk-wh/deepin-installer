@@ -152,10 +152,7 @@ main() {
   local part_num=$(fdisk -l $dev_info | grep  "^$dev_info" | wc -l)
 
   # 寻找EFI
-  local part_path
-  if [ -n $part_path ]; then
-    part_path=$(fdisk -l -o Device,Type | grep -E 'EFI|"$dev_info"' | awk '{print $1}')
-  fi
+  part_path=$(fdisk -l -o Device,Type | grep -E 'EFI|"$dev_info"' | awk '{print $1}')
 
   installer_set "DI_BOOTLOADER" $part_path
   installer_set "DI_INSTALL_STARTPOS" $install_startpos
