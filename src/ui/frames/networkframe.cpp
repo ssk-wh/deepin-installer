@@ -111,13 +111,11 @@ public:
         m_switch = new QWidget;
         m_switch->setFocusPolicy(Qt::NoFocus);
         m_switchButton =  new DSwitchButton;
-        m_switchButton->setFocusPolicy(Qt::TabFocus);
         m_switchButton->setEnabled(false);
         m_deviceEnable = false;
         m_connectTypeWidget = new QWidget;
         m_connectTypeWidget->setFocusPolicy(Qt::NoFocus);
         m_dhcpTypeWidget = new QComboBox;
-        m_dhcpTypeWidget->setFocusPolicy(Qt::TabFocus);
         m_dhcpTypeWidget->setEnabled(false);
         m_ipWidget = new QWidget;
         m_ipWidget->setFocusPolicy(Qt::NoFocus);
@@ -134,32 +132,23 @@ public:
         m_networkOperate = nullptr;
 
         m_editBtn = new QPushButton(::QObject::tr("Edit"));
-        m_editBtn->setFocusPolicy(Qt::TabFocus);
         m_editBtn->setEnabled(m_deviceEnable);
         m_editBtn->setFixedSize(kEditSaveButtonWidth, kEditSaveButtonHeight);
-        //m_editBtn->setFocusPolicy(Qt::TabFocus);
 
         m_acceptBtn = new QPushButton(::QObject::tr("Confirm"));
-        m_acceptBtn->setFocusPolicy(Qt::TabFocus);
         m_acceptBtn->setFixedSize(kEditSaveButtonWidth, kEditSaveButtonHeight);
-        //m_acceptBtn->setFocusPolicy(Qt::TabFocus);
 
         m_dhcpType = DHCPTYpe::Auto;
 
         m_ipv4Edit = new DLineEdit;
-        m_ipv4Edit->setFocusPolicy(Qt::TabFocus);
         m_ipv4Edit->setObjectName("IP Address");
         m_maskEdit = new DLineEdit;
-        m_maskEdit->setFocusPolicy(Qt::TabFocus);
         m_maskEdit->setObjectName("Netmask");
         m_gatewayEdit = new DLineEdit;
-        m_gatewayEdit->setFocusPolicy(Qt::TabFocus);
         m_gatewayEdit->setObjectName("Gateway");
         m_primaryDNSEdit = new DLineEdit;
-        m_primaryDNSEdit->setFocusPolicy(Qt::TabFocus);
         m_primaryDNSEdit->setObjectName("Primary DNS");
         m_secondaryDNSEdit = new DLineEdit;
-        m_secondaryDNSEdit->setFocusPolicy(Qt::TabFocus);
         m_secondaryDNSEdit->setObjectName("Secondary DNS");
 
         m_ipv4Edit->lineEdit()->setPlaceholderText(::QObject::tr("IP Address"));
@@ -875,8 +864,6 @@ NetworkFrame::NetworkFrame(FrameProxyInterface *frameProxyInterface, QWidget *pa
     layout->addStretch();
 
     m_nextButton->setFixedSize(kNextButtonWidth, kNextButtonHeight);
-    m_nextButton->setFocusPolicy(Qt::TabFocus);
-    //m_nextButton->setShortcut(Qt::Key_Return);
     connect(m_nextButton, &QPushButton::clicked, this, &NetworkFrame::saveConf);
 
     layout->addWidget(m_nextButton, 0, Qt::AlignHCenter);
