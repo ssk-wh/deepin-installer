@@ -175,24 +175,12 @@ bool WarnningFrame::directionKey(int keyvalue)
 
 void WarnningFrame::showEvent(QShowEvent *event)
 {
-    m_titleLabel->setText(::QObject::tr(m_titleText.toLatin1()));
-    m_commentLabel->setText(::QObject::tr(m_commentText.toLatin1()));
-    m_enterButton->setText(::QObject::tr(m_enterButtonText.toLatin1()));
-    m_cancelButton->setText(::QObject::tr(m_cancelButtonText.toLatin1()));
+    m_titleLabel->setText(m_titleText);
+    m_commentLabel->setText(m_commentText);
+    m_enterButton->setText(m_enterButtonText);
+    m_cancelButton->setText(m_cancelButtonText);
     this->clearFocus();
     return ChildFrameInterface::showEvent(event);
-}
-
-void WarnningFrame::changeEvent(QEvent *event)
-{
-    if (event->type() == QEvent::LanguageChange) {
-        m_titleLabel->setText(::QObject::tr(m_titleText.toLatin1()));
-        m_commentLabel->setText(::QObject::tr(m_commentText.toLatin1()));
-        m_enterButton->setText(::QObject::tr(m_enterButtonText.toLatin1()));
-        m_cancelButton->setText(::QObject::tr(m_cancelButtonText.toLatin1()));
-    } else {
-      ChildFrameInterface::changeEvent(event);
-    }
 }
 
 void WarnningFrame::paintEvent(QPaintEvent *event)
@@ -257,8 +245,8 @@ void WarnningFrame::initUI()
     m_commentLabel->setAlignment(Qt::AlignCenter);
     m_commentLabel->setContentsMargins(10,0,10,0);
 
-    m_enterButtonText = "OK";
-    m_cancelButtonText = "Cancel";
+    m_enterButtonText = ::QObject::tr("OK");
+    m_cancelButtonText = ::QObject::tr("Cancel");
 
     m_enterButton = new QPushButton(this);
     m_enterButton->setFocusPolicy(Qt::NoFocus);

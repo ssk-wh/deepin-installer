@@ -447,6 +447,12 @@ void MainWindow::changeEvent(QEvent *event)
                 SetItemTextAndTooltip(item, frame->returnFrameName(), itemimagewidth);
             }
         }
+
+        confirm_quit_frame_->setTitle(::QObject::tr("Abort Installation"));
+        confirm_quit_frame_->setComment(::QObject::tr("Relevant operations you made in the installation process will not take effect, abort or continue installation?"));
+        confirm_quit_frame_->setCancelButtonText(::QObject::tr("Continue"));
+        confirm_quit_frame_->setEnterButtonText(::QObject::tr("Abort"));
+
     } else {
         QWidget::changeEvent(event);
     }
@@ -520,10 +526,10 @@ void MainWindow::initConnections() {
           , &MainWindow::setCloseButtonVisible);
   connect(m_installResultsFrame, &InstallResultsFrame::updateQuitFrameTs, this, [=] (bool result) {
       if (result) {
-          confirm_quit_frame_->setTitle("Shut Down");
-          confirm_quit_frame_->setComment("You can experience it after configuring user information in next system startup.");
-          confirm_quit_frame_->setCancelButtonText("Cancel");
-          confirm_quit_frame_->setEnterButtonText("Shut Down");
+          confirm_quit_frame_->setTitle(::QObject::tr("Shut Down"));
+          confirm_quit_frame_->setComment(::QObject::tr("You can experience it after configuring user information in next system startup."));
+          confirm_quit_frame_->setCancelButtonText(::QObject::tr("Cancel"));
+          confirm_quit_frame_->setEnterButtonText(::QObject::tr("Shut Down"));
           confirm_quit_frame_->setEnterButtonStyle("QPushButton{ color:#414D68; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(230, 230, 230); } \
                                               QPushButton:hover{ color:#414D68; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(205, 205, 205); } \
                                             QPushButton:pressed{ color:#0081FF; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(188, 196, 208); }");
@@ -551,10 +557,6 @@ void MainWindow::initConnections() {
 
 void MainWindow::initPages() {
   confirm_quit_frame_ = new WarnningFrame(this);
-  confirm_quit_frame_->setTitle("Abort Installation");
-  confirm_quit_frame_->setComment("Relevant operations you made in the installation process will not take effect, abort or continue installation?");
-  confirm_quit_frame_->setCancelButtonText("Continue");
-  confirm_quit_frame_->setEnterButtonText("Abort");
   confirm_quit_frame_->setFocusPolicy(Qt::NoFocus);
   confirm_quit_frame_->setEnterButtonStyle("QPushButton{ color:#FF5736; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(230, 230, 230); } \
                                       QPushButton:hover{ color:#FF5736; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(205, 205, 205); } \

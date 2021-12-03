@@ -351,16 +351,10 @@ void FirstBootSetupWindow::initPages()
     optimize_failed_frame_ = new WarnningFrame(this);
     optimize_failed_frame_->useTitle(false);
     optimize_failed_frame_->useCancelButton(false);
-    optimize_failed_frame_->setComment("An unknown problem has occurred, which may not affect the system running. Please click \"Skip\" to continue the installation. If you cannot enter the system later, please try to reinstall.");
-    optimize_failed_frame_->setEnterButtonText(" Skip ");
     optimize_failed_frame_->setFocusPolicy(Qt::NoFocus);
     optimize_failed_frame_->hide();
 
     confirm_quit_frame_ = new WarnningFrame(this);
-    confirm_quit_frame_->setTitle("Abort Installation");
-    confirm_quit_frame_->setComment("Relevant operations you made in the installation process will not take effect, abort or continue installation?");
-    confirm_quit_frame_->setCancelButtonText("Continue");
-    confirm_quit_frame_->setEnterButtonText("Abort");
     confirm_quit_frame_->setFocusPolicy(Qt::NoFocus);
     confirm_quit_frame_->setEnterButtonStyle("QPushButton{ color:#FF5736; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(230, 230, 230); } \
                                         QPushButton:hover{ color:#FF5736; border:1px solid; border-color:rgba(0, 0, 0, 0.03); border-radius:8px; background-color:rgb(205, 205, 205); } \
@@ -431,6 +425,13 @@ void FirstBootSetupWindow::changeEvent(QEvent *event)
                 SetItemTextAndTooltip(item, frame->returnFrameName(), itemimagewidth);
             }
         }
+
+        optimize_failed_frame_->setComment(::QObject::tr("An unknown problem has occurred, which may not affect the system running. Please click \"Skip\" to continue the installation. If you cannot enter the system later, please try to reinstall."));
+        optimize_failed_frame_->setEnterButtonText(::QObject::tr("Skip"));
+        confirm_quit_frame_->setTitle(::QObject::tr("Abort Installation"));
+        confirm_quit_frame_->setComment(::QObject::tr("Relevant operations you made in the installation process will not take effect, abort or continue installation?"));
+        confirm_quit_frame_->setCancelButtonText(::QObject::tr("Continue"));
+        confirm_quit_frame_->setEnterButtonText(::QObject::tr("Abort"));
     }
     else {
         QWidget::changeEvent(event);

@@ -226,7 +226,7 @@ void FullDiskFrame::changeEvent(QEvent* event) {
             it->first(qApp->translate("QObject", it->second.toUtf8()));
         }
         m_installNvidiaCheck->setText(::QObject::tr("Install NVIDIA closed source driver"));
-        m_saveDataCheck->setText(::QObject::tr("Save User Data"));
+        m_saveDataCheck->setText(::QObject::tr("Keep User Data"));
         m_encryptCheck->setText(::QObject::tr("Encrypt This Disk"));
         m_errorTip->setText(::QObject::tr("Please select a disk to start installation"));
 

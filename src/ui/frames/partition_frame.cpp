@@ -272,6 +272,11 @@ void PartitionFrame::changeEvent(QEvent* event) {
           m_private->nextButton->setText(::QObject::tr("Next"));
       }
 
+      m_private->swap_warnning_frame->setTitle(::QObject::tr("Friendly Note"));
+      m_private->swap_warnning_frame->setComment(::QObject::tr("No swap partition created, which may affect system performance"));
+      m_private->swap_warnning_frame->setEnterButtonText(::QObject::tr("OK"));
+      m_private->swap_warnning_frame->setCancelButtonText(::QObject::tr("Cancel"));
+
     m_private->simple_frame_button_->setText(::QObject::tr("Simple"));
     m_private->advanced_frame_button_->setText(::QObject::tr("Advanced"));
     m_private->full_disk_frame_button_->setText(::QObject::tr("Full Disk"));
@@ -711,8 +716,6 @@ void PartitionFramePrivate::initUI() {
 
   swap_warnning_frame = new WarnningFrame(q_ptr->m_proxy);
   swap_warnning_frame->useCancelButton(false);
-  swap_warnning_frame->setTitle("Friendly Note");
-  swap_warnning_frame->setComment("No swap partition created, which may affect system performance");
   swap_warnning_frame->hide();
 
   title_label_ = new TitleLabel(::QObject::tr("Create Partitions"));
@@ -1203,9 +1206,10 @@ void PartitionFramePrivate::ShowSaveDataPopWidget()
     if ( save_data_pop_widget == nullptr ) {
         save_data_pop_widget = new WarnningFrame(nullptr);
         save_data_pop_widget->useTitle(false);
-        save_data_pop_widget->setComment("/data/home is detected. If data is not saved, the directory will be formatted. Please confirm whether to format or retain the directory.");
-        save_data_pop_widget->setEnterButtonText("Save");
-        save_data_pop_widget->setCancelButtonText("Format");
+        // 因为是后创建的对象所以这个地方的设置文案操作不需要放在changeEvent里去
+        save_data_pop_widget->setComment(::QObject::tr("The \"/data/home\" directory is found. If you do not keep it, the data saved in it by previous users will be lost. Keep or delete it?"));
+        save_data_pop_widget->setEnterButtonText(::QObject::tr("Keep"));
+        save_data_pop_widget->setCancelButtonText(::QObject::tr("Delete"));
         save_data_pop_widget->hide();
         connect(save_data_pop_widget, &WarnningFrame::quitEntered, this, [=] {
             full_disk_partition_frame_->saveDataStateChanged(true);
