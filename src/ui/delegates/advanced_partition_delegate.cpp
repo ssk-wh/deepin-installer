@@ -344,8 +344,8 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
           }
         }
         else {
-          if (!rootPartition.isNull() || install_Lvm_Status == Install_Lvm_Status::Lvm_Format_Pv){
-            states.append(ValidateState::EfiMissing);
+          if (!findESP() && (!rootPartition.isNull() || install_Lvm_Status == Install_Lvm_Status::Lvm_Format_Pv)) {
+              states.append(ValidateState::EfiMissing);
           }
         }
       }
@@ -446,6 +446,24 @@ ValidateStates AdvancedPartitionDelegate::validate() const {
       }
 
       return states;
+}
+
+bool AdvancedPartitionDelegate::findESP() const {
+    if (GetSettingsBool("system_separate_esp_partition")) {
+        return false;
+    }
+
+    QString cmd = QString("fdisk -l -o Device,Type | grep -E 'EFI' | awk '{print $1}'");
+    QProcess testprocess;
+    testprocess.start("/bin/bash",{"-c", cmd});
+    testprocess.waitForFinished();
+    QString dataindevices = testprocess.readAll();
+    qWarning() << "dataindevices = " << dataindevices;
+    if (dataindevices.compare("^/dev/*")) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {

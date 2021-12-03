@@ -217,6 +217,17 @@ decryption_file() {
     mv $file.tmp $file  && chmod 600 $file
 }
 
+select_efi_part() {
+    local root_path=`installer_get DI_ROOT_DISK`
+    # 获取用户创建的efi
+    local efi_dev_path=`installer_get DI_BOOTLOADER`
+    # 获取系统盘下的efi
+    [ -n "$efi_dev_path" ] || efi_dev_path=`fdisk -l $root_path -o Device,Type | grep -E 'EFI' | awk '{print $1}'`
+    # 获取其他盘下的efi
+    [ -n "$efi_dev_path" ] || efi_dev_path=`fdisk -l -o Device,Type | grep -E 'EFI' | awk '{print $1}'`
+    [ -n "$efi_dev_path" ] && installer_set DI_BOOTLOADER $efi_dev_path
+}
+
 add_start_option() {
     local arch_info=$@
     local bootloader_id=$(installer_get "system_startup_option")

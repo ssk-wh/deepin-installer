@@ -18,6 +18,7 @@
 
 # Mount root partition to /target.
 
+select_efi_part
 target="/target"
 mkdir -pv ${target}
 chown -v root:root ${target}

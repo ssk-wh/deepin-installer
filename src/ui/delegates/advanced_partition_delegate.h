@@ -31,8 +31,8 @@ enum Install_Lvm_Status {
 
 // Partition delegate used in AdvancedPartitionFrame and other sub frame pages.
 class AdvancedPartitionDelegate : public partition::Delegate {
-  Q_OBJECT
- public:
+    Q_OBJECT
+public:
   explicit AdvancedPartitionDelegate(QObject* parent = nullptr);
 
   // Get all supported filesystems.
@@ -50,6 +50,7 @@ class AdvancedPartitionDelegate : public partition::Delegate {
   void onManualPartDone(const DeviceList& devices) override;
 
   bool unFormatPartition(const Partition::Ptr partition);
+  bool findESP() const;
 
   ValidateStates validate() const override;
   bool isPartitionTableMatch(const QString &device_path) const override;
