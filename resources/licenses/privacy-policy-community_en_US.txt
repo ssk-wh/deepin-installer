@@ -1,244 +1,405 @@
-Deepin OS Privacy Policy
+deepin Operation System Privacy Policy
 
-Latest update date:December 8th, 2020
+Last Update Date: November 12, 2021 
 
-The Privacy Policy sets forth the personal information processed by UnionTech Software as well as its affiliates (including but not limited to Wuhan Deepin Technology Co., Ltd. (hereinafter referred to as “UnionTech Software” or “We”) as well as the way and purpose for processing the personal information. The Privacy Policy applies to the Deepin OS and the related applications (“the software”) that we provides to you, which will be listed and described one by one.
+The deepin Operation System Privacy Policy ("this Privacy Policy") describes the personal information that UnionTech Software Technology Co., Ltd. and its affiliates (including but not limited to Wuhan Deepin Technology Co., Ltd.) ("UnionTech Software" or "we") process and how and for what purposes we process it. This Privacy Policy is applicable to the deepin Operation System and related applications (hereinafter referred to as the “Software") that we provide to you, which are listed in this Privacy Policy.
 
-You can contact us through the following ways:     
-UnionTech Software Technology Co., Ltd.              
-[Address] Floor 18, Building 12, Yard 10, Kegu First Street, Beijing Economic and Technological Development Zone, Beijing City, PRC
-[Email] support@UnionTech.com
+This Privacy Policy only applies to user above 14. If you are under 14, you and your guardian shall carefully read the UnionTech Software Guidelines for Protection of Children's Privacy and you shall not use the Software or provide personal information to us unless with the consent of or under the supervision of your guardian.
+
+This Privacy Policy is merely applicable to non-EU people who make use of the Software. If you are a user in the EU region, you shall be obliged to furnish us with additional instructions before making use of products and enjoying services, and we shall be entitled to refuse your application for making use of relevant products and enjoying services.
+
+This Privacy Policy may be available in multiple languages, but regardless of which language version you have received, the simplified Chinese version shall prevail.
+
+If you have any questions, opinions or suggestions regarding this Privacy Policy, you can contact us in the following ways:
+
+UnionTech Software Technology Co., Ltd.                  
+
+[Address] 18/F, Building 12, No.10 Yard, Kegu 1st Street, Beijing Economic-Technological Development Area, Beijing    
+
+[E-mail] privacy@uniontech.com
+
 [Tel] 400-8588-488
 
-We are deeply aware of the importance of your personal information to you and will try our utmost to maintain the reliability and security of your personal information. We are committed to maintaining your trust in us and will make unremitting efforts to protect your personal information strictly by the following principles: consistency of rights and responsibilities, clear purposes, choice of consent, minimum sufficiency, ensuring safety, subject participation, openness and transparency, etc. In the meantime, we promise to adopt corresponding security protection measures to protect your personal information according to the mature security standard in the industry.
-We strive to present the Privacy Policy in a concise, clear and understandable manner. In order to facilitate your reading and understanding, we have defined the special terms about personal information protection. Please go to the “Appendix 1: Definition” in the Privacy Policy for the detailed information about these terms so that you can grasp the information we wish to convene to you accurately.
+We understand the importance of personal information to you, and we will protect your personal information and privacy in accordance with laws and regulations, and ensure that you are the ultimate controller of the personal information you provide to us. We are committed to maintaining your trust in us and will protect your personal information with full abidance to the principles of “keeping consistency between power and responsibility, having clear objectives, offering options for acceptance, collecting the least information required, and ensuring security, subject participation, openness and transparency”. Meanwhile, we undertake that we will take corresponding security measures to protect your personal information in line with the mature security standards in the industry.
 
-The Privacy Policy will help you to understand the following:
-I.How we collect and use your personal information
-II.How we use Cookies and similar technologies
-III.How we share, transfer and disclose to the public your personal information
-IV.How we protect your personal information
-V.How we store your personal information
-VI.Your rights
-VII.How we process the minor’s personal information
-VIII.How we transfer your personal information globally
-IX.How to update the Privacy Policy
-X.Our personal information protection department/specialist
-XI.Your rights to appeal and sue to the regulatory authority
+We endeavor to present this Privacy Policy in a concise, clear and understandable manner. With a view to facilitate your reading and understanding, we have defined special terms associated with the protection of individual information. Please go to "Appendix 1: Definitions" of this Privacy Policy to know the specific contents of these terms, so that you can grasp the information we wish to express to you in an accurate manner.
 
-Before using our products and services, please read and understand carefully the Privacy Policy, in particular the black and bold part, so that you can better understand our products and services and make an appropriate choice.
+This Privacy Policy will familiarize you with the following: 
 
-I. How We Collect and Use Your Personal Information
-When you use the software products and services, your relevant personal information will be recorded and stored automatically in your local devices, including:
-Network Identification Information
-e.g. your IP address, MAC address, etc.;
-Device Information
-Including your device motherboard information, BIOS information, CPU information, memory information, hard disk information, partition information, network card information, etc.;
-Operation System Information
-Including the operation system software version, the latest update date of the system, system language, system sound effects, power supply, mouse, system theme, wallpaper, launcher, dock, configuration information for hot corners, daily login times and source for each download;
-Application Software Information
-For example, the version, installation location, start and exist time of your applications installed in the system.
+I. How We Collect and Use Your Personal Information 
 
-1.Personal Information You Voluntarily Authorize Us to Collect
-Only when you actively enable the corresponding business feature, can information of this kind be transmitted through the server to UnionTech Software for processing. Your refusal to enable such features or provide corresponding personal information to UnionTech Software will not affect your normal use of the software. Such business features include:
-1.1User Experience Program
-If you enable the “User Experience Program”, we are authorized to read, record and store the information in your local devices. We will stop collecting such information after “User Experience Program” being disabled by you, including:
-1.1.1.Device and System Information
-The device information includes your device motherboard information, BIOS information, CPU information, memory information, hard disk information, partition information, network card information, etc. The system information includes the system software version, the latest update date of the system, system language, daily active users, source for each download and the operation system performance information during runtime.
-1.1.2.Application Software Information
-For example, the version, installation location, start and exist time of your applications installed in the system and the performance information during runtime.
-1.1.3.Exception Information
-The exception information of the operation system and/or the application during runtime.
-1.2Deepin ID Service
-You can register your Deepin ID in www.deepin.com and log into the software or the products provided by our partners. You can make synchronization of the software configuration and application software of the software between different devices after login. However, such synchronization will be expired after the Deepin ID service being disabled by you.
-1.2.1.Deepin ID Registration
-To realize the service feature and meet the relevant regulatory requirement in the P.R.C, personal mobile number is needed to complete the Deepin ID registration. Due to the regulatory requirements of the P.R.C, it will be unavailable for us to provide you with Deepin ID services if you refuse to provide your mobile number. If you are located outside the P.R.C, you need to provide your personal email address to complete the Deepin ID registration.
-1.2.2.System Configuration Synchronization Service
-You can log into the Deepin ID through the cloud synchronization module of the software control center and authorize to enable the "cloud synchronization" service to synchronize the software configuration between different devices under the same Deepin ID. For this synchronization purpose, the cloud synchronization service will read your device information and system information. Your refusal to provide the foregoing information will not affect the normal operation of other services in the software.
-1.2.3.Application Software Synchronization Service
-You can log into the Deepin ID through the cloud synchronization module of the software control center to synchronize the software application software between different devices under the same Deepin ID. For this synchronization purpose, the application software synchronization service will read your application software information, application software purchase information (including your real-name authentication information and bank account information necessary to complete the payment), history application review data and history reward data. Your refusal to provide the foregoing information will not affect the normal operation of other services in the software.
-1.2.4.Browser Service
-When you browse and visit the website and platform we provide with the pre-installed browser of the software, we will collect through cookies and other similar technologies your device information, system information and browsing information (including your browser version information, favorites information, browsed website records, browser settings, auto-populated data (we will save your user account and password filling record when permitted.) as well as your IP address. Please refer to [Part II] “How We Use Cookies and Similar Technologies” for details.
-1.2.5.Application Store Service
-We will collect your device information, system information and application information when you download, install and uninstall applications with the pre-installed application store of the software. You can comment on and/or rate the applications in the application store after login with your Deepin ID. The comments and/or rating information will be stored in association with your Deepin ID.
+II. How We Use Cookies and Other Technologies 
 
-2.Collecting Your Personal Information Automatically When You Use software Products and Services
-When you use some features of the software products and services, we will automatically collect the relevant information, which may include your personal information. Such features include:
-2.1.Desktop AI Assistant/Voice Notepad
-The desktop AI assistant service is integrated into the software and co-provided by our partners and us. When you input texts via the desktop AI assistant or use the voice notepad feature, our partner will directly collect your voice content to conduct technical analysis and convert it to texts. As for the detailed description for the information shared to the partners, please refer to [Part III] “How We Share, Transfer and Disclose Your Personal Information” in Privacy Policy in detail.
-2.2.System Upgrade
-When you upgrade the Deepin OS products and services, we will collect your device ID, system mainline version, system version number and other information for us to clarify your system information, so as to help you update accurately. The collected information will be anonymized.
+III. How We Publicize, Transfer and Disclose to the Public Your Personal Information 
 
-3.Conducting Internal Audit, Big Data Analysis and Research
-3.1.We will conduct necessary internal audit with the personal information collected within UnionTech Software.
-3.2.We will use the personal information collected for big data analysis. For example, the collected information will be used to analyze and form statistical products excluding personal information, display the overall picture of UnionTech Software services, analyze the behavior patterns of different groups, etc. We may disclose to the public or share with our affiliates and partners the processed statistical big data information without identification.
+IV. How We Protect Your Personal information 
 
-4.Safety and Security
-We will use your personal information for purposes such as ensuring the security of your personal devices and accounts, the security of our operation as well as fulfilling our legal obligations (for example, saving the information that may involve illegal and criminal activities). 
+V. How We Store Your Personal Information
 
-5.Other Usage
-5.1.We will seek your explicit consent in advance when using the information collected for a specific purpose for other purposes.
-5.2.However, in accordance with the relevant laws and regulations as well as the national standards, we may collect and use your personal information without seeking your authorization and consent under the following circumstances: 
-5.2.1.personal information directly related to national security, national defence security and other national interests; personal information directly related to public safety, public health, public information and other major public interests;
-5.2.2.personal information directly related to crime investigation, prosecution, trial and judgement execution, etc.; 
-5.2.3.for the purpose of protecting your and other individual’s important legal rights and interests such as life, property, reputation, etc. but difficult to get the person’s consent;
-5.2.4.personal information collected that is disclosed to the public by yourself;
-5.2.5.personal information collected from legally and publicly disclosed information, such as legal news report, government information disclosure, etc.;
-5.2.6.personal information needed to sign and fulfil a contract at your request;
-5.2.7.personal information needed for maintaining the safe and stable operation of the products and services provided, for example, finding and handling the faults of products and services; 
-5.2.8.personal information needed for legal news reporting;
-5.2.9.personal information which is needed for conducting statistical and academic research in public interests but de-identified in the academic research results or its description results offered to the outside world;
-5.2.10.other circumstances under the provisions of laws and regulations.
+VI. Your Rights 
 
-II.How to Use Cookies and Similar Technologies
+VII. How this Privacy Policy is Updated 
 
-6.Cookie 
-6.1.We will store on your computer or mobile device a small text file called Cookie, which usually contains the identifier, website name, some numbers and characters. With the assistance of Cookies, we can store your preferences in our web servers and provide you more personalized user experience and services.
-6.1.1.We will not use Cookies for other purposes except for those described in this Privacy Policy. You can choose to manage or delete Cookies according to your preference. Please refer to AboutCookies.org for details. 
-6.1.2.You can clear all the Cookies saved on your computer. Most web browsers have the Cookie blocking feature and you can learn and set it in your browser settings.  
+VIII. Our Department for Personal Information Protection/Responsible Person for Personal Information Protection
 
-7.Do Not Track 
-Many web browsers have a Do Not Track feature that may send Do Not Track requests to websites. At present, major Internet standards organizations have not yet established policies to regulate how websites should respond to such requests. But if your browser has Do Not Track enabled, your choice will be respected in all of our sites. 
+IX. Your Right to Complain or File a Lawsuit with the Regulatory Authorities and Governing Law
 
-III.How We Share, Transfer and Disclose to the Public Your Personal Information 
+Please read and comprehend this Privacy Policy carefully before making use of our products or services, particularly the black and bold parts, so that you can get a better understanding of the products and services furnished by us and make corresponding authorization and consent based on full understanding of the contents hereof.
 
-1.Sharing
-1.1.We will not share your personal information with any company, organization or individual other than UnionTech Software except for the flowing circumstances:
-1.1.1.Sharing with explicit consent: We will share with others your personal information after obtaining your explicit consent.
-1.1.2.We may share your personal information externally in accordance with the laws and regulations or the mandatory request of the government authorities.
-1.1.3.Sharing with authorized partners: For the purpose of the Privacy Policy statement only, some of our services are jointly provided by our authorized partners. We may share with the partners some of your personal information in order to provide better custom services and user experiences. We will share your personal information necessary for providing services only for the legal, proper, necessary, specific and clear purposes. Our partners are not authorized to use the shared information for other purposes. For the company, organization or individual that we share information with, we will sign a strict confidentiality agreement demanding them to deal with the personal information according to our instructions, the Privacy Policy as well as other related confidentiality and security measures. 
-Please refer to the below for the detailed information of authorized partner sharing:
-Cooperation Type: Voice service
-Partner Name: IFLYTEK CO., LTD.
-Cooperation Purpose: Speech content text conversion technology
-Cooperation Mode: Transmitting the personal information by embedding third-party codes and plugins.
-Shared Personal Information Field: Voice information content	
-Partner Data Security Capacity Description: National Information Security Level Protection Level 3 Certification
-1.1.4.It should be specially noted that when related service providers provide services to you through third-party access such as page jumps to service provider pages, the corresponding service provider will directly reach the corresponding personal information authorization license with you and such information directly collected by the service provider is not within the scope of the information we share with them. In the case where the service is provided directly by a third party, we will clearly identify the third party information on the specific service page. To avoid ambiguity, you should be aware of and understand that the aforementioned links to websites, applications, products and services operated by independent third parties are provided only for the convenience of users to browse relevant pages. When you visit such third-party websites, applications, products and services, you should agree separately to the privacy policy and personal information protection clauses provided for you. We and such third-party websites, applications, products and services providers will assume independent personal information protection responsibilities respectively to you within the scope stipulated by law and agreed by both parties.
+I. How We Collect and Use Your Personal Information 
 
-2.Transfer
-We will not transfer your personal information to any company, organization or individual except for the following circumstances:
-2.1.Having obtained your explicit authorization and consent in advance;
-2.2.When it comes to merger, acquisition or bankruptcy liquidation, if it involves personal information transfer, we will require the new company and organization holding your personal information continue to be bound by the Privacy Policy. Otherwise we will demand the company and organization to seek your authorization and consent again.
+If you use the Software, we will follow the principles of legality, legitimacy, necessity and good faith, collect only the information that is necessary to achieve a specific, particular, explicit and lawful purpose, and ensure that such information is not further processed in any manner inconsistent with such purpose.
 
-3.Public Disclosure
-We will disclose your personal information publicly only under the following circumstances and under the premise of adopting the security protection measures that conform to the industry standard: 
-3.1.Disclosing the specified personal information in the manner you explicitly consent according to your needs;
-3.2.Where it is necessary to provide your personal information in accordance with the requirements of laws, regulations, mandatory administrative enforcement or judicial requirements, we may publicly disclose your personal information in accordance with the type of personal information and the manner of disclosure required. Subject to laws and regulations, when we receive the above request for information disclosure, we will require the corresponding legal documents, such as subpoenas or investigation letters. We firmly believe that the information we are required to provide should be as transparent as possible to the extent permitted by law. All requests are carefully reviewed to ensure that they have a legitimate basis and are limited to data obtained by law enforcement agencies for specific investigative purposes and with legal rights. To the extent permitted by laws and regulations, the files we disclose are protected by encryption keys.
+Network ID information
 
-IV.How We Protect Your Personal Information
+Your MAC address;
 
-1.Various security technologies and protective measures meeting the industry standard have been adopted in the website to prevent the personal information of users from unauthorized access, use or leakage. This website strictly complies with domestic and foreign security standards to build a security system and integrates cutting-edge and mainstream security technologies to prevent users' personal information from being accessed, used and leaked without authorization. The sound security protection system established makes it available to intercept the attack timely and actively when the website encounters external network attack and virus infection. Each application platform of this website uses the HTTPS encryption protocol for transmission during the network communication, which can effectively prevent the information from being stolen by third parties during the communication between the user and the platform. The user's privacy and sensitive data is stored in an encrypted manner and is backed up in real time in the website. 
+Browsing information
 
-2.A sound data security management system has been established in this website, including grading and classification of user information, encrypted storage as well as division of data access rights. Internal data management system and operation procedure haven been formulated in which the strict process requirements for data acquisition, use and destruction prevent the user information from being illegally used. Here are the details: defining the security management responsibility for each department and responsible personnel accessing the personal information of users; formulating the workflow and security management process for personal information collection and use and related activities of users; implementing authority management for staff and agents, reviewing the information exported, copied and destroyed in batch and adopting anti-leakage measures; properly keeping the paper media, optical media and electromagnetic media and other carriers that record the personal information of users and adopting corresponding security storage measures; implementing access review for the information system that stores personal information of users and adopting anti-intrusion and anti-virus measures, etc.; recording the processing information for the personal information of users, such as operation staff, time, place and events; holding security and privacy training periodically to raise the staff’s awareness of information protection.
+The version, bookmark, web browsing history, browser settings, auto-fill data and IP address in the browser you are using;
 
-3.We will adopt all reasonable and feasible measures to ensure that irrelevant personal information is not collected. Unless permitted by law or the retention period needs to extend, we will only retain your personal information for the period needed to achieve the purposes in this Privacy Policy.
+Device Information
 
-4.We will regularly update and disclose the relevant contents of reports such as security risks and personal information security impact assessments in accordance with the laws and regulations and the requirements of competent authorities.
+Information of your device ID, device motherboard, BIOS, CPU, memory, hard disk, partition and network card information;
 
-5.The Internet environment is not 100% secure and we will try our utmost to ensure or guarantee the security of any information you send us. If our physical, technical, or management protection facilities are damaged, resulting in unauthorized access, public disclosure, tampering or destruction of information, resulting in damage to your legitimate rights and interests, we will assume corresponding legal responsibility.
+Operation System Information
 
-6.In the unfortunate event of a personal information security incident, we will promptly inform you of the basic situation and possible impact of the security incident, the emergency response taken or to be taken, other relevant disposal measures, remedies for you, etc. in accordance with the laws and regulations, through the station letter/the contact information you reserve, etc. in a timely manner. If it is difficult to notify the individual information subjects one by one, we will take a reasonable and effective way to issue an announcement and will actively report the disposition of personal information security incidents to the relevant regulatory authorities.
+Including software version, last update time, updating results, system installation information (including your operation system installation method, installation time, installation duration, installation results, and the language, region and password strength information you selected during the installation process), language, sound, power supply, mouse, theme, wallpaper, initiator, task-bar, hot zone configuration, number of login times per day, and source of each download of the operation system;
 
-7.If you have any questions about the protection of our personal information, you can contact us through the contact information in [Part X] of this Policy. If you find that your personal information has been leaked, please contact us immediately through the contact methods stipulated in this policy so that we can take appropriate measures in a timely manner.
-V.How We Store Your Personal Information
-We will adopt all reasonable and feasible measures to ensure that irrelevant personal information is not collected. We will store your personal information within the scope permitted by the laws and regulations and within the scope agreed by you. As for the information storage time exceeding the scope permitted by law, we delete or anonymize it.
-If there is no other agreement, you commit that we can permanently store your personal information collected based on the “User Experience Program” to maintain and improve the stability and security of our services. Meanwhile, you agree that after disabling your Deepin ID account, we have the right to keep your purchase, comment and rating records in the Application Store generated during your use of Deepin ID till the expiration period of three years due to the transaction security requirements. The remaining personal information of the Deepin ID account will be deleted in time after you disable your account.
+Basic Personal Information
 
-VI.Your Rights
-We will try our utmost to adopt appropriate technical measures to ensure that you can access, update and correct your registration information or other personal information provided when using the website services.
+Your birthday, gender, personal phone number and e-mail address;
 
-1.Accessing Your Personal Information
-Unless otherwise provided by the laws and regulations, you have the right to access your personal information. You can access your information yourself by:
-1.1.Account Information/Basic User Information: If you want to access or edit basic personal information in your Deepin ID, such as mobile phone number, email address, gender, education information, career information or other personal information, you can log into the Deepin ID registration website and perform such operations in “[User Center]”.
-1.2.Transaction Information: If you expect to access your history reward records, you can inquire your purchase records and other information related to application purchase in “Personal Center” in Application Store.
-1.3.If you cannot access your personal information through the methods aforementioned, you can contact us at any time via the contact information described in [Part X] and we will respond to your access request within [15] days.
-1.4.As for the personal information generated during your use of our products and services, we will provide it according to relevant arrangement in item (7) “Responding to Your Requests Aforementioned” of this part.
+Application software information
 
-2.Correcting Inaccurate or incomplete Personal Information
-2.1.You can correct or supplement some of your personal information yourself in your [Personal Center]. In particular, please pay attention to verifying the authenticity, timeliness, completeness and accuracy of the personal information submitted, otherwise we will not be able to contact you effectively and provide you with some services. If we have reasonable grounds to suspect that your information provided is incorrect, incomplete or untrue, we have the right to ask you or notify you to correct it or even suspend or terminate some of the services provided to you.
-2.2.Some special information may not be corrected by yourself. You can contact us through the contact information published in [Part X] of this Policy. We will respond to your access request within [15] days. To ensure the security of your account, we may require you to verify your identity.
+Name, version, installation location, disk space occupied, starting time, exiting time, preference (including: system theme, icon theme, cursor theme and font setting), usage frequency of the function modules and performance at run time of the application software you have installed in the system.
 
-3.Revoking Consent or Processing Restrictions
-3.1.You can change the scope of your personal information that you authorize us to collect and use by deleting information, turning off features of the device/tool or performing other feasible privacy settings (depending on the system version).
-3.2.If you are unable to revoke your authorized consent through the methods aforementioned, you can contact us at any time via the contact information in [Part X] and explain which consent you expect to revoke to perform such operations. We will respond to your access request within [15] days.
-3.3.When you revoke your consent, we will no longer process your corresponding personal information. However, your decision to revoke your consent will not affect the legality of the processing of personal information previously based on your authorization. 
+1. Personal Information That You Have Voluntarily Provided to Us
 
-4.Deleting Personal Information
-4.1.You can raise your request to delete your personal information from the website under the following circumstances:
-4.1.1.Our processing of personal information is inconsistent with the laws and regulations or the agreement with you;
-4.1.2.Our collection and use of your personal information without your explicit consent;
-4.1.3.We terminate to provide or you terminate actively the product and service of this website.
-4.2.If we decide to respond to your request for deletion, we will also notify the third parties (including affiliates of this website) who have obtained your personal information from us at the same time and ask these third parties to delete your personal information in a timely manner, unless otherwise provided by the laws and regulations or such third parties have obtained your independent authorization.
-4.3.We may not delete the corresponding information from our backup system after you delete your personal information from the website but will delete it when the backup is updated.
-4.4.If you are unable to delete such personal information through the above path, you can contact us at any time through the customer service of this website. To ensure the security of your account, we may require you to verify your identity. 
+1.1. deepin Account Service
 
-5.Canceling Accounts
-5.1.Deepin ID supports account cancellation. You can cancel it yourself by accessing [Account Information in Personal Center] or contact us to cancel your Deepin ID through the contact information published in [Part X] of this Policy. To ensure the security of your account, we may require you to verify your identity.
-5.2.After canceling your account, we will terminate the services provided for you and delete your personal information at your request within the time limit stipulated by law unless otherwise provided by the laws and regulations or agreed between us.
+You can register a deepin account (also known as "deepin ID") through the deepin User Center at (account.deepin.org) and use this account to log in to the Software or products provided by our partners. After logging in to your deepin ID, we will also collect the information stored in your deepin ID account (which we will treat as personal information). For specific rules regarding your use of your account, please follow the deepin Account Use Agreement and other special rules issued by us for this purpose.
 
-6.Obtaining the Copy of Personal Information
-6.1.You have the right to send a written request to obtain your copy of personal information through the contact information published in the Policy.
-6.2.As long as the technology is feasible, such as data interface matching, we can also directly transfer a copy of your personal information to your designated third party according to your requirements and existing common technologies. If the transmission fails due to the third-party’s refusal to receive a copy of your personal information, you should coordinate with these third parties to resolve it by yourself and we will not be responsible for it.
+1.1.1. Registration and Login of deepin ID
 
-7.Responding to Your Requests Aforementioned
-7.1.To ensure the security of your account, you may need to offer a written request or otherwise verify your identity. We may demand you to verify your identity before processing your request.
-7.2.We will respond within [15] days. If you are not satisfied, you can complain through the channels in [Part X] of this Policy.
-7.3.For your reasonable request, we do not charge fees in principle, but for repeated requests that exceed a reasonable limit, we will charge a certain cost as appropriate. For those that are unreasonably repetitive, requiring excessive technical means (for example, needing to develop new systems or fundamentally changing existing practices), posing risks to the legitimate rights and interests of others or highly impractical (for example, involving information stored on backup tapes), we may reject them.
-7.4.Subject to the laws and regulations, we will be unable to respond to your request under the following circumstances:
-7.4.1.Directly related to national security and national defence security;
-7.4.2.Directly related to public safety, public health and major public interests;
-7.4.3.Directly related to crime investigation, prosecution, trial and judgment enforcement;
-7.4.4.Having sufficient evidence to prove that you use your rights subjectively, maliciously and abusively;
-7.4.5.Responding to your request will result in severe damage to your, other people or organization’s legitimate rights and interests;
-7.4.6.Involving trade secrets;
-7.4.7.Other circumstances stipulated by law.  
+In order to enable the account services and comply with the relevant regulatory requirements of the People's Republic of China, you shall provide your personal mobile number to complete the registration of deepin ID. Restricted by the regulatory requirements of the People’s Republic of China, if you refuse to offer your mobile number, we will not be able to furnish you with deepin ID services. You can also use a third-party account to log in and use deepin ID, provided that your personal mobile number is bound to complete the registration of deepin ID. If you are located outside the People's Republic of China, you need to provide your personal email address to complete deepin ID registration. We collect your IP address every time you log in to your account for security, fraud detection, and account management (to make sure there are no suspicious logins or account connections). 
 
-VII.How we Process the Minor’s Personal Information
+1.1.2. Synchronization of System Configuration
 
-1.Our products and services are only available to users over 14 years old. If you are under 14 years, you should provide your legal guardian's contact information (such as email address and phone number). We will contact your legal guardian through the contact information and take reasonable steps to obtain the express authorization and consent of your legal guardian; you should clearly understand that if we discover or suspect that you are under the age of 14, we can suspend or terminate the service to you at any time until you provide us with proof that you are over 14 years old, or assist us in obtaining express authorization and consent from your legal guardian.
+If you are a user in the People's Republic of China (excluding Hong Kong, Macao and Taiwan), you can use the Cloud Sync module in the Software Control Center to log in to your deepin ID and switch on "Cloud Sync Configuration" to achieve the synchronization of the Software configuration among different devices on which you use the same deepin ID. For this purpose, the Cloud Sync service will read your device information and OS information. Your refusal to provide the aforementioned information will not affect the normal provision and use of other services of the Software.
 
-2.For the collection of the minor's personal information with the consent of the legal guardian, including the legal guardian's insurance for minors, etc., we will only use or publicly disclose this information when it is permitted by law, expressly agreed by the legal guardian or necessary for the protection of minors.
+2. Personal Information We Collect When You Use the Software
 
-3.If we find that we have collected the personal information from a minor without the prior consent of a verifiable parent or other legal guardian, we will try to delete the data as soon as possible.
+When you use some functions of the Software, we will collect relevant information, which may include your personal information.
 
-VIII.How We Transfer Your Personal Information Globally
+2.1. System Use
 
-1.We will store personal information collected in each country/region in accordance with the laws and regulations of each country/region.
+When you use the Software, we will collect information about your network identification, device, operation system and application to ensure your normal use, maintain system security and prevent the intrusion of malicious programs. Such information is the basic information we have to collect for service provision to you.
 
-2.We will store personal information collected in China in accordance with Chinese laws and regulations.
+2.2. System Update
 
-3.We reserve the right to transfer your personal information to other government jurisdictions. Your consent to this Privacy Policy and such data you submit or we collect represent your consent to any such transfer. In this case, we will transfer your personal information and provide adequate protection in accordance with the relevant laws and regulations and this Privacy Policy.
+When you upgrade the Software, we will collect information about your device and operation system, so that we can clarify your operation system information to help you update accurately.
 
-IX.How to Update the Privacy Policy
+2.3. Browser Services
 
-1.Our privacy policy may change. We will not reduce your rights under the Privacy Policy without your explicit consent. We will release an updated version of the Privacy Policy.
+When you use the browser pre-installed on the Software and access and browse the websites or platforms provided by us or third parties, we will collect information about your device, operation system and browsing activities. Your refusal to provide the aforementioned information will not affect the normal provision and use of other services of the Software.
 
-2.For significant changes, we will also provide more prominent notices (including sending notifications via email for some services and explaining the specific changes to the Privacy Policy).
+3. Information of Third Parties
 
-3.Significant changes in Privacy Policy include but not limited to:
-3.1.Significant changes in our products and service modes, including the purpose of processing the personal information, the type of the personal information processed, the way in which the personal information is used, etc.;
-3.2.Significant changes in ownership structure, organization structure, etc., such as changes caused by business adjustments, bankruptcy, merger and acquisition;
-3.3.Changes in the main object of personal information sharing, transfer or disclosure; 
-3.4.Significant changes in your right to participate in the processing of personal information and how you exercise it;
-3.5.Changes in our responsible department for processing personal information security, contact methods and complaint channels;
-3.6.Existence of high risks indicated by an impact assessment report on personal data security.
+We may obtain your personal information from third parties if permitted by law. For example:
 
-X.Our Personal Information Protection Department/Specialist
+3.1. With your consent (e.g., when you log in and use deepin ID through a third-party account), we may collect and use certain information obtained from third-party social networking services, such as nicknames, avatars and regions;
 
-1.We have appointed a personal information protection organization to be responsible for coordinating and monitoring UnionTech Software in compliance with and implementation of the laws and regulations and internal policies and systems related to the protection of personal information.
+3.2. We may collect and use the aforementioned information if the information shared by other users contains your information;
 
-2.If you have any questions, comments or suggestions about this Privacy Policy, you can contact us through the following methods. In general, we will reply within 30 days or a longer period allowed by applicable laws and regulations.
-Personal information protection department/specialist: [Legal Affairs Department]
-Address: [Floor 18, Building 12, Yard 10, Kegu First Street, Beijing Economic and Technological Development Zone, Beijing City, PRC]
+3.3. We may collect and use your personal information that you have disclosed or that has otherwise been lawfully disclosed to a reasonable extent, unless you have expressly denied. If we collect and use your personal information that you have disclosed and that has a significant impact on your personal rights and interests, we will ask for your consent again.
+
+4. Other Uses
+
+We will strictly abide by the provisions of laws and regulations and the agreement with you, and shall use the collected information of you for other purposes as below:
+
+4.1. Internal audit, big data analysis and research 
+
+4.1.1. We will use the personal information collected to conduct requisite internal audits within UnionTech Software when necessary.
+
+4.1.2. We will use the personal information collected for big data analysis. For example, we will use the information collected for analysis, to form statistical products that do not contain any personal information, to show the overall picture of the services of us, to analyze the behavior patterns of different groups and so on. For big data analysis information without identification after statistical processing, we may disclose and share with our affiliates and partners.
+
+4.2. Security Protection 
+
+We will also safeguard your personal equipment security, account security, our operation security, and fulfill our legal obligations with your individual information (such as retaining information that may relate to illegal and criminal activities).
+
+5. In the event that we need to collect personal information of you under your custody beyond the above-mentioned purpose of use, we will explain to you and seek your consent anew. However, according to relevant laws, regulations and national standards, in any of the following circumstances, we may collect and use your personal information without seeking your consent:
+
+5.1. Where it is necessary for performance of our statutory duties or legal obligations;
+
+5.2. When it involves national security, national defense security and other national interests directly and when it involves public security, public health, public right to know and other major public interests;
+
+5.3. When it directly relates to criminal investigation, prosecution, trial and execution of judgments;
+
+5.4. When it is collected to protect the life, property, reputation or other major legal rights of you or other individuals in the situation where it is difficult to obtain your own authorization or consent;
+
+5.5. When it is required for execution and performance of contracts at your request;
+
+5.6. When it is necessary for maintaining the safe and stable operation of the Software, such as identifying and resolving failures of products or services;
+
+5.7. Where it is necessary for news reporting, media supervision and performing other acts in the public interest to the extent reasonable;
+
+5.8. When it is necessary for academic research institutions to collect statistics or conduct academic research in the public interest, provided that any personal information contained in the results of such academic research or descriptions thereof has been de-identified; or
+
+5.9. Other circumstances as stipulated by laws and regulations.
+
+II. How We Use Cookies and Other Technologies 
+
+1. Cookie 
+
+1.1. We may place a text file known as Cookie on your computer or mobile device. The text in a cookie often consists of identifiers, site names, and some numbers and characters. We undertake that we will not use such Cookies for any purposes other than those described herein. We use Cookie primarily for providing the following functions or services:
+
+·Ensure the safety of products or services
+
+We may set Cookie or anonymous identifiers for authentication and security purposes, with a view to confirm whether you have securely logged in to your deepin ID or other service account and to detect hacker theft, fraud and other unlawful acts.
+
+·Provide better products or services
+
+With Cookie, you are not required to repeat such steps and processes as filling in your personal information and entering search content, thus increasing your efficiency.
+
+1.2. Cookie Management
+
+Most browsers have the function of Cookie management, such as cache data clearing, and you can perform the appropriate data clearing operations in “settings” of the browser. Please note that if you perform data clearing, you may not be able to use the services or corresponding functions provided by us that depend on Cookie.
+
+2. Do Not Track 
+
+Many web browsers have the Do Not Track feature, which can distribute Do Not Track requests to websites. At present, major Internet standards organizations have not set up relevant policies to stipulate how websites should respond to such requests. But if your browser has enabled Do Not Track, then all our websites will respect your choice. 
+
+3. Software Development Kit
+
+In order to ensure the realization of the related functions of the Software and the safe and stable operation thereof, we may access the software development kit (“SDK”) provided by a third party and provide the third party with the information need to know to implement and improve the relevant functions. We will carry out strict auditing and safety monitoring on the access and use of SDKs provided by third parties, in order to secure your personal information. Please understand, we will try our best to update the list of third-party SDKs, but in some cases, it may lag behind. In the meantime, in order to keep confidential our business information and technological means, some SDKs used for platform risk control or special cooperation may not be included in this list, but if your important privacies or device permissions are required by such SDKs, we will get your authorization in a reasonable manner.
+
+The following is a list of Third Party SDKs We Use:
+
+Please note, third-party SDKs may change the type of personal information due to such reasons as version upgrade and policy adjustment. Please refer to the corresponding publicized official instructions.
+
+SDK name: T-Sec Text Content Security SDK
+
+Third party name: Shenzhen Tencent Computer System Co., Ltd.
+
+Service type: Text Content Security
+
+Type of personal information collected: User input text content (including user nickname, personal profile, etc.) 
+
+Privacy Policy Link: https: https://cloud.tencent.com/document/product/301/11470
+
+SDK name: SendCloud Mail Notification SDK
+
+Third party name: Wuhan SendCloud Technology Co., Ltd.
+
+Service type: Mail Notification
+
+Type of personal information collected: E-mail Address
+
+Privacy Policy Link: https://www.sendcloud.net/#/friendlyLink?tab=protocal
+
+SDK name: Lianlu Information Notification SDK 
+
+Third party name: 	Shanghai Lianlu e-commerce Co., Ltd.
+
+Service type:Notification SMS
+
+Type of personal information collected: Personal Mobile Number
+
+Privacy Policy Link: http://sms.shlianlu.com/reg.aspx
+
+III. How We Publicize, Transfer and Disclose to the Public Your Personal Information  
+
+1. Publicization
+
+1.1. We will not provide your personal information to any third party except as permitted by laws, regulations, normative documents and regulatory provisions or with your prior consent, except in the following cases:
+
+1.1.1. We may publicize your personal information as required by laws and regulations, or according to the compulsory requirements of the competent government authorities. 
+
+1.1.2. Entrusted processing: In order to achieve our service functions, we will entrust external suppliers to assist us in providing relevant services to you. In the case of entrusted processing, the third party receiving personal information is only entitled to provide services to you on our behalf as we instruct, and we are liable to you for their acts to the extent we have entrusted.
+
+1.2. In order to fulfill the agreement with you or for other reasonable purposes, we may provide some of your personal information to a third-party personal information processor, and such processor has the right to process the personal information received only when such information as the purpose of processing, manner of processing and type of personal information has been notified to you. If the recipient changes the original purpose or manner of processing, the recipient shall ask for your consent again.
+
+1.3. What needs to be drawn to your attention is that, when the relevant service providers render services to you by means of third-party access such as page jumping to the service provider’s page, the corresponding service providers shall directly reach the corresponding usage license of personal information authorization with you, and such personal information collected directly by the service providers is not within the scope of personal information we make public for them.  In such cases where services are directly furnished by third parties, we will clearly identify the third-party information in the specific service page. To avoid ambiguity, you ought to know and understand that the links of websites, applications, products and services operated by an independent third party mentioned above are only furnished for users to browse relevant pages. When you visit such third-party websites, applications, products and service links, you shall separately assent to this Privacy Policy or the terms on the protection of individual information furnished by them. We and such third-party websites, applications, product and service providers shall assume independent responsibilities for the protection of personal information to you within the scope specified by law and agreed by the Parties.
+
+2. Transfer 
+
+We will not transfer your personal information to any companies, organizations or individuals, except under the following circumstances: 
+
+2.1. Transfer with prior separate consent: With your prior separate consent, we will, in accordance with the provisions of laws and regulations, transfer your personal information to other parties;
+
+2.2. When it involves mergers, acquisitions or bankruptcy or liquidation, and involves transfer of personal information, we will require the new company or organization which holds your personal information to continue being bound by this privacy policy, or we will require such company or organization to get your authorization and consent anew. 
+
+3. Public Disclosure 
+
+We will only make public disclosure of your personal information under the following circumstances with safety protection measures in line with industrial practice: 
+
+3.1. To disclose the specified personal information as required by you via the disclosure means separately agreed upon by you; 
+
+3.2. To disclose your personal information according to the required information type and disclosure means when such disclosure is made under laws and regulations, compulsory administrative law enforcement or judicial requirements. Under the premise of compliance with laws and regulations, when we receive the aforesaid request for information disclosure, we will require that it is a prerequisite to provide corresponding legal documents, such as summons or investigation letter. We firmly believe that the information we are required to provide should be as transparent as possible to the extent permitted by law. We have reviewed all requests with due diligence to ensure that they have legitimacy basis and are restricted to data that law enforcement authorities have the legitimate right to obtain for specific investigative purposes. Without prejudice to laws and regulations, the documents we disclose are protected by encryption keys.
+
+IV. How We Protect Your Personal information 
+
+1. We have adopted all types of security technologies and protective measures in line with industry standards in order to protect users’ personal information from unauthorized access, use or leakage. We strictly observe domestic and foreign security standards to set up a security system, and implement such standards in combination with cutting-edge and mainstream security technologies to prevent users’ personal information from unauthorized access, use or leakage. A perfect security defense system has been set up so that when we are attacked by external network and infected by viruses, the attack behaviors can be intercepted actively in a prompt manner. The Software shall be subject to HTTPS encryption protocol transmission in the course of network communication, which can effectively avoid the information being stolen by a third party in the course of communication. The privacy and sensitive personal information involving users shall be stored by encryption in the Software and backed up in real time.
+
+2. We have set up a sound data security management system, including hierarchical classification, encryption and storage of user information, and division of data access rights. The internal data management system and operation procedures are worked out, which raise stringent process requirements from data acquisition, use and destruction, in a bid to avoid illegal use of user privacy data. Determine the security management responsibilities of all departments as well as their persons in charge who contact the personal information of users; set up the workflow and security management system for the collection, use as well as other relevant activities of users’ personal information; carry out authority management for staff and agents, review information exported, copied and destroyed in batches, and take measures to prevent leakage; properly keep paper media, optical media, electromagnetic media and other carriers that record users’ personal information, and take corresponding safe storage measures; conduct access review for information systems that store users’ personal information, and take anti-invasion and anti-virus measures; record the personnel, time, place, events and other information that operate users’ personal information; formulate and organize the implementation of emergency plans for personal information security incidents; hold regular training on security and privacy protection to raise employees’ awareness of the protection of personal information.
+
+3. In accordance with laws and regulations and the requirements of competent authorities, we will, establish a special department for personal information protection and designate persons responsible for the protection of personal information to supervise the processing of personal information and the protection measures taken, and, on a regular basis, update and publicize the relevant contents of reports such as security risks and security impact assessment of personal information. For more information about the department and the person in charge of personal information protection, please refer to [Section VIII] of this Privacy Policy.
+
+4. Currently, we have passed the evaluation on and completed the filling for classified protection of national cybersecurity (Level 3). In terms of information security, we have met the international certification standards in ISO27001. Also, we have obtained the corresponding certification. But we need to remind you that the Internet environment is not 100% secure. We will use our best efforts to ensure or guarantee the security of any information you send to us. We will be liable for any damage to your legal rights and benefits resulting from unauthorized access, public disclosure, alteration or destruction of information due to any damage to our physical, technological or administrative protection facilities.
+
+5. If unfortunately, a personal information safety event occurs, we will, according to the requirements of laws and regulations, inform you of the basic situation of the safety event and possible impact in a timely way, the emergency response we have already taken or are about to take and other relevant disposals, remedies for you via messages/your reserved contact information. If it is difficult to notify the subjects of personal information one by one, we will make a public announcement in a reasonable and effective manner, and take the initiative to report the handling of security incidents of personal information to the regulatory authorities concerned.
+
+6. If you raise any questions concerning our protection of personal information, you can contact us via the contact ways in [Section VIII] of this Privacy Policy. If you learn that your personal information is leaked, please contact us forthwith through the contact ways specified in this Privacy Policy so as to facilitate up to take corresponding measures in a prompt manner.
+
+V. How We Store Your Personal Information 
+We will, in pursuance of the provisions of laws and regulations, merely store your personal information collected within the territory of the People’s Republic of China in the territory of the People's Republic of China. We will take all reasonable and feasible measures to guarantee that personal information unconcerned is not collected. We will only retain your personal information for the shortest period required for achieving the purposes described herein. We will delete or anonymize your personal information if it is stored for a period that exceeds what is permitted by law. If it is technically difficult to delete the relevant personal information, we will stop processing it except for the purpose of storage and taking necessary security measures. However, in the following circumstances, we may change the storage time of personal information for the need of complying with legal requirements:
+
+● Comply with the provisions in court judgments, adjudications or other legal procedures;
+
+● Comply with the requirements of relevant government authorities or legally authorized organizations;
+
+● We have reasons to believe that we need to comply with laws, regulations and other relevant provisions.
+
+In the event that the Software is discontinued, we will stop collecting your personal information in a timely manner, notify you of the discontinuation by delivering an individual notice or by announcement, and delete or anonymize your personal information within a reasonable period.
+
+VI. Your Rights 
+
+In accordance with relevant Chinese laws, regulations and standards, as well as the common practices of other countries and regions, we will do our best to use appropriate technologies to ensure your exercise of the following rights on your personal information:
+
+1. View and Duplicate Your Personal Information
+Except as otherwise provided by laws and regulations, you have the right to view and duplicate your personal information. You can view and duplicate your information by yourself in the following ways:
+
+1.1. Account information/basic user information: If you wish to access and copy basic personal information in your deepin ID, you can log in to your deepin ID account through the deepin User Center at (account.deepin.org) and perform such operations at "[Account Information]" or "[Personal Information]".
+
+1.2. If you fail to view and duplicate your personal information by means of the aforesaid methods, you can contact us at any time via the contact ways in [Section VIII] of this Privacy Policy. We will reply to your access and copy request within fifteen working days. 
+
+1.3. For other personal information arising from your application of our products or services, we will furnish such information for you based on relevant arrangements in Item (7) of this Section: "Responding to Your Aforesaid Requests".
+
+2. Correct and Supplement Inaccurate or Incomplete Personal Information
+
+2.1. You can correct or supplement some of your individual information on your own through the deepin User Center at (account.deepin.org) and perform such operations at "[Account Information]" or "[Personal Information]". In particular, please pay attention to check the authenticity, timeliness, integrity and accuracy of the individual information you submit, otherwise we will be unable to effectively contact you and render some services to you as a result. If we suspect that the information submitted by you is wrong, incomplete and untrue based on reasonable reasons, we shall be entitled to ask you or inform you to correct it, or even suspend or stop rendering some services to you.
+
+2.2. Some special information may not be corrected on your own, and you can contact us via the contact ways released in [Section VIII] of this Policy. We will reply to your access request within fifteen working days. In a bid to protect your personal information security, we may request you to authenticate.
+
+3. Withdraw Consent or Eliminate Processing Restrictions
+
+3.1. You are allowed to alter the range of your personal information collected and used by us under your authorization by deleting information, shutting down the functions of related devices/tools or making other feasible privacy settings (in consideration of the system version).
+
+3.2. Where you fail to revoke your authorization consent in the above-mentioned manner, you can contact us at any time via the contact ways in [Section VIII] and state which consent you intend to revoke to carry out such operations. We will reply to your access request within fifteen working days.
+
+3.3. When you withdraw your consent, we will not continue to process your personal information anymore. However, your decision to withdraw consent will not affect the legality of personal information processing already launched based on your authorization.
+
+4. Deletion of Personal Information
+
+4.1. You may apply to us for deleting your personal information under any of the following circumstances:
+
+4.1.1. If our behavior of processing personal information violates laws and regulations;
+
+4.1.2. If you withdraw your consent;
+
+4.1.3. If our behavior of processing personal information violates our agreement with you;
+
+4.1.4. If you no longer use our products or services, or if you cancel your account;
+
+4.1.5. If we no longer provide products or services to you, or the retention period has expired;
+
+4.1.6. If the purpose of processing has been or cannot be achieved or if it is no longer necessary to achieve the purpose of processing.
+
+4.2. We will respond to your request for deletion of personal information within fifteen business days of receipt. In the case that we decide to respond to your deletion request, we will also inform the third parties (including the affiliated companies of us) that share your personal information from us with the best efforts, and request such third parties to delete your personal information in a prompt manner, unless otherwise specified by laws and regulations, or such third parties have gained your independent authorization.
+
+4.3. In the event that you are unable to delete the personal information via the above path, you may contact us at any time via [Section VIII] of this Privacy Policy. In a bid to protect your personal information security, we may request you to authenticate.
+
+4.4. If the retention period stipulated by laws and administrative regulations has not expired, or if it is technically difficult to delete the personal information, we will stop processing it except for the purpose of storage and taking necessary security measures.
+
+5. Account Cancellation
+
+5.1. deepin ID can be canceled. You can contact us via [Section VIII] of this Privacy Policy, and cancel your deepin ID. We will respond to your request for cancellation within fifteen business days, and we may require for verification of your identity to secure your personal information. 
+
+5.2. Except as otherwise stipulated by laws and regulations or otherwise agreed between you and us, we will stop providing corresponding services for you after canceling the account, and will delete your personal information at your request.
+
+6. Obtaining a Copy of Personal Information
+
+6.1. You shall be entitled to send us a written request via the contact ways released in this Privacy Policy to acquire a copy of your personal information.
+
+6.2. To the extent that technology is feasible, such as data interface matching and conforming to the conditions prescribed by the national cyberspace administration, we may also transmit the copy of your personal information to the third party specified by you directly in line with your requirements and on the strength of existing general-purpose technology. In the event that the transmission fails as a result of the third party’s refusal to receive the copy of your personal information, you shall coordinate with such third party to address the issue, and we shall not assume any responsibility in this regard.
+
+7. Respond to Your Above Request 
+
+7.1. To ensure the security of your account, we may need you to submit a written request or verify your identity in other ways. We would probability require you to verify your identity first before processing your request. 
+
+7.2. We will make a reply within fifteen working days. If you are not satisfied on this point, you are also suggested to complain via the channels specified in [Section VIII] of this Privacy Policy.
+
+7.3. For your reasonable requests, we do not collect any charges in principle, but for repeated requests or unreasonable requests, we will collect a certain amount of cost fees as the case may be. We may reject requests that are unprovoked and repeated, which require too many technical means (e.g., to develop new systems or fundamentally change existing practices), pose a risk to the legitimate interests of others or are highly impractical (e.g., information stored on backup tape). 
+
+7.4. According to requirements of laws and regulations, we are unable to respond to your request in the following circumstances: 
+
+7.4.1. When it involves the performance of our obligations under laws and regulations;
+
+7.4.2. When it involves national security and national defense security directly; When it involves public security, public health and other major public interests; 
+
+7.4.3. Information directly related to criminal investigation, prosecution, trial and execution of judgments; 
+
+7.4.4. When there is sufficient evidence to prove that you are subjectively in bad faith or abuse your power; 
+
+7.4.5. When responding to your request will cause serious harms to the legal rights and interests of other individuals or organizations;
+
+7.4.6. When any trade secret is involved;
+
+7.4.7. When it is collected to protect the life, property or other major legal rights of you or other individuals in the situation where it is difficult to obtain your consent;
+
+7.4.8. Other circumstances prescribed by applicable law.
+
+VII. How this Privacy Policy is Updated
+
+1. Our privacy policy may be subject to change. Without your express consent, we will not reduce the rights that you enjoy according to this Privacy Policy. We will post any updates to the privacy policy. 
+
+2. With respect to major changes, we will give a more prominent notice (for example, for some services, we will give a notice by email, specifying the detailed changes made to the privacy policy) and obtain your express consent again. 
+
+3. Significant changes referred to in this privacy policy include, but are not limited to: 
+
+3.1. Our products and service mode may change greatly. For example, we may change the purpose of personal information processing, the type of personal information processed, and the way of using personal information. 
+
+3.2. Our ownership structure or organizational structure may change greatly. For example, the change of actual controller caused by business adjustment, bankruptcy, M&A and so on; 
+
+3.3. The main objects of personal information publicization, transfer or public disclosure may change; 
+
+3.4. Your right to participate in personal information processing and the way to exercise such right may significantly change; 
+
+3.5. The department responsible for processing the security of personal information, its contact information and the complaining channel may change; 
+
+3.6. The influence and evaluation report of personal information security shows that there is a high risk. 
+
+4. We will also keep the old versions of this Privacy Policy in the archives for your reference.
+
+VIII. Our Department for Personal Information Protection/Responsible Person for Personal Information Protection
+
+1. We have appointed a department for the protection of personal information so as to assume responsibility for coordinating and monitoring the compliance and enforcement of laws, regulations as well as internal policies and systems associated with the protection of personal information.
+
+2. If you raise any questions or come up with opinions or suggestions in relation to this Privacy Policy, you may contact the personal information protection agency in the following ways. In general cases, we will make a reply within fifteen working days or longer time permitted by applicable laws and regulations.
+
+Company Name: [UnionTech Software Technology Co., Ltd.]
+
+Department for Personal Information Protection/Responsible Person for Personal Information Protection: [Legal Department]
+
+Address: [18/F, Building 12, No.10 Yard, Kegu 1st Street, Beijing Economic-Technological Development Area, Beijing]
+
 Tel: [010-62669253]
-Email: [privacy@UnionTech.com]
 
-XI.Complaining and Suing to the Regulatory Department
-If you are dissatisfied with our response, especially when you believe that our personal information processing actions have harmed your legitimate rights and interests and no agreement can be reached through negotiation, you have the right to lodge a complaint with the relevant personal information protection supervision authority or either party can bring a law suit to the People's Court located in [Daxing District, Beijing].
+E-mail: [privacy@uniontech.com]
 
-Appendix 1: Definition
-Personal Information
-Personal information refers to all kinds of information recorded electronically or otherwise that can identify the identity of a specific natural person or reflect the activity of a specific natural person either alone or in combination with other information, including but not limited to the name, date of birth, identification number, personal biometric information, address, and telephone number of a natural person.
-Personal Sensitive Information
-Personal sensitive information refers to the personal information that, if leaked, illegally provided or abused, may endanger personal and property safety and easily lead to damage to personal reputation, physical and mental health, or discriminatory treatment. For example, personal sensitive information includes personal phone numbers, ID numbers, web browsing records, personal biometric information, bank account numbers, communication records and content, property information, credit information, whereabouts, accommodation information, precise positioning information, physiological health Information, transaction information, personal information of minors under 14 years old (including minors of 14 years old), etc.
+IX. Your Right to Complain or File a Lawsuit with the Regulatory Authorities and Governing Law
+
+1. In the event of any dissatisfaction with our reply, particularly if you consider that our behavior for the processing of personal information has prejudiced your legitimate rights and interests, and no consensus can be reached through amicable consultation, you are entitled to file a complaint with the relevant supervision department for the protection of personal information, or either Party may file a lawsuit with the People’s Court of [Daxing District, Beijing].
+
+2. The conclusion, implementation, interpretation and dispute resolution of this Privacy Policy shall be governed by the laws of the People’s Republic (excluding Hong Kong, Macao and Taiwan), without regard to the application of conflict rules.
+
+Appendix 1: Definitions
+
+● Personal Information
+
+Personal information refers to all kinds of information recorded electronically or otherwise relating to identified or identifiable natural persons, including but not limited to the natural person's name, date of birth, ID card number, personal biometric information, address and tel, while the information that has been anonymized is not included.
+
+● Sensitive Personal Information
+
+Sensitive personal information is such information that, if leaked or used illegally, could easily lead to the infringement of a natural person's human dignity or cause personal or property damages to a natural person, including without limitation biometric identification, religious belief, specific identity, health care, financial accounts and whereabouts, as well as the personal information of minors under the age of 14.
