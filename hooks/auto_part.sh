@@ -81,6 +81,9 @@ format_part(){
         mkfs.ext4 -L "$part_label" "$part_path"
       fi
     ;;
+    xfs)
+      mkfs.xfs -f -L "$part_label" "$part_path"
+    ;;
     *)
       mkfs -t "$part_fs" -L "$part_label" "$part_path";;
   esac || error "Failed to create $part_fs filesystem on $part_path!"
