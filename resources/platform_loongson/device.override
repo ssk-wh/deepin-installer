@@ -26,6 +26,6 @@ partition_skip_partition_crypt_page = true
 # 分区
 system_recovery_base_size=4
 disk_minimum_space_required = 8
-partition_full_disk_minimum_space = 6
+partition_full_disk_minimum_space = 7
 partition_root_space_required = 4
 partition_enable_swap_file=false
