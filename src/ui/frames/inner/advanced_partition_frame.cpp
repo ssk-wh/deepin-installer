@@ -532,6 +532,11 @@ void AdvancedPartitionFrame::repaintDevices() {
         continue;
       }
       AdvancedPartitionButton* button = new AdvancedPartitionButton(partition);
+      QString text = GetPartitionLabel(partition);
+      if (partition->type != PartitionType::Unallocated) {
+          text.append(QString("(%1)").arg(GetPartitionName(partition->path)));
+      }
+      button->setToolTip(QString("%1  %2  %3").arg(text, partition->path, GetFsTypeName(partition->fs)));
       button->setEditable(editing_button_->isChecked());
       partition_layout_->addWidget(button);
       partition_button_group_->addButton(button);
