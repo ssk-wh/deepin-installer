@@ -51,32 +51,40 @@ I. How We Collect and Use Your Personal Information
 
 If you use UOS Products and Services, we will follow the principles of legality, legitimacy, necessity and good faith, collect only the information that is necessary to achieve a specific, particular, explicit and lawful purpose, and ensure that such information is not further processed in any manner inconsistent with such purpose.
 
-Address book information
+·Address book Information
+
 Your friend list, friend relationships, friends’ accounts and notes, friend grouping, friend group, meeting attendance records and meeting management;
 
+·Property Information
 
-Property information
 Bank account information, identification information (password), transaction and consumption records in UOS Products and Services;
 
-Browsing information
+·Browsing Information
+
 Your browser version, bookmark, browsing history, settings and auto-fill data in the browser and your IP address in browser;
 
-Basic Personal Information
+·Basic Personal Information
+
 Your birthday, gender, personal phone number, e-mail address;
 
-Network ID information
+·Network ID Information
+
 Your MAC address;
 
-Device Information
+·Device Information
+
 Information of your device ID, motherboard, BIOS, CPU, memory, hard disk, partition, network card, chip architecture type & graphics card and peripheral information;
 
-Operating System Information
+·Operating System Information
+
 Software type, version, architecture, activation status, developer mode status, system installation information (including: installation method, time, duration & result and the language, region, and cryptographic strength you select during installation), last update time, update results, language, sound, power supply, mouse, theme, wallpaper, initiator, task-bar, hot zone configuration and source of each download of your operating system;
 
-Application software information
+·Application Software Information
+
 Name, version, installation location, disk space occupied, starting time, exiting time, preference (including: system theme, icon theme, cursor theme and font setting), usage frequency of the function modules and performance at run time of the application software you have installed in the system;
 
-Usage behavior information
+·Usage Behavior Information
+
 Daily logins to the system, startup and shutdown time of the system, time of keystrokes, identification of keystrokes, time of focus movement and time of mouse operation when using the application.
 
 1.Personal Information That You Have Voluntarily Provided to Us
@@ -157,13 +165,15 @@ We may obtain your personal information from third parties if permitted by law. 
 
 We will strictly abide by the provisions of laws and regulations and the agreement with you, and shall use the collected information of you for other purposes as below:
 
-4.1. Internal audit, big data analysis and research
+4.1. Internal Audit, Big Data Analysis and Research
 
 4.1.1. We will use the personal information collected to conduct requisite internal audits within UnionTech Software when necessary.
 
 4.1.2. We will use the personal information collected for big data analysis. For example, we will use the information collected for analysis, to form statistical products that do not contain any personal information, to show the overall picture of the services of UnionTech Software, to analyze the behavior patterns of different groups and so on. For big data analysis information without identification after statistical processing, we may disclose and share with our affiliates and partners.
 
-4.2. Security Protection We will also safeguard your personal equipment security, account security, our operation security, and fulfill our legal obligations with your personal information (such as retaining information that may relate to illegal and criminal activities).
+4.2. Security Protection 
+
+We will also safeguard your personal equipment security, account security, our operation security, and fulfill our legal obligations with your personal information (such as retaining information that may relate to illegal and criminal activities).
 
 5.In the event that we need to collect personal information of you under your custody beyond the above-mentioned purpose of use, we will explain to you and seek your consent again.
 
@@ -193,10 +203,12 @@ II. How We Use Cookie and Other Technologies
 
 1.1. We may place a text file known as Cookie on your computer or mobile device. The text in a cookie often consists of identifiers, site names, and some numbers and characters. We undertake that we will not use such Cookies for any purposes other than those described herein. We use Cookie primarily for providing the following functions or services:
 
-Ensure the safety of products or services
+·Ensure the safety of products or services
+
 We may set Cookie or anonymous identifiers for authentication and security purposes, with a view to confirm whether you have securely logged in to your Union ID or other service account and to detect hacker theft, fraud and other unlawful acts.
 
-Provide better products or services
+·Provide better products or services
+
 With Cookie, you are not required to repeat such steps and processes as filling in your personal information and entering search content, thus increasing your efficiency.
 
 1.2. Cookie Management
@@ -215,9 +227,25 @@ The following is a list of Third Party SDKs We Use:
 
 Please note, third-party SDKs may change the type of personal information due to such reasons as version upgrade and policy adjustment. Please refer to the corresponding publicized official instructions.
 
-SDK name: UMeng SDK Third party name: Youmeng Tongxin (Beijing) Technology Limited Service type: statistical analysis Type of personal information collected: device information (e.g., IMEI/MAC/Android ID/IDFA/OpenUDID/GUID/SIM card IMSI/geographic location) Privacy Policy Link: https://www.umeng.com/page/policy
+SDK name: UMeng 
 
-SDK name: IFLYTEK voice conversion SDK Third party name: IFLYREC CO., LTD Service type: voice conversion Type of personal information collected: voice content (including voice queries, text translation, and voice dictation) Privacy Policy Link: https://static.iflyrec.com/v1/iflyrectjpt/publicread01/privacyPolicy/xftj/productPrivacyPolicy.html
+SDK Third party name: Youmeng Tongxin (Beijing) Technology Limited 
+
+Service type: statistical analysis 
+
+Type of personal information collected: device information (e.g., IMEI/MAC/Android ID/IDFA/OpenUDID/GUID/SIM card IMSI/geographic location) 
+
+Privacy Policy Link: https://www.umeng.com/page/policy
+
+SDK name: IFLYTEK voice conversion 
+
+SDK Third party name: IFLYREC CO., LTD 
+
+Service type: voice conversion 
+
+Type of personal information collected: voice content (including voice queries, text translation, and voice dictation) 
+
+Privacy Policy Link: https://static.iflyrec.com/v1/iflyrectjpt/publicread01/privacyPolicy/xftj/productPrivacyPolicy.html
 
 III. How We Publicize, Transfer and Disclose to the Public Your Personal Information
 
@@ -270,7 +298,6 @@ We will, in pursuance of the provisions of laws and regulations, merely store yo
 Comply with the provisions in court judgments, adjudications or other legal procedures;
 Comply with the requirements of relevant government authorities or legally authorized organizations;
 We have reasons to believe that we need to comply with laws, regulations and other relevant provisions.
-
 
 In the event that UOS Products and Services are discontinued, we will stop collecting your personal information in a timely manner, notify you of the discontinuation by delivering an individual notice or by announcement, and delete or anonymize your personal information within a reasonable period.
 
@@ -412,10 +439,12 @@ IX. Your Right to Complain or File a Lawsuit with the Regulatory Authorities and
 
 Appendix 1: Definitions
 
-Personal Information
+·Personal Information
+
 Personal information refers to all kinds of information recorded electronically or otherwise relating to identified or identifiable natural persons, including but not limited to the natural person's name, date of birth, ID card number, personal biometric information, address and tel, while the information that has been anonymized is not included.
 
-Sensitive Personal Information
+·Sensitive Personal Information
+
 Sensitive personal information is such information that, if leaked or used illegally, could easily lead to the infringement of a natural person's human dignity or cause personal or property damages to a natural person, including without limitation biometric identification, religious belief, specific identity, health care, financial accounts and whereabouts, as well as the personal information of minors under the age of 14.
 
 
