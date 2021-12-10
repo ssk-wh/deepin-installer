@@ -47,7 +47,6 @@ public:
     bool validate() const;
     bool isEncrypt() const;
     bool isEnSaveData() const;
-    bool isInstallNvidia() const;
 
     void setSaveDataCheckEnabel(bool isenabel);
 
@@ -96,7 +95,6 @@ private:
     QGridLayout*      m_grid_layout  = nullptr;
     QFrame*           m_grid_wrapper = nullptr;
     QCheckBox*        m_encryptCheck = nullptr;
-    QCheckBox*        m_installNvidiaCheck = nullptr;
     QLabel*           m_errorTip     = nullptr;
     QLabel*           m_diskTooSmallTip     = nullptr;
     FullDiskPartitionWidget* m_diskPartitionWidget = nullptr;
@@ -109,7 +107,6 @@ public slots:
     void onDeviceRefreshed();
     void onPartitionButtonToggled(QAbstractButton* button, bool checked);
     void onCurrentDeviceChanged(int type, const Device::Ptr device);
-    void installNvidiaStateChanged(bool install_nvidia);
     void saveDataStateChanged(bool savedata);
     void cryptoStateChanged(bool crypto);
 };

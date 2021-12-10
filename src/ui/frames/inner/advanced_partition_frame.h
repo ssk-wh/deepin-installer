@@ -49,8 +49,6 @@ class AdvancedPartitionFrame : public QFrame {
   // This method is called when next-button is clicked in PartitionFrame
   bool validate();
 
-  bool isInstallNvidia() const;
-
   QList<Device::Ptr> getAllUsedDevice() const;
 
   bool focusSwitch();
@@ -75,7 +73,6 @@ class AdvancedPartitionFrame : public QFrame {
   // Update bootloader path in button.
   // This slots is connected to SelectBootloaderFrame.
   void setBootloaderPath(const QString& bootloader_path);
-  void installNvidiaStateChanged(bool install_nvidia);
 
  protected:
   void changeEvent(QEvent* event) override;
@@ -116,7 +113,6 @@ class AdvancedPartitionFrame : public QFrame {
   QVBoxLayout* partition_layout_ = nullptr;
   QPushButton* bootloader_button_ = nullptr;
   QPushButton* editing_button_ = nullptr;
-  QCheckBox*  m_installNvidiaCheck = nullptr;
 
   QScrollArea* scroll_area_ = nullptr;
   QFrame* msg_container_frame_ = nullptr;

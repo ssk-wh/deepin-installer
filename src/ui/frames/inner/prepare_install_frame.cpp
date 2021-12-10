@@ -36,6 +36,7 @@
 #include "ui/widgets/select_button.h"
 #include "service/settings_manager.h"
 #include "service/settings_name.h"
+#include "base/command.h"
 
 DWIDGET_USE_NAMESPACE
 DGUI_USE_NAMESPACE
@@ -169,6 +170,10 @@ bool PrepareInstallFrame::directionKey(int keyvalue)
     return true;
 }
 
+void PrepareInstallFrame::installNvidiaStateChanged(bool install_nvidia) {
+    WriteEnableNvidiaDriver(install_nvidia);
+}
+
 void PrepareInstallFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     updateTs();
@@ -185,6 +190,7 @@ void PrepareInstallFrame::initConnections() {
                             && m_selectCreateRecovery->isChecked());
         emit finished();
     });
+    connect(m_installNvidiaCheck, &QCheckBox::clicked, this, &PrepareInstallFrame::installNvidiaStateChanged);
 }
 
 void PrepareInstallFrame::initUI() {
@@ -250,6 +256,13 @@ void PrepareInstallFrame::initUI() {
   m_selectCreateRecovery = new DCheckBox;
   m_selectCreateRecovery->setChecked(GetSettingsBool(kIsInitRecvoery));
 
+  m_installNvidiaCheck = new QCheckBox;
+  m_installNvidiaCheck->setObjectName("check_box");
+  m_installNvidiaCheck->setCheckable(true);
+  m_installNvidiaCheck->setChecked(false);
+  //m_installNvidiaCheck->setFocusPolicy(Qt::TabFocus);
+  m_installNvidiaCheck->setText(::QObject::tr("Install NVIDIA closed source driver"));
+
   abort_button_ = new SelectButton();
   abort_button_->setFixedSize(kButtonWidth, kButtonHeight);
   //abort_button_->setFocusPolicy(Qt::TabFocus);
@@ -274,13 +287,20 @@ void PrepareInstallFrame::initUI() {
   layout->addStretch();
   layout->addWidget(scroll, 0, Qt::AlignHCenter);
   layout->addStretch();
-  layout->addWidget(m_selectCreateRecovery, 0, Qt::AlignHCenter);
+  QHBoxLayout* h_layout = new QHBoxLayout();
+  h_layout->addStretch();
+  h_layout->addWidget(m_selectCreateRecovery, 0, Qt::AlignHCenter);
+  h_layout->addWidget(m_installNvidiaCheck, 0, Qt::AlignHCenter);
+  h_layout->addStretch();
+  h_layout->setSpacing(91);
+  layout->addLayout(h_layout);
   layout->addSpacing(15);
   layout->addWidget(buttonWrapWidget, 0, Qt::AlignHCenter);
 
   setLayout(layout);
-
   updateTs();
+
+  m_installNvidiaCheck->setVisible(scanNvidia());
 }
 
 void PrepareInstallFrame::updateTs()
@@ -291,6 +311,23 @@ void PrepareInstallFrame::updateTs()
     abort_button_->setText(::QObject::tr("Back", "button"));
     continue_button_->setText(::QObject::tr("Continue"));
     m_selectCreateRecovery->setText(::QObject::tr("Create a backup for system restore, but it will increase the time"));
+    m_installNvidiaCheck->setText(::QObject::tr("Install NVIDIA closed source driver"));
+}
+
+bool PrepareInstallFrame::scanNvidia()
+{
+    if (!GetSettingsBool(KEnableInstallNvidiaDriver) || isNotebook()) {
+        return false;
+    }
+
+    QString cmd("lspci");
+    QStringList args("-n");
+    QString output;
+    if (!SpawnCmd(cmd, args, output)) {
+       return false;
+    }
+
+    return (output.indexOf(QRegExp(".*03(80|0[0-2]): 10de")) > -1);
 }
 
 }  // namespace installer

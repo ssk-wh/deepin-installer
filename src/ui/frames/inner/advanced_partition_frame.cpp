@@ -85,11 +85,6 @@ bool AdvancedPartitionFrame::validate() {
   }
 }
 
-bool AdvancedPartitionFrame::isInstallNvidia() const
-{
-    return m_installNvidiaCheck->isChecked();
-}
-
 QList<Device::Ptr> AdvancedPartitionFrame::getAllUsedDevice() const
 {
     return delegate_->getAllUsedDevice();
@@ -228,12 +223,6 @@ void AdvancedPartitionFrame::setBootloaderPath(const QString& bootloader_path) {
   bootloader_button_->setText(bootloader_path);
 }
 
-void AdvancedPartitionFrame::installNvidiaStateChanged(bool install_nvidia) {
-    if (!delegate_->m_islvm) {
-        WriteEnableNvidiaDriver(install_nvidia);
-    }
-}
-
 void AdvancedPartitionFrame::changeEvent(QEvent* event) {
   if (event->type() == QEvent::LanguageChange) {
     bootloader_tip_button_->setText(::QObject::tr("Change boot loader"));
@@ -242,7 +231,6 @@ void AdvancedPartitionFrame::changeEvent(QEvent* event) {
     } else {
       editing_button_->setText(::QObject::tr("Delete"));
     }
-    m_installNvidiaCheck->setText(::QObject::tr("Install NVIDIA closed source driver"));
     repaintDevices();
   } else {
     QFrame::changeEvent(event);
@@ -258,8 +246,6 @@ void AdvancedPartitionFrame::initConnections() {
           this, &AdvancedPartitionFrame::requestSelectBootloaderFrame);
   connect(editing_button_, &QPushButton::toggled,
           this, &AdvancedPartitionFrame::onEditButtonToggled);
-  connect(m_installNvidiaCheck, &QCheckBox::clicked,
-          this, &AdvancedPartitionFrame::installNvidiaStateChanged);
 }
 
 void AdvancedPartitionFrame::initUI() {
@@ -377,14 +363,6 @@ void AdvancedPartitionFrame::initUI() {
   main_layout->addLayout(downLayout);
   main_layout->addSpacing(8);
 
-  m_installNvidiaCheck = new QCheckBox;
-  m_installNvidiaCheck->setObjectName("check_box");
-  m_installNvidiaCheck->setCheckable(true);
-  m_installNvidiaCheck->setChecked(false);
-  m_installNvidiaCheck->setText(::QObject::tr("Install NVIDIA closed source driver"));
-  main_layout->addWidget(m_installNvidiaCheck, 0 ,Qt::AlignHCenter);
-
-  m_installNvidiaCheck->setVisible(delegate_->scanNvidia());
   WriteEnableNvidiaDriver(false);
 
   this->setLayout(main_layout);

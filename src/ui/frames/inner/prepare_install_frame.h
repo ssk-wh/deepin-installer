@@ -56,6 +56,9 @@ class PrepareInstallFrame : public QFrame {
   // Emitted when continue-button is clicked. Start actual installation process.
   void finished();
 
+public slots:
+  void installNvidiaStateChanged(bool install_nvidia);
+
  protected:
   void changeEvent(QEvent* event) override;
 
@@ -64,6 +67,7 @@ class PrepareInstallFrame : public QFrame {
   void initUI();
 
   void updateTs();
+  bool scanNvidia();
 
   TitleLabel* title_label_ = nullptr;
   CommentLabel* comment_label_ = nullptr;
@@ -72,6 +76,7 @@ class PrepareInstallFrame : public QFrame {
   QLabel* description_edit_ = nullptr;
   QString m_scrollareaStyleSheetold = "";
   DCheckBox* m_selectCreateRecovery = nullptr;
+  QCheckBox* m_installNvidiaCheck = nullptr;
 };
 
 }  // namespace installer
