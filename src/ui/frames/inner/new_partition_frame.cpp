@@ -723,7 +723,7 @@ void NewPartitionFrame::onCreateButtonClicked() {
               //创建EFI分区
               if (table == PartitionTableType::GPT && device->device_type == DeviceType::NormalDevice) {
                   delegate_->createPartition(partition_, partition_type, align_start, FsType::EFI,
-                                             "", total_sectors_auto);
+                                             "", total_sectors_auto, QString(), false, false);
               }
           }
 

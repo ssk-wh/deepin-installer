@@ -576,6 +576,8 @@ bool Delegate::createPrimaryPartition(const Partition::Ptr partition,
         if (!flag && (mount_point != kMountPointBoot) && (fs_type != FsType::EFI)) AlignPartition(new_partition);
     }
 
+    if (flag) AlignPartition(new_partition);
+
     // Check partition sector range.
     // Also check whether partition size is less than 1MiB or not.
     if (new_partition->start_sector < partition->start_sector ||
