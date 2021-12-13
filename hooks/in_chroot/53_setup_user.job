@@ -70,7 +70,7 @@ setup_username_password_hostname() {
 
   useradd $cmd_argc ${DI_USERNAME}
    # 补全原用户目录
-  rsync -a --ignore-existing /etc/skel/ /home/${DI_USERNAME}
+  rsync -a --ignore-existing /etc/skel/* /home/${DI_USERNAME}
 
   # Update password.
   if [ -z "${DI_PASSWORD}" ]; then
