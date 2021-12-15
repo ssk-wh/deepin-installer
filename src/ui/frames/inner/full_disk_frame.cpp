@@ -356,7 +356,7 @@ void FullDiskFrame::initUI() {
 
   m_diskPartitionWidget = new FullDiskPartitionWidget;
   m_diskPartitionWidget->setObjectName("m_diskPartitionWidget");
-  m_diskPartitionWidget->setMinimumHeight(85);
+  m_diskPartitionWidget->setMinimumHeight(88);
 
   QVBoxLayout* main_layout = new QVBoxLayout();
   main_layout->setContentsMargins(0, 0, 0, 0);
