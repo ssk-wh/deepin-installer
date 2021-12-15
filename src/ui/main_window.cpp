@@ -709,6 +709,7 @@ void MainWindow::initUI() {
 
   // TODO: use titleBar implement.
   close_button_ = new DIconButton(this);
+  close_button_->setFocusPolicy(Qt::NoFocus);
   close_button_->setObjectName("close_button");
   close_button_->setFixedSize(50, 50);
   close_button_->setIconSize(QSize(50, 50));
