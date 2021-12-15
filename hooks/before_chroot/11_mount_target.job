@@ -174,8 +174,4 @@ if [ -d /target/${DATA_MOUNT_POINT}/ ];then
     mkdir -p /target/var
     mkdir -p /target/${DATA_MOUNT_POINT}/var
     mount --bind /target/${DATA_MOUNT_POINT}/var /target/var || error "Failed to mount /target/var"
-
-    mkdir -p /target/usr/lib/dpkg-db
-    mkdir -p /target/var/lib
-    ln -sf ../../usr/lib/dpkg-db /target/var/lib/dpkg
 fi
