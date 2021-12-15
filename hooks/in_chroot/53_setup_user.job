@@ -69,8 +69,9 @@ setup_username_password_hostname() {
   fi
 
   useradd $cmd_argc ${DI_USERNAME}
-   # 补全原用户目录
+  # 补全原用户目录框架和权限等属性
   rsync -a --ignore-existing /etc/skel/* /home/${DI_USERNAME}
+  chown -hR ${DI_USERNAME}:${DI_USERNAME} /home/${DI_USERNAME}
 
   # Update password.
   if [ -z "${DI_PASSWORD}" ]; then
@@ -107,24 +108,6 @@ setup_username_password_hostname() {
   add_user_to_existed_group "${DI_USERNAME}" users
   add_user_to_existed_group "${DI_USERNAME}" wheel
   set -e
-
-  # Chown owner and group to current user if uid mismatch.
-  USER_HOME=/home/${DI_USERNAME}
-  if [[ -d "${USER_HOME}" ]]; then
-    USER_ID=$(id -u "${DI_USERNAME}")
-    GROUP_ID=$(id -g "${DI_USERNAME}")
-    FOLDER_UID=$(stat -c "%u" "${USER_HOME}")
-    FOLDER_GID=$(stat -c "%g" "${USER_HOME}")
-    msg "${USER_HOME}: ${USER_ID}:${GROUP_ID}:${FOLDER_UID}:${FOLDER_GID}"
-
-    if [ "${USER_ID}" -ne "${FOLDER_UID}" -o \
-      "${GROUP_ID}" -ne "${FOLDER_GID}" ]; then
-      msg "Fix HOME directory permission at ${DI_USERNAME}."
-      chown -hR "${DI_USERNAME}:${DI_USERNAME}" "${USER_HOME}"
-    fi
-  else
-    warn "${USER_HOME} does not exist"
-  fi
 
   # Setup hostname.
   msg "Set Hostname to ${DI_HOSTNAME}"
