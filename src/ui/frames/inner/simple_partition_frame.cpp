@@ -242,6 +242,7 @@ void SimplePartitionFrame::initUI() {
   QPalette palette;
   palette.setColor(QPalette::Text, QColor("#ff8000"));
   tip_label_->setPalette(palette);
+  tip_label_->setForegroundRole(QPalette::Text);
 
   QHBoxLayout* tip_layout = new QHBoxLayout();
   tip_layout->setContentsMargins(0, 0, 0, 0);

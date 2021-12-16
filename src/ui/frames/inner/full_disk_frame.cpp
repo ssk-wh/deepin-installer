@@ -305,6 +305,7 @@ void FullDiskFrame::initUI() {
   m_tip_label = new QLabel("");
   m_tip_label->setObjectName("tip_label");
   m_tip_label->setPalette(palette);
+  m_tip_label->setForegroundRole(QPalette::Text);
 
   QHBoxLayout* tip_layout = new QHBoxLayout;
   tip_layout->setContentsMargins(0, 0, 0, 0);

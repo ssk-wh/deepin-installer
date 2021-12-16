@@ -24,6 +24,7 @@ installer::LinkButton::LinkButton(QWidget *parent):
     textPalette.setColor(QPalette::Text, QColor("#0082FA"));
     m_textLabel = new QLabel(this);
     m_textLabel->setPalette(textPalette);
+    m_textLabel->setForegroundRole(QPalette::Text);
     m_textLabel->setAlignment(Qt::AlignCenter);
     m_textLabel->setFixedSize(kTextWidth, kTextHeight);
     m_textLabel->installEventFilter(this);

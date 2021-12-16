@@ -207,6 +207,7 @@ void PrepareInstallFrame::initUI() {
   QPalette palette;
   palette.setColor(QPalette::Text, QColor(66, 154, 216));
   description_edit_->setPalette(palette);
+  description_edit_->setForegroundRole(QPalette::Text);
 
   description_edit_->setObjectName("description_edit");
   description_edit_->setContentsMargins(0, 0, 0, 0);

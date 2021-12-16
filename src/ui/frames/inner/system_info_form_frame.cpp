@@ -768,6 +768,7 @@ void SystemInfoFormFramePrivate::updatePasswdLevel()
         QPalette palette;
         palette.setColor(QPalette::Text, mapPasswdLevelColor[PasswordManager::instance()->passwdLevel(m_passwordEdit->text())]);
         m_passwdLevelLabel->setPalette(palette);
+        m_passwdLevelLabel->setForegroundRole(QPalette::Text);
         m_passwdLevelLabel->setText(mapPasswdLevel[PasswordManager::instance()->passwdLevel(m_passwordEdit->text())]);
     } else {
         m_passwdLevelLabel->setText("");
@@ -777,6 +778,7 @@ void SystemInfoFormFramePrivate::updatePasswdLevel()
         QPalette palette;
         palette.setColor(QPalette::Text, mapPasswdLevelColor[PasswordManager::instance()->passwdLevel(m_rootPasswordEdit->text())]);
         m_rootPasswdLevelLabel->setPalette(palette);
+        m_rootPasswdLevelLabel->setForegroundRole(QPalette::Text);
         m_rootPasswdLevelLabel->setText(mapPasswdLevel[PasswordManager::instance()->passwdLevel(m_rootPasswordEdit->text())]);
 
     } else {

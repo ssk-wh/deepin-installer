@@ -669,11 +669,13 @@ void SelectLanguageFramePrivate::updateTs()
     accept_license_->setText(::QObject::tr("I have read and agree to the"));
     license_label_->setText(::QObject::tr("End User License Agreement"));
     license_label_->setPalette(palette);
+    license_label_->setForegroundRole(QPalette::Text);
 
     m_and_label->setText(::QObject::tr("and"));
 
     m_privacy_license_label_->setText(::QObject::tr("Privacy Policy"));
     m_privacy_license_label_->setPalette(palette);
+    m_privacy_license_label_->setForegroundRole(QPalette::Text);
 
     if (oem_license_label_ != nullptr) {
         oem_and_label_->setText(::QObject::tr("and"));
@@ -688,6 +690,7 @@ void SelectLanguageFramePrivate::updateTs()
     accept_experience_->setText(::QObject::tr("Agree to the"));
     experience_label_->setText(LicenseDelegate::userExperienceTitle());
     experience_label_->setPalette(palette);
+    experience_label_->setForegroundRole(QPalette::Text);
     sub_title_label_->setText(::QObject::tr("Select Language"));
 }
 

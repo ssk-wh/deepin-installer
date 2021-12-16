@@ -22,6 +22,7 @@ installer::InstallLogFrame::InstallLogFrame(QFrame *parent) :
     m_installLog->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     m_installLog->setFixedSize(kInstallLogWidth, kInstallLogHeight);
     m_installLog->setPalette(palette);
+    m_installLog->setForegroundRole(QPalette::Text);
     m_installLog->setFont(font);
     m_installLog->setReadOnly(true);
     m_installLog->setStyleSheet("QPlainTextEdit{background-color: rgba(0, 0, 0, 0.03);"

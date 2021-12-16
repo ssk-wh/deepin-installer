@@ -38,6 +38,7 @@ CommentLabel::CommentLabel(const QString& text, QWidget* parent)
   QPalette pe = palette();
   pe.setColor(QPalette::Text, QColor("#526a7f"));
   setPalette(pe);
+  setForegroundRole(QPalette::Text);
 }
 
 }  // namespace installer
