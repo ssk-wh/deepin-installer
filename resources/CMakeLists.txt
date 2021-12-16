@@ -4,7 +4,6 @@ install(
     FILES ${CMAKE_CURRENT_SOURCE_DIR}/default_wallpaper.jpg
     ${CMAKE_CURRENT_SOURCE_DIR}/languages.json
     ${CMAKE_CURRENT_SOURCE_DIR}/oem_settings.json
-    ${CMAKE_CURRENT_SOURCE_DIR}/reserved_usernames
     ${CMAKE_CURRENT_SOURCE_DIR}/timezone_alias
     ${CMAKE_CURRENT_SOURCE_DIR}/packages_default.json
     ${CMAKE_CURRENT_SOURCE_DIR}/packages_choice.json

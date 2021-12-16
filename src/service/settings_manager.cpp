@@ -336,16 +336,6 @@ QString GetOemCheckHooksDir() {
     return GetOemDir().absoluteFilePath("check_hooks");
 }
 
-QString GetReservedUsernameFile() {
-  const QString oem_file = GetOemDir().absoluteFilePath("reserved_usernames");
-  if (QFile::exists(oem_file)) {
-    return oem_file;
-  }
-
-  // Returns default list.
-  return RESOURCES_DIR "/reserved_usernames";
-}
-
 QString GetVendorLogo() {
   QString oem_file = DSysInfo::distributionOrgLogo(DSysInfo::Distribution, DSysInfo::Normal);
   qDebug() << "oem_file = " << oem_file;

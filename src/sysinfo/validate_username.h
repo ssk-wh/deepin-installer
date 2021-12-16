@@ -30,17 +30,17 @@ enum class ValidateUsernameState {
   ReservedError,  // Username already exists.
   TooLongError,
   TooShortError,
+  Digital, // 字符串全是数字
 };
 
-// Check whether |username| is appropriate.
-// The following rules are checked by order:
-//   * Length of |username| is [min_len, max_len];
-//   * |username| can only contain lower letters(a-z), numbers(0-9), dash(-)
-//     and underscore(_);
-//   * First character of |username| must be a letter;
-//   * |username| cannot be in |reserved_username_file|.
+/*
+校验用户名1:用户名只能包含大小写字母、数字、连接符（-）和下划线（_）；
+        2:用户名只能以字母或数字开头；
+        3:用户名长度不能超过32个字符，不能小于3个字符；
+        4:不能只包含数字；
+        5:判断用户名是否是系统已存在的用户名或组名
+*/
 ValidateUsernameState ValidateUsername(const QString& username,
-                                       const QString& reserved_username_file,
                                        int min_len,
                                        int max_len);
 

@@ -827,11 +827,9 @@ void SystemInfoFormFramePrivate::initBoolvariable()
 
 bool SystemInfoFormFramePrivate::validateUsername(QString& msg)
 {
-    const QString reserved_username_file = GetReservedUsernameFile();
     const int     min_len = GetSettingsInt(kSystemInfoUsernameMinLen);
     const int     max_len = GetSettingsInt(kSystemInfoUsernameMaxLen);
-    const ValidateUsernameState state = ValidateUsername(m_usernameEdit->text()
-                                                         , reserved_username_file, min_len, max_len);
+    const ValidateUsernameState state = ValidateUsername(m_usernameEdit->text(), min_len, max_len);
     switch (state) {
     case ValidateUsernameState::ReservedError: {
         msg = ::QObject::tr("This username already exists");
@@ -842,14 +840,14 @@ bool SystemInfoFormFramePrivate::validateUsername(QString& msg)
         return false;
     }
     case ValidateUsernameState::EmptyError:  // fall through
+    case ValidateUsernameState::Digital:
     case ValidateUsernameState::InvalidCharError: {
-        msg = ::QObject::tr("Username can only contain lowercase letters, numbers and symbols (_-)");
+        msg = ::QObject::tr("Username must start with letters or numbers, only contain letters, numbers, dashes (-) and underscores (_), and cannot use numbers alone");
         return false;
     }
     case ValidateUsernameState::TooLongError:  // fall through
     case ValidateUsernameState::TooShortError: {
-        msg = ::QObject::tr("Please input a username longer than %1 characters and "
-                 "shorter than %2 characters")
+        msg = ::QObject::tr("Username must be between %1 and %2 characters")
                 .arg(min_len)
                 .arg(max_len);
         return false;

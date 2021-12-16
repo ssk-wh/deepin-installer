@@ -21,37 +21,40 @@
 #include <QRegExp>
 
 #include "base/file_util.h"
+#include "base/command.h"
 
 namespace installer {
 
 namespace {
 
-// Check whether |username| is in reserved username list.
-bool IsReservedUsername(const QString& username,
-                        const QString& reserved_username_file) {
-  const QString content = ReadFile(reserved_username_file);
-  if (content.isEmpty()) {
-    qWarning() << "Reserved username list is empty";
+//判断创建的用户名是否是系统上已有的用户名或者组名
+bool IsReservedUsername(const QString& username) {
+    QString reservedUsername = "";
+    QString err ="";
+    SpawnCmd("/bin/bash", (QStringList() << "-c" << "compgen -g -u"), reservedUsername, err, 2);
+    if (!err.isEmpty()) {
+      qWarning() << "run compgen -g -u is failed";
+      return false;
+    }
+    if (reservedUsername.isEmpty()) {
+      qWarning() << "Reserved username list is empty";
+      return false;
+    }
+    const QStringList lines = reservedUsername.split('\n');
+    for (const QString& line : lines) {
+      if (line.isEmpty()) {
+        continue;
+      }
+      if (line == username) {
+        return true;
+      }
+    }
     return false;
-  }
-
-  const QStringList lines = content.split('\n');
-  for (const QString& line : lines) {
-    if (line.isEmpty() || line.startsWith('#')) {
-      continue;
-    }
-    if (line == username) {
-      return true;
-    }
-  }
-
-  return false;
 }
 
 }  // namespace
 
 ValidateUsernameState ValidateUsername(const QString& username,
-                                       const QString& reserved_username_file,
                                        int min_len,
                                        int max_len) {
   if (username.isEmpty() && (min_len > 0)) {
@@ -63,22 +66,19 @@ ValidateUsernameState ValidateUsername(const QString& username,
   if (username.length() > max_len) {
     return ValidateUsernameState::TooLongError;
   }
-
-  const uint first_char = username.at(0).unicode();
-  if (first_char < 'a' || first_char > 'z') {
-    return ValidateUsernameState::FirstCharError;
-  }
-
-  const QRegExp reg("[a-z][a-z0-9_-]*");
+//创建的用户名是否符合命名规则，用户名以字母或数字开头，只允许使用字母、数字、连接符（-）和下划线（_），且不可以使用纯数字
+  const QRegExp reg("[a-zA-Z0-9][a-zA-Z0-9_-]*");
   if (!reg.exactMatch(username)) {
     return ValidateUsernameState::InvalidCharError;
   }
-
-  // TODO(xushaohua): Add reserved username list to settings.ini
-  if (IsReservedUsername(username, reserved_username_file)) {
-    return ValidateUsernameState::ReservedError;
+//创建的用户名是否为纯数字
+  if (QString(username).replace(QRegExp("[0-9]"),"").isEmpty()) {
+      return ValidateUsernameState::Digital;
   }
-
+//创建的用户名是否为Linux系统已有的用户名或组名
+  if (IsReservedUsername(username)) {
+      return ValidateUsernameState::ReservedError;
+  }
   return ValidateUsernameState::Ok;
 }
 

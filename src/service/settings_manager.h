@@ -104,9 +104,6 @@ QString GetOemHooksDir();
 // Get absolute path to oem check_hooks foler.
 QString GetOemCheckHooksDir();
 
-// Returns absolute path to reserved_usernames file.
-QString GetReservedUsernameFile();
-
 // Get vendor logo.
 QString GetVendorLogo();
 
