@@ -34,8 +34,8 @@ namespace {
 const int kButtonWidth = 260;
 const int kButtonHeight = 220;
 
-const QString kDriverIcon = ":/images/drive-harddisk-128px.svg";
-const QString kDriverInstallIcon = GetUosAndDeepinLogo128();
+const QString kDriverIcon = GetPartitionIcon128();
+const QString kDriverInstallIcon = GetPartitionIcon128();
 
 }  // namespace
 

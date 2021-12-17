@@ -104,7 +104,7 @@ void EditPartitionFrame::setPartition(const Partition::Ptr partition) {
   mount_point_model_ = new MountPointModel(mountList, this);
   mount_point_box_->setModel(mount_point_model_);
 
-  os_label_->setPixmap(QPixmap(GetOsTypeLargeIcon(partition->os)));
+  os_label_->setPixmap(QPixmap(GetPartitionIcon128()));
   name_label_->setText(GetPartitionLabelAndPath(partition));
   usage_label_->setText(GetPartitionUsage(partition));
 

@@ -2,6 +2,7 @@
 #include "ui/utils/widget_util.h"
 #include "base/file_util.h"
 #include "ui/widgets/title_label.h"
+#include "ui/delegates/partition_util.h"
 
 #include <QEvent>
 #include <QHBoxLayout>
@@ -82,7 +83,7 @@ void DynamicDiskWarningFrame::setDevice(const QList<Device::Ptr> list)
         diskLayout->setSpacing(0);
 
         QLabel* diskLbl = new QLabel;
-        diskLbl->setPixmap(installer::renderPixmap(":/images/drive-harddisk-128px.svg"));
+        diskLbl->setPixmap(installer::renderPixmap(GetPartitionIcon128()));
 
         QLabel* diskInfoLbl = new QLabel;
         diskInfoLbl->setObjectName("DiskInfoLabel");

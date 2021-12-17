@@ -110,7 +110,7 @@ void AdvancedPartitionButton::paintEvent(QPaintEvent *event)
     }
 
     // Draw OS icon.
-    const QPixmap os_icon = installer::renderPixmap(GetOsTypeIcon(partition_->os));
+    const QPixmap os_icon = installer::renderPixmap(GetPartitionIcon32());
     const qreal ratio = qApp->devicePixelRatio();
     const int os_height = static_cast<int>(os_icon.height()/ ratio) > backgroudRect.height() ?
                 backgroudRect.height():static_cast<int>(os_icon.height()/ ratio);

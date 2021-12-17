@@ -82,12 +82,10 @@ QString GetInstallerDevicePath();
 // Returns human readable file system name.
 QString GetLocalFsTypeName(FsType fs_type);
 
-// Get icon path of os type
-QString GetUosAndDeepinLogo32();
-QString GetUosAndDeepinLogo64();
-QString GetUosAndDeepinLogo128();
-QString GetOsTypeIcon(OsType os_type);
-QString GetOsTypeLargeIcon(OsType os_type);
+// Get partition icon path.
+QString GetPartitionIcon32();
+QString GetPartitionIcon64();
+QString GetPartitionIcon128();
 
 // Get partition name based on |path|.
 QString GetPartitionLabel(const Partition::Ptr partition);

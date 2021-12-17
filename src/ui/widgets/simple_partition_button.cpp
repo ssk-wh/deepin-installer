@@ -50,12 +50,12 @@ SimplePartitionButton::SimplePartitionButton(const Partition::Ptr partition,
 void SimplePartitionButton::setSelected(bool selected) {
   selected_ = selected;
   if (selected) {
-    QPixmap pixmap = installer::renderPixmap(GetUosAndDeepinLogo128());
+    QPixmap pixmap = installer::renderPixmap(GetPartitionIcon128());
     pixmap = pixmap.scaled(os_label_->size(), Qt::KeepAspectRatio
                            , Qt::SmoothTransformation);
     os_label_->setPixmap(pixmap);
   } else {
-    QPixmap pixmap(GetOsTypeLargeIcon(partition_->os));
+    QPixmap pixmap(GetPartitionIcon128());
     pixmap = pixmap.scaled(os_label_->size(), Qt::KeepAspectRatio
                            , Qt::SmoothTransformation);
     os_label_->setPixmap(pixmap);
@@ -66,7 +66,7 @@ void SimplePartitionButton::initUI() {
   os_label_ = new QLabel();
   os_label_->setObjectName("fs_label");
   os_label_->setFixedSize(kOsIconWidth, kOsIconHeight);
-  QPixmap pixmap(GetOsTypeLargeIcon(partition_->os));
+  QPixmap pixmap(GetPartitionIcon128());
   pixmap = pixmap.scaled(os_label_->size(), Qt::KeepAspectRatio
                          , Qt::SmoothTransformation);
   os_label_->setPixmap(pixmap);

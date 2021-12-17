@@ -45,8 +45,8 @@ const int kSelectedLeftMargin = 380;
 const int kSelectedRightMargin = 2;
 // Size of bottom border.
 const int kItemRightMargin = 6;
-const QString kDriverIcon = ":/images/drive-harddisk-64px.svg";
-const QString kDriverInstallIcon = GetUosAndDeepinLogo128();
+const QString kDriverIcon = GetPartitionIcon64();
+const QString kDriverInstallIcon = GetPartitionIcon128();
 
 }  // namespace
 

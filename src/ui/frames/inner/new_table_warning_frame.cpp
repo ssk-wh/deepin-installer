@@ -81,7 +81,7 @@ void NewTableWarningFrame::initUI() {
   title_label_->setObjectName("title_label");
 
   QLabel* disk_label = new QLabel();
-  disk_label->setPixmap(QPixmap(GetOsTypeLargeIcon(OsType::Empty)));
+  disk_label->setPixmap(QPixmap(GetPartitionIcon128()));
   disk_name_label_ = new QLabel();
   disk_name_label_->setObjectName("disk_name_label");
 
