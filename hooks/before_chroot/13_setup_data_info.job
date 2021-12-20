@@ -20,15 +20,15 @@
 clean_data() {
     local DATA_INFO=$1
     chattr -iR ${DATA_INFO} || true
-    rm -vfr ${DATA_INFO}/*
+    ls -a $DATA_INFO | grep -Ev '^..$|^\.$' | xargs -I {} rm -vfr ${DATA_INFO}/{}
 }
 
 setup_data_info() {
+    ls -a /target/data/ | grep -Ev '^..$|^\.$|^var$|^home$|^root$|^opt$' | xargs -I {} rm -vfr /target/data/{}
     [ -d /target/home ] && chown -hR root:root /target/home
     [ -d /target/root ] && clean_data /target/root
     [ -d /target/var ] && clean_data /target/var
     [ -d /target/opt ] && clean_data /target/opt
-
     # 创建dpkg-db的链接
     mkdir -p /target/usr/lib/dpkg-db
     mkdir -p /target/var/lib
