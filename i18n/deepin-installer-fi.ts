@@ -57,7 +57,7 @@
     <message>
         <location filename="../src/base/translator.h" line="16"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="199"/>
-        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="118"/>
+        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="119"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="93"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="180"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="431"/>
@@ -514,8 +514,8 @@
         <translation>Tuntematon</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="389"/>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="420"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="310"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="341"/>
         <source>Freespace</source>
         <translation>Tallennustilaa</translation>
     </message>
@@ -637,7 +637,7 @@
         <translation>Poistu</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="116"/>
+        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="76"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="128"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="79"/>
@@ -646,7 +646,7 @@
         <translation>Varoitus</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
+        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="96"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="89"/>
@@ -1242,13 +1242,13 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="845"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="199"/>
         <source>Username must start with letters or numbers, only contain letters, numbers, dashes (-) and underscores (_), and cannot use numbers alone</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjänimen tulee alkaa kirjaimella tai numerolla, saa sisältää vain kirjaimia, numeroita, väliviivoja (-) ja alaviivoja (_), eikä voi käyttää pelkästään numeroita</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="850"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="204"/>
         <source>Username must be between %1 and %2 characters</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjänimessä tulee olla %1 ja %2 merkkiä</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="872"/>
@@ -1259,8 +1259,8 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="876"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="158"/>
-        <source>Computer name is invalid</source>
-        <translation>Laitteen nimi ei kelpaa</translation>
+        <source>Computer name can only contain letters, numbers, and dashes (-), and cannot start or end with a dash (-)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="880"/>

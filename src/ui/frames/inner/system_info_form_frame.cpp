@@ -873,7 +873,7 @@ bool SystemInfoFormFramePrivate::validateHostname(QString& msg)
         return false;
     }
     case ValidateHostnameState::InvalidChar: {
-        msg = ::QObject::tr("Computer name is invalid");
+        msg = ::QObject::tr("Computer name can only contain letters, numbers, and dashes (-), and cannot start or end with a dash (-)");
         return false;
     }
     case ValidateHostnameState::ReservedError: {
@@ -886,6 +886,13 @@ bool SystemInfoFormFramePrivate::validateHostname(QString& msg)
                  "shorter than %2 characters")
                 .arg(kHostnameMinLen)
                 .arg(kHostnameMaxLen);
+        return false;
+    }
+    case ValidateHostnameState::LabelTooLongError: {
+        msg = ::QObject::tr("Please input a computer name longer than %1 characters and "
+                 "shorter than %2 characters")
+                .arg(kHostnameMinLen)
+                .arg(LabelMaxLen);
         return false;
     }
     case ValidateHostnameState::Ok: {
@@ -995,14 +1002,14 @@ void SystemInfoFormFramePrivate::onUsernameEdited()
     if (!m_isHostnameEditedManually_ &&
             !GetSettingsBool(kSystemInfoLockHostname)) {
         // Update hostname based on username.
-        const QString username = m_usernameEdit->text();
+        QString username = m_usernameEdit->text();
         if (username.isEmpty()) {
             m_hostnameEdit->setText("");
         }
         else {
             // Add suffix to username
             m_hostnameEdit->setText(
-                        username + GetSettingsString(kSystemInfoHostnameAutoSuffix));
+                        username.replace("_","") + GetSettingsString(kSystemInfoHostnameAutoSuffix));
         }
     }
 }

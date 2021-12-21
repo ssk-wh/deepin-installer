@@ -30,10 +30,12 @@ enum class ValidateHostnameState {
   ReservedError,
   TooLongError,
   TooShortError,
+  LabelTooLongError,
 };
 
 const int kHostnameMinLen = 1;
 const int kHostnameMaxLen = 253;
+const int LabelMaxLen = 63;
 
 // Check hostname (machine name) based on the following rules:
 //   * Only letters(a-z, A-Z) and numbers(0-9) can be used as prefix/suffix;

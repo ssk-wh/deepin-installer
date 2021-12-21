@@ -57,7 +57,7 @@
     <message>
         <location filename="../src/base/translator.h" line="16"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="199"/>
-        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="118"/>
+        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="119"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="93"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="180"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="431"/>
@@ -514,15 +514,15 @@
         <translation>Sconosciuto</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="389"/>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="420"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="310"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="341"/>
         <source>Freespace</source>
         <translation>Spazio libero</translation>
     </message>
     <message>
         <location filename="../src/ui/first_boot_setup_window.cpp" line="429"/>
         <source>An unknown problem has occurred, which may not affect the system running. Please click &quot;Skip&quot; to continue the installation. If you cannot enter the system later, please try to reinstall.</source>
-        <translation type="unfinished"/>
+        <translation>Errore imprevisto, probabilmente non intaccherà l&apos;esecuzione del Sistema. Premi &quot;Salta&quot; per proseguire l&apos;installazione. Nel caso avessi poi problemi si consiglia la reinstallazione del Sistema.</translation>
     </message>
     <message>
         <location filename="../src/ui/first_boot_setup_window.cpp" line="431"/>
@@ -637,7 +637,7 @@
         <translation>Esci</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="116"/>
+        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="76"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="128"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="79"/>
@@ -646,7 +646,7 @@
         <translation>Attenzione</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
+        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="96"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="89"/>
@@ -883,7 +883,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="223"/>
         <source>Keep User Data</source>
-        <translation type="unfinished"/>
+        <translation>Conserva dati utente</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="225"/>
@@ -1242,13 +1242,13 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="845"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="199"/>
         <source>Username must start with letters or numbers, only contain letters, numbers, dashes (-) and underscores (_), and cannot use numbers alone</source>
-        <translation type="unfinished"/>
+        <translation>Il nome utente deve iniziare con lettere o numeri, un username di sole lettere o numeri, o trattini (-) e (_) non sono supportati</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="850"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="204"/>
         <source>Username must be between %1 and %2 characters</source>
-        <translation type="unfinished"/>
+        <translation>Il nome utente deve contenere da %1 a %2 caratteri</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="872"/>
@@ -1259,8 +1259,8 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="876"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="158"/>
-        <source>Computer name is invalid</source>
-        <translation>Il nome computer non è valido</translation>
+        <source>Computer name can only contain letters, numbers, and dashes (-), and cannot start or end with a dash (-)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="880"/>
@@ -1638,12 +1638,12 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="1210"/>
         <source>The &quot;/data/home&quot; directory is found. If you do not keep it, the data saved in it by previous users will be lost. Keep or delete it?</source>
-        <translation type="unfinished"/>
+        <translation>Partizione &quot;/data/home&quot; trovata. Se non la conservi i dati utente saranno persi. Desideri conservarla o eliminarla?</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="1211"/>
         <source>Keep</source>
-        <translation type="unfinished"/>
+        <translation>Conserva</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="166"/>

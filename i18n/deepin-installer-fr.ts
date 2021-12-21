@@ -57,7 +57,7 @@
     <message>
         <location filename="../src/base/translator.h" line="16"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="199"/>
-        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="118"/>
+        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="119"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="93"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="180"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="431"/>
@@ -514,8 +514,8 @@
         <translation>Inconnu</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="389"/>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="420"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="310"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="341"/>
         <source>Freespace</source>
         <translation>Espace libre</translation>
     </message>
@@ -638,7 +638,7 @@ Pour obtenir de meilleures performances, %3 Go ou plus est recommandé</translat
         <translation>Quitter</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="116"/>
+        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="76"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="128"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="79"/>
@@ -647,7 +647,7 @@ Pour obtenir de meilleures performances, %3 Go ou plus est recommandé</translat
         <translation>Attention</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
+        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="96"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="89"/>
@@ -1261,8 +1261,8 @@ Veuillez sélectionner l&apos;une des solutions ci-dessous et continuer.</transl
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="876"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="158"/>
-        <source>Computer name is invalid</source>
-        <translation>Nom d&apos;ordinateur invalide</translation>
+        <source>Computer name can only contain letters, numbers, and dashes (-), and cannot start or end with a dash (-)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="880"/>

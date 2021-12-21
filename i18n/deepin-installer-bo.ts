@@ -57,7 +57,7 @@
     <message>
         <location filename="../src/base/translator.h" line="16"/>
         <location filename="../src/ui/frames/control_platform_frame.cpp" line="199"/>
-        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="118"/>
+        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="119"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="93"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="180"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="431"/>
@@ -514,8 +514,8 @@
         <translation>མ་ཤེས་པ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="389"/>
-        <location filename="../src/ui/delegates/partition_util.cpp" line="420"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="310"/>
+        <location filename="../src/ui/delegates/partition_util.cpp" line="341"/>
         <source>Freespace</source>
         <translation>སྤྱོད་ཆོག་པའི་བར་སྟོང་།</translation>
     </message>
@@ -637,7 +637,7 @@
         <translation>སྒྲིག་འཇུག་ནས་ཕྱིར་འཐོན།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="116"/>
+        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="76"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="128"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="79"/>
@@ -646,7 +646,7 @@
         <translation>ཐ་ཚིག</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
+        <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="118"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="96"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="89"/>
@@ -1242,13 +1242,13 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="845"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="199"/>
         <source>Username must start with letters or numbers, only contain letters, numbers, dashes (-) and underscores (_), and cannot use numbers alone</source>
-        <translation type="unfinished"/>
+        <translation>སྤྱོད་མཁན་མིང་ནི་དབྱངས་གསལ་ལམ་ཨང་ཀིས་འགོ་འཛུགས་དགོས་ཤིང་། དབྱངས་གསལ་དང་ཨང་ཀི། སྦྲེལ་རྟགས།（-）འོག་ཐིག་（_）བཅས་སྤྱོད་ཆོག་པ་ལས་ཨང་ཀི་ཁོ་ན་ཡིན་མི་རུང་།</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="850"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="204"/>
         <source>Username must be between %1 and %2 characters</source>
-        <translation type="unfinished"/>
+        <translation>སྤྱོད་མཁན་མིང་ནི་ངེས་པར་དུ་ཡིག་འབྲུ་%1ནས་%2བར་ཡིན་དགོས།</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="872"/>
@@ -1259,8 +1259,8 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="876"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="158"/>
-        <source>Computer name is invalid</source>
-        <translation>རྩིས་འཁོར་མིང་གོ་མི་ཆོད་པ།</translation>
+        <source>Computer name can only contain letters, numbers, and dashes (-), and cannot start or end with a dash (-)</source>
+        <translation>རྩིས་འཁོར་མིང་ནང་དབྱངས་གསལ་དང་། ཨང་ཀི། སྦྲེལ་རྟགས་（-）ཁོ་ན་ཡིན་དགོས་པ་མ་ཟད། ཐོག་མ་དང་མཇུག་ན་སྦྲེལ་རྟགས་（-）ཡིན་མི་རུང་།</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="880"/>
