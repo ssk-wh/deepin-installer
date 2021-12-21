@@ -719,6 +719,7 @@ void AdvancedPartitionFrame::onDeletePartitionTriggered(
     const Partition::Ptr partition) {
   removeOsProberDataByPath(partition->path);
 
+  delegate_->unFormatPartition(partition);//删除分区的时候清除原来设置的格式化分区的记录
   delegate_->deletePartition(partition);
   delegate_->refreshVisual();
 }

@@ -578,7 +578,6 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
 bool AdvancedPartitionDelegate::unFormatPartition(const Partition::Ptr partition) {
   Q_ASSERT(partition->status == PartitionStatus::Format);
   if (partition->status == PartitionStatus::Format) {
-    OperationList operations_ = operations();
     for (int index = operations_.length() - 1; index >= 0; --index) {
       const Operation::Ptr operation = operations_.at(index);
       // Remove the last FormatOperation if its new_partition range is the
