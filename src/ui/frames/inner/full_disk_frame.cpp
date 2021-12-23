@@ -511,13 +511,22 @@ void FullDiskFrame::setSaveDataCheckboxStat(const Device::Ptr device,  const int
     bool testexistdata = isExistDataPart(device->path);
     bool testfulldiskencrypt = isFullDiskEncrypt(device->path);
 
-    // 检测磁盘格式和引导模式是否一致
+    bool testsametabletype = true;
     PartitionTableType currenttable = IsEfiEnabled() ? PartitionTableType::GPT : PartitionTableType::MsDos;
-    qWarning() << "device table : " << device->table << " currenttable : " << currenttable;
+    //如果直接使用传进来的device来判断table，存在table被修改的可能，所以这里从realdevice中找到需要的device
+    const DeviceList realDevices = m_delegate->realDevices();
+    for (int i = 0; i < realDevices.size(); i++) {
+        if (!device->path.compare(realDevices.at(i)->path)) {
+            // 检测磁盘格式和引导模式是否一致
+            testsametabletype = (realDevices.at(i)->table == currenttable) ? true : false;
+            qWarning() << "device table : " << realDevices.at(i)->table << " currenttable : " << currenttable;
+            break;
+        }
+    }
 
     // 存在data分区并且在选择系统盘时所选盘存在系统分区
     // 或者存在data分区并且选择数据盘时，选择的系统盘存在系统分区
-    if ( testexistdata && (!testfulldiskencrypt) && (device->table == currenttable) && testissystemdisk ) {
+    if ( testexistdata && (!testfulldiskencrypt) && testsametabletype && testissystemdisk ) {
         m_saveDataCheck->setEnabled(!m_encryptCheck->isChecked());
         emit showSaveDataPopWidget();
     } else {
