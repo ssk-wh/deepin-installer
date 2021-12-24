@@ -18,17 +18,19 @@
 
 # 在解压文件系统之前，先处理磁盘中保留的数据分区中的数据信息
 clean_data() {
-    local DATA_INFO=$1
-    chattr -iR ${DATA_INFO} || true
-    ls -a $DATA_INFO | grep -Ev '^..$|^\.$' | xargs -I {} rm -vfr ${DATA_INFO}/{}
+    local in=$1
+    local ignore=$2
+
+    ls -a $in | grep -Ev $ignore | xargs -I {} chattr -iR ${in}/{} || true
+    ls -a $in | grep -Ev $ignore | xargs -I {} rm -vfr "${in}/{}" || true
 }
 
 setup_data_info() {
-    ls -a /target/data/ | grep -Ev '^..$|^\.$|^var$|^home$|^root$|^opt$' | xargs -I {} rm -vfr /target/data/{}
     [ -d /target/home ] && chown -hR root:root /target/home
-    [ -d /target/root ] && clean_data /target/root
-    [ -d /target/var ] && clean_data /target/var
-    [ -d /target/opt ] && clean_data /target/opt
+    [ -d /target/root ] && clean_data /target/data '^\.\.$|^\.$|^var$|^home$|^root$|^opt$|^lost\+found$'
+    [ -d /target/root ] && clean_data /target/root '^\.\.$|^\.$|^lost\+found$'
+    [ -d /target/var ] && clean_data /target/var '^\.\.$|^\.$|^lost\+found$'
+    [ -d /target/opt ] && clean_data /target/opt '^\.\.$|^\.$|^lost\+found$'
     # 创建dpkg-db的链接
     mkdir -p /target/usr/lib/dpkg-db
     mkdir -p /target/var/lib
