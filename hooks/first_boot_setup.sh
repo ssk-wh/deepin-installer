@@ -210,6 +210,7 @@ main() {
   update_grub_local && update-initramfs -u
   remove_component_packages
   setup_default_target
+  first_boot_oem || true  # 后配置定制脚本运行,　脚本运行错误不影响主流程
   setup_log          # 加密日志中敏感字符
   uninstall_packages # 这一步必须是最后一步
   sync

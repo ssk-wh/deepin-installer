@@ -501,4 +501,43 @@ skip_disk_crypt() {
     fi
 }
 
+run() {
+    local file=$1
+    echo "run script: $file"
+    bash $file
+}
+
+run_job() {
+    local in=$1
+    if [ -d "$in" ];then
+        echo "run dir: $in"
+        JOBS=$(ls $in/*.job)
+        for job in $JOBS; do
+            local JOB_SRP=$job
+            run $JOB_SRP
+        done
+    fi
+
+    if [ -f "$in" ];then
+        run $in
+    fi
+}
+
+first_boot_oem () {
+    local oem_deb_dir="/usr/share/deepin-installer/first_boot_deb"
+    local oem_hooks_dir="/usr/share/deepin-installer/hooks/first_boot"
+    echo "install first boot oem deb start..."
+    if [[ $(ls "${oem_deb_dir}"/*.deb 2>/dev/null) ]]; then
+        ls "${oem_deb_dir}"
+        DEBIAN_FRONTEND="noninteractive"
+        apt-get -y --allow-downgrades install -o Dpkg::Options::="--force-confnew" "${oem_deb_dir}/"*.deb || warn "Failed to install oem deb packages"
+    fi
+    echo "first boot oem hooks start..."
+    if [[ $(ls "${oem_hooks_dir}"/*.job 2>/dev/null) ]]; then
+        ls "${oem_hooks_dir}"
+        run_job "$oem_hooks_dir"
+    fi
+    rm -vfr $oem_deb_dir $oem_hooks_dir
+    echo "first boot oem end!"
+}
 
