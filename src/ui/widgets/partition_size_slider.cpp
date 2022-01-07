@@ -110,9 +110,10 @@ void PartitionSizeSlider::initUI() {
   editor_ = new QLineEdit();
   editor_->setObjectName("editor");
   editor_->setValidator(new QRegExpValidator(QRegExp("[0-9]*")));
-  editor_->setFixedWidth(90);
+  editor_->setFixedWidth(88);
   // Disable context menu.
   editor_->setContextMenuPolicy(Qt::NoContextMenu);
+  editor_->setStyleSheet("QLineEdit{background-color: rgba(0, 0, 0, 0.08);}");
   //editor_->setFocusPolicy(Qt::TabFocus);
   connect(editor_, &QLineEdit::selectionChanged, this,[=] {
     editor_->setFocus();
@@ -126,11 +127,12 @@ void PartitionSizeSlider::initUI() {
   size_label->setObjectName("size_label");
 
   QHBoxLayout* layout = new QHBoxLayout();
-  layout->setContentsMargins(0, 2, 0, 2);
+  layout->setContentsMargins(0, 4, 0, 4);
   layout->setSpacing(0);
   layout->addWidget(slider_);
-  layout->addSpacing(8);
+  layout->addSpacing(5);
   layout->addWidget(editor_);
+  layout->addSpacing(5);
   layout->addWidget(size_label);
   this->setLayout(layout);
   this->setContentsMargins(10, 0, 10, 0);
