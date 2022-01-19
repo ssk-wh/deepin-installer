@@ -53,11 +53,10 @@ monitors_list() {
     echo -n $out
 }
 
-
 # 处理1k情况，安装器最高以1k显示
 monitors_mode_1k() {
     local mode="1920x1080"
-    local cnt=`xrandr -q | awk '{print $1}' | grep -E [0-9]+x[0-9]+ | grep $mode | wc -l`
+    local cnt=`xrandr -q | awk '{print $1}' | grep -E [0-9]+x[0-9]+ | grep -E "^$mode$" | wc -l`
     if [ $cnt -eq $(monitors_cnt) ]; then
         echo $mode
     else
@@ -68,13 +67,13 @@ monitors_mode_1k() {
 # 获取所有屏幕共同支持的显示模式
 monitors_mode() {
    local mode_1k=$(monitors_mode_1k)
-   local list=`xrandr -q | awk '{print $1}' | grep -E [0-9]+x[0-9]+`
    ## 如果支持1k，最以1k屏显示
    if [ -n "$mode_1k" ]; then
        echo $mode_1k
    else
+       local list=`xrandr -q | awk '{print $1}' | grep -E [0-9]+x[0-9]+`
        for line in $list; do
-           local cnt=`xrandr -q | awk '{print $1}' | grep -E [0-9]+x[0-9]+ | grep $line | wc -l`
+           local cnt=`xrandr -q | awk '{print $1}' | grep -E [0-9]+x[0-9]+ | grep -E "^$line$" | wc -l`
            if [ $cnt -eq $(monitors_cnt) ]; then
                echo $line
                return;
