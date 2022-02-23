@@ -60,7 +60,7 @@ enum class TimezoneSource {
 
 namespace {
 
-const char kDefaultTimezone[] = "Asia/Shanghai";
+const char kDefaultTimezone[] = "Asia/Beijing";
 
 }  // namespace
 
@@ -182,22 +182,15 @@ void TimezoneFrame::init() {
 }
 
 void TimezoneFrame::updateTimezoneBasedOnLanguage(const QString& timezone) {
-  // Check priority.
-  if (m_private->timezone_source_ == TimezoneSource::NotSet ||
-      m_private->timezone_source_ == TimezoneSource::Language) {
+
     if (IsTimezoneInTab(timezone)) {
-      m_private->timezone_source_ = TimezoneSource::Language;
-      m_private->timezone_ = timezone;
-      emit timezoneUpdated(m_private->timezone_);
-
-      WriteTimezone(m_private->timezone_);
+        m_private->timezone_source_ = TimezoneSource::Language;
+        m_private->timezone_ = timezone;
+        emit timezoneUpdated(m_private->timezone_);
+        WriteTimezone(m_private->timezone_);
+    } else {
+        emit timezoneUpdated("");
     }
-  } else {
-    qDebug() << "Ignores language default timezone:" << timezone;
-
-    // Trigger the translation of the time zone list update.
-    emit timezoneUpdated("");
-  }
 }
 
 void TimezoneFrame::finished() {

@@ -9,19 +9,19 @@
     "name": "Chinese (China)",
     "local_name": "简体中文",
     "locale": "zh_CN",
-    "timezone": "Asia/Shanghai"
+    "timezone": "Asia/Beijing"
   },
   {
     "name": "Chinese (Taiwan)",
     "local_name": "正體中文",
     "locale": "zh_TW",
-    "timezone": "Asia/Shanghai"
+    "timezone": "Asia/Beijing"
   },
   {
     "name": "Chinese (Hong Kong)",
     "local_name": "繁體中文（香港）",
     "locale": "zh_HK",
-    "timezone": "Asia/Shanghai"
+    "timezone": "Asia/Beijing"
   },
   {
     "name": "Indonesian",
@@ -198,11 +198,11 @@
     "name": "Tibetan",
     "local_name": "བོད་སྐད་",
     "locale": "bo_CN",
-    "timezone": "Asia/Shanghai"
+    "timezone": "Asia/Beijing"
   },{
     "name": "Uygur",
     "local_name": "ئۇيغۇر تىلى",
     "locale": "ug_CN",
-    "timezone": "Asia/Shanghai"
+    "timezone": "Asia/Beijing"
   }
 ]
