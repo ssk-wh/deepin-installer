@@ -118,6 +118,7 @@ setup_monitors() {
 setup_monitors > /var/log/deepin-installer-init.log 2>&1
 
 # 启动窗管，解决部分机型上界面花屏问题, 窗管启动失败不影响安装器本身程序的启动
+export HOME=/root
 kwin_x11 -platform dde-kwin-xcb || true &
 
 # 后台启动背景窗口的初始化，保证背景的启动过程不会降低安装器主窗口启动的时间
