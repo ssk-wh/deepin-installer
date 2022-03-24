@@ -124,11 +124,11 @@ II. How We Use Cookies and Other Technologies
 
 1.1. We may place a text file known as Cookie on your computer or mobile device. The text in a cookie often consists of identifiers, site names, and some numbers and characters. We undertake that we will not use such Cookies for any purposes other than those described herein. We use Cookie primarily for providing the following functions or services:
 
-·Ensure the safety of products or services
+· Ensure the safety of products or services
 
 We may set Cookie or anonymous identifiers for authentication and security purposes, with a view to confirm whether you have securely logged in to your deepin ID or other service account and to detect hacker theft, fraud and other unlawful acts.
 
-·Provide better products or services
+· Provide better products or services
 
 With Cookie, you are not required to repeat such steps and processes as filling in your personal information and entering search content, thus increasing your efficiency.
 
@@ -148,6 +148,7 @@ The following is a list of Third Party SDKs We Use:
 
 Please note, third-party SDKs may change the type of personal information due to such reasons as version upgrade and policy adjustment. Please refer to the corresponding publicized official instructions.
 
+
 SDK name: T-Sec Text Content Security SDK
 
 Third party name: Shenzhen Tencent Computer System Co., Ltd.
@@ -157,6 +158,7 @@ Service type: Text Content Security
 Type of personal information collected: User input text content (including user nickname, personal profile, etc.) 
 
 Privacy Policy Link: https://cloud.tencent.com/document/product/301/11470
+
 
 SDK name: SendCloud Mail Notification SDK
 
@@ -168,6 +170,7 @@ Type of personal information collected: E-mail Address
 
 Privacy Policy Link: https://www.sendcloud.net/#/friendlyLink?tab=protocal
 
+
 SDK name: Lianlu Information Notification SDK 
 
 Third party name: Shanghai Lianlu e-commerce Co., Ltd.
@@ -177,6 +180,7 @@ Service type:Notification SMS
 Type of personal information collected: Personal Mobile Number
 
 Privacy Policy Link: http://sms.shlianlu.com/reg.aspx
+
 
 III. How We Publicize, Transfer and Disclose to the Public Your Personal Information  
 
@@ -226,11 +230,11 @@ V. How We Store Your Personal Information
 
 We will comply with the provisions of laws and regulations in various regions，take all reasonable and feasible measures to guarantee that personal information unconcerned is not collected. Your deepin ID information（including but not limited to your personal mobile number）will be encryption and stored in the server until your deepin ID is logged out. We will only retain your personal information for the shortest period required for achieving the purposes described herein. We will delete or anonymize your personal information if it is stored for a period that exceeds what is permitted by law. If it is technically difficult to delete the relevant personal information, we will stop processing it except for the purpose of storage and taking necessary security measures. However, in the following circumstances, we may change the storage time of personal information for the need of complying with legal requirements:
 
-● Comply with the provisions in court judgments, adjudications or other legal procedures;
+· Comply with the provisions in court judgments, adjudications or other legal procedures;
 
-● Comply with the requirements of relevant government authorities or legally authorized organizations;
+· Comply with the requirements of relevant government authorities or legally authorized organizations;
 
-● We have reasons to believe that we need to comply with laws, regulations and other relevant provisions.
+· We have reasons to believe that we need to comply with laws, regulations and other relevant provisions.
 
 In the event that the Service is discontinued, we will stop collecting your personal information in a timely manner, notify you of the discontinuation by delivering an individual notice or by announcement, and delete or anonymize your personal information within a reasonable period.
 
@@ -238,7 +242,7 @@ VI. Your Rights
 
 In accordance with relevant laws, regulations and standards as well as the common practices in various regions,, we will do our best to use appropriate technologies to ensure your exercise of the following rights on your personal information:
 
-1.If you want to view, duplicate, correct your basic deepin ID information(ie, name and nickname) or withdraw your consent, you can log in to your deepin ID through the deepin User Center (account.deepin.org) and perform such operations at "[Account Information]" or "[Personal Information]".
+1. If you want to view, duplicate, correct your basic deepin ID information(ie, name and nickname) or withdraw your consent, you can log in to your deepin ID through the deepin User Center (account.deepin.org) and perform such operations at "[Account Information]" or "[Personal Information]".
 
 2. If you want to view, duplicate, correct, delete the released information under your deepin ID information or withdraw your consent, you can log in to your deepin ID and perform such operations at "[Posts]".
 
@@ -316,10 +320,10 @@ IX. Your Right to Complain or File a Lawsuit with the Regulatory Authorities and
 
 Appendix 1: Definitions
 
-● Personal Information
+· Personal Information
 
 Personal information refers to all kinds of information recorded electronically or otherwise relating to identified or identifiable natural persons, including but not limited to the natural person's name, date of birth, ID card number, personal biometric information, address and tel, while the information that has been anonymized is not included.
 
-● Sensitive Personal Information
+· Sensitive Personal Information
 
 Sensitive personal information is such information that, if leaked or used illegally, could easily lead to the infringement of a natural person's human dignity or cause personal or property damages to a natural person, including without limitation biometric identification, religious belief, specific identity, health care, financial accounts and whereabouts, as well as the personal information of minors under the age of 14.
