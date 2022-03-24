@@ -59,6 +59,7 @@ public:
     void showOemUserLicense();
     void showUserExperience();
     void showPrivacyLicense();
+    QString agreementLocale();
 
     void setupTs();
 
@@ -352,22 +353,28 @@ void LanguageFramePrivate::initConnect() {
             &LanguageFramePrivate::showPrivacyLicense);
 }
 
-void LanguageFramePrivate::showUserLicense() {
-    QString zh_cn_li = QString(GetOemLicenseDir() + "/end-user-license-agreement-%1_zh_CN.txt")\
-            .arg(installer::LicenseDelegate::OSType());
-    QString en_us_li = QString(GetOemLicenseDir() + "/end-user-license-agreement-%1_en_US.txt")\
-            .arg(installer::LicenseDelegate::OSType());
-
-    qDebug() << "zh_cn_li = " << zh_cn_li;
-    qDebug() << "en_us_li = " << en_us_li;
-
-    if (installer::ReadLocale() == "zh_CN") {
-        m_user_license_frame->setUserAgreement(zh_cn_li, en_us_li);
-        m_user_license_frame->setCheckedButton(kChineseToggleButtonId);
+QString LanguageFramePrivate::agreementLocale() {
+    QString locale = installer::ReadLocale();
+    if (GetCurrentType() == OSType::Professional) {
+        if (locale != "zh_CN" && locale != "zh_HK"
+            && locale != "zh_TW" && locale != "bo_CN" && locale != "ug_CN") {
+            locale = "en_US";
+        }
+    } else if (locale == "zh_CN" || locale == "zh_HK"
+               || locale == "zh_TW" || locale == "bo_CN" || locale == "ug_CN"){
+        locale = "zh_CN";
     } else {
-        m_user_license_frame->setUserAgreement(en_us_li, zh_cn_li);
-        m_user_license_frame->setCheckedButton(kEnglishToggleButtonId);
+        locale = "en_US";
     }
+    return locale;
+}
+
+void LanguageFramePrivate::showUserLicense() {
+    QString userLicenseText = QString(GetOemLicenseDir() + "/end-user-license-agreement-%1_%2.txt")\
+            .arg(installer::LicenseDelegate::OSType(), agreementLocale());
+
+    m_user_license_frame->setUserAgreement(userLicenseText);
+
     m_frame_layout->setCurrentWidget(m_user_license_frame);
 
     nextButton->hide();
@@ -389,22 +396,10 @@ void LanguageFramePrivate::showOemUserLicense() {
 
 void LanguageFramePrivate::showUserExperience()
 {
-    QString zh_cn_ue = QString(GetOemLicenseDir() + "/user-experience-agreement-%1_zh_CN.txt")\
-            .arg(installer::LicenseDelegate::OSType());
-    QString en_us_ue = QString(GetOemLicenseDir() + "/user-experience-agreement-%1_en_US.txt")\
-            .arg(installer::LicenseDelegate::OSType());
+    QString userExperienceText = QString(GetOemLicenseDir() + "/user-experience-agreement-%1_%2.txt")\
+            .arg(installer::LicenseDelegate::OSType(), agreementLocale());
 
-
-    qDebug() << "zh_cn_li = " << zh_cn_ue;
-    qDebug() << "en_us_li = " << en_us_ue;
-
-    if (installer::ReadLocale() == "zh_CN") {
-        m_user_experience_frame->setUserAgreement(zh_cn_ue, en_us_ue);
-        m_user_experience_frame->setCheckedButton(kChineseToggleButtonId);
-    } else {
-        m_user_experience_frame->setUserAgreement(en_us_ue, zh_cn_ue);
-        m_user_experience_frame->setCheckedButton(kEnglishToggleButtonId);
-    }
+    m_user_experience_frame->setUserAgreement(userExperienceText);
     m_frame_layout->setCurrentWidget(m_user_experience_frame);
 
     nextButton->hide();
@@ -414,21 +409,11 @@ void LanguageFramePrivate::showUserExperience()
 
 void LanguageFramePrivate::showPrivacyLicense()
 {
-    QString zh_pl_li = QString(GetOemLicenseDir() + "/privacy-policy-%1_zh_CN.txt")\
-            .arg(installer::LicenseDelegate::OSType());
-    QString en_pl_li = QString(GetOemLicenseDir() + "/privacy-policy-%1_en_US.txt")\
-            .arg(installer::LicenseDelegate::OSType());
+    QString privacyLicenseText = QString(GetOemLicenseDir() + "/privacy-policy-%1_%2.txt")\
+            .arg(installer::LicenseDelegate::OSType(), agreementLocale());
 
-    qDebug() << "zh_pl_li = " << zh_pl_li;
-    qDebug() << "en_pl_li = " << en_pl_li;
+    m_privacy_license_frame->setUserAgreement(privacyLicenseText);
 
-    if (installer::ReadLocale() == "zh_CN") {
-        m_privacy_license_frame->setUserAgreement(zh_pl_li, en_pl_li);
-        m_privacy_license_frame->setCheckedButton(kChineseToggleButtonId);
-    } else {
-        m_privacy_license_frame->setUserAgreement(en_pl_li, zh_pl_li);
-        m_privacy_license_frame->setCheckedButton(kEnglishToggleButtonId);
-    }
     m_frame_layout->setCurrentWidget(m_privacy_license_frame);
 
     nextButton->hide();
@@ -439,9 +424,6 @@ void LanguageFramePrivate::showPrivacyLicense()
 void LanguageFramePrivate::setupTs()
 {
     nextButton->setText(::QObject::tr("Next"));
-    m_user_experience_frame->setTitle(LicenseDelegate::userExperienceTitle());
-    m_user_license_frame->setTitle(LicenseDelegate::licenseTitle());
-    m_privacy_license_frame->setTitle(LicenseDelegate::privacyLicenseTitle());
 }
 
 }  // namespace installer

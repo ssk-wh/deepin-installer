@@ -47,44 +47,6 @@ void UserAgreementFrame::initUI()
     m_logoLbl = new QLabel();
     m_logoLbl->setPixmap(QPixmap(LicenseDelegate::logo()));
 
-    m_subTitle = new QLabel(this);
-    m_subTitle->setObjectName("user_agreement_subtitle");
-
-    m_buttonBox = new DButtonBox;
-    //m_buttonBox->setFocusPolicy(Qt::NoFocus);
-    m_chineseButton = new DButtonBoxButton("中文");
-    m_chineseButton->setObjectName("chineseButton");
-    m_chineseButton->setCheckable(true);
-    m_chineseButton->setFixedWidth(75);
-    m_chineseButton->setFixedHeight(36);
-    m_chineseButton->setStyleSheet("#chineseButton:checked{background:rgb(1, 128, 255); color:rgb(255, 255, 255);}");
-    //m_chineseButton->setFocusPolicy(Qt::NoFocus);
-
-    m_englishButton = new DButtonBoxButton("English");
-    m_englishButton->setObjectName("englishButton");
-    m_englishButton->setCheckable(true);
-    m_englishButton->setFixedWidth(75);
-    m_englishButton->setFixedHeight(36);
-    m_englishButton->setStyleSheet("#englishButton:checked{background:rgb(1, 128, 255); color:rgb(255, 255, 255);}");
-    //m_englishButton->setFocusPolicy(Qt::NoFocus);
-
-    m_btnlist.append(m_chineseButton);
-    m_btnlist.append(m_englishButton);
-
-    m_buttonBox->setButtonList(m_btnlist, true);
-    m_buttonBox->setId(m_chineseButton, 0);
-    m_buttonBox->setId(m_englishButton, 1);
-
-    QHBoxLayout* buttonLayout = new QHBoxLayout();
-    buttonLayout->setContentsMargins(0, 0, 0, 0);
-    buttonLayout->setSpacing(0);
-    buttonLayout->addStretch();
-    buttonLayout->addWidget(m_buttonBox, 0, Qt::AlignHCenter);
-
-    m_buttonBoxWidget = new QWidget;
-    m_buttonBoxWidget->setLayout(buttonLayout);
-    m_buttonBoxWidget->setStyleSheet("QWidget::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
-
     m_sourceLbl = new QLabel(this);
     m_sourceLbl->setObjectName("user_agreement_sourceLbl");
     m_sourceLbl->setWordWrap(true);
@@ -111,7 +73,6 @@ void UserAgreementFrame::initUI()
     m_sourceScrollArea->setWidget(sourceWidget);
     m_sourceScrollArea->setObjectName("scrollarea");
     m_sourceScrollArea->setWidgetResizable(true);
-    //m_sourceScrollArea->setFocusPolicy(Qt::TabFocus);
     m_sourceScrollArea->setFrameStyle(QFrame::NoFrame);
     m_sourceScrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     m_sourceScrollArea->setContentsMargins(0, 0, 0, 0);
@@ -149,9 +110,7 @@ void UserAgreementFrame::initUI()
 
     mainLayout->addSpacing(16);
     mainLayout->addWidget(m_logoLbl, 0, Qt::AlignHCenter);
-    mainLayout->addWidget(m_subTitle, 0, Qt::AlignHCenter);
     mainLayout->addSpacing(10);
-    mainLayout->addWidget(m_buttonBoxWidget, 0, Qt::AlignHCenter);
     mainLayout->addWidget(m_bgGroup, 0, Qt::AlignHCenter);
     mainLayout->addSpacing(19);
     mainLayout->addWidget(m_back, 0, Qt::AlignHCenter);
@@ -161,13 +120,7 @@ void UserAgreementFrame::initUI()
 
 void UserAgreementFrame::initConnect()
 {
-//    QShortcut *key = new QShortcut(QKeySequence(Qt::Key_Return), m_back);
-//    key->setAutoRepeat(false);
-//    connect(key, &QShortcut::activated, this, [=]{
-//        emit m_back->click();
-//    });
     connect(m_back, &QPushButton::clicked, this, &UserAgreementFrame::back);
-    connect(m_buttonBox, &DButtonBox::buttonClicked, this, &UserAgreementFrame::toggleLicense);
 }
 
 void UserAgreementFrame::updateText()
@@ -175,16 +128,6 @@ void UserAgreementFrame::updateText()
     m_back->setText(::QObject::tr("Back", "button"));
 }
 
-void UserAgreementFrame::toggleLicense(QAbstractButton* button)
-{
-    if (button == m_currentButton) {
-        return;
-    }
-
-    m_currentButton = button;
-
-    updateLicenseText();
-}
 
 void UserAgreementFrame::updateLicenseText()
 {
@@ -195,24 +138,6 @@ void UserAgreementFrame::updateLicenseText()
     }
 }
 
-void UserAgreementFrame::setTitle(const QString &text)
-{
-    m_subTitle->setText(text);
-}
-
-bool UserAgreementFrame::focusSwitch()
-{
-    if (m_buttonBoxWidget->hasFocus()) {
-        m_sourceScrollArea->setFocus();
-    } else if (m_sourceScrollArea->hasFocus()) {
-        m_back->setFocus();
-    } else if (m_back->hasFocus()) {
-        m_buttonBoxWidget->setFocus();
-    } else {
-        m_back->setFocus();
-    }
-    return true;
-}
 
 bool UserAgreementFrame::doSelect()
 {
@@ -239,23 +164,22 @@ bool UserAgreementFrame::directionKey(int keyvalue)
             }
         }
         break;
-    case Qt::Key_Left: {
-            if (m_buttonBoxWidget->hasFocus()) {
-                    setCheckedButton(kChineseToggleButtonId);
-                    updateLicenseText();
-            }
-        }
-        break;
-    case Qt::Key_Right: {
-            if (m_buttonBoxWidget->hasFocus()) {
-                    setCheckedButton(kEnglishToggleButtonId);
-                    updateLicenseText();
-            }
-        }
-        break;
     }
 
-   return true;
+    return true;
+}
+
+bool UserAgreementFrame::focusSwitch()
+{
+     if (m_sourceScrollArea->hasFocus()) {
+        m_back->setFocus();
+    } else if (m_back->hasFocus()) {
+        m_sourceScrollArea->setFocus();
+    } else {
+        m_back->setFocus();
+    }
+    return true;
+
 }
 
 void UserAgreementFrame::setUserAgreement(const QString &primaryFileName, const QString &secondaryFileName)
@@ -263,16 +187,5 @@ void UserAgreementFrame::setUserAgreement(const QString &primaryFileName, const 
     m_nextFileIndex = 0;
     m_fileNames.clear();
     m_fileNames.append(primaryFileName);
-
-    if (!secondaryFileName.isEmpty()) {
-        m_fileNames.append(secondaryFileName);
-    }
-
     updateLicenseText();
-}
-
-void UserAgreementFrame::setCheckedButton(int buttonId)
-{
-    m_buttonBox->button(buttonId)->setChecked(true);
-    m_currentButton = m_buttonBox->button(buttonId);
 }
