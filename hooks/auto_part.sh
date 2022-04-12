@@ -18,7 +18,7 @@
 
 # Automatically create disk partitions.
 # Partition policy is defined in settings.ini.
-declare -i  DEVICE_SIZE AVL_SIZE PART_NUM=0 LVM_NUM=0 LAST_END=1
+declare -i  DEVICE_SIZE AVL_SIZE PART_NUM=0 LVM_NUM=0 LAST_END=1 LOGICAL_SECTORS_PER_MB
 declare CRYPT_INFO DEVICE PART_POLICY PART_LABEL MP_LIST VG_NAME="vg0" PART_TYPE="primary" \
         LARGE="false" EFI="false" LVM="false"
 
@@ -100,6 +100,16 @@ get_max_capacity_device(){
   DEVICE="$max_device"
 }
 
+get_logical_sectors_per_MB(){
+    local device=$1
+    declare -i logical_sector_size
+    logical_sector_size=$(fdisk -l ${device} | grep "^Units" | awk -F "=" '{print $2}' | awk '{print $1}')
+    [ ! $logical_sector_size -gt 0 ] && error "Failed to get logical sector size on $device!"
+
+    LOGICAL_SECTORS_PER_MB=$((1024 * 1024 / logical_sector_size))
+    [ ! $LOGICAL_SECTORS_PER_MB -gt 0 ] && error "Failed to calc logical sector counts per MB on $device!"
+}
+
 # Create new partition table.
 new_part_table(){
   if [ "x$EFI" == "xtrue" ] || is_sw ; then
@@ -129,7 +139,7 @@ get_next_part_start_pos() {
     local offset=$(fdisk -l $dev_info | grep  "^$dev_info" | wc -l)
         PART_NUM=$offset
     if [ $offset = '0' ]; then
-        offset=2048
+        offset=$LOGICAL_SECTORS_PER_MB
     else
         local end=$(expr $(fdisk -l $dev_info -o END | sed -n '$p') + 1)
         offset=$end
@@ -140,7 +150,7 @@ get_next_part_start_pos() {
 
 get_system_disk_extend_size() {
     local size=$(installer_get "DI_FULLDISK_MULTIDISK_EXTSIZE_0")
-    echo $((size * 2048))
+    echo $((size * LOGICAL_SECTORS_PER_MB))
 }
 
 # Create partition.
@@ -177,7 +187,9 @@ create_part() {
     PART_TYPE="logical"
   fi
   if ! $LVM; then
-    AVL_SIZE=$((DEVICE_SIZE - 1 - part_start / 2048))
+    AVL_SIZE=$((DEVICE_SIZE - 1 - part_start / LOGICAL_SECTORS_PER_MB))
+    # gpt格式磁盘需要在尾部预留33个扇区空间存储分区表
+    [ "x$EFI" == "xtrue" ] $$ AVL_SIZE=$((AVL_SIZE - 33 - 1))
   else
     [[ "$(vgs -ovg_free --readonly --units m $VG_NAME)" =~ ([0-9]+) ]] &&\
       AVL_SIZE="${BASH_REMATCH[1]}"
@@ -212,9 +224,14 @@ create_part() {
     esac
 
     # 分区最小对齐
-    part_end=$((part_start + part_size * 2048))
-    part_end=$(((part_end + 256) / 512 * 512))       # 四舍五入对齐
-    part_start=$(((part_start + 512) / 512 * 512))   # 向上对齐
+    part_end=$((part_start + part_size * LOGICAL_SECTORS_PER_MB))
+    # 向下取整对齐，对齐条件优先级：不大于调整之前的值 >= 不小于0 >= 比LOGICAL_SECTORS_PER_MB整数倍少一个扇区
+    part_end=$(((part_end + 1) / LOGICAL_SECTORS_PER_MB * LOGICAL_SECTORS_PER_MB))
+
+    [ $part_end -gt 0 ] && part_end=$((part_end - 1))
+
+    # 向上取整对齐，对齐条件优先级：不小于调整之前的值 >= 为LOGICAL_SECTORS_PER_MB整数倍
+    part_start=$(((part_start + LOGICAL_SECTORS_PER_MB - 1) / LOGICAL_SECTORS_PER_MB * LOGICAL_SECTORS_PER_MB))
 
     echo "part: $part_mp, $part_fs, $part_start, $part_end"
     if parted -s "$DEVICE" mkpart "$PART_TYPE" $_part_fs "${part_start}s" "${part_end}s"; then
@@ -232,7 +249,7 @@ create_part() {
     part_size=$((part_size - 2))  # LVM需要额外的2Mib空间
     echo "{LVM_NUM:{${LVM_NUM},label:{${label:-LVM_NUM${LVM_NUM}}} vg_name:{${VG_NAME}}"
     lvcreate --wipesignatures y -n"${label:-LVM_NUM${LVM_NUM}}" -L"$part_size" "$VG_NAME" --yes ||\
-    	error "Failed to create logical volume ${label:-LVM_NUM${LVM_NUM}} on $VG_NAME!"  
+        error "Failed to create logical volume ${label:-LVM_NUM${LVM_NUM}} on $VG_NAME!"
 
     part_path="/dev/$VG_NAME/${label:-LVM_NUM${LVM_NUM}}"
   fi
@@ -338,7 +355,7 @@ delete_lvm() {
             done
         fi
         vgremove -f $vg_path
-	pvremove -f $pv_name
+        pvremove -f $pv_name
     fi
 }
 
@@ -356,7 +373,7 @@ get_part_path() {
     local LABEL=$2
     local PART_PATH=$(lsblk -lf $DEVICE | grep $LABEL | awk '{print $1}')
     if [ ! -n "$PART_PATH" ]; then
-	 echo ""
+        echo ""
     else
         echo "/dev/$PART_PATH"
     fi
@@ -371,7 +388,7 @@ get_part_fstype() {
     local LABEL=$2
     local PART_LABEL=$(lsblk -o FSTYPE,LABEL $DEVICE | grep $LABEL | awk '{print $1}')
     if [ ! -n "$PART_LABEL" ]; then
-	 echo ""
+        echo ""
     else
         echo "$PART_LABEL"
     fi
@@ -386,7 +403,7 @@ get_part_mountpoint() {
     elif [ "x$LABEL" = "xBackup" ];then
         echo "/recovery"
     elif [ "x$LABEL" = "xSWAP" ];then
-	      echo "swap"
+        echo "swap"
     elif [ "x$LABEL" = "xRoota" ];then
         echo "/"
     elif [ "x$LABEL" = "x_dde_data" ];then
@@ -450,6 +467,7 @@ main(){
      [ -b "$DEVICE" ] || error "Device not found!"
 
     check_device_size ${index}
+    get_logical_sectors_per_MB ${DEVICE}
     check_efi_mode
     echo "Device size: $DEVICE_SIZE"
 
