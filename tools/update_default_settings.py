@@ -66,7 +66,7 @@ def main():
 
     arm_community_settings = (
         ("select_language_default_locale", "zh_CN"),
-        ("timezone_default", "Asia/Shanghai"),
+        ("timezone_default", "Asia/Beijing"),
         ("partition_skip_simple_partition_page", "true"),
         ("partition_skip_partition_crypt_page", "true"),
     )
@@ -74,7 +74,7 @@ def main():
     arm_server_settings = (
         ("skip_select_component_page", "false"),
         ("select_language_default_locale", "zh_CN"),
-        ("timezone_default", "Asia/Shanghai"),
+        ("timezone_default", "Asia/Beijing"),
         ("partition_skip_simple_partition_page", "true"),
         ("partition_skip_partition_crypt_page", "true"),
         ("set_root_password_from_user", "true"),
@@ -84,7 +84,7 @@ def main():
 
     loongson_community_settings = (
         ("select_language_default_locale", "zh_CN"),
-        ("timezone_default", "Asia/Shanghai"),
+        ("timezone_default", "Asia/Beijing"),
         ("partition_skip_simple_partition_page", "true"),
         ("partition_skip_partition_crypt_page", "true"),
         ("partition_enable_swap_file", "false"),
@@ -101,7 +101,7 @@ def main():
 
     loongson_server_settings = (
         ("select_language_default_locale", "zh_CN"),
-        ("timezone_default", "Asia/Shanghai"),
+        ("timezone_default", "Asia/Beijing"),
         ("partition_skip_simple_partition_page", "true"),
         ("partition_skip_partition_crypt_page", "true"),
         ("partition_enable_swap_file", "false"),
@@ -122,7 +122,7 @@ def main():
 
     sw_community_settings = (
         ("select_language_default_locale", "zh_CN"),
-        ("timezone_default", "Asia/Shanghai"),
+        ("timezone_default", "Asia/Beijing"),
         ("partition_skip_simple_partition_page", "true"),
         ("partition_skip_partition_crypt_page", "true"),
         ("partition_enable_swap_file", "false"),
@@ -139,7 +139,7 @@ def main():
 
     sw_server_settings = (
         ("select_language_default_locale", "zh_CN"),
-        ("timezone_default", "Asia/Shanghai"),
+        ("timezone_default", "Asia/Beijing"),
         ("partition_skip_simple_partition_page", "true"),
         ("partition_skip_partition_crypt_page", "true"),
         ("partition_enable_swap_file", "false"),
@@ -160,7 +160,7 @@ def main():
 
     x86_community_settings = (
         ("select_language_default_locale", "zh_CN"),
-        ("timezone_default", "Asia/Shanghai"),
+        ("timezone_default", "Asia/Beijing"),
         ("timezone_use_local_time_regardless", "true"),
         ("skip_select_component_page", "true"),
         ("partition_skip_simple_partition_page", "true"),
@@ -172,7 +172,7 @@ def main():
 
     x86_professinal_settings = (
         ("select_language_default_locale", "zh_CN"),
-        ("timezone_default", "Asia/Shanghai"),
+        ("timezone_default", "Asia/Beijing"),
         ("timezone_use_local_time_regardless", "true"),
         ("skip_select_component_page", "true"),
         ("partition_skip_simple_partition_page", "true"),
@@ -182,7 +182,7 @@ def main():
     x86_server_settings = (
         ("skip_select_component_page", "false"),
         ("select_language_default_locale", "zh_CN"),
-        ("timezone_default", "Asia/Shanghai"),
+        ("timezone_default", "Asia/Beijing"),
         ("partition_skip_simple_partition_page", "true"),
         ("set_root_password_from_user", "true"),
         ("partition_default_button", "1"),

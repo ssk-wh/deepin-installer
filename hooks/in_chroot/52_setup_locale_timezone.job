@@ -134,8 +134,8 @@ EOF
       grep -q "^${DI_TIMEZONE}$"; then
     msg "${DI_TIMEZONE} is available"
   else
-    msg "Timezone is not available, Fall back to Asia/Shanghai"
-    DI_TIMEZONE="Asia/Shanghai"
+    msg "Timezone is not available, Fall back to Asia/Beijing"
+    DI_TIMEZONE="Asia/Beijing"
   fi
 
   # 在没有设置时区之前记录rtc时间，此时系统处于+0时区，系统时间=rtc时间

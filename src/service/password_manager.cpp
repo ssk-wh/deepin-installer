@@ -130,7 +130,7 @@ bool installer::PasswordManager::checked(const QString &user, const QString &pas
         case PW_ERR_PARA:
         case PW_ERR_INTERNAL:
         case PW_ERR_USER:
-        case PW_ERR_MAX:
+//        case PW_ERR_MAX:
         default: {
             info = ::QObject::tr("It does not meet password rules");
             reset = false;
