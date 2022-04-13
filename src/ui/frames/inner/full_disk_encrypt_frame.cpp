@@ -196,7 +196,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
 
     setLayout(m_layout);
     setContentsMargins(0, 0, 0, 0);
-    setFixedSize(QSize(kMainFrameWidth, kMainFrameHeight));
+    setFixedWidth(kMainFrameWidth);
 
     m_editList << m_encryptEdit << m_encryptRepeatEdit;
 
