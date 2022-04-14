@@ -31,6 +31,8 @@ setup_data_info() {
     [ -d /target/root ] && clean_data /target/root '^\.\.$|^\.$|^lost\+found$'
     [ -d /target/var ] && clean_data /target/var '^\.\.$|^\.$|^lost\+found$'
     [ -d /target/opt ] && clean_data /target/opt '^\.\.$|^\.$|^lost\+found$'
+#    # 删除原来用户的密钥环，防止弹出密钥环验证提示
+    ls /target/home | xargs -I {} rm -vrf "/target/home/{}/.local/share/keyrings/login.keyring"
     # 创建dpkg-db的链接
     mkdir -p /target/usr/lib/dpkg-db
     mkdir -p /target/var/lib
