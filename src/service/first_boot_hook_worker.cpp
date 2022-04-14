@@ -28,7 +28,7 @@ namespace installer {
 namespace {
 
 // Absolute path to built-in first boot script.
-const char kFirstBootHookFile[] = BUILTIN_HOOKS_DIR "/first_boot_setup.sh";
+const char kFirstBootHookFile[] = "/tmp/installer/hooks/first_boot_setup.sh";
 
 }  // namespace
 

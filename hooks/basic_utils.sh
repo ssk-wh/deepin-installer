@@ -332,7 +332,7 @@ init_firstboot() {
 [Seat:*]
 display-setup-script=/usr/bin/deepin-installer-bases
 greeter-session=lightdm-gtk-greeter
-greeter-setup-script=/usr/bin/deepin-installer-first-boot
+greeter-setup-script=/tmp/installer/deepin-installer-first-boot
 EOF
 }
 

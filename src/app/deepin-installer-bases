@@ -114,8 +114,27 @@ setup_monitors() {
     fi
 }
 
+# 将安装器后配置的运行目录改为/tmp/installer
+first_boot_move() {
+    mkdir -p /tmp/installer
+
+    firstBoot="/usr/bin/deepin-installer-first-boot"
+    hookPath="/usr/share/deepin-installer/hooks"
+
+    if [ -f ${firstBoot} ]; then
+        cp -vrf /usr/bin/deepin-installer-first-boot /tmp/installer/
+    fi
+
+    if [ -d ${hookPath} ]; then
+        cp -vrf /usr/share/deepin-installer/hooks/ /tmp/installer/
+    fi
+}
+
+## 处理后配置卸载自己后有小概率启动不了桌面问题，安装器后配置运行路径变为/tmp/installer
+first_boot_move >> /var/log/deepin-installer-init.log 2>&1
+
 ## 处理多屏的情况，安装器以克隆模式运行多屏的情况
-setup_monitors > /var/log/deepin-installer-init.log 2>&1
+setup_monitors >> /var/log/deepin-installer-init.log 2>&1
 
 # 启动窗管，解决部分机型上界面花屏问题, 窗管启动失败不影响安装器本身程序的启动
 export HOME=/root
