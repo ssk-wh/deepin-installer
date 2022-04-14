@@ -469,8 +469,20 @@ void SystemInfoKeyboardFramePrivate::readConf() {
 void SystemInfoKeyboardFramePrivate::writeConf() {
 
     const QModelIndex variant_index = m_variantView->currentIndex();
-    const QString variant = getVariantName(variant_index);
-    const QString layout = getLayoutName(variant_index);
+
+    QString variant = getVariantName(variant_index);
+    QString layout = getLayoutName(variant_index);
+    // fix120813
+    if(variant_index.row() < 0)
+    {
+        const QString kb_layout = GetSettingsString("DI_LAYOUT");
+        const QString kb_variant = GetSettingsString("DI_LAYOUT_VARIANT");
+        const QString kb_default_layout = GetSettingsString(kSystemInfoDefaultKeyboardLayout);
+        const QString kb_default_variant = GetSettingsString(kSystemInfoDefaultKeyboardLayoutVariant);
+        layout = kb_layout.isEmpty() ? kb_default_layout : kb_layout;
+        variant = kb_layout.isEmpty() ? kb_default_variant : kb_variant;
+    }
+
 
     // Model name of keyboard is empty. Variant name might be empty.
     // The first row in variant list is the default layout.

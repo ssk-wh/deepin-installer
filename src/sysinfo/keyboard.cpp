@@ -226,15 +226,18 @@ XkbConfig GetXkbConfig(const QString& locale) {
 }
 
 bool SetXkbLayout(const QString& layout) {
-  return SpawnCmd(kSetXkbMapCmd, {layout});
+//  return SpawnCmd(kSetXkbMapCmd, {layout});
+    return true;
 }
 
 bool SetXkbLayout(const QString& layout, const QString& variant) {
-  return SpawnCmd(kSetXkbMapCmd, {layout, variant});
+//  return SpawnCmd(kSetXkbMapCmd, {layout, variant});
+    return  true;
 }
 
 bool SetXkbModel(const QString& model) {
-  return SpawnCmd(kSetXkbMapCmd, {"-model", model});
+//  return SpawnCmd(kSetXkbMapCmd, {"-model", model});
+    return true;
 }
 
 }  // namespace installer
