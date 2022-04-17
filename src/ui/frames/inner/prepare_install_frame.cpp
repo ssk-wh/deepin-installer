@@ -256,6 +256,8 @@ void PrepareInstallFrame::initUI() {
 
   m_selectCreateRecovery = new DCheckBox;
   m_selectCreateRecovery->setChecked(GetSettingsBool(kIsInitRecvoery));
+  m_selectCreateRecovery->setVisible(GetSettingsBool(kIsShowInitRecoveryCheckbox));
+
 
   m_installNvidiaCheck = new QCheckBox;
   m_installNvidiaCheck->setObjectName("check_box");

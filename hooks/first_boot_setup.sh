@@ -181,6 +181,11 @@ clenup_X11_screen_conf() {
     fi
 }
 
+# 专有设备增量备份接口
+setup_overlayfs() {
+    /usr/sbin/uos-backup-restore --start-lower
+}
+
 main() {
   [ -f "${CONF_FILE}" ] || error "deepin-installer.conf not found"
   cat "${CONF_FILE}" | grep -v "PASSWORD" | grep -v "password"
@@ -214,6 +219,7 @@ main() {
   setup_log          # 加密日志中敏感字符
   uninstall_packages # 这一步必须是最后一步
   sync
+  is_device && setup_overlayfs  # 专有设备增量备份还原
 }
 
 main

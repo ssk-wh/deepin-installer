@@ -356,6 +356,16 @@ is_community() {
     fi
 }
 
+is_device() {
+    local type=$(cat /etc/deepin-version | grep Type=)
+    type="${type##Type=}"
+    if [ "x$type" = "xDevice" ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
 system_name() {
     local name=$(cat /etc/os-version | grep SystemName=)
     name="${name##SystemName=}"

@@ -30,3 +30,7 @@ partition_full_disk_minimum_space = 7
 partition_root_space_required = 4
 partition_enable_swap_file=false
 
+# 是否初始化备份
+is_init_recovery = false;
+# 是否显示创建初始化备份选择框
+is_show_init_recovery_checkbox = false;

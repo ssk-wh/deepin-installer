@@ -190,6 +190,9 @@ const char kIfDoRecovery[] = "if_do_recovery";
 // 无人值守时可以通过改选项控制初始备份是否生成
 const char kIsInitRecvoery[] = "is_init_recovery";
 
+// 是否显示创建初始化备份选择框
+const char kIsShowInitRecoveryCheckbox[] = "is_show_init_recovery_checkbox";
+
 // Install progress page
 const char kInstallProgressPageDisableSlide[] =
     "install_progress_page_disable_slide";
