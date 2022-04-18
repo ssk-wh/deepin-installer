@@ -110,6 +110,26 @@ get_logical_sectors_per_MB(){
     [ ! $LOGICAL_SECTORS_PER_MB -gt 0 ] && error "Failed to calc logical sector counts per MB on $device!"
 }
 
+align_partition_start(){
+    declare -i start=$1
+
+    # 向上取整对齐，对齐条件优先级：不小于调整之前的值 >= 为LOGICAL_SECTORS_PER_MB整数倍
+    start=$(((start + LOGICAL_SECTORS_PER_MB - 1) / LOGICAL_SECTORS_PER_MB * LOGICAL_SECTORS_PER_MB))
+
+    echo $start
+}
+
+align_partition_end(){
+    declare -i end=$1
+
+    # 向下取整对齐，对齐条件优先级：不大于调整之前的值 >= 不小于0 >= 比LOGICAL_SECTORS_PER_MB整数倍少一个扇区
+    end=$(((end + 1) / LOGICAL_SECTORS_PER_MB * LOGICAL_SECTORS_PER_MB))
+
+    [ $end -gt 0 ] && end=$((end - 1))
+
+    echo $end
+}
+
 # Create new partition table.
 new_part_table(){
   if [ "x$EFI" == "xtrue" ] || is_sw ; then
@@ -179,6 +199,10 @@ create_part() {
     [ "x$part_fs" != "xlvm_type" ] && [ "x$part_fs" != "xcrypto_luks" ]; then
     echo "Create extended partition..."
     part_end=$((part_start + $(get_system_disk_extend_size)))
+    part_end=$(align_partition_end $part_end)
+
+    part_start=$(align_partition_start $part_start)
+
     parted -s "$DEVICE" mkpart extended "${part_start}s" "${part_end}s" ||\
       error "Failed to create extended partition on $DEVICE!"
     #setup_part $dev "extended" $(get_system_disk_extend_size)
@@ -189,7 +213,7 @@ create_part() {
   if ! $LVM; then
     AVL_SIZE=$((DEVICE_SIZE - 1 - part_start / LOGICAL_SECTORS_PER_MB))
     # gpt格式磁盘需要在尾部预留33个扇区空间存储分区表
-    [ "x$EFI" == "xtrue" ] $$ AVL_SIZE=$((AVL_SIZE - 33 - 1))
+    [ "x$EFI" == "xtrue" ] && AVL_SIZE=$((AVL_SIZE - 33 - 1))
   else
     [[ "$(vgs -ovg_free --readonly --units m $VG_NAME)" =~ ([0-9]+) ]] &&\
       AVL_SIZE="${BASH_REMATCH[1]}"
@@ -225,13 +249,10 @@ create_part() {
 
     # 分区最小对齐
     part_end=$((part_start + part_size * LOGICAL_SECTORS_PER_MB))
-    # 向下取整对齐，对齐条件优先级：不大于调整之前的值 >= 不小于0 >= 比LOGICAL_SECTORS_PER_MB整数倍少一个扇区
-    part_end=$(((part_end + 1) / LOGICAL_SECTORS_PER_MB * LOGICAL_SECTORS_PER_MB))
+    part_end=$(align_partition_end $part_end)
 
-    [ $part_end -gt 0 ] && part_end=$((part_end - 1))
-
-    # 向上取整对齐，对齐条件优先级：不小于调整之前的值 >= 为LOGICAL_SECTORS_PER_MB整数倍
-    part_start=$(((part_start + LOGICAL_SECTORS_PER_MB - 1) / LOGICAL_SECTORS_PER_MB * LOGICAL_SECTORS_PER_MB))
+    part_start=$(align_partition_start $part_start)
+    [ "x$PART_TYPE" = "xlogical" ] && part_start=$((part_start + LOGICAL_SECTORS_PER_MB))
 
     echo "part: $part_mp, $part_fs, $part_start, $part_end"
     if parted -s "$DEVICE" mkpart "$PART_TYPE" $_part_fs "${part_start}s" "${part_end}s"; then
