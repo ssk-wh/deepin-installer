@@ -50,6 +50,6 @@ fi
 echo $(lsblk -o UUID,MOUNTPOINT -f | grep /target$ | awk '{print $1}') > /target/recovery/backup/system.info
 
 # 备份data的UUID
-echo $(lsblk -o UUID,MOUNTPOINT -f | grep ${DATA_MOUNT_POINT} | awk '{print $1}') > /target/recovery/backup/_dde_data.info
+echo $(lsblk -o UUID,MOUNTPOINT -f | grep "${DATA_MOUNT_POINT}$" | awk '{print $1}') > /target/recovery/backup/_dde_data.info
 
 return $?
