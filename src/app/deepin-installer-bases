@@ -116,17 +116,19 @@ setup_monitors() {
 
 # 将安装器后配置的运行目录改为/tmp/installer
 first_boot_move() {
-    mkdir -p /tmp/installer
+
+    installerRunDir=/usr/share/deepin-installer-exec/
+    mkdir -p ${installerRunDir}
 
     firstBoot="/usr/bin/deepin-installer-first-boot"
     hookPath="/usr/share/deepin-installer/hooks"
 
     if [ -f ${firstBoot} ]; then
-        cp -vrf /usr/bin/deepin-installer-first-boot /tmp/installer/
+        cp -vrf /usr/bin/deepin-installer-first-boot ${installerRunDir}
     fi
 
     if [ -d ${hookPath} ]; then
-        cp -vrf /usr/share/deepin-installer/hooks/ /tmp/installer/
+        cp -vrf /usr/share/deepin-installer/hooks/ ${installerRunDir}
     fi
 }
 

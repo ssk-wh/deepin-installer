@@ -219,7 +219,10 @@ main() {
   setup_log          # 加密日志中敏感字符
   uninstall_packages # 这一步必须是最后一步
   sync
-  is_device && setup_overlayfs  # 专有设备增量备份还原
+  #专有设备创建初始化备份
+  if is_device; then
+    echo "y" | /usr/sbin/uos-backup-restore --start-lower
+  fi
 }
 
 main
