@@ -20,7 +20,7 @@
     {
         "filesystem": "ext4",
         "mountPoint": "",
-        "label": "_dde_data",
+        "label": "_user_data",
         "usage": "100%",
         "alignStart": true,
         "isDataPartition": false,
