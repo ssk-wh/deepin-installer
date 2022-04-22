@@ -656,7 +656,7 @@ void PartitionFramePrivate::initConnections() {
       //      q_ptr->autoPart();
       //      q_ptr->m_proxy->nextFrame();
       setupDiskEncrypt(this->isEncrypt()); // 设置全盘分区场景下的全盘加密
-
+      prepare_install_frame_->setCreateRecovery(isFullDiskPartitionMode());
       q_ptr->m_proxy->hideChildFrame();
       q_ptr->repaint();
       showPrepareInstallFrame();

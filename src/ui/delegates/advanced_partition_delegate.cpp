@@ -576,7 +576,6 @@ void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
 }
 
 bool AdvancedPartitionDelegate::unFormatPartition(const Partition::Ptr partition) {
-  Q_ASSERT(partition->status == PartitionStatus::Format);
   if (partition->status == PartitionStatus::Format) {
     for (int index = operations_.length() - 1; index >= 0; --index) {
       const Operation::Ptr operation = operations_.at(index);
