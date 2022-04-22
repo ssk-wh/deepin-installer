@@ -93,6 +93,7 @@ public:
      // Check current partition mode is simple mode or not.
      bool isSimplePartitionMode();
      bool isFullDiskPartitionMode();
+     bool isAdvanceDiskPartitionMode();
 
      bool isRawDevice(const QList<Device::Ptr> list);
 
@@ -864,6 +865,10 @@ bool PartitionFramePrivate::isSimplePartitionMode() {
   return simple_frame_button_->isChecked();
 }
 
+bool PartitionFramePrivate::isAdvanceDiskPartitionMode() {
+    return advanced_frame_button_->isChecked();
+}
+
 bool PartitionFramePrivate::isRawDevice(const QList<Device::Ptr> list) {
     for (const Device::Ptr device : list) {
         QProcess process;
@@ -929,7 +934,7 @@ void PartitionFramePrivate::onButtonGroupToggled(QAbstractButton *button)
 
 void PartitionFramePrivate::onNextButtonClicked() {
   WriteFullDiskMode(isFullDiskPartitionMode());
-
+  prepare_install_frame_->setCreateRecovery(isFullDiskPartitionMode());
   if (isSimplePartitionMode()) {
     // Validate simple partition frame.
     if (!simple_partition_frame_->validate()) {

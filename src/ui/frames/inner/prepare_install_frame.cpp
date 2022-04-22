@@ -77,10 +77,10 @@ void PrepareInstallFrame::updateDescription(const QStringList& descriptions) {
 
 void PrepareInstallFrame::setCreateRecovery(bool isCreate)
 {
-    if (!isCreate) {
-        m_selectCreateRecovery->hide();
-    } else {
+    if (GetSettingsBool(kIsShowInitRecoveryCheckbox) && isCreate) {
         m_selectCreateRecovery->show();
+    } else {
+        m_selectCreateRecovery->hide();
     }
 }
 
