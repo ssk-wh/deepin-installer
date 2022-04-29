@@ -28,13 +28,13 @@ SI_PASSWORD=$(installer_get "system_info_si_password")
 
 setNetworkBoot() {
     NETWORK_EFI=$(efibootmgr |grep -i network |awk -F'*' '{print $1}' |sed 's#Boot##')
-    echo ${system_info_si_password}|sudo -S efibootmgr -n ${NETWORK_EFI}
+    efibootmgr -n ${NETWORK_EFI}
 }
 
 # 使用sudo权限执行审核模式的过程的函数，该函数可以将脚本执行日志写入到安装器日志中
 exec_check() {
     local cmd=$@
-    echo "${SI_PASSWORD}" | sudo -S bash /deepin-installer/command.sh $cmd
+    bash /deepin-installer/command.sh $cmd
 }
 
 # 判断是否存在桌面
@@ -46,3 +46,15 @@ is_desktopexist() {
         return 0
     fi
 }
+
+# 创建日志文件
+addfile_checkmode_log() {
+    touch /var/tmp/deepin-installer-checkmode.log
+    chmod 777 /var/tmp/deepin-installer-checkmode.log
+}
+
+# 删除日志文件
+deletefile_checkmode_log() {
+    rm -rf /var/tmp/deepin-installer-checkmode.log
+}
+

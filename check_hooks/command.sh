@@ -26,4 +26,4 @@ run_job() {
     fi
 }
 
-run_job $@ >> /var/log/deepin-installer.log  2>&1 # 用于执行目录下或者独立的脚本文件，会将脚本输出的日志写入到安装日志中
+run_job $@ >> /var/tmp/deepin-installer-checkmode.log  2>&1 # 用于执行目录下或者独立的脚本文件，会将脚本输出的日志写入到安装日志中
