@@ -48,7 +48,7 @@ class PrepareInstallFrame : public QFrame {
   bool doSpace();
   bool doSelect();
   bool directionKey(int keyvalue);
-
+  void clearConf();
  signals:
   // Emitted when abort-button is clicked, returning to previous page.
   void aborted();

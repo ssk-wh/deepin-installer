@@ -170,6 +170,15 @@ bool PrepareInstallFrame::directionKey(int keyvalue)
     return true;
 }
 
+void PrepareInstallFrame::clearConf()
+{
+    // 如果是手动安装，清除全盘安装写入的相关值
+    if (GetSettingsString("DI_FULLDISK_MODE") == "false") {
+        WriteSystemDataMountPoint("NO_DATA_MOUNT_POINT_PLACEHOLDER");
+        WriteSaveUserData(false);
+    }
+}
+
 void PrepareInstallFrame::installNvidiaStateChanged(bool install_nvidia) {
     WriteEnableNvidiaDriver(install_nvidia);
 }
@@ -188,6 +197,7 @@ void PrepareInstallFrame::initConnections() {
     connect(continue_button_, &QPushButton::clicked, this, [=] {
         WriteIsInitRecovery(!m_selectCreateRecovery->isHidden()
                             && m_selectCreateRecovery->isChecked());
+        clearConf();
         emit finished();
     });
     connect(m_installNvidiaCheck, &QCheckBox::clicked, this, &PrepareInstallFrame::installNvidiaStateChanged);
