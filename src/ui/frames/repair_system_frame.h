@@ -61,8 +61,6 @@ protected:
     bool doSelect() override;
     bool directionKey(int keyvalue) override;
 
-private:
-    bool isRepair() const;
 
 private:
     QScopedPointer<RepairSystemFramePrivate> m_private;
