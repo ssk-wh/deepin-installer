@@ -93,6 +93,18 @@ print_log() {
     monitors_othe_list | xargs -d" " -I {} echo "xrandr --output {} --mode $(monitors_mode)"
 }
 
+# 获取最高分辨率
+max_mode() {
+    local mode=`xrandr -q | awk '{print $1}' | grep -E '[0-9]+x[0-9]+$' | sort -rn | sed -n 1p`
+    echo ${mode}
+}
+
+# 获取最优分辨率
+optimal_mode() {
+   local mode=`xrandr -q | grep + | awk '{print $1}' | grep -E [0-9]+[0-9] | sort -rn | sed -n 1p`
+   echo ${mode}
+}
+
 # 处理设置屏幕
 setup_monitors() {
     # 设置主屏幕，兼容都是dpi输出且输出屏幕位置重合的情况,兼容无主屏输出的情况
@@ -111,6 +123,15 @@ setup_monitors() {
         print_log
     else
         echo "Single output"
+        if [ -n "$(optimal_mode)" ]; then
+            # 设置屏幕的最优分辨率
+            echo "optimal mode:$(optimal_mode)"
+            xrandr -s $(optimal_mode)
+        else
+            # 设置屏幕的最高分辨率
+            echo "max mode:$(max_mode)"
+            xrandr -s $(max_mode)
+        fi
     fi
 }
 
