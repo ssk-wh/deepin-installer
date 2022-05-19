@@ -31,5 +31,15 @@ if [ -n "${UNINSTALLED_PKGS}" ]; then
   apt-get -y purge ${UNINSTALLED_PKGS} || \
     warn_exit "Failed to install packages: ${UNINSTALLED_PKGS}"
 fi
+# 安装英伟达显卡驱动
+deepin_nvidia_installer() {
+    if [ -f /usr/sbin/deepin-nvidia-installer ]; then
+        deepin-nvidia-installer 1 || true
+    else
+        warn "/usr/sbin/deepin-nvidia-installer is not found"
+    fi
+}
+
+deepin_nvidia_installer
 
 return 0
