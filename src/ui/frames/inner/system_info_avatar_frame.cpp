@@ -70,7 +70,6 @@ private:
     Q_DECLARE_PUBLIC(SystemInfoAvatarFrame)
     SystemInfoAvatarFrame* q_ptr = nullptr;
 
-    QScrollArea * m_scroll = nullptr;
     QListView* list_view_ = nullptr;
     int        m_currentIndex = 0;
 };
@@ -158,7 +157,7 @@ void SystemInfoAvatarFrame::resizeEvent(QResizeEvent *event)
     listViewWidth = qMin(listViewWidth, width2);
 
     d->list_view_->setFixedWidth(listViewWidth);
-    d->m_scroll->setFixedWidth(listViewWidth);
+//    d->list_view_->setFixedHeight(100);
 
     QWidget::resizeEvent(event);
 }
@@ -191,24 +190,16 @@ void SystemInfoAvatarFramePrivate::initUI() {
   list_view_->setFlow(QListView::LeftToRight);
   list_view_->setViewMode(QListView::IconMode);
   list_view_->setFrameShape(QListView::NoFrame);
-  list_view_->setFixedWidth(600);
-  list_view_->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-  list_view_->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+  list_view_->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+  list_view_->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
   list_view_->setDragEnabled(false);
   list_view_->setSelectionMode (QAbstractItemView::SingleSelection);
   list_view_->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
-  m_scroll = new QScrollArea(q_ptr);
-  m_scroll->setWidget(list_view_);
-  m_scroll->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-  m_scroll->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-  m_scroll->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-  m_scroll->horizontalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-  m_scroll->setFrameShape(QListView::NoFrame);
 
   QVBoxLayout* layout = new QVBoxLayout();
   layout->setContentsMargins(0, 0, 0, 0);
-  layout->addWidget(m_scroll, 0, Qt::AlignHCenter);
+  layout->addWidget(list_view_, 0, Qt::AlignHCenter);
 
   Q_Q(SystemInfoAvatarFrame);
   q->setLayout(layout);
