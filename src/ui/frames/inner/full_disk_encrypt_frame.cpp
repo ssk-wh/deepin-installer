@@ -121,7 +121,7 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     // add round progress bar
     RoundedProgressBar* spacingBar = new RoundedProgressBar;
     spacingBar->setFixedHeight(2);
-    spacingBar->setFixedWidth(kContentWidth);    
+    spacingBar->setFixedWidth(kContentWidth);
     m_layout->addWidget(spacingBar, 0, Qt::AlignHCenter);
 
     m_layout->addSpacing(20);
