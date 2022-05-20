@@ -128,6 +128,12 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
 
     // add encrypt input
     m_encryptLbl->setAlignment(Qt::AlignLeft);
+    m_encryptCheckLbl->setAlignment(Qt::AlignLeft);
+    QGridLayout *gridLayout = new QGridLayout;
+    gridLayout->addWidget(m_encryptLbl, 0, 0, Qt::AlignVCenter);
+    gridLayout->addWidget(m_encryptEdit, 0, 1, Qt::AlignVCenter);
+    gridLayout->addWidget(m_encryptCheckLbl, 1, 0, Qt::AlignVCenter);
+    gridLayout->addWidget(m_encryptRepeatEdit, 1, 1, Qt::AlignVCenter);
 
     m_encryptEdit->layout()->setContentsMargins(0, 0, 0, 0);
     m_encryptEdit->layout()->setSpacing(10);
@@ -136,16 +142,6 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     m_encryptEdit->setContextMenuPolicy(Qt::ContextMenuPolicy::NoContextMenu);
     m_encryptEdit->lineEdit()->setMaxLength(kMaxPasswordLength);
 
-    QHBoxLayout *encryptLayout = new QHBoxLayout;
-    encryptLayout->setContentsMargins(0, 0, 0, 0);
-    encryptLayout->setSpacing(10);
-    encryptLayout->addWidget(m_encryptLbl, 0, Qt::AlignLeft | Qt::AlignVCenter);
-    encryptLayout->addWidget(m_encryptEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
-    m_encryptFrame = new QFrame;
-    m_encryptFrame->setLayout(encryptLayout);
-
-    m_encryptCheckLbl->setAlignment(Qt::AlignLeft);
-
     m_encryptRepeatEdit->layout()->setContentsMargins(0, 0, 0, 0);
     m_encryptRepeatEdit->layout()->setSpacing(10);
     m_encryptRepeatEdit->setContentsMargins(0, 0, 0, 0);
@@ -153,21 +149,8 @@ Full_Disk_Encrypt_frame::Full_Disk_Encrypt_frame(FrameProxyInterface* frameProxy
     m_encryptRepeatEdit->setContextMenuPolicy(Qt::ContextMenuPolicy::NoContextMenu);
     m_encryptRepeatEdit->lineEdit()->setMaxLength(kMaxPasswordLength);
 
-    QHBoxLayout *encryptCheckLayout = new QHBoxLayout;
-    encryptCheckLayout->setContentsMargins(0, 0, 0, 0);
-    encryptCheckLayout->setSpacing(10);
-    encryptCheckLayout->addWidget(m_encryptCheckLbl, 0, Qt::AlignLeft | Qt::AlignVCenter);
-    encryptCheckLayout->addWidget(m_encryptRepeatEdit, 0, Qt::AlignRight | Qt::AlignVCenter);
-    m_encryptCheckFrame = new QFrame;
-    m_encryptCheckFrame->setLayout(encryptCheckLayout);
-
-    QVBoxLayout *encryptlayouts = new QVBoxLayout;
-    encryptlayouts->setContentsMargins(0, 0, 0, 0);
-    encryptlayouts->setSpacing(20);
-    encryptlayouts->addWidget(m_encryptFrame);
-    encryptlayouts->addWidget(m_encryptCheckFrame);
     QWidget *encryptwidgets = new QWidget(this);
-    encryptwidgets->setLayout(encryptlayouts);
+    encryptwidgets->setLayout(gridLayout);
     m_layout->addWidget(encryptwidgets, 0, Qt::AlignHCenter);
 
     m_layout->addSpacing(16);
@@ -304,14 +287,12 @@ void Full_Disk_Encrypt_frame::onNextBtnClicked()
 {
     if (m_encryptEdit->text().isEmpty()) {
         m_errTip->setText(::QObject::tr("Please input password"));
-        m_errTip->setRelativePosition(m_encryptFrame->pos());
         m_errTip->showBottom(m_encryptEdit);
         return;
     }
 
     if (m_encryptEdit->text() != m_encryptRepeatEdit->text()) {
         m_errTip->setText(::QObject::tr("Passwords do not match"));
-        m_errTip->setRelativePosition(m_encryptCheckFrame->pos());
         m_errTip->showBottom(m_encryptRepeatEdit);
         return;
     }
