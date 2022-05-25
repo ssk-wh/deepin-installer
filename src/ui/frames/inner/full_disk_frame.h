@@ -54,6 +54,7 @@ public:
     bool doSpace();
     bool doSelect();
     bool directionKey(int keyvalue);
+    bool isSaveData();
 
 signals:
     void currentDeviceChanged(const Device::Ptr device) const;

@@ -249,6 +249,7 @@ const char kSystemFirstBootTimeout[] = "system_first_boot_timeout";
 // recovery分区的基础大小
 const char kSystemRecoveryBaseSize[] = "system_recovery_base_size";
 
+const char KIsSaveData[] = "is_save_data";
 const char kSystemIsCreateEFI[] = "system_is_create_efi";
 
 }  // namespace installer

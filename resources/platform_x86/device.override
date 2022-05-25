@@ -24,3 +24,5 @@ partition_enable_swap_file=false
 is_init_recovery = false;
 # 是否显示创建初始化备份选择框
 is_show_init_recovery_checkbox = false;
+# 是否提供保留用户数据功能
+is_save_data = false

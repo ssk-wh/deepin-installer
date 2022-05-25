@@ -215,6 +215,11 @@ bool FullDiskFrame::directionKey(int keyvalue)
     }
 }
 
+bool FullDiskFrame::isSaveData()
+{
+    return GetSettingsBool(KIsSaveData);
+}
+
 void FullDiskFrame::changeEvent(QEvent* event) {
     if (event->type() == QEvent::LanguageChange) {
         for (auto it = m_trList.begin(); it != m_trList.end(); ++it) {
@@ -271,6 +276,7 @@ void FullDiskFrame::initUI() {
   m_saveDataCheck->setCheckable(true);
   m_saveDataCheck->setChecked(false);
   m_saveDataCheck->setEnabled(false);
+  m_saveDataCheck->setVisible(isSaveData());
   addTransLate(m_trList, std::bind(&QCheckBox::setText, m_saveDataCheck, std::placeholders::_1), ::QObject::tr("Save User Data"));
 
   m_encryptCheck = new QCheckBox;
@@ -500,6 +506,11 @@ bool FullDiskFrame::isFullDiskEncrypt(const QString &devicepath)
 
 void FullDiskFrame::setSaveDataCheckboxStat(const Device::Ptr device,  const int type)
 {
+    // 判断是否关闭了保留用户数据开关
+    if (!isSaveData()) {
+        WriteSaveUserData(false);
+        return;
+    }
     // 判断是否是一个系统盘
     bool testissystemdisk = false;
     if (static_cast<int>(DiskModelType::SystemDisk) == type) {
