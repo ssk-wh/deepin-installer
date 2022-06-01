@@ -542,6 +542,11 @@ main(){
   installer_set DI_FULLDISK_MODE "true"
 }
 
+part_to_device() {
+    local part_path=$1
+    echo "$part_path" | sed -r "s/[p]{0,1}[0-9]+$//g"
+}
+
 sava_data() {
 
   local PART_DEVICE=$(installer_get "DI_FULLDISK_MULTIDISK_DEVICE")
@@ -567,7 +572,7 @@ sava_data() {
               error "Failed to create $p_fs filesystem on $p_path!"
         fi
 
-        [ "x$p_label" = "xBoot" ] && installer_set "DI_BOOTLOADER" "$p_path"
+        [ "x$p_label" = "xBoot" ] && installer_set "DI_BOOTLOADER" "$(part_to_device ${p_path})"
         [ "x$p_label" = "xRoota" ] && installer_set "DI_ROOT_PARTITION" "$p_path"
 
         # 系统和数据盘里都有data分区时，只挂载数据盘里的分区，清理掉系统盘的挂载点
