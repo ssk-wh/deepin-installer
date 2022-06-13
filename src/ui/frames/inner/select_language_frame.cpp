@@ -348,7 +348,6 @@ bool SelectLanguageFrame::directionKey(int keyvalue)
         }
 
         d->m_languageView->setCurrentIndex(current.siblingAtRow(current.row() + testindexstep));
-        d->lang_ = d->lang_list_.at(current.row() + testindexstep);
     }
 
     return true;
