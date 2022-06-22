@@ -555,7 +555,7 @@ void SelectLanguageFramePrivate::initUI() {
     m_privacy_license_label_->setObjectName("LicenseLabel");
     m_privacy_license_label_->installEventFilter(q);
     m_privacy_license_label_->setStyleSheet("QLabel::focus{border:1px solid; border-color:rgb(1, 128, 255); border-radius:5px; padding:2px 4px;}");
-
+    m_privacy_license_label_->setVisible(!GetSettingsBool(KSystemInfoDisablePrivacyLicense));
     if (user_license_delegate_->isLicenseDirExists()) {
         oem_and_label_ = new QLabel;
         oem_and_label_->setObjectName("OemAndLabel");
@@ -565,7 +565,7 @@ void SelectLanguageFramePrivate::initUI() {
     }
 
     m_and_label = new QLabel;
-
+    m_and_label->setVisible(!GetSettingsBool(KSystemInfoDisablePrivacyLicense));
     QHBoxLayout* license_layout = new QHBoxLayout;
     license_layout->setMargin(0);
     license_layout->setSpacing(5);
