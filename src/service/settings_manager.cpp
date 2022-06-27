@@ -80,6 +80,12 @@ const char kDeepinOemDir[] = "/lib/live/mount/medium/oem";
 const char kDeepinOemCandidateDir[] = "/usr/lib/live/mount/medium/oem";
 const char kDeepinOemCandidateDir2[] = "/run/live/medium/oem";
 
+const char kDebugPxeDir[] = "/tmp/pxemode";
+const char kUbuntuPxeDir[] = "/cdrom/pxemode";
+const char kDeepinPxeDir[] = "/lib/live/mount/medium/pxemode";
+const char kDeepinPxeCandidateDir[] = "/usr/lib/live/mount/medium/pxemode";
+const char kDeepinPxeCandidateDir2[] = "/run/live/medium/pxemode";
+
 // Filename of oem settings
 const char kOemSettingsFilename[] = "settings.ini";
 
@@ -127,6 +133,24 @@ QDir GetOemDir() {
     }
 
     qDebug() << "OEM_DIR=" << g_oem_dir;
+    return QDir(g_oem_dir);
+}
+
+QDir GetPxeDir() {
+    QString g_oem_dir;
+    if (QDir(kDebugPxeDir).exists()) {
+        g_oem_dir = kDebugPxeDir;
+    } else if (QDir(kUbuntuPxeDir).exists()) {
+        g_oem_dir = kUbuntuPxeDir;
+    } else if (QDir(kDeepinPxeDir).exists()) {
+        g_oem_dir = kDeepinPxeDir;
+    } else if (QDir(kDeepinPxeCandidateDir).exists()) {
+        g_oem_dir = kDeepinPxeCandidateDir;
+    } else {
+        g_oem_dir = kDeepinPxeCandidateDir2;
+    }
+
+    qDebug() << "PXE_DIR=" << g_oem_dir;
     return QDir(g_oem_dir);
 }
 
@@ -206,7 +230,7 @@ bool isPexInstall() {
     cmd_file.open(QIODevice::ReadOnly);
     if (!cmd_file.isOpen()) {
         qCritical() << "isPexInstall: Failed to open file. /proc/cmdline";
-        return true;   // 如果没有读到文件，无法做出是否为pxe的判断， 则始终不加载网络模块，防止产生网络问题
+        return false;   // 如果没有读到文件，无法做出是否为pxe的判断， 则始终不加载网络模块，防止产生网络问题
     }
     QString info = cmd_file.readAll();
     if (!info.contains("nfsroot")) {
@@ -692,6 +716,11 @@ void AddConfigFile() {
     const QString oem_file = GetOemDir().absoluteFilePath(kOemSettingsFilename);
     if (QFile::exists(oem_file)) {
         settingsList << oem_file;
+    }
+
+    const QString pxe_file = GetPxeDir().absoluteFilePath(kOemSettingsFilename);
+    if (QFile::exists(pxe_file) && isPexInstall()) {
+        settingsList << pxe_file;
     }
 
     const QString policy_file = QString("%1/disk_policy/settings_%2.ini")
