@@ -42,6 +42,7 @@ namespace  {
     const int kItemHeight = 100;
     const char kChineseLanguageFile[] = I18N_DIR "/deepin-installer-zh_CN.qm";
     const char kEnglishLanguageFile[] = I18N_DIR "/deepin-installer.qm";
+    const char kDeepinRepairTools[] = "/usr/sbin/deepin-repair-tools";
 }
 
 namespace installer {
@@ -248,11 +249,7 @@ void installer::RepairSystemFrame::finished()
 
 bool installer::RepairSystemFrame::shouldDisplay() const
 {
-#ifdef QT_DEBUG
-    return true;
-#endif // QT_DEBUG
-
-    return !GetSettingsBool(kSkipRepairSystemPage) && !IsVirtualMachine();
+    return QFileInfo::exists(kDeepinRepairTools) && !IsVirtualMachine();
 }
 
 QString installer::RepairSystemFrame::returnFrameName() const
