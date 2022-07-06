@@ -62,11 +62,11 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="180"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="431"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="190"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="441"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="426"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="772"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="1085"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="272"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1088"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="273"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1092"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="110"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="184"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="133"/>
@@ -87,11 +87,11 @@
         <location filename="../src/ui/frames/inner/lvm_partition_frame.cpp" line="71"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="47"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="88"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="312"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="324"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="100"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="144"/>
-        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="175"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="983"/>
+        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="128"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="987"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="205"/>
         <source>Back</source>
         <comment>button</comment>
@@ -140,7 +140,7 @@
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="312"/>
         <source>Cloud and Virtualization</source>
-        <translation type="unfinished"/>
+        <translation>Awan dan Pemayaan</translation>
     </message>
     <message>
         <location filename="../src/ui/delegates/componentinstallmanager.cpp" line="313"/>
@@ -476,9 +476,9 @@
         <translation>Dasar Persendirian Perisian UnionTech</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/license_delegate.cpp" line="60"/>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="54"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="235"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="240"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
@@ -489,12 +489,12 @@
         <translation>Deepin</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/license_delegate.cpp" line="61"/>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="55"/>
         <source>UnionTech OS</source>
         <translation>UnionTech OS</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/license_delegate.cpp" line="64"/>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="58"/>
         <source>UOS</source>
         <translation>UOS</translation>
     </message>
@@ -522,7 +522,7 @@
     <message>
         <location filename="../src/ui/first_boot_setup_window.cpp" line="429"/>
         <source>An unknown problem has occurred, which may not affect the system running. Please click &quot;Skip&quot; to continue the installation. If you cannot enter the system later, please try to reinstall.</source>
-        <translation type="unfinished"/>
+        <translation>Ada masalah yang tidak diketahui telah berlaku, yang mungkin tidak menjejaskan sistem sedia ada. Sila &quot;Langkau&quot; untuk teruskan pemasangan. Jika anda gagal memasuki sistem, cuba pasang semula sekali lagi.</translation>
     </message>
     <message>
         <location filename="../src/ui/first_boot_setup_window.cpp" line="431"/>
@@ -549,7 +549,7 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="98"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="85"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="162"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="313"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="325"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="119"/>
         <location filename="../src/ui/main_window.cpp" line="453"/>
@@ -585,7 +585,7 @@
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="76"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="274"/>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="352"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="333"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="381"/>
         <source>Cancel</source>
         <comment>button</comment>
@@ -616,7 +616,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="56"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="233"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="238"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
         <translation>Anda memerlukan sekurang-kurangnya %1 GB ruang cakera untuk memasang %2. Untuk prestasi lebih baik, sebanyak %3 GB atau lebih disarankan</translation>
     </message>
@@ -651,7 +651,7 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="96"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="89"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="170"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="278"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="279"/>
         <location filename="../src/ui/frames/warnning_frame.cpp" line="249"/>
         <location filename="../src/ui/frames/warnning_frame.cpp" line="261"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="97"/>
@@ -684,7 +684,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="230"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="732"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="733"/>
         <location filename="../src/ui/frames/install_results_frame.cpp" line="104"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="15"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="73"/>
@@ -694,14 +694,14 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="232"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="323"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="734"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1212"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="735"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1216"/>
         <source>Delete</source>
         <translation>Padam</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="265"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="315"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="277"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="327"/>
         <source>Install NVIDIA closed source driver</source>
         <translation>Pasang pemacu sumber tertutup NVIDIA</translation>
     </message>
@@ -733,7 +733,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="658"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="662"/>
         <source>The partition of %1 directory should be the first partition on the hard disk, and starts at the beginning of the disk</source>
-        <translation type="unfinished"/>
+        <translation>Sekatan direktori %1 patut menjadi sekatan pertama di dalam cakera keras, dan bermula pada permulaan cakera</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="381"/>
@@ -828,76 +828,76 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="275"/>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="353"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="334"/>
         <source>Confirm</source>
         <comment>button</comment>
         <translation>Sahkan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="306"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="289"/>
         <source>Please input password</source>
         <translation>Sila masukkan kata laluan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="313"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="942"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="295"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="949"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="86"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="226"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="233"/>
         <source>Passwords do not match</source>
         <translation>Kata laluan tidak sepadan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="346"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="224"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="281"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="327"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="229"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="287"/>
         <source>Encrypt This Disk</source>
         <translation>Sulitkan Cakera Ini</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="347"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="328"/>
         <source>Take care of your password, otherwise, all your data will be lost</source>
         <translation>Hati-hati dengan kata laluan anda, jika bermasalah atau terlupa, semua data anda akan hilang</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="349"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="271"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="724"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1090"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="330"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="272"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="725"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1094"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Pastikan anda telah menyandar data penting anda, kemudian pilih cakera yang hendak dipasangkan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="350"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="331"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="586"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="793"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="800"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="467"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="474"/>
         <source>Password</source>
         <translation>Kata laluan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="351"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="332"/>
         <source>Repeat Password</source>
         <translation>Ulang Kata Laluan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="223"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="228"/>
         <source>Keep User Data</source>
-        <translation type="unfinished"/>
+        <translation>Kekalkan Data Pengguna</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="225"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="286"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="230"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="292"/>
         <source>Please select a disk to start installation</source>
         <translation>Sila pilih satu cakera untuk pemasangan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="274"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="280"/>
         <source>Save User Data</source>
-        <translation type="unfinished"/>
+        <translation>Simpan Data Pengguna</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="442"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="448"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="239"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="181"/>
@@ -1056,26 +1056,26 @@
         <translation>Anda mempunyai pemuat but EFI dalam cakera MBR, maka anda tidak boleh memasang %1 secara terus. Sila pilih salah satu penyelesaian di bawah dan teruskan.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="197"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="309"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="267"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="984"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1007"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="207"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="321"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="268"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="988"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1011"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="88"/>
         <source>Ready to Install</source>
         <translation>Sedia di Pasang</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="199"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="311"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="266"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1006"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="209"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="323"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="267"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1010"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="92"/>
         <source>Make a backup of your important data and then continue</source>
         <translation>Sandar dahulu data penting anda, kemudian teruskan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="314"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="326"/>
         <source>Create a backup for system restore, but it will increase the time</source>
         <translation>Cipta satu sandar untuk pemulihan sistem, tetapi ia mengambil masa</translation>
     </message>
@@ -1092,40 +1092,40 @@
         <translation>Jika anda tidak memahami tetapan, sila pilih yang disarankan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="669"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="668"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="219"/>
         <source>I have read and agree to the</source>
         <translation>Saya sudah baca dan bersetuju dengan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="670"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="669"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="203"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="220"/>
         <source>End User License Agreement</source>
         <translation>Perjanjian Lesen Pengguna Akhir</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="674"/>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="681"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="673"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="680"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="221"/>
         <source>and</source>
         <translation>dan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="676"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="675"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="206"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="222"/>
         <source>Privacy Policy</source>
         <translation>Dasar Persendirian</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="690"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="689"/>
         <source>Agree to the</source>
         <translation>Bersetuju dengan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="694"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="98"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="693"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="99"/>
         <location filename="../src/ui/frames_cli/language_frame.cpp" line="90"/>
         <source>Select Language</source>
         <translation>Pilih Bahasa</translation>
@@ -1150,7 +1150,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="791"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="798"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="805"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="466"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="473"/>
         <source>Username</source>
         <translation>Nama pengguna</translation>
     </message>
@@ -1158,7 +1158,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="527"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="792"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="799"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="465"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="472"/>
         <source>Computer name</source>
         <translation>Nama komputer</translation>
     </message>
@@ -1167,7 +1167,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="794"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="801"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="177"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="468"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="475"/>
         <source>Repeat password</source>
         <translation>Ulang kata laluan</translation>
     </message>
@@ -1201,13 +1201,13 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="807"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="104"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="462"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="469"/>
         <source>Create Accounts</source>
         <translation>Cipta Akaun</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="808"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="464"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="471"/>
         <source>Fill in the username, computer name and your password</source>
         <translation>Sila isi nama pengguna, nama komputer dan kata laluan anda</translation>
     </message>
@@ -1228,27 +1228,27 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="835"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="189"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="196"/>
         <source>This username already exists</source>
         <translation>Nama pengguna ini telah wujud</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="839"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="193"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="200"/>
         <source>The first letter must be in lowercase</source>
         <translation>Abjad pertama mesti dalam huruf kecil</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="845"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="199"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="206"/>
         <source>Username must start with letters or numbers, only contain letters, numbers, dashes (-) and underscores (_), and cannot use numbers alone</source>
-        <translation type="unfinished"/>
+        <translation>Nama pengguna mesti bermula dengan abjad atau angka, hanya boleh mengandungi abjad, angka, tanda sempang (-) dan garis bawah (_), dan tidak boleh guna angka semata-mata</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="850"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="204"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="211"/>
         <source>Username must be between %1 and %2 characters</source>
-        <translation type="unfinished"/>
+        <translation>Nama pengguna mesti antara %1 hingga %2 aksara</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="872"/>
@@ -1260,7 +1260,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="876"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="158"/>
         <source>Computer name can only contain letters, numbers, and dashes (-), and cannot start or end with a dash (-)</source>
-        <translation type="unfinished"/>
+        <translation>Nama komputer hanya boleh mengandungi abjad, angka, dan tanda sempang (-), dan juga tidak boleh bermula atau berakhir dengan tanda sempang (-)</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="880"/>
@@ -1270,7 +1270,9 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="885"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="892"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="167"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="174"/>
         <source>Please input a computer name longer than %1 characters and shorter than %2 characters</source>
         <translation>Sila masukkan nama komputer lebih dari %1 aksara dan kurang dari %2 aksara</translation>
     </message>
@@ -1384,7 +1386,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="175"/>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="169"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="170"/>
         <source>Install</source>
         <translation>Pasang</translation>
     </message>
@@ -1582,30 +1584,30 @@
         <translation>Alamat IP telah diauto-konfigur, tetapi anda boleh konfigur rangkaian juga</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="202"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="269"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="721"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1087"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="203"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="270"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="722"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1091"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="88"/>
         <source>Create Partitions</source>
         <translation>Cipta Sekatan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="264"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1004"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="265"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1008"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="572"/>
         <source>Edit LVM Disk</source>
         <translation>Sunting Cakera LVM</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="280"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="731"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="281"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="732"/>
         <source>Simple</source>
         <translation>Ringkas</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="281"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="734"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="282"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="735"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="550"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="97"/>
@@ -1613,61 +1615,61 @@
         <translation>Lanjutan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="282"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="738"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="283"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="739"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="96"/>
         <source>Full Disk</source>
         <translation>Cakera Penuh</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="801"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="802"/>
         <source>Start installation</source>
         <translation>Mulakan pemasangan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="959"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="963"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
         <translation>Cakera sasaran bersifat dinamik, dan data anda mungkin hilang jika diteruskan. Sila menyandar fail-fail penting anda terlebih dahulu.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="963"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="967"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
         <translation>Cakera sasaran bersifat dinamik yang akan diformatkan jika diteruskan. Sila menyandar fail-fail penting anda terlebih dahulu.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1210"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1214"/>
         <source>The &quot;/data/home&quot; directory is found. If you do not keep it, the data saved in it by previous users will be lost. Keep or delete it?</source>
-        <translation type="unfinished"/>
+        <translation>Direktori &quot;/data/home&quot; telah ditemui. Jika anda tidak menyimpannya, data tersimpan milik pengguna terdahulu akan hilang. Mahu simpan atau padam ia?</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1211"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1215"/>
         <source>Keep</source>
-        <translation type="unfinished"/>
+        <translation>Simpan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="166"/>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="260"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="167"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="257"/>
         <source>System Setup</source>
         <translation>Persediaan Sistem</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="167"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="168"/>
         <source>Choose an option for your system</source>
         <translation>Pilih satu pilihan untuk sistem anda</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="170"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="171"/>
         <source>Install the system in your installation media.</source>
         <translation>Pasang sistem dalam media pemasangan anda.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="172"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="173"/>
         <source>Repair</source>
         <translation>Baiki</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="173"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="174"/>
         <source>Use recovery tools to fix system issues.</source>
         <translation>Guna alatan pemulihan untuk membaiki isu-isu sistem.</translation>
     </message>
@@ -1683,7 +1685,7 @@
         <translation>Simpan sebagai</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="275"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="276"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="62"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="142"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="72"/>
@@ -1693,14 +1695,14 @@
         <translation>Peringatan Mesra</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="276"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="277"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="127"/>
         <source>No swap partition created, which may affect system performance</source>
         <translation>Tiada sekatan silih dicipta, yang mana boleh menjejaskan prestasi sistem</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="277"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="278"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="133"/>
         <location filename="../src/ui/frames/warnning_frame.cpp" line="248"/>
@@ -1717,8 +1719,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="130"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="219"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="372"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="212"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="365"/>
         <source>Is it the right timezone? You can change it as well</source>
         <translation>Adakah zon waktu betul? Anda boleh mengubahnya</translation>
     </message>
@@ -1958,17 +1960,17 @@
         <translation>Mod sekatan</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="469"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="476"/>
         <source>Set Root Password</source>
         <translation>Tetapkan Kata Laluan Root</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="471"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="478"/>
         <source>If you check &quot;Set as root password&quot;, the root password is the same as the password, otherwise, you need to set it separately.</source>
         <translation>Jika anda menanda &quot;Tetapkan sebagai kata laluan root&quot;, kata laluan root adalah sama dengan kata laluan, melainkan, anda menetapkannya secara berasingan.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="472"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="479"/>
         <source>Your root password should be different from the user password, please take care of them.</source>
         <translation>Kata laluan root anda mesti berbeza dengan kata laluan pengguna, anda perlu lebih berhati-hati.</translation>
     </message>
@@ -2070,10 +2072,15 @@
     <message>
         <location filename="../src/service/password_manager.cpp" line="124"/>
         <source>No more than %1 consecutive or repeated characters please</source>
+        <translation>Tidak boleh melebihi %1 aksara berturutan atau berulang</translation>
+    </message>
+    <message>
+        <location filename="../src/service/password_manager.cpp" line="128"/>
+        <source>Different from the username</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="135"/>
+        <location filename="../src/service/password_manager.cpp" line="138"/>
         <source>It does not meet password rules</source>
         <translation>Tidak menepati peraturan kata laluan</translation>
     </message>
@@ -2089,7 +2096,7 @@
 <context>
     <name>installer::RepairSystemFramePrivate</name>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="175"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="176"/>
         <source>Start</source>
         <translation>Mula</translation>
     </message>

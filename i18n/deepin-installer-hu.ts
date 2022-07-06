@@ -62,11 +62,11 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="180"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="431"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="190"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="441"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="426"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="772"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="1085"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="272"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1088"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="273"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1092"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="110"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="184"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="133"/>
@@ -87,11 +87,11 @@
         <location filename="../src/ui/frames/inner/lvm_partition_frame.cpp" line="71"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="47"/>
         <location filename="../src/ui/frames/inner/partition_number_limitation_frame.cpp" line="88"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="312"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="324"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="100"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="144"/>
-        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="175"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="983"/>
+        <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="128"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="987"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="205"/>
         <source>Back</source>
         <comment>button</comment>
@@ -476,9 +476,9 @@
         <translation>UnionTech szoftver adatvédelmi irányelvei</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/license_delegate.cpp" line="60"/>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="54"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="235"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="240"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
@@ -489,12 +489,12 @@
         <translation>Deepin®</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/license_delegate.cpp" line="61"/>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="55"/>
         <source>UnionTech OS</source>
         <translation>UnionTech operációs rendszer</translation>
     </message>
     <message>
-        <location filename="../src/ui/delegates/license_delegate.cpp" line="64"/>
+        <location filename="../src/ui/delegates/license_delegate.cpp" line="58"/>
         <source>UOS</source>
         <translation>UOS®</translation>
     </message>
@@ -549,7 +549,7 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="98"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="85"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="162"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="313"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="325"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="119"/>
         <location filename="../src/ui/main_window.cpp" line="453"/>
@@ -585,7 +585,7 @@
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="76"/>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="274"/>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="352"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="333"/>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="381"/>
         <source>Cancel</source>
         <comment>button</comment>
@@ -616,7 +616,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="56"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="233"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="238"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
         <translation>Legalább %1 GB lemezterületre van szüksége a %2 telepítéséhez. A jobb teljesítmény érdekében legalább %3 GB ajánlott</translation>
     </message>
@@ -651,7 +651,7 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="96"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="89"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="170"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="278"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="279"/>
         <location filename="../src/ui/frames/warnning_frame.cpp" line="249"/>
         <location filename="../src/ui/frames/warnning_frame.cpp" line="261"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="97"/>
@@ -684,7 +684,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="230"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="732"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="733"/>
         <location filename="../src/ui/frames/install_results_frame.cpp" line="104"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="15"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="73"/>
@@ -694,14 +694,14 @@
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="232"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="323"/>
-        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="734"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1212"/>
+        <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="735"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1216"/>
         <source>Delete</source>
         <translation>Törlés</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="265"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="315"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="277"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="327"/>
         <source>Install NVIDIA closed source driver</source>
         <translation>Telepítse az NVIDIA zárt forráskódú illesztőprogramot</translation>
     </message>
@@ -828,76 +828,76 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/edit_partition_frame.cpp" line="275"/>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="353"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="334"/>
         <source>Confirm</source>
         <comment>button</comment>
         <translation>Megerősítés</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="306"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="289"/>
         <source>Please input password</source>
         <translation>Kérjük adja meg a jelszavát</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="313"/>
-        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="942"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="295"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="949"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="86"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="226"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="233"/>
         <source>Passwords do not match</source>
         <translation>A jelszavak nem egyeznek</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="346"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="224"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="281"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="327"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="229"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="287"/>
         <source>Encrypt This Disk</source>
         <translation>A lemez titkosítása</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="347"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="328"/>
         <source>Take care of your password, otherwise, all your data will be lost</source>
         <translation>Vigyázzon a jelszavára, különben minden adata elvész</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="349"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="271"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="724"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1090"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="330"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="272"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="725"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1094"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Győződjön meg róla, hogy minden adatáról készített biztonsági mentést, majd válassza ki a lemezt a telepítéshez</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="350"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="331"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="586"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="793"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="800"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="467"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="474"/>
         <source>Password</source>
         <translation>Jelszó</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="351"/>
+        <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="332"/>
         <source>Repeat Password</source>
         <translation>Jelszó ismétlése</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="223"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="228"/>
         <source>Keep User Data</source>
         <translation>Felhasználói adatok megőrzése</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="225"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="286"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="230"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="292"/>
         <source>Please select a disk to start installation</source>
         <translation>Kérjük válasszon egy lemezt a telepítés indításához</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="274"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="280"/>
         <source>Save User Data</source>
         <translation>Felhasználói adatok mentése</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="442"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="448"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="239"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="181"/>
@@ -1056,26 +1056,26 @@
         <translation>Ön EFI rendszerindítóval rendelkezik, de MBR lemezzel, így nem tudja közvetlenül telepíteni a %1 alkalmazást. Kérjük válassza az alábbi megoldások egyikét, és folytassa.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="197"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="309"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="267"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="984"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1007"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="207"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="321"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="268"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="988"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1011"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="88"/>
         <source>Ready to Install</source>
         <translation>Telepítésre kész</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="199"/>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="311"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="266"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1006"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="209"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="323"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="267"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1010"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="92"/>
         <source>Make a backup of your important data and then continue</source>
         <translation>Készítsen mentést a fontos adatairól, majd folytassa</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="314"/>
+        <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="326"/>
         <source>Create a backup for system restore, but it will increase the time</source>
         <translation>Készítsen biztonsági másolatot a rendszer visszaállításához, azonban ez megnöveli az időt</translation>
     </message>
@@ -1092,40 +1092,40 @@
         <translation>Ha nem érti a beállításokat, kérjük válassza ki az ajánlott beállításokat</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="669"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="668"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="219"/>
         <source>I have read and agree to the</source>
         <translation>Elolvastam és egyetértek a</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="670"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="669"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="203"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="220"/>
         <source>End User License Agreement</source>
         <translation>Végfelhasználói Szerződés</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="674"/>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="681"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="673"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="680"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="221"/>
         <source>and</source>
         <translation>és</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="676"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="675"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="206"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="222"/>
         <source>Privacy Policy</source>
         <translation>Adatvédelmi irányelv</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="690"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="689"/>
         <source>Agree to the</source>
         <translation>Egyetértek a</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="694"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="98"/>
+        <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="693"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="99"/>
         <location filename="../src/ui/frames_cli/language_frame.cpp" line="90"/>
         <source>Select Language</source>
         <translation>Nyelv kiválasztása</translation>
@@ -1150,7 +1150,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="791"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="798"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="805"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="466"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="473"/>
         <source>Username</source>
         <translation>Felhasználónév</translation>
     </message>
@@ -1158,7 +1158,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="527"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="792"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="799"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="465"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="472"/>
         <source>Computer name</source>
         <translation>Számítógépnév</translation>
     </message>
@@ -1167,7 +1167,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="794"/>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="801"/>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="177"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="468"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="475"/>
         <source>Repeat password</source>
         <translation>Jelszó ismétlése</translation>
     </message>
@@ -1201,13 +1201,13 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="807"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="104"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="462"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="469"/>
         <source>Create Accounts</source>
         <translation>Felhasználói fiókok létrehozása</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="808"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="464"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="471"/>
         <source>Fill in the username, computer name and your password</source>
         <translation>Adja meg a felhasználónevet, számítógépnevet és a jelszavát</translation>
     </message>
@@ -1228,25 +1228,25 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="835"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="189"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="196"/>
         <source>This username already exists</source>
         <translation>A felhasználónév már létezik</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="839"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="193"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="200"/>
         <source>The first letter must be in lowercase</source>
         <translation>Az első betűnek kis betűnek kell lennie</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="845"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="199"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="206"/>
         <source>Username must start with letters or numbers, only contain letters, numbers, dashes (-) and underscores (_), and cannot use numbers alone</source>
         <translation>A felhasználónévnek betűkkel vagy számokkal kell kezdődnie, csak betűket, számokat, kötőjeleket (-) és aláhúzásjeleket (_) tartalmazhat, és nem használhat önmagában, egyedül álló számokat</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="850"/>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="204"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="211"/>
         <source>Username must be between %1 and %2 characters</source>
         <translation>A felhasználónévnek %1 és %2 karakter között kell lennie</translation>
     </message>
@@ -1260,7 +1260,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="876"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="158"/>
         <source>Computer name can only contain letters, numbers, and dashes (-), and cannot start or end with a dash (-)</source>
-        <translation type="unfinished"/>
+        <translation>A számítógép neve csak betűket, számokat és kötőjeleket (-) tartalmazhat, és nem kezdődhet és nem végződhet kötőjellel (-)</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="880"/>
@@ -1270,7 +1270,9 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="885"/>
+        <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="892"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="167"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="174"/>
         <source>Please input a computer name longer than %1 characters and shorter than %2 characters</source>
         <translation>Kérjük adjon meg egy számítógép nevet ami hosszabb mint %1 karakter és rövidebb mint %2 karakter</translation>
     </message>
@@ -1384,7 +1386,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="175"/>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="169"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="170"/>
         <source>Install</source>
         <translation>Telepítés</translation>
     </message>
@@ -1582,30 +1584,30 @@
         <translation>Az IP címet automatikusan konfigurálták, de beállíthatja a hálózatot is</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="202"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="269"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="721"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1087"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="203"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="270"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="722"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1091"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="88"/>
         <source>Create Partitions</source>
         <translation>Partíciók létrehozása</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="264"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1004"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="265"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1008"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="572"/>
         <source>Edit LVM Disk</source>
         <translation>LVM lemez szerkesztése</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="280"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="731"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="281"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="732"/>
         <source>Simple</source>
         <translation>Egyszerű</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="281"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="734"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="282"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="735"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="550"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="97"/>
@@ -1613,61 +1615,61 @@
         <translation>Kibővített</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="282"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="738"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="283"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="739"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="96"/>
         <source>Full Disk</source>
         <translation>Teljes lemez</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="801"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="802"/>
         <source>Start installation</source>
         <translation>Telepítés elindítása</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="959"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="963"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
         <translation>A céllemez dinamikus, és az adatok elveszhetnek, ha folytatja. Kérjük először készítsen biztonsági másolatot a fontos fájljairól.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="963"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="967"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
         <translation>A céllemez dinamikus, amelyet formázni fog, ha folytatja. Kérjük először készítsen biztonsági másolatot a fontos fájljairól.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1210"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1214"/>
         <source>The &quot;/data/home&quot; directory is found. If you do not keep it, the data saved in it by previous users will be lost. Keep or delete it?</source>
         <translation>A „/data/home” könyvtár megtalálható a lemezen. Ha nem tartja meg a mappát, a korábbi felhasználók által benne elmentett adatok elvesznek. Megtartja vagy törli azt?</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1211"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1215"/>
         <source>Keep</source>
         <translation>Megtart</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="166"/>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="260"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="167"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="257"/>
         <source>System Setup</source>
         <translation>Rendszer beállítások</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="167"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="168"/>
         <source>Choose an option for your system</source>
         <translation>Válasszon egy lehetőséget a rendszeréhez</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="170"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="171"/>
         <source>Install the system in your installation media.</source>
         <translation>Telepítse a rendszert a telepítési adathordozóra.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="172"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="173"/>
         <source>Repair</source>
         <translation>Javítás</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="173"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="174"/>
         <source>Use recovery tools to fix system issues.</source>
         <translation>A rendszerproblémák kijavításához használja helyreállítási eszközöket.</translation>
     </message>
@@ -1683,7 +1685,7 @@
         <translation>Mentés másként</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="275"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="276"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="62"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="142"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="72"/>
@@ -1693,14 +1695,14 @@
         <translation>Barátságos megjegyzés</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="276"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="277"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="127"/>
         <source>No swap partition created, which may affect system performance</source>
         <translation>Nincs létrehozva cserepartíció, ami befolyásolhatja a rendszer teljesítményét</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="277"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="278"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="133"/>
         <location filename="../src/ui/frames/warnning_frame.cpp" line="248"/>
@@ -1717,8 +1719,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="130"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="219"/>
-        <location filename="../src/ui/frames/timezone_frame.cpp" line="372"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="212"/>
+        <location filename="../src/ui/frames/timezone_frame.cpp" line="365"/>
         <source>Is it the right timezone? You can change it as well</source>
         <translation>Ez a megfelelő időzóna? Megváltoztathatja azt is</translation>
     </message>
@@ -1958,17 +1960,17 @@
         <translation>Partíciós mód</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="469"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="476"/>
         <source>Set Root Password</source>
         <translation>Rendszergazdai jelszó beállítása</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="471"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="478"/>
         <source>If you check &quot;Set as root password&quot;, the root password is the same as the password, otherwise, you need to set it separately.</source>
         <translation>Ha bejelöli a &quot;Beállítás rendszergazdai jelszóként&quot; lehetőséget, akkor a rendszergazda jelszó megegyezik a jelszóval, egyéb esetben külön kell beállítania.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="472"/>
+        <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="479"/>
         <source>Your root password should be different from the user password, please take care of them.</source>
         <translation>A rendszergazdai jelszónak különböznie kell a felhasználói jelszótól, kérjük vigyázzon rájuk.</translation>
     </message>
@@ -2073,7 +2075,12 @@
         <translation>Kérjük legfeljebb %1 egymást követő, vagy ismétlődő karaktert használjon</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="135"/>
+        <location filename="../src/service/password_manager.cpp" line="128"/>
+        <source>Different from the username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/service/password_manager.cpp" line="138"/>
         <source>It does not meet password rules</source>
         <translation>Nem felel meg a jelszavakra vonatkozó szabályoknak</translation>
     </message>
@@ -2089,7 +2096,7 @@
 <context>
     <name>installer::RepairSystemFramePrivate</name>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="175"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="176"/>
         <source>Start</source>
         <translation>Indítás</translation>
     </message>

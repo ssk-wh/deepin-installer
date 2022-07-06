@@ -354,7 +354,7 @@ void SystemInfoFormFrame::writeConf()
     WriteUsername(d->m_usernameEdit->text());
     WriteHostname(d->m_hostnameEdit->text());
     WritePassword(d->m_passwordEdit->text());
-    WritePasswdLevel(PasswordManager::instance()->passwdLevel(d->m_passwordEdit->text()));
+    WritePasswdLevel(PasswordManager::instance()->passwdLevel(d->m_usernameEdit->text(), d->m_passwordEdit->text()));
 
     if (d->m_setRootPasswordCheck->isChecked()) {
         WriteRootPassword(d->m_rootPasswordEdit->text());
@@ -766,20 +766,20 @@ void SystemInfoFormFramePrivate::updatePasswdLevel()
 
     if (!m_passwordEdit->text().isEmpty()) {
         QPalette palette;
-        palette.setColor(QPalette::Text, mapPasswdLevelColor[PasswordManager::instance()->passwdLevel(m_passwordEdit->text())]);
+        palette.setColor(QPalette::Text, mapPasswdLevelColor[PasswordManager::instance()->passwdLevel(m_usernameEdit->text(), m_passwordEdit->text())]);
         m_passwdLevelLabel->setPalette(palette);
         m_passwdLevelLabel->setForegroundRole(QPalette::Text);
-        m_passwdLevelLabel->setText(mapPasswdLevel[PasswordManager::instance()->passwdLevel(m_passwordEdit->text())]);
+        m_passwdLevelLabel->setText(mapPasswdLevel[PasswordManager::instance()->passwdLevel(m_usernameEdit->text(), m_passwordEdit->text())]);
     } else {
         m_passwdLevelLabel->setText("");
     }
 
     if (!m_rootPasswordEdit->text().isEmpty()) {
         QPalette palette;
-        palette.setColor(QPalette::Text, mapPasswdLevelColor[PasswordManager::instance()->passwdLevel(m_rootPasswordEdit->text())]);
+        palette.setColor(QPalette::Text, mapPasswdLevelColor[PasswordManager::instance()->passwdLevel("root", m_rootPasswordEdit->text())]);
         m_rootPasswdLevelLabel->setPalette(palette);
         m_rootPasswdLevelLabel->setForegroundRole(QPalette::Text);
-        m_rootPasswdLevelLabel->setText(mapPasswdLevel[PasswordManager::instance()->passwdLevel(m_rootPasswordEdit->text())]);
+        m_rootPasswdLevelLabel->setText(mapPasswdLevel[PasswordManager::instance()->passwdLevel("root", m_rootPasswordEdit->text())]);
 
     } else {
         m_rootPasswdLevelLabel->setText("");

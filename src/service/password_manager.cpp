@@ -25,6 +25,9 @@
 #include <QRegExp>
 #include <QProcess>
 
+// pw-check库1052中新加了枚举变量，为了保持低版本兼容，使用定义的枚举值对应的int值
+#define PW_USER_PASSWD_DUPLICATE 15
+
 installer::PasswordManager::PasswordManager()
 {
     init();
@@ -124,7 +127,10 @@ bool installer::PasswordManager::checked(const QString &user, const QString &pas
             info = ::QObject::tr("No more than %1 consecutive or repeated characters please").arg(m_passwdContinuousLength);
             reset = false;
         } break;
-
+        case PW_USER_PASSWD_DUPLICATE: {
+            info = ::QObject::tr("Different from the username");
+            reset = false;
+        } break;
         case PW_ERR_PW_REPEAT:
         case PW_ERR_PW_FIRST_UPPERM:
         case PW_ERR_PARA:
@@ -140,12 +146,12 @@ bool installer::PasswordManager::checked(const QString &user, const QString &pas
     return reset;
 }
 
-installer::PasswdLevel installer::PasswordManager::passwdLevel(const QString &passwd)
+installer::PasswdLevel installer::PasswordManager::passwdLevel(const QString &user, const QString &passwd)
 {
     PasswdLevel level = LowerLevel;
 
     // 依次获取密码等级中的高和中，剩余情况为低
-    if (passwdStrength(passwd) >= 3 && passwd.size() >= 8) {
+    if (passwdStrength(passwd) >= 3 && passwd.size() >= 8 && user != passwd) {
         level = HigherLevel;
 
     }  else if (passwdStrength(passwd) >= 2 && passwd.size() >= 6) {

@@ -42,7 +42,7 @@ public:
      */
     bool checked(const QString &user, const QString &passwd, QString &info);
 
-    PasswdLevel passwdLevel(const QString &passwd);
+    PasswdLevel passwdLevel(const QString &user, const QString &passwd);
 
 private:
     PasswordManager();
