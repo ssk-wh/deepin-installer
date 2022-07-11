@@ -999,6 +999,7 @@ void SystemInfoFormFramePrivate::onEditingLineEdit()
 void SystemInfoFormFramePrivate::onUsernameEdited()
 {
     m_isUsernameEdited_ = true;
+    updatePasswdLevel();
     if (!m_isHostnameEditedManually_ &&
             !GetSettingsBool(kSystemInfoLockHostname)) {
         // Update hostname based on username.

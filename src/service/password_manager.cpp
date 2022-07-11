@@ -91,7 +91,7 @@ bool installer::PasswordManager::checked(const QString &user, const QString &pas
     PW_ERROR_TYPE type = deepin_pw_check(user.toStdString().c_str(), passwd.toStdString().c_str(), 0, nullptr);
     qDebug() << "password checked: " << err_to_string(type);
 
-    switch (type) {
+    switch (int(type)) {
         case PW_NO_ERR:break;
 
         case PW_ERR_PASSWORD_EMPTY: {
