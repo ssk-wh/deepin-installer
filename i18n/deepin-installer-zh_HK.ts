@@ -1213,8 +1213,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="809"/>
-        <source>Add fingerprint password in Control Center &gt; Accounts to unlock and authenticate</source>
-        <translation>本機支持指紋識別，您可以在“控制中心 &gt;賬戶”中添加指紋密碼</translation>
+        <source>Add fingerprint passwords in Control Center to unlock and authenticate</source>
+        <translation>本機支持指紋識別，您可以在“控制中心”中添加指紋密碼</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="810"/>
@@ -2045,42 +2045,42 @@
         <translation>未知的設備</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="95"/>
+        <location filename="../src/service/password_manager.cpp" line="98"/>
         <source>The password cannot be empty​</source>
         <translation>密碼不能為空</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="101"/>
+        <location filename="../src/service/password_manager.cpp" line="104"/>
         <source>Password must be between %1 and %2 characters</source>
         <translation>密碼長度必須介於%1到%2個字符之間</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="108"/>
+        <location filename="../src/service/password_manager.cpp" line="111"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
         <translation>密碼應至少包含小寫字母、大寫字母、數字、符號（%2）中的%1種</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="113"/>
+        <location filename="../src/service/password_manager.cpp" line="116"/>
         <source>Password must not contain more than %1 palindrome characters</source>
         <translation>密碼不得含有連續%1個以上的回文字符</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="118"/>
+        <location filename="../src/service/password_manager.cpp" line="121"/>
         <source>Do not use common words and combinations as password</source>
         <translation>密碼不能是常見單詞及組合</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="124"/>
+        <location filename="../src/service/password_manager.cpp" line="127"/>
         <source>No more than %1 consecutive or repeated characters please</source>
         <translation>密碼不得包含連續%1位以上的連續或重複字符，請重新設置</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="128"/>
+        <location filename="../src/service/password_manager.cpp" line="131"/>
         <source>Different from the username</source>
         <translation>密碼不能與用戶名一致</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="138"/>
+        <location filename="../src/service/password_manager.cpp" line="141"/>
         <source>It does not meet password rules</source>
         <translation>密碼不符合安全要求</translation>
     </message>

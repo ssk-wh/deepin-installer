@@ -806,7 +806,7 @@ void SystemInfoFormFramePrivate::updateTex()
 
     m_titleLabel_->setText(::QObject::tr("Create Accounts"));
     m_commentLabel_->setText(::QObject::tr("Fill in the username, computer name and your password"));
-    m_stretchLabel->setText(::QObject::tr("Add fingerprint password in Control Center > Accounts to unlock and authenticate"));
+    m_stretchLabel->setText(::QObject::tr("Add fingerprint passwords in Control Center to unlock and authenticate"));
     m_grubPasswordCheck_->setText(::QObject::tr("Use that password to edit boot menu"));
     m_setRootPasswordCheck->setText(::QObject::tr("Enable root user"));
     tooltip_->setText("");

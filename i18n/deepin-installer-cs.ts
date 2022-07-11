@@ -1213,8 +1213,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="809"/>
-        <source>Add fingerprint password in Control Center &gt; Accounts to unlock and authenticate</source>
-        <translation>Heslo otiskem prstu pro odemykání a ověřování se přidáte v Ovládací panely &gt; Účty</translation>
+        <source>Add fingerprint passwords in Control Center to unlock and authenticate</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="810"/>
@@ -2045,42 +2045,42 @@
         <translation>Neznámé zařízení</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="95"/>
+        <location filename="../src/service/password_manager.cpp" line="98"/>
         <source>The password cannot be empty​</source>
         <translation>Heslo nemůže zůstat nevyplněné</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="101"/>
+        <location filename="../src/service/password_manager.cpp" line="104"/>
         <source>Password must be between %1 and %2 characters</source>
         <translation>Je třeba, aby heslo mělo délku mezi %1 až %2 znaky</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="108"/>
+        <location filename="../src/service/password_manager.cpp" line="111"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
         <translation>Heslo byl mělo obsahovat alespoň %1 ze čtyřech možných množin znaků: malá písmena, velká písmena, číslice a symboly (%2)</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="113"/>
+        <location filename="../src/service/password_manager.cpp" line="116"/>
         <source>Password must not contain more than %1 palindrome characters</source>
         <translation>Je třeba, aby heslo neobsahovalo více než %1 znaků, které  se čtou stejně z obou stran (palidrom)</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="118"/>
+        <location filename="../src/service/password_manager.cpp" line="121"/>
         <source>Do not use common words and combinations as password</source>
         <translation>Nepoužívejte jako heslo běžná slova a jejich kombinace</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="124"/>
+        <location filename="../src/service/password_manager.cpp" line="127"/>
         <source>No more than %1 consecutive or repeated characters please</source>
         <translation>Prosíme ne více než %1 za sebou jdoucích či opakujících se znaků</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="128"/>
+        <location filename="../src/service/password_manager.cpp" line="131"/>
         <source>Different from the username</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="138"/>
+        <location filename="../src/service/password_manager.cpp" line="141"/>
         <source>It does not meet password rules</source>
         <translation>Nesplňuje pravidla pro hesla</translation>
     </message>

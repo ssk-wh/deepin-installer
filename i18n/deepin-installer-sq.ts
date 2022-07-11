@@ -1213,8 +1213,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="809"/>
-        <source>Add fingerprint password in Control Center &gt; Accounts to unlock and authenticate</source>
-        <translation>Për shkyçje dhe mirëfilltësim, shtoni fjalëkalim shenja gishti te Qendër Kontrolli &gt; Llogari</translation>
+        <source>Add fingerprint passwords in Control Center to unlock and authenticate</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="810"/>
@@ -2045,42 +2045,42 @@
         <translation>Pajisje e panjohur</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="95"/>
+        <location filename="../src/service/password_manager.cpp" line="98"/>
         <source>The password cannot be empty​</source>
         <translation>Fjalëkalimi s’mund të jetë i zbrazët</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="101"/>
+        <location filename="../src/service/password_manager.cpp" line="104"/>
         <source>Password must be between %1 and %2 characters</source>
         <translation>Fjalëkalimi duhet të jetë mes %1 dhe %2 shenjash</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="108"/>
+        <location filename="../src/service/password_manager.cpp" line="111"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
         <translation>Fjalëkalimi duhet të përmbajë paktën %1 shenja nga katër llojet e mundshëm të shenjave: shkronja të vogla, shkronja të mëdha, numra, dhe simbole (%2)</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="113"/>
+        <location filename="../src/service/password_manager.cpp" line="116"/>
         <source>Password must not contain more than %1 palindrome characters</source>
         <translation>Fjalëkalimi s’duhet të përmbajë më tepër se %1 shenja palindromike</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="118"/>
+        <location filename="../src/service/password_manager.cpp" line="121"/>
         <source>Do not use common words and combinations as password</source>
         <translation>Mos përdorni si fjalëkalim fjalë të rëndomta dhe kombinime</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="124"/>
+        <location filename="../src/service/password_manager.cpp" line="127"/>
         <source>No more than %1 consecutive or repeated characters please</source>
         <translation>Ju lutemi, jo më tepër se %1 shenja të njëpasnjëshme ose të përsëritura</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="128"/>
+        <location filename="../src/service/password_manager.cpp" line="131"/>
         <source>Different from the username</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="138"/>
+        <location filename="../src/service/password_manager.cpp" line="141"/>
         <source>It does not meet password rules</source>
         <translation>Nuk pajtohet me rregullat për fjalëkalime</translation>
     </message>

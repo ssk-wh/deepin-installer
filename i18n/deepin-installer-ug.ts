@@ -1213,8 +1213,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="809"/>
-        <source>Add fingerprint password in Control Center &gt; Accounts to unlock and authenticate</source>
-        <translation>بۇ ماشىنا بارماق ئىزىنى تونۇشنى قوللايدۇ ، «كونترول مەركىزى&gt; ھېسابات» تا بارماق ئىزى پارولى قوشالايسىز.</translation>
+        <source>Add fingerprint passwords in Control Center to unlock and authenticate</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="810"/>
@@ -2045,42 +2045,42 @@
         <translation>نامەلۇم ئۈسكۈنە</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="95"/>
+        <location filename="../src/service/password_manager.cpp" line="98"/>
         <source>The password cannot be empty​</source>
         <translation>پارول قۇرۇق قالسا بولمايدۇ</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="101"/>
+        <location filename="../src/service/password_manager.cpp" line="104"/>
         <source>Password must be between %1 and %2 characters</source>
         <translation>پارولنىڭ ئۇزۇنلۇقى چوقۇم%1 دىن%2 ھەرپ ئارىلىقىدا بولۇشى كېرەك</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="108"/>
+        <location filename="../src/service/password_manager.cpp" line="111"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
         <translation>پارول چوقۇم  چوڭ ھەرپ، كىچىك ھەرپ، سان ۋە بەلگە  (%2) ئىچىدىكى %1 تۈردىن تەركىب تېپىشى كېرەك</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="113"/>
+        <location filename="../src/service/password_manager.cpp" line="116"/>
         <source>Password must not contain more than %1 palindrome characters</source>
         <translation>پارولدا ئۇدا %1 تىن ئارتۇق قايتما ھەرپ-بەلگە بولسا بولمايدۇ</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="118"/>
+        <location filename="../src/service/password_manager.cpp" line="121"/>
         <source>Do not use common words and combinations as password</source>
         <translation>پارولدا دائىم ئۇچرايدىغان ئاددىي سۆز ۋە سۆز بىرىكمىلىرى بولسا بولمايدۇ</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="124"/>
+        <location filename="../src/service/password_manager.cpp" line="127"/>
         <source>No more than %1 consecutive or repeated characters please</source>
         <translation>مەخپىي نومۇر ئۇدا %1 خانىدىن يۇقىرى بولغان ئۇدا ياكى تەكرار ھەرپ-بەلگىلەرنى ئۆز ئىچىگە ئالسا بولمايدۇ، قايتىدىن بېكىتىڭ</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="128"/>
+        <location filename="../src/service/password_manager.cpp" line="131"/>
         <source>Different from the username</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="138"/>
+        <location filename="../src/service/password_manager.cpp" line="141"/>
         <source>It does not meet password rules</source>
         <translation>پارول بىخەتەرلىك تەلىپىگە ئۇيغۇن كەلمەيدۇ</translation>
     </message>

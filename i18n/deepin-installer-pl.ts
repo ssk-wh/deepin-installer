@@ -1213,8 +1213,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="809"/>
-        <source>Add fingerprint password in Control Center &gt; Accounts to unlock and authenticate</source>
-        <translation>Dodaj hasło odcisku palca w Centrum kontroli &gt; Konta, aby móc odblokowywać i uzyskiwać autoryzację w systemie</translation>
+        <source>Add fingerprint passwords in Control Center to unlock and authenticate</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="810"/>
@@ -2045,44 +2045,44 @@
         <translation>Nieznane urządzenie</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="95"/>
+        <location filename="../src/service/password_manager.cpp" line="98"/>
         <source>The password cannot be empty​</source>
         <translation>Pole na hasło nie może być puste</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="101"/>
+        <location filename="../src/service/password_manager.cpp" line="104"/>
         <source>Password must be between %1 and %2 characters</source>
         <translation>Hasło musi zawierać od %1 do %2 znaków</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="108"/>
+        <location filename="../src/service/password_manager.cpp" line="111"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
         <translation>Hasło powinno zawierać co najmniej %1 z czterech dostępnych typów znaków: małe litery, duże litery, cyfry i symbole (%2)</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="113"/>
+        <location filename="../src/service/password_manager.cpp" line="116"/>
         <source>Password must not contain more than %1 palindrome characters</source>
-        <translation>Hasło nie może zawierać więcej niż %1 znaków palindromowych (czytanych tak samo z lewej, jak i z prawej strony)</translation>
+        <translation>Hasło nie może zawierać więcej niż %1 znaki palindromowe</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="118"/>
+        <location filename="../src/service/password_manager.cpp" line="121"/>
         <source>Do not use common words and combinations as password</source>
-        <translation>Nie używaj popularnych wyrazów i kombinacji wyrazów jako hasło</translation>
+        <translation>Nie używaj popularnych słów i kombinacji jako hasło</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="124"/>
+        <location filename="../src/service/password_manager.cpp" line="127"/>
         <source>No more than %1 consecutive or repeated characters please</source>
         <translation>Proszę nie więcej niż %1 kolejnych lub powtarzających się znaków</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="128"/>
+        <location filename="../src/service/password_manager.cpp" line="131"/>
         <source>Different from the username</source>
-        <translation type="unfinished"/>
+        <translation>Inne od nazwy użytkownika</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="138"/>
+        <location filename="../src/service/password_manager.cpp" line="141"/>
         <source>It does not meet password rules</source>
-        <translation>Wpisana kombinacja znaków nie spełnia wymogów dotyczących hasła</translation>
+        <translation>Wymagania dotyczące hasła nie zostały spełnione</translation>
     </message>
 </context>
 <context>

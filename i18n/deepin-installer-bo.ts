@@ -1213,8 +1213,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="809"/>
-        <source>Add fingerprint password in Control Center &gt; Accounts to unlock and authenticate</source>
-        <translation>མཛུབ་རིས་ཤན་འབྱེད་བྱེད་ནུས་ཡོད་པས། ཁྱེད་ཀྱིས་“ཚོད་འཛིན་ལྟེ་གནས།  &gt; རྩིས་ཐོ་”ནང་ནས་མཛུབ་རིས་གསང་ཨང་སྣོན་ཆོག</translation>
+        <source>Add fingerprint passwords in Control Center to unlock and authenticate</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="810"/>
@@ -2045,42 +2045,42 @@
         <translation>རྒྱུས་མེད་པའི་སྒྲིག་ཆས།</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="95"/>
+        <location filename="../src/service/password_manager.cpp" line="98"/>
         <source>The password cannot be empty​</source>
         <translation>གསང་ཨང་སྟོང་པ་ཡིན་མི་རུང་།</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="101"/>
+        <location filename="../src/service/password_manager.cpp" line="104"/>
         <source>Password must be between %1 and %2 characters</source>
         <translation>གསང་ཨང་གི་རིང་ཚད་ངེས་པར་དུ་%1ནས་%2བར་ཡིན་དགོས།</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="108"/>
+        <location filename="../src/service/password_manager.cpp" line="111"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
         <translation>གསང་ཨང་ནི་ཡིག་ཆེན་དང་། ཡིག་ཆུང་། ཨང་ཀི། མཚོན་རྟགས་བཅས་རིགས་（%2）ནང་ནས་ཉུང་མཐར་རིགས་%1དགོས།</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="113"/>
+        <location filename="../src/service/password_manager.cpp" line="116"/>
         <source>Password must not contain more than %1 palindrome characters</source>
         <translation>གསང་ཨང་ནང་བསྟུད་མར་ཟུང་ལྡན་གྱི་ཡིག་རྟགས་%1ཡན་ཡོད་མི་ཆོག </translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="118"/>
+        <location filename="../src/service/password_manager.cpp" line="121"/>
         <source>Do not use common words and combinations as password</source>
         <translation>གསང་ཨང་ནི་རྒྱུན་མཐོང་གི་མིང་དང་ཚིག་གྲུབ་ཡིན་མི་ཆོག </translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="124"/>
+        <location filename="../src/service/password_manager.cpp" line="127"/>
         <source>No more than %1 consecutive or repeated characters please</source>
         <translation>གསང་ཨང་ནང་བསྟུད་མར་གྲངས་གནས་%1ཡན་ནམ་བསྐྱར་ཟློས་ཀྱི་ཡིག་རྟགས་ཡོད་མི་རུང་བས། ཡང་བསྐྱར་སྒྲིག་འགོད་བྱེད་རོགས།</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="128"/>
+        <location filename="../src/service/password_manager.cpp" line="131"/>
         <source>Different from the username</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="138"/>
+        <location filename="../src/service/password_manager.cpp" line="141"/>
         <source>It does not meet password rules</source>
         <translation>གསང་ཨང་བདེ་འཇགས་ཀྱི་བླང་བྱ་དང་མི་འཚམ་པ།</translation>
     </message>
