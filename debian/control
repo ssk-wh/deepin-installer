@@ -7,9 +7,9 @@ Build-Depends:
     debhelper (>=9),
     dh-systemd,
     g++ (>=6.3.0),
-    tzdata,
     gettext,
     tzdata,
+    deepin-installer-timezones,
     libattr1-dev,
     libparted-dev,
     libqt5x11extras5-dev,
@@ -40,14 +40,6 @@ Build-Depends:
     libdeepin-pw-check-dev
 Standards-Version: 3.9.8
 Homepage: http://www.deepin.org
-
-Package: deepin-installer-timezones
-Architecture: all
-Depends:
-    ${shlibs:Depends},
-    ${misc:Depends}
-Description: Language package for timezone names
- Installer language package for timezone names
 
 Package: deepin-installer
 Architecture: any
