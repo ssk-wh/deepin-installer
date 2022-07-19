@@ -1214,7 +1214,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="809"/>
         <source>Add fingerprint passwords in Control Center to unlock and authenticate</source>
-        <translation type="unfinished"/>
+        <translation>Aggiungi le password delle impronte digitali in Control Center per sbloccare e autenticarti</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="810"/>
@@ -1399,13 +1399,13 @@
         <translation>Installazione in corso</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="296"/>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="415"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="297"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="421"/>
         <source>Show log</source>
         <translation>Mostra log</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="412"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="418"/>
         <source>Hide log</source>
         <translation>Nascondi log</translation>
     </message>
@@ -2077,12 +2077,42 @@
     <message>
         <location filename="../src/service/password_manager.cpp" line="131"/>
         <source>Different from the username</source>
-        <translation type="unfinished"/>
+        <translation>Diverso dal nome utente</translation>
     </message>
     <message>
         <location filename="../src/service/password_manager.cpp" line="141"/>
         <source>It does not meet password rules</source>
         <translation>Non rispetta le regole di generazione password</translation>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1113"/>
+        <source>Preparing...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1116"/>
+        <source>Partitioning...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1119"/>
+        <source>Decompressing files...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1122"/>
+        <source>Installing system...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1125"/>
+        <source>Initial backup in progress...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1128"/>
+        <source>Finishing installation...</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

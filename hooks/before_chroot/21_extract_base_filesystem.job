@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-
+installer_set "DI_INSTALL_STATUS" 2
 CDROM=$(installer_get "CDROM")
 DI_LOCALE=$(installer_get "DI_LOCALE")
 LIVE_FILESYSTEM=$(installer_get "LIVE_FILESYSTEM")
@@ -33,3 +33,4 @@ unsquashfs -d /target -f -p $CORES \
   error "unsquashfs failed, ${BASE_MODULE}"
 sync 
 echo 3 > /proc/sys/vm/drop_caches
+installer_set "DI_INSTALL_STATUS" 3

@@ -1399,13 +1399,13 @@
         <translation>Instaluje se</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="296"/>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="415"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="297"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="421"/>
         <source>Show log</source>
         <translation>Zobrazit záznam událostí</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="412"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="418"/>
         <source>Hide log</source>
         <translation>Skrýt záznam událostí</translation>
     </message>
@@ -2083,6 +2083,36 @@
         <location filename="../src/service/password_manager.cpp" line="141"/>
         <source>It does not meet password rules</source>
         <translation>Nesplňuje pravidla pro hesla</translation>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1113"/>
+        <source>Preparing...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1116"/>
+        <source>Partitioning...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1119"/>
+        <source>Decompressing files...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1122"/>
+        <source>Installing system...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1125"/>
+        <source>Initial backup in progress...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1128"/>
+        <source>Finishing installation...</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

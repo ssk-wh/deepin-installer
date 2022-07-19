@@ -17,6 +17,7 @@
 #
 
 # Print system info
+installer_set "DI_INSTALL_STATUS" 4
 blkid
 mount
 

@@ -33,6 +33,15 @@ namespace installer {
         Device
     };
 
+    enum class installStatus {
+        Preparing,//正在准备...
+        Partitioning,//正在分区...
+        DecompressingFiles,//正在解压文件...
+        InstallingSystem,//正在安装系统...
+        InitialBackupInProgress,//正在进行初始化备份...
+        FinishingInstallation//即将安装完成...
+    };
+
 // Get absolute path to oem/ folder. Note that oem folder may not exist.
 QDir GetOemDir();
 
@@ -260,6 +269,13 @@ void WritePasswdLevel(const int &level);
 
 // 设置保留用户数据标志
 void WriteSaveUserData(bool issave);
+
+// 记录安装器安装阶段脚本执行阶段状态埋点
+void WriteInstallStatus(const int &progress);
+
+//进行安装状态转字符串
+QString getInstallStatusName();
+
 }  // namespace installer
 
 #endif  // INSTALLER_SETTINGS_MANAGER_H

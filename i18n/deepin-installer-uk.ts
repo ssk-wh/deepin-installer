@@ -1214,7 +1214,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="809"/>
         <source>Add fingerprint passwords in Control Center to unlock and authenticate</source>
-        <translation type="unfinished"/>
+        <translation>Додайте пароль до відбитка за допомогою модуля «Центру керування» для розблокування і розпізнавання</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="810"/>
@@ -1399,13 +1399,13 @@
         <translation>Встановлення</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="296"/>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="415"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="297"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="421"/>
         <source>Show log</source>
         <translation>Показати журнал</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="412"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="418"/>
         <source>Hide log</source>
         <translation>Приховати журнал</translation>
     </message>
@@ -2083,6 +2083,36 @@
         <location filename="../src/service/password_manager.cpp" line="141"/>
         <source>It does not meet password rules</source>
         <translation>Пароль не відповідає правилам щодо паролів</translation>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1113"/>
+        <source>Preparing...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1116"/>
+        <source>Partitioning...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1119"/>
+        <source>Decompressing files...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1122"/>
+        <source>Installing system...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1125"/>
+        <source>Initial backup in progress...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1128"/>
+        <source>Finishing installation...</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

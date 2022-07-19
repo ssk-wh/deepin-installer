@@ -1099,4 +1099,37 @@ void WriteSaveUserData(bool issave)
     AppendToConfigFile("DI_SAVE_DATA", issave);
 }
 
+// 记录安装器安装阶段脚本执行阶段状态埋点
+void WriteInstallStatus(const int &progress)
+{
+    AppendToConfigFile("DI_INSTALL_STATUS", progress);
+}
+
+QString getInstallStatusName()
+{
+    installStatus status = installStatus(GetSettingsInt("DI_INSTALL_STATUS"));
+    switch (status) {
+        case installStatus::Preparing: {
+            return ::QObject::tr("Preparing...");
+        }
+        case installStatus::Partitioning: {
+            return ::QObject::tr("Partitioning...");
+        }
+        case installStatus::DecompressingFiles:{
+            return ::QObject::tr("Decompressing files...");
+        }
+        case installStatus::InstallingSystem:{
+            return ::QObject::tr("Installing system...");
+        }
+        case installStatus::InitialBackupInProgress:{
+            return ::QObject::tr("Initial backup in progress...");
+        }
+        case installStatus::FinishingInstallation:{
+            return ::QObject::tr("Finishing installation...");
+        }
+    }
+
+    return "";
+}
+
 }  // namespace installer

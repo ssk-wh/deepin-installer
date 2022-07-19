@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="en" sourcelanguage="en">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="en" sourcelanguage="en">
 <context>
     <name>ConfirmQuitFrame</name>
     <message>
@@ -1216,7 +1214,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="809"/>
         <source>Add fingerprint passwords in Control Center to unlock and authenticate</source>
-        <translation type="unfinished"></translation>
+        <translation>Add fingerprint passwords in Control Center to unlock and authenticate</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="810"/>
@@ -1401,13 +1399,13 @@
         <translation>Installing</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="296"/>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="415"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="297"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="421"/>
         <source>Show log</source>
         <translation>Show log</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="412"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="418"/>
         <source>Hide log</source>
         <translation>Hide log</translation>
     </message>
@@ -2079,12 +2077,42 @@
     <message>
         <location filename="../src/service/password_manager.cpp" line="131"/>
         <source>Different from the username</source>
-        <translation type="unfinished"></translation>
+        <translation>Different from the username</translation>
     </message>
     <message>
         <location filename="../src/service/password_manager.cpp" line="141"/>
         <source>It does not meet password rules</source>
         <translation>It does not meet password rules</translation>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1113"/>
+        <source>Preparing...</source>
+        <translation>Preparing...</translation>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1116"/>
+        <source>Partitioning...</source>
+        <translation>Partitioning...</translation>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1119"/>
+        <source>Decompressing files...</source>
+        <translation>Decompressing files...</translation>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1122"/>
+        <source>Installing system...</source>
+        <translation>Installing system...</translation>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1125"/>
+        <source>Initial backup in progress...</source>
+        <translation>Initial backup in progress...</translation>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1128"/>
+        <source>Finishing installation...</source>
+        <translation>Finishing installation...</translation>
     </message>
 </context>
 <context>

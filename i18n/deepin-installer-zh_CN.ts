@@ -1399,13 +1399,13 @@
         <translation>正在安装</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="296"/>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="415"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="297"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="421"/>
         <source>Show log</source>
         <translation>显示日志</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="412"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="418"/>
         <source>Hide log</source>
         <translation>隐藏日志</translation>
     </message>
@@ -2083,6 +2083,36 @@
         <location filename="../src/service/password_manager.cpp" line="141"/>
         <source>It does not meet password rules</source>
         <translation>密码不符合安全要求</translation>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1113"/>
+        <source>Preparing...</source>
+        <translation>正在准备...</translation>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1116"/>
+        <source>Partitioning...</source>
+        <translation>正在分区...</translation>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1119"/>
+        <source>Decompressing files...</source>
+        <translation>正在解压文件...</translation>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1122"/>
+        <source>Installing system...</source>
+        <translation>正在安装系统...</translation>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1125"/>
+        <source>Initial backup in progress...</source>
+        <translation>正在进行初始化备份...</translation>
+    </message>
+    <message>
+        <location filename="../src/service/settings_manager.cpp" line="1128"/>
+        <source>Finishing installation...</source>
+        <translation>即将安装完成...</translation>
     </message>
 </context>
 <context>

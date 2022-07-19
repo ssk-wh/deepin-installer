@@ -52,8 +52,8 @@ namespace installer {
 
 namespace {
 
-const int kProgressBarWidth = 500;
-const int kProgressBarHeight = 20;
+const int kProgressBarWidth = 600;
+const int kProgressBarHeight = 36;
 
 const int kTooltipWidth = 60;
 const int kTooltipHeight = 31;
@@ -62,7 +62,7 @@ const int kTooltipFrameWidth = kProgressBarWidth + kTooltipWidth;
 
 const int kRetainingInterval = 3000;
 const int kSimulationTimerInterval = 3000;
-const int kProgressAnimationDuration = 500;
+//const int kProgressAnimationDuration = 500;
 
 }  // namespace
 
@@ -293,6 +293,7 @@ void InstallProgressFramePrivate::initUI() {
     tooltip_label_->move(kTooltipLabelMargin, tooltip_label_->y());
 
     m_installerLogShowButton = new LinkButton;
+    m_installerLogShowButton->hide();
     m_installerLogShowButton->setText(::QObject::tr("Show log"));
     m_installerLogShowButton->setIconList(QStringList() << ":/images/arrows_up.svg" << ":/images/arrows_down.svg");
     addTransLate(m_trList, std::bind(&LinkButton::setText, m_installerLogShowButton, std::placeholders::_1), QString("Show log"));
@@ -300,15 +301,17 @@ void InstallProgressFramePrivate::initUI() {
     // NOTE(xushaohua): QProgressBar::paintEvent() has performance issue on
     // loongson platform, when chunk style is set. So we override paintEvent()
     // and draw progress bar chunk by hand.
-    progress_bar_ = new RoundedProgressBar();
+    progress_bar_ = new QProgressBar;
     progress_bar_->setObjectName("progress_bar");
     progress_bar_->setFixedSize(kProgressBarWidth, kProgressBarHeight);
-    progress_bar_->setTextVisible(false);
+    progress_bar_->setAlignment(Qt::AlignCenter);  // 对齐方式
     // Set progress range to [0, 999] so that progress bar can be painted
     // more smoothly.
     progress_bar_->setRange(0, 999);
     progress_bar_->setOrientation(Qt::Horizontal);
     progress_bar_->setValue(0);
+    progress_bar_->setTextVisible(true);
+    progress_bar_->setFormat(QString("%1").arg(installer::getInstallStatusName()));
 
     //add main layout
     centerLayout->addWidget(title_label_, 0, Qt::AlignHCenter);
@@ -322,12 +325,12 @@ void InstallProgressFramePrivate::initUI() {
     centerLayout->addWidget(progress_bar_, 0, Qt::AlignHCenter);
     nextButton->hide();
 
-    Q_Q(InstallProgressFrame);
-    q->setStyleSheet(ReadFile(":/styles/install_progress_frame.css"));
+//    Q_Q(InstallProgressFrame);
+//    q->setStyleSheet(ReadFile(":/styles/install_progress_frame.css"));
 
-    progress_animation_ = new QPropertyAnimation(q, "progress", this);
-    progress_animation_->setDuration(kProgressAnimationDuration);
-    progress_animation_->setEasingCurve(QEasingCurve::InOutCubic);
+//    progress_animation_ = new QPropertyAnimation(q, "progress", this);
+//    progress_animation_->setDuration(kProgressAnimationDuration);
+//    progress_animation_->setEasingCurve(QEasingCurve::InOutCubic);
 }
 
 void InstallProgressFramePrivate::updateProgressBar(int progress) {
@@ -338,6 +341,8 @@ void InstallProgressFramePrivate::updateProgressBar(int progress) {
     // Calculate percentage of progress.
     const int real_progress = int(floor(percentage * 100.0));
     tooltip_label_->setText(QString("%1%").arg(real_progress));
+    progress_bar_->setFormat(QString("%1").arg(installer::getInstallStatusName()));
+
     // Add right margin.
     int x = int(kProgressBarWidth * percentage - kTooltipLabelMargin);
     if (x < kTooltipLabelMargin) {
@@ -384,8 +389,9 @@ void InstallProgressFramePrivate::onHooksFinished() {
 void InstallProgressFramePrivate::onProgressUpdate(int progress) {
     // Multiple progress value by 10 to fit progress_bar_ range.
     const int virtual_progress = progress * 10;
-    progress_animation_->setEndValue(virtual_progress);
-    progress_animation_->start();
+    updateProgressBar(virtual_progress);
+//    progress_animation_->setEndValue(virtual_progress);
+//    progress_animation_->start();
 }
 
 void InstallProgressFramePrivate::onRetainingTimerTimeout() {
