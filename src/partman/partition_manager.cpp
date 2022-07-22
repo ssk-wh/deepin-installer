@@ -23,6 +23,7 @@
 #include <QCollator>
 #include <QProcess>
 
+#include "service/settings_manager.h"
 #include "base/command.h"
 #include "partman/libparted_util.h"
 #include "partman/os_prober.h"
@@ -202,16 +203,56 @@ void PartitionManager::doRefreshDevices(bool umount, bool enable_os_prober) {
 }
 
 void PartitionManager::doAutoPart(const QString& script_path) {
-  if (!QFile::exists(script_path)) {
-    qCritical() << "partition script file not found!" << script_path;
-    emit this->autoPartDone(false);
-    return;
-  }
-  const bool ok = RunScriptFile({kHookManagerFile, script_path});
-  emit this->autoPartDone(ok);
+    QStringList sourceFileList = GetSettingsStringList("DI_INITRD_SOURCE_PATH");
+    QStringList verifyFileList = GetSettingsStringList("DI_INITRD_VERIFY_PATH");
+    for (int i = 0; i < sourceFileList.size(); i++) {
+        QString sourceFile = QString("%1/../%2").arg(GetOemDir().absolutePath(), sourceFileList.at(i));
+        QString verifyFile = "";
+        if (!verifyFileList.isEmpty()) {
+            verifyFile = QString("%1/../%2").arg(GetOemDir().absolutePath(),
+                                                     verifyFileList.at(i < verifyFileList.size() ? i : verifyFileList.size() - 1));
+        }
+
+        QString err;
+        if (!handleVerify(sourceFile, verifyFile, err)) {
+            SetSettingBoosl("DI_DEEPIN_SQUASHFS_VERIFY", false);
+            qCritical() << "deepin squashfs verify: " << err;
+            emit this->autoPartDone(false);
+            return;
+        }
+    }
+
+    if (!QFile::exists(script_path)) {
+        qCritical() << "partition script file not found!" << script_path;
+        emit this->autoPartDone(false);
+        return;
+    }
+
+    const bool ok = RunScriptFile({kHookManagerFile, script_path});
+    emit this->autoPartDone(ok);
 }
 
 void PartitionManager::doManualPart(const OperationList& operations) {
+
+    QStringList sourceFileList = GetSettingsStringList("DI_INITRD_SOURCE_PATH");
+    QStringList verifyFileList = GetSettingsStringList("DI_INITRD_VERIFY_PATH");
+    for (int i = 0; i < sourceFileList.size(); i++) {
+        QString sourceFile = QString("%1/../%2").arg(GetOemDir().absolutePath(), sourceFileList.at(i));
+        QString verifyFile = "";
+        if (!verifyFileList.isEmpty()) {
+            verifyFile = QString("%1/../%2").arg(GetOemDir().absolutePath(),
+                                                     verifyFileList.at(i < verifyFileList.size() ? i : verifyFileList.size() - 1));
+        }
+
+        QString err;
+        if (!handleVerify(sourceFile, verifyFile, err)) {
+            SetSettingBoosl("DI_DEEPIN_SQUASHFS_VERIFY", false);
+            qCritical() << "deepin squashfs verify: " << err;
+            emit this->autoPartDone(false);
+            return;
+        }
+    }
+
   qDebug() << Q_FUNC_INFO << "\n" << "operations:" << operations;
   bool ok = true;
   bool isLvm2Pv = false;

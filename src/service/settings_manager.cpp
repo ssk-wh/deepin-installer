@@ -1132,4 +1132,31 @@ QString getInstallStatusName()
     return "";
 }
 
+bool verifyCheck()
+{
+    return GetSettingsBool("DI_DEEPIN_SQUASHFS_VERIFY");
+}
+
+void SetSettingBoosl(const QString &key, const bool value)
+{
+    AppendToConfigFile(key, value);
+}
+
+bool handleVerify(const QString &sourceFilePath, const QString& verifyFilePath, QString &err) {
+    qInfo() << "handle verify start...";
+    QString cmd = GetSettingsString("DI_DEEPIN_SQUASHFS_VERIFY");
+    QStringList args = {"-f", sourceFilePath, "-s", verifyFilePath};
+
+    QString out;
+    if (QFileInfo::exists(cmd)) {
+        if (!SpawnCmd(cmd, args, out, err)) {
+            err = QString("%1 handle verify faield. out: %2.  %3.").arg(cmd + " " + args.join(" "), out, err);
+            return false;
+        }
+    }
+
+    qInfo() << QString("Command: %1 succeed.").arg(cmd + " " + args.join(" "));
+    return true;
+}
+
 }  // namespace installer

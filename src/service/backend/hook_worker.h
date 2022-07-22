@@ -29,6 +29,9 @@ class HookWorker : public QObject {
  public:
   explicit HookWorker(QObject* parent = nullptr);
 
+public:
+    bool handleVerify(const QString &sourceFilePath, const QString& verifyFilePath, QString &err);
+
  signals:
   // Notify this worker to run another |hook|.
   // Emit this signal only after receiving hooksFinished() signal.

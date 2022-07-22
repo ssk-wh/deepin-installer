@@ -21,6 +21,7 @@
 
 #include "base/command.h"
 #include "base/file_util.h"
+#include "service/settings_manager.h"
 
 namespace installer {
 
@@ -47,5 +48,7 @@ void HookWorker::handleRunHook(const QString& hook) {
   const bool ok = RunHook(hook);
   emit this->hookFinished(ok);
 }
+
+
 
 }  // namespace installer
