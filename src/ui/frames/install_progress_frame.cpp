@@ -315,14 +315,17 @@ void InstallProgressFramePrivate::initUI() {
 
     //add main layout
     centerLayout->addWidget(title_label_, 0, Qt::AlignHCenter);
-    centerLayout->addSpacing(kMainLayoutSpacing);    
+    centerLayout->addSpacing(kMainLayoutSpacing);
+    centerLayout->addStretch();
     centerLayout->addLayout(m_progressAndLogLayout);
     centerLayout->addSpacing(20);
     centerLayout->addWidget(m_installerLogShowButton, 0, Qt::AlignHCenter);
     centerLayout->addSpacing(5);
+    centerLayout->addStretch();
     centerLayout->addWidget(tooltip_frame, 0, Qt::AlignHCenter | Qt::AlignBottom);
     centerLayout->addSpacing(5);
     centerLayout->addWidget(progress_bar_, 0, Qt::AlignHCenter);
+    centerLayout->addStretch();
     nextButton->hide();
 
 //    Q_Q(InstallProgressFrame);
