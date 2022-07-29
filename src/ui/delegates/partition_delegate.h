@@ -17,6 +17,7 @@ enum class PartitionAction {
 
 class Delegate : public QObject {
     Q_OBJECT
+    Q_PROPERTY(DeviceList selected_devices READ selectedDevices MEMBER selected_devices NOTIFY selectedDevicesChanged)
 public:
     explicit Delegate(QObject* parent = nullptr);
 
@@ -167,6 +168,7 @@ public:
     Device::Ptr findDevice(const QString& devicePath);   
 signals:
     void deviceRefreshed(const DeviceList& devices);
+    void selectedDevicesChanged(const DeviceList& devices);
 
 protected:
     DeviceList     real_devices_;

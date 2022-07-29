@@ -65,8 +65,8 @@
         <location filename="../src/ui/frames/language_frame.cpp" line="426"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="772"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="1085"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="273"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1092"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="278"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1098"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="110"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="184"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="133"/>
@@ -91,7 +91,7 @@
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="100"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="128"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="987"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="993"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="205"/>
         <source>Back</source>
         <comment>button</comment>
@@ -478,7 +478,7 @@
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="54"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="240"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="245"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
@@ -616,7 +616,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="56"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="238"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="243"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
         <translation>Legalább %1 GB lemezterületre van szüksége a %2 telepítéséhez. A jobb teljesítmény érdekében legalább %3 GB ajánlott</translation>
     </message>
@@ -651,7 +651,8 @@
         <location filename="../src/ui/frames/inner/new_table_warning_frame.cpp" line="96"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="89"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="170"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="279"/>
+        <location filename="../src/ui/frames/inner/resize_root_frame.cpp" line="163"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="284"/>
         <location filename="../src/ui/frames/warnning_frame.cpp" line="249"/>
         <location filename="../src/ui/frames/warnning_frame.cpp" line="261"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="97"/>
@@ -695,7 +696,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="232"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="323"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="735"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1216"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1222"/>
         <source>Delete</source>
         <translation>Törlés</translation>
     </message>
@@ -848,8 +849,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="327"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="229"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="287"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="233"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="310"/>
         <source>Encrypt This Disk</source>
         <translation>A lemez titkosítása</translation>
     </message>
@@ -860,9 +861,9 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="330"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="272"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="725"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1094"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="277"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="731"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1100"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Győződjön meg róla, hogy minden adatáról készített biztonsági mentést, majd válassza ki a lemezt a telepítéshez</translation>
     </message>
@@ -881,23 +882,28 @@
         <translation>Jelszó ismétlése</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="228"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="232"/>
         <source>Keep User Data</source>
         <translation>Felhasználói adatok megőrzése</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="230"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="292"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="234"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="322"/>
         <source>Please select a disk to start installation</source>
         <translation>Kérjük válasszon egy lemezt a telepítés indításához</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="280"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="235"/>
+        <source>Resize Root partition</source>
+        <translation>Gyökér Partíció átméretezése</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="303"/>
         <source>Save User Data</source>
         <translation>Felhasználói adatok mentése</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="448"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="479"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="239"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="181"/>
@@ -1058,9 +1064,9 @@
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="207"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="321"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="268"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="988"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1011"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="273"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="994"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1017"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="88"/>
         <source>Ready to Install</source>
         <translation>Telepítésre kész</translation>
@@ -1068,8 +1074,8 @@
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="209"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="323"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="267"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1010"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="272"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1016"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="92"/>
         <source>Make a backup of your important data and then continue</source>
         <translation>Készítsen mentést a fontos adatairól, majd folytassa</translation>
@@ -1400,12 +1406,12 @@
     </message>
     <message>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="297"/>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="421"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="424"/>
         <source>Show log</source>
         <translation>Napló mutatása</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="418"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="421"/>
         <source>Hide log</source>
         <translation>Napló elrejtése</translation>
     </message>
@@ -1584,30 +1590,30 @@
         <translation>Az IP címet automatikusan konfigurálták, de beállíthatja a hálózatot is</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="203"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="270"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="722"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1091"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="208"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="275"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="728"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1097"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="88"/>
         <source>Create Partitions</source>
         <translation>Partíciók létrehozása</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="265"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1008"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="270"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1014"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="572"/>
         <source>Edit LVM Disk</source>
         <translation>LVM lemez szerkesztése</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="281"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="732"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="286"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="738"/>
         <source>Simple</source>
         <translation>Egyszerű</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="282"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="735"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="287"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="741"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="550"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="97"/>
@@ -1615,35 +1621,35 @@
         <translation>Kibővített</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="283"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="739"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="288"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="745"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="96"/>
         <source>Full Disk</source>
         <translation>Teljes lemez</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="802"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="808"/>
         <source>Start installation</source>
         <translation>Telepítés elindítása</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="963"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="969"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
         <translation>A céllemez dinamikus, és az adatok elveszhetnek, ha folytatja. Kérjük először készítsen biztonsági másolatot a fontos fájljairól.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="967"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="973"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
         <translation>A céllemez dinamikus, amelyet formázni fog, ha folytatja. Kérjük először készítsen biztonsági másolatot a fontos fájljairól.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1214"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1220"/>
         <source>The &quot;/data/home&quot; directory is found. If you do not keep it, the data saved in it by previous users will be lost. Keep or delete it?</source>
         <translation>A „/data/home” könyvtár megtalálható a lemezen. Ha nem tartja meg a mappát, a korábbi felhasználók által benne elmentett adatok elvesznek. Megtartja vagy törli azt?</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1215"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1221"/>
         <source>Keep</source>
         <translation>Megtart</translation>
     </message>
@@ -1685,7 +1691,7 @@
         <translation>Mentés másként</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="276"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="281"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="62"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="142"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="72"/>
@@ -1695,14 +1701,14 @@
         <translation>Barátságos megjegyzés</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="277"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="282"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="127"/>
         <source>No swap partition created, which may affect system performance</source>
         <translation>Nincs létrehozva cserepartíció, ami befolyásolhatja a rendszer teljesítményét</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="278"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="283"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="133"/>
         <location filename="../src/ui/frames/warnning_frame.cpp" line="248"/>
@@ -2017,12 +2023,12 @@
         <translation>Formázásra kerül</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="324"/>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="325"/>
         <source>System Disk</source>
         <translation>Rendszerlemez</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="324"/>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="325"/>
         <source>Data Disk</source>
         <translation>Adatlemez</translation>
     </message>
@@ -2085,34 +2091,49 @@
         <translation>Nem felel meg a jelszavakra vonatkozó szabályoknak</translation>
     </message>
     <message>
-        <location filename="../src/service/settings_manager.cpp" line="1113"/>
+        <location filename="../src/service/settings_manager.cpp" line="1118"/>
         <source>Preparing...</source>
-        <translation type="unfinished"/>
+        <translation>Felkészülés...</translation>
     </message>
     <message>
-        <location filename="../src/service/settings_manager.cpp" line="1116"/>
+        <location filename="../src/service/settings_manager.cpp" line="1121"/>
         <source>Partitioning...</source>
-        <translation type="unfinished"/>
+        <translation>Partícionálás...</translation>
     </message>
     <message>
-        <location filename="../src/service/settings_manager.cpp" line="1119"/>
+        <location filename="../src/service/settings_manager.cpp" line="1124"/>
         <source>Decompressing files...</source>
-        <translation type="unfinished"/>
+        <translation>Fájlok kicsomagolása...</translation>
     </message>
     <message>
-        <location filename="../src/service/settings_manager.cpp" line="1122"/>
+        <location filename="../src/service/settings_manager.cpp" line="1127"/>
         <source>Installing system...</source>
-        <translation type="unfinished"/>
+        <translation>Rendszer telepítése...</translation>
     </message>
     <message>
-        <location filename="../src/service/settings_manager.cpp" line="1125"/>
+        <location filename="../src/service/settings_manager.cpp" line="1130"/>
         <source>Initial backup in progress...</source>
-        <translation type="unfinished"/>
+        <translation>Kezdeti biztonsági mentés folyamatban...</translation>
     </message>
     <message>
-        <location filename="../src/service/settings_manager.cpp" line="1128"/>
+        <location filename="../src/service/settings_manager.cpp" line="1133"/>
         <source>Finishing installation...</source>
-        <translation type="unfinished"/>
+        <translation>Telepítés befejezése...</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/resize_root_frame.cpp" line="164"/>
+        <source>Accept</source>
+        <translation>Elfogad</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/resize_root_frame.cpp" line="165"/>
+        <source>Resize Root Partition</source>
+        <translation>Gyökér Partíció átméretezése</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/resize_root_frame.cpp" line="166"/>
+        <source>Enter a size (%1 GB - %2 GB)</source>
+        <translation>Adja meg a méretet (%1 GB - %2 GB)</translation>
     </message>
 </context>
 <context>

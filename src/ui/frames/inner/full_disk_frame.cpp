@@ -16,6 +16,9 @@
  */
 
 #include "ui/frames/inner/full_disk_frame.h"
+#include <qcheckbox.h>
+#include <qnamespace.h>
+#include <qpushbutton.h>
 
 #include <QButtonGroup>
 #include <QEvent>
@@ -40,6 +43,7 @@
 #include "ui/widgets/full_disk_partition_colorbar.h"
 #include "ui/widgets/multiple_disk_installation_widget.h"
 #include "ui/delegates/license_delegate.h"
+#include "resize_root_frame.h"
 
 DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
@@ -228,6 +232,7 @@ void FullDiskFrame::changeEvent(QEvent* event) {
         m_saveDataCheck->setText(::QObject::tr("Keep User Data"));
         m_encryptCheck->setText(::QObject::tr("Encrypt This Disk"));
         m_errorTip->setText(::QObject::tr("Please select a disk to start installation"));
+        m_resizeButton->setText(::QObject::tr("Resize Root partition"));
 
         if ( !m_tip_label->text().isEmpty() ) {
             showInstallTip(true);
@@ -266,6 +271,24 @@ void FullDiskFrame::initConnections() {
   connect(m_diskInstallationWidget, &MultipleDiskInstallationWidget::currentDeviceChanged,
           this, &FullDiskFrame::onCurrentDeviceChanged);
   connect(m_saveDataCheck, &QCheckBox::clicked, this, &FullDiskFrame::saveDataStateChanged);
+  connect(m_delegate, &FullDiskDelegate::selectedDevicesChanged, this, [=](const DeviceList& devices) {
+    m_resizeButton->setEnabled(devices.length() == 1);
+    if (devices.length() == 2) {
+        emit m_resizeButton->clicked(false);
+        m_resizeButton->setChecked(false);
+    }
+  });
+  connect(m_resizeButton, &QCheckBox::clicked, this, [=](bool checked) {
+      if (checked) {
+          emit showResizeRootWidget();
+      }
+      else {
+          // restore data and reload widget
+          const int v = GetSettingsInt(kPartitionRootMiniSpace);
+          WriteRootPartitionMiniSize(v);
+          onResizeRootFrameFinished();
+      }
+  }, Qt::QueuedConnection);
 }
 
 void FullDiskFrame::initUI() {
@@ -285,6 +308,13 @@ void FullDiskFrame::initUI() {
   m_encryptCheck->setChecked(false);
   //m_encryptCheck->setFocusPolicy(Qt::TabFocus);
   addTransLate(m_trList, std::bind(&QCheckBox::setText, m_encryptCheck, std::placeholders::_1), ::QObject::tr("Encrypt This Disk"));
+
+  m_resizeButton = new QCheckBox;
+  m_resizeButton->setObjectName("resize_button");
+  m_resizeButton->setChecked(false);
+  m_resizeButton->setCheckable(true);
+  m_resizeButton->setVisible(GetSettingsBool(kEnableChangeRootSize));
+  m_resizeButton->setEnabled(false);
 
   m_errorTip = new QLabel;
   m_errorTip->setObjectName("msg_label");
@@ -374,6 +404,7 @@ void FullDiskFrame::initUI() {
   QHBoxLayout* h_layout = new QHBoxLayout();
   h_layout->addWidget(m_saveDataCheck);
   h_layout->addWidget(m_encryptCheck);
+  h_layout->addWidget(m_resizeButton);
   h_layout->setSpacing(91);
   main_layout->addSpacing(10);
   main_layout->addLayout(h_layout);
@@ -650,6 +681,28 @@ void FullDiskFrame::cryptoStateChanged(bool crypto)
     }
 
     m_encryptCheck->setChecked(crypto);
+}
+
+void FullDiskFrame::onResizeRootFrameFinished() {
+    auto oldSelectedDisks = m_delegate->selectedDisks();
+    m_delegate->formatWholeDeviceMultipleDisk();
+
+    m_delegate->removeAllSelectedDisks();
+
+    if (oldSelectedDisks.length() == 1) {
+        m_delegate->addSystemDisk(oldSelectedDisks.first());
+    }
+    else {
+        m_delegate->addSystemDisk(oldSelectedDisks.first());
+        m_delegate->addDataDisk(oldSelectedDisks.last());
+    }
+
+    m_diskPartitionWidget->setDevices(m_delegate->selectedDevices());
+}
+
+void FullDiskFrame::onResizeRootFrameCanceled()
+{
+    m_resizeButton->setChecked(false);
 }
 
 }  // namespace installer

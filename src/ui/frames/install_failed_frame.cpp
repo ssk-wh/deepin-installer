@@ -160,7 +160,7 @@ void InstallFailedFrame::updateMessage()
 
     QString msg, encoded_msg;
     if (!installer::verifyCheck()) {
-        msg = ::QObject::tr("Mirror signature check failed!");
+        msg = "Mirror signature check failed!";
     }
     else if (!ReadErrorMsg(msg, encoded_msg)) {
         msg = "Error: failed to read log file!";

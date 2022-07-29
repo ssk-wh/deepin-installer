@@ -40,6 +40,7 @@
 #include "ui/frames/inner/select_bootloader_frame.h"
 #include "ui/frames/inner/simple_partition_frame.h"
 #include "ui/frames/inner/full_disk_encrypt_frame.h"
+#include "ui/frames/inner/resize_root_frame.h"
 #include "ui/frames/warnning_frame.h"
 #include "ui/models/partition_model.h"
 #include "ui/widgets/comment_label.h"
@@ -57,6 +58,7 @@
 #include <QTextStream>
 #include <QApplication>
 #include <DButtonBox>
+#include <QPointer>
 
 DWIDGET_USE_NAMESPACE
 
@@ -76,6 +78,7 @@ public:
     explicit PartitionFramePrivate(FrameInterface* parent)
         : FrameInterfacePrivate (parent)
         , q_ptr(qobject_cast<PartitionFrame* >(parent))
+        , resize_root_partition_frame_(nullptr)
         ,partition_model_(new PartitionModel(this))
         ,advanced_delegate_(new AdvancedPartitionDelegate(this))
         ,lvm_delegate_(new LvmPartitionDelegate(this))
@@ -118,6 +121,7 @@ public:
      void showDynamicDiskFrame();
      void showPrepareInstallFrame();
      void ShowSaveDataPopWidget();
+     void showResizeRootFrame();
 
      bool isEncrypt();
      bool isEnSaveData();
@@ -129,6 +133,7 @@ public:
      LvmPartitionFrame* lvm_partition_frame_ = nullptr;
      EditPartitionFrame* edit_partition_frame_ = nullptr;
      EditPartitionFrame* edit_lvm_partition_frame_ = nullptr;
+     QPointer<ResizeRootFrame> resize_root_partition_frame_;
      FullDiskFrame* full_disk_partition_frame_ = nullptr;
      NewPartitionFrame* new_partition_frame_ = nullptr;
      NewPartitionFrame* new_lvm_partition_frame_ = nullptr;
@@ -676,6 +681,7 @@ void PartitionFramePrivate::initConnections() {
   });
 
   connect(full_disk_partition_frame_, &FullDiskFrame::showSaveDataPopWidget, this, &PartitionFramePrivate::ShowSaveDataPopWidget);
+  connect(full_disk_partition_frame_, &FullDiskFrame::showResizeRootWidget, this, &PartitionFramePrivate::showResizeRootFrame);
 
   connect(full_disk_delegate_, &FullDiskDelegate::requestAutoInstallFinished, q_ptr, &PartitionFrame::onAutoInstallPrepareFinished);
 
@@ -1227,6 +1233,35 @@ void PartitionFramePrivate::ShowSaveDataPopWidget()
         });
         q_ptr->m_proxy->showChildFrame(save_data_pop_widget);
     }
+}
+
+void PartitionFramePrivate::showResizeRootFrame()
+{
+    if (resize_root_partition_frame_) {
+        return;
+    }
+
+    resize_root_partition_frame_ = new ResizeRootFrame(q_ptr->m_proxy, full_disk_delegate_);
+    connect(resize_root_partition_frame_, &ResizeRootFrame::finished, q_ptr, [=] {
+      q_ptr->m_proxy->hideChildFrame();
+      resize_root_partition_frame_->deleteLater();
+      resize_root_partition_frame_.clear();
+    });
+    connect(resize_root_partition_frame_,
+            &ResizeRootFrame::finished,
+            full_disk_partition_frame_,
+            &FullDiskFrame::onResizeRootFrameFinished);
+    connect(resize_root_partition_frame_, &ResizeRootFrame::canceled, q_ptr, [=] {
+      q_ptr->m_proxy->hideChildFrame();
+      resize_root_partition_frame_->deleteLater();
+      resize_root_partition_frame_.clear();
+    });
+    connect(resize_root_partition_frame_,
+            &ResizeRootFrame::canceled,
+            full_disk_partition_frame_,
+            &FullDiskFrame::onResizeRootFrameCanceled);
+
+    q_ptr->m_proxy->showChildFrame(resize_root_partition_frame_);
 }
 
 bool PartitionFramePrivate::isEncrypt()

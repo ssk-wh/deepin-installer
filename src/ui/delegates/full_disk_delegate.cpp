@@ -37,7 +37,6 @@ const char kLinuxSwapMountPoint[] = "linux-swap";
 const char kUEFIPartitionLabel[] = "EFI";
 const char kFullDiskPolicyRootb[] = "Rootb";
 const char kFullDiskPolicyUsageRootSize[] = "root-size";
-const char kPartitionFullDiskRootPartitionUsage[] = "partition_full_disk_root_partition_usage";
 
 }  // namespace
 
@@ -608,6 +607,8 @@ void FullDiskDelegate::removeAllSelectedDisks()
 {
     selected_devices.clear();
     selected_disks.clear();
+
+    emit selectedDevicesChanged({});
 }
 
 void FullDiskDelegate::addSystemDisk(const QString &device_path)
@@ -616,8 +617,16 @@ void FullDiskDelegate::addSystemDisk(const QString &device_path)
     selected_disks.clear();
     selected_disks.append(device_path);
 
+    for (const Device::Ptr& device : virtual_devices_) {
+      if (device->path == device_path) {
+        selected_devices << device;
+        break;
+      }
+    }
 
     qInfo() << Q_FUNC_INFO << "add system disk: " << device_path;
+
+    emit selectedDevicesChanged(selected_devices);
 }
 
 void FullDiskDelegate::addDataDisk(const QString & device_path)
@@ -631,7 +640,16 @@ void FullDiskDelegate::addDataDisk(const QString & device_path)
     selected_disks.removeAll(device_path);
     selected_disks.append(device_path);
 
+    for (const Device::Ptr& device : virtual_devices_) {
+      if (device->path == device_path) {
+        selected_devices << device;
+        break;
+      }
+    }
+
     qInfo() << Q_FUNC_INFO << "add data disk: " << device_path;
+
+    emit selectedDevicesChanged(selected_devices);
 }
 
 const QStringList & FullDiskDelegate::selectedDisks()
@@ -766,6 +784,7 @@ void FullDiskDelegate::onDeviceRefreshed(const DeviceList &devices)
     }
 
     emit requestAutoInstallFinished(formatWholeDeviceMultipleDisk());
+    emit selectedDevicesChanged(selectedDevices());
 }
 
 const SizeRange FullDiskDelegate::getRootPartitionSizeRange()

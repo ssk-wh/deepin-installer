@@ -940,6 +940,11 @@ void WriteFullDiskResolution(const FinalFullDiskResolution& resolution)
     WriteFullDiskMode(true);
 }
 
+void WriteRootPartitionMiniSize(const int gb) {
+    AppendToConfigFile(kPartitionFullDiskLargeRootPartRange,
+                       QString("%1:%1").arg(QString::number(gb)));
+}
+
 void WriteFullDiskMode(bool value)
 {
     AppendToConfigFile("DI_FULLDISK_MODE", value ? "true" : "false");

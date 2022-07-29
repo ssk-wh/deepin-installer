@@ -61,6 +61,7 @@ signals:
     void showDeviceInfomation();
     void enableNextButton(const bool enable) const;
     void showSaveDataPopWidget();
+    void showResizeRootWidget();
 
 protected:
     void changeEvent(QEvent* event) override;
@@ -98,6 +99,7 @@ private:
     QCheckBox*        m_encryptCheck = nullptr;
     QLabel*           m_errorTip     = nullptr;
     QLabel*           m_diskTooSmallTip     = nullptr;
+    QCheckBox*        m_resizeButton = nullptr;
     FullDiskPartitionWidget* m_diskPartitionWidget = nullptr;
     MultipleDiskInstallationWidget* m_diskInstallationWidget = nullptr;
     QStackedLayout*      m_disk_layout  = nullptr;
@@ -110,6 +112,8 @@ public slots:
     void onCurrentDeviceChanged(int type, const Device::Ptr device);
     void saveDataStateChanged(bool savedata);
     void cryptoStateChanged(bool crypto);
+    void onResizeRootFrameFinished();
+    void onResizeRootFrameCanceled();
 };
 
 }  // namespace installer

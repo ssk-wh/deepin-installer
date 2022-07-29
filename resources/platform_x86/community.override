@@ -7,3 +7,4 @@ install_failed_qr_display_switch = true
 system_info_disable_experience = true
 system_startup_option="deepin"
 system_separate_esp_partition=false
+enable_change_root_size=true

@@ -229,6 +229,7 @@ void MultipleDiskInstallationWidget::initUI()
 void MultipleDiskInstallationWidget::onDeviceListChanged(const DeviceList& devices)
 {
    m_devices.clear();
+
    for (const Device::Ptr& device : devices) {
       bool partition_busy = false;
       for (Partition::Ptr partition : device->partitions) {

@@ -248,6 +248,8 @@ struct FinalFullDiskResolution {
 
 void WriteFullDiskResolution(const FinalFullDiskResolution& resolution);
 
+void WriteRootPartitionMiniSize(const int gb);
+
 void WriteFullDiskMode(bool value);
 
 void WriteIfDoRecovery(const bool value);
