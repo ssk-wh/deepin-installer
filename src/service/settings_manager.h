@@ -276,7 +276,7 @@ void WritePasswdLevel(const int &level);
 void WriteSaveUserData(bool issave);
 
 // 记录安装器安装阶段脚本执行阶段状态埋点
-void WriteInstallStatus(const int &progress);
+void WriteInstallStatus(installStatus status);
 
 //进行安装状态转字符串
 QString getInstallStatusName();

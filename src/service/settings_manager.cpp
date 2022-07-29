@@ -1100,9 +1100,9 @@ void WriteSaveUserData(bool issave)
 }
 
 // 记录安装器安装阶段脚本执行阶段状态埋点
-void WriteInstallStatus(const int &progress)
+void WriteInstallStatus(installStatus status)
 {
-    AppendToConfigFile("DI_INSTALL_STATUS", progress);
+    AppendToConfigFile("DI_INSTALL_STATUS", int(status));
 }
 
 QString getInstallStatusName()

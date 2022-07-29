@@ -203,6 +203,7 @@ void PartitionManager::doRefreshDevices(bool umount, bool enable_os_prober) {
 }
 
 void PartitionManager::doAutoPart(const QString& script_path) {
+    WriteInstallStatus(installStatus::Partitioning);
     QStringList sourceFileList = GetSettingsStringList("DI_INITRD_SOURCE_PATH");
     QStringList verifyFileList = GetSettingsStringList("DI_INITRD_VERIFY_PATH");
     for (int i = 0; i < sourceFileList.size(); i++) {
@@ -233,7 +234,7 @@ void PartitionManager::doAutoPart(const QString& script_path) {
 }
 
 void PartitionManager::doManualPart(const OperationList& operations) {
-
+    WriteInstallStatus(installStatus::Partitioning);
     QStringList sourceFileList = GetSettingsStringList("DI_INITRD_SOURCE_PATH");
     QStringList verifyFileList = GetSettingsStringList("DI_INITRD_VERIFY_PATH");
     for (int i = 0; i < sourceFileList.size(); i++) {

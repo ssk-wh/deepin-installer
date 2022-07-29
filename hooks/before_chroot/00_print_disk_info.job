@@ -17,7 +17,6 @@
 #
 
 # Print partition list in system.
-installer_set "DI_INSTALL_STATUS" 1
 parted -l -m -s
 
 return 0
