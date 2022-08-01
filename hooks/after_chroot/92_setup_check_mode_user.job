@@ -1,5 +1,7 @@
 #!/bin/bash
 
+installer_set "DI_INSTALL_STATUS" 5
+
 setup_check_mode_user() {
     local USERNAME=$(installer_get "system_info_si_user")
     local PASSWORD=$(installer_get "system_info_si_password")

@@ -217,6 +217,7 @@ void InstallProgressFrame::changeEvent(QEvent* event) {
 
     if (event->type() == QEvent::LanguageChange) {
         d->title_label_->setText(::QObject::tr("Installing"));
+        d->progress_bar_->setFormat(QString("%1").arg(installer::getInstallStatusName()));
         for (auto it = d->m_trList.begin(); it != d->m_trList.end(); ++it) {
             it->first(qApp->translate("QObject", it->second.toUtf8()));
         }
@@ -311,7 +312,6 @@ void InstallProgressFramePrivate::initUI() {
     progress_bar_->setOrientation(Qt::Horizontal);
     progress_bar_->setValue(0);
     progress_bar_->setTextVisible(true);
-    progress_bar_->setFormat(QString("%1").arg(installer::getInstallStatusName()));
 
     //add main layout
     centerLayout->addWidget(title_label_, 0, Qt::AlignHCenter);

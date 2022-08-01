@@ -37,5 +37,4 @@ if [ -n "$SWAP_MOUNTPOIN" ]; then
 fi
 
 sync
-
 return 0
