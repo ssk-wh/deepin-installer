@@ -93,13 +93,14 @@ int main(int argc, char* argv[]) {
     app.setFont(font);
 
     installer::KeyboardMonitor::instance()->setNumlockStatus(installer::KeyboardMonitor::instance()->isNumlockOn());
+    installer::SetSettingBoosl("DI_IS_FIRST_BOOT", true);
 
     installer::FirstBootSetupWindow* main_window = new installer::FirstBootSetupWindow;
     app.installEventFilter(main_window);
     main_window->setWindowIcon(":/images/deepin-installer-64px.svg");
     // 安装器的主界面输出到主屏，由启动初始化阶段的脚本克隆到其他屏幕
     main_window->setScreen(app.primaryScreen());
-    main_window->show();
+    main_window->show();    
 
     return app.exec();
 }

@@ -35,7 +35,6 @@ if [ -f "${CONF_FILE}" ]; then
     if [ x"$cli_mode" = xtrue ]; then
         installer_set "skip_select_language_page" "true"
         installer_set "skip_select_language_page_on_first_boot" "true"
-        installer_set "skip_system_info_page" "true"
         installer_set "skip_network_page" "true"
         installer_set "skip_auto_sync_time_page" "false"
         installer_set "skip_timezone_page" "true"
@@ -56,7 +55,6 @@ if [ -f "${CONF_FILE}" ]; then
     if [ x${DI_NECURESCLIINSTALL_MODE} == "xtrue" ]; then
       installer_set "skip_select_language_page" "true"
       installer_set "skip_select_language_page_on_first_boot" "true"
-      installer_set "skip_system_info_page" "true"
       installer_set "skip_network_page" "true"
       installer_set "skip_auto_sync_time_page" "false"
       installer_set "skip_timezone_page" "true"

@@ -585,10 +585,6 @@ void MainWindow::initPages() {
   privilege_error_frame_ = new PrivilegeErrorFrame(this);
   privilege_error_frame_->setFocusPolicy(Qt::NoFocus);
 
-  system_info_frame_ = new SystemInfoFrame(this);
-  system_info_frame_->setFocusPolicy(Qt::NoFocus);
-  stacked_layout_->addWidget(system_info_frame_);
-
   timezone_frame_ = new TimezoneFrame(this);
   timezone_frame_->setFocusPolicy(Qt::NoFocus);
   stacked_layout_->addWidget(timezone_frame_);
@@ -620,7 +616,6 @@ void MainWindow::initPages() {
       virtual_machine_frame_,
       network_frame_,
       timezone_frame_,
-      system_info_frame_,
       m_selectComponentFrame,
       partition_frame_,
 #endif // QT_DEBUG

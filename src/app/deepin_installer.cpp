@@ -121,6 +121,7 @@ int main(int argc, char* argv[]) {
   }
 
   installer::ComponentInstallManager::Instance();
+  installer::SetSettingBoosl("DI_IS_FIRST_BOOT", false);
 
   installer::MainWindow *main_window = new installer::MainWindow;
   app.installEventFilter(main_window);

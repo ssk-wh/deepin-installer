@@ -91,7 +91,9 @@ LanguageFrame::~LanguageFrame() {}
 
 bool LanguageFrame::shouldDisplay() const
 {
-    return !GetSettingsBool(kSkipSelectLanguagePage) && !GetSettingsBool("DI_LUPIN");
+    return ((!GetSettingsBool(kSkipSelectLanguagePage) && !GetSettingsBool("DI_IS_FIRST_BOOT"))                 // 前配置的配置选项生效
+            || (!GetSettingsBool(kSkipSelectLanguagePageOnFirstBoot) && GetSettingsBool("DI_IS_FIRST_BOOT")))   // 后配置的配置选项生效
+            && !GetSettingsBool("DI_LUPIN");
 }
 
 QString LanguageFrame::returnFrameName() const

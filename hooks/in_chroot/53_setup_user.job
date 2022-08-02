@@ -16,15 +16,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-DI_SKIP_CREATE_USER=$(installer_get "skip_system_info_page")
-DI_NECURESCLIINSTALL_MODE=$(installer_get "DI_NECURESCLIINSTALL_MODE")
-
-if [ x${DI_NECURESCLIINSTALL_MODE} != "xtrue" ]; then
-  if [ x${DI_SKIP_CREATE_USER} = "xtrue" ];then
-    return 0
-  fi
-fi
-
 # Add user to group which is found in /etc/group
 add_user_to_existed_group() {
   local USER=$1
