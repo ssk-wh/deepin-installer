@@ -170,10 +170,10 @@ setup_kwin_env() {
    export HOME=/root
 
    #识别到景嘉微显卡屏蔽窗口特效
-   lshw -c video | grep "driver=mwv206"
-   if [ $? -eq 0 ]; then
-       export KWIN_COMPOSE=N
-   fi
+   #lshw -c video | grep "driver=mwv206"
+   #if [ $? -eq 0 ]; then
+   #    export KWIN_COMPOSE=N
+   #fi
 
    env
 }
