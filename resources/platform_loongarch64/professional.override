@@ -16,5 +16,5 @@ partition_is_fsck_file_system = true
 install_failed_qr_display_switch = true
 skip_repair_system_page = false
 
-DI_INITRD_SOURCE_PATH = "boot/initrd.img"
-DI_INITRD_VERIFY_PATH = "boot/initrd.img_sign"
+DI_INITRD_SOURCE_PATH = "boot/initrd.img;oem.squashfs"
+DI_INITRD_VERIFY_PATH = "boot/initrd.img_sign;oem.squashfs_sign"

@@ -153,6 +153,19 @@ first_boot_move() {
     fi
 }
 
+
+setup_oem_squashfs() {
+    echo "setup oem squashfs start..."
+    local live_dirs=("/usr/lib/live/mount/medium/" "/run/live/medium")
+    for d in ${live_dirs[@]}; do
+        if [ -f $d/oem.squashfs ]; then
+            mount -v $d/oem.squashfs $d/oem
+            break
+        fi
+    done
+    echo "setup oem squashfs end!"
+}
+
 setup_kwin_env() {
    export HOME=/root
 
@@ -165,15 +178,23 @@ setup_kwin_env() {
    env
 }
 
-## 处理后配置卸载自己后有小概率启动不了桌面问题，安装器后配置运行路径变为/usr/share/deepin-installer-exec
-first_boot_move >> /var/log/deepin-installer-init.log 2>&1
+main() {
+    ## 挂载oem.squashfs
+    setup_oem_squashfs
 
-## 处理多屏的情况，安装器以克隆模式运行多屏的情况
-setup_monitors >> /var/log/deepin-installer-init.log 2>&1
+    ## 处理后配置卸载自己后有小概率启动不了桌面问题，安装器后配置运行路径变为/usr/share/deepin-installer-exec
+    first_boot_move
+    ## 处理多屏的情况，安装器以克隆模式运行多屏的情况
+    setup_monitors
 
-# 启动窗管，解决部分机型上界面花屏问题, 窗管启动失败不影响安装器本身程序的启动
-setup_kwin_env
-kwin_x11 -platform dde-kwin-xcb || true &
+    # 启动窗管，解决部分机型上界面花屏问题, 窗管启动失败不影响安装器本身程序的启动
+    setup_kwin_env
+    kwin_x11 -platform dde-kwin-xcb || true &
 
-# 后台启动背景窗口的初始化，保证背景的启动过程不会降低安装器主窗口启动的时间
-# init &
+    # 后台启动背景窗口的初始化，保证背景的启动过程不会降低安装器主窗口启动的时间
+    # init &
+}
+
+main >> /var/log/deepin-installer-init.log 2>&1
+
+

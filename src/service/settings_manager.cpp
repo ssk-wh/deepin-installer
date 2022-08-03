@@ -1137,9 +1137,9 @@ QString getInstallStatusName()
     return "";
 }
 
-bool verifyCheck()
+QString verifyCheck()
 {
-    return GetSettingsBool("DI_DEEPIN_SQUASHFS_VERIFY");
+    return GetSettingsString("DI_DEEPIN_SQUASHFS_VERIFY");
 }
 
 void SetSettingBoosl(const QString &key, const bool value)
@@ -1162,6 +1162,16 @@ bool handleVerify(const QString &sourceFilePath, const QString& verifyFilePath, 
 
     qInfo() << QString("Command: %1 succeed.").arg(cmd + " " + args.join(" "));
     return true;
+}
+
+void SetSettingString(const QString &key, const QString &value)
+{
+    AppendToConfigFile(key, value);
+}
+
+bool isDebug()
+{
+    return GetSettingsBool("system_debug");
 }
 
 }  // namespace installer

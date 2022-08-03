@@ -56,8 +56,10 @@ QString GetDiskPolicyArgs();
 QString GetCurrentPlatform();
 
 void SetSettingBoosl(const QString& key, const bool value);
+void SetSettingString(const QString &key, const QString &value);
 
-bool verifyCheck();
+QString verifyCheck();
+bool isDebug();
 bool handleVerify(const QString &sourceFilePath, const QString& verifyFilePath, QString &err);
 
 // Read settings value from ini file.

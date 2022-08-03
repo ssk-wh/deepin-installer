@@ -216,7 +216,7 @@ void PartitionManager::doAutoPart(const QString& script_path) {
 
         QString err;
         if (!handleVerify(sourceFile, verifyFile, err)) {
-            SetSettingBoosl("DI_DEEPIN_SQUASHFS_VERIFY", false);
+            SetSettingString("DI_DEEPIN_SQUASHFS_VERIFY", sourceFile);
             qCritical() << "deepin squashfs verify: " << err;
             emit this->autoPartDone(false);
             return;
