@@ -96,11 +96,11 @@ void installer::RepairSystemFramePrivate::initUi() {
     m_dropdown->setCurrentAction(m_dropdown->actions().first());
 
     m_installerWidget = new OperatorWidget;
+    m_installerWidget->setSelect(true);
     m_installerWidget->setFixedSize(kItemWidth, kItemHeight);
     m_installerWidget->setSelectIcon(":/images/select_blue.svg");
 
     m_repairWidget = new OperatorWidget;
-    m_repairWidget->setSelect(true);
     m_repairWidget->setFixedSize(kItemWidth, kItemHeight);
     m_repairWidget->setSelectIcon(":/images/select_blue.svg");
 
@@ -249,7 +249,7 @@ void installer::RepairSystemFrame::finished()
 
 bool installer::RepairSystemFrame::shouldDisplay() const
 {
-    return QFileInfo::exists(kDeepinRepairTools) && !IsVirtualMachine();
+    return !GetSettingsBool("partition_do_auto_part") && QFileInfo::exists(kDeepinRepairTools) && !IsVirtualMachine();
 }
 
 QString installer::RepairSystemFrame::returnFrameName() const
