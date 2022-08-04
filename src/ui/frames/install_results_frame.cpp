@@ -109,6 +109,12 @@ bool InstallResultsFrame::allowPrevious() const
     return false;
 }
 
+void InstallResultsFrame::showInstallFailedFrame()
+{
+    m_private->m_installFailedFrame->updateMessage();
+    m_private->showInstallFailedFrame();
+}
+
 void InstallResultsFrame::showEvent(QShowEvent *event)
 {
     Q_EMIT closeButtionChange(m_result);

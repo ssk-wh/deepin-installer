@@ -153,16 +153,35 @@ first_boot_move() {
     fi
 }
 
+is_empty_dir() {
+    local dir=$1
+    [ ! -d $dir ] && return 0
+
+    local count=$(ls $dir | wc -w)
+    if [ $count -ne 0 ];then
+        return 1
+    else
+        return 0
+    fi
+}
+
+setup_live_workdir() {
+    # 光驱安装时，启动盘的挂载点可能会是/run/live/medium
+    local live_dir=$1
+    if is_empty_dir $live_dir; then
+        info "$live_dir is empty dir"
+        mount -v --bind /run/live/medium/ $live_dir
+    fi
+
+    info "$live_dir not empty dir"
+}
 
 setup_oem_squashfs() {
     echo "setup oem squashfs start..."
-    local live_dirs=("/usr/lib/live/mount/medium/" "/run/live/medium")
-    for d in ${live_dirs[@]}; do
-        if [ -f $d/oem.squashfs ]; then
-            mount -v $d/oem.squashfs $d/oem
-            break
-        fi
-    done
+    local live_dir=$1
+    if [ -f $live_dir/oem.squashfs ]; then
+        mount -v $live_dir/oem.squashfs $live_dir/oem
+    fi
     echo "setup oem squashfs end!"
 }
 
@@ -180,7 +199,9 @@ setup_kwin_env() {
 
 main() {
     ## 挂载oem.squashfs
-    setup_oem_squashfs
+    local live_dir="/usr/lib/live/mount/medium/"
+    setup_live_workdir "$live_dir"
+    setup_oem_squashfs "$live_dir"
 
     ## 处理后配置卸载自己后有小概率启动不了桌面问题，安装器后配置运行路径变为/usr/share/deepin-installer-exec
     first_boot_move

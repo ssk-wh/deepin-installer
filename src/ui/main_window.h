@@ -153,6 +153,8 @@ private:
   void updateFrameLabelState(FrameInterface *frame, FrameLabelState state);
   void updateFrameLabelPreviousState(bool allow);
 
+  bool verifyCheck();
+
   FrameInterface* getFrameInterface(QStandardItem *item) const;
 
   QLabel* background_label_ = nullptr;

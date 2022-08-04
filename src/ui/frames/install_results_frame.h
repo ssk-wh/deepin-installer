@@ -50,6 +50,8 @@ public:
     QString returnFrameName() const override;
     bool allowPrevious() const override;
 
+    void showInstallFailedFrame();
+
 protected:
     void showEvent(QShowEvent *event) override;
     bool doSelect() override;

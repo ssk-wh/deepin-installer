@@ -114,6 +114,12 @@ MainWindow::MainWindow(QWidget* parent)
 
     qApp->installEventFilter(this);
 
+    if (!verifyCheck()) {
+        stacked_layout_->setCurrentWidget(m_installResultsFrame);
+        m_installResultsFrame->showInstallFailedFrame();
+        return;
+    }
+
     for (auto it = m_frames.begin(); it != m_frames.end();) {
         if ((*it)->shouldDisplay()) {
             break;
@@ -919,6 +925,32 @@ void MainWindow::updateFrameLabelPreviousState(bool allow)
             }
         }
     }
+}
+
+bool MainWindow::verifyCheck()
+{
+    QStringList sourceFileList = GetSettingsStringList("DI_INITRD_SOURCE_PATH");
+    QStringList verifyFileList = GetSettingsStringList("DI_INITRD_VERIFY_PATH");
+    for (int i = 0; i < sourceFileList.size(); i++) {
+        QString sourceFile = QString("%1/../%2").arg(GetOemDir().absolutePath(), sourceFileList.at(i));
+        QString verifyFile = "";
+        if (!verifyFileList.isEmpty()) {
+            verifyFile = QString("%1/../%2").arg(GetOemDir().absolutePath(),
+                                                     verifyFileList.at(i < verifyFileList.size() ? i : verifyFileList.size() - 1));
+        }
+
+        QString err;
+        if (!handleVerify(sourceFile, verifyFile, err)) {
+            SetSettingString("DI_DEEPIN_SQUASHFS_VERIFY", sourceFile);
+            qCritical() << "deepin squashfs verify: " << err;
+            // 兼容安装器的调试模式
+            if (!GetSettingsBool("system_debug")) {
+                return false;
+            }
+        }
+    }
+
+    return true;
 }
 
 FrameInterface *MainWindow::getFrameInterface(QStandardItem *item) const
