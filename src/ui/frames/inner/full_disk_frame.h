@@ -99,12 +99,13 @@ private:
     QCheckBox*        m_encryptCheck = nullptr;
     QLabel*           m_errorTip     = nullptr;
     QLabel*           m_diskTooSmallTip     = nullptr;
-    QCheckBox*        m_resizeButton = nullptr;
+    QCheckBox*        m_resizeCheck = nullptr;
     FullDiskPartitionWidget* m_diskPartitionWidget = nullptr;
     MultipleDiskInstallationWidget* m_diskInstallationWidget = nullptr;
     QStackedLayout*      m_disk_layout  = nullptr;
     std::list<std::pair<std::function<void (QString)>, QString>> m_trList;
     QCheckBox*        m_saveDataCheck = nullptr;
+    DeviceList m_devices = {};
 
 public slots:
     void onDeviceRefreshed();

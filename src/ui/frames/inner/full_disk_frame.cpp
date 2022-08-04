@@ -142,10 +142,15 @@ bool FullDiskFrame::focusSwitch()
         if (m_encryptCheck->isVisible() && m_encryptCheck->isEnabled()) {
             m_encryptCheck->setFocus();
             return false;
+        } else if (m_resizeCheck->isVisible() && m_resizeCheck->isEnabled()) {
+            m_resizeCheck->setFocus();
+            return false;
         } else {
             return true;
         }
     } else if (m_encryptCheck->hasFocus()) {
+        return true;
+    } else if (m_resizeCheck->hasFocus()) {
         return true;
     } else {
         if (m_disk_layout->currentWidget() == m_diskInstallationWidget) {
@@ -153,6 +158,8 @@ bool FullDiskFrame::focusSwitch()
                 if(m_diskInstallationWidget->focusSwitch()) {
                     if(m_encryptCheck->isVisible()) {
                         m_encryptCheck->setFocus();
+                    } else if (m_resizeCheck->isVisible()){
+                        m_resizeCheck->setFocus();
                     } else {
                         return true;
                     }
@@ -181,16 +188,25 @@ bool FullDiskFrame::doSpace()
         if (m_saveDataCheck->checkState() == Qt::Checked) {
             m_saveDataCheck->setCheckState(Qt::Unchecked);
             m_encryptCheck->setEnabled(true);
+            m_resizeCheck->setEnabled(m_devices.length() == 1);
         } else {
             m_saveDataCheck->setCheckState(Qt::Checked);
             m_encryptCheck->setCheckState(Qt::Unchecked);
             m_encryptCheck->setEnabled(false);
+            m_resizeCheck->setCheckState(Qt::Unchecked);
+            m_resizeCheck->setEnabled(false);
         }
     } else if(m_encryptCheck->hasFocus()) {
         if (m_encryptCheck->checkState() == Qt::Checked) {
             m_encryptCheck->setCheckState(Qt::Unchecked);
         } else {
             m_encryptCheck->setCheckState(Qt::Checked);
+        }
+    } else if(m_resizeCheck->hasFocus()) {
+        if (m_resizeCheck->checkState() == Qt::Checked) {
+            m_resizeCheck->setCheckState(Qt::Unchecked);
+        } else {
+            m_resizeCheck->setCheckState(Qt::Checked);
         }
     } else if (m_grid_wrapper->hasFocus()) {
         if(m_button_group->buttons().size() > 0) {
@@ -232,7 +248,7 @@ void FullDiskFrame::changeEvent(QEvent* event) {
         m_saveDataCheck->setText(::QObject::tr("Keep User Data"));
         m_encryptCheck->setText(::QObject::tr("Encrypt This Disk"));
         m_errorTip->setText(::QObject::tr("Please select a disk to start installation"));
-        m_resizeButton->setText(::QObject::tr("Resize Root partition"));
+        m_resizeCheck->setText(::QObject::tr("Resize Root partition"));
 
         if ( !m_tip_label->text().isEmpty() ) {
             showInstallTip(true);
@@ -272,17 +288,20 @@ void FullDiskFrame::initConnections() {
           this, &FullDiskFrame::onCurrentDeviceChanged);
   connect(m_saveDataCheck, &QCheckBox::clicked, this, &FullDiskFrame::saveDataStateChanged);
   connect(m_delegate, &FullDiskDelegate::selectedDevicesChanged, this, [=](const DeviceList& devices) {
-    m_resizeButton->setEnabled(devices.length() == 1);
+    m_devices = devices;
+    m_resizeCheck->setEnabled(devices.length() == 1);
     if (devices.length() == 2) {
-        emit m_resizeButton->clicked(false);
-        m_resizeButton->setChecked(false);
+        emit m_resizeCheck->clicked(false);
+        m_resizeCheck->setChecked(false);
     }
   });
-  connect(m_resizeButton, &QCheckBox::clicked, this, [=](bool checked) {
+  connect(m_resizeCheck, &QCheckBox::clicked, this, [=](bool checked) {
       if (checked) {
+          m_saveDataCheck->setChecked(false);
+          m_saveDataCheck->setEnabled(false);
           emit showResizeRootWidget();
-      }
-      else {
+      } else {
+          m_saveDataCheck->setEnabled(true);
           // restore data and reload widget
           const int v = GetSettingsInt(kPartitionRootMiniSpace);
           WriteRootPartitionMiniSize(v);
@@ -309,12 +328,12 @@ void FullDiskFrame::initUI() {
   //m_encryptCheck->setFocusPolicy(Qt::TabFocus);
   addTransLate(m_trList, std::bind(&QCheckBox::setText, m_encryptCheck, std::placeholders::_1), ::QObject::tr("Encrypt This Disk"));
 
-  m_resizeButton = new QCheckBox;
-  m_resizeButton->setObjectName("resize_button");
-  m_resizeButton->setChecked(false);
-  m_resizeButton->setCheckable(true);
-  m_resizeButton->setVisible(GetSettingsBool(kEnableChangeRootSize));
-  m_resizeButton->setEnabled(false);
+  m_resizeCheck = new QCheckBox;
+  m_resizeCheck->setObjectName("resize_button");
+  m_resizeCheck->setChecked(false);
+  m_resizeCheck->setCheckable(true);
+  m_resizeCheck->setVisible(GetSettingsBool(kEnableChangeRootSize));
+  m_resizeCheck->setEnabled(false);
 
   m_errorTip = new QLabel;
   m_errorTip->setObjectName("msg_label");
@@ -404,7 +423,7 @@ void FullDiskFrame::initUI() {
   QHBoxLayout* h_layout = new QHBoxLayout();
   h_layout->addWidget(m_saveDataCheck);
   h_layout->addWidget(m_encryptCheck);
-  h_layout->addWidget(m_resizeButton);
+  h_layout->addWidget(m_resizeCheck);
   h_layout->setSpacing(91);
   main_layout->addSpacing(10);
   main_layout->addLayout(h_layout);
@@ -569,12 +588,13 @@ void FullDiskFrame::setSaveDataCheckboxStat(const Device::Ptr device,  const int
     // 存在data分区并且在选择系统盘时所选盘存在系统分区
     // 或者存在data分区并且选择数据盘时，选择的系统盘存在系统分区
     if ( testexistdata && (!testfulldiskencrypt) && testsametabletype && testissystemdisk ) {
-        m_saveDataCheck->setEnabled(!m_encryptCheck->isChecked());
+        m_saveDataCheck->setEnabled(!m_encryptCheck->isChecked() && !m_resizeCheck->isChecked());
         emit showSaveDataPopWidget();
     } else {
         m_saveDataCheck->setChecked(false);
         m_saveDataCheck->setEnabled(false);
         m_encryptCheck->setEnabled(true);
+        m_resizeCheck->setEnabled(m_devices.length() == 1);
         WriteSaveUserData(false);
     }
 }
@@ -658,8 +678,11 @@ void FullDiskFrame::saveDataStateChanged(bool savedata)
         m_saveDataCheck->setEnabled(true);
         m_encryptCheck->setChecked(false);
         m_encryptCheck->setEnabled(false);
+        m_resizeCheck->setChecked(false);
+        m_resizeCheck->setEnabled(false);
     } else {
         m_encryptCheck->setEnabled(true);
+        m_resizeCheck->setEnabled(m_devices.length() == 1);
     }
 
     m_saveDataCheck->setChecked(savedata);
@@ -702,7 +725,8 @@ void FullDiskFrame::onResizeRootFrameFinished() {
 
 void FullDiskFrame::onResizeRootFrameCanceled()
 {
-    m_resizeButton->setChecked(false);
+    m_resizeCheck->setChecked(false);
+    m_saveDataCheck->setEnabled(true);
 }
 
 }  // namespace installer
