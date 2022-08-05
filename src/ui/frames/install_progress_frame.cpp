@@ -52,13 +52,11 @@ namespace installer {
 
 namespace {
 
-const int kProgressBarWidth = 600;
-const int kProgressBarHeight = 36;
+const int kProgressBarHeight = 39;
 
 const int kTooltipWidth = 60;
 const int kTooltipHeight = 31;
 const int kTooltipLabelMargin = 2;
-const int kTooltipFrameWidth = kProgressBarWidth + kTooltipWidth;
 
 const int kRetainingInterval = 3000;
 const int kSimulationTimerInterval = 3000;
@@ -106,6 +104,7 @@ public:
     QLabel* tooltip_label_ = nullptr;
     LinkButton* m_installerLogShowButton = nullptr;
     QProgressBar* progress_bar_ = nullptr;
+    int m_progressbarWidth = 0;
 
     QPropertyAnimation* progress_animation_ = nullptr;
 
@@ -281,11 +280,12 @@ void InstallProgressFramePrivate::initUI() {
     m_progressAndLogLayout->addWidget(slide_frame_);
     m_progressAndLogLayout->addWidget(m_installerLog);
     m_progressAndLogLayout->setCurrentWidget(slide_frame_);
+    m_progressbarWidth = slide_frame_->width();
 
     QFrame* tooltip_frame = new QFrame();
     tooltip_frame->setObjectName("tooltip_frame");
     tooltip_frame->setContentsMargins(0, 0, 0, 0);
-    tooltip_frame->setFixedSize(kTooltipFrameWidth, kTooltipHeight);
+    tooltip_frame->setFixedSize(m_progressbarWidth + kTooltipWidth, kTooltipHeight);
     tooltip_label_ = new TooltipPin(tooltip_frame);
     tooltip_label_->setFixedSize(kTooltipWidth, kTooltipHeight);
     tooltip_label_->setAlignment(Qt::AlignHCenter);
@@ -304,7 +304,7 @@ void InstallProgressFramePrivate::initUI() {
     // and draw progress bar chunk by hand.
     progress_bar_ = new QProgressBar;
     progress_bar_->setObjectName("progress_bar");
-    progress_bar_->setFixedSize(kProgressBarWidth, kProgressBarHeight);
+    progress_bar_->setFixedSize(m_progressbarWidth, kProgressBarHeight);
     progress_bar_->setAlignment(Qt::AlignCenter);  // 对齐方式
     // Set progress range to [0, 999] so that progress bar can be painted
     // more smoothly.
@@ -347,7 +347,7 @@ void InstallProgressFramePrivate::updateProgressBar(int progress) {
     progress_bar_->setFormat(QString("%1").arg(installer::getInstallStatusName()));
 
     // Add right margin.
-    int x = int(kProgressBarWidth * percentage - kTooltipLabelMargin);
+    int x = int(m_progressbarWidth * percentage - kTooltipLabelMargin);
     if (x < kTooltipLabelMargin) {
         // Add left margin.
         x = kTooltipLabelMargin;
