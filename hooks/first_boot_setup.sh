@@ -61,6 +61,11 @@ detect_btrfs() {
   return 1
 }
 
+exists_repair_tools() {
+    dpkg -l | grep deepin-repair-tools
+    return $?
+}
+
 # Purge packages
 uninstall_packages() {
     if detect_btrfs; then
@@ -71,6 +76,10 @@ uninstall_packages() {
         add_uninstall_package "btrfs-tools"
         add_uninstall_package "tshark"
         add_uninstall_package "wireshark-common"
+    fi
+
+    if exists_repair_tools; then
+        add_uninstall_package "deepin-repair-tools"
     fi
 
     add_uninstall_package "imagemagick*"
