@@ -369,7 +369,12 @@ void SaveInstallFailedLogFrame::saveLog()
 
     CopyLogFile(logPath);
 
-    m_deviceButtonMap[m_selectPartition]->unmount({});
+    QString cmdLog = "";
+    QString err = "";
+    if (!SpawnCmd("/bin/bash", {"-c", "sync"}, cmdLog, err)) {
+        qCritical() << "copy log file failed cmdLog : " << cmdLog << " err : " << err;
+        return;
+    }
 
     emit requestBack();
 }
