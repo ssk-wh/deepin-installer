@@ -1139,7 +1139,7 @@ QString getInstallStatusName()
 
 QString verifyCheck()
 {
-    return GetSettingsString("DI_DEEPIN_SQUASHFS_VERIFY");
+    return GetSettingsString("DI_DEEPIN_VERIFY_STATUS");
 }
 
 void SetSettingBoosl(const QString &key, const bool value)

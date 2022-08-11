@@ -941,10 +941,10 @@ bool MainWindow::verifyCheck()
 
         QString err;
         if (!handleVerify(sourceFile, verifyFile, err)) {
-            SetSettingString("DI_DEEPIN_SQUASHFS_VERIFY", sourceFile);
             qCritical() << "deepin squashfs verify: " << err;
             // 兼容安装器的调试模式
             if (!GetSettingsBool("system_debug")) {
+                SetSettingString("DI_DEEPIN_VERIFY_STATUS", sourceFile);
                 return false;
             }
         }
