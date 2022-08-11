@@ -297,11 +297,8 @@ void FullDiskFrame::initConnections() {
   });
   connect(m_resizeCheck, &QCheckBox::clicked, this, [=](bool checked) {
       if (checked) {
-          m_saveDataCheck->setChecked(false);
-          m_saveDataCheck->setEnabled(false);
           emit showResizeRootWidget();
       } else {
-          m_saveDataCheck->setEnabled(true);
           // restore data and reload widget
           const int v = GetSettingsInt(kPartitionRootMiniSpace);
           WriteRootPartitionMiniSize(v);
@@ -726,7 +723,6 @@ void FullDiskFrame::onResizeRootFrameFinished() {
 void FullDiskFrame::onResizeRootFrameCanceled()
 {
     m_resizeCheck->setChecked(false);
-    m_saveDataCheck->setEnabled(true);
 }
 
 }  // namespace installer
