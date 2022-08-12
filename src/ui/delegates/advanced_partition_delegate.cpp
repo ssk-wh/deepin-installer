@@ -453,17 +453,16 @@ bool AdvancedPartitionDelegate::findESP() const {
         return false;
     }
 
-    QString cmd = QString("fdisk -l -o Device,Type | grep -E 'EFI' | awk '{print $1}'");
-    QProcess testprocess;
-    testprocess.start("/bin/bash",{"-c", cmd});
-    testprocess.waitForFinished();
-    QString dataindevices = testprocess.readAll();
-    qWarning() << "dataindevices = " << dataindevices;
-    if (dataindevices.compare("^/dev/*")) {
-        return true;
-    } else {
-        return false;
+    for (const Device::Ptr device : virtualDevices()) {
+        for (const Partition::Ptr partition : device->partitions) {
+            if (partition->flags.contains(PartitionFlag::ESP) && (partition->status == PartitionStatus::Format ||
+                                                           partition->status == PartitionStatus::Real)) {
+                return true;
+            }
+        }
     }
+
+    return false;
 }
 
 void AdvancedPartitionDelegate::onManualPartDone(const DeviceList& devices) {
