@@ -306,9 +306,9 @@ void InstallProgressFramePrivate::initUI() {
     progress_bar_->setObjectName("progress_bar");
     progress_bar_->setFixedSize(m_progressbarWidth, kProgressBarHeight);
     progress_bar_->setAlignment(Qt::AlignCenter);  // 对齐方式
-    // Set progress range to [0, 999] so that progress bar can be painted
+    // Set progress range to [0, 1000] so that progress bar can be painted
     // more smoothly.
-    progress_bar_->setRange(0, 999);
+    progress_bar_->setRange(0, 1000);
     progress_bar_->setOrientation(Qt::Horizontal);
     progress_bar_->setValue(0);
     progress_bar_->setTextVisible(true);
