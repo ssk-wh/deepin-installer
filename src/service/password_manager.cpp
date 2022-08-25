@@ -26,6 +26,7 @@
 #include <QProcess>
 
 // pw-check库1052中新加了枚举变量，为了保持低版本兼容，使用定义的枚举值对应的int值
+#define PW_CHARACTER_TYPE_TOO_FEW 14
 #define PW_USER_PASSWD_DUPLICATE 15
 
 installer::PasswordManager::PasswordManager()
@@ -107,6 +108,7 @@ bool installer::PasswordManager::checked(const QString &user, const QString &pas
             reset = false;
         } break;
 
+        case PW_CHARACTER_TYPE_TOO_FEW:
         case PW_ERR_CHARACTER_INVALID:{
             info = ::QObject::tr("The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)").arg(m_passwdValidateRequired, QString(m_passwdValidatePolicy).replace(QRegExp("[0-9a-zA-Z;]"), ""));
             reset = false;
