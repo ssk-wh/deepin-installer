@@ -36,6 +36,10 @@ mount -vt sysfs sysfs /target/sys || error "Failed to bind sysfs"
 mkdir -p /target/media/cdrom
 mount --bind ${CDROM} /target/media/cdrom || error "Failed to bind ${CDROM}"
 
+if [ -f /target/media/cdrom/oem.squashfs ]; then
+    mount --bind ${CDROM}/oem /target/media/cdrom/oem || error "Failed to bind ${CDROM}/oem"
+fi
+
 mkdir -p /target/run
 mount --bind /run /target/run || error "Failed to bind /run"
 
