@@ -114,12 +114,6 @@ MainWindow::MainWindow(QWidget* parent)
 
     qApp->installEventFilter(this);
 
-    if (!verifyCheck()) {
-        stacked_layout_->setCurrentWidget(m_installResultsFrame);
-        m_installResultsFrame->showInstallFailedFrame();
-        return;
-    }
-
     for (auto it = m_frames.begin(); it != m_frames.end();) {
         if ((*it)->shouldDisplay()) {
             break;
@@ -951,6 +945,12 @@ bool MainWindow::verifyCheck()
     }
 
     return true;
+}
+
+void MainWindow::showInstallFailedFrame()
+{
+    stacked_layout_->setCurrentWidget(m_installResultsFrame);
+    m_installResultsFrame->showInstallFailedFrame();
 }
 
 FrameInterface *MainWindow::getFrameInterface(QStandardItem *item) const

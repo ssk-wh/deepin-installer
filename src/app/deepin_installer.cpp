@@ -130,9 +130,15 @@ int main(int argc, char* argv[]) {
   main_window->setWindowIcon(":/images/deepin-installer-64px.svg");
   // Notify background thread to scan device info.
   main_window->scanDevicesAndTimezone();
-  main_window->setup();
   // 安装器的主界面输出到主屏，由启动初始化阶段的脚本克隆到其他屏幕
   main_window->setScreen(app.primaryScreen());
+
+  if (!main_window->verifyCheck()) {
+    main_window->showInstallFailedFrame();
+  } else {
+    main_window->setup();
+  }
+
   main_window->show();
 
   return app.exec();

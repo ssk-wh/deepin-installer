@@ -90,6 +90,10 @@ class MainWindow : public DMainWindow, public FrameProxyInterface {
   // And read current timezone.
   void scanDevicesAndTimezone();
 
+  // verify check
+  bool verifyCheck();
+  void showInstallFailedFrame();
+
   // Enable auto-install mode.
   //void setEnableAutoInstall(bool auto_install);
 
@@ -152,8 +156,6 @@ private:
   static bool checkBackButtonAvailable(PageId id);
   void updateFrameLabelState(FrameInterface *frame, FrameLabelState state);
   void updateFrameLabelPreviousState(bool allow);
-
-  bool verifyCheck();
 
   FrameInterface* getFrameInterface(QStandardItem *item) const;
 
