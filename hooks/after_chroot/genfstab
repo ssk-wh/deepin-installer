@@ -35,7 +35,6 @@ declare -A pseudofs_types=([anon_inodefs]=1
                            [tmpfs]=1
                            [overlayfs]=1
                            [overlay]=1
-                           [squashfs]=1
                            [iso9660]=1)
 # Also remove overlay which points to /deepinhost
 
