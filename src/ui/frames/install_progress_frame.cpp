@@ -213,10 +213,7 @@ void InstallProgressFrame::runHooks(bool ok) {
 
 void InstallProgressFrame::changeEvent(QEvent* event) {
     Q_D(InstallProgressFrame);
-
     if (event->type() == QEvent::LanguageChange) {
-        d->title_label_->setText(::QObject::tr("Installing"));
-        d->progress_bar_->setFormat(QString("%1").arg(installer::getInstallStatusName()));
         for (auto it = d->m_trList.begin(); it != d->m_trList.end(); ++it) {
             it->first(qApp->translate("QObject", it->second.toUtf8()));
         }
@@ -227,6 +224,9 @@ void InstallProgressFrame::changeEvent(QEvent* event) {
 
 void InstallProgressFrame::showEvent(QShowEvent *event)
 {
+    Q_D(InstallProgressFrame);
+    d->title_label_->setText(::QObject::tr("Installing"));
+    d->progress_bar_->setFormat(QString("%1").arg(installer::getInstallStatusName()));
     Q_EMIT closeButtionChange(false);
     return FrameInterface::showEvent(event);
 }

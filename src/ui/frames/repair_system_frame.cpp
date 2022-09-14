@@ -55,7 +55,6 @@ public:
         q_ptr(qobject_cast<RepairSystemFrame* >(parent)),
         m_currentLanguageType(LanguageType::Chinese)
     {
-        this->updateTranslator();
         this->initUi();
         this->initConnection();
     }
@@ -301,6 +300,15 @@ void installer::RepairSystemFrame::hideEvent(QHideEvent *event)
     d->removeTranslator();
 
     return FrameInterface::hideEvent(event);
+}
+
+void installer::RepairSystemFrame::showEvent(QShowEvent *event)
+{
+    Q_D(RepairSystemFrame);
+    d->updateTranslator();
+    d->setupTs();
+
+    return FrameInterface::showEvent(event);
 }
 
 bool installer::RepairSystemFrame::focusSwitch()
