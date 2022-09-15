@@ -11,6 +11,7 @@
 #include <QDebug>
 #include <QScreen>
 #include <QThread>
+#include <stdlib.h>
 
 DWIDGET_USE_NAMESPACE
 
@@ -101,6 +102,15 @@ double installer::ScreenAdaptationManager::getWidthZoomRatio() const
 double installer::ScreenAdaptationManager::getHeightZoomRatio() const
 {
     return m_heightZoomRatio;
+}
+
+void installer::ScreenAdaptationManager::initDpiScale()
+{
+    int dpiVal = int(qApp->primaryScreen()->logicalDotsPerInch());
+    int p_dpiVal = int(qApp->primaryScreen()->physicalDotsPerInch());
+
+    installer::SetSettingString("DI_LOGICAL_DPI", QString::number(dpiVal));
+    installer::SetSettingString("DI_PHYSICAL_DPI", QString::number(p_dpiVal));
 }
 
 

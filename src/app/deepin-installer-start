@@ -46,19 +46,7 @@ init_start() {
     fi
 }
 
-init_setting() {
-    echo "init setting"
-
-     # 本地调试逻辑
-    [ -f /usr/lib/live/mount/medium/oem/settings.ini ] && \
-        cat /usr/lib/live/mount/medium/oem/settings.ini > /etc/deepin-installer.conf
-    [ -f /usr/lib/live/mount/medium/oem/lightdm.conf ] && \
-        cp /usr/lib/live/mount/medium/oem/lightdm.conf /etc/lightdm/lightdm.conf
-}
-
 main() {
-    init_setting    #　提前初始化安装器配置，用于后续启动阶段的oem定制
-
     local mode=$(installer_get "system_installer_start_mode")
     echo "install mode: $mode"
 
@@ -71,4 +59,4 @@ main() {
     fi
 }
 
-main
+main >> /var/log/deepin-installer-init.log 2>&1

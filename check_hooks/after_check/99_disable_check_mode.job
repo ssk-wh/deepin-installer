@@ -5,7 +5,7 @@
 cat > "${LIGHTD_CONF_FILE}" <<EOF
 [Seat:*]
 display-setup-script=/usr/bin/deepin-installer-bases
-greeter-setup-script=/usr/bin/deepin-installer-first-boot
+greeter-setup-script=bash /usr/bin/deepin-installer-core /usr/bin/deepin-installer-first-boot
 greeter-session=lightdm-gtk-greeter
 EOF
 

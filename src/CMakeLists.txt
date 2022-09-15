@@ -833,14 +833,11 @@ target_link_libraries(deepin-installer-first-boot
                       #pwquality
                       )
 
-# 用户处理安装器初始，目前主要是和plymouth界面配置，
-# 用于设置启动背景, 防止高分辨率安装器启动慢的情况下，plymouth歪屏
-# 将设置背景的模块分离出来，主要是防止安装器主界面启动时间是受后续业务逻辑修改而导致的不确定性
 add_executable(deepin-installer-init
     app/deepin_installer_init.cpp
 
-    ui/widgets/wallpaper_item.h
-    ui/widgets/wallpaper_item.cpp
+    service/screen_adaptation_manager.h
+    service/screen_adaptation_manager.cpp
 
     service/settings_manager.h
     service/settings_manager.cpp
@@ -864,6 +861,7 @@ install(PROGRAMS
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-pkexec
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-both
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-bases
+        ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-core
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-start
         ${CMAKE_CURRENT_SOURCE_DIR}/app/deepin-installer-cli-install
         DESTINATION ${CMAKE_INSTALL_PREFIX}/bin

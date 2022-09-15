@@ -17,13 +17,6 @@
 #
 # Read kernel parameter and set global variables.
 
-#/usr/bin/kwin_no_scale &
-#sleep 5
-init() {
-    sleep 5                        # 延时启动背景窗口，保证窗口不会因为kwin导致的闪屏
-    /usr/bin/deepin-installer-init # 设置安装器的背景，适配高分辨率下plymouth出现歪屏的情况
-}
-
 # 获取活动屏幕输出个数
 monitors_cnt() {
     local out=`xrandr --listactivemonitors | grep ^Monitors:`
@@ -111,7 +104,9 @@ setup_monitors() {
     monitors_list | xargs -d" " -I {} xrandr --output {} --auto --primary || xrandr
 
     local cnt=$(monitors_cnt)
-    if [ $cnt -gt 1 ]; then
+    local system_monitor_enable=$(installer_get system_monitor_enable)
+    echo "system_monitor_enable=$system_monitor_enable"
+    if [ "x$system_monitor_enable" = "xtrue" ] && [ $cnt -gt 1 ]; then
         # 设置主屏分辨率
         monitors_primary | xargs -d" " -I {} xrandr --output {} --mode $(monitors_mode)
         # 克隆模式
@@ -153,6 +148,28 @@ first_boot_move() {
     fi
 }
 
+setup_kwin_env() {
+   export HOME=/root
+
+   #识别到景嘉微显卡屏蔽窗口特效
+   #lshw -c video | grep "driver=mwv206"
+   #if [ $? -eq 0 ]; then
+   #    export KWIN_COMPOSE=N
+   #fi
+
+   env
+}
+
+installer_get() {
+  local key="$1"
+  local CONF_FILE=/etc/deepin-installer.conf
+  [ -z "${CONF_FILE}" ] && exit "CONF_FILE is not defined"
+  which deepin-installer-settings 1>/dev/null || \
+    exit "deepin-installer-settings not found!"
+  deepin-installer-settings get "${CONF_FILE}" "${key}"
+}
+
+
 is_empty_dir() {
     local dir=$1
     [ ! -d $dir ] && return 0
@@ -185,35 +202,25 @@ setup_oem_squashfs() {
     echo "setup oem squashfs end!"
 }
 
-setup_kwin_env() {
-   export HOME=/root
-
-   #识别到景嘉微显卡屏蔽窗口特效
-   #lshw -c video | grep "driver=mwv206"
-   #if [ $? -eq 0 ]; then
-   #    export KWIN_COMPOSE=N
-   #fi
-
-   env
-}
-
 main() {
     ## 挂载oem.squashfs
     local live_dir="/usr/lib/live/mount/medium/"
     setup_live_workdir "$live_dir"
     setup_oem_squashfs "$live_dir"
 
+    ## 初始化安装配置和环境
+    /usr/bin/deepin-installer-init
+    cat /etc/deepin-installer.conf
+
     ## 处理后配置卸载自己后有小概率启动不了桌面问题，安装器后配置运行路径变为/usr/share/deepin-installer-exec
     first_boot_move
+
     ## 处理多屏的情况，安装器以克隆模式运行多屏的情况
     setup_monitors
 
     # 启动窗管，解决部分机型上界面花屏问题, 窗管启动失败不影响安装器本身程序的启动
     setup_kwin_env
     kwin_x11 -platform dde-kwin-xcb || true &
-
-    # 后台启动背景窗口的初始化，保证背景的启动过程不会降低安装器主窗口启动的时间
-    # init &
 }
 
 main >> /var/log/deepin-installer-init.log 2>&1

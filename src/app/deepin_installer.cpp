@@ -30,6 +30,7 @@
 #include <DToolTip>
 #include <QScreen>
 
+#include "service/screen_adaptation_manager.h"
 #include "service/multiscreenmanager.h"
 #include "ui/delegates/componentinstallmanager.h"
 #include "base/consts.h"
@@ -60,6 +61,8 @@ int main(int argc, char* argv[]) {
   QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
   DApplication app(argc, argv);
+
+  installer::ScreenAdaptationManager::initDpiScale();
   app.setApplicationDisplayName("Deepin Installer Reborn");
   app.setApplicationName(" ");
   app.setApplicationVersion(installer::kAppVersion);
@@ -97,6 +100,10 @@ int main(int argc, char* argv[]) {
 #endif // QT_DEBUG
 
   DLogManager::registerConsoleAppender();
+
+  qreal dpiVal = app.primaryScreen()->logicalDotsPerInch();
+  qreal p_dpiVal = app.primaryScreen()->physicalDotsPerInch();
+  qInfo() << "dpiVal = " << dpiVal << "p_dpi = " << p_dpiVal << endl;
 
   // Delete old settings file and generate a new one.
   installer::DeleteConfigFile();

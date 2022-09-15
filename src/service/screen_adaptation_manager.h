@@ -11,6 +11,7 @@ class ScreenAdaptationManager : public QObject
     Q_OBJECT
 public:
     static ScreenAdaptationManager* instance();
+    static void initDpiScale();
 
 public:
     QPixmap adapterPixmap(const QString &file);

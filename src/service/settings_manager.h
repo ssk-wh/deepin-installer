@@ -42,6 +42,8 @@ namespace installer {
         FinishingInstallation//即将安装完成...
     };
 
+bool isLiveSystem();
+
 // Get absolute path to oem/ folder. Note that oem folder may not exist.
 QDir GetOemDir();
 

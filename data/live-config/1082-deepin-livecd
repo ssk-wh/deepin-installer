@@ -25,7 +25,7 @@ generate_lightdm_conf() {
 [Seat:*]
 display-setup-script=/usr/bin/deepin-installer-bases
 greeter-session=lightdm-installer-greeter
-greeter-setup-script=/usr/bin/deepin-installer-pkexec
+greeter-setup-script=bash /usr/bin/deepin-installer-core /usr/bin/deepin-installer
 EOF
 }
 

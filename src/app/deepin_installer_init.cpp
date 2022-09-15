@@ -17,22 +17,27 @@
 
 // Main program of installer.
 
-#include "ui/widgets/wallpaper_item.h"
+#include "service/settings_manager.h"
+#include "service/screen_adaptation_manager.h"
 
-#include <QApplication>
+#include <QGuiApplication>
 #include <QDesktopWidget>
 
 using namespace installer;
 
 int main(int argc, char* argv[]) {
-    QApplication app(argc, argv);
-    app.setApplicationDisplayName("Deepin Installer init");
-    app.setApplicationName("deepin-installer");
+    /* 属性的设置一定要在app初始化之前，否则是无效的 */
+    QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QGuiApplication app(argc, argv);
+    app.setApplicationName("deepin-installer-init");
 
-    WallpaperItem *background = new WallpaperItem;
-    background->setFixedSize(QApplication::desktop()->availableGeometry().size());
-    background->show();
-    background->lower();
+    // Delete old settings file and generate a new one.
+    if (isLiveSystem()) {
+        installer::AddConfigFile();
+    }
 
-    return app.exec();
+    ScreenAdaptationManager::initDpiScale();
+
+    return 0;
 }

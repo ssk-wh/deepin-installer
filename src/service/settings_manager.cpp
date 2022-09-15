@@ -1174,4 +1174,21 @@ bool isDebug()
     return GetSettingsBool("system_debug");
 }
 
+bool isLiveSystem()
+{
+    QFile cmd_file("/proc/cmdline");
+    cmd_file.open(QIODevice::ReadOnly);
+    if (!cmd_file.isOpen()) {
+        qCritical() << "isLiveSystem: Failed to open file. /proc/cmdline";
+        return false;   // 如果没有读到文件，无法做出是否为pxe的判断， 则始终不加载网络模块，防止产生网络问题
+    }
+    QString info = cmd_file.readAll();
+    if (!info.contains(" live-config.livecd-installer") && !info.contains("livecd-installer")) {
+        return false;
+    }
+
+    qInfo() << "isLiveSystem: /proc/cmdline <" << info << ">";
+    return true;
+}
+
 }  // namespace installer
