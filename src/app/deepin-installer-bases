@@ -100,8 +100,11 @@ optimal_mode() {
 
 # 处理设置屏幕
 setup_monitors() {
-    # 设置主屏幕，兼容都是dpi输出且输出屏幕位置重合的情况,兼容无主屏输出的情况
-    monitors_list | xargs -d" " -I {} xrandr --output {} --auto --primary || xrandr
+    local pri_mon=$(monitors_primary)
+    if [ ! -n "$pri_mon" ];then
+        # 设置主屏幕，兼容都是dpi输出且输出屏幕位置重合的情况,兼容无主屏输出的情况
+        monitors_list | xargs -d" " -I {} xrandr --output {} --auto --primary || xrandr
+    fi
 
     local cnt=$(monitors_cnt)
     local system_monitor_enable=$(installer_get system_monitor_enable)
