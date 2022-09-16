@@ -33,7 +33,9 @@
 #include <QWindow>
 #include <QScreen>
 #include <QObject>
+#include <QProgressDialog>
 
+#include "ui/widgets/verify_dialog.h"
 #include "ui/interfaces/frameinterface.h"
 #include "base/file_util.h"
 #include "service/power_manager.h"
@@ -608,7 +610,6 @@ void MainWindow::initPages() {
   m_originalFrames = {
       // TODO: move the front new statement over here
       m_repairSystemFrame,
-      privilege_error_frame_,
       select_language_frame_,
 #ifdef QT_DEBUG_TEST
 #else
@@ -923,28 +924,44 @@ void MainWindow::updateFrameLabelPreviousState(bool allow)
 
 bool MainWindow::verifyCheck()
 {
-    QStringList sourceFileList = GetSettingsStringList("DI_INITRD_SOURCE_PATH");
-    QStringList verifyFileList = GetSettingsStringList("DI_INITRD_VERIFY_PATH");
-    for (int i = 0; i < sourceFileList.size(); i++) {
-        QString sourceFile = QString("%1/../%2").arg(GetOemDir().absolutePath(), sourceFileList.at(i));
-        QString verifyFile = "";
-        if (!verifyFileList.isEmpty()) {
-            verifyFile = QString("%1/../%2").arg(GetOemDir().absolutePath(),
-                                                     verifyFileList.at(i < verifyFileList.size() ? i : verifyFileList.size() - 1));
-        }
+    bool verify_flag = true;
+    QString cmd = GetSettingsString("DI_DEEPIN_SQUASHFS_VERIFY");
 
-        QString err;
-        if (!handleVerify(sourceFile, verifyFile, err)) {
-            qCritical() << "deepin squashfs verify: " << err;
-            // 兼容安装器的调试模式
-            if (!GetSettingsBool("system_debug")) {
-                SetSettingString("DI_DEEPIN_VERIFY_STATUS", sourceFile);
-                return false;
-            }
+    if (QFileInfo::exists(cmd)) {
+        VerifyDialog vDialog(this);
+        vDialog.setGeometry(m_screen->availableGeometry());
+        vDialog.setFixedSize(m_screen->availableSize());
+
+        const int updateProgressMSec = 3000;
+        QTimer *progressTimer = new QTimer;
+        progressTimer->setInterval(updateProgressMSec);
+        connect(progressTimer, &QTimer::timeout, this, [&]{
+            static int val = 0;
+            vDialog.setValue(val++);
+        });
+        progressTimer->start();
+        bool verify_node = false;
+
+        Verify verify;
+        QThread* installThread = new QThread;
+        connect(&verify, &Verify::done, this, [&](bool flag){
+            verify_flag = flag;
+            vDialog.setValue(100);
+            verify_node = true;
+        });
+        connect(&verify, &Verify::done, &vDialog, &VerifyDialog::close);
+        connect(installThread, &QThread::finished, installThread, &QThread::deleteLater);
+        connect(installThread, &QThread::started, &verify, &Verify::start);
+
+        verify.moveToThread(installThread);  // 将对象move到线程中运行
+        installThread->start();
+
+        if (!verify_node) {
+            vDialog.exec();
         }
     }
 
-    return true;
+    return verify_flag;
 }
 
 void MainWindow::showInstallFailedFrame()

@@ -453,6 +453,8 @@ set(UI_FILES
     ui/views/disk_installation_detail_view.h
     ui/views/disk_installation_detail_view.cpp
 
+    ui/widgets/verify_dialog.h
+    ui/widgets/verify_dialog.cpp
     ui/widgets/advanced_partition_button.cpp
     ui/widgets/advanced_partition_button.h
     ui/widgets/advanced_partition_error_label.cpp
