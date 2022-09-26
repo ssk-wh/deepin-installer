@@ -35,7 +35,6 @@
 #include <QObject>
 #include <QProgressDialog>
 
-#include "ui/widgets/verify_dialog.h"
 #include "ui/interfaces/frameinterface.h"
 #include "base/file_util.h"
 #include "service/power_manager.h"
@@ -53,6 +52,7 @@
 #include "ui/frames/install_progress_frame.h"
 #include "ui/frames/partition_frame.h"
 #include "ui/frames/privilege_error_frame.h"
+#include "ui/frames/verifycheck_frame.h"
 #include "ui/frames/language_frame.h"
 #include "ui/frames/system_info_frame.h"
 #include "ui/frames/timezone_frame.h"
@@ -330,6 +330,28 @@ void MainWindow::onFrameLabelsViewClicked(const QModelIndex& index)
     previousFrameSelected(framePointer);
 }
 
+void MainWindow::verifyStartSlot()
+{
+    // 禁用界面的左侧列表
+    m_frameLabelsView->setEnabled(false);
+}
+
+void MainWindow::verifyDoneSlot(bool isOk)
+{
+    if (isOk) {
+        // 解禁用界面的左侧列表
+        m_frameLabelsView->setEnabled(true);
+        // 禁用验签列表项
+        m_frameLabelsModel->item(0)->setEnabled(false);
+        nextFrame();
+    } else {
+        // 禁用界面的左侧列表
+        m_frameLabelsView->setEnabled(false);
+        stacked_layout_->setCurrentWidget(m_installResultsFrame);
+        m_installResultsFrame->showInstallFailedFrame();
+    }
+}
+
 void MainWindow::coverFrameLabelsView(bool cover) const
 {
     if (cover) {
@@ -461,6 +483,9 @@ void MainWindow::changeEvent(QEvent *event)
 }
 
 void MainWindow::initConnections() {
+  connect(verifycheck_frame_, &VerifyCheckFrame::verifyStart, this, &MainWindow::verifyStartSlot);
+  connect(verifycheck_frame_, &VerifyCheckFrame::verifyDone, this, &MainWindow::verifyDoneSlot);
+
   connect(close_button_, &DIconButton::clicked, this, &MainWindow::onCloseEvent);
 
   connect(confirm_quit_frame_, &WarnningFrame::quitCanceled, this, [=](){
@@ -623,6 +648,15 @@ void MainWindow::initPages() {
       install_progress_frame_,
       m_installResultsFrame,
   };
+
+  // 根据验签工具存在与否确定是否显示验签界面
+  QString cmd = GetSettingsString("DI_DEEPIN_SQUASHFS_VERIFY");
+  if (QFileInfo::exists(cmd)) {
+     verifycheck_frame_ = new VerifyCheckFrame(this);
+     verifycheck_frame_->setFocusPolicy(Qt::NoFocus);
+     stacked_layout_->insertWidget(0,verifycheck_frame_);
+      m_originalFrames.insert(0, verifycheck_frame_);
+  }
 
   FrameInterface* frame = network_frame_;
   if (frame->shouldDisplay()) {
@@ -873,6 +907,10 @@ bool MainWindow::checkBackButtonAvailable(PageId id) {
 
 void MainWindow::updateFrameLabelState(FrameInterface *frame, FrameLabelState state)
 {
+    if (frame == verifycheck_frame_) {
+        return;
+    }
+
     if (frame->frameType() != FrameType::Frame) {
         return;
     }
@@ -920,54 +958,6 @@ void MainWindow::updateFrameLabelPreviousState(bool allow)
             }
         }
     }
-}
-
-bool MainWindow::verifyCheck()
-{
-    bool verify_flag = true;
-    QString cmd = GetSettingsString("DI_DEEPIN_SQUASHFS_VERIFY");
-
-    if (QFileInfo::exists(cmd)) {
-        VerifyDialog vDialog(this);
-        vDialog.setGeometry(m_screen->availableGeometry());
-        vDialog.setFixedSize(m_screen->availableSize());
-
-        const int updateProgressMSec = 3000;
-        QTimer *progressTimer = new QTimer;
-        progressTimer->setInterval(updateProgressMSec);
-        connect(progressTimer, &QTimer::timeout, this, [&]{
-            static int val = 0;
-            vDialog.setValue(val++);
-        });
-        progressTimer->start();
-        bool verify_node = false;
-
-        Verify verify;
-        QThread* installThread = new QThread;
-        connect(&verify, &Verify::done, this, [&](bool flag){
-            verify_flag = flag;
-            vDialog.setValue(100);
-            verify_node = true;
-        });
-        connect(&verify, &Verify::done, &vDialog, &VerifyDialog::close);
-        connect(installThread, &QThread::finished, installThread, &QThread::deleteLater);
-        connect(installThread, &QThread::started, &verify, &Verify::start);
-
-        verify.moveToThread(installThread);  // 将对象move到线程中运行
-        installThread->start();
-
-        if (!verify_node) {
-            vDialog.exec();
-        }
-    }
-
-    return verify_flag;
-}
-
-void MainWindow::showInstallFailedFrame()
-{
-    stacked_layout_->setCurrentWidget(m_installResultsFrame);
-    m_installResultsFrame->showInstallFailedFrame();
 }
 
 FrameInterface *MainWindow::getFrameInterface(QStandardItem *item) const

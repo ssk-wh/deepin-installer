@@ -62,7 +62,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="180"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="431"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="190"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="426"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="428"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="772"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="1085"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="278"/>
@@ -478,7 +478,7 @@
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="54"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="245"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="261"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
@@ -528,7 +528,7 @@
         <location filename="../src/ui/first_boot_setup_window.cpp" line="431"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="137"/>
-        <location filename="../src/ui/main_window.cpp" line="451"/>
+        <location filename="../src/ui/main_window.cpp" line="475"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="50"/>
         <source>Abort Installation</source>
         <translation>Kurulumu İptal Et</translation>
@@ -537,7 +537,7 @@
         <location filename="../src/ui/first_boot_setup_window.cpp" line="432"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="119"/>
-        <location filename="../src/ui/main_window.cpp" line="452"/>
+        <location filename="../src/ui/main_window.cpp" line="476"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="55"/>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
         <translation>Kurulum sırasında yapacağınız işlemler etkili olmaz, kurulumu iptal etmek mi sürdürmek mi istersiniz?</translation>
@@ -552,7 +552,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="325"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="119"/>
-        <location filename="../src/ui/main_window.cpp" line="453"/>
+        <location filename="../src/ui/main_window.cpp" line="477"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="17"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="62"/>
         <source>Continue</source>
@@ -563,7 +563,7 @@
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="68"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="43"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="61"/>
-        <location filename="../src/ui/main_window.cpp" line="454"/>
+        <location filename="../src/ui/main_window.cpp" line="478"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="23"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="68"/>
         <source>Abort</source>
@@ -571,14 +571,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="73"/>
-        <location filename="../src/ui/main_window.cpp" line="529"/>
-        <location filename="../src/ui/main_window.cpp" line="532"/>
+        <location filename="../src/ui/main_window.cpp" line="556"/>
+        <location filename="../src/ui/main_window.cpp" line="559"/>
         <source>Shut Down</source>
         <translation>Kapat</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="75"/>
-        <location filename="../src/ui/main_window.cpp" line="530"/>
+        <location filename="../src/ui/main_window.cpp" line="557"/>
         <source>You can experience it after configuring user information in next system startup.</source>
         <translation>Bir sonraki sistem başlangıcında kullanıcı bilgilerini yapılandırdıktan sonra deneyimleyebilirsiniz.</translation>
     </message>
@@ -616,7 +616,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="56"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="243"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="259"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
         <translation>%2 kurmak için en az %1 GB disk alanın gerekli. Daha iyi performans için %3 GB veya daha fazlası önerilir</translation>
     </message>
@@ -660,7 +660,7 @@
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="128"/>
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="35"/>
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="92"/>
-        <location filename="../src/ui/main_window.cpp" line="531"/>
+        <location filename="../src/ui/main_window.cpp" line="558"/>
         <source>Cancel</source>
         <translation>İptal</translation>
     </message>
@@ -849,8 +849,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="327"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="233"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="310"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="249"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="326"/>
         <source>Encrypt This Disk</source>
         <translation>Bu Diski Şifrele</translation>
     </message>
@@ -882,28 +882,28 @@
         <translation>Parola Onayı</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="232"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="248"/>
         <source>Keep User Data</source>
         <translation>Kullanıcı Verilerini Sakla</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="234"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="322"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="250"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="338"/>
         <source>Please select a disk to start installation</source>
         <translation>Lütfen kurulum yapılacak bir disk seç</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="235"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="251"/>
         <source>Resize Root partition</source>
         <translation>Kök bölümünü boyutlandır</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="303"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="319"/>
         <source>Save User Data</source>
         <translation>Kullanıcı Verilerini Kaydet</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="479"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="495"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="239"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="181"/>
@@ -1131,7 +1131,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="693"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/language_frame.cpp" line="90"/>
         <source>Select Language</source>
         <translation>Dil Seç</translation>
@@ -1391,13 +1391,13 @@
         <translation>Günlüğü Kaydet</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="175"/>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="170"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="174"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="169"/>
         <source>Install</source>
         <translation>Kur</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="219"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="228"/>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="273"/>
         <location filename="../src/ui/frames_cli/install_process_frame.cpp" line="69"/>
         <location filename="../src/ui/frames_cli/install_process_frame.cpp" line="76"/>
@@ -1405,7 +1405,7 @@
         <translation>Kuruluyor</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="297"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="298"/>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="424"/>
         <source>Show log</source>
         <translation>Günlüğü göster</translation>
@@ -1654,28 +1654,28 @@
         <translation>Sakla</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="167"/>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="257"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="166"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="256"/>
         <source>System Setup</source>
         <translation>Sistem Kurulumu</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="168"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="167"/>
         <source>Choose an option for your system</source>
         <translation>Sisteminiz için bir seçenek belirleyin</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="171"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="170"/>
         <source>Install the system in your installation media.</source>
         <translation>Sistemi kurulum ortamınıza yükleyin.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="173"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="172"/>
         <source>Repair</source>
         <translation>Onar</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="174"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="173"/>
         <source>Use recovery tools to fix system issues.</source>
         <translation>Sistem sorunlarını gidermek için kurtarma araçlarını kullanın.</translation>
     </message>
@@ -2051,42 +2051,42 @@
         <translation>Bilinmeyen aygıt</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="98"/>
+        <location filename="../src/service/password_manager.cpp" line="99"/>
         <source>The password cannot be empty​</source>
         <translation>Parola boş olamaz</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="104"/>
+        <location filename="../src/service/password_manager.cpp" line="105"/>
         <source>Password must be between %1 and %2 characters</source>
         <translation>Parola %1 ile %2 karakter arasında olmalıdır</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="111"/>
+        <location filename="../src/service/password_manager.cpp" line="113"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
         <translation>Parola, mevcut dört karakter türünden en az %1 &apos;ini içermelidir: küçük harfler, büyük harfler, sayılar ve semboller (%2)</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="116"/>
+        <location filename="../src/service/password_manager.cpp" line="118"/>
         <source>Password must not contain more than %1 palindrome characters</source>
         <translation>Parola, en fazla %1 palindrom karakter içermelidir</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="121"/>
+        <location filename="../src/service/password_manager.cpp" line="123"/>
         <source>Do not use common words and combinations as password</source>
         <translation>Genel kelimeleri ve kombinasyonları parola olarak kullanmayın</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="127"/>
+        <location filename="../src/service/password_manager.cpp" line="129"/>
         <source>No more than %1 consecutive or repeated characters please</source>
         <translation>Lütfen %1&apos;den fazla ardışık veya tekrarlanan karakter olmasın</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="131"/>
+        <location filename="../src/service/password_manager.cpp" line="133"/>
         <source>Different from the username</source>
         <translation>Kullanıcı isminden farklı</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="141"/>
+        <location filename="../src/service/password_manager.cpp" line="143"/>
         <source>It does not meet password rules</source>
         <translation>Parola kurallarına uymuyor</translation>
     </message>
@@ -2128,12 +2128,22 @@
     <message>
         <location filename="../src/ui/frames/inner/resize_root_frame.cpp" line="165"/>
         <source>Resize Root Partition</source>
-        <translation type="unfinished"/>
+        <translation>Kök Bölümünü Boyutlandır</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/resize_root_frame.cpp" line="166"/>
         <source>Enter a size (%1 GB - %2 GB)</source>
         <translation>Boyut gir (%1 GB - %2 GB)</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/verifycheck_frame.cpp" line="41"/>
+        <source>Verifying image files...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/verifycheck_frame.cpp" line="94"/>
+        <source>Verify ISO</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2147,7 +2157,7 @@
 <context>
     <name>installer::RepairSystemFramePrivate</name>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="176"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="175"/>
         <source>Start</source>
         <translation>Başlangıç</translation>
     </message>

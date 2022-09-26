@@ -140,12 +140,9 @@ int main(int argc, char* argv[]) {
   // 安装器的主界面输出到主屏，由启动初始化阶段的脚本克隆到其他屏幕
   main_window->setScreen(app.primaryScreen());
 
-  if (!main_window->verifyCheck()) {
-    main_window->showInstallFailedFrame();
-  } else {
-    main_window->setup();
-  }
+  main_window->setup();
 
+  main_window->raise();
   main_window->show();
 
   return app.exec();

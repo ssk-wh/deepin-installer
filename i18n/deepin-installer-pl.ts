@@ -62,7 +62,7 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="180"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="431"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="190"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="426"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="428"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="772"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="1085"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="278"/>
@@ -478,7 +478,7 @@
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="54"/>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="245"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="261"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
@@ -528,7 +528,7 @@
         <location filename="../src/ui/first_boot_setup_window.cpp" line="431"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="137"/>
-        <location filename="../src/ui/main_window.cpp" line="451"/>
+        <location filename="../src/ui/main_window.cpp" line="475"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="50"/>
         <source>Abort Installation</source>
         <translation>Przerwij instalację</translation>
@@ -537,7 +537,7 @@
         <location filename="../src/ui/first_boot_setup_window.cpp" line="432"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="119"/>
-        <location filename="../src/ui/main_window.cpp" line="452"/>
+        <location filename="../src/ui/main_window.cpp" line="476"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="55"/>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
         <translation>Zmiany dokonane podczas procesu instalacji nie zastosują się. Czy chcesz przerwać instalację?</translation>
@@ -552,7 +552,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="325"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="119"/>
-        <location filename="../src/ui/main_window.cpp" line="453"/>
+        <location filename="../src/ui/main_window.cpp" line="477"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="17"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="62"/>
         <source>Continue</source>
@@ -563,7 +563,7 @@
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="68"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="43"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="61"/>
-        <location filename="../src/ui/main_window.cpp" line="454"/>
+        <location filename="../src/ui/main_window.cpp" line="478"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="23"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="68"/>
         <source>Abort</source>
@@ -571,14 +571,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="73"/>
-        <location filename="../src/ui/main_window.cpp" line="529"/>
-        <location filename="../src/ui/main_window.cpp" line="532"/>
+        <location filename="../src/ui/main_window.cpp" line="556"/>
+        <location filename="../src/ui/main_window.cpp" line="559"/>
         <source>Shut Down</source>
         <translation>Wyłącz komputer</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="75"/>
-        <location filename="../src/ui/main_window.cpp" line="530"/>
+        <location filename="../src/ui/main_window.cpp" line="557"/>
         <source>You can experience it after configuring user information in next system startup.</source>
         <translation>Możesz tego doświadczyć po skonfigurowaniu informacji o użytkowniku przy następnym uruchomieniu systemu.</translation>
     </message>
@@ -616,7 +616,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="56"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="243"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="259"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
         <translation>Potrzebujesz co najmniej %1 GB miejsca na dysku, aby zainstalować %2. Aby uzyskać lepszą wydajność, zalecane jest co najmniej %3 GB</translation>
     </message>
@@ -660,7 +660,7 @@
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="128"/>
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="35"/>
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="92"/>
-        <location filename="../src/ui/main_window.cpp" line="531"/>
+        <location filename="../src/ui/main_window.cpp" line="558"/>
         <source>Cancel</source>
         <translation>Anuluj</translation>
     </message>
@@ -849,8 +849,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="327"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="233"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="310"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="249"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="326"/>
         <source>Encrypt This Disk</source>
         <translation>Zaszyfruj ten dysk</translation>
     </message>
@@ -882,28 +882,28 @@
         <translation>Powtórz hasło</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="232"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="248"/>
         <source>Keep User Data</source>
         <translation>Zachowaj dane użytkownika</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="234"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="322"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="250"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="338"/>
         <source>Please select a disk to start installation</source>
         <translation>Wybierz dysk, aby rozpocząć instalację</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="235"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="251"/>
         <source>Resize Root partition</source>
         <translation>Zmień rozmiar partycji root</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="303"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="319"/>
         <source>Save User Data</source>
         <translation>Zapisz dane użytkownika</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="479"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="495"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="239"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="181"/>
@@ -1131,7 +1131,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="693"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="99"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/language_frame.cpp" line="90"/>
         <source>Select Language</source>
         <translation>Wybór języka</translation>
@@ -1225,7 +1225,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="810"/>
         <source>Use that password to edit boot menu</source>
-        <translation>Użyj tego hasła, aby edytować menu startowe</translation>
+        <translation>Użyj tego hasła, aby edytować menu rozruchu</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="811"/>
@@ -1236,7 +1236,7 @@
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="835"/>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="196"/>
         <source>This username already exists</source>
-        <translation>Ta nazwa użytkownika już istnieje</translation>
+        <translation>Nazwa użytkownika już istnieje</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="839"/>
@@ -1341,7 +1341,7 @@
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="54"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="96"/>
         <source>Basic Environment</source>
-        <translation>Podstawowe środowisko</translation>
+        <translation>Środowisko podstawowe</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="188"/>
@@ -1391,13 +1391,13 @@
         <translation>Zapisz dziennik</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="175"/>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="170"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="174"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="169"/>
         <source>Install</source>
         <translation>Zainstaluj</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="219"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="228"/>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="273"/>
         <location filename="../src/ui/frames_cli/install_process_frame.cpp" line="69"/>
         <location filename="../src/ui/frames_cli/install_process_frame.cpp" line="76"/>
@@ -1405,7 +1405,7 @@
         <translation>Instalowanie</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/install_progress_frame.cpp" line="297"/>
+        <location filename="../src/ui/frames/install_progress_frame.cpp" line="298"/>
         <location filename="../src/ui/frames/install_progress_frame.cpp" line="424"/>
         <source>Show log</source>
         <translation>Pokaż dziennik</translation>
@@ -1430,7 +1430,7 @@
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="72"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="74"/>
         <source>Successfully Installed</source>
-        <translation>Zainstalowano pomyślnie!</translation>
+        <translation>Zainstalowano pomyślnie</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/install_success_frame.cpp" line="94"/>
@@ -1654,28 +1654,28 @@
         <translation>Zachowaj</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="167"/>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="257"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="166"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="256"/>
         <source>System Setup</source>
         <translation>Ustawienia systemu</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="168"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="167"/>
         <source>Choose an option for your system</source>
         <translation>Wybierz opcję dla swojego systemu</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="171"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="170"/>
         <source>Install the system in your installation media.</source>
         <translation>Zainstaluj system na nośniku instalacyjnym.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="173"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="172"/>
         <source>Repair</source>
         <translation>Napraw</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="174"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="173"/>
         <source>Use recovery tools to fix system issues.</source>
         <translation>Użyj narzędzi do odzyskiwania, aby naprawić problemy z systemem.</translation>
     </message>
@@ -2010,7 +2010,7 @@
         <location filename="../src/ui/models/partition_type_model.cpp" line="41"/>
         <location filename="../src/ui/models/partition_type_model.cpp" line="47"/>
         <source>Logical Partition</source>
-        <translation>Partycja Logiczna</translation>
+        <translation>Partycja logiczna</translation>
     </message>
     <message>
         <location filename="../src/ui/models/partition_type_model.cpp" line="45"/>
@@ -2051,44 +2051,44 @@
         <translation>Nieznane urządzenie</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="98"/>
+        <location filename="../src/service/password_manager.cpp" line="99"/>
         <source>The password cannot be empty​</source>
         <translation>Pole na hasło nie może być puste</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="104"/>
+        <location filename="../src/service/password_manager.cpp" line="105"/>
         <source>Password must be between %1 and %2 characters</source>
         <translation>Hasło musi zawierać od %1 do %2 znaków</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="111"/>
+        <location filename="../src/service/password_manager.cpp" line="113"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols (%2)</source>
         <translation>Hasło powinno zawierać co najmniej %1 z czterech dostępnych typów znaków: małe litery, duże litery, cyfry i symbole (%2)</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="116"/>
+        <location filename="../src/service/password_manager.cpp" line="118"/>
         <source>Password must not contain more than %1 palindrome characters</source>
         <translation>Hasło nie może zawierać więcej niż %1 znaki palindromowe</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="121"/>
+        <location filename="../src/service/password_manager.cpp" line="123"/>
         <source>Do not use common words and combinations as password</source>
-        <translation>Nie używaj popularnych słów i kombinacji jako hasło</translation>
+        <translation>Nie używaj popularnych słów i kombinacji jako hasła</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="127"/>
+        <location filename="../src/service/password_manager.cpp" line="129"/>
         <source>No more than %1 consecutive or repeated characters please</source>
-        <translation>Proszę nie więcej niż %1 kolejnych lub powtarzających się znaków</translation>
+        <translation>Nie więcej niż %1 kolejnych lub powtarzających się znaków</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="131"/>
+        <location filename="../src/service/password_manager.cpp" line="133"/>
         <source>Different from the username</source>
         <translation>Inne od nazwy użytkownika</translation>
     </message>
     <message>
-        <location filename="../src/service/password_manager.cpp" line="141"/>
+        <location filename="../src/service/password_manager.cpp" line="143"/>
         <source>It does not meet password rules</source>
-        <translation>Wymagania dotyczące hasła nie zostały spełnione</translation>
+        <translation>Nie spełnia zasad dotyczących haseł</translation>
     </message>
     <message>
         <location filename="../src/service/settings_manager.cpp" line="1118"/>
@@ -2123,7 +2123,7 @@
     <message>
         <location filename="../src/ui/frames/inner/resize_root_frame.cpp" line="164"/>
         <source>Accept</source>
-        <translation>Zaakceptuj</translation>
+        <translation>Akceptuj</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/resize_root_frame.cpp" line="165"/>
@@ -2134,6 +2134,16 @@
         <location filename="../src/ui/frames/inner/resize_root_frame.cpp" line="166"/>
         <source>Enter a size (%1 GB - %2 GB)</source>
         <translation>Wprowadź rozmiar (%1 GB - %2 GB)</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/verifycheck_frame.cpp" line="41"/>
+        <source>Verifying image files...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/verifycheck_frame.cpp" line="94"/>
+        <source>Verify ISO</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2147,7 +2157,7 @@
 <context>
     <name>installer::RepairSystemFramePrivate</name>
     <message>
-        <location filename="../src/ui/frames/repair_system_frame.cpp" line="176"/>
+        <location filename="../src/ui/frames/repair_system_frame.cpp" line="175"/>
         <source>Start</source>
         <translation>Początek</translation>
     </message>

@@ -56,6 +56,7 @@ class PageIndicator;
 class PartitionFrame;
 class PartitionTableWarningFrame;
 class PrivilegeErrorFrame;
+class VerifyCheckFrame;
 class LanguageFrame;
 class SystemInfoFrame;
 class TimezoneFrame;
@@ -89,10 +90,6 @@ class MainWindow : public DMainWindow, public FrameProxyInterface {
   // Notify background thread to scan disk devices if needed.
   // And read current timezone.
   void scanDevicesAndTimezone();
-
-  // verify check
-  bool verifyCheck();
-  void showInstallFailedFrame();
 
   // Enable auto-install mode.
   //void setEnableAutoInstall(bool auto_install);
@@ -175,6 +172,7 @@ private:
   InstallProgressFrame* install_progress_frame_ = nullptr;
   PartitionFrame* partition_frame_ = nullptr;
   PrivilegeErrorFrame* privilege_error_frame_ = nullptr;
+  VerifyCheckFrame* verifycheck_frame_ = nullptr;
   LanguageFrame* select_language_frame_ = nullptr;
   SystemInfoFrame* system_info_frame_ = nullptr;
   TimezoneFrame* timezone_frame_ = nullptr;
@@ -237,6 +235,9 @@ private:
   void previousFrameSelected(FrameInterface* frame);
 
   void onFrameLabelsViewClicked(const QModelIndex& index);
+
+  void verifyStartSlot();
+  void verifyDoneSlot(bool isOk);
 };
 
 }  // namespace installer
