@@ -6,7 +6,3 @@ install_failed_qr_display_switch = true
 system_fix_wifi_device = true
 skip_repair_system_page = false
 
-DI_INITRD_SOURCE_PATH = "boot/initrd.img;oem.squashfs;live/filesystem.squashfs"
-DI_INITRD_VERIFY_PATH = "boot/initrd.img_sign;oem.squashfs_sign;live/filesystem.squashfs_sign"
-
-
