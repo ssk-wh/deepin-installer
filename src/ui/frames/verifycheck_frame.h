@@ -43,6 +43,7 @@ private:
 
 protected:
     void changeEvent(QEvent* event) override;
+    void hideEvent(QHideEvent *event) override;
     void showEvent(QShowEvent *event) override;
     bool focusSwitch() override;
     bool doSpace() override;

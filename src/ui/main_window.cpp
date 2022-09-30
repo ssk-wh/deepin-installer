@@ -261,6 +261,7 @@ void MainWindow::nextFrame()
                 stacked_layout_->setCurrentWidget(*it);
             }
             else if ((*it)->frameType() == FrameType::FullScreenExtFrame) {
+                stacked_layout_->setCurrentWidget(*it);
                 showExtFrameFullscreen(*it);
             }
             else {
@@ -340,9 +341,8 @@ void MainWindow::verifyDoneSlot(bool isOk)
 {
     if (isOk) {
         // 解禁用界面的左侧列表
+        verifycheck_frame_->hide();
         m_frameLabelsView->setEnabled(true);
-        // 禁用验签列表项
-        m_frameLabelsModel->item(0)->setEnabled(false);
         nextFrame();
     } else {
         // 禁用界面的左侧列表
@@ -907,10 +907,6 @@ bool MainWindow::checkBackButtonAvailable(PageId id) {
 
 void MainWindow::updateFrameLabelState(FrameInterface *frame, FrameLabelState state)
 {
-    if (frame == verifycheck_frame_) {
-        return;
-    }
-
     if (frame->frameType() != FrameType::Frame) {
         return;
     }
@@ -934,6 +930,9 @@ void MainWindow::updateFrameLabelState(FrameInterface *frame, FrameLabelState st
     case FrameLabelState::FinishedConfig:
         item->actionList(Qt::Edge::RightEdge).first()->setVisible(true);
         item->setFlags(Qt::ItemFlag::ItemIsEnabled | Qt::ItemFlag::ItemIsSelectable);
+        if (frame == verifycheck_frame_) {
+            item->setEnabled(false);
+        }
         break;
     case FrameLabelState::Previous:
         item->actionList(Qt::Edge::RightEdge).first()->setVisible(true);

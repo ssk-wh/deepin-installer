@@ -1158,6 +1158,9 @@ bool handleVerify(const QString &sourceFilePath, const QString& verifyFilePath, 
             err = QString("%1 handle verify faield. out: %2.  %3.").arg(cmd + " " + args.join(" "), out, err);
             return false;
         }
+    } else {
+        qInfo() << QString("Command: %1 failed. %2 not found").arg(cmd + " " + args.join(" ")).arg(cmd);
+        return false;
     }
 
     qInfo() << QString("Command: %1 succeed.").arg(cmd + " " + args.join(" "));

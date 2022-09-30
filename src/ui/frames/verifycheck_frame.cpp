@@ -96,24 +96,16 @@ QString VerifyCheckFrame::returnFrameName() const
 
 void VerifyCheckFrame::verifyCheck()
 {
-    QString cmd = GetSettingsString("DI_DEEPIN_SQUASHFS_VERIFY");
-    if (QFileInfo::exists(cmd)) {
-        Q_EMIT verifyStart();
+    QThread* installThread = new QThread;
+    connect(&verify, &Verify::done, this, [&](bool flag){
+        Q_EMIT verifyDone(flag);
+    }, Qt::QueuedConnection);
+    connect(installThread, &QThread::finished, installThread, &QThread::deleteLater);
+    connect(installThread, &QThread::started, &verify, &Verify::start);
 
-        QThread* installThread = new QThread;
-        connect(&verify, &Verify::done, this, [&](bool flag){
-            m_private->startCalculateTip(false);
-            Q_EMIT verifyDone(flag);
-        });
-        connect(installThread, &QThread::finished, installThread, &QThread::deleteLater);
-        connect(installThread, &QThread::started, &verify, &Verify::start);
-
-        verify.moveToThread(installThread);  // 将对象move到线程中运行
-        installThread->start();
-        m_private->startCalculateTip(true);
-    } else {
-        Q_EMIT verifyDone(false);
-    }
+    verify.moveToThread(installThread);  // 将对象move到线程中运行
+    installThread->start();
+    Q_EMIT verifyStart();
 }
 
 void VerifyCheckFrame::changeEvent(QEvent *event)
@@ -121,8 +113,15 @@ void VerifyCheckFrame::changeEvent(QEvent *event)
     return FrameInterface::changeEvent(event);
 }
 
+void VerifyCheckFrame::hideEvent(QHideEvent *event)
+{
+    m_private->startCalculateTip(false);
+    return FrameInterface::hideEvent(event);
+}
+
 void VerifyCheckFrame::showEvent(QShowEvent *event)
 {
+    m_private->startCalculateTip(true);
     verifyCheck();
     return FrameInterface::showEvent(event);
 }
