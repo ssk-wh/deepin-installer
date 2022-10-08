@@ -10,6 +10,7 @@
 #include <QDebug>
 #include <QVBoxLayout>
 #include <QThread>
+#include <QTranslator>
 
 DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
@@ -21,14 +22,18 @@ class VerifyCheckFramePrivate : public FrameInterfacePrivate
     Q_OBJECT
 
 public:
-    explicit VerifyCheckFramePrivate(FrameInterface* parent) : FrameInterfacePrivate(parent){}
+    explicit VerifyCheckFramePrivate(FrameInterface* parent) : FrameInterfacePrivate(parent)
+        ,m_translator(new QTranslator){}
 
     void initUI();
     void initConnect();
     void startCalculateTip(bool isStart);
+    void setTranslator(QString localStr);
+    void unsetTranslator();
 
     DSpinner *m_calculateTip = nullptr;
     QLabel *m_calculateTipLabel = nullptr;
+    QTranslator *m_translator = nullptr;
 };
 
 void VerifyCheckFramePrivate::initUI()
@@ -59,6 +64,30 @@ void VerifyCheckFramePrivate::startCalculateTip(bool isStart)
     if (m_calculateTip != nullptr) {
         m_calculateTip->start();
     }
+}
+
+void VerifyCheckFramePrivate::setTranslator(QString localStr)
+{
+    QString local_file = I18N_DIR"/deepin-installer.qm";
+
+    if ((!localStr.isEmpty()) && (installer::GetCurrentType() != OSType::Community)) {
+        local_file = QString(I18N_DIR"/deepin-installer-%1.qm").arg(localStr);
+    }
+
+    if (m_translator->load(local_file)) {
+        if (!qApp->installTranslator(m_translator)) {
+            qWarning() << "Failed to update ui language at:" << local_file;
+        }
+    } else {
+        qWarning() << "Failed to load locale file:" << local_file;
+    }
+
+    m_calculateTipLabel->setText(::QObject::tr("Verifying image files..."));
+}
+
+void VerifyCheckFramePrivate::unsetTranslator()
+{
+    qApp->removeTranslator(m_translator);
 }
 
 VerifyCheckFrame::VerifyCheckFrame(FrameProxyInterface* frameProxyInterface, QWidget *parent)
@@ -94,6 +123,11 @@ QString VerifyCheckFrame::returnFrameName() const
     return  ::QObject::tr("Verify ISO");
 }
 
+void VerifyCheckFrame::unsetTranslator()
+{
+    m_private->unsetTranslator();
+}
+
 void VerifyCheckFrame::verifyCheck()
 {
     QThread* installThread = new QThread;
@@ -121,6 +155,8 @@ void VerifyCheckFrame::hideEvent(QHideEvent *event)
 
 void VerifyCheckFrame::showEvent(QShowEvent *event)
 {
+    m_private->setTranslator("zh_CN");
+
     m_private->startCalculateTip(true);
     verifyCheck();
     return FrameInterface::showEvent(event);

@@ -341,6 +341,7 @@ void MainWindow::verifyDoneSlot(bool isOk)
 {
     if (isOk) {
         // 解禁用界面的左侧列表
+        verifycheck_frame_->unsetTranslator();
         verifycheck_frame_->hide();
         m_frameLabelsView->setEnabled(true);
         nextFrame();
