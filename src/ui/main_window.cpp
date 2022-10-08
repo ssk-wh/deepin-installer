@@ -148,22 +148,8 @@ MainWindow::MainWindow(QWidget* parent)
 }
 
 void MainWindow::setup() {
-    if (GetSettingsBool(kPartitionDoAutoPart)) {
-        // Read default locale from settings.ini and go to InstallProgressFrame.
-        // 当配置了页面跳过和自动安装时，对于磁盘空间检测的异常需要有异常提示界面
-        // current_page_ = PageId::PartitionId;
-
-        // Set language.
-        QTranslator* translator = new QTranslator(this);
-        const QString locale(ReadLocale());
-        translator->load(GetLocalePath(locale));
-        qApp->installTranslator(translator);
-    }
-
-    if (GetSettingsBool(kPartitionDoAutoPart) || GetSettingsBool("DI_LUPIN")) {
-        // In auto-install mode, partitioning is done in hook script.
-        // So notify InstallProgressFrame to run hooks directly.
-        partition_frame_->autoPart();
+    if (verifycheck_frame_ == nullptr) {
+        setUpAutoInstall();
     }
 }
 
@@ -345,11 +331,17 @@ void MainWindow::verifyDoneSlot(bool isOk)
         verifycheck_frame_->hide();
         m_frameLabelsView->setEnabled(true);
         nextFrame();
+        setUpAutoInstall();
     } else {
+        FrameInterface* currentFrame = qobject_cast<FrameInterface*>(stacked_layout_->currentWidget());
+        updateFrameLabelState(currentFrame, FrameLabelState::FinishedConfig);
+
         // 禁用界面的左侧列表
         m_frameLabelsView->setEnabled(false);
         stacked_layout_->setCurrentWidget(m_installResultsFrame);
         m_installResultsFrame->showInstallFailedFrame();
+
+        updateFrameLabelState(m_installResultsFrame, FrameLabelState::Show);
     }
 }
 
@@ -969,6 +961,21 @@ FrameInterface *MainWindow::getFrameInterface(QStandardItem *item) const
     }
 
     return nullptr;
+}
+
+void MainWindow::setUpAutoInstall()
+{
+    if (GetSettingsBool(kPartitionDoAutoPart) || GetSettingsBool("DI_LUPIN")) {
+        // Set language.
+        QTranslator* translator = new QTranslator(this);
+        const QString locale(ReadLocale());
+        translator->load(GetLocalePath(locale));
+        qApp->installTranslator(translator);
+
+        // In auto-install mode, partitioning is done in hook script.
+        // So notify InstallProgressFrame to run hooks directly.
+        partition_frame_->autoPart();
+    }
 }
 
 void MainWindow::onCurrentPageChanged(int index) {

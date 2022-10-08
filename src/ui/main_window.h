@@ -155,6 +155,7 @@ private:
   void updateFrameLabelPreviousState(bool allow);
 
   FrameInterface* getFrameInterface(QStandardItem *item) const;
+  void setUpAutoInstall();
 
   QLabel* background_label_ = nullptr;
   DIconButton* back_button_ = nullptr;
