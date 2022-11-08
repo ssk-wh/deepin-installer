@@ -43,21 +43,27 @@ namespace {
 // Value of minimum disk space is changed based on size of physical memory.
 QString GetCommentLabel() {
   int minimum = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
+  const int recommended = GetSettingsInt(kPartitionRecommendedDiskSpace);
   if (minimum <= 0) {
-    minimum = qMin(GetSettingsInt(kPartitionRootMiniSpace)
+      minimum = qMin(GetSettingsInt(kPartitionRootMiniSpace)
                    , GetSettingsInt(kPartitionFullDiskMiniSpace));
   }
+  QString tips = ::QObject::tr("You need at least %1 GB disk space to install %2. "
+                               "To get better performance, %3 GB or more is recommended")
+                .arg(minimum)
+                .arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : LicenseDelegate::product())
+                .arg(recommended);
 
   if (GetSettingsBool(kPartitionDoAutoPart)) {//如果是自动分区则检测，全盘分区最小磁盘容量要求
       minimum = GetSettingsInt(kPartitionFullDiskMiniSpace);
+      tips = ::QObject::tr("You need at least %1 GB disk space to install %2 using the full-disk installation method. "
+                           "To get better performance, %3 GB or more is recommended.")
+                      .arg(minimum)
+                      .arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : LicenseDelegate::product())
+                      .arg(recommended);
   }
 
-  const int recommended = GetSettingsInt(kPartitionRecommendedDiskSpace);
-  return ::QObject::tr("You need at least %1 GB disk space to install %2. "
-                     "To get better performance, %3 GB or more is recommended")
-      .arg(minimum)
-      .arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : LicenseDelegate::product())
-      .arg(recommended);
+  return tips;
 }
 
 }  // namespace

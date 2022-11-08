@@ -1,10 +1,26 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="bo" sourcelanguage="en">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.0" language="bo" sourcelanguage="en">
 <context>
     <name>ConfirmQuitFrame</name>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="90"/>
         <source>Continue</source>
         <translation>མུ་མཐུད་སྒྲིག་འཇུག་བྱེད་པ།</translation>
+    </message>
+</context>
+<context>
+    <name>DSysInfo::Deepin::QObject</name>
+    <message>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="54"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="62"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="261"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="423"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="132"/>
+        <source>Deepin</source>
+        <translation>Deepin</translation>
     </message>
 </context>
 <context>
@@ -477,14 +493,6 @@
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="54"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="261"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="423"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="74"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="132"/>
         <source>Deepin</source>
         <translation>Deepin</translation>
     </message>
@@ -528,7 +536,7 @@
         <location filename="../src/ui/first_boot_setup_window.cpp" line="431"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="137"/>
-        <location filename="../src/ui/main_window.cpp" line="475"/>
+        <location filename="../src/ui/main_window.cpp" line="468"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="50"/>
         <source>Abort Installation</source>
         <translation>སྒྲིག་འཇུག་མཚམས་འཇོག་པ།</translation>
@@ -537,7 +545,7 @@
         <location filename="../src/ui/first_boot_setup_window.cpp" line="432"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="119"/>
-        <location filename="../src/ui/main_window.cpp" line="476"/>
+        <location filename="../src/ui/main_window.cpp" line="469"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="55"/>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
         <translation>ཐེངས་འདིའི་སྒྲིག་འཇུག་བརྒྱུད་རིམ་ཁྲོད་ཁྱོད་ཀྱིས་བྱས་པའི་འབྲེལ་ཡོད་བཀོལ་སྤྱོད་དག་གོ་མི་ཆོད་པས། སྒྲིག་འཇུག་མཚམས་འཇོག་པའམ་མུ་མཐུད་དེ་སྒྲིག་འཇུག་བྱེད་དགོས་སམ།</translation>
@@ -552,7 +560,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="325"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="119"/>
-        <location filename="../src/ui/main_window.cpp" line="477"/>
+        <location filename="../src/ui/main_window.cpp" line="470"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="17"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="62"/>
         <source>Continue</source>
@@ -563,7 +571,7 @@
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="68"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="43"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="61"/>
-        <location filename="../src/ui/main_window.cpp" line="478"/>
+        <location filename="../src/ui/main_window.cpp" line="471"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="23"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="68"/>
         <source>Abort</source>
@@ -571,14 +579,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="73"/>
-        <location filename="../src/ui/main_window.cpp" line="556"/>
-        <location filename="../src/ui/main_window.cpp" line="559"/>
+        <location filename="../src/ui/main_window.cpp" line="549"/>
+        <location filename="../src/ui/main_window.cpp" line="552"/>
         <source>Shut Down</source>
         <translation>རྩིས་འཁོར་གློག་གསོད།</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="75"/>
-        <location filename="../src/ui/main_window.cpp" line="557"/>
+        <location filename="../src/ui/main_window.cpp" line="550"/>
         <source>You can experience it after configuring user information in next system startup.</source>
         <translation>ཐེངས་རྗེས་མར་ཁ་ཕྱེ་རྗེས། སྤྱོད་མཁན་གྱི་ཆ་འཕྲིན་སྡེབ་སྒྲིག་ཚར་བ་དང་རྒྱུད་ཁོངས་ཀྱི་བཀོལ་སྤྱོད་འདི་ཉིད་སྤྱོད་ཆོག</translation>
     </message>
@@ -615,21 +623,26 @@
         <translation>ཞབས་ཞུ་འཕྲུལ་ཆས་གནས་ཡུལ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="56"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="51"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="259"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
         <translation>%2སྒྲིག་འཇུག་བྱེད་པར་ཉུང་མཐར་ཡང་སྡུད་སྡེར་གྱི་བར་སྟོང་%1 GBདགོས་པས། སྔར་བས་བེད་སྤྱོད་ལེགས་པ་ཡོང་ཆེད། ཁྱོད་ཀྱིས་%3 GBཡན་དབྱེ་རྒྱུའི་གྲོས་འགོ་འདོན་གྱི་ཡིན།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="92"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="97"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="59"/>
+        <source>You need at least %1 GB disk space to install %2 using the full-disk installation method. To get better performance, %3 GB or more is recommended.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="98"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="103"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="130"/>
         <source>Insufficient Disk Space</source>
         <translation>སྡུད་སྡེར་གྱི་བར་སྟོང་མི་འདང་བ།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="99"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="131"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="105"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="137"/>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="106"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="190"/>
@@ -660,7 +673,7 @@
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="128"/>
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="35"/>
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="92"/>
-        <location filename="../src/ui/main_window.cpp" line="558"/>
+        <location filename="../src/ui/main_window.cpp" line="551"/>
         <source>Cancel</source>
         <translation>འདོར་བ།</translation>
     </message>
@@ -2052,8 +2065,8 @@
     </message>
     <message>
         <location filename="../src/service/password_manager.cpp" line="99"/>
-        <source>The password cannot be empty​</source>
-        <translation>གསང་ཨང་སྟོང་པ་ཡིན་མི་རུང་།</translation>
+        <source>The password cannot be empty</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/service/password_manager.cpp" line="105"/>
@@ -2136,12 +2149,13 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/verifycheck_frame.cpp" line="41"/>
+        <location filename="../src/ui/frames/verifycheck_frame.cpp" line="46"/>
+        <location filename="../src/ui/frames/verifycheck_frame.cpp" line="85"/>
         <source>Verifying image files...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/verifycheck_frame.cpp" line="94"/>
+        <location filename="../src/ui/frames/verifycheck_frame.cpp" line="123"/>
         <source>Verify ISO</source>
         <translation type="unfinished"/>
     </message>

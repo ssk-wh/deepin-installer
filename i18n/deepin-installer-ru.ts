@@ -1,10 +1,26 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ru" sourcelanguage="en">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.0" language="ru" sourcelanguage="en">
 <context>
     <name>ConfirmQuitFrame</name>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="90"/>
         <source>Continue</source>
         <translation>Продолжить</translation>
+    </message>
+</context>
+<context>
+    <name>DSysInfo::Deepin::QObject</name>
+    <message>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="54"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="62"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="261"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="423"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="132"/>
+        <source>Deepin</source>
+        <translation>Deepin</translation>
     </message>
 </context>
 <context>
@@ -477,14 +493,6 @@
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="54"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="261"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="423"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="74"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="132"/>
         <source>Deepin</source>
         <translation>Deepin</translation>
     </message>
@@ -522,13 +530,13 @@
     <message>
         <location filename="../src/ui/first_boot_setup_window.cpp" line="429"/>
         <source>An unknown problem has occurred, which may not affect the system running. Please click &quot;Skip&quot; to continue the installation. If you cannot enter the system later, please try to reinstall.</source>
-        <translation type="unfinished"/>
+        <translation>Произошла неизвестная проблема, которая не влияет на работу системы. Нажмите «Пропустить», чтобы продолжить установку. Если вы не можете войти в систему позже, пожалуйста, попробуйте переустановить.</translation>
     </message>
     <message>
         <location filename="../src/ui/first_boot_setup_window.cpp" line="431"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="137"/>
-        <location filename="../src/ui/main_window.cpp" line="475"/>
+        <location filename="../src/ui/main_window.cpp" line="468"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="50"/>
         <source>Abort Installation</source>
         <translation>Прервать Установку</translation>
@@ -537,7 +545,7 @@
         <location filename="../src/ui/first_boot_setup_window.cpp" line="432"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="119"/>
-        <location filename="../src/ui/main_window.cpp" line="476"/>
+        <location filename="../src/ui/main_window.cpp" line="469"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="55"/>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
         <translation>Соответствующие операции, сделанные вами в процессе установки не вступят в силу, вы хотите прервать или продолжить установку?</translation>
@@ -552,7 +560,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="325"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="119"/>
-        <location filename="../src/ui/main_window.cpp" line="477"/>
+        <location filename="../src/ui/main_window.cpp" line="470"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="17"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="62"/>
         <source>Continue</source>
@@ -563,7 +571,7 @@
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="68"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="43"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="61"/>
-        <location filename="../src/ui/main_window.cpp" line="478"/>
+        <location filename="../src/ui/main_window.cpp" line="471"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="23"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="68"/>
         <source>Abort</source>
@@ -571,14 +579,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="73"/>
-        <location filename="../src/ui/main_window.cpp" line="556"/>
-        <location filename="../src/ui/main_window.cpp" line="559"/>
+        <location filename="../src/ui/main_window.cpp" line="549"/>
+        <location filename="../src/ui/main_window.cpp" line="552"/>
         <source>Shut Down</source>
         <translation>Выключить</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="75"/>
-        <location filename="../src/ui/main_window.cpp" line="557"/>
+        <location filename="../src/ui/main_window.cpp" line="550"/>
         <source>You can experience it after configuring user information in next system startup.</source>
         <translation>Вы можете попробовать ее после настройки информации о пользователе при следующем запуске системы.</translation>
     </message>
@@ -615,21 +623,26 @@
         <translation>Адрес Сервера</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="56"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="51"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="259"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
         <translation>Для установки %2 требуется не менее %1 ГБ дискового пространства. Для хорошей производительности рекомендуется использовать %3 ГБ или более</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="92"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="97"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="59"/>
+        <source>You need at least %1 GB disk space to install %2 using the full-disk installation method. To get better performance, %3 GB or more is recommended.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="98"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="103"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="130"/>
         <source>Insufficient Disk Space</source>
         <translation>Недостаточно Места на Диске</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="99"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="131"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="105"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="137"/>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="106"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="190"/>
@@ -660,7 +673,7 @@
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="128"/>
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="35"/>
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="92"/>
-        <location filename="../src/ui/main_window.cpp" line="558"/>
+        <location filename="../src/ui/main_window.cpp" line="551"/>
         <source>Cancel</source>
         <translation>Отменить</translation>
     </message>
@@ -734,7 +747,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="658"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="662"/>
         <source>The partition of %1 directory should be the first partition on the hard disk, and starts at the beginning of the disk</source>
-        <translation type="unfinished"/>
+        <translation>Раздел каталога %1 должен быть первым разделом на жестком диске и начинаться с начала диска.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="381"/>
@@ -756,7 +769,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="671"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="394"/>
         <source>To create lvm, /boot partition is required</source>
-        <translation type="unfinished"/>
+        <translation>Для создания lvm требуется раздел /boot</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="674"/>
@@ -884,7 +897,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="248"/>
         <source>Keep User Data</source>
-        <translation type="unfinished"/>
+        <translation>Сохранить данные пользователя</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="250"/>
@@ -895,12 +908,12 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="251"/>
         <source>Resize Root partition</source>
-        <translation type="unfinished"/>
+        <translation>Изменить размер корневого раздела</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="319"/>
         <source>Save User Data</source>
-        <translation type="unfinished"/>
+        <translation>Сохранить данные пользователя</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="495"/>
@@ -1563,7 +1576,7 @@
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="512"/>
         <source>Illegal %1, please have a check.</source>
-        <translation type="unfinished"/>
+        <translation>Недопустимый %1, пожалуйста, проверьте.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/networkframe.cpp" line="529"/>
@@ -1646,12 +1659,12 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="1220"/>
         <source>The &quot;/data/home&quot; directory is found. If you do not keep it, the data saved in it by previous users will be lost. Keep or delete it?</source>
-        <translation type="unfinished"/>
+        <translation>Каталог &quot;/data/home&quot; найден. Если вы его не сохраните, данные, сохраненные в нем предыдущими пользователями, будут утеряны. Сохранить или удалить?</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="1221"/>
         <source>Keep</source>
-        <translation type="unfinished"/>
+        <translation>Хранить</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="166"/>
@@ -1662,7 +1675,7 @@
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="167"/>
         <source>Choose an option for your system</source>
-        <translation type="unfinished"/>
+        <translation>Выберите вариант для вашей системы</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="170"/>
@@ -1777,7 +1790,7 @@
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="456"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="459"/>
         <source>%1 error found, fix to continue installation</source>
-        <translation type="unfinished"/>
+        <translation>Обнаружена ошибка %1, исправьте её, чтобы продолжить установку</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/create_root_user_frame.cpp" line="171"/>
@@ -1839,7 +1852,7 @@
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="53"/>
         <location filename="../src/ui/frames_cli/install_component_frame.cpp" line="95"/>
         <source>Select the components according to your needs.</source>
-        <translation type="unfinished"/>
+        <translation>Выбирайте компоненты в соответствии с вашими потребностями.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_component_frame.h" line="71"/>
@@ -1863,7 +1876,7 @@
         <location filename="../src/ui/interfaces_cli/frameinterface.h" line="59"/>
         <location filename="../src/ui/main_window_cli.cpp" line="80"/>
         <source>Change Field</source>
-        <translation type="unfinished"/>
+        <translation>Изменить поле</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/install_component_frame.h" line="74"/>
@@ -1929,7 +1942,7 @@
     <message>
         <location filename="../src/ui/frames_cli/network_frame.cpp" line="200"/>
         <source>Configure Now</source>
-        <translation type="unfinished"/>
+        <translation>Настроить сейчас</translation>
     </message>
     <message>
         <location filename="../src/ui/first_boot_setup_window.cpp" line="430"/>
@@ -2004,7 +2017,7 @@
     <message>
         <location filename="../src/ui/models/package_manager_model.cpp" line="20"/>
         <source>Uninstall failed package list:</source>
-        <translation type="unfinished"/>
+        <translation>Удаление списка пакетов с ошибками:</translation>
     </message>
     <message>
         <location filename="../src/ui/models/partition_type_model.cpp" line="41"/>
@@ -2052,8 +2065,8 @@
     </message>
     <message>
         <location filename="../src/service/password_manager.cpp" line="99"/>
-        <source>The password cannot be empty​</source>
-        <translation>Пароль не может быть пустым</translation>
+        <source>The password cannot be empty</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/service/password_manager.cpp" line="105"/>
@@ -2093,7 +2106,7 @@
     <message>
         <location filename="../src/service/settings_manager.cpp" line="1118"/>
         <source>Preparing...</source>
-        <translation type="unfinished"/>
+        <translation>Подготовка...</translation>
     </message>
     <message>
         <location filename="../src/service/settings_manager.cpp" line="1121"/>
@@ -2118,7 +2131,7 @@
     <message>
         <location filename="../src/service/settings_manager.cpp" line="1133"/>
         <source>Finishing installation...</source>
-        <translation type="unfinished"/>
+        <translation>Завершение установки...</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/resize_root_frame.cpp" line="164"/>
@@ -2128,22 +2141,23 @@
     <message>
         <location filename="../src/ui/frames/inner/resize_root_frame.cpp" line="165"/>
         <source>Resize Root Partition</source>
-        <translation type="unfinished"/>
+        <translation>Изменить размер корневого раздела</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/resize_root_frame.cpp" line="166"/>
         <source>Enter a size (%1 GB - %2 GB)</source>
-        <translation type="unfinished"/>
+        <translation>Введите размер (%1 ГБ -%2 ГБ)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/verifycheck_frame.cpp" line="41"/>
+        <location filename="../src/ui/frames/verifycheck_frame.cpp" line="46"/>
+        <location filename="../src/ui/frames/verifycheck_frame.cpp" line="85"/>
         <source>Verifying image files...</source>
-        <translation type="unfinished"/>
+        <translation>Проверка файлов изображений...</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/verifycheck_frame.cpp" line="94"/>
+        <location filename="../src/ui/frames/verifycheck_frame.cpp" line="123"/>
         <source>Verify ISO</source>
-        <translation type="unfinished"/>
+        <translation>Проверка ISO</translation>
     </message>
 </context>
 <context>

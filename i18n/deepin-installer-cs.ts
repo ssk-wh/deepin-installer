@@ -1,10 +1,26 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="cs" sourcelanguage="en">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.0" language="cs" sourcelanguage="en">
 <context>
     <name>ConfirmQuitFrame</name>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="90"/>
         <source>Continue</source>
         <translation>Pokračovat</translation>
+    </message>
+</context>
+<context>
+    <name>DSysInfo::Deepin::QObject</name>
+    <message>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="54"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="62"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="261"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="423"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="132"/>
+        <source>Deepin</source>
+        <translation>Deepin</translation>
     </message>
 </context>
 <context>
@@ -477,14 +493,6 @@
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="54"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="261"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="423"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="74"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="132"/>
         <source>Deepin</source>
         <translation>Deepin</translation>
     </message>
@@ -528,7 +536,7 @@
         <location filename="../src/ui/first_boot_setup_window.cpp" line="431"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="137"/>
-        <location filename="../src/ui/main_window.cpp" line="475"/>
+        <location filename="../src/ui/main_window.cpp" line="468"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="50"/>
         <source>Abort Installation</source>
         <translation>Přerušit instalaci</translation>
@@ -537,7 +545,7 @@
         <location filename="../src/ui/first_boot_setup_window.cpp" line="432"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="66"/>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="119"/>
-        <location filename="../src/ui/main_window.cpp" line="476"/>
+        <location filename="../src/ui/main_window.cpp" line="469"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="55"/>
         <source>Relevant operations you made in the installation process will not take effect, abort or continue installation?</source>
         <translation>Příslušné kroky, provedené během instalace, nebudou mít účinek – přerušit nebo pokračovat v instalaci?</translation>
@@ -552,7 +560,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="325"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="119"/>
-        <location filename="../src/ui/main_window.cpp" line="477"/>
+        <location filename="../src/ui/main_window.cpp" line="470"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="17"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="62"/>
         <source>Continue</source>
@@ -563,7 +571,7 @@
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="68"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="43"/>
         <location filename="../src/ui/frames_cli/disk_space_insufficient_frame.cpp" line="61"/>
-        <location filename="../src/ui/main_window.cpp" line="478"/>
+        <location filename="../src/ui/main_window.cpp" line="471"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="23"/>
         <location filename="../src/ui/ncurses_widgets/ncurses_quit.cpp" line="68"/>
         <source>Abort</source>
@@ -571,14 +579,14 @@
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="73"/>
-        <location filename="../src/ui/main_window.cpp" line="556"/>
-        <location filename="../src/ui/main_window.cpp" line="559"/>
+        <location filename="../src/ui/main_window.cpp" line="549"/>
+        <location filename="../src/ui/main_window.cpp" line="552"/>
         <source>Shut Down</source>
         <translation>Vypnout</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="75"/>
-        <location filename="../src/ui/main_window.cpp" line="557"/>
+        <location filename="../src/ui/main_window.cpp" line="550"/>
         <source>You can experience it after configuring user information in next system startup.</source>
         <translation>Můžete se s tím setkat po nastavení informací o uživateli při příštím spuštění systému.</translation>
     </message>
@@ -615,21 +623,26 @@
         <translation>Adresa serveru</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="56"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="51"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="259"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
         <translation>Pro instalaci %2 je zapotřebí přinejmenším %1 GB prostoru na disku. Pro lepší výkon je doporučeno %3 GB a více</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="92"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="97"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="124"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="59"/>
+        <source>You need at least %1 GB disk space to install %2 using the full-disk installation method. To get better performance, %3 GB or more is recommended.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="98"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="103"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="130"/>
         <source>Insufficient Disk Space</source>
         <translation>Nedostatek místa na disku</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="99"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="131"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="105"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="137"/>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="106"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="190"/>
@@ -660,7 +673,7 @@
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="128"/>
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="35"/>
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="92"/>
-        <location filename="../src/ui/main_window.cpp" line="558"/>
+        <location filename="../src/ui/main_window.cpp" line="551"/>
         <source>Cancel</source>
         <translation>Zrušit</translation>
     </message>
@@ -895,7 +908,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="251"/>
         <source>Resize Root partition</source>
-        <translation type="unfinished"/>
+        <translation>Změnit velikost kořenového oddílu</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="319"/>
@@ -1220,7 +1233,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="809"/>
         <source>Add fingerprint passwords in Control Center to unlock and authenticate</source>
-        <translation type="unfinished"/>
+        <translation>Přidejte heslo otiskem prstu v Ovládacích panelech pro odemykání a ověřování</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="810"/>
@@ -2052,8 +2065,8 @@
     </message>
     <message>
         <location filename="../src/service/password_manager.cpp" line="99"/>
-        <source>The password cannot be empty​</source>
-        <translation>Heslo nemůže zůstat nevyplněné</translation>
+        <source>The password cannot be empty</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/service/password_manager.cpp" line="105"/>
@@ -2083,7 +2096,7 @@
     <message>
         <location filename="../src/service/password_manager.cpp" line="133"/>
         <source>Different from the username</source>
-        <translation type="unfinished"/>
+        <translation>Odlišné od uživatelského jména</translation>
     </message>
     <message>
         <location filename="../src/service/password_manager.cpp" line="143"/>
@@ -2093,32 +2106,32 @@
     <message>
         <location filename="../src/service/settings_manager.cpp" line="1118"/>
         <source>Preparing...</source>
-        <translation type="unfinished"/>
+        <translation>Připravuje se...</translation>
     </message>
     <message>
         <location filename="../src/service/settings_manager.cpp" line="1121"/>
         <source>Partitioning...</source>
-        <translation type="unfinished"/>
+        <translation>Rozděluje se na oddíly...</translation>
     </message>
     <message>
         <location filename="../src/service/settings_manager.cpp" line="1124"/>
         <source>Decompressing files...</source>
-        <translation type="unfinished"/>
+        <translation>Rozbalují se na soubory...</translation>
     </message>
     <message>
         <location filename="../src/service/settings_manager.cpp" line="1127"/>
         <source>Installing system...</source>
-        <translation type="unfinished"/>
+        <translation>Instaluje se systém...</translation>
     </message>
     <message>
         <location filename="../src/service/settings_manager.cpp" line="1130"/>
         <source>Initial backup in progress...</source>
-        <translation type="unfinished"/>
+        <translation>Probíhá počáteční zálohování...</translation>
     </message>
     <message>
         <location filename="../src/service/settings_manager.cpp" line="1133"/>
         <source>Finishing installation...</source>
-        <translation type="unfinished"/>
+        <translation>Dokončuje se instalace...</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/resize_root_frame.cpp" line="164"/>
@@ -2128,22 +2141,23 @@
     <message>
         <location filename="../src/ui/frames/inner/resize_root_frame.cpp" line="165"/>
         <source>Resize Root Partition</source>
-        <translation type="unfinished"/>
+        <translation>Změnit velikost kořenového oddílu</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/resize_root_frame.cpp" line="166"/>
         <source>Enter a size (%1 GB - %2 GB)</source>
-        <translation type="unfinished"/>
+        <translation>Zadejte velikost (%1 GB - %2 GB)</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/verifycheck_frame.cpp" line="41"/>
+        <location filename="../src/ui/frames/verifycheck_frame.cpp" line="46"/>
+        <location filename="../src/ui/frames/verifycheck_frame.cpp" line="85"/>
         <source>Verifying image files...</source>
-        <translation type="unfinished"/>
+        <translation>Ověřují se soubory s obrázky...</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/verifycheck_frame.cpp" line="94"/>
+        <location filename="../src/ui/frames/verifycheck_frame.cpp" line="123"/>
         <source>Verify ISO</source>
-        <translation type="unfinished"/>
+        <translation>Ověřit ISO</translation>
     </message>
 </context>
 <context>
