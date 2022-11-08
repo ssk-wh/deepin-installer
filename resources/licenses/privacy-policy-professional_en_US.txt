@@ -162,7 +162,7 @@ When you print files with the [Print Manager] pre-installed by UOS, we will coll
 
 2.4 Services of Desktop Intelligent Assistant/Chinese Input Method
 
-The [Desktop Intelligent Assistant] service/[Chinese Input Method] service is integrated into UOS and is provided by our authorized partners. When you input text by voice through [Desktop Intelligent Assistant] service/[Chinese Input Method] service, our partners will collect such voice content directly for technical analysis and convert it into text.
+The [Desktop Intelligent Assistant] service/[Chinese Input Method] service is integrated into UOS and is provided by our third party business partners.  When you input text by voice through [Desktop Intelligent Assistant] service/[Chinese Input Method] service, our partners will collect such voice content directly for technical analysis and convert it into text.
 
 After you log in to UOS ID, you can manage the input method, and choose to actively upload your user thesaurus, custom phrases and configuration information of input method to achieve the multi-device synchronization of the aforementioned information.
 
