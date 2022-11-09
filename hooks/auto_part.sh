@@ -39,7 +39,7 @@ check_device_size(){
 
 # Check boot mode is UEFI or not.
 check_efi_mode(){
-  is_sw && declare -g EFI=true
+  declare -g EFI=true
   [ -d "/sys/firmware/efi" ] && declare -g EFI=true
   local force_efi=$(installer_get force_efi_mode)
   [ x"$force_efi" = "xtrue" ] && declare -g EFI=true
@@ -132,7 +132,7 @@ align_partition_end(){
 
 # Create new partition table.
 new_part_table(){
-  if [ "x$EFI" == "xtrue" ] || is_sw ; then
+  if [ "x$EFI" == "xtrue" ]; then
     local part_table="gpt"
   else
     local part_table="msdos"
@@ -530,8 +530,6 @@ main(){
 #  # Write boot method.
   if $EFI; then
     installer_set DI_UEFI "true"
-
-    is_sw && installer_set DI_BOOTLOADER "${part_device_array[0]}"
   else
     installer_set DI_BOOTLOADER "${part_device_array[0]}"
   fi

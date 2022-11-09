@@ -120,11 +120,9 @@ for i in $(echo "${mount_points}"); do
 done
 
 if [ x"${DI_UEFI}" = xtrue ]; then
-    if ! is_sw; then
-        mkdir -p /target/boot/efi
-        mount ${DI_BOOTLOADER} /target/boot/efi || \
-            error "Failed to mount bootloader ${DI_BOOTLOADER}"
-    fi
+    mkdir -p /target/boot/efi
+    mount ${DI_BOOTLOADER} /target/boot/efi || \
+        error "Failed to mount bootloader ${DI_BOOTLOADER}"
 else
     #解决bug50960,兆芯逻辑分区的引导无法安装到mbr，原因需要激活扩展分区
     cpuVendorId=$(lscpu | grep "Vendor ID" | awk '{print $3}')

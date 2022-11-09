@@ -233,25 +233,26 @@ add_start_option() {
     local bootloader_id=$(installer_get "system_startup_option")
 
     ## 基础启动项,默认UOS
-    grub-install $arch_info --efi-directory=/boot/efi --bootloader-id="${bootloader_id}" --recheck \
+    ## --force-extra-removable 选项确保了 /boot/efi/EFI/BOOT 目录的创建，并同时满足的申威的固件要求
+    grub-install $arch_info --efi-directory=/boot/efi --bootloader-id="${bootloader_id}" --force-extra-removable --recheck \
         || error "grub-install failed with $arch_info" "${bootloader_id}"
 
-    # Copy signed grub efi file.
-    is_community || [ -d /boot/efi/EFI/ubuntu ] || mkdir -p /boot/efi/EFI/ubuntu
-    is_community || cp -vf /boot/efi/EFI/${bootloader_id}/grub* /boot/efi/EFI/ubuntu/
+    # Copy signed grub efi file. (sw_64 does not want this directry)
+    is_sw || is_community || [ -d /boot/efi/EFI/ubuntu ] || mkdir -p /boot/efi/EFI/ubuntu
+    is_sw || is_community || cp -vf /boot/efi/EFI/${bootloader_id}/grub* /boot/efi/EFI/ubuntu/
+    # 非申威架构使用 /boot/efi/EFI/boot 而不是 /boot/efi/EFI/BOOT
+    is_sw || rm -rf /boot/efi/EFI/BOOT
+    is_sw || [ -d /boot/efi/EFI/boot ] || mkdir -p /boot/efi/EFI/boot
+    is_sw || cp -vf /boot/efi/EFI/${bootloader_id}/grub* /boot/efi/EFI/boot/
 
-    [ -d /boot/efi/EFI/boot ] || mkdir -p /boot/efi/EFI/boot
-    cp -vf /boot/efi/EFI/${bootloader_id}/grub* /boot/efi/EFI/boot/
-
-    # 32bit机型默认的efi引导文件
-    fallback_efi=/boot/efi/EFI/boot/bootia32.efi
-    fallback_efi_bak="${fallback_efi}-$(date +%s).bak"
-    [ -f "${fallback_efi}" ] && cp "${fallback_efi}" "${fallback_efi_bak}"
-    # Override fallback efi with shim.
-    cp -vf /boot/efi/EFI/${bootloader_id}/shim*.efi "${fallback_efi}"
-
-    # x86的64bit机型默认的efi引导文件
     if is_x86; then
+        # 32bit机型默认的efi引导文件
+        fallback_efi=/boot/efi/EFI/boot/bootia32.efi
+        fallback_efi_bak="${fallback_efi}-$(date +%s).bak"
+        [ -f "${fallback_efi}" ] && cp "${fallback_efi}" "${fallback_efi_bak}"
+        # Override fallback efi with shim.
+        cp -vf /boot/efi/EFI/${bootloader_id}/shim*.efi "${fallback_efi}"
+        # x86的64bit机型默认的efi引导文件
         fallback_efi=/boot/efi/EFI/boot/bootx64.efi
         fallback_efi_bak="${fallback_efi}-$(date +%s).bak"
         [ -f "${fallback_efi}" ] && cp "${fallback_efi}" "${fallback_efi_bak}"

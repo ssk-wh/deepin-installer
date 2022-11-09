@@ -419,12 +419,6 @@ bool IsEfiEnabled() {
             }
         }
     }
-    // NOTE: 申威平台默认支持efi，但固件又不支持用/sys/firmare/efi判断
-    // 且要求第一个分区为/boot而不是/boot/efi，所以在申威平台强制使用GPT且不分efi分区
-    if (GetCurrentPlatform() == "sw"){
-     	return true;
-    }
-
 
     // NOTE(justforlxz): 如果关闭了自动探测，则检查是否开启了强制MBR模式
     // kAutoDetectInstallationMode用于强制Legacy或UEFI引导的。

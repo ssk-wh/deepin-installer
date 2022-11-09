@@ -719,12 +719,10 @@ void NewPartitionFrame::onCreateButtonClicked() {
       }
 
       if (align_start) {//从起点开始创建
-          if (GetCurrentPlatform() != "sw") {
-              //创建EFI分区
-              if (table == PartitionTableType::GPT && device->device_type == DeviceType::NormalDevice) {
-                  delegate_->createPartition(partition_, partition_type, align_start, FsType::EFI,
-                                             "", total_sectors_auto, QString(), false, false);
-              }
+          //创建EFI分区
+          if (table == PartitionTableType::GPT && device->device_type == DeviceType::NormalDevice) {
+              delegate_->createPartition(partition_, partition_type, align_start, FsType::EFI,
+                                         "", total_sectors_auto, QString(), false, false);
           }
 
           //创建/分区
@@ -759,14 +757,12 @@ void NewPartitionFrame::onCreateButtonClicked() {
           delegate_->createPartition(partition_, partition_type, align_start, fs_type,
                                      kMountPointRoot, total_sectors_auto);
 
-          if (GetCurrentPlatform() != "sw") {
-              //创建EFI
-              if (table == PartitionTableType::GPT && device->device_type == DeviceType::NormalDevice) {
-                  partition_ = device->partitions.at(indexPartition);
-                  total_sectors_auto = efi_recommended * kMebiByte / partition_->sector_size;
-                  delegate_->createPartition(partition_, partition_type, align_start, FsType::EFI,
-                                             "", total_sectors_auto);
-              }
+          //创建EFI
+          if (table == PartitionTableType::GPT && device->device_type == DeviceType::NormalDevice) {
+              partition_ = device->partitions.at(indexPartition);
+              total_sectors_auto = efi_recommended * kMebiByte / partition_->sector_size;
+              delegate_->createPartition(partition_, partition_type, align_start, FsType::EFI,
+                                         "", total_sectors_auto);
           }
       }
 
