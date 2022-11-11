@@ -238,12 +238,16 @@ add_start_option() {
         || error "grub-install failed with $arch_info" "${bootloader_id}"
 
     # Copy signed grub efi file. (sw_64 does not want this directry)
-    is_sw || is_community || [ -d /boot/efi/EFI/ubuntu ] || mkdir -p /boot/efi/EFI/ubuntu
-    is_sw || is_community || cp -vf /boot/efi/EFI/${bootloader_id}/grub* /boot/efi/EFI/ubuntu/
-    # 非申威架构使用 /boot/efi/EFI/boot 而不是 /boot/efi/EFI/BOOT
-    is_sw || rm -rf /boot/efi/EFI/BOOT
-    is_sw || [ -d /boot/efi/EFI/boot ] || mkdir -p /boot/efi/EFI/boot
-    is_sw || cp -vf /boot/efi/EFI/${bootloader_id}/grub* /boot/efi/EFI/boot/
+    if ! is_sw; then
+      if ! is_community; then
+        mkdir -p /boot/efi/EFI/ubuntu
+        cp -vf /boot/efi/EFI/${bootloader_id}/grub* /boot/efi/EFI/ubuntu/
+      fi
+      # 非申威架构使用 /boot/efi/EFI/boot 而不是 /boot/efi/EFI/BOOT
+      rm -rf /boot/efi/EFI/BOOT
+      mkdir -p /boot/efi/EFI/boot
+      cp -vf /boot/efi/EFI/${bootloader_id}/grub* /boot/efi/EFI/boot/
+    fi
 
     if is_x86; then
         # 32bit机型默认的efi引导文件
