@@ -189,8 +189,12 @@ setup_live_workdir() {
     # 光驱安装时，启动盘的挂载点可能会是/run/live/medium
     local live_dir=$1
     if is_empty_dir $live_dir; then
+        # 使用移动光驱的时候这个路径是不存在的还是默认的/usr/lib/live/mount/medium目录
+        if [ -d /run/live/medium/ ]; then
+            mount -v --bind /run/live/medium/ $live_dir
+        fi
+    else
         info "$live_dir is empty dir"
-        mount -v --bind /run/live/medium/ $live_dir
     fi
 
     info "$live_dir not empty dir"
