@@ -263,7 +263,8 @@ void FullDiskFrame::changeEvent(QEvent* event) {
 
         int min_size = GetSettingsInt(kPartitionFullDiskMiniSpace);
         int recommend_size = GetSettingsInt(kPartitionRecommendedDiskSpace);
-        m_diskTooSmallTip->setText(::QObject::tr("You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended")
+        m_diskTooSmallTip->setText(::QObject::tr("You need at least %1 GB disk space to install %2 using the full-disk installation method. "
+                                                 "To get better performance, %3 GB or more is recommended.")
                                    .arg(min_size)
                                    .arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : LicenseDelegate::product())
                                    .arg(recommend_size));
