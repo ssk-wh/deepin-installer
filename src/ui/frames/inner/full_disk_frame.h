@@ -55,6 +55,7 @@ public:
     bool doSelect();
     bool directionKey(int keyvalue);
     bool isSaveData();
+    void clearPartInfos();
 
 signals:
     void currentDeviceChanged(const Device::Ptr device) const;

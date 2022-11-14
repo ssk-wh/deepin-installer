@@ -127,6 +127,9 @@ public:
      bool isEnSaveData();
      bool isLvm();
 
+     bool updateDiskInfo(const DeviceList &devices);
+     bool checkDiskChange();
+
      PartitionFrame* q_ptr=nullptr;
 
      AdvancedPartitionFrame* advanced_partition_frame_ = nullptr;
@@ -149,6 +152,7 @@ public:
      DynamicDiskWarningFrame* dynamic_disk_warning_frame_ = nullptr;
      WarnningFrame*   save_data_pop_widget = nullptr;
      WarnningFrame*   swap_warnning_frame = nullptr;
+     WarnningFrame*   device_change_warnning_frame = nullptr;
 
      TitleLabel* title_label_ = nullptr;
      CommentLabel* comment_label_ = nullptr;
@@ -169,6 +173,7 @@ public:
 
      QHBoxLayout* next_layout = nullptr;
      bool m_isOnButtonBoxWidget = false;
+     DeviceList m_deviceList;
 };
 
 PartitionFrame::PartitionFrame(FrameProxyInterface* frameProxyInterface, QWidget* parent)
@@ -282,6 +287,11 @@ void PartitionFrame::changeEvent(QEvent* event) {
       m_private->swap_warnning_frame->setComment(::QObject::tr("No swap partition created, which may affect system performance"));
       m_private->swap_warnning_frame->setEnterButtonText(::QObject::tr("OK"));
       m_private->swap_warnning_frame->setCancelButtonText(::QObject::tr("Cancel"));
+
+      // m_private->device_change_warnning_frame->setTitle(::QObject::tr("Friendly Note"));
+      m_private->device_change_warnning_frame->setComment(::QObject::tr("The partition is created on an unavailable device, so its configurations will be reset"));
+      m_private->device_change_warnning_frame->setEnterButtonText(::QObject::tr("OK"));
+      m_private->device_change_warnning_frame->setCancelButtonText(::QObject::tr("Cancel"));
 
     m_private->simple_frame_button_->setText(::QObject::tr("Simple"));
     m_private->advanced_frame_button_->setText(::QObject::tr("Advanced"));
@@ -640,7 +650,6 @@ void PartitionFramePrivate::initConnections() {
     connect(partition_model_, &PartitionModel::deviceRefreshed,
             simple_partition_delegate_,
             &SimplePartitionDelegate::onDeviceRefreshed);
-
   }
   if (!GetSettingsBool(kPartitionSkipFullDiskPartitionPage)) {
     connect(partition_model_, &PartitionModel::deviceRefreshed,
@@ -695,6 +704,19 @@ void PartitionFramePrivate::initConnections() {
       q_ptr->repaint();
   });
 
+  connect(device_change_warnning_frame, &WarnningFrame::quitEntered, this, [=] {
+      q_ptr->m_proxy->hideChildFrame();
+      q_ptr->repaint();
+  });
+
+  connect(device_change_warnning_frame, &WarnningFrame::quitCanceled, this, [=] {
+      q_ptr->m_proxy->hideChildFrame();
+      q_ptr->repaint();
+  });
+
+  connect(partition_model_, &PartitionModel::deviceRefreshed,
+          this, &PartitionFramePrivate::updateDiskInfo);
+
     Q_EMIT full_disk_frame_button_->click();
 }
 
@@ -724,6 +746,10 @@ void PartitionFramePrivate::initUI() {
   swap_warnning_frame = new WarnningFrame(q_ptr->m_proxy);
   swap_warnning_frame->useCancelButton(false);
   swap_warnning_frame->hide();
+
+  device_change_warnning_frame = new WarnningFrame(q_ptr->m_proxy);
+  device_change_warnning_frame->useCancelButton(false);
+  device_change_warnning_frame->hide();
 
   title_label_ = new TitleLabel(::QObject::tr("Create Partitions"));
   title_label_->setObjectName("title_label_");
@@ -939,6 +965,20 @@ void PartitionFramePrivate::onButtonGroupToggled(QAbstractButton *button)
 }
 
 void PartitionFramePrivate::onNextButtonClicked() {
+    // 检测设备列表是否发生改变，如果发生改变则刷新分区列表从新分区
+    if (checkDiskChange()) {
+        // 弹窗提示设备列表发生改变
+        q_ptr->m_proxy->showChildFrame(device_change_warnning_frame);
+
+        simple_partition_delegate_->onDeviceRefreshed(m_deviceList);
+        full_disk_delegate_->onDeviceRefreshed(m_deviceList);
+        advanced_delegate_->onDeviceRefreshed(m_deviceList);
+
+        full_disk_partition_frame_->onDeviceRefreshed();
+        full_disk_partition_frame_->clearPartInfos();
+        return;
+    }
+
   WriteFullDiskMode(isFullDiskPartitionMode());
   prepare_install_frame_->setCreateRecovery(isFullDiskPartitionMode());
   if (isSimplePartitionMode()) {
@@ -1277,6 +1317,50 @@ bool PartitionFramePrivate::isEnSaveData()
 bool PartitionFramePrivate::isLvm()
 {
     return isFullDiskPartitionMode() && full_disk_delegate_->isLvm();
+}
+
+bool PartitionFramePrivate::updateDiskInfo(const DeviceList &devices)
+{
+    QProcess process;
+    process.start("/bin/bash", {"-c", "lsblk -lpf -o NAME,TYPE | grep disk | awk '{print $1}'"});
+    process.waitForFinished();
+    QString result = process.readAllStandardOutput();
+    QStringList devicesByCmd = result.split("\n");
+    devicesByCmd.removeAll("");
+    devicesByCmd.removeAll("\n");
+
+    m_deviceList.clear();
+    for ( Device::Ptr devItem : devices ) {
+        if (devicesByCmd.indexOf(devItem->path) != -1) {
+            m_deviceList.append(devItem);
+        }
+    }
+
+    return true;
+}
+
+bool PartitionFramePrivate::checkDiskChange()
+{
+    QProcess process;
+    process.start("/bin/bash", {"-c", "lsblk -lpf -o NAME,TYPE | grep disk | awk '{print $1}'"});
+    process.waitForFinished();
+    QString result = process.readAllStandardOutput();
+    QStringList devicesByCmd = result.split("\n");
+    devicesByCmd.removeAll("");
+    devicesByCmd.removeAll("\n");
+
+    bool devicesChanged = false;
+    DeviceList tmpDeviceList = m_deviceList;
+    m_deviceList.clear();
+    for ( Device::Ptr devItem : tmpDeviceList ) {
+        if (devicesByCmd.indexOf(devItem->path) != -1) {
+            m_deviceList.append(devItem);
+        } else {
+            devicesChanged = true;
+        }
+    }
+
+    return devicesChanged;
 }
 
 }  // namespace installer

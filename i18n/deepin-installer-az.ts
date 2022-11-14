@@ -1,26 +1,10 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.0" language="az" sourcelanguage="en">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="az" sourcelanguage="en">
 <context>
     <name>ConfirmQuitFrame</name>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="90"/>
         <source>Continue</source>
         <translation>Davam</translation>
-    </message>
-</context>
-<context>
-    <name>DSysInfo::Deepin::QObject</name>
-    <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="54"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="62"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="261"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="423"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="74"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="132"/>
-        <source>Deepin</source>
-        <translation>Deepin</translation>
     </message>
 </context>
 <context>
@@ -81,8 +65,8 @@
         <location filename="../src/ui/frames/language_frame.cpp" line="428"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="772"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="1085"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="278"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1098"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="283"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1138"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="110"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="184"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="133"/>
@@ -107,7 +91,7 @@
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="100"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="128"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="993"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1033"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="205"/>
         <source>Back</source>
         <comment>button</comment>
@@ -493,6 +477,15 @@
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="54"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="54"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="62"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="268"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="423"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="132"/>
         <source>Deepin</source>
         <translation>Deepin</translation>
     </message>
@@ -624,7 +617,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="51"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="259"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="266"/>
         <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
         <translation>%2 quraşdırmaq üçün ən az %1QB disk sahəsi olmalıdır. Daha məhsuldar işləməsi üçün isə %3 QB və ondan yuxarı tösiyyə olunur.</translation>
     </message>
@@ -665,7 +658,8 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="89"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="170"/>
         <location filename="../src/ui/frames/inner/resize_root_frame.cpp" line="163"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="284"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="289"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="294"/>
         <location filename="../src/ui/frames/warnning_frame.cpp" line="249"/>
         <location filename="../src/ui/frames/warnning_frame.cpp" line="261"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="97"/>
@@ -709,7 +703,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="232"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="323"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="735"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1222"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1262"/>
         <source>Delete</source>
         <translation>Silmək</translation>
     </message>
@@ -862,8 +856,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="327"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="249"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="326"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="256"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="328"/>
         <source>Encrypt This Disk</source>
         <translation>Bi diski şifrələyin</translation>
     </message>
@@ -874,9 +868,9 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="330"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="277"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="731"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1100"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="282"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="757"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1140"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Vacib məlumatlarınızın yedək nüsxəsini saxladığınıza əmin olun, sonra quraşdırmaq üçün diski seçin</translation>
     </message>
@@ -895,28 +889,28 @@
         <translation>Şifrənin təkrarı</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="248"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="255"/>
         <source>Keep User Data</source>
         <translation>İstifadəçi verilənlərini saxlayın</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="250"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="338"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="257"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="340"/>
         <source>Please select a disk to start installation</source>
         <translation>Quraşdırmanı başlatmaq üçün disk seçin</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="251"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="258"/>
         <source>Resize Root partition</source>
         <translation>Kök bölməsinin ölçüsünü dəyişin</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="319"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="321"/>
         <source>Save User Data</source>
         <translation>İstifadəçi məlumatlarını saxlamaq</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="495"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="497"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="239"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="181"/>
@@ -977,7 +971,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="649"/>
-        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="837"/>
+        <location filename="../src/ui/frames/inner/new_partition_frame.cpp" line="833"/>
         <source>Unable to mount automatically, as it requires at least %1 GB. More than %2 GB is preferred.</source>
         <translation>Öz-özünə qoşula bilmədi, belə ki, ən az %1 QB tələb olunur. %2 QB-dan artıq olması daha yaxşıdır.</translation>
     </message>
@@ -1077,9 +1071,9 @@
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="207"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="321"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="273"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="994"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1017"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="278"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1034"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1057"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="88"/>
         <source>Ready to Install</source>
         <translation>Quraşdırılmağa hazırdır</translation>
@@ -1087,8 +1081,8 @@
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="209"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="323"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="272"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1016"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="277"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1056"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="92"/>
         <source>Make a backup of your important data and then continue</source>
         <translation>Vacib məlumatlarınızı ehtiyyat nüsxəsini saxlayın və davam edin</translation>
@@ -1603,30 +1597,35 @@
         <translation>İP ünavanı öz-özlüyündə tənzimləndi, lakin, siz şəbəkəni daha yaxşı ayarlaya bilərsiniz</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="208"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="275"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="728"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1097"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="213"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="280"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="754"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1137"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="88"/>
         <source>Create Partitions</source>
         <translation>Bölmələr yaratmaq</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="270"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1014"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="275"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1054"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="572"/>
         <source>Edit LVM Disk</source>
         <translation>LVM diskə düzəliş etmək</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="286"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="738"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="292"/>
+        <source>The partition is created on an unavailable device, so its configurations will be reset</source>
+        <translation>Bölmə əlçatmaz bir cihazda yaradılıb, buna görə də onun tənzimləmələri sıfırlanacaqdır</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="296"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="764"/>
         <source>Simple</source>
         <translation>Sadə</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="287"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="741"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="297"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="767"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="550"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="97"/>
@@ -1634,35 +1633,35 @@
         <translation>Qabaqcıl</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="288"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="745"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="298"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="771"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="96"/>
         <source>Full Disk</source>
         <translation>Tam disk</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="808"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="834"/>
         <source>Start installation</source>
         <translation>Quraşdırmanı başlatmaq</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="969"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1009"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
         <translation>Hədəf disk dinamikdir və əgər davam etsəniz verilənləriniz sitirilə bilər. Lütfən, ilk öncə vacib məlumatlarınızın ehtiyyat nüsxəsini saxlayın</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="973"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1013"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
         <translation>Hədəf disk dinamikdir və davam edilərsə fotmatlanacaqdır. Lütfən, ilk öncə vacib məlumatlarınızın ehtiyyat nüsxəsini saxlayın</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1220"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1260"/>
         <source>The &quot;/data/home&quot; directory is found. If you do not keep it, the data saved in it by previous users will be lost. Keep or delete it?</source>
         <translation>&quot;/data/home&quot; kataloqu tapıldı. Əgər onu saxlamasanız əvvəlki istifadəçinin orada saxlanılan məlumatları itiriləcəkdir. Onu saxlamaq yoxsa silmək istəyirsiniz?</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1221"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1261"/>
         <source>Keep</source>
         <translation>Saxlamaq</translation>
     </message>
@@ -1704,7 +1703,7 @@
         <translation>Belə saxlayın</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="281"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="286"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="62"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="142"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="72"/>
@@ -1714,14 +1713,15 @@
         <translation>Dostcasına xatırlatmalar</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="282"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="287"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="127"/>
         <source>No swap partition created, which may affect system performance</source>
         <translation>Mübadilə bölməsi yaradılmadı, bu da sistemin məhsuldarlığına təsir edə bilər</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="283"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="288"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="293"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="133"/>
         <location filename="../src/ui/frames/warnning_frame.cpp" line="248"/>
@@ -2065,8 +2065,8 @@
     </message>
     <message>
         <location filename="../src/service/password_manager.cpp" line="99"/>
-        <source>The password cannot be empty</source>
-        <translation type="unfinished"/>
+        <source>The password cannot be empty​</source>
+        <translation>Şifrə boş ola bilməz</translation>
     </message>
     <message>
         <location filename="../src/service/password_manager.cpp" line="105"/>

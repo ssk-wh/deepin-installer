@@ -240,6 +240,13 @@ bool FullDiskFrame::isSaveData()
     return GetSettingsBool(KIsSaveData);
 }
 
+void FullDiskFrame::clearPartInfos()
+{
+    if (m_diskPartitionWidget != nullptr) {
+        m_diskPartitionWidget->clearView();
+    }
+}
+
 void FullDiskFrame::changeEvent(QEvent* event) {
     if (event->type() == QEvent::LanguageChange) {
         for (auto it = m_trList.begin(); it != m_trList.end(); ++it) {
@@ -298,11 +305,6 @@ void FullDiskFrame::initConnections() {
   connect(m_resizeCheck, &QCheckBox::clicked, this, [=](bool checked) {
       if (checked) {
           emit showResizeRootWidget();
-      } else {
-          // restore data and reload widget
-          const int v = GetSettingsInt(kPartitionRootMiniSpace);
-          WriteRootPartitionMiniSize(v);
-          onResizeRootFrameFinished();
       }
   }, Qt::QueuedConnection);
 }

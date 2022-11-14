@@ -784,7 +784,7 @@ void FullDiskDelegate::onDeviceRefreshed(const DeviceList &devices)
     }
 
     emit requestAutoInstallFinished(formatWholeDeviceMultipleDisk());
-    emit selectedDevicesChanged(selectedDevices());
+    //emit selectedDevicesChanged(selectedDevices());
 }
 
 const SizeRange FullDiskDelegate::getRootPartitionSizeRange()
