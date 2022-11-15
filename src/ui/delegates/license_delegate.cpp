@@ -62,13 +62,13 @@ QString installer::LicenseDelegate::product()
 QString installer::LicenseDelegate::OSType()
 {
     switch (GetCurrentType()) {
-        case OSType::Professional: return "professional";
-        case OSType::Community: return "community";
-        case OSType::Server: return "server";
-        case OSType::Personal: return "personal";
+        case OSType::Professional: return "Professional";
+        case OSType::Community: return "Community";
+        case OSType::Server: return "Server";
+        case OSType::Personal: return "Personal";
         default: {
             qCritical() << "Invalid current OS type";
-            return "community";
+            return "Community";
         }
     }
 }

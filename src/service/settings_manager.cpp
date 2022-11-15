@@ -156,7 +156,7 @@ QDir GetPxeDir() {
 
 QString GetOemLicenseDir() {
     QString oem_license_dir = GetOemDir().path() + "/licenses";
-    return  QFileInfo(oem_license_dir).exists() ? oem_license_dir : RESOURCES_DIR"/licenses";
+    return  QFileInfo(oem_license_dir).exists() ? oem_license_dir : "/usr/share/protocol";
 }
 
 QString GetCurrentPlatform() {
