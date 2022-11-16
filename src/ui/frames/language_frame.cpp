@@ -32,7 +32,6 @@
 #include <QApplication>
 #include <DSysInfo>
 #include <QDebug>
-#include <DConfig>
 
 DCORE_USE_NAMESPACE
 
@@ -373,19 +372,8 @@ QString LanguageFramePrivate::agreementLocale() {
 }
 
 void LanguageFramePrivate::showUserLicense() {
-    QString userLicenseText = QString(GetOemLicenseDir() + "/enduser-agreement/End-User-License-Agreement-%1-CN-%2.txt")\
+    QString userLicenseText = QString(GetOemLicenseDir() + "/end-user-license-agreement-%1_%2.txt")\
             .arg(installer::LicenseDelegate::OSType(), agreementLocale());
-
-    // 军版最终用户协议txt版路径("/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Professional-Military-%1.txt")
-    DConfig config(QString("com.deepin.system.mil.dconfig"), QString());
-    if (config.isValid()) {
-        if (config.keyList().contains("Use_mil")) {
-            if (config.keyList().contains("Mil_enduserAgreement_txt")){
-                userLicenseText = QString(GetOemLicenseDir() + "/enduser-agreement/End-User-License-Agreement-%1-Military-%2.txt")
-                        .arg(installer::LicenseDelegate::OSType(), agreementLocale());
-            }
-        }
-    }
 
     m_user_license_frame->setUserAgreement(userLicenseText);
 
@@ -410,8 +398,8 @@ void LanguageFramePrivate::showOemUserLicense() {
 
 void LanguageFramePrivate::showUserExperience()
 {
-    QString userExperienceText = QString(GetOemLicenseDir() + "/userexperience-agreement/User-Experience-Program-License-Agreement-CN-%1.txt")\
-            .arg(agreementLocale());
+    QString userExperienceText = QString(GetOemLicenseDir() + "/user-experience-agreement-%1_%2.txt")\
+            .arg(installer::LicenseDelegate::OSType(), agreementLocale());
 
     m_user_experience_frame->setUserAgreement(userExperienceText);
     m_frame_layout->setCurrentWidget(m_user_experience_frame);
@@ -423,8 +411,8 @@ void LanguageFramePrivate::showUserExperience()
 
 void LanguageFramePrivate::showPrivacyLicense()
 {
-    QString privacyLicenseText = QString(GetOemLicenseDir() + "/privacy-policy/Privacy-Policy-CN-%1.txt")\
-            .arg(agreementLocale());
+    QString privacyLicenseText = QString(GetOemLicenseDir() + "/privacy-policy-%1_%2.txt")\
+            .arg(installer::LicenseDelegate::OSType(), agreementLocale());
 
     m_privacy_license_frame->setUserAgreement(privacyLicenseText);
 
