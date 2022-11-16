@@ -39,7 +39,6 @@ check_device_size(){
 
 # Check boot mode is UEFI or not.
 check_efi_mode(){
-  declare -g EFI=true
   [ -d "/sys/firmware/efi" ] && declare -g EFI=true
   local force_efi=$(installer_get force_efi_mode)
   [ x"$force_efi" = "xtrue" ] && declare -g EFI=true
