@@ -220,8 +220,10 @@ main() {
     echo "y" | /usr/sbin/uos-backup-restore --start-lower
   fi
 
-  # 处理/var/lib/lightdm/.config 属组为root问题 bug 156573
-  chown lightdm:lightdm /var/lib/lightdm/.config
+  if [ -d "/var/lib/lightdm/.config" ]; then
+    # 处理/var/lib/lightdm/.config 属组为root问题 bug 156573
+    chown lightdm:lightdm /var/lib/lightdm/.config
+  fi
 }
 
 main
