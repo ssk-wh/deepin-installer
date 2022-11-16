@@ -2072,8 +2072,8 @@
     </message>
     <message>
         <location filename="../src/service/password_manager.cpp" line="99"/>
-        <source>The password cannot be emptyâ</source>
-        <translation>Pole na hasło nie może być puste</translation>
+        <source>The password cannot be empty</source>
+        <translation>Hasło nie może być puste</translation>
     </message>
     <message>
         <location filename="../src/service/password_manager.cpp" line="105"/>

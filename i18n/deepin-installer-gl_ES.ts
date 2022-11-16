@@ -2072,8 +2072,8 @@
     </message>
     <message>
         <location filename="../src/service/password_manager.cpp" line="99"/>
-        <source>The password cannot be emptyâ</source>
-        <translation type="unfinished"/>
+        <source>The password cannot be empty</source>
+        <translation>O contrasinal non pode estar vacío</translation>
     </message>
     <message>
         <location filename="../src/service/password_manager.cpp" line="105"/>

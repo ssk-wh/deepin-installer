@@ -2072,7 +2072,7 @@
     </message>
     <message>
         <location filename="../src/service/password_manager.cpp" line="99"/>
-        <source>The password cannot be emptyâ</source>
+        <source>The password cannot be empty</source>
         <translation>Пароль не може бути порожнім</translation>
     </message>
     <message>
