@@ -372,8 +372,18 @@ QString LanguageFramePrivate::agreementLocale() {
 }
 
 void LanguageFramePrivate::showUserLicense() {
+    QString osType = installer::LicenseDelegate::OSType();
+
     QString userLicenseText = QString(GetOemLicenseDir() + "/end-user-license-agreement-%1_%2.txt")\
-            .arg(installer::LicenseDelegate::OSType(), agreementLocale());
+        .arg(osType, agreementLocale());
+
+    // 军版最终用户协议txt版路径("/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Professional-Military-%1.txt")
+    osType.replace(0, 1, osType[0].toUpper());
+    QString militaryLicenseText = QString("/usr/share/protocol/enduser-agreement/End-User-License-Agreement-%1-Military-%2.txt")
+            .arg(osType, agreementLocale());
+    if (QFile::exists(militaryLicenseText)) {
+        userLicenseText = militaryLicenseText;
+    }
 
     m_user_license_frame->setUserAgreement(userLicenseText);
 
