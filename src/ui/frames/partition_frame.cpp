@@ -524,9 +524,6 @@ void PartitionFramePrivate::initConnections() {
 
   connect(m_buttonGroup, &DButtonBox::buttonClicked, this, &PartitionFramePrivate::onButtonGroupToggled);
 
-  // Show main frame when device is refreshed.
-  connect(partition_model_, &PartitionModel::deviceRefreshed,
-          this, &PartitionFramePrivate::showMainFrame);
   connect(partition_model_, &PartitionModel::autoPartDone,
           q_ptr, &PartitionFrame::autoPartDone);
   connect(partition_model_, &PartitionModel::manualPartDone,
@@ -632,9 +629,6 @@ void PartitionFramePrivate::initConnections() {
   connect(advanced_delegate_, &AdvancedPartitionDelegate::deviceRefreshed,
           select_bootloader_frame_, &SelectBootloaderFrame::deviceRefreshed);
 
-  connect(partition_model_, &PartitionModel::deviceRefreshed,
-          advanced_delegate_, &AdvancedPartitionDelegate::onDeviceRefreshed);
-
   connect(select_bootloader_frame_, &SelectBootloaderFrame::bootloaderUpdated,
           lvm_partition_frame_,
           &AdvancedPartitionFrame::setBootloaderPath);
@@ -642,19 +636,6 @@ void PartitionFramePrivate::initConnections() {
           this, &PartitionFramePrivate::showMainFrame);
   connect(lvm_delegate_, &AdvancedPartitionDelegate::deviceRefreshed,
           select_bootloader_frame_, &SelectBootloaderFrame::deviceRefreshed);
-
-  connect(partition_model_, &PartitionModel::deviceRefreshed,
-          lvm_delegate_, &AdvancedPartitionDelegate::onDeviceRefreshed);
-
-  if (!GetSettingsBool(kPartitionSkipSimplePartitionPage)) {
-    connect(partition_model_, &PartitionModel::deviceRefreshed,
-            simple_partition_delegate_,
-            &SimplePartitionDelegate::onDeviceRefreshed);
-  }
-  if (!GetSettingsBool(kPartitionSkipFullDiskPartitionPage)) {
-    connect(partition_model_, &PartitionModel::deviceRefreshed,
-            full_disk_delegate_, &FullDiskDelegate::onDeviceRefreshed);
-  }
 
   // TODO(Shaohua): Show warning page both in full-disk frame and
   // simple-partition frame.
@@ -1332,9 +1313,18 @@ bool PartitionFramePrivate::updateDiskInfo(const DeviceList &devices)
     m_deviceList.clear();
     for ( Device::Ptr devItem : devices ) {
         if (devicesByCmd.indexOf(devItem->path) != -1) {
-            m_deviceList.append(devItem);
+            // 过滤掉容量不满足要求的设备
+            if (devItem->getByteLength() > 300 * kMebiByte + 2 * kGibiByte + 15 * kGibiByte) {
+                m_deviceList.append(devItem);
+            }
         }
     }
+
+    advanced_delegate_->onDeviceRefreshed(m_deviceList);
+    simple_partition_delegate_->onDeviceRefreshed(m_deviceList);
+    full_disk_delegate_->onDeviceRefreshed(m_deviceList);
+    lvm_delegate_->onDeviceRefreshed(m_deviceList);
+    showMainFrame();
 
     return true;
 }

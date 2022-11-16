@@ -414,9 +414,7 @@ void FullDiskFrame::onDeviceRefreshed(const DeviceList& devices)
     Q_D(FullDiskFrame);
     QStringList listtestpath;
     for (Device::Ptr device : devices) {
-        if (device->getByteLength() > 300 * kMebiByte + 2 * kGibiByte + 15 * kGibiByte) {
-            listtestpath.append(GetDeviceModelCapAndPath(device));
-        }
+        listtestpath.append(GetDeviceModelCapAndPath(device));
     }
     d->setSystemDiskList(listtestpath);
 }
