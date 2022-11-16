@@ -30,45 +30,6 @@ cd_rom() {
     echo ${CDROM}
 }
 
-# 添加本地仓库为英伟达显卡安装驱动所用
-setup_repo_sources() {
-    # 本地仓库的路径
-    local LIVE_DIR=$(cd_rom)
-    local LOC_REPO_PATH=$LIVE_DIR/dists
-
-    # add cdrom to sources.list
-    if [ -d $LOC_REPO_PATH ]; then
-        # commented source.list to let apt-get just using cdrom repo.
-        sed -i 's/^/#/g' /etc/apt/sources.list
-        dir=$(find  $LOC_REPO_PATH -name "Release" | xargs awk -F '[ :]+' '/Codename/{print $2}')
-        for name in $dir; do
-        # ident the cdrom first.
-            echo "deb [trusted=yes] file:$LIVE_DIR ${name} main" >> /etc/apt/sources.list
-        done
-
-cat >> /etc/apt/apt.conf.d/00deepin-installer <<EOF
-APT::Install-Recommends "false";
-APT::Get::AllowUnauthenticated "true";
-Acquire::AllowInsecureRepositories "true";
-Acquire::Check-Date "false";
-EOF
-
-        apt-get update || true
-    else
-        echo "$LOC_REPO_PATH is not a debian repository. Skipped." >> /var/log/deepin-installer-init.log
-    fi
-}
-
-deepin_nvidia_installer() {
-    if [ -f /usr/sbin/deepin-nvidia-installer ]; then
-        setup_repo_sources
-        deepin-nvidia-installer --installer-init  autoinstall || echo "run deepin-nvidia-installer --installer-init  autoinstall error"  >> /var/log/deepin-installer-init.log
-    else
-        echo "/usr/sbin/deepin-nvidia-installer is not found" >> /var/log/deepin-installer-init.log
-    fi
-}
-
-
 parse_cmdline() {
   for x in $(cat /proc/cmdline); do
     case $x in
@@ -90,7 +51,6 @@ if [ x"$cli_mode" = xtrue ]; then
     chvt 2
     systemctl restart deepin-installer-cli
 else
-    deepin_nvidia_installer >> /var/log/deepin-installer-init.log 2>&1
     if [ $auto_install_mode -eq 1 ]; then
        /usr/lib/live/config/1081-deepin-auto-install
     else
