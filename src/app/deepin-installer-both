@@ -52,8 +52,8 @@ APT::Get::AllowUnauthenticated "true";
 Acquire::AllowInsecureRepositories "true";
 Acquire::Check-Date "false";
 EOF
-
-        apt-get update || true
+        #apt-get update 可能会耗时很长，导致安装器启动超市
+        #apt-get update || true
     else
         echo "$LOC_REPO_PATH is not a debian repository. Skipped." >> /var/log/deepin-installer-init.log
     fi
@@ -61,7 +61,8 @@ EOF
 
 deepin_nvidia_installer() {
     if [ -f /usr/sbin/deepin-nvidia-installer ]; then
-        setup_repo_sources
+        #deepin-nvidia-installer 此阶段不需要安装包，不用设置本地仓库
+        #setup_repo_sources
         deepin-nvidia-installer --installer-init  autoinstall || echo "run deepin-nvidia-installer --installer-init  autoinstall error"  >> /var/log/deepin-installer-init.log
     else
         echo "/usr/sbin/deepin-nvidia-installer is not found" >> /var/log/deepin-installer-init.log
@@ -90,7 +91,7 @@ if [ x"$cli_mode" = xtrue ]; then
     chvt 2
     systemctl restart deepin-installer-cli
 else
-    deepin_nvidia_installer >> /var/log/deepin-installer-init.log 2>&1
+    deepin_nvidia_installer
     if [ $auto_install_mode -eq 1 ]; then
        /usr/lib/live/config/1081-deepin-auto-install
     else
