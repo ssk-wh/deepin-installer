@@ -96,7 +96,7 @@ bool installer::PasswordManager::checked(const QString &user, const QString &pas
         case PW_NO_ERR:break;
 
         case PW_ERR_PASSWORD_EMPTY: {
-            info = ::QObject::tr("The password cannot be empty​");
+            info = ::QObject::tr("The password cannot be empty");
             reset = false;
         } break;
 

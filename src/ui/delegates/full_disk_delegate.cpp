@@ -722,8 +722,8 @@ void FullDiskDelegate::onDeviceRefreshed(const DeviceList &devices)
         return;
     }
 
-    const qint64 root_required = GetSettingsInt(kPartitionFullDiskMiniSpace);
-    const qint64 root_required_bytes = kGibiByte * root_required;
+//    const qint64 root_required = GetSettingsInt(kPartitionFullDiskMiniSpace);
+//    const qint64 root_required_bytes = kGibiByte * root_required;
 
     QMap<Device::Ptr, qint64> deviceSpeedMap;
     QList<Device::Ptr> deviceList;
@@ -759,15 +759,15 @@ void FullDiskDelegate::onDeviceRefreshed(const DeviceList &devices)
     }
 
     //获取所有符合条件的硬盘
-    for (auto it = deviceList.begin(); it != deviceList.end();) {
-        Device::Ptr device = *it;
-        if (device->getByteLength() >= root_required_bytes) {
-            ++it;
-        }
-        else {
-            it = deviceList.erase(it);
-        }
-    }
+//    for (auto it = deviceList.begin(); it != deviceList.end();) {
+//        Device::Ptr device = *it;
+//        if (device->getByteLength() >= root_required_bytes) {
+//            ++it;
+//        }
+//        else {
+//            it = deviceList.erase(it);
+//        }
+//    }
 
     if (deviceList.size() == 0) {
         qWarning() << Q_FUNC_INFO << "not found system disk, please check!";

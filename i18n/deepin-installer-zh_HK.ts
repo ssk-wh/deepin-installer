@@ -10,9 +10,6 @@
 <context>
     <name>DSysInfo::Deepin::QObject</name>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="54"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="62"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="269"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
@@ -78,11 +75,11 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="180"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="431"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="190"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="428"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="438"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="772"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="1085"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="283"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1138"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1119"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="110"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="184"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="133"/>
@@ -107,7 +104,7 @@
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="100"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="128"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1033"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1014"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="205"/>
         <source>Back</source>
         <comment>button</comment>
@@ -624,25 +621,25 @@
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="51"/>
-        <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
-        <translation>安裝%2至少需要%1 GB磁盤空間，為了更好的使用，建議您劃分%3 GB以上</translation>
+        <source>You need at least %1 GB of disk space to install the system. If you want to use the full-disk installation, a minimum of %2 GB is required.</source>
+        <translation>安裝系統至少需要%1 GB磁盤空間，若使用全盤安裝，則至少需要%2 GB磁盤空間</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="59"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="266"/>
-        <source>You need at least %1 GB disk space to install %2 using the full-disk installation method. To get better performance, %3 GB or more is recommended.</source>
-        <translation>全盤安裝%2至少需要%1 GB磁盤空間，為了更好的使用，建議您劃分%3 GB以上</translation>
+        <source>The free disk space is less than %1 GB, so you should configure partitions manually. To use the full-disk installation, a minimum of %2 GB is required.</source>
+        <translation>當前磁盤空間不足%1 GB，只能使用手動安裝模式，若要使用全盤安裝方式，至少需要%2 GB磁盤空間</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="98"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="103"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="130"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="96"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="101"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="128"/>
         <source>Insufficient Disk Space</source>
         <translation>磁盤空間不足</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="105"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="137"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="103"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="135"/>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="106"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="190"/>
@@ -710,7 +707,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="232"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="323"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="735"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1262"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1243"/>
         <source>Delete</source>
         <translation>刪除</translation>
     </message>
@@ -876,8 +873,8 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="330"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="282"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="757"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1140"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="738"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1121"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>請確定您已備份好重要數據，然後選擇要安裝的磁盤</translation>
     </message>
@@ -1079,8 +1076,8 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="207"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="321"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="278"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1034"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1057"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1015"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1038"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="88"/>
         <source>Ready to Install</source>
         <translation>準備安裝</translation>
@@ -1089,7 +1086,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="209"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="323"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="277"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1056"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1037"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="92"/>
         <source>Make a backup of your important data and then continue</source>
         <translation>請備份好重要數據，然後確認以下操作</translation>
@@ -1606,15 +1603,15 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="213"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="280"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="754"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1137"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="735"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1118"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="88"/>
         <source>Create Partitions</source>
         <translation>硬盤分區</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="275"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1054"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1035"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="572"/>
         <source>Edit LVM Disk</source>
         <translation>配置邏輯卷</translation>
@@ -1626,13 +1623,13 @@
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="296"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="764"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="745"/>
         <source>Simple</source>
         <translation>簡單</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="297"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="767"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="748"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="550"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="97"/>
@@ -1641,34 +1638,34 @@
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="298"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="771"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="752"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="96"/>
         <source>Full Disk</source>
         <translation>全盤安裝</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="834"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="815"/>
         <source>Start installation</source>
         <translation>開始安裝</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1009"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="990"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
         <translation>目標磁盤為動態磁盤，繼續安裝將會導致您的數據丟失，請備份您的數據。</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1013"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="994"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
         <translation>目標磁盤為動態磁盤，進一步操作將格式化該磁盤，請備份您的數據。</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1260"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1241"/>
         <source>The &quot;/data/home&quot; directory is found. If you do not keep it, the data saved in it by previous users will be lost. Keep or delete it?</source>
         <translation>檢測存在/data/home，若不保留此目錄，之前用戶存儲的數據將會丟失。請確定是否保留？</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1261"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1242"/>
         <source>Keep</source>
         <translation>保留</translation>
     </message>

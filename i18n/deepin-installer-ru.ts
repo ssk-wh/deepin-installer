@@ -10,9 +10,6 @@
 <context>
     <name>DSysInfo::Deepin::QObject</name>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="54"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="62"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="269"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
@@ -78,11 +75,11 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="180"/>
         <location filename="../src/ui/frames/inner/system_info_keyboard_frame.cpp" line="431"/>
         <location filename="../src/ui/frames/install_component_frame.cpp" line="190"/>
-        <location filename="../src/ui/frames/language_frame.cpp" line="428"/>
+        <location filename="../src/ui/frames/language_frame.cpp" line="438"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="772"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="1085"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="283"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1138"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1119"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="110"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="184"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="133"/>
@@ -107,7 +104,7 @@
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="100"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="128"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1033"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1014"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="205"/>
         <source>Back</source>
         <comment>button</comment>
@@ -624,25 +621,25 @@
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="51"/>
-        <source>You need at least %1 GB disk space to install %2. To get better performance, %3 GB or more is recommended</source>
-        <translation>Для установки %2 требуется не менее %1 ГБ дискового пространства. Для хорошей производительности рекомендуется использовать %3 ГБ или более</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="59"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="266"/>
-        <source>You need at least %1 GB disk space to install %2 using the full-disk installation method. To get better performance, %3 GB or more is recommended.</source>
+        <source>You need at least %1 GB of disk space to install the system. If you want to use the full-disk installation, a minimum of %2 GB is required.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="98"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="103"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="130"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="266"/>
+        <source>The free disk space is less than %1 GB, so you should configure partitions manually. To use the full-disk installation, a minimum of %2 GB is required.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="96"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="101"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="128"/>
         <source>Insufficient Disk Space</source>
         <translation>Недостаточно Места на Диске</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="105"/>
-        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="137"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="103"/>
+        <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="135"/>
         <location filename="../src/ui/frames/install_failed_frame.cpp" line="106"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="190"/>
@@ -710,7 +707,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="232"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="323"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="735"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1262"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1243"/>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
@@ -876,8 +873,8 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="330"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="282"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="757"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1140"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="738"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1121"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Убедитесь, что вы создали резервную копию важных данных, затем выберите диск для установки</translation>
     </message>
@@ -1079,8 +1076,8 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="207"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="321"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="278"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1034"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1057"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1015"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1038"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="88"/>
         <source>Ready to Install</source>
         <translation>Готов к Установке</translation>
@@ -1089,7 +1086,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="209"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="323"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="277"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1056"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1037"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="92"/>
         <source>Make a backup of your important data and then continue</source>
         <translation>Сделайте резервную копию ваших важных данных и затем продолжайте</translation>
@@ -1606,15 +1603,15 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="213"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="280"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="754"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1137"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="735"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1118"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="88"/>
         <source>Create Partitions</source>
         <translation>Создать Разделы</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="275"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1054"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1035"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="572"/>
         <source>Edit LVM Disk</source>
         <translation>Редактировать LVM Диск</translation>
@@ -1626,13 +1623,13 @@
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="296"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="764"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="745"/>
         <source>Simple</source>
         <translation>Простой</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="297"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="767"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="748"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="550"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="97"/>
@@ -1641,34 +1638,34 @@
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="298"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="771"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="752"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="96"/>
         <source>Full Disk</source>
         <translation>Весь Диск</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="834"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="815"/>
         <source>Start installation</source>
         <translation>Начало установки</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1009"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="990"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
         <translation>Целевой диск является динамическим, и ваши данные могут быть потеряны при продолжении. Пожалуйста, сначала сделайте резервную копию ваших важных файлов.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1013"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="994"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
         <translation>Целевой диск является динамическим, и будет отформатирован, если продолжить. Пожалуйста, сначала сделайте резервную копию ваших важных файлов.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1260"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1241"/>
         <source>The &quot;/data/home&quot; directory is found. If you do not keep it, the data saved in it by previous users will be lost. Keep or delete it?</source>
         <translation>Каталог &quot;/data/home&quot; найден. Если вы его не сохраните, данные, сохраненные в нем предыдущими пользователями, будут утеряны. Сохранить или удалить?</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1261"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1242"/>
         <source>Keep</source>
         <translation>Хранить</translation>
     </message>

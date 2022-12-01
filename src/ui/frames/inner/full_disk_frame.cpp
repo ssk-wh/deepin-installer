@@ -262,12 +262,12 @@ void FullDiskFrame::changeEvent(QEvent* event) {
         }
 
         int min_size = GetSettingsInt(kPartitionFullDiskMiniSpace);
-        int recommend_size = GetSettingsInt(kPartitionRecommendedDiskSpace);
-        m_diskTooSmallTip->setText(::QObject::tr("You need at least %1 GB disk space to install %2 using the full-disk installation method. "
-                                                 "To get better performance, %3 GB or more is recommended.")
+        int fullDiskMin = GetSettingsInt(kPartitionFullDiskMiniSpace);
+        m_diskTooSmallTip->setText(::QObject::tr("The free disk space is less than %1 GB,"
+                                                 " so you should configure partitions manually."
+                                                 " To use the full-disk installation, a minimum of %2 GB is required.")
                                    .arg(min_size)
-                                   .arg(DSysInfo::productType() == DSysInfo::Deepin ? ::QObject::tr("Deepin") : LicenseDelegate::product())
-                                   .arg(recommend_size));
+                                   .arg(fullDiskMin));
     }
     else {
         QFrame::changeEvent(event);
