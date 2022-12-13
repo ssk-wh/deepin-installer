@@ -50,7 +50,6 @@ Depends:
     deepin-installer-timezones,
     dosfstools,
     imagemagick,
-    imageworsener,
     jfsutils,
     mtools,
     ntfs-3g,
