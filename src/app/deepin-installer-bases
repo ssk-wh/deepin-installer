@@ -82,7 +82,7 @@ print_log() {
     xrandr
     monitors_list | xargs -d" " -I {} echo "xrandr --output {} --auto --primary"
     monitors_primary | xargs -d" " -I {} echo "xrandr --output {} --mode $(monitors_mode)"
-    monitors_othe_list | xargs -d" " -I {} echo "xrandr --output $(monitors_primary) --same-as {} --mode $(monitors_mode)"
+    monitors_othe_list | xargs -d" " -I {} echo "xrandr --output {} --same-as $(monitors_primary) --mode $(monitors_mode)"
     monitors_othe_list | xargs -d" " -I {} echo "xrandr --output {} --mode $(monitors_mode)"
 }
 
@@ -113,7 +113,7 @@ setup_monitors() {
         # 设置主屏分辨率
         monitors_primary | xargs -d" " -I {} xrandr --output {} --mode $(monitors_mode)
         # 克隆模式
-        monitors_othe_list | xargs -d" " -I {} xrandr --output $(monitors_primary) --same-as {} --mode $(monitors_mode)
+        monitors_othe_list | xargs -d" " -I {} xrandr --output {} --same-as $(monitors_primary) --mode $(monitors_mode)
         # 设置多屏共同支持的最大分辨率
         monitors_othe_list | xargs -d" " -I {} xrandr --output {} --mode $(monitors_mode)
 
