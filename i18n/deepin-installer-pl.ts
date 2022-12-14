@@ -21,6 +21,29 @@
     </message>
 </context>
 <context>
+    <name>MultipleDiskInstallationWidget</name>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="358"/>
+        <source>Disk Assignment</source>
+        <translation>Przypisanie dysku</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="361"/>
+        <source>The &quot;%1&quot; disk will be the system disk and the &quot;%2&quot; disk will be data disk by default.</source>
+        <translation>Domyślnie dysk &quot;%1&quot; zostanie dyskiem systemowym, a dysk &quot;%2&quot; dyskiem z danymi.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="366"/>
+        <source>Cancel</source>
+        <translation>Anuluj</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="367"/>
+        <source>Ok</source>
+        <translation>Ok</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <location filename="../src/partman/operation.cpp" line="303"/>
@@ -1112,7 +1135,7 @@
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="668"/>
         <location filename="../src/ui/frames_cli/licence_frame.cpp" line="219"/>
         <source>I have read and agree to the</source>
-        <translation>Przeczytałem i zgadzam się na</translation>
+        <translation>Przeczytałem i akceptuję</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/select_language_frame.cpp" line="669"/>
@@ -1990,7 +2013,7 @@
     <message>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="478"/>
         <source>If you check &quot;Set as root password&quot;, the root password is the same as the password, otherwise, you need to set it separately.</source>
-        <translation>Jeśli zaznaczysz „Ustaw jako hasło root”, hasło root będzie takie samo jak hasło użytkownika, w przeciwnym razie będziesz musiał ustawić je osobno.</translation>
+        <translation>Jeśli zaznaczysz „Ustaw jako hasło root”, hasło root będzie takie samo jak hasło użytkownika, w przeciwnym razie wymagane będzie ustawienie ich osobno.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/system_info_frame.cpp" line="479"/>
@@ -2040,12 +2063,12 @@
         <translation>Do sformatowania</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="325"/>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="329"/>
         <source>System Disk</source>
         <translation>Dysk systemowy</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="325"/>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="329"/>
         <source>Data Disk</source>
         <translation>Dysk z danymi</translation>
     </message>

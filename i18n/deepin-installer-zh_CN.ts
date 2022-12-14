@@ -21,6 +21,29 @@
     </message>
 </context>
 <context>
+    <name>MultipleDiskInstallationWidget</name>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="358"/>
+        <source>Disk Assignment</source>
+        <translation>自动分配磁盘</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="361"/>
+        <source>The &quot;%1&quot; disk will be the system disk and the &quot;%2&quot; disk will be data disk by default.</source>
+        <translation>默认安装，自动选择%1磁盘作为系统盘，%2磁盘作为数据盘。</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="366"/>
+        <source>Cancel</source>
+        <translation>取 消</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="367"/>
+        <source>Ok</source>
+        <translation>确 定</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <location filename="../src/partman/operation.cpp" line="303"/>
@@ -2040,12 +2063,12 @@
         <translation>将被格式化</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="325"/>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="329"/>
         <source>System Disk</source>
         <translation>系统盘</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="325"/>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="329"/>
         <source>Data Disk</source>
         <translation>数据盘</translation>
     </message>

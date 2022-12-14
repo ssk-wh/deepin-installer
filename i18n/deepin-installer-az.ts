@@ -21,6 +21,29 @@
     </message>
 </context>
 <context>
+    <name>MultipleDiskInstallationWidget</name>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="358"/>
+        <source>Disk Assignment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="361"/>
+        <source>The &quot;%1&quot; disk will be the system disk and the &quot;%2&quot; disk will be data disk by default.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="366"/>
+        <source>Cancel</source>
+        <translation>İmtina</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="367"/>
+        <source>Ok</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <location filename="../src/partman/operation.cpp" line="303"/>
@@ -622,13 +645,13 @@
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="51"/>
         <source>You need at least %1 GB of disk space to install the system. If you want to use the full-disk installation, a minimum of %2 GB is required.</source>
-        <translation type="unfinished"/>
+        <translation>Sistemi quraşdırmaq üçün ən az %1 GB boş disk sahəsi tələb olunur. Əgər tam disk quraşdırmasından istifadə etmək istəsəniz ən az %2 GB disk sahəsi tələb olunur.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="266"/>
         <source>The free disk space is less than %1 GB, so you should configure partitions manually. To use the full-disk installation, a minimum of %2 GB is required.</source>
-        <translation type="unfinished"/>
+        <translation>Boş disk sahəsi %1 GB-dan azdır, buna görə də siz bölmələri özünüz təyin etməlisiniz. Tam disk quraşdırmasını istifadə etmək üçün ən az %2 GB disk sahəsi tələb olunur.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="96"/>
@@ -2040,12 +2063,12 @@
         <translation>Formatlanacaq</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="325"/>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="329"/>
         <source>System Disk</source>
         <translation>Sistem diski</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="325"/>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="329"/>
         <source>Data Disk</source>
         <translation>Verilənlər diski</translation>
     </message>

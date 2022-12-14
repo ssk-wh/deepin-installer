@@ -21,6 +21,29 @@
     </message>
 </context>
 <context>
+    <name>MultipleDiskInstallationWidget</name>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="358"/>
+        <source>Disk Assignment</source>
+        <translation>Прив&apos;язка дисків</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="361"/>
+        <source>The &quot;%1&quot; disk will be the system disk and the &quot;%2&quot; disk will be data disk by default.</source>
+        <translation>Диск «%1» буде системним диском, а диск «%2» типово буде диском даних.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="366"/>
+        <source>Cancel</source>
+        <translation>Скасувати</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="367"/>
+        <source>Ok</source>
+        <translation>Гаразд</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <location filename="../src/partman/operation.cpp" line="303"/>
@@ -622,13 +645,13 @@
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="51"/>
         <source>You need at least %1 GB of disk space to install the system. If you want to use the full-disk installation, a minimum of %2 GB is required.</source>
-        <translation type="unfinished"/>
+        <translation>Для встановлення системи вам знадобиться принаймні %1 ГБ вільного місця на диску. Якщо ви захочете встановити систему на увесь диск, потрібно буде принаймні %2 ГБ.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="266"/>
         <source>The free disk space is less than %1 GB, so you should configure partitions manually. To use the full-disk installation, a minimum of %2 GB is required.</source>
-        <translation type="unfinished"/>
+        <translation>На диску менше за %1 ГБ вільного місця, тому вам доведеться налаштувати розділи вручну. Щоб встановити систему на увесь диск, вам потрібно буде принаймні %2 ГБ.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="96"/>
@@ -2040,12 +2063,12 @@
         <translation>Слід форматувати</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="325"/>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="329"/>
         <source>System Disk</source>
         <translation>Системний диск</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="325"/>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="329"/>
         <source>Data Disk</source>
         <translation>Диск з даними</translation>
     </message>

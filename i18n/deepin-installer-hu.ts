@@ -21,6 +21,29 @@
     </message>
 </context>
 <context>
+    <name>MultipleDiskInstallationWidget</name>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="358"/>
+        <source>Disk Assignment</source>
+        <translation>Lemezkiosztás</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="361"/>
+        <source>The &quot;%1&quot; disk will be the system disk and the &quot;%2&quot; disk will be data disk by default.</source>
+        <translation>A „%1” lemez lesz a rendszerlemez, a „%2” lemez pedig alapértelmezés szerinti adatlemez.</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="366"/>
+        <source>Cancel</source>
+        <translation>Mégsem</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="367"/>
+        <source>Ok</source>
+        <translation>Ok</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <location filename="../src/partman/operation.cpp" line="303"/>
@@ -2040,12 +2063,12 @@
         <translation>Formázásra kerül</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="325"/>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="329"/>
         <source>System Disk</source>
         <translation>Rendszerlemez</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="325"/>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="329"/>
         <source>Data Disk</source>
         <translation>Adatlemez</translation>
     </message>

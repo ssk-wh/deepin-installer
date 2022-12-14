@@ -22,6 +22,7 @@
 
 #include <DFrame>
 #include <DListView>
+#include <DDialog>
 
 DWIDGET_USE_NAMESPACE
 
@@ -62,6 +63,10 @@ public slots:
 private slots:
     void onInstallationSelectedChanged(const QModelIndex &index);
     void onInstallationDetailSelectedChanged(int index);
+    void showAutoSelectDialog();
+
+protected:
+    void showEvent(QShowEvent *event) override;
 
 private:
     void initConnections();
@@ -76,6 +81,8 @@ private:
     DiskInstallationDetailModel* m_right_model[kDiskModelMaxCount] = {nullptr, nullptr};
     int m_current_left_index = -1;
     DeviceList  m_devices;
+    DeviceList m_nvmeDevice;
+    DeviceList m_sataDevice;
 };
 
 }

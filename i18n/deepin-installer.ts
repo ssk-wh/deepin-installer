@@ -23,6 +23,19 @@
     </message>
 </context>
 <context>
+    <name>MultipleDiskInstallationWidget</name>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="359"/>
+        <source>Disk Assignment</source>
+        <translation type="unfinished">Disk Assignment</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="363"/>
+        <source>The &quot;%1&quot; disk will be the system disk and the &quot;%2&quot; disk will be data disk by default.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <location filename="../src/partman/operation.cpp" line="303"/>
@@ -624,13 +637,13 @@
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="51"/>
         <source>You need at least %1 GB of disk space to install the system. If you want to use the full-disk installation, a minimum of %2 GB is required.</source>
-        <translation type="unfinished"></translation>
+        <translation>You need at least %1 GB of disk space to install the system. If you want to use the full-disk installation, a minimum of %2 GB is required.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="266"/>
         <source>The free disk space is less than %1 GB, so you should configure partitions manually. To use the full-disk installation, a minimum of %2 GB is required.</source>
-        <translation type="unfinished"></translation>
+        <translation>The free disk space is less than %1 GB, so you should configure partitions manually. To use the full-disk installation, a minimum of %2 GB is required.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="96"/>
@@ -674,6 +687,7 @@
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="35"/>
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="92"/>
         <location filename="../src/ui/main_window.cpp" line="551"/>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="368"/>
         <source>Cancel</source>
         <translation>Cancel</translation>
     </message>
@@ -1732,6 +1746,7 @@
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="133"/>
         <location filename="../src/ui/frames/warnning_frame.cpp" line="248"/>
         <location filename="../src/ui/frames/warnning_frame.cpp" line="253"/>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="369"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
@@ -2042,12 +2057,12 @@
         <translation>To be formatted</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="325"/>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="330"/>
         <source>System Disk</source>
         <translation>System Disk</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="325"/>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="330"/>
         <source>Data Disk</source>
         <translation>Data Disk</translation>
     </message>
@@ -2072,7 +2087,7 @@
     <message>
         <location filename="../src/service/password_manager.cpp" line="99"/>
         <source>The password cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>The password cannot be empty</translation>
     </message>
     <message>
         <location filename="../src/service/password_manager.cpp" line="105"/>
