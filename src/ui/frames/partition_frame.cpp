@@ -122,6 +122,7 @@ public:
      void showPrepareInstallFrame();
      void ShowSaveDataPopWidget();
      void showResizeRootFrame();
+     void showAutoAutoSelectWidget(QString &sysDeviceName, QString dataDeviceName);
 
      bool isEncrypt();
      bool isEnSaveData();
@@ -153,6 +154,7 @@ public:
      WarnningFrame*   save_data_pop_widget = nullptr;
      WarnningFrame*   swap_warnning_frame = nullptr;
      WarnningFrame*   device_change_warnning_frame = nullptr;
+     WarnningFrame*   auto_select_disk_widget = nullptr;
 
      TitleLabel* title_label_ = nullptr;
      CommentLabel* comment_label_ = nullptr;
@@ -672,6 +674,7 @@ void PartitionFramePrivate::initConnections() {
 
   connect(full_disk_partition_frame_, &FullDiskFrame::showSaveDataPopWidget, this, &PartitionFramePrivate::ShowSaveDataPopWidget);
   connect(full_disk_partition_frame_, &FullDiskFrame::showResizeRootWidget, this, &PartitionFramePrivate::showResizeRootFrame);
+  connect(full_disk_partition_frame_, &FullDiskFrame::showAutoSelectWidget, this, &PartitionFramePrivate::showAutoAutoSelectWidget);
 
   connect(full_disk_delegate_, &FullDiskDelegate::requestAutoInstallFinished, q_ptr, &PartitionFrame::onAutoInstallPrepareFinished);
 
@@ -1283,6 +1286,36 @@ void PartitionFramePrivate::showResizeRootFrame()
             &FullDiskFrame::onResizeRootFrameCanceled);
 
     q_ptr->m_proxy->showChildFrame(resize_root_partition_frame_);
+}
+
+void PartitionFramePrivate::showAutoAutoSelectWidget(QString &sysDeviceName, QString dataDeviceName)
+{
+    if (auto_select_disk_widget == nullptr) {
+        auto_select_disk_widget = new WarnningFrame(nullptr);
+        auto_select_disk_widget->setTitle(::QObject::tr("Disk Assignment"));
+        auto_select_disk_widget->setEnterButtonText(::QObject::tr("OK"));
+        auto_select_disk_widget->setCancelButtonText(::QObject::tr("Cancel"));
+
+        connect(auto_select_disk_widget, &WarnningFrame::quitEntered, this, [=] {
+            q_ptr->m_proxy->hideChildFrame();
+            q_ptr->repaint();
+            full_disk_partition_frame_->setDeviceByAutoSelectDisk();
+        });
+
+        connect(auto_select_disk_widget, &WarnningFrame::quitCanceled, this, [=] {
+            q_ptr->m_proxy->hideChildFrame();
+            q_ptr->repaint();
+        });
+
+        connect(auto_select_disk_widget, &WarnningFrame::quitclosed, this, [=] {
+            q_ptr->m_proxy->hideChildFrame();
+            q_ptr->repaint();
+        });
+    }
+    auto_select_disk_widget->setComment(
+            ::QObject::tr("The \"%1\" disk will be the system disk and the \"%2\" disk will be data disk by default.")
+            .arg(sysDeviceName, dataDeviceName));
+    q_ptr->m_proxy->showChildFrame(auto_select_disk_widget);
 }
 
 bool PartitionFramePrivate::isEncrypt()

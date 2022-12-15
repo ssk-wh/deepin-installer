@@ -73,7 +73,6 @@ FullDiskFrame::FullDiskFrame(FullDiskDelegate* delegate, QWidget* parent)
 
   this->initUI();
   this->initConnections();
-
   m_delegate->saveSwapSize();
 }
 
@@ -247,6 +246,13 @@ void FullDiskFrame::clearPartInfos()
     }
 }
 
+void FullDiskFrame::setDeviceByAutoSelectDisk()
+{
+    if (m_diskInstallationWidget) {
+        m_diskInstallationWidget->setDeviceByAutoSelectDisk();
+    }
+}
+
 void FullDiskFrame::changeEvent(QEvent* event) {
     if (event->type() == QEvent::LanguageChange) {
         for (auto it = m_trList.begin(); it != m_trList.end(); ++it) {
@@ -294,6 +300,8 @@ void FullDiskFrame::initConnections() {
           m_diskInstallationWidget, &MultipleDiskInstallationWidget::onDeviceListChanged);
   connect(m_diskInstallationWidget, &MultipleDiskInstallationWidget::currentDeviceChanged,
           this, &FullDiskFrame::onCurrentDeviceChanged);
+  connect(m_diskInstallationWidget, &MultipleDiskInstallationWidget::autoSelectDisk,
+          this, &FullDiskFrame::showAutoSelectWidget);
   connect(m_saveDataCheck, &QCheckBox::clicked, this, &FullDiskFrame::saveDataStateChanged);
   connect(m_delegate, &FullDiskDelegate::selectedDevicesChanged, this, [=](const DeviceList& devices) {
     m_devices = devices;

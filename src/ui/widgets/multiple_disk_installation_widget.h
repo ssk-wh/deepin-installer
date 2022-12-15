@@ -53,9 +53,11 @@ public:
     bool doSelect();
     bool directionKey(int keyvalue);
     bool isLeftRightWidgetHasFocus();
+    void setDeviceByAutoSelectDisk();
 
 signals:
     void currentDeviceChanged(int type, const Device::Ptr device);
+    void autoSelectDisk(QString &sysDeviceName, QString &dataDeviceName);
 
 public slots:
     void onDeviceListChanged(const DeviceList& devices);
@@ -63,7 +65,8 @@ public slots:
 private slots:
     void onInstallationSelectedChanged(const QModelIndex &index);
     void onInstallationDetailSelectedChanged(int index);
-    void showAutoSelectDialog();
+    void checkAutoSelectDisk();
+
 
 protected:
     void showEvent(QShowEvent *event) override;

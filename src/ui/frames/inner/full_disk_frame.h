@@ -56,6 +56,8 @@ public:
     bool directionKey(int keyvalue);
     bool isSaveData();
     void clearPartInfos();
+    void setDeviceByAutoSelectDisk();
+
 
 signals:
     void currentDeviceChanged(const Device::Ptr device) const;
@@ -63,7 +65,7 @@ signals:
     void enableNextButton(const bool enable) const;
     void showSaveDataPopWidget();
     void showResizeRootWidget();
-
+    void showAutoSelectWidget(QString &sysDeviceName, QString &dataDeviceName);
 protected:
     void changeEvent(QEvent* event) override;
     void showEvent(QShowEvent* event) override;

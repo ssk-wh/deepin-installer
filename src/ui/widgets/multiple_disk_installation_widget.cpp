@@ -312,6 +312,46 @@ void MultipleDiskInstallationWidget::onInstallationDetailSelectedChanged(int ind
    emit currentDeviceChanged(m_current_left_index, device);
 }
 
+void MultipleDiskInstallationWidget::checkAutoSelectDisk()
+{
+    m_nvmeDevice.clear();
+    m_sataDevice.clear();
+    const qint64 root_required = GetSettingsInt(kPartitionFullDiskMiniSpace);
+    const qint64 root_required_bytes = kGibiByte * root_required;
+
+    const qint64 data_required = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
+    const qint64 data_required_bytes = kGibiByte * data_required;
+    for (auto &dev : m_devices) {
+        if (dev->path.startsWith("/dev/nvme") && dev->getByteLength() > root_required_bytes) {
+            m_nvmeDevice.append(dev);
+        }
+        if (dev->path.startsWith("/dev/sd") && dev->getByteLength() > data_required_bytes) {
+            m_sataDevice.append(dev);
+        }
+    }
+
+    if (m_nvmeDevice.size() == 1 && !m_sataDevice.isEmpty()) {
+        QString sysDeviceName = m_nvmeDevice.first()->path;
+        QString dataDeviceName = m_sataDevice.first()->path;
+        Q_EMIT autoSelectDisk(sysDeviceName.replace("/dev/", ""), dataDeviceName.replace("/dev/", ""));
+    }
+}
+
+void MultipleDiskInstallationWidget::setDeviceByAutoSelectDisk()
+{
+    //设置系统盘
+    m_left_view->setCurrentIndex(m_left_model[0].index(0, 0));
+    int sysDiskIndex =  m_right_model[0]->getIndex(m_nvmeDevice.first());
+    m_right_view->setCurrentIndex(m_right_model[0]->index(sysDiskIndex, 0));
+
+    //设置数据盘
+    m_left_view->setCurrentIndex(m_left_model[0].index(1, 0));
+    int dataDiskIndex = m_right_model[1]->getIndex(m_sataDevice.first());
+    m_right_view->setCurrentIndex(m_right_model[1]->index(dataDiskIndex, 0));
+
+    m_left_view->setCurrentIndex(m_left_model[0].index(0, 0));
+}
+
 void MultipleDiskInstallationWidget::changeEvent(QEvent* event)
 {
     if (event->type() == QEvent::LanguageChange) {
@@ -333,60 +373,7 @@ const QStringList MultipleDiskInstallationWidget::getDiskTypes()
 void MultipleDiskInstallationWidget::showEvent(QShowEvent *event)
 {
     QWidget::showEvent(event);
-    QTimer::singleShot(0, this, &MultipleDiskInstallationWidget::showAutoSelectDialog);
-}
-
-void MultipleDiskInstallationWidget::showAutoSelectDialog()
-{
-    m_nvmeDevice.clear();
-    m_sataDevice.clear();
-    const qint64 root_required = GetSettingsInt(kPartitionFullDiskMiniSpace);
-    const qint64 root_required_bytes = kGibiByte * root_required;
-
-    const qint64 data_required = GetSettingsInt(kPartitionMinimumDiskSpaceRequired);
-    const qint64 data_required_bytes = kGibiByte * data_required;
-    for (auto &dev : m_devices) {
-        if (dev->path.startsWith("/dev/nvme") && dev->getByteLength() > root_required_bytes) {
-            m_nvmeDevice.append(dev);
-        }
-        if (dev->path.startsWith("/dev/sd") && dev->getByteLength() > data_required_bytes) {
-            m_sataDevice.append(dev);
-        }
-    }
-
-    if (m_nvmeDevice.size() == 1 && !m_sataDevice.isEmpty()) {
-        DDialog autoSelectDiskDialog;
-        QString title = qApp->translate("MultipleDiskInstallationWidget", "Disk Assignment");
-        autoSelectDiskDialog.setTitle(title);
-        QString sysDiskName = m_nvmeDevice.first()->path;
-        QString dataDiskName = m_sataDevice.first()->path;
-        QString message = qApp->translate("MultipleDiskInstallationWidget",
-                                          "The \"%1\" disk will be the system disk and the \"%2\" disk will be data disk by default.");
-        autoSelectDiskDialog.setMessage(
-                message.arg(sysDiskName.replace("/dev/", "")).arg(dataDiskName.replace("/dev/", "")));
-
-        autoSelectDiskDialog.addButton(::QObject::tr("Cancel"));
-        autoSelectDiskDialog.addButton(::QObject::tr("OK"));
-        autoSelectDiskDialog.setDefaultButton(1);
-
-        connect(&autoSelectDiskDialog, &DDialog::buttonClicked, [this](int index, const QString &text) {
-            if (1 == index) { //ok click
-                //设置系统盘
-                m_left_view->setCurrentIndex(m_left_model[0].index(0, 0));
-                int sysDiskIndex =  m_right_model[0]->getIndex(m_nvmeDevice.first());
-                m_right_view->setCurrentIndex(m_right_model[0]->index(sysDiskIndex, 0));
-
-                //设置数据盘
-                m_left_view->setCurrentIndex(m_left_model[0].index(1, 0));
-                int dataDiskIndex = m_right_model[1]->getIndex(m_sataDevice.first());
-                m_right_view->setCurrentIndex(m_right_model[1]->index(dataDiskIndex, 0));
-
-                m_left_view->setCurrentIndex(m_left_model[0].index(0, 0));
-            }
-        });
-
-        autoSelectDiskDialog.exec();
-    }
+    QTimer::singleShot(10, this, &MultipleDiskInstallationWidget::checkAutoSelectDisk);
 }
 
 }

@@ -21,29 +21,6 @@
     </message>
 </context>
 <context>
-    <name>MultipleDiskInstallationWidget</name>
-    <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="358"/>
-        <source>Disk Assignment</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="361"/>
-        <source>The &quot;%1&quot; disk will be the system disk and the &quot;%2&quot; disk will be data disk by default.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="366"/>
-        <source>Cancel</source>
-        <translation>Zrušit</translation>
-    </message>
-    <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="367"/>
-        <source>Ok</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <location filename="../src/partman/operation.cpp" line="303"/>
@@ -101,8 +78,8 @@
         <location filename="../src/ui/frames/language_frame.cpp" line="438"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="772"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="1085"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="283"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1119"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="285"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1122"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="110"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="184"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="133"/>
@@ -127,7 +104,7 @@
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="100"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="128"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1014"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1017"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="205"/>
         <source>Back</source>
         <comment>button</comment>
@@ -649,7 +626,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="266"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="273"/>
         <source>The free disk space is less than %1 GB, so you should configure partitions manually. To use the full-disk installation, a minimum of %2 GB is required.</source>
         <translation type="unfinished"/>
     </message>
@@ -685,8 +662,9 @@
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="89"/>
         <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="170"/>
         <location filename="../src/ui/frames/inner/resize_root_frame.cpp" line="163"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="289"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="294"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="291"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="296"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1297"/>
         <location filename="../src/ui/frames/warnning_frame.cpp" line="249"/>
         <location filename="../src/ui/frames/warnning_frame.cpp" line="261"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="97"/>
@@ -730,7 +708,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="232"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="323"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="735"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1243"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1246"/>
         <source>Delete</source>
         <translation>Smazat</translation>
     </message>
@@ -883,8 +861,8 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="327"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="256"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="329"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="263"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="338"/>
         <source>Encrypt This Disk</source>
         <translation>Tento disk šifrovat</translation>
     </message>
@@ -895,9 +873,9 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="330"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="282"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="738"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1121"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="284"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="741"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1124"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Ujistěte se, že jste si důležitá data zálohovali, a poté vyberte disk, na který nainstalovat</translation>
     </message>
@@ -916,28 +894,28 @@
         <translation>Zopakujte heslo</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="255"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="262"/>
         <source>Keep User Data</source>
         <translation>Zachovat uživatelská data</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="257"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="341"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="350"/>
         <source>Please select a disk to start installation</source>
         <translation>Pro zahájení instalace vyberte disk</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="258"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="265"/>
         <source>Resize Root partition</source>
         <translation>Změnit velikost kořenového oddílu</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="322"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="331"/>
         <source>Save User Data</source>
         <translation>Uložit uživatelská data</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="498"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="507"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="239"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="181"/>
@@ -1098,9 +1076,9 @@
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="207"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="321"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="278"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1015"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1038"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="280"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1018"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1041"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="88"/>
         <source>Ready to Install</source>
         <translation>Připraveno pro instalaci</translation>
@@ -1108,8 +1086,8 @@
     <message>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="209"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="323"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="277"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1037"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="279"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1040"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="92"/>
         <source>Make a backup of your important data and then continue</source>
         <translation>Zazálohujte si důležitá data a až poté pokračujte</translation>
@@ -1624,35 +1602,35 @@
         <translation>Nastavení IP adresy bylo získáno automaticky, ale můžete provést i ruční nastavení</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="213"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="280"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="735"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1118"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="215"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="282"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="738"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1121"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="88"/>
         <source>Create Partitions</source>
         <translation>Vytvořit oddíly</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="275"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1035"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="277"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1038"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="572"/>
         <source>Edit LVM Disk</source>
         <translation>Upravit LVM disk</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="292"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="294"/>
         <source>The partition is created on an unavailable device, so its configurations will be reset</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="296"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="745"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="298"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="748"/>
         <source>Simple</source>
         <translation>Jednoduché</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="297"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="748"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="299"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="751"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="550"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="97"/>
@@ -1660,37 +1638,47 @@
         <translation>Pokročilé</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="298"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="752"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="300"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="755"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="96"/>
         <source>Full Disk</source>
         <translation>Celý disk</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="815"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="818"/>
         <source>Start installation</source>
         <translation>Zahájit instalaci</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="990"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="993"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
         <translation>Cílový disk je dynamický a při pokračování může dojít ke ztrátě dat. Nejdříve si z něho prosím zálohujte důležité soubory.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="994"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="997"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
         <translation>Cílový disk je dynamický a bude při pokračování zformátován. Nejdříve si z něho prosím zálohujte důležité soubory.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1241"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1244"/>
         <source>The &quot;/data/home&quot; directory is found. If you do not keep it, the data saved in it by previous users will be lost. Keep or delete it?</source>
         <translation>Je nalezen adresář &quot;/data/home&quot;. Pokud jej nezachováte, data uložená v něm předchozími uživateli budou ztracena. Ponechat nebo smazat?</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1242"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1245"/>
         <source>Keep</source>
         <translation>Zachovat</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1295"/>
+        <source>Disk Assignment</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1316"/>
+        <source>The &quot;%1&quot; disk will be the system disk and the &quot;%2&quot; disk will be data disk by default.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="166"/>
@@ -1730,7 +1718,7 @@
         <translation>Uložit jako</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="286"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="288"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="62"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="142"/>
         <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="72"/>
@@ -1740,15 +1728,16 @@
         <translation>Přátelské upozornění</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="287"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="289"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="64"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="127"/>
         <source>No swap partition created, which may affect system performance</source>
         <translation>Není vytvořený oddíl pro stránkování paměti (swap) – to může poznamenat výkon systému</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="288"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="293"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="290"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="295"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1296"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="133"/>
         <location filename="../src/ui/frames/warnning_frame.cpp" line="248"/>
@@ -2063,12 +2052,12 @@
         <translation>K zformátování</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="329"/>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="370"/>
         <source>System Disk</source>
         <translation>Systémový disk</translation>
     </message>
     <message>
-        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="329"/>
+        <location filename="../src/ui/widgets/multiple_disk_installation_widget.cpp" line="370"/>
         <source>Data Disk</source>
         <translation>Datový disk</translation>
     </message>
