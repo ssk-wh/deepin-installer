@@ -719,7 +719,7 @@ void AddConfigFile() {
     }
 
     const QString pxe_file = GetPxeDir().absoluteFilePath(kOemSettingsFilename);
-    if (QFile::exists(pxe_file) && isPexInstall()) {
+    if (QFile::exists(pxe_file)) {
         settingsList << pxe_file;
     }
 
