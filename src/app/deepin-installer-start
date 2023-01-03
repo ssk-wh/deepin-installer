@@ -47,8 +47,10 @@ init_start() {
 }
 
 main() {
+    echo "before installer_get system_installer_start_mode date : `date`"
+
     local mode=$(installer_get "system_installer_start_mode")
-    echo "install mode: $mode"
+    echo "install mode: $mode, date: `date`"
 
     if [ ! -n "$mode" ]; then
         echo "installer start..."
