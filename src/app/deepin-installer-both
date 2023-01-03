@@ -91,11 +91,21 @@ if [ x"$cli_mode" = xtrue ]; then
     chvt 2
     systemctl restart deepin-installer-cli
 else
-    deepin_nvidia_installer
-    if [ $auto_install_mode -eq 1 ]; then
-       /usr/lib/live/config/1081-deepin-auto-install
+    TMPISINSTALLNEW=/tmp/isinstallerrestart
+    if [ -f "${TMPISINSTALLNEW}" ]; then
+        sudo rm $TMPISINSTALLNEW
     else
-       /usr/lib/live/config/1082-deepin-livecd true
+        deepin_nvidia_installer
+        if [ $auto_install_mode -eq 1 ]; then
+            /usr/lib/live/config/1081-deepin-auto-install
+        else
+            /usr/lib/live/config/1082-deepin-livecd true
+            echo "done /usr/lib/live/config/1082-deepin-livecd true"
+        fi
+
+        ## 重启一下安装器的服务
+        echo -n -E 1 > $TMPISINSTALLNEW
+        systemctl restart deepin-installer
     fi
 fi
 
