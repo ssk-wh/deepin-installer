@@ -20,6 +20,7 @@
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 auto_install_mode=0
+install_nvidia=true
 
 echo "before cd_rom date : `date`"
 
@@ -87,6 +88,9 @@ parse_cmdline() {
 	auto-deepin-installer)
         auto_install_mode=1
         ;;
+    install-no-nvidia)
+        install_nvidia=false
+        ;;
       esac
   done
 }
@@ -96,13 +100,20 @@ parse_cmdline
 echo "after parse_cmdline date : `date`"
 
 if [ x"$cli_mode" = xtrue ]; then
+    echo "do deepin-installer-cli mode"
     systemctl stop lightdm
     chvt 2
     systemctl restart deepin-installer-cli
 else
-    deepin_nvidia_installer
+    if [ x"$install_nvidia" = xtrue ]; then
+        echo "before deepin_nvidia_installer date : `date`"
+        deepin_nvidia_installer
+        echo "after deepin_nvidia_installer date : `date`"
+    fi
+
     if [ $auto_install_mode -eq 1 ]; then
         /usr/lib/live/config/1081-deepin-auto-install
+        echo "done /usr/lib/live/config/1081-deepin-auto-install"
     else
         /usr/lib/live/config/1082-deepin-livecd true
         echo "done /usr/lib/live/config/1082-deepin-livecd true"
