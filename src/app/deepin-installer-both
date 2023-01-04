@@ -22,8 +22,6 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 auto_install_mode=0
 install_nvidia=true
 
-echo "before cd_rom date : `date`"
-
 cd_rom() {
     if [ -d /lib/live/mount/medium/live ]; then
         CDROM=/lib/live/mount/medium
@@ -32,8 +30,6 @@ cd_rom() {
     fi
     echo ${CDROM}
 }
-
-echo "before setup_repo_sources date : `date`"
 
 # 添加本地仓库为英伟达显卡安装驱动所用
 setup_repo_sources() {
@@ -64,8 +60,6 @@ EOF
     fi
 }
 
-echo "before deepin_nvidia_installer date : `date`"
-
 deepin_nvidia_installer() {
     if [ -f /usr/sbin/deepin-nvidia-installer ]; then
         #deepin-nvidia-installer 此阶段不需要安装包，不用设置本地仓库
@@ -75,8 +69,6 @@ deepin_nvidia_installer() {
         echo "/usr/sbin/deepin-nvidia-installer is not found" >> /var/log/deepin-installer-init.log
     fi
 }
-
-echo "before parse_cmdline date : `date`"
 
 parse_cmdline() {
   for x in $(cat /proc/cmdline); do
@@ -97,26 +89,23 @@ parse_cmdline() {
 
 parse_cmdline
 
-echo "after parse_cmdline date : `date`"
-
 if [ x"$cli_mode" = xtrue ]; then
     echo "do deepin-installer-cli mode"
     systemctl stop lightdm
     chvt 2
     systemctl restart deepin-installer-cli
 else
-    if [ x"$install_nvidia" = xtrue ]; then
-        echo "before deepin_nvidia_installer date : `date`"
-        deepin_nvidia_installer
-        echo "after deepin_nvidia_installer date : `date`"
-    fi
-
     if [ $auto_install_mode -eq 1 ]; then
         /usr/lib/live/config/1081-deepin-auto-install
         echo "done /usr/lib/live/config/1081-deepin-auto-install"
     else
         /usr/lib/live/config/1082-deepin-livecd true
         echo "done /usr/lib/live/config/1082-deepin-livecd true"
+    fi
+
+    if [ x"$install_nvidia" = xtrue ]; then
+        deepin_nvidia_installer
+        echo "done deepin_nvidia_installer"
     fi
 fi
 
