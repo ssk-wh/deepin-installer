@@ -33,9 +33,9 @@ EXPERIENCE_FILE=/etc/deepin/deepin-user-experience
 # Print error message and exit
 error() {
   local msg="$@"
-  echo " "
+  echo ""
   echo "!! Error: ${msg}" >&2
-  echo " "
+  echo ""
   exit 1
 }
 
@@ -65,9 +65,9 @@ debug() {
 # NOTE(xushaohua): Global variant or environment $CONF_FILE must not be empty.
 installer_get() {
   local key="$1"
-  [ -z "${CONF_FILE}" ] && exit "CONF_FILE is not defined"
+  [ ! -e "${CONF_FILE}" ] && error "${CONF_FILE} is not exist"
   which deepin-installer-settings 1>/dev/null || \
-    exit "deepin-installer-settings not found!"
+    error "deepin-installer-settings not found!"
   deepin-installer-settings get "${CONF_FILE}" "${key}"
 }
 
@@ -76,9 +76,9 @@ installer_record_set(){
    local recordsession="$1"
    local recordkey="$2"
    local recordvalue="$3"
-   [ -z "${EXPERIENCE_FILE}" ] && exit "EXPERIENCE_FILE is not defined"
+   [ -z "${EXPERIENCE_FILE}" ] && error "EXPERIENCE_FILE is not defined"
    which deepin-installer-settings 1>/dev/null || \
-     exit "deepin-installer-settings not found!"
+     error "deepin-installer-settings not found!"
    deepin-installer-settings set "${EXPERIENCE_FILE}" "${recordsession}" "${recordkey}" "${recordvalue}"
 }
 
@@ -89,9 +89,9 @@ installer_set() {
   local workspace=$3
   local CONF_F=$workspace/${CONF_FILE}
 
-  [ -z "${CONF_F}" ] && exit "$CONF_F is not defined"
+  [ -z "${CONF_F}" ] && error "$CONF_F is not defined"
   which deepin-installer-settings 1>/dev/null || \
-    exit "deepin-installer-settings not found!"
+    error "deepin-installer-settings not found!"
   deepin-installer-settings set "${CONF_F}" "${key}" "${value}"
 }
 
